@@ -11,10 +11,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3471b9988b154ccb38dc56545e769a7179a4026f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91258735"
 ---
 # <a name="legacy-user-flow-versions-in-azure-active-directory-b2c"></a>Äldre användar flödes versioner i Azure Active Directory B2C
@@ -28,27 +28,27 @@ I tabellen nedan, om inte ett användar flöde identifieras som **rekommenderat*
 
 ## <a name="v1"></a>V1
 
-| Användarflöde | Rekommenderas | Description |
+| Användarflöde | Rekommenderas | Beskrivning |
 | --------- | ----------- | ----------- |
-| Lösenordsåterställning | Yes | Gör det möjligt för en användare att välja ett nytt lösen ord när de har verifierat sin e-post. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>Kompatibilitetsinställningar för token</li><li>[Krav för lösen ords komplexitet](user-flow-password-complexity.md)</li></ul> |
-| Redigera profil | Yes | Gör det möjligt för en användare att konfigurera sina användarattribut. Med det här användar flödet kan du konfigurera: <ul><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li><li>Sessionens beteende</li></ul> |
-| Logga in med ROPC | No | Gör det möjligt för en användare med ett lokalt konto att logga in direkt i interna program (ingen webbläsare krävs). Med det här användar flödet kan du konfigurera: <ul><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li></ul> |
-| Logga in | No | Gör det möjligt för en användare att logga in på sitt konto. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li><li>Sessionens beteende</li><li>Blockera inloggning</li><li>Framtvinga lösen ords återställning</li><li>Håll mig inloggad (KMSI avgör)</ul><br>Du kan inte anpassa användar gränssnittet med det här användar flödet. |
-| Registrera dig | No | Gör det möjligt för en användare att skapa ett konto. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li><li>Sessionens beteende</li><li>[Krav för lösen ords komplexitet](user-flow-password-complexity.md)</li></ul> |
-| Registrera dig och logga in | Yes | Gör det möjligt för en användare att skapa ett konto eller logga in på sitt konto. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li><li>Sessionens beteende</li><li>[Krav för lösen ords komplexitet](user-flow-password-complexity.md)</li></ul>|
+| Lösenordsåterställning | Ja | Gör det möjligt för en användare att välja ett nytt lösen ord när de har verifierat sin e-post. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>Kompatibilitetsinställningar för token</li><li>[Krav för lösen ords komplexitet](user-flow-password-complexity.md)</li></ul> |
+| Redigera profil | Ja | Gör det möjligt för en användare att konfigurera sina användarattribut. Med det här användar flödet kan du konfigurera: <ul><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li><li>Sessionens beteende</li></ul> |
+| Logga in med ROPC | Inga | Gör det möjligt för en användare med ett lokalt konto att logga in direkt i interna program (ingen webbläsare krävs). Med det här användar flödet kan du konfigurera: <ul><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li></ul> |
+| Logga in | Inga | Gör det möjligt för en användare att logga in på sitt konto. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li><li>Sessionens beteende</li><li>Blockera inloggning</li><li>Framtvinga lösen ords återställning</li><li>Håll mig inloggad (KMSI avgör)</ul><br>Du kan inte anpassa användar gränssnittet med det här användar flödet. |
+| Registrera dig | Inga | Gör det möjligt för en användare att skapa ett konto. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li><li>Sessionens beteende</li><li>[Krav för lösen ords komplexitet](user-flow-password-complexity.md)</li></ul> |
+| Registrera dig och logga in | Ja | Gör det möjligt för en användare att skapa ett konto eller logga in på sitt konto. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li><li>Sessionens beteende</li><li>[Krav för lösen ords komplexitet](user-flow-password-complexity.md)</li></ul>|
 
 ## <a name="v11"></a>V 1.1
 
-| Användarflöde | Rekommenderas | Description |
+| Användarflöde | Rekommenderas | Beskrivning |
 | --------- | ----------- | ----------- |
-| Lösen ords återställning v 1.1 | No | Låter en användare välja ett nytt lösen ord när de har verifierat e-postmeddelandet (ny sidlayout är tillgänglig). Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>Kompatibilitetsinställningar för token</li><li>[Krav för lösen ords komplexitet](user-flow-password-complexity.md)</li></ul> |
+| Lösen ords återställning v 1.1 | Inga | Låter en användare välja ett nytt lösen ord när de har verifierat e-postmeddelandet (ny sidlayout är tillgänglig). Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>Kompatibilitetsinställningar för token</li><li>[Krav för lösen ords komplexitet](user-flow-password-complexity.md)</li></ul> |
 
 ## <a name="v2"></a>V2
 
-| Användarflöde | Rekommenderas | Description |
+| Användarflöde | Rekommenderas | Beskrivning |
 | --------- | ----------- | ----------- |
-| Lösen ords återställning v2 | No | Gör det möjligt för en användare att välja ett nytt lösen ord när de har verifierat sin e-post. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>Kompatibilitetsinställningar för token</li><li>[Åldershantering](basic-age-gating.md)</li><li>[krav för lösen ords komplexitet](user-flow-password-complexity.md)</li></ul> |
-| Profil redigering v2 | Yes | Gör det möjligt för en användare att konfigurera sina användarattribut. Med det här användar flödet kan du konfigurera: <ul><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li><li>Sessionens beteende</li></ul> |
-| Logga in v2 | No | Gör det möjligt för en användare att logga in på sitt konto. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li><li>Sessionens beteende</li><li>[Åldershantering](basic-age-gating.md)</li><li>Anpassning av inloggnings Sidan</li></ul> |
-| Registrera dig v2 | No | Gör det möjligt för en användare att skapa ett konto. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li><li>Sessionens beteende</li><li>[Åldershantering](basic-age-gating.md)</li><li>[Krav för lösen ords komplexitet](user-flow-password-complexity.md)</li></ul> |
-| Registrera dig och logga in v2 | No | Gör det möjligt för en användare att skapa ett konto eller logga in på sitt konto. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>[Åldershantering](basic-age-gating.md)</li><li>[Krav för lösen ords komplexitet](user-flow-password-complexity.md)</li></ul> |
+| Lösen ords återställning v2 | Inga | Gör det möjligt för en användare att välja ett nytt lösen ord när de har verifierat sin e-post. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>Kompatibilitetsinställningar för token</li><li>[Åldershantering](basic-age-gating.md)</li><li>[krav för lösen ords komplexitet](user-flow-password-complexity.md)</li></ul> |
+| Profil redigering v2 | Ja | Gör det möjligt för en användare att konfigurera sina användarattribut. Med det här användar flödet kan du konfigurera: <ul><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li><li>Sessionens beteende</li></ul> |
+| Logga in v2 | Inga | Gör det möjligt för en användare att logga in på sitt konto. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li><li>Sessionens beteende</li><li>[Åldershantering](basic-age-gating.md)</li><li>Anpassning av inloggnings Sidan</li></ul> |
+| Registrera dig v2 | Inga | Gör det möjligt för en användare att skapa ett konto. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li><li>Sessionens beteende</li><li>[Åldershantering](basic-age-gating.md)</li><li>[Krav för lösen ords komplexitet](user-flow-password-complexity.md)</li></ul> |
+| Registrera dig och logga in v2 | Inga | Gör det möjligt för en användare att skapa ett konto eller logga in på sitt konto. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>[Åldershantering](basic-age-gating.md)</li><li>[Krav för lösen ords komplexitet](user-flow-password-complexity.md)</li></ul> |

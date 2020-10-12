@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
 ms.openlocfilehash: 53132cc21b8298f951f2daa979ed433103ad0ac0
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541296"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets dag för automatisk användar etablering
@@ -370,7 +370,7 @@ För att etablera till Active Directory lokalt måste etablerings agenten instal
    >[!div class="mx-imgBorder"]
    >![Avsluta skärm](./media/workday-inbound-tutorial/pa_install_screen_9.png "Avsluta skärm")
    
-1. Verifiera installationen av agenten och se till att den körs genom att öppna snapin-modulen "tjänster" och leta efter tjänsten "Microsoft Azure AD ansluta etablerings agent"
+1. Verifiera installationen av agenten och se till att den körs genom att öppna tjänsten "tjänster" Snap-In och leta efter tjänsten "Microsoft Azure AD Connect Provisioning agent"
 
    >[!div class="mx-imgBorder"]
    >![Skärm bild av Microsoft Azure AD ansluta till etablerings agenten som körs i tjänster.](./media/workday-inbound-tutorial/services.png)
@@ -478,7 +478,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 
          * **Endast vid skapande** – Använd endast den här mappningen för åtgärder för att skapa användare
 
-1. Spara dina mappningar genom att klicka på **Spara** överst i avsnittet attribut-mappning.
+1. Spara dina mappningar genom att klicka på **Spara** överst i Attribute-Mapping avsnittet.
    >[!div class="mx-imgBorder"]
    >![Skärm bild som visar sidan "attributmappning" med åtgärden "Spara" vald.](./media/workday-inbound-tutorial/wd_2.png)
 
@@ -1126,7 +1126,7 @@ För att göra den här ändringen måste du använda [Workday Studio](https://c
 
     ![Workday-Studio](./media/workday-inbound-tutorial/wdstudio_aad2.png)
 
-11. Välj **Spara** ovan och sedan **Ja** i dialog rutan. Stäng skärmen för attributs mappning om den fortfarande är öppen.
+11. Välj **Spara** ovan och sedan **Ja** i dialog rutan. Stäng Attribute-Mapping skärmen om den fortfarande är öppen.
 
 12. Tillbaka på fliken huvud **etablering** väljer du **Synkronisera arbets dagar arbetare till lokalt Active Directory** (eller **Synkronisera arbetare till Azure AD**) igen.
 

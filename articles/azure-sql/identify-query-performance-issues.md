@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
 ms.openlocfilehash: afc142ec9de0e275d505276d959cfac3e652c55d
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619771"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Identifierbara typer av flaskhalsar för frågeprestanda i Azure SQL Database
@@ -153,8 +153,8 @@ Långsam fråga-prestanda som inte är relaterade till icke-optimala fråge plan
 - Identifiera resurs gränser med hjälp av [intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#reaching-resource-limits)
 - Identifiera resurs problem med [DMV: er](database/monitoring-with-dmvs.md):
 
-  - [Sys. dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV returnerar CPU, I/O och minnes användning för databasen. Det finns en rad för varje 15-sekunders intervall, även om det inte finns någon aktivitet i databasen. Historiska data bevaras i en timme.
-  - [Sys. resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV returnerar CPU-användning och lagrings data för Azure SQL Database. Data samlas in och sammanställs i fem minuters intervall.
+  - [Sys.dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV returnerar CPU, I/O och minnes användning för databasen. Det finns en rad för varje 15-sekunders intervall, även om det inte finns någon aktivitet i databasen. Historiska data bevaras i en timme.
+  - [Sys.resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV returnerar CPU-användning och lagrings data för Azure SQL Database. Data samlas in och sammanställs i fem minuters intervall.
   - [Många enskilda frågor som sammantaget förbrukar hög CPU](database/monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
 
 Om du identifierar problemet som otillräcklig resurs kan du uppgradera resurserna för att öka kapaciteten för din databas för att öka processor kraven. Mer information finns i [skala enkla databas resurser i Azure SQL Database](database/single-database-scale.md) och [skala elastiska pool resurser i Azure SQL Database](database/elastic-pool-scale.md). Information om hur du skalar en hanterad instans finns i [resurs gränser på tjänst nivå](managed-instance/resource-limits.md#service-tier-characteristics)
@@ -203,16 +203,16 @@ När du har eliminerat ett underoptimalt schema och *väntande relaterade* probl
 Dessa metoder används ofta för att visa de översta kategorierna av vänte typer:
 
 - Använd Intelligent Insights för att identifiera frågor med prestanda försämring på grund av [ökad väntan](database/intelligent-insights-troubleshoot-performance.md#increased-wait-statistic)
-- Använd [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) för att hitta väntande statistik för varje fråga över tid. I Query Store kombineras vänte typer i väntande kategorier. Du kan hitta mappningen av vänte kategorier till wait types i [sys. query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
-- Använd [sys. dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) för att returnera information om alla väntande processer som körs under en åtgärd. Du kan använda den här aggregerade vyn för att diagnostisera prestanda problem med Azure SQL Database och även med vissa frågor och batchar. Frågor kan vänta på resurser, kön väntar eller externa vänte tid.
-- Använd [sys. dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) för att returnera information om den kö med aktiviteter som väntar på en resurs.
+- Använd [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) för att hitta väntande statistik för varje fråga över tid. I Query Store kombineras vänte typer i väntande kategorier. Du kan hitta mappningen av vänte kategorier till vänte typer i [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
+- Använd [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) för att returnera information om alla väntande processer som körs under en fråga. Du kan använda den här aggregerade vyn för att diagnostisera prestanda problem med Azure SQL Database och även med vissa frågor och batchar. Frågor kan vänta på resurser, kön väntar eller externa vänte tid.
+- Använd [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) för att returnera information om den kö med aktiviteter som väntar på en resurs.
 
 I scenarier med hög processor kan Query Store och väntande statistik avspegla CPU-användning om:
 
 - Frågor med hög processor användning körs fortfarande.
 - Frågor med hög CPU-användning kördes när redundansväxlingen skedde.
 
-DMV: er som spårar Frågearkivet och väntande statistik visar resultat för endast slutförda och uppnådde tids gräns frågor. De visar inga data för körnings instruktioner förrän instruktionerna är slutförda. Använd vyn dynamisk hantering [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) om du vill spåra frågor som körs och den associerade arbets tiden.
+DMV: er som spårar Frågearkivet och väntande statistik visar resultat för endast slutförda och uppnådde tids gräns frågor. De visar inga data för körnings instruktioner förrän instruktionerna är slutförda. Använd vyn dynamisk hantering [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) för att spåra för tillfället att köra frågor och den associerade arbets tiden.
 
 > [!TIP]
 > Ytterligare verktyg:

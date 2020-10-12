@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/20/2020
 ms.openlocfilehash: 7a4654b8f389ad18010bb4ad211103f2816a18ee
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542010"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entiteter per kultur i din LUIS-modell
@@ -28,7 +28,7 @@ Det går inte att ändra beteendet för förbyggda entiteter, men du kan förbä
 ## <a name="availability"></a>Tillgänglighet
 Om inget annat anges är fördefinierade entiteter tillgängliga i alla LUIS program-språkområden (kulturer). I följande tabell visas de fördefinierade entiteter som stöds för varje kultur.
 
-|Kultur|Underkulturer|Kommentarer|
+|Kultur|Underkulturer|Obs!|
 |--|--|--|
 |Kinesiska|[zh-CN](#chinese-entity-support)||
 |Nederländska|[nl-NL](#dutch-entity-support)||
@@ -54,7 +54,7 @@ Följande entiteter stöds:
 | --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -98,7 +98,7 @@ Följande entiteter stöds:
 | --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   |
@@ -120,7 +120,7 @@ Följande entiteter stöds:
 | --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -142,7 +142,7 @@ Följande entiteter stöds:
 | --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -164,7 +164,7 @@ Följande entiteter stöds:
 | -------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -254,7 +254,7 @@ Följande entiteter stöds:
 | --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -276,7 +276,7 @@ Följande entiteter stöds:
 | --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -298,7 +298,7 @@ Följande entiteter stöds:
 | --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    -   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>daterange<br>time<br>timerange   |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    -   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -346,9 +346,9 @@ KeyPhrase is not available.
 -->
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>Bidra till färdiga entiteter för entiteter
-De förinställda entiteterna utvecklas i projekt med öppen källkod i igenkännings läge. [Bidra](https://github.com/Microsoft/Recognizers-Text) till projektet. Det här projektet innehåller exempel på valuta per kultur.
+De förinställda entiteterna utvecklas i Recognizers-Text projekt med öppen källkod. [Bidra](https://github.com/Microsoft/Recognizers-Text) till projektet. Det här projektet innehåller exempel på valuta per kultur.
 
-GeographyV2 och PersonName ingår inte i identifierare – text projekt. Öppna en [supportbegäran](../../azure-portal/supportability/how-to-create-azure-support-request.md)om du har problem med dessa fördefinierade entiteter.
+GeographyV2 och PersonName ingår inte i Recognizers-Text projektet. Öppna en [supportbegäran](../../azure-portal/supportability/how-to-create-azure-support-request.md)om du har problem med dessa fördefinierade entiteter.
 
 ## <a name="next-steps"></a>Nästa steg
 

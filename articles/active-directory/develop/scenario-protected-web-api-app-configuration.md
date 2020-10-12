@@ -13,10 +13,10 @@ ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 613ba527c8f86257dd271d3cc9e43c97fc475068
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91257460"
 ---
 # <a name="protected-web-api-code-configuration"></a>Skyddat webb-API: kod konfiguration
@@ -195,7 +195,7 @@ Validerings stegen samlas in i verifierare, som tillhandahålls av [Microsoft Id
 
 I den här tabellen beskrivs verifierarna:
 
-| Systemhälsoverifierare | Description |
+| Systemhälsoverifierare | Beskrivning |
 |---------|---------|
 | **ValidateAudience** | Säkerställer att token är för programmet som validerar token åt dig. |
 | **ValidateIssuer** | Säkerställer att token utfärdats av en betrodd STS, vilket innebär att det är från någon som du litar på. |

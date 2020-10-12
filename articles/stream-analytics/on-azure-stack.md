@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1fe035d99f8a5962406d5aae3f093d71d432b310
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88861226"
 ---
 # <a name="run-azure-stream-analytics-on-azure-stack-preview"></a>Kör Azure Stream Analytics på Azure Stack (förhands granskning)
@@ -56,13 +56,13 @@ ASA Edge-jobb körs i behållare som distribuerats till Azure IoT Edge enheter. 
 * En moln del som är ansvarig för jobb definition: användare definierar indata, utdata, fråga och andra inställningar (i händelse av ordnings händelser osv.) i molnet.
 * En modul som körs på dina IoT-enheter. Den innehåller ASA-motorn och tar emot jobb definitionen från molnet.
 
-### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 När du skapar ett Azure Stream Analytics-jobb som ska köras på en IoT Edge-enhet måste det lagras på ett sätt som kan anropas från enheten. Du kan använda ett befintligt Azure Storage-konto eller skapa ett nytt.
 1. I Azure Portal går du till **skapa en resurs > lagring > lagrings konto – BLOB, fil, tabell, kö**.
 2. Skapa lagringskontot genom att ange följande värden:
 
-   | Fält | Värde |
+   | Field | Värde |
    | --- | --- |
    | Namn | Ange ett unikt namn för lagringskontot. |
    | Plats | Välj en plats i närheten av dig.|
@@ -77,7 +77,7 @@ När du skapar ett Azure Stream Analytics-jobb som ska köras på en IoT Edge-en
 1. I Azure Portal går du till **skapa en resurs > Sakernas Internet > Stream Analytics jobb**.
 2. Skapa lagringskontot genom att ange följande värden:
 
-   | Fält | Värde |
+   | Field | Värde |
    | --- | --- |
    | Jobbnamn | Ange ett namn för ditt jobb. Till exempel **IoTEdgeJob** |
    | Prenumeration | Välj samma prenumeration som din IoT-hubb.|
@@ -101,7 +101,7 @@ När Stream Analytics-jobbet har skapats på Azure Portal kan du konfigurera det
 
    #### <a name="event-hub"></a>Händelsehubb
 
-   | Fält | Värde |
+   | Field | Värde |
    | --- | --- |
    | Inmatat alias | Ett eget namn som du använder i jobbets fråga för att referera till den här indatamängden. |
    | Service Bus namnrymd | Namn området är en behållare för en uppsättning meddelande enheter. När du skapar en ny händelsehubben skapar du även namn området. (Exempel: *SB:// <Event Hub Name> . eventhub.Shanghai.azurestack.Corp.Microsoft.com*) |
@@ -116,7 +116,7 @@ När Stream Analytics-jobbet har skapats på Azure Portal kan du konfigurera det
 
    #### <a name="iot-hub"></a>IoT Hub
 
-   | Fält | Värde |
+   | Field | Värde |
    | --- | --- |
    | Inmatat alias | Ett eget namn som du använder i jobbets fråga för att referera till den här indatamängden. |
    | IoT Hub | Namnet på IoT Hub som ska användas som indatatyp. (Exempel:* <IoT Hub Name> . Shanghai.azurestack.Corp.Microsoft.com*) |
@@ -135,7 +135,7 @@ När Stream Analytics-jobbet har skapats på Azure Portal kan du konfigurera det
 
    #### <a name="event-hub"></a>Händelsehubb
 
-   | Fält | Värde |
+   | Field | Värde |
    | --- | --- |
    | Utdataalias | Ett eget namn som används i frågor för att dirigera frågeresultatet till den här händelsehubben. |
    | Service Bus namnrymd | En behållare för en uppsättning meddelande enheter. När du skapade en ny händelsehubben, skapade du även ett Service Bus-namnområde. (Exempel: *SB:// <Event Hub Name> . eventhub.Shanghai.azurestack.Corp.Microsoft.com*) |
@@ -148,7 +148,7 @@ När Stream Analytics-jobbet har skapats på Azure Portal kan du konfigurera det
 
    #### <a name="blob-storage"></a>Blob Storage 
 
-   | Fält | Värde |
+   | Field | Värde |
    | --- | --- |
    | Utdataalias | Ett eget namn som används i frågor för att dirigera frågeresultatet till blob-lagringen. |
    | Lagringskonto | Namnet på det lagrings konto där du ska skicka dina utdata. (Exempel: * <Storage Account Name> . blob.Shanghai.azurestack.Corp.Microsoft.com*) |

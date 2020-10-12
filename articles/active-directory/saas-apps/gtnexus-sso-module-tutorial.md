@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: jeedes
-ms.openlocfilehash: e0ea1d3f5c2676176e2f6e15077d13ec43e673af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b40a124c9cee05e8d06df3de6539c566bb2ac76a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544323"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945175"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Självstudie: Azure Active Directory integrering med GTNexus SSO-system
 
@@ -30,7 +30,7 @@ Genom att integrera GTNexus SSO System med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med GTNexus SSO System behöver du följande:
 
@@ -101,11 +101,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med GTNex
 
     a. Klicka på **Ladda upp metadatafil**.
 
-    ![image](common/upload-metadata.png)
+    ![Skärm bild som visar sidan "grundläggande S A M L-konfiguration" med åtgärden "Ladda upp metadatafil" vald.](common/upload-metadata.png)
 
     b. Klicka på **mappikonen** för att välja metadatafilen och klicka på **Ladda upp**.
 
-    ![image](common/browse-upload-metadata.png)
+    ![Skärm bild som visar fältet "Välj en fil" med knappen "mapp" och "Ladda upp" markerat.](common/browse-upload-metadata.png)
 
     c. När metadatafilen har laddats upp fylls värdena **Identifierare** och **Svars-URL** i automatiskt i textrutan för avsnittet GTNexus SSO System:
 

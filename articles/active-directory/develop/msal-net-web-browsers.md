@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: bf51f39a789b91a4cb0b88eb8bb1f2989bec7358
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165829"
 ---
 # <a name="using-web-browsers-msalnet"></a>Använda webbläsare (MSAL.NET)
@@ -41,19 +41,19 @@ Det är viktigt att förstå att när du hämtar en token interaktivt, har inneh
 
 MSAL.NET är ett bibliotek med flera ramverk och har en Framework-specifik kod som är värd för en webbläsare i en GRÄNSSNITTs kontroll (till exempel på den klassiska .NET-IT använder WinForms, på Xamarin den använder sig av inbyggda mobila kontroller osv.). Den här kontrollen kallas `embedded` webb gränssnitt. Du kan också starta MSAL.NET i systemets OS-webbläsare.
 
-I allmänhet rekommenderar vi att du använder plattforms standarden och det är vanligt vis system läsaren. System läsaren är bättre för att komma ihåg vilka användare som har loggat in tidigare. Om du behöver ändra det här beteendet använder du`WithUseEmbeddedWebView(bool)`
+I allmänhet rekommenderar vi att du använder plattforms standarden och det är vanligt vis system läsaren. System läsaren är bättre för att komma ihåg vilka användare som har loggat in tidigare. Om du behöver ändra det här beteendet använder du `WithUseEmbeddedWebView(bool)`
 
 ### <a name="at-a-glance"></a>Snabbt
 
-| Ramverk        | Inbäddat | System | Standardvärde |
+| Ramverk        | Inbäddat | System | Default |
 | ------------- |-------------| -----| ----- |
 | .NET Classic     | Ja | Ja ^ | Inbäddat |
-| .NET Core     | Nej | Ja ^ | System |
-| .NET Standard | Nej | Ja ^ | System |
-| UWP | Ja | Nej | Inbäddat |
+| .NET Core     | Inga | Ja ^ | System |
+| .NET Standard | Inga | Ja ^ | System |
+| UWP | Ja | Inga | Inbäddat |
 | Xamarin.Android | Ja | Ja  | System |
 | Xamarin.iOS | Ja | Ja  | System |
-| Xamarin. Mac| Ja | Nej | Inbäddat |
+| Xamarin. Mac| Ja | Inga | Inbäddat |
 
 ^ Kräver " http://localhost " omdirigerings-URI
 

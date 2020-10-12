@@ -7,17 +7,17 @@ ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 440eb1f39284f8d99a8d6b9067b018c4a54fcd27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87083029"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Anpassa en HTTP-slutpunkt i Azure Functions
 
 I den här artikeln får du lära dig hur Azure Functions gör att du kan bygga mycket skalbara API: er. Azure Functions levereras med en samling inbyggda HTTP-utlösare och bindningar som gör det enkelt att skapa en slut punkt på flera olika språk, inklusive Node.js, C# med mera. I den här artikeln ska du anpassa en HTTP-utlösare för att hantera vissa åtgärder i din API-design. Du kommer också att förbereda för att utveckla ditt API genom att integrera det med Azure Functions-proxyservrar och ställa in modellerade API: er. Dessa uppgifter utförs ovanpå funktionerna i Server lös beräknings miljö, så du behöver inte bekymra dig om att skala resurser – du kan bara fokusera på din API-logik.
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -37,7 +37,7 @@ Som standard är din HTTP-utlösare konfigurerad att godkänna alla HTTP-metoder
 
 1. Använd inställningarna för HTTP-utlösare som anges i följande tabell.
 
-    | Fält | Exempelvärde | Beskrivning |
+    | Field | Exempelvärde | Beskrivning |
     |---|---|---|
     | Flödesmall | /hello | Avgör vilket flöde som används för att anropa den här funktionen |
     | Auktoriseringsnivå | Anonym | Valfritt: Gör din funktion tillgänglig utan API-nyckel |
@@ -62,7 +62,7 @@ Testa sedan din funktion för att se hur den fungerar med den nya API-ytan:
  
 1. Lägg till parametrar i frågesträngen i din URL. 
 
-   Till exempel `/api/hello/?name=John`.
+   Exempelvis `/api/hello/?name=John`.
  
 1. Tryck på RETUR för att bekräfta att det fungerar. Svaret "*Hej John*" bör visas.
 
@@ -105,20 +105,20 @@ Upprepa stegen för att [Skapa en funktionsapp](./functions-create-first-azure-f
 
 1. På sidan **ny proxy** använder du inställningarna i följande tabell och väljer sedan **skapa**.
 
-    | Fält | Exempelvärde | Beskrivning |
+    | Field | Exempelvärde | Beskrivning |
     |---|---|---|
-    | Namn | HelloProxy | Ett eget namn som endast används för hantering |
+    | Name | HelloProxy | Ett eget namn som endast används för hantering |
     | Flödesmall | /api/remotehello | Avgör vilket flöde som används för att anropa den här proxyn |
     | Webbadress för serverdel | https://%HELLO_HOST%/api/hello | Anger den slutpunkt som begäran ska nå via proxy |
 
     
-    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Skapa en proxy":::
+    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Anpassa en HTTP-funktion":::
 
     Azure Functions-proxyservrar tillhandahåller inte `/api` prefixet för bas Sök väg, som måste ingå i Route-mallen. `%HELLO_HOST%`Syntaxen refererar till den app-inställning som du skapade tidigare. Den matchade webbadressen pekar på din ursprungliga funktion.
 
 1. Prova din nya proxy genom att kopiera URL: en för proxyn och testa den i webbläsaren eller med din favorit-HTTP-klient:
-    - För en anonym funktion används: `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"` .
-    - För en funktion som använder auktorisering: `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"` .
+    - För en anonym funktion används:   `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"` .
+    - För en funktion som använder auktorisering:   `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"` .
 
 ## <a name="create-a-mock-api"></a>Skapa ett fingerat API
 

@@ -15,20 +15,20 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2cd95d01c9b49bb6002c00c805dc82dcf30941e3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295047"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Använda en SAML 2.0-identitetsprovider (IdP) för enkel inloggning
 
-Det här dokumentet innehåller information om hur du använder en SAML 2,0-kompatibel profilbaserade identitetsprovider som den primära säkerhetstokentjänst/identitets leverantören. Det här scenariot är användbart när du redan har en användar katalog och ett lösen ord lokalt som kan nås via SAML 2,0. Den befintliga användar katalogen kan användas för inloggning till Microsoft 365 och andra Azure AD-skyddade resurser. SAML 2,0 SP-lite-profilen baseras på den vanligaste Security Assertion Markup Language (SAML) federerad identitets standard för att tillhandahålla ett utbytes ramverk för inloggning och attribut.
+Det här dokumentet innehåller information om hur du använder en SAML 2,0-kompatibel SP-Lite profilbaserade identitets leverantör som prioriterad säkerhetstokentjänst/identitetsprovider. Det här scenariot är användbart när du redan har en användar katalog och ett lösen ord lokalt som kan nås via SAML 2,0. Den befintliga användar katalogen kan användas för inloggning till Microsoft 365 och andra Azure AD-skyddade resurser. SAML 2,0 SP-Lite-profilen baseras på den vanligaste Security Assertion Markup Language (SAML) federerad identitets standard för att tillhandahålla ett utbytes ramverk för inloggning och attribut.
 
 >[!NOTE]
 >En lista över IDP: er från tredje part som har testats för användning med Azure AD finns i [kompatibilitetslista för Azure AD-Federation](how-to-connect-fed-compatibility.md)
 
-Microsoft har stöd för den här inloggnings upplevelsen som integrering av en moln tjänst från Microsoft, till exempel Microsoft 365, med korrekt konfigurerad SAML 2,0-profilbaserade IdP. SAML 2,0-identitets leverantörer är produkter från tredje part och därför ger Microsoft inte stöd för distribution, konfiguration, fel sökning av metod tips för dem. När konfigurationen är korrekt konfigurerad kan integrering med SAML 2,0 Identity Provider testas för korrekt konfiguration med hjälp av Microsoft Connectivity Analyzer-verktyget, som beskrivs i detalj nedan. Om du vill ha mer information om SAML 2,0 SP-lite Profile-baserad identitetsprovider ber du den organisation som tillhandahöll den.
+Microsoft har stöd för den här inloggnings upplevelsen som integrering av en moln tjänst från Microsoft, till exempel Microsoft 365, med korrekt konfigurerad SAML 2,0-profilbaserade IdP. SAML 2,0-identitets leverantörer är produkter från tredje part och därför ger Microsoft inte stöd för distribution, konfiguration, fel sökning av metod tips för dem. När konfigurationen är korrekt konfigurerad kan integrering med SAML 2,0 Identity Provider testas för korrekt konfiguration med hjälp av Microsoft Connectivity Analyzer-verktyget, som beskrivs i detalj nedan. Om du vill ha mer information om SAML 2,0 SP-Lite profilbaserade identitets leverantören ber du den organisation som tillhandahöll den.
 
 > [!IMPORTANT]
 > Endast en begränsad uppsättning klienter är tillgängliga i det här inloggnings scenariot med SAML 2,0 Identity providers, däribland:
@@ -276,7 +276,7 @@ Mer information om utcheckningen "New-MsolUser", [/previous-versions/Azure/dn194
 >Värdet "UserPrinciplName" måste matcha det värde som du ska skicka för "IDPEmail" i ditt SAML 2,0-anspråk och värdet "ImmutableID" måste matcha det värde som skickas i din "NameID"-kontroll.
 
 ## <a name="verify-single-sign-on-with-your-saml-20-idp"></a>Verifiera enkel inloggning med SAML 2,0-IDP
-Som administratör, innan du verifierar och hanterar enkel inloggning (även kallat identitets Federation), kan du läsa informationen och utföra stegen i följande artiklar för att konfigurera enkel inloggning med din SAML 2,0 SP-lite-baserade identitets leverantör:
+Som administratör innan du verifierar och hanterar enkel inloggning (även kallat identitets Federation) kan du läsa informationen och utföra stegen i följande artiklar för att konfigurera enkel inloggning med din SAML 2,0 SP-Lite-baserade identitets leverantör:
 
 
 1.  Du har granskat kraven för Azure AD SAML 2,0-protokollet
@@ -286,7 +286,7 @@ Som administratör, innan du verifierar och hanterar enkel inloggning (även kal
 5.  Etablerade ett känt test användares huvud namn till Azure Active Directory (Microsoft 365) antingen via Windows PowerShell eller Azure AD Connect.
 6.  Konfigurera katalog-synkronisering med [Azure AD Connect](whatis-hybrid-identity.md).
 
-När du har konfigurerat enkel inloggning med din SAML 2,0 SP-lite-baserade identitets leverantör bör du kontrol lera att den fungerar som den ska.
+När du har konfigurerat enkel inloggning med din SAML 2,0 SP-Lite-baserade identitetsprovider, bör du kontrol lera att den fungerar som den ska.
 
 >[!NOTE]
 >Om du har konverterat en domän, i stället för att lägga till en, kan det ta upp till 24 timmar innan du konfigurerar enkel inloggning.
@@ -323,7 +323,7 @@ Utför följande steg för att kontrol lera att enkel inloggning har ställts in
 2.  Klicka i rutan lösen ord. Om enkel inloggning har kon figurer ATS skuggas rutan lösen ord och följande meddelande visas: "du måste nu logga in på &lt; företaget &gt; ".
 3.  Klicka på inloggningen på &lt; företagets &gt; länk. Om du kan logga in har enkel inloggning kon figurer ATS.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 
 - [Active Directory Federation Services (AD FS) hantering och anpassning med Azure AD Connect](how-to-connect-fed-management.md)

@@ -11,10 +11,10 @@ ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
 ms.openlocfilehash: 8b9c8107c102409b717da0a277b7cdd360e9c8ee
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91439673"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuera och övervaka IoT Edge moduler i skala med hjälp av Azure CLI
@@ -198,9 +198,9 @@ Kommandot för att skapa distribution tar följande parametrar:
 * **--innehålls** -sökväg till distributions manifest-JSON. Obligatorisk parameter.
 * **--hubb-Name** -namnet på den IoT-hubb som distributionen ska skapas i. Navet måste finnas i den aktuella prenumerationen. Ändra den aktuella prenumerationen med `az account set -s [subscription name]` kommandot.
 * **--Etiketter** – Lägg till etiketter som hjälper dig att spåra dina distributioner. Etiketter är namn, värdepar som beskriver din distribution. Etiketter tar JSON-formatering för namn och värden. Till exempel `{"HostPlatform":"Linux", "Version:"3.0.1"}`
-* **--mål villkor** – ange ett mål villkor för att avgöra vilka enheter som ska vara mål för distributionen.Villkoret baseras på enhetens dubbla taggar eller enhets egenskaper med dubbla rapporter och ska överensstämma med uttrycks formatet.Till exempel `tags.environment='test' and properties.reported.devicemodel='4000x'`.
+* **--mål villkor** – ange ett mål villkor för att avgöra vilka enheter som ska vara mål för distributionen.Villkoret baseras på enhetens dubbla taggar eller enhets egenskaper med dubbla rapporter och ska överensstämma med uttrycks formatet.Exempelvis `tags.environment='test' and properties.reported.devicemodel='4000x'`.
 * **--prioritet** -ett positivt heltal. I händelse av att två eller flera distributioner är riktade mot samma enhet gäller distributionen med det högsta numeriska värdet för prioritet.
-* **--mått** – skapa mått som frågar edgeHub-rapporterade egenskaper för att spåra statusen för en distribution. Måtten tar JSON-inmatade eller en fil Sök väg. Till exempel `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`.
+* **--mått** – skapa mått som frågar edgeHub-rapporterade egenskaper för att spåra statusen för en distribution. Måtten tar JSON-inmatade eller en fil Sök väg. Exempelvis `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`.
 
 Information om hur du övervakar en distribution med Azure CLI finns i [övervaka IoT Edge distributioner](how-to-monitor-iot-edge-deployments.md#monitor-a-deployment-with-azure-cli).
 

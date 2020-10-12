@@ -10,19 +10,19 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: e7f5b6f3685a94b5497784360f8f12b22fb95012
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87298800"
 ---
 ## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Skapa en Azure Kubernetes service-klusterresurs
 
 1. Gå till [Azure Kubernetes-tjänsten](https://ms.portal.azure.com/#create/microsoft.aks)och välj **skapa**.
 
-1. På fliken **grundläggande** anger du följande information:
+1. På fliken **Grundläggande** anger du följande information:
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |--|--|
     |Prenumeration|Välj en lämplig prenumeration.|
     |Resursgrupp|Välj en tillgänglig resursgrupp.|
@@ -31,16 +31,16 @@ ms.locfileid: "87298800"
     |Kubernetes-version|Vilket värde som är markerat som **(standard)**.|
     |DNS-namn-prefix|Skapas automatiskt, men du kan åsidosätta.|
     |Node-storlek|Standard DS2 v2:<br>`2 vCPUs`, `7 GB`|
-    |Antal noder|Lämna skjutreglaget till standardvärdet.|
+    |Nodantal|Lämna skjutreglaget till standardvärdet.|
 
 1. På fliken **noder** lämnar du **virtuella noder** och **VM Scale** set till standardvärdena.
 1. På fliken **autentisering** lämnar du **tjänstens huvud namn** och **aktiverar RBAC** -inställningen till sina standardvärden.
 1. På fliken **nätverk** anger du följande alternativ:
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |--|--|
-    |Routning av HTTP-program|Nej|
-    |Nätverks konfiguration|Basic|
+    |Routning av HTTP-program|Inga|
+    |Nätverkskonfiguration|Basic|
 
 1. Kontrol lera att **behållar övervakning** har angetts till **aktive rad**på fliken **integrationer** och lämna **Log Analytics arbets yta** som standardvärde.
 1. På fliken **taggar** lämnar du namn/värde-par tomma för tillfället.

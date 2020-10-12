@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: jeedes
-ms.openlocfilehash: ae8a1fa68e61e160ce08b93bf66776a050b45613
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e05a2a4ba12d5fc665090d5bf078da520000f43b
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554204"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945387"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-officespace-software"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med OfficeSpace-programvara
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera OfficeSpace-program med
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -95,7 +95,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig OfficeSpace-programprogram att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
 
-    | Name | Källattribut|
+    | Namn | Källattribut|
     | ---------------| --------------- |
     | e-post | user.mail |
     | name | user.displayname |
@@ -150,11 +150,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Gå till **Inställningar** och klicka på **kopplingar**.
 
-    ![Konfigurera enkel inloggning på appsidan](./media/officespace-tutorial/tutorial_officespace_002.png)
+    ![Skärm bild som visar List rutan "Inställningar" med "kopplingar" markerade.](./media/officespace-tutorial/tutorial_officespace_002.png)
 
 3. Klicka på **SAML-autentisering**.
 
-    ![Konfigurera enkel inloggning på appsidan](./media/officespace-tutorial/tutorial_officespace_003.png)
+    ![Skärm bild som visar avsnittet "autentisering" med åtgärden "S A M L-autentisering" vald.](./media/officespace-tutorial/tutorial_officespace_003.png)
 
 4. Gör följande i avsnittet **SAML-autentisering**:
 

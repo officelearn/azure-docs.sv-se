@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: fc1bca1265139a438fad86bfce770026866d9a2f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937008"
 ---
 # <a name="manage-zone-redundant-high-availability-in-flexible-server"></a>Hantera redundanta zoner med hög tillgänglighet i flexibel Server
@@ -35,24 +35,24 @@ Det här avsnittet innehåller information som är specifik för de fält som ä
     :::image type="content" source="./media/how-to-manage-high-availability-portal/subscription-region.png" alt-text="Visa prenumeration och region":::
 
 2.  Välj din **tillgänglighets zon**. Detta är användbart om du vill samordna ditt program i samma tillgänglighets zon som databasen för att minska svars tiden. Välj **ingen inställning** om du vill att den flexibla servern ska distribueras i valfri tillgänglighets zon.
-    ![Val av AZ val av ]() :::image type="content" source="./media/how-to-manage-high-availability-portal/zone-selection.png" alt-text="tillgänglighets zon":::  
+    ![Val av AZ val av ]() :::image type="content" source="./media/how-to-manage-high-availability-portal/zone-selection.png" alt-text="Visa prenumeration och region":::  
 
 3.  Klicka på kryss rutan för **zonen redundant hög tillgänglighet** i tillgänglighets alternativet.
 
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-checkbox.png" alt-text="Kryss ruta för hög tillgänglighet":::
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-checkbox.png" alt-text="Visa prenumeration och region":::
 
 4.  Klicka på  **Konfigurera Server**om du vill ändra standard beräkningen och lagringen.
  
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/configure-server.png" alt-text="Konfigurera Server – beräkning + lagring":::  
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/configure-server.png" alt-text="Visa prenumeration och region":::  
 
 5.  Om alternativet för hög tillgänglighet är markerat är den Burstable nivån inte tillgänglig för att välja. Du kan välja antingen **generell användning** eller **minnesoptimerade** beräknings nivåer. Sedan kan du välja **beräknings storlek** för ditt val i list rutan.
 
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/select-compute.png" alt-text="Val av beräknings nivå":::  
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/select-compute.png" alt-text="Visa prenumeration och region":::  
 
 
 6.  Välj **lagrings storlek** i GIB med hjälp av glidande stapel och välj **tids perioden för kvarhållning av säkerhets kopior** mellan 7 dagar och 35 dagar.
    
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/storage-backup.png" alt-text="Säkerhets kopiering av lagring"::: 
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/storage-backup.png" alt-text="Visa prenumeration och region"::: 
 
 7. Klicka på **Spara**. 
 
@@ -64,11 +64,11 @@ Följ dessa steg om du vill aktivera hög tillgänglighet för din befintliga fl
 
 2.  På sidan flexibel Server klickar du på **hög tillgänglighet** i den vänstra panelen för att öppna sidan med hög tillgänglighet.
    
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Vänster panel val"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Visa prenumeration och region"::: 
 
 3.  Klicka på kryss rutan **zon redundant hög tillgänglighet** för att **Aktivera** alternativet och klicka på **Spara**   för att spara ändringen.
 
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/enable-high-availability.png" alt-text="Aktivera hög tillgänglighet"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/enable-high-availability.png" alt-text="Visa prenumeration och region"::: 
 
 4.  En bekräftelse dialog ruta visar att om du aktiverar hög tillgänglighet kommer kostnaden att öka på grund av ytterligare Server-och lagrings distribution.
 
@@ -84,11 +84,11 @@ Följ dessa steg om du vill inaktivera hög tillgänglighet för din flexibla se
 
 2.  På sidan flexibel Server klickar du på **hög tillgänglighet** på Front panelen för att öppna sidan med hög tillgänglighet.
    
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Vänster panel val"::: 
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Visa prenumeration och region"::: 
 
 3.  Klicka på kryss rutan **zon redundant hög tillgänglighet** om du vill **inaktivera** alternativet. Klicka sedan på **Spara**   för att spara ändringen.
 
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/disable-high-availability.png" alt-text="Inaktivera hög tillgänglighet"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/disable-high-availability.png" alt-text="Visa prenumeration och region"::: 
 
 4.  En bekräftelse dialog ruta visas där du kan bekräfta att du har inaktiverat hög tillgänglighet.
 

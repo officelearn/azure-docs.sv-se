@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 670aef4f6f866788ef7a1a4502de242e765f5cc6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89017659"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Kom igång med Azure Blob Storage-och Visual Studio-anslutna tjänster (Cloud Services-projekt)
@@ -113,7 +113,7 @@ using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
 }
 ```
 
-## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
+## <a name="list-the-blobs-in-a-container"></a>Visa blobar i en container
 Om du vill visa blobar i en container börjar du med att hämta en referens för containern. Sedan kan du använda containerns **ListBlobs**-metod för att hämta blobarna och/eller katalogerna i den. För att få åtkomst till den omfattande uppsättningen med egenskaper och metoder för en returnerad **IListBlobItem**, måste du omvandla den till ett **CloudBlockBlob**-, **CloudPageBlob**-eller **CloudBlobDirectory** -objekt. Om typen är okänd kan du använda en typkontroll för att avgöra till vilket objekt den ska skickas. Följande kod visar hur du hämtar och returnerar URI:n för varje objekt i **photos**-containern:
 
 ```csharp

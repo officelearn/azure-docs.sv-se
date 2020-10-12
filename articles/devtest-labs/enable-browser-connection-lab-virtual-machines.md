@@ -4,10 +4,10 @@ description: DevTest Labs integreras nu med Azure skydds som en ägare till labb
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 28a3c11f3df578265f9746a173fcb3029a132b26
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88870501"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Aktivera webb läsar anslutning på Azure DevTest Labs virtuella datorer 
@@ -31,7 +31,7 @@ Först måste du skapa ett andra undernät i det virtuella skydds-nätverket eft
 ## <a name="enable-vm-creation-in-the-subnet"></a>Aktivera skapande av virtuell dator i under nätet
 Nu ska du aktivera skapandet av virtuella datorer i det här under nätet genom att följa dessa steg: 
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **alla tjänster** i den vänstra navigerings menyn. 
 1. Välj **DevTest Labs** från listan. 
 1. I listan med labb väljer *du ditt labb*. 

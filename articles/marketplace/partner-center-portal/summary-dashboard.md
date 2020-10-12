@@ -8,10 +8,10 @@ ms.date: 12/11/2019
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 8e58de7975bc7f5de1fe2ad71f97c02c901c0c21
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87304130"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Instrumentpanelen för sammanfattning i Commercial Marketplace-analys
@@ -27,7 +27,7 @@ Den här artikeln innehåller information om sammanfattnings instrument panelen 
 
 På instrument panelen **Sammanfattning** presenteras en översikt baserad på varje erbjudande typ. **Insikter** visar viktig information snabbt och ger en bred överblick över Sälj aktiviteten för dina erbjudanden. Du kan visualisera dessa rapporter med **sammanfattnings** instrument panelen. Den här artikeln går till mer information om vart och ett av följande element:
 
-- [Datum intervall](#date-range)
+- [Datumintervall](#date-range)
 - [Sammanfattnings avsnitt](#summary-section)
 - [Kunder efter geografi](#customers-by-geography)
 - [Diagram över tillväxt trend](#growth-trend-charts)

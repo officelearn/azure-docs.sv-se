@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e55526e0a63a0c603e2b62ccb3ac0efed911cff
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295234"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synkronisering: Förstå standardkonfigurationen
@@ -148,7 +148,7 @@ Eftersom den här regeln är en regel som är inaktuell visas en varning när du
 
 En Synkroniseringsregel har fyra konfigurations avsnitt: Beskrivning, omfångs filter, kopplings regler och transformeringar.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Beskrivning
 Det första avsnittet innehåller grundläggande information, till exempel ett namn och en beskrivning.
 
 ![Fliken Beskrivning i regel redigeraren för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
@@ -186,7 +186,7 @@ Transformerings avsnittet definierar alla attributarkiv som gäller för målobj
 
 ![Fliken omvandlingar i regel redigeraren för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
 
-För att kunna använda den här konfigurationen i en skogs distribution av en konto resurs, förväntas du hitta ett aktiverat konto i konto skogen och ett inaktiverat konto i resurs skogen med inställningarna för Exchange och Lync. Synkroniseringsregeln som du tittar på innehåller de attribut som krävs för inloggning och dessa attribut ska flöda från skogen där det finns ett aktiverat konto. Alla dessa attribut flöden placeras tillsammans i en Synkroniseringsregel.
+För att kunna använda den här konfigurationen i en Account-Resource skogs distribution förväntas du hitta ett aktiverat konto i konto skogen och ett inaktiverat konto i resurs skogen med inställningarna för Exchange och Lync. Synkroniseringsregeln som du tittar på innehåller de attribut som krävs för inloggning och dessa attribut ska flöda från skogen där det finns ett aktiverat konto. Alla dessa attribut flöden placeras tillsammans i en Synkroniseringsregel.
 
 En omvandling kan ha olika typer: konstant, direkt och uttryck.
 
@@ -220,7 +220,7 @@ Prioriteten för regler för synkronisering anges i grupper av installations gui
 ### <a name="putting-it-all-together"></a>Färdigställa allt
 Vi vet nu nog om regler för synkronisering för att kunna förstå hur konfigurationen fungerar med de olika reglerna för synkronisering. Om du tittar på en användare och de attribut som har bidragit till metaversum tillämpas reglerna i följande ordning:
 
-| Name | Kommentar |
+| Namn | Kommentar |
 |:--- |:--- |
 | I från AD – användar anslutning |Regel för anslutning av anslutnings utrymmes objekt med metaversum. |
 | I från AD – UserAccount aktiverat |Attribut krävs för inloggning till Azure AD och Microsoft 365. Vi vill ha dessa attribut från det aktiverade kontot. |

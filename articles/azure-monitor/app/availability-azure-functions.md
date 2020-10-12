@@ -2,15 +2,13 @@
 title: Skapa och kör anpassade tillgänglighets test med Azure Functions
 description: Det här dokumentet beskriver hur du skapar en Azure-funktion med TrackAvailability () som körs regelbundet enligt konfigurationen i funktionen TimerTrigger. Resultatet av det här testet skickas till din Application Insights-resurs, där du kan fråga efter och Avisera om tillgänglighets resultat data. Med anpassade tester kan du skriva mer komplexa tillgänglighets test än vad som är möjligt med hjälp av Portal gränssnittet, övervaka en app inuti ditt Azure VNET, ändra slut punkts adressen eller skapa ett tillgänglighets test om det inte är tillgängligt i din region.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: bf756255d5eb0ffb3e57f13f4248fb8e38f26129
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3553b212d1b63d4bd239893ba90aa3465d98df60
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91773186"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945659"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Skapa och kör anpassade tillgänglighets test med Azure Functions
 

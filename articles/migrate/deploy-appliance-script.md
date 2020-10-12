@@ -4,10 +4,10 @@ description: Lär dig hur du konfigurerar en Azure Migrate-apparat med ett skrip
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: 6b0637019e40308cf40dcdbb4dc78512a8aa91e8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91438921"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Konfigurera en installation med ett skript
@@ -20,7 +20,7 @@ Du kan distribuera-installationen för VMware-och Hyper-V-datorer med hjälp av 
 - Om du vill konfigurera en installation för fysiska servrar kan du bara använda ett skript. Följ [den här artikeln](how-to-set-up-appliance-physical.md).
 - Följ [den här artikeln](deploy-appliance-script-government.md)om du vill konfigurera en installation i ett Azure Government moln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Skriptet konfigurerar Azure Migrate-installationen på en befintlig fysisk eller virtuell dator.
 

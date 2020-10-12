@@ -11,10 +11,10 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: 6221b36263b55f54faef18d6596f97c5b3798d3d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541721"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Förstärka inlärningen (för hands version) med Azure Machine Learning
@@ -326,7 +326,7 @@ rl_estimator = ReinforcementLearningEstimator(
 
 [Entry-skriptet](https://aka.ms/azure-rl-pong-script) `pong_rllib.py` tågen ett neurala-nätverk med hjälp av [OpenAI gymmet-miljön](https://github.com/openai/gym/) `PongNoFrameSkip-v4` . OpenAI gyms är standardiserade gränssnitt för att testa förstärka inlärnings algoritmer på klassiska Atari-spel.
 
-I det här exemplet används en Impala som kallas för [IMPALA](https://arxiv.org/abs/1802.01561) (vikten viktad skådespelare – elevens arkitektur). IMPALA parallelizes varje enskild utbildnings aktör som ska skalas över flera datornoder utan att offra hastighet eller stabilitet.
+I det här exemplet används en Impala som kallas för [IMPALA](https://arxiv.org/abs/1802.01561) (vikten viktad Actor-Learner arkitektur). IMPALA parallelizes varje enskild utbildnings aktör som ska skalas över flera datornoder utan att offra hastighet eller stabilitet.
 
 [Ray finjustera](https://ray.readthedocs.io/en/latest/tune.html) dirigerar Impala Worker-uppgifter.
 

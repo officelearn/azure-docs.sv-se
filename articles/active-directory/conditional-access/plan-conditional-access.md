@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9f1d4c5b55dd2a24c1fb41540fdc5d3ae26849a2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91258684"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planera en distribution av villkorsstyrd åtkomst
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) analys av villkorlig åtkomst (CA) analyserar 
 
 Microsoft tillhandahåller standard villkors principer som kallas [säkerhets inställningar](../fundamentals/concept-fundamentals-security-defaults.md) som garanterar en grundläggande säkerhets nivå. Din organisation kan dock behöva större flexibilitet än erbjudandet om säkerhets standard. Du kan använda villkorlig åtkomst för att anpassa säkerhets standardvärden med mer detaljerad information och konfigurera nya principer som uppfyller dina krav.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Läs mer
 
 Innan du börjar ska du kontrol lera att du förstår hur [villkorlig åtkomst](overview.md) fungerar och när du ska använda det.
 
@@ -67,7 +67,7 @@ Om ytterligare funktioner krävs kan du också behöva relaterade licenser. Mer 
 Följande resurser kan vara användbara när du lär dig mer om villkorlig åtkomst:
 
 
-#### <a name="videos"></a>Video
+#### <a name="videos"></a>Videoklipp
 
 * [Vad är villkorsstyrd åtkomst?](https://youtu.be/ffMAw2IVO7A)
 * [Hur distribuerar jag villkorlig åtkomst?](https://youtu.be/c_izIRNJNuk)
@@ -380,7 +380,7 @@ Vissa organisationer har test klienter för detta ändamål. Det kan dock vara s
 
 Test planen är viktig för att få en jämförelse mellan de förväntade resultaten och de faktiska resultaten. Du bör alltid ha en förväntad händelse innan du testar något. I följande tabell visas exempel test fall. Justera scenarier och förväntade resultat baserat på hur dina CA-principer är konfigurerade.
 
-| Policy| Scenario| Förväntat resultat |
+| Princip| Scenario| Förväntat resultat |
 | - | - | - |
 | [Kräv MFA när det inte är på arbetet](untrusted-networks.md)| Auktoriserad användare loggar in på appen på en betrodd plats/ett arbete| Användaren uppmanas inte att MFA |
 | [Kräv MFA när det inte är på arbetet](untrusted-networks.md)| Auktoriserad användare loggar in på appen men inte på en betrodd plats/arbete| Användaren uppmanas att MFA och kan logga in |
@@ -493,9 +493,9 @@ När du har samlat in informationen, se följande resurser:
 
 * [Inloggnings problem med villkorlig åtkomst](troubleshoot-conditional-access.md) – förstå oväntade inloggnings resultat relaterade till villkorlig åtkomst med hjälp av fel meddelanden och inloggnings loggen för Azure AD.
 
-* [Använd verktyget what-if](troubleshoot-conditional-access-what-if.md) för att förstå varför en princip har tillämpats eller inte tillämpats på en användare under en viss omständighet eller om en princip skulle gälla i ett känt tillstånd.
+* [Använd What-If-verktyget för att](troubleshoot-conditional-access-what-if.md) förstå varför en princip har eller inte tillämpats på en användare under en viss omständighet eller om en princip skulle gälla i ett känt tillstånd.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 [Läs mer om Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
 

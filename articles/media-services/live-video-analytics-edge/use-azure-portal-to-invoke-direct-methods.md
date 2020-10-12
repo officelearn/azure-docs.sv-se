@@ -14,10 +14,10 @@ ms.custom: ''
 ms.date: 07/24/2020
 ms.author: inhenkel
 ms.openlocfilehash: 9d784e1697dfbcbfec509c1a51c9b832b533c97b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87830758"
 ---
 # <a name="how-to-use-azure-portal-to-invoke-direct-methods"></a>Använda Azure Portal för att anropa direkta metoder
@@ -60,11 +60,11 @@ Använd `GraphTopologyList` metod anropet för att hämta en lista över alla Gr
 1. Välj knappen **anropa metod** överst på sidan.<br><br>
     ![knappen anropa metod](media/use-azure-portal-to-invoke-directs-methods/direct-method.png)
 1. Du bör se ett status 200-meddelande i **resultat** fältet.<br><br>
-    ![tids gräns för anslutning](media/use-azure-portal-to-invoke-directs-methods/connection-timeout.png)
+    ![tidsgräns för anslutning](media/use-azure-portal-to-invoke-directs-methods/connection-timeout.png)
 
 ## <a name="responses"></a>Svar
 
-| Villkor             | Statuskod | Detaljerad felkod |
+| Condition (Väderförhållanden)             | Statuskod | Detaljerad felkod |
 |-----------------------|-------------|---------------------|
 | Klart               | 200         | E.t.                 |
 | Allmänna användar fel   | 400 intervall   |                     |

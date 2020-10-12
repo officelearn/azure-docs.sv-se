@@ -17,10 +17,10 @@ ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a4856b2578a007f72aeeec64588ac7f9c58158de
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88861298"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>SAP ASCS/SCS-instans multi-SID hög tillgänglighet med Windows Server-redundanskluster och Azure-delad disk
@@ -103,11 +103,11 @@ Vi installerar en ny SAP SID- **PR2**, förutom den **befintliga klustrade** SAP
 | --- | --- | --- |---| ---|
 | första klusternoden ASCS/SCS-kluster |PR1-ASCs-10 |10.0.0.4 |PR1-ASCs-avset |PR1PPG |
 | andra klusternoder ASCS/SCS-kluster |PR1-ASCs-11 |10.0.0.5 |PR1-ASCs-avset |PR1PPG |
-| Kluster nätverks namn | pr1clust |10.0.0.42 (**endast** för Win 2016-kluster) | saknas | saknas |
-| **SID1** Nätverks namn för ASCS-kluster | pr1-ascscl |10.0.0.43 | saknas | saknas |
-| **SID1** ERS kluster nätverks namn (**endast** för ERS2) | pr1-erscl |10.0.0.44 | saknas | saknas |
-| **SID2** Nätverks namn för ASCS-kluster | pr2-ascscl |10.0.0.45 | saknas | saknas |
-| **SID2** ERS kluster nätverks namn (**endast** för ERS2) | pr1-erscl |10.0.0.46 | saknas | saknas |
+| Kluster nätverks namn | pr1clust |10.0.0.42 (**endast** för Win 2016-kluster) | Saknas | Saknas |
+| **SID1** Nätverks namn för ASCS-kluster | pr1-ascscl |10.0.0.43 | Saknas | Saknas |
+| **SID1** ERS kluster nätverks namn (**endast** för ERS2) | pr1-erscl |10.0.0.44 | Saknas | Saknas |
+| **SID2** Nätverks namn för ASCS-kluster | pr2-ascscl |10.0.0.45 | Saknas | Saknas |
+| **SID2** ERS kluster nätverks namn (**endast** för ERS2) | pr1-erscl |10.0.0.46 | Saknas | Saknas |
 
 ### <a name="create-azure-internal-load-balancer"></a>Skapa intern Azure-belastningsutjämnare
 

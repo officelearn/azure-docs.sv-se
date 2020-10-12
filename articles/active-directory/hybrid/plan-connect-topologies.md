@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7616ceed812b21f471609d95f59a0d0270dd7f52
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658515"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologier för Azure AD Connect
@@ -165,7 +165,7 @@ Den här topologin har följande begränsningar för andra scenarier som stöds:
 * Windows 10-enheter kan bara associeras med en Azure AD-klient.
 * Alternativet enkel inloggning (SSO) för lösen ords-hash-synkronisering och direktautentisering kan bara användas med en Azure AD-klient.
 
-Kravet för en ömsesidigt exklusiv uppsättning objekt gäller också för tillbakaskrivning. Vissa tillbakaskrivning-funktioner stöds inte med den här topologin eftersom de förutsätter en enda lokal konfiguration. Funktionerna är:
+Kravet för en ömsesidigt exklusiv uppsättning objekt gäller också för tillbakaskrivning. Vissa tillbakaskrivning-funktioner stöds inte med den här topologin eftersom de förutsätter en enda lokal konfiguration. Dessa funktioner omfattar bland annat:
 
 * Tillbakaskrivning av grupp med standard konfiguration.
 * Tillbakaskrivning av enhet.

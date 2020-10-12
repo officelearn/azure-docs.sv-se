@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: b9550f365eb11ffff87add041824504488c0de15
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619941"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Program med flera klienter med elastiska databas verktyg och säkerhet på radnivå
@@ -254,7 +254,7 @@ GO
 ```
 
 > [!TIP]
-> I ett komplext projekt kan du behöva lägga till predikatet i hundratals tabeller, vilket kan vara omständligt. Det finns en hjälp procedur lagrad procedur som automatiskt genererar en säkerhets princip och lägger till ett predikat i alla tabeller i ett schema. Mer information finns i blogg inlägget vid [tillämpa säkerhet på radnivå för alla tabeller – hjälp skript (blogg)](https://techcommunity.microsoft.com/t5/sql-server/apply-row-level-security-to-all-tables-helper-script/ba-p/384360).
+> I ett komplext projekt kan du behöva lägga till predikatet i hundratals tabeller, vilket kan vara omständligt. Det finns en hjälp procedur lagrad procedur som automatiskt genererar en säkerhets princip och lägger till ett predikat i alla tabeller i ett schema. Mer information finns i blogg inlägget vid [tillämpa Row-Level säkerhet för alla tabeller – hjälp skript (blogg)](https://techcommunity.microsoft.com/t5/sql-server/apply-row-level-security-to-all-tables-helper-script/ba-p/384360).
 
 Nu när du kör exempel programmet igen ser klienterna bara de rader som hör till dem. Dessutom kan inte programmet infoga rader som tillhör andra innehavare än den som för närvarande är ansluten till Shard-databasen. Appen kan inte heller uppdatera TenantId i de rader som kan visas. Om appen försöker göra något, utlöses en DbUpdateException.
 
@@ -303,7 +303,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 > [!NOTE]
 > Om du använder standard begränsningar för ett Entity Framework-projekt rekommenderar vi att du *inte* tar med kolumnen TenantId i din EF-datamodell. Den här rekommendationen beror på att Entity Framework frågor automatiskt tillhandahåller standardvärden som åsidosätter standard begränsningar som skapats i T-SQL och som använder SESSION \_ context.
-> Om du vill använda standard begränsningar i exempelprojektet, till exempel, bör du ta bort TenantId från DataClasses.cs (och köra Lägg till migrering i Package Manager-konsolen) och använda T-SQL för att se till att fältet endast finns i databas tabellerna. På så sätt anger EF automatiskt felaktiga standardvärden när data infogas.
+> Om du vill använda standard begränsningar i exempelprojektet, till exempel, bör du ta bort TenantId från DataClasses.cs (och köra Add-Migration i Package Manager-konsolen) och använda T-SQL för att se till att fältet endast finns i databas tabellerna. På så sätt anger EF automatiskt felaktiga standardvärden när data infogas.
 
 ### <a name="optional-enable-a-superuser-to-access-all-rows"></a>Valfritt Aktivera en *superanvändare* för åtkomst till alla rader
 
@@ -342,7 +342,7 @@ GO
 ### <a name="maintenance"></a>Underhåll
 
 - **Lägger till nya Shards**: kör T-SQL-skriptet för att aktivera RLS på alla nya Shards, annars filtreras inte frågor på dessa Shards.
-- **Nya tabeller läggs**till: Lägg till ett filter och blockera predikat i säkerhets principen på alla Shards varje gång som en ny tabell skapas. Andra frågor om den nya tabellen filtreras inte. Detta tillägg kan automatiseras med hjälp av en DDL-utlösare, enligt beskrivningen i [tillämpa säkerhet på radnivå automatiskt för nyligen skapade tabeller (blogg)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
+- **Nya tabeller läggs**till: Lägg till ett filter och blockera predikat i säkerhets principen på alla Shards varje gång som en ny tabell skapas. Andra frågor om den nya tabellen filtreras inte. Det här tillägget kan automatiseras med hjälp av en DDL-utlösare, enligt beskrivningen i [tillämpa Row-Level säkerhet automatiskt på nyligen skapade tabeller (blogg)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
 
 ## <a name="summary"></a>Sammanfattning
 

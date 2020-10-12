@@ -4,10 +4,10 @@ description: Lär dig hur du skapar en batch-pool som använder dina egna offent
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.openlocfilehash: e822311718847e173763847d503335f71457308b
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91849336"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>Skapa en Azure Batch pool med angivna offentliga IP-adresser
@@ -18,7 +18,7 @@ Du kan skapa en lista över statiska offentliga IP-adresser som ska användas me
 
 Information om hur du skapar pooler utan offentliga IP-adresser får du genom [att läsa skapa en Azure Batch pool utan offentliga IP-adresser](./batch-pool-no-public-ip-address.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Autentisering**. Om du vill använda en offentlig IP-adress måste batch-klientens API använda [Azure Active Directory (AD)-autentisering](batch-aad-auth.md).
 

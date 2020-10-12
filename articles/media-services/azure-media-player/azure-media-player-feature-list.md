@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 88048c3328114f17b30859efb41bb9f059b71439
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91296373"
 ---
 # <a name="feature-list"></a>Funktionslista #
@@ -59,7 +59,7 @@ Här är en lista över funktioner som har testats och funktioner som inte stöd
 | Analytics                               |        | X                |          |             | Med AMP kan du lyssna på analyser och diagnostiska händelser så att du kan skicka till en analys Server del som du väljer.  Alla händelser och egenskaper är inte tillgängliga i Tech på grund av plattforms begränsningar.                                                                            |
 | Anpassade skal                            |        |                  | X        |             | Det här scenariot kan uppnås genom att ställa in kontroller på falskt i AMP och använda din egen HTML och CSS.           |
 | Rensning av SeekBar-fält                      |        |                  |          | X           |                                                                                                                      |
-| Lura-Play                              |        |                  |          | X           |                                                                                                                      |
+| Trick-Play                              |        |                  |          | X           |                                                                                                                      |
 | Endast ljud                              | X      |                  |          |           | Stöds i AzureHtml5JS. Progressiv MP3-uppspelning kan fungera med HTML5-Tech om plattformen stöder det.                                                                                                        |
 | Endast video                              | X      |                  |          |           | Stöds i AzureHtml5JS.                                                                                                        |
 | Presentation med flera perioder               |        |                  |          | X                                                                                                                                  |

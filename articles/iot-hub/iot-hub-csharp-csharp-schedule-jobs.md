@@ -10,10 +10,10 @@ ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: d99cc571394ad7a9c85fb7367c672f96a7302362
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89018509"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Schema-och sändnings jobb (.NET)
@@ -58,7 +58,7 @@ I slutet av den här självstudien har du två .NET-konsol program (C#):
 
 * Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -70,7 +70,7 @@ I slutet av den här självstudien har du två .NET-konsol program (C#):
 
 I det här avsnittet skapar du en .NET-konsol app som svarar på en direkt metod som anropas av lösningens Server del.
 
-1. I Visual Studio väljer du **skapa ett nytt projekt**och klickar sedan på projekt mal len **konsol program (.NET Framework)** . Välj **Nästa** för att fortsätta.
+1. I Visual Studio väljer du **skapa ett nytt projekt**och klickar sedan på projekt mal len **konsol program (.NET Framework)** . Fortsätt genom att välja **Nästa**.
 
 1. I **Konfigurera ditt nya projekt**namnger du projektet *SimulateDeviceMethods*och väljer sedan **skapa**.
 
@@ -78,7 +78,7 @@ I det här avsnittet skapar du en .NET-konsol app som svarar på en direkt metod
 
 1. I Solution Explorer högerklickar du på projektet **SimulateDeviceMethods** och väljer sedan **Hantera NuGet-paket**.
 
-1. I **NuGet Package Manager**väljer du **Bläddra** och söker efter och väljer **Microsoft. Azure. devices. client**. Välj **Install** (Installera).
+1. I **NuGet Package Manager**väljer du **Bläddra** och söker efter och väljer **Microsoft. Azure. devices. client**. Välj **installera**.
 
     ![NuGet paket hanterarens fönster klient program](./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png)
 

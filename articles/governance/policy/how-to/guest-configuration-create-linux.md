@@ -4,12 +4,12 @@ description: Lär dig hur du skapar en princip för Azure Policy gäst konfigura
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4f49732aa2be50b0d8be6f1f3af974121dc9f363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ecf798a18f28c490d95b28c6ea8f02c6f22eee8
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076369"
+ms.locfileid: "91893245"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Skapa gästkonfigurationsprinciper för Linux
 
@@ -171,7 +171,7 @@ New-GuestConfigurationPackage `
   -ChefInSpecProfilePath './'
 ```
 
-När du har skapat konfigurations paketet, men innan du publicerar det till Azure, kan du testa paketet från din arbets Station eller CI/CD-miljö. GuestConfiguration-cmdleten `Test-GuestConfigurationPackage` innehåller samma agent i utvecklings miljön som används i Azure-datorer. Med den här lösningen kan du utföra integrerings testning lokalt innan du släpper till fakturerade moln miljöer.
+När du har skapat konfigurations paketet, men innan du publicerar det till Azure, kan du testa paketet från din arbets Station eller kontinuerlig integrering och distribution (CI/CD)-miljö. GuestConfiguration-cmdleten `Test-GuestConfigurationPackage` innehåller samma agent i utvecklings miljön som används i Azure-datorer. Med den här lösningen kan du utföra integrerings testning lokalt innan du släpper till fakturerade moln miljöer.
 
 Eftersom agenten faktiskt utvärderar den lokala miljön måste du, i de flesta fall, köra test-cmdlet på samma OS-plattform som du planerar att granska.
 
@@ -194,7 +194,7 @@ Cmdleten stöder även inmatade från PowerShell-pipeline. Skicka utdata från `
 New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-Nästa steg är att publicera filen till Blob Storage. Skriptet nedan innehåller en funktion som du kan använda för att automatisera den här uppgiften. Kommandona som används i `publish` funktionen kräver `Az.Storage` modulen.
+Nästa steg är att publicera filen till Azure Blob Storage. Skriptet nedan innehåller en funktion som du kan använda för att automatisera den här uppgiften. Kommandona som används i `publish` funktionen kräver `Az.Storage` modulen.
 
 ```azurepowershell-interactive
 function publish {

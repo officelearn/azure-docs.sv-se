@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: c8a1d1c0f8de742bdafa130cce6927a472efd8f7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329354"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
@@ -67,12 +67,12 @@ Så här hämtar du skriptet:
 
 1. Välj **Anslut**.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Skärm bild av anslutnings ikonen för din fil resurs.":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="exempel":::
 
 1. Välj den enhets beteckning som resursen ska monteras på.
 1. Kopiera det medföljande skriptet.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Exempel text":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="exempel":::
 
 1. Klistra in skriptet i ett gränssnitt på den värd som du vill montera fil resursen på och kör den.
 
@@ -88,7 +88,7 @@ Nu har du monterat Azure-filresursen.
     
     ![En skärmbild av den nedrullningsbara menyn "Anslut nätverksenhet"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-1. Välj enhets bokstaven och ange UNC-sökvägen. UNC-sökvägarna är `\\<storageAccountName>.file.core.windows.net\<fileShareName>` . Till exempel: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
+1. Välj enhets bokstaven och ange UNC-sökvägen. UNC-sökvägarna är `\\<storageAccountName>.file.core.windows.net\<fileShareName>` . Exempel: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
     
     ![En skärmbild av dialogrutan "Anslut nätverksenhet"](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 

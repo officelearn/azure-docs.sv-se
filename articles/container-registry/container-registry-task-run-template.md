@@ -4,10 +4,10 @@ description: Köa en ACR-uppgift köra för att skapa en avbildning med hjälp a
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82927776"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Köra ACR-uppgifter med Resource Manager-mallar
@@ -16,7 +16,7 @@ ms.locfileid: "82927776"
 
 Den här artikeln visar Azure Resource Manager mall-exempel för att köa en snabb uppgifts körning, som liknar en som du kan skapa manuellt med kommandot [AZ ACR build][az-acr-build] .
 
-En Resource Manager-mall för att köa en uppgifts körning är användbar i automatiserings scenarier och utökar funktionerna i `az acr build` . Ett exempel:
+En Resource Manager-mall för att köa en uppgifts körning är användbar i automatiserings scenarier och utökar funktionerna i `az acr build` . Exempel:
 
 * Använd en mall för att skapa ett behållar register och omedelbart köa en aktivitets körning för att skapa och skicka en behållar avbildning
 * Skapa eller aktivera ytterligare resurser som du kan använda i en snabb uppgifts körning, till exempel en hanterad identitet för Azure-resurser
@@ -73,7 +73,7 @@ az acr repository show-tags \
   --repository helloworld-node --output table
 ```
 
-Resultat:
+Utdata:
 
 ```console
 Result
@@ -221,7 +221,7 @@ az acr repository show-tags \
   --repository helloworld-node --output table
 ```
 
-Resultat:
+Utdata:
 
 ```console
 Result

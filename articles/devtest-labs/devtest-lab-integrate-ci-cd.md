@@ -4,10 +4,10 @@ description: Lär dig hur du integrerar Azure DevTest Labs i dina Azure-pipeline
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 96f99d41d0a7ea07bf3854292f9c3bd6245414b3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87288934"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Integrera Azure DevTest Labs i din Azure-pipeline CI/CD-pipeline
@@ -24,7 +24,7 @@ Den här artikeln visar hur du använder Azure DevTest Labs uppgifter för att s
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Registrera dig eller logga in i din [Azure DevOps](https://dev.azure.com) -organisation och [skapa ett projekt](/vsts/organizations/projects/create-project) i organisationen. 
   
@@ -127,7 +127,7 @@ Nästa steg är att skapa en virtuell dator i den gyllene avbildningen som ska a
 
 1. I den högra rutan fyller du i formuläret enligt följande:
    
-   |Fält|Värde|
+   |Field|Värde|
    |---|---|
    |**Azure RM-prenumeration**|Välj en tjänst anslutning eller prenumeration från **tillgängliga Azure-tjänst anslutningar** eller **tillgängliga Azure-prenumerationer** i list rutan och välj **auktorisera** vid behov.<br /><br />**Obs:** Information om hur du skapar en mer begränsad behörighets anslutning till din Azure-prenumeration finns i [Azure Resource Manager tjänstens slut punkt](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).|
    |**Labb namn**|Välj namnet på ett befintligt labb där den virtuella labb datorn ska skapas.|
@@ -147,7 +147,7 @@ Kör skriptet som du skapade tidigare för att samla in information om den virtu
    
 1. I den högra rutan fyller du i formuläret enligt följande:
    
-   |Fält|Värde|
+   |Field|Värde|
    |---|---|
    |**Typ av Azure-anslutning**|Välj **Azure Resource Manager**.|
    |**Azure Subscription (Azure-prenumeration)**|Välj din tjänst anslutning eller prenumeration.| 
@@ -167,7 +167,7 @@ Nästa uppgift är att skapa en avbildning av den nyligen distribuerade virtuell
    
 1. Konfigurera uppgiften enligt följande:
    
-   |Fält|Värde|
+   |Field|Värde|
    |---|---|
    |**Azure RM-prenumeration**|Välj din tjänst anslutning eller prenumeration.|
    |**Labb namn**|Välj namnet på ett befintligt labb där bilden ska skapas.|

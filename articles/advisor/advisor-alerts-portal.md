@@ -4,10 +4,10 @@ description: Skapa Azure Advisor aviseringar för ny rekommendation
 ms.topic: article
 ms.date: 09/09/2019
 ms.openlocfilehash: 837f12a12e532902ee76e345afa430f758f79c10
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90973652"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Skapa Azure Advisor aviseringar om nya rekommendationer med hjälp av Azure Portal 
@@ -187,11 +187,11 @@ Från Azure Advisor kan du redigera, ta bort eller inaktivera och aktivera avise
 
 1. I **portalen**väljer du **Azure Advisor**.
 
-    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Skärm bild av menyn Azure Portal som visar Azure Advisor vald.":::
+    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Skärm bild av avsnittet aviserings information.":::
 
 2. I avsnittet **övervakning** på den vänstra menyn väljer du **aviseringar**.
 
-    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Skärm bild av Azure Portal menyn som visar aviseringar valda.":::
+    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Skärm bild av avsnittet aviserings information.":::
 
 3. Om du vill redigera en avisering klickar du på aviseringens namn för att öppna aviseringen och redigera de fält som du vill redigera.
 

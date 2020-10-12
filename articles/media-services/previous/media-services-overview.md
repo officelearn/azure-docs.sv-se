@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: juliako
 ms.openlocfilehash: 0d896b0ce23116f1b87718f492d407ac094b9e6a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89261163"
 ---
 # <a name="azure-media-services-overview"></a>Översikt över Azure Media Services
@@ -69,7 +69,7 @@ Bygg Media Services-lösningar genom att använda:
     * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
     * [Azure Media Services för Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (detta är en icke-Microsoft-version av en Node.js SDK. Den underhålls av ett community och har för närvarande inte en 100-procentig täckning av AMS API:er).
 * Befintliga verktyg:
-    * [Azure-portalen](https://portal.azure.com/)
+    * [Azure Portal](https://portal.azure.com/)
     * [Azure-Media Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) är ett Winforms/C#-program för Windows)
 
 > [!NOTE]

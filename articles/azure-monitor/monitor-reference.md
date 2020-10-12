@@ -7,10 +7,10 @@ author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
 ms.openlocfilehash: 1841c4eb8975c865c5f15a0e8fe3a6b5f0522820
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89435413"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Vad övervakas av Azure Monitor?
@@ -55,7 +55,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 - Loggar – tjänsten stöder diagnostikinställningar som kan samla in plattforms loggar och statistik för att Azure Monitor loggar.
 - Insight – det finns en insikt tillgänglig för tjänsten som tillhandahåller en anpassad övervaknings upplevelse för tjänsten.
 
-| Tjänst | Mått | Loggar | Insight | Kommentarer |
+| Tjänst | Mått | Loggar | Insight | Obs! |
 |:---|:---|:---|:---|:---|
 |Active Directory | Nej | Ja | [Ja](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
 |Active Directory B2C | Inga | Inga | Inga |  |
@@ -120,7 +120,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |IoT Hub | Ja | Ja | Inga |  |
 |Key Vault | Ja | Ja | [Ja](./insights/key-vault-insights-overview.md) |  |
 |Kubernetes Service (AKS) | Inga | Inga | [Ja](insights/container-insights-overview.md)  |  |
-|Load Balancer | Ja | Inga | Inga |  |
+|Lastbalanserare | Ja | Inga | Inga |  |
 |Logic Apps | Ja | Ja | Inga |  |
 |Machine Learning Service | Inga | Inga | Inga |  |
 |Managed Applications  | Inga | Inga | Inga |  |
@@ -136,13 +136,13 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Network Watcher | Ja | Ja | Inga |  |
 |Notification Hubs | Ja | Inga | Inga |  |
 |Open Datasets | Inga | Inga | Inga |  |
-|Policy | Inga | Inga | Nej |  |
+|Princip | Inga | Inga | Nej |  |
 |Power BI Embedded | Ja | Ja | Inga |  |
 |Private Link | Inga | Inga | Inga |  |
 |Kommunikations plattform för bufferthanterare | Inga | Inga | Inga |  |
 |Red Hat OpenShift | Inga | Inga | Inga |  |
 |Redis Cache | Ja | Ja | [Ja](insights/redis-cache-insights-overview.md) | |
-|Resource Graph | Inga | Inga | Inga |  |
+|Resursdiagram | Inga | Inga | Inga |  |
 |Resource Manager | Inga | Inga | Inga |  |
 |Butiks sökning – efter Bing | Inga | Inga | Inga |  |
 |Search | Ja | Ja | Inga |  |
@@ -164,7 +164,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Traffic Manager | Ja | Ja | Inga |  |
 |Universell utskrift | Inga | Inga | Inga |  |
 |Virtual Machine Scale Sets | Inga | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
-|Virtuella datorer | Ja | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
+|Virtual Machines | Ja | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
 |Virtual Network | Ja | Ja | [Ja](insights/network-insights-overview.md) |  |
 |Virtual Network NSG flödes loggar | Inga | Ja | Inga |  |
 |VPN Gateway | Ja | Ja | Inga |  |

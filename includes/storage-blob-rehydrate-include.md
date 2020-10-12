@@ -11,10 +11,10 @@ ms.topic: include
 ms.reviewer: hux
 ms.custom: include file
 ms.openlocfilehash: 53d2d47143c5a2cefbd50faca9a02af18ffae315
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84754632"
 ---
 Om du vill läsa data i arkivlagring måste du först ändra nivå för din blob till frekvent eller lågfrekvent. Den här processen kallas ÅTERUPPVÄCKNING och kan ta timmar att slutföra. Vi rekommenderar stora BLOB-storlekar för optimal ÅTERUPPVÄCKNING-prestanda. Återställning av flera små blobbar samtidigt kan ta ännu längre tid. Det finns för närvarande två rehydratisera-prioriteter, hög och standard, som kan ställas in via den valfria egenskapen *x-MS-rehydratiseraable-Priority* på en [set BLOB-nivå](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) eller [Kopiera BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob) -åtgärd.

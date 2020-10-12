@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
 ms.openlocfilehash: c04da65af27ebd5ac654bc059ae004c157a20f33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84737537"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visa topologin för ett virtuellt Azure-nätverk
@@ -30,7 +30,7 @@ Du kan använda [Azure Portal](#azure-portal), [Azure CLI](#azure-cli)eller [Pow
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som har de [behörigheter](required-rbac-permissions.md)som krävs.
 2. I det övre vänstra hörnet i portalen väljer du **alla tjänster**.
-3. I rutan **alla tjänster** filter anger du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
+3. I rutan **alla tjänster** filter anger du *Network Watcher*. När **Network Watcher** visas i resultatet markerar du det.
 4. Välj **Topologi**. Att skapa en topologi kräver en nätverks övervakare i samma region som det virtuella nätverk som du vill skapa topologin för finns i. Om du inte har en nätverks övervakare aktive rad i den region där det virtuella nätverket som du vill skapa en topologi för finns i, skapas Network Watcher automatiskt i alla regioner. Nätverks bevakarna skapas i en resurs grupp med namnet **NetworkWatcherRG**.
 5. Välj en prenumeration, resurs gruppen för ett virtuellt nätverk som du vill visa topologin för och välj sedan det virtuella nätverket. I följande bild visas en topologi för ett virtuellt nätverk med namnet *MyVnet*i resurs gruppen med namnet *MyResourceGroup*:
 

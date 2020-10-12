@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 4200bc9879aba5e18282123be03576cc617a5e14
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88549238"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Självstudie: Konfigurera en hörn OnDemand för automatisk användar etablering
@@ -84,7 +84,7 @@ Följ dessa steg om du vill konfigurera automatisk användar etablering för ett
 
     ![Länken för hörn OnDemandn i program listan](common/all-applications.png)
 
-3. Välj fliken **etablering** .
+3. Välj fliken **Etablering**.
 
     ![Konfiguration av hörn OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningTab.png)
 
@@ -151,11 +151,11 @@ Attributet för den här **positionen** förväntar sig ett värde som motsvarar
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/cornerstone-ondemand-provisioning-tutorial/tutorial_general_01.png

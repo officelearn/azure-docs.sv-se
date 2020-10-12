@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: bffbf32cf5faa936a00444f1f39facaf226b8ef2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90885981"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Aktivera loggning i Azure Machine Learning designer-pipeliner
@@ -59,7 +59,7 @@ I följande exempel visas hur du loggar medelvärdet av ett kvadratvärde i två
         return dataframe1,
     ```
     
-Den här koden använder Azure Machine Learning python SDK för att logga värden. Den använder Run. get_context () för att hämta kontexten för den aktuella körningen. Den loggar sedan värden till den kontexten med metoden Run. parent. log (). Den använder `parent` för att logga värden i den överordnade pipelinen i stället för att modulen ska köras.
+Den här koden använder Azure Machine Learning python SDK för att logga värden. Den använder Run.get_context () för att hämta kontexten för den aktuella körningen. Den loggar sedan värden till den kontexten med metoden Run. parent. log (). Den använder `parent` för att logga värden i den överordnade pipelinen i stället för att modulen ska köras.
 
 Mer information om hur du använder python SDK för att logga värden finns i [Aktivera loggning i Azure ml-utbildning](how-to-track-experiments.md).
 

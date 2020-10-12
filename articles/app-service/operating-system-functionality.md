@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
 ms.openlocfilehash: 11798db483f0ba370f73340489c17f38c87ede41
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88080206"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Operativ system funktioner på Azure App Service
@@ -51,7 +51,7 @@ På grund av detta är App Service en tjänst som körs ovanpå Azure-PaaS (plat
 - En program enhet som innehåller Azure Package cspkg-filer som används exklusivt av App Service (och inte är tillgänglig för kunder)
 - En "användar enhet" (C:\ enhet), vars storlek varierar beroende på den virtuella datorns storlek. 
 
-Det är viktigt att du övervakar disk användningen när programmet växer. Om disk kvoten har nåtts kan den ha skadlig påverkan på ditt program. Till exempel: 
+Det är viktigt att du övervakar disk användningen när programmet växer. Om disk kvoten har nåtts kan den ha skadlig påverkan på ditt program. Exempel: 
 
 - Appen kan utlösa ett fel som anger att det inte finns tillräckligt med utrymme på disken.
 - Du kan se disk fel när du bläddrar till kudu-konsolen.

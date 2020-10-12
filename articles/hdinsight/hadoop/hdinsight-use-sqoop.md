@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.openlocfilehash: 165b7d00c3cf307e7996e84a35bb2a202f448cc0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86076886"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Använda Apache Sqoop med Hadoop i HDInsight
@@ -44,7 +44,7 @@ HDInsight-kluster innehåller vissa exempel data. Du använder följande två ex
 
 * En Hive-tabell med namnet `hivesampletable` som refererar till den data fil som finns på `/hive/warehouse/hivesampletable` . Tabellen innehåller vissa mobila enhets data.
   
-  | Fält | Datatyp |
+  | Field | Datatyp |
   | --- | --- |
   | clientid |sträng |
   | querytime |sträng |
@@ -95,7 +95,7 @@ Klustret, SQL-databasen och andra objekt skapas via Azure Portal med hjälp av e
     |BACPAC fil namn |Använd standardvärdet om du inte vill använda din egen BACPAC-fil.|
     |Location |Använd standardvärdet.|
 
-    Namnet på den [logiska SQL-servern](../../azure-sql/database/logical-servers.md) är `<ClusterName>dbserver` . Databas namnet kommer att vara `<ClusterName>db` . Standard namnet för lagrings kontot är `e6qhezrh2pdqu` .
+    Namnet på den [logiska SQL-servern](../../azure-sql/database/logical-servers.md) är  `<ClusterName>dbserver` . Databas namnet kommer att vara `<ClusterName>db` . Standard namnet för lagrings kontot är `e6qhezrh2pdqu` .
 
 3. Välj **Jag accepterar de villkor som anges ovan**.
 
@@ -118,7 +118,7 @@ HDInsight kan köra Sqoop-jobb genom att använda en mängd olika metoder. Anvä
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du lärt dig hur du använder Sqoop. Du kan läsa mer här:
+Nu har du lärt dig hur du använder Sqoop. Mer information finns i:
 
 * [Använda Apache Hive med HDInsight](../hdinsight-use-hive.md)
 * [Ladda upp data till HDInsight](../hdinsight-upload-data.md): hitta andra metoder för att ladda upp data till HDInsight/Azure Blob Storage.

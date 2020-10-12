@@ -13,10 +13,10 @@ ms.date: 12/13/2019
 ms.author: kegorman
 ms.custom: ''
 ms.openlocfilehash: 2bbc78f9a5569c8446743980cdea153883c19d4d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274444"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Referens arkitekturer för Oracle Database Enterprise Edition på Azure
@@ -71,7 +71,7 @@ När du använder Oracle data Guard kan du också öppna den sekundära database
 > Active data Guard kräver ytterligare licensiering. Den här licensen krävs också för att använda funktionen för mycket synkronisering. Kontakta din Oracle-representant för att diskutera konsekvenserna av licensen.
 
 #### <a name="oracle-data-guard-with-fsfo"></a>Oracle data Guard med FSFO
-Oracle data Guard med snabb starts växling (FSFO) kan ge ytterligare återhämtning genom att konfigurera koordinatorn på en annan dator. Data Guard Broker och den sekundära databasen båda kör observatören och studerar den primära databasen för stillestånds tid. Detta möjliggör även redundans i din data Guard-installationsprogram. 
+Oracle data Guard med Fast-Start redundans (FSFO) kan ge ytterligare återhämtning genom att konfigurera koordinatorn på en annan dator. Data Guard Broker och den sekundära databasen båda kör observatören och studerar den primära databasen för stillestånds tid. Detta möjliggör även redundans i din data Guard-installationsprogram. 
 
 Med Oracle Database version 12,2 och senare, är det också möjligt att konfigurera flera övervakare med en enda Oracle data Guard Broker-konfiguration. Den här installationen ger ytterligare tillgänglighet, i händelse av en övervakare och drift stopp i den sekundära databasen. Data Guard Broker är Lightweight och kan finnas på en relativt liten virtuell dator. Om du vill veta mer om data Guard Broker och dess fördelar kan du gå till [Oracle-dokumentationen](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html) i det här avsnittet.
 
@@ -152,7 +152,7 @@ Oracle-horisontell partitionering består främst av följande komponenter. Mer 
 
 - **Global tjänst** – global tjänst liknar den reguljära databas tjänsten. Förutom alla egenskaper för en databas tjänst har en global tjänst egenskaper för shardade-databaser, till exempel region tillhörighet mellan klienter och Shard och avvikelse tolerans för replikering. Endast en global tjänst behöver skapas för att läsa/skriva data till/från en shardade-databas. När du använder Active data Guard och konfigurerar skrivskyddade repliker av Shards kan du skapa en annan gGobal-tjänst för skrivskyddade arbets belastningar. Klienten kan använda dessa globala tjänster för att ansluta till databasen.
 
-- **Shard-databaser** – Shard-databaser är dina Oracle-databaser. Varje databas replikeras med hjälp av Oracle data Guard i en Broker-konfiguration med snabb start (FSFO) aktive rad. Du behöver inte konfigurera data Guard-redundans och-replikering på varje Shard. Detta konfigureras och distribueras automatiskt när den delade databasen skapas. Om en viss Shard Miss lyckas växlar Oracle-delningen automatiskt över databas anslutningar från den primära till vänte läge.
+- **Shard-databaser** – Shard-databaser är dina Oracle-databaser. Varje databas replikeras med hjälp av Oracle data Guard i en Broker-konfiguration med Fast-Start redundans (FSFO) aktiverat. Du behöver inte konfigurera data Guard-redundans och-replikering på varje Shard. Detta konfigureras och distribueras automatiskt när den delade databasen skapas. Om en viss Shard Miss lyckas växlar Oracle-delningen automatiskt över databas anslutningar från den primära till vänte läge.
 
 Du kan distribuera och hantera Oracle shardade-databaser med två gränssnitt: Oracle Enterprise Manager Cloud control GUI och/eller `GDSCTL` kommando rads verktyget. Du kan även övervaka olika Shards för tillgänglighet och prestanda med hjälp av moln kontroll. `GDSCTL DEPLOY`Kommandot skapar automatiskt Shards och deras respektive lyssnare. Dessutom distribuerar det här kommandot automatiskt den replikeringskonfiguration som används för att Shard hög tillgänglighet som anges av administratören.
 
@@ -232,6 +232,6 @@ Granska följande Oracle Reference-artiklar som gäller för ditt scenario.
 
 - [Introduktion till Oracle data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7)
 - [Oracle data Guard Broker-koncept](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html)
-- [Konfigurera Oracle-GoldenGate för aktiv-aktiv hög tillgänglighet](https://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_bidirectional.htm#GWUAD282)
+- [Konfigurera Oracle-GoldenGate för Active-Active hög tillgänglighet](https://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_bidirectional.htm#GWUAD282)
 - [Översikt över Oracle-horisontell partitionering](https://docs.oracle.com/en/database/oracle/oracle-database/19/shard/sharding-overview.html)
 - [Oracle Active data Guard, lång synkronisering, noll data förlust vid valfritt avstånd](https://www.oracle.com/technetwork/database/availability/farsync-2267608.pdf)

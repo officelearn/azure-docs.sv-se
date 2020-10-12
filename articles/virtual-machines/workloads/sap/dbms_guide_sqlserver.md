@@ -16,10 +16,10 @@ ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 56a7b91327e84ca36e6ec6e4b15f594dbc61830e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274307"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server Azure Virtual Machines DBMS-distribution för SAP NetWeaver
@@ -404,7 +404,7 @@ Det finns flera möjligheter att utföra manuella säkerhets kopieringar genom a
 
 1. Köra vanliga SQL Server säkerhets kopieringar på direktanslutna Azure-diskar. Den här metoden har fördelen att du har säkerhets kopiorna tillgängliga snabbt för att uppdatera systemet och bygga upp nya system som kopior av befintliga SAP-system
 2.  SQL Server 2012 CU4 och högre kan säkerhetskopiera databaser till en Azure Storage-URL.
-3.  Säkerhets kopior av fil-och ögonblicks bilder för databasfiler i Azure Blob Storage. Den här metoden fungerar bara när SQL Server data och loggfiler finns i Azure Blob Storage
+3.  File-Snapshot säkerhets kopior för databasfiler i Azure Blob Storage. Den här metoden fungerar bara när SQL Server data och loggfiler finns i Azure Blob Storage
 
 Den första metoden är känd och används i många fall även i den lokala världen. Dock lämnar den aktiviteten för att lösa säkerhets kopierings platsen för längre tid. Eftersom du inte vill behålla säkerhets kopiorna i 30 eller fler dagar i den lokalt anslutna Azure Storage måste du antingen använda Azure Backup tjänster eller ett annat säkerhets kopierings-eller återställnings verktyg från tredje part som innehåller åtkomst och bevarande hantering för dina säkerhets kopior. Eller så skapar du en stor fil server i Azure med hjälp av Windows lagrings utrymmen.
 
@@ -464,7 +464,7 @@ Latin1-General, binary code point comparison sort for Unicode Data, SQL Server S
 
 Om resultatet skiljer sig kan du avbryta distributionen av SAP och undersöka varför installations kommandot inte fungerade som förväntat. Det finns **inte** stöd för distribution av SAP NetWeaver-program till SQL Server-instans med olika SQL Server-kodsidor än det som anges ovan.
 
-## <a name="sql-server-high-availability-for-sap-in-azure"></a>SQL Server hög tillgänglighet för SAP i Azure
+## <a name="sql-server-high-availability-for-sap-in-azure"></a>SQL Server High-Availability för SAP i Azure
 Med hjälp av SQL Server i Azure IaaS-distributioner för SAP har du flera olika möjligheter att lägga till för att distribuera DBMS-skiktet med hög tillgänglighet. Som beskrivs i [överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) , tillhandahåller Azure olika service avtal för en enskild virtuell dator och ett par med virtuella datorer som distribueras i en Azures tillgänglighets uppsättning. Antagande är att du driver upp till SLA för drift tid för dina produktions distributioner som kräver distribution i Azures tillgänglighets uppsättningar. I sådana fall måste du distribuera minst två virtuella datorer i en sådan tillgänglighets uppsättning. En virtuell dator kommer att köra den aktiva SQL Server-instansen. Den andra virtuella datorn kommer att köra den passiva instansen
 
 ### <a name="sql-server-clustering-using-windows-scale-out-file-server-or-azure-shared-disk"></a>SQL Server klustring med Windows-skalbar fil server eller Azure delad disk
@@ -484,7 +484,7 @@ Den SQL Server logg leverans funktionen användes i Azure för att uppnå hög t
 ### <a name="database-mirroring"></a>Databasspegling
 Databas spegling som stöds av SAP (se SAP NOTE [965908]) förlitar sig på att definiera en REDUNDANSPARTNERSERVERN i SAP-anslutningssträngen. För de kors lokala fallen antar vi att de två virtuella datorerna finns i samma domän och att användar kontexten för de två SQL Server instanserna körs under en domän användare och har tillräcklig behörighet i de två SQL Server instanser som ingår. Konfigurationen av databas spegling i Azure skiljer sig därför inte mellan en typisk lokal installation/konfiguration.
 
-Vid distributioner med enbart moln är den enklaste metoden att låta en annan domän konfigurera i Azure ha dessa DBMS-VM: ar (och idealiskt dedikerade virtuella SAP-datorer) i en domän.
+Från och med Cloud-Only distributioner är den enklaste metoden att låta en annan domän konfigurera i Azure ha dessa DBMS-VM: ar (och idealiskt dedikerade virtuella SAP-datorer) i en domän.
 
 Om en domän inte är möjlig kan en använda certifikat för databas speglingens slut punkter enligt beskrivningen här: <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
 

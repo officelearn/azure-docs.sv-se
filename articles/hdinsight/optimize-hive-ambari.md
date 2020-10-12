@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.openlocfilehash: 33c2ee7bc477d3c9d3823642dbdd974650017822
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084366"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Optimera Apache Hive med Apache Ambari i Azure HDInsight
@@ -134,10 +134,10 @@ De tillgängliga komprimerings typerna är:
 
 | Format | Verktyg | Integritetsalgoritm | Fil namns tillägg | Delbara? |
 | --- | --- | --- | --- | --- |
-| Gzip | Gzip | DEFLATE | `.gz` | No |
+| Gzip | Gzip | DEFLATE | `.gz` | Inga |
 | Bzip2 | Bzip2 | Bzip2 |`.bz2` | Ja |
 | LZO | `Lzop` | LZO | `.lzo` | Ja, om det är indexerat |
-| Snappy | E.t. | Snappy | Snappy | No |
+| Snappy | E.t. | Snappy | Snappy | Inga |
 
 Som en allmän regel är det viktigt att det går att dela upp komprimerings metoden, annars får några av mapparna skapats. Om indata är text, `bzip2` är det bästa alternativet. För ORC-format är fästfunktionen det snabbaste komprimerings alternativet.
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 48501a2796f4d826a20af559058490a14785b53e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84738642"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualisera nätverks trafik mönster till och från dina virtuella datorer med hjälp av verktyg med öppen källkod
@@ -36,7 +36,7 @@ Du har ett enkelt webb program som distribueras på en virtuell dator i Azure vi
 ### <a name="install-capanalysis"></a>Installera CapAnalysis
 
 Om du vill installera CapAnalysis på en virtuell dator kan du läsa de officiella anvisningarna här https://www.capanalysis.net/ca/how-to-install-capanalysis .
-För att få åtkomst till CapAnalysis måste du öppna port 9877 på den virtuella datorn genom att lägga till en ny inkommande säkerhets regel. Mer information om hur du skapar regler i nätverks säkerhets grupper finns i [skapa regler i en befintlig NSG](../virtual-network/manage-network-security-group.md#create-a-security-rule). När regeln har lagts till ska du kunna komma åt CapAnalysis från`http://<PublicIP>:9877`
+För att få åtkomst till CapAnalysis måste du öppna port 9877 på den virtuella datorn genom att lägga till en ny inkommande säkerhets regel. Mer information om hur du skapar regler i nätverks säkerhets grupper finns i [skapa regler i en befintlig NSG](../virtual-network/manage-network-security-group.md#create-a-security-rule). När regeln har lagts till ska du kunna komma åt CapAnalysis från `http://<PublicIP>:9877`
 
 ### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Använd Azure-Network Watcher för att starta en paket insamlings session
 
@@ -47,7 +47,7 @@ Du kan direkt ladda upp en paket avbildning som tas av Network Watcher med hjäl
 
 När du tillhandahåller en länk till CapAnalysis, se till att lägga till en SAS-token till lagrings-BLOB-URL: en.  Det gör du genom att navigera till signaturen för delad åtkomst från lagrings kontot, ange tillåtna behörigheter och trycka på knappen generera SAS för att skapa en token. Du kan sedan lägga till SAS-token till Packet Capture Storage BLOB URL.
 
-Den resulterande URL: en kommer att se ut ungefär som följande URL:`http:\//storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
+Den resulterande URL: en kommer att se ut ungefär som följande URL: `http:\//storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
 
 
 ### <a name="analyzing-packet-captures"></a>Analysera paket fångster

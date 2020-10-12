@@ -4,10 +4,10 @@ description: Beskriver hur du säkerhetskopierar och återställer virtuella Azu
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 87d655652d0207a50f8980f18d18e76fea0b1e21
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90975094"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
@@ -194,7 +194,7 @@ En säkerhets kopierings skydds princip är associerad med minst en bevarande pr
 * Använd [Get-AzRecoveryServicesBackupRetentionPolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject) för att Visa standard bevarande principen.
 * På samma sätt kan du använda [Get-AzRecoveryServicesBackupSchedulePolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject) för att hämta standard schema principen.
 * Cmdlet [: en New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) skapar ett PowerShell-objekt som innehåller information om säkerhets kopierings principen.
-* Schema-och bevarande princip objekt används som indata till cmdleten New-AzRecoveryServicesBackupProtectionPolicy.
+* Schema-och bevarande princip objekt används som indata till New-AzRecoveryServicesBackupProtectionPolicy-cmdleten.
 
 Som standard definieras en start tid i objektet Schemalägg princip. Använd följande exempel för att ändra start tiden till önskad start tid. Den önskade start tiden ska också vara i UTC-tid. I följande exempel antas den önskade start tiden vara 01:00 AM UTC för dagliga säkerhets kopieringar.
 

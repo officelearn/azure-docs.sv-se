@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
 ms.openlocfilehash: a84e48c7fbb6d63a4bf8946b66bd35f354643ccb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84753608"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Resurs loggar för Azure Web Application-brandvägg
@@ -100,7 +100,7 @@ Azure genererar aktivitets loggen som standard. Loggarna bevaras för 90 dagar i
 |httpVersion     | HTTP-version för begäran.        |
 |receivedBytes     | Storleken på det mottagna paketet, i byte.        |
 |sentBytes| Storlek på paket som skickas, i byte.|
-|timeTaken| Tids längd (i millisekunder) som det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som intervallet från den tidpunkt då Application Gateway tar emot den första byten i en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs. Det är viktigt att Observera att det tidsödande fältet vanligt vis innehåller den tid som paket för begäran och svar överförs över nätverket. |
+|timeTaken| Tids längd (i millisekunder) som det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som intervallet från den tidpunkt då Application Gateway tar emot den första byten i en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs. Det är viktigt att Observera att fältet Time-Taken vanligt vis innehåller den tidpunkt då begäran och svars paket överförs över nätverket. |
 |sslEnabled| Huruvida kommunikation med backend-pooler använder TLS/SSL. Giltiga värden är på och av.|
 |värd| Det värdnamn som begäran har skickats till backend-servern. Om värd namnet för Server delen åsidosätts, kommer det här namnet att återspegla detta.|
 |originalHost| Det värdnamn som begäran togs emot av Application Gateway från klienten.|
@@ -143,7 +143,7 @@ För Application Gateway och WAF v2 visar loggarna lite mer information:
 |httpVersion     | HTTP-version för begäran.        |
 |receivedBytes     | Storleken på det mottagna paketet, i byte.        |
 |sentBytes| Storlek på paket som skickas, i byte.|
-|timeTaken| Tids längd (i millisekunder) som det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som intervallet från den tidpunkt då Application Gateway tar emot den första byten i en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs. Det är viktigt att Observera att det tidsödande fältet vanligt vis innehåller den tid som paket för begäran och svar överförs över nätverket. |
+|timeTaken| Tids längd (i millisekunder) som det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som intervallet från den tidpunkt då Application Gateway tar emot den första byten i en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs. Det är viktigt att Observera att fältet Time-Taken vanligt vis innehåller den tidpunkt då begäran och svars paket överförs över nätverket. |
 |sslEnabled| Om kommunikationen till backend-poolerna använder TLS. Giltiga värden är på och av.|
 |sslCipher| Chiffrering som används för TLS-kommunikation (om TLS är aktiverat).|
 |sslProtocol| TLS-protokoll som används (om TLS är aktiverat).|
@@ -191,7 +191,7 @@ Prestanda loggen skapas endast om du har aktiverat den på varje Application Gat
 |healthyHostCount     | Antal felfria värdar i backend-poolen.        |
 |unHealthyHostCount     | Antalet värdar som inte är felfria i backend-poolen.        |
 |requestCount     | Antal begär Anden som hanteras.        |
-|svars tid | Genomsnittlig svars tid (i millisekunder) för begär Anden från instansen till Server delen som hanterar begär Anden. |
+|svarstid | Genomsnittlig svars tid (i millisekunder) för begär Anden från instansen till Server delen som hanterar begär Anden. |
 |failedRequestCount| Antal misslyckade förfrågningar.|
 |dataflöde| Genomsnittligt data flöde sedan den senaste loggen mätt i byte per sekund.|
 

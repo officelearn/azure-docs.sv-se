@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
 ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83590646"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Anpassade under domän namn för Cognitive Services
@@ -70,20 +70,20 @@ Ja. Det här är en lista över regionala slut punkter som du kan använda med A
 
 | Slut punkts typ | Region | Slutpunkt |
 |---------------|--------|----------|
-| Offentlig | Global (Translator & Bing) | `https://api.cognitive.microsoft.com` |
+| Offentliga | Global (Translator & Bing) | `https://api.cognitive.microsoft.com` |
 | | Australien, östra | `https://australiaeast.api.cognitive.microsoft.com` |
 | | Brasilien, södra | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | Kanada, centrala | `https://canadacentral.api.cognitive.microsoft.com` |
-| | USA, centrala | `https://centralus.api.cognitive.microsoft.com` |
+| | Central US | `https://centralus.api.cognitive.microsoft.com` |
 | | Asien, östra | `https://eastasia.api.cognitive.microsoft.com` |
-| | USA, östra | `https://eastus.api.cognitive.microsoft.com` |
+| | East US | `https://eastus.api.cognitive.microsoft.com` |
 | | USA, östra 2 | `https://eastus2.api.cognitive.microsoft.com` |
 | | Frankrike, centrala | `https://francecentral.api.cognitive.microsoft.com` |
 | | Indien, centrala | `https://centralindia.api.cognitive.microsoft.com` |
 | | Japan, östra | `https://japaneast.api.cognitive.microsoft.com` |
 | | Sydkorea, centrala | `https://koreacentral.api.cognitive.microsoft.com` |
 | | USA, norra centrala | `https://northcentralus.api.cognitive.microsoft.com` |
-| | Europa, norra | `https://northeurope.api.cognitive.microsoft.com` |
+| | Norra Europa | `https://northeurope.api.cognitive.microsoft.com` |
 | | Sydafrika, norra | `https://southafricanorth.api.cognitive.microsoft.com` |
 | | USA, södra centrala | `https://southcentralus.api.cognitive.microsoft.com` |
 | | Sydostasien | `https://southeastasia.api.cognitive.microsoft.com` |

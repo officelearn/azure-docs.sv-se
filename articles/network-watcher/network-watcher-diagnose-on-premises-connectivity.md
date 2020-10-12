@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 632a1eb7b7ac53bd3d7df3f2722d6e53277c7926
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84738761"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnostisera lokal anslutning via VPN-gatewayer
@@ -44,7 +44,7 @@ Ett av de viktiga konfigurations stegen är att konfigurera IPsec-kommunikations
 
 ### <a name="ike-phase-1-setup"></a>IKE fas 1-installation
 
-| **Egenskap** | **Principbaserad** | **Routningsbaserad och standard eller VPN-gateway med höga prestanda** |
+| **Egenskap** | **Principbaserad** | **Routningsbaserad och standard eller High-Performance VPN-gateway** |
 | --- | --- | --- |
 | IKE-version |IKEv1 |IKEv2 |
 | Diffie-Hellman Group |Grupp 2 (1 024 bitar) |Grupp 2 (1 024 bitar) |
@@ -80,30 +80,30 @@ Med Azure Network Watcher fel söknings funktionen kan du diagnostisera och fels
 
 ### <a name="gateway"></a>Gateway
 
-| Feltyp | Anledning | Logga|
+| Feltyp | Orsak | Loggas|
 |---|---|---|
 | NoFault | När inget fel har identifierats. |Ja|
-| GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |No|
-| PlannedMaintenance |  Underhåll utförs på Gateway-instansen.  |No|
-| UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring. | No |
-| VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Detta inträffar när hälso avsökningen Miss lyckas. | No |
-| PlatformInActive | Det är något problem med plattformen. | No|
-| ServiceNotRunning | Den underliggande tjänsten körs inte. | No|
-| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Detta är endast en varning.| No|
+| GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |Nej|
+| PlannedMaintenance |  Underhåll utförs på Gateway-instansen.  |Nej|
+| UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring. | Nej |
+| VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Detta inträffar när hälso avsökningen Miss lyckas. | Nej |
+| PlatformInActive | Det är något problem med plattformen. | Inga|
+| ServiceNotRunning | Den underliggande tjänsten körs inte. | Inga|
+| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Detta är endast en varning.| Inga|
 | ConnectionsNotConnected | Ingen anslutning är ansluten. Detta är endast en varning.| Ja|
 | GatewayCPUUsageExceeded | CPU-användningen för aktuell gateway-användning är > 95%. | Ja |
 
 ### <a name="connection"></a>Anslutning
 
-| Feltyp | Anledning | Logga|
+| Feltyp | Orsak | Loggas|
 |---|---|---|
 | NoFault | När inget fel har identifierats. |Ja|
-| GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |No|
-| PlannedMaintenance | Underhåll utförs på Gateway-instansen.  |No|
-| UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring.  | No |
-| VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Det inträffar när hälso avsökningen Miss lyckas. | No |
-| ConnectionEntityNotFound | Anslutnings konfigurationen saknas. | No |
-| ConnectionIsMarkedDisconnected | Anslutningen är markerad som frånkopplad. |No|
+| GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |Nej|
+| PlannedMaintenance | Underhåll utförs på Gateway-instansen.  |Nej|
+| UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring.  | Nej |
+| VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Det inträffar när hälso avsökningen Miss lyckas. | Inga |
+| ConnectionEntityNotFound | Anslutnings konfigurationen saknas. | Inga |
+| ConnectionIsMarkedDisconnected | Anslutningen är markerad som frånkopplad. |Inga|
 | ConnectionNotConfiguredOnGateway | Ingen anslutning har kon figurer ATS för den underliggande tjänsten. | Ja |
 | ConnectionMarkedStandby | Den underliggande tjänsten är markerad som standby.| Ja|
 | Autentisering | Matchnings fel för i förväg delad nyckel. | Ja|

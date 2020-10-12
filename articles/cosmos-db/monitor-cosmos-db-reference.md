@@ -9,10 +9,10 @@ ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.openlocfilehash: 21e1d93e206751b5a55b0b3549e8bd566612ddbe
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88080461"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Referens till Azure Cosmos DB-övervakningsdata
@@ -25,11 +25,11 @@ I följande tabell visas egenskaperna för resurs loggar i Azure Cosmos DB. Resu
 
 | Azure Storage fält eller egenskap | Azure Monitor loggar egenskap | Beskrivning |
 | --- | --- | --- |
-| **tid** | **TimeGenerated** | Datum och tid (UTC) när åtgärden utfördes. |
+| **time** | **TimeGenerated** | Datum och tid (UTC) när åtgärden utfördes. |
 | **resourceId** | **Resurs** | Azure Cosmos DB konto för vilka loggar är aktiverade.|
 | **kategori** | **Kategori** | För Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** är de tillgängliga logg typerna. |
-| **operationName** | **OperationName** | Åtgärdens namn. Åtgärds namnet kan vara,,,,,,,,, `Create` `Update` `Read` `ReadFeed` `Delete` `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` , eller `Upsert` .   |
-| **egenskaperna** | saknas | Innehållet i det här fältet beskrivs i raderna som följer. |
+| **operationName** | **OperationName** | Åtgärdens namn. Åtgärds namnet kan vara,,,,,,,,,  `Create` `Update` `Read` `ReadFeed` `Delete` `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` , eller `Upsert` .   |
+| **egenskaperna** | Saknas | Innehållet i det här fältet beskrivs i raderna som följer. |
 | **activityId** | **activityId_g** | Unikt GUID för den loggade åtgärden. |
 | **userAgent** | **userAgent_s** | En sträng som anger den klient användar agent från vilken begäran skickades. Användar agentens format är `{user agent name}/{version}` .|
 | **requestResourceType** | **requestResourceType_s** | Typ av resurs som används. Det här värdet kan vara databas, behållare, dokument, bilaga, användare, behörighet, lagrad procedur, utlösare, användardefinierad funktion eller ett erbjudande. |

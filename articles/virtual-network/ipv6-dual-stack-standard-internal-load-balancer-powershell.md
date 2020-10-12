@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/14/2019
 ms.author: kumud
 ms.openlocfilehash: c224332eec31b343bdc53564ef4075a0620ac340
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289566"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-standard-internal-load-balancer-in-azure---powershell-preview"></a>Distribuera ett IPv6-program med dubbla stackar med interna standard Load Balancer i Azure – PowerShell (för hands version)
@@ -43,7 +43,7 @@ De ändringar som görs ovanför en intern belastnings Utjämnings klient konfig
 
 Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell module version 6.9.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du distribuerar ett program med dubbla stackar i Azure måste du konfigurera din prenumeration för den här förhands gransknings funktionen med följande Azure PowerShell:
 
 Registrera på följande sätt:

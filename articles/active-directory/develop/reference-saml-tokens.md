@@ -14,10 +14,10 @@ ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
 ms.openlocfilehash: 6dda32bb2bab4123ede0133b31625c499380fd59
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90705715"
 ---
 # <a name="saml-token-claims-reference"></a>Referens för SAML-token anspråk
@@ -27,7 +27,7 @@ Microsoft Identity Platform genererar flera typer av säkerhetstoken vid bearbet
 ## <a name="claims-in-saml-tokens"></a>Anspråk i SAML-token
 
 > [!div class="mx-codeBreakAll"]
-> | Name | Motsvarande JWT-anspråk | Beskrivning | Exempel |
+> | Namn | Motsvarande JWT-anspråk | Beskrivning | Exempel |
 > | --- | --- | --- | ------------|
 > |Målgrupp | `aud` |Den avsedda mottagaren av token. Programmet som tar emot token måste kontrol lera att värdet för mål gruppen är korrekt och avvisa alla token som är avsedda för en annan mål grupp. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
 > | Autentiseringstillfälle | |Registrerar datum och tid då autentiseringen utfördes. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` |
@@ -39,11 +39,11 @@ Microsoft Identity Platform genererar flera typer av säkerhetstoken vid bearbet
 > |IssuedAt | `iat` |Lagrar tiden då token utfärdades. Den används ofta för att mäta aktualitet för token. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
 > |Utfärdare | `iss` |Identifierar säkerhetstokentjänst som konstruerar och returnerar token. I de tokens som Azure AD returnerar, är utfärdaren sts.windows.net. GUID i utfärdarens anspråks värde är klient-ID för Azure AD-katalogen. Klient-ID: t är en oföränderlig och tillförlitlig identifierare för katalogen. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |
 > |Efternamn | `family_name` |Innehåller användarens efter namn, efter namn eller familje namn som definieras i objektet Azure AD-användare. | `<Attribute Name=" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname">`<br>`<AttributeValue>Miller<AttributeValue>` |
-> |Name | `unique_name` |Innehåller ett läsbart värde som identifierar subjektet för token. Det här värdet är inte garanterat unikt inom en klient organisation och är utformat för att endast användas i visnings syfte. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
+> |Namn | `unique_name` |Innehåller ett läsbart värde som identifierar subjektet för token. Det här värdet är inte garanterat unikt inom en klient organisation och är utformat för att endast användas i visnings syfte. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
 > |Objekt-ID | `oid` |Innehåller en unik identifierare för ett objekt i Azure AD. Värdet är oföränderligt och kan inte tilldelas om eller återanvändas. Använd objekt-ID: t för att identifiera ett objekt i frågor till Azure AD. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
 > |Roller | `roles` |Representerar alla program roller som ämnet har beviljats både direkt och indirekt genom grupp medlemskap och kan användas för att genomdriva rollbaserad åtkomst kontroll. Program roller definieras per program, via `appRoles` egenskapen för applikations manifestet. `value`Egenskapen för varje program roll är det värde som visas i roll anspråket. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
 > |Ämne | `sub` |Identifierar huvudobjektet som token kontrollerar information om, till exempel användaren av ett program. Värdet är oföränderligt och kan inte omtilldelas eller återanvändas, så det kan användas för att utföra verifierings kontroller på ett säkert sätt. Eftersom ämnet alltid finns i token i Azure AD-problemen rekommenderar vi att du använder det här värdet i ett system för generell behörighets kontroll. <br> `SubjectConfirmation` är inte ett anspråk. Den beskriver hur ämnet för token verifieras. `Bearer` anger att ämnet bekräftas av deras besittning av token. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
-> |Klient-ID:t | `tid` |En oföränderlig identifierare som inte kan återanvändas och som identifierar den katalog klient som utfärdade token. Du kan använda det här värdet för att få åtkomst till klient organisations specifika katalog resurser i ett program med flera innehavare. Du kan till exempel använda det här värdet för att identifiera klienten i ett anrop till Graph API. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>`|
+> |Klientorganisations-ID | `tid` |En oföränderlig identifierare som inte kan återanvändas och som identifierar den katalog klient som utfärdade token. Du kan använda det här värdet för att få åtkomst till klient organisations specifika katalog resurser i ett program med flera innehavare. Du kan till exempel använda det här värdet för att identifiera klienten i ett anrop till Graph API. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>`|
 > |Tokenlivstid | `nbf`, `exp` |Definierar tidsintervallet då token är giltig. Tjänsten som verifierar token ska verifiera att det aktuella datumet ligger inom token för token, annars ska den avvisa token. Tjänsten kan tillåta upp till fem minuter bortom livs längd intervallet för token för att beräkna eventuella skillnader i klock tiden ("tids skevning") mellan Azure AD och tjänsten. | `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br>|
 
 ## <a name="sample-saml-token"></a>Exempel på SAML-token
@@ -156,5 +156,5 @@ Detta är ett exempel på en typisk SAML-token.
 
 * Mer information om hur du hanterar livs längd princip för token med hjälp av Microsoft Graph-API finns i [Översikt över Azure AD-princip resurs](/graph/api/resources/policy).
 * Lägg till [anpassade och valfria anspråk](active-directory-optional-claims.md) till token för ditt program.
-* Använda [enkel inloggning (SSO) med SAML](single-sign-on-saml-protocol.md).
-* Använd [SAML-protokollet för enkel inloggning i Azure](single-sign-out-saml-protocol.md)
+* Använd [enkel Sign-On (SSO) med SAML](single-sign-on-saml-protocol.md).
+* Använd [Azures enkla Sign-Out SAML-protokoll](single-sign-out-saml-protocol.md)

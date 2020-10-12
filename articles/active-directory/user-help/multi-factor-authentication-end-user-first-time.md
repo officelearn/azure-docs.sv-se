@@ -11,10 +11,10 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.openlocfilehash: e5b07f8f7ae766d110c87a495a3e1623b815e526
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88795991"
 ---
 # <a name="what-is-the-additional-verification-page"></a>Vad är sidan Ytterligare verifiering?
@@ -39,7 +39,7 @@ Tvåstegsverifiering kan hjälpa dig att stoppa skadliga hackare från att vara 
 
 Vem som bestämmer om du använder tvåstegsverifiering beror på vilken typ av konto du har:
 
-- **Arbets- eller skolkonto.** Om du använder ett arbets-eller skol konto (till exempel alain@contoso.com ), är det upp till din organisation oavsett om du använder tvåstegsverifiering, tillsammans med de olika verifierings metoderna. Eftersom din organisation har valt att du måste använda den här funktionen, finns det inget sätt för dig att stänga av den separat.
+- **Arbets-eller skol konto.** Om du använder ett arbets-eller skol konto (till exempel alain@contoso.com ), är det upp till din organisation oavsett om du använder tvåstegsverifiering, tillsammans med de olika verifierings metoderna. Eftersom din organisation har valt att du måste använda den här funktionen, finns det inget sätt för dig att stänga av den separat.
 
 - **Personligt Microsoft-konto.** Du kan välja att konfigurera en tvåstegsverifiering för dina personliga Microsoft-konton (till exempel alain@outlook.com ). Du kan aktivera eller inaktivera den när du vill, med hjälp av enkla instruktioner för att [Aktivera eller inaktivera tvåstegsverifiering för din Microsoft-konto](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 

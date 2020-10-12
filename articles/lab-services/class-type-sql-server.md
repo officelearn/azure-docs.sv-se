@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 9fc0a965869207ba8d1b4eb6f45e878ae4b93c3a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88079030"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>Konfigurera ett labb för att hantera och utveckla med SQL Server
@@ -50,7 +50,7 @@ Nu när nätverks sidan av saker hanteras, kan du skapa en SQL Server databas.  
 9. Välj region för **platsen**.  Ange om möjligt samma plats som labb kontot och peer-kopplat VNet för att minimera svars tiden.
 10. Klicka på **OK** för att återgå till formuläret **skapa SQL Database** .
 11. Klicka på **Konfigurera databas** länk under **beräknings-och lagrings** inställningen.
-12. Ändra databas inställningarna efter behov för klassen.  Du kan välja mellan etablerade och Server lös alternativ.  I det här exemplet ska vi använda alternativet för autoskalad utan server med max virtuella kärnor på 4, min virtuella kärnor 1. Vi behåller inställningen AutoPause på minst 1 timme. Klicka på **Godkänn**.
+12. Ändra databas inställningarna efter behov för klassen.  Du kan välja mellan etablerade och Server lös alternativ.  I det här exemplet ska vi använda alternativet för autoskalad utan server med max virtuella kärnor på 4, min virtuella kärnor 1. Vi behåller inställningen AutoPause på minst 1 timme. Klicka på **Applicera**.
 13. Klicka på **Nästa: knappen nätverk** .
 14. På fliken nätverk väljer du privat slut punkt för **anslutnings metoden**.
 15. Under avsnittet **privata slut punkter** klickar du på **Lägg till privat slut punkt**.
@@ -98,7 +98,7 @@ Visual Studio stöder flera arbets belastningar, inklusive **webb & moln-** och 
 4. På sidan **Select Start Menu Folder** (Välj mapp för Start-menyn) klickar du på **Nästa**.
 5. På sidan **Välj ytterligare aktiviteter** markerar du **skapa en Skriv bords ikon** om du vill ha en Skriv bords ikon.  Klicka på **Nästa**.
 6. Klicka på **Nästa**på **redo att installera**.
-7. Vänta tills installations programmet har körts.  Klicka på **Slutför**.
+7. Vänta tills installations programmet har körts.  Klicka på **Finish**.
 
 Nu när vi har Azure Data Studio installerat är det dags att konfigurera anslutningen till Azure SQL Database.
 

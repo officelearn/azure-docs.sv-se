@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e427a68751cc348a7b0024fb01402bd15ca87d2a
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90705732"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Felsöka Enterprise State Roaming inställningar i Azure Active Directory
@@ -90,7 +90,7 @@ För avancerad fel sökning kan Loggboken användas för att hitta vissa fel. De
 
 ### <a name="sync-does-not-work-on-devices-that-have-apps-side-loaded-using-mdm-software"></a>Synkronisering fungerar inte på enheter som har inlästa appar på sidan med MDM-programvara
 
-Påverkar enheter som kör Windows 10 jubileums uppdatering (version 1607). I Loggboken under SettingSync-Azure-loggarna visas händelse-ID 6013 med fel 80070259 ofta.
+Påverkar enheter som kör Windows 10 jubileums uppdatering (version 1607). I Loggboken under SettingSync-Azure loggarna visas händelse-ID 6013 med fel 80070259 ofta.
 
 **Rekommenderad åtgärd**  
 Se till att Windows 10 v1607-klienten har den 23 augusti 2016 kumulativa uppdateringen ([KB3176934](https://support.microsoft.com/kb/3176934) OS Build 14393,82). 

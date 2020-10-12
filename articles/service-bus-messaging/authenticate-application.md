@@ -4,10 +4,10 @@ description: Den här artikeln innehåller information om att autentisera ett pr
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: b12f2f294a66159a7035240c361ab93f9f84718e
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88064833"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autentisera och auktorisera ett program med Azure Active Directory åtkomst till Azure Service Bus entiteter
@@ -152,9 +152,9 @@ När du kör konsol programmet uppmanas du att välja ett scenario. Välj **inte
 ## <a name="next-steps"></a>Nästa steg
 - Om du vill veta mer om Azure RBAC, se [Vad är Azures rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/overview.md)?
 - Information om hur du tilldelar och hanterar roll tilldelningar i Azure med Azure PowerShell, Azure CLI eller REST API finns i följande artiklar:
-    - [Lägga till eller ta bort Azure Role-tilldelningar med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
-    - [Lägga till eller ta bort roll tilldelningar i Azure med Azure CLI](../role-based-access-control/role-assignments-cli.md)
-    - [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av REST API](../role-based-access-control/role-assignments-rest.md)
+    - [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
+    - [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure CLI](../role-based-access-control/role-assignments-cli.md)
+    - [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av REST API](../role-based-access-control/role-assignments-rest.md)
     - [Lägga till eller ta bort Azure Role-tilldelningar med Azure Resource Manager mallar](../role-based-access-control/role-assignments-template.md)
 
 I följande ämnen kan du lära dig mer om Service Bus-meddelanden.

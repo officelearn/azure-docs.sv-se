@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
 ms.openlocfilehash: 9685c1739a00788a974c200ddabb8cc975696b62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83587739"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Felsöka problem med peering i virtuella nätverk
@@ -127,7 +127,7 @@ Så här felsöker du problemet:
    1. Starta en nätverks spårning på den virtuella mål datorn. För Windows kan du använda **netsh**. För Linux använder du **TCPDump**.
    2. Kör **TcpPing** eller **PsPing** från källan till målets IP-adress.
 
-      Detta är ett exempel på ett **TcpPing** -kommando:`tcping64.exe -t <destination VM address> 3389`
+      Detta är ett exempel på ett **TcpPing** -kommando: `tcping64.exe -t <destination VM address> 3389`
 
    3. Stoppa nätverks spårningen på målet när **TcpPing** är klar.
    4. Om paketen kommer från källan finns det inga nätverks problem. Undersök både VM-brandväggen och programmet som lyssnar på den porten för att hitta konfigurations problemet.
@@ -212,13 +212,13 @@ Mer information finns i [krav och begränsningar](https://docs.microsoft.com/azu
 
 Så här felsöker du problemet:
 
-1. Logga in på Azure-portalen. 
+1. Logga in på Azure Portal. 
 1. I webbappen väljer du **nätverk**och väljer sedan VNet- **integrering**.
 1. Kontrol lera om du kan se det virtuella fjärrnätverket. Ange adress utrymmet för det virtuella fjärrnätverket manuellt (**Synkronisera nätverk** och **Lägg till vägar**).
 
 Mer information finns i följande artiklar:
 
-* [Integrera din app med ett virtuellt Azure-nätverk](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
+* [Integrera en app med ett virtuellt Azure-nätverk](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 * [Om VPN-routning från punkt till plats](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-point-to-site-routing)
 
 ## <a name="troubleshoot-a-virtual-network-peering-configuration-error-message"></a>Felsöka ett fel meddelande om konfiguration av virtuellt nätverk peering 

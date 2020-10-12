@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: e5e0c43aa8c4fbf0db89065e0fab93ee174a4ede
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483677"
 ---
 # <a name="create-a-netapp-account"></a>Skapa ett NetApp-konto
@@ -31,7 +31,7 @@ Du måste också ha registrerat din prenumeration för att använda NetApp-resur
 
 ## <a name="steps"></a>Steg 
 
-1. Logga in på Azure-portalen. 
+1. Logga in på Azure Portal. 
 2. Gå till bladet Azure NetApp-filer genom att använda någon av följande metoder:  
    * Sök efter **Azure NetApp Files** i sökrutan på Azure Portal.  
    * Klicka på **Alla tjänster** i navigeringen och filtrera sedan på Azure NetApp Files.  
@@ -48,7 +48,7 @@ Du måste också ha registrerat din prenumeration för att använda NetApp-resur
      Välj en prenumeration från dina befintliga prenumerationer.
    * **Resurs grupp**   
      Använd en befintlig resursgrupp eller skapa en ny.
-   * **Position**  
+   * **Plats**  
      Välj en region för kontot och dess underordnade resurser.  
 
      ![Nytt NetApp-konto](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)

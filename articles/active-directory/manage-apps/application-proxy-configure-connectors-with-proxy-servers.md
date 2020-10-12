@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d177dce250d65b4f9d825c9d70916f70c4076d4b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88077517"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
@@ -144,7 +144,7 @@ Att använda en vidarebefordrande proxy för kommunikationen mot backend-appen k
 Aktivera detta genom att följa nästa steg:
 
 ### <a name="step-1-add-the-required-registry-value-to-the-server"></a>Steg 1: Lägg till det register värde som krävs på servern
-1. Om du vill aktivera med standardproxyn lägger du till följande register värde (DWORD) i `UseDefaultProxyForBackendRequests = 1` register nyckeln för anslutnings konfigurationen i "HKEY_LOCAL_MACHINE \SOFTWARE\MICROSOFT\MICROSOFT AAD App proxy Connector".
+1. Om du vill aktivera med standardproxyn lägger du till följande register värde (DWORD) i `UseDefaultProxyForBackendRequests = 1` register nyckeln för anslutnings konfigurationen i "HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft AAD App Proxy Connector".
 
 ### <a name="step-2-configure-the-proxy-server-manually-using-netsh-command"></a>Steg 2: Konfigurera proxyservern manuellt med kommandot netsh
 1.  Aktivera grup principen gör proxyinställningar per dator. Detta finns i: Computer Datorkonfiguration\principer\administrativa \ Mallar\windows-komponenter\Internet Explorer. Detta måste anges i stället för att den här principen har angetts till per användare.

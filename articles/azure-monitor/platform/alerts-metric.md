@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.subservice: alerts
 ms.openlocfilehash: 7b5332f68bb35e3c9b9ed82bb7bed2908e744e9f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88065870"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera måttaviseringar med Azure Monitor
@@ -74,7 +74,7 @@ Du kan visa och hantera mått varnings regler med hjälp av bladet hantera regle
 
 2. Klicka på **aviseringar** och **Hantera regler**
 
-3. På bladet **Hantera regler** kan du Visa alla aviserings regler för alla prenumerationer. Du kan filtrera reglerna ytterligare med **resurs grupp**, **resurs typ**och **resurs**. Om du bara vill se mått aviseringar väljer du **signal typ** som mått.
+3. På bladet **Hantera regler** kan du Visa alla aviserings regler för alla prenumerationer. Du kan filtrera reglerna ytterligare med  **resurs grupp**, **resurs typ**och **resurs**. Om du bara vill se mått aviseringar väljer du **signal typ** som mått.
 
     > [!TIP]
     > På bladet **Hantera regler** kan du välja flera varnings regler och aktivera/inaktivera dem. Detta kan vara användbart när vissa mål resurser måste placeras under underhåll

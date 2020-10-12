@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: 951c1fd89f9e943b72c32492ff40dae3bd07bb61
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88794488"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Azure Disk Encryption-scenarier på virtuella Windows-datorer
@@ -44,7 +44,7 @@ I det här scenariot kan du aktivera kryptering med hjälp av Resource Manager-m
 ### <a name="enable-encryption-on-existing-or-running-vms-with-azure-powershell"></a>Aktivera kryptering på befintliga eller aktiva virtuella datorer med Azure PowerShell 
 Använd cmdleten [set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) för att aktivera kryptering på en virtuell IaaS-dator som körs i Azure. 
 
--  **Kryptera en virtuell dator som körs:** Skriptet nedan initierar variablerna och kör cmdleten Set-AzVMDiskEncryptionExtension. Resurs gruppen, den virtuella datorn och nyckel valvet bör redan ha skapats som krav. Ersätt MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM och MySecureVault med dina värden.
+-  **Kryptera en virtuell dator som körs:** Skriptet nedan initierar variablerna och kör Set-AzVMDiskEncryptionExtension-cmdleten. Resurs gruppen, den virtuella datorn och nyckel valvet bör redan ha skapats som krav. Ersätt MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM och MySecureVault med dina värden.
 
      ```azurepowershell
       $KVRGname = 'MyKeyVaultResourceGroup';
@@ -188,11 +188,11 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 Du kan [lägga till en ny disk till en virtuell Windows-dator med hjälp av PowerShell](attach-disk-ps.md), eller [via Azure Portal](attach-managed-disk-portal.md). 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Aktivera kryptering på en nyligen tillagd disk med Azure PowerShell
- När du använder PowerShell för att kryptera en ny disk för virtuella Windows-datorer ska en ny version av sekvens anges. Sekvens-versionen måste vara unik. Skriptet nedan genererar en GUID för sekvens-versionen. I vissa fall kan en nyligen tillagd datadisk krypteras automatiskt av Azure Disk Encryption tillägget. Automatisk kryptering sker vanligt vis när den virtuella datorn startas om efter att den nya disken är online. Detta beror vanligt vis på att "alla" angavs för volym typen när disk kryptering tidigare kördes på den virtuella datorn. Om automatisk kryptering sker på en nyligen tillagd datadisk rekommenderar vi att du kör cmdleten Set-AzVmDiskEncryptionExtension igen med en ny sekvens-version. Om den nya datadisken krypteras automatiskt och du inte vill vara krypterad dekrypterar du alla enheter och krypterar först om med en ny sekvens version som anger OS som typ av volym. 
+ När du använder PowerShell för att kryptera en ny disk för virtuella Windows-datorer ska en ny version av sekvens anges. Sekvens-versionen måste vara unik. Skriptet nedan genererar en GUID för sekvens-versionen. I vissa fall kan en nyligen tillagd datadisk krypteras automatiskt av Azure Disk Encryption tillägget. Automatisk kryptering sker vanligt vis när den virtuella datorn startas om efter att den nya disken är online. Detta beror vanligt vis på att "alla" angavs för volym typen när disk kryptering tidigare kördes på den virtuella datorn. Om automatisk kryptering sker på en nyligen tillagd datadisk rekommenderar vi att du kör Set-AzVmDiskEncryptionExtension-cmdleten igen med en ny sekvens-version. Om den nya datadisken krypteras automatiskt och du inte vill vara krypterad dekrypterar du alla enheter och krypterar först om med en ny sekvens version som anger OS som typ av volym. 
   
  
 
--  **Kryptera en virtuell dator som körs:** Skriptet nedan initierar variablerna och kör cmdleten Set-AzVMDiskEncryptionExtension. Resurs gruppen, den virtuella datorn och nyckel valvet bör redan ha skapats som krav. Ersätt MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM och MySecureVault med dina värden. I det här exemplet används "alla" för parametern-VolumeType, som innehåller både OS-och data volymer. Om du bara vill kryptera operativ system volymen använder du "OS" för parametern-VolumeType. 
+-  **Kryptera en virtuell dator som körs:** Skriptet nedan initierar variablerna och kör Set-AzVMDiskEncryptionExtension-cmdleten. Resurs gruppen, den virtuella datorn och nyckel valvet bör redan ha skapats som krav. Ersätt MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM och MySecureVault med dina värden. I det här exemplet används "alla" för parametern-VolumeType, som innehåller både OS-och data volymer. Om du bara vill kryptera operativ system volymen använder du "OS" för parametern-VolumeType. 
 
      ```azurepowershell
       $KVRGname = 'MyKeyVaultResourceGroup';

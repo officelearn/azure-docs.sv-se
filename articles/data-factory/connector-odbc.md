@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: jingwang
 ms.openlocfilehash: c92428666f0766f78475be16416027cdc6e71f20
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85506539"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Kopiera data från och till ODBC-datalager med hjälp av Azure Data Factory
@@ -54,14 +54,14 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för ODBC-länkad tjänst:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **ODBC** | Ja |
 | Begär | Anslutnings strängen exklusive Credential-delen. Du kan ange anslutnings strängen med ett mönster som `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` , eller använda system-DSN (data källans namn) som du konfigurerade på den integration runtime datorn med `"DSN=<name of the DSN on IR machine>;"` (du behöver fortfarande ange autentiseringsuppgiften i den länkade tjänsten).<br>Du kan också ange ett lösen ord i Azure Key Vault och hämta  `password`   konfigurationen från anslutnings strängen.Mer information finns [i lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md)   .| Ja |
 | authenticationType | Typ av autentisering som används för att ansluta till ODBC-datalagret.<br/>Tillåtna värden är: **Basic** och **Anonymous**. | Ja |
-| userName | Ange användar namn om du använder grundläggande autentisering. | No |
-| password | Ange lösen ordet för det användar konto som du har angett för användar namnet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | No |
-| credential | Delen autentiseringsuppgifter för den anslutnings sträng som anges i drivrutinsspecifika egenskaps värde format. Exempel: `"RefreshToken=<secret refresh token>;"`. Markera det här fältet som en SecureString. | No |
+| userName | Ange användar namn om du använder grundläggande autentisering. | Inga |
+| password | Ange lösen ordet för det användar konto som du har angett för användar namnet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
+| credential | Delen autentiseringsuppgifter för den anslutnings sträng som anges i drivrutinsspecifika egenskaps värde format. Exempel: `"RefreshToken=<secret refresh token>;"`. Markera det här fältet som en SecureString. | Inga |
 | connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Ja |
 
 **Exempel 1: använda grundläggande autentisering**
@@ -117,7 +117,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds för att kopiera data från/till ODBC-kompatibelt data lager:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **OdbcTable** | Ja |
 | tableName | Namnet på tabellen i ODBC-datalagret. | Nej för källa (om "fråga" i aktivitets källan har angetts);<br/>Ja för mottagare |
@@ -151,7 +151,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från ODBC-kompatibelt data lager, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **OdbcSource** | Ja |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
@@ -194,12 +194,12 @@ Om du använder `RelationalSource` typ av källa, stöds den fortfarande som den
 
 Om du vill kopiera data till ODBC-kompatibelt data lager ställer du in mottagar typen i kopierings aktiviteten till **OdbcSink**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till: **OdbcSink** | Ja |
-| writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes.<br/>Tillåtna värden är: TimeSpan. Exempel: "00:30:00" (30 minuter). |No |
+| writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes.<br/>Tillåtna värden är: TimeSpan. Exempel: "00:30:00" (30 minuter). |Inga |
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize.<br/>Tillåtna värden är: heltal (antal rader). |Nej (Standardvärdet är 0 – identifieras automatiskt) |
-| preCopyScript |Ange en SQL-fråga för kopierings aktivitet som ska köras innan data skrivs till data lagret i varje körning. Du kan använda den här egenskapen för att rensa förinlästa data. |No |
+| preCopyScript |Ange en SQL-fråga för kopierings aktivitet som ska köras innan data skrivs till data lagret i varje körning. Du kan använda den här egenskapen för att rensa förinlästa data. |Inga |
 
 > [!NOTE]
 > För "writeBatchSize", om den inte har angetts (identifieras automatiskt), identifierar kopierings aktiviteten först om driv rutinen stöder batch-åtgärder och anger den till 10000 om den gör det, eller så anger du den till 1 om den inte gör det. Om du anger något annat värde än 0, följer kopierings aktiviteten värdet och Miss lyckas vid körning om driv rutinen inte stöder batch-åtgärder.

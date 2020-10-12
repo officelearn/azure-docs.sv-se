@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: f6c47d4cbfe6311333d95b07c0553afa2b3bb15c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87287744"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
@@ -26,7 +26,7 @@ Du distribuerar en lokal konfigurations server när du använder [Azure Site Rec
 
 Konfigurations servern måste konfigureras som en virtuell VMware-dator med hög tillgänglighet och vissa minimi krav för maskin vara och storlek. För bekväm och enkel distribution tillhandahåller Site Recovery en hämtnings bar mall för öppen Virtualization-program (ägg) för att konfigurera konfigurations servern som uppfyller alla krav som anges här.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 De minsta maskin varu kraven för en konfigurations Server sammanfattas i följande avsnitt.
 
@@ -42,7 +42,7 @@ Du måste ha en användare med någon av följande behörigheter i Azure Active 
     - Verifiera att rollen programutvecklare är tilldelad till användaren. Om inte, använder du en användare med den här behörigheten eller kontaktar en [administratör för att aktivera behörigheten](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md#assign-roles).
     
 2. Om rollen programutvecklare inte kan tilldelas kontrollerar du att flaggan **användare kan registrera program** är inställd på **Sant** för att användaren ska kunna skapa en identitet. Så här aktiverar du följande behörigheter:
-    - Logga in på Azure-portalen.
+    - Logga in på Azure Portal.
     - Gå till **Azure Active Directory**  >  **användar inställningar**.
     - Under **Appregistreringar** **kan användare registrera program**, välja **Ja**.
 
@@ -92,7 +92,7 @@ Du måste ha en användare med någon av följande behörigheter i Azure Active 
 Om du vill lägga till ett extra nätverkskort i konfigurations servern lägger du till det innan du registrerar servern i valvet. Det går inte att lägga till fler adaptrar efter registreringen.
 
 1. I vSphere-klientlagret högerklickar du på den virtuella datorn och väljer **Redigera inställningar**.
-2. I **Maskinvara** väljer du **Lägg till** > **Ethernet-kort**. Välj sedan **Nästa**.
+2. I **Maskinvara** väljer du **Lägg till** > **Ethernet-kort**. Välj **Nästa**.
 3. Välj en adaptertyp och ett nätverk.
 4. Om du vill ansluta det virtuella NÄTVERKSKORTet när den virtuella datorn är aktive rad väljer du **Anslut vid start**. Välj sedan **Nästa**  >  **Slutför**  >  **OK**.
 
@@ -102,7 +102,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurations servern lägger 
 2. Den virtuella datorn startas med en Windows Server 2016-installation. Godkänn licensavtalet och ange ett administratörslösenord.
 3. När installationen är klar loggar du in på den virtuella datorn som administratör.
 4. Första gången du loggar in, inom några sekunder startas konfigurations verktyget för Azure Site Recovery.
-5. Ange det namn som ska användas för att registrera konfigurationsservern med Site Recovery. Välj sedan **Nästa**.
+5. Ange det namn som ska användas för att registrera konfigurationsservern med Site Recovery. Välj **Nästa**.
 6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in i din Azure-prenumeration.</br>
     a. Autentiseringsuppgifterna måste ha åtkomst till det valv där du vill registrera konfigurationsservern.</br>
     b. Se till att det valda användar kontot har behörighet att skapa ett program i Azure. Om du vill aktivera de behörigheter som krävs följer du rikt linjerna i avsnittet [Azure Active Directory behörighets krav](#azure-active-directory-permission-requirements).

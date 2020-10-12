@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1601c9fc750df1f8e18bdaa072ede1b5ee164329
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84743821"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Slutför en åtkomst granskning av Azures resurs roller i Privileged Identity Management
@@ -30,7 +30,7 @@ När åtkomst gransknings perioden är över, eller när alla användare har avs
 
 ## <a name="manage-access-reviews"></a>Hantera åtkomst granskningar
 
-1. Gå till [Azure Portal](https://portal.azure.com/). På instrument panelen väljer du tjänsten **Azure-resurser** .
+1. Gå till [Azure-portalen](https://portal.azure.com/). På instrument panelen väljer du tjänsten **Azure-resurser** .
 
 2. Välj din resurs.
 

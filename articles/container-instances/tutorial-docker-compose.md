@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: ''
 ms.openlocfilehash: 1e8a5cd856358a0dc3e9c356cb3a55f75db29c86
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90709686"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>Självstudie: Distribuera en grupp med flera behållare med hjälp av Docker Compose 
@@ -212,7 +212,7 @@ azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front   
 
 Om du vill se det program som körs i molnet anger du den visade IP-adressen i en lokal webbläsare. I det här exemplet anger du `52.179.23.131` . Exempelprogrammet läses in, som du ser i följande exempel:
 
-:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Bild av röstnings app i ACI":::
+:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Bild av röstnings app":::
 
 Om du vill se loggarna för klient dels behållaren kör du kommandot [Docker-loggar](https://docs.docker.com/engine/reference/commandline/logs) . Exempel:
 

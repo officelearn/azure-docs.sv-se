@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: a49912bc2275e478d657f06587c4ddc830210d3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87040208"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Åsidosätt HTTP-beteende med Azure CDN från Verizon Premium Rules Engine
@@ -40,7 +40,7 @@ Om du vill komma åt regel motorn måste du först välja **Hantera** överst p�
 
     ![Regel motor för DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
 
-## <a name="tutorial"></a>Självstudie
+## <a name="tutorial"></a>Självstudier
 
 1. På sidan **CDN-profil** väljer du **Hantera**.
    
@@ -97,7 +97,7 @@ Om du vill komma åt regel motorn måste du först välja **Hantera** överst p�
 
 - [Översikt över Azure CDN](cdn-overview.md)
 - [Regel motor referens](cdn-verizon-premium-rules-engine-reference.md)
-- [Regelmotor – matchningsvillkor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Regel motor matchnings villkor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Regelmotor – villkorliga uttryck](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Regelmotor – funktioner](cdn-verizon-premium-rules-engine-reference-features.md)
 - [Azure-fredagar: Azure CDN de kraftfulla nya Premium-funktionerna](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)

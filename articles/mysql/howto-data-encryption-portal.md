@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 201459f4a7d2d23b384435493d6272e569698933
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90887160"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Data kryptering för Azure Database for MySQL med hjälp av Azure Portal
@@ -48,7 +48,7 @@ Lär dig hur du använder Azure Portal för att konfigurera och hantera data kry
 
 2. Välj **nyckel behörigheter**och välj **Hämta**, **Radbryt**, packa upp och **huvudobjektet**, vilket är namnet på **MySQL-servern**. Om ditt Server huvud namn inte finns i listan över befintliga huvud konton måste du registrera det. Du uppmanas att registrera ditt Server huvud namn när du försöker konfigurera data kryptering för första gången, och det Miss lyckas.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png" alt-text="Översikt över åtkomst princip":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png" alt-text="Skärm bild av Key Vault med åtkomst principer och Lägg till åtkomst princip markerad":::
 
 3. Välj **Spara**.
 
@@ -56,11 +56,11 @@ Lär dig hur du använder Azure Portal för att konfigurera och hantera data kry
 
 1. I Azure Database for MySQL väljer du **data kryptering** för att ställa in den Kundhanterade nyckeln.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png" alt-text="Skärm bild av Azure Database for MySQL med data kryptering markerad":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png" alt-text="Skärm bild av Key Vault med åtkomst principer och Lägg till åtkomst princip markerad":::
 
 2. Du kan antingen välja ett nyckel valv och nyckel par eller ange en nyckel identifierare.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png" alt-text="Skärm bild av Azure Database for MySQL med alternativ för data kryptering markerade":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png" alt-text="Skärm bild av Key Vault med åtkomst principer och Lägg till åtkomst princip markerad":::
 
 3. Välj **Spara**.
 
@@ -72,28 +72,28 @@ När Azure Database for MySQL har krypterats med en kunds hanterade nyckel som l
 
 1. Välj **översikts**  >  **återställning**på servern.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore.png" alt-text="Skärm bild av Azure Database for MySQL, med översikt och återställning markerat":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore.png" alt-text="Skärm bild av Key Vault med åtkomst principer och Lägg till åtkomst princip markerad":::
 
    Om du använder en aktive rad server väljer du **replikering**under rubriken **Inställningar** .
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/mysql-replica.png" alt-text="Skärm bild av Azure Database for MySQL med replikering markerad":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/mysql-replica.png" alt-text="Skärm bild av Key Vault med åtkomst principer och Lägg till åtkomst princip markerad":::
 
 2. När återställningen är klar är den nya servern som skapas krypterad med den primära serverns nyckel. Funktionerna och alternativen på servern är dock inaktiverade och servern är inte tillgänglig. Detta förhindrar all data manipulering eftersom den nya serverns identitet ännu inte har fått behörighet att komma åt nyckel valvet.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png" alt-text="Skärm bild av Azure Database for MySQL med otillgänglig status markerad":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png" alt-text="Skärm bild av Key Vault med åtkomst principer och Lägg till åtkomst princip markerad":::
 
 3. Om du vill göra servern tillgänglig igen, verifierar du nyckeln på den återställda servern. Välj nyckel för att verifiera **data kryptering**  >  **Revalidate key**.
 
    > [!NOTE]
    > Det första försöket att validera kommer att Miss lyckas eftersom den nya serverns tjänst huvud namn måste ges åtkomst till nyckel valvet. Om du vill generera tjänstens huvud namn väljer du **revalidate Key**, som visar ett fel, men som genererar tjänstens huvud namn. Därefter kan du se [de här stegen](#set-the-right-permissions-for-key-operations) tidigare i den här artikeln.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png" alt-text="Skärm bild av Azure Database for MySQL med omverifierings steg markerat":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png" alt-text="Skärm bild av Key Vault med åtkomst principer och Lägg till åtkomst princip markerad":::
 
    Du måste ge nyckel valvet åtkomst till den nya servern.
 
 4. När du har registrerat tjänstens huvud namn, verifierar nyckeln igen och servern fortsätter med sin normala funktion.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/restore-successful.png" alt-text="Skärm bild av Azure Database for MySQL, med återställda funktioner":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/restore-successful.png" alt-text="Skärm bild av Key Vault med åtkomst principer och Lägg till åtkomst princip markerad":::
 
 ## <a name="next-steps"></a>Nästa steg
 

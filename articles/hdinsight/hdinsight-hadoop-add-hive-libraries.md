@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 02/14/2020
 ms.openlocfilehash: c678372fbd54e528a8a16eacc601e815cfd32e58
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86082241"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Lägg till anpassade Apache Hive-bibliotek när du skapar ett HDInsight-kluster
@@ -62,7 +62,7 @@ Genom att använda skript åtgärden i den här artikeln blir biblioteken tillg�
     |Name|Bibliotek |
     |Bash-skript-URI|`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`|
     |Node-typ (er)|Head, Worker|
-    |Parametrar|Ange WASB-adressen till den behållare och det lagrings konto som innehåller jar v7. Till exempel `wasbs://libs@mystorage.blob.core.windows.net/`.|
+    |Parametrar|Ange WASB-adressen till den behållare och det lagrings konto som innehåller jar v7. Exempelvis `wasbs://libs@mystorage.blob.core.windows.net/`.|
 
     > [!NOTE]
     > Använd den här bash-skript-URI: n för Apache Spark 2,1: `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh` .

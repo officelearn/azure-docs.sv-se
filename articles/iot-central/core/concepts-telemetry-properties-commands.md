@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 554079ddec3332ced2817d18ea55ce1260d68817
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87291612"
 ---
-# <a name="telemetry-property-and-command-payloads"></a>Telemetri, egenskaper och kommando nytto laster
+# <a name="telemetry-property-and-command-payloads"></a>Telemetri, egenskaper och kommandonyttolaster
 
 _Den här artikeln gäller för enhets utvecklare._
 
@@ -347,7 +347,7 @@ Följande kodfragment från ett DCM visar definitionen av en typ av `Object` tel
 }
 ```
 
-En enhets klient ska skicka Telemetrin som JSON som ser ut som i följande exempel. `DateTime`typerna måste vara ISO 8061-kompatibla. Möjliga värden för `Property3` är `0` , `1` och som visas i IoT central som `Item1` , `Item2` och `Item3` :
+En enhets klient ska skicka Telemetrin som JSON som ser ut som i följande exempel. `DateTime` typerna måste vara ISO 8061-kompatibla. Möjliga värden för `Property3` är `0` , `1` och som visas i IoT central som `Item1` , `Item2` och `Item3` :
 
 ```json
 {
@@ -531,7 +531,7 @@ Följande kodfragment från ett DCM visar definitionen av en `date` egenskaps ty
 }
 ```
 
-En enhets klient ska skicka en JSON-nyttolast som ser ut som i följande exempel som en rapporterad egenskap i enheten. `Date`typerna måste vara ISO 8061-kompatibla:
+En enhets klient ska skicka en JSON-nyttolast som ser ut som i följande exempel som en rapporterad egenskap i enheten. `Date` typerna måste vara ISO 8061-kompatibla:
 
 ```json
 { "DateProperty": "2020-05-17" }
@@ -766,18 +766,18 @@ Det här avsnittet innehåller exempel på skrivbara egenskaps typer som en enhe
 
 IoT Central förväntar sig ett svar från enheten till skrivbara egenskaps uppdateringar. Svars meddelandet ska innehålla `ac` fälten och `av` . Fältet `ad` är valfritt. Se följande kodfragment för exempel.
 
-`ac`är ett numeriskt fält som använder värdena i följande tabell:
+`ac` är ett numeriskt fält som använder värdena i följande tabell:
 
 | Värde | Etikett | Beskrivning |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Slutfört | Egenskaps ändrings åtgärden har slutförts. |
-| `'ac': 202`eller`'ac': 201` | Väntar | Egenskaps ändrings åtgärden väntar eller pågår |
+| `'ac': 202`  eller `'ac': 201` | Väntar | Egenskaps ändrings åtgärden väntar eller pågår |
 | `'ac': 4xx` | Fel | Den begärda egenskaps ändringen var inte giltig eller innehöll ett fel |
 | `'ac': 5xx` | Fel | Ett oväntat fel uppstod i enheten vid bearbetning av den begärda ändringen. |
 
-`av`är versions numret som skickas till enheten.
+`av` är versions numret som skickas till enheten.
 
-`ad`är en beskrivning av alternativ strängen.
+`ad` är en beskrivning av alternativ strängen.
 
 Följande kodfragment från ett DCM visar definitionen av en skrivbar `string` egenskaps typ:
 

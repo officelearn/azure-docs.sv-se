@@ -4,10 +4,10 @@ description: Den här artikeln förklarar hur du använder Azure PowerShell modu
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: b6439deb2b86c2ea5b50fe3bdbad89a0875b2acc
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88065751"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Använd PowerShell för att hantera Service Bus-resurser
@@ -34,11 +34,11 @@ Det första steget är att använda PowerShell för att logga in på ditt Azure-
 
 När du arbetar med Service Bus-namnområden kan du använda cmdletarna [Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace), [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace)och [set-AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace) .
 
-I det här exemplet skapas några lokala variabler i skriptet. `$Namespace`och `$Location` .
+I det här exemplet skapas några lokala variabler i skriptet. `$Namespace` och `$Location` .
 
-* `$Namespace`är namnet på Service Bus namn området som vi vill arbeta med.
-* `$Location`identifierar data centret där vi etablerar namn området.
-* `$CurrentNamespace`lagrar referens namn området som vi hämtar (eller skapar).
+* `$Namespace` är namnet på Service Bus namn området som vi vill arbeta med.
+* `$Location` identifierar data centret där vi etablerar namn området.
+* `$CurrentNamespace` lagrar referens namn området som vi hämtar (eller skapar).
 
 I ett faktiskt skript `$Namespace` och `$Location` kan skickas som parametrar.
 

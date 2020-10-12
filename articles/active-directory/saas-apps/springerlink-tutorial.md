@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 2e3b2ee35352c2af4ae8196ba7c9699da761f83e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372535"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Självstudie: Azure Active Directory integrering med springer-länk
@@ -30,7 +30,7 @@ Genom att integrera springer-länken med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med springer-länken behöver du följande objekt:
 
@@ -72,7 +72,7 @@ I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD me
 Om du vill konfigurera och testa enkel inloggning med springer-länken i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera springer Link Single Sign-on](#configure-springer-link-single-sign-on)** -för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera springer Link Single Sign-on](#configure-springer-link-single-sign-on)** -för att konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
@@ -116,11 +116,11 @@ Utför följande steg för att konfigurera enkel inloggning med springer-länken
     > [!NOTE]
     > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. `<entityID>` är Azure AD-identifieraren kopierad från avsnittet **Konfigurera springer länk** , som beskrivs senare i självstudierna. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera-ikonen för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
+6. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera-ikonen för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
 
     ![Länken för nedladdning av metadata](common/copy_metadataurl.png)
 
-### <a name="configure-springer-link-single-sign-on"></a>Konfigurera enkel inloggning för springer-länk
+### <a name="configure-springer-link-single-sign-on"></a>Konfigurera springer Link Single Sign-On
 
 Om du vill konfigurera enkel inloggning på **springer-länk** sidan måste du skicka den kopierade URL- **adressen för appens Federation** till [support teamet för springer Link](mailto:onlineservice@springernature.com). Support teamet för springer Link använder den här URL: en för att konfigurera en SAML SSO-anslutning korrekt på båda sidor.
 

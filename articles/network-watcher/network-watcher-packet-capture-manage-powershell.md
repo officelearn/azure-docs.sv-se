@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 100a8ed1987b2edbc0aea1708c8a60b48bf391b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84737928"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Hantera paket fångster med Azure Network Watcher med hjälp av PowerShell
@@ -97,7 +97,7 @@ Kontrol lera att agenten är installerad genom att köra `Get-AzVMExtension` cmd
 Get-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -VMName $VM.Name -Name $ExtensionName
 ```
 
-Följande exempel är ett exempel på svaret från att köras`Get-AzVMExtension`
+Följande exempel är ett exempel på svaret från att köras `Get-AzVMExtension`
 
 ```
 ResourceGroupName       : testrg
@@ -266,7 +266,7 @@ Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCapt
 
 ## <a name="download-a-packet-capture"></a>Ladda ned en paket avbildning
 
-När din paket insamlings session har slutförts kan infångstfilen överföras till Blob Storage eller till en lokal fil på den virtuella datorn. Lagrings platsen för paket fångsten definieras vid skapandet av sessionen. Ett användbart verktyg för att komma åt dessa insamlingsfiler som sparas till ett lagrings konto är Microsoft Azure Storage Explorer, som kan hämtas här:https://storageexplorer.com/
+När din paket insamlings session har slutförts kan infångstfilen överföras till Blob Storage eller till en lokal fil på den virtuella datorn. Lagrings platsen för paket fångsten definieras vid skapandet av sessionen. Ett användbart verktyg för att komma åt dessa insamlingsfiler som sparas till ett lagrings konto är Microsoft Azure Storage Explorer, som kan hämtas här:  https://storageexplorer.com/
 
 Om ett lagrings konto anges sparas paket insamlings filer till ett lagrings konto på följande plats:
 

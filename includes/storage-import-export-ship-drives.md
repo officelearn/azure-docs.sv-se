@@ -9,13 +9,13 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: 7ecc36218df23d81c4646612b5474a1465f428eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80282485"
 ---
-FedEx, UPS eller DHL kan användas för att leverera paketet till Azure-datacentret. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box drifts team på`adbops@microsoft.com`
+FedEx, UPS eller DHL kan användas för att leverera paketet till Azure-datacentret. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box drifts team på `adbops@microsoft.com`
 
 * Ange ett giltigt FedEx-, UPS-eller DHL-kontonummer som Microsoft använder för att skicka tillbaka enheterna.
   * Ett FedEx-, UPS-eller DHL-kontonummer krävs för att leverera enheter tillbaka från USA-och Europa-platserna.

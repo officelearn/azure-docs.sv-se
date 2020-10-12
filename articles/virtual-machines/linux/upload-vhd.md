@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: df2b58e0067932edd9dfa21ee1a6fbb2a5c1fdf7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289757"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Skapa en virtuell Linux-dator från en anpassad disk med Azure CLI
@@ -69,7 +69,7 @@ Azure har stöd för olika Linux-distributioner (se godkända [distributioner](e
 Mer information om hur du förbereder Linux-avbildningar för Azure finns också i [Linux-installationsprogrammet](create-upload-generic.md#general-linux-installation-notes) .
 
 > [!NOTE]
-> [Service avtalet för Azure-plattformen](https://azure.microsoft.com/support/legal/sla/virtual-machines/) gäller endast virtuella datorer som kör Linux när en av de godkända distributionerna används med konfigurations informationen som anges under "versioner som stöds" i [Linux på Azure-godkända distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [Service avtalet för Azure-plattformen](https://azure.microsoft.com/support/legal/sla/virtual-machines/) gäller endast virtuella datorer som kör Linux när en av de godkända distributionerna används med konfigurations informationen som anges under "versioner som stöds" i [Linux på Azure-Endorsed distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 

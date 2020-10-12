@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 1f4dfc4b80aff01e4b7fe7ebae4850b28cd6a498
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83588606"
 ---
 # <a name="translator-30-languages"></a>Translator 3,0: språk
@@ -34,7 +34,7 @@ Parametrarna för begäran som skickades till frågesträngen är:
 
 <table width="100%">
   <th width="20%">Frågeparameter</th>
-  <th>Description</th>
+  <th>Beskrivning</th>
   <tr>
     <td>api-version</td>
     <td><em>Obligatorisk parameter</em>.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0` .</td>
@@ -49,7 +49,7 @@ Begärandehuvuden är:
 
 <table width="100%">
   <th width="20%">Sidhuvuden</th>
-  <th>Description</th>
+  <th>Beskrivning</th>
   <tr>
     <td>Accept-Language</td>
     <td>*Valfritt huvud för begäran*.<br/>Språket som ska användas för användargränssnittssträngar. Några av fälten i svaret är namn på språk eller namn på regioner. Använd den här parametern för att definiera språket som namnen returneras i. Språket anges genom att tillhandahålla en välformulerad BCP 47-språktagg. Använd exempelvis värdet `fr` för att begära namn på franska eller Använd värdet `zh-Hant` för att begära namn på traditionell kinesiska.<br/>Namn anges på det engelska språket när ett mål språk inte anges eller när lokalisering inte är tillgängligt.
@@ -67,11 +67,11 @@ Autentisering krävs inte för att hämta språk resurser.
 
 En klient använder `scope` Frågeparametern för att definiera vilka grupper av språk som den är intresse rad av.
 
-* `scope=translation`tillhandahåller språk som stöds för att översätta text från ett språk till ett annat språk.
+* `scope=translation` tillhandahåller språk som stöds för att översätta text från ett språk till ett annat språk.
 
-* `scope=transliteration`tillhandahåller funktioner för att konvertera text på ett språk från ett skript till ett annat skript.
+* `scope=transliteration` tillhandahåller funktioner för att konvertera text på ett språk från ett skript till ett annat skript.
 
-* `scope=dictionary`innehåller språk par för vilka `Dictionary` åtgärder returnerar data.
+* `scope=dictionary` innehåller språk par för vilka `Dictionary` åtgärder returnerar data.
 
 En klient kan hämta flera grupper samtidigt genom att ange en kommaavgränsad lista med namn. Skulle till exempel `scope=translation,transliteration,dictionary` kunna returnera språk som stöds för alla grupper.
 
@@ -93,7 +93,7 @@ Ett lyckat svar är ett JSON-objekt med en egenskap för varje begärd grupp:
 
 Värdet för varje egenskap är följande.
 
-* `translation`immaterialrätt
+* `translation` immaterialrätt
 
   `translation`Egenskapens värde är en ord lista med (nyckel, värde) par. Varje nyckel är en språk tagg för BCP 47. En nyckel identifierar ett språk för vilken text kan översättas till eller översättas från. Värdet som är kopplat till nyckeln är ett JSON-objekt med egenskaper som beskriver språket:
 
@@ -119,7 +119,7 @@ Värdet för varje egenskap är följande.
   }
   ```
 
-* `transliteration`immaterialrätt
+* `transliteration` immaterialrätt
 
   `transliteration`Egenskapens värde är en ord lista med (nyckel, värde) par. Varje nyckel är en språk tagg för BCP 47. En nyckel identifierar ett språk för vilken text kan konverteras från ett skript till ett annat skript. Värdet som är kopplat till nyckeln är ett JSON-objekt med egenskaper som beskriver språket och skript som stöds:
 
@@ -184,7 +184,7 @@ Värdet för varje egenskap är följande.
   }
   ```
 
-* `dictionary`immaterialrätt
+* `dictionary` immaterialrätt
 
   `dictionary`Egenskapens värde är en ord lista med (nyckel, värde) par. Varje nyckel är en språk tagg för BCP 47. Nyckeln identifierar ett språk som alternativa översättningar och tillbaka översättningar är tillgängliga för. Värdet är ett JSON-objekt som beskriver käll språket och mål språken med tillgängliga översättningar:
 
@@ -230,7 +230,7 @@ Listan över språk som stöds kommer inte att ändras ofta. Om du vill spara n�
 
 <table width="100%">
   <th width="20%">Sidhuvuden</th>
-  <th>Description</th>
+  <th>Beskrivning</th>
   <tr>
     <td>ETag</td>
     <td>Aktuellt värde för enhets tag gen för de begärda språken som stöds. För att göra efterföljande begär Anden mer effektiva kan klienten skicka `ETag` värdet i ett `If-None-Match` rubrik fält.
@@ -248,7 +248,7 @@ Följande är de möjliga HTTP-statuskod som en begäran returnerar.
 
 <table width="100%">
   <th width="20%">Statuskod</th>
-  <th>Description</th>
+  <th>Beskrivning</th>
   <tr>
     <td>200</td>
     <td>Åtgärden lyckades.</td>

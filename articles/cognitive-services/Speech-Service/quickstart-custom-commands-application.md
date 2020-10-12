@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289412"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Skapa en röstassistent med Anpassade kommandon
@@ -34,7 +34,7 @@ För tillfället stöder anpassade kommandon tal prenumerationer som skapats i f
 * Asien, östra
 * Sydostasien
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!div class="checklist"]
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Skapa en Azure tal-resurs i en region som stöder anpassade kommandon.<span class="docon docon-navigate-external x-hidden-focus"></span></a> Se avsnittet **region tillgänglighet** ovan för att visa en lista över regioner som stöds.
@@ -66,7 +66,7 @@ För tillfället stöder anpassade kommandon tal prenumerationer som skapats i f
     > [!div class="mx-imgBorder"]
     > ![Skapa ett projekt](media/custom-commands/import-project.png)
 
-1.  Välj en redigerings resurs i listan **Luis Authoring Resource** . Om det inte finns några giltiga redigerings resurser skapar du en genom att välja **Skapa ny Luis Authoring-resurs**.
+1.  Välj en redigerings resurs i listan **Luis Authoring Resource** . Om det inte finns några giltiga redigerings resurser skapar du en genom att välja  **Skapa ny Luis Authoring-resurs**.
 
     > [!div class="mx-imgBorder"]
     > ![Skapa en resurs](media/custom-commands/create-new-luis-resource.png)
@@ -101,7 +101,7 @@ Innan du kan komma åt det här programmet från externa tal Studio måste du pu
 ### <a name="update-prediction-luis-resource"></a>Uppdatera förutsägelse LUIS-resurs
 
 
-1. Välj **Inställningar** i den vänstra rutan och välj **Luis-resurser** i den mellersta rutan.
+1. Välj **Inställningar** i den vänstra rutan och välj  **Luis-resurser** i den mellersta rutan.
 1. Välj en förutsägelse resurs eller skapa en genom att välja **Skapa ny resurs**.
 1. Välj **Spara**.
     
@@ -113,7 +113,7 @@ Innan du kan komma åt det här programmet från externa tal Studio måste du pu
 
 ### <a name="publish-the-application"></a>Publicera programmet
 
-Välj **publicera** ovanpå den högra rutan. När publiceringen är klar visas ett nytt fönster. Anteckna värdet för **program-ID** och **tal resurs nyckel** från det. Du behöver dessa två värden för att kunna komma åt programmet från externa tal Studio.
+Välj  **publicera** ovanpå den högra rutan. När publiceringen är klar visas ett nytt fönster. Anteckna värdet för **program-ID** och **tal resurs nyckel** från det. Du behöver dessa två värden för att kunna komma åt programmet från externa tal Studio.
 
 Du kan också hämta dessa värden genom att välja allmänna **Inställningar**  >  **General** .
 

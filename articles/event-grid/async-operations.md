@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: baae7b097a0b696d405c0e7ea3d3bdeb326f23b1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89011692"
 ---
 # <a name="track-event-grid-asynchronous-azure-operations"></a>Spåra Event Grid asynkrona Azure-åtgärder
@@ -34,7 +34,7 @@ De asynkrona REST-åtgärderna returnerar huvud värden som du kan använda för
 * `Location` -URL för att avgöra när en åtgärd har slutförts. Använd endast det här värdet när Azure-AsyncOperation inte returneras.
 * `Retry-After` -Antalet sekunder som ska förflyta innan den asynkrona åtgärdens status kontrol leras.
 
-Men alla asynkrona åtgärder returnerar alla dessa värden. Du kan till exempel behöva utvärdera värdet för Azure-AsyncOperation-huvudet för en åtgärd och värdet för plats huvudet för en annan åtgärd. 
+Men alla asynkrona åtgärder returnerar alla dessa värden. Du kan till exempel behöva utvärdera Azure-AsyncOperation huvud värde för en åtgärd och värdet för plats huvudet för en annan åtgärd. 
 
 Du hämtar rubrik värden på samma sätt som du hämtar alla huvud värden för en begäran. I C# hämtar du till exempel huvudet från ett `HttpWebResponse` objekt med namnet `response` med följande kod:
 
@@ -42,7 +42,7 @@ Du hämtar rubrik värden på samma sätt som du hämtar alla huvud värden för
 response.Headers.GetValues("Azure-AsyncOperation").GetValue(0)
 ```
 
-## <a name="azure-asyncoperation-request-and-response"></a>Azure – AsyncOperation-begäran och-svar
+## <a name="azure-asyncoperation-request-and-response"></a>Azure-AsyncOperation begäran och svar
 
 Om du vill hämta statusen för den asynkrona åtgärden skickar du en GET-begäran till URL: en i Azure-AsyncOperation huvud värde.
 
@@ -73,7 +73,7 @@ Endast `status` returneras för alla svar. Objektet Error returneras när status
 Åtgärder för att skapa, uppdatera eller ta bort (skicka, korrigera, ta bort) en resurs returnerar vanligt vis ett `provisioningState` värde. När en åtgärd har slutförts returneras något av följande tre värden: 
 
 * Lyckades
-* Misslyckad
+* Misslyckades
 * Avbrutna
 
 Alla andra värden anger att åtgärden fortfarande körs. Resurs leverantören kan returnera ett anpassat värde som anger dess tillstånd. Du kan till exempel ta emot **godkännande** när begäran tas emot och körs.

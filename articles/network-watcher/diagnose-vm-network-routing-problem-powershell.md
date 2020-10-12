@@ -18,17 +18,17 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
 ms.openlocfilehash: 362157f023f7ed4d2da81962acd32e2da968193e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84738795"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnostisera ett problem med nätverks dirigering för virtuella datorer – Azure PowerShell
 
 I den här artikeln distribuerar du en virtuell dator (VM) och kontrollerar sedan kommunikationen med en IP-adress och URL. Du lär dig också hur du fastställer orsaken till ett kommunikationsfel och hur du löser problemet.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

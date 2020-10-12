@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 095d9cf68374ee81cafdb6e7a32df29a57d122cb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87287921"
 ---
 # <a name="cancel-operation"></a>Avbryt åtgärd
@@ -29,12 +29,12 @@ Detta API avbryter en åtgärd som pågår för erbjudandet. Använd [API: er](.
 
 |  **Namn**    |      **Beskrivning**                                  |    **Datatyp**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Utgivar identifierare, till exempel`contoso`         |   Sträng          |
+| publisherId  |  Utgivar identifierare, till exempel `contoso`         |   Sträng          |
 | offerId      |  Erbjudande-ID                                     |   Sträng          |
-| api-version  |  Aktuell version av API                               |    Datum           |
+| api-version  |  Aktuell version av API                               |    Date           |
 |  |  |  |
 
-## <a name="header"></a>Huvud
+## <a name="header"></a>Sidhuvud
 ------
 
 |  **Namn**              |  **Värde**         |
@@ -77,7 +77,7 @@ Detta API avbryter en åtgärd som pågår för erbjudandet. Använd [API: er](.
 
 |  **Namn**             |    **Värde**                       |
 |  ---------            |    ----------                      |
-| Position    | Den relativa sökvägen för att hämta den här åtgärdens status. |
+| Location    | Den relativa sökvägen för att hämta den här åtgärdens status. |
 |  |  |
 
 ### <a name="response-status-codes"></a>Svars status koder

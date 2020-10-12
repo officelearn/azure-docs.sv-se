@@ -15,10 +15,10 @@ ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
 ms.openlocfilehash: 1b07faa5b2540aafafc27a51192d824d4445ce35
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067162"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migrera befintliga Java Message Service (JMS) 2,0-program från Apache ActiveMQ till Azure Service Bus
@@ -73,7 +73,7 @@ Du använder följande komponenter och versioner medan du skriver JMS-programmen
 | Komponent | Version |
 |---|---|
 | API för Java-meddelande tjänst (JMS) | 1,1 eller senare |
-| AMQP-protokoll | 1,0 |
+| AMQP-protokoll | 1.0 |
 
 ### <a name="ensure-that-amqp-ports-are-open"></a>Se till att AMQP-portarna är öppna
 
@@ -116,7 +116,7 @@ Du kan korrelera vilka mått från ActiveMQ mappar till vilka mått i Azure Serv
 |Utjämning|`CurrentConnectionsCount`|`activeConnections`|
 |Utjämning|`EstablishedConnectionsCount`|`activeConnections` + `connectionsClosed`|
 |Utjämning|`InactiveDurableTopicSubscribersCount`|Använd prenumerations mått|
-|Utjämning|`TotalMessageCount`|Använd kö/ämne/prenumerations nivå`activeMessages`|
+|Utjämning|`TotalMessageCount`|Använd kö/ämne/prenumerations nivå `activeMessages`|
 |Kö/ämne|`EnqueueCount`|`incomingMessages`|
 |Kö/ämne|`DequeueCount`|`outgoingMessages`|
 |Kö|`QueueSize`|`sizeBytes`|
@@ -232,7 +232,7 @@ Lägg sedan till de Service Bus-/regionsspecifika egenskaperna i `application.pr
 azure.servicebus.connection-string=Endpoint=myEndpoint;SharedAccessKeyName=mySharedAccessKeyName;SharedAccessKey=mySharedAccessKey
 ```
 
-##### <a name="replace-activemqconnectionfactory-with-servicebusjmsconnectionfactory"></a>Ersätt `ActiveMQConnectionFactory` med`ServiceBusJmsConnectionFactory`
+##### <a name="replace-activemqconnectionfactory-with-servicebusjmsconnectionfactory"></a>Ersätt `ActiveMQConnectionFactory` med `ServiceBusJmsConnectionFactory`
 
 Nästa steg är att ersätta instansen av `ActiveMQConnectionFactory` med `ServiceBusJmsConnectionFactory` .
 

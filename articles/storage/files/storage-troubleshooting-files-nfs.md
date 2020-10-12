@@ -9,10 +9,10 @@ ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
 ms.openlocfilehash: 661cfd5bb410a714bc42e0cd9676ac2ec08f8a45
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90709100"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Felsöka fil resurser i Azure NFS
@@ -90,7 +90,7 @@ Följande diagram visar anslutningar med hjälp av offentliga slut punkter.
     - Virtuell nätverks-peering med virtuella nätverk som finns i den privata slut punkten ger NFS-resurs åtkomst till klienter i peer-kopplade virtuella nätverk.
     - Privata slut punkter kan användas med ExpressRoute-, punkt-till-plats-och plats-till-plats-VPN.
 
-:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagram över anslutning till privat slut punkt." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
+:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagram över anslutning till offentliga slut punkter." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
 
 ### <a name="cause-2-secure-transfer-required-is-enabled"></a>Orsak 2: säker överföring krävs har Aktiver ATS
 
@@ -100,7 +100,7 @@ Double Encryption stöds inte för NFS-resurser än. Azure tillhandahåller ett 
 
 Inaktivera säker överföring som krävs i ditt lagrings kontos konfigurations blad.
 
-:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Skärm bild som visar bladet lagrings konto konfiguration och inaktiverar säker överföring krävs.":::
+:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Diagram över anslutning till offentliga slut punkter.":::
 
 ### <a name="cause-3-nfs-common-package-is-not-installed"></a>Orsak 3: NFS-vanligt paket har inte installerats
 Innan du kör monterings kommandot installerar du paketet genom att köra det distribution kommandot nedan.

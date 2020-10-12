@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 19c40f2a7609d556448641e78fdeffe83e8660b1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86083958"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Använd flera HDInsight-kluster med ett Azure Data Lake Storage konto
@@ -34,9 +34,9 @@ Om du vill att den här mappstrukturen ska användas effektivt av HDInsight-klus
 
 |Mapp  |Behörigheter  |Ägande användare  |Ägande grupp  | Namngiven användare | Namngivna användar behörigheter | Namngiven grupp | Namngivna grupp behörigheter |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x--x  |admin |admin  |Tjänstens huvudnamn |--x  |FINGRP   |r-x         |
-|/clusters | rwxr-x--x |admin |admin |Tjänstens huvudnamn |--x  |FINGRP |r-x         |
-|/clusters/finance | rwxr-x--t |admin |FINGRP  |Tjänstens huvudnamn |RWX  |-  |-     |
+|/ | rwxr-x--x  |administratör |administratör  |Tjänstens huvudnamn |--x  |FINGRP   |r-x         |
+|/clusters | rwxr-x--x |administratör |administratör |Tjänstens huvudnamn |--x  |FINGRP |r-x         |
+|/clusters/finance | rwxr-x--t |administratör |FINGRP  |Tjänstens huvudnamn |RWX  |-  |-     |
 
 I tabellen,
 
@@ -65,7 +65,7 @@ Vi rekommenderar att indata till ett jobb och utdata från ett jobb lagras i en 
 
 Gränsen för antalet kluster som kan dela ett enda Data Lake Storage-konto beror på vilken arbets belastning som körs på dessa kluster. Om du har för många kluster eller mycket stora arbets belastningar i klustren som delar ett lagrings konto kan lagrings kontot komma in/ut för att få en begränsad begränsning.
 
-## <a name="support-for-default-acls"></a>Stöd för standard-ACL: er
+## <a name="support-for-default-acls"></a>Stöd för Default-ACLs
 
 När du skapar ett huvud namn för tjänsten med åtkomst till namngivna användare (som visas i tabellen ovan) rekommenderar vi **inte** att du lägger till den namngivna användaren med en standard-ACL. Genom att tillhandahålla åtkomst med namnet-användare med hjälp av standard-ACL: er blir tilldelningen av 770 behörigheter för ägande användare, ägande grupp och andra. Även om det här standardvärdet 770 inte tar bort behörigheter från ägande användare (7) eller ägande grupp (7), tar det bort alla behörigheter för andra (0). Detta resulterar i ett känt problem med ett visst användnings fall som beskrivs i detalj i avsnittet [kända problem och lösningar](#known-issues-and-workarounds) .
 

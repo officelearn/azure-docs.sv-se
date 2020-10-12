@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: kumud
 ms.openlocfilehash: 33a3c41f49833d669fd94ccf1e22afed971e544b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84737979"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Felsöka anslutningar med Azure Network Watcher med Azure-REST API
@@ -130,7 +130,7 @@ Date: Fri, 02 Jun 2017 20:21:16 GMT
 null
 ```
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Följande svar är från föregående exempel.  I det här svaret `ConnectionStatus` går det inte att **komma åt**. Du kan se att alla avsökningar som skickats misslyckades. Anslutningen kunde inte utföras på den virtuella installationen på grund av en användardefinierad `NetworkSecurityRule` namngiven **UserRule_Port80**som kon figurer ATS för att blockera inkommande trafik på port 80. Den här informationen kan användas för att undersöka anslutnings problem.
 
@@ -246,7 +246,7 @@ Date: Fri, 02 Jun 2017 20:26:05 GMT
 null
 ```
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 I följande exempel `connectionStatus` visas den som **oåtkomlig**. I `hops` informationen kan du se `issues` att trafiken blockerades på grund av en `UserDefinedRoute` .
 
@@ -342,7 +342,7 @@ Date: Fri, 02 Jun 2017 20:31:00 GMT
 null
 ```
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 I följande svar kan du se `connectionStatus` programmen som **tillgängliga**. När en anslutning lyckas, anges latens värden.
 
@@ -429,7 +429,7 @@ Date: Fri, 02 Jun 2017 20:05:03 GMT
 null
 ```
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 I följande exempel är svaret på att köra det tidigare API-anropet. När kontrollen har slutförts `connectionStatus` visas egenskapen som **nåbar**.  Du får information om antalet hopp som krävs för att komma åt lagrings-bloben och svars tiden.
 

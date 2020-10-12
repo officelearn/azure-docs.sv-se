@@ -8,10 +8,10 @@ ms.author: daberry
 ms.topic: article
 ms.date: 12/03/2019
 ms.openlocfilehash: 54828dded5196c86946d99a9cd8cec7a42533661
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83117571"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Hantera stora meddelanden med segment i Azure Logic Apps
@@ -113,18 +113,18 @@ De här stegen beskriver den detaljerade processen Logic Apps använder för att
 
 1. Din Logi Kap par skickar en initial HTTP POST eller en skicka begäran med en tom meddelande text. Begär ande huvudet innehåller den här informationen om det innehåll som din Logic app vill överföra i segment:
 
-   | Fält för Logic Apps begär ande huvud | Värde | Typ | Description |
+   | Fält för Logic Apps begär ande huvud | Värde | Typ | Beskrivning |
    |---------------------------------|-------|------|-------------|
    | **x-MS-Transfer-Mode** | segment vis | Sträng | Anger att innehållet har laddats upp i segment |
-   | **x-MS-Content-Length** | <*innehålls längd*> | Integer | Hela innehålls storleken i byte innan segmentning |
+   | **x-MS-Content-Length** | <*innehålls längd*> | Heltal | Hela innehålls storleken i byte innan segmentning |
    ||||
 
 2. Slut punkten svarar med status koden 200 och denna valfria information:
 
-   | Rubrik fält för slut punkts svar | Typ | Obligatorisk | Beskrivning |
+   | Rubrik fält för slut punkts svar | Typ | Krävs | Beskrivning |
    |--------------------------------|------|----------|-------------|
-   | **x-MS-segment-storlek** | Integer | No | Den föreslagna segment storleken i byte |
-   | **Position** | Sträng | Ja | Den URL-plats dit meddelanden om HTTP-KORRIGERINGarna ska skickas |
+   | **x-MS-segment-storlek** | Heltal | Inga | Den föreslagna segment storleken i byte |
+   | **Plats** | Sträng | Ja | Den URL-plats dit meddelanden om HTTP-KORRIGERINGarna ska skickas |
    ||||
 
 3. Din Logi Kap par skapar och skickar uppföljning av HTTP-meddelanden – var och en med den här informationen:
@@ -133,7 +133,7 @@ De här stegen beskriver den detaljerade processen Logic Apps använder för att
 
    * Den här rubrik informationen om innehålls segmentet som skickas i varje KORRIGERINGs meddelande:
 
-     | Fält för Logic Apps begär ande huvud | Värde | Typ | Description |
+     | Fält för Logic Apps begär ande huvud | Värde | Typ | Beskrivning |
      |---------------------------------|-------|------|-------------|
      | **Innehålls intervall** | <*intervall*> | Sträng | Byte-intervallet för det aktuella innehålls segmentet, inklusive startvärdet, slut värde och total innehålls storlek, till exempel: "byte = 0-1023/10100" |
      | **Innehålls typ** | <*innehålls typ*> | Sträng | Typ av segmenterat innehåll |
@@ -142,10 +142,10 @@ De här stegen beskriver den detaljerade processen Logic Apps använder för att
 
 4. Efter varje PATCH-begäran bekräftar slut punkten kvittot för varje segment genom att svara med status koden "200" och följande svarshuvuden:
 
-   | Rubrik fält för slut punkts svar | Typ | Obligatorisk | Beskrivning |
+   | Rubrik fält för slut punkts svar | Typ | Krävs | Beskrivning |
    |--------------------------------|------|----------|-------------|
    | **Intervall** | Sträng | Ja | Byte-intervallet för innehåll som har tagits emot av slut punkten, till exempel: "byte = 0-1023" |   
-   | **x-MS-segment-storlek** | Integer | No | Den föreslagna segment storleken i byte |
+   | **x-MS-segment-storlek** | Heltal | Inga | Den föreslagna segment storleken i byte |
    ||||
 
 Denna åtgärds definition visar till exempel en HTTP POST-begäran om att överföra segment innehåll till en slut punkt. I åtgärdens `runTimeConfiguration` egenskap `contentTransfer` anges egenskapen `transferMode` till `chunked` :

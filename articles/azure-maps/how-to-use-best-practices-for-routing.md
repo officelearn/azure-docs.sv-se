@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 1c108c79cafb591dced6f6be0dd5c1b353ddac45
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90086410"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Metod tips för Azure Maps Route service
@@ -21,7 +21,7 @@ API: er för väg riktning och väg mat ris i Azure Maps [Route service](https:/
 
 > [!div class="checklist"]
 > * Välj mellan API: er för väg riktningar och mat ris Dirigerings-API: et
-> * Begär historiska och förväntade res tider baserat på data i real tid och historisk trafik
+> * Begära historiska och förväntade restider baserat på trafikdata i realtid och historiska trafikdata
 > * Begär flödes information, t. ex. tid och avstånd, för hela vägen och varje steg i vägen
 > * Begär routning för ett kommersiellt fordon, som en Last bil
 > * Begär trafik information längs en väg, t. ex. sylt och avgifts information
@@ -205,7 +205,7 @@ Det här alternativet kan användas för att färga avsnitten när du återger k
 
 ![Färgade avsnitt som återges på kartan](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
 
-## <a name="calculate-and-optimize-a-multi-stop-route"></a>Beräkna och optimera en multi-Stop-väg
+## <a name="calculate-and-optimize-a-multi-stop-route"></a>Beräkna och optimera rutt med flera stopp
 
 Azure Maps tillhandahåller för närvarande två former av väg optimeringar:
 
@@ -282,7 +282,7 @@ Azure Maps Web SDK tillhandahåller en [service-modul](https://docs.microsoft.co
 Mer information finns i:
 
 > [!div class="nextstepaction"]
-> [Azure Maps Route service](https://docs.microsoft.com/rest/api/maps/route)
+> [Tjänsten Route i Azure Maps](https://docs.microsoft.com/rest/api/maps/route)
 
 > [!div class="nextstepaction"]
 > [Använda Service-modulen](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)

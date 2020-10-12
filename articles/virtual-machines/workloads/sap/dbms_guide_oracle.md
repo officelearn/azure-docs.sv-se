@@ -16,10 +16,10 @@ ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f953d87c53bc13af623c2bfd49ceb953280f8f2a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540718"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines Oracle DBMS-distribution för SAP-arbetsbelastning
@@ -416,7 +416,7 @@ Du kan också använda Azure Backup för att köra en programkonsekvent säkerhe
 
 
 ### <a name="high-availability"></a>Hög tillgänglighet
-Oracle data Guard stöds för hög tillgänglighet och katastrof återställning. För att uppnå automatisk redundans i data Guard måste du använda snabb starts växling (FSFA). Observatören (FSFA) utlöser redundansväxlingen. Om du inte använder FSFA kan du bara använda en manuell redundanskonfiguration.
+Oracle data Guard stöds för hög tillgänglighet och katastrof återställning. Om du vill uppnå automatisk redundans i data Guard måste du använda Fast-Start redundans (FSFA). Observatören (FSFA) utlöser redundansväxlingen. Om du inte använder FSFA kan du bara använda en manuell redundanskonfiguration.
 
 Mer information om haveri beredskap för Oracle-databaser i Azure finns i [haveri beredskap för en Oracle Database 12C-databas i en Azure-miljö](../oracle/oracle-disaster-recovery.md).
 
@@ -511,7 +511,7 @@ För säkerhets kopierings-/återställnings funktioner stöds SAP BR *-verktyge
 Mer information om hur du kan använda Azure Backup-och återställnings tjänster för att säkerhetskopiera och återställa Oracle-databaser finns i [säkerhetskopiera och återställa en Oracle Database 12C-databas på en virtuell Azure Linux-dator](../oracle/oracle-backup-recovery.md).
 
 ### <a name="high-availability"></a>Hög tillgänglighet
-Oracle data Guard stöds för hög tillgänglighet och katastrof återställning. För att uppnå automatisk redundans i data Guard måste du använda snabb starts växling (FSFA). FSFA (observatörs funktioner) utlöser redundansväxlingen. Om du inte använder FSFA kan du bara använda en manuell redundanskonfiguration. Mer information finns i [implementera Oracle data Guard på en virtuell Azure Linux-dator](../oracle/configure-oracle-dataguard.md).
+Oracle data Guard stöds för hög tillgänglighet och katastrof återställning. Om du vill uppnå automatisk redundans i data Guard måste du använda Fast-Start redundans (FSFA). FSFA (observatörs funktioner) utlöser redundansväxlingen. Om du inte använder FSFA kan du bara använda en manuell redundanskonfiguration. Mer information finns i [implementera Oracle data Guard på en virtuell Azure Linux-dator](../oracle/configure-oracle-dataguard.md).
 
 
 Katastrof återställnings aspekter för Oracle-databaser i Azure presenteras i artikeln [haveri beredskap för en Oracle Database 12C-databas i en Azure-miljö](../oracle/oracle-disaster-recovery.md).

@@ -4,10 +4,10 @@ description: Event-based Video Recording (EVR) syftar på att spela in videon so
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.openlocfilehash: f3efd2b9be41928ab4721d6db4aa84c0f1f57e2f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89568524"
 ---
 # <a name="event-based-video-recording"></a>Händelsebaserad videoinspelning  
@@ -46,7 +46,7 @@ En händelse från rörelse detektor-noden utlöser noden signal grind processor
 I det här användnings fallet kan signaler från en annan IoT-sensor användas för att utlösa inspelning av video. Diagrammet nedan visar en grafisk representation av ett medie diagram som hanterar det här användnings fallet. JSON-representationen av diagram sto pol Ogin för ett sådant medie diagram finns [här](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-files/topology.json).
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording/other-sources.svg" alt-text="Videoinspelning baserat på händelser från andra källor":::
+> :::image type="content" source="./media/event-based-video-recording/other-sources.svg" alt-text="Video inspelning baserad på rörelse identifiering":::
 
 I diagrammet skickar den externa sensorn händelser till IoT Edge Hub. Händelserna dirigeras sedan till noden signal grind processor via noden [IoT Hub-meddelande källa](media-graph-concept.md#iot-hub-message-source) . Beteendet för signal porten processor är detsamma som i föregående användnings fall – den öppnas och gör att Live-videofeeden flödar från noden RTSP-källa till filen Sink-noden (eller till gångs mottagarens nod) när den utlöses av den externa händelsen. 
 
@@ -57,7 +57,7 @@ Om du använder en fil mottagar nod, registreras videon i det lokala fil systeme
 I detta fall kan du spela in videoklipp baserat på en signal från ett externt logik system. Ett exempel på ett sådant användnings fall kan bara spela in ett videoklipp när en Last bil upptäcks i video flödet för trafik på en väg. Diagrammet nedan visar en grafisk representation av ett medie diagram som hanterar det här användnings fallet. JSON-representationen av diagram sto pol Ogin för ett sådant medie diagram finns [här](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json).
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.svg" alt-text="Video inspelning baserad på en extern inferencing-modul":::
+> :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.svg" alt-text="Video inspelning baserad på rörelse identifiering":::
 
 I diagrammet fångar RTSP-Källnoden Live-videofeeden från kameran och levererar den till två grenar: en har en [signal grind processor](media-graph-concept.md#signal-gate-processor) , och den andra använder en [http-tilläggsprovider](media-graph-concept.md) för att skicka data till en extern Logic-modul. Med noden HTTP-tillägg kan Media grafen skicka bild ramar (i JPEG-, BMP-eller PNG-format) till en extern tjänst Överlagrings tjänst över REST. Den här signal Sök vägen kan vanligt vis bara stödja låga bild hastigheter (<5fps). Du kan använda en [filter processor för RAM hastighet](media-graph-concept.md#frame-rate-filter-processor) för att sänka bild Rute frekvensen för videon till http-tillägget.
 

@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95e13cedc0cdbaedc8c00b9d855057da7e631c19
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88510886"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Vidta åtgärder för överanvändning eller misstänkta program i Azure Active Directory
@@ -25,7 +25,7 @@ Lär dig hur du granskar och hanterar program behörigheter. Den här artikeln i
 
 Mer information om samtycker till program finns i [Azure Active Directory medgivande Framework](../develop/consent-framework.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill utföra följande åtgärder måste du logga in som global administratör, program administratör eller en moln program administratör.
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: e3419711c9a7358914f85574f6dbd5af29def1cf
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403626"
 ---
 # <a name="how-to-configure-a-blob-indexer-in-azure-cognitive-search"></a>Så här konfigurerar du en BLOB-indexerare i Azure Kognitiv sökning
@@ -31,7 +31,7 @@ BLOB-indexeraren kan extrahera text från följande dokument format:
 
 Du kan konfigurera en Azure Blob Storage-indexerare med hjälp av:
 
-* [Azure-portalen](https://ms.portal.azure.com)
+* [Azure Portal](https://ms.portal.azure.com)
 * Azure Kognitiv sökning [REST API](/rest/api/searchservice/Indexer-operations)
 * Azure Kognitiv sökning [.NET SDK](/dotnet/api/overview/azure/search)
 
@@ -165,7 +165,7 @@ Beroende på [indexerings konfigurationen](#PartsOfBlobToIndex)kan BLOB-indexera
 
   * ** \_ lagrings \_ Sök väg för metadata** (EDM. String)-den fullständiga URI: n för blobben, inklusive lagrings kontot. Till exempel `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
 
-  * ** \_ \_ innehålls \_ typ för metadata-lagring** (EDM. String) – innehålls typ som anges av den kod som du använde för att ladda upp blobben. Till exempel `application/octet-stream`.
+  * ** \_ \_ innehålls \_ typ för metadata-lagring** (EDM. String) – innehålls typ som anges av den kod som du använde för att ladda upp blobben. Exempelvis `application/octet-stream`.
 
   * **metadata \_ Storage \_ senast \_ ändrad** (EDM. DateTimeOffset)-den senaste ändrade tidsstämpeln för blobben. Azure Kognitiv sökning använder den här tidsstämpeln för att identifiera ändrade blobbar, för att undvika att indexera om allt efter den inledande indexeringen.
 

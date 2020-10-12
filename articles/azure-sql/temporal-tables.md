@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 06/26/2019
 ms.openlocfilehash: ea037d12417c8fad9d80b77df69285ed2c8df31b
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618666"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database-and-azure-sql-managed-instance"></a>Komma igång med temporala tabeller i Azure SQL Database och Azure SQL-hanterad instans
@@ -42,7 +42,7 @@ Du kan antingen skapa temporala tabeller eller ändra befintliga genom att lägg
 
 ### <a name="create-new-table"></a>Skapa ny tabell
 
-Använd snabb meny alternativet "ny system versions tabell" i SSMS Object Explorer för att öppna Frågeredigeraren med ett skript för en temporal tabell mal len och Använd sedan "Ange värden för mallparametrar" (CTRL + SHIFT + M) för att fylla i mallen:
+Använd snabb meny alternativet "ny System-Versioned tabell" i SSMS Object Explorer för att öppna Frågeredigeraren med ett skript för en temporal tabell mal len och Använd sedan "Ange värden för mallparametrar" (CTRL + SHIFT + M) för att fylla i mallen:
 
 ![SSMSNewTable](./media/temporal-tables/AzureTemporal2.png)
 

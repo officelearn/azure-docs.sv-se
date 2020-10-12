@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
 ms.openlocfilehash: 7c8e68da1c5da7b25d1385a82bf7dcc2f876306d
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89376289"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Felsöka säkerhets kopiering av system tillstånd
@@ -40,7 +40,7 @@ Vi rekommenderar att du utför följande verifierings steg innan du börjar fels
 - Att återställa till annan maskin vara med återställning av system tillstånd rekommenderas inte av Microsoft
 - Säkerhets kopiering av system tillstånd stöder för närvarande lokala Windows-servrar. Den här funktionen är inte tillgänglig för virtuella Azure-datorer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan vi felsöker säkerhets kopiering av system tillstånd med Azure Backup utför du följande krav kontroll.  
 

@@ -4,10 +4,10 @@ description: Använd Azure Backup Server för att säkerhetskopiera och återst�
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.openlocfilehash: 837aabf739431eebaa6406770620329fe6345eb7
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89375405"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Säkerhetskopiera en SharePoint-grupp till Azure med MABS
@@ -30,7 +30,7 @@ Det finns några saker du behöver bekräfta innan du säkerhetskopierar en Shar
 
 * MABS tillhandahåller inte säkerhets kopior av SharePoint SQL Server-databaser som finns på SOFS-resurser (Scale-Out File Server).
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Innan du fortsätter kontrollerar du att du uppfyller alla [krav för att använda Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) för att skydda arbets belastningar. Vissa uppgifter för krav är: skapa ett säkerhets kopierings valv, Hämta autentiseringsuppgifter för valvet, installera Azure Backup Agent och registrera Azure Backup Server med valvet.
 
@@ -217,7 +217,7 @@ I följande exempel har den återställda *SharePoint-objektet* tagits bort av m
     ![MABS SharePoint-Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Följ återställnings stegen tidigare i den här artikeln för att återställa en SharePoint-innehålls databas från disken.
 
-## <a name="switching-the-front-end-web-server"></a>Växla front webb server
+## <a name="switching-the-front-end-web-server"></a>Byta Front-End webb server
 
 Om du har fler än en front webb server och vill växla till den server som MABS använder för att skydda Server gruppen, följer du anvisningarna:
 

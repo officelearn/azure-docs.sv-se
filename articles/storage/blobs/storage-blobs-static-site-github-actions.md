@@ -1,5 +1,5 @@
 ---
-title: Använd GitHub-åtgärder för att distribuera en statisk plats till Azure Storage
+title: Använda GitHub Actions för att distribuera en statisk webbplats till Azure Storage
 description: Azure Storage statisk webbplats som är värd för GitHub-åtgärder
 author: juliakm
 ms.service: storage
@@ -10,10 +10,10 @@ ms.date: 09/11/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure
 ms.openlocfilehash: 919fa0d7b6dff0361e4439b442bcfe9648ed8677
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776399"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Konfigurera ett GitHub-åtgärds arbets flöde för att distribuera din statiska webbplats i Azure Storage
@@ -24,7 +24,7 @@ Kom igång med [GitHub-åtgärder](https://docs.github.com/en/actions) genom att
 > Om du använder [Azures statiska Web Apps](https://docs.microsoft.com/azure/static-web-apps/)behöver du inte konfigurera ett arbets flöde för GitHub-åtgärder manuellt.
 > Azures statiska Web Apps skapar automatiskt ett GitHub-arbetsflöde åt dig. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett Azure-prenumerations-och GitHub-konto. 
 

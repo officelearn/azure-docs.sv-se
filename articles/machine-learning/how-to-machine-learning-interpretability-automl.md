@@ -11,10 +11,10 @@ ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
 ms.openlocfilehash: 35bf66549cedba22ec14999c4fea62a2c449416e
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91408023"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Tolkning: modell förklaringar i automatiserad Machine Learning (för hands version)
@@ -31,7 +31,7 @@ I den här artikeln kan du se hur du:
 - Aktivera visualiseringar så att du kan se mönster i data och förklaringar.
 - Implementera tolkning under härledning eller poängsättning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Tolknings funktioner. Kör `pip install azureml-interpret` för att hämta det nödvändiga paketet.
 - Kunskap om att skapa automatiserade ML-experiment. Mer information om hur du använder Azure Machine Learning SDK finns i [själv studie kursen om regressions modell](tutorial-auto-train-models.md) eller hur du [konfigurerar automatiserade ml-experiment](how-to-configure-auto-train.md).
@@ -43,7 +43,7 @@ Hämta förklaringen från `best_run` , som innehåller förklaringar för de fu
 > [!Warning]
 > Tolkning, bästa modell förklaring, är inte tillgänglig för experiment med automatisk ML-prognoser som rekommenderar följande algoritmer som bästa modell: 
 > * ForecastTCN
-> * Medel 
+> * Genomsnitt 
 > * Naive
 > * Säsongs genomsnitt 
 > * Säsongs Naive

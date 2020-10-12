@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4b533fa23d3c128b5f9f75737fb88d39aec94905
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88950076"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release-for-linux-vms"></a>Skapa och konfigurera ett nyckel valv för Azure Disk Encryption med Azure AD (tidigare version) för virtuella Linux-datorer
@@ -129,7 +129,7 @@ Använd stegen från [portalen för att skapa ett Azure Active Directory-program
 3. [Hämta program-ID och autentiseringsnyckel](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). 
      - Autentiseringsnyckel är klient hemligheten och används som AadClientSecret för set-AzVMDiskEncryptionExtension. 
         - Autentiseringsnyckel används av programmet som autentiseringsuppgifter för att logga in på Azure AD. I Azure Portal kallas den här hemligheten nycklar, men har ingen relation till nyckel valv. Skydda den här hemligheten på rätt sätt. 
-     - Program-ID: t kommer att användas senare som AadClientId för set-AzVMDiskEncryptionExtension och som ServicePrincipalName för set-AzKeyVaultAccessPolicy. 
+     - Program-ID: t kommer att användas senare som AadClientId för Set-AzVMDiskEncryptionExtension och som ServicePrincipalName för set-AzKeyVaultAccessPolicy. 
 
 ## <a name="set-the-key-vault-access-policy-for-the-azure-ad-app"></a><a name="bkmk_KVAP"></a> Ange åtkomst princip för nyckel valvet för Azure AD-appen
 För att skriva krypterings hemligheter till en angiven Key Vault måste Azure Disk Encryption klient-ID och klient hemlighet för det Azure Active Directory program som har behörighet att skriva hemligheter till Key Vault. 

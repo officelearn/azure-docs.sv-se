@@ -16,10 +16,10 @@ ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
 ms.openlocfilehash: 31733abc945fe7c751f786649fb05b753a7c243d
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91408866"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Övervakning av nätverks anslutning med anslutnings övervakare (för hands version)
@@ -199,7 +199,7 @@ Du kan filtrera en lista baserat på:
 * **Tillstånds baserade filter** – filtrera efter tillstånd för anslutnings övervakaren, test gruppen eller testet. Se ruta 2 i följande bild.
 * **Varnings baserat filter** – filtrera efter aviseringar som utlösts på anslutnings övervaknings resursen. Se fält 3 i följande bild.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Skärm bild som visar hur du filtrerar vyer för anslutnings övervakare, test grupper och tester i anslutnings övervakaren (för hands version)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Skärm bild som visar anslutnings Övervakare som har skapats i anslutnings övervakaren (förhands granskning)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
     
 Om du till exempel vill titta på alla tester i anslutnings övervakaren (för hands version) där käll-IP: en är 10.192.64.56:
 1. Ändra vyn för att **testa**.
@@ -218,16 +218,16 @@ Visa endast misslyckade tester i anslutnings övervakaren (för hands version) d
 1. Skriv *Outlook.Office365.com* i Sök fältet
 1. I **omfång** i filtret på högsta nivån väljer du **destinationer**.
   
-  :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Skärm bild som visar en vy som är filtrerad för att endast Visa misslyckade tester för Outlook.Office365.com-målet" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Skärm bild som visar anslutnings Övervakare som har skapats i anslutnings övervakaren (förhands granskning)" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
 
 Om du vill veta orsaken till att en anslutnings övervakare eller test grupp eller ett test har misslyckats klickar du på kolumn namnet orsak.  Detta anger vilket tröskelvärde (kontroller som misslyckats% eller sökpost) har brutits och relaterade diagnostikloggar
   
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-reason-of-failure.png" alt-text="Skärm bild som visar orsaken till ett problem med anslutnings övervakaren, test-eller test gruppen" lightbox="./media/connection-monitor-2-preview/cm-reason-of-failure.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-reason-of-failure.png" alt-text="Skärm bild som visar anslutnings Övervakare som har skapats i anslutnings övervakaren (förhands granskning)" lightbox="./media/connection-monitor-2-preview/cm-reason-of-failure.png":::
     
 Visa trender i sökrutan och procent andelen misslyckade kontroller för en anslutnings Övervakare:
 1. Välj den anslutnings Övervakare som du vill undersöka.
 
-    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing.png" alt-text="Skärm bild som visar mått för en anslutnings Övervakare som visas av test gruppen" lightbox="./media/connection-monitor-2-preview/cm-drill-landing.png":::
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing.png" alt-text="Skärm bild som visar anslutnings Övervakare som har skapats i anslutnings övervakaren (förhands granskning)" lightbox="./media/connection-monitor-2-preview/cm-drill-landing.png":::
 
 1. Följande avsnitt visas  
     1. Essentials-resurs egenskaper för den valda anslutnings övervakaren 
@@ -237,7 +237,7 @@ Visa trender i sökrutan och procent andelen misslyckade kontroller för en ansl
     1. Flikar för test grupper, källor, destinationer och testkonfigurationer – visar en lista över test grupper, källor eller mål i anslutnings övervakaren. Det gick inte att kontrol lera efter fel, det gick inte att lägga till mängd sökvärden  Du kan också gå tillbaka i tid för att visa data. 
     1. Problem – problem med hopp nivån för varje test i anslutnings övervakaren. 
 
-    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing-2.png" alt-text="Skärm bild som visar mått för en anslutnings Övervakare som visas av test grupp del 2" lightbox="./media/connection-monitor-2-preview/cm-drill-landing-2.png":::
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing-2.png" alt-text="Skärm bild som visar anslutnings Övervakare som har skapats i anslutnings övervakaren (förhands granskning)" lightbox="./media/connection-monitor-2-preview/cm-drill-landing-2.png":::
 
 1. Du kan
     * Klicka på Visa alla tester-om du vill visa alla tester i anslutnings övervakaren
@@ -247,7 +247,7 @@ Visa trender i sökrutan och procent andelen misslyckade kontroller för en ansl
 1. Från vyn Visa alla tester kan du:
     * Välj test och klicka på Jämför.
     
-    :::image type="content" source="./media/connection-monitor-2-preview/cm-compare-test.png" alt-text="Skärm bild som visar jämförelse av 2 tester" lightbox="./media/connection-monitor-2-preview/cm-compare-test.png":::
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-compare-test.png" alt-text="Skärm bild som visar anslutnings Övervakare som har skapats i anslutnings övervakaren (förhands granskning)" lightbox="./media/connection-monitor-2-preview/cm-compare-test.png":::
     
     * Använd kluster för att expandera sammansatta resurser som VNET, undernät till dess underordnade resurser
     * Visa topologi för alla tester genom att klicka på topologi.
@@ -259,7 +259,7 @@ För att visa trender i sökrutan och procent andelen misslyckade kontroller fö
 För att visa trender i sökrutan och procent andelen misslyckade kontroller för ett test:
 1. Välj det test som du vill undersöka. Du ser nätverk sto pol Ogin och slut punkt till slut punkt trend diagram för kontroller som misslyckats% och tid för tur och retur. Om du vill se de identifierade problemen i topologin väljer du ett hopp i sökvägen. (Dessa hopp är Azure-resurser.) Den här funktionen är för närvarande inte tillgänglig för lokala nätverk
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-test-topology.png" alt-text="Skärm bild som visar en Topology-vy för ett test" lightbox="./media/connection-monitor-2-preview/cm-test-topology.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-test-topology.png" alt-text="Skärm bild som visar anslutnings Övervakare som har skapats i anslutnings övervakaren (förhands granskning)" lightbox="./media/connection-monitor-2-preview/cm-test-topology.png":::
 
 #### <a name="log-queries-in-log-analytics"></a>Logg frågor i Log Analytics
 
@@ -269,16 +269,16 @@ Använd Log Analytics för att skapa anpassade vyer för dina övervaknings data
 
 I anslutnings Övervakare som har skapats före anslutnings övervakaren (förhands granskning) är alla fyra mått tillgängliga:% avsökningar misslyckades, AverageRoundtripMs, ChecksFailedPercent (för hands version) och RoundTripTimeMs (för hands version). I anslutnings Övervakare som skapades i anslutnings övervakaren (förhands granskning) är data endast tillgängliga för mått som är taggade med (för *hands version)*.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Skärm bild som visar mått i anslutnings övervakaren (förhands granskning)" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Skärm bild som visar anslutnings Övervakare som har skapats i anslutnings övervakaren (förhands granskning)" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
 När du använder mått anger du resurs typen som Microsoft. Network/networkWatchers/connectionMonitors
 
 | Mått | Visningsnamn | Enhet | Sammansättningstyp | Beskrivning | Dimensioner |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | % Avsökningar misslyckades | Procentandel | Medel | Procent av anslutnings övervaknings avsökningarna misslyckades. | Inga dimensioner |
-| AverageRoundtripMs | Genomsnittlig tid för fördröjning (MS) | Millisekunder | Medel | Genomsnittlig för inblandning av nätverks belastning för anslutnings övervaknings avsökningar skickas mellan källa och mål. |             Inga dimensioner |
-| ChecksFailedPercent (för hands version) | % Kontroller misslyckades (förhands granskning) | Procentandel | Medel | Procent andelen misslyckade kontroller för ett test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protokoll <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
-| RoundTripTimeMs (för hands version) | Tur och retur tid (MS) (för hands version) | Millisekunder | Medel | Söker efter kontroller som skickats mellan källa och mål. Värdet är inte medelvärdet. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protokoll <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| ProbesFailedPercent | % Avsökningar misslyckades | Procentandel | Genomsnitt | Procent av anslutnings övervaknings avsökningarna misslyckades. | Inga dimensioner |
+| AverageRoundtripMs | Genomsnittlig tid för fördröjning (MS) | Millisekunder | Genomsnitt | Genomsnittlig för inblandning av nätverks belastning för anslutnings övervaknings avsökningar skickas mellan källa och mål. |             Inga dimensioner |
+| ChecksFailedPercent (för hands version) | % Kontroller misslyckades (förhands granskning) | Procentandel | Genomsnitt | Procent andelen misslyckade kontroller för ett test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protokoll <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| RoundTripTimeMs (för hands version) | Tur och retur tid (MS) (för hands version) | Millisekunder | Genomsnitt | Söker efter kontroller som skickats mellan källa och mål. Värdet är inte medelvärdet. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protokoll <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>Metric-baserade aviseringar för anslutnings övervakaren
 
@@ -300,7 +300,7 @@ Du kan skapa mått aviseringar för anslutnings övervakare med hjälp av metode
     1. Ange aviserings information.
     1. Skapa varnings regeln.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/mdm-alerts.jpg" alt-text="Skärm bild som visar avsnittet Skapa regel i Azure Monitor. Käll adressen och källans slut punkts namn har marker ATS" lightbox="./media/connection-monitor-2-preview/mdm-alerts.jpg":::
+  :::image type="content" source="./media/connection-monitor-2-preview/mdm-alerts.jpg" alt-text="Skärm bild som visar anslutnings Övervakare som har skapats i anslutnings övervakaren (förhands granskning)" lightbox="./media/connection-monitor-2-preview/mdm-alerts.jpg":::
 
 ## <a name="diagnose-issues-in-your-network"></a>Diagnostisera problem i nätverket
 
@@ -348,7 +348,7 @@ Följande problem kan identifieras för nätverk vars källor är virtuella Azur
 * BGP är inte aktiverat på Gateway-anslutningen.
 * DIP-avsökningen är nere i belastningsutjämnaren.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
     
    * Lär dig [hur du skapar anslutnings övervakaren (för hands version) med Azure Portal](connection-monitor-preview-create-using-portal.md)  
    * Lär dig [hur du skapar anslutnings övervakaren (för hands version) med ARMClient](connection-monitor-preview-create-using-arm-client.md)  

@@ -6,10 +6,10 @@ ms.author: gwallace
 ms.date: 11/08/2018
 ms.topic: conceptual
 ms.openlocfilehash: a995f30872216a8b704d3d1714bbece4bb8271f8
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91840072"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Containeranpassa en befintlig .NET-app för Service Fabric Mesh
@@ -21,7 +21,7 @@ I Visual Studio 2017 kan du lägga till stöd för containeranpassning i ASP.NET
 > [!NOTE]
 > .NET **Core**-projekt stöds inte för närvarande.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

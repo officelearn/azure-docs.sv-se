@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
 ms.openlocfilehash: 26a1208131f1d9d3df7dccd8e27bda37992f043f
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88236688"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Gör sentiment-analys med Azure Stream Analytics och Azure Machine Learning Studio (klassisk)
@@ -31,7 +31,7 @@ Du kan använda det du lär dig i den här artikeln för scenarier som dessa:
 
 Stream Analytics-jobbet som du skapar tillämpar sentiment Analytics-modellen som en användardefinierad funktion (UDF) på exempel text data från BLOB Store. Utdata (resultatet av sentiment-analysen) skrivs till samma blob-lagring i en annan CSV-fil. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande innan du börjar:
 
@@ -47,11 +47,11 @@ I det här steget laddar du upp en CSV-fil till din lagrings behållare.
 
 2. Fyll i fliken *grundläggande* med följande information och lämna standardvärdena för de återstående fälten:
 
-   |Fält  |Värde  |
+   |Field  |Värde  |
    |---------|---------|
    |Prenumeration|Välj din prenumeration.|
    |Resursgrupp|Välj din resurs grupp.|
-   |Namn på lagringskonto|Ange ett namn för lagringskontot. Namnet måste vara unikt i Azure.|
+   |Lagringskontonamn|Ange ett namn för lagringskontot. Namnet måste vara unikt i Azure.|
    |Plats|Välj en plats. Alla resurser bör använda samma plats.|
    |Typ av konto|BlobStorage|
 
@@ -119,7 +119,7 @@ Jobbet hämtar indata från den CSV-fil som du överförde tidigare till Blob St
 
 2. Fyll i **Blob Storage** information med följande värden:
 
-   |Fält  |Värde  |
+   |Field  |Värde  |
    |---------|---------|
    |Inmatat alias|Ge dina inmatade namn. Kom ihåg det här aliaset när du skriver frågan.|
    |Prenumeration|Välj din prenumeration.|
@@ -137,7 +137,7 @@ Jobbet skickar resultat till samma blob-lagring där det matas in.
 
 2. Fyll i formuläret **Blob Storage** med följande värden:
 
-   |Fält  |Värde  |
+   |Field  |Värde  |
    |---------|---------|
    |Inmatat alias|Ge dina inmatade namn. Kom ihåg det här aliaset när du skriver frågan.|
    |Prenumeration|Välj din prenumeration.|
@@ -159,7 +159,7 @@ I det här avsnittet definierar du en funktion i Stream Analysis-jobbet. Funktio
 
 3. Fyll i formuläret för **Azure Machine Learning funktion** med följande värden:
 
-   |Fält  |Värde  |
+   |Field  |Värde  |
    |---------|---------|
    | Funktions Ali Aset | Använd namnet `sentiment` och välj **Ange Azure Machine Learning funktions inställningar manuellt**, vilket ger dig ett alternativ för att ange URL och nyckel.      |
    | URL| Klistra in webb tjänstens URL.|

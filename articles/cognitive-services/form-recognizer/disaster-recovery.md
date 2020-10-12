@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88718823"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Säkerhetskopiera och återställa formulär igenkännings modeller
@@ -82,7 +82,7 @@ Bröd texten i begäran måste ha följande format. Du måste ange resurs-ID och
 > [!NOTE]
 > Kopierings-API: t transparent stöder funktionen [AEK/CMK](https://msazure.visualstudio.com/Cognitive%20Services/_wiki/wikis/Cognitive%20Services.wiki/52146/Customer-Managed-Keys) . Detta kräver ingen särskild behandling, men Observera att om du kopierar mellan en okrypterad resurs till en krypterad resurs måste du ta med rubriken för begäran `x-ms-forms-copy-degrade: true` . Om den här rubriken inte ingår, Miss kopie ras kopierings åtgärden och returnerar en `DataProtectionTransformServiceError` .
 
-Du får ett `202\Accepted` svar med en åtgärds plats rubrik. Det här värdet är den URL som du använder för att följa förloppet för åtgärden. Kopiera den till en tillfällig plats för nästa steg.
+Du får ett `202\Accepted` svar med ett Operation-Locations huvud. Det här värdet är den URL som du använder för att följa förloppet för åtgärden. Kopiera den till en tillfällig plats för nästa steg.
 
 ```
 HTTP/1.1 202 Accepted

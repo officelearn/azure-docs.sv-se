@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
 ms.openlocfilehash: 06cf0a5692b3d80a07c305f53c9e3801cbdb5110
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764017"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Skapa och dela instrumentpaneler i Azure-portalen
@@ -142,7 +142,7 @@ Följ dessa steg om du vill använda en befintlig instrument panel som mall för
 
 ## <a name="publish-and-share-a-dashboard"></a>Publicera och dela en instrument panel
 
-När du skapar en instrument panel är den privat som standard, vilket innebär att du är den enda som kan se den. Om du vill göra instrument paneler tillgängliga för andra kan du publicera och dela dem. Mer information finns i [dela Azure-instrumentpaneler med hjälp av rollbaserad Access Control](azure-portal-dashboard-share-access.md).
+När du skapar en instrument panel är den privat som standard, vilket innebär att du är den enda som kan se den. Om du vill göra instrument paneler tillgängliga för andra kan du publicera och dela dem. Mer information finns i [dela Azure-instrumentpaneler med hjälp av Role-Based Access Control](azure-portal-dashboard-share-access.md).
 
 ### <a name="open-a-shared-dashboard"></a>Öppna en delad instrument panel
 

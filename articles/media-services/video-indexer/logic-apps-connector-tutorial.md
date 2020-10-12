@@ -9,10 +9,10 @@ ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.openlocfilehash: f557794265f3bbf48fae97fc04e5e9b068b54f63
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540416"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Självstudie: använda Video Indexer med Logic app och Power automatisering
@@ -35,7 +35,7 @@ Den här självstudien använder Logic app för att visa hur du:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * För att börja med behöver du ett Video Indexer konto tillsammans med [åtkomst till API: erna via API-nyckeln](video-indexer-use-apis.md). 
 * Du måste också ha ett Azure Storage-konto. Tänk på åtkomst nyckeln för ditt lagrings konto. Skapa två behållare – en för att lagra videor i och en för att lagra insikter som genererats av Video Indexer i.  

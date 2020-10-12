@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 6d0cb0c6a9cc3080ec4b2fbd2c4b707a52a88319
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285119"
 ---
 # <a name="clustering-point-data"></a>Kluster plats data
@@ -48,7 +48,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 Här följer ytterligare metoder som `DataSource` klassen tillhandahåller för kluster:
 
-| Metod | Returtyp | Description |
+| Metod | Returtyp | Beskrivning |
 |--------|-------------|-------------|
 | getClusterChildren (clusterId: Number) | &lt;Funktions geometri för Promise array &lt; &lt; , vilken &gt; \| form som helst&gt;&gt; | Hämtar underordnade för det aktuella klustret på nästa zoomnings nivå. Dessa underordnade kan vara en kombination av former och under kluster. Under klustren är funktioner med egenskaper som matchar ClusteredProperties. |
 | getClusterExpansionZoom (clusterId: Number) | Löftes &lt; nummer&gt; | Beräknar en zoomnings nivå där klustret börjar expandera eller dela upp. |
@@ -92,7 +92,7 @@ Se Penn <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>klustrets viktade vä
 
 När mus händelser inträffar i ett lager som innehåller grupperade data punkter, återgår den klustrade data punkten till händelsen som ett objekt av en interjson-punkt. Den här punkt funktionen kommer att ha följande egenskaper:
 
-| Egenskapsnamn             | Typ    | Description   |
+| Egenskapsnamn             | Typ    | Beskrivning   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | Anger om funktionen representerar ett kluster. |
 | `cluster_id`              | sträng  | Ett unikt ID för klustret som kan användas med DataSource `getClusterExpansionZoom` -, `getClusterChildren` -och- `getClusterLeaves` metoder. |

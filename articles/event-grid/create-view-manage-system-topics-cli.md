@@ -4,10 +4,10 @@ description: Den här artikeln visar hur du använder Azure CLI för att skapa, 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 354afb89b145e288f525e40ad700e8f8a67c6dad
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86115051"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Skapa, Visa och hantera Event Grid system ämnen med hjälp av Azure CLI
@@ -18,14 +18,14 @@ För Azure CLI behöver du Event Grid- [tillägget](/cli/azure/azure-cli-extensi
 
 I Cloud Shell:
 
-- Om du har installerat tillägget tidigare uppdaterar du det:`az extension update -n eventgrid`
-- Om du inte har installerat tillägget tidigare installerar du det:`az extension add -n eventgrid`
+- Om du har installerat tillägget tidigare uppdaterar du det: `az extension update -n eventgrid`
+- Om du inte har installerat tillägget tidigare installerar du det:  `az extension add -n eventgrid`
 
 För en lokal installation:
 
 1. [Installera Azure CLI](/cli/azure/install-azure-cli). Kontrol lera att du har den senaste versionen genom att kontrol lera med `az --version` .
-2. Avinstallera tidigare versioner av tillägget:`az extension remove -n eventgrid`
-3. Installera eventgrid-tillägget med`az extension add -n eventgrid`
+2. Avinstallera tidigare versioner av tillägget: `az extension remove -n eventgrid`
+3. Installera eventgrid-tillägget med `az extension add -n eventgrid`
 
 ## <a name="create-a-system-topic"></a>Avsnittet Skapa ett system
 

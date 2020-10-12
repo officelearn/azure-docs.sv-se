@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
 ms.openlocfilehash: 4022ca97f88e2f06d3b4c1eeb103bb60d1856eda
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962153"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Konfigurera din App Service-eller Azure Functions-app för att använda Azure AD-inloggning
@@ -75,7 +75,7 @@ Utför följande steg:
 1. Logga in på [Azure Portal], Sök efter och välj **app Services**och välj sedan din app. Anteckna appens **URL**. Du använder den för att konfigurera din Azure Active Directory app-registrering.
 1. Välj **Azure Active Directory**  >  **Appregistreringar**  >  **ny registrering**.
 1. På sidan **Registrera ett program** anger du ett **namn** för din app-registrering.
-1. I **omdirigerings-URI**väljer du **webb** och typ `<app-url>/.auth/login/aad/callback` . Till exempel `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+1. I **omdirigerings-URI**väljer du **webb** och typ `<app-url>/.auth/login/aad/callback` . Exempelvis `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 1. Välj **Skapa**.
 1. När appens registrering har skapats kopierar du **program-ID: t** och **katalogen (klient)-ID:** t för senare.
 1. Välj **Autentisering**. Under **implicit beviljande**, aktiverar du **ID-token** för att tillåta OpenID Connect-användarkonton från App Service.
@@ -100,7 +100,7 @@ Utför följande steg:
 1. Under **autentiseringsproviders**väljer du **Azure Active Directory**.
 1. I **hanterings läge**väljer du **avancerat** och konfigurerar app service autentisering enligt följande tabell:
 
-    |Fält|Beskrivning|
+    |Field|Beskrivning|
     |-|-|
     |Klient-ID| Använd **program-ID: t (klient)** för appens registrering. |
     |Utfärdar-URL| Använd `<authentication-endpoint>/<tenant-id>/v2.0` och Ersätt *\<authentication-endpoint>* med [slut punkten för autentisering för din moln miljö](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (t. ex. " https://login.microsoft.com " för Global Azure), och ersätt även *\<tenant-id>* med den **katalog (klient) ID** där appens registrering skapades. Det här värdet används för att omdirigera användare till rätt Azure AD-klient, samt för att hämta lämpliga metadata för att fastställa lämpliga token för signerings nycklar och token Issuer-anspråk till exempel. För program som använder Azure AD v1 och för Azure Functions appar, utelämna `/v2.0` i URL: en.|
@@ -117,7 +117,7 @@ Du kan registrera interna klienter för att tillåta autentisering till webb-API
 
 1. I [Azure Portal]väljer du **Active Directory**  >  **Appregistreringar**  >  **ny registrering**.
 1. På sidan **Registrera ett program** anger du ett **namn** för din app-registrering.
-1. I **omdirigerings-URI**väljer du **offentlig klient (mobil & Desktop)** och anger URL: en `<app-url>/.auth/login/aad/callback` . Till exempel `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+1. I **omdirigerings-URI**väljer du **offentlig klient (mobil & Desktop)** och anger URL: en `<app-url>/.auth/login/aad/callback` . Exempelvis `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
     > [!NOTE]
     > För ett Microsoft Store-program använder du [paket-sid](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library#package-sid) som URI i stället.
@@ -160,4 +160,4 @@ Nu har du konfigurerat ett daemon-klientcertifikat som kan komma åt din App Ser
 * [Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service](tutorial-auth-aad.md)
 <!-- URLs. -->
 
-[Azure-portalen]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

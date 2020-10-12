@@ -4,10 +4,10 @@ description: I den här artikeln lär du dig vanliga uppgifter för att hantera 
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: e257aa7771f6f76a4d53f16255c2f3cbb80c8967
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89377462"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Hantera och övervaka säkerhetskopierade SAP HANA-databaser
@@ -57,7 +57,7 @@ Om du vill veta mer om övervakning går du till [övervakning i Azure Portal](.
 
 Azure Backup gör hanteringen av en säkerhetskopierad SAP HANA-databas lätt med en mängd hanterings åtgärder som stöds. Dessa åtgärder beskrivs i detalj i följande avsnitt.
 
-### <a name="run-an-on-demand-backup"></a>Köra en säkerhets kopiering på begäran
+### <a name="run-an-on-demand-backup"></a>Köra en säkerhetskopiering på begäran
 
 Säkerhets kopieringar körs enligt princip schemat. Du kan köra en säkerhets kopiering på begäran på följande sätt:
 

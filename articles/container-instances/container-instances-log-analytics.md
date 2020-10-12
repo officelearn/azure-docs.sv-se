@@ -4,10 +4,10 @@ description: Lär dig hur du skickar resurs loggar och händelse data från beh�
 ms.topic: article
 ms.date: 07/13/2020
 ms.openlocfilehash: b39cf31dc28ece7d4e4f938dae21a4fbf6a1a832
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566678"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Behållar grupp och instans loggning med Azure Monitor loggar
@@ -23,7 +23,7 @@ I följande avsnitt beskrivs hur du skapar en loggnings aktive rad behållar gru
 > [!NOTE]
 > För närvarande kan du bara skicka händelse data från Linux container instances till Log Analytics.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill aktivera loggning i dina containerinstanser, behöver du följande:
 

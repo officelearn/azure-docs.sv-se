@@ -4,10 +4,10 @@ description: Den här artikeln visar hur du flyttar ett Azure Event Hubs-namnomr
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: b177c3916919e3d97325f9d8c6b6027c00cb476f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89375201"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Flytta ett Azure Event Hubs-namnområde till en annan region
@@ -15,7 +15,7 @@ Den här artikeln visar hur du exporterar en Azure Resource Manager mall för et
  
 Om du har andra resurser i Azure-resurs gruppen som innehåller Event Hubs-namnrymden kanske du vill exportera mallen på resurs grupps nivå så att alla relaterade resurser kan flyttas till den nya regionen i ett enda steg. Stegen i den här artikeln visar hur du exporterar ett **namn område** till mallen. Stegen för att exportera en **resurs grupp** till mallen liknar varandra. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Kontrollera att tjänsterna och funktionerna som kontot använder stöds i målregionen.
 - Om du har aktiverat **funktionen** för händelse hubbar i namn området flyttar du [Azure Storage eller Azure Data Lake Store gen 2](../storage/common/storage-account-move.md) eller [Azure Data Lake Store gen 1](../data-lake-store/data-lake-store-migration-cross-region.md) -konton innan du flyttar Event Hubs namn området. Du kan också flytta resurs gruppen som innehåller både lagrings utrymmet och Event Hubs namn områden till den andra regionen genom att följa stegen som beskrivs i den här artikeln. 

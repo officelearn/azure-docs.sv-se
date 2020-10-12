@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: 7fa49583c17c198642d4ad6d72a0faa19dcfe659
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323336"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Utgående bindning för signal tjänst för Azure Functions
@@ -636,7 +636,7 @@ Exempel *function.jspå*
 }
 ```
 
-*\_\_init. py__*
+*\_\_init.py__*
 
 ```python
 def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
@@ -663,7 +663,7 @@ Exempel *function.jspå*
 }
 ```
 
-*\_\_init. py__*
+*\_\_init.py__*
 
 ```python
 def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
@@ -728,11 +728,11 @@ public SignalRGroupAction removeFromGroup(
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `SignalRConnectionInfo` attributet.
 
-|function.jspå egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**bastyp**| saknas | Måste anges till `signalRConnectionInfo` .|
-|**position**| saknas | Måste anges till `in` .|
-|**Namn**| saknas | Variabel namn som används i funktions kod för objektet anslutnings information. |
+|**bastyp**| Saknas | Måste anges till `signalRConnectionInfo` .|
+|**position**| Saknas | Måste anges till `in` .|
+|**Namn**| Saknas | Variabel namn som används i funktions kod för objektet anslutnings information. |
 |**hubName**|**HubName**| Värdet måste anges till namnet på den Signals Hub som anslutnings informationen genereras för.|
 |**userId**|**UserId**| Valfritt: värdet på det användar-ID-anspråk som ska anges i åtkomst nyckelns token. |
 |**connectionStringSetting**|**ConnectionStringSetting**| Namnet på den app-inställning som innehåller signal tjänstens anslutnings sträng (Standardvärdet är "AzureSignalRConnectionString") |
@@ -741,11 +741,11 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `SignalR` attributet.
 
-|function.jspå egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**bastyp**| saknas | Måste anges till `signalR` .|
-|**position**| saknas | Måste anges till `out` .|
-|**Namn**| saknas | Variabel namn som används i funktions kod för objektet anslutnings information. |
+|**bastyp**| Saknas | Måste anges till `signalR` .|
+|**position**| Saknas | Måste anges till `out` .|
+|**Namn**| Saknas | Variabel namn som används i funktions kod för objektet anslutnings information. |
 |**hubName**|**HubName**| Värdet måste anges till namnet på den Signals Hub som anslutnings informationen genereras för.|
 |**connectionStringSetting**|**ConnectionStringSetting**| Namnet på den app-inställning som innehåller signal tjänstens anslutnings sträng (Standardvärdet är "AzureSignalRConnectionString") |
 

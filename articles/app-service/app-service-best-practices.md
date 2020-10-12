@@ -8,10 +8,10 @@ ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 0a25ae41a5f4ed73148f629799ca4865d756a769
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962459"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Metodtips för Azure App Service
@@ -34,7 +34,7 @@ När du märker att en app förbrukar mer processor än förväntat eller upplev
 För mer information om "tillstånds känsliga" vs "tillstånds lösa" program kan du titta på den här videon: [planera ett skalbart program på flera nivåer på Azure App Service](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Mer information om alternativ för App Service skalning och automatisk skalning finns i [skala en webbapp i Azure App Service](manage-scale-up.md).  
 
 ## <a name="when-socket-resources-are-exhausted"></a><a name="socketresources"></a>När socket-resurserna är uttömda
-En vanlig orsak till att använda utgående TCP-anslutningar är att använda klient bibliotek, som inte implementeras för att återanvända TCP-anslutningar eller när ett protokoll på högre nivå, till exempel HTTP-Keep-Alive, inte används. Läs dokumentationen för varje bibliotek som refereras av apparna i App Services plan för att säkerställa att de konfigureras eller nås i koden för effektiv åter användning av utgående anslutningar. Följ även vägledningen för biblioteks dokumentation för att skapa och släppa eller rensa för att undvika läckage av anslutningar. Även om granskning av sådana klient bibliotek pågår, kan påverkan minskas genom att skala ut till flera instanser.
+En vanlig orsak till att använda utgående TCP-anslutningar är användningen av klient bibliotek, som inte implementeras för att återanvända TCP-anslutningar eller när ett protokoll på högre nivå, till exempel HTTP-Keep-Alive inte används. Läs dokumentationen för varje bibliotek som refereras av apparna i App Services plan för att säkerställa att de konfigureras eller nås i koden för effektiv åter användning av utgående anslutningar. Följ även vägledningen för biblioteks dokumentation för att skapa och släppa eller rensa för att undvika läckage av anslutningar. Även om granskning av sådana klient bibliotek pågår, kan påverkan minskas genom att skala ut till flera instanser.
 
 ### <a name="nodejs-and-outgoing-http-requests"></a>Node.js och utgående HTTP-begäranden
 När du arbetar med Node.js och många utgående HTTP-begäranden är det viktigt att hantera HTTP-Keep-Alive. Du kan använda [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) - `npm` paketet för att göra det enklare i din kod.

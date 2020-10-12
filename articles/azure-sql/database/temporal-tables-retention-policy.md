@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/25/2018
 ms.openlocfilehash: 1d68163a9fba3ba3bcd4c0c0f3fb5f442296e781
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619397"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Hantera historiska data i temporala tabeller med bevarande princip
@@ -120,7 +120,7 @@ Rensnings aktiviteten för tabeller med rowstore-grupperat index kräver index a
 
 Det är viktigt att Observera att standard historik tabellen som skapats av Azure SQL Database och Azure SQL-hanterad instans redan har grupperat index, vilket är kompatibelt med bevarande principen. Om du försöker ta bort indexet i en tabell med begränsad kvarhållningsperioden, Miss lyckas åtgärden med följande fel:
 
-*MSG 13766, Level 16, State 1 <br> </br> kan inte släppa det grupperade indexet WebsiteUserInfoHistory. IX_WebsiteUserInfoHistory eftersom det används för automatisk rensning av föråldrade data. Överväg att ange HISTORY_RETENTION_PERIOD oändlig i motsvarande system versions temporal tabell om du behöver släppa det här indexet.*
+*MSG 13766, nivå 16, tillstånd 1 <br> </br> kan inte släppa det grupperade indexet WebsiteUserInfoHistory.IX_WebsiteUserInfoHistory eftersom det används för automatisk rensning av föråldrade data. Överväg att ange HISTORY_RETENTION_PERIOD oändlig i motsvarande system versions temporal tabell om du behöver släppa det här indexet.*
 
 Rensning av det grupperade columnstore-indexet fungerar optimalt om historiska rader infogas i stigande ordning (sorteras efter periodens slut), vilket alltid är fallet när historik tabellen fylls exklusivt av SYSTEM_VERSIONIOING mekanismen. Om rader i historik tabellen inte sorteras efter periodens slut punkt (som kan vara fallet om du migrerade befintliga historiska data) bör du återskapa ett grupperat columnstore-index över B-Tree rowstore-indexet som är korrekt beställt för att uppnå optimala prestanda.
 

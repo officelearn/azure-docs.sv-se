@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: dafb4485ae9b10d89fa36bd790dcf3a799054de3
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90064181"
 ---
 # <a name="manage-spark-application-dependencies"></a>Hantera Spark-programberoenden
@@ -23,7 +23,7 @@ Använd snabb Länkar för att gå till avsnittet baserat på ditt användar är
 * [Ställ in jar-beroenden för Spark-jobb med Jupyter Notebook](#use-jupyter-notebook)
 * [Konfigurera ett Spark-jobb jar-beroenden med hjälp Azure Toolkit for IntelliJ](#use-azure-toolkit-for-intellij)
 * [Konfigurera jar-beroenden för Spark-kluster](#jar-libs-for-cluster)
-* [Hantera jar-beroenden på ett säkert sätt](#safely-manage-jar-dependencies)
+* [Hantera Jar-beroenden säkert](#safely-manage-jar-dependencies)
 * [Konfigurera ett Spark-jobb python-paket med Jupyter Notebook](#use-jupyter-notebook-1)
 * [Hantera python-paket för Spark-kluster på ett säkert sätt](#python-packages-for-cluster)
 
@@ -98,7 +98,7 @@ I vissa fall kanske du vill konfigurera jar-beroenden på kluster nivå så att 
 
 Du kan automatisera stegen med [skript åtgärder](../hdinsight-hadoop-customize-cluster-linux.md). Skript åtgärder för [att lägga till anpassade Hive-bibliotek](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh) är en korrekt referens. När du ändrar konfiguration av Spark-tjänsten ska du kontrol lera att du använder Ambari-API: er i stället för att ändra konfigurationsfilerna direkt. 
 
-## <a name="safely-manage-jar-dependencies"></a>Hantera jar-beroenden på ett säkert sätt
+## <a name="safely-manage-jar-dependencies"></a>Hantera Jar-beroenden säkert
 HDInsight-kluster har inbyggda jar-beroenden och uppdateringar för dessa JAR-versioner sker från tid till tid. För att undvika versions konflikter mellan inbyggda jar v7 och jar v7 som du använder som referens, bör du överväga att [skugga dina program beroenden](./safely-manage-jar-dependency.md).
 
 ## <a name="python-packages-for-one-spark-job"></a>Python-paket för ett Spark-jobb

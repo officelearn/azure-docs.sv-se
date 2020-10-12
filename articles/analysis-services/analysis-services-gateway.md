@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: ee332eb7dea86e07c2d8f9b75a0e152dc7482a41
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87438830"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ansluta till lokala data källor med lokal datagateway
@@ -46,7 +46,7 @@ Frågor och dataflöde:
 5. Gatewayen skickar frågan till datakällan för körning.
 6. Resultaten skickas från datakällan tillbaka till gatewayen och sedan till molntjänsten och din server.
 
-## <a name="installing"></a>Installera
+## <a name="installing"></a>Installerar
 
 När du installerar för en Azure Analysis Services-miljö är det viktigt att du följer stegen som beskrivs i [Installera och konfigurera en lokal datagateway för Azure Analysis Services](analysis-services-gateway-install.md). Den här artikeln är unik för Azure Analysis Services. Den innehåller ytterligare steg som krävs för att konfigurera en lokal datagateway-resurs i Azure och ansluta din Azure Analysis Services-server till resursen.
 
@@ -58,11 +58,11 @@ Vi rekommenderar att du skapar din Azure gateway-resurs i samma prenumeration so
 
 Gatewayen skapar en utgående anslutning till Azure Service Bus. Den kommunicerar via utgående portar: TCP 443 (standard), 5671, 5672, 9350 till 9354.  Gatewayen behöver inte några ingående portar.
 
-Du kan behöva inkludera IP-adresser för ditt data område i brand väggen. Du kan ladda ned [IP-listan för Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=56519). Listan uppdateras en gång i veckan. De IP-adresser som finns i IP-listan för Azure Datacenter använder CIDR-notering. Mer information finns i [Interplatsroutning mellan domäner](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Du kan behöva inkludera IP-adresser för ditt data område i brand väggen. Du kan ladda ned [IP-listan för Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=56519). Listan uppdateras en gång i veckan. De IP-adresser som finns i IP-listan för Azure Datacenter använder CIDR-notering. Mer information finns i [klass lös Inter-Domain routning](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Följande är fullständigt kvalificerade domän namn som används av gatewayen.
 
-| Domännamn | Utgående portar | Description |
+| Domännamn | Utgående portar | Beskrivning |
 | --- | --- | --- |
 | *.powerbi.com |80 |HTTP används för att hämta installationsprogrammet. |
 | *.powerbi.com |443 |HTTPS |

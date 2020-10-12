@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: e8585779a263f4ff5dbdd998bbf065c6a4e1acdf
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86079268"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Felsöka skript åtgärder i Azure HDInsight
@@ -47,11 +47,11 @@ Om det inte går att skapa ett kluster på grund av ett skript fel sparas loggar
 
     Under den här katalogen ordnas loggarna separat för **huvudnoden**, **arbetsnoden**och **Zookeeper-noden**. Se följande exempel:
 
-    * **Huvudnoden**:`<ACTIVE-HEADNODE-NAME>.cloudapp.net`
+    * **Huvudnoden**: `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **Arbets nod**:`<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
+    * **Arbets nod**: `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **Zookeeper-nod**:`<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
+    * **Zookeeper-nod**: `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * Alla **STDOUT** och **stderr** för motsvarande värd överförs till lagrings kontot. Det finns en **output- \* . txt** och **errors- \* . txt** för varje skript åtgärd. Filen **output-*. txt** innehåller information om URI: n för skriptet som kördes på värden. Följande text är ett exempel på den här informationen:
 

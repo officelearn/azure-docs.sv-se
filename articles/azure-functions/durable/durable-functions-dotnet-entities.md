@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
 ms.openlocfilehash: d480b8db69b34eda7ca1ea8e1b2755179f9c673f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88055181"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guide för utvecklare till varaktiga entiteter i .NET
@@ -203,7 +203,7 @@ Förutom att tillhandahålla typ kontroll är gränssnitten användbara för en 
 
 ### <a name="example-client-signals-entity-through-interface"></a>Exempel: klient Signals-entitet via gränssnitt
 
-Klient koden kan använda `SignalEntityAsync<TEntityInterface>` för att skicka signaler till entiteter som implementerar `TEntityInterface` . Ett exempel:
+Klient koden kan använda `SignalEntityAsync<TEntityInterface>` för att skicka signaler till entiteter som implementerar `TEntityInterface` . Exempel:
 
 ```csharp
 [FunctionName("DeleteCounter")]
@@ -267,7 +267,7 @@ Vi tillämpar också vissa ytterligare regler:
 * Enhets gränssnitt får bara definiera metoder.
 * Enhets gränssnitt får inte innehålla generiska parametrar.
 * Enhets gränssnitts metoder får inte ha mer än en parameter.
-* Entitets gränssnitts metoder måste returnera `void` , `Task` eller`Task<T>` 
+* Entitets gränssnitts metoder måste returnera `void` , `Task` eller `Task<T>` 
 
 Om någon av dessa regler överträds `InvalidOperationException` utlöses en vid körning när gränssnittet används som ett typ argument till `SignalEntity` eller `CreateProxy` . I undantags meddelandet förklaras vilken regel som har brutits.
 

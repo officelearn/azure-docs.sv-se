@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.author: b-juche
 ms.openlocfilehash: 870caffe2bd286c2eec3390915bc5e64e0103a07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483473"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Felsöka fel i resursprovidern för Azure NetApp Files 
@@ -126,7 +126,7 @@ Du kan ersätta ett under streck med ett bindestreck eller använda versaler i s
 Felet uppstår när du försöker ändra `FileSystemId` .  Det `FileSystemdId` finns inte stöd för att ändra. 
 
 * Orsak:   
-ID: t för fil systemet anges när volymen skapas. `FileSystemId`kan inte ändras senare.
+ID: t för fil systemet anges när volymen skapas. `FileSystemId` kan inte ändras senare.
 * Lösning:   
 Ta inte med `FileSystemId` i en korrigerings-eller uppdaterings förfrågan.  Du kan också se till att `FileSystemId` är detsamma i begäran.
 
@@ -439,7 +439,7 @@ Inga.  Se lösningen ovan.
 
 ***SubnetId kan inte ändras.***
 
-Felet uppstår när du försöker ändra `subnetId` när volymen har skapats.  `SubnetId`måste anges när volymen skapas och kan inte ändras senare.
+Felet uppstår när du försöker ändra `subnetId` när volymen har skapats.  `SubnetId` måste anges när volymen skapas och kan inte ändras senare.
 
 * Orsak:   
 Du försöker ändra `subnetId` när volymen har skapats, vilket inte är en åtgärd som stöds. 

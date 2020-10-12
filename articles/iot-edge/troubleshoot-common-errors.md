@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ed93d24bc06a6622a8ace2b0ab6b44582da001c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82783752"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
@@ -75,7 +75,7 @@ Som standard startar IoT Edge moduler i egna isolerade behållar nätverk. Enhet
 
 **Alternativ 1: Ange DNS-server i behållar motor inställningarna**
 
-Ange DNS-servern för din miljö i inställningar för container motor som ska gälla för alla behållar moduler som startas av motorn. Skapa en fil med namnet `daemon.json` Ange den DNS-server som ska användas. Till exempel:
+Ange DNS-servern för din miljö i inställningar för container motor som ska gälla för alla behållar moduler som startas av motorn. Skapa en fil med namnet `daemon.json` Ange den DNS-server som ska användas. Exempel:
 
 ```json
 {
@@ -103,7 +103,7 @@ Starta om behållar motorn för att uppdateringarna ska börja gälla.
 
 **Alternativ 2: Ange DNS-server i IoT Edge distribution per modul**
 
-Du kan ställa in DNS-servern för varje moduls *createOptions* i IoT Edge distributionen. Till exempel:
+Du kan ställa in DNS-servern för varje moduls *createOptions* i IoT Edge distributionen. Exempel:
 
 ```json
 "createOptions": {
@@ -151,7 +151,7 @@ Om IoT Edge enheten fungerar som en gateway-enhet måste du söka efter och stop
 
 Om du inte behöver använda den IoT Edge enheten som en gateway, kan du ta bort port bindningarna från edgeHub för modulens skapande alternativ. Du kan ändra alternativen för att skapa i Azure Portal eller direkt i deployment.jspå filen.
 
-På Azure Portal:
+I Azure-portalen:
 
 1. Navigera till din IoT-hubb och välj **IoT Edge**.
 
@@ -274,7 +274,7 @@ IoT Edge Hub, som är en del av IoT Edge runtime, är optimerad för prestanda s
 
 För IoT Edge Hub ställer du in en miljö variabel **OptimizeForPerformance** på **falskt**. Det finns två sätt att ange miljövariabler:
 
-På Azure Portal:
+I Azure-portalen:
 
 I IoT Hub väljer du IoT Edge enheten och på sidan enhets information och väljer **Ange**  >  **Inställningar**för moduler. Skapa en miljö variabel för IoT Edge Hub-modulen med namnet *OptimizeForPerformance* som har angetts till *false*.
 

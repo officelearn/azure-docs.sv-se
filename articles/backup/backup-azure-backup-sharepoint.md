@@ -4,10 +4,10 @@ description: Den här artikeln innehåller en översikt över DPM/Azure Backup S
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 7661d64e487c8b8badca240852d17bcf736ba8cf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254439"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Säkerhetskopiera en SharePoint-grupp till Azure med DPM
@@ -69,9 +69,9 @@ Information om hur du återställer ett SharePoint-objekt från en disk med DPM 
     ![DPM SharePoint-Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Följ återställnings stegen tidigare i den här artikeln för att återställa en SharePoint-innehålls databas från disken.
 
-## <a name="switching-the-front-end-web-server"></a>Växla front webb server
+## <a name="switching-the-front-end-web-server"></a>Byta Front-End webb server
 
-Om du har fler än en front webb server och vill byta server som DPM använder för att skydda Server gruppen, följer du anvisningarna i [byta klient webb server](/system-center/dpm/back-up-sharepoint#switching-the-front-end-web-server).
+Om du har fler än en front webb server och vill byta server som DPM använder för att skydda Server gruppen, följer du anvisningarna i [byta Front-End webb server](/system-center/dpm/back-up-sharepoint#switching-the-front-end-web-server).
 
 ## <a name="next-steps"></a>Nästa steg
 

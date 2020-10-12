@@ -7,10 +7,10 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
 ms.openlocfilehash: 271d3c0ca44c500a6fd8ee50ed5f1698e46cd511
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88510274"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Mata in historiska telemetridata
@@ -193,7 +193,7 @@ access_token = token_response.get('access_token')
 Här är de vanligaste begärandehuvuden som måste anges när du gör ett API-anrop till FarmBeats Datahub:
 
 - **Innehålls typ**: Application/JSON
-- **Auktorisering**: innehavare <åtkomst-token>
+- **Auktorisering**: bearer <Access-Token>
 - **Acceptera**: Application/JSON
 
 ### <a name="input-payload-to-create-metadata"></a>Ange nytto last för att skapa metadata

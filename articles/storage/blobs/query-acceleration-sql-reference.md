@@ -11,10 +11,10 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
 ms.openlocfilehash: affddf7367f58107106ae07a07b8baedac73e251
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89659571"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Språk referens för Query acceleration SQL
@@ -91,9 +91,9 @@ Följande standard-SQL-operatorer stöds:
 |[/](https://docs.microsoft.com/sql/t-sql/language-elements/divide-transact-sql)    |Dividerar ett tal med ett annat (en aritmetisk divisions operator).|
 |[*](https://docs.microsoft.com/sql/t-sql/language-elements/multiply-transact-sql)    |Multiplicerar två uttryck (en aritmetisk operator för multiplikation).|
 |[%](https://docs.microsoft.com/sql/t-sql/language-elements/modulo-transact-sql)    |Returnerar resten av ett tal dividerat med ett annat.|
-|[SÄRSKILT](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Utför en bitvis logisk och åtgärd mellan två heltals värden.|
-|[ELLER](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Utför en bitvis logisk eller åtgärd mellan två angivna heltals värden som översatta till binära uttryck i Transact-SQL-uttryck.|
-|[Ogiltigt](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |Negerar en boolesk Indatatyp.|
+|[AND](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Utför en bitvis logisk och åtgärd mellan två heltals värden.|
+|[OR](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Utför en bitvis logisk eller åtgärd mellan två angivna heltals värden som översatta till binära uttryck i Transact-SQL-uttryck.|
+|[NOT](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |Negerar en boolesk Indatatyp.|
 |[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |Konverterar ett uttryck med en datatyp till en annan.|
 |[DELAS](https://docs.microsoft.com/sql/t-sql/language-elements/between-transact-sql)    |Anger ett intervall som ska testas.|
 |[FÖR](https://docs.microsoft.com/sql/t-sql/language-elements/in-transact-sql)    |Anger om ett angivet värde matchar ett värde i en under fråga eller en lista.|
@@ -121,7 +121,7 @@ SQL-språket för frågespråk stöder följande SQL-standardfunktioner:
 |[LOWER](https://docs.microsoft.com/sql/t-sql/functions/lower-transact-sql)    |Returnerar ett tecken uttryck efter konvertering av versaler till gemener.|
 |[UPPER](https://docs.microsoft.com/sql/t-sql/functions/upper-transact-sql)    |Returnerar ett tecken uttryck med gemena tecken som konverterats till versaler.|
 |[UNDER sträng](https://docs.microsoft.com/sql/t-sql/functions/substring-transact-sql)    |Returnerar en del av ett tecken-, binär-, text-eller bild uttryck i SQL Server.|
-|[REDUCERA](https://docs.microsoft.com/sql/t-sql/functions/trim-transact-sql)    |Tar bort blank steg tecken (32) eller andra angivna tecken från början och slutet av en sträng.|
+|[TRIM](https://docs.microsoft.com/sql/t-sql/functions/trim-transact-sql)    |Tar bort blank steg tecken (32) eller andra angivna tecken från början och slutet av en sträng.|
 |LEDANDE    |Beskrivning|
 |AVSLUTANDE    |Beskrivning|
 
@@ -184,7 +184,7 @@ TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
 
 I den här tabellen beskrivs strängar som du kan använda för att ange utdataformatet för ``TO_STRING`` funktionen.
 
-|Format sträng    |Utdata                               |
+|Formatsträng    |Utdata                               |
 |-----------------|-------------------------------------|
 |yy               |År i 2-siffrigt format – 1999 som "99"|
 |y                |År med 4 siffer format               |

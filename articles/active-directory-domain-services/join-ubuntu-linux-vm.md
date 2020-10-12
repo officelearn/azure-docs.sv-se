@@ -13,10 +13,10 @@ ms.date: 07/13/2020
 ms.author: iainfou
 ms.custom: fasttrack-edit
 ms.openlocfilehash: d01d961a5d5b86f74bb785c3fddfa09843aa060c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87283154"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Ansluta en Ubuntu Linux virtuell dator till en Azure Active Directory Domain Services hanterad domän
@@ -25,7 +25,7 @@ För att användarna ska kunna logga in på virtuella datorer i Azure med en end
 
 Den här artikeln visar hur du ansluter en Ubuntu Linux virtuell dator till en hanterad domän.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -43,7 +43,7 @@ Om du har en befintlig Ubuntu Linux virtuell dator i Azure ansluter du till den 
 
 Om du behöver skapa en Ubuntu Linux virtuell dator, eller om du vill skapa en virtuell test dator för användning med den här artikeln, kan du använda någon av följande metoder:
 
-* [Azure-portalen](../virtual-machines/linux/quick-create-portal.md)
+* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -77,7 +77,7 @@ När du är färdig sparar du och avslutar *hosts* -filen med hjälp `:wq` av re
 
 ## <a name="install-required-packages"></a>Installera de paket som krävs
 
-Den virtuella datorn behöver vissa ytterligare paket för att ansluta den virtuella datorn till den hanterade domänen. Installera och konfigurera de här paketen genom att uppdatera och installera de verktyg för domän anslutning som använder`apt-get`
+Den virtuella datorn behöver vissa ytterligare paket för att ansluta den virtuella datorn till den hanterade domänen. Installera och konfigurera de här paketen genom att uppdatera och installera de verktyg för domän anslutning som använder `apt-get`
 
 Under Kerberos-installationen uppmanas du att ange sfär namnet i *krb5-user-* paketet i alla versaler. Om namnet på din hanterade domän till exempel är *aaddscontoso.com*anger du *AADDSCONTOSO.com* som sfär. Installationen skriver `[realm]` `[domain_realm]` avsnitten och i */etc/krb5.conf* konfigurations fil. Se till att du anger sfären alla VERSALer:
 

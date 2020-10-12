@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: duau
 ms.openlocfilehash: 86758c355566fb67ebd8a606068e2044e0b8bd64
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400185"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Traffic Manager
@@ -112,7 +112,7 @@ Nej, Traffic Manager kan inte garantera att den geografiska region som vi härle
 
 ###  <a name="does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing"></a>Behöver en slut punkt vara fysiskt placerad i samma region som den har kon figurer ATS för geografisk routning?
 
-Nej, platsen för slut punkten tillämpar inga begränsningar för vilka regioner som kan mappas till den. En slut punkt i Azure-regionen USA kan till exempel ha alla användare från Indien riktade till den.
+Nej, platsen för slut punkten tillämpar inga begränsningar för vilka regioner som kan mappas till den. En slut punkt i US-Central Azure-region kan till exempel ha alla användare från Indien riktade till sig.
 
 ### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>Kan jag tilldela geografiska regioner till slut punkter i en profil som inte har kon figurer ATS för att göra geografisk routning?
 
@@ -497,7 +497,7 @@ Den överordnade profilen utför inte hälso kontroller på den underordnade dir
 
 I följande tabell beskrivs beteendet för Traffic Manager hälso kontroller för en kapslad slut punkt.
 
-| Status för Övervakare för underordnad profil | Status för övervakaren för överordnad slut punkt | Kommentarer |
+| Status för Övervakare för underordnad profil | Status för övervakaren för överordnad slut punkt | Obs! |
 | --- | --- | --- |
 | Inaktiverat Den underordnade profilen har inaktiverats. |Stoppad |Status för överordnad slut punkt har stoppats, inte inaktiverats. Inaktiverat tillstånd är reserverat för att indikera att du har inaktiverat slut punkten i den överordnade profilen. |
 | Försämrad. Minst en underordnad profil slut punkt är i ett degraderat tillstånd. |Online: antalet Online-slutpunkter i den underordnade profilen är minst värdet för MinChildEndpoints.<BR>CheckingEndpoint: antalet online-och CheckingEndpoint-slutpunkter i den underordnade profilen är minst värdet för MinChildEndpoints.<BR>Degraderad: annars. |Trafiken dirigeras till en slut punkt med status CheckingEndpoint. Om MinChildEndpoints har angetts för hög försämras slut punkten alltid. |

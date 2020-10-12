@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 0c8739dff39490f14b613af483f769ac031c1bd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82792385"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Vanliga frågor och svar om ansluten fabriks lösnings Accelerator
@@ -31,7 +31,7 @@ OPC Unified Architecture (UA), som lanserades i 2008, är en plattforms oberoend
 
 * Infrastruktur
 * Specifikationer
-* Teknologi
+* Teknik
 * Processer
 
 ### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-solution-accelerator"></a>Varför valde Microsoft OPC UA för den anslutna fabriks lösnings acceleratorn?
@@ -68,7 +68,7 @@ Om du har distribuerat lösningen från www.azureiotsolutions.com kan du inte lo
 1. Användar namnet som ska användas är: `docker` .
 1. Vilket lösen ord som ska användas beror på vilken version du använde för att distribuera:
     * För lösningar som distribueras med hjälp av build.ps1 skriptet före 1 juni 2017 är lösen ordet: `Passw0rd` .
-    * För lösningar som distribueras med hjälp av build.ps1 skriptet efter 1 juni 2017 kan du hitta lösen ordet i `<name of your deployment>.config.user` filen. Lösen ordet lagras i **VmAdminPassword** -inställningen. Lösen ordet genereras slumpmässigt vid distributions tiden om du inte anger det med hjälp av `build.ps1` skript parametern`-VmAdminPassword`
+    * För lösningar som distribueras med hjälp av build.ps1 skriptet efter 1 juni 2017 kan du hitta lösen ordet i `<name of your deployment>.config.user` filen. Lösen ordet lagras i **VmAdminPassword** -inställningen. Lösen ordet genereras slumpmässigt vid distributions tiden om du inte anger det med hjälp av `build.ps1` skript parametern `-VmAdminPassword`
 
 ### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Hur gör jag för att stoppa och starta alla Docker-processer i den virtuella simuleringen av simuleringen?
 
@@ -76,7 +76,7 @@ Om du har distribuerat lösningen från www.azureiotsolutions.com kan du inte lo
 1. Du kan kontrol lera vilka behållare som är aktiva genom att köra: `docker ps` .
 1. Stoppa alla simulerings behållare genom att köra: `./stopsimulation` .
 1. Starta alla behållare för simulering:
-    * Exportera en Shell-variabel med namnet **IOTHUB_CONNECTIONSTRING**. Använd värdet för **IotHubOwnerConnectionString** -inställningen i `<name of your deployment>.config.user` filen. Ett exempel:
+    * Exportera en Shell-variabel med namnet **IOTHUB_CONNECTIONSTRING**. Använd värdet för **IotHubOwnerConnectionString** -inställningen i `<name of your deployment>.config.user` filen. Exempel:
 
         ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -186,7 +186,7 @@ Skicka telemetridata från icke-OPC UA-enheter till ansluten fabrik:
     ]
     ```
 
-1. Formatet `<timestamp>` är:`2017-12-08T19:24:51.886753Z`
+1. Formatet `<timestamp>` är: `2017-12-08T19:24:51.886753Z`
 
 1. Starta om den anslutna fabriken App Service.
 

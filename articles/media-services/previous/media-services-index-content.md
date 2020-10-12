@@ -17,10 +17,10 @@ ms.author: juliako
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5665357474b392a413d2b70f9c321b5da3e0bfe5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89256454"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexera mediefiler med Azure Media Indexer
@@ -246,16 +246,16 @@ Samma utdata (som slutförda jobb) skapas. Du kan referera till manifest filen f
 ### <a name="task-preset-for-azure-media-indexer"></a><a id="preset"></a> Uppgifts för inställning för Azure Media Indexer
 Bearbetningen från Azure Media Indexer kan anpassas genom att tillhandahålla en valfri aktivitets för inställning tillsammans med aktiviteten.  I följande avsnitt beskrivs formatet för den här konfigurations-XML-filen.
 
-| Name | Kräver | Beskrivning |
+| Namn | Kräver | Beskrivning |
 | --- | --- | --- |
 | **inleveranstransport** |falskt |Till gångs fil (er) som du vill indexera.</p><p>Azure Media Indexer stöder följande medie fil format: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Du kan ange fil namnen i **indata** -elementets **namn** eller **list** -attribut (se nedan). Om du inte anger vilken till gångs fil som ska indexeras, kommer den primära filen att plockas. Om ingen primär till gångs fil anges indexeras den första filen i indata till gången.</p><p>Om du uttryckligen vill ange namnet på till gångs filen gör du följande:<br/>`<input name="TestFile.wmv">`<br/><br/>Du kan också indexera flera till gångs filer samtidigt (upp till 10 filer). Gör så här:<br/><br/><ol class="ordered"><li><p>Skapa en textfil (manifest fil) och ge den fil tillägget LST. </p></li><li><p>Lägg till en lista över alla till gångs fil namn i din indata till gång till manifest filen. </p></li><li><p>Lägg till (överför) manifest filen till till gången.  </p></li><li><p>Ange namnet på manifest filen i indatans List-attribut.<br/>`<input list="input.lst">`</li></ol><br/><br/>Obs: om du lägger till fler än 10 filer i manifest filen kommer indexerings jobbet att Miss 2006-felkoden. |
 | **metadatatjänst** |falskt |Metadata för de angivna till gångs fil (er) som används för vokabulär anpassning.  Användbart för att förbereda indexeraren för att identifiera ord som inte är standard ord listor, till exempel riktiga substantiv.<br/>`<metadata key="..." value="..."/>` <br/><br/>Du kan ange **värden** för fördefinierade **nycklar**. För närvarande stöds följande nycklar:<br/><br/>"title" och "Description" – används för att anpassa ord listan för att anpassa språk modellen för ditt jobb och förbättra precisionen för tal igenkänning.  Värdena för att dirigera Internet söker efter Sammanhangs beroende text dokument, med hjälp av innehållet för att utöka den interna ord listan under din indexerings aktivitet.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **egenskaper** <br/><br/> Tillagt i version 1,2. För närvarande är den enda funktionen som stöds tal igenkänning ("ASR"). |falskt |Tal igenkännings funktionen har följande inställnings nycklar:<table><tr><th><p>Nyckel</p></th>        <th><p>Beskrivning</p></th><th><p>Exempelvärde</p></th></tr><tr><td><p>Språk</p></td><td><p>Det naturliga språket som ska identifieras i multimedie filen.</p></td><td><p>Engelska, spanska</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>en semikolonavgränsad lista med önskade text format för utdata (om det finns några)</p></td><td><p>ttml; webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>Värdet !</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>En boolesk flagga som anger om en nyckelords-XML-fil krävs eller inte.</p></td><td><p>Värdet !. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>En boolesk flagga som anger om full textning ska tvingas (oavsett konfidensnivå).  </p><p>Standardvärdet är false, vilket innebär att ord och fraser som har en lägre konfidensnivå än 50% utelämnas från de slutliga text utmatningarna och ersätts av ellipser ("...").  Ellipserna är användbara för text kvalitets kontroll och granskning.</p></td><td><p>Värdet !. </p></td></tr></table> |
+| **egenskaper** <br/><br/> Tillagt i version 1,2. För närvarande är den enda funktionen som stöds tal igenkänning ("ASR"). |falskt |Tal igenkännings funktionen har följande inställnings nycklar:<table><tr><th><p>Tangent</p></th>        <th><p>Beskrivning</p></th><th><p>Exempelvärde</p></th></tr><tr><td><p>Språk</p></td><td><p>Det naturliga språket som ska identifieras i multimedie filen.</p></td><td><p>Engelska, spanska</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>en semikolonavgränsad lista med önskade text format för utdata (om det finns några)</p></td><td><p>ttml; webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>Värdet !</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>En boolesk flagga som anger om en nyckelords-XML-fil krävs eller inte.</p></td><td><p>Värdet !. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>En boolesk flagga som anger om full textning ska tvingas (oavsett konfidensnivå).  </p><p>Standardvärdet är false, vilket innebär att ord och fraser som har en lägre konfidensnivå än 50% utelämnas från de slutliga text utmatningarna och ersätts av ellipser ("...").  Ellipserna är användbara för text kvalitets kontroll och granskning.</p></td><td><p>Värdet !. </p></td></tr></table> |
 
 ### <a name="error-codes"></a><a id="error_codes"></a>Felkoder
 Om ett fel uppstår bör Azure Media Indexer rapportera tillbaka en av följande felkoder:
 
-| Kod | Name | Möjliga orsaker |
+| Kod | Namn | Möjliga orsaker |
 | --- | --- | --- |
 | 2000 |Ogiltig konfiguration |Ogiltig konfiguration |
 | 2001 |Ogiltiga inmatade till gångar |Inmatade till gångar eller tom till gång saknas. |

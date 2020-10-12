@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b48a84bb69a356815cccd1e33c555eeb667699f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89244729"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Gör så här: hantera inaktiva användar konton i Azure AD
@@ -60,7 +60,7 @@ I det här avsnittet visas vad du behöver veta om egenskapen lastSignInDateTime
 
 Egenskapen **lastSignInDateTime** visas av [resurs typen signInActivity](/graph/api/resources/signinactivity?view=graph-rest-beta) för [Microsoft Graph REST API](/graph/overview?view=graph-rest-beta#whats-in-microsoft-graph).   
 
-### <a name="is-the-lastsignindatetime-property-available-through-the-get-azureaduser-cmdlet"></a>Är egenskapen lastSignInDateTime tillgänglig via cmdleten Get-AzureAdUser?
+### <a name="is-the-lastsignindatetime-property-available-through-the-get-azureaduser-cmdlet"></a>Är egenskapen lastSignInDateTime tillgänglig via Get-AzureAdUser cmdleten?
 
 Nej.
 

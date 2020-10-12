@@ -15,10 +15,10 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 36b39f3706db615e40ebfadebf36be4d8b29c33e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80154737"
 ---
 # <a name="what-is-authentication"></a>Vad är autentisering?
@@ -62,7 +62,7 @@ I exempelscenariot ovan kan du klassificera apparna enligt dessa två roller:
 
 Beroende på hur din klient har skapats kan den använda en (eller flera) av de autentiseringsscheman som stöds av Azure AD. Dessa flöden kan skapa en mängd olika tokens (id_tokens, uppdatera tokens, åtkomsttoken) och auktoriseringsregler, och kräver olika token för att de ska fungera. Det här diagrammet innehåller en översikt:
 
-|Flöde | Innebär | id_token | åtkomsttoken | uppdatera token | auktoriseringskod | 
+|Flöden | Innebär | id_token | åtkomsttoken | uppdatera token | auktoriseringskod | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Flöde för auktoriseringskod](v1-protocols-oauth-code.md) | | x | x | x | x|  
 |[Implicit flöde](v1-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
@@ -136,7 +136,7 @@ En kort beskrivning av varje typ av anspråk som genereras av Azure AD finns i t
 | Objekt-ID | Innehåller en oföränderlig, unik identifierare för subjektet i Azure AD. |
 | Roller | Innehåller egna namn på Azure AD-programroller som användaren har beviljats. |
 | Omfång | Anger de behörigheter som beviljats för klientprogrammet. |
-| Subjekt | Anger huvudnamnet som token kontrollerar information om. |
+| Ämne | Anger huvudnamnet som token kontrollerar information om. |
 | Klientorganisations-ID | Innehåller ett oföränderlig, unik identifierare för katalogklientorganisationen som har utfärdat token. |
 | Tokenlivstid | Definierar tidsintervallet då token är giltig. |
 | UPN (User Principal Name) | Innehåller UPN för subjektet. |

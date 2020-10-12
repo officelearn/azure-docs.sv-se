@@ -1,5 +1,5 @@
 ---
-title: Data lager som stöds i Azure Data Share
+title: Datalager som stöds i Azure Data Share
 description: Lär dig mer om de data lager som stöds för användning av Azure Data Share.
 ms.service: data-share
 author: jifems
@@ -7,13 +7,13 @@ ms.author: jife
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.openlocfilehash: bb8b13e1141a8cb4610e15ed693e28042dd20d72
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89259021"
 ---
-# <a name="supported-data-stores-in-azure-data-share"></a>Data lager som stöds i Azure Data Share
+# <a name="supported-data-stores-in-azure-data-share"></a>Datalager som stöds i Azure Data Share
 
 Azure Data Share ger öppen och flexibel data delning, inklusive möjligheten att dela från och till olika data lager. Data leverantörer kan dela data från en typ av data lager och deras data konsumenter kan välja vilket data lager som ska ta emot data i. 
 

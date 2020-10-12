@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 438a816ca28b9414557e64591d9ece2dbb173370
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89256879"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publicera Azure Media Services innehåll med REST
@@ -152,20 +152,20 @@ Använd det **Sök vägs** värde som returnerades efter att lokaliseraren har s
 
 Smooth Streaming: **sökväg** + manifest fil namn + "/manifest"
 
-exempel:
+Exempel:
 
 `https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest`
 
 HLS: **sökväg** + manifest fil namn + "/manifest (format = M3U8-AAPL)"
 
-exempel:
+Exempel:
 
 `https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)`
 
 
 BINDESTRECK: **sökväg** + manifest fil namn + "/manifest (format = mpd-Time-CSF)"
 
-exempel:
+Exempel:
 
 `https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)`
 
@@ -175,7 +175,7 @@ Använd det **Sök vägs** värde som returnerades efter att lokaliseraren har s
 
 URL: **sökväg** + namn på till gångs fil MP4
 
-exempel:
+Exempel:
 
 `https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4`
 

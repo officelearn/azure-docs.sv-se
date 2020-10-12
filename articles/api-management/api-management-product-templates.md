@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4c8cd4aa3e91c5d69c40e47683818ed8bc9be338
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86249911"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Produktmallar i Azure API Management
@@ -37,7 +37,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="product-list"></a><a name="ProductList"></a>Produkt lista  
+##  <a name="product-list"></a><a name="ProductList"></a> Produkt lista  
  Med **produkt list** mal len kan du anpassa bröd texten på sidan produkt lista i Developer-portalen.  
   
  ![Produkt lista](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
@@ -123,7 +123,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 }  
 ```  
   
-##  <a name="product"></a><a name="Product"></a>Momsproduktbokföringsmallar  
+##  <a name="product"></a><a name="Product"></a> Momsproduktbokföringsmallar  
  Med **produkt** mal len kan du anpassa bröd texten på produkt sidan i Developer-portalen.  
   
  ![Produkt sida för utvecklare Portal](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
@@ -208,8 +208,8 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 |--------------|----------|-----------------|  
 |Produkt|[Produkt](api-management-template-data-model-reference.md#Product)|Den angivna produkten.|  
 |IsDeveloperSubscribed|boolean|Om den aktuella användaren prenumererar på den här produkten.|  
-|SubscriptionState|nummer|Prenumerationens tillstånd. Möjliga tillstånd är:<br /><br /> -   `0 - suspended`– prenumerationen är blockerad och prenumeranten kan inte anropa några API: er för produkten.<br />-   `1 - active`– prenumerationen är aktiv.<br />-   `2 - expired`– prenumerationen har nått sitt förfallo datum och inaktiverades.<br />-   `3 - submitted`– prenumerations förfrågan har gjorts av utvecklaren, men har ännu inte godkänts eller avvisats.<br />-   `4 - rejected`– prenumerations förfrågan har nekats av en administratör.<br />-   `5 - cancelled`– prenumerationen har avbrutits av utvecklaren eller administratören.|  
-|Gränser|matris|Den här egenskapen är föråldrad och ska inte användas.|  
+|SubscriptionState|nummer|Prenumerationens tillstånd. Möjliga tillstånd är:<br /><br /> -   `0 - suspended` – prenumerationen är blockerad och prenumeranten kan inte anropa några API: er för produkten.<br />-   `1 - active` – prenumerationen är aktiv.<br />-   `2 - expired` – prenumerationen har nått sitt förfallo datum och inaktiverades.<br />-   `3 - submitted` – prenumerations förfrågan har gjorts av utvecklaren, men har ännu inte godkänts eller avvisats.<br />-   `4 - rejected` – prenumerations förfrågan har nekats av en administratör.<br />-   `5 - cancelled` – prenumerationen har avbrutits av utvecklaren eller administratören.|  
+|Begränsningar|matris|Den här egenskapen är föråldrad och ska inte användas.|  
 |DelegatedSubscriptionEnabled|boolean|Om [delegering](./api-management-howto-setup-delegation.md) är aktiverat för den här prenumerationen.|  
 |DelegatedSubscriptionUrl|sträng|Om delegering är aktiverat är den delegerade prenumerations-URL: en.|  
 |IsAgreed|boolean|Om produkten har villkor, om den aktuella användaren har godkänt villkoren.|  

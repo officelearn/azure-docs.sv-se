@@ -4,10 +4,10 @@ description: Beskriver hur du utvecklar, distribuerar, testar, uppgraderar, unde
 ms.topic: conceptual
 ms.date: 1/19/2018
 ms.openlocfilehash: 6a36c97c6f1be96dcb8353e886f2159929e8e794
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86248318"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Livscykeln för Service Fabric-program
@@ -19,7 +19,7 @@ Precis som med andra plattformar går ett program på Azure Service Fabric vanli
 Tjänst modell rollerna är:
 
 * **Tjänste utvecklare**: utvecklar modulära och allmänna tjänster som kan återanvändas och användas i flera program av samma typ eller olika typer. Till exempel kan en Queue Service användas för att skapa ett biljett program (supportavdelningen) eller ett e-handelsprogram (Shopping vagn).
-* **Programutvecklare**: skapar program genom att integrera en samling tjänster för att uppfylla vissa specifika krav eller scenarier. Till exempel kan en e-handelswebbplats integrera "" JSON-tillstånds lösa frontend-tjänst "," "auktions känslig tjänst", "och" kö tillstånds känslig tjänst "för att bygga en auktions lösning.
+* **Programutvecklare**: skapar program genom att integrera en samling tjänster för att uppfylla vissa specifika krav eller scenarier. Till exempel kan en e-handelswebbplats integrera "JSON-tillstånds lös Front-End tjänst," "" auktions tillstånds känslig tjänst "och" kö tillstånds känslig tjänst "för att bygga en auktions lösning.
 * **Program administratör**: fatta beslut om program konfigurationen (fylla i parametrarna för konfigurations mal len), distribution (mappning till tillgängliga resurser) och tjänst kvalitet. En program administratör bestämmer till exempel språk språket (engelska för USA eller japanska för Japan, till exempel) för programmet. Ett annat distribuerat program kan ha olika inställningar.
 * **Operator**: distribuerar program baserat på program konfigurationen och kraven som anges av program administratören. Till exempel kan en operatör etablera och distribuera programmet och se till att det körs i Azure. Operatörer övervakar program hälso-och prestanda information och upprätthåller den fysiska infrastrukturen vid behov.
 
@@ -41,7 +41,7 @@ Se [Kom igång med Reliable Actors](service-fabric-reliable-actors-get-started.m
 
 Mer information finns i [distribuera ett program](service-fabric-deploy-remove-applications.md) till exempel.
 
-## <a name="test"></a>Test
+## <a name="test"></a>Testa
 1. När du har distribuerat till det lokala utvecklings klustret eller ett test kluster kör en *tjänste utvecklare* det inbyggda test scenariot för redundansväxling med hjälp av [**FailoverTestScenarioParameters**](/dotnet/api/system.fabric.testability.scenario.failovertestscenarioparameters) -och [**FailoverTestScenario**](/dotnet/api/system.fabric.testability.scenario.failovertestscenario) -klasserna eller [cmdleten **Invoke-ServiceFabricFailoverTestScenario** ](/powershell/module/servicefabric/invoke-servicefabricfailovertestscenario?view=azureservicefabricps). Test scenariot för redundans kör en angiven tjänst via viktiga över gångar och redundans för att säkerställa att den fortfarande är tillgänglig och fungerar.
 2. *Tjänste utvecklaren* kör sedan det inbyggda test scenariot för kaos med hjälp [**av ChaosTestScenarioParameters**](/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) -och [**ChaosTestScenario**](/dotnet/api/system.fabric.testability.scenario.chaostestscenario) -klasserna eller [cmdleten **Invoke-ServiceFabricChaosTestScenario** ](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). Test scenariot för kaos inducerar slumpmässigt flera noder, kod paket och replik fel i klustret.
 3. *Tjänste utvecklaren* [testar tjänst-till-tjänst-kommunikation](service-fabric-testability-scenarios-service-communication.md) genom att redigera test scenarier som flyttar primära repliker runt klustret.

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: d166257dd28773d89a4f1fd56de3cb1a22242523
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284174"
 ---
 # <a name="create-application-with-simple-commands"></a>Skapa program med enkla kommandon
@@ -84,8 +84,8 @@ Sedan måste kommandot ha en regel för slut för ande. Den här regeln anger an
     | Inställning    | Föreslaget värde                          | Beskrivning                                        |
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Namn**       | ConfirmationResponse                  | Ett namn som beskriver syftet med regeln          |
-    | **Villkor** | Ingen                                     | Villkor som avgör när regeln kan köras    |
-    | **Åtgärder**    | Skicka tal svar > enkel redigerare > första variationen >`Ok, turning the tv on` | Den åtgärd som ska vidtas när regel villkoret är sant |
+    | **Villkor** | Inget                                     | Villkor som avgör när regeln kan köras    |
+    | **Åtgärder**    | Skicka tal svar > enkel redigerare > första variationen > `Ok, turning the tv on` | Den åtgärd som ska vidtas när regel villkoret är sant |
     
 
 
@@ -100,7 +100,7 @@ Sedan måste kommandot ha en regel för slut för ande. Den här regeln anger an
     > [!NOTE]
     > Du behöver inte använda standard regeln för slut för ande som medföljer kommandot. Om det behövs kan du ta bort den befintliga regeln för standard slut för ande och lägga till en egen regel.
 
-### <a name="try-it-out"></a>Prova
+### <a name="try-it-out"></a>Prova nu
 
 Testa beteendet med hjälp av panelen test chatt
 1. Välj **träna** ikon överst i den högra rutan.
@@ -126,8 +126,8 @@ Redigera sedan **de befintliga reglerna för färdig komplettering** enligt föl
 | Inställning    | Föreslaget värde                          |
 | ---------- | ---------------------------------------- |
 | Namn  | ConfirmationResponse                  |
-| Villkor | Ingen                                     |
-| Åtgärder    | Skicka tal svar > enkel redigerare > första variationen >`Ok, setting temperature to 40 degrees` |
+| Villkor | Inget                                     |
+| Åtgärder    | Skicka tal svar > enkel redigerare > första variationen > `Ok, setting temperature to 40 degrees` |
 
 Välj **Spara** för att spara alla ändringar i kommandot.
 
@@ -137,12 +137,12 @@ Skapa ett nytt kommando **SetAlarm** med hjälp av exempel meningen "**Ange ett 
 | Inställning    | Föreslaget värde                          |
 | ---------- | ---------------------------------------- |
 | Regelnamn  | ConfirmationResponse                  |
-| Villkor | Ingen                                     |
+| Villkor | Inget                                     |
 | Åtgärder    | Skicka tal svar > enkel redigerare > första variationen >`Ok, setting an alarm for 9 am tomorrow` |
 
 Välj **Spara** för att spara alla ändringar i kommandot.
 
-## <a name="try-it-out"></a>Prova
+## <a name="try-it-out"></a>Prova nu
 
 Testa beteendet med hjälp av panelen test chatt
 1. Välj **Träna** (Träna). När utbildningen är klar väljer du **testa** och provar:

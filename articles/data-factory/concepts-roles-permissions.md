@@ -11,10 +11,10 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 40fa6bce67aa6c5643e4a153da610dce65907b56
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88036359"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roller och behörigheter för Azure Data Factory
@@ -59,7 +59,7 @@ Behörigheter för Azure databaser och GitHub är oberoende av Data Factory beh�
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Anpassade scenarier och anpassade roller
 
-Ibland kan du behöva ge olika åtkomst nivåer för olika data fabriks användare. Ett exempel:
+Ibland kan du behöva ge olika åtkomst nivåer för olika data fabriks användare. Exempel:
 - Du kan behöva en grupp där användare bara har behörighet för en speciell data fabrik.
 - Eller så kan du behöva en grupp där användare bara kan övervaka en data fabrik (eller fabriker), men inte ändra den.
 
@@ -80,7 +80,7 @@ Här följer några exempel som visar vad du kan uppnå med anpassade roller:
   Det här scenariot kräver två roll tilldelningar.
 
   1. Tilldela den inbyggda rollen **deltagare** på Data Factory-nivån.
-  2. Skapa en anpassad roll med behörigheten **Microsoft. Resources/distributions/**. Tilldela den här anpassade rollen till användaren på resurs grupps nivå.
+  2. Skapa en anpassad roll med behörigheten  **Microsoft. Resources/distributions/**. Tilldela den här anpassade rollen till användaren på resurs grupps nivå.
 
 - Låt en användare kunna testa anslutningen i en länkad tjänst eller för hands versions data i en data uppsättning
 
@@ -88,7 +88,7 @@ Här följer några exempel som visar vad du kan uppnå med anpassade roller:
 
 - Låt en användare uppdatera en data fabrik från PowerShell eller SDK, men inte i Azure Portal.
 
-  Tilldela den inbyggda rollen **deltagare** på Data Factory-resursen för användaren. Med den här rollen kan användaren se resurserna i Azure Portal, men användaren kan inte komma åt knapparna **publicera** och **publicera alla** .
+  Tilldela den inbyggda rollen **deltagare** på Data Factory-resursen för användaren. Med den här rollen kan användaren se resurserna i Azure Portal, men användaren kan inte komma åt knapparna  **publicera** och **publicera alla** .
 
 ## <a name="next-steps"></a>Nästa steg
 

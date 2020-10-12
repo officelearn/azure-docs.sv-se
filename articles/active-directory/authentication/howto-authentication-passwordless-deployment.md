@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95f4221b390071ad149699608d3937b9af4e1d5d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90527011"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planera distribution av lösenordsskyddad autentisering i Azure Active Directory
@@ -118,7 +118,7 @@ Din kommunikation för slutanvändare bör innehålla följande information:
 - [Registrera i Microsoft Authenticator-appen](howto-authentication-passwordless-phone.md)
 - [Logga in med din telefon](../user-help/user-help-auth-app-sign-in.md)
 
-Microsoft tillhandahåller Multi-Factor Authentication- [certifikatmallar](https://aka.ms/mfatemplates), SSPR (Self-Service Password Recover [) och](https://www.microsoft.com/download/details.aspx?id=56768) [dokumentation för slutanvändare](../user-help/security-info-setup-signin.md) för att hjälpa till att göra det enklare att kommunicera med kommunikationen. Du kan skicka användare till [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) att registrera direkt genom att välja länkarna för **säkerhets information** på sidan.
+Microsoft tillhandahåller Multi-Factor Authentication- [mallar](https://aka.ms/mfatemplates)för kommunikation, Self-Service-SSPR (Password [Reset) och](https://www.microsoft.com/download/details.aspx?id=56768) [dokumentation om slutanvändare](../user-help/security-info-setup-signin.md) för att hjälpa till att skriva till kommunikation. Du kan skicka användare till [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) att registrera direkt genom att välja länkarna för **säkerhets information** på sidan.
 
 ### <a name="plan-to-pilot"></a>Planera för pilot
 
@@ -292,7 +292,7 @@ Följ stegen som är anpassade till den valda metoden nedan.
 
 ### <a name="required-administrative-roles"></a>Administrativa roller som krävs
 
-| Azure AD-roll | Description |
+| Azure AD-roll | Beskrivning |
 | --- | --- |
 | Global administratör|Minst privilegie rad roll kan implementera kombinerad registrerings upplevelse. |
 | Administratör för autentisering | Minst privilegie rad roll kan implementera och hantera autentiseringsmetoder. |

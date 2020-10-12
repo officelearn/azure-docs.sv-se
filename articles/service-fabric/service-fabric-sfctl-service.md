@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 426220f38e6ddfaaf8b24bf4f7d34473d881ae56
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86245610"
 ---
 # <a name="sfctl-service"></a>sfctl service
@@ -22,10 +22,10 @@ Skapa, ta bort och hantera tjänst, tjänst typer och service paket.
 | App-Name | Hämtar namnet på Service Fabric program för en tjänst. |
 | kod-paket lista | Hämtar listan över kod paket som har distribuerats på en Service Fabric-nod. |
 | skapa | Skapar den angivna Service Fabrics tjänsten. |
-| ta bort | Tar bort en befintlig Service Fabric-tjänst. |
+| delete | Tar bort en befintlig Service Fabric-tjänst. |
 | distribuerad-typ | Hämtar information om en angiven tjänste typ för det program som distribuerats på en nod i ett Service Fabric kluster. |
 | distribuerad-typ lista | Hämtar listan med information om tjänst typer från de program som distribueras på en nod i ett Service Fabric kluster. |
-| beskrivning | Hämtar beskrivningen av en befintlig Service Fabric-tjänst. |
+| description | Hämtar beskrivningen av en befintlig Service Fabric-tjänst. |
 | Get-container – loggar | Hämtar behållar loggarna för container som distribuerats på en Service Fabric-nod. |
 | attestering | Hämtar hälso tillståndet för den angivna Service Fabrics tjänsten. |
 | information | Hämtar information om den specifika tjänst som hör till Service Fabric programmet. |

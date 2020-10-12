@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: 6400cfe7e524dcc16e08c2bba7dfba4a62d00b2e
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86232567"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>B2B-fel och lösningar för Azure Logic Apps
@@ -31,7 +31,7 @@ Den här artikeln hjälper dig att felsöka fel som kan uppstå i Logic Apps B2B
 
 **Fel Beskrivning**: inget avtal hittades med identiteter: ' AS2Identity ':: ' Partner1 ' and'AS2Identity ':: ' Partner3 '
 
-**Användar åtgärd**: ogiltigt AS2-från-eller AS2-to som kon figurer ATS för avtal. Korrigera AS2-meddelandets "AS2-from"-eller "AS2-to"-rubriker eller avtalet för att matcha AS2-ID: na i AS2 meddelande rubriker med avtals konfigurationer.
+**Användar åtgärd**: ogiltigt AS2-From eller AS2-To har kon figurer ATS för avtal. Korrigera AS2-meddelandets "AS2-from"-eller "AS2-to"-rubriker eller avtalet för att matcha AS2-ID: na i AS2 meddelande rubriker med avtals konfigurationer.
 
 ## <a name="as2"></a>AS2
 
@@ -39,7 +39,7 @@ Den här artikeln hjälper dig att felsöka fel som kan uppstå i Logic Apps B2B
 
 **Fel Beskrivning**: ogiltiga AS2-rubriker. En av rubrikerna "AS2-till" eller "AS2-from" är tom.
 
-**Användar åtgärd**: ett AS2-meddelande togs emot som inte innehöll AS2-från-eller AS2-till-eller båda huvudena. Kontrol lera AS2-meddelandet AS2-from och AS2-to-headers och korrigera dem baserat på avtals konfigurationen.
+**Användar åtgärd**: ett AS2-meddelande togs emot som inte innehöll AS2-From eller AS2-To eller båda huvudena. Kontrol lera AS2 meddelande AS2-From och AS2-To rubriker och korrigera dem baserat på avtals konfigurationen.
 
 ### <a name="missing-as2-message-body-and-headers"></a>Meddelande text och rubriker för AS2 saknas    
 
@@ -53,7 +53,7 @@ Den här artikeln hjälper dig att felsöka fel som kan uppstå i Logic Apps B2B
 
 **Användar åtgärd**: Lägg till @base64ToBinary i AS2Message innan du skickar till partner.
 
-Till exempel:
+Exempel:
 
 ```json
 "HTTP": {
@@ -71,7 +71,7 @@ Till exempel:
 
 **Användar åtgärd**: Lägg till @base64ToBinary i MDN innan du skickar till partner.
 
-Till exempel:
+Exempel:
 
 ```json
 "Response": {

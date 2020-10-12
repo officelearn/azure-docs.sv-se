@@ -5,10 +5,10 @@ ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: 081c7a10ee091f573e8f999c94588ef85c784f74
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89651569"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Distribuera en huvud boks infrastrukturs konsortium i Azure Kubernetes-tjänsten
@@ -385,7 +385,7 @@ Kör följande kommando för att fråga chaincode:
 ```bash
 ./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
-Stödjande-peer-datorer är peer-datorer där chaincode är installerat och kallas för körning av transaktioner. Du måste ange `<endorsingPeers>` att innehåller peer-nodnamn från den aktuella peer-organisationen. Visa en lista över stödjande-peer-datorer för en angiven chaincode och kanal kombination åtskilda med blank steg. Till exempel: `-p "peer1" "peer3"`.
+Stödjande-peer-datorer är peer-datorer där chaincode är installerat och kallas för körning av transaktioner. Du måste ange `<endorsingPeers>` att innehåller peer-nodnamn från den aktuella peer-organisationen. Visa en lista över stödjande-peer-datorer för en angiven chaincode och kanal kombination åtskilda med blank steg. Exempel: `-p "peer1" "peer3"`.
 
 Om du använder *azhlfTool* för att installera chaincode skickar du alla peer-nodnamn som ett värde till stödjande-peer-argumentet. Chaincode installeras på alla peer-noder för den organisationen. 
 

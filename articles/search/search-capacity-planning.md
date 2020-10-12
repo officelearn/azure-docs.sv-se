@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.openlocfilehash: 76084a9ddd6842194bb4c6b25d62e62c2ed2d4a8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660307"
 ---
 # <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>Justera kapaciteten för en Azure Kognitiv sökning-tjänst
@@ -36,7 +36,7 @@ Kapaciteten uttrycks i *Sök enheter* som kan tilldelas i kombinationer av *part
 
 I följande diagram visas relationen mellan repliker, partitioner, Shards och Sök enheter. Det visar ett exempel på hur ett enskilt index sträcker sig över fyra Sök enheter i en tjänst med två repliker och två partitioner. Var och en av de fyra Sök enheterna lagrar bara hälften av Shards i indexet. Sök enheterna i den vänstra kolumnen lagrar den första halvan av Shards, som består av den första partitionen, medan de i den högra kolumnen lagrar den andra halvan av Shards, som omfattar den andra partitionen. Eftersom det finns två repliker finns det två kopior av varje index Shard. Sök enheterna i den översta raden lagrar en kopia, som består av den första repliken, medan de i den nedersta raden lagrar en annan kopia, som omfattar den andra repliken.
 
-:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Sök index är shardade över partitioner.":::
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Sök index är shardade över partitioner.&quot;:::
 
 Diagrammet ovan är bara ett exempel. Många kombinationer av partitioner och repliker är möjliga, upp till högst 36 totalt antal Sök enheter.
 
@@ -44,7 +44,7 @@ I Kognitiv sökning är hantering av Shard en implementerings information och ka
 
 + Rangordna avvikelser: Sök Resultat beräknas på Shard-nivå först och summeras sedan i en enda resultat uppsättning. Beroende på egenskaperna för Shard-innehållet kan matchningar från en Shard rangordnas högre än matchningarna i en annan. Om du märker att du inte har några intuitiva rangordningar i Sök resultaten beror det förmodligen på att effekterna av horisontell partitionering, särskilt om index är små. Du kan undvika dessa ranknings avvikelser genom att välja att [Beräkna resultat globalt över hela indexet](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), men detta medför en prestanda försämring.
 
-+ Avvikelser vid komplettering: Autoavsluta-frågor, där matchningar görs på de första flera tecknen i en delvis angiven term, Godkänn en Fuzzy-parameter som forgives små avvikelser i stavning. För automatisk komplettering är en partiell matchning begränsad till termer inom den aktuella Shard. Om till exempel en Shard innehåller "Microsoft" och en partiell term på "micor" anges, kommer sökmotorn att matcha "Microsoft" i den Shard, men inte i andra Shards som innehåller de återstående delarna av indexet.
++ Avvikelser vid komplettering: Autoavsluta-frågor, där matchningar görs på de första flera tecknen i en delvis angiven term, Godkänn en Fuzzy-parameter som forgives små avvikelser i stavning. För automatisk komplettering är en partiell matchning begränsad till termer inom den aktuella Shard. Om till exempel en Shard innehåller &quot;Microsoft&quot; och en partiell term på &quot;micor&quot; anges, kommer sökmotorn att matcha &quot;Microsoft" i den Shard, men inte i andra Shards som innehåller de återstående delarna av indexet.
 
 ## <a name="when-to-add-nodes"></a>När du ska lägga till noder
 

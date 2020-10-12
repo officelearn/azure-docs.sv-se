@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84708951"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introduktion till anslutnings fel sökning i Azure Network Watcher
@@ -25,7 +25,7 @@ Funktionen för att felsöka anslutningar i Network Watcher ger möjlighet att k
 > [!IMPORTANT]
 > Fel sökning av anslutning kräver att den virtuella datorn som du felsöker från har `AzureNetworkWatcherExtension` VM-tillägget installerat. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på mål slut punkten.
 
-## <a name="response"></a>Svar
+## <a name="response"></a>Svarsåtgärder
 
 I följande tabell visas de egenskaper som returneras när fel sökning av anslutning har körts.
 
@@ -72,9 +72,9 @@ Följande är ett exempel på ett problem som finns på ett hopp.
 
 Fel sökning av anslutning returnerar fel typer om anslutningen. I följande tabell visas en lista över de aktuella fel typerna som returneras.
 
-|Typ  |Description  |
+|Typ  |Beskrivning  |
 |---------|---------|
-|Processor     | Hög CPU-användning.       |
+|CPU     | Hög CPU-användning.       |
 |Minne     | Hög minnes användning.       |
 |GuestFirewall     | Trafiken blockeras på grund av en konfiguration av en brand vägg för virtuella datorer.        |
 |DNSResolution     | DNS-matchningen misslyckades för mål adressen.        |

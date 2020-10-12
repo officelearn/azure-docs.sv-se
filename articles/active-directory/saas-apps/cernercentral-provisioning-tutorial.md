@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.openlocfilehash: 58b991f5b229d924bc933ff34987db24bc895e10
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88529873"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Självstudie: Konfigurera CERN central för automatisk användar etablering
@@ -23,7 +23,7 @@ Syftet med den här självstudien är att visa de steg du behöver utföra i CER
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
+Det scenario som beskrivs i självstudien förutsätter att du redan har följande objekt:
 
 * En Azure Active Directory-klientorganisation
 * En CERN-Central klient
@@ -52,7 +52,7 @@ Innan du konfigurerar och aktiverar etablerings tjänsten bör du bestämma vilk
 Det här avsnittet vägleder dig genom att ansluta din Azure AD till CERN Centrals användar lista med hjälp av CERNs SCIM-API för användar konto och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i CERN Central baserat på användare och grupp tilldelning i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för CERN Central, enligt anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra. Mer information finns i [själv studie kursen om enkel inloggning i CERN](cernercentral-tutorial.md).
+> Du kan också välja att aktivera SAML-baserade enkla Sign-On för CERN Central, enligt instruktionerna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra. Mer information finns i [själv studie kursen om enkel inloggning i CERN](cernercentral-tutorial.md).
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Konfigurera automatisk användar konto etablering till CERN Central i Azure AD:
 
@@ -88,7 +88,7 @@ För att kunna etablera användar konton till CERN Central måste du begära ett
 
 7. Välj din instans av CERN Central och välj sedan fliken **etablering** .
 
-8. Ställ in **etablerings läget** på **automatiskt**.
+8. Ange **Etableringsläge** som **Automatiskt**.
 
    ![CERN, Central etablering](./media/cernercentral-provisioning-tutorial/Cerner.PNG)
 
@@ -122,8 +122,8 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 * [CERN, Central: publicera identitets data med Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Självstudie: Konfigurera CERN central för enkel inloggning med Azure Active Directory](cernercentral-tutorial.md)
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användarkontoetablering för Enterprise-appar](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

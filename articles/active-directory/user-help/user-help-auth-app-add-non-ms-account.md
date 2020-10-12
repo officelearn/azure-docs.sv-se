@@ -12,10 +12,10 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 04076ed5b91f8e840a084b784477d07eea5adee7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015978"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Lägg till konton som inte kommer från Microsoft i Microsoft Authenticator-appen
@@ -186,12 +186,12 @@ Lägg till ditt Amazon-konto genom att aktivera tvåstegsverifiering och sedan l
 
 10. På sidan **Lägg till en verifierings metod för säkerhets kopiering** på datorn anger du den sexsiffriga verifierings koden som du fick från verifierings metoden för ditt Amazon-konto och väljer sedan **verifiera kod och fortsätt**.
 
-11. På sidan **nästan klar** bestämmer du om du vill göra datorn till en betrodd enhet och välj sedan **Skaffa den. Aktivera tvåstegsverifiering**.
+11. På sidan **nästan klar** bestämmer du om du vill göra datorn till en betrodd enhet och välj sedan **Skaffa den. Aktivera Two-Step verifiering**.
 
     Sidan **avancerade säkerhets inställningar** visas och visar din uppdaterade information om tvåstegsverifiering.
 
     >[!NOTE]
-    >Mer information om tvåstegsverifiering och ditt Amazon-konto finns i [om](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) tvåstegsverifiering och [Logga in med](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440)tvåstegsverifiering.
+    >Mer information om tvåstegsverifiering och ditt Amazon-konto finns i [om Two-Step verifiering](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) och [inloggning med Two-Step verifiering](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).
 
 ## <a name="next-steps"></a>Nästa steg
 

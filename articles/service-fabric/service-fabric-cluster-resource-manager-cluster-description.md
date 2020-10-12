@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5ec5db2b2fefeba3bffb7e30a77850b30dccf95e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89005640"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Beskriv ett Service Fabric kluster med hjälp av kluster resurs hanteraren
@@ -376,7 +376,7 @@ Värdet som anges i egenskapen Node kan vara en sträng, boolesk eller signerat.
 
 * Villkorliga kontroller för att skapa särskilda uttryck:
 
-  | Instruktion | Syntax |
+  | Uttryck | Syntax |
   | --- |:---:|
   | "lika med" | "==" |
   | "inte lika med" | "!=" |
@@ -387,7 +387,7 @@ Värdet som anges i egenskapen Node kan vara en sträng, boolesk eller signerat.
 
 * Booleska instruktioner för gruppering och logiska åtgärder:
 
-  | Instruktion | Syntax |
+  | Uttryck | Syntax |
   | --- |:---:|
   | särskilt | "&&" |
   | eller | "&#124;&#124;" |

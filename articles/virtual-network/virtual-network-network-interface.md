@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
 ms.openlocfilehash: 99905e58cbcd9d0a5c5397aee125675a70e799fe
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657973"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverksgränssnitt
@@ -47,9 +47,9 @@ När du skapar en virtuell dator med hjälp av Azure Portal skapar portalen ett 
 2. Välj **+ Lägg till** under **nätverks gränssnitt**.
 3. Ange eller välj värden för följande inställningar och välj sedan **skapa**:
 
-    |Inställningen|Obligatoriskt?|Information|
+    |Inställning|Obligatoriskt?|Information|
     |---|---|---|
-    |Name|Ja|Namnet måste vara unikt inom den resurs grupp du väljer. Med tiden har du troligen flera nätverks gränssnitt i din Azure-prenumeration. Förslag när du skapar en namngivnings konvention för att göra det enklare att hantera flera nätverks gränssnitt finns i [namngivnings konventioner](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). Namnet kan inte ändras efter att nätverks gränssnittet har skapats.|
+    |Namn|Ja|Namnet måste vara unikt inom den resurs grupp du väljer. Med tiden har du troligen flera nätverks gränssnitt i din Azure-prenumeration. Förslag när du skapar en namngivnings konvention för att göra det enklare att hantera flera nätverks gränssnitt finns i [namngivnings konventioner](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). Namnet kan inte ändras efter att nätverks gränssnittet har skapats.|
     |Virtuellt nätverk|Ja|Välj det virtuella nätverket för nätverks gränssnittet. Du kan bara tilldela ett nätverks gränssnitt till ett virtuellt nätverk som finns i samma prenumeration och plats som nätverks gränssnittet. När ett nätverks gränssnitt har skapats kan du inte ändra det virtuella nätverk som det har tilldelats. Den virtuella dator som du lägger till nätverks gränssnittet till måste också finnas på samma plats och i samma prenumeration som nätverks gränssnittet.|
     |Undernät|Ja|Välj ett undernät i det virtuella nätverk som du har valt. Du kan ändra det undernät som nätverks gränssnittet tilldelas efter att det har skapats.|
     |Tilldelning av privat IP-adress|Ja| I den här inställningen väljer du tilldelnings metod för IPv4-adressen. Välj mellan följande tilldelnings metoder: **dynamiska:** när du väljer det här alternativet tilldelar Azure automatiskt nästa tillgängliga adress från det valda under nätets adress utrymme. **Statisk:** När du väljer det här alternativet måste du manuellt tilldela en tillgänglig IP-adress från det valda under nätets adress utrymme. Statiska och dynamiska adresser ändras inte förrän du ändrar dem eller nätverks gränssnittet har tagits bort. Du kan ändra tilldelnings metoden när nätverks gränssnittet har skapats. Azure DHCP-servern tilldelar den här adressen till nätverks gränssnittet i den virtuella datorns operativ system.|
@@ -251,7 +251,7 @@ Nästa hopp-funktion i Azure Network Watcher kan också hjälpa dig att avgöra 
 
 För att utföra åtgärder på nätverks gränssnitt måste ditt konto tilldelas rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som har tilldelats rätt behörigheter i följande tabell:
 
-| Action                                                                     | Name                                                      |
+| Action                                                                     | Namn                                                      |
 | ---------                                                                  | -------------                                             |
 | Microsoft. Network/networkInterfaces/Read                                   | Hämta nätverks gränssnitt                                     |
 | Microsoft. Network/networkInterfaces/Write                                  | Skapa eller uppdatera nätverks gränssnitt                        |

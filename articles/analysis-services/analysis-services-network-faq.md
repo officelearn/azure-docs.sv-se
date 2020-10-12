@@ -8,13 +8,13 @@ ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b60cf34e8efed2ed63b6e35cfaf7445edb701610
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82838509"
 ---
-# <a name="frequently-asked-questions-about-analysis-services-network-connectivity"></a>Vanliga frågor om Analysis Services nätverks anslutning
+# <a name="frequently-asked-questions-about-analysis-services-network-connectivity"></a>Vanliga frågor om Analysis Services-nätverksanslutning
 
 Den här artikeln innehåller svar på vanliga frågor om att ansluta till lagrings konton, data källor, brand väggar och IP-adresser.
 
@@ -48,4 +48,4 @@ Den här artikeln innehåller svar på vanliga frågor om att ansluta till lagri
 
 [Installera och konfigurera en lokal datagateway](analysis-services-gateway-install.md)   
 [Ansluta till lokala data källor med lokal datagateway](analysis-services-gateway.md)   
-[Använda Gateway för data källor på en Azure-Virtual Network (VNet)](analysis-services-vnet-gateway.md)
+[Använda gateway för datakällor på ett virtuellt Azure-nätverk](analysis-services-vnet-gateway.md)

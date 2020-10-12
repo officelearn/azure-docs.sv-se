@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
 ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84704530"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hantera fel och undantag i Azure Logic Apps
@@ -71,9 +71,9 @@ Eller så kan du manuellt ange principen för återförsök i `inputs` avsnittet
 
 | Värde | Typ | Beskrivning |
 |-------|------|-------------|
-| <*återförsök-princip-typ*> | Sträng | Den princip typ för återförsök som du vill använda: `default` , `none` , `fixed` eller`exponential` |
+| <*återförsök-princip-typ*> | Sträng | Den princip typ för återförsök som du vill använda: `default` , `none` , `fixed` eller `exponential` |
 | <*retry-intervall*> | Sträng | Återförsöksintervall där värdet måste använda [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Standardvärdet för minimi intervallet är `PT5S` och det maximala intervallet är `PT1D` . När du använder exponentiell intervall princip kan du ange olika minimi-och max värden. |
-| <*försök-försök*> | Integer | Antalet återförsök som måste vara mellan 1 och 90 |
+| <*försök-försök*> | Heltal | Antalet återförsök som måste vara mellan 1 och 90 |
 ||||
 
 *Valfritt*
@@ -112,7 +112,7 @@ Om du inte anger en princip för återförsök använder åtgärden standard pri
 }
 ```
 
-### <a name="none"></a>Ingen
+### <a name="none"></a>Inget
 
 Om du vill ange att åtgärden eller utlösaren inte ska försöka utföra misslyckade förfrågningar igen, anger du <*återförsök-princip-typ*> till `none` .
 
@@ -312,7 +312,7 @@ Här är ett exempel, följt av en detaljerad förklaring, som skickar en HTTP P
 
 Här är en detaljerad genom gång som beskriver vad som händer i det här exemplet:
 
-1. För att få resultatet från alla åtgärder i "My_Scope" använder **filter mat ris** åtgärden detta filter uttryck:`@result('My_Scope')`
+1. För att få resultatet från alla åtgärder i "My_Scope" använder **filter mat ris** åtgärden detta filter uttryck: `@result('My_Scope')`
 
 1. Villkoret för **filter mat ris** är ett `@result()` objekt som har en status som är lika med `Failed` . Det här villkoret filtrerar matrisen som innehåller alla åtgärds resultat från "My_Scope" ned till en matris med endast misslyckade åtgärds resultat.
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: a4f7d330db9a4a0d9b435ebe7527e55e37c254e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086225"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Konfigurera katastrof återställning av virtuella Hyper-V-datorer till en sekundär plats med hjälp av PowerShell (Resource Manager)
@@ -23,7 +23,7 @@ Den här artikeln visar hur du automatiserar stegen för replikering av virtuell
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Granska [arkitekturen och komponenterna för scenariot](hyper-v-vmm-architecture.md).
-- Granska [kraven för stöd](./vmware-physical-secondary-support-matrix.md) för alla komponenter.
+- Granska [support kraven](./vmware-physical-secondary-support-matrix.md) för alla komponenter.
 - Kontrol lera att Virtual Machine Manager-servrar och Hyper-V-värdar följer [support kraven](./vmware-physical-secondary-support-matrix.md).
 - Kontrol lera att de virtuella datorer som du vill replikera följer den [replikerade datorns support](./vmware-physical-secondary-support-matrix.md).
 

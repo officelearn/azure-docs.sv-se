@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: e0e7089e7c674f324c2c3d293661c518b41731b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84021865"
 ---
 # <a name="azure-sql-database-security-features"></a>Azure SQL Database säkerhetsfunktioner    
@@ -40,14 +40,14 @@ Gateway-brandväggen kan begränsa adresser, vilket ger kunderna detaljerad kont
 Kunder kan få brand Väggs konfiguration genom att använda en hanterings portal eller program mässigt med hjälp av Azure SQL Database hanterings REST API. Azure SQL Database Gateway-brandväggen som standard förhindrar all kund-TDS-åtkomst till Azure SQL Database. Kunder måste konfigurera åtkomst med hjälp av åtkomst kontrol listor (ACL: er) för att tillåta Azure SQL Database anslutningar via käll-och mål-Internet adresser, protokoll och port nummer.
 
 ### <a name="dosguard"></a>DoSGuard
-DOS-attacker (Denial of Service) minskas med en SQL Database Gateway-tjänst som kallas DoSGuard. DoSGuard aktivt spårar misslyckade inloggningar från IP-adresser. Om det finns flera misslyckade inloggningar från en viss IP-adress inom en viss tids period, blockeras IP-adressen från åtkomst till alla resurser i tjänsten under en fördefinierad tids period.
+DoS-attacker (Denial of Service) minskas med en gateway-tjänst för SQL Database som kallas DoSGuard. DoSGuard spårar aktivt misslyckade inloggningar från IP-adresser. Om det finns flera misslyckade inloggningar från en viss IP-adress inom en viss tids period, blockeras IP-adressen från åtkomst till alla resurser i tjänsten under en fördefinierad tids period.
 
 Dessutom utför Azure SQL Database Gateway:
 
 - Hantera kapacitets förhandlingar för att implementera TDS FIPS 140-2-verifierade krypterade anslutningar när den ansluter till databas servrarna.
 - Tillstånds känslig kontroll av TDS-paket när den accepterar anslutningar från klienter. Gatewayen verifierar anslutnings informationen och vidarebefordrar de TDS-paketen till rätt fysiska Server baserat på databas namnet som anges i anslutnings strängen.
 
-Den övergripande principen för nätverks säkerhet för det Azure SQL Database erbjudandet är att endast tillåta anslutning och kommunikation som krävs för att tillåta att tjänsten fungerar. Alla andra portar, protokoll och anslutningar blockeras som standard. Virtuella lokala nätverk (VLAN) och ACL: er används för att begränsa nätverkskommunikation genom käll-och mål nätverk, protokoll och port nummer.
+Den övergripande principen för nätverkssäkerhet för Azure SQL Database-tjänsten är att endast tillåta anslutning och kommunikation som krävs för att tjänsten ska fungera. Alla andra portar, protokoll och anslutningar blockeras som standard. Virtuella lokala nätverk (VLAN) och ACL: er används för att begränsa nätverkskommunikation genom käll-och mål nätverk, protokoll och port nummer.
 
 Metoder som godkänns för att implementera nätverksbaserade ACL: er inkluderar ACL: er på routrar och belastningsutjämnare. Dessa mekanismer hanteras av Azure-nätverk, brand vägg för virtuella gäst datorer och brand Väggs regler för Azure SQL Database Gateway, som har kon figurer ATS av kunden.
 

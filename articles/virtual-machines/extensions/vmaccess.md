@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: akjosh
 ms.openlocfilehash: b3b6c9d5835f6d81ab8641d8a43fb7228b6b53ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87085647"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Hantera administrativa användare, SSH och kontrol lera eller reparera diskar på virtuella Linux-datorer med VMAccess-tillägget med Azure CLI
@@ -66,7 +66,7 @@ az vm user update \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-> **Obs:** `az vm user update`Kommandot lägger till den nya offentliga nyckel texten i `~/.ssh/authorized_keys` filen för administratörs användaren på den virtuella datorn. Detta ersätter eller tar inte bort några befintliga SSH-nycklar. Detta tar inte bort tidigare nycklar som ställts in vid distributions tillfället eller efterföljande uppdateringar via VMAccess-tillägget.
+> **Obs:** `az vm user update` Kommandot lägger till den nya offentliga nyckel texten i `~/.ssh/authorized_keys` filen för administratörs användaren på den virtuella datorn. Detta ersätter eller tar inte bort några befintliga SSH-nycklar. Detta tar inte bort tidigare nycklar som ställts in vid distributions tillfället eller efterföljande uppdateringar via VMAccess-tillägget.
 
 ## <a name="reset-password"></a>Återställa lösenord
 I följande exempel återställer lösen ordet för användaren `azureuser` på den virtuella datorn med namnet `myVM` :
@@ -247,7 +247,7 @@ az vm extension set \
 ```
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsök
+### <a name="troubleshoot"></a>Felsöka
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av Azure CLI. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure CLI.
 

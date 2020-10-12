@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 4e79fef08af8ff73ce63ab4732c9efd77e3a5d3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67187298"
 ---
 ### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Konfigurera en DNS-etikett för den offentliga IP-adressen
@@ -36,7 +36,7 @@ För att skapa en DNS-etikett, väljer du först **Virtuella datorer** i portale
 
 1. Öppna SQL Server Management Studio (SSMS) från en dator som är ansluten till Internet. Om du inte har SQL Server Management Studio kan du ladda ned den [här](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-1. I dialogrutan **Anslut till server** eller **Anslut till databasmotor**, redigerar du värdet för **Servernamn**. Ange IP-adressen eller det fullständiga DNS-namnet för den virtuella datorn (bestäms i föregående åtgärd). Du kan också lägga till ett kommatecken och ange TCP-porten för SQL Server. Till exempel `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
+1. I dialogrutan **Anslut till server** eller **Anslut till databasmotor**, redigerar du värdet för **Servernamn**. Ange IP-adressen eller det fullständiga DNS-namnet för den virtuella datorn (bestäms i föregående åtgärd). Du kan också lägga till ett kommatecken och ange TCP-porten för SQL Server. Exempelvis `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
 
 1. I rutan **Autentisering**, markerar du **SQL Server-autentisering**.
 

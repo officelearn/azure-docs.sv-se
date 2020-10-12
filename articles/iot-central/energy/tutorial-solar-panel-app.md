@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: c0f4c4deaa57b1414a3ef55226e4c451b53ba72c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90971313"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Självstudie: skapa och gå igenom en mall för övervakning av solpanels program 
@@ -30,8 +30,8 @@ Den här självstudien vägleder dig genom processen för att skapa övervakning
 
 Om du inte har någon prenumeration kan du [skapa ett kostnads fritt utvärderings konto](https://azure.microsoft.com/free)
 
-## <a name="prerequisites"></a>Förutsättningar
-- Ingen
+## <a name="prerequisites"></a>Krav
+- Inget
 - Azure-prenumeration rekommenderas, men du behöver inte testa
 
 

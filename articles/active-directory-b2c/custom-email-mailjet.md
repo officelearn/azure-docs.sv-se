@@ -12,10 +12,10 @@ ms.date: 08/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 29e82a67b85356cfc15e806bb331330b3f272a04
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88584972"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Anpassad e-postverifiering med MailJet
@@ -44,13 +44,13 @@ Sedan lagrar du MailJet API-nyckeln i en Azure AD B2C princip nyckel för dina p
 1. På sidan **Översikt** väljer du **ID för identitets miljö**.
 1. Välj **princip nycklar**och välj sedan **Lägg till**.
 1. För **alternativ**väljer du **manuell**.
-1. Ange ett **namn** för princip nyckeln. Till exempel `MailjetApiKey`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
+1. Ange ett **namn** för princip nyckeln. Exempelvis `MailjetApiKey`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
 1. I **hemlighet**anger du din MailJet **API-nyckel** som du tidigare har spelat in.
 1. För **nyckel användning**väljer du **signatur**.
 1. Välj **Skapa**.
 1. Välj **princip nycklar** och välj sedan **Lägg till**.
 1. För **alternativ**väljer du **manuell**.
-1. Ange ett **namn** för princip nyckeln. Till exempel `MailjetSecretKey`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
+1. Ange ett **namn** för princip nyckeln. Exempelvis `MailjetSecretKey`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
 1. I **hemlighet**anger du din MailJet- **hemliga nyckel** som du tidigare har spelat in.
 1. För **nyckel användning**väljer du **signatur**.
 1. Välj **Skapa**.

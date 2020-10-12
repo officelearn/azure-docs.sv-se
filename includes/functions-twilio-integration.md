@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 467e09f9bd46df6d888d82f2961c5aed9cca4ab5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67187144"
 ---
 Det här exemplet förutsätter att du använder [Twilio](https://www.twilio.com/) -tjänsten för att skicka SMS-meddelanden till en mobil telefon. Azure Functions har redan stöd för Twilio via [Twilio-bindningen](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio)och exemplet använder funktionen.

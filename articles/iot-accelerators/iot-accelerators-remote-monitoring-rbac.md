@@ -10,10 +10,10 @@ ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref, devx-track-csharp
 ms.openlocfilehash: 817bc7624bb3a6b69d56265e40681287b7fc09fa
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90969596"
 ---
 # <a name="configure-role-based-access-control-in-the-remote-monitoring-solution-accelerator"></a>Konfigurera rollbaserad åtkomst kontroll i Solution Accelerator för fjärr styrning
@@ -29,19 +29,19 @@ Alla användare i **Administratörs** rollen har fullständig åtkomst till lös
 | Behörighet            | Administratör | Skrivskydd |
 |----------------       |-------|-----------|
 | Visa lösning         | Ja   | Ja       |
-| Uppdatera larm         | Ja   | Nej        |
-| Ta bort larm         | Ja   | Nej        |
-| Skapa enheter        | Ja   | Nej        |
-| Uppdatera enheter        | Ja   | Nej        |
-| Ta bort enheter        | Ja   | Nej        |
-| Skapa enhets grupper  | Ja   | Nej        |
-| Uppdatera enhets grupper  | Ja   | Nej        |
-| Ta bort enhets grupper  | Ja   | Nej        |
-| Skapa regler          | Ja   | Nej        |
-| Uppdatera regler          | Ja   | Nej        |
-| Ta bort regler          | Ja   | Nej        |
-| Skapa jobb           | Ja   | Nej        |
-| Uppdatera SIM-hantering | Ja   | Nej        |
+| Uppdatera larm         | Ja   | Inga        |
+| Ta bort larm         | Ja   | Inga        |
+| Skapa enheter        | Ja   | Inga        |
+| Uppdatera enheter        | Ja   | Inga        |
+| Ta bort enheter        | Ja   | Inga        |
+| Skapa enhets grupper  | Ja   | Inga        |
+| Uppdatera enhets grupper  | Ja   | Inga        |
+| Ta bort enhets grupper  | Ja   | Inga        |
+| Skapa regler          | Ja   | Inga        |
+| Uppdatera regler          | Ja   | Inga        |
+| Ta bort regler          | Ja   | Inga        |
+| Skapa jobb           | Ja   | Inga        |
+| Uppdatera SIM-hantering | Ja   | Inga        |
 
 Som standard tilldelas den användare som distribuerade lösningen automatiskt **Administratörs** rollen och är en Azure Active Directory program ägare. Som program ägare kan du tilldela roller till andra användare via Azure Portal. Om du vill att en annan användare ska tilldela roller i lösningen måste de också anges som en program ägare i Azure Portal.
 

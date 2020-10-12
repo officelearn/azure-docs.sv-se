@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77084050"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>ADAL till MSAL migration guide för Android
@@ -46,8 +46,8 @@ MSAL offentliga API inför viktiga ändringar, inklusive:
   - Myndigheterna verifieras inte längre vid körning. I stället deklareras utvecklaren av en lista med kända myndigheter under utvecklingen.
 - API-ändringar för token:
   - I ADAL `AcquireToken()` skapar först en tyst begäran. Detta innebär att en interaktiv begäran görs. Detta beteende ledde till att vissa utvecklare bara förlitar sig på `AcquireToken` , vilket ledde till att användaren uppmanas att ange autentiseringsuppgifter vid ett tillfälle. MSAL kräver att utvecklare är avsiktliga när användaren får en UI-prompt.
-    - `AcquireTokenSilent`resulterar alltid i en tyst begäran som antingen lyckas eller Miss lyckas.
-    - `AcquireToken`alltid resulterar i en begäran som efterfrågar användaren via användar gränssnittet.
+    - `AcquireTokenSilent` resulterar alltid i en tyst begäran som antingen lyckas eller Miss lyckas.
+    - `AcquireToken` alltid resulterar i en begäran som efterfrågar användaren via användar gränssnittet.
 - MSAL stöder inloggning från antingen en standard webbläsare eller en inbäddad webbvy:
   - Som standard används standard webbläsaren på enheten. Detta gör att MSAL kan använda Authentication State (cookies) som redan finns för ett eller flera konton som är inloggade. Om det inte finns något autentiserings tillstånd kan autentisering under auktorisering via MSAL resultera i autentiserings tillstånd (cookies) som skapas för att dra nytta av andra webb program som ska användas i samma webbläsare.
 - Ny undantags modell:
@@ -150,7 +150,7 @@ Om Microsofts identitets plattform skiljer sig från ett finansiellt institut ä
 
 Sam fungerar för Contoso.com men hanterar virtuella Azure-datorer som tillhör Fabrikam.com. För att Sam ska kunna hantera virtuella datorer i Fabrikam måste han ha behörighet att komma åt dem. Den här åtkomsten kan beviljas genom att lägga till Sam-kontot i Fabrikam.com och beviljar sitt konto en roll som gör att han kan arbeta med de virtuella datorerna. Detta gör du med Azure Portal.
 
-Om du lägger till Sams Contoso.com-konto som en medlem i Fabrikam.com skulle det leda till att en ny post skapas i Fabrikam. com: s Azure Active Directory för Sam. Sam-posten i Azure Active Directory kallas för ett användar objekt. I det här fallet pekar användarobjektet tillbaka till Sams användar objekt i Contoso.com. Sam: s Fabrikam User-objekt är den lokala åter givningen av Sam och används för att lagra information om det konto som är associerat med Sam i kontexten för Fabrikam.com. I Contoso.com är Sam-titeln erfaren DevOps-konsult. I Fabrikam är Sam-titeln entreprenör-Virtual Machines. I Contoso.com är Sam inte ansvarigt eller auktoriserat för att hantera virtuella datorer. I Fabrikam.com är det bara jobb funktionen. Sam har fortfarande bara en uppsättning autentiseringsuppgifter för att hålla reda på, vilka är de autentiseringsuppgifter som utfärdats av Contoso.com.
+Om du lägger till Sams Contoso.com-konto som en medlem i Fabrikam.com skulle det leda till att en ny post skapas i Fabrikam. com: s Azure Active Directory för Sam. Sam-posten i Azure Active Directory kallas för ett användar objekt. I det här fallet pekar användarobjektet tillbaka till Sams användar objekt i Contoso.com. Sam: s Fabrikam User-objekt är den lokala åter givningen av Sam och används för att lagra information om det konto som är associerat med Sam i kontexten för Fabrikam.com. I Contoso.com är Sam-titeln erfaren DevOps-konsult. I Fabrikam är Sam-titeln Contractor-Virtual datorer. I Contoso.com är Sam inte ansvarigt eller auktoriserat för att hantera virtuella datorer. I Fabrikam.com är det bara jobb funktionen. Sam har fortfarande bara en uppsättning autentiseringsuppgifter för att hålla reda på, vilka är de autentiseringsuppgifter som utfärdats av Contoso.com.
 
 När ett lyckat `acquireToken` anrop görs visas en referens till ett `IAccount` objekt som kan användas i senare `acquireTokenSilent` förfrågningar.
 

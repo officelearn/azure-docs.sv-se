@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.openlocfilehash: 97d899d73359cc45daf88940b815ed262c3b4766
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89290845"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Azure HDInsight Double Encryption för vilande data
@@ -121,7 +121,7 @@ Nu är du redo att skapa ett nytt HDInsight-kluster. Kundhanterade nycklar kan b
 
 #### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
-Ange den fullständiga **nyckel identifieraren**, inklusive nyckel versionen, när klustret skapas. Till exempel `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identiteten till klustret och ange nyckel-URI: n.
+Ange den fullständiga **nyckel identifieraren**, inklusive nyckel versionen, när klustret skapas. Exempelvis `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identiteten till klustret och ange nyckel-URI: n.
 
 ![Skapa nytt kluster](./media/disk-encryption/create-cluster-portal.png)
 
@@ -457,7 +457,7 @@ New-AzHDInsightCluster `
     -EncryptionAtHost $true `
 ```
 
-### <a name="enable-using-azure-cli"></a>Aktivera med hjälp av Azure CLI
+### <a name="enable-using-azure-cli"></a>Aktivera med Azure CLI
 
 Följande kodfragment visar hur du kan skapa ett nytt Azure HDInsight-kluster som har kryptering på värd aktiverat, med hjälp av Azure CLI. Den använder parametern `--encryption-at-host true` för att aktivera funktionen.
 

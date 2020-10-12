@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 63b3fd64526f45994919267a2f4ddc730d0b2fd7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90882663"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Azure Database for MySQL server brand Väggs regler
@@ -43,7 +43,7 @@ Om en fast utgående IP-adress inte är tillgänglig för din Azure-tjänst kan 
 > Alternativet **Tillåt åtkomst till Azure-tjänster** konfigurerar brand väggen så att alla anslutningar från Azure, inklusive anslutningar från andra kunders prenumerationer. Om du väljer det här alternativet kontrollerar du att dina inloggnings- och användarbehörigheter begränsar åtkomsten till endast auktoriserade användare.
 > 
 
-:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="Konfigurera Tillåt åtkomst till Azure-tjänster i portalen":::
+:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="Exempel flöde för hur brand väggen fungerar":::
 
 ### <a name="connecting-from-a-vnet"></a>Ansluta från ett virtuellt nätverk
 Överväg att använda [VNet-tjänstens slut punkter](./concepts-data-access-and-security-vnet.md)för att ansluta säkert till din Azure Database for MySQL-server från ett VNet. 

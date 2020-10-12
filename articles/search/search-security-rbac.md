@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: f0c8fe6b8df5efef0cf3948c8d628d20c79502ff
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88928691"
 ---
 # <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Ange Azure-roller för administrativ åtkomst till Azure Kognitiv sökning
@@ -54,4 +54,4 @@ I följande tabell sammanfattas de åtgärder som tillåts i Azure Kognitiv sök
 
 + [Hantera med hjälp av PowerShell](search-manage-powershell.md) 
 + [Prestanda och optimering i Azure Kognitiv sökning](search-performance-optimization.md)
-+ [Kom igång med rollbaserad Access Control i Azure Portal](../role-based-access-control/overview.md).
++ [Kom igång med Role-Based Access Control i Azure Portal](../role-based-access-control/overview.md).

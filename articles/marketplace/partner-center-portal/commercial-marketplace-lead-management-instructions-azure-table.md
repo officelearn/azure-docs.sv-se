@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 08/25/2020
 ms.openlocfilehash: 2dca0ae02f2d079e98b51e1222114db1f2104b96
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90030805"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Använd Azure Table Storage för att hantera leads på kommersiella marknads platser
@@ -38,7 +38,7 @@ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds 
 
 1. På **Start** sidan för Azure Portal väljer du **Visa alla resurser** för att komma åt ditt lagrings konto. Du kan också välja **alla resurser** i den vänstra meny raden i Azure Portal.
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Åtkomst till ditt Azure Storage-konto.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Steg för att skapa ett Azure Storage-konto.":::
 
 1. I fönstret lagrings konto väljer du **åtkomst nycklar** och kopierar värdet för **anslutnings strängen** för nyckeln. Spara det här värdet eftersom det är det **lagrings kontots anslutnings sträng** värde som du måste ange i publicerings portalen för att ta emot leads för ditt Azure Marketplace-erbjudande.
 
@@ -48,7 +48,7 @@ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds 
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.screens.net
     ```
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Azure Storage-nyckel.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Steg för att skapa ett Azure Storage-konto.":::
 
 
 1. I fönstret lagrings konto väljer du **tabeller**och sedan **+ tabell** för att skapa en tabell. Ange ett namn för tabellen och välj **OK**. Spara det här värdet eftersom du behöver det om du vill konfigurera ett flöde för att ta emot e-postaviseringar när leads tas emot.
@@ -185,7 +185,7 @@ När du är redo att konfigurera ledar hanterings informationen för ditt erbjud
 
 1. Under avsnittet **kund leads** väljer du **Anslut**.
 
-    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Kund ledare":::
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Steg för att skapa ett Azure Storage-konto.":::
 
 1. I popup-fönstret **anslutnings information** väljer du Azure- **tabell** för lead- **målet**. 
      ![Lead-hantering, anslutnings information](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)

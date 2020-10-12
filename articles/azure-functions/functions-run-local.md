@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
 ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88929505"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
@@ -122,7 +122,7 @@ I följande steg används [apt](https://wiki.debian.org/Apt) för att installera
     | --------------- | ----------- |
     | Debian 10 | `buster`  |
     | Debian 9  | `stretch` |
-    | Ubuntu 20,04    | `focal`     |
+    | Ubuntu 20.04    | `focal`     |
     | Ubuntu 19,04    | `disco`     |
     | Ubuntu 18,10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
@@ -543,7 +543,7 @@ Följande publicerings alternativ stöds bara för version 2. x och senare versi
 | **`--nozip`** | Stänger av standard `Run-From-Package` läget. |
 | **`--build-native-deps`** | Hoppar över genereringen av. Wheels-mappen när du publicerar python Function-appar. |
 | **`--build`**, **`-b`** | Utför Bygg åtgärd när du distribuerar till en Linux Function-app. Accepterar: `remote` och `local` . |
-| **`--additional-packages`** | Lista över paket som ska installeras när du skapar interna beroenden. Till exempel: `python3-dev libevent-dev`. |
+| **`--additional-packages`** | Lista över paket som ska installeras när du skapar interna beroenden. Exempel: `python3-dev libevent-dev`. |
 | **`--force`** | Ignorera för publicerings verifiering i vissa scenarier. |
 | **`--csx`** | Publicera ett C#-skript (. CSX)-projekt. |
 | **`--no-build`** | Projektet har inte skapats under publiceringen. För python `pip install` utförs inte. |
@@ -597,7 +597,7 @@ Om du vill skicka en fel-eller funktions förfrågan [öppnar du ett GitHub-prob
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure-portalen]: https://portal.azure.com 
+[Azure Portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage

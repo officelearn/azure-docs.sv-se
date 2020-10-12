@@ -8,10 +8,10 @@ ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
 ms.openlocfilehash: 720a0e25f3486f32ffed897e54033fd4b68dace4
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87848133"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Enhetlig avisering & övervakning i Azure Monitor ersätter klassisk avisering & övervakning
@@ -54,7 +54,7 @@ Som tidigare nämnts har äldre klassisk övervakning och avisering dragits till
 - Äldre (klassisk) plattform och anpassade mått för Application Insights samt avisering om dem som för närvarande är tillgängliga via [aviseringar (klassisk)](./alerts-classic.overview.md) i Azure Portal och som är tillgängliga som [Microsoft. Insights/alertrules-](/rest/api/monitor/alertrules) resurs
 - Varning om äldre (klassisk) fel avvikelser är för närvarande tillgängliga som [Smart identifiering i Application Insights](../app/proactive-diagnostics.md) i Azure Portal; med aviseringar som kon figurer ATS i [avsnittet aviseringar (klassisk)](./alerts-classic.overview.md) i Azure Portal
 
-Detta innebär att:
+Det innebär att du måste:
 
 - Den klassiska övervaknings-och aviserings tjänsten dras tillbaka och kan inte längre användas för att skapa nya varnings regler.
 - Eventuella varnings regler som fortsätter att finnas i aviseringar (klassisk) fortsätter att köras och utlösa aviseringar.

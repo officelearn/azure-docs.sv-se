@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: d000d8390375466232c7daac2a4a056ef424be79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77087140"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>Konfigurera en VPN-anslutning till ditt CloudSimple privata moln
@@ -37,7 +37,7 @@ VPN-klienten krävs för att ansluta till CloudSimple från din dator.  Ladda ne
 1. Starta CloudSimple-portalen och välj **nätverk**.
 2. Välj **VPN gateway**.
 3. I listan med VPN-gatewayer klickar du på punkt-till-plats-VPN-gatewayen.
-4. Välj **användare**.
+4. Välj **Användare**.
 5. Klicka på **Ladda ned min VPN-konfiguration**
 
     ![Ladda ned VPN-konfiguration](media/download-p2s-vpn-configuration.png)

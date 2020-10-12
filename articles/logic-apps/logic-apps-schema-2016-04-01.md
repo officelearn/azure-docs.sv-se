@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
 ms.openlocfilehash: ccc7df5bfac327fabf05f210764dbe10658b5015
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86520723"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Schema uppdateringar för Azure Logic Apps – 1 juni 2016
@@ -21,7 +21,7 @@ Den [uppdaterade schema](https://schema.management.azure.com/schemas/2016-06-01/
 
 * Med [omfattningar](#scopes) kan du gruppera eller kapsla åtgärder som en mängd åtgärder.
 * [Villkor och slingor](#conditions-loops) är nu de första klass åtgärderna.
-* Mer exakt ordning för att köra åtgärder med `runAfter` egenskapen, ersätta`dependsOn`
+* Mer exakt ordning för att köra åtgärder med `runAfter` egenskapen, ersätta `dependsOn`
 
 Om du vill uppgradera dina Logi Kap par från den 1 augusti 2015-förhands gransknings schema till den 1 juni 2016 schemat, [Se avsnittet Uppgradera](#upgrade-your-schema).
 
@@ -153,7 +153,7 @@ För att filtrera en stor matris nedåt till en mindre uppsättning objekt, acce
 
 ### <a name="new-trackedproperties-for-actions"></a>New ' trackedProperties ' för åtgärder
 
-Åtgärder kan nu ha en ytterligare egenskap `trackedProperties` som kallas, som är på samma nivå som `runAfter` `type` egenskaperna och. Det här objektet anger vissa åtgärds indata eller utdata som du vill ta med i Azure Diagnostic-telemetri som genereras som en del av ett arbets flöde. Till exempel:
+Åtgärder kan nu ha en ytterligare egenskap `trackedProperties` som kallas, som är på samma nivå som `runAfter` `type` egenskaperna och. Det här objektet anger vissa åtgärds indata eller utdata som du vill ta med i Azure Diagnostic-telemetri som genereras som en del av ett arbets flöde. Exempel:
 
 ``` json
 {

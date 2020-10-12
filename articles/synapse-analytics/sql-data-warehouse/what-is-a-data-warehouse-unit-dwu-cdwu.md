@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: b0df359a25810f09d530b5f0cca9cabbd485c795
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89461994"
 ---
 # <a name="data-warehouse-units-dwus"></a>Informations lager enheter (DWU: er)
@@ -108,7 +108,7 @@ Så här visar du den aktuella DWU-inställningen:
 
 1. Öppna SQL Server Object Explorer i Visual Studio.
 2. Anslut till huvud databasen som är kopplad till den logiska SQL-servern.
-3. Välj från vyn sys. database_service_objectives dynamisk hantering. Här är ett exempel:
+3. Välj från vyn sys.database_service_objectives dynamisk hantering. Här är ett exempel:
 
 ```sql
 SELECT  db.name [Database]

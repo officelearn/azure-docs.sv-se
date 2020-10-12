@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86130409"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Felsöka replikering i haveri beredskap för virtuella Azure-datorer
@@ -35,7 +35,7 @@ Du bör se **ändrings takten för händelse data utöver de gränser som stöds
 
 Om du väljer händelsen bör du se exakt disk information:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Sidan som visar händelse informationen för data ändrings frekvensen.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Azure Site Recovery sida som visar en hög data ändrings hastighet som är för hög.":::
 
 ### <a name="azure-site-recovery-limits"></a>Gränser för Azure Site Recovery
 
@@ -56,7 +56,7 @@ Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |20 MB/s | 1684 GB per di
 
 Azure Site Recovery har gränser för data ändrings hastigheter, beroende på typ av disk. Om du vill se om det här problemet är återkommande eller tillfälligt kan du hitta data ändrings takten för den berörda virtuella datorn. Gå till den virtuella käll datorn, hitta måtten under **övervakning**och Lägg till måtten som visas på den här skärm bilden:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Sidan som visar den tre stegs processen för att hitta data ändrings takten.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Azure Site Recovery sida som visar en hög data ändrings hastighet som är för hög.":::
 
 1. Välj **Lägg till mått**och Lägg till **OS disk-skrivna byte/s** och **data disk-skrivna byte/s**.
 1. Övervaka insamling som visas i skärm bilden.
@@ -65,7 +65,7 @@ Azure Site Recovery har gränser för data ändrings hastigheter, beroende på t
 En insamling i data ändrings takt kan komma från en tillfällig data burst. Om data ändrings takten är större än 10 MB/s (för Premium) eller 2 MB/s (för standard) och är nere, kommer replikeringen att fångas upp. Överväg något av följande alternativ om omsättningen är konsekvent väl efter den gräns som stöds:
 
 - Undanta disken som orsakar en hög data ändrings hastighet: först inaktiverar du replikeringen. Sedan kan du undanta disken med hjälp av [PowerShell](azure-to-azure-exclude-disks.md).
-- Ändra nivån på lagrings disken för haveri beredskap: det här alternativet är endast möjligt om disk data omsättningen är mindre än 20 MB/s. Till exempel har en virtuell dator med en P10-disk en data omsättning på mer än 8 MB/s men mindre än 10 MB/s. Om kunden kan använda en P30-disk för mål lagring under skyddet kan problemet lösas. Den här lösningen är bara möjlig för datorer som använder Premium-Managed Disks. Följ de här stegen:
+- Ändra nivån på lagrings disken för haveri beredskap: det här alternativet är endast möjligt om disk data omsättningen är mindre än 20 MB/s. Till exempel har en virtuell dator med en P10-disk en data omsättning på mer än 8 MB/s men mindre än 10 MB/s. Om kunden kan använda en P30-disk för mål lagring under skyddet kan problemet lösas. Den här lösningen är bara möjlig för datorer som använder Premium-Managed diskar. Följ de här stegen:
 
   1. Gå till **diskarna** på den berörda replikerade datorn och kopiera replik diskens namn.
   1. Gå till den här repliken av den hanterade disken.

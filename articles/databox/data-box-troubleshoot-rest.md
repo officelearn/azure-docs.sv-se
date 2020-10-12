@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: b950f80ba8c2bdbaf7a515dc1ce127b934723177
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85558562"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Felsöka problem som rör Azure Data Box Blob Storage
@@ -26,7 +26,7 @@ I det här avsnittet beskrivs några av de problem som finns när du använde Az
 |Felmeddelande  |Rekommenderad åtgärd |
 |---------|---------|
 |Det gick inte att hämta underordnade resurser. Värdet för ett av HTTP-huvudena har fel format.|I **Redigera** -menyn väljer du **mål Azure Stack API: er**. <br>Starta om Azure Storage Explorer.|
-|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Kontrol lera att slut punkts namnet `<accountname>.blob.<serialnumber>.microsoftdatabox.com` har lagts till i hosts-filen på den här sökvägen: <li>`C:\Windows\System32\drivers\etc\hosts`i Windows eller </li><li> `/etc/hosts`i Linux.</li>|
+|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Kontrol lera att slut punkts namnet `<accountname>.blob.<serialnumber>.microsoftdatabox.com` har lagts till i hosts-filen på den här sökvägen: <li>`C:\Windows\System32\drivers\etc\hosts` i Windows eller </li><li> `/etc/hosts` i Linux.</li>|
 |Det gick inte att hämta underordnade resurser. <br>Information: självsignerat certifikat |Importera TLS/SSL-certifikatet för enheten till Azure Storage Explorer: <li>Hämta certifikatet från Azure Portal. Mer information finns i [Hämta certifikatet](data-box-deploy-copy-data-via-rest.md#download-certificate).</li><li>Välj **SSL-certifikat** på **Redigera** -menyn och välj sedan **Importera certifikat**.</li>|
 
 ## <a name="errors-seen-in-azcopy-for-windows"></a>Fel som visas i AzCopy för Windows
@@ -35,7 +35,7 @@ I det här avsnittet beskrivs några av de problem som finns när du använder A
 
 |Felmeddelande  |Rekommenderad åtgärd |
 |---------|---------|
-|AzCopy-kommandot slutar svara i minuter innan det här felet visas: <br>Det gick inte att räkna upp katalogens https://... Det gick inte att matcha fjärrnamnet`<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Kontrol lera att slut punkts namnet `<accountname>.blob.<serialnumber>.microsoftdatabox.com` läggs till i hosts-filen på: `C:\Windows\System32\drivers\etc\hosts` .|
+|AzCopy-kommandot slutar svara i minuter innan det här felet visas: <br>Det gick inte att räkna upp katalogens https://... Det gick inte att matcha fjärrnamnet `<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Kontrol lera att slut punkts namnet `<accountname>.blob.<serialnumber>.microsoftdatabox.com` läggs till i hosts-filen på: `C:\Windows\System32\drivers\etc\hosts` .|
 |AzCopy-kommandot slutar svara i minuter innan det här felet visas: <br>Fel vid parsning av käll plats. Den underliggande anslutningen stängdes: det gick inte att upprätta en förtroende relation för den säkra SSL/TLS-kanalen.|Importera TLS/SSL-certifikatet för enheten till systemets certifikat arkiv. Mer information finns i [Hämta certifikatet](data-box-deploy-copy-data-via-rest.md#download-certificate).|
 
 
@@ -55,7 +55,7 @@ I det här avsnittet beskrivs några av de vanligaste problemen vid distribution
 |Felmeddelande  |Rekommenderad åtgärd |
 |---------|---------|
 |Värdet för ett av HTTP-huvudena har fel format. |Den installerade versionen av Microsoft Azure Storages biblioteket för python stöds inte av Data Box-enhet. Se Azure Data Box Blob Storage-krav för versioner som stöds.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED]...|Innan du kör python ställer du in REQUESTS_CA_BUNDLE miljövariabeln till sökvägen till den base64-kodade TLS-certifikatarkiven (se hur du [hämtar certifikatet](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Ett exempel:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Alternativt kan du lägga till certifikatet i systemets certifikat Arkiv och sedan ange miljövariabeln till sökvägen för arkivet. <br> Till exempel på Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
+|… [SSL: CERTIFICATE_VERIFY_FAILED]...|Innan du kör python ställer du in REQUESTS_CA_BUNDLE miljövariabeln till sökvägen till den base64-kodade TLS-certifikatarkiven (se hur du [hämtar certifikatet](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Exempel:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Alternativt kan du lägga till certifikatet i systemets certifikat Arkiv och sedan ange miljövariabeln till sökvägen för arkivet. <br> Till exempel på Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
 
 
 ## <a name="common-errors"></a>Vanliga fel

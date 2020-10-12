@@ -7,10 +7,10 @@ ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: 66d0e32e7dfdd5ab2abee5108ac8ce54c5222747
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87371829"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Synkronisera din GitHub-lagringsplats med app-konfigurationen
@@ -312,11 +312,11 @@ Indataparametrar anger data som används av åtgärden under körning.  Följand
 | format | Ja | Fil format för konfigurations filen.  Giltiga format är: JSON, YAML, Properties. |
 | Begär | Ja | Anslutnings sträng för app Configuration-instansen. Anslutnings strängen ska lagras som en hemlighet i GitHub-lagringsplatsen och endast det hemliga namnet ska användas i arbets flödet. |
 | brytning | Ja | Avgränsning som används vid förenkling av konfigurations filen till nyckel/värde-par.  Giltiga värden är:. , ; : - _ __ / |
-| protokollprefixet | Nej | Prefix som ska läggas till i början av nycklar. |
-| etikett | Nej | Etikett som används vid inställning av nyckel/värde-par. Om inget anges används en null-etikett. |
-| begränsade | Nej | Ett booleskt värde som anger om strikt läge är aktiverat. Standardvärdet är false. |
-| djuplodande | Nej | Högsta djup för att förenkla konfigurations filen.  Djupet måste vara ett positivt tal.  Standardvärdet har inget max djup. |
-| tags | Nej | Anger taggen som angetts för nyckel/värde-par.  Det förväntade formatet är en stringified form av ett JSON-objekt av följande form: {[propertyName: sträng]: String;} Varje egenskaps namn-värdet blir en tagg. |
+| protokollprefixet | Inga | Prefix som ska läggas till i början av nycklar. |
+| etikett | Inga | Etikett som används vid inställning av nyckel/värde-par. Om inget anges används en null-etikett. |
+| begränsade | Inga | Ett booleskt värde som anger om strikt läge är aktiverat. Standardvärdet är false. |
+| djuplodande | Inga | Högsta djup för att förenkla konfigurations filen.  Djupet måste vara ett positivt tal.  Standardvärdet har inget max djup. |
+| tags | Inga | Anger taggen som angetts för nyckel/värde-par.  Det förväntade formatet är en stringified form av ett JSON-objekt av följande form: {[propertyName: sträng]: String;} Varje egenskaps namn-värdet blir en tagg. |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,10 +7,10 @@ ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: 6e481219c6be68f9e9da06d92b6c28998cc7a6e2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88930102"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Självstudie: utlösa ett batch-jobb med Azure Functions
@@ -22,7 +22,7 @@ I den här självstudien får du lära dig hur du utlöser ett batch-jobb med hj
 * En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Ett Azure Batch-konto och ett länkat Azure Storage-konto. Mer information om hur du skapar och länkar konton finns i [skapa ett batch-konto](quick-create-portal.md#create-a-batch-account) .
 * [Batch Explorer](https://azure.github.io/BatchExplorer/)
-* [Azure Lagringsutforskaren](https://azure.microsoft.com/features/storage-explorer/)
+* [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

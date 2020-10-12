@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 9a32cd4db9a4c4dbd2b5f36c16feef4717790c3c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89291474"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Live-händelser och Live-utdata i Media Services
@@ -60,7 +60,7 @@ Se ett .NET-kod exempel i [MediaV3LiveApp](https://github.com/Azure-Samples/medi
 
 ![Live encoding med Media Services exempel diagram](./media/live-streaming/live-encoding.svg)
 
-När du använder Live encoding med Media Services konfigurerar du din lokala Live-kodare för att skicka en video med en bit hastighet som bidrags flödet till Live-händelsen (med hjälp av RTMP eller fragmenterat MP4-protokoll). Sedan kan du konfigurera en Live-händelse så att den kodar en data ström med [flera bit hastigheter till video strömmen med flera bit](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)hastigheter och gör utdata tillgängligt för leverans för att spela upp enheter via protokoll som MPEG-streck, HLS och Smooth Streaming.
+När du använder Live encoding med Media Services konfigurerar du din lokala Live-kodare för att skicka en video med en bit hastighet som bidrags flödet till Live-händelsen (med hjälp av RTMP eller Fragmented-Mp4 protokoll). Sedan kan du konfigurera en Live-händelse så att den kodar en data ström med [flera bit hastigheter till video strömmen med flera bit](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)hastigheter och gör utdata tillgängligt för leverans för att spela upp enheter via protokoll som MPEG-streck, HLS och Smooth Streaming.
 
 När du använder Live encoding kan du bara skicka bidrags flödet vid upplösningar upp till 1080p-resolution med en bild Rute hastighet på 30 bild rutor per sekund, med H. 264/AVC video-codec och AAC (AAC-LC, HE-AACv1 eller HE-AACv2) ljud-codec. Observera att direkt sändnings händelser kan stödja lösningar upp till 4K med 60 bild rutor per sekund. Mer information finns i [jämförelse av live event types](live-event-types-comparison.md).
 
@@ -133,7 +133,7 @@ Du kan antingen använda icke-anpassade eller anpassade URL:er.
 ### <a name="live-ingest-url-naming-rules"></a>Namn regler för Live-inmatnings-URL
 
 * Den *slumpmässiga* strängen nedan är ett 128-bitars hexadecimalt tal (som består av 32 tecken mellan 0 och 9 och a–f).
-* *din åtkomsttoken*: den giltiga GUID-sträng som du anger när du använder anpassad-läge. Till exempel `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *din åtkomsttoken*: den giltiga GUID-sträng som du anger när du använder anpassad-läge. Exempelvis `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
 * *data ström namn*: anger data Ströms namnet för en speciell anslutning. Data ström namn svärdet läggs vanligt vis till av den Live-kodare som du använder. Du kan konfigurera Live-kodaren att använda ett namn som beskriver anslutningen, till exempel: "video1_audio1", "video2_audio1", "Stream".
 
 #### <a name="non-vanity-url"></a>Icke-anpassad URL

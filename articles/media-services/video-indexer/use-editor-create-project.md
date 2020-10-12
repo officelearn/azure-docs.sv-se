@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: 5eaf17281fef32d682a2dac17b379faf7ec23a53
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970091"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Använd Video Indexer redigeraren för att skapa projekt
@@ -55,7 +55,7 @@ Den här artikeln visar hur du skapar ett projekt från grunden och hur du skapa
 
     Du kan filtrera resultaten ytterligare genom att välja **filter resultat**. Du kan filtrera för att visa videor som har en viss person i dem eller för att ange att du bara vill visa video resultat som är ett visst språk eller som har en specifik ägare. <br/> Du kan också ange omfattningen för frågan. Om du till exempel vill söka efter "GitHub" i OCR väljer du **visuell text**.
 
-    ![Filtrera](./media/video-indexer-view-edit/visual-text.png)
+    ![Filter](./media/video-indexer-view-edit/visual-text.png)
 
     Du kan skikta flera filter till frågan. Använd **+** / **-** knapparna för att lägga till/ta bort filter. Använd **Rensa filter** för att ta bort alla filter.
 1. Om du vill lägga till videor markerar du dem och väljer sedan **Lägg till**.

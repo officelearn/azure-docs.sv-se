@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 02/12/2020
 ms.author: wolfma
 ms.openlocfilehash: c8e6c11771ae4cd216b3b1e43f3db7924dca81cd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77168163"
 ---
 | Geografi | Region | Regions-ID |
 | ----- | ----- | ----- |
-| Nord- och Sydamerika | USA, centrala | `centralus` |
-| Nord- och Sydamerika | USA, östra | `eastus` |
+| Nord- och Sydamerika | Central US | `centralus` |
+| Nord- och Sydamerika | East US | `eastus` |
 | Nord- och Sydamerika | USA, östra 2 | `eastus2` |
 | Nord- och Sydamerika | USA, norra centrala | `northcentralus` |
 | Nord- och Sydamerika | USA, södra centrala | `southcentralus` |
@@ -30,7 +30,7 @@ ms.locfileid: "77168163"
 | Asien och stillahavsområdet | Japan, östra | `japaneast` |
 | Asien och stillahavsområdet | Japan, västra | `japanwest` |
 | Asien och stillahavsområdet | Sydkorea, centrala | `koreacentral` |
-| Europa | Europa, norra | `northeurope` |
+| Europa | Norra Europa | `northeurope` |
 | Europa | Europa, västra | `westeurope` |
 | Europa | Frankrike, centrala | `francecentral` |
 | Europa | Storbritannien, södra | `uksouth` |

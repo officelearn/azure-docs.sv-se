@@ -15,22 +15,22 @@ ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: e27fe0589498de13f5eb6e17f8869bb9d7352a09
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87372084"
 ---
 # <a name="list-azure-role-assignments-using-azure-powershell"></a>Visa en lista med Azure Role-tilldelningar med Azure PowerShell
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Den här artikeln beskriver hur du visar roll tilldelningar med hjälp av Azure PowerShell.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Den här artikeln beskriver hur du visar roll tilldelningar med hjälp av Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 > [!NOTE]
 > Om din organisation har funktioner som har hanterats av en tjänst leverantör som använder [Azure-delegerad resurs hantering](../lighthouse/concepts/azure-delegated-resource-management.md), visas inte roll tilldelningar som har auktoriserats av tjänste leverantören här.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [PowerShell i Azure Cloud Shell](/azure/cloud-shell/overview) eller [Azure PowerShell](/powershell/azure/install-az-ps)
 
@@ -188,4 +188,4 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lägga till eller ta bort Azure Role-tilldelningar med Azure PowerShell](role-assignments-powershell.md)
+- [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure PowerShell](role-assignments-powershell.md)

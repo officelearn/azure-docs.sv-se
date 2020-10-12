@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 43ba14845765230b9a54c2b34dbc7ccd53af950b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970002"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Självstudie: Identifiera avvikelser vid gränsen med acceleratorn för fjärrövervakningslösningen
@@ -82,8 +82,8 @@ Om du vill göra det enklare att hantera IoT Edge-enheter i lösningen kan du sk
     | ------- | ----- |
     | Jobb     | Taggar  |
     | Jobbnamn | AddEdgeTag |
-    | Nyckel     | IsOilPump |
-    | Värde   | Y     |
+    | Tangent     | IsOilPump |
+    | Värde   | J     |
     | Typ    | Text  |
 
     [![Lägg till tagg](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
@@ -97,9 +97,9 @@ Om du vill göra det enklare att hantera IoT Edge-enheter i lösningen kan du sk
     | Inställningen | Värde |
     | ------- | ----- |
     | Namn    | OilPumps |
-    | Fält   | Tags.IsOilPump |
+    | Field   | Tags.IsOilPump |
     | Operator | = Lika med |
-    | Värde    | Y |
+    | Värde    | J |
     | Typ     | Text |
 
     [![Skapa enhets grupp](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
@@ -318,7 +318,7 @@ Om du vill meddela operatörer när tröskelvärdet har uppnåtts kan du skapa e
     | Beskrivning | Oljapumptemperaturen överskred 300 |
     | Enhetsgrupp | OilPumps |
     | Beräkning | Direkt |
-    | Fält | temperatur |
+    | Field | temperatur |
     | Operator | > |
     | Värde | 300 |
     | Allvarlighetsgrad | Information |

@@ -15,10 +15,10 @@ ms.date: 11/04/2019
 ms.author: apimpm
 ms.custom: devx-track-python
 ms.openlocfilehash: b63f38609b4b61130e515dd118e8ced9f201defd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87851722"
 ---
 # <a name="api-templates-in-azure-api-management"></a>API-mallar i Azure API Management
@@ -46,7 +46,7 @@ Med mallarna i det här avsnittet kan du anpassa innehållet i API-sidorna i Dev
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-## <a name="api-list"></a><a name="APIList"></a>API-lista  
+## <a name="api-list"></a><a name="APIList"></a> API-lista  
  Med mallen **API List** kan du anpassa bröd texten på sidan API-lista i Developer-portalen.  
   
  ![API-lista för utvecklings Portal](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "API-lista för APIM Developer Portal templates")  
@@ -114,7 +114,7 @@ Med mallarna i det här avsnittet kan du anpassa innehållet i API-sidorna i Dev
 }  
 ```  
   
-## <a name="operation"></a><a name="Product"></a>Reparation  
+## <a name="operation"></a><a name="Product"></a> Reparation  
  Med **Åtgärds** mal len kan du anpassa innehållet på åtgärds sidan i Developer-portalen.  
   
  ![Åtgärds sida för utvecklings Portal](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Åtgärds sidan mallar för APIM Developer Portal")  
@@ -644,7 +644,7 @@ Med mallarna i det här avsnittet kan du anpassa innehållet i API-sidorna i Dev
 }  
 ```  
   
-## <a name="code-samples"></a><a name="CodeSamples"></a>Kod exempel  
+## <a name="code-samples"></a><a name="CodeSamples"></a> Kod exempel  
  Med följande mallar kan du anpassa bröd texten i de enskilda kod exemplen på sidan åtgärd.  
   
  ![Kod exempel för Developer-portalen mallar](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM Developer Portal mallar kod exempel")  
@@ -665,7 +665,7 @@ Med mallarna i det här avsnittet kan du anpassa innehållet i API-sidorna i Dev
   
 -   [Ruby](#Ruby)  
   
-### <a name="curl"></a><a name="Curl"></a>Klammerparentes  
+### <a name="curl"></a><a name="Curl"></a> Klammerparentes  
  Med **DocumentationSamplesCurl** -mallen kan du anpassa kod exemplet i avsnittet kod exempel på sidan åtgärd.  
   
 #### <a name="default-template"></a>Standardmall  
@@ -718,7 +718,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-### <a name="c"></a><a name="CSharp"></a>C #  
+### <a name="c"></a><a name="CSharp"></a> C #  
  Med **DocumentationSamplesCsharp** -mallen kan du anpassa kod exemplet i avsnittet kod exempel på sidan åtgärd.  
   
 #### <a name="default-template"></a>Standardmall  
@@ -897,7 +897,7 @@ namespace CSHttpClientSample
 }  
 ```  
   
-### <a name="java"></a><a name="Stub"></a>Programmeringsspråket  
+### <a name="java"></a><a name="Stub"></a> Programmeringsspråket  
  Med **DocumentationSamplesJava** -mallen kan du anpassa kod exemplet i avsnittet kod exempel på sidan åtgärd.  
   
 #### <a name="default-template"></a>Standardmall  
@@ -993,7 +993,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="javascript"></a><a name="JavaScript"></a>Java  
+### <a name="javascript"></a><a name="JavaScript"></a> Java  
  Med **DocumentationSamplesJs** -mallen kan du anpassa kod exemplet i avsnittet kod exempel på sidan åtgärd.  
   
 #### <a name="default-template"></a>Standardmall  
@@ -1082,7 +1082,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="objective-c"></a><a name="ObjectiveC"></a>Mål C  
+### <a name="objective-c"></a><a name="ObjectiveC"></a> Mål C  
  Med **DocumentationSamplesObjc** -mallen kan du anpassa kod exemplet i avsnittet kod exempel på sidan åtgärd.  
   
 #### <a name="default-template"></a>Standardmall  
@@ -1194,7 +1194,7 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-### <a name="php"></a><a name="PHP"></a>PHP  
+### <a name="php"></a><a name="PHP"></a> PHP  
  Med **DocumentationSamplesPhp** -mallen kan du anpassa kod exemplet i avsnittet kod exempel på sidan åtgärd.  
   
 #### <a name="default-template"></a>Standardmall  
@@ -1284,7 +1284,7 @@ catch (HttpException $ex)
 }  
 ```  
   
-### <a name="python"></a><a name="Python"></a>Python  
+### <a name="python"></a><a name="Python"></a> Python  
  Med **DocumentationSamplesPython** -mallen kan du anpassa kod exemplet i avsnittet kod exempel på sidan åtgärd.  
   
 #### <a name="default-template"></a>Standardmall  
@@ -1402,7 +1402,7 @@ except Exception as e:
 }  
 ```  
   
-### <a name="ruby"></a><a name="Ruby"></a>Ruby  
+### <a name="ruby"></a><a name="Ruby"></a> Ruby  
  Med **DocumentationSamplesRuby** -mallen kan du anpassa kod exemplet i avsnittet kod exempel på sidan åtgärd.  
   
 #### <a name="default-template"></a>Standardmall  

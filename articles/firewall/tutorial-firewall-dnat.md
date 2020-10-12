@@ -9,10 +9,10 @@ ms.date: 08/28/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 8f528c6be68258400cb3e29582943f1d657c557d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89069280"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Självstudie: filtrera inkommande Internet trafik med Azure Firewall DNAT med hjälp av Azure Portal
@@ -94,10 +94,10 @@ Peerkoppla nu de två virtuella nätverken.
 1. Välj det virtuella nätverket **VN-Hub** .
 2. Under **Inställningar**väljer du **peering**.
 3. Välj **Lägg till**.
-4. Skriv **peer-HubSpoke** som **namn på peer koppling från VN-hubb till VN-eker**.
+4. Skriv **peer-HubSpoke** som **namn på peer koppling från VN-Hub till VN-eker**.
 5. Välj **VN-Spoke** för det virtuella nätverket.
-6. Skriv **peer-SpokeHub** som peering- **namn från VN-eker till VN-Hub**.
-7. För **att tillåta vidarebefordrad trafik från VN-eker till VN-hubb väljer du** **aktive rad**.
+6. Skriv **peer-SpokeHub** för peering- **namnet från VN-Spoke till VN-Hub**.
+7. För **att tillåta vidarebefordrad trafik från VN-Spoke till VN-hubb väljer du** **aktive rad**.
 8. Välj **OK**.
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
@@ -117,7 +117,7 @@ Skapa en virtuell arbetsbelastningsdator och placera den i undernätet **SN-Work
 1. Välj **Nästa: diskar**.
 
 **Diskar**
-1. Välj **Nästa: nätverk**.
+1. Välj **Nästa: Nätverk**.
 
 **Nätverk**
 
@@ -145,12 +145,12 @@ När distributionen är klar antecknar du den privata IP-adressen för den virtu
 3. Välj **brand vägg**och välj sedan **skapa**. 
 4. På sidan **Skapa en brandvägg** använder du följande tabell till att konfigurera brandväggen:
 
-   |Inställning  |Värde  |
+   |Inställningen  |Värde  |
    |---------|---------|
    |Namn     |FW-DNAT-test|
    |Prenumeration     |\<your subscription\>|
    |Resursgrupp     |**Använd befintlig**: RG-DNAT-Test |
-   |Plats     |Välj samma plats som tidigare|
+   |Location     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintlig**: VN-Hub|
    |Offentlig IP-adress     |**Skapa nytt**. Den offentliga IP-adressen måste vara Standard SKU-typen.|
 

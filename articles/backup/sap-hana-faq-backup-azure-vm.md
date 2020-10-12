@@ -4,10 +4,10 @@ description: I den här artikeln hittar du svar på vanliga frågor om hur du s�
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: dcbf1bf6b39b2afa3fb5aaf2a7f18c5d0e8e4afb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86513514"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer
@@ -77,7 +77,7 @@ För närvarande har vi inte möjlighet att konfigurera lösningen mot enbart en
 
 För närvarande har Azure Backup inte möjlighet att förstå en HSR-konfiguration. Det innebär att de primära och sekundära noderna i HSR kommer att behandlas som två enskilda, icke-relaterade virtuella datorer. Du måste först konfigurera säkerhets kopiering på den primära noden. När ett misslyckande inträffar måste säkerhets kopieringen konfigureras på den sekundära noden (som nu blir den primära noden). Det finns ingen automatisk redundans av säkerhets kopiering till den andra noden.
 
-Om du vill säkerhetskopiera data från den aktiva (primära) noden vid en viss tidpunkt kan du **Växla skydd** till den sekundära noden, som nu är primärt efter redundans.
+Om du vill säkerhetskopiera data från den aktiva (primära) noden vid en viss tidpunkt kan du **Växla skydd**  till den sekundära noden, som nu är primärt efter redundans.
 
 Följ dessa steg om du vill utföra det här **växel skyddet**:
 

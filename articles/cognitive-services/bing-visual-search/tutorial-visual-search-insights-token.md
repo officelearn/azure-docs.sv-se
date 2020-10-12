@@ -12,10 +12,10 @@ ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c03800696897dc6cbb4cd793879e734366829b7d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88925121"
 ---
 # <a name="tutorial-find-similar-images-from-previous-searches-using-an-image-insights-token"></a>Självstudie: hitta liknande bilder från tidigare sökningar med en image Insights-token
@@ -24,7 +24,7 @@ Med Visuell sökning klient biblioteket kan du hitta bilder online från tidigar
 
 Den fullständiga käll koden för den här själv studie kursen hittar du ytterligare fel hantering och anteckningar på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInsightsTokens.cs).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En version av [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Om du använder Linux/MacOS kan du köra det här programmet med [mono](https://www.mono-project.com/).

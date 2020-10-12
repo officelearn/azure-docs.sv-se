@@ -12,10 +12,10 @@ ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 77bb53e2605913fcee6999284acb04616efc53af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201420"
 ---
 # <a name="define-an-application-insights-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en Application Insights teknisk profil i en Azure AD B2C anpassad princip
@@ -32,9 +32,9 @@ Azure Active Directory B2C (Azure AD B2C) stöder sändning av händelse data di
 
 ## <a name="protocol"></a>Protokoll
 
-Namnattributet **för** **protokoll** elementet måste anges till `Proprietary` . Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på den protokoll hanterarens sammansättning som används av Azure AD B2C för Application Insights:`Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+Namnattributet **för** **protokoll** elementet måste anges till `Proprietary` . Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på den protokoll hanterarens sammansättning som används av Azure AD B2C för Application Insights: `Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
-I följande exempel visas den vanliga Application Insights tekniska profilen. Andra Application Insights tekniska profiler är AzureInsights-common för att utnyttja konfigurationen.  
+I följande exempel visas den vanliga Application Insights tekniska profilen. Andra Application Insights tekniska profiler innehåller AzureInsights-Common för att utnyttja konfigurationen.  
 
 ```xml
 <TechnicalProfile Id="AzureInsights-Common">
@@ -76,8 +76,8 @@ CryptographicKeys-elementet används inte.
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | InstrumentationKey| Ja | Application Insights [Instrumentation-nyckeln](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key)som används för att logga händelser. | 
-| DeveloperMode| No | Ett booleskt värde som anger om utvecklarläge är aktiverat. Möjliga värden: `true` eller `false` (standard). Dessa metadata styr hur händelser buffras. I en utvecklings miljö med minimal händelse volym aktiverar du utvecklarläge om du vill att händelser skickas direkt till Application Insights.|  
-|DisableTelemetry |No |Ett booleskt värde som anger om telemetri ska vara aktiverat eller inte. Möjliga värden: `true` eller `false` (standard).| 
+| DeveloperMode| Inga | Ett booleskt värde som anger om utvecklarläge är aktiverat. Möjliga värden: `true` eller `false` (standard). Dessa metadata styr hur händelser buffras. I en utvecklings miljö med minimal händelse volym aktiverar du utvecklarläge om du vill att händelser skickas direkt till Application Insights.|  
+|DisableTelemetry |Inga |Ett booleskt värde som anger om telemetri ska vara aktiverat eller inte. Möjliga värden: `true` eller `false` (standard).| 
 
 
 ## <a name="next-steps"></a>Nästa steg

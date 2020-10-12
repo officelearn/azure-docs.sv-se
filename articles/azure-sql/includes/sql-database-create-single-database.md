@@ -7,10 +7,10 @@ ms.date: 03/10/2020
 ms.author: mathoma
 ms.reviewer: vanto
 ms.openlocfilehash: ad6e444f9672fbe521e9c6963649d250830154d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84046140"
 ---
 I det här steget skapar du en [logisk SQL-Server](../database/logical-servers.md) och en [enkel databas](../database/single-database-overview.md) som använder AdventureWorksLT exempel data. Du kan skapa databasen med hjälp av Azure Portal menyer och skärmar, eller genom att använda ett Azure CLI-eller PowerShell-skript i Azure Cloud Shell.
@@ -235,7 +235,7 @@ Följande PowerShell-kod skapar en Azure-resurs grupp, Server, enkel databas och
 
 Föregående kod använder dessa PowerShell-cmdlet: ar:
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en server som är värd för databaser och elastiska pooler. |

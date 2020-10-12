@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a8bb49e20ec5812a4882966c6918cf2bd59f36a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75645437"
 ---
 # <a name="security-controls-for-azure-service-fabric"></a>Säkerhets kontroller för Azure Service Fabric
@@ -49,7 +49,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 | Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Kunden äger klustret och den skalnings uppsättning för virtuella datorer som klustret har skapats på. Azure Disk Encryption kan aktive ras på den virtuella datorns skal uppsättning. |
 | Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Ja | Kunden äger klustret och den skalnings uppsättning för virtuella datorer som klustret har skapats på. Azure Disk Encryption kan aktive ras på den virtuella datorns skal uppsättning. |
 | Kryptering på kolumn nivå (Azure Data Services)| E.t. |  |
-| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja |  |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet kryptering)| Ja |  |
 | Krypterade API-anrop| Ja | Service Fabric API-anrop görs via Azure Resource Manager. En giltig JSON Web token (JWT) krävs. |
 
 ## <a name="configuration-management"></a>Konfigurationshantering

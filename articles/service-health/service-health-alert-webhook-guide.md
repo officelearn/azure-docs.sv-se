@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 3/27/2018
 ms.openlocfilehash: 05b0572c89a29fddc881f9977ee437d1319e6254
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86518936"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Använd en webhook för att konfigurera hälso aviseringar för problem hanterings system
@@ -58,13 +58,13 @@ Från lägsta till högsta allvarlighets grad kan egenskapen **Level** i nytto l
 ## <a name="parse-the-impacted-services-to-determine-the-incident-scope"></a>Analysera de berörda tjänsterna för att fastställa incident omfånget
 Service Health aviseringar kan meddela dig om problem i flera regioner och tjänster. Du måste parsa värdet för för att få fullständig information `impactedServices` .
 
-Det innehåll som är inuti är en Escaped [JSON](https://json.org/) -sträng som, vid avbrotts kontroll, innehåller ett annat JSON-objekt som kan analyseras regelbundet. Till exempel:
+Det innehåll som är inuti är en Escaped [JSON](https://json.org/) -sträng som, vid avbrotts kontroll, innehåller ett annat JSON-objekt som kan analyseras regelbundet. Exempel:
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}
 ```
 
-bli
+ blir:
 
 ```json
 [
@@ -96,7 +96,7 @@ Det här exemplet visar problem för:
 
 ## <a name="test-your-webhook-integration-via-an-http-post-request"></a>Testa din webhook-integrering via en HTTP POST-begäran
 
-Gör så här:
+Följ de här stegen:
 
 1. Skapa den tjänst hälso nytto last som du vill skicka. Se ett exempel på tjänst hälsan webhook nytto Last [för Webhooks för Azure aktivitets logg aviseringar](../azure-monitor/platform/activity-log-alerts-webhook.md).
 

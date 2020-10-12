@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/10/2019
 ms.author: guybo
 ms.openlocfilehash: 97fd61614eff05ddc542dbe17cf199663ab4cf1b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87371914"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Förbereda en Oracle Linux virtuell dator för Azure
@@ -137,7 +137,7 @@ Att förbereda en virtuell dator med Oracle Linux 7 för Azure liknar Oracle Lin
 * GRUB2 används nu som standard Start programmet, så proceduren för att redigera kernel-parametrar har ändrats (se nedan).
 * XFS är nu standard fil systemet. Fil systemet ext4 kan fortfarande användas om du vill.
 
-**Konfigurationssteg**
+**Konfigurations steg**
 
 1. Välj den virtuella datorn i Hyper-V Manager.
 2. Klicka på **Anslut** för att öppna ett konsol fönster för den virtuella datorn.

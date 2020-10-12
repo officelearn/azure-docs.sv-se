@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.openlocfilehash: c0efdda24ae47ae65f0d469b50feaefdf6350678
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84022222"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Vanliga frågor och svar
@@ -190,7 +190,7 @@ För gransknings krav rekommenderar Microsoft att du aktiverar Azure Monitor log
 
 ### <a name="can-i-disable-clamscan-on-my-cluster"></a>Kan jag inaktivera `Clamscan` i mitt kluster?
 
-`Clamscan`är antivirus programmet som körs i HDInsight-klustret och används av Azure Security (azsecd) för att skydda dina kluster från virus angrepp. Microsoft rekommenderar starkt att användarna inte gör några ändringar i standard `Clamscan` konfigurationen.
+`Clamscan` är antivirus programmet som körs i HDInsight-klustret och används av Azure Security (azsecd) för att skydda dina kluster från virus angrepp. Microsoft rekommenderar starkt att användarna inte gör några ändringar i standard `Clamscan` konfigurationen.
 
 Den här processen stör inte eller tar några cykler bort från andra processer. Den kommer alltid att ge till gång till andra processer. PROCESSOR toppar från `Clamscan` bör bara visas när systemet är inaktivt.  
 
@@ -227,7 +227,7 @@ Du kan hitta inställningarna i **data Lake Storage gen1 åtkomst** under kluste
 
 Gör något av följande:
 
-- [Använd PowerShell](../storage/scripts/storage-blobs-container-calculate-size-powershell.md)
+- [Använda PowerShell](../storage/scripts/storage-blobs-container-calculate-size-powershell.md)
 
 - Hitta storleken på */User/Hive/. Pappers korgen/* mapp i HDInsight-klustret med följande kommando rad:
   

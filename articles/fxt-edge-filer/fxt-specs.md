@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: 30af35075c06585b9c490495e9897c145e9974d9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88184694"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Specifikationer för Azure FXT Edge-filer
@@ -96,7 +96,7 @@ De här diagrammen ger mått för strömförbrukning och termiska utdata för va
 | Frekvens (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Aktuell (A) | 5,02 | 4,16 |2,40 | 2,20 | 2,16 |
 | Synbar ström (VA) | 502 | 499 | 499 | 506 | 518|
-| Effekt faktor | 0.99 | 0.99 |0,98 | 0,98 | 0,98 |
+| Effekt faktor | 0,99 | 0,99 |0,98 | 0,98 | 0,98 |
 | Verklig effekt (W) | 497 |494 | 489 | 496 | 508 |
 | Termisk avledning (BTU/timme) |1696 | 1686 | 1669 | 1692 | 1733 |
 
@@ -106,7 +106,7 @@ De här diagrammen ger mått för strömförbrukning och termiska utdata för va
 | Frekvens (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Aktuell (A) | 5,98 | 5,01 | 2,81 | 2.55 | 2,48 |
 | Synbar ström (VA) | 598 | 601 | 584 | 587 | 595 |
-| Effekt faktor | 0.99 | 0.99 | 0,98 | 0,98 | 0,98 |
+| Effekt faktor | 0,99 | 0,99 | 0,98 | 0,98 | 0,98 |
 | Verklig effekt (W) | 592 | 595 | 573 | 575 | 583 |
 | Termisk avledning (BTU/timme) | 2020 |2031 | 1954 | 1961 | 1990 |
 
@@ -116,7 +116,7 @@ De här diagrammen ger mått för strömförbrukning och termiska utdata för va
 | Frekvens (Hz) |60 | 60 | 60 | 50 | 50 |
 | Aktuell (A) | 4,63 | 3,86 | 2.24 | 2,04 | 1,94 |
 | Synbar ström (VA) | 463 | 463 | 466 | 469 | 466 |
-| Effekt faktor | 0.99 | 0.99 | 0,98 | 0,98 | 0,98 | 
+| Effekt faktor | 0,99 | 0,99 | 0,98 | 0,98 | 0,98 | 
 | Verklig effekt (W) | 458 | 459 | 457 | 460 | 456 |
 | Termisk avledning (BTU/timme) | 1564 | 1565 | 1558 | 1569 | 1557 |
 
@@ -126,7 +126,7 @@ De här diagrammen ger mått för strömförbrukning och termiska utdata för va
 | Frekvens (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Aktuell (A) | 5,15 | 4,28 | 2,48 | 2,28 | 2,13 |
 | Synbar ström (VA) | 515 | 514 | 516 | 524 | 511 |
-| Effekt faktor | 0.99 | 0.99 | 0,98 | 0,98 | 0,98 |
+| Effekt faktor | 0,99 | 0,99 | 0,98 | 0,98 | 0,98 |
 | Verklig effekt (W) | 510 | 508 | 506 | 514 | 501 |
 | Termisk avledning (BTU/timme) | 1740 | 1735 | 1725 | 1753 | 1709 |
 

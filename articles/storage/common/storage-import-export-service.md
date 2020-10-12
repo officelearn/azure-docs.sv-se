@@ -9,10 +9,10 @@ ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: b2918c5842d6470e634518ff9c12f6f04aefc920
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88185391"
 ---
 # <a name="what-is-azure-importexport-service"></a>Vad är Azure import/export-tjänsten?
@@ -120,7 +120,7 @@ Tjänsten Azure import/export stöder kopiering av data till och från alla Azur
 
 |Land/region  |Land/region  |Land/region  |Land/region  |
 |---------|---------|---------|---------|
-|East US    | Norra Europa        | Central India        |USA Gov, Iowa         |
+|East US    | Norra Europa        | Indien, centrala        |USA Gov, Iowa         |
 |USA, västra     |Europa, västra         | Indien, södra        | USA DoD, östra        |
 |USA, östra 2    | Asien, östra        |  Indien, västra        | USA DoD, centrala        |
 |USA, västra 2     | Sydostasien        | Kanada, centrala        | Kina, östra         |

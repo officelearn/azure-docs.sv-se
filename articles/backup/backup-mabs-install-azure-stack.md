@@ -4,10 +4,10 @@ description: I den här artikeln lär du dig hur du använder Azure Backup Serve
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.openlocfilehash: 7153e2ff03a4f78ee1cc92ca04054fb2955d11a5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970246"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installera Azure Backup Server på Azure Stack
@@ -255,7 +255,7 @@ Azure Backup Server delar kod med Data Protection Manager. Du ser referenser til
    > Vi rekommenderar att du Windows Update omdirigera till Microsoft Update, som erbjuder säkerhet och viktiga uppdateringar för Windows och andra produkter som Microsoft Azure Backup Server.
    >
 
-    ![Microsoft Update valbar skärm](./media/backup-mabs-install-azure-stack/mabs-install-wizard-update-13.png)
+    ![Microsoft Update Opt-In skärm](./media/backup-mabs-install-azure-stack/mabs-install-wizard-update-13.png)
 
 8. Granska *sammanfattningen av inställningarna* och välj **Installera**.
 

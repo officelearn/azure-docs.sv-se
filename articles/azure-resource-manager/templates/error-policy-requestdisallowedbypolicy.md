@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 41581ba48da2f2e717c5abf2a749f8fd2b86ac06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75477673"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>RequestDisallowedByPolicy-fel med Azures resurs princip
@@ -53,7 +53,7 @@ az policy definition show --name regionPolicyAssignment
 
 ## <a name="solution"></a>Lösning
 
-För säkerhet eller efterlevnad kan dina prenumerations administratörer tilldela principer som begränsar hur resurser distribueras. Din prenumeration kan till exempel ha en princip som förhindrar att du skapar offentliga IP-adresser, nätverks säkerhets grupper, användardefinierade vägar eller routningstabeller. Fel meddelandet i avsnittet **symptom** visar namnet på principen.
+För säkerhet eller efterlevnad kan dina prenumerations administratörer tilldela principer som begränsar hur resurser distribueras. Din prenumeration kan till exempel ha en princip som förhindrar att du skapar offentliga IP-adresser, nätverks säkerhets grupper, User-Defined vägar eller routningstabeller. Fel meddelandet i avsnittet **symptom** visar namnet på principen.
 För att lösa det här problemet granskar du resurs principerna och avgör hur du distribuerar resurser som överensstämmer med dessa principer.
 
 Mer information finns i följande artiklar:

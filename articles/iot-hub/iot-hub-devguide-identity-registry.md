@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 2f811c504f8871b06805d5578ed2d70c651be25d
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90029842"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Förstå identitets registret i din IoT-hubb
@@ -112,7 +112,7 @@ Egenskaper: meddelande system egenskaper föregås av `$` symbolen.
 
 Meddelande för enhet:
 
-| Name | Värde |
+| Namn | Värde |
 | --- | --- |
 |$content-typ | application/json |
 |$iothub-enqueuedtime |  Tid när meddelandet skickades |
@@ -148,7 +148,7 @@ Brödtext: det här avsnittet är i JSON-format och representerar den dubbla av 
 ```
 Aviserings meddelande för modul:
 
-| Name | Värde |
+| Namn | Värde |
 | --- | --- |
 $content-typ | application/json |
 $iothub-enqueuedtime |  Tid när meddelandet skickades |

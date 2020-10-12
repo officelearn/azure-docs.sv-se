@@ -4,10 +4,10 @@ description: Den här guiden vägleder dig genom reparationen av resurser som in
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 3b2d145322be8b70e096e49be892018952519cf0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91269853"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Åtgärda icke-kompatibla resurser med Azure Policy
@@ -129,11 +129,11 @@ Följ dessa steg om du vill skapa en **reparations uppgift**:
 
 1. Starta tjänsten Azure Policy i Azure Portal genom att välja **alla tjänster**och sedan söka efter och välja **princip**.
 
-   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Skärm bild av sökning efter princip i alla tjänster." border="false":::
+   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Skärm bild av en deployIfNotExists-princip som saknar definierad behörighet för den hanterade identiteten." border="false":::
 
 1. Välj **reparation** till vänster på sidan Azure policy.
 
-   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Skärm bild av reparations noden på princip sidan." border="false":::
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Skärm bild av en deployIfNotExists-princip som saknar definierad behörighet för den hanterade identiteten." border="false":::
 
 1. Alla **deployIfNotExists** och **ändra** princip tilldelningar med icke-kompatibla resurser ingår i **principerna för att åtgärda** fliken och data tabellen. Välj en princip med resurser som inte är kompatibla. Sidan **ny reparations aktivitet** öppnas.
 
@@ -142,17 +142,17 @@ Följ dessa steg om du vill skapa en **reparations uppgift**:
 
 1. På sidan **ny reparations aktivitet** filtrerar du de resurser som ska åtgärdas genom att använda **omfångs** punkter för att välja underordnade resurser från där principen tilldelas (inklusive enskilda resurs objekt). Använd dessutom List rutan **platser** för att ytterligare filtrera resurserna. Endast resurser som anges i tabellen kommer att åtgärdas.
 
-   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Skärm bild av den reparerande noden och det rutnät med resurser som ska åtgärdas." border="false":::
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Skärm bild av en deployIfNotExists-princip som saknar definierad behörighet för den hanterade identiteten." border="false":::
 
 1. Påbörja reparations åtgärden när resurserna har filtrerats genom att välja **åtgärda**. Sidan policy efterlevnad öppnas på fliken **reparations aktiviteter** för att visa status för aktiviteternas förlopp. Distributioner som skapats av reparations aktiviteten börjar direkt.
 
-   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Skärm bild av fliken reparations aktiviteter och förlopp för befintliga reparations aktiviteter." border="false":::
+   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Skärm bild av en deployIfNotExists-princip som saknar definierad behörighet för den hanterade identiteten." border="false":::
 
 1. Välj på **reparations uppgiften** från sidan efterlevnadsprincip för att få information om förloppet. Filtreringen som används för aktiviteten visas tillsammans med en lista över de resurser som åtgärdas.
 
 1. På sidan **reparations aktivitet** högerklickar du på en resurs för att Visa reparations aktivitetens distribution eller resursen. I slutet av raden väljer du **relaterade händelser** för att se information, till exempel ett fel meddelande.
 
-   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Skärm bild av snabb menyn för en resurs på fliken åtgärda uppgift." border="false":::
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Skärm bild av en deployIfNotExists-princip som saknar definierad behörighet för den hanterade identiteten." border="false":::
 
 Resurser som distribueras via en **reparations uppgift** läggs till på fliken **distribuerade resurser** på sidan efterlevnad av principer.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 90d54a8ded99dd8ab43aed688036add6aede20ab
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86134838"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Konfigurera katastrof återställning för en Citrix-XenApp och XenDesktop-distribution med flera nivåer
@@ -26,7 +26,7 @@ En felfri lösning för haveri beredskap bör möjliggöra modellering av åters
 Det här dokumentet innehåller steg-för-steg-anvisningar om hur du skapar en katastrof återställnings lösning för dina lokala Citrix XenApp-distributioner på Hyper-V och VMware vSphere plattformar. Det här dokumentet beskriver också hur du utför en redundanstest (haveri beredskap) och oplanerad redundansväxling till Azure med hjälp av återställnings planer, konfigurationer som stöds och nödvändiga komponenter.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrol lera att du förstår följande:
 
@@ -56,9 +56,9 @@ I den här artikeln har Citrix-distributioner på virtuella VMware-datorer som h
 
 **Scenario** | **Till en sekundär plats** | **Till Azure**
 --- | --- | ---
-**Hyper-V** | Inte inom omfånget | Yes
-**VMware** | Inte inom omfånget | Yes
-**Fysisk server** | Inte inom omfånget | Yes
+**Hyper-V** | Inte inom omfånget | Ja
+**VMware** | Inte inom omfånget | Ja
+**Fysisk server** | Inte inom omfånget | Ja
 
 ### <a name="versions"></a>Versioner
 Kunder kan distribuera XenApp-komponenter som Virtual Machines som körs på Hyper-V eller VMware eller som fysiska servrar. Azure Site Recovery kan skydda både fysiska och virtuella distributioner till Azure.

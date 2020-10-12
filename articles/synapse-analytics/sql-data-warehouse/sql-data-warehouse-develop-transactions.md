@@ -11,17 +11,17 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 40a9e5268b7fccc5c01775c10e55eee47f1aaf3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85213388"
 ---
 # <a name="use-transactions-in-synapse-sql-pool"></a>Använda transaktioner i Synapse SQL-pool
 
 Den här artikeln innehåller tips för att implementera transaktioner och utveckla lösningar i SQL-poolen.
 
-## <a name="what-to-expect"></a>Vad som ska förväntas
+## <a name="what-to-expect"></a>Vad du kan förvänta dig
 
 Som förväntat stöder SQL-poolen transaktioner som en del av arbets belastningen för data lagret. Men för att säkerställa att SQL-poolen hålls i skala, är vissa funktioner begränsade jämfört med SQL Server. I den här artikeln beskrivs skillnaderna.
 

@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 09e0b3bbac0bdc1d268aa7f24741aeb12a7d366d
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462589"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Distribuera ett hanterings verktyg för Windows Virtual Desktop (klassiskt) med en Azure Resource Manager mall
@@ -20,7 +20,7 @@ ms.locfileid: "89462589"
 
 Anvisningarna i den här artikeln beskriver hur du distribuerar användar gränssnittet med hjälp av en Azure Resource Manager mall.
 
-## <a name="important-considerations"></a>Viktiga överväganden
+## <a name="important-considerations"></a>Att tänka på
 
 Eftersom appen kräver medgivande för att interagera med Windows Virtual Desktop, stöder det här verktyget inte Business-to-Business-scenarier (B2B). Varje Azure Active Directory (AAD)-klient organisations prenumeration måste ha en egen separat distribution av hanterings verktyget.
 
@@ -48,7 +48,7 @@ Innan du börjar bör du kontrol lera att servern och klientens appar har medgiv
 
 Följ de här anvisningarna för att distribuera Azure-resurs hanterings mal len:
 
-1. Gå till [sidan GitHub Azure RDS – templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
+1. Gå till [sidan med GitHub Azure-RDS-Templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
 2. Distribuera mallen till Azure.
     - Om du distribuerar i en Enterprise-prenumeration kan du rulla nedåt och välja **distribuera till Azure**.
     - Om du distribuerar i en prenumeration på Cloud Solution Provider följer du de här anvisningarna för att distribuera till Azure:

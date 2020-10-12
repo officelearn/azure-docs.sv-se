@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: 25b3c1a011e39adea651a6daa1d4ab9aa3a9d186
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81253517"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-conditional-expressions"></a>Azure CDN från ett villkorligt uttryck i Verizon Premium Rules Engine
@@ -30,12 +30,12 @@ ANNARS OM| Ett ELSE IF-uttryck anger ett alternativt villkor som måste uppfylla
 
  > [!TIP]
    > En efterföljande regel kan åsidosätta de åtgärder som anges av en tidigare regel.
-   > Exempel: en catch-all-regel skyddar alla begär Anden via tokenbaserad autentisering. En annan regel kan skapas direkt under den för att göra ett undantag för vissa typer av begär Anden.
+   > Exempel: en catch-all-regel skyddar alla begär Anden via Token-Based autentisering. En annan regel kan skapas direkt under den för att göra ett undantag för vissa typer av begär Anden.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över Azure CDN](cdn-overview.md)
 - [Regel motor referens](cdn-verizon-premium-rules-engine-reference.md)
-- [Regelmotor – matchningsvillkor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Regel motor matchnings villkor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Regelmotor – funktioner](cdn-verizon-premium-rules-engine-reference-features.md)
 - [Åsidosätta standard-HTTP-beteendet med hjälp av regel motorn](cdn-verizon-premium-rules-engine.md)

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
 ms.openlocfilehash: c80462707d3dccbb8fccff244017053c25ad46e8
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89463779"
 ---
 # <a name="setting-up-ip-firewall-rules-to-enable-indexer-access"></a>Konfigurera regler för IP-brandvägg för att aktivera indexerings åtkomst
@@ -85,7 +85,7 @@ Lägg till de tre IP-adresserna som hämtades tidigare (1 för Sök tjänstens I
 
 Brand Väggs reglerna tar 5-10 minuter att bli uppdaterade efter vilka indexerare kommer att kunna komma åt data i lagrings kontot.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Nu när du vet hur du kan hämta de två uppsättningarna med IP-adresser för att tillåta åtkomst till index, använder du följande länkar för att uppdatera IP-brandväggens regler för några vanliga data källor.
 

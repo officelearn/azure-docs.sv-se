@@ -12,10 +12,10 @@ ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible
 ms.openlocfilehash: 9595627e9d7ca2de577aa83ebba3dd58d69e6750
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87373563"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Felsök distribution av OpenShift container Platform 3,11 i Azure
@@ -115,5 +115,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 För vissa fel kan du också använda följande kommandon för att få mer information:
 
-1. status för systemctl\<service>
+1. status för systemctl \<service>
 2. journalctl-XE

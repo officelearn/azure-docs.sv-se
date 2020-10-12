@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6e3118814eacc6cc63b5db59bd7f1877c1d347dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77025273"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Konfigurera en anslutning med hög tillgänglighet från lokal plats till CloudSimple VPN-gateway
@@ -44,7 +44,7 @@ Om du vill aktivera fas 1 (IKEv1) i gränssnittet utanför kan du ange följande
 
 ### <a name="2-create-an-ikev1-policy"></a>2. skapa en IKEv1-princip
 
-Skapa en IKEv1-princip som definierar algoritmer och metoder som ska användas för hashing, autentisering, Diffie-Hellman-grupp, livs längd och kryptering.
+Skapa en IKEv1-princip som definierar algoritmer och metoder som ska användas för hashing, autentisering, Diffie-Hellman grupp, livs längd och kryptering.
 
 ```
 crypto ikev1 policy 1
@@ -141,7 +141,7 @@ Fas 2-utdata:
 
 ## <a name="configure-on-premises-palo-alto-networks-firewall"></a>Konfigurera lokal Palo-nätverks brand vägg
 
-Anvisningarna i det här avsnittet gäller Palo-nätverk version 7,1 och senare. I det här konfigurations exemplet distribueras Palo--nätverk VM-seriens program varu version 8.1.0 och konfigureras i IKEv1-läge.
+Anvisningarna i det här avsnittet gäller Palo-nätverk version 7,1 och senare. I det här konfigurations exemplet distribueras Palo-nätverk VM-Series program varu version 8.1.0 och konfigureras i IKEv1-läge.
 
 För att plats-till-plats-VPN ska fungera måste du tillåta UDP 500/4500 och ESP (IP-protokoll 50) från den primära och den sekundära offentliga IP-CloudSimple (peer-IP) i det externa gränssnittet för den lokala Palo-nätverks-gatewayen.
 
@@ -243,7 +243,7 @@ Välj **nätverk**  >  **expandera nätverks profiler**  >  **övervaka**  >  **
 * Namn. Ange ett namn på den övervaknings profil som ska användas för tunnel övervakning för proaktiv reaktion på problemet.
 * Tgärd. Välj **redundansväxla**.
 * Intervall. Ange värdet **3**.
-* Threshold (Faktisk kostnad jämfört med tröskelvärde). Ange värdet **7**.
+* Fastställd. Ange värdet **7**.
 
 ### <a name="7-set-up-primary-and-secondary-ipsec-tunnels"></a>7. Konfigurera primära och sekundära IPsec-tunnlar.
 

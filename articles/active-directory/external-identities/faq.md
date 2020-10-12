@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 158caf3a6c4cc0efc2f89e18d065a0112b481ee9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274052"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Vanliga frågor och svar om Azure Active Directory B2B-samarbete
@@ -30,7 +30,7 @@ Vanliga frågor och svar (FAQ) om Azure Active Directory (B2B-samarbete från Bu
 Helt! Se vårt [blogg inlägg om den här funktionen](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Mer information om hur du anpassar din organisations inloggnings sida finns i avsnittet [lägga till företags anpassning för inloggnings-och åtkomst panel sidor](../fundamentals/customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Kan B2B-samarbets användare få åtkomst till SharePoint Online och OneDrive?
-Ja. Möjligheten att söka efter befintliga gäst användare i SharePoint Online med hjälp av person väljaren är **inaktive rad** som standard. Om du vill aktivera alternativet för att söka efter befintliga gäst användare ställer du in **ShowPeoplePickerSuggestionsForGuestUsers** på **på**. Du kan aktivera den här inställningen antingen på klient nivån eller på webbplats samlings nivå. Du kan ändra den här inställningen med cmdletarna Set-SPOTenant och set-SPOSite. Med dessa cmdletar kan medlemmar söka igenom alla befintliga gäst användare i katalogen. Ändringar i klient omfånget påverkar inte SharePoint Online-webbplatser som redan har etablerats.
+Ja. Möjligheten att söka efter befintliga gäst användare i SharePoint Online med hjälp av person väljaren är **inaktive rad** som standard. Om du vill aktivera alternativet för att söka efter befintliga gäst användare ställer du in **ShowPeoplePickerSuggestionsForGuestUsers** på **på**. Du kan aktivera den här inställningen antingen på klient nivån eller på webbplats samlings nivå. Du kan ändra den här inställningen med hjälp av Set-SPOTenant-och Set-SPOSite-cmdletar. Med dessa cmdletar kan medlemmar söka igenom alla befintliga gäst användare i katalogen. Ändringar i klient omfånget påverkar inte SharePoint Online-webbplatser som redan har etablerats.
 
 ### <a name="is-the-csv-upload-feature-still-supported"></a>Stöds funktionen för att ladda upp CSV fortfarande?
 Ja. Mer information om hur du använder fil uppladdnings funktionen i. csv finns i [det här PowerShell-exemplet](code-samples.md).
@@ -70,7 +70,7 @@ Ja! Du kan skapa en princip för villkorlig åtkomst som blockerar alla gäst-oc
 5. På sidan **nytt** i text rutan **namn** anger du ett namn för principen (till exempel "blockera gäster från åtkomst till portalen").
 6. Under **Tilldelningar** väljer du **Användare och grupper**.
 7. På fliken **Inkludera** väljer du **Välj användare och grupper**och väljer sedan **alla gäst-och externa användare (för hands version)**.
-9. Välj **Klar**.
+9. Välj **Done** (Klar).
 10. På sidan **ny** i avsnittet **tilldelningar** väljer du **molnappar eller åtgärder**.
 11. Välj **Välj appar**på sidan **molnappar eller åtgärder** och välj sedan **Välj**.
 12. Välj **Microsoft Azure-hantering** på sidan **Välj** och välj sedan **Välj**.

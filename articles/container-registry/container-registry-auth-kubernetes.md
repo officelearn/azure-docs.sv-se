@@ -7,10 +7,10 @@ ms.author: karolz
 ms.reviewer: danlep
 ms.date: 05/28/2020
 ms.openlocfilehash: fbf5dfd68b823b600b11cad3643e5d4004b85ff5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84309823"
 ---
 # <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Hämta bilder från ett Azure Container Registry till ett Kubernetes-kluster
@@ -57,7 +57,7 @@ där:
 
 ## <a name="use-the-image-pull-secret"></a>Använd bildens pull-hemlighet
 
-När du har skapat bildens pull-hemlighet kan du använda den för att skapa Kubernetes-poddar och-distributioner. Ange namnet på hemligheten under `imagePullSecrets` i distributions filen. Ett exempel:
+När du har skapat bildens pull-hemlighet kan du använda den för att skapa Kubernetes-poddar och-distributioner. Ange namnet på hemligheten under `imagePullSecrets` i distributions filen. Exempel:
 
 ```yaml
 apiVersion: v1
@@ -74,7 +74,7 @@ spec:
     - name: acr-secret
 ```
 
-I föregående exempel `my-awesome-app:v1` är namnet på avbildningen att hämta från Azure Container Registry och `acr-secret` är namnet på den pull-hemlighet som du skapade för att få åtkomst till registret. När du distribuerar Pod hämtar Kubernetes automatiskt avbildningen från registret, om den inte redan finns i klustret.
+I föregående exempel `my-awesome-app:v1` är namnet på avbildningen att hämta från Azure Container Registry och  `acr-secret` är namnet på den pull-hemlighet som du skapade för att få åtkomst till registret. När du distribuerar Pod hämtar Kubernetes automatiskt avbildningen från registret, om den inte redan finns i klustret.
 
 
 ## <a name="next-steps"></a>Nästa steg

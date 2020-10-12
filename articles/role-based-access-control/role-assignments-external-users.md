@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
 ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85361912"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Lägg till eller ta bort Azure Role-tilldelningar för externa gäst användare med hjälp av Azure Portal
@@ -31,7 +31,7 @@ ms.locfileid: "85361912"
 
 Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 
-- `Microsoft.Authorization/roleAssignments/write`och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
 
 ## <a name="when-would-you-invite-guest-users"></a>När bjuder du in gäst användare?
 
@@ -79,7 +79,7 @@ I Azure RBAC, för att bevilja åtkomst, tilldelar du en roll. Om du vill lägga
 
 1. Klicka på **Åtkomstkontroll (IAM)** .
 
-    Följande skärm bild visar ett exempel på bladet åtkomst kontroll (IAM) för en resurs grupp. Om du gör ändringar i åtkomst kontrollen gäller de bara för resurs gruppen.
+    Följande skärmbild visar ett exempel på bladet Åtkomstkontroll (IAM) för en resursgrupp. Om du gör ändringar i åtkomst kontrollen gäller de bara för resurs gruppen.
 
     ![Åtkomst kontroll (IAM) bladet för en resurs grupp](./media/role-assignments-external-users/access-control-resource-group.png)
 
@@ -175,7 +175,7 @@ Innan du tar bort en gäst användare från en katalog bör du först ta bort al
 
 1. Klicka på **Ja**i det borttagnings meddelande som visas.
 
-## <a name="troubleshoot"></a>Felsök
+## <a name="troubleshoot"></a>Felsöka
 
 ### <a name="guest-user-cannot-browse-the-directory"></a>Gäst användare kan inte bläddra i katalogen
 

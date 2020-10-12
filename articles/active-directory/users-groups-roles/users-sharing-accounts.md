@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 019327436eaf2186e23068a5b0a1ac4b21b9fbe7
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055171"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Dela konton med Azure AD
@@ -69,7 +69,7 @@ Azure AD-funktioner som möjliggör konto delning är:
 Om du vill använda Azure AD för att dela ett konto måste du:
 
 * Lägg till ett program [Galleri](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) eller [anpassat program](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
-* Konfigurera programmet för enkel inloggning med lösen ord (SSO)
+* Konfigurera programmet för lösen ord enkel Sign-On (SSO)
 * Använd [gruppbaserad tilldelning](groups-saasapps.md) och välj alternativet för att ange en delad autentiseringsuppgift
 
 Du kan också göra ditt delade konto säkrare med Multi-Factor Authentication (MFA) (Lär dig mer om att [skydda program med Azure AD](../authentication/concept-mfa-howitworks.md)) och du kan delegera möjligheten att hantera vem som har åtkomst till programmet med hjälp av [Azure AD](groups-self-service-management.md) självbetjänings grupp hantering.

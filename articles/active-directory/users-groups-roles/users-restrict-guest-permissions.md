@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 418be35cb7996acaa7f11f37627d065451c9c7c6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055222"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Begränsa åtkomst behörigheter för gäst (för hands version) i Azure Active Directory
@@ -103,7 +103,7 @@ Exempelsvar:
 
 Med den här funktionen har vi lagt till möjligheten att konfigurera begränsade behörigheter via PowerShell V2-cmdletar. Hämta och ange PowerShell-cmdletar har publicerats i version 2.0.2.85.
 
-### <a name="get-command-get-azureadmsauthorizationpolicy"></a>Hämta kommando: get-AzureADMSAuthorizationPolicy
+### <a name="get-command-get-azureadmsauthorizationpolicy"></a>Hämta kommando: Get-AzureADMSAuthorizationPolicy
 
 Exempel:
 
@@ -119,7 +119,7 @@ GuestUserRoleId                                   : 10dae51f-b6af-4016-8d66-8c2a
 PermissionGrantPolicyIdsAssignedToDefaultUserRole : {user-default-legacy}
 ````
 
-### <a name="set-command-set-azureadmsauthorizationpolicy"></a>Set-kommando: set-AzureADMSAuthorizationPolicy
+### <a name="set-command-set-azureadmsauthorizationpolicy"></a>Set-kommando: Set-AzureADMSAuthorizationPolicy
 
 Exempel:
 
@@ -150,7 +150,7 @@ Tjänsten utan aktuellt stöd kan ha kompatibilitetsproblem med den nya inställ
 - Project
 - Yammer
 
-## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar
 
 Fråga | Svar
 -------- | ------

@@ -12,10 +12,10 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
 ms.openlocfilehash: b2c1d08656ce9ef6b76e34a943f133859b78345a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86172034"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Felsöka SSIS Integration Runtime Management i Azure Data Factory
@@ -78,7 +78,7 @@ För andra problem läser du felmeddelandet om SQL-undantag och åtgärdar det p
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-Den här typen av fel meddelande ser ut så här: "ogiltigt objekt namn" Catalog. catalog_properties "." I så fall har du redan en databas med namnet SSISDB men den skapades inte av SSIS IR, eller så är databasen i ett ogiltigt tillstånd som orsakas av fel under den senaste SSIS IR-etableringen. Du kan släppa den befintliga databasen med namnet SSISDB, eller så kan du konfigurera en ny SQL Database-eller SQL-hanterad instans för IR.
+Den här typen av fel meddelande ser ut så här: "ogiltigt objekt namn" catalog.catalog_properties "." I så fall har du redan en databas med namnet SSISDB men den skapades inte av SSIS IR, eller så är databasen i ett ogiltigt tillstånd som orsakas av fel under den senaste SSIS IR-etableringen. Du kan släppa den befintliga databasen med namnet SSISDB, eller så kan du konfigurera en ny SQL Database-eller SQL-hanterad instans för IR.
 
 ## <a name="custom-setup-issues"></a>Anpassade installations problem
 
@@ -192,4 +192,4 @@ Azure-SSIS IR uppdateras automatiskt regelbundet. Nya IR-noder skapas under uppg
 
 ### <a name="publicipnotusableduringupgrade"></a>PublicIPNotUsableDuringUpgrade
 
-När du vill ta med egna statiska offentliga IP-adresser ska två offentliga IP-adresser anges. En av dem kommer att användas för att skapa IR-noderna omedelbart och en annan kommer att användas vid uppgradering av IR. Det här felet kan inträffa när den andra offentliga IP-adressen inte kan användas under uppgraderingen. Det finns möjliga orsaker till [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) .
+När du vill ta med egna statiska offentliga IP-adresser ska två offentliga IP-adresser anges. En av dem kommer att användas för att skapa IR-noderna omedelbart och en annan kommer att användas vid uppgradering av IR. Det här felet kan inträffa när den andra offentliga IP-adressen inte kan användas under uppgraderingen. Det finns möjliga orsaker till  [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) .

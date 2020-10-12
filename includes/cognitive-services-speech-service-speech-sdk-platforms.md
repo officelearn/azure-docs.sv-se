@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.author: dapine
 ms.openlocfilehash: 85dfedc75807e273240066460a58b79380050e58
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80656556"
 ---
 | Programmeringsspråk | Plattform                                                                           | SDK-referens              |
@@ -16,11 +16,11 @@ ms.locfileid: "80656556"
 | C# <sup>1</sup>      | Windows, Linux, macOS, mono, Xamarin. iOS, Xamarin. Mac, Xamarin. Android, UWP, Unity | [.NET SDK][net-sdk]        |
 | C++                  | Windows, Linux, macOS                                                              | [C++ SDK][cpp-sdk]         |
 | Java <sup>2</sup>    | Android, Windows, Linux, macOS                                                     | [Java SDK][javasdk]        |
-| JavaScript           | Webbläsare, Node. js                                                                   | [JavaScript SDK][ecmasdk]  |
+| JavaScript           | Webbläsare, Node.js                                                                   | [JavaScript SDK][ecmasdk]  |
 | Mål-C/Swift  | iOS, macOS                                                                         | [Mål-C SDK][obj-sdk] |
 | Python               | Windows, Linux, macOS                                                              | [Python SDK][pyt-sdk]      |
 
-<sup>1 .NET Speech SDK baseras på .NET standard 2,0 och stöder därför många plattformar. Mer information finns i <a href="https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support" target="_blank">support <span class="docon docon-navigate-external x-hidden-focus"> </span>för .net-implementering </a>.</sup>
+<sup>1 .NET Speech SDK baseras på .NET standard 2,0 och stöder därför många plattformar. Mer information finns i <a href="https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support" target="_blank">support <span class="docon docon-navigate-external x-hidden-focus"></span> för .net-implementering </a>.</sup>
 
 <sup>2 java Speech SDK är också tillgängligt som en del av [tal enheter SDK](../articles/cognitive-services/speech-service/speech-devices-sdk.md).</sup>
 

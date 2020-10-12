@@ -9,15 +9,15 @@ ms.date: 06/29/2020
 ms.author: magoedte
 ms.custom: include file
 ms.openlocfilehash: aa7b997fe112be5d974d0e82597e786fa219e1f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85570112"
 ---
 #### <a name="process-automation"></a>Processautomatisering
 
-| Resurs | Gräns |Kommentarer|
+| Resurs | Gräns |Obs!|
 | --- | --- |---|
 | Maximalt antal nya jobb som kan skickas var 30 sekund per Azure Automation konto (ej schemalagda jobb) |100 |När den här gränsen uppnås kan efterföljande begär Anden om att skapa ett jobb inte utföras. Klienten får ett fel svar.|
 | Maximalt antal samtidiga jobb som körs på samma tids instans per Automation-konto (ej schemalagda jobb) |200 |När den här gränsen uppnås kan efterföljande begär Anden om att skapa ett jobb inte utföras. Klienten får ett fel svar.|

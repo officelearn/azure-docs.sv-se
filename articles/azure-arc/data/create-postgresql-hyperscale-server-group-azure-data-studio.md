@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 1b1cf90efa14345fa8395f5f62fd80934b922352
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273015"
 ---
 # <a name="create-azure-arc-enabled-postgresql-hyperscale-using-azure-data-studio"></a>Skapa en Azure Arc-aktiverad PostgreSQL-skalning med Azure Data Studio
@@ -56,7 +56,7 @@ _**Server-Group-name** är namnet på den server grupp som du ska distribuera un
 Mer information om SCCs i OpenShift finns i [OpenShift-dokumentationen](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html).
 Nu kan du implementera nästa steg.
 
-## <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Skapa en Azure Arc-aktiverad PostgreSQL-Server grupp
+## <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Skapa en Azure-Arc-aktiverad PostgreSQL Hyperskala-servergrupp
 
 1. Starta Azure Data Studio
 1. På fliken anslutningar klickar du på de tre punkterna längst upp till vänster och väljer "ny distribution"
@@ -91,7 +91,7 @@ På några minuter bör du skapa en fullständig installation.
 
     > \* I dokumenten ovan hoppar du över avsnitten **Logga**in på Azure Portal, & **skapa en Azure Database for PostgreSQL-till-skala (citus)**. Implementera de återstående stegen i din Azure Arc-distribution. Dessa avsnitt är speciella för Azure Database for PostgreSQL disscale (citus) som erbjuds som en PaaS-tjänst i Azure-molnet, men andra delar av dokumenten är direkt tillämpliga på den Azure Arc-aktiverade PostgreSQL-skalan.
 
-- [Skala ut din Azure Database for PostgreSQL skalnings Server grupp](scale-out-postgresql-hyperscale-server-group.md)
+- [Skala ut din Azure Database for PostgreSQL Hyperscale-servergrupp](scale-out-postgresql-hyperscale-server-group.md)
 - [Lagrings konfiguration och Kubernetes lagrings koncept](storage-configuration.md)
 - [Resurs modell för Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 

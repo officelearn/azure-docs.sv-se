@@ -12,10 +12,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 71040f831ed7a64f2bc7be7f3a75218976fc2559
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385951"
 ---
 # <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en Azure MFA Technical-profil i en Azure AD B2C anpassad princip
@@ -61,8 +61,8 @@ Det första läget i den här tekniska profilen är att generera en kod och skic
 | --------- | -------- | ----------- |
 | userPrincipalName | Ja | Identifieraren för den användare som äger telefonnumret. |
 | phoneNumber | Ja | Telefonnumret som en SMS-kod ska skickas till. |
-| companyName | No |Företags namnet i SMS. Om inget namn anges används namnet på programmet. |
-| locale | No | Språk inställningen för SMS. Om den inte anges används webbläsarens nationella inställningar. |
+| companyName | Inga |Företags namnet i SMS. Om inget namn anges används namnet på programmet. |
+| locale | Inga | Språk inställningen för SMS. Om den inte anges används webbläsarens nationella inställningar. |
 
 **InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan de skickas till Azure MFA-tjänsten.
 
@@ -84,10 +84,10 @@ Följande metadata kan användas för att konfigurera fel meddelanden som visas 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| UserMessageIfCouldntSendSms | No | Användar fel meddelande om det angivna telefonnumret inte accepterar SMS. |
-| UserMessageIfInvalidFormat | No | Användar fel meddelande om det angivna telefonnumret inte är ett giltigt telefonnummer. |
-| UserMessageIfServerError | No | Användar fel meddelande om ett internt fel inträffar på servern. |
-| UserMessageIfThrottled| No | Användar fel meddelande om en begäran har begränsats.|
+| UserMessageIfCouldntSendSms | Inga | Användar fel meddelande om det angivna telefonnumret inte accepterar SMS. |
+| UserMessageIfInvalidFormat | Inga | Användar fel meddelande om det angivna telefonnumret inte är ett giltigt telefonnummer. |
+| UserMessageIfServerError | Inga | Användar fel meddelande om ett internt fel inträffar på servern. |
+| UserMessageIfThrottled| Inga | Användar fel meddelande om en begäran har begränsats.|
 
 ### <a name="example-send-an-sms"></a>Exempel: Skicka ett SMS
 
@@ -111,7 +111,7 @@ I följande exempel visas en teknisk Azure MFA-profil som används för att skic
 </TechnicalProfile>
 ```
 
-## <a name="verify-code"></a>Verifiera kod
+## <a name="verify-code"></a>Verifiera koden
 
 Det andra läget i den här tekniska profilen är att verifiera en kod. Följande alternativ kan konfigureras för det här läget.
 
@@ -144,10 +144,10 @@ Följande metadata kan användas för att konfigurera fel meddelanden som visas 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| UserMessageIfMaxAllowedCodeRetryReached| No | Användar fel meddelande om användaren försökte utföra en verifierings kod för många gånger. |
-| UserMessageIfServerError | No | Användar fel meddelande om ett internt fel inträffar på servern. |
-| UserMessageIfThrottled| No | Användar fel meddelande om begäran är begränsad.|
-| UserMessageIfWrongCodeEntered| No| Användar fel meddelande om den kod som angetts för verifiering är felaktig.|
+| UserMessageIfMaxAllowedCodeRetryReached| Inga | Användar fel meddelande om användaren försökte utföra en verifierings kod för många gånger. |
+| UserMessageIfServerError | Inga | Användar fel meddelande om ett internt fel inträffar på servern. |
+| UserMessageIfThrottled| Inga | Användar fel meddelande om begäran är begränsad.|
+| UserMessageIfWrongCodeEntered| Inga| Användar fel meddelande om den kod som angetts för verifiering är felaktig.|
 
 ### <a name="example-verify-a-code"></a>Exempel: verifiera en kod
 

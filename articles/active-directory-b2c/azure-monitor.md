@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
 ms.openlocfilehash: 3106e5a640ed66828558078e6986979ad7195450
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85386223"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Övervaka Azure AD B2C med Azure Monitor
@@ -74,7 +74,7 @@ För att förenkla hanteringen rekommenderar vi att du använder Azure AD-använ
 
 Om du vill publicera din Azure AD-klient ( **kunden**) skapar du en [Azure Resource Manager mall](../lighthouse/how-to/onboard-customer.md) för ditt erbjudande med följande information. `mspOfferName`Värdena och `mspOfferDescription` visas när du visar erbjudande information på [sidan tjänst leverantörer](../lighthouse/how-to/view-manage-service-providers.md) i Azure Portal.
 
-| Fält   | Definition |
+| Field   | Definition |
 |---------|------------|
 | `mspOfferName`                     | Ett namn som beskriver den här definitionen. Till exempel *Azure AD B2C hanterade tjänster*. Det här värdet visas för kunden som titeln på erbjudandet. |
 | `mspOfferDescription`              | En kort beskrivning av ditt erbjudande. Till exempel kan *Azure Monitor i Azure AD B2C*.|
@@ -213,7 +213,7 @@ Diagnostiska inställningar definierar var loggar och mått för en resurs ska s
 
 - [Azure Storage-konto](../azure-monitor/platform/resource-logs-collect-storage.md)
 - Lösningar för [Event Hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
-- [Log Analytics-arbetsyta](../azure-monitor/platform/resource-logs-collect-workspace.md)
+- [Log Analytics arbets yta](../azure-monitor/platform/resource-logs-collect-workspace.md)
 
 Om du inte redan har gjort det skapar du en instans av din valda måltyp i resurs gruppen som du angav i [mallen Azure Resource Manager](#create-an-azure-resource-manager-template).
 

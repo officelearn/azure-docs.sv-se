@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3bb944badfbdffd703672f9e78619c70a148aae2
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89293361"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Säkerhets ram: verifiering av Indatatyp | Åtgärder 
@@ -73,7 +73,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
 | **Referenser**              | [IE8 säkerhets del V – omfattande skydd](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection)  |
-| **Steg** | <p>För varje sida som kan innehålla innehåll som kan vara användarvänligt måste du använda HTTP-huvudet `X-Content-Type-Options:nosniff` . För att uppfylla det här kravet kan du antingen ange sidhuvuds sidan som krävs av Page för de sidor som kan innehålla innehåll som kan användas för användare eller så kan du ställa in det globalt för alla sidor i programmet.</p><p>Varje typ av fil som levereras från en webb server har en associerad [MIME-typ](https://en.wikipedia.org/wiki/Mime_type) (kallas även *innehålls typ*) som beskriver innehållets beskaffenhet (dvs. bild, text, program osv.)</p><p>Huvudet X-Content-Type-Options är ett HTTP-huvud som gör det möjligt för utvecklare att ange att deras innehåll inte ska vara MIME-sniffed. Den här rubriken är utformad för att minimera MIME-avlyssnings attacker. Stöd för den här rubriken har lagts till i Internet Explorer 8 (IE8)</p><p>Endast användare av Internet Explorer 8 (IE8) kommer att ha nytta av X-Content-Type-Options. I tidigare versioner av Internet Explorer respekteras för närvarande inte huvudet X-Content-Type-Options</p><p>Internet Explorer 8 (och senare) är de enda större webbläsare som implementerar en avanmälans funktion för MIME-identifiering. Om och när andra större webbläsare (Firefox, Safari, Chrome) implementerar liknande funktioner, kommer den här rekommendationen att uppdateras så att den även inkluderar syntax för dessa webbläsare</p>|
+| **Steg** | <p>För varje sida som kan innehålla innehåll som kan vara användarvänligt måste du använda HTTP-huvudet `X-Content-Type-Options:nosniff` . För att uppfylla det här kravet kan du antingen ange sidhuvuds sidan som krävs av Page för de sidor som kan innehålla innehåll som kan användas för användare eller så kan du ställa in det globalt för alla sidor i programmet.</p><p>Varje typ av fil som levereras från en webb server har en associerad [MIME-typ](https://en.wikipedia.org/wiki/Mime_type) (kallas även *innehålls typ*) som beskriver innehållets beskaffenhet (dvs. bild, text, program osv.)</p><p>Huvudet X-Content-Type-Options är ett HTTP-huvud som gör det möjligt för utvecklare att ange att deras innehåll inte ska vara MIME-sniffed. Den här rubriken är utformad för att minimera MIME-Sniffing attacker. Stöd för den här rubriken har lagts till i Internet Explorer 8 (IE8)</p><p>Endast användare av Internet Explorer 8 (IE8) kommer att ha nytta av X-Content-Type-Options. I tidigare versioner av Internet Explorer respekteras för närvarande inte huvudet X-Content-Type-Options</p><p>Internet Explorer 8 (och senare) är de enda större webbläsare som implementerar en avanmälans funktion för MIME-identifiering. Om och när andra större webbläsare (Firefox, Safari, Chrome) implementerar liknande funktioner, kommer den här rekommendationen att uppdateras så att den även inkluderar syntax för dessa webbläsare</p>|
 
 ### <a name="example"></a>Exempel
 Om du vill aktivera nödvändigt sidhuvud globalt för alla sidor i programmet kan du göra något av följande: 

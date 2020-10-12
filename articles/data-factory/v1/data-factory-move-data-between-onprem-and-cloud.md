@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84195983"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Flytta data mellan lokala källor och molnet med Data Management Gateway
@@ -96,7 +96,7 @@ I det här steget använder du Azure Portal för att skapa en Azure Data Factory
    > [!NOTE]
    > Använd Internet Explorer eller en Microsoft ClickOnce-kompatibel webbläsare.
    >
-   > Om du använder Chrome, går du till [Chrome Web Store](https://chrome.google.com/webstore/), söker efter nyckelordet ”ClickOnce”, väljer ett av ClickOnce-tilläggen och installerar det.
+   > Om du använder Chrome går du till [Chrome-webbarkivet](https://chrome.google.com/webstore/), söker med nyckelordet "ClickOnce", väljer ett av ClickOnce-tilläggen och installerar det.
    >
    > Gör samma sak för Firefox (installera tillägg). Klicka på knappen **Öppna meny** i verktygsfältet (**tre horisontella linjer** i det övre högra hörnet), klicka på **tillägg**, Sök med nyckelordet "ClickOnce", Välj ett av ClickOnce-tilläggen och installera det.    
    >

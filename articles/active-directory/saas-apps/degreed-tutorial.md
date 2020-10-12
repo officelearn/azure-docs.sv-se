@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
 ms.openlocfilehash: b0cc937cae4230d3310b682a51988243f0207fc0
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054236"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-degreed"></a>Självstudie: Azure Active Directory integrering med graderad
@@ -71,7 +71,7 @@ För att konfigurera och testa enkel inloggning för Azure AD med Degreed behöv
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     * **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
     * **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-2. **[Konfigurera graderad SSO](#configure-degreed-sso)** – för att konfigurera inställningar för enkel inloggning på program sidan.
+2. **[Konfigurera graderad SSO](#configure-degreed-sso)** – för att konfigurera enskilda Sign-On inställningar på program sidan.
     * **[Skapa Degreed-testanvändare](#create-degreed-test-user)** – för att ha en motsvarighet för Britta Simon i Degreed som är länkad till Azure AD-representationen av användaren.
 3. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
@@ -120,7 +120,7 @@ I det här avsnittet ska du skapa en test användare med namnet B. Simon i Azure
 1. Överst på skärmen väljer du **ny användare**.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I fältet **namn** anger du **B. Simon**.  
-   1. I fältet **användar namn** anger du `<username>@<companydomain>.<extension>` . Till exempel: `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du `<username>@<companydomain>.<extension>` . Exempel: `B.Simon@contoso.com`.
    1. Markera kryss rutan **Visa lösen ord** och anteckna värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
@@ -166,7 +166,7 @@ När du klickar på Degreed-panelen i åtkomstpanelen bör du automatiskt loggas
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

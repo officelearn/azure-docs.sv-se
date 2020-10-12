@@ -12,10 +12,10 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: de275bcca1644750532809b35ae85d954d3cac6d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89076913"
 ---
 # <a name="calculate-the-size-of-a-blob-container-with-powershell"></a>Beräkna storleken på en BLOB-behållare med PowerShell
@@ -45,7 +45,7 @@ Remove-AzResourceGroup -Name bloblisttestrg
 
 Det här skriptet använder följande kommandon för att beräkna storleken på Blob-lagringscontainern. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Hämtar ett angivet lagringskonto eller alla lagringskonton i en resursgrupp eller i prenumerationen. |
 | [Get-AzStorageBlob](/powershell/module/az.storage/Get-AzStorageBlob) | Visar en lista över blobar i en container. |

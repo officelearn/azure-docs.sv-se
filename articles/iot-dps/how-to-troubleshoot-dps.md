@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
 ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75646480"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Fel sökning med Azure IoT Hub Device Provisioning Service
@@ -78,8 +78,8 @@ Använd den här tabellen för att förstå och lösa vanliga fel.
 | Felkod| Beskrivning | HTTP-statuskod |
 |-------|------------|------------|
 | 400 | Bröd texten i begäran är inte giltig. Det går till exempel inte att parsa den, eller så går det inte att verifiera objektet.| 400 felaktigt format |
-| 401 | Det går inte att verifiera autentiseringstoken. till exempel har den upphört att gälla eller gäller inte för frågans URI. Den här felkoden returneras även till enheter som en del av flödet för TPM-attestering. | 401 obehörig|
+| 401 | Det går inte att verifiera autentiseringstoken. till exempel har den upphört att gälla eller gäller inte för frågans URI. Den här felkoden returneras även till enheter som en del av flödet för TPM-attestering. | 401 – Ej behörig|
 | 404 | Enhets etablerings tjänstens instans eller en resurs (t. ex. en registrering) finns inte. |404 – Hittades inte |
 | 412 | ETag i begäran matchar inte den befintliga resursens ETag, som per RFC7232. | 412-villkoret misslyckades |
 | 429 | Åtgärder begränsas av tjänsten. Information om begränsningar för vissa tjänster finns i [IoT Hub Device Provisioning service gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 för många begär Anden |
-| 500 | Ett internt fel har inträffat. | 500 Internt serverfel|
+| 500 | Ett internt fel har inträffat. | 500 internt serverfel|

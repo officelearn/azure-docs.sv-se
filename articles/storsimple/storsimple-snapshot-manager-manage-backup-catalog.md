@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 2efc35e65ca1db2b5241e1d3b2798e068880c87e
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055001"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Använda StorSimple Snapshot Manager för att hantera säkerhets kopierings katalogen
@@ -56,7 +56,7 @@ Du kan visa säkerhets kopierings katalogen genom att expandera noden **säkerhe
 ## <a name="restore-a-volume"></a>Återställa en volym
 Använd följande procedur för att återställa en volym från en säkerhets kopia.
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 Om du inte redan har gjort det skapar du en volym och volym grupp och tar sedan bort volymen. StorSimple Snapshot Manager säkerhetskopierar som standard en volym innan den tillåter att den tas bort. Den här försiktighets åtgärden kan förhindra data förlust om volymen tas bort oavsiktligt eller om data behöver återställas av någon anledning. 
 
 StorSimple Snapshot Manager visar följande meddelande när säkerhets kopieringen skapas.
@@ -112,7 +112,7 @@ Använd följande procedur för att ta bort en ögonblicks bild från säkerhets
 ## <a name="recover-a-file"></a>Återställa en fil
 Om en fil tas bort av misstag från en volym, kan du återställa filen genom att hämta en ögonblicks bild som i förväg tar bort den, med hjälp av ögonblicks bilden för att skapa en klon av volymen och sedan kopiera filen från den klonade volymen till den ursprungliga volymen.
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar ska du kontrol lera att du har en aktuell säkerhets kopia av volym gruppen. Ta sedan bort en fil som lagrats på en av volymerna i den volym gruppen. Använd slutligen följande steg för att återställa den borttagna filen från säkerhets kopian. 
 
 #### <a name="to-recover-a-deleted-file"></a>Återställa en borttagen fil

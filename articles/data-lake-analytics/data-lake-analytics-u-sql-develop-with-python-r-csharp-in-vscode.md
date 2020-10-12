@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/22/2017
 ms.custom: devx-track-python
 ms.openlocfilehash: 673c8db0b7c6d3d8658d2d3b6cfd7e00f3d7d986
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87876214"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Utveckla U-SQL med python, R och C# för Azure Data Lake Analytics i Visual Studio Code
@@ -124,7 +124,7 @@ Registrera python-och R Extensions-sammansättningar för ditt ADL-konto.
 5. Högerklicka på **USQL** -filen, du kan klicka på **kompilera skript** eller **Skicka jobb** till jobbet som körs.
 
 ## <a name="develop-c-file"></a>Utveckla C#-fil
-En fil med bakomliggande kod är en C#-fil som associeras med ett enda U-SQL-skript. Du kan definiera ett skript som är avsett för UDO, UDA, UDT och UDF i filen bakomliggande kod. UDO, UDA, UDT och UDF kan användas direkt i skriptet utan att först registrera sammansättningen. Filen bakomliggande kod placeras i samma mapp som dess peering U-SQL-skriptfil. Om skriptet heter xxx. usql, namnges bakomliggande kod som xxx.usql.cs. Om du manuellt tar bort filen med bakomliggande kod är funktionen bakomliggande kod inaktive rad för det associerade U-SQL-skriptet. Mer information om hur du skriver kund kod för U-SQL-skript finns i [skriva och använda anpassad kod i U-SQL: användardefinierade funktioner]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
+En fil med bakomliggande kod är en C#-fil som associeras med ett enda U-SQL-skript. Du kan definiera ett skript som är avsett för UDO, UDA, UDT och UDF i filen bakomliggande kod. UDO, UDA, UDT och UDF kan användas direkt i skriptet utan att först registrera sammansättningen. Filen bakomliggande kod placeras i samma mapp som dess peering U-SQL-skriptfil. Om skriptet heter xxx. usql, namnges bakomliggande kod som xxx.usql.cs. Om du manuellt tar bort filen med bakomliggande kod är funktionen bakomliggande kod inaktive rad för det associerade U-SQL-skriptet. Mer information om hur du skriver kund kod för U-SQL-skript finns i [skriva och använda anpassad kod i U-SQL: User-Defined Functions]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
 
 1. Klicka på den **nya filen** i din arbets yta.
 2. Skriv koden i U-SQL-filen. Följande är ett kod exempel.

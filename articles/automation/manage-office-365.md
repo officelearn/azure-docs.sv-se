@@ -5,17 +5,17 @@ services: automation
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: 91f5ac0c3adabf9880078d7a4d3703e2757cb97f
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185321"
 ---
 # <a name="manage-office-365-services"></a>Hantera Office 365-tjänster
 
 Du kan använda Azure Automation för hantering av Office 365-prenumerations tjänster för produkter som Microsoft Word och Microsoft Outlook. Interaktioner med Office 365 aktive ras av [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). Se [använda Azure AD i Azure Automation för att autentisera till Azure](automation-use-azure-ad.md).
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att kunna hantera Office 365-prenumerations tjänster i Azure Automation.
 

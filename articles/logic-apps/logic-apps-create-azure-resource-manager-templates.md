@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
 ms.openlocfilehash: 4535e6bf11f8c2abf20b1b323925c3fc3299d362
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90971787"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Skapa Azure Resource Manager-mallar för att automatisera distributionen för Azure Logic Apps
@@ -121,8 +121,8 @@ Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileN
 
 | Parametrar | Krävs | Beskrivning |
 |------------|----------|-------------|
-| TemplateFile | Yes | Fil Sök vägen till mallfilen |
-| KeyVault | No | En uppräkning som beskriver hur du hanterar möjliga Key Vault-värden. Standardvärdet är `None`. |
+| TemplateFile | Ja | Fil Sök vägen till mallfilen |
+| KeyVault | Inga | En uppräkning som beskriver hur du hanterar möjliga Key Vault-värden. Standardvärdet är `None`. |
 ||||
 
 ## <a name="next-steps"></a>Nästa steg

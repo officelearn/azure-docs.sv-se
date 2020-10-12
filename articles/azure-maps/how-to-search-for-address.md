@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 2a322de383194f131395629d33456d7561397eb9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310993"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Sök efter en plats med Azure Maps Sök tjänster
@@ -95,7 +95,7 @@ I det här exemplet ska vi använda FUZZY search för att söka hela världen ef
 
 4. Standard beteendet är att söka hela världen och eventuellt returnera onödiga resultat. Nu ska vi bara söka efter pizza USA. Lägg till `countrySet` nyckeln i avsnittet **params** och ange värdet till `US` . Om du anger `countrySet` nyckeln till `US` kommer resultatet att bindas till USA.
 
-    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="Sök efter pizza i USA":::
+    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="Sök efter adress":::
 
     Resultaten begränsas nu av lands koden och frågan returnerar pizza restauranger i USA.
 
@@ -143,13 +143,13 @@ I det här exemplet ska vi göra omvända sökningar med några av de valfria pa
     | returnRoadUse | true | Returnerar användnings typer för vägen på adressen. För alla möjliga typer av användning av vägar, se [användnings typer för vägar](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters).|
     | returnMatchType | true| Returnerar matchnings typen. Information om alla möjliga värden finns i [Omvänd adress Sök Resultat](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult)
 
-   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Sök omvänd.":::
+   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Sök efter adress":::
 
 5. Klicka på **Skicka**och granska svars texten.
 
 6. Härnäst ska vi lägga till `entityType` nyckeln och ange dess värde till `Municipality` . `entityType`Nyckeln kommer att åsidosätta `returnMatchType` nyckeln i föregående steg. Vi måste också ta bort `returnSpeedLimit` och `returnRoadUse` eftersom vi ber om information om kommunen.  För alla möjliga entitetstyper, se [enhets typer](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#entitytype).
 
-    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Sök omvänd entityType.":::
+    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Sök efter adress":::
 
 7. Klicka på **Skicka**. Jämför resultaten med resultaten som returnerades i steg 5.  Eftersom den begärda entitetstypen är nu `municipality` , innehåller inte svaret adress information. Den returnerade filen `geometryId` kan också användas för att begära avgränsnings polygon genom Azure Maps Hämta [API för söknings-polygon](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
@@ -168,7 +168,7 @@ I det här exemplet ska vi söka efter en kors gatan baserat på en adresss koor
    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
     ```
 
-    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Sök tvär gatan.":::
+    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Sök efter adress":::
   
 3. Klicka på **Skicka**och granska svars texten. Du märker att svaret innehåller `crossStreet` värdet `Occidental Avenue South` .
 

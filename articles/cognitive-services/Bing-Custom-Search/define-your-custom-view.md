@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86183213"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Konfigurera din Anpassad sökning i Bing upplevelse
@@ -27,8 +27,8 @@ Använd följande när du definierar dina segment på webben:
 
 | Segment namn | Beskrivning                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domän     | En domän sektor inkluderar allt innehåll som finns i en Internet domän. Ett exempel är `www.microsoft.com`. Om `www.` du utelämnar Bing genomsöks även domänens under domäner. Om du till exempel anger `microsoft.com` , returnerar Bing även resultat från `support.microsoft.com` eller `technet.microsoft.com` . |
-| Undersida    | En subpage-sektor innehåller allt innehåll som finns på undersidan och Sök vägarna under det. Du kan ange högst två under sidor i sökvägen. Till exempel, `www.microsoft.com/en-us/windows/`                                                                                                                       |
+| Domän     | En domän sektor inkluderar allt innehåll som finns i en Internet domän. Exempelvis `www.microsoft.com`. Om `www.` du utelämnar Bing genomsöks även domänens under domäner. Om du till exempel anger `microsoft.com` , returnerar Bing även resultat från `support.microsoft.com` eller `technet.microsoft.com` . |
+| Undersida    | En subpage-sektor innehåller allt innehåll som finns på undersidan och Sök vägarna under det. Du kan ange högst två under sidor i sökvägen. Till exempel `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Historik    | En webb sidas sektor kan bara innehålla den webb sidan i en anpassad sökning. Du kan också ange om du vill inkludera under sidor.                                                                                                                                                                                  |
 
 > [!IMPORTANT]

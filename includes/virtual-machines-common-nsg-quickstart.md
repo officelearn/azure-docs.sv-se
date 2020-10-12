@@ -9,10 +9,10 @@ ms.date: 09/12/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67187313"
 ---
 Du öppnar en port eller skapar en slut punkt för en virtuell dator (VM) i Azure genom att skapa ett nätverks filter i ett undernät eller ett nätverks gränssnitt för virtuella datorer. Du placerar dessa filter, som styr både inkommande och utgående trafik, i en nätverks säkerhets grupp som är kopplad till den resurs som tar emot trafiken.

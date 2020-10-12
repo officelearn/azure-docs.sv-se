@@ -12,10 +12,10 @@ ms.date: 07/05/2019
 ms.author: fmegen
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3c8d3162e13c31204ed317edc653756b04ef8dd4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934131"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Om API för tal-SDK ljud inspelnings ström
@@ -60,7 +60,7 @@ Följande steg krävs när du använder ljud inspelnings strömmar:
    };
   ```
 
-- Skapa en ljud konfiguration baserat på ditt ljud format och en indataströmmen. Skicka både din vanliga tal konfiguration och konfigurationen av ljud indata när du skapar din tolk. Ett exempel:
+- Skapa en ljud konfiguration baserat på ditt ljud format och en indataströmmen. Skicka både din vanliga tal konfiguration och konfigurationen av ljud indata när du skapar din tolk. Exempel:
 
   ```csharp
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);

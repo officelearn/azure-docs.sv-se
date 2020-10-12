@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
 ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84196430"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Använda referens data för sökningar i Stream Analytics
@@ -39,7 +39,7 @@ Referens data modelleras som en sekvens av blobbar (definieras i inmatnings konf
 
 Om du vill konfigurera dina referens data måste du först skapa en indata som är av typen **referens data**. I tabellen nedan förklaras varje egenskap som du måste ange när du skapar referens data inmatningen med beskrivningen:
 
-|**Egenskapsnamn**  |**Beskrivning**  |
+|**Egenskaps namn**  |**Beskrivning**  |
 |---------|---------|
 |Indataalias   | Ett eget namn som ska användas i jobb frågan för att referera till den här indatamängden.   |
 |Lagringskonto   | Namnet på det lagrings konto där blobarna finns. Om det är i samma prenumeration som ditt Stream Analytics jobb kan du välja det från List rutan.   |
@@ -98,7 +98,7 @@ Om du vill konfigurera dina SQL Database referens data måste du först skapa **
 
 Du kan använda en [hanterad Azure SQL-instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) som referens data inmatning. Du måste [Konfigurera den offentliga slut punkten i SQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) och manuellt konfigurera följande inställningar i Azure Stream Analytics. Den virtuella Azure-datorn som kör SQL Server med en databas ansluten stöds också genom att konfigurera inställningarna manuellt nedan.
 
-|**Egenskapsnamn**|**Beskrivning**  |
+|**Egenskaps namn**|**Beskrivning**  |
 |---------|---------|
 |Inmatat alias|Ett eget namn som ska användas i jobb frågan för att referera till den här indatamängden.|
 |Prenumeration|Välj din prenumeration|

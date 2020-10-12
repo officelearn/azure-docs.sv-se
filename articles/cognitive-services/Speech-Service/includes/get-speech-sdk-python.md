@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: c0e3dc2a93393982341414399e318de0d983b918
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81399995"
 ---
 :::row:::
     :::column span="3":::
-        Python Speech SDK är tillgänglig som en PyPI-modul (python Package index). mer information finns i <a href="https://pypi.org/project/azure-cognitiveservices-speech/" target="_blank">Azure-cognitiveservices-Speech <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>. Python Speech SDK är kompatibel med Windows, Linux och macOS.
+        Python Speech SDK är tillgänglig som en PyPI-modul (python Package index). mer information finns i <a href="https://pypi.org/project/azure-cognitiveservices-speech/" target="_blank">Azure-cognitiveservices-Speech <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Python Speech SDK är kompatibel med Windows, Linux och macOS.
     :::column-end:::
     :::column:::
         <br>
@@ -35,4 +35,4 @@ pip install azure-cognitiveservices-speech
 
 #### <a name="additional-resources"></a>Ytterligare resurser
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python" target="_blank">Käll kod för python Speech SDK snabb start<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python" target="_blank">Käll kod för python Speech SDK snabb start <span class="docon docon-navigate-external x-hidden-focus"></span></a>

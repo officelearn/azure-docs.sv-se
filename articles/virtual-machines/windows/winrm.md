@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/16/2016
 ms.author: mimckitt
 ms.openlocfilehash: ac6fad8995d409c14008b8345e9e576b2403c799
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86131700"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Konfigurera WinRM-åtkomst för Virtual Machines i Azure Resource Manager
@@ -93,7 +93,7 @@ $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name
 ```
 
 ## <a name="step-5-reference-your-self-signed-certificates-url-while-creating-a-vm"></a>Steg 5: referera till din självsignerade certifikat-URL när du skapar en virtuell dator
-#### <a name="azure-resource-manager-templates"></a>Azure Resource Manager mallar
+#### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 När du skapar en virtuell dator med hjälp av mallar, hämtas certifikatet i avsnittet hemligheter och winRM enligt nedan:
 
 ```json
@@ -153,7 +153,7 @@ Enable-PSRemoting -Force
 ```
 
 > [!NOTE]
-> Du kan behöva kontrol lera att WinRM-tjänsten körs om ovanstående inte fungerar. Du kan göra det med hjälp av`Get-Service WinRM`
+> Du kan behöva kontrol lera att WinRM-tjänsten körs om ovanstående inte fungerar. Du kan göra det med hjälp av `Get-Service WinRM`
 > 
 > 
 

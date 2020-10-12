@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: 2961ffb21a1f34ca677e0aede5170689f4e38dca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84267976"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för förebyggande underhålls lösningar
@@ -43,7 +43,7 @@ BDM-innehållet förväntar inte läsaren att ha någon tidigare data vetenskaps
 
 Företag kräver kritisk utrustning för att kunna köra hög effektivitet och användning för att ge avkastning på kapital investeringar. Dessa till gångar kan vara ett intervall från flyg Plans motorer, turbiner, hissar eller industriella kyl verktyg – som kostar miljon tals till vardags apparater som foto kopiatorer, kaffe maskiner eller vattenbaserade kyl apparater.
 - Som standard förlitar sig de flesta företag på _rätt underhåll_, där delar byts ut som och när de inte fungerar. Korrigerings underhåll garanterar att delar används helt (vilket inte slösar ut komponentens livs längd), utan ger kostnader för drift avbrott, arbete och oplanerat underhåll (från timmar eller olämpliga platser).
-- På nästa nivå kan företag öva på _förebyggande underhåll_, där de fastställer den användbara livs längd för en del, och upprätthålla eller ersätta den innan ett problem uppstår. Vid förebyggande underhåll undviks oplanerade avbrott och katastrofer. Men höga kostnader för schemalagd stillestånds tid, underutnyttjande av komponenten under dess livs längd och arbete fortfarande kvarstår.
+- På nästa nivå kan företag öva på  _förebyggande underhåll_, där de fastställer den användbara livs längd för en del, och upprätthålla eller ersätta den innan ett problem uppstår. Vid förebyggande underhåll undviks oplanerade avbrott och katastrofer. Men höga kostnader för schemalagd stillestånds tid, underutnyttjande av komponenten under dess livs längd och arbete fortfarande kvarstår.
 - Målet med _förutsägande underhåll_ är att optimera balansen mellan korrigerat och förebyggande underhåll genom att aktivera _just i tids_ byte av komponenter. Den här metoden ersätter bara komponenterna när de är nära ett haveri. Genom att utöka komponent lifespans (jämfört med förebyggande underhåll) och minska oplanerat underhåll och arbets kostnader (över korrigerat underhåll) kan företag få kostnads besparingar och konkurrens för delar.
 
 ## <a name="business-problems-in-pdm"></a>Affärs problem i PdM
@@ -114,7 +114,7 @@ Framgång för alla inlärningar beror på (a) kvaliteten på vad som är inlär
 
 ### <a name="relevant-data"></a>Relevanta data
 
-Först måste data vara _relevanta för problemet_. Överväg det användnings fall för _hjulet_ som beskrivs ovan – tränings data bör innehålla funktioner relaterade till hjul åtgärderna. Om problemet var att förutsäga fel i _traktions systemet_, måste tränings data omfatta alla olika komponenter för traktions systemet. Det första fallet riktar sig till en speciell komponent, medan det andra fallet är en del av ett större del system. Den allmänna rekommendationen är att utforma förutsägelse system om vissa komponenter i stället för större del system, eftersom den senare kommer att ha mer spridda data. Domän experten (se [kvalificerings problem för förutsägande underhåll](#qualifying-problems-for-predictive-maintenance)) bör hjälpa till att välja de mest relevanta del mängderna av data för analysen. Relevanta data källor beskrivs i detalj i [förberedelse av data för förutsägande underhåll](#data-preparation-for-predictive-maintenance).
+Först måste data vara _relevanta för problemet_. Överväg det användnings fall för _hjulet_ som beskrivs ovan – tränings data bör innehålla funktioner relaterade till hjul åtgärderna. Om problemet var att förutsäga fel i  _traktions systemet_, måste tränings data omfatta alla olika komponenter för traktions systemet. Det första fallet riktar sig till en speciell komponent, medan det andra fallet är en del av ett större del system. Den allmänna rekommendationen är att utforma förutsägelse system om vissa komponenter i stället för större del system, eftersom den senare kommer att ha mer spridda data. Domän experten (se [kvalificerings problem för förutsägande underhåll](#qualifying-problems-for-predictive-maintenance)) bör hjälpa till att välja de mest relevanta del mängderna av data för analysen. Relevanta data källor beskrivs i detalj i [förberedelse av data för förutsägande underhåll](#data-preparation-for-predictive-maintenance).
 
 ### <a name="sufficient-data"></a>Tillräckligt med data
 Två frågor meddelas ofta med avseende på fel historik data: (1) "hur många fel händelser krävs för att träna en modell?" (2) "hur många poster betraktas som" tillräckligt "?" Det finns inga slutgiltiga svar, utan endast regler för tummen. För (1), mer antal felaktiga händelser, bättre modellen. För (2) och det exakta antalet fel händelser beror på data och kontexten för problemet som löses. Men på vänd sidan, om en dator Miss lyckas för ofta, kommer företaget att ersätta den, vilket minskar fel instanserna. Här igen är vägledningen från domän experten viktig. Det finns dock metoder för att hantera problemet med _sällsynta händelser_. De beskrivs i avsnittet [Hantera sambalanserade data](#handling-imbalanced-data).
@@ -153,7 +153,7 @@ Statiska funktioner är metadata om utrustningen. Exempel är utrustnings fabrik
 
 Exempel på relevanta data för [exempel på PdM användnings fall](#sample-pdm-use-cases) är tabellen nedan:
 
-| Användnings fall | Exempel på relevanta data |
+| Användningsfall | Exempel på relevanta data |
 |:---------|---------------------------|
 |_Fördröjning och uppsägning av flygning_ | Flyg flödes information i form av flighta ben och sid loggar. Flyg benets data innehåller routningsinformation, till exempel avgångs-/ankomst datum, tid, flyg plats, layovers osv. Sid loggen innehåller en serie fel och underhålls koder som registrerats av personal underhålls personalen.|
 |_Delar av flyg Plans motor delar_ | Data som samlas in från sensorer i flyg planet som innehåller information om villkoret för de olika delarna. Underhålls poster hjälper dig att identifiera när komponent fel inträffade och när de ersatts.|
@@ -188,7 +188,7 @@ Andra data bearbetnings steg omfattar _hantering av saknade värden_ och _normal
 
 Med ovanstående förbearbetade data källor på plats är den slutliga omvandlingen före funktions teknik att koppla ihop tabellerna ovan baserat på till gångs-ID och tidsstämpel. Den resulterande tabellen skulle ha null-värden för kolumnen misslyckades när datorn är i normal drift. Dessa null-värden kan tilldelas av en indikator för normal drift. Använd den här kolumnen för att skapa _etiketter för den förutsägande modellen_. Mer information finns i avsnittet om [modellerings tekniker för förutsägande underhåll](#modeling-techniques-for-predictive-maintenance).
 
-## <a name="feature-engineering"></a>Funktionstekniker
+## <a name="feature-engineering"></a>Funktionsframställning
 Funktions teknik är det första steget innan du modellerar data. Dess roll i data vetenskaps processen [beskrivs här](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/create-features). En _funktion_ är ett förutsägande attribut för modellen – till exempel temperatur, tryck, vibrationer och så vidare. För PdM involverar funktions teknikerna att sammanfatta en dators hälsa över historiska data som samlas in under en storleks tids period. I det här fallet skiljer den sig från sina motparter, t. ex. fjärrövervakning, avvikelse identifiering och fel identifiering. 
 
 ### <a name="time-windows"></a>Tids fönster
@@ -362,7 +362,7 @@ Många PdM problem möter sådana data uppsättningar som är balanserade, där 
 
 Prestanda för de flesta standardalgoritmer för inlärning är komprometterade i klass data, eftersom de kan minimera den övergripande fel frekvensen. För en data uppsättning med 99% negativa och 1% positiva exempel kan en modell visas med 99% noggrannhet genom att etikettera alla instanser som negativa. Men modellen kommer att underklassificera alla positiva exempel. så även om dess noggrannhet är hög, är algoritmen inte en användbar. Därför räcker det inte med konventionella utvärderings mått, till exempel _den övergripande precisionen för fel frekvens_ för obalanserad inlärning. När de är riktade mot obalanserade data uppsättningar används andra mått för utvärdering av modeller:
 - Precision
-- Återkalla
+- Recall
 - F1-Poäng
 - Kostnads justerade ROC (egenskaper för mottagar drift)
 
@@ -423,10 +423,10 @@ PdM omfattar däremot batch- _Poäng_. För att följa modell signaturen måste 
 
 Det sista avsnittet i den här hand boken innehåller en lista över PdM, självstudier och experiment som implementerats i Azure. Dessa PdM-program kan distribueras till en Azure-prenumeration inom några minuter i vissa fall. De kan användas som proof-of-Concept-demonstrationer, sand BOXR för att experimentera med alternativ eller acceleratorer för faktiska produktions implementeringar. Dessa mallar finns i [Azure AI Gallery](https://gallery.azure.ai) -eller [Azure-GitHub](https://github.com/Azure). Dessa olika exempel kommer att samlas in i den här lösnings mal len över tid.
 
-| # | Titel | Beskrivning |
+| # | Rubrik | Beskrivning |
 |--:|:------|-------------|
 | 2 | [Mall för lösningar för förebyggande underhåll i Azure](https://github.com/Azure/AI-PredictiveMaintenance) | En lösnings mall med öppen källkod som demonstrerar Azure ML-modellering och en fullständig Azure-infrastruktur som kan stödja förebyggande underhålls scenarier i samband med IoT-fjärrövervakning. |
-| 3 | [Djupinlärning för förutsägande underhåll](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook med en demonstrations lösning för att använda LSTM-nätverk (Long-Shortest Memory) (en klass av aktuella neurala-nätverk) för förutsägande underhåll, med ett [blogg inlägg i det här exemplet](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
+| 3 | [Djupinlärning för förutsägande underhåll](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook med en demonstrations lösning för att använda LSTM-nätverk (Long Short-Term-minne) (en klass av aktuella neurala-nätverk) för förutsägande underhåll, med ett [blogg inlägg i det här exemplet](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Förebyggande underhåll i Azure för Aerospace](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | En av de första PdM-mallarna baserat på Azure ML v 1.0 för underhåll av flyg plan. Den här guiden kommer från det här projektet. |
 | 5 | [Azure AI Toolkit för IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | AI i IoT Edge med TensorFlow; Toolkit-paket djup inlärnings modeller i Azure IoT Edge-kompatibla Docker-behållare och exponera dessa modeller som REST-API: er.
 | 6 | [Förutsägande underhåll av Azure IoT](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite datorer – förkonfigurerad lösning. PdM-mall för hantering av flyg plan med IoT Suite. [Ett annat dokument och en](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) [genom gång](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) som är relaterad till samma projekt. |
@@ -439,14 +439,14 @@ Microsoft Azure erbjuder utbildnings vägar för grundläggande koncept bakom Pd
 
 | Utbildnings resurs  | Tillgänglighet |
 |:-------------------|--------------|
-| [Utbildnings väg för PdM med träd och slumpmässig skog](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Offentlig | 
-| [Utbildnings väg för PdM med djup inlärning](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Offentlig |
-| [AI-utvecklare på Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Offentlig |
-| [Microsoft AI-skola](https://aischool.microsoft.com/learning-paths) | Offentlig |
-| [Azure AI-utbildning från GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Offentlig |
-| [LinkedIn Learning](https://www.linkedin.com/learning) | Offentlig |
-| [Microsoft AI YouTube-webb seminarier](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Offentlig |
-| [Microsoft AI show](https://channel9.msdn.com/Shows/AI-Show) | Offentlig |
+| [Utbildnings väg för PdM med träd och slumpmässig skog](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Offentliga | 
+| [Utbildnings väg för PdM med djup inlärning](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Offentliga |
+| [AI-utvecklare på Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Offentliga |
+| [Microsoft AI-skola](https://aischool.microsoft.com/learning-paths) | Offentliga |
+| [Azure AI-utbildning från GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Offentliga |
+| [LinkedIn Learning](https://www.linkedin.com/learning) | Offentliga |
+| [Microsoft AI YouTube-webb seminarier](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Offentliga |
+| [Microsoft AI show](https://channel9.msdn.com/Shows/AI-Show) | Offentliga |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Partner |
 | [Microsoft Partner Network](https://partner.microsoft.com/training/training-center) | Partner |
 

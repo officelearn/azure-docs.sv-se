@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: 12ab5a9598cc0222f5a3e64985be2e2ea9e7e2fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85564291"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Ersätta en maskin varu komponent på din StorSimple 8000-serie enhet
@@ -69,7 +69,7 @@ De viktigaste maskin varu komponenterna i enheten sammanfattas i följande tabel
 
 | Komponenter | Antal närvarande | Plugin-modul? | Ersättnings procedur |
 |:--- |:--- |:--- |:--- |
-| Chassi |1 |No |[Ersätt chassit på din StorSimple-enhet](storsimple-8000-chassis-replacement.md) |
+| Chassi |1 |Inga |[Ersätt chassit på din StorSimple-enhet](storsimple-8000-chassis-replacement.md) |
 | Primära kontrollanter |2 |Ja |[Ersätta en Controller-modul på din StorSimple-enhet](storsimple-8000-controller-replacement.md) |
 | 764W Power and kylning-moduler (PCMs) |2 |Ja |[Ersätta en energi- och kylningsmodul på StorSimple-enheten](storsimple-8000-power-cooling-module-replacement.md) |
 | Reserv batteri |2 |Ja |[Ersätta modulen för extrabatteriet på StorSimple-enheten](storsimple-8000-battery-replacement.md) |
@@ -81,7 +81,7 @@ Den primära inne slutningen och EBOD-kabinettet skiljer sig i sina I/O-moduler.
 
 | Komponenter | Antal närvarande | Plugin-modul? | Ersättnings procedur |
 |:--- |:--- |:--- |:--- |
-| Chassi |1 |No |[Ersätt chassit på din StorSimple-enhet](storsimple-8000-chassis-replacement.md) |
+| Chassi |1 |Inga |[Ersätt chassit på din StorSimple-enhet](storsimple-8000-chassis-replacement.md) |
 | EBOD kontrollanter |2 |Ja |[Ersätta en EBOD-kontrollant på din StorSimple-enhet](storsimple-8000-ebod-controller-replacement.md) |
 | 580W Power and kylning-moduler (PCMs) |2 |Ja |[Ersätta en energi- och kylningsmodul på StorSimple-enheten](storsimple-8000-power-cooling-module-replacement.md) |
 | Diskenheter |12 |Ja |[Ersätta en disk enhet på din StorSimple-enhet](storsimple-8000-disk-drive-replacement.md) |

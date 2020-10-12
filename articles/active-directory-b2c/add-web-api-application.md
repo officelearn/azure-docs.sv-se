@@ -11,17 +11,17 @@ ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 438d2fec9efc6a1ad3fcdaa2829573e7205820ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385968"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Lägga till ett webb-API-program till din Azure Active Directory B2C-klient
 
  Registrera webb-API-resurser i klient organisationen så att de kan acceptera och svara på begär Anden från klient program som presenterar en åtkomsttoken. Den här artikeln visar hur du registrerar ett webb-API i Azure Active Directory B2C (Azure AD B2C).
 
-Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
+Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
 
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
@@ -31,7 +31,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår
 1. Välj **Appregistreringar**och välj sedan **ny registrering**.
 1. Ange ett **namn** för programmet. Till exempel *webapi1*.
 1. Under **omdirigerings-URI**väljer du **webb**och anger sedan en slut punkt där Azure AD B2C ska returnera de token som programmet begär. I ett produktions program kan du ange omdirigerings-URI: en till en slut punkt `https://localhost:5000` . Under utveckling eller testning kan du ställa in det på `https://jwt.ms` , ett Microsoft-ägda webb program som visar det avkodade innehållet i en token (innehållet i token aldrig lämnar webbläsaren). Du kan när som helst lägga till och ändra omdirigerings-URI: er i dina registrerade program.
-1. Välj **Registrera**.
+1. Välj **Register** (Registrera).
 1. Registrera **program-ID: t (Client)** som ska användas i din webb-API-kod.
 
 Om du har ett program som implementerar det implicita tilldelnings flödet, till exempel ett JavaScript-baserat program med en enda sida (SPA), kan du aktivera flödet genom att följa dessa steg:
@@ -49,7 +49,7 @@ Om du har ett program som implementerar det implicita tilldelnings flödet, till
 5. Ange ett namn på programmet. Till exempel *webapi1*.
 6. För **Inkludera webbapp/webb-API** och **Tillåt implicit flöde** väljer du **Ja**.
 7. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. I produktions programmet kan du ange svars-URL till ett värde som `https://localhost:44332` . I test syfte ställer du in svars-URL till `https://jwt.ms` .
-8. För **URI för app-ID** anger du den identifierare som används för webb-API:t. Den fullständiga URI-identifieraren inklusive domänen skapas åt dig. Till exempel `https://contosotenant.onmicrosoft.com/api`.
+8. För **URI för app-ID** anger du den identifierare som används för webb-API:t. Den fullständiga URI-identifieraren inklusive domänen skapas åt dig. Exempelvis `https://contosotenant.onmicrosoft.com/api`.
 9. Klicka på **Skapa**.
 10. På egenskapssidan antecknar du program-ID:t du kommer att använda när du konfigurerar webbappen.
 

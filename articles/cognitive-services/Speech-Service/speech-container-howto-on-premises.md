@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: aahi
 ms.openlocfilehash: aa1cb6e9fdd504622b2f444d511a8dd0e5fc1ca8
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82608394"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Använda tal tjänst behållare med Kubernetes och Helm
@@ -27,15 +27,15 @@ Följande krav gäller innan du använder tal behållare lokalt:
 
 | Krävs | Syfte |
 |----------|---------|
-| Azure-konto | Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][free-azure-account] konto innan du börjar. |
+| Azure-konto | Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto][free-azure-account] innan du börjar. |
 | Container Registry åtkomst | För att Kubernetes ska kunna hämta Docker-avbildningarna till klustret behöver den åtkomst till behållar registret. |
 | Kubernetes CLI | [KUBERNETES CLI][kubernetes-cli] krävs för att hantera delade autentiseringsuppgifter från behållar registret. Kubernetes krävs också innan Helm, som är Kubernetes Package Manager. |
 | Helm CLI | Installera [Helm CLI][helm-install], som används för att installera ett Helm-diagram (definition av container paket). |
-|Tal resurs |Du måste ha följande för att kunna använda dessa behållare:<br><br>En _Azure-_ resurs för att hämta den associerade fakturerings nyckeln och URI för fakturerings slut punkt. Båda värdena är tillgängliga på Azure Portals **tal** översikt och nycklar sidor och krävs för att starta behållaren.<br><br>**{Api_key}**: resurs nyckel<br><br>**{ENDPOINT_URI}**: slut punkts-URI-exemplet är:`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|Tal resurs |Du måste ha följande för att kunna använda dessa behållare:<br><br>En _Azure-_ resurs för att hämta den associerade fakturerings nyckeln och URI för fakturerings slut punkt. Båda värdena är tillgängliga på Azure Portals **tal** översikt och nycklar sidor och krävs för att starta behållaren.<br><br>**{Api_key}**: resurs nyckel<br><br>**{ENDPOINT_URI}**: slut punkts-URI-exemplet är: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>Den rekommenderade värddator konfigurationen
 
-Se information om [värddatorn för tal tjänst behållare][speech-container-host-computer] som en referens. Det här *Helm-diagrammet* BERÄKNAR automatiskt processor-och minnes krav baserat på hur många avkodningar (samtidiga begär Anden) som användaren anger. Dessutom justeras det baserat på om optimeringar för ljud-och text indata konfigureras `enabled`som. Helm-diagrammet använder som standard två samtidiga begär Anden och inaktiverar optimering.
+Se information om [värddatorn för tal tjänst behållare][speech-container-host-computer] som en referens. Det här *Helm-diagrammet* BERÄKNAR automatiskt processor-och minnes krav baserat på hur många avkodningar (samtidiga begär Anden) som användaren anger. Dessutom justeras det baserat på om optimeringar för ljud-och text indata konfigureras som `enabled` . Helm-diagrammet använder som standard två samtidiga begär Anden och inaktiverar optimering.
 
 | Tjänst | PROCESSOR/container | Minne/container |
 |--|--|--|
@@ -48,9 +48,9 @@ Värddatorn förväntas ha ett tillgängligt Kubernetes-kluster. I den här sjä
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Dela Docker-autentiseringsuppgifter med Kubernetes-klustret
 
-Om du vill tillåta Kubernetes- `docker pull` klustret till de konfigurerade avbildningarna från `containerpreview.azurecr.io` behållar registret måste du överföra Docker-autentiseringsuppgifterna till klustret. Kör [`kubectl create`][kubectl-create] kommandot nedan för att skapa en *Docker-register hemlighet* baserat på de autentiseringsuppgifter som tillhandahålls från behållar registrets åtkomst krav.
+Om du vill tillåta Kubernetes-klustret till `docker pull` de konfigurerade avbildningarna från `containerpreview.azurecr.io` behållar registret måste du överföra Docker-autentiseringsuppgifterna till klustret. Kör [`kubectl create`][kubectl-create] kommandot nedan för att skapa en *Docker-register hemlighet* baserat på de autentiseringsuppgifter som tillhandahålls från behållar registrets åtkomst krav.
 
-Kör följande kommando från det kommando rads gränssnitt du väljer. Se till att ersätta `<username>`, `<password>`och `<email-address>` med autentiseringsuppgifterna för behållar registret.
+Kör följande kommando från det kommando rads gränssnitt du väljer. Se till att ersätta `<username>` , `<password>` och `<email-address>` med autentiseringsuppgifterna för behållar registret.
 
 ```console
 kubectl create secret docker-registry mcr \
@@ -74,13 +74,13 @@ Följande utdata skrivs ut till-konsolen när hemligheten har skapats.
 secret "mcr" created
 ```
 
-Verifiera att hemligheten har skapats genom att köra [`kubectl get`][kubectl-get] med- `secrets` flaggan.
+Verifiera att hemligheten har skapats genom att köra med- [`kubectl get`][kubectl-get] `secrets` flaggan.
 
 ```console
 kubectl get secrets
 ```
 
-Att `kubectl get secrets` köra skriver ut alla konfigurerade hemligheter.
+Att köra `kubectl get secrets` skriver ut alla konfigurerade hemligheter.
 
 ```console
 NAME    TYPE                              DATA    AGE
@@ -95,7 +95,7 @@ Besök [Microsoft Helm Hub][ms-helm-hub] för alla allmänt tillgängliga Helm-d
 helm repo add microsoft https://microsoft.github.io/charts/repo
 ```
 
-Nu ska vi konfigurera våra Helm-diagram värden. Kopiera och klistra in följande YAML i en fil med `config-values.yaml`namnet. Mer information om hur Cognitive Services du anpassar det **lokala Helm-diagrammet för tal**finns i [Anpassa Helm-diagram](#customize-helm-charts). Ersätt kommentarerna `# {ENDPOINT_URI}` och `# {API_KEY}` med dina egna värden.
+Nu ska vi konfigurera våra Helm-diagram värden. Kopiera och klistra in följande YAML i en fil med namnet `config-values.yaml` . Mer information om hur Cognitive Services du anpassar det **lokala Helm-diagrammet för tal**finns i [Anpassa Helm-diagram](#customize-helm-charts). Ersätt `# {ENDPOINT_URI}` kommentarerna och `# {API_KEY}` med dina egna värden.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -134,7 +134,7 @@ textToSpeech:
 ```
 
 > [!IMPORTANT]
-> Om värdena `billing` och `apikey` inte har angetts upphör tjänsterna att gälla efter 15 min. Det går inte heller att verifiera eftersom tjänsterna inte är tillgängliga.
+> Om `billing` värdena och `apikey` inte har angetts upphör tjänsterna att gälla efter 15 min. Det går inte heller att verifiera eftersom tjänsterna inte är tillgängliga.
 
 ### <a name="the-kubernetes-package-helm-chart"></a>Kubernetes-paketet (Helm-diagrammet)
 
@@ -146,7 +146,7 @@ De tillhandahållna *Helm-diagrammen* hämtar Docker-avbildningarna av röst tj�
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Installera Helm-diagrammet på Kubernetes-klustret
 
-Om du vill installera *Helm-diagrammet* måste du köra [`helm install`][helm-install-cmd] kommandot och ersätta `<config-values.yaml>` med rätt sökväg och fil namns argument. `microsoft/cognitive-services-speech-onpremise` Helm-diagrammet som refereras nedan är tillgängligt i [Microsoft Helm Hub här][ms-helm-hub-speech-chart].
+Om du vill installera *Helm-diagrammet* måste du köra [`helm install`][helm-install-cmd] kommandot och ersätta `<config-values.yaml>` med rätt sökväg och fil namns argument. `microsoft/cognitive-services-speech-onpremise`Helm-diagrammet som refereras nedan är tillgängligt i [Microsoft Helm Hub här][ms-helm-hub-speech-chart].
 
 ```console
 helm install onprem-speech microsoft/cognitive-services-speech-onpremise \
@@ -238,7 +238,7 @@ helm test onprem-speech
 ```
 
 > [!IMPORTANT]
-> Dessa tester Miss känner om POD status inte `Running` är eller om distributionen inte finns med i `AVAILABLE` kolumnen. Vara patient eftersom det kan ta mer än tio minuter att slutföra.
+> Dessa tester Miss känner om POD status inte är `Running` eller om distributionen inte finns med i `AVAILABLE` kolumnen. Vara patient eftersom det kan ta mer än tio minuter att slutföra.
 
 De här testerna kommer att resultera i olika status resultat:
 
@@ -249,7 +249,7 @@ RUNNING: text-to-speech-readiness-test
 PASSED: text-to-speech-readiness-test
 ```
 
-Som ett alternativ till att köra *Helm-testerna*kan du samla in de *externa IP-* adresserna och motsvarande `kubectl get all` portar från kommandot. Med hjälp av IP och port öppnar du en webbläsare och navigerar `http://<external-ip>:<port>:/swagger/index.html` till för att Visa API-Swagger sida (er).
+Som ett alternativ till att köra *Helm-testerna*kan du samla in de *externa IP-* adresserna och motsvarande portar från `kubectl get all` kommandot. Med hjälp av IP och port öppnar du en webbläsare och navigerar till `http://<external-ip>:<port>:/swagger/index.html` för att Visa API-Swagger sida (er).
 
 ## <a name="customize-helm-charts"></a>Anpassa Helm-diagram
 
@@ -266,7 +266,7 @@ Helm-diagram är hierarkiska. Om du är hierarkiskt tillåter det att diagrammet
 Mer information om hur du installerar program med Helm i Azure Kubernetes service (AKS) [finns här][installing-helm-apps-in-aks].
 
 > [!div class="nextstepaction"]
-> [Cognitive Services behållare][cog-svcs-containers]
+> [Cognitive Services-containrar][cog-svcs-containers]
 
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free

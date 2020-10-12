@@ -12,10 +12,10 @@ ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88235713"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planera en distribution med automatisk användaretablering
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) automatisk användar etablering fören klar pr
 
 Se [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md) för att bättre förstå funktionerna.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Läs mer
 
 Användar etablering skapar en grund för pågående identitets styrning och förbättrar kvaliteten på affärs processer som förlitar sig på auktoritativa identitets data.
 
@@ -73,9 +73,9 @@ I den här artikeln används följande villkor:
 | Onlinekurser| SkillUp online:  [hantera identiteter](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Lär dig hur du integrerar Azure AD med många SaaS-program och skyddar användarnas åtkomst till dessa program. |
 | Böcker| [Modern autentisering med Azure Active Directory för webb program (referens för utvecklare) 1: a utgåvan](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Det här är en auktoritativ och djupgående guide för att skapa Active Directory-autentiseringsbegäranden för de här nya miljöerna. |
 | Självstudier| Se [listan med självstudier om hur du integrerar SaaS-appar med Azure AD](../saas-apps/tutorial-list.md). |
-| Vanliga frågor| [Vanliga frågor](../app-provisioning/user-provisioning.md) om automatisk användar etablering |
+| VANLIGA FRÅGOR OCH SVAR| [Vanliga frågor](../app-provisioning/user-provisioning.md) om automatisk användar etablering |
 
-### <a name="solution-architectures"></a>Lösnings arkitekturer
+### <a name="solution-architectures"></a>Lösningsarkitekturer
 
 Azure AD Provisioning-tjänsten etablerar användare för att SaaS appar och andra system genom att ansluta till användar hanterings-API-slutpunkter som tillhandahålls av varje program leverantör. Dessa API-slutpunkter för användar hantering tillåter Azure AD att program mässigt skapa, uppdatera och ta bort användare.
 
@@ -207,7 +207,7 @@ Om du vill implementera automatisk användar etablering måste du definiera de a
 
 Azure AD stöder direkt mappning mellan attribut och attribut, vilket ger konstanta värden eller [skriver uttryck för mappningar av attribut](../app-provisioning/functions-for-customizing-application-data.md). Den här flexibiliteten ger dig noggrann kontroll över vad som kommer att vara ifyllt i mål systemets attribut. Du kan använda [Microsoft Graph API](../app-provisioning/export-import-provisioning-configuration.md) och Graph Explorer för att exportera mappningar och schemat för användar etablerings attribut till en JSON-fil och importera tillbaka dem till Azure AD.
 
-Mer information finns i [Anpassa användar etablering attribut-mappningar för SaaS-program i Azure Active Directory](../app-provisioning/customize-application-attributes.md).
+Mer information finns i [Anpassa användar etablering Attribute-Mappings för SaaS-program i Azure Active Directory](../app-provisioning/customize-application-attributes.md).
 
 ### <a name="special-considerations-for-user-provisioning"></a>Särskilda överväganden för användar etablering
 

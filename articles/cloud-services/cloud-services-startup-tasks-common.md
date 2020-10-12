@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: beebe60d70b7e4908bd3e9348fe815036d6955c3
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85920071"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Vanliga start uppgifter för moln tjänster
@@ -377,11 +377,11 @@ EXIT /B 0
 Här följer några metod tips som du bör följa när du konfigurerar aktiviteter för din webb-eller arbets roll.
 
 ### <a name="always-log-startup-activities"></a>Logga alltid start aktiviteter
-Visual Studio tillhandahåller inte en fel sökare för att stega igenom kommandofiler, så det är bra att hämta så mycket information som möjligt för batch-filernas funktion. Loggning av utdata från kommandofiler, både **STDOUT** och **stderr**, kan ge dig viktig information när du försöker felsöka och åtgärda kommandofiler. Om du vill logga både **STDOUT** och **stderr** till StartupLog.txt-filen i katalogen som refereras till av miljövariabeln **% Temp%** , lägger du till texten `>>  "%TEMP%\\StartupLog.txt" 2>&1` i slutet av de rader som du vill logga. Om du till exempel vill köra setup.exe i katalogen **% PathToApp1Install%** :`"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
+Visual Studio tillhandahåller inte en fel sökare för att stega igenom kommandofiler, så det är bra att hämta så mycket information som möjligt för batch-filernas funktion. Loggning av utdata från kommandofiler, både **STDOUT** och **stderr**, kan ge dig viktig information när du försöker felsöka och åtgärda kommandofiler. Om du vill logga både **STDOUT** och **stderr** till StartupLog.txt-filen i katalogen som refereras till av miljövariabeln **% Temp%** , lägger du till texten `>>  "%TEMP%\\StartupLog.txt" 2>&1` i slutet av de rader som du vill logga. Om du till exempel vill köra setup.exe i katalogen **% PathToApp1Install%** : `"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
 
 För att förenkla XML-koden kan du skapa en *kommando* fil för omslutning som anropar alla dina start uppgifter tillsammans med loggning och ser till att varje underordnad aktivitet delar samma miljövariabler.
 
-Det kan vara irriterande om du använder `>> "%TEMP%\StartupLog.txt" 2>&1` i slutet av varje start åtgärd. Du kan framtvinga loggning av uppgifter genom att skapa en omslutning som hanterar loggningen åt dig. Den här omslutningen anropar den riktiga kommando filen som du vill köra. Utdata från mål kommando filen omdirigeras till *Startuplog.txts* filen.
+Det kan vara irriterande om du använder `>> "%TEMP%\StartupLog.txt" 2>&1` i slutet av varje start åtgärd. Du kan framtvinga loggning av uppgifter genom att skapa en omslutning som hanterar loggningen åt dig. Den här omslutningen anropar den riktiga kommando filen som du vill köra. Utdata från mål kommando filen omdirigeras till *Startuplog.txts * filen.
 
 I följande exempel visas hur du omdirigerar alla utdata från en start kommando fil. I det här exemplet skapar filen ServerDefinition. csdef en start aktivitet som anropar *logwrap. cmd*. *logwrap. cmd* anropar *Startup2. cmd*, omdirigerar alla utdata till **% Temp% \\StartupLog.txt**.
 
@@ -506,7 +506,7 @@ Lär dig mer om hur [aktiviteter](cloud-services-startup-tasks.md) fungerar.
 [Variabel]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[Slut punkter]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[Slutpunkter]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue

@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: b90f86576928e44e00c548f4f3ad3c22c27b8bb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85829443"
 ---
 # <a name="split-merge-security-configuration"></a>Säkerhets konfiguration för delad sammanslagning
@@ -59,8 +59,8 @@ Ett TLS/SSL-certifikat krävs för att kryptera kommunikationen och autentisera 
 
 ### <a name="create-a-new-self-signed-certificate"></a>Skapa ett nytt självsignerat certifikat
 
-1. [Skapa ett självsignerat certifikat](#create-a-self-signed-certificate)
-2. [Skapa PFX-fil för självsignerat TLS/SSL-certifikat](#create-pfx-file-for-self-signed-tlsssl-certificate)
+1. [Skapa ett Self-Signed certifikat](#create-a-self-signed-certificate)
+2. [Skapa PFX-fil för Self-Signed TLS/SSL-certifikat](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [Överför TLS/SSL-certifikat till moln tjänsten](#upload-tlsssl-certificate-to-cloud-service)
 4. [Uppdatera TLS/SSL-certifikat i tjänst konfigurations filen](#update-tlsssl-certificate-in-service-configuration-file)
 5. [Importera TLS/SSL-certifikatutfärdare](#import-tlsssl-certification-authority)
@@ -78,10 +78,10 @@ Ett TLS/SSL-certifikat krävs för att kryptera kommunikationen och autentisera 
 Klient certifikat krävs för att kunna autentisera begär anden till tjänsten. Välj de tre scenarierna nedan och kör alla steg:
 
 ### <a name="turn-off-client-certificates"></a>Inaktivera klient certifikat
-1. [Inaktivera autentisering baserad på klient certifikat](#turn-off-client-certificate-based-authentication)
+1. [Inaktivera klient Certificate-Based autentisering](#turn-off-client-certificate-based-authentication)
 
 ### <a name="issue-new-self-signed-client-certificates"></a>Utfärda nya självsignerade klient certifikat
-1. [Skapa en självsignerad certifikat utfärdare](#create-a-self-signed-certification-authority)
+1. [Skapa en Self-Signed certifikat utfärdare](#create-a-self-signed-certification-authority)
 2. [Ladda upp CA-certifikat till moln tjänsten](#upload-ca-certificate-to-cloud-service)
 3. [Uppdatera CA-certifikat i tjänst konfigurations filen](#update-ca-certificate-in-service-configuration-file)
 4. [Utfärda klient certifikat](#issue-client-certificates)
@@ -105,8 +105,8 @@ Klient certifikat krävs för att kunna autentisera begär anden till tjänsten.
 Ett certifikat krävs för att kryptera de autentiseringsuppgifter som lagras i metadatalagret. Välj de tre scenarierna nedan och kör alla steg:
 
 ### <a name="use-a-new-self-signed-certificate"></a>Använd ett nytt självsignerat certifikat
-1. [Skapa ett självsignerat certifikat](#create-a-self-signed-certificate)
-2. [Skapa PFX-fil för självsignerat krypterings certifikat](#create-pfx-file-for-self-signed-tlsssl-certificate)
+1. [Skapa ett Self-Signed certifikat](#create-a-self-signed-certificate)
+2. [Skapa PFX-fil för Self-Signed krypterings certifikat](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [Ladda upp krypterings certifikat till moln tjänsten](#upload-encryption-certificate-to-cloud-service)
 4. [Uppdatera krypterings certifikat i tjänst konfigurations filen](#update-encryption-certificate-in-service-configuration-file)
 
@@ -444,7 +444,7 @@ Följ de här stegen:
 3. Välj **Certifikat**.
 4. Klicka på **Lägg till**.
 5. Välj plats för certifikat arkiv.
-6. Klicka på **Slutför**.
+6. Klicka på **Finish**.
 7. Klicka på **OK**.
 8. Expandera **certifikat**.
 9. Expandera noden certifikat arkiv.
@@ -464,7 +464,7 @@ I **guiden Exportera certifikat**:
 8. Klicka på **Nästa**.
 9. Skriv eller bläddra i ett fil namn där certifikatet ska lagras (Använd en. PFX-tillägg).
 10. Klicka på **Nästa**.
-11. Klicka på **Slutför**.
+11. Klicka på **Finish**.
 12. Klicka på **OK**.
 
 ## <a name="import-certificate"></a>Importera certifikatet
@@ -482,7 +482,7 @@ I guiden Importera certifikat:
 5. Välj "placera" certifikat i följande Arkiv
 6. Klicka på **Browse** (Bläddra).
 7. Välj önskat arkiv.
-8. Klicka på **Slutför**.
+8. Klicka på **Finish**.
    
    * Om arkivet Betrodda rot certifikat utfärdare valdes klickar du på **Ja**.
 9. Klicka på **OK** i alla dialog fönster.

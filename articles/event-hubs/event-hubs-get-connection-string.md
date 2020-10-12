@@ -4,10 +4,10 @@ description: Den här artikeln innehåller anvisningar för att få en anslutnin
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 5ae6c66ddbbf4b9946e7037e1a7723043bf60507
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86537198"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Hämta en Event Hubs anslutnings sträng
@@ -25,7 +25,7 @@ Mallen för anslutnings strängen ser ut så här
 Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 ```
 
-Ett exempel på en anslutnings sträng kan se ut`Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=`
+Ett exempel på en anslutnings sträng kan se ut `Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=`
 
 Den här artikeln vägleder dig genom olika sätt att hämta anslutnings strängen.
 
@@ -74,4 +74,4 @@ Mer information om Azure CLI-kommandon för Event Hubs finns i [Azure CLI för E
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
 * [Översikt över Event Hubs](./event-hubs-about.md)
-* [Skapa en händelsehubb](event-hubs-create.md)
+* [Skapa en Händelsehubben](event-hubs-create.md)

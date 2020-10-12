@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
 ms.openlocfilehash: b06ae396ae15c8572cf8160ce576651f47001add
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87920508"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Så här skyddar du DNS-zoner och -poster
@@ -162,8 +162,8 @@ I följande exempel visas en anpassad roll definition för hantering av CNAME-po
 
 Egenskapen åtgärder definierar följande DNS-/regionsspecifika behörigheter:
 
-* `Microsoft.Network/dnsZones/CNAME/*`ger fullständig kontroll över CNAME-poster
-* `Microsoft.Network/dnsZones/read`ger behörighet att läsa DNS-zoner, men inte att ändra dem, så att du kan se i vilken zon som CNAME skapas.
+* `Microsoft.Network/dnsZones/CNAME/*` ger fullständig kontroll över CNAME-poster
+* `Microsoft.Network/dnsZones/read` ger behörighet att läsa DNS-zoner, men inte att ändra dem, så att du kan se i vilken zon som CNAME skapas.
 
 Återstående åtgärder kopieras från den [inbyggda rollen deltagare i DNS-zonen](../role-based-access-control/built-in-roles.md#dns-zone-contributor).
 

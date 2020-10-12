@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 49e6df417190071e06582be400575e1880f2543a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82692291"
 ---
 # <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autentisering med Azure Data Lake Storage Gen1 som använder Azure Active Directory
@@ -40,7 +40,7 @@ I följande tabell visas hur autentisering med slutanvändare och tjänst-till-t
 <i>* Klicka på <b>✔ \* </b> symbolen. Det är en länk.</i><br>
 <i>* * MFA står för Multi-Factor Authentication</i>
 
-Mer information om hur du använder Azure Active Directory för autentisering finns i [scenarier för autentisering för Azure Active Directory](../active-directory/develop/authentication-scenarios.md) .
+Mer information om hur du använder Azure Active Directory för autentisering finns i  [scenarier för autentisering för Azure Active Directory](../active-directory/develop/authentication-scenarios.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 

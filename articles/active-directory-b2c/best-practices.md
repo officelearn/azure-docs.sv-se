@@ -12,17 +12,17 @@ ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
 ms.openlocfilehash: c8739da859c00a9caf08ac833f7b4ae7ae52e392
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90084319"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Rekommendationer och metod tips för Azure Active Directory B2C
 
 Följande metod tips och rekommendationer beskriver några av de viktigaste aspekterna av att integrera Azure Active Directory (Azure AD) B2C i befintliga eller nya program miljöer.
 
-## <a name="fundamentals"></a>Grunder
+## <a name="fundamentals"></a>Grunderna
 
 | Regelverk | Beskrivning |
 |--|--|
@@ -70,7 +70,7 @@ Testa och automatisera implementeringen av Azure AD B2C.
 | Begränsning |  Azure AD B2C begränsar trafik om för många begär Anden skickas från samma källa under en kort tids period. Använd flera trafik källor vid belastnings testning och hantera `AADB2C90229` fel koden på ett smidigt sätt i dina program. |
 | Automation | Använd en pipeline för kontinuerlig integrering och leverans (CI/CD) för att automatisera testning och distribution, till exempel [Azure DevOps](deploy-custom-policies-devops.md). |
 
-## <a name="operations"></a>Operations
+## <a name="operations"></a>Åtgärder
 
 Hantera din Azure AD B2Cs miljö.
 

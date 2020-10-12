@@ -11,10 +11,10 @@ ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
 ms.openlocfilehash: 55c5e6c5b718dc2de295b9b4418ddc8607a69f8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84872052"
 ---
 # <a name="peering-service-faq"></a>Vanliga frågor och svar om peering-tjänsten
@@ -22,29 +22,29 @@ ms.locfileid: "84872052"
 I den här artikeln förklaras de vanligaste frågorna om anslutningar till Azure peering-tjänsten.
 
 
-**F. vilka är mål kunderna?**
+**C. Vilka är mål kunderna?**
 
 A. Mål kunder är företag som ansluter till Microsoft Cloud via Internet som transport.
 
-**F. kan kunder registrera sig för peering-tjänsten med flera leverantörer?** 
+**C. Kan kunder registrera sig för peering-tjänsten med flera leverantörer?** 
 
 A. Ja, kunder kan registrera sig för peering-tjänsten med flera leverantörer i samma region eller olika regioner, men inte för samma prefix.
 
-**F. kan kunder välja en unik Internet leverantör för sina webbplatser per geografisk region?**
+**C. Kan kunder välja en unik Internet leverantör för sina webbplatser per geografisk region?**
 
 A. Ja, kunderna kan göra det. Välj partner leverantören per region som passar dina verksamhets-och drift behov.
 
-**F. Vad är en Microsoft Edge-PoP?**
+**C. Vad är en Microsoft Edge-PoP?**
 
 A. Det är en fysisk plats där Microsoft samverkar med andra nätverk. På Microsoft Edge-PoP-platsen är tjänster som Azures front-dörr och Azure CDN värdbaserade. Mer information finns i [Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-features).
 
 ## <a name="peering-service-unique-characteristics"></a>Peering-tjänst: unika egenskaper
 
-**F. Hur skiljer sig peering-tjänsten från normal Internet åtkomst?**
+**C. Hur skiljer sig peering-tjänsten från normal Internet åtkomst?**
 
 A. Partner som har registrerat sig för Microsoft-peering-tjänsten arbetar med Microsoft för att erbjuda optimerad Routning och tillförlitlig anslutning till Microsoft-tjänster.  
 
-**F. Hur skiljer sig peering-tjänsten från ExpressRoute?**
+**C. Hur skiljer sig peering-tjänsten från ExpressRoute?**
 
 A. Azure ExpressRoute är en privat, dedikerad anslutning från en eller flera kund platser. Medan peering-tjänsten erbjuder optimerad offentlig anslutning och inte stöder någon privat anslutning, erbjuder den även optimerad anslutning för lokala Internet-seminarier.
 

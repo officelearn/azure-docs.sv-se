@@ -4,10 +4,10 @@ description: Azure Notebooks förhandsgranska projekt hanterar en samling anteck
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.openlocfilehash: 4a51f9b12ca24d16858b41357627ff26d233357f
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86181512"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Skapa och klona projekt i Azure Notebooks för hands version
@@ -28,7 +28,7 @@ Vad du kan göra på instrument panelen beror på om du har loggat in med det ko
 
 | Kommando | Tillgängligt för | Beskrivning |
 | --- | --- | --- |
-| **Kör** | Ägare | Startar Project Server och öppnar projektmappen i Jupyter. (Mer ofta går du till en projektmapp först och startar sedan en antecknings bok där.) |
+| **Fungerar** | Ägare | Startar Project Server och öppnar projektmappen i Jupyter. (Mer ofta går du till en projektmapp först och startar sedan en antecknings bok där.) |
 | **Ladda ned** | Vem som helst | Laddar ned en kopia av det valda projektet som en ZIP-fil. |
 | **Dela** | Vem som helst | Visar popup-fönstret för delning som du kan använda för att hämta en URL till ett valt projekt, dela till sociala medier, skicka ett e-postmeddelande med URL: en och hämta både HTML-eller markdown-kod för med ett "lansera antecknings bok"-märke (se [Hämta en start-märke](#obtain-a-launch-badge)) med URL: en. |
 | **Ta bort** | Ägare | Tar bort det markerade projektet. Du kan inte ångra den här åtgärden. |
@@ -57,11 +57,11 @@ Om du inte har ett Azure Notebooks-projekt kan du skapa en länk som klonas frå
 
 När du använder kommandot **+ nytt projekt** visas Azure Notebooks popup-fönstret **Skapa nytt projekt** . Ange följande information i den här popup-menyn och välj sedan **skapa**:
 
-| Fält | Beskrivning |
+| Field | Beskrivning |
 | --- | --- |
 | Projektnamn | Ett eget namn för ditt projekt som Azure Notebooks används för visning. Till exempel "mitt Notebook-projekt". |
 | Projekt-ID | En anpassad identifierare som blir en del av den URL som du använder för att dela ett projekt (formuläret är `https://notebooks.azure.com/<user_id>/projects/<project_id>` ). Detta ID får endast använda bokstäver, siffror och bindestreck, får innehålla högst 30 tecken och får inte vara ett [reserverat projekt-ID](#reserved-project-ids). Om du är osäker på vad du ska använda, är en gemensam konvention att använda en gemen version av ditt projekt namn där blank steg är i bindestreck, till exempel "Min-anteckningsbok-Project" (trunkeras om det behövs för att få plats för längd begränsningen). |
-| Offentlig | Om den här inställningen är aktive rad kan vem som helst med länken komma åt projektet. Ta bort det här alternativet när du skapar ett privat projekt. |
+| Offentliga | Om den här inställningen är aktive rad kan vem som helst med länken komma åt projektet. Ta bort det här alternativet när du skapar ett privat projekt. |
 | Initiera projektet med ett viktigt | Om det här alternativet anges skapas en standard- *Readme.MD* -fil i projektet. I en *Readme.MD* -fil kan du ange dokumentation för ditt projekt om du vill. |
 
 ### <a name="reserved-project-ids"></a>Reserverade projekt-ID: n
@@ -85,7 +85,7 @@ Följande reserverade ord kan inte användas själva som projekt-ID. Dessa reser
 - bibliotek
 - management
 - ny
-- 1150
+- notebook
 - notebooks
 - pdf
 - preview
@@ -104,13 +104,13 @@ Eftersom ett projekt-ID också är en del av ett projekts webb adress kan Ad Blo
 
 Du kan enkelt importera en hel offentlig GitHub-lagrings platsen som ett projekt, inklusive data-och *Readme.MD* -filer. Använd kommandot **upload GitHub lagrings platsen** och ange följande information på popup-menyn och välj sedan **Importera**:
 
-| Fält | Beskrivning |
+| Field | Beskrivning |
 | --- | --- |
 | GitHub-lagringsplats | Namnet på käll lagrings platsen på github.com. Om du till exempel vill klona Jupyter-anteckningsböcker för Azure Cognitive Services på [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks) skriver du "Microsoft/kognitiv-Services-Notebooks".  |
 | Klona rekursivt | GitHub-databaser kan innehålla flera underordnade databaser. Ange det här alternativet om du vill klona den överordnade lagrings platsen och alla dess underordnade. Eftersom det är möjligt för en lagrings plats att ha många underordnade, låter du det här alternativet vara klart om du inte vet att du behöver den. |
 | Projektnamn | Ett eget namn för ditt projekt som Azure Notebooks används för visning. |
 | Projekt-ID | En anpassad identifierare som blir en del av den URL som du använder för att dela ett projekt (formuläret är `https://notebooks.azure.com/<user_id>/projects/<project_id>` ). Detta ID får endast använda bokstäver, siffror och bindestreck, får innehålla högst 30 tecken och får inte vara ett [reserverat projekt-ID](#reserved-project-ids). Om du är osäker på vad du ska använda, är en gemensam konvention att använda en gemen version av ditt projekt namn där blank steg är i bindestreck, till exempel "Min-anteckningsbok-Project" (trunkeras om det behövs för att få plats för längd begränsningen). |
-| Offentlig | Om den här inställningen är aktive rad kan vem som helst med länken komma åt projektet. Ta bort det här alternativet när du skapar ett privat projekt. |
+| Offentliga | Om den här inställningen är aktive rad kan vem som helst med länken komma åt projektet. Ta bort det här alternativet när du skapar ett privat projekt. |
 
 När du importerar en lagrings plats från GitHub importeras även historiken. Du kan använda standard git-kommandon från terminalen för att genomföra nya ändringar, Hämta ändringar från GitHub och så vidare.
 

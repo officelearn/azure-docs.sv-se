@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85955496"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Prestanda data källor för Windows och Linux i Azure Monitor
@@ -79,13 +79,13 @@ Parametrarna i det här elementet beskrivs i följande tabell.
 |:--|:--|
 | objekt \_ namn | Objekt namn för samlingen. |
 | instans- \_ regex |  Ett *reguljärt uttryck* som definierar vilka instanser som ska samlas in. Värdet: `.*` anger alla instanser. Om du bara vill samla in processor mått för den \_ totala instansen kan du ange `_Total` . Om du bara vill samla in process mått för crond-eller sshd-instanser kan du ange: `(crond\|sshd)` . |
-| räknar \_ namn \_ regex | Ett *reguljärt uttryck* som definierar vilka räknare (för objektet) som ska samlas in. Om du vill samla in alla räknare för objektet anger du: `.*` . Om du till exempel bara vill samla in växlings utrymmes räknare för minnesobjektet kan du ange:`.+Swap.+` |
+| räknar \_ namn \_ regex | Ett *reguljärt uttryck* som definierar vilka räknare (för objektet) som ska samlas in. Om du vill samla in alla räknare för objektet anger du: `.*` . Om du till exempel bara vill samla in växlings utrymmes räknare för minnesobjektet kan du ange: `.+Swap.+` |
 | interval | Den frekvens med vilken objektets räknare samlas in. |
 
 
 I följande tabell visas de objekt och räknare som du kan ange i konfigurations filen.  Det finns ytterligare räknare som är tillgängliga för vissa program enligt beskrivningen i [samla in prestanda räknare för Linux-program i Azure Monitor](data-sources-linux-applications.md).
 
-| Objekt namn | Räknar namn |
+| Objekt namn | Räknarens namn |
 |:--|:--|
 | Logisk disk | Kostnads fri noder i procent |
 | Logisk disk | Ledigt utrymme i procent |
@@ -138,7 +138,7 @@ I följande tabell visas de objekt och räknare som du kan ange i konfigurations
 | System | Ledigt virtuellt minne |
 | System | Processer |
 | System | Storlek lagrad i växlingsfiler |
-| System | Drift tid |
+| System | Drifttid |
 | System | Användare |
 
 

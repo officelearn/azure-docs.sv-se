@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
 ms.openlocfilehash: 9922601d67393d103b95da7286d8db71d913434a
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88235253"
 ---
 # <a name="get-started-with-storage-explorer"></a>Kom igång med Storage Explorer
@@ -23,7 +23,7 @@ Microsoft Azure Storage Explorer är en fristående app som gör det enkelt att 
 
 ![Microsoft Azure Storage Explorer][0]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
@@ -141,7 +141,7 @@ När anslutningen har lagts till går resurs trädet till den nod som represente
 
 1. Välj **Använd en anslutnings sträng**och välj sedan **Nästa**.
 
-1. Välj ett visnings namn för anslutningen och ange din anslutnings sträng. Välj sedan **Nästa**.
+1. Välj ett visnings namn för anslutningen och ange din anslutnings sträng. Välj **Nästa**.
 
 1. Granska **anslutnings sammanfattningen** för att se till att all information är korrekt. Om det är det väljer du **Anslut**. Annars väljer du **tillbaka** för att återgå till föregående sidor för att åtgärda felaktig information.
 
@@ -201,7 +201,7 @@ Följ dessa steg om du vill använda ett annat namn för anslutningen, eller om 
 
 1. Välj **Anslut till en lokal emulator**och välj sedan **Nästa**.
 
-1. Välj ett visnings namn för anslutningen och ange de portar som din emulator lyssnar på för varje tjänst typ. **När du ansluter till en lokal emulator** föreslås standardvärdena för de flesta emulatorer. **Filernas port** är tom, eftersom ingen av de officiella emulatorerna för närvarande stöder fil tjänsten. Om emulatorn du använder stöder filer kan du ange den port som ska användas. Välj sedan **Nästa**.
+1. Välj ett visnings namn för anslutningen och ange de portar som din emulator lyssnar på för varje tjänst typ. **När du ansluter till en lokal emulator** föreslås standardvärdena för de flesta emulatorer. **Filernas port** är tom, eftersom ingen av de officiella emulatorerna för närvarande stöder fil tjänsten. Om emulatorn du använder stöder filer kan du ange den port som ska användas. Välj **Nästa**.
 
 1. Granska **anslutnings sammanfattningen** och se till att all information är korrekt. Om det är det väljer du **Anslut**. Annars väljer du **tillbaka** för att återgå till föregående sidor för att åtgärda felaktig information.
 

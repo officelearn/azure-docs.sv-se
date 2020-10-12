@@ -15,10 +15,10 @@ manager: mflasko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 07/20/2020
 ms.openlocfilehash: 901693c512ddfcf5d3c4dafaec71b1606b5dc5f1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89077857"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med aktiviteten Kör SSIS-paket i Azure Data Factory
@@ -27,7 +27,7 @@ ms.locfileid: "89077857"
 
 Den här artikeln beskriver hur du kör ett SQL Server Integration Services-paket (SSIS) i en Azure Data Factory-pipeline med hjälp av aktiviteten kör SSIS-paket. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -251,7 +251,7 @@ Utför följande steg på fliken **anslutnings hanterare** för AKTIVITETEN kör
 
       Utan att ändra ditt ursprungliga paket på SSDT kan du till exempel konvertera lokala data flöden från lokala till lokala data som körs på SQL Server till data flöden från lokala till molnet som körs på SSIS IR i ADF genom att åsidosätta värdena för egenskaperna **ConnectByProxy**, **ConnectionString**och **ConnectUsingManagedIdentity** i befintliga anslutnings hanterare vid körning.
       
-      Dessa åsidosättningar för körning kan aktivera IR (SHIR) som proxy för SSIS IR vid åtkomst till data lokalt, se [Konfigurera SHIR som proxy för SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)och Azure SQL Database/hanterade instans anslutningar med den senaste MSOLEDBSQL-driv rutinen som i sin tur aktiverar Azure Active Directory (AAD)-autentisering med ADM-hanterad identitet, se [Konfigurera AAD-autentisering med ADF-hanterad identitet för OLEDB-anslutningar](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
+      Dessa åsidosättningar för körning kan aktivera Self-Hosted IR (SHIR) som proxy för SSIS IR vid åtkomst till data lokalt, se [Konfigurera SHIR som proxy för SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)och Azure SQL Database/hanterade instans anslutningar med den senaste MSOLEDBSQL-drivrutinen som i sin tur aktiverar Azure Active Directory (AAD)-autentisering med ADM-hanterad identitet, se [Konfigurera AAD-autentisering med ADF-hanterad identitet för OLEDB-anslutningar](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
 
       ![Ange egenskaper från SSDT på fliken anslutnings hanterare](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
    

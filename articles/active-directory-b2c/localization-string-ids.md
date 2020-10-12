@@ -11,10 +11,10 @@ ms.date: 07/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 611d676f5f588ff32f981692456160e269642a43
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87428120"
 ---
 # <a name="localization-string-ids"></a>Sträng-ID för lokalisering
@@ -54,7 +54,7 @@ I följande exempel visas användningen av några av användar gränssnitts elem
 
 ![Registrerings-eller inloggnings sidans UX-element](./media/localization-string-ids/localization-susi.png)
 
-ID: t för identitets leverantörerna konfigureras i användar resan **ClaimsExchange** -elementet. Vid lokalisering av identitets leverantörens rubrik är **ElementType** inställt på `ClaimsProvider` , medan **StringId** anges till ID för `ClaimsExchange` .
+ID: t för identitets leverantörerna konfigureras i användar resan  **ClaimsExchange** -elementet. Vid lokalisering av identitets leverantörens rubrik är **ElementType** inställt på `ClaimsProvider` , medan **StringId** anges till ID för `ClaimsExchange` .
 
 ```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
@@ -98,19 +98,19 @@ Följande är ID: n för en innehålls definition med ID eller en `api.localacco
 | ID | Standardvärde |
 | -- | ------------- |
 | **ver_sent** | Verifierings koden har skickats till: |
-| **ver_but_default** | Standard |
+| **ver_but_default** | Default |
 | **cancel_message** | Användaren har avbrutit registrering av självkontrollerad information |
 | **preloader_alt** | Vänta |
 | **ver_but_send** | Skicka verifierings kod |
-| **alert_yes** | Yes |
+| **alert_yes** | Ja |
 | **error_fieldIncorrect** | Ett eller flera fält har fyllts i felaktigt. Kontrol lera dina poster och försök igen. |
-| **år** | År |
+| **år** | Year |
 | **verifying_blurb** | Vänta medan vi bearbetar din information. |
 | **button_cancel** | Avbryt |
 | **ver_fail_no_retry** | Du har gjort för många felaktiga försök. Försök igen senare. |
 | **månaderna** | Månad |
 | **ver_success_msg** | E-postadress verifierad. Nu kan du fortsätta. |
-| **månader** | Januari, februari, mars, april, maj, juni, juli, augusti, september, oktober, november, december |
+| **months** | Januari, februari, mars, april, maj, juni, juli, augusti, september, oktober, november, december |
 | **ver_fail_server** | Vi har problem med att verifiera din e-postadress. Ange en giltig e-postadress och försök igen. |
 | **error_requiredFieldMissing** | Ett obligatoriskt fält saknas. Fyll i alla obligatoriska fält och försök igen. |
 | **initial_intro** | Ange följande information. |
@@ -120,7 +120,7 @@ Följande är ID: n för en innehålls definition med ID eller en `api.localacco
 | **ver_incorrect_format** | Felaktigt format. |
 | **ver_but_edit** | Ändra e-post |
 | **ver_but_verify** | Verifiera koden |
-| **alert_no** | No |
+| **alert_no** | Inga |
 | **ver_info_msg** | Verifierings koden har skickats till din inkorg. Kopiera den till inmatade rutan nedan. |
 | **dagen** | Dag |
 | **ver_fail_throttled** | Det finns för många begär Anden att verifiera den här e-postadressen. Vänta en stund och försök sedan igen. |
@@ -137,11 +137,11 @@ Följande är ID: n för en innehålls definition med ID eller en `api.localacco
 | ID | Standardvärde |
 | -- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | Det finns redan en användare med det angivna ID: t. Välj en annan. |
-| **UserMessageIfClaimNotVerified** | Anspråk har inte verifierats:{0} |
-| **UserMessageIfIncorrectPattern** | Felaktigt mönster för:{0} |
-| **UserMessageIfMissingRequiredElement** | Element som krävs saknas:{0} |
-| **UserMessageIfValidationError** | Fel vid verifiering av:{0} |
-| **UserMessageIfInvalidInput** | {0}innehåller ogiltiga indatatyper. |
+| **UserMessageIfClaimNotVerified** | Anspråk har inte verifierats: {0} |
+| **UserMessageIfIncorrectPattern** | Felaktigt mönster för: {0} |
+| **UserMessageIfMissingRequiredElement** | Element som krävs saknas: {0} |
+| **UserMessageIfValidationError** | Fel vid verifiering av: {0} |
+| **UserMessageIfInvalidInput** | {0} innehåller ogiltiga indatatyper. |
 | **ServiceThrottled** | Det finns för många begär Anden just nu. Vänta en stund och försök igen. |
 
 I följande exempel visas användningen av några av användar gränssnitts elementen på registrerings sidan:
@@ -239,10 +239,10 @@ Följande är ID: n för [RESTful-tjänstens tekniska profil](restful-technical-
 
 | ID | Standardvärde |
 | -- | ------------- |
-|DefaultUserMessageIfRequestFailed | Det gick inte att upprätta en anslutning till RESTful-tjänstens slut punkt. RESTful tjänst-URL:{0} |
-|UserMessageIfCircuitOpen | {0}RESTful tjänst-URL:{1} |
-|UserMessageIfDnsResolutionFailed | Det gick inte att matcha värd namnet för RESTful-tjänstens slut punkt. RESTful tjänst-URL:{0} |
-|UserMessageIfRequestTimeout | Det gick inte att upprätta en anslutning till RESTful-tjänstens slut punkt inom tids gränsen på {0} sekunder. RESTful tjänst-URL:{1} |
+|DefaultUserMessageIfRequestFailed | Det gick inte att upprätta en anslutning till RESTful-tjänstens slut punkt. RESTful tjänst-URL: {0} |
+|UserMessageIfCircuitOpen | {0} RESTful tjänst-URL: {1} |
+|UserMessageIfDnsResolutionFailed | Det gick inte att matcha värd namnet för RESTful-tjänstens slut punkt. RESTful tjänst-URL: {0} |
+|UserMessageIfRequestTimeout | Det gick inte att upprätta en anslutning till RESTful-tjänstens slut punkt inom tids gränsen på {0} sekunder. RESTful tjänst-URL: {1} |
 
 
 ### <a name="example"></a>Exempel

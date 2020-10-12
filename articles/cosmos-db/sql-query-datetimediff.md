@@ -8,10 +8,10 @@ ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: b90b45072128252e8abc22d3422c84c813808119
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87446384"
 ---
 # <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
@@ -31,7 +31,7 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 
 | DateTimePart | förkortningar        |
 | ------------ | -------------------- |
-| År         | "Year", "åååå", "åå" |
+| Year         | "Year", "åååå", "åå" |
 | Månad        | "månad", "mm", "m"   |
 | Dag          | "dag", "DD", "d"     |
 | Tid         | "timme", "hh"         |
@@ -41,7 +41,7 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 | Latens  | "mikrosekunder", "mcs" |
 | Nanosekund   | "nanosekund", "ns"   |
 
-*StartDate*  
+*/SD*  
     UTC-datum och tid i ett ISO 8601-sträng värde i formatet `YYYY-MM-DDThh:mm:ss.fffffffZ` där:
   
   |Format|Beskrivning|
@@ -59,7 +59,7 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
   Mer information om ISO 8601-formatet finns i [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
 *EndDate*  
-   UTC-datum och tid i ett ISO 8601-sträng värde i formatet`YYYY-MM-DDThh:mm:ss.fffffffZ`
+   UTC-datum och tid i ett ISO 8601-sträng värde i formatet `YYYY-MM-DDThh:mm:ss.fffffffZ`
 
 ## <a name="return-types"></a>Retur typer
 

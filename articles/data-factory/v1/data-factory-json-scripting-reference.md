@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: e47f82323919f4fec3f28ec2f7698d734ab72ac6
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89490130"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Referens för Azure Data Factory-JSON-skript
@@ -50,7 +50,7 @@ I följande tabell beskrivs egenskaperna inom pipelinens JSON-definition:
 | name | Namnet på pipeline. Ange ett namn som representerar åtgärden som aktiviteten eller pipelinen har kon figurer ATS att göra<br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \\ "</li></ul> |Ja |
 | description |Text som beskriver vad aktiviteten eller pipelinen används för | Inga |
 | activities | Innehåller en lista med aktiviteter. | Ja |
-| start |Start datum/tid för pipelinen. Måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41. <br/><br/>Det går att ange en lokal tid, till exempel en EST-tid. Här är ett exempel: `2016-02-27T06:00:00**-05:00` , som är 6 am EST.<br/><br/>Start-och slut egenskaperna anger den aktiva perioden för pipelinen. Utgående segment skapas endast med i den här aktiva perioden. |Inga<br/><br/>Om du anger ett värde för egenskapen end måste du ange ett värde för egenskapen start.<br/><br/>Start-och slut tiderna kan båda vara tomma för att skapa en pipeline. Du måste ange båda värdena om du vill ange en aktiv period som pipelinen ska köras i. Om du inte anger start-och slut tider när du skapar en pipeline kan du ange dem med cmdleten Set-AzDataFactoryPipelineActivePeriod senare. |
+| start |Start datum/tid för pipelinen. Måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41. <br/><br/>Det går att ange en lokal tid, till exempel en EST-tid. Här är ett exempel: `2016-02-27T06:00:00**-05:00` , som är 6 am EST.<br/><br/>Start-och slut egenskaperna anger den aktiva perioden för pipelinen. Utgående segment skapas endast med i den här aktiva perioden. |Inga<br/><br/>Om du anger ett värde för egenskapen end måste du ange ett värde för egenskapen start.<br/><br/>Start-och slut tiderna kan båda vara tomma för att skapa en pipeline. Du måste ange båda värdena om du vill ange en aktiv period som pipelinen ska köras i. Om du inte anger start-och slut tider när du skapar en pipeline kan du ange dem med hjälp av Set-AzDataFactoryPipelineActivePeriod cmdlet senare. |
 | slut |Slutdatum/tid för pipelinen. Om det anges måste det vara i ISO-format. Exempel: 2014-10-14T17:32:41 <br/><br/>Det går att ange en lokal tid, till exempel en EST-tid. Här är ett exempel: `2016-02-27T06:00:00**-05:00` , som är 6 am EST.<br/><br/>Om du vill köra pipelinen på obestämd tid, anger du 9999-09-09 som värde för slutegenskapen. |Inga <br/><br/>Om du anger ett värde för egenskapen start måste du ange ett värde för egenskapen End.<br/><br/>Se information om **Start** egenskapen. |
 | isPaused |Om värdet är true körs inte pipelinen. Standardvärde = falskt. Du kan använda den här egenskapen för att aktivera eller inaktivera. |Inga |
 | pipelineMode |Metoden för att schemalägga körningar för pipelinen. Tillåtna värden är: schemalagda (standard), Databasmigrering.<br/><br/>Schemalagd anger att pipelinen körs vid ett visst tidsintervall enligt dess aktiva period (start-och slut tid). ' Databasmigrering ' anger att pipelinen bara körs en gång. Databasmigrering pipelines när de har skapats kan inte ändras/uppdateras för närvarande. Se [Databasmigrering pipeline](data-factory-create-pipelines.md#onetime-pipeline) för information om inställningen Databasmigrering. |Inga |
@@ -282,15 +282,15 @@ En data uppsättning i Azure Data Factory definieras enligt följande:
 
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-| Egenskap | Beskrivning | Krävs | Standardvärde |
+| Egenskap | Beskrivning | Krävs | Default |
 | --- | --- | --- | --- |
-| name | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](data-factory-naming-rules.md) för namngivnings regler. |Ja |NA |
+| name | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](data-factory-naming-rules.md) för namngivnings regler. |Ja |Ej tillämpligt |
 | typ | Typ av data uppsättning. Ange en av de typer som stöds av Azure Data Factory (till exempel: AzureBlob, AzureSqlTable). Se avsnittet [data lager](#data-stores) för alla data lager och data uppsättnings typer som stöds av Data Factory. |
-| hierarkistruktur | Schema för data uppsättningen. Den innehåller kolumner, deras typer osv. | Inga |NA |
-| typeProperties | Egenskaper som motsvarar den valda typen. Se avsnittet [data lager](#data-stores) för typer som stöds och deras egenskaper. |Ja |NA |
+| hierarkistruktur | Schema för data uppsättningen. Den innehåller kolumner, deras typer osv. | Inga |Ej tillämpligt |
+| typeProperties | Egenskaper som motsvarar den valda typen. Se avsnittet [data lager](#data-stores) för typer som stöds och deras egenskaper. |Ja |Ej tillämpligt |
 | extern | Boolesk flagga för att ange om en data uppsättning uttryckligen skapas av en Data Factory-pipeline eller inte. |Inga |falskt |
-| availability | Definierar bearbetnings fönstret eller segmenterings modellen för data uppsättnings produktionen. Mer information om den sammanslagna segmenterings modellen finns i avsnittet om [schemaläggning och körning](data-factory-scheduling-and-execution.md) . |Ja |NA |
-| policy |Definierar villkoret eller villkoret som data uppsättnings sektorerna måste uppfylla. <br/><br/>Mer information finns i avsnittet princip för data uppsättning. |Inga |NA |
+| availability | Definierar bearbetnings fönstret eller segmenterings modellen för data uppsättnings produktionen. Mer information om den sammanslagna segmenterings modellen finns i avsnittet om [schemaläggning och körning](data-factory-scheduling-and-execution.md) . |Ja |Ej tillämpligt |
+| policy |Definierar villkoret eller villkoret som data uppsättnings sektorerna måste uppfylla. <br/><br/>Mer information finns i avsnittet princip för data uppsättning. |Inga |Ej tillämpligt |
 
 Varje kolumn i avsnittet **struktur** innehåller följande egenskaper:
 
@@ -314,13 +314,13 @@ structure:
 
 I följande tabell beskrivs de egenskaper som du kan använda i avsnittet **tillgänglighet** :
 
-| Egenskap | Beskrivning | Krävs | Standardvärde |
+| Egenskap | Beskrivning | Krävs | Default |
 | --- | --- | --- | --- |
-| frequency |Anger tidsenheten för data uppsättnings sektorns produktion.<br/><br/><b>Frekvens som stöds</b>: minut, timme, dag, vecka, månad |Ja |NA |
-| interval |Anger en multiplikator för frekvens<br/><br/>"Frekvens x-intervall" anger hur ofta sektorn produceras.<br/><br/>Om du vill att data uppsättningen ska segmenteras per timme anger du <b>frekvens</b> till <b>timme</b>och <b>intervall</b> till <b>1</b>.<br/><br/><b>Obs!</b>om du anger frekvensen som minut rekommenderar vi att du anger intervallet till högst 15 |Ja |NA |
+| frequency |Anger tidsenheten för data uppsättnings sektorns produktion.<br/><br/><b>Frekvens som stöds</b>: minut, timme, dag, vecka, månad |Ja |Ej tillämpligt |
+| interval |Anger en multiplikator för frekvens<br/><br/>"Frekvens x-intervall" anger hur ofta sektorn produceras.<br/><br/>Om du vill att data uppsättningen ska segmenteras per timme anger du <b>frekvens</b> till <b>timme</b>och <b>intervall</b> till <b>1</b>.<br/><br/><b>Obs!</b>om du anger frekvensen som minut rekommenderar vi att du anger intervallet till högst 15 |Ja |Ej tillämpligt |
 | stil |Anger om sektorn ska skapas i början/slutet av intervallet.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Om frekvensen är inställd på månad och format är inställt på EndOfInterval, produceras sektorn den sista dagen i månaden. Om formatet är inställt på StartOfInterval produceras sektorn den första dagen i månaden.<br/><br/>Om frekvens är inställt på dag och format är inställt på EndOfInterval skapas sektorn under den senaste timmen på dagen.<br/><br/>Om frekvensen är inställd på timme och formatet är inställt på EndOfInterval, skapas sektorn i slutet av timmen. För till exempel en sektor på en timme – 2-timmarsperiod skapas sektorn på 2 PM. |Inga |EndOfInterval |
 | anchorDateTime |Definierar den absoluta position i tid som används av Scheduler för att beräkna data uppsättningens sektor gränser. <br/><br/><b>Obs!</b>om AnchorDateTime har datum delar som är mer detaljerade än frekvensen ignoreras fler detaljerade delar. <br/><br/>Om <b>intervallet</b> till exempel är <b>per timme</b> (frekvens: timme och intervall: 1) och <b>AnchorDateTime</b> innehåller <b>minuter och sekunder</b> , ignoreras de <b>minuter och sekunderna</b> delar av AnchorDateTime. |Inga |01/01/0001 |
-| offset |TimeSpan som startar och slutar på alla mängd uppsättnings segment flyttas. <br/><br/><b>Obs</b>: om både anchorDateTime och offset anges, är resultatet det kombinerade skiftet. |Inga |NA |
+| offset |TimeSpan som startar och slutar på alla mängd uppsättnings segment flyttas. <br/><br/><b>Obs</b>: om både anchorDateTime och offset anges, är resultatet det kombinerade skiftet. |Inga |Ej tillämpligt |
 
 Följande tillgänglighets avsnitt anger att data uppsättningen för utdata antingen skapas per timme (eller) indata-datamängd är tillgängligt varje timme:
 
@@ -334,10 +334,10 @@ Följande tillgänglighets avsnitt anger att data uppsättningen för utdata ant
 
 I **princip** avsnittet i data uppsättnings definitionen definieras villkoren eller villkoret som data uppsättnings sektorerna måste uppfylla.
 
-| Principnamn | Beskrivning | Tillämpas på | Obligatorisk | Standardvärde |
+| Principnamn | Beskrivning | Tillämpas på | Krävs | Default |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Kontrollerar att data i en Azure- **BLOB** uppfyller minimi kraven för storlek (i megabyte). |Azure-blobb |Inga |NA |
-| minimumRows |Verifierar att data i **Azure SQL Database** eller en **Azure-tabell** innehåller det lägsta antalet rader. |<ul><li>Azure SQL Database</li><li>Azure-tabell</li></ul> |Inga |NA |
+| minimumSizeMB |Kontrollerar att data i en Azure- **BLOB** uppfyller minimi kraven för storlek (i megabyte). |Azure-blobb |Inga |Ej tillämpligt |
+| minimumRows |Verifierar att data i **Azure SQL Database** eller en **Azure-tabell** innehåller det lägsta antalet rader. |<ul><li>Azure SQL Database</li><li>Azure-tabell</li></ul> |Inga |Ej tillämpligt |
 
 **Exempel:**
 
@@ -354,7 +354,7 @@ I **princip** avsnittet i data uppsättnings definitionen definieras villkoren e
 
 Om inte en data uppsättning skapas av Azure Data Factory ska den markeras som **extern**. Den här inställningen gäller normalt indata för den första aktiviteten i en pipeline om inte aktivitet eller pipeline-kedja används.
 
-| Name | Beskrivning | Krävs | Standardvärde |
+| Namn | Beskrivning | Krävs | Standardvärde |
 | --- | --- | --- | --- |
 | dataDelay |Tid för att försena kontrollen av tillgängligheten för externa data för den aktuella sektorn. Om data till exempel är tillgängliga varje timme, är kontrollen för att se de externa data tillgängliga och motsvarande sektor kan fördröjas med hjälp av dataDelay.<br/><br/>Gäller endast för aktuell tid.  Om det till exempel är 1:00 PM nu och det här värdet är 10 minuter, börjar verifieringen med 1:10 PM.<br/><br/>Den här inställningen påverkar inte segment tidigare (segment med sektor slut tid + dataDelay < nu) bearbetas utan fördröjning.<br/><br/>Tiden som är större än 23:59 timmar måste anges med `day.hours:minutes:seconds` formatet. Om du till exempel vill ange 24 timmar ska du inte använda 24:00:00; Använd i stället 1,00:00:00. Om du använder 24:00:00 behandlas det som 24 dagar (24.00:00:00). I 1 dag och 4 timmar anger du 1:04:00:00. |Inga |0 |
 | retryInterval |Vänte tiden mellan ett fel och nästa försök att försöka igen. Om ett försök Miss lyckas är nästa försök efter retryInterval. <br/><br/>Om det är 1:00 PM börjar vi med det första försöket. Om varaktigheten för att slutföra den första verifierings kontrollen är 1 minut och åtgärden misslyckades, är nästa nytt försök på 1:00 + 1 min (varaktighet) + 1 min (återförsöksintervall) = 1:02 PM. <br/><br/>För sektorer i det förflutna sker ingen fördröjning. Återförsöket sker omedelbart. |Inga |00:01:00 (1 minut) |
@@ -495,7 +495,7 @@ Mer information finns i artikeln [Azure Blob Connector](data-factory-azure-blob-
 ### <a name="blobsource-in-copy-activity"></a>BlobSource i kopierings aktivitet
 Om du kopierar data från en Azure-Blob Storage anger du **käll typen** för kopierings aktiviteten till **BlobSource**och anger följande egenskaper i **käll** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | rekursiva |Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. |Sant (standardvärde), falskt |Inga |
 
@@ -538,7 +538,7 @@ Om du kopierar data från en Azure-Blob Storage anger du **käll typen** för ko
 ### <a name="blobsink-in-copy-activity"></a>BlobSink i kopierings aktivitet
 Om du kopierar data till en Azure-Blob Storage anger du **typ av mottagare** för kopierings aktiviteten till **BlobSink**och anger följande egenskaper i avsnittet **mottagare** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | copyBehavior |Definierar kopierings beteendet när källan är BlobSource eller FileSystem. |<b>PreserveHierarchy</b>: filens hierarki bevaras i målmappen. Den relativa sökvägen till käll filen till källmappen är identisk med den relativa sökvägen till mål filen i målmappen.<br/><br/><b>FlattenHierarchy</b>: alla filer från källmappen finns på den första nivån i målmappen. Målfilen har ett namn som skapats automatiskt. <br/><br/><b>MergeFiles (standard):</b> sammanfogar alla filer från källmappen till en fil. Om filen/BLOB-namnet anges, är det sammanslagna fil namnet det angivna namnet. Annars skapas fil namnet automatiskt. |Inga |
 
@@ -685,7 +685,7 @@ Om du kopierar data från en Azure Data Lake Store anger du **käll typen** för
 
 **AzureDataLakeStoreSource** stöder följande egenskaper **typeProperties** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | rekursiva |Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. |Sant (standardvärde), falskt |Inga |
 
@@ -732,7 +732,7 @@ Mer information finns i artikeln [Azure Data Lake Store Connector](data-factory-
 ### <a name="azure-data-lake-store-sink-in-copy-activity"></a>Azure Data Lake Store mottagare i kopierings aktivitet
 Om du kopierar data till en Azure Data Lake Store anger du typ av **mottagare** för kopierings aktiviteten till **AzureDataLakeStoreSink**och anger följande egenskaper i avsnittet **mottagare** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | copyBehavior |Anger kopierings beteendet. |<b>PreserveHierarchy</b>: filens hierarki bevaras i målmappen. Den relativa sökvägen till käll filen till källmappen är identisk med den relativa sökvägen till mål filen i målmappen.<br/><br/><b>FlattenHierarchy</b>: alla filer från källmappen skapas på den första nivån i målmappen. Målattribut skapas med automatiskt genererat namn.<br/><br/><b>MergeFiles</b>: sammanfogar alla filer från källmappen till en fil. Om filen/BLOB-namnet anges, är det sammanslagna fil namnet det angivna namnet. Annars skapas fil namnet automatiskt. |Inga |
 
@@ -992,7 +992,7 @@ Mer information finns i artikeln om [Azure SQL Connector](data-factory-azure-sql
 Om du kopierar data från en Azure SQL Database anger du **käll typen** för kopierings aktiviteten till **SqlSource**och anger följande egenskaper i **käll** avsnittet:
 
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. |Inga |
 | sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från käll tabellen. |Namnet på den lagrade proceduren. |Inga |
@@ -1045,7 +1045,7 @@ Mer information finns i artikeln om [Azure SQL Connector](data-factory-azure-sql
 ### <a name="sql-sink-in-copy-activity"></a>SQL-mottagare i kopierings aktivitet
 Om du kopierar data till Azure SQL Database anger du typ av **mottagare** för kopierings aktiviteten till **SqlSink**och anger följande egenskaper i avsnittet **mottagare** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |tidsintervall<br/><br/> Exempel: "00:30:00" (30 minuter). |Inga |
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 10000) |
@@ -1167,9 +1167,9 @@ Mer information finns i artikeln om [Azure Synapse Analytics Connector](data-fac
 Om du kopierar data från Azure Synapse Analytics anger du **käll typen** för kopierings aktiviteten till **SqlDWSource**och anger följande egenskaper i **käll** avsnittet:
 
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Inga |
+| sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. |Inga |
 | sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från käll tabellen. |Namnet på den lagrade proceduren. |Inga |
 | storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. |Inga |
 
@@ -1221,7 +1221,7 @@ Mer information finns i artikeln om [Azure Synapse Analytics Connector](data-fac
 ### <a name="azure-synapse-analytics-sink-in-copy-activity"></a>Azure Synapse Analytics-mottagare i kopierings aktivitet
 Om du kopierar data till Azure Synapse Analytics anger du typ av **mottagare** för kopierings aktiviteten till **SqlDWSink**och anger följande egenskaper i avsnittet **mottagare** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Ange en fråga för kopierings aktivitet som ska köras så att data i en angiven sektor rensas. |Ett frågeuttryck. |Inga |
 | allowPolyBase |Anger om PolyBase ska användas (när det är tillämpligt) i stället för BULKINSERT-mekanismen. <br/><br/> **Att använda PolyBase är det rekommenderade sättet att läsa in data i Synapse Analytics.** |Sant <br/>False (standard) |Inga |
@@ -1338,7 +1338,7 @@ Mer information finns i artikeln [Azure kognitiv sökning Connector](data-factor
 ### <a name="azure-cognitive-search-index-sink-in-copy-activity"></a>Azure Kognitiv sökning index-Sink i kopierings aktivitet
 Om du kopierar data till ett sökindex ställer du in **mottagar typen** för kopierings aktiviteten till **AzureSearchIndexSink**och anger följande egenskaper i avsnittet **mottagare** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Anger om du vill sammanfoga eller ersätta när ett dokument redan finns i indexet. | Sammanfoga (standard)<br/>Ladda upp| Inga |
 | WriteBatchSize | Överför data till Sök indexet när buffertstorleken når writeBatchSize. | 1 till 1 000. Standardvärdet är 1000. | Inga |
@@ -1478,7 +1478,7 @@ Mer information om dessa länkade tjänster finns i artikeln [Azure Table Storag
 ### <a name="azure-table-source-in-copy-activity"></a>Azure-tabell källa i kopierings aktivitet
 Om du kopierar data från Azure Table Storage anger du **käll typen** för kopierings aktiviteten till **AzureTableSource**och anger följande egenskaper i **käll** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | azureTableSourceQuery |Använd den anpassade frågan för att läsa data. |Sträng för Azure Table-fråga. Se exemplen i nästa avsnitt. |Nej. När ett tableName anges utan azureTableSourceQuery, kopieras alla poster från tabellen till målet. Om en azureTableSourceQuery också anges kopieras poster från den tabell som uppfyller frågan till målet. |
 | azureTableSourceIgnoreTableNotFound |Ange om förtäring av undantag för tabell saknas. |TRUE<br/>FALSE |Inga |
@@ -1531,7 +1531,7 @@ Mer information om dessa länkade tjänster finns i artikeln [Azure Table Storag
 ### <a name="azure-table-sink-in-copy-activity"></a>Azure Table-mottagare i kopierings aktivitet
 Om du kopierar data till Azure Table Storage anger du typ av **mottagare** för kopierings aktiviteten till **AzureTableSink**och anger följande egenskaper i avsnittet **mottagare** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | azureTableDefaultPartitionKeyValue |Standardvärdet för partitionerings nyckel som kan användas av mottagaren. |Ett sträng värde. |Inga |
 | azureTablePartitionKeyName |Ange namnet på den kolumn vars värden används som partitionsnyckel. Om inget anges används AzureTableDefaultPartitionKeyValue som partitionsnyckel. |Ett kolumn namn. |Inga |
@@ -1650,9 +1650,9 @@ Mer information finns i artikeln om Amazon RedShift Connector.
 ### <a name="relational-source-in-copy-activity"></a>Relations källa i kopierings aktivitet
 Om du kopierar data från Amazon RedShift anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
 
 #### <a name="example"></a>Exempel
 
@@ -1769,9 +1769,9 @@ Mer information finns i artikeln om IBM DB2 Connector.
 Om du kopierar data från IBM DB2 anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
 
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `"query": "select * from "MySchema"."MyTable""`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `"query": "select * from "MySchema"."MyTable""`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
 
 #### <a name="example"></a>Exempel
 ```json
@@ -1887,9 +1887,9 @@ Mer information finns i artikeln om [MySQL Connector](data-factory-onprem-mysql-
 Om du kopierar data från en MySQL-databas anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
 
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
 
 
 #### <a name="example"></a>Exempel
@@ -2003,7 +2003,7 @@ Mer information finns i artikeln om [Oracle Connector](data-factory-onprem-oracl
 ### <a name="oracle-source-in-copy-activity"></a>Oracle-källa i kopierings aktivitet
 Om du kopierar data från en Oracle-databas anger du **käll typen** för kopierings aktiviteten till **OracleSource**och anger följande egenskaper i **käll** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | oracleReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempelvis: `select * from MyTable` <br/><br/>Om inget anges används SQL-instruktionen som körs: `select * from MyTable` |Nej (om **TableName** för **data uppsättningen** har angetts) |
 
@@ -2055,7 +2055,7 @@ Mer information finns i artikeln om [Oracle Connector](data-factory-onprem-oracl
 ### <a name="oracle-sink-in-copy-activity"></a>Oracle-Sink i kopierings aktivitet
 Om du kopierar data till Oracle Database anger du **mottagar typen** för kopierings aktiviteten till **OracleSink**och anger följande egenskaper i avsnittet **mottagare** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |tidsintervall<br/><br/> Exempel: 00:30:00 (30 minuter). |Inga |
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 100) |
@@ -2176,7 +2176,7 @@ Mer information finns i artikeln om [postgresql Connector](data-factory-onprem-p
 Om du kopierar data från en PostgreSQL-databas anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
 
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: "fråga": "Select * from the \" schema \" . \" Tabellen \" ". |Nej (om **TableName** för **data uppsättningen** har angetts) |
 
@@ -2228,7 +2228,7 @@ Mer information finns i artikeln om [postgresql Connector](data-factory-onprem-p
 ### <a name="linked-service"></a>Länkad tjänst
 För att definiera en länkad SAP Business Warehouse (BW)-tjänst anger du **typen** av länkad tjänst till **SapBw**och anger följande egenskaper i avsnittet **typeProperties** :
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 server | Namnet på den server där SAP BW-instansen finns. | sträng | Ja
 systemNumber | System numret för det SAP BW systemet. | Tvåsiffrigt decimal tal representeras som en sträng. | Ja
@@ -2285,7 +2285,7 @@ Mer information finns i artikeln [SAP Business Warehouse Connector](data-factory
 Om du kopierar data från SAP Business Warehouse, anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
 
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB | Anger MDX-frågan för att läsa data från SAP BW-instansen. | MDX-fråga. | Ja |
 
@@ -2338,7 +2338,7 @@ Mer information finns i artikeln [SAP Business Warehouse Connector](data-factory
 ### <a name="linked-service"></a>Länkad tjänst
 Om du vill definiera en SAP HANA länkad tjänst anger du **typen** av länkad tjänst till **SapHana**och anger följande egenskaper i avsnittet **typeProperties** :
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 server | Namnet på den server där SAP HANA-instansen finns. Om servern använder en anpassad port anger du `server:port` . | sträng | Ja
 authenticationType | Typ av autentisering. | nollängd. "Basic" eller "Windows" | Ja
@@ -2392,7 +2392,7 @@ Mer information finns i artikeln [SAP HANA Connector](data-factory-sap-hana-conn
 ### <a name="relational-source-in-copy-activity"></a>Relations källa i kopierings aktivitet
 Om du kopierar data från ett SAP HANA data lager, anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB | Anger SQL-frågan för att läsa data från SAP HANA-instansen. | SQL-fråga. | Ja |
 
@@ -2539,9 +2539,9 @@ Mer information finns i artikeln [SQL Server Connector](data-factory-sqlserver-c
 Om du kopierar data från en SQL Server databas anger du **käll typen** för kopierings aktiviteten till **SqlSource**och anger följande egenskaper i **käll** avsnittet:
 
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. Kan referera till flera tabeller från databasen som refereras av data uppsättningen. Om det inte anges används SQL-instruktionen som körs: Välj från tabellen. |Inga |
+| sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. Kan referera till flera tabeller från databasen som refereras av data uppsättningen. Om det inte anges används SQL-instruktionen som körs: Välj från tabellen. |Inga |
 | sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från käll tabellen. |Namnet på den lagrade proceduren. |Inga |
 | storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. |Inga |
 
@@ -2606,7 +2606,7 @@ Mer information finns i artikeln [SQL Server Connector](data-factory-sqlserver-c
 ### <a name="sql-sink-in-copy-activity"></a>SQL-mottagare i kopierings aktivitet
 Om du kopierar data till en SQL Server databas, anger du **mottagar typen** för kopierings aktiviteten till **SqlSink**och anger följande egenskaper i avsnittet **mottagare** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |tidsintervall<br/><br/> Exempel: "00:30:00" (30 minuter). |Inga |
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 10000) |
@@ -2736,9 +2736,9 @@ Mer information finns i artikeln om [Sybase Connector](data-factory-onprem-sybas
 Om du kopierar data från en Sybase-databas anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
 
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
 
 #### <a name="example"></a>Exempel
 
@@ -2846,9 +2846,9 @@ Mer information finns i artikeln om [Teradata Connector](data-factory-onprem-ter
 ### <a name="relational-source-in-copy-activity"></a>Relations källa i kopierings aktivitet
 Om du kopierar data från en Teradata-databas anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Ja |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. |Ja |
 
 #### <a name="example"></a>Exempel
 
@@ -2973,7 +2973,7 @@ Mer information finns i artikeln om [Cassandra Connector](data-factory-onprem-ca
 ### <a name="cassandra-source-in-copy-activity"></a>Cassandra-källa i kopierings aktivitet
 Om du kopierar data från Cassandra anger du **käll typen** för kopierings aktiviteten till **CassandraSource**och anger följande egenskaper i **käll** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-92 fråga eller CQL-fråga. Se [referens för CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-fråga anger du namnet på det **. tabell namn** som ska representera den tabell som du vill fråga. |Nej (om tableName och disk utrymme på data mängden har definierats). |
 | consistencyLevel |Konsekvens nivån anger hur många repliker som måste svara på en Read-begäran innan data returneras till klient programmet. Cassandra kontrollerar det angivna antalet repliker för data för att uppfylla Read-begäran. |ETT, TVÅ, TRE, KVORUM, ALLA, LOCAL_QUORUM, EACH_QUORUM LOCAL_ONE. Mer information finns i [Konfigurera data konsekvens](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) . |Nej. Standardvärdet är ett. |
@@ -3095,9 +3095,9 @@ Mer information finns i [artikeln om MongoDB Connector](data-factory-on-premises
 #### <a name="mongodb-source-in-copy-activity"></a>MongoDB-källa i kopierings aktivitet
 Om du kopierar data från MongoDB anger du **käll typen** för kopierings aktiviteten till **MongoDbSource**och anger följande egenskaper i **käll** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-92-frågesträng. Till exempel: `select * from MyTable`. |Nej (om **samlings** - **dataset** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-92-frågesträng. Exempel: `select * from MyTable`. |Nej (om **samlings** - **dataset** har angetts) |
 
 #### <a name="example"></a>Exempel
 
@@ -3149,7 +3149,7 @@ Mer information finns i [artikeln om MongoDB Connector](data-factory-on-premises
 ### <a name="linked-service"></a>Länkad tjänst
 För att definiera en Amazon S3-länkad tjänst anger du **typen** av länkad tjänst till **en awsaccesskey**och anger följande egenskaper i avsnittet **typeProperties** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | accessKeyID |ID för den hemliga åtkomst nyckeln. |sträng |Ja |
 | secretAccessKey |Den hemliga åtkomst nyckeln. |Krypterad hemlig sträng |Ja |
@@ -3173,7 +3173,7 @@ Mer information finns i [artikeln om Amazon S3 Connector](data-factory-amazon-si
 ### <a name="dataset"></a>Datamängd
 Definiera en Amazon S3-data uppsättning genom att ange **typen** av data uppsättning till **AmazonS3**och ange följande egenskaper i avsnittet **typeProperties** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | bucketName |S3-Bucket-namn. |Sträng |Ja |
 | key |S3-objektets nyckel. |Sträng |Inga |
@@ -3257,7 +3257,7 @@ Mer information finns i [artikeln om Amazon S3 Connector](data-factory-amazon-si
 Om du kopierar data från Amazon S3 anger du **käll typen** för kopierings aktiviteten till **FileSystemSource**och anger följande egenskaper i **käll** avsnittet:
 
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | rekursiva |Anger om S3-objekt ska listas rekursivt under katalogen. |True/false |Inga |
 
@@ -3442,7 +3442,7 @@ Mer information finns i [artikeln om fil Systems koppling](data-factory-onprem-f
 ### <a name="file-system-source-in-copy-activity"></a>Fil system källa i kopierings aktivitet
 Om du kopierar data från fil systemet anger du **käll typen** för kopierings aktiviteten till **FileSystemSource**och anger följande egenskaper i **käll** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | rekursiva |Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. |Sant, falskt (standard) |Inga |
 
@@ -3492,7 +3492,7 @@ Mer information finns i [artikeln om fil Systems koppling](data-factory-onprem-f
 ### <a name="file-system-sink-in-copy-activity"></a>Fil Systems mottagare i kopierings aktivitet
 Om du kopierar data till fil system ställer du in **typ av mottagare** i **FileSystemSink**och anger följande egenskaper i avsnittet **mottagare** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | copyBehavior |Definierar kopierings beteendet när källan är BlobSource eller FileSystem. |**PreserveHierarchy:** Bevarar filens hierarki i målmappen. Det vill säga att käll filens relativa sökväg är samma som den relativa sökvägen till mål filen i målmappen.<br/><br/>**FlattenHierarchy:** Alla filer från källmappen skapas på den första nivån i målmappen. Målattribut skapas med ett automatiskt genererat namn.<br/><br/>**MergeFiles:** Sammanfogar alla filer från källmappen till en fil. Om fil namnet/blobb namnet anges, är det sammanslagna fil namnet det angivna namnet. Annars är det ett automatiskt genererat fil namn. |Inga |
 
@@ -3548,7 +3548,7 @@ Mer information finns i [artikeln om fil Systems koppling](data-factory-onprem-f
 ### <a name="linked-service"></a>Länkad tjänst
 För att definiera en länkad FTP-tjänst anger du **typen** av länkad tjänst till **ftpserver**och anger följande egenskaper i avsnittet **typeProperties** :
 
-| Egenskap | Beskrivning | Krävs | Standardvärde |
+| Egenskap | Beskrivning | Krävs | Default |
 | --- | --- | --- | --- |
 | värd |Namn eller IP-adress för FTP-servern |Ja |&nbsp; |
 | authenticationType |Ange autentiseringstyp |Ja |Grundläggande, anonym |
@@ -3674,7 +3674,7 @@ Mer information finns i artikeln om [FTP-anslutning](data-factory-ftp-connector.
 ### <a name="file-system-source-in-copy-activity"></a>Fil system källa i kopierings aktivitet
 Om du kopierar data från en FTP-server anger du **käll typen** för kopierings aktiviteten till **FileSystemSource**och anger följande egenskaper i **käll** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | rekursiva |Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. |Sant, falskt (standard) |Inga |
 
@@ -3814,7 +3814,7 @@ Om du kopierar data från HDFS anger du **käll typen** för kopierings aktivite
 
 **FileSystemSource** stöder följande egenskaper:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | rekursiva |Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. |Sant, falskt (standard) |Inga |
 
@@ -4015,7 +4015,7 @@ Mer information finns i artikeln om [SFTP-koppling](data-factory-sftp-connector.
 ### <a name="file-system-source-in-copy-activity"></a>Fil system källa i kopierings aktivitet
 Om du kopierar data från en SFTP-källa anger du **käll typen** för kopierings aktiviteten till **FileSystemSource**och anger följande egenskaper i **käll** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | rekursiva |Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. |Sant, falskt (standard) |Inga |
 
@@ -4382,7 +4382,7 @@ Mer information finns i artikeln om [OData Connector](data-factory-odata-connect
 ### <a name="relational-source-in-copy-activity"></a>Relations källa i kopierings aktivitet
 Om du kopierar data från en OData-källa anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
 
-| Egenskap | Beskrivning | Exempel | Obligatorisk |
+| Egenskap | Beskrivning | Exempel | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd den anpassade frågan för att läsa data. |"? $select = namn, beskrivning&$top = 5" |Inga |
 
@@ -4537,9 +4537,9 @@ Mer information finns i artikeln om [ODBC-koppling](data-factory-odbc-connector.
 ### <a name="relational-source-in-copy-activity"></a>Relations källa i kopierings aktivitet
 Om du kopierar data från ett ODBC-datalager anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Ja |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. |Ja |
 
 #### <a name="example"></a>Exempel
 
@@ -4655,7 +4655,7 @@ Mer information finns i artikeln om [Salesforce-koppling](data-factory-salesforc
 ### <a name="relational-source-in-copy-activity"></a>Relations källa i kopierings aktivitet
 Om du kopierar data från Salesforce anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd den anpassade frågan för att läsa data. |En SQL-92-fråga eller en [SOQL-fråga (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) . Till exempel: `select * from MyTable__c`. |Nej (om **data uppsättningens** **TableName** anges) |
 
@@ -5642,7 +5642,7 @@ Du kan ange följande egenskaper i en JSON-definition för anpassade aktiviteter
 
 Detaljerad information finns [i använda anpassade aktiviteter i Data Factory](data-factory-use-custom-activities.md) artikel.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Se följande självstudiekurser:
 
 - [Självstudie: skapa en pipeline med en kopierings aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

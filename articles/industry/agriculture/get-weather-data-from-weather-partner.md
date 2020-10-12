@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
 ms.openlocfilehash: 35acf4e9bd338a0e67b046a59d8884df0626e516
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87429268"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Hämta väder data från väder partner
@@ -151,7 +151,7 @@ Fråga efter väder data med hjälp av en FarmBeats REST API:
 
 1. I din FarmBeats Datahub- [Swagger](https://yourdatahub.azurewebsites.net/swagger)går du till/WeatherDataLocation-API: et och gör en get-begäran. Svaret innehåller/WeatherDataLocation-objekt som har skapats för den plats (latitud och longitud) som jobb körningen har angett. Anteckna **ID: t** och **weatherDataModelId** för objekten.
 
-2. Gör en GET/{ID}-begäran i/WeatherDataModel-API: t för **weatherDataModelId** som du gjorde tidigare. Väder data modellen visar alla metadata och all information om inmatade väder data. I objektet väder data modell kan du till exempel se information om väder mått som innehåller väder information och i vilka typer och enheter. Ett exempel:
+2. Gör en GET/{ID}-begäran i/WeatherDataModel-API: t för **weatherDataModelId** som du gjorde tidigare. Väder data modellen visar alla metadata och all information om inmatade väder data. I objektet väder data modell kan du till exempel se information om väder mått som innehåller väder information och i vilka typer och enheter. Exempel:
 
    ```json
    {
@@ -227,7 +227,7 @@ Om du vill felsöka jobb fel [kontrollerar du jobb loggarna](troubleshoot-azure-
 | DockerDetails - partnerCredentials | Autentiseringsuppgifter för att anropa partner-API: t i Docker. Partnern tillhandahåller den här informationen baserat på mekanismen för auktorisering som stöds. till exempel användar namn och lösen ord eller API-nycklar. |
 | partnerType | "Väder". Andra partner typer i FarmBeats är "sensor" och "bilder".  |
 |  name   |   Partnerns önskade namn i FarmBeats-systemet.   |
-|  beskrivning |  Beskrivning.   |
+|  description |  Beskrivning.   |
 
 ## <a name="next-steps"></a>Nästa steg
 

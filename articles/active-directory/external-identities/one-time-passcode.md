@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 714e4484c71b995bee186a2d94dc45c7ff82c50d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87910042"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-postautentisering med eng ång slö sen ord (för hands version)
@@ -71,7 +71,7 @@ Det kan ta några minuter innan opt-in-åtgärden börjar gälla. Sedan kommer e
 1.  Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD.
 2.  I navigerings fönstret väljer du **Azure Active Directory**.
 3.  Välj **externa identiteter**  >  **externa samarbets inställningar**.
-5.  Under **Aktivera e-post med eng ång slö sen ord för gäster (för hands version)** väljer du **Ja**.
+5.  Under **Aktivera e-post One-Time lösen ord för gäster (för hands version)** väljer du **Ja**.
  
 ### <a name="to-opt-in-using-powershell"></a>Välja att använda PowerShell
 
@@ -137,7 +137,7 @@ Det kan ta några minuter innan den opt-out-åtgärden börjar gälla. Om du ina
 1.  Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD.
 2.  I navigerings fönstret väljer du **Azure Active Directory**.
 3.  Välj **externa identiteter**  >  **externa samarbets inställningar**.
-5.  Under **Aktivera e-post med eng ång slö sen ord för gäster (för hands version)** väljer du **Nej**.
+5.  Under **Aktivera e-post One-Time lösen ord för gäster (för hands version)** väljer du **Nej**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Så här stänger du av för hands versionen med PowerShell
 Installera den senaste AzureADPreview-modulen om du inte redan har den (se [förutsättning: installera den senaste AzureADPreview-modulen](#prerequisite-install-the-latest-azureadpreview-module) ovan). Kontrol lera sedan att principen för för hands versionen för eng ång slö sen ord finns för närvarande genom att köra följande:

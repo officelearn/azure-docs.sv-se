@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 73b6029dfe52a4b32c9a8ce092fcd284ac1ec0e7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85965065"
 ---
 # <a name="workbook-drop-down-parameters"></a>List Rute parametrar för arbets bok
@@ -28,11 +28,11 @@ Det enklaste sättet att ange en listruta är genom att tillhandahålla en stati
 2. Välj _Lägg till parametrar_ från länkarna i arbets boken.
 3. Klicka på knappen blå _Lägg till parameter_ .
 4. I fönstret ny parameter som öppnas anger du:
-    1. Parameter namn:`Environment`
-    2. Parameter typ:`Drop down`
-    3. Kunna`checked`
-    4. Tillåt `multiple selection` :`unchecked`
-    5. Hämta data från:`JSON`
+    1. Parameter namn: `Environment`
+    2. Parameter typ: `Drop down`
+    3. Kunna `checked`
+    4. Tillåt `multiple selection` : `unchecked`
+    5. Hämta data från: `JSON`
 5. I JSON-inmatnings textblocket infogar du följande JSON-kodfragment:
     ```json
     [
@@ -70,11 +70,11 @@ Om frågeresultatet/JSON innehåller ett "grupp"-fält visas grupper med värden
 2. Välj _Lägg till parametrar_ från länkarna i arbets boken.
 3. Klicka på knappen blå _Lägg till parameter_ .
 4. I fönstret ny parameter som öppnas anger du:
-    1. Parameter namn:`RequestName`
-    2. Parameter typ:`Drop down`
-    3. Kunna`checked`
-    4. Tillåt `multiple selection` :`unchecked`
-    5. Hämta data från:`Query`
+    1. Parameter namn: `RequestName`
+    2. Parameter typ: `Drop down`
+    3. Kunna `checked`
+    4. Tillåt `multiple selection` : `unchecked`
+    5. Hämta data från: `Query`
 5. I JSON-inmatnings textblocket infogar du följande JSON-kodfragment:
 
     ```kusto

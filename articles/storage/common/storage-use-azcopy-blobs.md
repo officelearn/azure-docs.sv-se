@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: 7ff8f3d18564140b4654b1591eec5c0e1f40b7cf
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89077916"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Överföra data med AzCopy och Blob Storage
@@ -31,7 +31,7 @@ Se artikeln [Kom igång med AZCopy](storage-use-azcopy-v10.md) för att ladda ne
 >
 > Om du hellre vill använda en SAS-token för att auktorisera åtkomst till BLOB-data kan du lägga till denna token i resurs-URL: en i varje AzCopy-kommando.
 >
-> Till exempel: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+> Exempel: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="create-a-container"></a>Skapa en container
 
@@ -45,7 +45,7 @@ Du kan använda kommandot [AzCopy make](storage-ref-azcopy-make.md) för att ska
 
 För detaljerade referens dokument, se [AzCopy-fabrikat](storage-ref-azcopy-make.md).
 
-## <a name="upload-files"></a>Överföra filer
+## <a name="upload-files"></a>Ladda upp filer
 
 Du kan använda kommandot [AzCopy Copy](storage-ref-azcopy-copy.md) för att ladda upp filer och kataloger från den lokala datorn.
 
@@ -153,7 +153,7 @@ Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-afte
 
 Mer detaljerad information finns i referens dokument för [AzCopy-kopiering](storage-ref-azcopy-copy.md) .
 
-## <a name="download-files"></a>Hämta filer
+## <a name="download-files"></a>Ladda ned filer
 
 Du kan använda [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot för att ladda ned blobbar, kataloger och behållare till den lokala datorn.
 

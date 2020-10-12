@@ -7,10 +7,10 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
 ms.openlocfilehash: 9d037fa0faa1419e4cd1b600eea1b3b3eb0a29c0
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90058775"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ansluta ITSM-produkter/-tjänster med anslutningsprogrammet för hantering av IT-tjänster (ITSM)
@@ -32,7 +32,7 @@ Följande ITSM-produkter/-tjänster stöds. Välj produkten om du vill visa deta
 
 I följande avsnitt finns information om hur du ansluter System Center Service Manager-produkten till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande krav är uppfyllda:
 
@@ -181,7 +181,7 @@ Följande exempel bild visar information om en lyckad anslutning:
 
 Följande avsnitt innehåller information om hur du ansluter din ServiceNow-produkt till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Se till att följande krav är uppfyllda:
 - ITSMC installerad. Mer information: [Lägg till anslutningsprogram för hantering av IT-tjänster (ITSM)-lösningen](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - ServiceNow-versioner som stöds: Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsingfors, Genève.
@@ -308,7 +308,7 @@ Följande avsnitt innehåller information om hur du ansluter din bestyrkande pro
 > Från och med 1 – okt-2020-ITSM-integrering med Azure-avisering kommer inte längre att vara aktive rad för nya kunder. Det går inte att använda nya ITSM-anslutningar. 
 > Befintliga ITSM-anslutningar kommer att stödjas.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande krav är uppfyllda:
 
@@ -340,7 +340,7 @@ Använd följande procedur för att skapa en upphandlings anslutning:
 | **Anslutnings namn**   | Ange ett namn på den instans av upphandlingen som du vill ansluta till ITSMC.  Du använder det här namnet senare när du konfigurerar arbets objekt i den här ITSM/Visa detaljerad Log Analytics. |
 | **Partner typ**   | Välj **styrka**. |
 | **Användarnamn**   | Ange användar namnet som kan ansluta till ITSMC.    |
-| **Lösenord**   | Ange lösen ordet som är kopplat till det här användar namnet. **Obs:** Användar namn och lösen ord används endast för att skapa autentiseringstoken och lagras inte var som helst i ITSMC-tjänsten. _|
+| **Lösenord**   | Ange lösen ordet som är kopplat till det här användar namnet. **Obs:** Användar namn och lösen ord används endast för att skapa autentiseringstoken och lagras inte var som helst inom ITSMC-service._|
 | **Server-URL**   | Ange URL: en för din instans av instansen som du vill ansluta till ITSMC. |
 | **Klient-ID**   | Ange klient-ID för att autentisera anslutningen, som du skapade i din upphandlings instans.  Mer information om klient-ID finns i [Konfigurera Active Directory-autentisering](../../app-service/configure-authentication-provider-aad.md). |
 | **Omfång för data synkronisering**   | Välj de arbets objekt för styrka som du vill synkronisera till Azure Log Analytics via ITSMC.  Dessa arbets uppgifter importeras till Log Analytics.   **Alternativ:**   Incidenter, ändrings begär Anden.|
@@ -366,7 +366,7 @@ Följande avsnitt innehåller information om hur du ansluter din Cherwell-produk
 > Från och med 1 – okt-2020 Cherwell ITSM-integrering med Azure-avisering kommer inte längre att aktive ras för nya kunder. Det går inte att använda nya ITSM-anslutningar. 
 > Befintliga ITSM-anslutningar kommer att stödjas.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande krav är uppfyllda:
 

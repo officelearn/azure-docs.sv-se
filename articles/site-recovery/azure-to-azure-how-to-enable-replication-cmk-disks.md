@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: mayg
 ms.openlocfilehash: 2dc7bbd060d77b8f90d16e2a336edc1eb6dbf651
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86529003"
 ---
-# <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replikera datorer med Kundhanterade nycklar (CMK) aktiverade diskar
+# <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replikera datorer med CMK- aktiverade (kundhanterade nycklar) diskar
 
-Den här artikeln beskriver hur du replikerar virtuella Azure-datorer med Kundhanterade nycklar (CMK) aktiverade hanterade diskar, från en Azure-region till en annan.
+Den här artikeln beskriver hur du replikerar virtuella Azure-datorer med Customer-Managed nycklar (CMK) aktiverade hanterade diskar, från en Azure-region till en annan.
 
 ## <a name="prerequisite"></a>Förutsättning
 Du måste skapa disk krypterings uppsättningarna i mål regionen för mål prenumerationen innan du aktiverar replikering för dina virtuella datorer som har CMK-aktiverade hanterade diskar.
@@ -70,7 +70,7 @@ Följ dessa steg om du vill ändra Site Recovery inställningarna för standard 
 ![Aktivera replikering för datorn med CMK-aktiverade diskar](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png)
 
 >[!NOTE]
->Under den inledande replikeringen kan statusen ta lite tid att uppdatera, utan att det är uppenbart förloppet. Klicka på **Uppdatera** för att hämta den senaste statusen.
+>Under den inledande replikeringen kan statusen ta lite tid att uppdatera, utan att det är uppenbart förloppet. Klicka på **Uppdatera**  för att hämta den senaste statusen.
 
 ## <a name="faqs"></a>Vanliga frågor och svar
 

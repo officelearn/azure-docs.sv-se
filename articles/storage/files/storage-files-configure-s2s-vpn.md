@@ -8,10 +8,10 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 4d1d0f9e2a86da8213a9662b68c791a117dcc7fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85515337"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Konfigurera en plats-till-plats-VPN för användning med Azure Files
@@ -23,7 +23,7 @@ Vi rekommenderar starkt att du läser [Azure Files nätverks översikt](storage-
 
 Artikeln beskriver stegen för att konfigurera en plats-till-plats-VPN för att montera Azure-filresurser direkt lokalt. Om du vill dirigera synkron trafik för Azure File Sync över en plats-till-plats-VPN kan du läsa [konfigurera Azure File Sync proxy-och brand Väggs inställningar](storage-sync-files-firewall-and-proxy.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 - En Azure-filresurs som du vill montera lokalt. Azure-filresurser distribueras i lagrings konton, som är hanterings konstruktioner som representerar en delad pool av lagring där du kan distribuera flera fil resurser, samt andra lagrings resurser, till exempel BLOB-behållare eller köer. Du kan lära dig mer om hur du distribuerar Azure-filresurser och lagrings konton i [skapa en Azure-filresurs](storage-how-to-create-file-share.md).
 
 - En privat slut punkt för det lagrings konto som innehåller den Azure-filresurs som du vill montera lokalt. Mer information om hur du skapar en privat slut punkt finns i [konfigurera Azure Files nätverks slut punkter](storage-files-networking-endpoints.md?tabs=azure-portal). 
@@ -54,7 +54,7 @@ I syfte att distribuera en Azure-VPN Gateway måste du fylla i följande fält:
 - **VPN-typ**: du kan välja antingen *Route-baserad** eller **Principbaserad** beroende på din VPN-enhet. Routning-baserade VPN-stöd IKEv2, medan principbaserad VPN endast stöder IKEv1. Mer information om de två typerna av VPN-gatewayer finns i [om principbaserad och routning-baserade VPN-gatewayer](../../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md#about)
 - **SKU**: SKU: n styr antalet tillåtna plats-till-plats-tunnlar och önskade prestanda för VPN. Om du vill välja lämplig SKU för ditt användnings fall kan du läsa [Gateway SKU](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) -listan. SKU: n för VPN Gateway kan ändras senare om det behövs.
 - **Virtuellt nätverk**: det virtuella nätverk som du skapade i föregående steg.
-- **Offentlig IP-adress**: IP-adressen för VPN gateway som ska exponeras för Internet. Förmodligen måste du skapa en ny IP-adress, men du kan också använda en befintlig oanvänd IP-adress om det är lämpligt. Om du väljer att **skapa en ny**IP-adress skapas Azure-resurs i samma resurs grupp som VPN gateway och den **offentliga IP-adressen** är namnet på den nyligen skapade IP-adressen. Om du väljer **Använd befintlig**måste du välja den befintliga oanvända IP-adressen.
+- **Offentlig IP-adress**: IP-adressen för VPN gateway som ska exponeras för Internet. Förmodligen måste du skapa en ny IP-adress, men du kan också använda en befintlig oanvänd IP-adress om det är lämpligt. Om du väljer att **skapa en ny**IP-adress skapas Azure-resurs i samma resurs grupp som VPN gateway och den  **offentliga IP-adressen** är namnet på den nyligen skapade IP-adressen. Om du väljer **Använd befintlig**måste du välja den befintliga oanvända IP-adressen.
 - **Aktivera aktivt-aktivt läge**: Välj **aktive rad** om du skapar en aktiv-aktiv gateway-konfiguration, annars lämna **inaktiverat** markerat. Om du vill veta mer om aktivt-aktivt läge, se [hög tillgänglighet mellan lokala och VNET-till-VNET-anslutning](../../vpn-gateway/vpn-gateway-highlyavailable.md).
 - **Konfigurera BGP ASN**: Välj **aktive ras** endast om konfigurationen kräver den här inställningen. Mer information om den här inställningen finns i [om BGP med Azure VPN gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
 

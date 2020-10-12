@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/16/2020
 ms.openlocfilehash: ff7fc00c8de5b4d577770c140d356d7f9da1b7e7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87421254"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Skapa en Windows Server-behållare i ett Azure Kubernetes service-kluster (AKS) med hjälp av Azure CLI
@@ -71,7 +71,7 @@ Om du vill köra ett AKS-kluster som har stöd för resurspooler för Windows Se
 
 * Klustret har kon figurer ATS med två noder
 * Parametrarna *Windows-Admin-Password* och *Windows-Admin-username* anger admin-autentiseringsuppgifter för alla Windows Server-behållare som skapats i klustret och måste uppfylla [kraven för Windows Server-lösenord][windows-server-password].
-* Node-poolen använder`VirtualMachineScaleSets`
+* Node-poolen använder `VirtualMachineScaleSets`
 
 > [!NOTE]
 > För att klustret ska fungera på ett tillförlitligt sätt bör du köra minst två noder (två) i standardnodens pool.

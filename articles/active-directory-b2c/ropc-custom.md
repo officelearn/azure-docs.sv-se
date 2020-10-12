@@ -12,10 +12,10 @@ ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bf8fe68c28457fd01704762e537fe259a96a6bce
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87116238"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure Active Directory B2C att använda en anpassad princip
@@ -326,7 +326,7 @@ Ett lyckat svar ser ut som i följande exempel:
 }
 ```
 
-## <a name="use-a-native-sdk-or-app-auth"></a>Använd en inbyggd SDK eller app-auth
+## <a name="use-a-native-sdk-or-app-auth"></a>Använd en inbyggd SDK eller App-Auth
 
 Azure AD B2C uppfyller OAuth 2,0-standarder för offentliga autentiseringsuppgifter för lösen ord för klient resurs ägare och bör vara kompatibla med de flesta klient-SDK: er. Den senaste informationen finns i [native app SDK för OAuth 2,0 och OpenID Connect implementering av moderna bästa metoder](https://appauth.io/).
 

@@ -4,10 +4,10 @@ description: Den här artikeln innehåller information om hur du konfigurerar di
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 18a59b74897b074fea9ee56947c78635f2a3509d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86537266"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för kryptering av Azure Event Hubs-data i vila med hjälp av Azure Portal
@@ -26,7 +26,7 @@ Du kan använda Azure Key Vault för att hantera dina nycklar och granska din ny
 Den här artikeln visar hur du konfigurerar ett nyckel valv med Kundhanterade nycklar med hjälp av Azure Portal. Information om hur du skapar ett nyckel valv med hjälp av Azure Portal finns i [snabb start: Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure Portal](../key-vault/secrets/quick-create-portal.md).
 
 > [!IMPORTANT]
-> Att använda Kundhanterade nycklar med Azure Event Hubs kräver att nyckel valvet har två obligatoriska egenskaper konfigurerade. De är: **mjuk borttagning** och **Rensa inte**. De här egenskaperna är aktiverade som standard när du skapar ett nytt nyckel valv i Azure Portal. Men om du behöver aktivera dessa egenskaper i ett befintligt nyckel valv måste du använda antingen PowerShell eller Azure CLI.
+> Att använda Kundhanterade nycklar med Azure Event Hubs kräver att nyckel valvet har två obligatoriska egenskaper konfigurerade. De är:  **mjuk borttagning** och **Rensa inte**. De här egenskaperna är aktiverade som standard när du skapar ett nytt nyckel valv i Azure Portal. Men om du behöver aktivera dessa egenskaper i ett befintligt nyckel valv måste du använda antingen PowerShell eller Azure CLI.
 
 ## <a name="enable-customer-managed-keys"></a>Aktivera Kundhanterade nycklar
 Följ dessa steg om du vill aktivera Kundhanterade nycklar i Azure Portal:
@@ -94,7 +94,7 @@ Följ dessa steg om du vill aktivera loggar för Kundhanterade nycklar.
 ## <a name="log-schema"></a>Logg schema 
 Alla loggar lagras i JavaScript Object Notation (JSON)-format. Varje post innehåller sträng fält som använder det format som beskrivs i följande tabell. 
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 | ---- | ----------- | 
 | /TN | Beskrivning av uppgiften som misslyckades. |
 | ActivityId | Internt ID som används för spårning. |
@@ -103,7 +103,7 @@ Alla loggar lagras i JavaScript Object Notation (JSON)-format. Varje post inneh�
 | keyVault | Fullständigt namn på nyckel valvet. |
 | key | Nyckel namnet som används för att kryptera Event Hubs-namnområdet. |
 | version | Den nyckel version som används. |
-| reparation | Åtgärden som utförs på nyckeln i ditt nyckel valv. Du kan till exempel inaktivera/aktivera nyckeln, radbrytas eller packa upp |
+| operation | Åtgärden som utförs på nyckeln i ditt nyckel valv. Du kan till exempel inaktivera/aktivera nyckeln, radbrytas eller packa upp |
 | kod | Den kod som är kopplad till åtgärden. Exempel: felkod, 404 innebär att nyckeln inte hittades. |
 | meddelande | Ett fel meddelande som är kopplat till åtgärden |
 
@@ -223,9 +223,9 @@ I det här avsnittet visas hur du skapar ett Azure Event Hubs-namnområde med ha
 
     > [!NOTE]
     > Ersätt följande värden: 
-    > - `<EventHubsClusterName>`– Namnet på ditt Event Hubs-kluster    
-    > - `<EventHubsNamespaceName>`– Namnet på din Event Hubs namn område
-    > - `<Location>`– Plats för Event Hubs namn området
+    > - `<EventHubsClusterName>` – Namnet på ditt Event Hubs-kluster    
+    > - `<EventHubsNamespaceName>` – Namnet på din Event Hubs namn område
+    > - `<Location>` – Plats för Event Hubs namn området
 
     ```json
     {
@@ -360,11 +360,11 @@ I det här steget ska du uppdatera Event Hubs-namnrymden med Key Vault-informati
 
     > [!NOTE]
     > Ersätt följande värden: 
-    > - `<EventHubsClusterName>`– Namnet på Event Hubs klustret.        
-    > - `<EventHubsNamespaceName>`– Namnet på din Event Hubs namn område
-    > - `<Location>`– Plats för Event Hubs namn området
-    > - `<KeyVaultName>`– Namn på ditt nyckel valv
-    > - `<KeyName>`– Namnet på nyckeln i nyckel valvet
+    > - `<EventHubsClusterName>` – Namnet på Event Hubs klustret.        
+    > - `<EventHubsNamespaceName>` – Namnet på din Event Hubs namn område
+    > - `<Location>` – Plats för Event Hubs namn området
+    > - `<KeyVaultName>` – Namn på ditt nyckel valv
+    > - `<KeyName>` – Namnet på nyckeln i nyckel valvet
 
     ```json
     {

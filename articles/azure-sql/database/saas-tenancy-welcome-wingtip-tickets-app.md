@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 2c8c094efdfa9f46c6e6c42e34fd4010e43fa972
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84051201"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip Ticket SaaS-program
@@ -36,13 +36,13 @@ Tre versioner av appen är tillgängliga. varje utforskar ett annat databas hyre
 
 Mönstret för den fristående appen per klient organisation använder ett enda klient program med en databas för varje klient. Varje klients app, inklusive dess databas, distribueras till en separat Azure-resurs grupp. Resurs gruppen kan distribueras i tjänste leverantörens prenumeration eller klient organisationens prenumeration och hanteras av providern på klient organisationens vägnar. Det fristående programmet per klient mönster ger den bästa klient isoleringen, men är vanligt vis den dyraste eftersom det inte finns någon möjlighet att dela resurser mellan flera klienter.  Det här mönstret passar bra för program som kan vara mer komplexa och som distribueras till ett mindre antal klienter.  Med fristående distributioner kan appen anpassas för varje klient enklare än i andra mönster.  
 
-Kolla in [självstudier][docs-tutorials-for-wingtip-sa] och kod på GitHub [. ../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
+Kolla in [självstudier][docs-tutorials-for-wingtip-sa] och kod på GitHub  [. ../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
 ## <a name="database-per-tenant-pattern"></a>Databas per klient mönster
 
 Databasen per klient mönster gäller för tjänste leverantörer som är intresserade av klient isolering och vill köra en centraliserad tjänst som gör det möjligt att använda delade resurser kostnads effektivt. En databas skapas för varje plats, eller klient organisation, och alla databaser hanteras centralt. Databaser kan finnas i elastiska pooler för att tillhandahålla kostnads effektiv och enkel prestanda hantering, som utnyttjar de oförutsägbara arbets belastnings mönstren för klienterna. En katalog databas innehåller mappningen mellan klienter och deras databaser. Den här mappningen hanteras med Shard Map Management-funktionerna i [Elastic Database-klient biblioteket](elastic-database-client-library.md), som ger effektiv anslutnings hantering till programmet.
 
-Kolla in [självstudier][docs-tutorials-for-wingtip-dpt] och kod på GitHub [. ../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
+Kolla in [självstudier][docs-tutorials-for-wingtip-dpt] och kod på GitHub  [. ../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Shardade databas mönster för flera innehavare
 
@@ -50,7 +50,7 @@ Databaser för flera klient organisationer är effektiva för tjänst leverantö
 
 Det här mönstret tillåter också en *hybrid* modell där du kan optimera för kostnad med flera klienter i en databas, eller optimera för isolering med en enda klient i en egen databas. Valet kan göras på en klient-till-klient-basis, antingen när klienten är etablerad eller senare, utan att det påverkar programmet.  Den här modellen kan användas effektivt när grupper av klienter måste behandlas på olika sätt. Till exempel kan låg kostnads klienter tilldelas till delade databaser, medan Premium-klienter kan tilldelas till sina egna databaser. 
 
-Kolla in [självstudier][docs-tutorials-for-wingtip-mt] och kod på GitHub [. ../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
+Kolla in [självstudier][docs-tutorials-for-wingtip-mt] och kod på GitHub  [. ../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
 ## <a name="next-steps"></a>Nästa steg
 

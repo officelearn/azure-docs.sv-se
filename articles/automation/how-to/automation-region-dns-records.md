@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.openlocfilehash: 17d0857a8979cfcc632ab8951fb255f97229a665
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87117178"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>DNS-poster för Azure-regioner som används av Azure Automation
@@ -88,7 +88,7 @@ Ersätt `<accountId>` i DNS-posten med GUID som representerar ditt Automation-ko
 
 ![Primär nyckel sida för Automation-konto](./media/automation-region-dns-records/automation-account-keys.png)
 
-Kopiera värdet efter *konton/* från **URL** -fältet –`https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`
+Kopiera värdet efter *konton/* från **URL** -fältet – `https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`
 
 Vi rekommenderar att du använder de adresser som anges när du definierar [undantag](../automation-runbook-execution.md#exceptions). Om du vill ha en lista över regions-IP-adresser i stället för region namn kan du hämta JSON-filen från Microsoft Download Center för följande moln miljöer:
 

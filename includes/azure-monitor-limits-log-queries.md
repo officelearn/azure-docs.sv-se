@@ -9,10 +9,10 @@ ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
 ms.openlocfilehash: 83754842eeb4b5d609596045c11451e898960b9a
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90064868"
 ---
 ### <a name="general-query-limits"></a>Allmänna begränsningar för frågor
@@ -21,7 +21,7 @@ ms.locfileid: "90064868"
 |:---|:---|
 | Frågespråk | Azure Monitor använder samma [frågespråk för Kusto](/azure/kusto/query/) som Azure datautforskaren. Se [Azure Monitor logg frågor språk skillnader](../articles/azure-monitor/log-query/data-explorer-difference.md) för KQL språk element som inte stöds i Azure Monitor. |
 | Azure-regioner | Logg frågor kan uppleva onödig belastning när data sträcker sig Log Analytics arbets ytor i flera Azure-regioner. Mer information finns i [fråga om begränsningar](../articles/azure-monitor/log-query/scope.md#query-limits) . |
-| Kors resurs frågor | Maximalt antal Application Insights-resurser och Log Analytics arbets ytor i en enda fråga som är begränsade till 100.<br>Frågan över resurser stöds inte i View Designer.<br>Frågan över resurser i logg aviseringar stöds i det nya scheduledQueryRules-API: et.<br>Se [gränser för kors resurs frågor](../articles/azure-monitor/log-query/cross-workspace-query.md#cross-resource-query-limits) för mer information. |
+| Frågor mellan resurser | Maximalt antal Application Insights-resurser och Log Analytics arbets ytor i en enda fråga som är begränsade till 100.<br>Frågan över resurser stöds inte i View Designer.<br>Frågan över resurser i logg aviseringar stöds i det nya scheduledQueryRules-API: et.<br>Se [gränser för kors resurs frågor](../articles/azure-monitor/log-query/cross-workspace-query.md#cross-resource-query-limits) för mer information. |
 
 ### <a name="user-query-throttling"></a>Begränsning av användar frågor
 Azure Monitor har flera begränsnings gränser som skyddar mot användare som skickar ett stort antal frågor. Detta beteende kan eventuellt överbelasta systemets Server dels resurser och äventyra tjänstens svars tider. Följande gränser är utformade för att skydda kunder mot avbrott och säkerställa konsekvent service nivå. Användarens begränsning och begränsningar har utformats för att endast påverka extrema användnings scenarier och bör inte vara relevanta för typisk användning.

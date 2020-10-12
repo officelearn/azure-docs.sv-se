@@ -16,10 +16,10 @@ ms.date: 07/22/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f3c9ec3b1e96e47dbf46c6acb2c81147b614d069
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87117439"
 ---
 # <a name="troubleshoot-audit-data-on-verified-domain-change"></a>Felsöka: gransknings data på verifierad domän ändring 
@@ -39,7 +39,7 @@ Jag kontrollerar Azure AD audit-loggarna och ser flera användar uppdateringar s
 
 #### <a name="what-does-userprincipalname-consistency-mean"></a>Vad innebär UserPrincipalName konsekvens? 
 
-För endast molnbaserade användare innebär konsekvens att **userPrincipalName** är inställt på ett verifierat domänsuffix. När ett inkonsekvent **userPrincipalName** bearbetas, kommer **ProxyCalc** att konvertera det till standard-onmicrosoft.com-suffixet, till exempel:username@Contoso.onmicrosoft.com 
+För endast molnbaserade användare innebär konsekvens att **userPrincipalName** är inställt på ett verifierat domänsuffix. När ett inkonsekvent **userPrincipalName** bearbetas, kommer **ProxyCalc** att konvertera det till standard-onmicrosoft.com-suffixet, till exempel: username@Contoso.onmicrosoft.com 
 
 För synkroniserade användare innebär konsekvens att **userPrincipalName** är inställt på ett verifierat domänsuffix och matchar det lokala **userPrincipalName** -värdet (ShadowUserPrincipalName). När ett inkonsekvent **userPrincipalName** bearbetas, kommer **ProxyCalc** att återgå till samma värde som **ShadowUserPrincipalName** eller, om domänsuffix har tagits bort från klienten, konverteras det till standard-*. onmicrosoft.com-domänsuffix. 
 
@@ -47,7 +47,7 @@ För synkroniserade användare innebär konsekvens att **userPrincipalName** är
 
 #### <a name="what-does-proxy-address-consistency-mean"></a>Vad betyder konsekvens för proxy? 
 
-För endast molnbaserade användare innebär konsekvens att proxyservrarna matchar ett verifierat domänsuffix. När en inkonsekvent proxyadress bearbetas, kommer **ProxyCalc** att konvertera den till standardvärdet för *. onmicrosoft.com-domänsuffix, till exempel:SMTP:username@Contoso.onmicrosoft.com 
+För endast molnbaserade användare innebär konsekvens att proxyservrarna matchar ett verifierat domänsuffix. När en inkonsekvent proxyadress bearbetas, kommer **ProxyCalc** att konvertera den till standardvärdet för *. onmicrosoft.com-domänsuffix, till exempel: SMTP:username@Contoso.onmicrosoft.com 
 
 För synkroniserade användare innebär konsekvens att proxyservrarna matchar den lokala proxyns adress (er)-värden (dvs. ShadowProxyAddresses). **ProxyAddresses** förväntas vara synkroniserade med **ShadowProxyAddresses**. Om den synkroniserade användaren har en tilldelad Exchange-licens måste proxyadresser matcha de lokala proxy-adresserna (ES) och måste också matcha ett verifierat domänsuffix. I det här scenariot kommer **ProxyCalc** att sanera den inkonsekventa proxy-adressen med ett overifierat domänsuffix och tas bort från objektet i Azure AD. Om den overifierade domänen verifieras senare, kommer **ProxyCalc** att beräkna om och lägga till proxyadress från **ShadowProxyAddresses** tillbaka till objektet i Azure AD.  
 

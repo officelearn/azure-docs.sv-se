@@ -12,10 +12,10 @@ ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: ad2ac118908f1c1f77ea204ae2400913ac0807cb
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86147412"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Lägg till analyser i API:er för Bing-sökresultat
@@ -90,7 +90,7 @@ Följande är möjliga mått och slut punkts begränsningar.
 
 - **Distribution av svarskod**: HTTP-statuskod för alla anrop under rapporterings perioden.
 
-- **Anropa ursprunglig distribution**: de typer av webbläsare som används av användarna. Till exempel Microsoft Edge, Chrome, Safari och FireFox. Anrop som görs utanför en webbläsare (t. ex. robotar, Postman eller Använd vändning från en konsol app) grupperas under bibliotek. Ursprunget bestäms med hjälp av begärans huvud värde för användar agenten. Om begäran inte innehåller ett användar agent huvud försöker Bing härleda ursprunget från andra signaler.  
+- **Anropa ursprunglig distribution**: de typer av webbläsare som används av användarna. Till exempel Microsoft Edge, Chrome, Safari och FireFox. Anrop som görs utanför en webbläsare (t. ex. robotar, Postman eller Använd vändning från en konsol app) grupperas under bibliotek. Ursprunget bestäms med hjälp av User-Agent huvud värde för begäran. Om begäran inte innehåller User-Agents huvudet försöker Bing härleda ursprunget från andra signaler.  
 
 - **Säker Sök distribution**: distribution av säkra Sök värden. Till exempel, för, måttlig eller strikt. `safeSearch`Frågeparametern innehåller värdet, om det anges. Annars använder Bing standardvärdet som måttlig.  
 
@@ -98,7 +98,7 @@ Följande är möjliga mått och slut punkts begränsningar.
 
 - **Svar som returnerade distribution**: svaren som webbsökning-API: t returnerade i svaret.
 
-- **Distribution av svars Server**: den program server som HANTERAde API-begärandena. De möjliga värdena är Bing.com (för trafik som hanteras från Station ära och bärbara enheter) och Bing.com-mobil (för trafik som hanteras från mobila enheter). Servern bestäms med hjälp av begärans huvud värde för användar agenten. Om begäran inte innehåller användar agent huvudet försöker Bing härleda servern från andra signaler.
+- **Distribution av svars Server**: den program server som HANTERAde API-begärandena. De möjliga värdena är Bing.com (för trafik som hanteras från Station ära och bärbara enheter) och Bing.com-mobil (för trafik som hanteras från mobila enheter). Servern bestäms med hjälp av User-Agent huvud värde för begäran. Om begäran inte innehåller User-Agents huvudet försöker Bing härleda servern från andra signaler.
 
 ## <a name="next-steps"></a>Nästa steg
 

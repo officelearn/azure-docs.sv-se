@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: victorh
 ms.openlocfilehash: e35569a1dc5ce7c1cb2889ac3e2ca8f60f8ccd42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808198"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Konfigurera end to end-TLS med hjälp av Application Gateway med PowerShell
@@ -25,7 +25,7 @@ Application Gateway har stöd för att definiera anpassade TLS-alternativ. Den h
 > [!NOTE]
 > SSL 2,0 och SSL 3,0 är inaktiverat som standard och kan inte aktive ras. De betraktas som oskyddade och kan inte användas med Application Gateway.
 
-![scenario bild][scenario]
+![scenariobild][scenario]
 
 ## <a name="scenario"></a>Scenario
 
@@ -48,7 +48,7 @@ För att utföra TLS-kryptering från slut punkt till slut punkt måste Server d
 
 Konfigurations processen beskrivs i följande avsnitt.
 
-## <a name="create-the-resource-group"></a>Skapa en resursgrupp
+## <a name="create-the-resource-group"></a>Skapa resursgruppen
 
 Det här avsnittet vägleder dig genom att skapa en resurs grupp som innehåller programgatewayen.
 

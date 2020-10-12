@@ -12,10 +12,10 @@ ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203817"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predikat och PredicateValidations
@@ -46,7 +46,7 @@ I följande diagram visas relationen mellan elementen:
 | --------- | -------- | ----------- |
 | Id | Ja | En identifierare som används för predikatet. Andra element kan använda den här identifieraren i principen. |
 | Metod | Ja | Den typ av metod som ska användas för verifiering. Möjliga värden: [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters)eller [IsDateRange](#isdaterange).  |
-| HelpText | No | Ett fel meddelande för användare om kontrollen Miss lyckas. Den här strängen kan lokaliseras med hjälp av [språk anpassning](localization.md) |
+| HelpText | Inga | Ett fel meddelande för användare om kontrollen Miss lyckas. Den här strängen kan lokaliseras med hjälp av [språk anpassning](localization.md) |
 
 **Predikatet predikat** innehåller följande element:
 
@@ -114,7 +114,7 @@ IncludesCharacters-metoden kontrollerar om ett sträng anspråks värde innehål
 
 | Parameter | Krävs | Beskrivning |
 | ------- | ----------- | ----------- |
-| CharacterSet | Ja | Den uppsättning tecken som kan anges. Till exempel gemena tecken `a-z` , versaler, `A-Z` siffror `0-9` eller en lista med symboler, till exempel `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
+| CharacterSet | Ja | Den uppsättning tecken som kan anges. Till exempel gemena tecken  `a-z` , versaler, `A-Z` siffror `0-9` eller en lista med symboler, till exempel `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
 
 I följande exempel visas en `IncludesCharacters` metod med parametern `CharacterSet` som anger en uppsättning tecken:
 
@@ -211,7 +211,7 @@ I följande exempel visas en `IsDateRange` metod med parametrarna `Minimum` och 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| MatchAtLeast | No | Anger att värdet måste matcha minst det antal predikat som ska godkännas. Om inget värde anges måste värdet matcha alla predikat-definitioner. |
+| MatchAtLeast | Inga | Anger att värdet måste matcha minst det antal predikat som ska godkännas. Om inget värde anges måste värdet matcha alla predikat-definitioner. |
 
 **PredicateReferences** -elementet innehåller följande element:
 

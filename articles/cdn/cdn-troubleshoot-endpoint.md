@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d6ad0b8b37bd4f04c22ed52d4ac6717202f22889
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192490"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Felsöka Azure CDN slut punkter som returnerar en 404-status kod
@@ -51,7 +51,7 @@ Det finns flera möjliga orsaker, inklusive:
 ### <a name="check-the-origin-file"></a>Kontrol lera ursprungs filen
 Kontrol lera först att filen som ska cachelagras är tillgänglig på ursprungs servern och att den är offentligt tillgänglig på Internet. Det snabbaste sättet att göra det är att öppna en webbläsare i en privat eller Incognito-session och bläddra direkt till filen. Skriv eller klistra in webb adressen i rutan adress och kontrol lera att den resulterar i filen som du förväntar dig. Anta till exempel att du har en fil i ett Azure Storage konto, som är tillgänglig på https: \/ /cdndocdemo.blob.core.windows.net/publicblob/lorem.txt. Om du kan läsa in filens innehåll kommer testet att lyckas.
 
-![Det lyckades!](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
+![Lyckades!](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
 
 > [!WARNING]
 > Även om det här är det snabbaste och enklaste sättet att verifiera att filen är offentligt tillgänglig, kan vissa nätverkskonfigurationer i organisationen se till att en fil är offentligt tillgänglig när den är i själva verket endast synlig för användare av nätverket (även om den finns i Azure). För att säkerställa att detta inte är fallet testar du filen med en extern webbläsare, till exempel en mobil enhet som inte är ansluten till din organisations nätverk eller en virtuell dator i Azure.

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: 3ab706b9cdf3c071fd5d3ceca732cff6b660db6b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086565"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ansluta HDInsight till det lokala nätverket
@@ -73,7 +73,7 @@ De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa
 
 1. På fliken __grundläggande__ anger du följande information:  
   
-    | Fält | Värde |
+    | Field | Värde |
     | --- | --- |
     |Prenumeration |Välj lämplig prenumeration.|
     |Resursgrupp |Välj den resurs grupp som innehåller det virtuella nätverket som skapades tidigare.|
@@ -92,7 +92,7 @@ De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa
 
 4. Ange följande information på fliken **nätverk** :
 
-    | Fält | Värde |
+    | Field | Värde |
     | --- | --- |
     |Virtuellt nätverk | Välj det virtuella nätverk som du skapade tidigare.|
     |Undernät | Välj standard under nätet för det virtuella nätverk som du skapade tidigare. Välj __inte__ det undernät som används av VPN-gatewayen.|

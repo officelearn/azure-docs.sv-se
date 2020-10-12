@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 9303d84b2862b556a9ccc286ffa118bf1e52b715
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84047526"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Flytta data mellan utskalade molndatabaser
@@ -53,7 +53,7 @@ Verktyget Dela och slå samman körs som en Azure-webbtjänst. En administratör
 
 - **Sammanfoga till Krymp**
 
-  Kapaciteten behöver krympa på grund av säsongs typen för ett företag. Med verktyget kan du skala ned till färre skalnings enheter när verksamheten är långsam. Funktionen merge i tjänsten för delad sammanslagning i elastisk skala täcker detta krav.
+  Kapaciteten behöver krympa på grund av säsongs typen för ett företag. Med verktyget kan du skala ned till färre skalnings enheter när verksamheten är långsam. Funktionen merge i den elastiska skalnings Split-Merge tjänsten täcker detta krav.
 
 - **Hantera hotspots genom att flytta shardletar**
 
@@ -117,7 +117,7 @@ Verktyget Dela och slå samman körs som en Azure-webbtjänst. En administratör
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo);
     ```
 
-    Tabellerna region och nation definieras som referens tabeller och kopieras med åtgärder för att dela/sammanfoga/flytta. "kund" och "order" i sin tur definieras som shardade-tabeller. `C_CUSTKEY`och `O_CUSTKEY` fungerar som horisontell partitionering-nyckel.
+    Tabellerna region och nation definieras som referens tabeller och kopieras med åtgärder för att dela/sammanfoga/flytta. "kund" och "order" i sin tur definieras som shardade-tabeller. `C_CUSTKEY` och `O_CUSTKEY` fungerar som horisontell partitionering-nyckel.
 
 - **Referens integritet**
 
@@ -187,7 +187,7 @@ Tjänsten för delad sammanslagning körs som en moln tjänst i din Microsoft Az
 
 Tjänsten för delad sammanslagning innehåller tabellen **RequestStatus** i databasen för metadatalagret för övervakning av slutförda och pågående begär Anden. Tabellen innehåller en rad för varje begäran om delad sammanslagning som har skickats till den här instansen av tjänsten för delad sammanslagning. Den innehåller följande information för varje begäran:
 
-- **Tidsstämpel**
+- **Timestamp**
 
   Tid och datum då begäran startades.
 
@@ -207,7 +207,7 @@ Tjänsten för delad sammanslagning innehåller tabellen **RequestStatus** i dat
 
   En procentuell uppskattning av slut för ande för åtgärden. Värdet 50 anger att åtgärden är cirka 50% slutfört.
 
-- **Detaljer**
+- **Information**
 
   Ett XML-värde som innehåller en mer detaljerad förlopps rapport. Förlopps rapporten uppdateras regelbundet när rad uppsättningar kopieras från källa till mål. I händelse av fel eller undantag innehåller den här kolumnen också mer detaljerad information om felet.
 

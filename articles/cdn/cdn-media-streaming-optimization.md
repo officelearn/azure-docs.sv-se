@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: c3ab722f182e32cf2f3aca6bb2f3d5a9598264af
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192610"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Optimering av medie direkt uppspelning med Azure CDN 
@@ -103,7 +103,7 @@ I följande tabell visas en uppsättning villkor som ska uppfyllas för optimeri
 Typer av strömning som stöds | Filnamnstillägg  
 --- | ---  
 Apple-HLS | M3U8, m3u, m3ub, nyckel, TS, AAC
-Adobe-HDS | f4m, f4x, drmmeta, bootstrap, F4F,<br>URL-struktur för seg-Frag <br> (matchande regex: ^ (/. *) SEQ (\d +)-Frag (\d +)
+Adobe-HDS | f4m, f4x, drmmeta, bootstrap, F4F,<br>Seg-Frag URL-struktur <br> (matchande regex: ^ (/. *) SEQ (\d +)-Frag (\d +)
 DASH | MPD, bindestreck, DivX, ISMV, M4S, M4V, MP4, MP4V, <br> sidx, webm, mp4a, m4a, isma
 Smidig strömning | /manifest/, /QualityLevels/Fragments/
   

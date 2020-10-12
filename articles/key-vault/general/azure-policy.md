@@ -8,10 +8,10 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.openlocfilehash: 62ea64f6f0ccf3a9f4ceabc64a97e1e5570b92b4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88586077"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrera Azure Key Vault med Azure Policy
@@ -150,7 +150,7 @@ Att tilldela en princip med en "Neka"-effekt kan ta upp till 30 minuter (genomsn
 - Det finns inga nyckel valv i omfånget för princip tilldelningen.
 - Det finns inga nyckel valv med certifikat inom omfånget för princip tilldelningen. 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [tjänsten Azure policy](../../governance/policy/overview.md)
 - Se Key Vault exempel: [Key Vault inbyggda princip definitioner](../../governance/policy/samples/built-in-policies.md#key-vault)

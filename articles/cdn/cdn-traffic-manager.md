@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: allensu
 ms.custom: ''
 ms.openlocfilehash: b55e418393d6d446ae0d3557f2d1f4cf98d89293
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192502"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Konfigurera redundans över flera Azure CDN slut punkter med Azure Traffic Manager
@@ -68,7 +68,7 @@ När du har konfigurerat ditt CDN och Traffic Manager profiler, följer du dessa
 
     b. För den andra CNAME-posten mappar du din anpassade domän utan cdnverify-underdomänen till CDN-slutpunkten. Den här posten mappar den anpassade domänen till Traffic Manager. 
 
-      Till exempel: 
+      Exempel: 
       
       `cdndemo101.dustydogpetcare.online  CNAME  cdndemo101.trafficmanager.net`   
 
@@ -87,7 +87,7 @@ När du har konfigurerat ditt CDN och Traffic Manager profiler, följer du dessa
 
 3.  Gå tillbaka till webbplatsen för domän leverantören för din anpassade domän och uppdatera den första DNS-mappningen som du skapade i så att den anpassade domänen mappas till din andra CDN-slutpunkt.
                              
-    Till exempel: 
+    Exempel: 
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 

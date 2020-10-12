@@ -12,10 +12,10 @@ ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4824b64236270c422f22809e9eeb191ee3be27fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202576"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Hantering av enkel inloggning i Azure Active Directory B2C
@@ -28,7 +28,7 @@ Azure AD B2C har definierat ett antal SSO-användarsessioner som kan användas:
 
 |Replikeringsprovider  |Omfång  |
 |---------|---------|
-|[NoopSSOSessionProvider](#noopssosessionprovider)     |  Ingen       |       
+|[NoopSSOSessionProvider](#noopssosessionprovider)     |  Inget       |       
 |[DefaultSSOSessionProvider](#defaultssosessionprovider)    | Azure AD B2C intern sessionshanteraren.      |       
 |[ExternalLoginSSOSessionProvider](#externalloginssosessionprovider)     | Mellan Azure AD B2C och OAuth1, OAuth2 eller OpenId Connect Identity Provider.        |         |
 |[OAuthSSOSessionProvider](#oauthssosessionprovider)     | Mellan ett OAuth2-eller OpenId Connect-program för förlitande part och Azure AD B2C.        |        
@@ -123,7 +123,7 @@ Den här providern används för att utelämna skärmen "Välj identitetsprovide
 
 | Attribut | Krävs | Beskrivning|
 | --- | --- | --- |
-| AlwaysFetchClaimsFromProvider | No | Används inte för närvarande, kan ignoreras. |
+| AlwaysFetchClaimsFromProvider | Inga | Används inte för närvarande, kan ignoreras. |
 
 ### <a name="oauthssosessionprovider"></a>OAuthSSOSessionProvider
 
@@ -165,8 +165,8 @@ Följande `SM-Saml-issuer` tekniska profil används av den [tekniska profilen f�
 
 | Attribut | Krävs | Beskrivning|
 | --- | --- | --- |
-| IncludeSessionIndex | No | Används inte för närvarande, kan ignoreras.|
-| RegisterServiceProviders | No | Anger att leverantören ska registrera alla SAML-tjänstleverantörer som har utfärdat en kontroll. Möjliga värden: `true` (standard) eller `false` .|
+| IncludeSessionIndex | Inga | Används inte för närvarande, kan ignoreras.|
+| RegisterServiceProviders | Inga | Anger att leverantören ska registrera alla SAML-tjänstleverantörer som har utfärdat en kontroll. Möjliga värden: `true` (standard) eller `false` .|
 
 
 ## <a name="next-steps"></a>Nästa steg

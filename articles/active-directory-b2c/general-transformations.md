@@ -12,10 +12,10 @@ ms.date: 02/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 52831a1907d5ca8d13b0477c909d0d0358873973
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202228"
 ---
 # <a name="general-claims-transformations"></a>Allmänna anspråks omvandlingar
@@ -49,9 +49,9 @@ Använd den här anspråks omvandlingen för att kopiera ett värde från en str
 ### <a name="example"></a>Exempel
 
 - Inmatade anspråk:
-    - **inputClaim**:bob@contoso.com
+    - **inputClaim**: bob@contoso.com
 - Utgående anspråk:
-    - **outputClaim**:bob@contoso.com
+    - **outputClaim**: bob@contoso.com
 
 ## <a name="doesclaimexist"></a>DoesClaimExist
 
@@ -78,7 +78,7 @@ Använd den här anspråks omvandlingen för att kontrol lera om det finns ett a
 ### <a name="example"></a>Exempel
 
 - Inmatade anspråk:
-  - **inputClaim**:someone@contoso.com
+  - **inputClaim**: someone@contoso.com
 - Utgående anspråk:
   - **outputClaim**: sant
 
@@ -111,7 +111,7 @@ Hash-värde för den angivna oformaterade texten med salt och en hemlighet. Den 
 ### <a name="example"></a>Exempel
 
 - Inmatade anspråk:
-  - **oformaterad text**:MyPass@word1
+  - **oformaterad text**: MyPass@word1
   - **salt**: 487624568
   - **randomizerSecret**: B2C_1A_AccountTransformSecret
 - Utgående anspråk:

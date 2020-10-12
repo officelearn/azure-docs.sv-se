@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90972036"
 ---
 # <a name="weather-services-in-azure-maps"></a>Väder tjänster i Azure Maps
@@ -56,27 +56,27 @@ Några av API: erna för väder tjänster returnerar `iconCode` i svaret. `iconC
 
 | Ikon nummer |Ikon| Dag | Natten | Text |
 |-------------|:----:|-----|-------|------|
-| 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Ja |  Nej    | Solig|
-| 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Ja |  Nej    | Mest solig|
-| 3           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny.png"::: | Ja |  Nej    | Delvis solig|
-| 4           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds.png"::: | Ja |  Nej    | Tillfälligt moln|
-| 5           | :::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png"::: | Ja |  Nej    | Hazy solsken |
-| 6           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy.png"::: | Ja |  Nej    | Mest moln|
+| 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Ja |  Inga    | Solig|
+| 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Ja |  Inga    | Mest solig|
+| 3           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny.png"::: | Ja |  Inga    | Delvis solig|
+| 4           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds.png"::: | Ja |  Inga    | Tillfälligt moln|
+| 5           | :::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png"::: | Ja |  Inga    | Hazy solsken |
+| 6           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy.png"::: | Ja |  Inga    | Mest moln|
 | 7           | :::image type="icon" source="./media/weather-services-concepts/cloudy-i.png"::: | Ja |  Ja   | Molnet |
 | 8           | :::image type="icon" source="./media/weather-services-concepts/dreary-overcast.png"::: | Ja |  Ja   | Dreary (Overcast)|
 | 11           | :::image type="icon" source="./media/weather-services-concepts/fog-i.png"::: | Ja |  Ja   | Strålkastar|
 | 12           | :::image type="icon" source="./media/weather-services-concepts/showers-i.png"::: | Ja |  Ja   | Dusch|
-| 13           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers.png"::: | Ja |  Nej    | Mest moln med duschar|
-| 14           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-showers.png"::: | Ja |  Nej    | Delvis solig med duschar|
+| 13           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers.png"::: | Ja |  Inga    | Mest moln med duschar|
+| 14           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-showers.png"::: | Ja |  Inga    | Delvis solig med duschar|
 | 15           | :::image type="icon" source="./media/weather-services-concepts/tstorms-i.png"::: | Ja |  Ja   | Thunderstorms|
-| 16           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms.png"::: | Ja |  Nej    | Mest moln med thunderstorms|
-| 17           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-tstorms.png"::: | Ja |  Nej    | Delvis solig med thunderstorms|
+| 16           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms.png"::: | Ja |  Inga    | Mest moln med thunderstorms|
+| 17           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-tstorms.png"::: | Ja |  Inga    | Delvis solig med thunderstorms|
 | 18           | :::image type="icon" source="./media/weather-services-concepts/rain-i.png"::: | Ja |  Ja   | Lilla|
 | 19           | :::image type="icon" source="./media/weather-services-concepts/flurries-i.png"::: | Ja |  Ja   | Flurries|
-| 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | Ja |  Nej    | Mest moln med Flurries|
-| 21           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-flurries.png"::: | Ja |  Nej    | Delvis solig med Flurries|
+| 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | Ja |  Inga    | Mest moln med Flurries|
+| 21           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-flurries.png"::: | Ja |  Inga    | Delvis solig med Flurries|
 | 22           | :::image type="icon" source="./media/weather-services-concepts/snow-i.png"::: | Ja |  Ja   | Snö|
-| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Ja |  Nej    | Mest moln med snö|     
+| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Ja |  Inga    | Mest moln med snö|     
 | 24           | :::image type="icon" source="./media/weather-services-concepts/ice-i.png"::: | Ja |  Ja   | Ice |
 | 25           | :::image type="icon" source="./media/weather-services-concepts/sleet-i.png"::: | Ja |  Ja   | Sleet|
 | 26           | :::image type="icon" source="./media/weather-services-concepts/freezing-rain.png"::: | Ja |  Ja   | Frysning av regn|
@@ -84,18 +84,18 @@ Några av API: erna för väder tjänster returnerar `iconCode` i svaret. `iconC
 | 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Ja |  Ja   | Frekvent|
 | 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | Ja |  Ja   | Kall|
 | 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | Ja |  Ja   | Lindning|
-| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | Nej  |  Ja   | Rensa|
-| 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | Nej  |  Ja   | Oftast rensa|
-| 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | Nej  |  Ja   | Delvis Molnt|
-| 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | Nej  |  Ja   | Tillfälligt moln|
-| 37           | :::image type="icon" source="./media/weather-services-concepts/hazymoon-light.png"::: | Nej  |  Ja   | Hazy Moonlight|
-| 38           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-night.png"::: | Nej  |  Ja   | Mest moln|
-| 39           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-showers-night.png"::: | Nej  |  Ja   | Delvis moln med duschar|
-| 40           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers-night.png"::: | Nej  |  Ja   | Mest moln med duschar|
-| 41           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-tstorms-night.png"::: | Nej  |  Ja   | Delvis moln med thunderstorms|
-| 42           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms-night.png"::: | Nej  |  Ja   | Mest moln med thunderstorms|
-| 43           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries-night.png"::: | Nej  |  Ja   | Mest moln med Flurries|
-| 44           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Nej  |  Ja   | Mest moln med snö|
+| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | Inga  |  Ja   | Rensa|
+| 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | Inga  |  Ja   | Oftast rensa|
+| 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | Inga  |  Ja   | Delvis Molnt|
+| 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | Inga  |  Ja   | Tillfälligt moln|
+| 37           | :::image type="icon" source="./media/weather-services-concepts/hazymoon-light.png"::: | Inga  |  Ja   | Hazy Moonlight|
+| 38           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-night.png"::: | Inga  |  Ja   | Mest moln|
+| 39           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-showers-night.png"::: | Inga  |  Ja   | Delvis moln med duschar|
+| 40           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers-night.png"::: | Inga  |  Ja   | Mest moln med duschar|
+| 41           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-tstorms-night.png"::: | Inga  |  Ja   | Delvis moln med thunderstorms|
+| 42           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms-night.png"::: | Inga  |  Ja   | Mest moln med thunderstorms|
+| 43           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries-night.png"::: | Inga  |  Ja   | Mest moln med Flurries|
+| 44           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Inga  |  Ja   | Mest moln med snö|
 
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Färg skala för polärdiagram och satellit bilder
@@ -108,22 +108,22 @@ Tabellen nedan innehåller vägledning för att tolka radar bilder och skapa en 
 
 | Hexadecimal färg kod | Färg exempel | Väder villkor |
 |----------------|--------------|-------------------|
-| #93c701        | ![Färg för regn ljus.](./media/weather-services-concepts/color-93c701.png) | Regn-ljust |
-| #ffd701        | ![Färg för regn – måttlig.](./media/weather-services-concepts/color-ffd701.png) | Regn – måttlig |
-| #f05514        | ![Färg för regn – tungt.](./media/weather-services-concepts/color-f05514.png) | Regn – tungt |
-| #dc250e        | ![Färg för regn – svår.](./media/weather-services-concepts/color-dc250e.png) | Regn – allvarligt |
-| #9ec8f2        | ![Färg för vinter ljus.](./media/weather-services-concepts/color-9ec8f2.png) | Snö-ljust |
-| #2a8fdb        | ![Färg för vinter-måttligt.](./media/weather-services-concepts/color-2a8fdb.png) | Snö – måttlig |
-| #144bed        | ![Färg för vinter-tungt.](./media/weather-services-concepts/color-144bed.png) | Snö – tungt |
-| #020096        | ![Färg för vinter-allvarligt.](./media/weather-services-concepts/color-020096.png) | Snö – svår |
-| #e6a5c8        | ![Färg för Ice-ljus.](./media/weather-services-concepts/color-e6a5c8.png) | Ice-ljust |
-| #d24fa0        | ![Färg för Ice-måttlig.](./media/weather-services-concepts/color-d24fa0.png) | Ice-måttlig |
-| #b71691        | ![Färg för Ice-allvarlig.](./media/weather-services-concepts/color-b71691.png) | Ice-allvarlig |
-| #7a1570        | ![Färg för is-tung.](./media/weather-services-concepts/color-7a1570.png) | Is-tungt |
-| #c196e6        | ![Färg för mix-ljust.](./media/weather-services-concepts/color-c196e6.png) | Mix-ljust |
-| #ae6ee6        | ![Färg för mix-måttlig.](./media/weather-services-concepts/color-ae6ee6.png) | Mix-måttlig |
-| #8a32d7        | ![Färg för mix-tung.](./media/weather-services-concepts/color-8a32d7.png) | Blanda – tungt |
-| #6500ba        | ![Färg för mix-allvarlig.](./media/weather-services-concepts/color-6500ba.png) | Blanda – allvarligt |
+| #93c701        | ![Färg för regn ljus.](./media/weather-services-concepts/color-93c701.png) | Rain-Light |
+| #ffd701        | ![Färg för regn – måttlig.](./media/weather-services-concepts/color-ffd701.png) | Rain-Moderate |
+| #f05514        | ![Färg för regn – tungt.](./media/weather-services-concepts/color-f05514.png) | Rain-Heavy |
+| #dc250e        | ![Färg för regn – svår.](./media/weather-services-concepts/color-dc250e.png) | Rain-Severe |
+| #9ec8f2        | ![Färg för vinter ljus.](./media/weather-services-concepts/color-9ec8f2.png) | Snow-Light |
+| #2a8fdb        | ![Färg för vinter-måttligt.](./media/weather-services-concepts/color-2a8fdb.png) | Snow-Moderate |
+| #144bed        | ![Färg för vinter-tungt.](./media/weather-services-concepts/color-144bed.png) | Snow-Heavy |
+| #020096        | ![Färg för vinter-allvarligt.](./media/weather-services-concepts/color-020096.png) | Snow-Severe |
+| #e6a5c8        | ![Färg för Ice-ljus.](./media/weather-services-concepts/color-e6a5c8.png) | Ice-Light |
+| #d24fa0        | ![Färg för Ice-måttlig.](./media/weather-services-concepts/color-d24fa0.png) | Ice-Moderate |
+| #b71691        | ![Färg för Ice-allvarlig.](./media/weather-services-concepts/color-b71691.png) | Ice-Severe |
+| #7a1570        | ![Färg för is-tung.](./media/weather-services-concepts/color-7a1570.png) | Ice-Heavy |
+| #c196e6        | ![Färg för mix-ljust.](./media/weather-services-concepts/color-c196e6.png) | Mix-Light |
+| #ae6ee6        | ![Färg för mix-måttlig.](./media/weather-services-concepts/color-ae6ee6.png) | Mix-Moderate |
+| #8a32d7        | ![Färg för mix-tung.](./media/weather-services-concepts/color-8a32d7.png) | Mix-Heavy |
+| #6500ba        | ![Färg för mix-allvarlig.](./media/weather-services-concepts/color-6500ba.png) | Mix-Severe |
 
 Detaljerad färgpalett för radar plattor med hexadecimala färg koder och dBZ-värden visas nedan. dBZ representerar utfällnings intensitet i väder polärdiagram. 
 
@@ -199,7 +199,7 @@ Tabellen nedan ger vägledning om hur du tolkar de infraröda satellit bilderna 
 
 | Hexadecimal färg kod | Färg exempel | Moln temperatur |
 |----------------|--------------|-------------------|
-| #b5b5b5        | ![Färg panelen för #b5b5b5.](./media/weather-services-concepts/color-b5b5b5.png) | Temperatur – låg | 
+| #b5b5b5        | ![Färg panelen för #b5b5b5.](./media/weather-services-concepts/color-b5b5b5.png) | Temperature-Low | 
 | #d24fa0        | ![Färg panelen för #d24fa0.](./media/weather-services-concepts/color-d24fa0.png) |  |
 | #8a32d7        | ![Färg panelen för #8a32d7.](./media/weather-services-concepts/color-8a32d7.png) |  |
 | #144bed        | ![Färg panelen för #144bed.](./media/weather-services-concepts/color-144bed.png) |  |
@@ -210,7 +210,7 @@ Tabellen nedan ger vägledning om hur du tolkar de infraröda satellit bilderna 
 | #f05514        | ![Färg panelen för #f05514.](./media/weather-services-concepts/color-f05514.png) |  |
 | #dc250e        | ![Färg panelen för #dc250e.](./media/weather-services-concepts/color-dc250e.png) |  |
 | #ba0808        | ![Färg panelen för #ba0808.](./media/weather-services-concepts/color-ba0808.png) |  |
-| #1f1f1f        | ![Färg panelen för #1f1f1f.](./media/weather-services-concepts/color-1f1f1f.png) | Temperatur – hög |
+| #1f1f1f        | ![Färg panelen för #1f1f1f.](./media/weather-services-concepts/color-1f1f1f.png) | Temperature-High |
 
 
 Detaljerad färgpalett för infraröda satellit paneler visas nedan.
@@ -494,7 +494,7 @@ Nedan visas en tabell med tillgängliga index-ID: n, deras namn och en länk til
   Damm & dander              |18| [Låg – Extreme 1](#low-extreme-1)
   Fält beredskap            |32| [Dåligt – utmärkt 1](#poor-excellent-1)
   Fiskezon                    |13| [Dåligt – utmärkt 1](#poor-excellent-1)
-  Fördröjningar vid flygning              |-3|  [Mycket osannolikt 2](#very-unlikely-very-likely-2)
+  Fördröjningar vid flygning              |-3|  [Mycket Unlikely-Very troligen 2](#very-unlikely-very-likely-2)
   Flu                        |26|  [Fördelaktig – extrema risker](#beneficial-at-extreme-risk)
   Flygande rese index        |31| [Utmärkt – dåligt](#excellent-poor)
   Bränsle ekonomi               |37| [Dåligt – utmärkt 1](#poor-excellent-1)
@@ -505,7 +505,7 @@ Nedan visas en tabell med tillgängliga index-ID: n, deras namn och en länk til
   Vandra                     |3| [Dåligt – utmärkt 1](#poor-excellent-1)
   Start energi effektivitet     |36| [Dåligt – utmärkt 1](#poor-excellent-1)
   Hotjakt                    | 20| [Dåligt – utmärkt 1](#poor-excellent-1)
-  Inomhus aktivitet            | −2| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Inomhus aktivitet            | -2| [Dåligt – utmärkt 1](#poor-excellent-1)
   Jogging                    |2| [Dåligt – utmärkt 1](#poor-excellent-1)
   Kite som flyger                |9| [Dåligt – utmärkt 1](#poor-excellent-1)
   Matta mowing                |28| [Dåligt – utmärkt 1](#poor-excellent-1)
@@ -523,7 +523,7 @@ Nedan visas en tabell med tillgängliga index-ID: n, deras namn och en länk til
   Sinus             |30|  [Fördelaktig – extrema risker](#beneficial-at-extreme-risk)
   Skateboarding              | 7| [Dåligt – utmärkt 1](#poor-excellent-1)
   Skid väder                | 15| [Dåligt – utmärkt 1](#poor-excellent-1)
-  Snö dagar                  | 19| [Mycket troligt](#very-unlikely-very-likely)
+  Snö dagar                  | 19| [Mycket Unlikely-Very förmodligen](#very-unlikely-very-likely)
   Jord fukt              | 34| [Dåligt – utmärkt 1](#poor-excellent-1)
   Stargazing                 | 12| [Dåligt – utmärkt 1](#poor-excellent-1)
 
@@ -543,13 +543,13 @@ Nedan visas listan över tillgängliga index grupper (indexGroupId):
   10      |Hälsa | Arthritis-smärta (21) </br> Asthma (23) </br> Vanlig kall (25) </br> Damm & dander (18) </br> Flu (26) </br> Frisk hjärta (16) </br> Migraine (27)
   11      |Bruk | Utomhus Barbecue (24) </br> Strand & pool (10) </br> Bikallning (4) </br> Konsert (8) </br>  Fält beredskap (32) </br> Fiske (13) </br> Golf väder (5) </br> Vandra (3) </br> Jakt (20) </br> Jogging (2) </br> Kite (9) </br> Mosquito-aktivitet (17)</br> Trädgårds mowing (28) </br> Utomhus aktivitet (29) </br> Körs (1) </br> Segling (11) </br> Skateboarding (7) </br> Skid väder (15) </br>  Jord fuktighet (34)</br> Stargazing (12) </br> Tennis (6)
   12      |Tävling | Bikallning (4) </br> Golf väder (5) </br> Vandra (3) </br>  Jogging (2) </br> Körs (1) </br> Skateboarding (7) </br> Skid väder (15) </br>Tennis (6)
-  13      |Start | Start energi effektivitet (36) </br> Bränsle ekonomi (37) </br> Inomhus aktivitet (-2)
+  13      |Hem | Start energi effektivitet (36) </br> Bränsle ekonomi (37) </br> Inomhus aktivitet (-2)
 
 ## <a name="daily-index-range-sets"></a>Intervall uppsättningar för dagligt index
 
 [Hämta dagliga index-API: er](https://aka.ms/AzureMapsWeatherDailyIndices) returnerar det intervallbaserade värdet och dess associerade kategori namn för varje index-ID. Intervall uppsättningar är inte desamma för alla index. I tabellerna nedan visas de olika intervall uppsättningarna som används av de index som stöds i [index-ID: n och index grupps-ID: n](#index-ids-and-index-groups-ids). För att ta reda på vilka index som används, går du till avsnittet [index-ID och index grupper ID](#index-ids-and-index-groups-ids) i det här dokumentet.
 
-### <a name="poor-excellent-1"></a>Dåligt – utmärkt 1
+### <a name="poor-excellent-1"></a>Poor-Excellent 1
 
   | Kategorinamn | Intervall start | Slut intervall |
   ----------------|--------------|------------
@@ -559,7 +559,7 @@ Nedan visas listan över tillgängliga index grupper (indexGroupId):
   Väldigt bra         |  7  |               8,99
   Utmärkt         |  9  |               10
 
-### <a name="poor-excellent-2"></a>Dåligt – utmärkt 2
+### <a name="poor-excellent-2"></a>Poor-Excellent 2
 
  | Kategorinamn | Intervall start | Slut intervall |
   ----------------|--------------|------------
@@ -569,7 +569,7 @@ Nedan visas listan över tillgängliga index grupper (indexGroupId):
   Väldigt bra      |7,51           |  8,99
   Utmärkt      |9              |  10
 
-### <a name="excellent-poor"></a>Utmärkt – dåligt
+### <a name="excellent-poor"></a>Excellent-Poor
 
  | Kategorinamn | Intervall start | Slut intervall |
   ----------------|--------------|------------
@@ -579,27 +579,27 @@ Nedan visas listan över tillgängliga index grupper (indexGroupId):
   Ganska bra             |   5,01          |  7,00
   Dålig             |   7,01          |  10.00
 
-### <a name="low-extreme-1"></a>Låg – Extreme 1
+### <a name="low-extreme-1"></a>Low-Extreme 1
 
    | Kategorinamn | Intervall start | Slut intervall |
   ----------------|--------------|------------
   Låg                |  0         |        1,99
-  Måttlig           |  2         |        3,99
+  Medel           |  2         |        3,99
   Hög               |  4         |        5.99
   Mycket hög          |  6         |        7,99
   Extrem            |  8         |        10
 
-### <a name="low-extreme-2"></a>Låg-Extreme 2
+### <a name="low-extreme-2"></a>Low-Extreme 2
 
    | Kategorinamn | Intervall start | Slut intervall |
   ----------------|--------------|------------
   Låg                |  0            |      2,99
-  Måttlig           |  3            |      4,99
+  Medel           |  3            |      4,99
   Hög               |  5            |      6,99
   Mycket hög          |  7            |      8,99
   Extrem            |  9            |      10
 
-### <a name="very-unlikely-very-likely"></a>Mycket troligt
+### <a name="very-unlikely-very-likely"></a>Mycket Unlikely-Very förmodligen
 
  | Kategorinamn | Intervall start | Slut intervall |
   ----------------|--------------|------------
@@ -609,7 +609,7 @@ Nedan visas listan över tillgängliga index grupper (indexGroupId):
   Förmoda             | 6     |           7,99
   Mycket troligt        | 8     |           10
 
-### <a name="very-unlikely-very-likely-2"></a>Mycket osannolikt 2
+### <a name="very-unlikely-very-likely-2"></a>Mycket Unlikely-Very troligen 2
 
  | Kategorinamn | Intervall start | Slut intervall |
   ----------------|--------------|------------
@@ -619,7 +619,7 @@ Nedan visas listan över tillgängliga index grupper (indexGroupId):
   Förmoda             |  5,01     |         7,00
   Mycket troligt        |  7,01     |         10.00
 
-### <a name="unlikely-emergency"></a>Osannolikt-nödfall
+### <a name="unlikely-emergency"></a>Unlikely-Emergency
 
 | Kategorinamn | Intervall start | Slut intervall |
   ----------------|--------------|------------
@@ -629,7 +629,7 @@ Nedan visas listan över tillgängliga index grupper (indexGroupId):
   Varning          |  7     |          8,99
   Akut        |  9     |          10
 
-### <a name="beneficial-at-extreme-risk"></a>Fördelaktig – extrema risker
+### <a name="beneficial-at-extreme-risk"></a>Beneficial-At Extreme-risk
 
 | Kategorinamn | Intervall start | Slut intervall |
   ----------------|--------------|------------

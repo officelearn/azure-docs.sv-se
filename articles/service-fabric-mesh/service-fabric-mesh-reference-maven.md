@@ -7,15 +7,15 @@ ms.date: 11/26/2018
 ms.topic: reference
 ms.custom: devx-track-java
 ms.openlocfilehash: 3a1aa004f47ba700ef4b96004dfe5b835788dcc7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87372475"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Maven-plugin-program för Service Fabric nät
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Java SDK
 - Maven
@@ -88,7 +88,7 @@ Kör följande kommando för att skapa program resursens YAML-fil.
 mvn azure-sfmesh:init -DapplicationName=helloworldserver
 ```
 
-- Skapar en mapp `servicefabric->appresources` som kallas i rotmappen som innehåller ett program yaml med namnet`app_helloworldserver`
+- Skapar en mapp `servicefabric->appresources` som kallas i rotmappen som innehåller ett program yaml med namnet `app_helloworldserver`
 
 ### <a name="add-resource-to-your-application"></a>Lägg till resurs i ditt program
 
@@ -99,7 +99,7 @@ Kör kommandot nedan för att skapa en nätverks resurs yaml.
 mvn azure-sfmesh:addnetwork -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.0/22
 ```
 
-- Skapar en nätverks-YAML i mappen `servicefabric->appresources` med namnet`network_helloworldservicenetwork`
+- Skapar en nätverks-YAML i mappen `servicefabric->appresources` med namnet `network_helloworldservicenetwork`
 
 #### <a name="add-a-new-service-to-your-application"></a>Lägg till en ny tjänst i programmet
 Kör kommandot nedan för att skapa en tjänst yaml. 
@@ -119,7 +119,7 @@ Kör kommandot nedan för att skapa en gateway-resurs yaml.
 mvn azure-sfmesh:addgateway -DapplicationName=helloworldserver -DdestinationNetwork=helloworldservicenetwork -DgatewayName=helloworldgateway -DlistenerName=helloworldserviceListener -DserviceName=helloworldservice -DsourceNetwork=open -DtcpPort=80
 ```
 
-- Skapar en ny Gateway-YAML i mappen `servicefabric->appresources` med namnet`gateway_helloworldgateway`
+- Skapar en ny Gateway-YAML i mappen `servicefabric->appresources` med namnet `gateway_helloworldgateway`
 - Referenser `helloworldservicelistener` som tjänst lyssnare som lyssnar på anrop från denna gateway. Refererar också till `helloworldservice` som-tjänsten, `helloworldservicenetwork` som nätverk och `helloworldserver` som program. 
 - Lyssnar efter begär Anden på port 80
 
@@ -130,7 +130,7 @@ Kör kommandot nedan för att skapa en volym resurs yaml.
 mvn azure-sfmesh:addvolume -DvolumeAccountKey=key -DvolumeAccountName=name -DvolumeName=vol1 -DvolumeShareName=share
 ```
 
-- Skapar en volym YAML i mappen `servicefabric->appresources` med namnet`volume_vol1`
+- Skapar en volym YAML i mappen `servicefabric->appresources` med namnet `volume_vol1`
 - Anger egenskaper för obligatoriska parametrar, `volumeAccountKey` och `volumeShareName` som ovan
 - Mer information om hur du refererar till den här skapade volymen finns i följande [distribuera app med Azure Files volym](service-fabric-mesh-howto-deploy-app-azurefiles-volume.md)
 
@@ -141,7 +141,7 @@ Kör kommandot nedan för att skapa en hemlig resurs yaml.
 mvn azure-sfmesh:addsecret -DsecretName=secret1
 ```
 
-- Skapar en hemlig YAML i mappen `servicefabric->appresources` med namnet`secret_secret1`
+- Skapar en hemlig YAML i mappen `servicefabric->appresources` med namnet `secret_secret1`
 - Mer information om hur du refererar till den här skapade hemligheten finns på följande, [Hantera hemligheter](service-fabric-mesh-howto-manage-secrets.md)
 
 #### <a name="add-a-new-secretvalue-resource-to-your-application"></a>Lägg till en ny secretvalue-resurs i ditt program
@@ -151,7 +151,7 @@ Kör kommandot nedan för att skapa en secretvalue-resurs yaml.
 mvn azure-sfmesh:addsecretvalue -DsecretValue=someVal -DsecretValueName=secret1/v1
 ```
 
-- Skapa en secretvalue-YAML i mappen `servicefabric->appresources` med namnet`secretvalue_secret1_v1`
+- Skapa en secretvalue-YAML i mappen `servicefabric->appresources` med namnet `secretvalue_secret1_v1`
 
 ### <a name="run-the-application-locally"></a>Köra appen lokalt
 

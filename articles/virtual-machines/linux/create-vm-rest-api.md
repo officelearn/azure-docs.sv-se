@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: d6e5195f43991f4d40af57c1ab4b87aaca475b64
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87373410"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Skapa en virtuell Linux-dator som använder SSH-autentisering med REST API
@@ -46,7 +46,7 @@ Följande huvuden krävs:
 | Begärandehuvud   | Beskrivning |
 |------------------|-----------------|
 | *Content-Type:*  | Krävs. Ange till `application/json`. |
-| *Auktorisering:* | Krävs. Ange till en giltig -`Bearer` [åtkomsttoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Auktorisering:* | Krävs. Ange till en giltig `Bearer`-[åtkomsttoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 Allmän information om hur du arbetar med REST API begär Anden finns i [komponenter i en REST API begäran/svar](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -54,7 +54,7 @@ Allmän information om hur du arbetar med REST API begär Anden finns i [kompone
 
 Följande vanliga definitioner används för att bygga en begär ande text:
 
-| Namn                       | Krävs | Typ                                                                                | Description  |
+| Namn                       | Krävs | Typ                                                                                | Beskrivning  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | sträng                                                                              | Resurs plats. |
 | name                       |          | sträng                                                                              | Namn på den virtuella datorn. |
@@ -128,7 +128,7 @@ Du kan använda klienten för din preferens för att skicka denna HTTP-begäran.
 
 Det finns två lyckade svar för åtgärden att skapa eller uppdatera en virtuell dator:
 
-| Namn        | Typ                                                                              | Description |
+| Namn        | Typ                                                                              | Beskrivning |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 har skapats | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Skapad     |

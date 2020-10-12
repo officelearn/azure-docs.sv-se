@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 3ded5f6186d8ccdae0f42ecb9942c70e09f2dd9f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310891"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Begär offentlig överförings information med tjänsten Azure Maps Mobility
@@ -38,7 +38,7 @@ I den här självstudien används [Postman](https://www.postman.com/) -programme
 
 För att kunna begära detaljerad information om transit myndigheter och de överförings typer som stöds för ett visst lokalt territorium måste du ha det `metroId` . Med [API för att hämta Metro-området](https://aka.ms/AzureMapsMobilityMetro) kan du begära tunnel Bane områden där Azure Maps mobilitets tjänsten är tillgänglig. Svaret innehåller information som `metroId` , `metroName` och åter givningen av geometri ytans geometri i formatet för en geometrisk JSON-fil.
 
-Nu ska vi göra en begäran om att hämta tunnelbane ytan för Tacoma i Metro-ytans ID. Slutför följande steg för att begära ID för ett tunnelbane utrymme:
+Vi gör en begäran om att hämta Metro-område för Seattle-Tacoma tunnelbane ytans ID. Slutför följande steg för att begära ID för ett tunnelbane utrymme:
 
 1. Öppna Postman-appen och skapa en samling där du kan lagra begär Anden. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **samling**.  Namnge samlingen och välj knappen **skapa** .
 

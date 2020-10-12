@@ -12,10 +12,10 @@ ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2d4c538a9292698fecc8b44c055ab201748e292c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203001"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk validerings profil i en Azure Active Directory B2C anpassad princip
@@ -56,8 +56,8 @@ En självkontrollerad teknisk profil kan definiera en validerings teknisk profil
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | ReferenceId | Ja | En identifierare för en teknisk profil som redan har definierats i principen eller överordnad princip. |
-|ContinueOnError|No| Anger om validering av eventuella efterföljande verifierings tekniska profiler ska fortsätta om den här verifierings tekniska profilen genererar ett fel. Möjliga värden: `true` eller `false` (standard, bearbetning av ytterligare verifierings profiler kommer att stoppas och ett fel returneras). |
-|ContinueOnSuccess | No | Anger om validering av eventuella efterföljande validerings profiler ska fortsätta om den här verifieringen av teknisk profil lyckas. Möjliga värden: `true` eller `false` . Standardvärdet är `true` , vilket innebär att bearbetningen av ytterligare verifierings profiler fortsätter. |
+|ContinueOnError|Inga| Anger om validering av eventuella efterföljande verifierings tekniska profiler ska fortsätta om den här verifierings tekniska profilen genererar ett fel. Möjliga värden: `true` eller `false` (standard, bearbetning av ytterligare verifierings profiler kommer att stoppas och ett fel returneras). |
+|ContinueOnSuccess | Inga | Anger om validering av eventuella efterföljande validerings profiler ska fortsätta om den här verifieringen av teknisk profil lyckas. Möjliga värden: `true` eller `false` . Standardvärdet är `true` , vilket innebär att bearbetningen av ytterligare verifierings profiler fortsätter. |
 
 **ValidationTechnicalProfile** -elementet innehåller följande element:
 
@@ -77,7 +77,7 @@ En självkontrollerad teknisk profil kan definiera en validerings teknisk profil
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
 | Värde | 1: n | De data som används av kontrollen. Om typen av kontroll är `ClaimsExist` , anger det här fältet en ClaimTypeReferenceId att fråga efter. Om typen av kontroll är `ClaimEquals` , anger det här fältet en ClaimTypeReferenceId att fråga efter. Ett annat värde-element innehåller det värde som ska kontrol leras.|
-| Åtgärd | 1:1 | Den åtgärd som ska vidtas om villkors kontrollen i ett Orchestration-steg är sann. Värdet för **åtgärden** är inställt på `SkipThisValidationTechnicalProfile` . Anger att den tillhör ande tekniska profilen för verifiering inte ska köras. |
+| Action | 1:1 | Den åtgärd som ska vidtas om villkors kontrollen i ett Orchestration-steg är sann. Värdet för **åtgärden** är inställt på `SkipThisValidationTechnicalProfile` . Anger att den tillhör ande tekniska profilen för verifiering inte ska köras. |
 
 ### <a name="example"></a>Exempel
 

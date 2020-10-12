@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: f9b7b92fd21e12f1d86c5d5878e48c6ec6b0e748
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088027"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F # referens för utvecklare
@@ -278,16 +278,16 @@ let mylog(log: ILogger, text: string) =
 
 Sökvägar till `#load` direktivet är relativa till `.fsx` filens plats.
 
-* `#load "logger.fsx"`läser in en fil som finns i Function-mappen.
-* `#load "package\logger.fsx"`läser in en fil som finns i `package` mappen i Function-mappen.
-* `#load "..\shared\mylogger.fsx"`läser in en fil som finns i `shared` mappen på samma nivå som Function-mappen, det vill säga direkt under `wwwroot` .
+* `#load "logger.fsx"` läser in en fil som finns i Function-mappen.
+* `#load "package\logger.fsx"` läser in en fil som finns i `package` mappen i Function-mappen.
+* `#load "..\shared\mylogger.fsx"` läser in en fil som finns i `shared` mappen på samma nivå som Function-mappen, det vill säga direkt under `wwwroot` .
 
 `#load`Direktivet fungerar endast med `.fsx` (F # skript) filer och inte med `.fs` filer.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i följande resurser:
 
-* [F #-guide](/dotnet/articles/fsharp/index)
+* [F#-guide](/dotnet/articles/fsharp/index)
 * [Metod tips för Azure Functions](functions-best-practices.md)
 * [Azure Functions, info för utvecklare](functions-reference.md)
 * [Azure Functions utlösare och bindningar](functions-triggers-bindings.md)

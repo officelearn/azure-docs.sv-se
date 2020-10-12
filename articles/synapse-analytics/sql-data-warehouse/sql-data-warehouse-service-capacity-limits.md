@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: c0fcbe59aa4393f1266c0840cf05c3dc7b1f6d90
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85204990"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Kapacitets gränser för Azure Synapse Analytics (tidigare SQL DW)
@@ -27,11 +27,11 @@ Högsta tillåtna värden för olika komponenter i Azure-Synapse.
 | Kategori | Beskrivning | Maximal |
 |:--- |:--- |:--- |
 | [Informations lager enheter (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU för en enskild SQL-pool (data lager) enhet | Gen1: DW6000<br></br>Gen2: DW30000c |
-| [Informations lager enheter (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Standard-DTU per server |54 000<br></br>Varje SQL Server (t. ex. myserver.database.windows.net) har som standard en DTU-kvot på 54 000, vilket ger upp till DW5000c. Kvoten är helt enkelt en säkerhetsgräns. Du kan öka kvoten genom att [skapa ett support ärende](sql-data-warehouse-get-started-create-support-ticket.md) och välja *kvot* som typ av begäran.  För att beräkna dina DTU-behov multiplicerar du 7,5 med den totala DWU som krävs, eller multiplicerar 9,5 med den totala cDWU som behövs. Ett exempel:<br></br>DW6000 x 7,5 = 45 000 DTU: er<br></br>DW5000c x 9,5 = 47 500 DTU: er.<br></br>Du kan visa den aktuella DTU-förbrukningen från SQL Server-alternativet i portalen. Både pausade och inte pausade databaser räknas i förhållande till DTU-kvoten. |
+| [Informations lager enheter (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Standard-DTU per server |54 000<br></br>Varje SQL Server (t. ex. myserver.database.windows.net) har som standard en DTU-kvot på 54 000, vilket ger upp till DW5000c. Kvoten är helt enkelt en säkerhetsgräns. Du kan öka kvoten genom att [skapa ett support ärende](sql-data-warehouse-get-started-create-support-ticket.md) och välja *kvot* som typ av begäran.  För att beräkna dina DTU-behov multiplicerar du 7,5 med den totala DWU som krävs, eller multiplicerar 9,5 med den totala cDWU som behövs. Exempel:<br></br>DW6000 x 7,5 = 45 000 DTU: er<br></br>DW5000c x 9,5 = 47 500 DTU: er.<br></br>Du kan visa den aktuella DTU-förbrukningen från SQL Server-alternativet i portalen. Både pausade och inte pausade databaser räknas i förhållande till DTU-kvoten. |
 | Databas anslutning |Maximalt antal samtidiga öppna sessioner |1024<br/><br/>Antalet samtidiga öppna sessioner varierar beroende på den valda DWU. DWU600c och högre stöder högst 1024 öppna sessioner. DWU500c och nedan stöder maximalt antal samtidiga sessioner av öppen session på 512. Obs! det finns gränser för hur många frågor som kan köras samtidigt. Om samtidigheten överskrids hamnar begäran i en intern kö där den väntar på att bearbetas. |
 | Databas anslutning |Maximalt minne för för beredda uttryck |20 MB |
 | [Arbetsbelastningshantering](resource-classes-for-workload-management.md) |Maximalt antal samtidiga frågor |128<br/><br/>  Högst 128 samtidiga frågor kommer att köras och återstående frågor placeras i kö.<br/><br/>Antalet samtidiga frågor kan minska när användare tilldelas högre resurs klasser eller när inställningen för [data lagrets enhet](memory-concurrency-limits.md) sänks. Vissa frågor, som DMV-frågor, tillåts alltid att köras och påverkar inte gränsen för samtidiga frågor. Mer information om körning av samtidiga frågor finns i artikeln om [högsta antal](memory-concurrency-limits.md) samtidiga frågor. |
-| [TempDB](sql-data-warehouse-tables-temporary.md) |Maximalt GB |399 GB per DW100c. I DWU1000c är tempdb storleken 3,99 TB. |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |Maximalt GB |399 GB per DW100c. I DWU1000c är tempdb storleken 3,99 TB. |
 ||||
 
 ## <a name="database-objects"></a>Databas objekt
@@ -79,22 +79,22 @@ Högsta tillåtna värden för olika komponenter i Azure-Synapse.
 | VÄLJ |Byte per grupp efter kolumner. |8060<br/><br/>Kolumnerna i GROUP BY-satsen får innehålla högst 8060 byte. |
 | VÄLJ |Byte per sortering efter kolumner |8060 byte<br/><br/>Kolumnerna i ORDER BY-satsen får innehålla högst 8060 byte |
 | Identifierare per instruktion |Antalet refererade identifierare |65 535<br/><br/> Antalet identifierare som kan ingå i ett enda uttryck i en fråga är begränsat. Om antalet överskrids i SQL Server fel 8632. Mer information finns i [internt fel: en gräns för uttrycks tjänster har nåtts](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
-| Sträng litteraler | Antal sträng litteraler i en instruktion | 20 000 <br/><br/>Antalet sträng konstanter i ett enda uttryck i en fråga är begränsat. Om antalet överskrids i SQL Server fel 8632.|
+| Strängliteraler | Antal sträng litteraler i en instruktion | 20 000 <br/><br/>Antalet sträng konstanter i ett enda uttryck i en fråga är begränsat. Om antalet överskrids i SQL Server fel 8632.|
 ||||
 
 ## <a name="metadata"></a>Metadata
 
 | System visning | Maximalt antal rader |
 |:--- |:--- |
-| sys. dm_pdw_component_health_alerts |10 000 |
-| sys. dm_pdw_dms_cores |100 |
+| sys.dm_pdw_component_health_alerts |10 000 |
+| sys.dm_pdw_dms_cores |100 |
 | sys.dm_pdw_dms_workers |Totalt antal DMS-arbetare för de senaste 1000 SQL-begärandena. |
-| sys. dm_pdw_errors |10 000 |
+| sys.dm_pdw_errors |10 000 |
 | sys.dm_pdw_exec_requests |10 000 |
-| sys. dm_pdw_exec_sessions |10 000 |
-| sys.dm_pdw_request_steps |Totalt antal steg för de senaste 1000 SQL-begäranden som lagras i sys. dm_pdw_exec_requests. |
-| sys. dm_pdw_os_event_logs |10 000 |
-| sys.dm_pdw_sql_requests |De senaste 1000 SQL-begäranden som lagras i sys. dm_pdw_exec_requests. |
+| sys.dm_pdw_exec_sessions |10 000 |
+| sys.dm_pdw_request_steps |Totalt antal steg för de senaste 1000 SQL-begäranden som lagras i sys.dm_pdw_exec_requests. |
+| sys.dm_pdw_os_event_logs |10 000 |
+| sys.dm_pdw_sql_requests |De senaste 1000 SQL-begäranden som lagras i sys.dm_pdw_exec_requests. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg

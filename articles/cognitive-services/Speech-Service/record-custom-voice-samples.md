@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
 ms.openlocfilehash: 2897fe2e0cc8aeb929b0a33f5cdaba9c60f2a244
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81261592"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Spela in röst exempel för att skapa en anpassad röst
@@ -108,7 +108,7 @@ Lyckligt vis är det möjligt att undvika dessa problem helt och hållet. Det fi
 |-|-|
 |[CMU Arctic-sökkorpus](http://festvox.org/cmu_arctic/)|Om 1100 meningar som valts från frånvaro av upphovs rätts arbete som används i tal syntes projekt. En utmärkt start punkt.|
 |Fungerar inte längre<br>under Copyright|Vanligt vis publicerade Works före 1923. För engelska erbjuder [Project Gutenberg](https://www.gutenberg.org/) tusentals sådana arbeten. Du kanske vill fokusera på nyare arbeten, eftersom språket är närmare för modern engelska.|
-|Myndigheter&nbsp;fungerar|Verk som skapats av USA myndigheter är inte upphovsrättsskyddade i USA, även om myndigheter kan anspråka upphovs rätt i andra länder/regioner.|
+|Myndigheter &nbsp; fungerar|Verk som skapats av USA myndigheter är inte upphovsrättsskyddade i USA, även om myndigheter kan anspråka upphovs rätt i andra länder/regioner.|
 |Offentlig domän|Fungerar som upphovs rätt uttryckligen har frigjorts eller som har reserver ATS för den offentliga domänen. Det kan inte vara möjligt att avstå från upphovs rätt helt i vissa jurisdiktioner.|
 |Auktoriserade och licensierade arbeten|Works distribueras under en licens som Creative Commons eller GNU License License License (GFDL). Wikipedia använder GFDL. Vissa licenser kan dock medföra begränsningar för prestanda för det licensierade innehållet som kan påverka skapandet av en anpassad röst modell, så Läs licensen noggrant.|
 

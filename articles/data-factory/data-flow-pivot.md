@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/17/2020
 ms.openlocfilehash: e098182c000cbe05df533434a41c55b797ef876f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086684"
 ---
 # <a name="pivot-transformation-in-mapping-data-flow"></a>Pivot-transformering i data flöde för mappning
@@ -71,7 +71,7 @@ Om de angivna värdena för en piltangent anges visas de pivoterade kolumnerna i
 
 Pivot genererar nya kolumn namn dynamiskt baserat på rad värden. Du kan lägga till dessa nya kolumner i metadata som kan refereras till senare i ditt data flöde. Om du vill göra det använder du åtgärden [Mappa](concepts-data-flow-schema-drift.md#map-drifted-columns-quick-action) åtgärdad snabb åtgärd i data förhands granskning. 
 
-![Pivotkolumner](media/data-flow/newpivot1.png "Mappa uppstaplade Pivot-kolumner")
+![Pivotera kolumner](media/data-flow/newpivot1.png "Mappa uppstaplade Pivot-kolumner")
 
 ### <a name="sinking-pivoted-columns"></a>Handfat med pivoterade kolumner
 

@@ -9,10 +9,10 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67187779"
 ---
 > [!div class="op_single_selector"]
@@ -26,8 +26,8 @@ ms.locfileid: "67187779"
 I den här självstudien implementerar du en **kyl** enhet som skickar följande telemetri till lösningen för fjärr styrnings [lösning](../articles/iot-accelerators/about-iot-accelerators.md):
 
 * Temperatur
-* Berörda
-* Fuktighet
+* Lufttryck
+* Luftfuktighet
 
 För enkelhetens skull genererar koden exempel på telemetri-värden för **kyl metoden**. Du kan utöka exemplet genom att ansluta riktiga sensorer till enheten och skicka riktiga telemetri.
 

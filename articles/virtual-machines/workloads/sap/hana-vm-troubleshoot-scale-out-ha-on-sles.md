@@ -1,5 +1,5 @@
 ---
-title: SAP HANA skalbar HSR – pacemaker med SLES på fel sökning av virtuella Azure-datorer | Microsoft Docs
+title: SAP HANA skala ut HSR-Pacemaker med SLES på fel sökning av virtuella Azure-datorer | Microsoft Docs
 description: Guide för att kontrol lera och felsöka en komplex SAP HANA konfiguration med hög tillgänglighet baserat på SAP HANA system replikering (HSR) och pacemaker på SLES 12 SP3 som körs på virtuella Azure-datorer
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: 5c3a24bc9d754a15a0b372667fbcd689365a9aec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088316"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verifiera och Felsök SAP HANA skalnings-och hög tillgänglighets installation på SLES 12 SP3 
@@ -40,7 +40,7 @@ Den här artikeln hjälper dig att kontrol lera kluster konfigurationen för pac
 
 ## <a name="important-notes"></a>Viktiga meddelanden
 
-Alla tester för SAP HANA utskalning i kombination med SAP HANA system replikering och pacemaker skedde med SAP HANA 2,0. Operativ system versionen var SUSE Linux Enterprise Server 12 SP3 för SAP-program. Det senaste RPM-paketet, SAPHanaSR-skalning från SUSE, användes för att konfigurera pacemaker-klustret.
+Alla tester för SAP HANA utskalning i kombination med SAP HANA system replikering och pacemaker skedde med SAP HANA 2,0. Operativ system versionen var SUSE Linux Enterprise Server 12 SP3 för SAP-program. Det senaste RPM-paketet SAPHanaSR-ScaleOut från SUSE användes för att konfigurera pacemaker-klustret.
 SUSE har publicerat en [detaljerad beskrivning av den här Prestandaoptimerad installationen][sles-hana-scale-out-ha-paper].
 
 För typer av virtuella datorer som stöds för SAP HANA utskalning kontrollerar du [SAP HANA Certified IaaS-katalogen][sap-hana-iaas-list].

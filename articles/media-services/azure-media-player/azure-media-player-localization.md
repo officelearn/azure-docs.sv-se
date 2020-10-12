@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 8a459d1fba4353b4b3e092e83a759314cc455ead
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87087296"
 ---
 # <a name="azure-media-player-localization"></a>Azure Media Player lokalisering #
@@ -36,7 +36,7 @@ Azure Media Player stöder för närvarande följande språk koder:
 | Danska              | da   | Japanska                | ja     | Ryska                 | ru           |
 | Tyska              | de   | Kazakiska                  | kk     | Svenska                 | sv           |
 | Grekiska               | El   | Koreanska                  | Ko     | Thailändska                    | i:te           |
-| Spanska             | ES   | Litauiska              | långsiktiga     | Tagalog                 | TL           |
+| Spanska             | es   | Litauiska              | lt     | Tagalog                 | TL           |
 | Estniska            | ge   | Lettiska                 | LV     | Turkiska                 | TR           |
 | Baskiska              | gemenskaps   | Malaysia               | millisekund     | Ukrainska               | Storbritannien           |
 | Farsi               | bokförda   | Norska-BokmÃ ¥ l     | Anm     | Urdu                    | vilken           |

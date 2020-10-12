@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
 ms.openlocfilehash: 5b823b0429feffa87a05faadc78574287bc9b4a4
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708347"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Skapa ett IoT Edge-modulerbjudande
@@ -149,7 +149,7 @@ Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken lån
 
 Ange en mer detaljerad beskrivning av ditt erbjudande. Detta kan vara upp till 256 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -236,7 +236,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 5. Sekretess policy adress (länk)
 6. Namn
 7. Sammanfattning
-8. Description
+8. Beskrivning
 9. Användbara länkar
 10. Skärm bilder/videor
 
@@ -427,7 +427,7 @@ Du kommer att ange följande information på fliken **avbildnings lagrings infor
 
 1. Åtkomstnycklar
 2. Användarnamn
-3. Lösenord
+3. lösenordsinställning
 
 **Databas namn inom Azure Container Registry**. Ange namnet på Azure Container Registry lagrings platsen som innehåller din avbildning. Du anger namnet på lagrings platsen när du push-överför avbildningen till registret. Du kan hitta namnet på lagrings platsen genom att gå till sidan [container Registry](https://azure.microsoft.com/services/container-registry/)-  >  **databaser**. Mer information finns i [Visa behållare register Arkiv i Azure Portal](../../container-registry/container-registry-repositories.md). När du har angett namnet kan du inte ändra det. Använd ett unikt namn för varje erbjudande i ditt konto.
 

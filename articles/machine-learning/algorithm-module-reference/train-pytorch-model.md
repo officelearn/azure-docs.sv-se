@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: 9127df2805a7eef5b119a64fd8d8ccdab52f22f8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91439089"
 ---
 # <a name="train-pytorch-model"></a>Träna Pytorch-modell
@@ -66,7 +66,7 @@ När pipeline-körningen har slutförts ska du använda modellen för att skapa 
 
 ###  <a name="module-parameters"></a>Parametrar för modul  
 
-| Name          | Intervall            | Typ    | Standardvärde | Beskrivning                              |
+| Namn          | Intervall            | Typ    | Default | Beskrivning                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
 | Epoker        | > 0               | Integer | 5       | Markera den kolumn som innehåller etiketten eller resultat kolumnen |
 | Batchstorlek    | > 0               | Integer | 16      | Hur många instanser som ska tränas i en batch   |

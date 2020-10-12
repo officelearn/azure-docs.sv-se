@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ba802cb86d68298cd4dfff94162069590744833c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91256470"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Så fungerar enkel inloggning till lokala resurser på Azure AD-anslutna enheter
@@ -46,7 +46,7 @@ Under ett åtkomst försök till en resurs som begär Kerberos eller NTLM i anv�
 
 Alla appar som har kon figurer ATS för **Windows-integrerad autentisering** får sömlös inloggning när en användare försöker komma åt dem.
 
-Windows Hello för företag kräver ytterligare konfiguration för att aktivera lokal SSO från en Azure AD-ansluten enhet. Mer information finns i [Konfigurera Azure AD-anslutna enheter för lokal enkel inloggning med Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
+Windows Hello för företag kräver ytterligare konfiguration för att aktivera lokal SSO från en Azure AD-ansluten enhet. Mer information finns i [Konfigurera Azure AD-anslutna enheter för lokala Single-Sign på användning av Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 
 ## <a name="what-you-get"></a>Det här får du
 

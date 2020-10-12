@@ -9,10 +9,10 @@ ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.openlocfilehash: 823b16dcaf113136b10fdaa054da20840b99f02d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91297053"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Använd Visual Studio 2019 för att utveckla och felsöka moduler för Azure IoT Edge
@@ -232,7 +232,7 @@ I snabbstartsartikeln som du använde för att ställa in din IoT Edge-enhet dis
 
 ## <a name="view-generated-data"></a>Visa genererade data
 
-1. Om du vill övervaka D2C-meddelandet för en speciell IoT-Edge-enhet väljer du den i din IoT-hubb i **Cloud Explorer** och klickar sedan på **starta övervakning av inbyggd händelse slut punkt** i **Åtgärds** fönstret.
+1. Om du vill övervaka D2C-meddelandet för en speciell IoT-Edge enhet väljer du det i din IoT-hubb i **Cloud Explorer** och klickar sedan på **starta övervakning av den inbyggda händelse slut punkten** i **Åtgärds** fönstret.
 
 1. Om du vill stoppa övervakningen av data väljer du **stoppa övervakning av inbyggda händelse slut punkter** i **Åtgärds** fönstret.
 

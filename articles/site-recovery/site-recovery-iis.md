@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 7a4408b54b663b2cd8abc22772ac1b799ea50de0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87083777"
 ---
-# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Konfigurera katastrof återställning för ett IIS-baserat webb program med flera nivåer
+# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Konfigurera haveriberedskap för en IIS-baserad webbapp med flera nivåer
 
 Program vara är motorn för affärs produktivitet i en organisation. Olika webb program kan hantera olika syfte i en organisation. Vissa program, t. ex. program som används för löne bearbetning, finansiella program och kund riktade webbplatser, kan vara kritiska för en organisation. För att förhindra att produktiviteten går förlorad är det viktigt för organisationen att köra dessa program kontinuerligt. Mer viktigt, som gör att dessa program ständigt är tillgängliga kan hjälpa till att förhindra skada på varumärket eller avbildningen av organisationen.
 
@@ -62,8 +62,8 @@ Scenario | Till en sekundär plats | Till Azure
 --- | --- | ---
 Hyper-V | Ja | Ja
 VMware | Ja | Ja
-Fysisk server | Inga | Yes
-Azure|Ej tillämpligt|Yes
+Fysisk server | Inga | Ja
+Azure|Ej tillämpligt|Ja
 
 ## <a name="replicate-virtual-machines"></a>Replikera virtuella datorer
 

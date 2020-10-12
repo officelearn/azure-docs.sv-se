@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 7db9ac0eb624c2732295639d65e0311fcf459f71
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937045"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Koncept med hög tillgänglighet i Azure Database for PostgreSQL-flexibel Server
@@ -18,7 +18,7 @@ ms.locfileid: "90937045"
 > [!IMPORTANT]
 > Azure Database for PostgreSQL-flexibel Server är i för hands version
 
-Azure Database for PostgreSQL-flexibel Server erbjuder en konfiguration med hög tillgänglighet med automatisk redundans med hjälp av **Zone-redundant** Server distribution. När den här konfigurationen distribueras i en redundant zon, etablerar flexibla servrar automatiskt en vänte replik i en annan tillgänglighets zon. Med PostgreSQL streaming-replikering replikeras data till vänte läges replik servern i **synkront** läge. 
+Azure Database for PostgreSQL-flexibel Server erbjuder en konfiguration med hög tillgänglighet med automatisk redundans med hjälp av **Zone-redundant** Server distribution. När flexibel server distribueras i en zonredundant konfiguration etablerar den och hanterar automatiskt en standby-replik i en annan tillgänglighetszon. Med PostgreSQL streaming-replikering replikeras data till vänte läges replik servern i **synkront** läge. 
 
 Med redundanta zoner i zonen aktive ras automatisk redundans utan data förlust under planerade händelser som användardefinierad skalnings beräknings åtgärd och även vid oplanerade händelser som underliggande maskin-och program varu fel, nätverks fel och fel i tillgänglighets zoner. 
 
@@ -26,7 +26,7 @@ Med redundanta zoner i zonen aktive ras automatisk redundans utan data förlust 
 
 ## <a name="zone-redundant-high-availability-architecture"></a>Arkitektur för redundant hög tillgänglighet för zonen
 
-Du kan välja region och tillgänglighets zon för att distribuera den primära databas servern. En reserv replik Server tillhandahålls i en annan tillgänglighets zon med samma konfiguration som den primära servern, inklusive beräknings nivå, beräknings storlek, lagrings storlek och nätverks konfiguration. Transaktions loggar replikeras i synkront läge till standby-repliken med PostgreSQL streaming-replikering. Automatiska säkerhets kopieringar utförs regelbundet från den primära databas servern, medan transaktions loggarna arkiveras kontinuerligt till säkerhets kopierings lagringen från vänte repliken. 
+Du kan välja den region och tillgänglighetszon där du vill distribuera den primära databasservern. En standby-replikserver etableras i en annan tillgänglighetszon med samma konfiguration som den primära servern, inklusive beräkningsnivå, beräkningsstorlek, lagringsstorlek och nätverkskonfiguration. Transaktions loggar replikeras i synkront läge till standby-repliken med PostgreSQL streaming-replikering. Automatiska säkerhets kopieringar utförs regelbundet från den primära databas servern, medan transaktions loggarna arkiveras kontinuerligt till säkerhets kopierings lagringen från vänte repliken. 
 
 Hälso tillståndet för konfigurationen med hög tillgänglighet övervakas kontinuerligt och rapporteras på portalen. Zonens redundanta status för hög tillgänglighet visas nedan:
 
@@ -43,7 +43,7 @@ Hälso tillståndet för konfigurationen med hög tillgänglighet övervakas kon
 
 PostgreSQL klient program är anslutna till den primära servern med hjälp av DB-servernamnet. Program läsningar betjänas direkt från den primära servern, medan incheckningar och skrivningar bekräftas till programmet endast efter att data har sparats på både den primära servern och i standby-repliken. På grund av detta ytterligare krav för tur och retur kan program förväntas förhöjd svars tid för skrivningar och incheckningar. Du kan övervaka hälso tillståndet för hög tillgänglighet på portalen.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="redundant hög tillgänglighet för zonens redundant status"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="zon redundant hög tillgänglighet"::: 
 
 1. Klienterna ansluter till den flexibla servern och utför Skriv åtgärder.
 2. Ändringar replikeras till vänte läges platsen.
@@ -64,7 +64,7 @@ För andra åtgärder som initieras av användaren, till exempel Scale-Compute e
 
 Oplanerade avbrott innefattar program varu fel eller infrastruktur komponent fel påverkar databasens tillgänglighet. Om servern inte är tillgänglig upptäcks av övervaknings systemet, så är replikeringen till standby-repliken mycket stor och standby-repliken är aktive rad som den primära databas servern. Klienter kan återansluta till databas servern med samma anslutnings sträng och återuppta sina åtgärder. Den totala redundansväxlingen förväntas ta 60-120S. Beroende på aktiviteten på den primära databas servern vid tidpunkten för redundansväxlingen, till exempel stora transaktioner och återställnings tid, kan redundansväxlingen ta längre tid.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="zonens redundant hög tillgänglighet – redundans"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="zon redundant hög tillgänglighet"::: 
 
 1. Den primära databas servern är avstängd och klienterna förlorar databas anslutningen. 
 2. Standby-servern aktive ras för att bli den nya primära servern. Klienten ansluter till den nya primära servern med samma anslutnings sträng. Att ha klient programmet i samma zon som den primära databas servern minskar svars tiden och förbättrar prestandan.
@@ -111,7 +111,7 @@ Flexibla servrar som är konfigurerade med hög tillgänglighet replikerar data 
 
 -   Konfigurering av kundens initierade hanterings uppgifter kan inte schemaläggas under hanterat underhålls fönster.
 
--   Planerade händelser som skalning av beräknings-och skalnings lagring sker i standby först och sedan på den primära servern. Tjänsten har inte redundansväxlats. 
+-   Planerade händelser som att skala beräknings- och skalningslagring sker först på standby-repliken och sedan på den primära servern. Tjänsten redundansväxlas inte. 
 
 ## <a name="next-steps"></a>Nästa steg
 

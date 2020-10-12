@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: fba5c868a146529a981e23cd88b413f2eb441896
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708942"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Använd Azure Portal för att ställa in aviseringar för mått för Azure Database for PostgreSQL-enskild server
@@ -25,7 +25,7 @@ Du kan konfigurera en avisering för att utföra följande åtgärder när den u
 * Anropa en webhook.
 
 Du kan konfigurera och hämta information om aviserings regler med hjälp av:
-* [Azure-portalen](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [REST-API:et för Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 

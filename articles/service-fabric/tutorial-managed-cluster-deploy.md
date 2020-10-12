@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.custom: references_regions
 ms.openlocfilehash: c7ed1a8fceeddecb942edb541c6112492a6e5a2d
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91410468"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>Självstudie: Distribuera ett Service Fabric hanterat kluster (för hands version)
@@ -65,9 +65,9 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="deploy-a-service-fabric-managed-cluster"></a>Distribuera ett Service Fabric hanterat kluster
 
-### <a name="create-a-service-fabric-managed-cluster"></a>Skapa ett Service Fabric hanterat kluster
+### <a name="create-a-service-fabric-managed-cluster"></a>Skapa ett Service Fabric-hanterat kluster
 
-I det här steget ska du skapa ett Service Fabric hanterat kluster med PowerShell-kommandot New-AzServiceFabricManagedCluster. I följande exempel skapas ett kluster med namnet IT-kluster i resurs gruppen med namnet myResourceGroup. Den här resurs gruppen skapades i föregående steg i regionen eastus2.
+I det här steget ska du skapa ett Service Fabric hanterat kluster med hjälp av New-AzServiceFabricManagedCluster PowerShell-kommandot. I följande exempel skapas ett kluster med namnet IT-kluster i resurs gruppen med namnet myResourceGroup. Den här resurs gruppen skapades i föregående steg i regionen eastus2.
 
 I det här steget anger du dina egna värden för följande parametrar:
 

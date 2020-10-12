@@ -14,10 +14,10 @@ ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89421466"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Gör så här: anpassa anspråk som utfärdats i SAML-token för företags program
@@ -56,19 +56,19 @@ I list rutan **Välj namn identifierare format** kan du välja något av följan
 
 | NameID-format | Beskrivning |
 |---------------|-------------|
-| **Standardvärde** | Microsoft Identity Platform använder standard käll formatet. |
+| **Default** | Microsoft Identity Platform använder standard käll formatet. |
 | **Permanent** | Microsoft Identity Platform kommer att använda beständigt som NameID-format. |
 | **EmailAddress** | Microsoft Identity Platform kommer att använda EmailAddress som NameID-format. |
 | **Ospecificerat** | Microsoft Identity Platform kommer att använda ospecificerat som NameID-format. |
 | **Kvalificerat namn för Windows-domän** | Microsoft Identity Platform kommer att använda WindowsDomainQualifiedName som NameID-format. |
 
-En tillfällig NameID stöds också, men är inte tillgänglig i list rutan och kan inte konfigureras på Azures sida. Mer information om attributet NameIDPolicy finns i [SAML-protokoll för enkel inloggning](single-sign-on-saml-protocol.md).
+En tillfällig NameID stöds också, men är inte tillgänglig i list rutan och kan inte konfigureras på Azures sida. Mer information om attributet NameIDPolicy finns i [Single Sign-On SAML-protokollet](single-sign-on-saml-protocol.md).
 
 ### <a name="attributes"></a>Attribut
 
 Välj önskad källa för `NameIdentifier` (eller NameID)-anspråket. Du kan välja bland följande alternativ.
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | E-post | Användarens e-postadress |
 | userprincipalName | Användarens huvud namn (UPN) |

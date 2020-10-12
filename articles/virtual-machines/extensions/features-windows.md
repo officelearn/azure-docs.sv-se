@@ -16,10 +16,10 @@ ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87829092"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Tillägg och funktioner för virtuella datorer för Windows
@@ -254,7 +254,7 @@ Om du flyttar **kommandot för att köra** egenskapen till den **skyddade** konf
 
 På en virtuell Azure IaaS-dator som använder tillägg i certifikat konsolen kan du se certifikat som har **_certifikats generatorn Windows Azure CRP_**. På en klassisk RDFE-VM har dessa certifikat ämnes namnet **_Windows Azure Service Management för tillägg_**.
 
-Dessa certifikat skyddar kommunikationen mellan den virtuella datorn och dess värd under överföringen av skyddade inställningar (lösen ord, andra autentiseringsuppgifter) som används av tillägg. Certifikaten skapas av Azure Fabric-styrenheten och skickas till VM-agenten. Om du stoppar och startar den virtuella datorn varje dag kan ett nytt certifikat skapas av infrastruktur styrenheten. Certifikatet lagras i datorns Arkiv med personliga certifikat. Dessa certifikat kan tas bort. VM-agenten återskapar certifikat vid behov.
+Dessa certifikat skyddar kommunikationen mellan den virtuella datorn och dess värd under överföringen av skyddade inställningar (lösenord och andra autentiseringsuppgifter) som används av tillägg. Certifikaten skapas av Azure-infrastrukturkontrollanten och skickas till den virtuella datoragenten. Om du stoppar och startar den virtuella datorn varje dag kan ett nytt certifikat skapas av infrastrukturkontrollanten. Certifikatet lagras i datorns personliga certifikatarkiv. Dessa certifikat kan tas bort. VM-agenten återskapar certifikat vid behov.
 
 ### <a name="how-do-agents-and-extensions-get-updated"></a>Hur uppdateras agenter och tillägg?
 

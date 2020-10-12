@@ -4,10 +4,10 @@ description: Den här artikeln innehåller de steg som hjälper dig att distribu
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: b13bb779a5a780b21f2d5d96ed8831ef5c26564d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937719"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Distribuera video analys i real tid på Azure Stack Edge
@@ -52,17 +52,17 @@ Azure Stack Edge är en maskinvaru-som-tjänst-lösning och en AI-aktiverad Edge
 1. På panelen Konfigurera Edge Compute väljer du konfigurera beräkning.
 1. Ange följande på bladet konfigurera Edge Compute:
     
-    | Fält|Värde|
+    | Field|Värde|
     |---|---|
     |IoT Hub|Välj från ny eller befintlig.<br/>Som standard används nivån Standard (S1) till att skapa en IoT-resurs. Om du vill använda en IoT-resurs på kostnadsfri nivå skapar du en sådan och väljer sedan den befintliga resursen.<br/>I varje fall använder IoT Hub resursen samma prenumeration och resurs grupp som används för Azure Stack Edge-resursen.|
-    |Name|Ange ett namn för din IoT Hub-resurs.|
+    |Namn|Ange ett namn för din IoT Hub-resurs.|
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Kom igång Azure Stack Edge":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Azure Stack Edge":::
 1. Välj **Skapa**. Det tar några minuter att skapa en IoT Hub-resurs. När IoT Hub resursen har skapats kan du **Konfigurera** Compute-panelen för att Visa beräknings konfigurationen. Bekräfta att Edge Compute-rollen har kon figurer ATS genom att välja **Visa beräkning** på panelen **Konfigurera beräkning** .
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="IoT Hub resurs skapande":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="Azure Stack Edge":::
 
     > [!NOTE]
     > Om dialog rutan konfigurera beräkning stängs innan IoT Hub associeras med Azure Stack Edge-resursen, skapas IoT Hub men visas inte i beräknings konfigurationen. Läs in sidan igen om några minuter och se att den visas.
@@ -72,7 +72,7 @@ Azure Stack Edge är en maskinvaru-som-tjänst-lösning och en AI-aktiverad Edge
     När all information har fyllts visas den Konfigurera Edge Compute-kortet ungefär så här:
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/configure-edge-compute.png" alt-text="Konfigurera Edge Compute-kort ":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/configure-edge-compute.png" alt-text="Azure Stack Edge":::
  
 ### <a name="enable-compute-prerequisites-on-the-azure-stack-edge-local-ui"></a>Aktivera beräknings krav i Azure Stack Edge Local UI
 
@@ -89,7 +89,7 @@ Innan du fortsätter bör du kontrol lera att:
         * Välj tillämpa – den här åtgärden tar cirka 2 minuter.
         
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text=" Compute-krav i Azure Stack Edge-lokalt användar gränssnitt":::
+        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text="Azure Stack Edge":::
 
         * Om DNS inte har kon figurer ATS för Kubernetes-API: et och Azure Stack Edge-resurs, kan du uppdatera fönstrets värd fil.
         
@@ -185,7 +185,7 @@ Dessa steg beskriver hur du skapar en gateway-användare och konfigurerar fil re
     1. Klicka på **skapa**.
         
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Lokal resurs":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Azure Stack Edge":::
     
 1. Skapa en fjär resurs för fil lagrings lagring.
 
@@ -203,36 +203,7 @@ Dessa steg beskriver hur du skapar en gateway-användare och konfigurerar fil re
     1. Klicka på **skapa**.    
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Fjär resurs":::
-    
-    > [!TIP]
-    > Med hjälp av Windows-klienten som är ansluten till Azure Stack Edge ansluter du till SMB-resurserna enligt de steg [som beskrivs i det här dokumentet](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-add-shares#connect-to-an-smb-share).
-    
-1. Uppdatera behållaren för video analys Edge-modulen för att skapa alternativ (se punkt 4 i [Lägg till moduler-dokument](deploy-iot-edge-device.md#add-modules)) om du vill använda volym monteringar.
-
-   ```json
-    // Original (Bind Mounts)
-    "createOptions": {
-        "HostConfig": {
-            "Binds": [
-                "/var/lib/azuremediaservices:/var/lib/azuremediaservices",
-                "/var/media:/var/media"
-            ]
-        }
-    }
-    // Updated (Volume Mounts)
-    "createOptions": {
-        "HostConfig": {
-            "Mounts": [
-            {
-                "Target": "/var/lib/azuremediaservices",
-                "Source": "lva",
-                "Type": "volume"
-            },
-            {
-                "Target": "/var/media",
-                "Source": "media",
-                "Type": "volume"
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Azure Stack Edge"
             }]
         }
     }
@@ -248,7 +219,7 @@ Verifiera att modulen körs genom att göra följande:
 1. Välj panelen moduler. Då går du till bladet moduler. Identifiera den modul som du har distribuerat i listan över moduler. Körnings status för modulen som du har lagt till ska köras.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/iot-edge-custom-module.png" alt-text="Anpassad modul":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/iot-edge-custom-module.png" alt-text="Azure Stack Edge":::
 
 ### <a name="configure-the-azure-iot-tools-extension"></a>Konfigurera tillägget Azure IoT-verktyg
 

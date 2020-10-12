@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.openlocfilehash: 3caccd6766226ce68b371856b081b052c1033f71
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542197"
 ---
 # <a name="pattern-syntax"></a>Mönstersyntax
@@ -33,7 +33,7 @@ Pattern-syntaxen stöder följande syntax:
 
 ## <a name="nesting-syntax-in-patterns"></a>Kapsla syntax i mönster
 
-Den **valfria** syntaxen, med hakparenteser, kan kapslas två nivåer. Till exempel: `[[this]is] a new form`. I det här exemplet används följande yttranden:
+Den **valfria** syntaxen, med hakparenteser, kan kapslas två nivåer. Exempel: `[[this]is] a new form`. I det här exemplet används följande yttranden:
 
 |Exempel på kapslade valfria uttryck|Förklaring|
 |--|--|
@@ -41,7 +41,7 @@ Den **valfria** syntaxen, med hakparenteser, kan kapslas två nivåer. Till exem
 |är ett nytt formulär|matchar yttre valfria ord och icke-valfria ord i mönstret|
 |ett nytt formulär|matchar endast obligatoriska ord|
 
-**Grupperingstypen** , med parenteser, kan kapslas två nivåer. Till exempel: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Med den här funktionen kan alla de tre entiteterna matchas.
+**Grupperingstypen** , med parenteser, kan kapslas två nivåer. Exempel: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Med den här funktionen kan alla de tre entiteterna matchas.
 
 Om Entity1 är en plats med roller som t. ex. ursprung (Seattle) och destination (Cairo) och entitet 2 är ett känt byggnads namn från en List-entitet (RedWest-C) mappar följande yttranden till det här mönstret:
 

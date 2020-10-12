@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
 ms.openlocfilehash: a0dc9f673abcac549fffc7291b8ac376c297da6b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836130"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Offentlig slut punkts anslutning för Virtual Machines med Azure Standard Load Balancer i SAP-scenarier med hög tillgänglighet
@@ -176,7 +176,7 @@ Du kan använda proxy för att tillåta pacemaker-anrop till den offentliga slut
 ### <a name="important-considerations"></a>Att tänka på
 
   - Om det redan finns företags-proxy på plats kan du dirigera utgående anrop till offentliga slut punkter via den. Utgående anrop till offentliga slut punkter hamnar i företags kontroll punkten.  
-  - Se till att proxykonfigurationen tillåter utgående anslutning till Azure Management API: `https://management.azure.com` och`https://login.microsoftonline.com`  
+  - Se till att proxykonfigurationen tillåter utgående anslutning till Azure Management API: `https://management.azure.com` och `https://login.microsoftonline.com`  
   - Se till att det finns en väg från de virtuella datorerna till proxyn  
   - Proxyn hanterar endast HTTP/HTTPS-anrop. Om det finns ytterligare behov att göra utgående samtal till en offentlig slut punkt över olika protokoll (som RFC) behövs en alternativ lösning  
   - Proxyservern måste ha hög tillgänglighet för att undvika instabilitet i pacemaker-klustret  
@@ -224,7 +224,7 @@ Om du vill tillåta att pacemaker kommunicerar med Azures hanterings-API utför 
 
 Om utgående trafik dirigeras via brand vägg från tredje part:
 
-- Om du använder Azure stängsel-agenten kontrollerar du att brand Väggs konfigurationen tillåter utgående anslutning till Azure Management API: `https://management.azure.com` och`https://login.microsoftonline.com`   
+- Om du använder Azure stängsel-agenten kontrollerar du att brand Väggs konfigurationen tillåter utgående anslutning till Azure Management API: `https://management.azure.com` och `https://login.microsoftonline.com`   
 - Om du använder uppdaterings infrastrukturen för Azures offentliga Azure-moln för att tillämpa uppdateringar och uppdateringar, se [Azures offentliga moln uppdaterings infrastruktur 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)
 
 ## <a name="next-steps"></a>Nästa steg

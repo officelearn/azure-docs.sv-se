@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b9a8f572189afaa726f7e01f5e0bbb73340face8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657225"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planera en Azure Active Directory distribution av lösen ords återställning via självbetjäning
@@ -64,7 +64,7 @@ Information om hur du jämför versioner och funktioner och aktiverar grupp-elle
 
 Mer information om priser finns i [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * En aktiv Azure AD-klientorganisation med minst en aktiverad utvärderingslicens. Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -149,7 +149,7 @@ Information om hur du skapar en grupp finns i så här [skapar du en grupp och l
 
 Följande inställningar krävs för att aktivera SSPR tillsammans med rekommenderade värden.
 
-| Område | Inställningen | Värde |
+| Område | Inställning | Värde |
 | --- | --- | --- |
 | **Egenskaper för SSPR** | Återställning av lösen ord för självbetjäning har Aktiver ATS | **Vald** grupp för pilot/ **alla** för produktion |
 | **Autentiseringsmetoder** | Autentiseringsmetoder som krävs för registrering | Alltid 1 mer än vad som krävs för återställning |

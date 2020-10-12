@@ -1,5 +1,5 @@
 ---
-title: PARKERA anrop för skapande eller uppdaterings åtgärder
+title: PUT-anrop för åtgärder för att skapa eller uppdatera
 description: SKICKA anrop för att skapa eller uppdatera åtgärder på beräknings resurser
 author: mimckitt
 ms.author: mimckitt
@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.date: 08/4/2020
 ms.custom: avverma
 ms.openlocfilehash: c57025346a9f623e3fe5536b36820ea62f355cc0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347498"
 ---
 # <a name="put-calls-for-creation-or-updates-on-compute-resources"></a>Lägg till anrop för att skapa eller uppdateringar på beräknings resurser
@@ -65,6 +65,6 @@ Detta är viktigt när du skickar uppdaterings åtgärder till en resurs med avs
 { "location": "westus", "properties": { "platformFaultDomainCount": 2, "platformUpdateDomainCount": 20 } }
 `
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Läs mer om att skapa eller uppdatera samtal för [Virtual Machines](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) och [Virtual Machine Scale Sets](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)
 

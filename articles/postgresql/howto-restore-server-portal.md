@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 6/30/2020
 ms.openlocfilehash: debdbf6e08af7b9005336231abd6c998a871c525
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708092"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure Database for PostgreSQL-enskild server med hjälp av Azure Portal
@@ -33,7 +33,7 @@ När du skapar en server via Azure Portal, är **pris nivå** fönstret där du 
 Mer information om hur du anger dessa värden under skapa finns i [snabb starten för Azure Database for postgresql server](quickstart-create-server-database-portal.md).
 
 Du kan ändra kvarhållningsperioden för säkerhets kopior för en server genom att följa stegen nedan:
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Välj din Azure Database for PostgreSQL-server. Den här åtgärden öppnar **översikts** sidan.
 3. Välj **pris nivå** på menyn under **Inställningar**. Med skjutreglaget kan du ändra **kvarhållningsperioden för säkerhets kopior** till dina preferenser mellan 7 och 35 dagar.
 I skärm bilden nedan har den ökats till 34 dagar.

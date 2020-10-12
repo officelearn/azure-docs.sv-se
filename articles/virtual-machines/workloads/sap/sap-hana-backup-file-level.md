@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
 ms.openlocfilehash: 183273e6f93bbfda8ed4e5fe913192994a0b6ce2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87833393"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>SAP HANA Azure Backup på filnivå
@@ -43,7 +43,7 @@ Det gick att placera dedikerade virtuella hård diskar för SAP HANA säkerhets 
 
 ## <a name="azure-blobxfer-utility-details"></a>Information om Azure blobxfer-verktyget
 
-Om du vill lagra kataloger och filer i Azure Storage kan du använda CLI eller PowerShell eller utveckla ett verktyg med någon av [Azure SDK: erna](https://azure.microsoft.com/downloads/). Det finns också ett verktyg som är redo att använda, AzCopy, för att kopiera data till Azure Storage. (mer information finns i [överföra data med kommando rads verktyget AzCopy](../../../storage/common/storage-use-azcopy-v10.md)).
+Om du vill lagra kataloger och filer i Azure Storage kan du använda CLI eller PowerShell eller utveckla ett verktyg med någon av [Azure SDK: erna](https://azure.microsoft.com/downloads/). Det finns också ett verktyg som är redo att använda, AzCopy, för att kopiera data till Azure Storage. (mer information finns i [överföra data med verktyget AzCopy Command-Line](../../../storage/common/storage-use-azcopy-v10.md)).
 
 Därför användes blobxfer för att kopiera SAP HANA säkerhetskopierade filer. Det är öppen källkod som används av många kunder i produktions miljöer och är tillgängliga på [GitHub](https://github.com/Azure/blobxfer). Med det här verktyget kan du kopiera data direkt till antingen Azure Blob Storage eller Azure-filresursen. Den erbjuder också en mängd användbara funktioner, som MD5-hash eller automatisk parallellitet när du kopierar en katalog med flera filer.
 

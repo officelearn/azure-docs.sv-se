@@ -4,10 +4,10 @@ description: Exportera diagnostik-och användnings data till lagring i Microsoft
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.openlocfilehash: f67a5c555c438298cee701ca065aaf8c01c6406e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324343"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportera telemetri från Application Insights
@@ -36,7 +36,7 @@ Kontinuerlig export **stöder inte** följande funktioner/konfigurationer för A
 
 * [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
-## <a name="create-a-continuous-export"></a><a name="setup"></a>Skapa en löpande export
+## <a name="create-a-continuous-export"></a><a name="setup"></a> Skapa en löpande export
 
 1. I Application Insights resurs för din app under Konfigurera till vänster öppnar du kontinuerlig export och väljer **Lägg till**:
 
@@ -81,7 +81,7 @@ Om du vill stoppa exporten permanent tar du bort den. Om du gör det tas inte da
 ### <a name="cant-add-or-change-an-export"></a>Kan du inte lägga till eller ändra en export?
 * Om du vill lägga till eller ändra exporter behöver du åtkomstbehörighet som ägare, deltagare eller Application Insights-deltagare. [Lär dig mer om roller][roles].
 
-## <a name="what-events-do-you-get"></a><a name="analyze"></a>Vilka händelser får du?
+## <a name="what-events-do-you-get"></a><a name="analyze"></a> Vilka händelser får du?
 Exporterade data är den råa telemetri som vi tar emot från ditt program, förutom att vi lägger till plats data som vi beräknar från klientens IP-adress.
 
 Data som har tagits bort från [sampling](./sampling.md) ingår inte i exporterade data.
@@ -95,7 +95,7 @@ Datan innehåller även resultatet av alla [webb test för tillgänglighet](./mo
 >
 >
 
-## <a name="inspect-the-data"></a><a name="get"></a>Granska data
+## <a name="inspect-the-data"></a><a name="get"></a> Granska data
 Du kan kontrol lera lagringen direkt i portalen. Klicka på Start i menyn längst till vänster längst upp där det står "Azure-tjänster" Välj **lagrings konton**, Välj lagrings kontots namn på sidan Översikt och välj **blobbar** under tjänster och välj sedan container namnet.
 
 Öppna **vyn**och **Cloud Explorer**för att kontrol lera Azure Storage i Visual Studio. (Om du inte har det meny kommandot måste du installera Azure SDK: öppna dialog rutan **nytt projekt** , expandera Visual C#/Cloud och välj **Hämta Microsoft Azure SDK för .net**.)
@@ -114,10 +114,10 @@ $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}
 
 Var
 
-* `blobCreationTimeUtc`är tiden då blobben skapades i den interna mellanlagringen
-* `blobDeliveryTimeUtc`är tiden när blobben kopieras till export destinations lagringen
+* `blobCreationTimeUtc` är tiden då blobben skapades i den interna mellanlagringen
+* `blobDeliveryTimeUtc` är tiden när blobben kopieras till export destinations lagringen
 
-## <a name="data-format"></a><a name="format"></a>Data format
+## <a name="data-format"></a><a name="format"></a> Data format
 * Varje BLOB är en textfil som innehåller flera ' \n '-avgränsade rader. Den innehåller Telemetrin som bearbetas under en tids period på ungefär hälften en minut.
 * Varje rad representerar en data punkt för telemetri, till exempel en begäran eller sid visning.
 * Varje rad är ett oformaterat JSON-dokument. Om du vill visa raderna öppnar du blobben i Visual Studio och väljer **Redigera**  >  **Avancerat**  >  **format fil**:
@@ -135,7 +135,7 @@ Tids längden är i Tick, där 10 000 Tick = 1 MS. Dessa värden visar till exem
 [Detaljerad data modell referens för egenskaps typerna och värdena.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>Bearbetar data
-I en liten skala kan du skriva kod för att hämta data, läsa dem i ett kalkyl blad och så vidare. Till exempel:
+I en liten skala kan du skriva kod för att hämta data, läsa dem i ett kalkyl blad och så vidare. Exempel:
 
 ```csharp
 private IEnumerable<T> DeserializeMany<T>(string folderName)
@@ -197,7 +197,7 @@ På större skalor bör du överväga [HDInsight](https://azure.microsoft.com/se
   * Dessutom allokeras ytterligare diskpartitioner för program med hög trafik. I det här fallet skapar varje enhet en BLOB varje minut.
 * *Jag återskapade nyckeln till min lagring eller ändrat namnet på behållaren, och nu fungerar inte exporten.*
 
-    Redigera exporten och öppna fliken Exportera destination. lämna samma lagring markerat som tidigare och bekräfta genom att klicka på OK. Exporten kommer att startas om. Om ändringen var inom de senaste dagarna går det inte att förlora data.
+    Redigera exporten och öppna fliken Exportera destination. Lämna samma lagrings utrymme valt som tidigare och bekräfta genom att klicka på OK. Exporten kommer att startas om. Om ändringen var inom de senaste dagarna går det inte att förlora data.
 * *Kan jag pausa exporten?*
 
     Ja. Klicka på Inaktivera.

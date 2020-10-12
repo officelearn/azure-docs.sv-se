@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: f716af1d50eb8a24d8ab70f784cba31f65795cb7
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165914"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Att tänka på när du använder Universell Windows-plattform med MSAL.NET
@@ -61,7 +61,7 @@ Mer information finns i [Web Authentication Broker-Fiddler](/windows/uwp/securit
 ## <a name="next-steps"></a>Nästa steg
 Följande exempel innehåller mer information.
 
-Exempel | Plattform | Description 
+Exempel | Plattform | Beskrivning 
 |------ | -------- | -----------|
 |[Active Directory – dotNet-Native-UWP-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Ett UWP klient program som använder MSAL.NET. Den har åtkomst till Microsoft Graph för en användare som autentiserar med hjälp av en Azure AD 2,0-slutpunkt. <br>![Topologi](media/msal-net-uwp-considerations/topology-native-uwp.png)|
 |[Active-Directory-Xamarin-Native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | En enkel Xamarin Forms-app som visar hur du använder MSAL för att autentisera Microsoft-personliga konton och Azure AD via Azure AD 2,0-slutpunkten. Den visar också hur du kommer åt Microsoft Graph och visar den resulterande token. <br>![Topologi](media/msal-net-uwp-considerations/topology-xamarin-native.png)|

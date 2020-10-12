@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 2d28d8f1f09814822b29e9d45d4e75283c8955cc
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 4bb40cc1f5d1ae2563ddd802cd8b7de11427503b
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91618751"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893228"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Distribuera till App Service med GitHub-åtgärder
 
@@ -37,10 +37,10 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 Filen har tre delar:
 
-|Avsnitt  |Uppgifter  |
+|Section  |Aktiviteter  |
 |---------|---------|
 |**Autentisering** | 1. definiera ett huvud namn för tjänsten eller en publicerings profil. <br /> 2. skapa en GitHub-hemlighet. |
-|**Skapa** | 1. Konfigurera miljön. <br /> 2. Bygg webb programmet. |
+|**Konstruktion** | 1. Konfigurera miljön. <br /> 2. Bygg webb programmet. |
 |**Distribuera** | 1. distribuera webbappen. |
 
 ## <a name="use-the-deployment-center"></a>Använda distributions Center
@@ -483,7 +483,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Building web app
-      uses: azure/appservice-build@v2-beta
+      uses: azure/appservice-build@v2
     - name: Deploy web App using GH Action azure/webapps-deploy
       uses: azure/webapps-deploy@v2
       with:

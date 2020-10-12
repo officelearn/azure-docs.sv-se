@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
 ms.openlocfilehash: 8459ab364fc0af15dd1a1b0035e4ce27d192f7a9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91293466"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Affärs kontinuitet och HADR för SQL Server på Azure Virtual Machines
@@ -150,7 +150,7 @@ Mer information om klient anslutningar finns i:
 * [Ansluta klienter till en databas speglings session (SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
 * [Ansluter till tillgänglighets gruppens lyssnare i hybrid IT](https://docs.microsoft.com/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
 * [Tillgänglighets grupps lyssnare, klient anslutning och programredundans (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
-* [Använda anslutnings strängar för databas spegling med tillgänglighets grupper](https://technet.microsoft.com/library/hh213417.aspx)
+* [Använda Database-Mirroring anslutnings strängar med tillgänglighets grupper](https://technet.microsoft.com/library/hh213417.aspx)
 
 ### <a name="network-latency-in-hybrid-it"></a>Nätverks fördröjning i hybrid IT
 Distribuera din HADR-lösning med antagandet att det kan finnas perioder med hög nätverks fördröjning mellan ditt lokala nätverk och Azure. När du distribuerar repliker till Azure ska du använda asynkron incheckning i stället för synkront genomförande för Synkroniseringsläge. När du distribuerar databas speglings servrar både lokalt och i Azure använder du läget för hög prestanda i stället för hög säkerhets läge.

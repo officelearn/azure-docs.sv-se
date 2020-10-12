@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 9db5776a4d2395baf03a5ed7cf05db49de8d0321
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937129"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Koncept med hög tillgänglighet i Azure Database for MySQL flexibel Server (för hands version)
@@ -18,7 +18,7 @@ ms.locfileid: "90937129"
 > [!IMPORTANT] 
 > Azure Database for MySQL-flexibel Server är för närvarande en offentlig för hands version.
 
-Azure Database for MySQL flexibel Server (för hands version) gör att du kan konfigurera hög tillgänglighet med automatisk redundans med hjälp av **zon redundant** alternativ för hög tillgänglighet. När den här konfigurationen distribueras i en redundant zon, etablerar flexibla servrar automatiskt en vänte replik i en annan tillgänglighets zon. Med replikering på lagrings nivå **replikeras data synkront** till vänte läges servern i den sekundära zonen för att möjliggöra ingen data förlust efter en redundansväxling. Redundansväxlingen är helt transparent från klient programmet och kräver inte några åtgärder från användaren. Standby-servern är inte tillgänglig för läsnings-eller Skriv åtgärder, men är ett passivt vänte läge för att möjliggöra snabb redundans. Redundansväxlingen sker vanligt vis i intervallet 60-120 sekunder.
+Azure Database for MySQL flexibel Server (för hands version) gör att du kan konfigurera hög tillgänglighet med automatisk redundans med hjälp av **zon redundant** alternativ för hög tillgänglighet. När flexibel server distribueras i en zonredundant konfiguration etablerar den och hanterar automatiskt en standby-replik i en annan tillgänglighetszon. Med replikering på lagrings nivå **replikeras data synkront** till vänte läges servern i den sekundära zonen för att möjliggöra ingen data förlust efter en redundansväxling. Redundansväxlingen är helt transparent från klient programmet och kräver inte några åtgärder från användaren. Standby-servern är inte tillgänglig för läsnings-eller Skriv åtgärder, men är ett passivt vänte läge för att möjliggöra snabb redundans. Redundansväxlingen sker vanligt vis i intervallet 60-120 sekunder.
 
 Zon redundant konfiguration för hög tillgänglighet möjliggör automatisk redundans under planerade händelser, t. ex. åtgärder för att skala beräknings åtgärder och oplanerade händelser, till exempel underliggande maskin-och program varu fel, nätverks fel och även tillgänglighets zon fel.
 

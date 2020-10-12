@@ -4,10 +4,10 @@ description: Lär dig hur du arbetar med dina skiss definitioner som kod. Dela, 
 ms.date: 08/27/2020
 ms.topic: how-to
 ms.openlocfilehash: 87e8f00013fec3abb8132f92c1c717f152d1e264
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89051448"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importera och exportera skiss definitioner med PowerShell
@@ -23,7 +23,7 @@ Azure-ritningar kan hanteras fullständigt via Azure Portal. När organisationer
 
 Vad dina skäl har, kan du hantera dina skiss definitioner som kod har fördelar. Den här artikeln visar hur du använder- `Import-AzBlueprintWithArtifact` och- `Export-AzBlueprintWithArtifact` kommandona i modulen [AZ. skiss](https://powershellgallery.com/packages/Az.Blueprint/) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter en måttlig arbets kunskap för Azure-ritningar. Om du inte har gjort det, kan du arbeta igenom följande artiklar:
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
 ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91409773"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Diagram data modellering för Azure Cosmos DB Gremlin-API
@@ -45,7 +45,7 @@ Nästa steg är att avgöra om grafen ska användas för analys-eller transaktio
 
 Här följer de rekommenderade metoderna för egenskaperna i graf-objekten:
 
-| Objekt | Egenskap | Typ | Kommentarer |
+| Objekt | Egenskap | Typ | Obs! |
 | --- | --- | --- |  --- |
 | Punkten | ID | Sträng | Används unikt per partition. Om ett värde inte anges vid infogning, lagras ett GUID som genereras automatiskt. |
 | Punkten | etikett | Sträng | Den här egenskapen används för att definiera den typ av entitet som hörnen representerar. Om ett värde inte anges används ett standardvärde "hörn". |
@@ -105,7 +105,7 @@ Om du använder beskrivande Relations etiketter kan du förbättra effektivitete
 * Använd icke-generiska villkor för att namnge en relation.
 * Koppla etiketten till käll Bryt punkten till etiketten för mål Bryt punkten med relations namnet.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Exempel på Relations etiketter." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Enhets modell med hörn för egenskaper." border="false":::
 
 Den mer detaljerade etiketten som används för att filtrera kanterna, desto bättre. Det här beslutet kan också ha en betydande inverkan på frågans kostnad. Du kan när som helst utvärdera kostnad för frågan [med hjälp av executionProfile-steget](graph-execution-profile.md).
 

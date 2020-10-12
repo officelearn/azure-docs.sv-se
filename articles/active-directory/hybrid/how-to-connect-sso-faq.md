@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: vanliga frågor och svar om enkel inloggning | Microsoft Docs'
+title: 'Azure AD Connect: sömlösa Sign-On enkla frågor och svar med vanliga frågor | Microsoft Docs'
 description: Svar på vanliga frågor om Azure Active Directory sömlös enkel inloggning.
 services: active-directory
 keywords: Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
@@ -17,15 +17,15 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d72b70248e317d1caee4527be38fe304cfe7f16
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658347"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sömlös enkel inloggning: vanliga frågor och svar
 
-I den här artikeln tar vi itu med vanliga frågor om Azure Active Directory sömlös enkel inloggning (sömlös SSO). Fortsätt att söka efter nytt innehåll.
+I den här artikeln tar vi upp vanliga frågor om Azure Active Directory sömlösa enkla Sign-On (sömlös SSO). Fortsätt att söka efter nytt innehåll.
 
 **F: vilka inloggnings metoder fungerar sömlöst SSO med**
 

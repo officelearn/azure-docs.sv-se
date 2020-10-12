@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
 ms.openlocfilehash: de42a70cf2950aca3dbe151407671306c793ed10
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86515503"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics-felsökning
@@ -49,7 +49,7 @@ Här följer Sök vägarna till några viktiga loggar och artefakter. Vi referer
 | **Sökväg till logg insamlings verktyget** | C:\WindowsAzure\Logs\WaAppAgent.log |
 | **MonAgentHost logg fil** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion> \WAD0107\Configuration\MonAgentHost. <seq_num>. log |
 
-## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Mått data visas inte i Azure Portal
+## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Måttdata visas inte i Azure-portalen
 Azure-diagnostik tillhandahåller mått data som kan visas i Azure Portal. Om du har problem med att se data i portalen kontrollerar du \* tabellen WADMetrics i Azure-diagnostik lagrings konto för att se om motsvarande mått poster finns där och kontrollerar att [resurs leverantören](../../azure-resource-manager/management/resource-providers-and-types.md) Microsoft. Insights har registrerats.
 
 Här är **PartitionKey** för tabellen resurs-ID, virtuell dator eller skal uppsättning för virtuell dator. **RowKey** är mått namnet (även kallat prestanda räknarens namn).
@@ -79,7 +79,7 @@ Om det inte finns några data för det aktuella måttet **kontrollerar**  >  du*
 Om konfigurationen är korrekt men du fortfarande inte kan se mått data kan du använda följande rikt linjer för att felsöka.
 
 
-## <a name="azure-diagnostics-is-not-starting"></a>Azure-diagnostik startar inte
+## <a name="azure-diagnostics-is-not-starting"></a>Azure Diagnostics startar inte
 Information om varför Azure-diagnostik inte kunde starta finns i filen **DiagnosticsPluginLauncher. log** och **DiagnosticsPlugin. log** på platsen för loggfiler som angavs tidigare.
 
 Om dessa loggar indikerar det `Monitoring Agent not reporting success after launch` innebär det att det uppstod ett problem med att starta MonAgentHost.exe. Titta på loggarna på den plats som anges `MonAgentHost log file` i föregående avsnitt.
@@ -151,7 +151,7 @@ Utför följande steg om du har verifierat att data samlas in lokalt men du fort
 ### <a name="capturing-and-archiving-logs"></a>Samla in och arkivera loggar
 Om du tänker på att kontakta supporten kan det första du ber dig att samla in loggar från din dator. Du kan spara tid genom att göra det själv. Kör `CollectGuestLogs.exe` verktyget i logg insamlingens verktygs Sök väg. Den genererar en zip-fil med alla relevanta Azure-loggar i samma mapp.
 
-## <a name="diagnostics-data-tables-not-found"></a>Det gick inte att hitta data tabeller för diagnostik
+## <a name="diagnostics-data-tables-not-found"></a>Det gick inte att hitta diagnostikdatatabeller
 Tabellerna i Azure Storage som innehåller ETW-händelser namnges med hjälp av följande kod:
 
 ```csharp
@@ -231,8 +231,8 @@ Plugin-programmet returnerar följande avslutnings koder:
 | Slutkod | Beskrivning |
 | --- | --- |
 | 0 |Åtgärden lyckades. |
-| −1 |Allmänt fel. |
-| −2 |Det gick inte att läsa in RCF-filen.<p>Det här interna felet bör bara inträffa om gäst agentens plugin-program startas manuellt på den virtuella datorn. |
+| -1 |Allmänt fel. |
+| -2 |Det gick inte att läsa in RCF-filen.<p>Det här interna felet bör bara inträffa om gäst agentens plugin-program startas manuellt på den virtuella datorn. |
 | -3 |Det går inte att läsa in konfigurations filen för diagnostik.<p><p>Lösning: orsakas av en konfigurations fil som inte skickar schema validering. Lösningen är att tillhandahålla en konfigurations fil som följer schemat. |
 | -4 |En annan instans av övervaknings agentens diagnostik använder redan den lokala resurs katalogen.<p><p>Lösning: Ange ett annat värde för **LocalResourceDirectory**. |
 | −6 |Start programmet för gäst agents-plugin försökte starta diagnostik med en ogiltig kommando rad.<p><p>Det här interna felet bör bara inträffa om gäst agentens plugin-program startas manuellt på den virtuella datorn. |

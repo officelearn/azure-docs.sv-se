@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 8/6/2019
 ms.author: alsin
 ms.openlocfilehash: 11c2549d7282bae5654ede1ac34d63a43cd0f059
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75451206"
 ---
 # <a name="power-options-available-from-the-azure-serial-console"></a>Energi alternativ som är tillgängliga från Azures serie konsol
 
 Azures serie konsol innehåller flera kraftfulla verktyg för energispar funktioner på den virtuella datorn eller skalnings uppsättningen för virtuella datorer. Dessa alternativ för energispar funktioner kan vara förvirrande av vissa, så det här är en översikt över varje verktyg och dess avsedda användnings fall.
 
-Funktion för serie konsol | Beskrivning | Användnings fall
+Funktion för serie konsol | Beskrivning | Användningsfall
 :----------------------|:------------|:---------
 Starta om virtuell dator | En korrekt omstart av den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans. Den här åtgärden är samma som när du anropar restart-funktionen som är tillgänglig på översikts sidan. | I de flesta fall bör det här alternativet vara ditt första verktyg för att försöka starta om den virtuella datorn. Din serie konsol anslutning får ett kort avbrott och återupptas automatiskt så fort den virtuella datorn har startats om.
 Återställ virtuell dator | En Tvingad ström cykel för din virtuella dator eller skalnings uppsättning för virtuella datorer från Azure-plattformen. | Det här alternativet används för att omedelbart starta om operativ systemet oavsett dess aktuella tillstånd. Eftersom den här åtgärden inte är korrekt, finns det en risk för data förlust eller skada. Det finns inget avbrott i serie konsolens anslutning, vilket kan vara användbart för att skicka kommandon tidigt i Start tiden (till exempel att komma till GRUB på en virtuell Linux-dator eller fel säkert läge i en virtuell Windows-dator).

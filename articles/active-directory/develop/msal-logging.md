@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: 2d41b48613ef7ba883a6a51b0fa67407fb730719
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87846232"
 ---
 # <a name="logging-in-msal-applications"></a>Logga in MSAL-program
@@ -48,10 +48,10 @@ Om du vill ha mer information om MSAL-loggning på ett visst språk väljer du f
 
 I MSAL 3. x anges loggning per program när appen skapas med hjälp av `.WithLogging` Builder-modifieraren. Den här metoden kräver valfria parametrar:
 
-- `Level`gör att du kan bestämma vilken loggnings nivå du vill ha. Om du ställer in det på fel får du bara fel meddelanden
-- `PiiLoggingEnabled`gör att du kan logga personliga och organisatoriska data om värdet är true. Som standard är detta inställt på falskt, så att programmet inte loggar personliga data.
-- `LogCallback`har angetts till ett ombud som utför loggningen. Om `PiiLoggingEnabled` är sant får den här metoden meddelandena två gånger: När `containsPii` parametern är lika med falskt och meddelandet utan personliga data, och en andra gång med `containsPii` parametern lika med sant och meddelandet kan innehålla personliga data. I vissa fall (när meddelandet inte innehåller personliga data) är meddelandet samma.
-- `DefaultLoggingEnabled`aktiverar standard loggning för plattformen. Som standard är det falskt. Om du anger värdet till sant används händelse spårning i Desktop/UWP-program, NSLog på iOS och logcat på Android.
+- `Level` gör att du kan bestämma vilken loggnings nivå du vill ha. Om du ställer in det på fel får du bara fel meddelanden
+- `PiiLoggingEnabled` gör att du kan logga personliga och organisatoriska data om värdet är true. Som standard är detta inställt på falskt, så att programmet inte loggar personliga data.
+- `LogCallback` har angetts till ett ombud som utför loggningen. Om `PiiLoggingEnabled` är sant får den här metoden meddelandena två gånger: När `containsPii` parametern är lika med falskt och meddelandet utan personliga data, och en andra gång med `containsPii` parametern lika med sant och meddelandet kan innehålla personliga data. I vissa fall (när meddelandet inte innehåller personliga data) är meddelandet samma.
+- `DefaultLoggingEnabled` aktiverar standard loggning för plattformen. Som standard är det falskt. Om du anger värdet till sant används händelse spårning i Desktop/UWP-program, NSLog på iOS och logcat på Android.
 
 ```csharp
 class Program
@@ -86,10 +86,10 @@ class Program
 
 Aktivera loggning när appen skapas genom att skapa en loggning för motringning. Återanropet använder följande parametrar:
 
-- `tag`är en sträng som skickas till återanropet av biblioteket. Den är kopplad till logg posten och kan användas för att sortera loggnings meddelanden.
-- `logLevel`gör att du kan bestämma vilken loggnings nivå du vill ha. De logg nivåer som stöds är: `Error` , `Warning` , `Info` och `Verbose` .
-- `message`är innehållet i logg posten.
-- `containsPII`Anger om meddelanden som innehåller personliga data eller organisations data loggas. Som standard är detta inställt på falskt, så att programmet inte loggar personliga data. Om `containsPII` är `true` , kommer den här metoden att ta emot meddelanden två gånger: När `containsPII` parametern har angetts till `false` och `message` utan personliga data, och en andra gång med `containsPii` parametern inställt på `true` och meddelandet kan innehålla personliga data. I vissa fall (när meddelandet inte innehåller personliga data) är meddelandet samma.
+- `tag` är en sträng som skickas till återanropet av biblioteket. Den är kopplad till logg posten och kan användas för att sortera loggnings meddelanden.
+- `logLevel` gör att du kan bestämma vilken loggnings nivå du vill ha. De logg nivåer som stöds är: `Error` , `Warning` , `Info` och `Verbose` .
+- `message` är innehållet i logg posten.
+- `containsPII` Anger om meddelanden som innehåller personliga data eller organisations data loggas. Som standard är detta inställt på falskt, så att programmet inte loggar personliga data. Om `containsPII` är `true` , kommer den här metoden att ta emot meddelanden två gånger: När `containsPII` parametern har angetts till `false` och `message` utan personliga data, och en andra gång med `containsPii` parametern inställt på `true` och meddelandet kan innehålla personliga data. I vissa fall (när meddelandet inte innehåller personliga data) är meddelandet samma.
 
 ```java
 private StringBuilder mLogs;
@@ -129,9 +129,9 @@ Logger.getInstance().setEnableLogcatLog(true);
  Aktivera loggning i MSAL.js (Java Script) genom att skicka ett loggnings objekt under konfigurationen för att skapa en `UserAgentApplication` instans. Detta loggnings objekt har följande egenskaper:
 
 - `localCallback`: en callback-instans som kan tillhandahållas av utvecklaren för att använda och publicera loggar på ett anpassat sätt. Implementera localCallback-metoden beroende på hur du vill dirigera om loggarna.
-- `level`(valfritt): den konfigurerbara logg nivån. De logg nivåer som stöds är: `Error` , `Warning` , `Info` och `Verbose` . Standardvärdet är `Info`.
-- `piiLoggingEnabled`(valfritt): om värdet är sant loggas personliga och organisatoriska data. Som standard är detta falskt så att programmet inte loggar personliga data. Personliga data loggar skrivs aldrig till standardutdata som konsol, logcat eller NSLog.
-- `correlationId`(valfritt): en unik identifierare som används för att mappa begäran med svar på fel söknings syfte. Standardvärdet är RFC4122 version 4 GUID (128 bitar).
+- `level` (valfritt): den konfigurerbara logg nivån. De logg nivåer som stöds är: `Error` , `Warning` , `Info` och `Verbose` . Standardvärdet är `Info`.
+- `piiLoggingEnabled` (valfritt): om värdet är sant loggas personliga och organisatoriska data. Som standard är detta falskt så att programmet inte loggar personliga data. Personliga data loggar skrivs aldrig till standardutdata som konsol, logcat eller NSLog.
+- `correlationId` (valfritt): en unik identifierare som används för att mappa begäran med svar på fel söknings syfte. Standardvärdet är RFC4122 version 4 GUID (128 bitar).
 
 ```javascript
 function loggerCallback(logLevel, message, containsPii) {
@@ -226,7 +226,7 @@ MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
 
  ### <a name="log-message-format"></a>Logg meddelande format
 
-Meddelande delen av MSAL logg meddelanden har formatet`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+Meddelande delen av MSAL logg meddelanden har formatet `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
 Exempel:
 
@@ -303,7 +303,7 @@ MSALGlobalConfig.loggerConfig.logLevel = .verbose
 
 ### <a name="log-message-format"></a>Logg meddelande format
 
-Meddelande delen av MSAL logg meddelanden har formatet`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+Meddelande delen av MSAL logg meddelanden har formatet `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
 Exempel:
 
@@ -389,6 +389,6 @@ MSAL for python loggar inte personliga data eller organisations data. Det finns 
 
 Du kan använda standard-python-loggning för att logga vad du vill, men du är ansvarig för att säkert hantera känsliga data och följa regel krav.
 
-Mer information om hur du loggar in python finns i python- [loggning howto](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial).
+Mer information om hur du loggar in python finns i python-  [loggning howto](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial).
 
 ---

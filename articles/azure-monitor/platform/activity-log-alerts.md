@@ -5,10 +5,10 @@ ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.openlocfilehash: 7ed73678e0df1e068782c2a094846132be58cfe2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86516132"
 ---
 # <a name="alerts-on-activity-log"></a>Aviseringar om aktivitetsloggar
@@ -40,7 +40,7 @@ Aktivitets logg aviseringar har några vanliga alternativ:
     - Prenumerations nivå: till exempel alla virtuella datorer i en prenumeration (eller) alla resurser i en prenumeration
 - **Resurs grupp**: som standard sparas varnings regeln i samma resurs grupp som det angivna målet i definitions området. Användaren kan också definiera resurs gruppen där varnings regeln ska lagras.
 - **Resurs typ**: Resource Manager-definierad namnrymd för målet för aviseringen.
-- **Åtgärds namn**: [Azure Resource Manager åtgärds](../../role-based-access-control/resource-provider-operations.md) namn som används för rollbaserad Access Control. Åtgärder som inte har registrerats med Azure Resource Manager kan inte användas i en varnings regel för aktivitets logg.
+- **Åtgärds namn**: [Azure Resource Manager åtgärds](../../role-based-access-control/resource-provider-operations.md) namn som används för Role-Based Access Control. Åtgärder som inte har registrerats med Azure Resource Manager kan inte användas i en varnings regel för aktivitets logg.
 - **Nivå**: händelsens allvarlighets grad (information, varning, fel eller kritisk).
 - **Status**: händelsens status, vanligt vis startad, misslyckades eller lyckades.
 - **Händelse som initieras av**: kallas även för anroparen. E-postadressen eller Azure Active Directory identifieraren för den användare som utförde åtgärden.

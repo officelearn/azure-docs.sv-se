@@ -1,5 +1,5 @@
 ---
-title: Hämta mått i Azure Monitor Application Insights
+title: Get-Metric i Azure Monitor Application Insights
 description: Lär dig hur du effektivt använder GetMetric ()-anropet för att avbilda lokalt församlade mått för .NET-och .NET Core-program med Azure Monitor Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,19 +8,19 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/28/2020
 ms.openlocfilehash: 7aacb951d449583c875c71f260957a9d3bc8c663
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86517152"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Anpassad mått samling i .NET och .NET Core
 
-Azure Monitor Application Insights .NET-och .NET Core SDK: er har två olika metoder för att samla in anpassade mått, `TrackMetric()` och `GetMetric()` . Den viktigaste skillnaden mellan dessa två metoder är lokal agg regering. `TrackMetric()`saknar föragg regering under `GetMetric()` för-aggregering. Den rekommenderade metoden är att använda agg regering och `TrackMetric()` är därför inte längre den bästa metoden för att samla in anpassade mått. Den här artikeln beskriver hur du använder metoden GetMetric () och några av grunderna bakom hur det fungerar.
+Azure Monitor Application Insights .NET-och .NET Core SDK: er har två olika metoder för att samla in anpassade mått, `TrackMetric()` och `GetMetric()` . Den viktigaste skillnaden mellan dessa två metoder är lokal agg regering. `TrackMetric()` saknar föragg regering under `GetMetric()` för-aggregering. Den rekommenderade metoden är att använda agg regering och `TrackMetric()` är därför inte längre den bästa metoden för att samla in anpassade mått. Den här artikeln beskriver hur du använder metoden GetMetric () och några av grunderna bakom hur det fungerar.
 
 ## <a name="trackmetric-versus-getmetric"></a>TrackMetric jämfört med GetMetric
 
-`TrackMetric()`skickar RAW-telemetri som anger ett mått. Det är ineffektivt att skicka ett enda telemetri objekt för varje värde. `TrackMetric()`är också ineffektiv i förhållande till prestanda eftersom varje `TrackMetric(item)` går genom den fullständiga SDK-pipelinen för telemetri-initierare och processorer. Till skillnad från `TrackMetric()` , `GetMetric()` hanterar lokal församling för dig och skickar sedan bara ett sammanställt Summary-mått till ett fast intervall på en minut. Så om du behöver övervaka vissa anpassade mått på den andra eller till och med millisekundnivå kan du göra det samtidigt som du bara kommer att kosta lagrings-och nätverks trafiken varje minut. Detta minskar också risken för begränsning som inträffar eftersom det totala antalet telemetridata som måste skickas för ett sammanställt mått minskar avsevärt.
+`TrackMetric()` skickar RAW-telemetri som anger ett mått. Det är ineffektivt att skicka ett enda telemetri objekt för varje värde. `TrackMetric()` är också ineffektiv i förhållande till prestanda eftersom varje `TrackMetric(item)` går genom den fullständiga SDK-pipelinen för telemetri-initierare och processorer. Till skillnad från `TrackMetric()` , `GetMetric()` hanterar lokal församling för dig och skickar sedan bara ett sammanställt Summary-mått till ett fast intervall på en minut. Så om du behöver övervaka vissa anpassade mått på den andra eller till och med millisekundnivå kan du göra det samtidigt som du bara kommer att kosta lagrings-och nätverks trafiken varje minut. Detta minskar också risken för begränsning som inträffar eftersom det totala antalet telemetridata som måste skickas för ett sammanställt mått minskar avsevärt.
 
 I Application Insights är anpassade mått som samlas in via `TrackMetric()` och `GetMetric()` inte föremål för [sampling](./sampling.md). Sampling av viktiga mått kan leda till scenarier där aviseringar som du kan ha byggt runt dessa mått kan bli otillförlitliga. Genom att aldrig sampla in dina anpassade mått, kan du vanligt vis vara säker på att när aviserings tröskelvärdena har brutits, utlöses en avisering.  Men eftersom anpassade mått inte samplas, finns det några möjliga problem.
 
@@ -285,9 +285,9 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit`är det maximala antalet data tids serier som ett mått kan innehålla. När den här gränsen har uppnåtts anropar du `TrackValue()` .
-* `valuesPerDimensionLimit`begränsar antalet distinkta värden per dimension på liknande sätt.
-* `restrictToUInt32Values`Anger om endast positiva heltals värden ska spåras eller inte.
+* `seriesCountLimit` är det maximala antalet data tids serier som ett mått kan innehålla. När den här gränsen har uppnåtts anropar du `TrackValue()` .
+* `valuesPerDimensionLimit` begränsar antalet distinkta värden per dimension på liknande sätt.
+* `restrictToUInt32Values` Anger om endast positiva heltals värden ska spåras eller inte.
 
 Här är ett exempel på hur du skickar ett meddelande för att veta om gräns gränser överskrids:
 

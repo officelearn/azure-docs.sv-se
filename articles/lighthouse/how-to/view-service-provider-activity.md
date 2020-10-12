@@ -4,10 +4,10 @@ description: Kunder kan visa loggad aktivitet för att se åtgärder som utförs
 ms.date: 07/07/2020
 ms.topic: how-to
 ms.openlocfilehash: 0c92fc9b45d17e37fb3721d9cf087c5e7a62f6d7
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86131458"
 ---
 # <a name="view-service-provider-activity"></a>Visa tjänstleverantörsaktivitet
@@ -17,7 +17,7 @@ Kunder som har delegerade prenumerationer för [Azure Lighthouse](../overview.md
 > [!TIP]
 > Vi tillhandahåller också en Azure Policy inbyggd princip definition för att granska delegering av omfattningar till en hanterings klient. Mer information finns i [Granska delegeringar i din miljö](view-manage-service-providers.md#audit-delegations-in-your-environment).
 
-## <a name="view-activity-log-data"></a>Visa aktivitets logg data
+## <a name="view-activity-log-data"></a>Visa aktivitetsloggdata
 
 Du kan [Visa aktivitets loggen](../../azure-monitor/platform/activity-log.md#view-the-activity-log) från **Monitor** -menyn i Azure Portal. Om du vill begränsa resultaten till en speciell prenumeration använder du filtren för att välja en speciell prenumeration. Du kan också [Visa och hämta aktivitets logg händelser](../../azure-monitor/platform/activity-log.md#view-the-activity-log) program mässigt.
 

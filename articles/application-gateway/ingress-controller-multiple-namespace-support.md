@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85556160"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Aktivera stöd för flera namnrymder i ett AKS-kluster med Application Gateway ingress-styrenhet
@@ -29,11 +29,11 @@ Så här aktiverar du stöd för flera namnrymder:
    - ta bort `watchNamespace` nyckeln helt från [Helm-config. yaml](#sample-helm-config-file) -AGIC kommer att Observera alla namn områden
    - Ange `watchNamespace` till en tom sträng – AGIC kommer att Observera alla namn områden
    - Lägg till flera namn områden avgränsade med kommatecken ( `watchNamespace: default,secondNamespace` )-AGIC kommer endast att observera dessa namn områden
-2. tillämpa ändringar av Helm-mal len med:`helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
+2. tillämpa ändringar av Helm-mal len med: `helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
 
 När du har distribuerat med möjligheten att observera flera namn områden, kommer AGIC att:
   - lista inkommande resurser från alla tillgängliga namn områden
-  - Filtrera för att ingressa resurser som är kommenterade med`kubernetes.io/ingress.class: azure/application-gateway`
+  - Filtrera för att ingressa resurser som är kommenterade med `kubernetes.io/ingress.class: azure/application-gateway`
   - Skapa kombinerad [Application Gateway konfiguration](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
   - Använd config på den associerade Application Gateway via [arm](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
 
@@ -84,11 +84,11 @@ spec:
 
 Trots de två ingress-resurserna som kräver trafik för `www.contoso.com` att kunna dirigeras till respektive Kubernetes-namnområden, kan endast en server del betjäna trafiken. AGIC skulle skapa en konfiguration med "First-First-First-firsted"-grunden för en av resurserna. Om två ingress-resurser skapas samtidigt, kommer det tidigare i alfabetet att ha företräde. Från exemplet ovan kommer vi bara att kunna skapa inställningar för `production` ingressen. Application Gateway kommer att konfigureras med följande resurser:
 
-  - Lyssnare`fl-www.contoso.com-80`
-  - Regel för Routning:`rr-www.contoso.com-80`
-  - Backend-pool:`pool-production-contoso-web-service-80-bp-80`
-  - HTTP-inställningar:`bp-production-contoso-web-service-80-80-websocket-ingress`
-  - Hälso avsökning:`pb-production-contoso-web-service-80-websocket-ingress`
+  - Lyssnare `fl-www.contoso.com-80`
+  - Regel för Routning: `rr-www.contoso.com-80`
+  - Backend-pool: `pool-production-contoso-web-service-80-bp-80`
+  - HTTP-inställningar: `bp-production-contoso-web-service-80-80-websocket-ingress`
+  - Hälso avsökning: `pb-production-contoso-web-service-80-websocket-ingress`
 
 Observera att om du har skapat Application Gateway-resurser som har skapats med undantag för *lyssnare* och *regler*, inkluderas namnet på det namn område ( `production` ) som de skapades för.
 

@@ -14,10 +14,10 @@ ms.author: abpati
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: ad874a4b117b7a7ccecea0e1800ca18c6fce8aaa
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87846215"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Active Directory Federation Services (AD FS) stöd i MSAL för python
@@ -53,7 +53,7 @@ När du hämtar en token med hjälp av `acquire_token_by_username_password` MSAL
 
 ## <a name="connecting-directly-to-ad-fs"></a>Ansluter direkt till AD FS
 
-När du ansluter katalogen till AD FS kommer den behörighet som du vill använda för att bygga ditt program att vara något som liknar`https://somesite.contoso.com/adfs/`
+När du ansluter katalogen till AD FS kommer den behörighet som du vill använda för att bygga ditt program att vara något som liknar `https://somesite.contoso.com/adfs/`
 
 MSAL python stöder ADFS 2019.
 

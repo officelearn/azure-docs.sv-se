@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da318840426d1c0b94eab06b89ff3152df9d26fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80331098"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Portar och protokoll som krävs för hybrididentitet
@@ -104,8 +104,8 @@ I den här tabellen beskrivs följande utgående portar och protokoll som krävs
 
 | Protokoll | Portar | Beskrivning |
 | --- | --- | --- |
-| HTTPS |443 (TCP) |Utgående |
-| Azure Service Bus |5671 (TCP) |Utgående |
+| HTTPS |443 (TCP) |Outbound (Utgående) |
+| Azure Service Bus |5671 (TCP) |Outbound (Utgående) |
 
 Azure Service Bus port 5671 krävs inte längre för den senaste versionen av agenten. Den senaste versionen av Azure AD Connect Health Agent version krävde bara port 443.
 

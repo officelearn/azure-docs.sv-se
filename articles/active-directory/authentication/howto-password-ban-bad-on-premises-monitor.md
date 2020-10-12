@@ -13,10 +13,10 @@ ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 02937c22cbc16defb0b7672ac7ebc56c2ae2beb5
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89068787"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Övervaka och granska loggar för lokala Azure AD-miljöer för lösen ords skydd
@@ -99,7 +99,7 @@ Omfattningen av cmdletens rapportering kan påverkas av en av parametrarna – s
 
 `Get-AzureADPasswordProtectionSummaryReport`Cmdleten fungerar genom att köra en fråga till händelse loggen för DC-agenten och sedan räkna in det totala antalet händelser som motsvarar varje visad resultat kategori. Följande tabell innehåller mappningarna mellan varje utfall och dess motsvarande händelse-ID:
 
-|Get-AzureADPasswordProtectionSummaryReport-egenskap |Motsvarande händelse-ID|
+|Get-AzureADPasswordProtectionSummaryReport egenskap |Motsvarande händelse-ID|
 | :---: | :---: |
 |PasswordChangesValidated |10014|
 |PasswordSetsValidated |10015|

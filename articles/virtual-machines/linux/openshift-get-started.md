@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw
 ms.openlocfilehash: 989c67d0d1b1cd8257da089ec9c31f247228018e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87367953"
 ---
 # <a name="openshift-in-azure"></a>OpenShift i Azure
@@ -46,7 +46,7 @@ OKD är ett överordnat projekt med [öppen källkod](https://www.okd.io/) av Op
 
 - [Konfigurera vanliga krav för OpenShift i Azure](./openshift-container-platform-3x-prerequisites.md)
 - [Distribuera OpenShift container Platform i Azure](./openshift-container-platform-3x.md)
-- [Distribuera OpenShift container Platform-erbjudandet för egen hantering](./openshift-container-platform-3x-marketplace-self-managed.md)
+- [Distribuera OpenShift container Platform Self-Managed Marketplace-erbjudande](./openshift-container-platform-3x-marketplace-self-managed.md)
 - [Distribuera OpenShift i Azure Stack](./openshift-azure-stack.md)
 - [Uppgifter efter distribution](./openshift-container-platform-3x-post-deployment.md)
 - [Felsöka OpenShift-distribution](./openshift-container-platform-3x-troubleshooting.md)

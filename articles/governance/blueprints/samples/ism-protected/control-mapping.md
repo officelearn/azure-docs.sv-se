@@ -4,10 +4,10 @@ description: Kontroll av mappning av det insamlade utkastet av myndigheter som �
 ms.date: 09/11/2020
 ms.topic: sample
 ms.openlocfilehash: 605e92b75da1e5363884fc6ef9457251cfbc6e4e
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90030114"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Kontroll mappning för det insamlade utkastet av myndigheter som är skyddat av myndigheter
@@ -33,7 +33,7 @@ Den här skissen hjälper dig att begränsa platsen för distributionen av alla 
 ### <a name="0414-personnel-granted-access-to-a-system-and-its-resources-are-uniquely-identifiable"></a>0414 personal som beviljats åtkomst till ett system och dess resurser är unikt identifierbar
 
 - MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
-- MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
+- Multifaktorautentisering bör aktiveras på konton med skrivbehörighet för prenumerationen
 - MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration
 
 ### <a name="1503-standard-access-to-systems-applications-and-data-repositories-is-limited-to-that-required-for-personnel-to-undertake-their-duties"></a>1503 standard åtkomst till system, program och data lager är begränsad till den som krävs för att personal ska kunna åta sig sina uppgifter
@@ -118,7 +118,7 @@ Den här skissen hjälper dig att begränsa platsen för distributionen av alla 
 ### <a name="1173-multi-factor-authentication-is-used-to-authenticate-all-privileged-users-and-any-other-positions-of-trust"></a>1173 Multi-Factor Authentication används för att autentisera alla privilegierade användare och andra förtroende uppdrag
 
 - MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
-- MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
+- Multifaktorautentisering bör aktiveras på konton med skrivbehörighet för prenumerationen
 
 ### <a name="0421-passphrases-used-for-single-factor-authentication-are-a-minimum-of-14-characters-with-complexity-ideally-as-4-random-words"></a>0421 lösen fraser som används för autentisering med en viss faktor är minst 14 tecken långa, helst med 4 slumpmässiga ord
 
@@ -130,7 +130,7 @@ Den här skissen hjälper dig att begränsa platsen för distributionen av alla 
 ### <a name="1384-multi-factor-authentication-is-used-to-authenticate-users-each-time-they-perform-privileged-actions"></a>1384 Multi-Factor Authentication används för att autentisera användare varje gången de utför privilegierade åtgärder
 
 - MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
-- MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
+- Multifaktorautentisering bör aktiveras på konton med skrivbehörighet för prenumerationen
 - MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration
 
 ### <a name="1386-management-traffic-is-only-allowed-to-originate-from-network-zones-that-are-used-to-administer-systems-and-applications"></a>1386 hanterings trafik får endast komma från nätverks zoner som används för att administrera system och program
@@ -323,7 +323,7 @@ Den här skissen hjälper dig att begränsa platsen för distributionen av alla 
 
 ### <a name="1424-web-browser-based-security-controls-are-implemented-for-web-applications-in-order-to-help-protect-both-web-applications-and-their-users"></a>1424 säkerhets kontroller implementeras för webb program för att hjälpa till att skydda både webb program och deras användare
 
-- CORS bör inte tillåta alla resurser åtkomst till dina webb program
+- CORS (Cross Origin Resource Sharing) bör inte tillåta att alla resurser har åtkomst till dina webbappar
 
 ## <a name="guidelines-for-network-management---network-design-and-configuration"></a>Rikt linjer för nätverks hantering – nätverks design och konfiguration
 

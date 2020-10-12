@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: d2cc3627222bcd8de5a5cb1b5c83b04c5d4ef880
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86130198"
 ---
-# <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Konfigurera konfigurations servern för haveri beredskap för fysiska servrar till Azure
+# <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Konfigurera konfigurationsservern för haveriberedskap för fysiska servrar till Azure
 
 Den här artikeln beskriver hur du konfigurerar din lokala miljö så att du kan börja replikera fysiska servrar som kör Windows eller Linux till Azure.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Artikeln förutsätter att du redan har:
-- Ett Recovery Services valv i [Azure Portal](https://portal.azure.com "Azure-portalen").
+- Ett Recovery Services valv i [Azure Portal](https://portal.azure.com "Azure Portal").
 - En fysisk dator där konfigurations servern ska installeras.
 - Om du har inaktiverat TLS 1,0 på den dator där du installerar konfigurations servern kontrollerar du att TLs 1,2 är aktiverat och att .NET Framework version 4,6 eller senare är installerat på datorn (med stark kryptering aktiverat). [Läs mer](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 

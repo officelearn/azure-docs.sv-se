@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
 ms.openlocfilehash: 8a7fa295bdc8881c0c1ba58c95872a9380231b81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85558034"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Använda hanterade identiteter i Azure API Management
@@ -281,7 +281,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först en API 
 3. På fliken **användare tilldelad** väljer du **Lägg till**.
 4. Sök efter den identitet som du skapade tidigare och markera den. Välj **Lägg till**.
 
-   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Alternativ för att aktivera en användardefinierad hanterad identitet" border="true":::
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Alternativ för att aktivera en systemtilldelad hanterad identitet" border="true":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

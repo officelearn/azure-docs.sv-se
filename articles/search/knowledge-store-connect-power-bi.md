@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 91e75b60f5324288c9f1adac59e31b9c1a1b0e9e
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89289179"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Anslut ett kunskaps lager med Power BI
@@ -73,7 +73,7 @@ Klicka på **hämta Power BI mall** på sidan **Lägg till kognitiva kunskaper**
 1. Ändra data typen för följande kolumner genom att klicka på ABC-123-ikonen längst upp till vänster i kolumnen.
 
    + För *innehållet. latitud* och *Contents. longitud*väljer du **decimal tal**.
-   + För *innehåll. reviews_date* och *innehåll. reviews_dateAdded*, väljer du **datum/tid**.
+   + För *Content.reviews_date* och *Content.reviews_dateAdded*väljer du **datum/tid**.
 
    ![Ändra data typer](media/knowledge-store-connect-power-bi/powerbi-change-type.png "Ändra data typer")
 

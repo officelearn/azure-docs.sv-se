@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 02/25/2018
 ms.author: barclayn
 ms.openlocfilehash: 84a262cae17a4e26724ab06da397e699e09468db
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90969201"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Så här slutar du använda tillägget för hanterade identiteter för virtuella datorer och börjar använda Azure-Instance Metadata Service
@@ -209,7 +209,7 @@ Det finns flera fördelar med att använda Azure-IMDS för att begära token.
 Av dessa skäl är Azure IMDS-tjänsten det facto-sätt som krävs för att begära token, när tillägget för den virtuella datorn är föråldrat. 
 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Använda hanterade identiteter för Azure-resurser på en virtuell Azure-dator för att få en åtkomsttoken](how-to-use-vm-token.md)
 * [Azure Instance Metadata Service](../../virtual-machines/windows/instance-metadata-service.md)

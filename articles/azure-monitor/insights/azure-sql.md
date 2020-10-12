@@ -8,10 +8,10 @@ ms.author: danil
 ms.date: 09/19/2020
 ms.reviewer: carlrab
 ms.openlocfilehash: 0015138f4da9f66e2f9148e468dd1b5543ae0c4b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397087"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database att använda Azure SQL-analys (förhands granskning)
@@ -31,19 +31,19 @@ En praktisk översikt över hur du använder Azure SQL-analys lösning och för 
 
 Azure SQL-analys är en övervaknings lösning för endast moln som stöder strömning av diagnostisk telemetri för alla dina Azure SQL-databaser. Eftersom Azure SQL-analys inte använder agenter för att ansluta till Azure Monitor, stöder den inte övervakning av SQL Server som finns lokalt eller i virtuella datorer.
 
-| Ansluten källa | Stöds | Description |
+| Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
 | [Diagnostikinställningar](../platform/diagnostic-settings.md) | **Ja** | Azure Metric-och loggdata skickas till Azure Monitor loggar direkt av Azure. |
-| [Azure Storage-konto](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure Monitor läser inte data från ett lagrings konto. |
-| [Windows-agenter](../platform/agent-windows.md) | No | Direkta Windows-agenter används inte av Azure SQL-analys. |
-| [Linux-agenter](../learn/quick-collect-linux-computer.md) | No | Direct Linux-agenter används inte av Azure SQL-analys. |
-| [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md) | No | En direkt anslutning från Operations Manager agent till Azure Monitor används inte av Azure SQL-analys. |
+| [Azure Storage-konto](../platform/resource-logs.md#send-to-log-analytics-workspace) | Inga | Azure Monitor läser inte data från ett lagrings konto. |
+| [Windows-agenter](../platform/agent-windows.md) | Inga | Direkta Windows-agenter används inte av Azure SQL-analys. |
+| [Linux-agenter](../learn/quick-collect-linux-computer.md) | Inga | Direct Linux-agenter används inte av Azure SQL-analys. |
+| [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md) | Inga | En direkt anslutning från Operations Manager agent till Azure Monitor används inte av Azure SQL-analys. |
 
 ## <a name="azure-sql-analytics-options"></a>Azure SQL-analys alternativ
 
 I tabellen nedan visas vilka alternativ som stöds för två versioner av Azure SQL-analys instrument panelen, en för Azure SQL Database och den andra för Azure SQL-hanterade instans databaser.
 
-| Azure SQL-analys alternativ | Description | SQL Database support | Stöd för SQL Managed Instance |
+| Azure SQL-analys alternativ | Beskrivning | SQL Database support | Stöd för SQL Managed Instance |
 | --- | ------- | ----- | ----- |
 | Resurs efter typ | Perspektiv som räknar alla övervakade resurser. | Ja | Ja |
 | Insikter | Tillhandahåller hierarkisk visning av Intelligent Insights i prestanda. | Ja | Ja |

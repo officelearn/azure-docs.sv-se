@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.custom: devx-track-terraform
 ms.openlocfilehash: 7706df4f457167f5bb4d17f1d506594615364380
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87320331"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Aktivera övervakning av ett nytt Azure Kubernetes service-kluster (AKS)
@@ -20,7 +20,7 @@ Du kan aktivera övervakning av ett AKS-kluster med hjälp av en av de metoder s
 * Azure CLI
 * Terraform
 
-## <a name="enable-using-azure-cli"></a>Aktivera med hjälp av Azure CLI
+## <a name="enable-using-azure-cli"></a>Aktivera med Azure CLI
 
 Om du vill aktivera övervakning av ett nytt AKS-kluster som skapats med Azure CLI följer du stegen i artikeln snabb start under avsnittet [skapa AKS-kluster](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 

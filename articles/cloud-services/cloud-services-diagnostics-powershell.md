@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: tagore
 ms.openlocfilehash: e3c4beac5bd88ba0bbefa91fc83976416b24d2fc
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88141082"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Aktivera diagnostik i Azure Cloud Services med PowerShell
@@ -129,7 +129,7 @@ Så här tar du bort diagnostiktillägget från varje enskild roll:
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * Ytterligare vägledning om hur du använder Azure Diagnostics och andra tekniker för att felsöka problem finns i [Aktivera diagnostik i Azure Cloud Services och Virtual Machines](cloud-services-dotnet-diagnostics.md).
 * [Konfigurations schemat för diagnostik](/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3) förklarar olika alternativ för XML-konfigurationer för tillägget för diagnostik.
 * Information om hur du aktiverar diagnostik-tillägget för Virtual Machines finns i [skapa en virtuell Windows-dator med övervakning och diagnostik med Azure Resource Manager mall](../virtual-machines/windows/extensions-diagnostics-template.md)

@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: dba321d055e64d62ca91f95461c3299bee5f90d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83714227"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Samla in en webbläsarspårning för felsökning

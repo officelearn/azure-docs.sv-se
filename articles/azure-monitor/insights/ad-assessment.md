@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
 ms.openlocfilehash: 3c86b21c5e0533ab6a1a3c64dc601eb8bb573547
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318104"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimera din Active Directory-miljö med Active Directory-hälsokontrollösningen i Azure Monitor
@@ -33,7 +33,7 @@ När du har lagt till lösningen och en kontroll har slutförts visas sammanfatt
 
 ![bild av kontroll panelen för AD Health-kontroll](./media/ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Active Directory Health Check-lösningen kräver en version av .NET Framework 4.6.2 som stöds eller som är installerad på varje dator som har Log Analytics agent för Windows (kallas även Microsoft Monitoring Agent (MMA)) installerad.  Agenten används av System Center 2016-Operations Manager, Operations Manager 2012 R2 och Azure Monitor.
 * Lösningen har stöd för domänkontrollanter som kör Windows Server 2008 och 2008 R2, Windows Server 2012 och 2012 R2, Windows Server 2016 och Windows Server 2019.

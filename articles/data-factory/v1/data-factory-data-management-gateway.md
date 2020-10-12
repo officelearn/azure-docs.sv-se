@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 68459253114e97c5e113b863a075c210ef50bf2e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441127"
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
@@ -71,7 +71,7 @@ Här är data flödet på hög nivå för och en sammanfattning av stegen för a
 * Du måste **använda gatewayen** även om data lagret finns i molnet på en **virtuell Azure IaaS-dator**.
 
 ## <a name="installation"></a>Installation
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * De **operativ system** versioner som stöds är Windows 7, Windows 8/8.1, Windows 10, windows Server 2008 R2, windows Server 2012, windows Server 2012 R2. Det finns för närvarande inte stöd för installation av data Management Gateway på en domänkontrollant.
 * .NET Framework 4.5.1 eller senare krävs. Om du installerar Gateway på en dator med Windows 7 installerar du .NET Framework 4,5 eller senare. Mer information finns i [.NET Framework system krav](https://msdn.microsoft.com/library/8z6watww.aspx) .
 * Den rekommenderade **konfigurationen** för gateway-datorn är minst 2 GHz, 4 kärnor, 8 GB RAM och 80 GB disk.
@@ -95,7 +95,7 @@ Data Management Gateway kan installeras på följande sätt:
 2. Klicka på **Hämta**, Välj **64-bitars** versionen (32-bit stöds inte mer) och klicka på **Nästa**.
 3. Kör **MSI** -filen direkt eller spara den på hård disken och kör.
 4. Välj ett **språk** på **välkomst** sidan och klicka på **Nästa**.
-5. **Godkänn** licens avtalet för slutanvändare och klicka på **Nästa**.
+5. **Godkänn** licens avtalet End-User och klicka på **Nästa**.
 6. Välj **mapp** för att installera gatewayen och klicka på **Nästa**.
 7. På sidan **klar att installera** klickar du på **Installera**.
 8. Klicka på **Slutför** för att slutföra installationen.
@@ -366,7 +366,7 @@ Följande tabell innehåller beskrivningar av kolumner i listan **Gateway-noder*
 
 Övervaknings egenskap | Beskrivning
 :------------------ | :----------
-Name | Namnet på den logiska gatewayen och noder som är associerade med gatewayen. Node är en lokal Windows-dator där gatewayen är installerad. Information om hur du har fler än en nod (upp till fyra noder) i en enda logisk Gateway finns i [Data Management Gateway-hög tillgänglighet och skalbarhet](data-factory-data-management-gateway-high-availability-scalability.md).
+Namn | Namnet på den logiska gatewayen och noder som är associerade med gatewayen. Node är en lokal Windows-dator där gatewayen är installerad. Information om hur du har fler än en nod (upp till fyra noder) i en enda logisk Gateway finns i [Data Management Gateway-hög tillgänglighet och skalbarhet](data-factory-data-management-gateway-high-availability-scalability.md).
 Status | Status för den logiska gatewayen och gateway-noderna. Exempel: online/offline/begränsat/osv. Information om dessa statusar finns i avsnittet om [Gateway-status](#gateway-status) .
 Version | Visar versionen för den logiska gatewayen och varje gateway-nod. Versionen av den logiska gatewayen fastställs baserat på den version av majoriteten av noderna i gruppen. Om det finns noder med olika versioner i installations programmet för den logiska gatewayen fungerar bara noderna med samma versions nummer som den logiska gatewayen. Andra är i begränsat läge och måste uppdateras manuellt (endast om automatisk uppdatering Miss lyckas).
 Tillgängligt minne | Tillgängligt minne på en gateway-nod. Det här värdet är en nära real tids ögonblicks bild.

@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 602ca070bcaefd20585681e409ab85e9d455160a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764697"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem med att installera anslutningsappen för programproxyagenten
@@ -61,7 +61,7 @@ När installationen av en anslutning Miss lyckas är rotor saken vanligt vis nå
 
 **Granska de krav som krävs:**
 
-1.  Kontrol lera att datorn har stöd för TLS 1.2 – alla Windows-versioner efter 2012 R2 ska ha stöd för TLS 1,2. Om din kopplings dator är från en version av 2012 R2 eller tidigare kontrollerar du att följande KB är installerade på datorn:<https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
+1.  Kontrol lera att datorn har stöd för TLS 1.2 – alla Windows-versioner efter 2012 R2 ska ha stöd för TLS 1,2. Om din kopplings dator är från en version av 2012 R2 eller tidigare kontrollerar du att följande KB är installerade på datorn: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
 2.  Kontakta nätverks administratören och be om att kontrol lera att backend-proxyn och brand väggen inte blockerar SHA512 för utgående trafik.
 
@@ -81,7 +81,7 @@ Verifiera tumavtrycket för det aktuella klient certifikatet. Du hittar certifik
 
 Här följer de möjliga **IsInUserStore** -värdena och betydelser:
 
-- **false** -klient certifikatet skapades under installationen eller registreringen initierades av kommandot registrera-AppProxyConnector. Den lagras i den personliga behållaren i certifikat arkivet på den lokala datorn. 
+- **false** -klient certifikatet skapades under installationen eller registreringen initierades av Register-AppProxyConnector kommandot. Den lagras i den personliga behållaren i certifikat arkivet på den lokala datorn. 
 
 Följ stegen för att verifiera certifikatet:
 
@@ -103,7 +103,7 @@ Följ stegen för att verifiera certifikatet:
 
 Om en anslutning inte är ansluten till tjänsten under flera månader kan dess certifikat vara inaktuella. Haverit vid certifikat förnyelsen leder till ett utgånget certifikat. Detta gör att kopplings tjänsten upphör att fungera. Händelse 1000 registreras i administratörs loggen för anslutningen:
 
-"Det gick inte att registrera anslutningen: anslutnings förtroende certifikatet har upphört att gälla. Kör PowerShell-cmdleten register-AppProxyConnector på den dator där anslutningen körs för att registrera anslutningen på nytt. "
+"Det gick inte att registrera anslutningen: anslutnings förtroende certifikatet har upphört att gälla. Kör PowerShell-cmdleten Register-AppProxyConnector på den dator där anslutningen körs för att registrera anslutningen på nytt. "
 
 I det här fallet måste du avinstallera och installera om anslutningen för att utlösa registreringen eller köra följande PowerShell-kommandon:
 
@@ -112,7 +112,7 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-Mer information om kommandot register-AppProxyConnector finns i [skapa ett skript för obevakad installation för Azure AD-programproxy-anslutningen](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
+Om du vill veta mer om kommandot Register-AppProxyConnector kan du läsa [skapa ett skript för obevakad installation för Azure AD-programproxy-anslutningen](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Verifiera att administratören används för att installera anslutningen
 

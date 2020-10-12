@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
 ms.openlocfilehash: e305795f4f45a0ea858eb8d74880aedca8ec538d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90979838"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Självstudie: konfigurera SAP-SuccessFactors för att Active Directory användar etablering 
@@ -232,7 +232,7 @@ För att etablera till Active Directory lokalt måste etablerings agenten instal
   
    ![Avsluta skärm](./media/workday-inbound-tutorial/pa_install_screen_9.png "Avsluta skärm")
    
-1. Verifiera installationen av agenten och se till att den körs genom att öppna snapin-modulen "tjänster" och leta efter tjänsten "Microsoft Azure AD ansluta etablerings agent"
+1. Verifiera installationen av agenten och se till att den körs genom att öppna tjänsten "tjänster" Snap-In och leta efter tjänsten "Microsoft Azure AD Connect Provisioning agent"
   
    ![Skärm bild av Microsoft Azure AD ansluta till etablerings agenten som körs i tjänster.](./media/workday-inbound-tutorial/services.png)
 
@@ -329,7 +329,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från Success
 
          * **Endast vid skapande** – Använd endast den här mappningen för åtgärder för att skapa användare
 
-1. Spara dina mappningar genom att klicka på **Spara** överst i avsnittet attribut-mappning.
+1. Spara dina mappningar genom att klicka på **Spara** överst i Attribute-Mapping avsnittet.
 
 När du har slutfört konfigurationen av attributmappning kan du nu [Aktivera och starta användar etablerings tjänsten](#enable-and-launch-user-provisioning).
 

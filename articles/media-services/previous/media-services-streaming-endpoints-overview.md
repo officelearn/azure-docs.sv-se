@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: a541e1b068ec3667120bbb31e65ca7bc35febadb
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89265923"
 ---
 # <a name="streaming-endpoints-overview"></a>Översikt över slut punkter för direkt uppspelning  
@@ -79,9 +79,9 @@ Om din **version "1,0"** för strömnings slut punkten har >= 1 Premium streamin
 
 |Typ|StreamingEndpointVersion|ScaleUnits|CDN|Fakturering|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Klassisk|1,0|0|NA|Kostnadsfri|
+|Klassisk|1.0|0|Ej tillämpligt|Kostnadsfri|
 |Standard slut punkt för direkt uppspelning (förhands granskning)|2,0|0|Ja|Förutbetalt|
-|Premium – direktuppspelningsenheter|1,0|> 0|Ja|Förutbetalt|
+|Premium – direktuppspelningsenheter|1.0|> 0|Ja|Förutbetalt|
 |Premium – direktuppspelningsenheter|2,0|> 0|Ja|Förutbetalt|
 
 ### <a name="features"></a>Funktioner

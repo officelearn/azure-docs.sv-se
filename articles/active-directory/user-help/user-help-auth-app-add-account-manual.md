@@ -12,10 +12,10 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 3838234f9f65fcf91f8de33e3d7196aa13f2b903
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83741725"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Lägg till ett konto i appen manuellt
@@ -93,12 +93,12 @@ Du kan lägga till ditt Amazon-konto genom att aktivera tvåstegsverifiering och
 
 5. På sidan **Lägg till en verifierings metod för säkerhets kopiering** på datorn anger du den sexsiffriga verifierings koden som du fick från verifierings metoden för ditt Amazon-konto och väljer sedan **verifiera kod och fortsätt**.
 
-6. På sidan nästan klar bestämmer du om du vill göra datorn till en betrodd enhet och välj sedan **Skaffa den. Aktivera tvåstegsverifiering**.
+6. På sidan nästan klar bestämmer du om du vill göra datorn till en betrodd enhet och välj sedan **Skaffa den. Aktivera Two-Step verifiering**.
 
     Sidan **avancerade säkerhets inställningar** visas och visar din uppdaterade information om tvåstegsverifiering.
 
     >[!NOTE]
-    >Mer information om tvåstegsverifiering och ditt Amazon-konto finns i [om](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) tvåstegsverifiering och [Logga in med](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440)tvåstegsverifiering.    
+    >Mer information om tvåstegsverifiering och ditt Amazon-konto finns i [om Two-Step verifiering](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) och [inloggning med Two-Step verifiering](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).    
 
 ## <a name="next-steps"></a>Nästa steg
 

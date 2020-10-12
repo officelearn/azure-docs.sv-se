@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/29/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 67bcd6fbf04cb92deaae034d289990dfec309fe6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91280019"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Parsa JSON-och Avro-data i Azure Stream Analytics
@@ -125,7 +125,7 @@ WHERE
 
 Resultatet är:
 
-|DeviceID|SensorName|Alertmessage som|
+|DeviceID|SensorName|AlertMessage|
 |-|-|-|
 |12345|Luftfuktighet|Varning: sensor över tröskelvärdet|
 
@@ -146,7 +146,7 @@ CROSS APPLY GetRecordProperties(event.SensorReadings) AS sensorReading
 
 Resultatet är:
 
-|DeviceID|SensorName|Alertmessage som|
+|DeviceID|SensorName|AlertMessage|
 |-|-|-|
 |12345|Temperatur|80|
 |12345|Luftfuktighet|70|

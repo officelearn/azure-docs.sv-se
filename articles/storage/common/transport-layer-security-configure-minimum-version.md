@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 4c88791815d248cc20546d7942e7b0f107071186
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90018585"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Framtvinga en minsta version av Transport Layer Security (TLS) som krävs för begär anden till ett lagrings konto
@@ -69,7 +69,7 @@ StorageBlobLogs
 
 Resultaten visar antalet begär Anden som gjorts med varje version av TLS:
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Skärm bild som visar resultatet av Log Analytics-frågan för att returnera TLS-version":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Skärm bild som visar hur du skapar en diagnostisk inställning för loggnings begär Anden":::
 
 ### <a name="query-logged-requests-by-caller-ip-address-and-user-agent-header"></a>Fråga loggade begär Anden efter uppringande IP-adress och användar agent huvud
 
@@ -104,7 +104,7 @@ Följ dessa steg om du vill konfigurera den lägsta TLS-versionen för ett befin
 1. Välj **konfigurations** inställningen.
 1. Under **lägsta TLS-version**använder du List rutan för att välja den lägsta version av TLS som krävs för att komma åt data i det här lagrings kontot, som du ser i följande bild.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Skärm bild som visar hur du konfigurerar den lägsta versionen av TLS i Azure Portal":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Skärm bild som visar hur du skapar en diagnostisk inställning för loggnings begär Anden":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -307,7 +307,7 @@ Följ dessa steg om du vill visa Kompatibilitetsrapport i Azure Portal:
 1. Filtrera resultaten för namnet på princip tilldelningen som du skapade i föregående steg. Rapporten visar hur många resurser som inte är kompatibla med principen.
 1. Du kan öka detalj nivån i rapporten för ytterligare information, inklusive en lista över lagrings konton som inte är kompatibla.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Skärm bild som visar Kompatibilitetsrapport för en gransknings princip för lägsta TLS-version":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Skärm bild som visar hur du skapar en diagnostisk inställning för loggnings begär Anden":::
 
 ## <a name="use-azure-policy-to-enforce-the-minimum-tls-version"></a>Använd Azure Policy för att framtvinga den lägsta TLS-versionen
 
@@ -343,7 +343,7 @@ När du har skapat principen med neka-resultatet och tilldelar den till ett omf�
 
 Följande bild visar felet som uppstår om du försöker skapa ett lagrings konto med den lägsta TLS-versionen inställd på TLS 1,0 (standard för ett nytt konto) när en princip med en neka-inverkan kräver att den lägsta TLS-versionen anges till TLS 1,2.
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Skärm bild som visar felet som inträffar när du skapar ett lagrings konto som strider mot principen":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Skärm bild som visar hur du skapar en diagnostisk inställning för loggnings begär Anden":::
 
 ## <a name="network-considerations"></a>Nätverksöverväganden
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
 ms.openlocfilehash: 6ddb2ecef3a70ed6a56b404e64cef5b78b7abd13
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90980469"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Komma igång med Threat Modeling Tool
@@ -142,6 +142,6 @@ Om du ska kunna använda hot modellen ett hus kan du börja med att tänka på d
 
 Metoden för hot modellering som vi har presenterat här är betydligt enklare än vad Microsoft har gjort tidigare. Vi har upptäckt att program utformnings metoden fungerar bra för många team. Vi hoppas att inkludera ditt.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Skicka frågor, kommentarer och problem till tmtextsupport@microsoft.com . **[Hämta](https://aka.ms/threatmodelingtool)** Threat Modeling Tool för att komma igång.

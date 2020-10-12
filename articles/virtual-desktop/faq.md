@@ -7,10 +7,10 @@ ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 058c5778c116a9e8368049bf30046aa6b7634163
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88121127"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Vanliga frågor och svar om Windows Virtual Desktop
@@ -23,7 +23,7 @@ Om du vill skapa värdar för pooler och andra objekt måste du tilldelas deltag
 
 Du måste vara tilldelad rollen administratör för användar åtkomst i en app-grupp för att publicera program grupper till användare eller användar grupper.
 
-För att begränsa en administratör till att endast hantera användarsessioner, till exempel skicka meddelanden till användare, logga ut användare och så vidare, kan du skapa anpassade roller. Till exempel:
+För att begränsa en administratör till att endast hantera användarsessioner, till exempel skicka meddelanden till användare, logga ut användare och så vidare, kan du skapa anpassade roller. Exempel:
 
 ```powershell
 "actions": [
@@ -58,7 +58,7 @@ Arbets ytor måste också finnas på samma plats som deras app-grupper. När arb
 
 När du kör en PowerShell-cmdlet visas bara resursens namn och plats.
 
-Till exempel:
+Exempel:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg
@@ -70,7 +70,7 @@ westus   0224hp Microsoft.DesktopVirtualization/hostpools
 
 Om du vill se alla egenskaper för en resurs lägger du till antingen `format-list` eller `fl` i slutet av cmdleten.
 
-Till exempel:
+Exempel:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
@@ -78,7 +78,7 @@ Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
 
 Om du vill se vissa egenskaper lägger du till de angivna egenskaps namnen efter `format-list` eller `fl` .
 
-Till exempel:
+Exempel:
 
 ```powershell
 Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty

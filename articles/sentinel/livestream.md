@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/14/2020
 ms.author: yelevin
 ms.openlocfilehash: 14928d3c94ced8d1cd0c12e76428be73b68b91d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84783171"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Använd jakt liveström i Azure Sentinel för att identifiera hot
@@ -48,7 +48,7 @@ Du kan skapa en liveström-session från en befintlig jakt fråga eller skapa di
 1. Så här skapar du en liveström-session från en jakt fråga:
     
     1. På fliken **frågor** letar du reda på den jakt fråga som du vill använda.
-    1. Högerklicka på frågan och välj **Lägg till i liveström**. Ett exempel:
+    1. Högerklicka på frågan och välj **Lägg till i liveström**. Exempel:
     
     > [!div class="mx-imgBorder"]
     > ![Skapa liveström-session från Azure Sentinel jakt-fråga](./media/livestream/livestream-from-query.png)
@@ -78,7 +78,7 @@ Du kan skapa en liveström-session från en befintlig jakt fråga eller skapa di
 
 1. I Azure Portal navigerar du till fliken **Sentinel**  >  **Threat Management**  >  **jakt**  >  **liveström** .
 
-1. Välj den liveström-session som du vill visa eller redigera. Ett exempel:
+1. Välj den liveström-session som du vill visa eller redigera. Exempel:
     
     > [!div class="mx-imgBorder"]
     > ![Skapa liveström-session från Azure Sentinel jakt-fråga](./media/livestream/livestream-tab.png)
@@ -87,7 +87,7 @@ Du kan skapa en liveström-session från en befintlig jakt fråga eller skapa di
 
 ## <a name="receive-notifications-when-new-events-occur"></a>Ta emot meddelanden när nya händelser inträffar
 
-Eftersom liveström-meddelanden för nya händelser använder Azure Portal aviseringar visas dessa meddelanden när du använder Azure Portal. Ett exempel:
+Eftersom liveström-meddelanden för nya händelser använder Azure Portal aviseringar visas dessa meddelanden när du använder Azure Portal. Exempel:
 
 ![Azure Portal meddelande för liveström](./media/livestream/notification.png)
 

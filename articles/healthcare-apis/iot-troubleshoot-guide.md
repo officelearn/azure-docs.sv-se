@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: jasteppe
 ms.openlocfilehash: 64056ef2f63331686553c52040af9e10ee0ac468
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90982991"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Fel söknings guide för Azure IoT Connector för FHIR (för hands version)
@@ -31,7 +31,7 @@ I det här avsnittet får du lära dig om validerings processen som Azure IoT Co
 
 **Enhets mappning**
 
-|Element|Obligatorisk|
+|Element|Krävs|
 |:-------|:------|
 |Typnamn|Sant|
 |TypeMatchExpression|Sant|
@@ -47,7 +47,7 @@ I det här avsnittet får du lära dig om validerings processen som Azure IoT Co
 
 **FHIR-mappning**
 
-|Element|Obligatorisk|
+|Element|Krävs|
 |:------|:-------|
 |Typnamn|Sant|
 
@@ -99,18 +99,18 @@ Mappnings filens kopior bör tillhandahållas till teknisk support för Azure n�
 
 2. Välj **"Connector"** som du vill kopiera konverterings-JSON från.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT-Connector2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT-Connector1" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 > [!NOTE]
 > Den här processen kan också användas för att kopiera och spara innehållet i JSON-filen **"Konfigurera FHIR-mappning"** .
 
 3. Välj **Konfigurera enhets mappning**.
 
-    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT-Connector3" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
+    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT-Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 4. Välj innehållet i JSON och gör en kopierings åtgärd (till exempel: Välj CTRL + c). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT-Connector4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT-Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 5. Gör en Inklistrings åtgärd (till exempel: Välj Ctrl + v) i en ny fil i en redigerare (till exempel Visual Studio Code, Notepad) och spara filen med ett *. JSON-tillägg.
 

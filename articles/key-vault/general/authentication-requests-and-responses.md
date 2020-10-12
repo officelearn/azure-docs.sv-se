@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 2100572c0bcf5bf65fe5a70ab9e552c2d7f72934
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983267"
 ---
 # <a name="authentication-requests-and-responses"></a>Autentisering, begäranden och svar
@@ -24,7 +24,7 @@ Azure Key Vault tillhandahåller två typer av behållare för att lagra och han
 |Behållar typ|Objekt typer som stöds|Data Plans slut punkt|
 |--|--|--|
 | **Valv**|<ul><li>Program vara – skyddade nycklar</li><li>HSM-skyddade nycklar (med Premium-SKU)</li><li>Certifikat</li><li>Lagringskontonycklar</li></ul> | https://{valv-Name}. valv. Azure. net
-|**Hanterad HSM** |<ul><li>HSM-skyddade nycklar</li></ul> | https://{HSM-Name}. managedhsm. Azure. net
+|**Managed HSM** |<ul><li>HSM-skyddade nycklar</li></ul> | https://{HSM-Name}. managedhsm. Azure. net
 
 Här är URL-suffixen som används för att komma åt varje typ av objekt
 
@@ -121,7 +121,7 @@ Authorization: Bearer <access_token>
 
 ```  
 
- När en åtkomsttoken inte anges, eller när en token inte accepteras av tjänsten, returneras ett HTTP 401-fel till klienten och inkluderar WWW-autentisera-sidhuvudet, till exempel:  
+ När en åtkomsttoken inte anges, eller när en token inte accepteras av tjänsten, returneras ett HTTP 401-fel till klienten och kommer att innehålla WWW-Authenticates huvudet, till exempel:  
 
 ```  
 401 Not Authorized  
@@ -129,7 +129,7 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 ```  
 
- Parametrarna i WWW-autentisera-huvudet är:  
+ Parametrarna i WWW-Authenticates huvudet är:  
 
 -   auktorisering: adressen till OAuth2 som kan användas för att hämta en åtkomsttoken för begäran.  
 

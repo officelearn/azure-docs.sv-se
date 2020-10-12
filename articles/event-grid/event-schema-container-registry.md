@@ -4,10 +4,10 @@ description: Beskriver de egenskaper som har angetts för Container Registry hä
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: d216fe88ee6aaad33fbbe3b93b8c4f8a6e952a71
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113725"
 ---
 # <a name="azure-container-registry-as-an-event-grid-source"></a>Azure Container Registry som en Event Grid källa
@@ -20,7 +20,7 @@ Den här artikeln innehåller egenskaper och schema för Container Registry hän
 
 Azure Container Registry avger följande händelse typer:
 
-| Händelsetyp | Description |
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
 | Microsoft. ContainerRegistry. ImagePushed | Utlöses när en bild flyttas. |
 | Microsoft. ContainerRegistry. ImageDeleted | Utlöses när en bild tas bort. |
@@ -152,10 +152,10 @@ Schemat för en borttagen diagram händelse liknar schemat för en avbildad bort
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
-| motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
 | Händelsetid | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | id | sträng | Unikt ID för händelsen. |
@@ -165,7 +165,7 @@ En händelse har följande data på översta nivån:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | id | sträng | Händelse-ID. |
 | timestamp | sträng | Tiden då händelsen inträffade. |
@@ -175,10 +175,10 @@ Data-objektet har följande egenskaper:
 
 Målobjektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | mediaType | sträng | MIME-typen för det refererade objektet. |
-| ikoner | heltal | Antalet byte för innehållet. Samma som längd fält. |
+| size | heltal | Antalet byte för innehållet. Samma som längd fält. |
 | digest | sträng | Sammanfattningen av innehållet, som definieras i HTTP API-specifikationen för registret v2. |
 | length | heltal | Antalet byte för innehållet. Samma som storleks fält. |
 | lagrings platsen | sträng | Namnet på databasen. |
@@ -188,7 +188,7 @@ Målobjektet har följande egenskaper:
 
 Objektet Request har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | id | sträng | ID för den begäran som initierade händelsen. |
 | addr | sträng | IP-adressen eller värd namnet och eventuellt porten för den klient anslutning som initierade händelsen. Det här värdet är RemoteAddr från standard-http-begäran. |
@@ -197,7 +197,7 @@ Objektet Request har följande egenskaper:
 | useragent | sträng | Användar agent rubriken för begäran. |
 
 ## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
-|Titel |Beskrivning  |
+|Rubrik |Beskrivning  |
 |---------|---------|
 | [Snabb start: skicka behållar register händelser](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visar hur du använder Azure CLI för att skicka Container Registry händelser. |
 

@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: c1560325f21fd60e6bdb2a64eb987359a7246ff2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317335"
 ---
 # <a name="storage-configuration"></a>Storage-konfiguration
@@ -175,14 +175,14 @@ När du skapar en instans med `azdata arc sql mi create` eller- `azdata arc post
 
 I tabellen nedan visas en lista över Sök vägarna i den Azure SQL Managed instance-behållare som är mappad till den permanenta volymen för data och loggar:
 
-|Parameter namn, kort namn|Sökväg inuti MSSQL – Miaa container|Description|
+|Parameter namn, kort namn|Sökväg inuti MSSQL – Miaa container|Beskrivning|
 |---|---|---|
 |`--storage-class-data`, `-scd`|/var/opt|Innehåller kataloger för MSSQL-installationen och andra system processer. MSSQL-katalogen innehåller standard data (inklusive transaktions loggar), fel logg & säkerhets kopierings kataloger|
 |`--storage-class-logs`, `-scl`|/var/log|Innehåller kataloger som lagrar konsol utdata (STDERR, STDOUT), annan loggnings information för processer i behållaren|
 
 I tabellen nedan visas en lista över Sök vägarna inuti PostgreSQL-instansen som är mappad till den permanenta volymen för data och loggar:
 
-|Parameter namn, kort namn|Sökväg inuti postgres-behållare|Description|
+|Parameter namn, kort namn|Sökväg inuti postgres-behållare|Beskrivning|
 |---|---|---|
 |`--storage-class-data`, `-scd`|/var/opt/postgresql|Innehåller data-och logg kataloger för postgres-installationen|
 |`--storage-class-logs`, `-scl`|/var/log|Innehåller kataloger som lagrar konsol utdata (STDERR, STDOUT), annan loggnings information för processer i behållaren|

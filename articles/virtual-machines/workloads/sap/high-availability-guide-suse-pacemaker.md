@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
 ms.openlocfilehash: 6d61bd2c45cc1ba9cd9494750b793d7321288224
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87797754"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure
@@ -419,7 +419,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    </code></pre>
 
    >[!IMPORTANT]
-   > Den installerade versionen av Package **stängsel-agenterna** måste vara minst **4.4.0** för att dra nytta av snabbare växlings tider med Azure-stängsel-agenten, om en klusternod måste vara inhägnad. Vi rekommenderar att du uppdaterar paketet om du kör en lägre version.  
+   > Den installerade versionen av Package **stängsel-agenterna** måste vara minst **4.4.0**  för att dra nytta av snabbare växlings tider med Azure-stängsel-agenten, om en klusternod måste vara inhägnad. Vi rekommenderar att du uppdaterar paketet om du kör en lägre version.  
 
 
 1. **[A]** installera Azure python SDK 

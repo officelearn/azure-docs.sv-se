@@ -14,10 +14,10 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.openlocfilehash: 0ad5fab685757d2efd91cd1df0e48a5f1258d17e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119886"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Använda MSAL för Android med B2C
@@ -30,9 +30,9 @@ I MSAL för Android konfigureras B2C-principer (användar resor) som enskilda ut
 
 Ett B2C-program som har två principer:
 - Registrering/inloggning
-    * Erinra`B2C_1_SISOPolicy`
+    * Erinra `B2C_1_SISOPolicy`
 - Redigera profil
-    * Erinra`B2C_1_EditProfile`
+    * Erinra `B2C_1_EditProfile`
 
 Konfigurations filen för appen deklarerar två `authorities` . En för varje princip. `type`Egenskapen för varje myndighet är `B2C` .
 
@@ -58,7 +58,7 @@ Konfigurations filen för appen deklarerar två `authorities` . En för varje pr
 
 ## <a name="initialize-ipublicclientapplication"></a>Initiera IPublicClientApplication
 
-`IPublicClientApplication`skapas av en fabriks metod som gör att program konfigurationen kan parsas asynkront.
+`IPublicClientApplication` skapas av en fabriks metod som gör att program konfigurationen kan parsas asynkront.
 
 ```java
 PublicClientApplication.createMultipleAccountPublicClientApplication(
@@ -139,7 +139,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>Ange en princip
 
-Eftersom principerna i B2C representeras som separata myndigheter, så kan du anropa en annan princip än standardvärdet genom att ange en `fromAuthority` sats vid konstruktion `acquireToken` eller `acquireTokenSilent` parametrar.  Till exempel:
+Eftersom principerna i B2C representeras som separata myndigheter, så kan du anropa en annan princip än standardvärdet genom att ange en `fromAuthority` sats vid konstruktion `acquireToken` eller `acquireTokenSilent` parametrar.  Exempel:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
@@ -235,7 +235,7 @@ B2C behandlar varje princip som en separat myndighet. Därför är åtkomst-toke
 
 Varje princip lägger till en `IAccount` i cacheminnet för varje användare. Om en användare loggar in i ett program och anropar två principer har de två `IAccount` s. Om du vill ta bort den här användaren från cachen måste du anropa `removeAccount()` för varje princip.
 
-När du förnyar token för en princip med `acquireTokenSilent` , ange samma `IAccount` som returnerades från tidigare anrop till principen `AcquireTokenSilentParameters` . Att tillhandahålla ett konto som returneras av en annan princip resulterar i ett fel.
+När du förnyar token för en princip med `acquireTokenSilent` , ange samma `IAccount` som returnerades från tidigare anrop till principen  `AcquireTokenSilentParameters` . Att tillhandahålla ett konto som returneras av en annan princip resulterar i ett fel.
 
 ## <a name="next-steps"></a>Nästa steg
 

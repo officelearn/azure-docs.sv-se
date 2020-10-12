@@ -14,17 +14,17 @@ ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.openlocfilehash: 37f305a7564382b9c6c5a031340d81a22cfedbf2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88120719"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Lägga till ett program för flera klientorganisationer till Azure AD-programgalleriet
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Vad är Azure AD-programgalleriet?
 
-Azure Active Directory (Azure AD) är en molnbaserad identitets tjänst. [Azure AD-programgalleriet](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) finns i App Store i Azure Marketplace där alla Application Connectors publiceras för enkel inloggning och användar etablering. Kunder som använder Azure AD som identitets leverantör hittar de olika SaaS Application Connectors som publiceras här. IT-administratörer lägger till anslutningar från App-galleriet och konfigurerar och använder sedan anslutningarna för enkel inloggning och etablering. Azure AD stöder alla större Federations protokoll, inklusive SAML 2,0, OpenID Connect, OAuth och WS-utfodras för enkel inloggning. 
+Azure Active Directory (Azure AD) är en molnbaserad identitets tjänst. [Azure AD-programgalleriet](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) finns i App Store i Azure Marketplace där alla Application Connectors publiceras för enkel inloggning och användar etablering. Kunder som använder Azure AD som identitets leverantör hittar de olika SaaS Application Connectors som publiceras här. IT-administratörer lägger till anslutningar från App-galleriet och konfigurerar och använder sedan anslutningarna för enkel inloggning och etablering. Azure AD stöder alla större Federations protokoll, inklusive SAML 2,0, OpenID Connect, OAuth och WS-Fed för enkel inloggning. 
 
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Om programmet har stöd för SAML eller OpenIDConnect
 Om du har ett program för flera innehavare som du vill ska visas i Azure AD-programgalleriet, måste du först se till att programmet har stöd för någon av följande tekniker för enkel inloggning:

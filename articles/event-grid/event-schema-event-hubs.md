@@ -4,10 +4,10 @@ description: Beskriver de egenskaper som anges för Event Hub-händelser med Azu
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 960aa1fe7184e1d02d28fdc135907119fee8f123
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113691"
 ---
 # <a name="azure-event-hubs-as-an-event-grid-source"></a>Azure Event Hubs som en Event Grid källa
@@ -53,10 +53,10 @@ Den här exempel händelsen visar schemat för en Event Hub-händelse som aktive
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
-| motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
 | Händelsetid | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | id | sträng | Unikt ID för händelsen. |
@@ -66,7 +66,7 @@ En händelse har följande data på översta nivån:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | fileUrl | sträng | Sökvägen till insamlings filen. |
 | Typen | sträng | Filtypen för insamlings filen. |
@@ -80,7 +80,7 @@ Data-objektet har följande egenskaper:
 
 ## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
 
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Självstudie: strömma Big data till ett informations lager](event-grid-event-hubs-integration.md) | När Event Hubs skapar en Infångnings fil, Event Grid skickar en händelse till en Function-app. Appen hämtar insamlings filen och migrerar data till ett data lager. |
 

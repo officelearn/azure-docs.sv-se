@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
 ms.openlocfilehash: 876a96f579bff8d30e454e927054a951734f44ba
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441107"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
@@ -98,7 +98,7 @@ I följande tabell har vi tillhandahållit både storleken på namn området och
 |---------|---------|---------|---------|
 | 3        | 1.4     | 2        | 8 (ursprunglig synkronisering)/2 (typisk omsättning)      |
 | 5        | 2.3     | 2        | 16 (ursprunglig synkronisering)/4 (typisk omsättning)    |
-| 10       | 4,7     | 4        | 32 (ursprunglig synkronisering)/8 (typisk omsättning)   |
+| 10       | 4.7     | 4        | 32 (ursprunglig synkronisering)/8 (typisk omsättning)   |
 | 30       | 14,0    | 8        | 48 (ursprunglig synkronisering)/16 (typisk omsättning)   |
 | 50       | 23,3    | 16       | 64 (ursprunglig synkronisering)/32 (typisk omsättning)  |
 | 100 *     | 46,6    | 32       | 128 (ursprunglig synkronisering)/32 (typisk omsättning)  |
@@ -147,7 +147,7 @@ Endast NTFS-volymer stöds. ReFS, FAT, FAT32 och andra fil system stöds inte.
 
 I följande tabell visas interop-tillstånd för NTFS-fil system funktioner: 
 
-| Funktion | Supportstatus | Kommentarer |
+| Funktion | Supportstatus | Obs! |
 |---------|----------------|-------|
 | Åtkomstkontrollistor (ACL) | Fullt stöd | Windows-typ Discretionary Access Control Lists bevaras av Azure File Sync och verkställs av Windows Server på Server slut punkter. ACL: er kan också tillämpas när du monterar Azure-filresursen direkt, men detta kräver ytterligare konfiguration. Mer information finns i [avsnittet om identiteter](#identity) . |
 | Hårda länkar | Överhoppad | |
@@ -161,7 +161,7 @@ I följande tabell visas interop-tillstånd för NTFS-fil system funktioner:
 
 <a id="files-skipped"></a>Azure File Sync kommer också att hoppa över vissa temporära filer och systemmappar:
 
-| Fil/mapp | Anteckning |
+| Fil/mapp | Obs! |
 |-|-|
 | pagefile.sys | Filinformation till system |
 | Desktop.ini | Filinformation till system |

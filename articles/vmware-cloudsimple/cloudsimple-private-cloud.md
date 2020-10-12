@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: e2096e8c0ebfb233c7449510bf0bc8e80b56231e
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88140725"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>Översikt över CloudSimple privata moln
@@ -30,7 +30,7 @@ Med CloudSimple kan du dra nytta av en moln förbruknings modell som sänker den
 CloudSimple är helt kompatibelt med:
 
 * Befintliga verktyg
-* Kunskaper
+* Kompetens
 * Processer
 
 Den här kompatibiliteten gör det möjligt för dina team att hantera arbets belastningar i Azure-molnet, utan att störa dessa typer av principer:
@@ -121,7 +121,7 @@ Här är några exempel på användnings fall för distribution av privata moln.
 * Få åtkomst till offentliga moln tjänster utan att behöva expandera ditt data Center eller skapa en ny arkitektur för dina program.
 * Centralisera identiteter, åtkomst kontroll principer, loggning och övervakning av VMware-program på Azure.
 
-## <a name="limits"></a>Gränser
+## <a name="limits"></a>Begränsningar
 
 I följande tabell visas de olika noderna för resurser i ett privat moln.
 

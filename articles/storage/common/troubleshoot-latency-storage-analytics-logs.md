@@ -11,10 +11,10 @@ ms.subservice: common
 services: storage
 tags: ''
 ms.openlocfilehash: efae9cd2a73bf6df89007ac313ca6dfe6efe6ddd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87075945"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Felsöka långa svarstider med hjälp av loggar i Lagringsanalys
@@ -87,11 +87,11 @@ Följande steg visar hur du kan identifiera och felsöka latens problem med hjä
 
    Svars tid från slut punkt till slut punkt beräknas med hjälp av följande ekvation:
 
-   * Svars tid från slut punkt till slut punkt = Server svars tid + klient svars tid
+   * Svars tid från slut punkt till slut punkt = Server-Latency + klient svars tid
 
    Beräkna klient fördröjningen med hjälp av logg posten:
 
-   * Klient svars tid = svars tid från slut punkt till slut punkt – Server-svars tid
+   * Klient svars tid = svars tid från slut punkt till slut punkt – Server-Latency
 
         Exempel: 8453 – 391 = 8062ms
 
@@ -111,10 +111,10 @@ Följande steg visar hur du kan identifiera och felsöka latens problem med hjä
 Kontrol lera följande värden som anges i steg 5 i avsnittet "rekommenderade steg":
 
 * Svars tid från slut punkt till slut punkt
-* Server-svars tid
-* Klient svars tid
+* Server-Latency
+* Client-Latency
 
-I en **GetBlob-åtgärd** med **RequestStatus = lyckades**, om den **maximala tiden** används i **klient svars**tiden, betyder det att Azure Storage kostar en stor mängd tid när data skrivs till klienten. Den här fördröjningen indikerar ett problem på klient sidan.
+I en **GetBlob-åtgärd** med **RequestStatus = lyckades**, om den **maximala tiden** används i **klient svars**tiden, betyder det att Azure Storage kostar en stor mängd tid när data skrivs till klienten. Den här fördröjningen indikerar ett Client-Side problem.
 
 **Rekommenderade**
 
@@ -126,8 +126,8 @@ I en **GetBlob-åtgärd** med **RequestStatus = lyckades**, om den **maximala ti
 Kontrol lera följande värden som anges i steg 5 i avsnittet "rekommenderade steg":
 
 * Svars tid från slut punkt till slut punkt
-* Server-svars tid
-* Klient svars tid
+* Server-Latency
+* Client-Latency
 
 I en **GetBlob-åtgärd** med **REQUESTSTATUS = (SAS) NetworkError**, om den **maximala tiden** används i **klient svars**tiden, är det vanligaste problemet att klienten kopplas från innan en tids gräns går ut i lagrings tjänsten.
 
@@ -141,10 +141,10 @@ I en **GetBlob-åtgärd** med **REQUESTSTATUS = (SAS) NetworkError**, om den **m
 Kontrol lera följande värden som anges i steg 5 i avsnittet "rekommenderade steg":
 
 * Svars tid från slut punkt till slut punkt
-* Server-svars tid
-* Klient svars tid
+* Server-Latency
+* Client-Latency
 
-I en **Placera-åtgärd** med **RequestStatus = lyckades**, om den **maximala tiden** används i **klient svars**tiden, indikerar detta att klienten tar längre tid att skicka data till Azure Storage. Den här fördröjningen indikerar ett problem på klient sidan.
+I en **Placera-åtgärd** med **RequestStatus = lyckades**, om den **maximala tiden** används i **klient svars**tiden, indikerar detta att klienten tar längre tid att skicka data till Azure Storage. Den här fördröjningen indikerar ett Client-Side problem.
 
 **Rekommenderade**
 
@@ -156,8 +156,8 @@ I en **Placera-åtgärd** med **RequestStatus = lyckades**, om den **maximala ti
 Kontrol lera följande värden som anges i steg 5 i avsnittet "rekommenderade steg":
 
 * Svars tid från slut punkt till slut punkt
-* Server-svars tid
-* Klient svars tid
+* Server-Latency
+* Client-Latency
 
 I en **PutBlob-åtgärd** med **REQUESTSTATUS = (SAS) NetworkError**, om den **maximala tiden** används i **klient svars**tiden, är det vanligaste problemet att klienten kopplas från innan en tids gräns går ut i lagrings tjänsten.
 

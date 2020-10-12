@@ -11,11 +11,11 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 914c3128805c9875249bb1998fcdb6e456e73b16
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 15ba0d4b77461d77a2d0b89ecc9e411a105d49d2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88799323"
 ---
 # <a name="table-statistics-in-synapse-sql-pool"></a>Tabell statistik i Synapse SQL-pool
@@ -70,7 +70,7 @@ Automatisk generering av statistik görs synkront så att du kan få en försäm
 För att undvika mätbar prestanda försämring bör du se till att statistik har skapats först genom att köra benchmark-arbetsbelastningen innan du profileringen av systemet.
 
 > [!NOTE]
-> Statistik för att skapa statistik loggas i [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) under en annan användar kontext.
+> När du skapar statistik loggas [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) under en annan användar kontext.
 
 När automatisk statistik skapas, kommer de att ha formen: _WA_Sys_<8 siffer kolumn-ID i hex>_<8 siffror tabell-ID i hex>. Du kan visa statistik som redan har skapats genom att köra [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) -kommandot:
 
@@ -150,9 +150,6 @@ on objIdsWithStats.object_id = actualRowCounts.object_id
 
 ```
 
->[!TIP]
-> För förbättrade prestanda i Synapse SQL kan du överväga att använda **sys. pdw_permanent_table_mappings** i stället för **sys. pdw_table_mappings** i permanenta användar tabeller. Mer information finns i **[sys. pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
-
 **Fråga 2:** Ta reda på din statistiks ålder genom att kontrol lera den senaste gången din statistik uppdaterades i varje tabell. 
 
 > [!NOTE]
@@ -223,7 +220,7 @@ I den här syntaxen används alla standard alternativ. Som standard samplar SQL-
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-Ett exempel:
+Exempel:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -239,7 +236,7 @@ Använd följande syntax för att sampla den fullständiga tabellen:
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-Ett exempel:
+Exempel:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
@@ -440,7 +437,7 @@ Använd följande syntax för att uppdatera ett enskilt statistik objekt:
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Ett exempel:
+Exempel:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -456,7 +453,7 @@ En enkel metod för att uppdatera alla statistik objekt i en tabell är:
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-Ett exempel:
+Exempel:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -485,9 +482,9 @@ Dessa system visningar innehåller information om statistik:
 | [sys. Objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje objekt i databasen. |
 | [sys. schema](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje schema i databasen. |
 | [sys. stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje statistik objekt. |
-| [sys. stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje kolumn i objektet statistik. Länkar tillbaka till sys. columns. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje kolumn i objektet statistik. Länkar tillbaka till sys. columns. |
 | [sys. tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje tabell (inklusive externa tabeller). |
-| [sys. table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje datatyp. |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje datatyp. |
 
 ### <a name="system-functions-for-statistics"></a>System funktioner för statistik
 
@@ -559,7 +556,7 @@ Det här enkla exemplet visar alla tre delarna i ett statistik objekt:
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Ett exempel:
+Exempel:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -573,7 +570,7 @@ Om du bara vill visa vissa delar använder du `WITH` satsen och anger vilka dela
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-Ett exempel:
+Exempel:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector

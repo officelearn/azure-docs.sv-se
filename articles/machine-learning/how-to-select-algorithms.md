@@ -12,10 +12,10 @@ ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
 ms.openlocfilehash: 5ad0d2c520d5347e36a9cead4ed6c5526d885ca4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319532"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Så här väljer du algoritmer för Azure Machine Learning
@@ -51,21 +51,21 @@ I följande tabell sammanfattas några av de viktigaste egenskaperna för algori
 | --- |:---:|:---:|:---:|:---:| --- |
 | **Klassificerings familj** | | | | | |
 | [Logistik regression med två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri) |Bra  |Snabb |Ja |4 | |
-| [Besluts skog med två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-decision-forest?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Nej |5 |Visar långsamma Poäng tider. Föreslå att inte arbeta med En-mot-alla – multiklass, på grund av långsammare poängsättnings tider som orsakas av Trappstegs låsning i ackumulerade träd förutsägelser |
-| [Besluts träd med två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Nej |6 |Stor minnes storlek |
-| [Neurala nätverk med två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-neural-network?WT.mc_id=docs-article-lazzeri) |Bra |Medel |Nej |8 | |
+| [Besluts skog med två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-decision-forest?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Inga |5 |Visar långsamma Poäng tider. Föreslå att inte arbeta med En-mot-alla – multiklass, på grund av långsammare poängsättnings tider som orsakas av Trappstegs låsning i ackumulerade träd förutsägelser |
+| [Besluts träd med två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Inga |6 |Stor minnes storlek |
+| [Neurala nätverk med två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-neural-network?WT.mc_id=docs-article-lazzeri) |Bra |Medel |Inga |8 | |
 | [Genomsnittlig Perceptron i två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-averaged-perceptron?WT.mc_id=docs-article-lazzeri) |Bra |Medel |Ja |4 | |
 | [Dubbelriktad Vector-dator](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) |Bra |Snabb |Ja |5 |Lämpligt för stora funktions uppsättningar |
 | [Logistik regression med multiklass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-logistic-regression?WT.mc_id=docs-article-lazzeri) |Bra |Snabb |Ja |4 | |
-| [Besluts skog med flera klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Nej |5 |Visar långsamma Poäng tider |
-| [Besluts träd med djup klass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Nej |6 | Vi vill förbättra noggrannheten med liten risk för mindre täckning |
-| [Neurala nätverk i multiklass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri) |Bra |Medel |Nej |8 | |
+| [Besluts skog med flera klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Inga |5 |Visar långsamma Poäng tider |
+| [Besluts träd med djup klass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Inga |6 | Vi vill förbättra noggrannheten med liten risk för mindre täckning |
+| [Neurala nätverk i multiklass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri) |Bra |Medel |Inga |8 | |
 | [En-vs-all multiklass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/one-vs-all-multiclass?WT.mc_id=docs-article-lazzeri) | - | - | - | - |Se egenskaperna för den två klass metoden som valts |
 | **Regressions familj** | | | | | |
 | [Linjär regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/linear-regression?WT.mc_id=docs-article-lazzeri) |Bra |Snabb |Ja |4 | |
-| [Besluts skogs regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/decision-forest-regression?WT.mc_id=docs-article-lazzeri)|Utmärkt |Medel |Nej |5 | |
-| [Regressions analys av besluts träd](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/boosted-decision-tree-regression?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Nej |6 |Stor minnes storlek |
-| [Neurala nätverks regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri) |Bra |Medel |Nej |8 | |
+| [Besluts skogs regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/decision-forest-regression?WT.mc_id=docs-article-lazzeri)|Utmärkt |Medel |Inga |5 | |
+| [Regressions analys av besluts träd](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/boosted-decision-tree-regression?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Inga |6 |Stor minnes storlek |
+| [Neurala nätverks regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri) |Bra |Medel |Inga |8 | |
 | **Kluster serie** | | | | | |
 | [K-innebär klustring](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Ja |8 |En klustrad algoritm |
 

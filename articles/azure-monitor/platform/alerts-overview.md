@@ -5,10 +5,10 @@ ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
 ms.openlocfilehash: f58175d105e1dd36d58fbe4d8b68109810797b2a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317148"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
@@ -167,7 +167,7 @@ När du väljer en avisering innehåller den här sidan information om avisering
 
 Sidan aviserings information innehåller följande avsnitt:
 
-| Avsnitt | Description |
+| Section | Beskrivning |
 |:---|:---|
 | Sammanfattning | Visar egenskaper och annan viktig information om aviseringen. |
 | Historik | Visar en lista över varje åtgärd som vidtas av aviseringen och eventuella ändringar som gjorts i aviseringen. För närvarande begränsad till tillstånds ändringar. |

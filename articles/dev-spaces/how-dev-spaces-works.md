@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Beskriver de processer som Power Spaces för Azure dev
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
 ms.openlocfilehash: 81408ed4bbe5322538d893b29c7397104c5b0844
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90981265"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Så här fungerar Azure Dev Spaces
@@ -22,7 +22,7 @@ Med Azure dev Spaces får du flera sätt att snabbt iterera och felsöka Kuberne
 
 Azure dev Spaces minskar arbetet för att utveckla, testa och iterera ditt Kubernetes-program i samband med ditt AKS-kluster. Den här minskningen av ansträngning gör att utvecklare kan fokusera på affärs logiken i sina program och inte konfigurera deras tjänster för att köras i Kubernetes.
 
-### <a name="bridge-to-kubernetes"></a>Brygga till Kubernetes
+### <a name="bridge-to-kubernetes"></a>Bridge to Kubernetes
 
 Med Bridge till Kubernetes kan du ansluta din utvecklings dator till ditt Kubernetes-kluster, så att du kan köra och felsöka kod på din utvecklings dator som om den kördes i klustret. Bridge to Kubernetes omdirigerar trafiken mellan det anslutna klustret genom att köra en POD på klustret som fungerar som en fjärragent för att dirigera om trafiken mellan din utvecklings dator och klustret. Med den här trafiken i trafiken kan kod på din utvecklings dator och tjänster som körs i klustret kommunicera som om de var i samma kluster. Mer information om hur du ansluter din utvecklings dator till ett Kubernetes-kluster finns i [så här fungerar brygga till Kubernetes][how-it-works-bridge-to-kubernetes].
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
 ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87760963"
 ---
 # <a name="what-is-azure-private-link-service"></a>Vad är Azure Private Link service?
@@ -91,7 +91,7 @@ Aliaset består av tre delar: *prefix*. *GUID*. *Suffix*
 - GUID kommer att tillhandahållas av plattformen. Detta gör att namnet blir globalt unikt. 
 - Suffixet läggs till av Azure: *region*. Azure. privatelinkservice 
 
-Fullständigt alias: *prefix*. {GUID}. *region*. Azure. privatelinkservice  
+Fullständigt alias:  *prefix*. {GUID}. *region*. Azure. privatelinkservice  
 
 ## <a name="control-service-exposure"></a>Kontrol lera tjänstens exponering
 
@@ -111,7 +111,7 @@ Den här informationen kodas med en anpassad Vector-Vector (Type-Length-Value) e
 
 Anpassad TLV-information:
 
-|Fält |Längd (oktetter)  |Beskrivning  |
+|Field |Längd (oktetter)  |Beskrivning  |
 |---------|---------|----------|
 |Typ  |1        |PP2_TYPE_AZURE (0xEE)|
 |Längd  |2      |Värdets längd|

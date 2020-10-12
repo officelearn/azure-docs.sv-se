@@ -14,10 +14,10 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 5d91514af9aea3dd7ea13b94681fbb27c53772fe
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88120906"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Skillnader mellan MSAL JS och ADAL JS
@@ -44,7 +44,7 @@ Du måste dock fortfarande använda ADAL.js om ditt program behöver logga in an
 
 * Metoden för att hämta och förnya token tyst utan att be användarna att ange namn `acquireToken` i ADAL.js. I MSAL.js kallas den här metoden `acquireTokenSilent` för att vara mer beskrivande av den här funktionen.
 
-### <a name="authority-value-common"></a>Auktoritets värde`common`
+### <a name="authority-value-common"></a>Auktoritets värde `common`
 
 I v 1.0 `https://login.microsoftonline.com/common` gör det möjligt för användarna att logga in med alla Azure AD-konton (för alla organisationer) med hjälp av-utfärdaren.
 
@@ -73,7 +73,7 @@ I v 2.0 kan användare med hjälp av `https://login.microsoftonline.com/common` 
 
 * Dynamiska omfattningar för stegvist godkännande.
 
-    När du skapar program med v 1.0 behövde du registrera en fullständig uppsättning behörigheter (statiska omfattningar) som krävs av programmet för att användaren ska kunna godkänna inloggnings tiden. I v 2.0 kan du använda omfattnings parametern för att begära behörigheten vid den tidpunkt du vill. Dessa kallas dynamiska omfattningar. Detta gör det möjligt för användaren att tillhandahålla ett stegvist tillstånd för omfattningar. Så om du i början vill att användaren ska logga in på ditt program och du inte behöver någon typ av åtkomst kan du göra det. Om du senare behöver kunna läsa kalendern för användaren kan du begära att kalender omfånget används i acquireToken-metoderna och få användarens medgivande. Till exempel:
+    När du skapar program med v 1.0 behövde du registrera en fullständig uppsättning behörigheter (statiska omfattningar) som krävs av programmet för att användaren ska kunna godkänna inloggnings tiden. I v 2.0 kan du använda omfattnings parametern för att begära behörigheten vid den tidpunkt du vill. Dessa kallas dynamiska omfattningar. Detta gör det möjligt för användaren att tillhandahålla ett stegvist tillstånd för omfattningar. Så om du i början vill att användaren ska logga in på ditt program och du inte behöver någon typ av åtkomst kan du göra det. Om du senare behöver kunna läsa kalendern för användaren kan du begära att kalender omfånget används i acquireToken-metoderna och få användarens medgivande. Exempel:
 
     ```javascript
     var request = {
@@ -85,7 +85,7 @@ I v 2.0 kan användare med hjälp av `https://login.microsoftonline.com/common` 
 
 * Omfattningar för V 1.0 API: er
 
-    När du hämtar token för V 1.0-API: er med hjälp av MSAL.js kan du begära alla statiska omfattningar som registrerats i API: et genom `.default` att lägga till i app-ID-URI: n för API: et som omfång. Till exempel:
+    När du hämtar token för V 1.0-API: er med hjälp av MSAL.js kan du begära alla statiska omfattningar som registrerats i API: et genom `.default` att lägga till i app-ID-URI: n för API: et som omfång. Exempel:
 
     ```javascript
     var request = {

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
 ms.openlocfilehash: 723da36093c895a3a4aefbe66c2d8ca2ac0cba32
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983139"
 ---
 # <a name="action-rules-preview"></a>Åtgärds regler (förhands granskning)
@@ -103,7 +103,7 @@ Om du väljer **Åtgärds grupp** i växlingen, lägger du till en befintlig åt
 ### <a name="action-rule-details"></a>Åtgärds regel information
 
 Konfigurera senast följande information för åtgärds regeln:
-* Name
+* Namn
 * Resurs grupp där den sparas
 * Beskrivning
 
@@ -261,7 +261,7 @@ Om du vill använda logg aviseringar med åtgärds regler skapar du logg aviseri
 
 ![Åtgärds regler och logg aviseringar (antal resultat)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 ### <a name="while-im-configuring-an-action-rule-id-like-to-see-all-the-possible-overlapping-action-rules-so-that-i-avoid-duplicate-notifications-is-it-possible-to-do-that"></a>När jag konfigurerar en åtgärds regel skulle jag vilja se alla eventuella överlappande åtgärds regler så att jag undviker dubbla meddelanden. Är det möjligt att göra detta?
 

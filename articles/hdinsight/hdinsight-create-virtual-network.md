@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/16/2020
 ms.openlocfilehash: 8e68bd2d164e3a8de60a9061363b839c4dfd4777
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87074757"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Skapa virtuella nätverk för Azure HDInsight-kluster
@@ -212,7 +212,7 @@ Följande kod visar hur du aktiverar SSH-åtkomst från Internet:
 az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 ```
 
-## <a name="example-dns-configuration"></a><a id="example-dns"></a>Exempel: DNS-konfiguration
+## <a name="example-dns-configuration"></a><a id="example-dns"></a> Exempel: DNS-konfiguration
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>Namn matchning mellan ett virtuellt nätverk och ett anslutet lokalt nätverk
 
@@ -289,7 +289,7 @@ På den anpassade DNS-servern i det virtuella nätverket:
     
     * Ersätt värdet `192.168.0.1` med IP-adressen för din lokala DNS-server. Den här posten dirigerar alla andra DNS-förfrågningar till den lokala DNS-servern.
 
-1. Starta om Bind om du vill använda konfigurationen. Till exempel `sudo service bind9 restart`.
+1. Starta om Bind om du vill använda konfigurationen. Exempelvis `sudo service bind9 restart`.
 
 1. Lägg till en villkorlig vidarebefordrare till den lokala DNS-servern. Konfigurera den villkorliga vidarebefordraren att skicka begär Anden för DNS-suffixet från steg 1 till den anpassade DNS-servern.
 

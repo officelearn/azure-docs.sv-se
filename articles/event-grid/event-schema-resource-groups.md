@@ -4,10 +4,10 @@ description: Beskriver de egenskaper som har angetts för resurs grupps händels
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: ed01bfdb67d9b8a3dd5875ec3fd8c6edf8922520
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105922"
 ---
 # <a name="azure-resource-group-as-an-event-grid-source"></a>Azure-resurs grupp som en Event Grid källa
@@ -22,7 +22,7 @@ När du prenumererar på händelser för en resurs grupp tar slut punkten emot a
 
 Om du vill hantera händelser program mässigt kan du sortera händelser genom att titta på `operationName` värdet. Till exempel kan händelse slut punkten bara bearbeta händelser för åtgärder som är lika med `Microsoft.Compute/virtualMachines/write` eller `Microsoft.Storage/storageAccounts/write` .
 
-Händelsens ämne är resurs-ID för den resurs som är mål för åtgärden. För att filtrera händelser för en resurs, ange resurs-ID när du skapar händelse prenumerationen.  Om du vill filtrera efter en resurs typ använder du ett värde i följande format:`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+Händelsens ämne är resurs-ID för den resurs som är mål för åtgärden. För att filtrera händelser för en resurs, ange resurs-ID när du skapar händelse prenumerationen.  Om du vill filtrera efter en resurs typ använder du ett värde i följande format: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
 
 ## <a name="event-grid-event-schema"></a>Event Grid-händelseschema
@@ -31,7 +31,7 @@ Händelsens ämne är resurs-ID för den resurs som är mål för åtgärden. F�
 
 Resurs grupper genererar hanterings händelser från Azure Resource Manager, till exempel när en virtuell dator skapas eller om ett lagrings konto tas bort.
 
-| Händelsetyp | Description |
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
 | Microsoft. Resources. ResourceActionCancel | Utlöses när åtgärd för resurs avbryts. |
 | Microsoft. Resources. ResourceActionFailure | Utlöses när en åtgärd på resursen Miss lyckas. |
@@ -231,10 +231,10 @@ I följande exempel visas schemat för en **ResourceActionSuccess** -händelse. 
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
-| motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
 | Händelsetid | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | id | sträng | Unikt ID för händelsen. |
@@ -244,7 +244,7 @@ En händelse har följande data på översta nivån:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | auktorisering | objekt | Den begärda auktoriseringen för åtgärden. |
 | gällande | objekt | Egenskaperna för anspråken. Mer information finns i [JWT-specifikation](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
@@ -258,7 +258,7 @@ Data-objektet har följande egenskaper:
 | tenantId | sträng | Klient organisationens ID för resursen. |
 
 ## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Självstudie: övervaka ändringar av virtuella datorer med Azure Event Grid och Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | En Logic app övervakar ändringar i en virtuell dator och skickar e-postmeddelanden om ändringarna. |
 | [Azure CLI: prenumerera på händelser för en resurs grupp](./scripts/event-grid-cli-resource-group.md)| Exempel skript som prenumererar på händelser för en resurs grupp. Den skickar händelser till en webhook. |

@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
 ms.openlocfilehash: dcfae72d5f15399dc4c759ab859ad8059134f11d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91279798"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Azure Disk Encryption exempel skript för virtuella Linux-datorer
@@ -108,7 +108,7 @@ I följande tabell visas vilka parametrar som kan användas i PowerShell-skripte
 
 5. Övervaka regelbundet förloppet för krypteringen med hjälp av anvisningarna i [Nästa avsnitt](#monitoring-os-encryption-progress).
 
-6. När get-AzVmDiskEncryptionStatus visar "VMRestartPending" startar du om den virtuella datorn antingen genom att logga in på den eller med hjälp av portalen, PowerShell eller CLI.
+6. När Get-AzVmDiskEncryptionStatus visar "VMRestartPending" startar du om den virtuella datorn antingen genom att logga in på den eller med hjälp av portalen, PowerShell eller CLI.
     ```powershell
     C:\> Get-AzVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
@@ -401,7 +401,7 @@ Gör så här för att konfigurera kryptering för att arbeta med Azure:
     ![CentOS 7-installation-kör/usr/sbin/dracut-f-v](./media/disk-encryption/centos-encrypt-fig5.png)
 
 ## <a name="upload-encrypted-vhd-to-an-azure-storage-account"></a>Ladda upp krypterad virtuell hård disk till ett Azure Storage-konto
-När DM-crypt-kryptering har Aktiver ATS måste den lokala krypterade virtuella hård disken överföras till ditt lagrings konto.
+När DM-Crypt kryptering har Aktiver ATS måste den lokala krypterade virtuella hård disken överföras till ditt lagrings konto.
 ```powershell
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```

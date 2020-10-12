@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 01/31/2020
 ms.author: victorh
 ms.openlocfilehash: bdb115cf6d0f0aa2c55f6143015a323df6faa114
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83744293"
 ---
 # <a name="geomatch-custom-rules-preview"></a>Ommatchnings anpassade regler (förhands granskning)
@@ -173,7 +173,7 @@ Om du använder en kors matchnings operator kan väljare vara någon av följand
 | RU | Ryska federationen|
 | RW | Rwanda|
 | SA | Saudiarabien|
-| SD | Sudan|
+| Standardavvikelse | Sudan|
 | SE | Sverige|
 | SG | Singapore|
 | SI | Slovenien|

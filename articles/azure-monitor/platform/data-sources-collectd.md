@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
 ms.openlocfilehash: 488f273336da05738609333f911fe3a90ba59496
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86111991"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Samla in data från insamlade på Linux-agenter i Azure Monitor
@@ -54,7 +54,7 @@ Den insamlade konfigurationen använder standard- `write_http` plugin-programmet
 > [!NOTE]
 > Den här porten kan konfigureras till en anpassad port vid behov.
 
-Log Analytics agenten för Linux lyssnar också på port 26000 för insamlade mått och konverterar dem sedan till Azure Monitor schema mått. Följande är Log Analytics agent för Linux-konfiguration `collectd.conf` .
+Log Analytics agenten för Linux lyssnar också på port 26000 för insamlade mått och konverterar dem sedan till Azure Monitor schema mått. Följande är Log Analytics agent för Linux-konfiguration  `collectd.conf` .
 
 ```xml
 <source>
@@ -123,12 +123,12 @@ För att upprätthålla en välbekant modell mellan infrastruktur mått som reda
 | Fältet insamlat mått | Azure Monitor fält |
 |:--|:--|
 | `host` | Dator |
-| `plugin` | Ingen |
+| `plugin` | Inget |
 | `plugin_instance` | Instans namn<br>Om **plugin_instance** är *Null* then = "*_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>Om **type_instance** är *Null* är CounterName =**tomt** |
 | `dsnames[]` | CounterName |
-| `dstypes` | Ingen |
+| `dstypes` | Inget |
 | `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>Nästa steg

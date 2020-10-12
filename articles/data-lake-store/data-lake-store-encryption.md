@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: a187b31657ec2a67c306d817a75150d19a5cf9b6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86497190"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Kryptering av data i Azure Data Lake Storage Gen1
@@ -56,7 +56,7 @@ Här är en kort jämförelse av funktionerna som tillhandahålls i de två läg
 | -------- | -------------------- | --------------------- |
 |Hur lagras data?|Data krypteras alltid innan de lagras.|Data krypteras alltid innan de lagras.|
 |Var lagras huvudkrypteringsnyckeln?|Key Vault|Key Vault|
-|Finns det krypteringsnycklar som lagras i klartext utanför Key Vault? |Inga|Nej|
+|Finns det krypteringsnycklar som lagras i klartext utanför Key Vault? |Inga|Inga|
 |Kan huvudkrypteringsnyckeln hämtas från Key Vault?|Nej. När den har lagrats i Key Vault kan den endast användas för kryptering och dekryptering.|Nej. När den har lagrats i Key Vault kan den endast användas för kryptering och dekryptering.|
 |Vem äger Key Vault-instansen och huvudkrypteringsnyckeln?|Tjänsten Data Lake Storage Gen1|Du äger nyckelvalvsinstansen som ingår i din Azure-prenumeration. Huvudkrypteringsnyckeln i Key Vault kan hanteras av programvara eller maskinvara.|
 |Kan du återkalla åtkomsten till huvud krypterings nyckeln för den Data Lake Storage Gen1 tjänsten?|Nej|Ja. Du kan hantera åtkomst kontrol listor i Key Vault och ta bort åtkomst kontroll poster för tjänst identiteten för tjänsten Data Lake Storage Gen1.|
@@ -74,11 +74,11 @@ Det är viktigt att komma ihåg följande när du väljer läge för huvudkrypte
 
 Det finns tre typer av nycklar som används i utformningen av datakryptering. I följande tabell visas en sammanfattning:
 
-| Nyckel                   | Förkortning | Kopplad till | Lagringsplats                             | Typ       | Anteckningar                                                                                                   |
+| Tangent                   | Förkortning | Kopplad till | Lagringsplats                             | Typ       | Obs!                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Huvudkrypteringsnyckel | MEK          | Ett Data Lake Storage Gen1 konto | Key Vault                              | Asymmetrisk | Den kan hanteras av Data Lake Storage Gen1 eller dig.                                                              |
 | Datakrypteringsnyckel   | DEK          | Ett Data Lake Storage Gen1 konto | Beständig lagring som hanteras av den Data Lake Storage Gen1 tjänsten | Symmetrisk  | DEK krypteras av MEK. Den krypterade DEK lagras på permanenta medier. |
-| Blockkrypteringsnyckel  | BEK          | Ett datablock | Inga                                         | Symmetrisk  | BEK härleds från DEK och datablocket.                                                      |
+| Blockkrypteringsnyckel  | BEK          | Ett datablock | Inget                                         | Symmetrisk  | BEK härleds från DEK och datablocket.                                                      |
 
 Följande diagram illustrerar dessa begrepp:
 
@@ -107,7 +107,7 @@ Följande diagram illustrerar dessa begrepp:
 
 När du använder kundhanterade nycklar kan du rotera huvudkrypteringsnyckeln. Information om hur du konfigurerar ett Data Lake Storage Gen1 konto med Kundhanterade nycklar finns i [komma igång](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 När du konfigurerar Data Lake Storage Gen1 kontot har du valt att använda dina egna nycklar. Det här alternativet kan inte ändras efter att kontot har skapats. I anvisningarna nedan antas att du använder kundhanterade nycklar (att du valt egna nycklar från ditt nyckelvalv).
 

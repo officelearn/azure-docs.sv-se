@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: bad81e8929cd0c5c66c87fd9f6cc11dc746b3e5f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317807"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Service Bus köer utdata från Azure Stream Analytics
@@ -24,7 +24,7 @@ I [kompatibilitetsnivå 1,2](stream-analytics-compatibility-level.md)använder A
 
 I följande tabell visas egenskaps namnen och deras beskrivningar för att skapa utdata från kön.
 
-| Egenskapsnamn | Description |
+| Egenskapsnamn | Beskrivning |
 | --- | --- |
 | Utdataalias |Ett eget namn som används i frågor för att dirigera frågeresultatet till den här Service Bus kön. |
 | Service Bus namnrymd |En behållare för en uppsättning meddelande enheter. |
@@ -66,7 +66,7 @@ I följande exempel `DeviceId` läggs fälten och till i `DeviceStatus` metadata
 
 Följande bild visar förväntade egenskaper för utmatnings meddelande som inspekterats i EventHub med hjälp av [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-:::image type="content" source="media/service-bus-queues-output/custom-properties.png" alt-text="Anpassade egenskaper för händelse":::
+:::image type="content" source="media/service-bus-queues-output/custom-properties.png" alt-text="Egenskaps kolumner":::
 
 ## <a name="system-properties"></a>Systemegenskaper
 

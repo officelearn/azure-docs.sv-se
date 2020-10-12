@@ -1,19 +1,19 @@
 ---
-title: Säkerhets översikt för Azure Data-resurs
-description: Säkerhets översikt för Azure Data-resurs
+title: Säkerhetsöversikt över Azure Data Share
+description: Säkerhetsöversikt över Azure Data Share
 author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.openlocfilehash: 10f31b74b461941b15f13e45f90b5fbc408c90fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86108421"
 ---
-# <a name="security-overview-for-azure-data-share"></a>Säkerhets översikt för Azure Data-resurs
+# <a name="security-overview-for-azure-data-share"></a>Säkerhetsöversikt över Azure Data Share
 
 Den här artikeln innehåller en säkerhets översikt över Azure Data Share-tjänsten.
 

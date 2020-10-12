@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c8dcc8766b21551f3cd62289805fe735ef0f333
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317624"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Automatisk uppgradering
@@ -43,7 +43,7 @@ Det aktuella läget för automatisk uppgradering kan visas med PowerShell-cmdlet
 | Inaktiverad |Anges endast av systemet. Systemet är **för närvarande inte** behörigt att ta emot automatiska uppgraderingar. |
 | Inaktiverad |Automatisk uppgradering har inaktiverats. |
 
-Du kan ändra mellan **aktiverat** och **inaktiverat** med `Set-ADSyncAutoUpgrade` . Endast systemet bör ställa in tillståndet **inaktiverat**.  Innan 1.1.750.0-cmdleten Set-ADSyncAutoUpgrade blockeras autouppgradering om status för automatisk uppgradering var inställd på pausad. Den här funktionen har nu ändrats så att den inte blockerar autouppgradering.
+Du kan ändra mellan **aktiverat** och **inaktiverat** med `Set-ADSyncAutoUpgrade` . Endast systemet bör ställa in tillståndet **inaktiverat**.  Innan 1.1.750.0-cmdlet: Set-ADSyncAutoUpgrade en skulle blockera automatisk uppgradering om tillståndet för automatisk uppgradering var inaktive rad. Den här funktionen har nu ändrats så att den inte blockerar autouppgradering.
 
 Automatisk uppgradering använder Azure AD Connect Health för uppgraderings infrastrukturen. För att automatisk uppgradering ska fungera kontrollerar du att du har öppnat URL: erna i proxyservern för **Azure AD Connect Health** som dokumenteras i [URL: er för Office 365 och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
@@ -79,7 +79,7 @@ Resultat koden har ett prefix med en översikt över statusen.
 
 Här är en lista över de vanligaste meddelanden som du hittar. Ingen lista visas, men resultat meddelandet bör vara avmarkerat med det som problemet är.
 
-| Resultat meddelande | Description |
+| Resultat meddelande | Beskrivning |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |Det gick inte att skriva till registret. |

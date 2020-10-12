@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 description: Lär dig hur du felsöker och löser vanliga problem när du aktiverar och använder Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
 ms.openlocfilehash: d697a11f3087c31a49d9b88e99b18bab686a2b59
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90981072"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Fel sökning av Azure dev Spaces
@@ -422,9 +422,9 @@ Du kanske ser det här felet när du kör fel söknings programmet Visual Studio
 
 ### <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Felet "intern Watch misslyckades: se ENOSPC" vid koppling av fel sökning till ett Node.js program
 
-Felet uppstår när noden som kör Pod med det Node.js program som du försöker ansluta till med en fel sökare har överskridit värdet *FS. inotify. max_user_watches* . I vissa fall [kan standardvärdet *FS. inotify. max_user_watches* vara för litet för att kunna hantera ett fel söknings program direkt till en POD](https://github.com/Azure/AKS/issues/772).
+Felet uppstår när noden som kör Pod med det Node.js program som du försöker ansluta till med en fel sökare har överskridit *FS.inotify.max_user_watches* svärdet. I vissa fall [kan standardvärdet för *FS.inotify.max_user_watches* vara för litet för att det ska gå att hantera en fel sökare direkt till en POD](https://github.com/Azure/AKS/issues/772).
 
-En tillfällig lösning på det här problemet är att öka värdet för *FS. inotify. max_user_watches* på varje nod i klustret och starta om noden för att ändringarna ska börja gälla.
+En tillfällig lösning på det här problemet är att öka värdet för *FS.inotify.max_user_watches* på varje nod i klustret och starta om noden för att ändringarna ska börja gälla.
 
 ## <a name="other-common-issues"></a>Andra vanliga problem
 

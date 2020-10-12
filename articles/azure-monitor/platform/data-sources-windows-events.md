@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87075253"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Windows händelse logg data källor i Azure Monitor
@@ -50,7 +50,7 @@ Händelse poster i Windows har en typ av **händelse** och har egenskaperna i f�
 | EventLevelName |Allvarlighets grad för händelsen i text form. |
 | EventLog |Namnet på händelse loggen som händelsen samlades in från. |
 | ParameterXml |Händelse parameter värden i XML-format. |
-| ManagementGroupName |Namnet på hanterings gruppen för System Center Operations Managers agenter.  För andra agenter är det här värdet`AOI-<workspace ID>` |
+| ManagementGroupName |Namnet på hanterings gruppen för System Center Operations Managers agenter.  För andra agenter är det här värdet `AOI-<workspace ID>` |
 | RenderedDescription |Händelse Beskrivning med parameter värden |
 | Källa |Händelsens källa. |
 | SourceSystem |Typ av agent som händelsen samlades in från. <br> OpsManager – Windows-agent, antingen direkt anslutning eller Operations Manager hanterat <br> Linux – alla Linux-agenter  <br> AzureStorage – Azure-diagnostik |

@@ -5,10 +5,10 @@ ms.date: 01/08/2020
 ms.topic: how-to
 ms.reviewer: v-umha
 ms.openlocfilehash: 7300a5dcfb0150e6182636dcb71bacfa68c787db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076920"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Övervaka Azure blockchain-tjänsten via Azure Monitor  
@@ -36,7 +36,7 @@ När du skapar en diagnostisk inställning anger du vilka kategorier av loggar s
 
 **Blockchain-proxy** – Välj kategorin om du vill övervaka ngnix-proxy-loggarna. All kund transaktions information finns i gransknings-och fel söknings syfte.  
 
-**Blockchain program loggar** – Välj kategorin för att hämta loggar för det blockchain-program som hanteras av den hanterade tjänsten. För en ABS-kvorumresurs är till exempel dessa loggar loggar från själva kvorumet.  
+**Blockchain program loggar** – Välj kategorin för att hämta loggar för det blockchain-program som hanteras av den hanterade tjänsten. För en ABS-Quorum-medlem är dessa loggar till exempel loggarna från själva kvorumet.  
 
 **Mått begär Anden**: Välj alternativet för att samla in mått data från Azure Cosmos dB till målen i den diagnostiska inställningen, som samlas in automatiskt i Azure-mått. Samla in Mät data med resurs loggar för att analysera båda typerna av data och skicka mått data utanför Azure Monitor.
 
@@ -133,10 +133,10 @@ Följande tabell innehåller en lista över blockchain-mått som samlas in för 
 
 | Måttnamn | Enhet  |  Sammansättningstyp| Beskrivning   |
 |---|---|---|---|
-| Väntande transaktioner   | Antal  |  Medelvärde | Antalet transaktioner som väntar på att bli används.   |
+| Väntande transaktioner   | Antal  |  Genomsnitt | Antalet transaktioner som väntar på att bli används.   |
 | Bearbetade block   | Antal  | Summa  |  Antalet behandlade block under varje tidsintervall. För närvarande är block storleken 5 sekunder, vilket innebär att varje nod i minuten bearbetar 12 block och 60 block på 5 minuter.   |
 |Bearbetade transaktioner    | Antal  | Summa  | Antalet bearbetade transaktioner i ett block.    |
-|Köade transaktioner    |  Antal | Medelvärde  | Antalet transaktioner som inte kan används direkt. Det kan bero på att de togs emot i rätt ordning och att framtiden väntar på att en tidigare transaktion ska komma. Eller så kan det vara två transaktioner som har samma nummer endast en gång (nonce) och samma gas värde, och därför kan det andra inte vara används.   |
+|Köade transaktioner    |  Antal | Genomsnitt  | Antalet transaktioner som inte kan används direkt. Det kan bero på att de togs emot i rätt ordning och att framtiden väntar på att en tidigare transaktion ska komma. Eller så kan det vara två transaktioner som har samma nummer endast en gång (nonce) och samma gas värde, och därför kan det andra inte vara används.   |
 
 ### <a name="connection-metrics"></a>Anslutnings mått  
 
@@ -146,7 +146,7 @@ I följande tabell visas de olika anslutnings mått som samlas in för Azure blo
 | Måttnamn | Enhet  |  Sammansättningstyp| Beskrivning |
 |---|---|---|---|
 | Godkända anslutningar   | Antal  |  Summa | Det totala antalet godkända klient anslutningar.   |
-| Aktiva anslutningar  | Antal  | Medelvärde  |  Aktuellt antal aktiva klient anslutningar, inklusive väntande anslutningar.    |
+| Aktiva anslutningar  | Antal  | Genomsnitt  |  Aktuellt antal aktiva klient anslutningar, inklusive väntande anslutningar.    |
 |Hanterade anslutningar    | Antal  | Summa  | Det totala antalet hanterade anslutningar. Vanligt vis är parametervärdet detsamma som godkända anslutningar om vissa resurs gränser har nåtts.     |
 |Hanterade begär Anden     |  Antal | Summa  | Det totala antalet klient begär Anden.  |
 
@@ -158,13 +158,13 @@ I följande tabell visas de prestanda mått som samlas in för varje nod i Azure
 
 | Måttnamn | Enhet  |  Sammansättningstyp| Beskrivning   |
 |---|---|---|---|
-| Procent andel CPU-användning   | Procent  |  Max | Procent andel av CPU-användningen.     |
+| Procent andel CPU-användning   | Procentandel  |  Max | Procent andel av CPU-användningen.     |
 | Lästa byte i IO   | Kilobyte   | Summa  |  Summan av IO-lästa byte över alla noder i blockchain-medlems resursen.      |
 |Skrivna byte i IO     | Kilobyte   | Summa  | Summan av IO-skrivningar i byte för alla noder i blockchain-medlems resursen.     |
-|Minnes gräns       |  GB   | Medelvärde    | Maximalt minne tillgängligt för blockchain-processen per nod. |
-|Minnesanvändning     | GB  |  Medelvärde | Genomsnittligt minne som används i genomsnitt för alla noder.  |
-| Minnes användnings procent     | Procent   | Medelvärde  |  Procent andelen minne som används i genomsnitt för alla noder.       |
-|Lagrings användning      | GB   | Medelvärde  | Den GB lagrings utrymme som används i genomsnitt för alla noder.       |
+|Minnes gräns       |  GB   | Genomsnitt    | Maximalt minne tillgängligt för blockchain-processen per nod. |
+|Minnesanvändning     | GB  |  Genomsnitt | Genomsnittligt minne som används i genomsnitt för alla noder.  |
+| Minnes användnings procent     | Procentandel   | Genomsnitt  |  Procent andelen minne som används i genomsnitt för alla noder.       |
+|Lagrings användning      | GB   | Genomsnitt  | Den GB lagrings utrymme som används i genomsnitt för alla noder.       |
 
 
 ## <a name="next-steps"></a>Nästa steg

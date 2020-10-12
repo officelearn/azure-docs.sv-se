@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
 ms.openlocfilehash: c354c1c9dfacfcb6bf84f1140b58deca60c1874e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86109849"
 ---
 # <a name="scale-migration-of-vms"></a>Skala migrering av virtuella datorer 
@@ -23,9 +23,9 @@ Site Recovery skript är tillgängliga för nedladdning vid [Azure PowerShell ex
 - Stöd för att ange den statiska IP-adressen för det primära NÄTVERKSKORTet på den virtuella mål datorn
 - Skripten tar inte Azure Hybrid-förmån relaterade indata. du måste uppdatera egenskaperna för den replikerade virtuella datorn manuellt i portalen
 
-## <a name="how-does-it-work"></a>Hur fungerar den?
+## <a name="how-does-it-work"></a>Hur fungerar det?
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 Innan du börjar måste du utföra följande steg:
 - Se till att Site Recoverys valvet har skapats i din Azure-prenumeration
 - Kontrol lera att konfigurations servern och processervern är installerade i käll miljön och att valvet kan identifiera miljön

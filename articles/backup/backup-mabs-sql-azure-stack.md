@@ -4,10 +4,10 @@ description: I den här artikeln lär du dig hur du konfigurerar Microsoft Azure
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 80de7913b010fca69c3703e423109f2ede653590
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332822"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Säkerhetskopiera SQL Server på Azure Stack
@@ -76,7 +76,7 @@ Hantering av SQL Server databas säkerhets kopiering till Azure och återställn
 
     ![Data skydds metod – kortsiktig disk & online Azure](./media/backup-azure-backup-sql/pg-name.png)
 
-6. På skärmen **Ange kortsiktiga mål** , Lägg till nödvändiga indata för att skapa säkerhets kopierings punkter på disk och välj **Nästa**.
+6. På skärmen **ange Short-Term mål** , Lägg till nödvändiga indata för att skapa säkerhets kopierings punkter på disk och välj **Nästa**.
 
     I exemplet är **kvarhållningsintervallet** **5 dagar**, **synkroniseringsfrekvensen** är en gång var **15: e minut**, vilket är säkerhets kopierings frekvensen. **Fullständig snabb säkerhets kopiering** har angetts till **8:00 P. M**.
 
@@ -134,7 +134,7 @@ Hantering av SQL Server databas säkerhets kopiering till Azure och återställn
 
 14. När du har granskat princip informationen på sidan **Sammanfattning** väljer du **Skapa grupp** för att slutföra arbets flödet. Du kan välja **Stäng** och övervaka jobb förloppet i arbets ytan övervakning.
 
-    ![Skapande av skydds grupp pågår](./media/backup-azure-backup-sql/pg-summary.png)
+    ![Skapa skydds grupp In-Progress](./media/backup-azure-backup-sql/pg-summary.png)
 
 ## <a name="on-demand-backup-of-a-sql-server-database"></a>Säkerhets kopiering på begäran av en SQL Server databas
 

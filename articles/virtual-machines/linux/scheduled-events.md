@@ -9,13 +9,13 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
 ms.openlocfilehash: fee57efb3517131049f986c743125f17573fdc34
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816736"
 ---
-# <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure-Metadata Service: Schemalagda händelser för virtuella Linux-datorer
+# <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Schemalagda händelser för virtuella Linux-datorer
 
 Schemalagda händelser är en Azure-Metadata Service som ger din program tid att förbereda för underhåll av virtuella datorer. Den innehåller information om kommande underhålls händelser (till exempel omstart) så att ditt program kan förbereda sig för dem och begränsa avbrott. Den är tillgänglig för alla typer av Azure-Virtual Machines, inklusive PaaS och IaaS på både Windows och Linux. 
 
@@ -98,7 +98,7 @@ Om du startar om en virtuell dator är en händelse med typen `Reboot` schemalag
 
 ## <a name="use-the-api"></a>Använda API:et
 
-### <a name="headers"></a>Sidhuvuden
+### <a name="headers"></a>Rubriker
 När du frågar Metadata Service måste du ange rubriken `Metadata:true` för att se till att begäran inte oavsiktligt omdirigeras. `Metadata:true`Rubriken krävs för alla begär Anden om schemalagda händelser. Om du inte tar med rubriken i begäran resulterar det i en "felaktig begäran"-svar från Metadata Service.
 
 ### <a name="query-for-events"></a>Fråga efter händelser
@@ -147,7 +147,7 @@ Varje händelse schemaläggs en minimi period i framtiden baserat på händelse 
 |Typ  | Minsta meddelande |
 | - | - |
 | Tina| 15 minuter |
-| Starta om datorn | 15 minuter |
+| Starta om | 15 minuter |
 | Omdistribuera | 10 minuter |
 | Utfärdas | 30 sekunder |
 | Terminate | [Användaren kan konfigureras](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): 5 till 15 minuter |

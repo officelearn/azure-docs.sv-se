@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 0701e9c6428283d45cf4b4a2e24c8de99d9a286b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89265906"
 ---
 # <a name="azure-media-services-telemetry"></a>Azure Media Services telemetri  
@@ -81,7 +81,7 @@ PartitionKey|{konto-ID} _ {enhets-ID}|e49bef329c29495f9b9570989682069d_64435281c
 RowKey|{sekunder till midnatt} _ {slump värde}|01688_00199<br/><br/>Rad nyckeln börjar med antalet sekunder till midnatt för att tillåta flest n format frågor i en partition. Mer information finns i [den här](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artikeln. 
 Timestamp|Datum/tid|Automatisk tidsstämpel från Azure-tabellen 2016-09-09T22:43:42.241 Z
 Typ|Typ av entitet som tillhandahåller telemetridata|Kanal/StreamingEndpoint/Arkiv<br/><br/>Händelse typen är bara ett sträng värde.
-Name|Namnet på telemetri händelsen|ChannelHeartbeat/StreamingEndpointRequestLog
+Namn|Namnet på telemetri händelsen|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|Tiden då telemetri-händelsen inträffade (UTC)|2016-09-09T22:42:36.924 Z<br/><br/>Den observerade tiden tillhandahålls av den entitet som skickar Telemetrin (till exempel en kanal). Det kan finnas tidssynkroniserings problem mellan komponenter så att värdet är ungefärligt
 ServiceID|{tjänst-ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Entitet-/regionsspecifika egenskaper|Som definieras av händelsen|StreamName: STREAM1, bit hastighet 10123,...<br/><br/>De återstående egenskaperna har definierats för den angivna händelse typen. Azure Table Content är nyckel värdes par.  (det vill säga olika rader i tabellen har olika uppsättningar med egenskaper).
@@ -102,7 +102,7 @@ PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab701
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Automatisk tidsstämpel från Azure Table 2016-09-09T22:43:42.241 Z
 Typ|Typ|StreamingEndpoint
-Name|Name|StreamingEndpointRequestLog
+Namn|Namn|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924 Z
 ServiceID|Tjänste-ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 HostName|Slut punktens värdnamn|builddemoserver.origin.mediaservices.windows.net
@@ -121,7 +121,7 @@ PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab701
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Automatisk tidsstämpel från Azure-tabellen 2016-09-09T22:43:42.241 Z
 Typ|Typ|Kanal
-Name|Name|ChannelHeartbeat
+Namn|Namn|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924 Z
 ServiceID|Tjänste-ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 TrackType|Typ av spår video/ljud/text|video/ljud
@@ -146,7 +146,7 @@ PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab701
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Automatisk tidsstämpel från Azure-tabellen 2016-09-09T22:43:42.241 Z
 Typ|Typ|Arkiv
-Name|Name|ArchiveHeartbeat
+Namn|Namn|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924 Z
 ServiceID|Tjänste-ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 ManifestName|Programmets URL|Asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4BD2-8c01-a92a2b38c9ba. ISM

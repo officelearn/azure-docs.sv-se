@@ -11,10 +11,10 @@ ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 05/28/2020
 ms.openlocfilehash: b8c7671e655594456621e4489cb06191d820b134
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333162"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrera Azure SQL Database från den DTU-baserade modellen till den vCore-baserade modellen
@@ -94,7 +94,7 @@ FROM dtu_vcore_map;
 Förutom antalet virtuella kärnor (logiska processorer) och maskin varu genereringen kan flera andra faktorer påverka valet av vCore service mål:
 
 - Mappnings-T-SQL-frågan matchar DTU-och vCore-tjänstens mål vad gäller deras CPU-kapacitet, och därför blir resultaten mer exakta för PROCESSORbaserade arbets belastningar.
-- För samma maskin varu generation och samma antal virtuella kärnor är IOPS-och transaktions logg data flödes resurs gränser för vCore-databaser ofta högre än för DTU-databaser. För IO-baserade arbets belastningar kan det vara möjligt att minska antalet virtuella kärnor i vCore-modellen för att uppnå samma prestanda nivå. Resurs begränsningar för DTU-och vCore-databaser i absoluta värden visas i vyn [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) . Genom att jämföra de här värdena mellan DTU-databasen som ska migreras och en vCore-databas med ett cirka matchande tjänst mål kan du välja vCore-tjänstens mål mer precis.
+- För samma maskin varu generation och samma antal virtuella kärnor är IOPS-och transaktions logg data flödes resurs gränser för vCore-databaser ofta högre än för DTU-databaser. För IO-baserade arbets belastningar kan det vara möjligt att minska antalet virtuella kärnor i vCore-modellen för att uppnå samma prestanda nivå. Resurs begränsningar för DTU-och vCore-databaser i absoluta värden visas i vyn [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) . Genom att jämföra de här värdena mellan DTU-databasen som ska migreras och en vCore-databas med ett cirka matchande tjänst mål kan du välja vCore-tjänstens mål mer precis.
 - Mappnings frågan returnerar även mängden minne per kärna för DTU-databasen eller den elastiska poolen som ska migreras, och för varje maskin varu generation i vCore-modellen. Att se till att det finns ett liknande eller högre total minne efter migrering till vCore är viktigt för arbets belastningar som kräver en stor minnes data cache för att uppnå tillräckligt med prestanda eller arbets belastningar som kräver stora minnes bidrag för bearbetning av frågor. För sådana arbets belastningar, beroende på faktiska prestanda, kan det vara nödvändigt att öka antalet virtuella kärnor för att få tillräckligt med minne.
 - Den [historiska resurs användningen](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) av DTU-databasen bör övervägas när du väljer vCore tjänst mål. DTU-databaser med konsekvent underutnyttjade processor resurser kan behöva färre virtuella kärnor än det antal som returneras av mappnings frågan. Däremot kan DTU-databaser där konsekvent hög processor belastning medför otillräckliga arbets belastnings prestanda kräva fler virtuella kärnor än vad som returneras av frågan.
 - Om du migrerar databaser med tillfälliga eller oförutsägbara användnings mönster bör du överväga att använda [Server](serverless-tier-overview.md) lös beräknings nivå.  Observera att max antalet samtidiga arbetare (begär Anden) i Server lös är 75% gränsen för allokerad beräkning för samma antal konfigurerade virtuella kärnor.  Dessutom är Max tillgängligt minne i Server Lös 3 GB gånger det maximala antalet virtuella kärnor som kon figurer ATS. till exempel är maximalt minne 120 GB när 40 max virtuella kärnor har kon figurer ATS.   

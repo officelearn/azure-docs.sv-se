@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 8c44c39f66a0a0161eea8a7e9656bbe0e3d1015c
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88140878"
 ---
 # <a name="firewall-tables-overview"></a>Översikt över brand Väggs tabeller
@@ -53,12 +53,12 @@ Det kan krävas ytterligare regler för trafikflöde i omvänd riktning.  Använ
 
 Följande standard regler skapas i alla brand Väggs tabeller.
 
-|Prioritet|Name|Tillstånds spårning|Riktning|Trafik typ|Protokoll|Källa|Källport|Mål|Målport|Action|
+|Prioritet|Namn|Tillstånds spårning|Riktning|Trafik typ|Protokoll|Källa|Källport|Mål|Målport|Action|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
-|65000|Tillåt-allt-till-Internet|Tillståndskänsliga|Outbound (Utgående)|Offentlig IP-eller Internet trafik|Alla|Alla|Valfri|Valfri|Valfri|Tillåt|
-|65001|neka-alla-från-Internet|Tillståndskänsliga|Inbound (Inkommande)|Offentlig IP-eller Internet trafik|Alla|Alla|Valfri|Valfri|Valfri|Neka|
-|65002|Tillåt-allt-till-intranät|Tillståndslös|Outbound (Utgående)|Intern eller VPN-trafik i privat moln|Alla|Alla|Valfri|Valfri|Valfri|Tillåt|
-|65003|Tillåt-allt-från-intranät|Tillståndslös|Inbound (Inkommande)|Intern eller VPN-trafik i privat moln|Alla|Alla|Valfri|Valfri|Valfri|Tillåt|
+|65000|Tillåt-allt-till-Internet|Tillståndskänsliga|Outbound (Utgående)|Offentlig IP-eller Internet trafik|Alla|Alla|Alla|Alla|Alla|Tillåt|
+|65001|neka-alla-från-Internet|Tillståndskänsliga|Inbound (Inkommande)|Offentlig IP-eller Internet trafik|Alla|Alla|Alla|Alla|Alla|Neka|
+|65002|Tillåt-allt-till-intranät|Tillståndslös|Outbound (Utgående)|Intern eller VPN-trafik i privat moln|Alla|Alla|Alla|Alla|Alla|Tillåt|
+|65003|Tillåt-allt-från-intranät|Tillståndslös|Inbound (Inkommande)|Intern eller VPN-trafik i privat moln|Alla|Alla|Alla|Alla|Alla|Tillåt|
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 95f92d4e5616d7754c355610685701a8e089b84e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847564"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Flytta data från en OData-källa med Azure Data Factory
@@ -60,7 +60,7 @@ I följande avsnitt finns information om JSON-egenskaper som används för att d
 ## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 Följande tabell innehåller en beskrivning av JSON-element som är speciella för OData-länkade tjänster.
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen Type måste anges till: **OData** |Ja |
 | url |URL för OData-tjänsten. |Ja |
@@ -68,7 +68,7 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 | användarnamn |Ange användar namn om du använder grundläggande autentisering. |Ja (endast om du använder grundläggande autentisering) |
 | password |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Ja (endast om du använder grundläggande autentisering) |
 | authorizedCredential |Om du använder OAuth klickar du på knappen **auktorisera** i guiden Data Factory kopiering eller redigeraren och anger dina autentiseringsuppgifter. sedan genereras värdet för den här egenskapen automatiskt. |Ja (endast om du använder OAuth-autentisering) |
-| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala OData-tjänsten. Ange endast om du kopierar data från den lokala OData-källan. |No |
+| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala OData-tjänsten. Ange endast om du kopierar data från den lokala OData-källan. |Inga |
 
 ### <a name="using-basic-authentication"></a>Använda grundläggande autentisering
 ```json
@@ -145,9 +145,9 @@ En fullständig lista över avsnitt & egenskaper som är tillgängliga för att 
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet typeProperties för data uppsättningen av typen **ODataResource** (som innehåller OData-datauppsättningen) har följande egenskaper
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| path |Sökväg till OData-resursen |No |
+| path |Sökväg till OData-resursen |Inga |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [skapa pipeliner](data-factory-create-pipelines.md) . Egenskaper som namn, beskrivning, indata och utdata-tabeller och policy är tillgängliga för alla typer av aktiviteter.
@@ -156,9 +156,9 @@ Vilka egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten 
 
 När källan är av typen **RelationalSource** (som inkluderar OData) finns följande egenskaper i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Exempel | Obligatorisk |
+| Egenskap | Beskrivning | Exempel | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |"? $select = namn, beskrivning&$top = 5" |No |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |"? $select = namn, beskrivning&$top = 5" |Inga |
 
 ## <a name="type-mapping-for-odata"></a>Typ mappning för OData
 Som anges i artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) utför kopierings aktiviteten automatiska typ konverteringar från käll typer till mottagar typer med följande två stegs metod.
@@ -176,7 +176,7 @@ När du flyttar data från OData används följande mappningar från OData-typer
 | EDM. DateTime |DateTime |
 | EDM. decimal |Decimal |
 | Edm.Double |Double |
-| EDM. Single |Enskilt |
+| EDM. Single |Enkel |
 | EDM. GUID |GUID |
 | EDM. Int16 |Int16 |
 | Edm.Int32 |Int32 |

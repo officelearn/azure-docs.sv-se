@@ -1,5 +1,5 @@
 ---
-title: Använd JSON-innehålls typ för nyckel värden
+title: Använda innehållstypen JSON för nyckelvärden
 titleSuffix: Azure App Configuration
 description: Lär dig hur du använder JSON-innehålls typ för nyckel värden
 services: azure-app-configuration
@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
 ms.openlocfilehash: 725beb50e55852e35ee4434539ff158f082059df
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88122044"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Utnyttjar innehålls typ för att lagra JSON-nyckel värden i app-konfiguration

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
 ms.openlocfilehash: 2a4f24da51b9e9e78c3df3e7d1437a380306e300
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318359"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Anslut Operations Manager till Azure Monitor
@@ -33,7 +33,7 @@ Följande diagram visar anslutningen mellan hanterings servrar och agenter i en 
 
 Om dina IT-säkerhetsprinciper inte tillåter datorer i nätverket att ansluta till Internet, kan hanterings servrar konfigureras för att ansluta till Log Analytics Gateway för att ta emot konfigurations information och skicka insamlade data beroende på vilka lösningar som är aktiverade. Mer information och anvisningar om hur du konfigurerar din Operations Manager hanterings grupp för att kommunicera via en Log Analytics Gateway till Azure Monitor finns i [ansluta datorer till Azure monitor med hjälp av Log Analytics Gateway](./gateway.md).  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Läs igenom följande krav innan du börjar.
 

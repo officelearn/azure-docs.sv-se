@@ -17,10 +17,10 @@ ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ad1567a3a6cba2c2fbc519ffe5d384aba25ab51d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88648997"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>SAP-arbetsbelastning på en virtuell Azure-dator – scenarier som stöds
@@ -102,7 +102,7 @@ För virtuella Azure-datorer stöds följande konfigurationer för hög tillgän
 - SAP HANA skalbara n + m-konfigurationer med [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) på SUSE och Red Hat. Information finns i följande artiklar:
     - [Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server}](./sap-hana-scale-out-standby-netapp-files-suse.md)
     - [Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på Red Hat Enterprise Linux](./sap-hana-scale-out-standby-netapp-files-rhel.md)
-- SQL Server redundanskluster baserat på Windows-skalbara fil tjänster. Även om rekommendationen för produktions system är att använda SQL Server Always on i stället för klustring. SQL Server Always on ger bättre tillgänglighet med separat lagring. Information beskrivs i den här artikeln: 
+- SQL Server redundanskluster baserat på Windows Scale-Out fil tjänster. Även om rekommendationen för produktions system är att använda SQL Server Always on i stället för klustring. SQL Server Always on ger bättre tillgänglighet med separat lagring. Information beskrivs i den här artikeln: 
     - [Konfigurera en SQL Server-redundanskluster på virtuella Azure-datorer](../../../azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md)
 - SQL Server Always on stöds med operativ systemet Windows för SQL Server på Azure. Detta är standard rekommendationen för produktion SQL Server instanser på Azure. Information beskrivs i de här artiklarna:
     - [Vi presenterar SQL Server Always on-tillgänglighetsgrupper på virtuella Azure-datorer](../../../azure-sql/virtual-machines/windows/availability-group-overview.md).
@@ -303,7 +303,7 @@ Scenarion som vi inte har testat och har därför ingen erfarenhet av listan som
 - Azure Site Recovery att replikera virtuella datorer i DBMS-skiktet. Därför rekommenderar vi att du använder databasens interna asynkrona replikering för eventuell haveri beredskaps konfiguration
  
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Läs nästa steg i [Azure Virtual Machines planera och implementera för SAP NetWeaver](./planning-guide.md)
 
 

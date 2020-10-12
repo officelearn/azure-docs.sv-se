@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
 ms.openlocfilehash: bcc6f41d7cc08764266ffb6705d1b8937d355199
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86109730"
 ---
 # <a name="customize-an-assessment"></a>Anpassa en utvärdering
@@ -25,17 +25,17 @@ Du kan använda verktyget för Azure Migrate Server bedömning för att skapa ut
 
 Utvärderingar som du skapar med Server utvärdering är en tidpunkts ögonblicks bild av data. Det finns två typer av utvärderingar som du kan skapa med hjälp av Azure Migrate: Server utvärdering.
 
-**Bedömnings typ** | **Detaljer**
+**Utvärderingstyp** | **Information**
 --- | --- 
-**Azure VM** | Utvärderingar för att migrera dina lokala servrar till Azure Virtual Machines. <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till Azure med hjälp av den här utvärderings typen. (concepts-assessment-calculation.md)
-**Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware-lösningen (AVS)](../azure-vmware/introduction.md). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware-lösningen (AVS) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
+**Azure VM** | Utvärderingar som migrerar dina lokala servrar till virtuella Azure-datorer. <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till Azure med hjälp av den här utvärderings typen. (concepts-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware Solution (AVS) med hjälp av den här utvärderingstypen.[Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
 
 En utvärdering av virtuella Azure-datorer i Server utvärderingen innehåller två storleks villkors alternativ:
 
-**Storleks villkor** | **Detaljer** | **Data**
+**Storlekskriterier** | **Information** | **Data**
 --- | --- | ---
-**Prestanda-baserade** | Utvärderingar som gör rekommendationer baserat på insamlade prestanda data | **Utvärdering**av virtuell Azure-dator: rekommendation för virtuell dator baseras på data från processor-och minnes användning.<br/><br/> Disk typs rekommendation (standard HDD/SSD eller Premium-Managed Disks) baseras på IOPS och data flödet för lokala diskar.<br/><br/> **Azure VMware-lösning (AVS)-utvärdering**: AVS-nodernas rekommendation baseras på data från processor-och minnes användning.
-**Som lokal** | Utvärderingar som inte använder prestanda data för att göra rekommendationer. | **Utvärdering**av virtuell Azure-dator: rekommendationen för VM-storlek baseras på den lokala virtuella dator storleken<br/><br> Den rekommenderade disk typen baseras på vad du väljer i inställningen lagrings typ för utvärderingen.<br/><br/> **Azure VMware Solution (AVS)-utvärdering**: AVS-nodernas rekommendation baseras på den lokala virtuella dator storleken.
+**Prestandabaserad** | Utvärderingar som gör rekommendationer baserat på insamlade prestandadata | **Azure VM-utvärdering**: Rekommendationen för VM-storlek baseras på processor- och minnesanvändningsdata.<br/><br/> Rekommendation för disktyp (Standard HDD/SSD eller premiumhanterade diskar) baseras på IOPS och dataflödet för de lokala diskarna.<br/><br/> **Utvärdering med Azure VMware Solution (AVS)** : Rekommendationen för AVS-noder baseras på processor- och minnesanvändningsdata.
+**Som lokalt** | Utvärderingar som inte använder prestandadata till att göra rekommendationer. | **Azure VM-utvärdering**: Rekommendationen för VM-storlek baseras på den lokala virtuella datorstorleken<br/><br> Rekommenderad disktyp baseras på vad du väljer i lagringstypens inställning vid utvärderingen.<br/><br/> **Utvärdering med Azure VMware Solution (AVS)** : Rekommendationen för AVS-noder baseras på den lokala virtuella datorstorleken.
 
 
 ## <a name="how-is-an-assessment-done"></a>Hur görs en utvärdering?
@@ -44,7 +44,7 @@ En utvärdering som gjorts i Azure Migrate Server-utvärderingen har tre steg. U
 
 ## <a name="whats-in-an-azure-vm-assessment"></a>Vad ingår i en Azure VM-utvärdering?
 
-**Egenskap** | **Detaljer**
+**Egenskap** | **Information**
 --- | ---
 **Målplats** | Azure-platsen du vill migrera till.<br/> Server utvärderingen stöder för närvarande dessa mål regioner: östra Australien, sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, centrala Indien, centrala USA, Kina, östra, Kina, norra, Asien, östra, östra USA, östra 2; USA, Tyskland, centrala, Tyskland nordöstra, Östra Japan, västra Japan, centrala Korea, södra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Storbritannien, västra, US gov, Arizona , US Gov, Texas, US Gov, Virginia, västra centrala USA, Västeuropa, västra Indien, västra USA och västra 2; USA.
 **Lagringstyp** | Du kan använda den här egenskapen för att ange vilken typ av diskar du vill flytta till i Azure.<br/><br/> För lokal storleks ändring kan du ange mål lagrings typ antingen som Premium-hanterade diskar, Standard SSD-hanterade diskar eller Standard HDD-hanterade diskar. För prestandabaserade storleks ändringar kan du ange mål disk typen antingen som automatiskt, Premium-hanterade diskar, Standard HDD-hanterade diskar eller Standard SSD-hanterade diskar.<br/><br/> När du anger lagrings typen som automatisk, utförs disk rekommendationer baserat på diskens prestanda data (IOPS och data flöde). Om du anger lagrings typ som Premium/standard, rekommenderar utvärderingen en disk-SKU i den valda lagrings typen. Om du vill uppnå ett service avtal för en enda instans av virtuell dator på 99,9%, kan du ange lagrings typ som Premium-hanterade diskar. Detta säkerställer att alla diskar i utvärderingen rekommenderas som Premium-hanterade diskar. Azure
@@ -65,7 +65,7 @@ En utvärdering som gjorts i Azure Migrate Server-utvärderingen har tre steg. U
 Här är what's som ingår i en AVS-utvärdering i Server utvärderingen:
 
 
-| **Egenskap** | **Detaljer** |
+| **Egenskap** | **Information** |
 | - | - |
 | **Målplats** | Anger den plats för molnets privata moln som du vill migrera till.<br/><br/> AVS-utvärderingen i Server utvärderingen stöder för närvarande dessa mål regioner: östra USA, västra Europa, västra USA. |
 | **Lagringstyp** | Anger den lagrings motor som ska användas i AVS.<br/><br/> Observera att AVS-utvärderingar endast stöder virtuellt San som standard lagrings typ. |

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
 ms.openlocfilehash: fd9bc17db3eccc64f35d7295d57dc120364481dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332992"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Metodtips för Azure SQL Data Sync 
@@ -41,7 +41,7 @@ En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lok
 
 ### <a name="database-accounts-with-least-required-privileges"></a>Databas konton med minst behörighet som krävs
 
--   **För Sync-installation**. Skapa/ändra tabell; Ändra databas; Skapa procedur; Välj/Ändra schema; Skapa användardefinierad typ.
+-   **För Sync-installation**. Skapa/ändra tabell; Ändra databas; Skapa procedur; Välj/Ändra schema; Skapa User-Defined typ.
 
 -   **För pågående synkronisering**. Välj/Infoga/uppdatera/ta bort i tabeller som väljs för synkronisering och vid synkronisering av metadata och spårning av tabeller; Kör behörighet för lagrade procedurer som skapats av tjänsten. Kör behörighet för användardefinierade tabell typer.
 

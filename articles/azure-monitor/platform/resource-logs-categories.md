@@ -5,10 +5,10 @@ ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
 ms.openlocfilehash: 81f79b81c03e7996d7f6d45b002d8160740c3c14
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318308"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Kategorier som stöds för Azure-resurs loggar
@@ -169,7 +169,7 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 |dBFS|Databricks-filsystem|
 |instancePools|Instans-pooler|
 |utskrifts|Databricks-jobb|
-|1150|Databricks-anteckningsbok|
+|notebook|Databricks-anteckningsbok|
 |secrets|Databricks hemligheter|
 |sqlPermissions|Databricks SQLPermissions|
 |SSH|Databricks SSH|
@@ -347,7 +347,7 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 |---|---|
 |ArchiveLogs|Arkiv loggar|
 |AutoScaleLogs|Automatisk skalnings loggar|
-|CustomerManagedKeyUserLogs|Kund hanterade nyckel loggar|
+|CustomerManagedKeyUserLogs|Customer-Managed nyckel loggar|
 |EventHubVNetConnectionEvent|Anslutnings loggar för VNet/IP-filtrering|
 |KafkaCoordinatorLogs|Kafka koordinator loggar|
 |KafkaUserErrorLogs|Kafka användar fel loggar|
@@ -393,7 +393,7 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 |Granska|Granska|
 |Utgående|Utgående|
 |Ingress|Ingress|
-|Verksamhetsrelaterade|Verksamhetsrelaterade|
+|Operativ|Operativ|
 |Spårning|Spårning|
 |UserDefinedFunction|UserDefinedFunction|
 

@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 4087d618209ab4db46f89ef4e6db7ac87ca4cf57
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331020"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Hämta anslutnings slut punkter och form anslutnings strängar för din ARC-aktiverad PostgreSQL-Server grupp
@@ -62,7 +62,7 @@ Den returnerar utdata som:
 ```
 Använd de här slut punkterna för att:
 - Skapa anslutnings strängar och Anslut till dina klient verktyg eller program
-- Öppna Grafana-och Kibana-instrumentpanelerna från din webbläsare
+- Öppna Grafana- och Kibana-instrumentpanelerna från din webbläsare
 
 Du kan till exempel använda slut punkten med namnet _postgresql-instans_ för att ansluta till psql till din server grupp. Exempel:
 ```console

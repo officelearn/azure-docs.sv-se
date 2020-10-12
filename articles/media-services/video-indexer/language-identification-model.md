@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 04/12/2020
 ms.author: ellbe
 ms.openlocfilehash: 3a71a29fdf4af10162e2f7961fb457d0e99b18e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81687128"
 ---
-# <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identifiera det talade språket automatiskt med språk identifierings modellen
+# <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identifiera det talade språket automatiskt med modellen för språkidentifiering
 
 Video Indexer stöder automatisk språk identifiering (lock), vilket är en process för att automatiskt identifiera det talade språk innehållet från ljud och skicka medie filen som ska skrivas in i det dominerande identifierade språket. 
 
@@ -67,4 +67,4 @@ Modellens dominerande språk är tillgängligt i insikts-JSON som `sourceLanguag
 ## <a name="next-steps"></a>Nästa steg
 
 * [Översikt](video-indexer-overview.md)
-* [Identifiera och automatisk identifiering av innehåll i flera språk](multi-language-identification-transcription.md)
+* [Identifiera och transkribera innehåll på flera språk automatiskt](multi-language-identification-transcription.md)

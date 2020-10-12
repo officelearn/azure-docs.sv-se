@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.openlocfilehash: 58bbe01c8de0bbe606f4fc428032cd213f05d386
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88068342"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Konfigurera Azure Image Builder-tjänstens behörigheter med Azure CLI
@@ -234,7 +234,7 @@ Ersätt följande plats hållarnas inställningar:
 | \<Storage account container\> | Namn på lagringskontocontainer |
 | \<Subscription ID\> | Azure-prenumeration |
 
-Mer information om hur du använder en användardefinierad hanterad identitet finns i [skapa en anpassad avbildning som ska använda en Azure-tilldelad hanterad identitet till smidigt Access-filer Azure Storage](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage). Snabb starten guidar dig genom hur du skapar och konfigurerar den användarspecifika hanterade identiteten för åtkomst till ett lagrings konto.
+Mer information om hur du använder en användardefinierad hanterad identitet finns i avsnittet [skapa en anpassad avbildning som ska använda en Azure User-Assigned-hanterad identitet för att komma åt filer Azure Storage](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage). Snabb starten guidar dig genom hur du skapar och konfigurerar den användarspecifika hanterade identiteten för åtkomst till ett lagrings konto.
 
 ## <a name="next-steps"></a>Nästa steg
 

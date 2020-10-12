@@ -4,10 +4,10 @@ description: Beskriver de funktioner som används i en Azure Resource Manager-ma
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 01d66f43cf73dcc9228118db5a9b6149b19ee66d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677839"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Jämförelse funktioner för ARM-mallar
@@ -15,7 +15,7 @@ ms.locfileid: "84677839"
 Resource Manager innehåller flera funktioner för att göra jämförelser i dina Azure Resource Manager-mallar (ARM).
 
 * [coalesce](#coalesce)
-* [lika med](#equals)
+* [är lika med](#equals)
 * [större än](#greater)
 * [större än eller lika med](#greaterorequals)
 * [mindre än](#less)
@@ -32,7 +32,7 @@ Returnerar det första värdet som inte är null från parametrarna. Tomma strä
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |heltal, sträng, matris eller objekt |Det första värdet som ska testas för null. |
-| ytterligare argument |No |heltal, sträng, matris eller objekt |Ytterligare värden att testa för null. |
+| ytterligare argument |Inga |heltal, sträng, matris eller objekt |Ytterligare värden att testa för null. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -88,7 +88,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | stringOutput | Sträng | standard |
 | intOutput | Int | 1 |
@@ -199,7 +199,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | Incheckningar | Bool | Sant |
 | checkStrings | Bool | Sant |
@@ -225,7 +225,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Utdata från föregående exempel är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | Sant |
 
@@ -289,7 +289,7 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | Incheckningar | Bool | Falskt |
 | checkStrings | Bool | Sant |
@@ -354,7 +354,7 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | Incheckningar | Bool | Falskt |
 | checkStrings | Bool | Sant |
@@ -419,7 +419,7 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | Incheckningar | Bool | Sant |
 | checkStrings | Bool | Falskt |
@@ -484,7 +484,7 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | Incheckningar | Bool | Sant |
 | checkStrings | Bool | Falskt |

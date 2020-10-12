@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/22/2019
 ms.openlocfilehash: d9efdb11ffd30c68a0ac8ea8e8156fe707f188de
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87322320"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Syslog-datakällor i Azure Monitor
@@ -155,8 +155,8 @@ log { source(src); filter(f_user_oms); destination(d_oms); };
 ### <a name="collecting-data-from-additional-syslog-ports"></a>Samla in data från ytterligare syslog-portar
 Log Analytics agenten lyssnar efter syslog-meddelanden på den lokala klienten på port 25224.  När agenten installeras används en Standard syslog-konfiguration som finns på följande plats:
 
-* Rsyslog`/etc/rsyslog.d/95-omsagent.conf`
-* Syslog-ng:`/etc/syslog-ng/syslog-ng.conf`
+* Rsyslog `/etc/rsyslog.d/95-omsagent.conf`
+* Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
 
 Du kan ändra port numret genom att skapa två konfigurationsfiler: en upprättad konfigurations fil och en rsyslog-eller-syslog-ng-fil beroende på den syslog-daemon som du har installerat.  
 

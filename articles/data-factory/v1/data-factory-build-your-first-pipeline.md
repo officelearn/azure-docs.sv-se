@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 80644ed2d655544fa176a7be92aec3c01aa3bf14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75966078"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Självstudie: Bygg din första pipeline för att transformera data med Hadoop-kluster
@@ -82,7 +82,7 @@ Innan du påbörjar den här självstudien måste du ha följande krav:
 1. **Azure-prenumeration** – om du inte har en Azure-prenumeration kan du skapa ett kostnads fritt utvärderings konto på bara några minuter. Se artikeln om [kostnads fri utvärdering](https://azure.microsoft.com/pricing/free-trial/) av hur du kan skaffa ett kostnads fritt utvärderings konto.
 2. **Azure Storage** – du använder ett Azure Storage-konto för att lagra data i den här självstudien. Om du inte har ett Azure Storage-konto går du till artikeln [skapa ett lagrings konto](../../storage/common/storage-account-create.md) . När du har skapat lagrings kontot noterar du **konto namnet** och **åtkomst nyckeln**. Information om hur du hämtar åtkomst nycklar för lagrings kontot finns i [Hantera åtkomst nycklar för lagrings kontot](../../storage/common/storage-account-keys-manage.md).
 3. Hämta och granska Hive-frågearkivet (**HQL**) på: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql) . Den här frågan transformerar indata för att skapa utdata.
-4. Hämta och granska exempel indatafilen (**indata. log**) på:[https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
+4. Hämta och granska exempel indatafilen (**indata. log**) på: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Skapa en BLOB-behållare med namnet **adfgetstarted** i din Azure-Blob Storage.
 6. Ladda upp filen **skriptfilen partitionweblogs. HQL** i mappen **script** i behållaren **adfgetstarted** . Använd verktyg som [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 7. Ladda upp **indata. log** -filen till mappen **inputdata** i behållaren **adfgetstarted** .

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.openlocfilehash: ae8bc3ce5822b8d49db0fdc6e611badd75b0d27b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273321"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Salesforce-Sandbox för automatisk användar etablering
@@ -49,7 +49,7 @@ Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vi
 Det här avsnittet vägleder dig genom att ansluta din Azure AD till Salesforce-Sandboxs API för användar konto och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i Salesforce-Sandbox baserat på användar-och grupp tilldelning i Azure AD.
 
 >[!Tip]
->Du kan också välja att aktivera SAML-baserad enkel inloggning för Salesforce Sandbox, enligt instruktionerna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
+>Du kan också välja att aktivera SAML-baserade enkla Sign-On för Salesforce-Sandbox genom att följa anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
 
 ### <a name="configure-automatic-user-account-provisioning"></a>Konfigurera automatisk etablering av användar konto
 

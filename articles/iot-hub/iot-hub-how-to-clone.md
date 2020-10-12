@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75429159"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Så här klonar du en Azure IoT-hubb till en annan region
@@ -407,7 +407,7 @@ Om du vill återställa ändringarna kan du etablera om enheterna från den nya 
 
 Du har nu slutfört migreringen av hubben och dess enheter. Du kan hoppa över att [Rensa](#clean-up).
 
-## <a name="using-import-export-to-move-the-devices-to-the-new-hub"></a>Använd import-export för att flytta enheterna till den nya hubben
+## <a name="using-import-export-to-move-the-devices-to-the-new-hub"></a>Använda Import-Export för att flytta enheterna till den nya hubben
 
 Programmet är riktat mot .NET Core, så du kan köra det på antingen Windows eller Linux. Du kan ladda ned exemplet, hämta anslutnings strängarna, ange flaggor för vilka bitar du vill köra och köra det. Du kan göra detta utan att behöva öppna koden.
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
 ms.openlocfilehash: 7cf4be078a7bee0bedbeac4326acb9ca290cde88
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331989"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Kopiera data från MongoDB med Azure Data Factory (bakåtkompatibelt)
@@ -57,17 +57,17 @@ Följande egenskaper stöds för den länkade tjänsten MongoDB:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ |Egenskapen Type måste anges till: **MongoDB** |Yes |
-| server |IP-adressen eller värd namnet för MongoDB-servern. |Yes |
+| typ |Egenskapen Type måste anges till: **MongoDB** |Ja |
+| server |IP-adressen eller värd namnet för MongoDB-servern. |Ja |
 | port |TCP-port som MongoDB-servern använder för att lyssna efter klient anslutningar. |Nej (standard är 27017) |
-| Databas |Namnet på MongoDB-databasen som du vill komma åt. |Yes |
-| authenticationType | Typ av autentisering som används för att ansluta till MongoDB-databasen.<br/>Tillåtna värden är: **Basic**och **Anonymous**. |Yes |
+| Databas |Namnet på MongoDB-databasen som du vill komma åt. |Ja |
+| authenticationType | Typ av autentisering som används för att ansluta till MongoDB-databasen.<br/>Tillåtna värden är: **Basic**och **Anonymous**. |Ja |
 | användarnamn |Användar konto för åtkomst till MongoDB. |Ja (om grundläggande autentisering används). |
 | password |Lösenordet för användaren. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja (om grundläggande autentisering används). |
 | authSource |Namnet på MongoDB-databasen som du vill använda för att kontrol lera autentiseringsuppgifterna för autentisering. |Nej. För grundläggande autentisering är standardvärdet att använda administratörs kontot och den databas som anges med egenskapen databaseName. |
-| enableSsl | Anger om anslutningarna till servern är krypterade med TLS. Standardvärdet är false.  | No |
-| allowSelfSignedServerCert | Anger om självsignerade certifikat ska tillåtas från servern. Standardvärdet är false.  | No |
-| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |No |
+| enableSsl | Anger om anslutningarna till servern är krypterade med TLS. Standardvärdet är false.  | Inga |
+| allowSelfSignedServerCert | Anger om självsignerade certifikat ska tillåtas från servern. Standardvärdet är false.  | Inga |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Inga |
 
 **Exempel:**
 
@@ -100,8 +100,8 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **MongoDbCollection** | Yes |
-| Samling |Namnet på samlingen i MongoDB-databasen. |Yes |
+| typ | Data uppsättningens typ-egenskap måste anges till: **MongoDbCollection** | Ja |
+| Samling |Namnet på samlingen i MongoDB-databasen. |Ja |
 
 **Exempel:**
 
@@ -131,7 +131,7 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **MongoDbSource** | Yes |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **MongoDbSource** | Ja |
 | DocumentDB |Använd den anpassade SQL-92-frågan för att läsa data. Exempel: Välj * från tabellen tabell. |Nej (om "samlings namn" i dataset har angetts) |
 
 **Exempel:**
@@ -232,7 +232,7 @@ Följande tabeller visar de virtuella tabeller som representerar de ursprungliga
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |toaster |456 |0,2 |
 | 1111 |1 |124 |ugnen |1235 |0,2 |
-| 2222 |0 |135 |kyl skåp |12543 |0,0 |
+| 2222 |0 |135 |kyl skåp |12543 |0.0 |
 
 **Tabell ExampleTable_Ratings:**
 

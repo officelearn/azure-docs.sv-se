@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
 ms.openlocfilehash: 0111da00962f267387e66978952e8a7c9f5d7308
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970057"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Köpa ett anpassat domännamn för Azure App Service
@@ -61,7 +61,7 @@ Välj någon av betalnivåerna (**D1**, **B1**, **B2**, **B3** eller en nivå i 
 
 Klicka på **Applicera**.
 
-:::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Skärm bild av pris nivåerna för anpassade domäner i produktions kategorin med fliken produktion, B1 plan och knappen Använd markerat.":::
+:::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Skärm bild av den vänstra navigerings menyn på sidan app med skala upp (App Service plan) vald.":::
 
 När du ser följande meddelande har skalningsåtgärden slutförts.
 
@@ -106,7 +106,7 @@ Det är viktigt att du fyller i alla obligatoriska fält med så mycket precisio
 
 Välj sedan önskade alternativ för din domän. I följande tabell finns förklaringar:
 
-| Inställningen | Föreslaget värde | Beskrivning |
+| Inställning | Föreslaget värde | Beskrivning |
 |-|-|-|
 |Sekretesskydd | Aktivera | Anmäl dig till "Sekretess skydd", som ingår i inköps priset _kostnads fritt_. Vissa domäner på den översta nivån hanteras av registratorer som inte har stöd för sekretess skydd och de visas på sidan för skydds **skydd** . |
 | Tilldela standard värdnamn | **www** och **\@** | Välj önskade bindningar för värdnamn, om så önskas. När du har slutfört åtgärden för domänen kan din app nås på de valda värd namnen. Om appen är bakom [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)kan du inte se alternativet för att tilldela rot domänen (@), eftersom Traffic Manager inte stöder poster. Du kan ändra värdnamnnas tilldelningar när domänen har köpts. |

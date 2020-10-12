@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-js
 ms.openlocfilehash: 208e06e9bd8fcf26674a11f79d2bd6878ca4f633
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331564"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>Azure Storage exempel med V12 Java Script-klient bibliotek
@@ -413,7 +413,7 @@ Om du vill visa de kompletta biblioteken med JavaScript-exempel går du till:
 
 Du kan bläddra och klona GitHub-lagringsplatsen för varje bibliotek.
 
-## <a name="getting-started-guides"></a>Komma igång guider
+## <a name="getting-started-guides"></a>Kom igång-guider
 
 Kolla in följande guider om du behöver instruktioner om hur du installerar och kommer igång med Azure Storage klient bibliotek.
 

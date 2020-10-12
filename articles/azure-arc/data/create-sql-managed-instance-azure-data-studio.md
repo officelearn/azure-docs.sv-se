@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 2aed3ea48935a62d68f739594a265649a2e1292d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91311537"
 ---
 # <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>Skapa SQL-hanterad instans – Azure Arc med Azure Data Studio
@@ -100,6 +100,6 @@ sqlinstance1  1/1         25.51.65.109:1433  Ready
 
 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Försök nu att [övervaka din SQL-instans](monitor-grafana-kibana.md)

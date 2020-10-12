@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
 ms.openlocfilehash: 19042b4bb0998d104792d7511ab2972299b4f58d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87533520"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera batch service-lösningar med Active Directory
@@ -121,13 +121,13 @@ Följ dessa steg i Azure-portalen:
 
 ### <a name="assign-rbac-to-your-application"></a>Tilldela RBAC till ditt program
 
-Om du vill autentisera med ett huvud namn för tjänsten måste du tilldela RBAC till ditt program. Gör så här:
+Om du vill autentisera med ett huvud namn för tjänsten måste du tilldela RBAC till ditt program. Följ de här stegen:
 
 1. I Azure Portal navigerar du till det batch-konto som används av ditt program.
 1. I avsnittet **Inställningar** i batch-kontot väljer du **Access Control (IAM)**.
 1. Välj fliken **roll tilldelningar** .
 1. Välj **Lägg till rolltilldelning**.
-1. I list rutan **roll** väljer du rollen *deltagare* eller *läsare* för ditt program. Mer information om dessa roller finns i [Kom igång med rollbaserad Access Control i Azure Portal](../role-based-access-control/overview.md).
+1. I list rutan **roll** väljer du rollen *deltagare* eller *läsare* för ditt program. Mer information om dessa roller finns i [Kom igång med Role-Based Access Control i Azure Portal](../role-based-access-control/overview.md).
 1. Ange namnet på ditt program i fältet **Välj** . Välj ditt program i listan och välj sedan **Spara**.
 
 Ditt program bör nu visas i inställningarna för åtkomst kontroll med en Azure-roll tilldelad.

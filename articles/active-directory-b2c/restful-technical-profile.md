@@ -12,10 +12,10 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 172824a2215e8a102ad4c284c847072960344549
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88041535"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en RESTful teknisk profil i en Azure Active Directory B2C anpassad princip
@@ -60,7 +60,7 @@ Skicka en komplex JSON-nytto last:
 1. Bygg din JSON-nyttolast med [GenerateJson](json-transformations.md) -anspråks omvandlingen.
 1. I REST API teknisk profil:
     1. Lägg till en omvandling av inmatade anspråk med en referens till `GenerateJson` omvandlingen av anspråk.
-    1. Ange `SendClaimsIn` alternativet för metadata till`body`
+    1. Ange `SendClaimsIn` alternativet för metadata till `body`
     1. Ange `ClaimUsedForRequestPayload` alternativet för metadata till namnet på anspråket som innehåller JSON-nyttolasten.
     1. Lägg till en referens till det inloggade anspråk som innehåller JSON-nyttolasten i det inloggade anspråket.
 
@@ -114,16 +114,16 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ServiceUrl | Yes | URL: en för REST API slut punkten. |
-| AuthenticationType | Yes | Den typ av autentisering som utförs av RESTful-anspråks leverantören. Möjliga värden: `None` , `Basic` , `Bearer` eller `ClientCertificate` . `None`Värdet anger att REST API är anonym. `Basic`Värdet anger att REST API skyddas med http Basic-autentisering. Endast verifierade användare, inklusive Azure AD B2C, har åtkomst till ditt API. `ClientCertificate`Värdet (rekommenderas) indikerar att REST API begränsar åtkomsten med hjälp av autentisering av klient certifikat. Endast tjänster som har rätt certifikat, till exempel Azure AD B2C, har åtkomst till ditt API. `Bearer`Värdet anger att REST API begränsar åtkomsten med hjälp av klientens OAuth2 Bearer-token. |
-| AllowInsecureAuthInProduction| No| Anger om `AuthenticationType` kan anges till `none` i produktions miljön ( `DeploymentMode` i [TrustFrameworkPolicy](trustframeworkpolicy.md) är inställt på `Production` eller inte angivet). Möjliga värden: true eller false (standard). |
-| SendClaimsIn | No | Anger hur inloggade anspråk skickas till RESTful-anspråks leverantören. Möjliga värden: `Body` (standard), `Form` , `Header` , `Url` eller `QueryString` . `Body`Värdet är det ingående anspråket som skickas i begär ande texten i JSON-format. `Form`Värdet är det inloggade anspråket som skickas i begär ande texten i ett et-tecken () &. `Header`Värdet är det ingående anspråket som skickas i begär ande huvudet. `Url`Värdet är det inkommande anspråket som skickas i URL: en, till exempel https://{claim1}. exempel. com/{claim2}/{claim3}? { claim4} = {claim5}. `QueryString`Värdet är det inloggade anspråk som skickas i frågesträngen för begäran. HTTP-verben som anropas av var och en är följande:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: Hämta</li><li>`Url`: Hämta</li><li>`QueryString`: Hämta</li></ul> |
-| ClaimsFormat | No | Används inte för närvarande, kan ignoreras. |
-| ClaimUsedForRequestPayload| No | Namn på ett sträng anspråk som innehåller nytto lasten som ska skickas till REST API. |
-| DebugMode | No | Kör den tekniska profilen i fel söknings läge. Möjliga värden: `true` , eller `false` (standard). I fel söknings läge kan REST API returnera mer information. Se avsnittet [returnera fel meddelande](#returning-validation-error-message) . |
-| IncludeClaimResolvingInClaimsHandling  | No | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true` , eller `false`   (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true` . |
-| ResolveJsonPathsInJsonTokens  | No | Anger om den tekniska profilen matchar JSON-sökvägar. Möjliga värden: `true` , eller `false` (standard). Använd dessa metadata för att läsa data från ett kapslat JSON-element. I en [OutputClaim](technicalprofiles.md#outputclaims)anger du det `PartnerClaimType` JSON-sökvägar som du vill mata ut. Till exempel: `firstName.localized` , eller `data.0.to.0.email` .|
-| UseClaimAsBearerToken| No| Namnet på det anspråk som innehåller Bearer-token.|
+| ServiceUrl | Ja | URL: en för REST API slut punkten. |
+| AuthenticationType | Ja | Den typ av autentisering som utförs av RESTful-anspråks leverantören. Möjliga värden: `None` , `Basic` , `Bearer` eller `ClientCertificate` . `None`Värdet anger att REST API är anonym. `Basic`Värdet anger att REST API skyddas med http Basic-autentisering. Endast verifierade användare, inklusive Azure AD B2C, har åtkomst till ditt API. `ClientCertificate`Värdet (rekommenderas) indikerar att REST API begränsar åtkomsten med hjälp av autentisering av klient certifikat. Endast tjänster som har rätt certifikat, till exempel Azure AD B2C, har åtkomst till ditt API. `Bearer`Värdet anger att REST API begränsar åtkomsten med hjälp av klientens OAuth2 Bearer-token. |
+| AllowInsecureAuthInProduction| Inga| Anger om `AuthenticationType` kan anges till `none` i produktions miljön ( `DeploymentMode` i [TrustFrameworkPolicy](trustframeworkpolicy.md) är inställt på `Production` eller inte angivet). Möjliga värden: true eller false (standard). |
+| SendClaimsIn | Inga | Anger hur inloggade anspråk skickas till RESTful-anspråks leverantören. Möjliga värden: `Body` (standard), `Form` , `Header` , `Url` eller `QueryString` . `Body`Värdet är det ingående anspråket som skickas i begär ande texten i JSON-format. `Form`Värdet är det inloggade anspråket som skickas i begär ande texten i ett et-tecken () &. `Header`Värdet är det ingående anspråket som skickas i begär ande huvudet. `Url`Värdet är det inkommande anspråket som skickas i URL: en, till exempel https://{claim1}. exempel. com/{claim2}/{claim3}? { claim4} = {claim5}. `QueryString`Värdet är det inloggade anspråk som skickas i frågesträngen för begäran. HTTP-verben som anropas av var och en är följande:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: Hämta</li><li>`Url`: Hämta</li><li>`QueryString`: Hämta</li></ul> |
+| ClaimsFormat | Inga | Används inte för närvarande, kan ignoreras. |
+| ClaimUsedForRequestPayload| Inga | Namn på ett sträng anspråk som innehåller nytto lasten som ska skickas till REST API. |
+| DebugMode | Inga | Kör den tekniska profilen i fel söknings läge. Möjliga värden: `true` , eller `false` (standard). I fel söknings läge kan REST API returnera mer information. Se avsnittet [returnera fel meddelande](#returning-validation-error-message) . |
+| IncludeClaimResolvingInClaimsHandling  | Inga | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true` , eller `false`   (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true` . |
+| ResolveJsonPathsInJsonTokens  | Inga | Anger om den tekniska profilen matchar JSON-sökvägar. Möjliga värden: `true` , eller `false` (standard). Använd dessa metadata för att läsa data från ett kapslat JSON-element. I en [OutputClaim](technicalprofiles.md#outputclaims)anger du det `PartnerClaimType` JSON-sökvägar som du vill mata ut. Till exempel: `firstName.localized` , eller `data.0.to.0.email` .|
+| UseClaimAsBearerToken| Inga| Namnet på det anspråk som innehåller Bearer-token.|
 
 ## <a name="error-handling"></a>Felhantering
 
@@ -131,10 +131,10 @@ Följande metadata kan användas för att konfigurera fel meddelanden som visas 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| DefaultUserMessageIfRequestFailed | No | Ett anpassat standard fel meddelande för alla REST API undantag.|
-| UserMessageIfCircuitOpen | No | Fel meddelande när REST API inte kan kommas åt. Om inget anges returneras DefaultUserMessageIfRequestFailed. |
-| UserMessageIfDnsResolutionFailed | No | Fel meddelande för undantag i DNS-matchning. Om inget anges returneras DefaultUserMessageIfRequestFailed. | 
-| UserMessageIfRequestTimeout | No | Fel meddelande när tids gränsen för anslutningen uppnåddes. Om inget anges returneras DefaultUserMessageIfRequestFailed. | 
+| DefaultUserMessageIfRequestFailed | Inga | Ett anpassat standard fel meddelande för alla REST API undantag.|
+| UserMessageIfCircuitOpen | Inga | Fel meddelande när REST API inte kan kommas åt. Om inget anges returneras DefaultUserMessageIfRequestFailed. |
+| UserMessageIfDnsResolutionFailed | Inga | Fel meddelande för undantag i DNS-matchning. Om inget anges returneras DefaultUserMessageIfRequestFailed. | 
+| UserMessageIfRequestTimeout | Inga | Fel meddelande när tids gränsen för anslutningen uppnåddes. Om inget anges returneras DefaultUserMessageIfRequestFailed. | 
 
 ## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 
@@ -156,8 +156,8 @@ Om autentiseringstypen har angetts till `Basic` innehåller **CryptographicKeys*
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| BasicAuthenticationUsername | Yes | Det användar namn som används för att autentisera. |
-| BasicAuthenticationPassword | Yes | Det lösen ord som används för att autentisera. |
+| BasicAuthenticationUsername | Ja | Det användar namn som används för att autentisera. |
+| BasicAuthenticationPassword | Ja | Det lösen ord som används för att autentisera. |
 
 I följande exempel visas en teknisk profil med grundläggande autentisering:
 
@@ -181,7 +181,7 @@ Om autentiseringstypen har angetts till `ClientCertificate` innehåller **Crypto
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Mängden | Yes | X509-certifikatet (RSA-nyckel uppsättning) som ska användas för att autentisera. |
+| Mängden | Ja | X509-certifikatet (RSA-nyckel uppsättning) som ska användas för att autentisera. |
 
 ```xml
 <TechnicalProfile Id="REST-API-SignUp">
@@ -202,7 +202,7 @@ Om autentiseringstypen har angetts till `Bearer` innehåller **CryptographicKeys
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| BearerAuthenticationToken | No | OAuth 2,0 Bearer-token. |
+| BearerAuthenticationToken | Inga | OAuth 2,0 Bearer-token. |
 
 ```xml
 <TechnicalProfile Id="REST-API-SignUp">
@@ -237,13 +237,13 @@ REST API kan behöva returnera ett fel meddelande, till exempel "användaren int
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| version | Yes | Din REST API-version. Till exempel: 1.0.1 |
-| status | Yes | Måste vara 409 |
-| kod | No | En felkod från RESTful-slutpunkt-providern, som visas när `DebugMode` är aktive rad. |
-| requestId | No | En begärande-ID från RESTful-slutpunkt-providern, som visas när `DebugMode` är aktive rad. |
-| userMessage | Yes | Ett fel meddelande som visas för användaren. |
-| developerMessage | No | Utförlig beskrivning av problemet och hur du åtgärdar det, som visas när `DebugMode` är aktiverat. |
-| moreInfo | No | En URI som pekar på ytterligare information, som visas när `DebugMode` är aktive rad. |
+| version | Ja | Din REST API-version. Till exempel: 1.0.1 |
+| status | Ja | Måste vara 409 |
+| kod | Inga | En felkod från RESTful-slutpunkt-providern, som visas när `DebugMode` är aktive rad. |
+| requestId | Inga | En begärande-ID från RESTful-slutpunkt-providern, som visas när `DebugMode` är aktive rad. |
+| userMessage | Ja | Ett fel meddelande som visas för användaren. |
+| developerMessage | Inga | Utförlig beskrivning av problemet och hur du åtgärdar det, som visas när `DebugMode` är aktiverat. |
+| moreInfo | Inga | En URI som pekar på ytterligare information, som visas när `DebugMode` är aktive rad. |
 
 
 I följande exempel visas en C#-klass som returnerar ett fel meddelande:

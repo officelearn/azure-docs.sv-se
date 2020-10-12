@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: jeedes
 ms.openlocfilehash: 44f2195fb68b5a17eab3980f72cbc5374e1c033a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91312914"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Självstudie: Konfigurera box för automatisk användar etablering
@@ -79,7 +79,7 @@ Om automatisk etablering har Aktiver ATS läggs de tilldelade användarna och/el
  * Om grupp objekt har kon figurer ATS för att tillhandahållas, är alla tilldelade grupp objekt etablerade i rutan och alla användare som är medlemmar i dessa grupper. Gruppen och användarens medlemskap bevaras vid skrivning till box.
 
 > [!TIP] 
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för ruta genom att följa anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
+> Du kan också välja att aktivera SAML-baserad enstaka Sign-On för ruta genom att följa anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
 
 ### <a name="to-configure-automatic-user-account-provisioning"></a>Konfigurera automatisk etablering av användar konto:
 

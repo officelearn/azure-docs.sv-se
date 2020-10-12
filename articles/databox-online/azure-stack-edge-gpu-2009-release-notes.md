@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
 ms.openlocfilehash: c43f7ba52ed0f6018ee32583011bb92786708119
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460483"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-general-availability-ga-release-notes"></a>Viktig information om Azure Stack Edge Pro med GPU allmän tillgänglighet (GA)
@@ -43,7 +43,7 @@ Följande tabell innehåller en sammanfattning av kända problem för Azure Stac
 |**4.**|Begränsning|Om nya skrivningar inte är tillåtna i enheten under begränsningen, kan skrivningar som görs av NFS-klienten nekas fel meddelandet "behörighet nekad".| Felet visas som nedan:<br>`hcsuser@ubuntu-vm:~/nfstest$ mkdir test`<br>mkdir: det går inte att skapa katalogen "test": behörighet nekad|
 |**5.**|Blob Storage inmatning|När du använder AzCopy version 10 för Blob Storage-inmatningen kör du AzCopy med följande argument: `Azcopy <other arguments> --cap-mbps 2000`| Om dessa begränsningar inte anges för AzCopy, kan det potentiellt skicka ett stort antal begär anden till enheten och leda till problem med tjänsten.|
 |**3-6.**|Lagrings konton på nivå|Följande gäller när du använder lagrings konton på nivå:<ul><li> Endast block-blobbar stöds. Page blobbar stöds inte.</li><li>Det finns inget stöd för ögonblicks bilder eller kopiering av API.</li><li> Hadoop-arbetsbelastningar `distcp` stöds inte eftersom kopierings åtgärden i stor utsträckning används.</li></ul>||
-|**3,7.**|Anslutning till NFS-resurs|Om flera processer kopieras till samma resurs, och `nolock` attributet inte används, kan det hända att du ser fel under kopieringen.|`nolock`Attributet måste skickas till Mount-kommandot för att filer ska kunna kopieras till NFS-resursen. Till exempel: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`.|
+|**3,7.**|Anslutning till NFS-resurs|Om flera processer kopieras till samma resurs, och `nolock` attributet inte används, kan det hända att du ser fel under kopieringen.|`nolock`Attributet måste skickas till Mount-kommandot för att filer ska kunna kopieras till NFS-resursen. Exempel: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`.|
 |**7,8.**|Kubernetes-kluster|När du tillämpar en uppdatering på enheten som kör ett Kubernetes-kluster startas de virtuella Kubernetes-datorerna om och startas om. I den här instansen återställs endast poddar som distribueras med repliker som anges automatiskt efter en uppdatering.  |Om du har skapat enskilda poddar utanför en replikeringsprovider utan att ange en replik uppsättning återställs inte dessa poddar automatiskt efter uppdateringen av enheten. Du måste återställa dessa poddar.<br>En replik uppsättning ersätter poddar som tas bort eller avslutas av någon anledning, t. ex. nodfel eller störningar på nod-uppgraderingen. Därför rekommenderar vi att du använder en replik uppsättning även om programmet bara kräver en enda pod.|
 |**1.9.**|Kubernetes-kluster|Kubernetes på Azure Stack Edge Pro stöds bara med Helm v3 eller senare. Mer information finns i [vanliga frågor och svar: borttagning av en till](https://v3.helm.sh/docs/faq/).|
 |**10.**|Azure Arc-aktiverade Kubernetes |För GA-versionen uppdateras Azure Arc-aktiverade Kubernetes från version 0.1.18 till 0.2.9. Eftersom Azure Arc-aktiverade Kubernetes-uppdateringen inte stöds på Azure Stack Edge-enhet måste du distribuera om Azure Arc-aktiverade Kubernetes.|Följ de här stegen:<ol><li>[Använd enhets program vara och Kubernetes-uppdateringar](azure-stack-edge-gpu-install-update.md).</li><li>Anslut till [enhetens PowerShell-gränssnitt](azure-stack-edge-gpu-connect-powershell-interface.md).</li><li>Ta bort den befintliga Azure Arc-agenten. Skriv: `Remove-HcsKubernetesAzureArcAgent` .</li><li>Distribuera [Azure-bågen till en ny resurs](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). Använd inte en befintlig Azure Arc-resurs.</li></ol>|

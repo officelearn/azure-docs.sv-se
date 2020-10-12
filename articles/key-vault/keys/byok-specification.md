@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
 ms.openlocfilehash: feef35ef86a933f32949468366fea85eb87d4866
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91315787"
 ---
 # <a name="bring-your-own-key-specification"></a>Specifikation för Bring your own key
@@ -31,7 +31,7 @@ Följande är kraven:
 
 ## <a name="terminology"></a>Terminologi
 
-|Nyckel namn|Nyckel typ|Ursprung|Description|
+|Nyckel namn|Nyckel typ|Ursprung|Beskrivning|
 |---|---|---|---|
 |Nyckel utbytes nyckel (KEK)|RSA|Azure Key Vault HSM|Ett HSM-baserat RSA-nyckelpar som genererats i Azure Key Vault
 Rad brytnings nyckel|AES|Vendor HSM|En [beständig] AES-nyckel genererad av HSM on-lokal

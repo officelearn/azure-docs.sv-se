@@ -17,10 +17,10 @@ ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
 ms.openlocfilehash: 1dc35b596d73f713aea99ea14ddb0ff8cbc8d203
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84688628"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Skapa en virtuell Linux-dator med accelererat nätverk med Azure CLI
@@ -47,7 +47,7 @@ Följande distributioner stöds i rutan från Azure-galleriet:
 * **SLES12 SP3 eller senare** 
 * **RHEL 7,4 eller senare**
 * **CentOS 7,4 eller senare**
-* **Core-Linux**
+* **CoreOS Linux**
 * **Debian "Sträck ut" med backports-kernel**
 * **Oracle Linux 7,4 och senare med Red Hat-kompatibel kernel (RHCK)**
 * **Oracle Linux 7,5 och senare med UEK version 5**

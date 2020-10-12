@@ -10,10 +10,10 @@ ms.date: 03/11/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
 ms.openlocfilehash: 12b1d083ae1481f7c8b5fe60cac9156a56aeaa0a
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87875480"
 ---
 # <a name="get-started-with-device-twins-python"></a>Kom igång med enhets garn (python)
@@ -34,7 +34,7 @@ I slutet av den här självstudien kommer du att ha två python-konsol program:
 
 * Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -116,7 +116,7 @@ I det här avsnittet skapar du en python-konsol-app som lägger till platsens me
 
     **IoTHubRegistryManager** -objektet exponerar alla de metoder som krävs för att interagera med enheten tillsammans från tjänsten. Koden initierar först **IoTHubRegistryManager** -objektet, uppdaterar sedan enheten med **DEVICE_ID**och kör slutligen två frågor. Först väljer den bara enheten med enheter som finns i **Redmond43** -anläggningen och den andra refinar frågan så att endast de enheter som också är anslutna via ett mobil nät.
 
-6. Lägg till följande kod i slutet av **AddTagsAndQuery.py** för att implementera funktionen **iothub_service_sample_run** :
+6. Lägg till följande kod i slutet av  **AddTagsAndQuery.py** för att implementera funktionen **iothub_service_sample_run** :
 
     ```python
     if __name__ == '__main__':
@@ -199,7 +199,7 @@ I det här avsnittet ska du skapa en python-konsol-app som ansluter till din hub
 
     **IoTHubModuleClient** -objektet visar alla metoder som du behöver för att interagera med enheten mellan enheten. Föregående kod, efter att den initierat **IoTHubModuleClient** -objektet, hämtar enheten till enheten och uppdaterar den rapporterade egenskapen med anslutnings informationen.
 
-6. Lägg till följande kod i slutet av **ReportConnectivity.py** för att implementera funktionen **iothub_client_sample_run** :
+6. Lägg till följande kod i slutet av  **ReportConnectivity.py** för att implementera funktionen **iothub_client_sample_run** :
 
     ```python
     if __name__ == '__main__':

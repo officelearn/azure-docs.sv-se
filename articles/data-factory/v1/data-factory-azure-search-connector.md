@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f6521efe024ba0ea29ae427aeaf06ca0e5fa8dd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84194924"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Skicka data till ett Azure Kognitiv sökning-index med Azure Data Factory
@@ -55,7 +55,7 @@ I följande avsnitt finns information om JSON-egenskaper som används för att d
 
 Följande tabell innehåller beskrivningar av JSON-element som är speciella för den länkade Azure Kognitiv sökning-tjänsten.
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
 | typ | Egenskapen Type måste anges till: **AzureSearch**. | Ja |
 | url | URL för Sök tjänsten. | Ja |
@@ -65,7 +65,7 @@ Följande tabell innehåller beskrivningar av JSON-element som är speciella fö
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar samma för alla data uppsättnings typer. Avsnittet **typeProperties** är olika för varje typ av data uppsättning. Avsnittet typeProperties för en data uppsättning av typen **AzureSearchIndex** har följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
 | typ | Egenskapen Type måste anges till **AzureSearchIndex**.| Ja |
 | indexName | Sök Indexets namn. Data Factory skapar inte indexet. Indexet måste finnas i Azure Kognitiv sökning. | Ja |
@@ -76,10 +76,10 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För kopierings aktivitet är följande egenskaper tillgängliga i avsnittet typeProperties när mottagaren är av typen **AzureSearchIndexSink**:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Anger om du vill sammanfoga eller ersätta när ett dokument redan finns i indexet. Se [egenskapen WriteBehavior](#writebehavior-property).| Sammanfoga (standard)<br/>Ladda upp| No |
-| WriteBatchSize | Överför data till Sök indexet när buffertstorleken når writeBatchSize. Mer information finns i [WriteBatchSize-egenskapen](#writebatchsize-property) . | 1 till 1 000. Standardvärdet är 1000. | No |
+| WriteBehavior | Anger om du vill sammanfoga eller ersätta när ett dokument redan finns i indexet. Se [egenskapen WriteBehavior](#writebehavior-property).| Sammanfoga (standard)<br/>Ladda upp| Inga |
+| WriteBatchSize | Överför data till Sök indexet när buffertstorleken når writeBatchSize. Mer information finns i [WriteBatchSize-egenskapen](#writebatchsize-property) . | 1 till 1 000. Standardvärdet är 1000. | Inga |
 
 ### <a name="writebehavior-property"></a>WriteBehavior-egenskap
 AzureSearchSink upsertar när data skrivs. När du skriver ett dokument, och om dokument nyckeln redan finns i Sök indexet, kommer Azure Kognitiv sökning att uppdatera det befintliga dokumentet i stället för att ett konflikt undantag utlöses.
@@ -99,12 +99,12 @@ I följande tabell anges om data typen Azure Kognitiv sökning stöds eller inte
 
 | Data typen Azure Kognitiv sökning | Stöds i Azure Kognitiv sökning-mottagare |
 | ---------------------- | ------------------------------ |
-| Sträng | Y |
-| Int32 | Y |
-| Int64 | Y |
-| Double | Y |
-| Boolesk | Y |
-| DataTimeOffset | Y |
+| Sträng | J |
+| Int32 | J |
+| Int64 | J |
+| Double | J |
+| Boolesk | J |
+| DataTimeOffset | J |
 | Sträng mat ris | N |
 | GeographyPoint | N |
 

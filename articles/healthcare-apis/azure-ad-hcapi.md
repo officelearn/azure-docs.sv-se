@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: cavoeg
 ms.openlocfilehash: cdb73670996341e9219230bb277e087009266f32
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87846028"
 ---
 # <a name="azure-active-directory-identity-configuration-for-azure-api-for-fhir"></a>Azure Active Directory identitets konfiguration för Azure API för FHIR
@@ -97,10 +97,10 @@ När du använder en FHIR-Server kan du använda antingen- `v1.0` eller- `v2.0` 
 
 De relevanta avsnitten i Azure AD-dokumentationen är:
 
-* `v1.0`Endpoint
+* `v1.0` Endpoint
     * [Flöde för auktoriseringskod](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code).
     * [Flöde](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)för klientautentiseringsuppgifter.
-* `v2.0`Endpoint
+* `v2.0` Endpoint
     * [Flöde för auktoriseringskod](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow).
     * [Flöde](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)för klientautentiseringsuppgifter.
 

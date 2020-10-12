@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: abab80f8c790a170ec30fa228dd86576079a73a0
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462555"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Vanliga frågor och svar om IoT-lösningsacceleratorer
@@ -46,9 +46,9 @@ Under de senaste två åren har moln arkitekturen kraftigt utvecklats. Mikrotjä
 
 Se [så här lägger du till en befintlig prenumeration i din Azure AD-katalog](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
 
-### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Jag vill ändra en tjänst administratör eller delad administratör när du är inloggad med ett organisations konto
+### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Jag vill ändra en tjänst administratör eller Co-Administrator när du är inloggad med ett organisations konto
 
-Se Support artikeln [ändra tjänst administratör och medadministratör när du är inloggad med ett organisations konto](https://azure.microsoft.com/support/changing-service-admin-and-co-admin).
+Se Support artikeln [ändra tjänst administratör och Co-Administrator när du är inloggad med ett organisations konto](https://azure.microsoft.com/support/changing-service-admin-and-co-admin).
 
 ### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>Varför ser jag det här felet? "Ditt konto har inte rätt behörighet för att skapa en lösning. Kontakta konto administratören eller försök med ett annat konto. "
 

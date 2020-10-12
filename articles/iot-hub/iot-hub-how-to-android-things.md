@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
 ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78673387"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Utveckla för Android-saker-plattform med Azure IoT-SDK: er
@@ -30,7 +30,7 @@ I den här självstudien beskrivs stegen för att bygga ett program på enhets s
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -55,7 +55,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table
     ```
 
-    Anteckna enhetsanslutningssträngen. Den ser ut ungefär som:
+    Anteckna enhetens anslutningssträng, som ser ut så här:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidThingsDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -85,7 +85,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 7. När programmet har startats kan du se att det finns ett program som körs på Android saker-enheten. Det här exempel programmet skickar slumpmässigt genererade temperatur avläsningar.
 
-## <a name="read-the-telemetry-from-your-hub"></a>Läsa telemetrin från din hubb
+## <a name="read-the-telemetry-from-your-hub"></a>Läs telemetrin från din hubb
 
 Du kan visa data via din IoT Hub när den tas emot. CLI-tillägget för IoT Hub kan ansluta till **Events**-slutpunkten för tjänstsidan på din IoT Hub. Tillägget tar emot enhet-till-moln-meddelanden som skickats från din simulerade enhet. Ett IoT Hub-serverprogram körs normalt i molnet för att ta emot och bearbeta enhet-till-molnet-meddelanden.
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/24/2020
 ms.openlocfilehash: 8b12e1bd7bd67c3d22bdb62255b481d81976b969
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85362133"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Gransknings loggar i Azure Database for MySQL
@@ -31,7 +31,7 @@ Andra parametrar som du kan justera är:
 - `audit_log_exclude_users`: MySQL-användare ska undantas från loggning. Parameterns max längd är 512 tecken.
 
 > [!NOTE]
-> `audit_log_include_users`har högre prioritet än `audit_log_exclude_users` . Till exempel, om `audit_log_include_users`  =  `demouser` och `audit_log_exclude_users`  =  `demouser` , kommer användaren att inkluderas i gransknings loggarna eftersom `audit_log_include_users` har högre prioritet.
+> `audit_log_include_users` har högre prioritet än `audit_log_exclude_users` . Till exempel, om `audit_log_include_users`  =  `demouser` och `audit_log_exclude_users`  =  `demouser` , kommer användaren att inkluderas i gransknings loggarna eftersom `audit_log_include_users` har högre prioritet.
 
 | **Händelse** | **Beskrivning** |
 |---|---|
@@ -60,10 +60,10 @@ I följande avsnitt beskrivs vad som utdata av MySQLs gransknings loggar baserat
 | `TenantId` | Ditt klient-ID |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Tidstämpel när loggen registrerades i UTC |
-| `Type` | Loggens typ. Alltid`AzureDiagnostics` |
+| `Type` | Loggens typ. Alltid `AzureDiagnostics` |
 | `SubscriptionId` | GUID för den prenumeration som servern tillhör |
 | `ResourceGroup` | Namnet på den resurs grupp som servern tillhör |
-| `ResourceProvider` | Namnet på resurs leverantören. Alltid`MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | Namnet på resurs leverantören. Alltid `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resurs-URI |
 | `Resource` | Namnet på servern |
@@ -91,10 +91,10 @@ Schemat nedan gäller för händelse typerna allmänt, DML_SELECT, DML_NONSELECT
 | `TenantId` | Ditt klient-ID |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Tidstämpel när loggen registrerades i UTC |
-| `Type` | Loggens typ. Alltid`AzureDiagnostics` |
+| `Type` | Loggens typ. Alltid `AzureDiagnostics` |
 | `SubscriptionId` | GUID för den prenumeration som servern tillhör |
 | `ResourceGroup` | Namnet på den resurs grupp som servern tillhör |
-| `ResourceProvider` | Namnet på resurs leverantören. Alltid`MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | Namnet på resurs leverantören. Alltid `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resurs-URI |
 | `Resource` | Namnet på servern |
@@ -104,7 +104,7 @@ Schemat nedan gäller för händelse typerna allmänt, DML_SELECT, DML_NONSELECT
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR` , `RESULT` (endast tillgängligt för MySQL 5,6) |
 | `event_time` | Frågans start tid i UTC-tidsstämpel |
-| `error_code_d` | Felkod om frågan misslyckades. `0`innebär inget fel |
+| `error_code_d` | Felkod om frågan misslyckades. `0` innebär inget fel |
 | `thread_id_d` | ID för tråd som körde frågan |
 | `host_s` | Tom |
 | `ip_s` | IP-adressen för klienten som ansluter till MySQL |
@@ -122,10 +122,10 @@ Schemat nedan gäller för händelse typerna allmänt, DML_SELECT, DML_NONSELECT
 | `TenantId` | Ditt klient-ID |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Tidstämpel när loggen registrerades i UTC |
-| `Type` | Loggens typ. Alltid`AzureDiagnostics` |
+| `Type` | Loggens typ. Alltid `AzureDiagnostics` |
 | `SubscriptionId` | GUID för den prenumeration som servern tillhör |
 | `ResourceGroup` | Namnet på den resurs grupp som servern tillhör |
-| `ResourceProvider` | Namnet på resurs leverantören. Alltid`MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | Namnet på resurs leverantören. Alltid `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resurs-URI |
 | `Resource` | Namnet på servern |
@@ -133,7 +133,7 @@ Schemat nedan gäller för händelse typerna allmänt, DML_SELECT, DML_NONSELECT
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Namnet på servern |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT` , `UPDATE` eller`DELETE` |
+| `event_subclass_s` | `READ`, `INSERT` , `UPDATE` eller `DELETE` |
 | `connection_id_d` | Unikt anslutnings-ID som genererats av MySQL |
 | `db_s` | Namnet på databasen som används |
 | `table_s` | Namnet på tabellen har öppnats |

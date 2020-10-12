@@ -8,10 +8,10 @@ ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
 ms.openlocfilehash: b0c9ef99e4cbb0683273d613d3a85e7f6455a40d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87366729"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrera från CouchBase till Azure Cosmos DB SQL API
@@ -187,7 +187,7 @@ N1QL-frågor är ett sätt att definiera frågor i Couchbase.
 
 |N1QL-fråga | Azure CosmosDB-fråga|
 |-------------------|-------------------|
-|Välj META ( `TravelDocument` ). ID som ID, `TravelDocument` . * från `TravelDocument` WHERE `_type` = "com. xx. xx. xx. xxx. xxx. xxxx" och Country = "Indien" och alla m i viseringar uppfyller m. type = = ' Multi-Entry ' och m. Country i [' Indien ', Bhutan '] order by ` Validity` DESC Limit 25 offset 0   | Välj c. ID, c från c JOIN m i c. Country = "Indien" där c. _type = "com. xx. xx. xx. xxx. xxx. xxxx" och c. Country = "Indien" och m. type = ' Multi-Entry ' och m. Country i (' Indien ', ' Bhutan ') ORDER BY c. giltighets DESC förskjutning 0 LIMIT 25 |
+|Välj META ( `TravelDocument` ). ID som ID, `TravelDocument` . * från `TravelDocument` WHERE `_type` = "com. xx. xx. xx. xxx. xxx. xxxx" och Country = "Indien" och alla m i viseringar uppfyller m. type = = ' Multi-Entry ' och m. Country i [' Indien ', Bhutan '] order by ` Validity` DESC Limit 25 offset 0   | Välj c. ID, c från c JOIN m i c. Country = "Indien" där c._type = "com. xx. xx. xx. xxx. xxx. xxxx" och c. Country = "Indien" och m. type = ' Multi-Entry ' och m. Country i (' Indien ', ' Bhutan ') ORDER BY c |
 
 Du kan observera följande ändringar i dina N1QL-frågor:
 
@@ -311,7 +311,7 @@ Det här är en enkel typ av arbets belastning där du kan utföra sökningar i 
 
 1. Överväg att använda "/ID" som primär nyckel, vilket ser till att du kan utföra söknings åtgärder direkt i den angivna partitionen. Skapa en samling och ange "/ID" som partitionsnyckel.
 
-1. Stäng av indexeringen helt. Eftersom du kommer att köra söknings åtgärder finns det ingen punkt för att utföra indexerings kostnader. Om du vill stänga av indexeringen loggar du in på Azure Portal, goto Azure Cosmos DB-konto. Öppna **datautforskaren**, välj din **databas** och **behållaren**. Öppna fliken **skalnings & inställningar** och välj **indexerings princip**. Index princip som är för närvarande ser ut så här:
+1. Stäng av indexeringen helt. Eftersom du kommer att köra söknings åtgärder finns det ingen punkt för att utföra indexerings kostnader. Om du vill stänga av indexeringen loggar du in på Azure Portal, goto Azure Cosmos DB-konto. Öppna **datautforskaren**, välj din **databas** och **behållaren**. Öppna fliken **skalnings & inställningar** och välj  **indexerings princip**. Index princip som är för närvarande ser ut så här:
     
    ```json
    {

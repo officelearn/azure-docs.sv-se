@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 11/13/2018
 ms.author: guybo
 ms.openlocfilehash: 80272896bd314a1f5f05094afa83568e077ab480
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87368208"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Förbered en virtuell Debian-VHD för Azure
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Det här avsnittet förutsätter att du redan har installerat ett Debian Linux-operativsystem från en. ISO-fil som hämtats från [Debian-webbplatsen](https://www.debian.org/distrib/) till en virtuell hård disk. Det finns flera verktyg för att skapa. VHD-filer; Hyper-V är bara ett exempel. Instruktioner för hur du använder Hyper-V finns i [Installera Hyper-v-rollen och konfigurera en virtuell dator](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 ## <a name="installation-notes"></a>Installations information

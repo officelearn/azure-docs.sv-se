@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76748792"
 ---
 Den här artikeln innehåller nästa detalj nivå för att skydda Azure IoT-baserade Sakernas Internet-infrastrukturen (IoT). Den länkar till implementerings nivå information för att konfigurera och distribuera varje komponent. Den innehåller också jämförelser och val mellan olika konkurrerande metoder.

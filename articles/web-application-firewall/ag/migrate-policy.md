@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
 ms.openlocfilehash: eccd6b33353e071a66225279f1f1c150d4bdaafc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86143860"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrera brand Väggs principer för webb program med hjälp av Azure PowerShell
@@ -27,7 +27,7 @@ Använd följande steg för att köra migrations skriptet:
 1. Öppna följande Cloud Shell-fönster eller öppna ett från portalen.
 2. Kopiera skriptet till Cloud Shell-fönstret och kör det.
 3. Skriptet frågar efter prenumerations-ID, resurs grupp namn, namnet på den Application Gateway som WAF-konfigurationen är associerad med och namnet på den nya WAF-princip som ska skapas. När du har angett dessa indata körs skriptet och skapar den nya WAF-principen
-4. Koppla den nya WAF-principen till din Application Gateway. Gå till WAF-principen i portalen och välj fliken **associerade programgatewayer** . Välj **associera en Application Gateway** och välj sedan Application Gateway som du vill associera WAF-principen till.
+4. Koppla den nya WAF-principen till din Application Gateway. Gå till WAF-principen i portalen och välj fliken **associerade Application gateways** . Välj **associera en Application Gateway** och välj sedan Application Gateway för att koppla WAF-principen till.
 
 > [!NOTE]
 > Skriptet Slutför inte en migrering om följande villkor föreligger:

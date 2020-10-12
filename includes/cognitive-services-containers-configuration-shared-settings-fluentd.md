@@ -5,10 +5,10 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: b08516b35a864eae6d15c4c5c928f0550c64c239
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67712451"
 ---
 Fluent är en data insamlare med öppen källkod för enhetlig loggning. `Fluentd`Inställningarna hanterar behållarens anslutning till en [Fluent](https://www.fluentd.org) -Server. Behållaren innehåller en upplösnings leverantör som gör att din behållare kan skriva loggar och, om du vill, Metric-data till en ansvars bara server.

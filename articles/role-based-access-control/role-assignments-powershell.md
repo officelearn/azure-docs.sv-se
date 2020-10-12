@@ -15,23 +15,23 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9b0df4337a5e5faff3427222fb66caf8e02184a3
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86146659"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Lägga till eller ta bort Azure Role-tilldelningar med Azure PowerShell
+# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure PowerShell
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]I den här artikeln beskrivs hur du tilldelar roller med hjälp av Azure PowerShell.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] I den här artikeln beskrivs hur du tilldelar roller med hjälp av Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Krav
 
 Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 
-- `Microsoft.Authorization/roleAssignments/write`och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
 - [PowerShell i Azure Cloud Shell](/azure/cloud-shell/overview) eller [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="get-object-ids"></a>Hämta objekt-ID: n
@@ -47,7 +47,7 @@ Get-AzADUser -StartsWith <string_in_quotes>
 (Get-AzADUser -DisplayName <name_in_quotes>).id
 ```
 
-### <a name="group"></a>Grupp
+### <a name="group"></a>Group
 
 För att hämta objekt-ID för en Azure AD-grupp, kan du använda [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
 

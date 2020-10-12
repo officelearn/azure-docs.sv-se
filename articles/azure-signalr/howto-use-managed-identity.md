@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
 ms.openlocfilehash: abe7503e7eb73d533ae901af21de001960173fb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85559416"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Hanterade identiteter för Azure SignalR service
@@ -46,7 +46,7 @@ Om du skapar en Azure SignalR-tjänstinstans med en tilldelad identitet måste d
 
 5. Sök efter den identitet som du skapade tidigare och markera den. Välj **Lägg till**.
 
-    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Lägg till en användardefinierad identitet i portalen":::
+    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Lägga till en tilldelad identitet i portalen":::
 
 ## <a name="use-a-managed-identity-in-serverless-scenarios"></a>Använda en hanterad identitet i Server lös scenarier
 

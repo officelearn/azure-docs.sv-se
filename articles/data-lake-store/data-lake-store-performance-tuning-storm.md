@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 71207509f20c80cf85311cba7b647aaca0a49e42
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192812"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Prestanda justerings vägledning för storm på HDInsight och Azure Data Lake Storage Gen1
 
 Förstå faktorerna som bör övervägas när du justerar prestandan för en Azure Storm-topologi. Det är till exempel viktigt att förstå egenskaperna hos det arbete som utförs av kanaler och bultarna (oavsett om arbetet är I/O eller minnes krävande). Den här artikeln beskriver ett antal rikt linjer för prestanda justering, inklusive fel sökning av vanliga problem.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett Azure Data Lake Storage gen1 konto**. Instruktioner för hur du skapar ett finns i [Kom igång med Azure Data Lake Storage gen1](data-lake-store-get-started-portal.md).
@@ -89,7 +89,7 @@ I i/O-intensiva topologier är det en bra idé att låta varje bult-tråd skriva
 
 I storm innehåller en kanalen till en tupel tills den uttryckligen bekräftas av bulten. Om en tupel har lästs av en bult men ännu inte har bekräftats, kanske kanalen inte har bearbetats i Data Lake Storage Gen1 Server del. När en tupel har bekräftats kan kanalen garanteras av bulten och kan sedan ta bort käll data från den källa som den läser från.  
 
-För bästa prestanda på Data Lake Storage Gen1 måste du ha bult-buffert 4 MB av tuple-data. Skriv sedan till den Data Lake Storage Gen1 Server delen som en 4 MB skrivning. När data har skrivits till butiken (genom att anropa hflush ()) kan bulten bekräfta data tillbaka till kanalen. Det här är den exempel bult som anges här. Det är också acceptabelt att innehålla ett större antal tupler innan hflush ()-anropet görs och tupelarna har bekräftats. Detta ökar dock antalet tupler som kanalen måste hålla och ökar därför mängden minne som krävs per JVM.
+För bästa prestanda på Data Lake Storage Gen1 måste du ha bult-buffert 4 MB av tuple-data. Skriv sedan till Data Lake Storage Gen1 Server delen som 1 4 MB skrivning. När data har skrivits till butiken (genom att anropa hflush ()) kan bulten bekräfta data tillbaka till kanalen. Det här är den exempel bult som anges här. Det är också acceptabelt att innehålla ett större antal tupler innan hflush ()-anropet görs och tupelarna har bekräftats. Detta ökar dock antalet tupler som kanalen måste hålla och ökar därför mängden minne som krävs per JVM.
 
 > [!NOTE]
 > Program kan ha ett krav på att bekräfta tupler oftare (vid data storlekar som är mindre än 4 MB) för andra icke-prestandarelaterade orsaker. Men det kan påverka i/O-dataflödet till lagrings platsens Server del. Väg in den här kompromissen mot bultens I/O-prestanda.
@@ -98,7 +98,7 @@ Om den inkommande mängden tupler inte är hög, så det tar lång tid att fylla
 * Minska antalet bultar, så det finns färre buffertar att fylla i.
 * Att ha en tidsbaserad eller räknad princip, där en hflush () utlöses varje x-tömning eller varje y millisekunder, och de tupler som har samlats in så länge, kommer att bekräftas igen.
 
-Data flödet i det här fallet är lägre, men med låg frekvens händelser är det maximala data flödet inte det största målet ändå. Dessa lösningar hjälper dig att minska den totala tiden det tar för en tupel att flöda genom till butiken. Detta kan vara en fråga om du vill ha en pipeline i real tid, även med låg händelse frekvens. Observera också att om inkommande tuple-frekvenser är låg, bör du justera topologin. Message. timeout_secs parameter, så att tuplerna inte har nått sin tids gräns när de buffras eller bearbetas.
+Data flödet i det här fallet är lägre, men med låg frekvens händelser är det maximala data flödet inte det största målet ändå. Dessa lösningar hjälper dig att minska den totala tiden det tar för en tupel att flöda genom till butiken. Detta kan vara en fråga om du vill ha en pipeline i real tid, även med låg händelse frekvens. Observera också att om inkommande tuple-frekvenser är låg, bör du justera topology.message.timeout_secs parameter, så att tuplerna inte har nått sin tids gräns när de buffras eller bearbetas.
 
 ## <a name="monitor-your-topology-in-storm"></a>Övervaka din topologi i storm  
 När topologin körs kan du övervaka den i storm-användargränssnittet. Följande är de viktigaste parametrarna för att titta på:

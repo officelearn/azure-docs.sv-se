@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.openlocfilehash: f3f6e33c7c37089f7a9e87ab61bb00c966d8ccc7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90881906"
 ---
 # <a name="azure-functions-output-from-azure-stream-analytics"></a>Azure Functions utdata från Azure Stream Analytics
@@ -26,7 +26,7 @@ Azure Stream Analytics anropar Azure Functions via HTTP-utlösare. Azure Functio
 | --- | --- |
 | Funktionsapp |Namnet på din Azure Functions-app. |
 | Funktion |Namnet på funktionen i din Azure Functions-app. |
-| Nyckel |Om du vill använda en Azure-funktion från en annan prenumeration kan du göra det genom att ange nyckeln för att få åtkomst till din funktion. |
+| Tangent |Om du vill använda en Azure-funktion från en annan prenumeration kan du göra det genom att ange nyckeln för att få åtkomst till din funktion. |
 | Max storlek på batch |En egenskap som låter dig ange den maximala storleken för varje utgående batch som skickas till din Azure-funktion. Den inkommande enheten är i byte. Som standard är det här värdet 262 144 byte (256 KB). |
 | Max antal batchar  |En egenskap som gör att du kan ange det maximala antalet händelser i varje batch som skickas till Azure Functions. Standardvärdet är 100. |
 

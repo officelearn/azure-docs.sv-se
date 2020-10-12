@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 02/27/2017
 ROBOTS: NOINDEX
 ms.openlocfilehash: ad5595f7eebc8feca2f00a6f95e10c547ded9529
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383742"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Fel hantering av metod tips för ADAL-klienter (Azure Active Directory Authentication Library)
@@ -545,7 +545,7 @@ För att utforska vissa ADAL-fel är käll koden i [databasen Azure-ActiveDirect
 
 iOS-fel kan uppstå under inloggningen när användarna använder webbvyer och typen av autentisering. Detta kan orsakas av villkor som TLS-fel, tids gränser eller nätverks fel:
 
-- För delning av rättigheter är inloggningar inte beständiga och cachen verkar vara tom. Du kan lösa problemet genom att lägga till följande kodrad i nyckel ringen:`[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
+- För delning av rättigheter är inloggningar inte beständiga och cachen verkar vara tom. Du kan lösa problemet genom att lägga till följande kodrad i nyckel ringen: `[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
 - För den NsUrlDomain uppsättningen av fel ändras åtgärden beroende på appens logik. Se [NSURLErrorDomain Reference documentation](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations) för vissa instanser som kan hanteras.
 - Se [ADAL OBJ-C vanliga problem](https://github.com/AzureAD/azure-activedirectory-library-for-objc#adauthenticationerror) för att visa en lista över vanliga fel som hanteras av ADAL-teamet för mål-c.
 

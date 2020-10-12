@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
 ms.openlocfilehash: 5705eedfb919c792c558384f6309325dcded4b43
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86146609"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Skapa brand Väggs principer för webb program för Application Gateway
@@ -29,14 +29,14 @@ Om din Application Gateway har en princip tillämpad och du tillämpar en annan 
 
 Alla nya WAF-inställningar för webb program brand väggen (anpassade regler, hanterade rulset-konfigurationer, undantag osv.) i en WAF-princip. Om du har en befintlig WAF kan de här inställningarna fortfarande finnas i WAF-konfigurationen. Anvisningar om hur du flyttar till den nya WAF-principen finns i [migrera din WAF-konfiguration till WAF-princip](#migrate) senare i den här artikeln. 
 
-## <a name="create-a-policy"></a>Skapa en princip
+## <a name="create-a-policy"></a>Skapa en policy
 
 Börja med att skapa en grundläggande WAF-princip med en hanterad standard regel uppsättning (DRS) med hjälp av Azure Portal.
 
 1. Välj **skapa en resurs**på den övre vänstra sidan i portalen. Sök efter **WAF**, Välj **brand vägg för webbaserade program**och välj sedan **skapa**.
 2. På sidan **skapa en princip för WAF** , fliken **grundläggande** , ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **Granska + skapa**:
 
-   |Inställning  |Värde  |
+   |Inställningen  |Värde  |
    |---------|---------|
    |Princip för     |Regional WAF (Application Gateway)|
    |Prenumeration     |Välj ditt prenumerations namn|
@@ -44,14 +44,14 @@ Börja med att skapa en grundläggande WAF-princip med en hanterad standard rege
    |Principnamn     |Ange ett unikt namn för WAF-principen.|
 3. Ange någon av följande inställningar på fliken **Association** och välj sedan **Lägg till**:
 
-   |Inställning  |Värde  |
+   |Inställningen  |Värde  |
    |---------|---------|
    |Associera Application Gateway     |Välj ditt Application Gateway profil namn.|
    |Associera lyssnare     |Välj namnet på din Application Gateway lyssnare och välj sedan **Lägg till**.|
 
    > [!NOTE]
    > Om du tilldelar en princip till din Application Gateway (eller lyssnare) som redan har en princip på plats skrivs den ursprungliga principen över och ersätts av den nya principen.
-4. Välj **Granska + skapa**och välj sedan **skapa**.
+4. Välj **Granska + skapa** och välj sedan **Skapa**.
 
    ![Grundläggande om WAF-principer](../media/create-waf-policy-ag/waf-policy-basics.png)
 

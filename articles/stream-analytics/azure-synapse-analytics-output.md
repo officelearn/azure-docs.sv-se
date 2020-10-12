@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.openlocfilehash: 04c315f593b90204faaeaec562c18e9e4be301d8
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90881888"
 ---
 # <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Azure Synapse Analytics-utdata från Azure Stream Analytics
@@ -34,7 +34,7 @@ I följande tabell visas egenskaps namn och beskrivningar för att skapa am Azur
 |Databas |SQL-poolnamn där du ska skicka utdata. |
 |Servernamn |Namn på Azure Synapse-Server.  |
 |Användarnamn |Det användar namn som har Skriv behörighet till databasen. Stream Analytics stöder endast SQL-autentisering. |
-|Lösenord |Lösen ordet för att ansluta till databasen. |
+|lösenordsinställning |Lösen ordet för att ansluta till databasen. |
 |Tabell  | Tabell namnet där utdata skrivs. Tabell namnet är Skift läges känsligt. Schemat för den här tabellen ska exakt matcha det antal fält och deras typer som jobbets utdata genererar.|
 
 ## <a name="next-steps"></a>Nästa steg

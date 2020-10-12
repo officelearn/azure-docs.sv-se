@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
 ms.openlocfilehash: d43b879057001d62ea72bd2e011ad52957d47470
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78189043"
 ---
 ## <a name="sample-templates"></a>Exempelmallar
@@ -27,12 +27,12 @@ Så här använder du exemplet:
 
 1. Klona lagrings platsen på den lokala datorn. Välj en mall-mapp `/ocean_blue` eller `/slate_gray` .
 1. Ladda upp alla filer under mappen mallar och `/assets` mappen till Blob Storage enligt beskrivningen i föregående avsnitt.
-1. Sedan öppnar du varje `\*.html` fil i roten för antingen `/ocean_blue` eller `/slate_gray` , ersätter alla instanser av relativa URL: er med URL: er för de CSS-, bilder-och fonts-filer som du laddade upp i steg 2. Ett exempel:
+1. Sedan öppnar du varje `\*.html` fil i roten för antingen `/ocean_blue` eller `/slate_gray` , ersätter alla instanser av relativa URL: er med URL: er för de CSS-, bilder-och fonts-filer som du laddade upp i steg 2. Exempel:
     ```html
     <link href="./css/assets.css" rel="stylesheet" type="text/css" />
     ```
 
-    Till
+    Om du vill
     ```html
     <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
     ```

@@ -8,18 +8,18 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 64b8956c47cbdbf31bb8253dac0c1e1f12833bf7
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171779"
 ---
 # <a name="advanced-filtering"></a>Avancerad filtrering
 Med Event Grid kan du ange filter för alla egenskaper i JSON-nyttolasten. Dessa filter modelleras som `AND` en uppsättning villkor, med varje yttre villkor som har valfria inre `OR` villkor. För varje `AND` villkor anger du följande värden:
 
-* `OperatorType`– Typen av jämförelse.
-* `Key`– JSON-sökvägen till egenskapen som filtret ska tillämpas på.
-* `Value`– Referensvärdet som filtret körs mot (eller) `Values` – den uppsättning referens värden som filtret körs mot.
+* `OperatorType` – Typen av jämförelse.
+* `Key` – JSON-sökvägen till egenskapen som filtret ska tillämpas på.
+* `Value` – Referensvärdet som filtret körs mot (eller) `Values` – den uppsättning referens värden som filtret körs mot.
 
 ## <a name="json-syntax"></a>JSON-syntax
 
@@ -55,7 +55,7 @@ För operatörer som har stöd för flera värden (till exempel `NumberIn` ,, `N
 > [!CAUTION]
 > Operatorerna NOT- `NumberNotIn` och `StringNotIn` fungerar som-och-villkor för varje värde som anges i `Values` fältet.
 >
-> Om du inte gör det blir filtret acceptera – alla filter och manipulation av filtrerings syftet.
+> Om du inte gör det blir filtret ett Accept-All filtrerat och manipulations syftet med filtreringen.
 
 ## <a name="floating-point-rounding-behavior"></a>Avrundat beteende för svävande punkt
 

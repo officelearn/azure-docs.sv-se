@@ -4,10 +4,10 @@ description: Skapa en SSL-eller TLS-slutpunkt för en behållar grupp som körs 
 ms.topic: article
 ms.date: 07/02/2020
 ms.openlocfilehash: f7f5d8e8136f4357067888f5a39fa0c3635122d1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86169858"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Aktivera en TLS-slutpunkt i en sidvagn-behållare
@@ -40,7 +40,7 @@ openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 
 Följ anvisningarna för att lägga till identifierings informationen. För eget namn anger du det värdnamn som är associerat med certifikatet. När du uppmanas att ange ett lösen ord trycker du på RETUR utan att skriva för att hoppa över tillägg av lösen ord.
 
-Kör följande kommando för att skapa det självsignerade certifikatet (. CRT-filen) från certifikat förfrågan. Till exempel:
+Kör följande kommando för att skapa det självsignerade certifikatet (. CRT-filen) från certifikat förfrågan. Exempel:
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt

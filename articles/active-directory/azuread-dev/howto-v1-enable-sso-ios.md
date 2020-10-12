@@ -16,10 +16,10 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 08b018082c753b9524cb12a72d637fe5458d9114
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383707"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Gör så här: aktivera enkel inloggning mellan appar på iOS med ADAL
@@ -46,7 +46,7 @@ Den här instruktionen förutsätter att du vet hur du:
 * Etablera din app med hjälp av den äldre portalen för Azure AD. Mer information finns i [Registrera en app](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 * Integrera ditt program med [Azure AD iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
-## <a name="single-sign-on-concepts"></a>Koncept för enkel inloggning
+## <a name="single-sign-on-concepts"></a>Begrepp för enkel inloggning
 
 ### <a name="identity-brokers"></a>Identitets hanterare
 
@@ -175,11 +175,11 @@ För att identitets plattformen ska kunna dela tokens i dina program, måste var
 
 Med omdirigerings-URI: er kan du identifiera olika appar för Microsoft Identity service om den använder samma program-ID. Varje program kan ha flera omdirigerings-URI: er registrerade i onboarding-portalen. Varje app i din svit har en annan omdirigerings-URI. Ett exempel på hur det ser ut är nedan:
 
-APP1 omdirigerings-URI:`x-msauth-mytestiosapp://com.myapp.mytestapp`
+APP1 omdirigerings-URI: `x-msauth-mytestiosapp://com.myapp.mytestapp`
 
-APP2 omdirigerings-URI:`x-msauth-mytestiosapp://com.myapp.mytestapp2`
+APP2 omdirigerings-URI: `x-msauth-mytestiosapp://com.myapp.mytestapp2`
 
-App3 omdirigerings-URI:`x-msauth-mytestiosapp://com.myapp.mytestapp3`
+App3 omdirigerings-URI: `x-msauth-mytestiosapp://com.myapp.mytestapp3`
 
 ....
 
@@ -239,7 +239,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 > [!WARNING]
 > När du delar en nyckel Ring i dina program kan alla program ta bort användare eller förvärra alla tokens i programmet. Detta är särskilt katastrofal om du har program som är beroende av att token ska fungera i bakgrunden. Delning av en nyckel Ring innebär att du måste vara mycket försiktig i alla och alla borttagnings åtgärder via identitets-SDK: er.
 
-Klart! SDK kommer nu att dela autentiseringsuppgifter för alla dina program. Användar listan kommer också att delas mellan program instanser.
+Det är allt. SDK kommer nu att dela autentiseringsuppgifter för alla dina program. Användar listan kommer också att delas mellan program instanser.
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>Aktivera SSO för Service Broker via enkel inloggning
 

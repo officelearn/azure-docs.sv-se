@@ -9,13 +9,13 @@ ms.date: 03/03/2020
 ms.author: barbkess
 ms.custom: references_regions
 ms.openlocfilehash: b720d9dd824018d885ccc9860ee9fd8a90a46051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84194323"
 ---
-# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Business Continuity and Disaster Recovery (BCDR): Azure-kopplade områden
+# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Affärskontinuitet och haveriberedskap (BCDR): Länkade Azure-regioner
 
 ## <a name="what-are-paired-regions"></a>Vad är kopplade regioner?
 
@@ -49,7 +49,7 @@ Nej. Kunder kan använda Azure-tjänster för att skapa en elastisk tjänst utan
 
 | Geografi | Regionalt par A | Regionalt par B  |
 |:--- |:--- |:--- |
-| Asien och Stilla havs området |Asien, östra (Hongkong) | Sydostasien (Singapore) |
+| Asia-Pacific |Asien, östra (Hongkong) | Sydostasien (Singapore) |
 | Australien |Australien, östra |Australien, sydöstra |
 | Australien |Australien, centrala |Australien, centrala 2 |
 | Brasilien |Brasilien, södra |USA, södra centrala |
@@ -63,8 +63,8 @@ Nej. Kunder kan använda Azure-tjänster för att skapa en elastisk tjänst utan
 | Indien |Indien, västra |Indien, södra |
 | Japan |Japan, östra |Japan, västra |
 | Korea |Sydkorea, centrala |Sydkorea, södra |
-| Nordamerika |USA, östra |USA, västra |
-| Nordamerika |USA, östra 2 |USA, centrala |
+| Nordamerika |East US |USA, västra |
+| Nordamerika |USA, östra 2 |Central US |
 | Nordamerika |USA, norra centrala |USA, södra centrala |
 | Nordamerika |USA, västra 2 |USA, västra centrala |
 | Norge | Östra Norge | Norge, väst |
@@ -72,7 +72,7 @@ Nej. Kunder kan använda Azure-tjänster för att skapa en elastisk tjänst utan
 | Schweiz | Schweiz, norra |Schweiz, västra |
 | Storbritannien |Storbritannien, västra |Storbritannien, södra |
 | Förenade Arabemiraten | Förenade Arabemiraten, norra | Förenade Arabemiraten Central
-| OSS-försvars departement |USA DoD, östra |USA DoD, centrala |
+| USA:s försvarsdepartement |USA DoD, östra |USA DoD, centrala |
 | US Government |US Gov, Arizona |US Gov, Texas |
 | US Government |USA Gov, Iowa |US Gov, Virginia |
 | US Government |US Gov, Virginia |US Gov, Texas |
@@ -104,7 +104,7 @@ Som det hänvisas till i bild 2.
 
 5. **Fysisk isolering** – när det är möjligt föredrar Azure minst 300 miles av separering mellan data Center i ett regionalt par, även om detta inte är praktiskt eller möjligt i alla geografiska områden. Separation av fysiskt Data Center minskar sannolikheten för natur katastrofer, civila rester, strömavbrott eller fysiska nätverks avbrott som påverkar båda regionerna samtidigt. Isoleringen omfattas av begränsningarna inom geografin (geografisk storlek, tillgänglighet för ström-/nätverks infrastruktur, regler osv.).  
 
-6. **Plattforms oberoende replikering** – vissa tjänster som Geo-redundant lagring ger automatisk replikering till den kopplade regionen.
+6. **Plattforms oberoende replikering** – vissa tjänster som Geo-Redundant Storage tillhandahåller automatisk replikering till den kopplade regionen.
 
 7. **Region återställnings ordning** – i händelse av ett brett avbrott prioriteras återställning av en region av varje par. Program som distribueras i länkade regioner körs då garanterat i minst en prioriterad region. Om ett program distribueras mellan regioner som inte paras ihop, kan återställningen bli fördröjd – i värsta fall kan de valda regionerna vara de två sista som ska återställas.
 

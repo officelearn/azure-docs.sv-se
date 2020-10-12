@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: bdafb4288bf818928aba43d09f15d4dd75092b24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85564231"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Ersätta en EBOD-kontrollant på din StorSimple-enhet
@@ -41,7 +41,7 @@ I den här självstudien beskrivs hur du ersätter en trasig EBOD-kontrollant p�
 Innan du ersätter modulen EBOD i StorSimple-enheten kontrollerar du att den andra EBOD Controller-modulen är aktiv och körs. I följande procedur och tabell förklaras hur du tar bort modulen EBOD Controller.
 
 #### <a name="to-remove-an-ebod-module"></a>Ta bort en EBOD-modul
-1. Öppna Azure Portal.
+1. Öppna Azure-portalen.
 2. Gå till din enhet och gå till **Inställningar**  >  **maskin varu hälsa**och kontrol lera att status för lysdioden för modulen Active EBOD Controller är grön och att indikatorn för modulen för EBOD Controller är röd.
 3. Leta reda på modulen för den felande EBOD på bak sidan av enheten.
 4. Ta bort de kablar som ansluter modulen EBOD Controller till kontrollanten innan du tar EBOD-modulen ur systemet.

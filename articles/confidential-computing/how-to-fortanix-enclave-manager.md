@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
 ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462436"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Så här gör du: kör ett program med Fortanix enklaven Manager 
@@ -28,12 +28,12 @@ Fortanix är en tredjeparts program varu leverantör med produkter och tjänster
 
 
 
-Den här självstudien visar hur du konverterar program avbildningen till en konfidentiellt Compute-skyddad avbildning. I den här miljön används [Fortanix](https://www.fortanix.com/) -programvara som drivs av Azures DCsv2-serien Intel SGX-aktiverade virtuella datorer. Den här lösningen dirigerar kritiska säkerhets principer, till exempel identitets verifiering och data åtkomst kontroll.
+Den här självstudien visar hur du konverterar program avbildningen till en konfidentiellt Compute-skyddad avbildning. I den här miljön används [Fortanix](https://www.fortanix.com/) -programvara som drivs av azures DCsv2-Series Intel SGX-aktiverade virtuella datorer. Den här lösningen dirigerar kritiska säkerhets principer, till exempel identitets verifiering och data åtkomst kontroll.
 
  För Fortanix support ansluter du till Fortanix- [slack-communityn](https://fortanix.com/community/) och använder kanal #enclavemanager.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Om du inte har ett Fortanix enklaven Manager-konto måste du [Registrera](https://em.fortanix.com/auth/sign-up) dig innan du börjar.
 1. Ett privat [Docker](https://docs.docker.com/) -register för att skicka konverterade program avbildningar.
@@ -117,10 +117,10 @@ Om du skapar en Fortanix-Node-agent distribueras en virtuell dator, ett nätverk
      ![Sök på Marketplace](media/how-to-fortanix-enclave-manager/search-fortanix-marketplace.png)
 1. Välj **Hämta nu**, Fyll i din information om det behövs och välj **Fortsätt**. Du kommer att omdirigeras till Azure Portal. 
 1. Välj **skapa** för att ange distributions sidan för Fortanix-konfidentiell dator hantering.
-1. På den här sidan anger du information för att distribuera en virtuell dator. Mer specifikt är den virtuella datorn en DCsv2-serien Intel SGX-aktiverad virtuell dator från Azure med Fortanix Node Agent-programvara installerad. Med Node-agenten kan den konverterade avbildningen köras säkert på Intel SGX-noder i Azure.  Välj den **prenumeration** och **resurs grupp** där du vill distribuera den virtuella datorn och de tillhör ande resurserna. 
+1. På den här sidan anger du information för att distribuera en virtuell dator. Mer specifikt är den virtuella datorn en DCsv2-Series Intel SGX-aktiverad virtuell dator från Azure med Fortanix Node Agent-programvara installerad. Med Node-agenten kan den konverterade avbildningen köras säkert på Intel SGX-noder i Azure.  Välj den **prenumeration** och **resurs grupp** där du vill distribuera den virtuella datorn och de tillhör ande resurserna. 
  
     > [!NOTE]
-    > Det finns begränsningar när du distribuerar virtuella datorer i DCsv2-serien i Azure. Du kan behöva begära kvot för ytterligare kärnor. Läs om [konfidentiella data behandlings lösningar på virtuella Azure-datorer](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) för mer information. 
+    > Det finns begränsningar när du distribuerar DCsv2-Series virtuella datorer i Azure. Du kan behöva begära kvot för ytterligare kärnor. Läs om [konfidentiella data behandlings lösningar på virtuella Azure-datorer](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) för mer information. 
 
 1. Välj en tillgänglig region.
 1. Ange ett namn för den virtuella datorn i fältet **nodnamn** . 

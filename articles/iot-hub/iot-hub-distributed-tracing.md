@@ -14,10 +14,10 @@ ms.custom:
 - fasttrack-edit
 - iot
 ms.openlocfilehash: 3e3dd49c622c1a35571fdb53af470789dc9a26bb
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462045"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Spåra Azure IoT-meddelanden från enhet till moln med distribuerad spårning (för hands version)
@@ -35,7 +35,7 @@ Genom att aktivera distribuerad spårning för IoT Hub kan du:
 
 I den här artikeln använder du [Azure IoT-enhetens SDK för C](iot-hub-device-sdk-c-intro.md) med distribuerad spårning. Stöd för distribuerad spårning pågår fortfarande för de andra SDK: erna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - För hands versionen av Distributed tracing stöds för närvarande bara för IoT-hubbar som skapats i följande regioner:
 
@@ -169,7 +169,7 @@ Dessa anvisningar är till för att bygga exemplet på Windows. Andra miljöer f
     cmake --build . --target iothub_ll_telemetry_sample --config Debug
     ```
 
-1. Kör programmet. Enheten skickar telemetri som stöder distribuerad spårning.
+1. Kör appen. Enheten skickar telemetri som stöder distribuerad spårning.
 
     ```cmd
     Debug/iothub_ll_telemetry_sample.exe

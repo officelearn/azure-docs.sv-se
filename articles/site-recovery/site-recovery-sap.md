@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: 7b4a622de142fd44b64015c8238f44dafc34ce72
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86133697"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Konfigurera haveri beredskap för en distribution med flera nivåer av SAP NetWeaver-appar
@@ -24,7 +24,7 @@ Med Site Recovery kan du:
 
 Du kan skydda SAP NetWeaver program distributioner med hjälp av [Azure Site Recovery](site-recovery-overview.md). Den här artikeln beskriver metod tips för att skydda en SAP NetWeaver-distribution på tre nivåer i Azure när du replikerar till ett annat Azure-datacenter med hjälp av Site Recovery. I artikeln beskrivs scenarier och konfigurationer som stöds och hur du utför redundanstest (haveri beredskap) och faktiska redundans.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att du vet hur du gör följande uppgifter:
 
@@ -117,7 +117,7 @@ Om du vill börja replikera alla virtuella SAP-program till data centret för Az
 
 * Läs mer om [hur du skyddar SQL Server genom att](site-recovery-sql.md)läsa mer om hur du skyddar databas nivån som körs på SQL Server.
 
-## <a name="networking-configuration"></a>Nätverks konfiguration
+## <a name="networking-configuration"></a>Nätverkskonfiguration
 
 Om du använder en statisk IP-adress kan du ange den IP-adress som du vill att den virtuella datorn ska ta. Om du vill ange IP-adressen går du till nätverkskortet **beräknings-och nätverks inställningar**  >  **Network interface card**.
 
@@ -141,7 +141,7 @@ Du kan distribuera de mest använda Site Recovery-skripten till ditt Azure Autom
 [![Distribuera till Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Lägg till ett skript före åtgärd i grupp 1 om du vill redundansväxla SQL Server tillgänglighets gruppen. Använd skriptet ASR-SQL-FailoverAG som publicerats i exempel skripten. Följ anvisningarna i skriptet och gör de nödvändiga ändringarna i skriptet på lämpligt sätt.
-1. Lägg till ett skript för efter åtgärd för att koppla en belastningsutjämnare till de misslyckade virtuella datorerna på webb nivån (grupp 1). Använd skriptet ASR-AddSingleLoadBalancer som publicerats i exempel skripten. Följ anvisningarna i skriptet och gör nödvändiga ändringar i skriptet efter behov.
+1. Lägg till ett skript för efter åtgärd för att koppla en belastningsutjämnare till de misslyckade virtuella datorerna på webb nivån (grupp 1). Använd ASR-AddSingleLoadBalancer-skriptet som publicerats i exempel skripten. Följ anvisningarna i skriptet och gör nödvändiga ändringar i skriptet efter behov.
 
 ![SAP-återställnings plan](./media/site-recovery-sap/sap_recovery_plan.png)
 

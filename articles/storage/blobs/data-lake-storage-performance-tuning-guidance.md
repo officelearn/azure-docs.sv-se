@@ -9,10 +9,10 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: a1ae0971b016ed226351167cfabfca7d3cafd19f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87905413"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optimera Azure Data Lake Storage Gen2 för prestanda
@@ -45,9 +45,9 @@ När du har adresserat käll maskin varan och nätverks anslutningens Flask hals
 
 | Verktyg               | Inställningar     | Mer information                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| DistCp            | -m (mapper)   | [Länk](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies    | [Länk](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | FS. Azure. block. size,-m (mapper)    |   [Länk](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| DistCp            | -m (mapper)   | [Operationsföljdslänkkod](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
+| Azure Data Factory| parallelCopies    | [Operationsföljdslänkkod](../../data-factory/copy-activity-performance.md)                          |
+| Sqoop           | FS. Azure. block. size,-m (mapper)    |   [Operationsföljdslänkkod](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>Strukturera din data uppsättning
 

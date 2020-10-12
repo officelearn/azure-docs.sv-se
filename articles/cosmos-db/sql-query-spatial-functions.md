@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 87d73787998d1a49d7512723b212c26b7107513f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85559807"
 ---
 # <a name="spatial-functions-azure-cosmos-db"></a>Spatiala funktioner (Azure Cosmos DB)
@@ -38,4 +38,4 @@ Följande skalära funktioner utför en åtgärd på ett värde för spatialdata
 - [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)
 - [Användardefinierade funktioner](sql-query-udfs.md)
-- [Samlingar](sql-query-aggregates.md)
+- [Aggregeringar](sql-query-aggregates.md)

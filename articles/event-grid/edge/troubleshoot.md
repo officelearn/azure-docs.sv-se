@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 0196522618d4b61f615f7cc6faeacbe9a8c7c5b4
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171354"
 ---
 # <a name="common-issues"></a>Vanliga problem
@@ -100,7 +100,7 @@ Vanliga orsaker till detta är:
 
 * Logga in på den virtuella datorn där Event Grid modul distribueras och visa dess loggar.
 
-* Aktivera loggning per leverans genom att ställa in **Service Broker: logDeliverySuccess = True** och omdistribuera Event Grid-modulen och försöka utföra begäran igen. Att aktivera loggning per leverans kan påverka data flödet och svars tiden, så när fel sökningen är klar är vår rekommendation att aktivera **Service Broker igen: logDeliverySuccess = false** och omdistribution av event Grid modul.
+* Aktivera loggning per leverans genom att ställa in **Service Broker: logDeliverySuccess = True** och omdistribuera Event Grid-modulen och försöka utföra begäran igen. Att aktivera loggning per leverans kan påverka data flödet och svars tiden, så när fel sökningen är klar är vår rekommendation att aktivera **Service Broker igen: logDeliverySuccess = false**  och omdistribution av event Grid modul.
 
 * Aktivera mått genom att ange **mått: reportertype = konsol** och omdistribuera Event Grid modul. Alla åtgärder efter detta leder till att måtten loggas i konsolen för Event Grid modul, som kan användas för att felsöka ytterligare. Vi rekommenderar att du aktiverar mått endast för fel sökning och när du har slutfört den genom att ange **mått: reportertype = ingen** och omdistribuera Event Grid modul.
 

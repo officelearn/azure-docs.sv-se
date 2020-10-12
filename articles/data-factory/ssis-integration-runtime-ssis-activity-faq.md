@@ -12,10 +12,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
 ms.openlocfilehash: 9b331ccee183ec101cf3449f12b4f656a1325819
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84118100"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Felsöka paket körning i SSIS integration runtime
@@ -76,8 +76,8 @@ Det här felet innebär att den lokala disken används i SSIS-noden för integra
     * Om du använder Azure-fil:
       * Fil Sök vägen ska börja med \\ \\ \<storage account name\> . File.Core.Windows.net\\\<file share path\>
       * Domänen ska vara "Azure"
-      * Användar namnet ska vara\<storage account name\>
-      * Lösen ordet ska vara\<storage access key\>
+      * Användar namnet ska vara \<storage account name\>
+      * Lösen ordet ska vara \<storage access key\>
     * Om du använder en lokal fil kontrollerar du om VNet, paket åtkomst behörighet och behörighet har kon figurer ATS korrekt så att din Azure-SSIS integration runtime kan komma åt din lokala fil resurs
 
 ### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>Fel meddelande: "fil namnet"... angavs i anslutningen var inte giltigt.
@@ -136,36 +136,36 @@ En möjlig orsak är att Transport Layer Security (TLS) inte är aktiverat i SSI
 
 ### <a name="error-message-request-staging-task-with-operation-guid--fail-since-error-failed-to-dispatch-staging-operation-with-error-message-microsoftsqlserverintegrationservicesaisagentcoreaisagentexception-failed-to-load-data-proxy"></a>Fel meddelande: "begär mellanlagrings uppgift med åtgärds-GUID... misslyckades eftersom fel: det gick inte att skicka mellanlagrings åtgärd med fel meddelande: Microsoft. SqlServer. IntegrationServices. AisAgentCore. AisAgentException: det gick inte att läsa in dataproxy.
 
-Se till att din Azure-SSIS integration Runtime har kon figurer ATS med integration runtime med egen värd. Mer information finns i [Konfigurera egen värd-IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md).
+Kontrol lera att Azure-SSIS integration Runtime har kon figurer ATS med Self-Hosted integration Runtime. Mer information finns i [konfigurera Self-Hosted IR som en proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md).
 
 ### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2010-errormessage-the-self-hosted-integration-runtime--is-offline"></a>Fel meddelande: "status för mellanlagring av aktivitet: misslyckades. Fel vid mellanlagring: felkod: 2010, ErrorMessage: den egna värd Integration Runtime... är offline "
 
-Kontrol lera att din egen värd för integration runtime är installerad och igång. Mer information finns i [skapa och konfigurera en integration runtime med egen värd](create-self-hosted-integration-runtime.md)
+Kontrol lera att Self-Hosted integration Runtime har installerats och startats. Mer information finns i [skapa och konfigurera en integration runtime med egen värd](create-self-hosted-integration-runtime.md)
 
 ### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-the-requested-ole-db-provider--is-not-registered-if-the-64-bit-driver-is-not-installed-run-the-package-in-32-bit-mode"></a>Fel meddelande: "mellanlagrings åtgärds fel: felkod: 2906, ErrorMessage: det gick inte att köra paketet., utdata: {" OperationErrorMessages ":" fel: den begärda OLE DB providern... är inte registrerad. Om 64-bitars driv rutinen inte är installerad kör du paketet i 32-bitars läge... "
 
-Se till att motsvarande provider som används av dina OLE DB-anslutningar i paketet är installerade på den lokala integration runtime-datorn korrekt. Mer information finns i [Konfigurera egen värd-IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
+Kontrol lera att motsvarande provider som används av dina OLE DB-kopplingar i paketet är installerade på Self-Hosted integration runtime-datorn korrekt. Mer information finns i [konfigurera Self-Hosted IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
 ### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>Fel meddelande: "mellanlagrings åtgärds fel: felkod: 2906, ErrorMessage: det gick inte att köra paketet., utdata: {" OperationErrorMessages ":" fel: system. IO. FileLoadException: det gick inte att läsa in filen eller sammansättningen "Microsoft. WindowsAzure. Storage, version =..., Culture = neutral, PublicKeyToken = 31bf3856ad364e35" eller något av dess beroenden. Den Funna sammansättningens manifest definition matchar inte sammansättnings referensen. ..."
 
-En möjlig orsak är att integration runtime med egen värd inte har installerats eller uppgraderats korrekt. Föreslå att ladda ned och installera om den senaste integrerings körningen med egen värd. Mer information finns i [skapa och konfigurera en integration runtime med egen värd](create-self-hosted-integration-runtime.md#installation-best-practices)
+En möjlig orsak är att Self-Hosted integration runtime inte har installerats eller uppgraderats korrekt. Föreslå att ladda ned och installera om den senaste integrerings körningen med egen värd. Mer information finns i [skapa och konfigurera en integration runtime med egen värd](create-self-hosted-integration-runtime.md#installation-best-practices)
 
 ### <a name="error-message-a-connection-is-required-when-requesting-metadata-if-you-are-working-offline-uncheck-work-offline-on-the-ssis-menu-to-enable-the-connection"></a>Fel meddelande: "en anslutning krävs när metadata begärs. Om du arbetar offline avmarkerar du arbeta offline på SSIS-menyn för att aktivera anslutningen.
 
 * Möjlig orsak och rekommenderad åtgärd:
-  * Om det också finns ett varnings meddelande om att komponenten inte stöder användning av anslutnings hanteraren med värdet true i ConnectByProxy i körnings loggen, innebär det att en anslutnings hanterare används på en komponent som inte har stöd för "ConnectByProxy" än. De komponenter som stöds finns i [Konfigurera egen värd-IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy)
+  * Om det också finns ett varnings meddelande om att komponenten inte stöder användning av anslutnings hanteraren med värdet true i ConnectByProxy i körnings loggen, innebär det att en anslutnings hanterare används på en komponent som inte har stöd för "ConnectByProxy" än. De komponenter som stöds finns i [konfigurera Self-Hosted IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy)
   * Du kan hitta körnings loggen i [SSMS-rapporten](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) eller i den loggfil som du angav i SSIS-paketets körnings aktivitet.
   * vNet kan också användas för att komma åt lokala data som ett alternativ. Mer information finns i delta i en [Azure-SSIS integration runtime till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md)
 
 ### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Fel meddelande: "status för mellanlagring av aktivitet: misslyckades. Fel vid mellanlagring: felkod: 2906, ErrorMessage: det gick inte att köra paketet., utdata: {"OperationErrorMessages": "SSIS utförar slutkod:-1. \ n", "LogLocation": "... \\ SSISTelemetry \\ ExecutionLog \\ ... "," effectiveIntegrationRuntime ":"... "," executionDuration ":...," durationInQueue ": {" integrationRuntimeQueue ":...}}"
 
-Se till att Visual C++ runtime är installerat på en dator med egen värd för integration Runtime. Mer information finns i [Konfigurera egen värd-IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
+Kontrol lera att Visual C++ runtime är installerat på Self-Hosted integration runtime Machine. Mer information finns i [konfigurera Self-Hosted IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
 ### <a name="multiple-package-executions-are-triggered-unexpectedly"></a>Flera paket körningar utlöses oväntade
 
 * Möjlig orsak och rekommenderad åtgärd:
   * ADF-lagrad procedur aktivitet eller söknings aktivitet används för att utlösa körning av SSIS-paket. T-SQL-kommandot kan nå ett tillfälligt problem och utlösa omkörningen vilket skulle orsaka flera paket körningar.
-  * Använd ExecuteSSISPackage-aktivitet i stället för att se till att paket körningen inte körs igen om inte antalet nya försök i aktiviteten. Information finns på[https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
+  * Använd ExecuteSSISPackage-aktivitet i stället för att se till att paket körningen inte körs igen om inte antalet nya försök i aktiviteten. Information finns på [https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
   * Förfina t-SQL-kommandot för att kunna köra igen genom att kontrol lera om en körning redan har utlösts
 
 ### <a name="package-execution-takes-too-long"></a>Paket körningen tar för lång tid

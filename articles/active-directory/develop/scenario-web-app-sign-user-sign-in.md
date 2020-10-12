@@ -12,10 +12,10 @@ ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: 28bbe1432777e9e15ae625fb9788f9182495bd66
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87845093"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Webbapp som loggar in användare: inloggning och utloggning
@@ -108,7 +108,7 @@ def index():
 
 ---
 
-### <a name="signin-action-of-the-controller"></a>`SignIn`åtgärd för kontrollanten
+### <a name="signin-action-of-the-controller"></a>`SignIn` åtgärd för kontrollanten
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -221,7 +221,7 @@ Mer information finns i avsnittet [skicka en utloggnings förfrågan](v2-protoco
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Under program registreringen registrerar du en URI för efter utloggning. I den här självstudien har du registrerat `https://localhost:44321/signout-oidc` i fältet **Logga in URL** i avsnittet **Avancerade inställningar** på sidan **autentisering** . Mer information finns i [Registrera webApp-appen](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
+Under program registreringen registrerar du en URI för efter utloggning. I den här självstudien har du registrerat `https://localhost:44321/signout-oidc` i fältet **Logga in URL** i avsnittet **Avancerade inställningar** på sidan **autentisering** . Mer information finns i [ Registrera webApp-appen](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -325,7 +325,7 @@ I python-snabb starten finns knappen Logga ut i filen [templates/index.html # L1
 
 ---
 
-### <a name="signout-action-of-the-controller"></a>`SignOut`åtgärd för kontrollanten
+### <a name="signout-action-of-the-controller"></a>`SignOut` åtgärd för kontrollanten
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 

@@ -6,13 +6,13 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.openlocfilehash: c1915d108bf9465d3e5b8d6a55053b583ee4f580
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88184626"
 ---
-# <a name="troubleshoot-azure-vm-extension-issues"></a>Felsök problem med Azure VM-tillägg
+# <a name="troubleshoot-azure-vm-extension-issues"></a>Felsöka problem som gäller Azure VM-tillägg
 
 Den här artikeln innehåller fel söknings steg som kan hjälpa dig att lösa Azure Site Recovery fel som rör VM-agenten och tillägget.
 
@@ -84,12 +84,12 @@ De flesta Agent-relaterade eller felrelaterade fel för virtuella Linux-datorer 
    > [!NOTE]
    > Vi *rekommenderar starkt* att du bara uppdaterar agenten via en distributions lagrings plats. Vi rekommenderar inte att du laddar ned agent koden direkt från GitHub och uppdaterar den. Om den senaste agenten för distributionen inte är tillgänglig kan du kontakta distributions supporten för instruktioner om hur du installerar den. Om du vill söka efter den senaste agenten går du till sidan [Windows Azure Linux-Agent](https://github.com/Azure/WALinuxAgent/releases) i GitHub-lagringsplatsen.
 
-1. Se till att Azure-agenten körs på den virtuella datorn genom att köra följande kommando:`ps -e`
+1. Se till att Azure-agenten körs på den virtuella datorn genom att köra följande kommando: `ps -e`
 
    Om processen inte körs startar du om den med hjälp av följande kommandon:
 
-   - För Ubuntu:`service walinuxagent start`
-   - För andra distributioner:`service waagent start`
+   - För Ubuntu: `service walinuxagent start`
+   - För andra distributioner: `service waagent start`
 
 1. [Konfigurera agenten för automatisk omstart](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 1. Aktivera skydd av den virtuella datorn.

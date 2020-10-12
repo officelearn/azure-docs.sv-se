@@ -9,15 +9,15 @@ ms.date: 03/04/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c3c9dbca6a76bf0b10a83087fc31d9fa41c6bd03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78331300"
 ---
 1. Från [Azure Portal](https://portal.azure.com) -menyn väljer du **skapa en resurs**. 
 
-   ![Skapa en resurs i Azure Portal](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
+   ![Skapa en resurs på Azure-portalen](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
 2. Skriv "Virtual Network Gateway" i fältet **Sök på Marketplace** . Leta upp **virtuell nätverksgateway** i Sök returen och välj posten. På sidan **virtuell nätverksgateway** väljer du **skapa**. Då öppnas sidan **Skapa virtuell nätverksgateway**.
 3. På fliken **grundläggande** fyller du i värdena för din virtuella nätverksgateway.
 
@@ -25,12 +25,12 @@ ms.locfileid: "78331300"
 
    ![Sid fält för att skapa virtuell nätverksgateway](./media/vpn-gateway-add-gw-rm-portal-include/gateway2.png "Sid fält för att skapa virtuell nätverksgateway")
 
-   **Projekt information**
+   **Projektinformation**
 
    - **Prenumeration**: Välj den prenumeration som du vill använda i list rutan.
    - **Resurs grupp**: den här inställningen fylls i när du väljer ditt virtuella nätverk på den här sidan.
 
-   **Instans information**
+   **Instansinformation**
 
    - **Namn**: namnge din gateway. Att namnge din gateway är inte samma sak som att namnge ett Gateway-undernät. Det här är namnet på det gatewayobjekt som du skapar.
    - **Region**: Välj den region där du vill skapa den här resursen. Regionen för gatewayen måste vara samma som det virtuella nätverket.

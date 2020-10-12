@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: dc0cf718ee51e23fb749bdf57d5344977de009d8
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88182229"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Distribuera virtuell StorSimple-matris för Cloud Solution Provider-program
@@ -29,7 +29,7 @@ StorSimple virtuella matris kan distribueras av CSP-partner (Cloud Solution Prov
 
 Den här artikeln beskriver hur en CSP-partner kan lägga till en kund eller en ny prenumeration på en befintlig kund och sedan skapa en tjänst för att distribuera en virtuell StorSimple-matris i CSP.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera att:
 

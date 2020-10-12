@@ -8,10 +8,10 @@ ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 16ee5fb59741d57f47083a0c5db852872ceb91d0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89296098"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Azures säkerhets bas linje för Logic Apps
@@ -646,7 +646,7 @@ Microsoft hanterar den underliggande infrastrukturen för Azure Logic Apps och h
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
 
-**Vägledning**: du kan endast tillåta vissa användare eller grupper att köra vissa uppgifter, till exempel hantera, redigera och Visa Logic Apps. Om du vill kontrol lera deras behörigheter använder du Azure rollbaserad Access Control (RBAC) så att du kan tilldela anpassade eller inbyggda roller till medlemmarna i din Azure-prenumeration:
+**Vägledning**: du kan endast tillåta vissa användare eller grupper att köra vissa uppgifter, till exempel hantera, redigera och Visa Logic Apps. Om du vill kontrol lera deras behörigheter använder du Azure Role-Based Access Control (RBAC) så att du kan tilldela anpassade eller inbyggda roller till medlemmarna i din Azure-prenumeration:
 
 - Logic app-deltagare: låter dig hantera Logi Kap par, men du kan inte ändra åtkomsten till dem.
 - Logic app-operator: låter dig läsa, aktivera och inaktivera Logic Apps, men du kan inte redigera eller uppdatera dem.
@@ -1190,13 +1190,13 @@ Testa återställning av säkerhetskopierade nycklar som hanteras av kunden. Obs
 
 Skydda säkerhets kopiering av Kundhanterade nycklar. Observera att detta endast gäller för Logic Apps som körs i integrerings tjänst miljöer (ISE).
 
-Aktivera mjuk borttagning och rensning av skydd i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
+Aktivera Soft-Delete och rensa skydd i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
 
 - [Lär dig mer om verksamhets kontinuitet och haveri beredskap för Azure Logic Apps](business-continuity-disaster-recovery-guidance.md)
 
 - [Konfigurera Kundhanterade nycklar för att kryptera data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps](customer-managed-keys-integration-service-environment.md)
 
-- [Så här aktiverar du skydd mot mjuk borttagning och rensning i Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Aktivera Soft-Delete och rensa skydd i Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Azure Security Center övervakning**: Ja
 

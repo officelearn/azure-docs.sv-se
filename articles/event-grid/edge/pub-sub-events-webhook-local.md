@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 2a7cc864366bd9a35c96dd453c0dc68f77d8abd9
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171456"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Självstudie: publicera, prenumerera på händelser lokalt
@@ -21,7 +21,7 @@ Den här artikeln vägleder dig igenom alla steg som behövs för att publicera 
 > [!NOTE]
 > Mer information om Azure Event Grid ämnen och prenumerationer finns i [Event Grid begrepp](concepts.md).
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 För att kunna slutföra den här självstudien behöver du:
 
 * **Azure-prenumeration** – skapa ett [kostnads fritt konto](https://azure.microsoft.com/free) om du inte redan har ett. 
@@ -54,7 +54,7 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
 1. Ange namn, avbildning, behållarens skapande alternativ för behållaren:
 
    * **Namn**: eventgridmodule
-   * **Bild-URI**:`mcr.microsoft.com/azure-event-grid/iotedge:latest`
+   * **Bild-URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Alternativ för att skapa behållare**:
 
    [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
@@ -95,7 +95,7 @@ I det här avsnittet visas hur du distribuerar en annan IoT-modul som fungerar s
 1. Ange namn, avbildning och behållar skapande alternativ för behållaren:
 
    * **Namn**: prenumerant
-   * **Bild-URI**:`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **Bild-URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Alternativ för att skapa behållare**: ingen
 1. Klicka på **Spara**
 1. Klicka på **Nästa** för att fortsätta till avsnittet vägar

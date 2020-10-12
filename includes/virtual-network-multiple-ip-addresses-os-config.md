@@ -9,10 +9,10 @@ ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: 93caf39216ef0479ec2799267a9ba8181f37f802
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84194197"
 ---
 ## <a name="add-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Lägg till IP-adresser till ett VM-operativsystem
@@ -138,7 +138,7 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 - Se till att ersätta:
     - **10.0.0.5** med den privata IP-adress som har en offentlig IP-adress som är kopplad till den
     - **10.0.0.1** till standard-gatewayen
-    - **ETH2** till namnet på ditt sekundära nätverkskort</details>
+    - **ETH2** till namnet på ditt sekundära nätverkskort </details>
 
 ### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04 +)
 <details>
@@ -182,7 +182,7 @@ Ubuntu 18,04 och senare har ändrats till `netplan` för nätverks hantering i o
     ```
 
 > [!NOTE]
-> `netplan try`ändringarna kommer att verkställas tillfälligt och ändringarna återställs efter 120 sekunder. Om anslutningen bryts kan du vänta 120 sekunder och sedan ansluta igen. Vid detta tillfälle kommer ändringarna att återställas.
+> `netplan try` ändringarna kommer att verkställas tillfälligt och ändringarna återställs efter 120 sekunder. Om anslutningen bryts kan du vänta 120 sekunder och sedan ansluta igen. Vid detta tillfälle kommer ändringarna att återställas.
 
 7. Om du inte antar några problem med `netplan try` tillämpar du konfigurations ändringarna:
 
@@ -236,7 +236,7 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 - Se till att ersätta:
     - **10.0.0.5** med den privata IP-adress som har en offentlig IP-adress som är kopplad till den
     - **10.0.0.1** till standard-gatewayen
-    - **ETH2** till namnet på ditt sekundära nätverkskort</details>
+    - **ETH2** till namnet på ditt sekundära nätverkskort </details>
 
 ### <a name="linux-red-hat-centos-and-others"></a>Linux (Red Hat, CentOS och andra)
 <details>
@@ -322,4 +322,4 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 - Se till att ersätta:
     - **10.0.0.5** med den privata IP-adress som har en offentlig IP-adress som är kopplad till den
     - **10.0.0.1** till standard-gatewayen
-    - **ETH2** till namnet på ditt sekundära nätverkskort</details>
+    - **ETH2** till namnet på ditt sekundära nätverkskort </details>

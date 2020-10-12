@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
 ms.openlocfilehash: fbbb298dd9e5b568e6a1dc2c4ef731b8521f8308
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85556032"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Distribuera din lokala StorSimple-enhet i myndighets portalen
@@ -42,7 +42,7 @@ Du måste ha administratörsbehörighet för att slutföra installationen och ko
 ## <a name="deployment-steps"></a>Distributionssteg
 Utför dessa obligatoriska steg för att konfigurera StorSimple-enheten och ansluta den till StorSimple Device Manager-tjänsten. Förutom de nödvändiga stegen finns det valfria steg och procedurer som du kan behöva utföra under distributionen. Steg för steg-instruktionerna för distribution anger när du ska utföra de olika valfria stegen.
 
-| Steg | Description |
+| Steg | Beskrivning |
 | --- | --- |
 | **KRAV** |De här instruktionerna måste slutföras som del av förberedelserna inför den distributionen. |
 | [Check lista för distributions konfiguration](#deployment-configuration-checklist) |Använd den här checklistan för att samla in och registrera information före och under distributionen. |

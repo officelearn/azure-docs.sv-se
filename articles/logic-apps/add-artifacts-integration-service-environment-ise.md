@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: dc4798df05b760074ff06d95d9712204a3cf3e5a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91269751"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Lägg till resurser i integrerings tjänst miljön (ISE) i Azure Logic Apps
@@ -44,10 +44,10 @@ Följ dessa steg om du vill skapa Logi Kap par som körs i integrerings tjänst 
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Namn** | Yes | Namnet på den Logic app som ska skapas |
-   | **Prenumeration** | Yes | Namnet på den Azure-prenumeration som ska användas |
-   | **Resursgrupp** | Yes | Namnet på Azure-resurs gruppen (ny eller befintlig) som ska användas |
-   | **Plats** | Yes | Under **integrerings tjänst miljöer**väljer du den ISE som ska användas, om det inte redan har valts. <p><p> **Viktigt**: om du vill använda dina Logi Kap par med ett integrations konto måste båda använda samma ISE. |
+   | **Namn** | Ja | Namnet på den Logic app som ska skapas |
+   | **Prenumeration** | Ja | Namnet på den Azure-prenumeration som ska användas |
+   | **Resursgrupp** | Ja | Namnet på Azure-resurs gruppen (ny eller befintlig) som ska användas |
+   | **Plats** | Ja | Under **integrerings tjänst miljöer**väljer du den ISE som ska användas, om det inte redan har valts. <p><p> **Viktigt**: om du vill använda dina Logi Kap par med ett integrations konto måste båda använda samma ISE. |
    ||||
 
 1. När du är färdig väljer du **Skapa**.
@@ -76,11 +76,11 @@ Följ dessa steg om du vill skapa ett integrations konto som använder en ISE:
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Namn** | Yes | Namnet på det integrations konto som du vill skapa |
-   | **Prenumeration** | Yes | Namnet på den Azure-prenumeration som du vill använda |
-   | **Resursgrupp** | Yes | Namnet på Azure-resurs gruppen (ny eller befintlig) som ska användas |
-   | **Prisnivå** | Yes | Den pris nivå som ska användas för integrations kontot |
-   | **Plats** | Yes | Under **integrerings tjänst miljöer**väljer du samma ISE som dina Logi Kap par använder, om de inte redan har valts. <p><p> **Viktigt**: om du vill använda ditt integrations konto med Logic Apps måste båda använda samma ISE. |
+   | **Namn** | Ja | Namnet på det integrations konto som du vill skapa |
+   | **Prenumeration** | Ja | Namnet på den Azure-prenumeration som du vill använda |
+   | **Resursgrupp** | Ja | Namnet på Azure-resurs gruppen (ny eller befintlig) som ska användas |
+   | **Prisnivå** | Ja | Den pris nivå som ska användas för integrations kontot |
+   | **Plats** | Ja | Under **integrerings tjänst miljöer**väljer du samma ISE som dina Logi Kap par använder, om de inte redan har valts. <p><p> **Viktigt**: om du vill använda ditt integrations konto med Logic Apps måste båda använda samma ISE. |
    ||||
 
 1. När du är färdig väljer du **Skapa**.

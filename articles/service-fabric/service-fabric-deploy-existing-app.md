@@ -4,10 +4,10 @@ description: Lär dig hur du paketerar ett befintligt program som en körbar gä
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: 72fde75e16341164106bb952d0bb66b83be744e1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259262"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Paketera och distribuera en befintlig körbar fil till Service Fabric
@@ -29,11 +29,11 @@ I Visual Studio finns en Service Fabric tjänstmall som hjälper dig att distrib
    * *Programmet* anger den körbara fil som ska köras för att starta tjänsten.
    * *Argument* anger de argument som ska skickas till den körbara filen. Det kan vara en lista över parametrar med argument.
    * *WorkingFolder* anger arbets katalogen för processen som ska startas. Du kan ange tre värden:
-     * `CodeBase`anger att arbets katalogen ska ställas in på kod katalogen i programpaketet ( `Code` katalogen som visas i den föregående fil strukturen).
-     * `CodePackage`anger att arbets katalogen ska ställas in på programmets rot ( `GuestService1Pkg` visas i föregående fil struktur).
-     * `Work`anger att filerna placeras i en under katalog som kallas arbete.
+     * `CodeBase` anger att arbets katalogen ska ställas in på kod katalogen i programpaketet ( `Code` katalogen som visas i den föregående fil strukturen).
+     * `CodePackage` anger att arbets katalogen ska ställas in på programmets rot ( `GuestService1Pkg` visas i föregående fil struktur).
+     * `Work` anger att filerna placeras i en under katalog som kallas arbete.
 4. Namnge tjänsten och klicka på **OK**.
-5. Om tjänsten behöver en slut punkt för kommunikation kan du nu lägga till protokollet, porten och typen i ServiceManifest.xml-filen. Här är ett exempel: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
+5. Om tjänsten behöver en slut punkt för kommunikation kan du nu lägga till protokollet, porten och typen i ServiceManifest.xml-filen. Exempel: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Du kan nu använda paketet och publicera åtgärden mot ditt lokala kluster genom att felsöka lösningen i Visual Studio. När du är klar kan du publicera programmet i ett fjärran slutet kluster eller checka in lösningen till käll kontroll.
 7. Läs [kontrol lera att programmet körs](#check-your-running-application) för att se hur du kan visa den körbara gäst tjänsten som körs i Service Fabric Explorer.
 
@@ -147,7 +147,7 @@ CodePackage-elementet anger platsen (och versionen) för tjänst koden.
 <CodePackage Name="Code" Version="1.0.0.0">
 ```
 
-`Name`Elementet används för att ange namnet på den katalog i programpaketet som innehåller tjänst koden. `CodePackage`har också `version` attributet. Detta kan användas för att ange versionen av koden och kan även användas för att uppgradera tjänst koden med hjälp av infrastrukturen för program livs cykel hantering i Service Fabric.
+`Name`Elementet används för att ange namnet på den katalog i programpaketet som innehåller tjänst koden. `CodePackage` har också `version` attributet. Detta kan användas för att ange versionen av koden och kan även användas för att uppgradera tjänst koden med hjälp av infrastrukturen för program livs cykel hantering i Service Fabric.
 
 #### <a name="optional-update-setupentrypoint"></a>Valfritt: uppdatera SetupEntrypoint
 
@@ -178,14 +178,14 @@ I föregående exempel kör SetupEntryPoint en kommando fil `LaunchConfig.cmd` s
 
 `EntryPoint`Elementet i tjänst manifest filen används för att ange hur tjänsten ska startas.
 
-`ExeHost`Elementet anger den körbara filen (och argument) som ska användas för att starta tjänsten. Du kan också lägga till `IsExternalExecutable="true"` attributet för `ExeHost` att ange att programmet är en extern körbar fil utanför kod paketet. Ett exempel är `<ExeHost IsExternalExecutable="true">`.
+`ExeHost`Elementet anger den körbara filen (och argument) som ska användas för att starta tjänsten. Du kan också lägga till `IsExternalExecutable="true"` attributet för `ExeHost` att ange att programmet är en extern körbar fil utanför kod paketet. Exempelvis `<ExeHost IsExternalExecutable="true">`.
 
-* `Program`Anger namnet på den körbara fil som ska starta tjänsten.
-* `Arguments`anger de argument som ska skickas till den körbara filen. Det kan vara en lista över parametrar med argument.
-* `WorkingFolder`anger arbets katalogen för processen som ska startas. Du kan ange tre värden:
-  * `CodeBase`anger att arbets katalogen ska ställas in på kod katalogen i programpaketet ( `Code` katalogen i föregående fil struktur).
-  * `CodePackage`anger att arbets katalogen ska ställas in till roten för programpaketet ( `GuestService1Pkg` i föregående fil struktur).
-    * `Work`anger att filerna placeras i en under katalog som kallas arbete.
+* `Program` Anger namnet på den körbara fil som ska starta tjänsten.
+* `Arguments` anger de argument som ska skickas till den körbara filen. Det kan vara en lista över parametrar med argument.
+* `WorkingFolder` anger arbets katalogen för processen som ska startas. Du kan ange tre värden:
+  * `CodeBase` anger att arbets katalogen ska ställas in på kod katalogen i programpaketet ( `Code` katalogen i föregående fil struktur).
+  * `CodePackage` anger att arbets katalogen ska ställas in till roten för programpaketet ( `GuestService1Pkg` i föregående fil struktur).
+    * `Work` anger att filerna placeras i en under katalog som kallas arbete.
 
 WorkingFolder är användbart för att ange rätt arbets katalog så att relativa sökvägar kan användas av antingen programmet eller initierings skripten.
 
@@ -201,7 +201,7 @@ WorkingFolder är användbart för att ange rätt arbets katalog så att relativ
 I föregående exempel `Endpoint` anger elementet de slut punkter som programmet kan lyssna på. I det här exemplet lyssnar Node.jss programmet på http på port 3000.
 
 Dessutom kan du be Service Fabric att publicera slut punkten till Naming Service så att andra tjänster kan identifiera slut punkts adressen för den här tjänsten. På så sätt kan du kommunicera mellan tjänster som är körbara gäst program.
-Adressen till den publicerade slut punkten är av typen `UriScheme://IPAddressOrFQDN:Port/PathSuffix` . `UriScheme`och `PathSuffix` är valfria attribut. `IPAddressOrFQDN`är IP-adressen eller det fullständiga domän namnet för den nod som den körbara filen ska placeras på och den beräknas åt dig.
+Adressen till den publicerade slut punkten är av typen `UriScheme://IPAddressOrFQDN:Port/PathSuffix` . `UriScheme` och `PathSuffix` är valfria attribut. `IPAddressOrFQDN` är IP-adressen eller det fullständiga domän namnet för den nod som den körbara filen ska placeras på och den beräknas åt dig.
 
 I följande exempel visas en slut punkt som liknar `http://10.1.4.92:3000/myapp/` publicerad för tjänst instansen när tjänsten har distribuerats i Service Fabric Explorer. Eller om det är en lokal dator visas `http://localhost:3000/myapp/` .
 
@@ -257,11 +257,11 @@ Omdirigering av konsol kan konfigureras i `ServiceManifest.xml` filen med hjälp
 </EntryPoint>
 ```
 
-`ConsoleRedirection`kan användas för att omdirigera utdata från konsolen (både STDOUT och stderr) till en arbets katalog. Detta ger möjlighet att kontrol lera att det inte finns några fel under installationen eller körningen av programmet i Service Fabric klustret.
+`ConsoleRedirection` kan användas för att omdirigera utdata från konsolen (både STDOUT och stderr) till en arbets katalog. Detta ger möjlighet att kontrol lera att det inte finns några fel under installationen eller körningen av programmet i Service Fabric klustret.
 
-`FileRetentionCount`anger hur många filer som sparas i arbets katalogen. Värdet 5 innebär till exempel att loggfilerna för de föregående fem körningarna lagras i arbets katalogen.
+`FileRetentionCount` anger hur många filer som sparas i arbets katalogen. Värdet 5 innebär till exempel att loggfilerna för de föregående fem körningarna lagras i arbets katalogen.
 
-`FileMaxSizeInKb`anger den maximala storleken på loggfilerna.
+`FileMaxSizeInKb` anger den maximala storleken på loggfilerna.
 
 Loggfiler sparas i en av tjänstens arbets kataloger. Ta reda på var filerna finns genom att använda Service Fabric Explorer för att avgöra vilken nod tjänsten körs på och vilken arbets katalog som används. Den här processen beskrivs längre fram i den här artikeln.
 

@@ -4,10 +4,10 @@ description: Hur du använder geografiska regioner för att redundansväxla och 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 8c203ed197c1e5bfb15cfb503a04df79b85c630e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372531"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus geo-haveri beredskap
@@ -17,7 +17,7 @@ När hela Azure-regioner eller data Center (om inga [tillgänglighets zoner](../
 Funktionen för geo-katastrof återställning är globalt tillgänglig för Service Bus Premium SKU. 
 
 >[!NOTE]
-> Geo-haveri beredskap garanterar för närvarande bara att metadata (köer, ämnen, prenumerationer och filter) kopieras från det primära namn området till ett sekundärt namn område vid koppling.
+> Geo-Disaster återställning säkerställer för närvarande bara att metadata (köer, ämnen, prenumerationer och filter) kopieras från det primära namn området till ett sekundärt namn område vid koppling.
 
 ## <a name="outages-and-disasters"></a>Avbrott och katastrofer
 
@@ -168,7 +168,7 @@ Anta att du har två virtuella nätverk: VNET-1, VNET-2 och dessa primära och a
 ![Privata slut punkter och virtuella nätverk](./media/service-bus-geo-dr/private-endpoints-virtual-networks.png)
 
 
-Fördelen med den här metoden är att redundansväxlingen kan ske i program lagret, oberoende av Service Bus namn område. Föreställ dig följande scenarier: 
+Fördelen med den här metoden är att redundansväxlingen kan ske i program lagret, oberoende av Service Bus namn område. Fundera över följande scenarier: 
 
 **Redundans för program:** Här finns programmet inte i VNET-1, men kommer att flyttas till VNET-2. Eftersom både privata slut punkter har kon figurer ATS på både VNET-1 och VNET-2 för både primär och sekundär namnrymd, fungerar programmet bara. 
 

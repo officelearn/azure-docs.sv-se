@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
 ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84709053"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>OutOfMemoryError-undantag för Apache Spark i Azure HDInsight
@@ -194,7 +194,7 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 
 ### <a name="cause"></a>Orsak
 
-`java.lang.OutOfMemoryError: unable to create new native thread`visar att OS inte kan tilldela fler inbyggda trådar till JVMs. Bekräftat att detta undantag orsakas av överträdelsen av gränsen för antal trådar per process.
+`java.lang.OutOfMemoryError: unable to create new native thread` visar att OS inte kan tilldela fler inbyggda trådar till JVMs. Bekräftat att detta undantag orsakas av överträdelsen av gränsen för antal trådar per process.
 
 När livy-servern avslutas oväntad avslutas alla anslutningar till Spark-kluster också, vilket innebär att alla jobb och relaterade data går förlorade. I HDP 2,6-funktionen för att återställa sessionen lagrar livy sessionsinformation i Zookeeper för att återställas efter att livy-servern är tillbaka.
 
@@ -239,7 +239,7 @@ Ta bort alla poster med hjälp av stegen som beskrivs nedan.
 1. Vänta tills kommandot ovan har slutförts och markören för att returnera prompten och starta sedan om livy-tjänsten från Ambari, som ska fungera.
 
 > [!NOTE]
-> `DELETE`livy-sessionen när den har körts. Livy batch-sessioner tas inte bort automatiskt så fort Spark-appen har slutförts, vilket är avsiktligt. En livy-session är en entitet som skapats av en POST-begäran mot livy rest-servern. Det `DELETE` krävs ett anrop för att ta bort entiteten. Eller så bör vi vänta tills den globala katalogen är igång.
+> `DELETE` livy-sessionen när den har körts. Livy batch-sessioner tas inte bort automatiskt så fort Spark-appen har slutförts, vilket är avsiktligt. En livy-session är en entitet som skapats av en POST-begäran mot livy rest-servern. Det `DELETE` krävs ett anrop för att ta bort entiteten. Eller så bör vi vänta tills den globala katalogen är igång.
 
 ---
 

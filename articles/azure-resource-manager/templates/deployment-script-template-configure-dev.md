@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: jgao
 ms.openlocfilehash: 232a1ae5d125a2ea1d5723e85073fb3dd02420cc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87294477"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-templates-preview"></a>Konfigurera utvecklings miljö för distributions skript i mallar (för hands version)
 
 Lär dig hur du skapar en utvecklings miljö för att utveckla och testa distributions skript med en distributions skript avbildning. Du kan antingen skapa en [Azure Container instance](../../container-instances/container-instances-overview.md) eller använda [Docker](https://docs.docker.com/get-docker/). Båda beskrivs i den här artikeln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har ett distributions skript kan du skapa en **hello.ps1** -fil med följande innehåll:
 

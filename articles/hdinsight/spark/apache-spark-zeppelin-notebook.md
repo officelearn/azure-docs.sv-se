@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: a692f4dd86d110f7f0a91a862a7b16ac28345de5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084536"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Använda Apache Zeppelin-anteckningsböcker med Apache Spark-kluster i Azure HDInsight
@@ -159,7 +159,7 @@ Som anges ovan `%sh` stöds inte tolken från HDInsight 4,0 och senare. Eftersom
 
 Privilegierade domän användare kan använda `Shiro.ini` filen för att kontrol lera åtkomsten till tolknings gränssnittet. Endast dessa användare kan skapa nya `%sh` tolkar och ange behörigheter för varje ny `%sh` tolk. Använd följande steg för att kontrol lera åtkomsten med hjälp av `shiro.ini` filen:
 
-1. Definiera en ny roll med hjälp av ett befintligt domän grupp namn. I följande exempel `adminGroupName` är en grupp privilegierade användare i AAD. Använd inte specialtecken eller blank steg i grupp namnet. Tecknen efter `=` ger behörighet för den här rollen. `*`innebär att gruppen har fullständig behörighet.
+1. Definiera en ny roll med hjälp av ett befintligt domän grupp namn. I följande exempel `adminGroupName` är en grupp privilegierade användare i AAD. Använd inte specialtecken eller blank steg i grupp namnet. Tecknen efter `=` ger behörighet för den här rollen. `*` innebär att gruppen har fullständig behörighet.
 
     ```
     [roles]

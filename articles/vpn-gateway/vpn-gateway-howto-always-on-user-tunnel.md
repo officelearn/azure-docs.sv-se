@@ -1,5 +1,5 @@
 ---
-title: Konfigurera en tunnel för alltid-on VPN-användare
+title: Konfigurera en Always-On VPN-användar tunnel
 titleSuffix: Azure VPN Gateway
 description: Den här artikeln beskriver hur du konfigurerar en Always on VPN-tunnel för din VPN-gateway
 services: vpn-gateway
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 99d21222a62ed6b27a6a1b2a73b704f4cb26457b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89435804"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel"></a>Konfigurera en tunnel för Always On VPN-användare

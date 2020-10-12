@@ -14,10 +14,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4ce40d1a46a6448e678a8a86812d08e9013310d7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086916"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Kopiera eller flytta data enkelt med Azure Data Factory kopiera guiden
@@ -32,7 +32,7 @@ Guiden Azure Data Factory kopiering är till för att under lätta processen med
 ## <a name="an-intuitive-wizard-for-copying-data"></a>En intuitiv guide för att kopiera data
 Med den här guiden kan du enkelt flytta data från en mängd olika källor till destinationer på några minuter. När du har gått igenom guiden skapas en pipeline med en kopierings aktivitet automatiskt åt dig tillsammans med beroende Data Factory entiteter (länkade tjänster och data uppsättningar). Inga ytterligare steg krävs för att skapa pipelinen.   
 
-![Välja datakälla](./media/data-factory-copy-wizard/select-data-source-page.png)
+![Välj datakälla](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
 > I [själv studie kursen om guiden i guiden](data-factory-copy-data-wizard-tutorial.md) finns stegvisa anvisningar för hur du skapar ett exempel på en pipeline för att kopiera data från en Azure-blob till en Azure SQL Database tabell. 

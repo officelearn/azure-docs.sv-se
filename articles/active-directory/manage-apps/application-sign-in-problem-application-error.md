@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c826a679c1c64e113beb6b2cc5ffd29f82b55a3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84759546"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>En app-sida visar ett fel meddelande när användaren loggar in
@@ -124,7 +124,7 @@ Följ dessa steg om du vill ändra vilka delar av SAML-token som signerats digit
 
 7. När programmet har lästs in väljer du **enkel inloggning** i navigerings fönstret.
 
-8. Under **SAML-signerings certifikat**väljer du **Visa avancerade inställningar för certifikat signering**.
+8. Under **SAML-signerings certifikat**väljer du  **Visa avancerade inställningar för certifikat signering**.
 
 9. Välj det **signerings alternativ** som appen förväntar sig bland dessa alternativ:
 

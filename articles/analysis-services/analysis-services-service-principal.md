@@ -8,10 +8,10 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86077379"
 ---
 # <a name="automation-with-service-principals"></a>Automatisering med tjänstens huvudnamn
@@ -24,14 +24,14 @@ Analysis Services stöder också åtgärder som utförs av hanterade identiteter
 
 ## <a name="create-service-principals"></a>Skapa tjänsthuvudnamn
  
-Tjänstens huvud namn kan skapas i Azure Portal eller med hjälp av PowerShell. Du kan läsa mer här:
+Tjänstens huvud namn kan skapas i Azure Portal eller med hjälp av PowerShell. Mer information finns i:
 
 [Skapa tjänstens huvudnamn – Azure-portalen](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Skapa tjänstens huvudnamn – PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Lagra autentiseringsuppgifter och certifikat till gångar i Azure Automation
 
-Autentiseringsuppgifter och certifikat för tjänstens huvud namn kan lagras på ett säkert sätt i Azure Automation för Runbook-åtgärder. Du kan läsa mer här:
+Autentiseringsuppgifter och certifikat för tjänstens huvud namn kan lagras på ett säkert sätt i Azure Automation för Runbook-åtgärder. Mer information finns i:
 
 [Inloggnings till gångar i Azure Automation](../automation/automation-credentials.md)   
 [Certifikattillgångar i Azure Automation](../automation/automation-certificates.md)

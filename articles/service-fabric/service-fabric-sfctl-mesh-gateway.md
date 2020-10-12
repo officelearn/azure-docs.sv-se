@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 9b6766137dd88a5a780dcca7b6eab7c6c3f9bbf4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260398"
 ---
 # <a name="sfctl-mesh-gateway"></a>sfctl mesh gateway
@@ -19,7 +19,7 @@ Hämta och ta bort nät gateway-resurser.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| ta bort | Tar bort Gateway-resursen. |
+| delete | Tar bort Gateway-resursen. |
 | lista | Visar en lista över alla gateway-resurser. |
 | visa | Hämtar Gateway-resursen med det aktuella namnet. |
 

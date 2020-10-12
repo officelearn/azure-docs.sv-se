@@ -14,10 +14,10 @@ ms.reviewer: vanto
 ms.date: 09/21/2020
 tags: azure-synapse
 ms.openlocfilehash: 6f324b1b0b5ed1882050684e7ac1c8ec4ea573dc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90886500"
 ---
 # <a name="data-discovery--classification"></a>Data Discovery & Classification
@@ -142,7 +142,7 @@ Information om hur du använder T-SQL för klassificeringar finns i följande re
 
 - Lägga till eller uppdatera klassificeringen för en eller flera kolumner: [Lägg till känslighets klassificering](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
 - Ta bort klassificeringen från en eller flera kolumner: [släpp känslighets klassificering](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-- Visa alla klassificeringar i databasen: [sys. sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+- Så här visar du alla klassificeringar i databasen: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 ### <a name="use-powershell-cmdlets"></a>Använda PowerShell-cmdletar
 Hantera klassificeringar och rekommendationer för Azure SQL Database och Azure SQL-hanterad instans med hjälp av PowerShell.

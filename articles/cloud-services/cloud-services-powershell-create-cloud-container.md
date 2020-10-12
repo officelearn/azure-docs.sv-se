@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
 ms.openlocfilehash: d40a5b64cc8018f45bf08158ce808b2baae27962
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87049095"
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>Använd ett Azure PowerShell-kommando för att skapa en tom moln tjänst behållare
@@ -52,4 +52,4 @@ Get-help New-AzureService
 ### <a name="next-steps"></a>Nästa steg
 
 * Om du vill hantera moln tjänst distributionen läser du kommandona [Get-AzureService](/powershell/module/servicemanagement/azure.service/Get-AzureService?view=azuresmps-4.0.0), [Remove-AzureService](/powershell/module/servicemanagement/azure.service/Remove-AzureService?view=azuresmps-4.0.0)och [set-AzureService](/powershell/module/servicemanagement/azure.service/set-azureservice?view=azuresmps-4.0.0) . Du kan också se [hur du konfigurerar Cloud Services](cloud-services-how-to-configure-portal.md) för ytterligare information.
-* Information om hur du publicerar ditt moln tjänst projekt till Azure finns i **PublishCloudService.ps1** kod exempel från [Arkiverad moln tjänst lagrings plats](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Scripts/cloud-services-continuous-delivery).
+* Information om hur du publicerar ditt moln tjänst projekt till Azure finns i  **PublishCloudService.ps1** kod exempel från [Arkiverad moln tjänst lagrings plats](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Scripts/cloud-services-continuous-delivery).

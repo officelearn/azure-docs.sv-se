@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: jingwang
 ms.openlocfilehash: 14b3857211eca39ebe09a3a0752ca1d8eee17bc0
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87530001"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Kopiera data från Xero med hjälp av Azure Data Factory
@@ -53,18 +53,18 @@ Följande egenskaper stöds för den länkade tjänsten Xero:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **Xero** | Yes |
-| connectionProperties | En grupp egenskaper som definierar hur du ansluter till Xero. | Yes |
+| typ | Egenskapen Type måste anges till: **Xero** | Ja |
+| connectionProperties | En grupp egenskaper som definierar hur du ansluter till Xero. | Ja |
 | ***Under `connectionProperties` :*** | | |
-| värd | Slut punkten för Xero-servern ( `api.xero.com` ).  | Yes |
-| authenticationType | Tillåtna värden är `OAuth_2.0` och `OAuth_1.0` . | Yes |
-| consumerKey | Den konsument nyckel som är associerad med Xero-programmet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| privateKey | Den privata nyckeln från. pem-filen som skapades för ditt Xero privata program, se [skapa ett offentligt/privat nyckel par](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Obs! det går inte att **skapa PrivateKey. pem med numbits 512** med `openssl genrsa -out privatekey.pem 512` 1024. Ta med all text från. pem-filen, inklusive UNIX-slutpunkter (\n), se exemplet nedan.<br/>Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| värd | Slut punkten för Xero-servern ( `api.xero.com` ).  | Ja |
+| authenticationType | Tillåtna värden är `OAuth_2.0` och `OAuth_1.0` . | Ja |
+| consumerKey | Den konsument nyckel som är associerad med Xero-programmet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| privateKey | Den privata nyckeln från. pem-filen som skapades för ditt Xero privata program, se [skapa ett offentligt/privat nyckel par](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Obs! det går inte att **skapa PrivateKey. pem med numbits 512** med `openssl genrsa -out privatekey.pem 512` 1024. Ta med all text från. pem-filen, inklusive UNIX-slutpunkter (\n), se exemplet nedan.<br/>Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | tenantId | Det klient-ID som är associerat med ditt Xero-program. Gäller för OAuth 2,0-autentisering.<br>Lär dig hur du hämtar klient-ID: t från [kontrol lera de innehavare som du har behörighet att komma åt](https://developer.xero.com/documentation/oauth2/auth-flow). | Ja för OAuth 2,0-autentisering |
 | refreshToken | Den OAuth 2,0-uppdateringstoken som är associerad med Xero-programmet som används för att uppdatera åtkomsttoken när åtkomsttoken upphör att gälla. Gäller för OAuth 2,0-autentisering. Lär dig hur du hämtar uppdateringstoken från [den här artikeln](https://developer.xero.com/documentation/oauth2/auth-flow).<br>Uppdateringstoken upphör aldrig att gälla. Om du vill hämta en uppdateringstoken måste du begära [offline_access-omfånget](https://developer.xero.com/documentation/oauth2/scopes).<br/>Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja för OAuth 2,0-autentisering |
-| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | No |
-| useHostVerification | Anger om värd namnet krävs i serverns certifikat för att matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | No |
-| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | No |
+| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | Inga |
+| useHostVerification | Anger om värd namnet krävs i serverns certifikat för att matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | Inga |
+| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | Inga |
 
 **Exempel: OAuth 2,0-autentisering**
 
@@ -143,7 +143,7 @@ Om du vill kopiera data från Xero anger du egenskapen type för data uppsättni
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **XeroObject** | Yes |
+| typ | Data uppsättningens typ-egenskap måste anges till: **XeroObject** | Ja |
 | tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
@@ -173,7 +173,7 @@ Om du vill kopiera data från Xero anger du käll typen i kopierings aktiviteten
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **XeroSource** | Yes |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **XeroSource** | Ja |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM Contacts"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
@@ -242,25 +242,25 @@ Följande tabeller har samma information i schemat minimal och fullständig. Om 
 
 Följande tabeller kan bara frågas med fullständigt schema:
 
-- Slutfört. Bank_Transaction_Line_Items 
-- Slutfört. Bank_Transaction_Line_Item_Tracking 
-- Slutfört. Contact_Group_Contacts 
-- Slutfört. Contacts_Contact_ personer 
-- Slutfört. Credit_Note_Line_Items 
-- Slutfört. Credit_Notes_Line_Items_Tracking 
-- Slutfört. Expense_Claim_-betalningar 
-- Slutfört. Expense_Claim_Receipts 
-- Slutfört. Invoice_Line_Items 
-- Slutfört. Invoices_Line_Items_Tracking
-- Slutfört. Manual_Journal_Lines 
-- Slutfört. Manual_Journal_Line_Tracking 
-- Slutfört. Overpayment_Line_Items 
-- Slutfört. Overpayment_Line_Items_Tracking 
-- Slutfört. Prepayment_Line_Items 
-- Slutfört. Prepayment_Line_Item_Tracking 
-- Slutfört. Receipt_Line_Items 
-- Slutfört. Receipt_Line_Item_Tracking 
-- Slutfört. Tracking_Category_Options
+- Complete.Bank_Transaction_Line_Items 
+- Complete.Bank_Transaction_Line_Item_Tracking 
+- Complete.Contact_Group_Contacts 
+- Complete.Contacts_Contact_ personer 
+- Complete.Credit_Note_Line_Items 
+- Complete.Credit_Notes_Line_Items_Tracking 
+- Complete.Expense_Claim_ betalningar 
+- Complete.Expense_Claim_Receipts 
+- Complete.Invoice_Line_Items 
+- Complete.Invoices_Line_Items_Tracking
+- Complete.Manual_Journal_Lines 
+- Complete.Manual_Journal_Line_Tracking 
+- Complete.Overpayment_Line_Items 
+- Complete.Overpayment_Line_Items_Tracking 
+- Complete.Prepayment_Line_Items 
+- Complete.Prepayment_Line_Item_Tracking 
+- Complete.Receipt_Line_Items 
+- Complete.Receipt_Line_Item_Tracking 
+- Complete.Tracking_Category_Options
 
 ## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
 

@@ -4,10 +4,10 @@ description: Konfigurera en Azure Container Registry aktivitet (ACR Task) för a
 ms.topic: article
 ms.date: 07/06/2020
 ms.openlocfilehash: 0bc43f958a14016146160a06372af0b36a9fff75
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86058137"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Extern autentisering i en ACR-aktivitet med hjälp av en Azure-hanterad identitet 
@@ -18,7 +18,7 @@ I den här artikeln får du lära dig hur du aktiverar en hanterad identitet i e
 
 Den här artikeln kräver att du kör Azure CLI-version 2.0.68 eller senare för att skapa Azure-resurser. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
-## <a name="scenario-overview"></a>Scenarioöversikt
+## <a name="scenario-overview"></a>Översikt över scenario
 
 I exempel uppgiften läses Docker hubbens autentiseringsuppgifter som lagras i ett Azure Key Vault. Autentiseringsuppgifterna är för ett Docker Hub-konto med behörighet att skriva (push) till en privat Docker Hub-lagringsplats. Om du vill läsa autentiseringsuppgifterna konfigurerar du aktiviteten med en hanterad identitet och tilldelar den behörigheten. Uppgiften som är associerad med identiteten skapar en avbildning och loggar in i Docker Hub för att skicka avbildningen till den privata lagrings platsen. 
 

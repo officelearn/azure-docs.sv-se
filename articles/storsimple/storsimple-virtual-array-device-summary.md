@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
 ms.openlocfilehash: 1ab72788c768568366f2627055015c74028330b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85515234"
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Använd bladet enhets Sammanfattning för StorSimple Enhetshanteraren som är anslutet till StorSimple virtuella matris
@@ -49,7 +49,7 @@ Området Essentials fångar upp några av de viktiga egenskaperna, till exempel,
 
 * I **användnings** diagrammet kan du Visa det primära lagrings utrymmet som används i den virtuella matrisen, samt moln lagring som förbrukas under de senaste 7 dagarna, standard tids perioden. Använd alternativet **Redigera** i det övre högra hörnet i diagrammet om du vill välja en annan tids skala.
 
-* Panelen **resurser** eller **volymer** innehåller en översikt över antalet resurser eller volymer i enheten grupperade efter status. Klicka på panelen för att öppna bladet **resurser** eller **volymer** och klicka sedan på en enskild resurs eller volym för att visa eller ändra dess egenskaper. Mer information finns i [Hantera resurser](storsimple-virtual-array-manage-shares.md) eller [Hantera volymer](storsimple-virtual-array-manage-volumes.md).
+* Panelen **resurser** eller **volymer** innehåller en översikt över antalet resurser eller volymer i enheten grupperade efter status. Klicka på panelen för att öppna bladet **resurser**  eller **volymer** och klicka sedan på en enskild resurs eller volym för att visa eller ändra dess egenskaper. Mer information finns i [Hantera resurser](storsimple-virtual-array-manage-shares.md) eller [Hantera volymer](storsimple-virtual-array-manage-volumes.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig att:

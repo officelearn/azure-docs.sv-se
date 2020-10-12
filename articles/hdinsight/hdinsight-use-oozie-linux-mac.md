@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
 ms.openlocfilehash: 1e88fc64ea297f70f56478588312675fb233f221
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085947"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Använda Apache Oozie med Apache Hadoop för att definiera och köra ett arbetsflöde på Azure HDInsight som körs på Linux
@@ -29,7 +29,7 @@ Du kan också använda Oozie för att schemalägga jobb som är speciella för e
 > [!NOTE]  
 > Ett annat alternativ för att definiera arbets flöden med HDInsight är att använda Azure Data Factory. Läs mer om Data Factory i [använda Apache gris och Apache Hive med Data Factory](../data-factory/transform-data.md). Om du vill använda Oozie i kluster med Enterprise Security Package kan du läsa [köra apache Oozie i HDInsight Hadoop-kluster med Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Ett Hadoop-kluster i HDInsight**. Se [Kom igång med HDInsight på Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
@@ -37,7 +37,7 @@ Du kan också använda Oozie för att schemalägga jobb som är speciella för e
 
 * **En Azure SQL Database**.  Se [skapa en databas i Azure SQL Database i Azure Portal](../sql-database/sql-database-get-started.md).  I den här artikeln används en databas med namnet **oozietest**.
 
-* URI-schemat för klustrets primära lagring. `wasb://`för Azure Storage för `abfs://` Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage gen1. Om säker överföring har Aktiver ATS för Azure Storage är URI: n `wasbs://` . Se även [säker överföring](../storage/common/storage-require-secure-transfer.md).
+* URI-schemat för klustrets primära lagring. `wasb://` för Azure Storage för `abfs://` Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage gen1. Om säker överföring har Aktiver ATS för Azure Storage är URI: n `wasbs://` . Se även [säker överföring](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="example-workflow"></a>Exempel arbets flöde
 
@@ -306,7 +306,7 @@ Jobb definitionen beskriver var du hittar workflow.xml. Den beskriver också var
     |Plats hållarens värde| Ersatt värde|
     |---|---|
     |wasbs://mycontainer \@ mystorageaccount.blob.Core.Windows.net| Värdet togs emot från steg 1.|
-    |admin| Ditt inloggnings namn för HDInsight-klustret om det inte är administratör.|
+    |administratör| Ditt inloggnings namn för HDInsight-klustret om det inte är administratör.|
     |Namnet| Azure SQL Database serverns namn.|
     |sqlLogin| Azure SQL Database Server inloggning.|
     |sqlPassword| Inloggnings lösen ord för Azure SQL Database Server.|
@@ -491,7 +491,7 @@ Med Oozie-REST API kan du bygga egna verktyg som fungerar med Oozie. Följande H
 
 * **URI**: du kan komma åt REST API utanför klustret på `https://CLUSTERNAME.azurehdinsight.net/oozie` .
 
-* **Autentisering**: Använd API: t för klustrets kluster-http-konto (admin) och lösen ord för att autentisera. Ett exempel:
+* **Autentisering**: Använd API: t för klustrets kluster-http-konto (admin) och lösen ord för att autentisera. Exempel:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions

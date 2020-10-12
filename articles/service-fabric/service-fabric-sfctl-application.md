@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 880770345eb7d65850db322bd97d64c60b6681ee
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260860"
 ---
 # <a name="sfctl-application"></a>sfctl application
@@ -20,7 +20,7 @@ Skapa, ta bort och hantera program och program typer.
 |Kommando|Beskrivning|
 | --- | --- |
 | skapa | Skapar ett Service Fabric program med hjälp av den angivna beskrivningen. |
-| ta bort | Tar bort ett befintligt Service Fabric-program. |
+| delete | Tar bort ett befintligt Service Fabric-program. |
 | distribueras | Hämtar information om ett program som distribuerats på en Service Fabric-nod. |
 | distribuerad hälsa | Hämtar information om hälso tillståndet för ett program som distribuerats på en Service Fabric-nod. |
 | distribuerad lista | Hämtar listan över program som har distribuerats på en Service Fabric-nod. |

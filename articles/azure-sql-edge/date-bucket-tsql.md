@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 896caae2dfd79c4678ffb34c531fb56835e9bd66
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90886848"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (Transact-SQL)
@@ -43,7 +43,7 @@ Den del av *datumet* som används med parametern "tal". Till exempel År, månad
 |---|---|
 |**dagen**|**DD**, **d**|  
 |**vecka**|**veckor**, **WW**|  
-|**timkostnad**|**formatet**|  
+|**timkostnad**|**hh**|  
 |**minut**|**mi**, **n**|  
 |**senare**|**SS**, **s**|  
 |**tiden**|**millisekund**|  
@@ -52,11 +52,11 @@ Den del av *datumet* som används med parametern "tal". Till exempel År, månad
 
 Det heltals värde som bestämmer bredden på Bucket tillsammans med argumentet *DatumDel* . Detta representerar bredden på dataPart-buckets från ursprungs tiden. **`This argument cannot be a negative integer value`**. 
 
-*datum*
+*ikraftträdande*
 
 Ett uttryck som kan matcha till något av följande värden:
 
-+ **datum**
++ **ikraftträdande**
 + **datetime**
 + **DateTimeOffset**
 + **datetime2**
@@ -69,7 +69,7 @@ För *datum* `DATE_BUCKET` accepterar att ett kolumn uttryck, ett uttryck eller 
 
 Ett valfritt uttryck som kan matcha till något av följande värden:
 
-+ **datum**
++ **ikraftträdande**
 + **datetime**
 + **DateTimeOffset**
 + **datetime2**

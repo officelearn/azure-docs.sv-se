@@ -4,10 +4,10 @@ description: Rikt linjer och rekommendationer för att använda Service Fabric p
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 63e6de436bdaceed7f1d2a78e8385dd14bfc0ed6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260917"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Rikt linjer och rekommendationer för tillförlitliga samlingar i Azure Service Fabric
@@ -40,17 +40,17 @@ Här är några saker att tänka på:
   Det innebär att en version av data som läses från en enda sekundär kan vara falskt.
   Läsningar från primär är alltid stabila: kan aldrig vara falskt.
 * Säkerhet/sekretess för de data som behålls av ditt program i en tillförlitlig samling är ditt beslut och omfattas av de skydd som tillhandahålls av lagrings hanteringen. säga. Kryptering av operativ system diskar kan användas för att skydda dina data i vila.
-* `ReliableDictionary`uppräkningen använder en sorterad data struktur sorterad efter nyckel. För att göra uppräkningen effektiv läggs incheckningarna till i en tillfällig hash och senare flyttas till den primära sorterade data struktur postens kontroll punkt. Tillägg/uppdateringar/borttagningar har bästa tänkbara fall för körning av O (1) och sämsta fall körning av O (log n) vid verifierings kontroller av förekomsten av nyckeln. Get kan vara O (1) eller O (log n) beroende på om du läser från en nyligen genomförd eller en äldre incheckning.
+* `ReliableDictionary` uppräkningen använder en sorterad data struktur sorterad efter nyckel. För att göra uppräkningen effektiv läggs incheckningarna till i en tillfällig hash och senare flyttas till den primära sorterade data struktur postens kontroll punkt. Tillägg/uppdateringar/borttagningar har bästa tänkbara fall för körning av O (1) och sämsta fall körning av O (log n) vid verifierings kontroller av förekomsten av nyckeln. Get kan vara O (1) eller O (log n) beroende på om du läser från en nyligen genomförd eller en äldre incheckning.
 
 ## <a name="volatile-reliable-collections"></a>Flyktigt pålitliga samlingar
 När du bestämmer dig för att använda volatile Reliable Collections bör du tänka på följande:
 
-* ```ReliableDictionary```har flyktig support
-* ```ReliableQueue```har flyktig support
-* ```ReliableConcurrentQueue```saknar stöd för flyktighet
+* ```ReliableDictionary``` har flyktig support
+* ```ReliableQueue``` har flyktig support
+* ```ReliableConcurrentQueue``` saknar stöd för flyktighet
 * Beständiga tjänster kan inte göras temporärt. Om du ändrar ```HasPersistedState``` flaggan till ```false``` måste du återskapa hela tjänsten från grunden
 * Det går inte att göra temporära tjänster bestående. Om du ändrar ```HasPersistedState``` flaggan till ```true``` måste du återskapa hela tjänsten från grunden
-* ```HasPersistedState```är en konfiguration på service nivå. Det innebär att **alla** samlingar antingen är bestående eller temporära. Det går inte att blanda temporära och beständiga samlingar
+* ```HasPersistedState``` är en konfiguration på service nivå. Det innebär att **alla** samlingar antingen är bestående eller temporära. Det går inte att blanda temporära och beständiga samlingar
 * Kvorum förlust av en flyktig partition resulterar i fullständig data förlust
 * Säkerhets kopiering och återställning är inte tillgängligt för temporära tjänster
 

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2018
 ms.openlocfilehash: 8e0037f6aea4aef53efc192066027e0a0143bda1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086185"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Skapa Apache Spark strömmande jobb med exakt en händelse bearbetning
@@ -47,15 +47,15 @@ I Azure tillhandahåller både Azure-Event Hubs och [Apache Kafka](https://kafka
 
 I Spark-direktuppspelning har källor som Event Hubs och Kafka *pålitliga mottagare*, där varje mottagare håller koll på sin status vid läsning av källan. En tillförlitlig mottagare behåller sitt tillstånd i feltolerant lagring, antingen inom [Apache ZooKeeper](https://zookeeper.apache.org/) eller i Spark-kontrollpunkter som skrivits till HDFS. Om en sådan mottagare Miss lyckas och senare startas om, kan den fortsätta där den slutade.
 
-### <a name="use-the-write-ahead-log"></a>Använd loggen för att skriva framåt
+### <a name="use-the-write-ahead-log"></a>Använd Write-Ahead loggen
 
-Spark streaming har stöd för att skriva över gångs logg, där varje mottagen händelse först skrivs till Spark-katalogen i feltolerant lagring och sedan lagras i en elastisk distribuerad data uppsättning (RDD). I Azure har den feltoleranta lagringen HDFS som backas upp av antingen Azure Storage eller Azure Data Lake Storage. I ditt Spark streaming-program aktive ras loggen för Skriv åtgärder för alla mottagare genom att ställa in `spark.streaming.receiver.writeAheadLog.enable` konfigurations inställningen på `true` . Loggen för Skriv åtgärder ger fel tolerans för fel i både driv rutinen och körningarna.
+Spark Streaming stöder användningen av en Write-Ahead logg där varje mottagen händelse skrivs till Spark-katalogen i feltolerant lagring och sedan lagras i en elastisk distribuerad data uppsättning (RDD). I Azure har den feltoleranta lagringen HDFS som backas upp av antingen Azure Storage eller Azure Data Lake Storage. I ditt Spark streaming-program är Write-Ahead loggen aktive rad för alla mottagare genom att ställa in `spark.streaming.receiver.writeAheadLog.enable` konfigurations inställningen på `true` . Write-Ahead loggen ger fel tolerans för fel i både driv rutinen och körningarna.
 
 För arbets uppgifter som kör uppgifter mot händelse data sker varje RDD av definition både replikerad och fördelad över flera arbetare. Om en aktivitet Miss lyckas eftersom den arbets rutin som körs kraschar, kommer aktiviteten att startas om på en annan arbets tagare som har en replik av händelse data, så händelsen förloras inte.
 
 ### <a name="use-checkpoints-for-drivers"></a>Använda kontroll punkter för driv rutiner
 
-Jobb driv rutinerna måste startas om. Om driv rutinen som kör den Spark-strömmande applikationen kraschar, tar den bort alla aktiva mottagare, uppgifter och alla RDD som lagrar händelse data. I så fall måste du kunna spara förloppet för jobbet så att du kan återuppta det senare. Detta åstadkoms genom att kontrol lera att det riktade acykliska diagrammets DAG (DAG) i DStream regelbundet är feltolerant lagrings utrymme. DAG-metadata innehåller den konfiguration som används för att skapa strömnings programmet, de åtgärder som definierar programmet och alla batchar som har placerats i kö men ännu inte slutförts. Med dessa metadata kan en misslyckad driv rutin startas om från kontroll punkts informationen. När driv rutinen startar om startar den nya mottagare som själva återställer händelse data till RDD från Skriv loggen.
+Jobb driv rutinerna måste startas om. Om driv rutinen som kör den Spark-strömmande applikationen kraschar, tar den bort alla aktiva mottagare, uppgifter och alla RDD som lagrar händelse data. I så fall måste du kunna spara förloppet för jobbet så att du kan återuppta det senare. Detta åstadkoms genom att kontrol lera att det riktade acykliska diagrammets DAG (DAG) i DStream regelbundet är feltolerant lagrings utrymme. DAG-metadata innehåller den konfiguration som används för att skapa strömnings programmet, de åtgärder som definierar programmet och alla batchar som har placerats i kö men ännu inte slutförts. Med dessa metadata kan en misslyckad driv rutin startas om från kontroll punkts informationen. När driv rutinen startas om, kommer den att starta nya mottagare som själva återställer händelse data till RDD från Write-Ahead loggen.
 
 Kontroll punkter aktive ras i Spark-direktuppspelning i två steg.
 

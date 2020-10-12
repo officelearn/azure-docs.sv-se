@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 340b910319cabe3379bdb1bad1c09bc71c17f072
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85507542"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Använda StorSimple Device Manager-tjänsten för att hantera resurser i StorSimple Virtual Array
@@ -45,7 +45,7 @@ Se följande tabell för den högsta etablerade kapaciteten för varje resurs ty
 | Minsta storlek på en nivå resurs |500 GB |
 | Maximal storlek för en nivå resurs |20 TB |
 | Minsta storlek på en lokalt fäst resurs |50 GB |
-| Maximal storlek på en lokalt fäst resurs |2 TB |
+| Maximal storlek på en lokalt fäst resurs |2 TB |
 
 ## <a name="the-shares-blade"></a>Bladet resurser
 

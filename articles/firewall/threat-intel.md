@@ -1,6 +1,6 @@
 ---
 title: Filtrering baserad på Azure Firewall Threat Intelligence
-description: Threat Intelligence-baserad filtrering kan aktive ras för brand väggen för att varna och neka trafik från/till kända skadliga IP-adresser och domäner.
+description: Filtrering baserad på hotinformation kan aktiveras för brandväggen om du vill varna om och neka trafik från/till kända skadliga IP-adresser och domäner.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 05/12/2020
 ms.author: victorh
 ms.openlocfilehash: e51cc8905a7b4a88bb7f7dabaf24bb30159ff86c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83655089"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Azure Firewall Threat Intelligence-baserad filtrering
 
-Threat Intelligence-baserad filtrering kan aktive ras för brand väggen för att varna och neka trafik från/till kända skadliga IP-adresser och domäner. IP-adresserna och domänerna är källor från Microsoft Threat Intelligence-flödet. [Intelligent Security graphs](https://www.microsoft.com/security/operations/intelligence) befogenheter Microsoft Threat intelligence och används av flera tjänster, inklusive Azure Security Center.<br>
+Filtrering baserad på hotinformation kan aktiveras för brandväggen om du vill varna om och neka trafik från/till kända skadliga IP-adresser och domäner. IP-adresserna och domänerna hämtas från Microsoft Threat Intelligence-flödet. [Intelligent Security graphs](https://www.microsoft.com/security/operations/intelligence) befogenheter Microsoft Threat intelligence och används av flera tjänster, inklusive Azure Security Center.<br>
 <br>
 
 :::image type="content" source="media/threat-intel/firewall-threat.png" alt-text="Hot information för brand vägg" border="false":::
@@ -27,7 +27,7 @@ Du kan välja att bara logga en avisering när en regel utlöses, eller så kan 
 
 Som standard är Hot information-baserad filtrering aktive rad i varnings läge. Du kan inte stänga av den här funktionen eller ändra läget tills Portal gränssnittet blir tillgängligt i din region.
 
-:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Gränssnitt för Threat Intelligence-baserad filtrerings Portal":::
+:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Hot information för brand vägg":::
 
 ## <a name="logs"></a>Loggar
 

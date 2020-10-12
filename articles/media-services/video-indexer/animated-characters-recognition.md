@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
 ms.openlocfilehash: 3b449f68b25fce19dc034d2a0db0ae5ce8a28ec7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87047497"
 ---
 # <a name="animated-character-detection-preview"></a>Identifiering av animerade karaktärer (förhandsversion)
@@ -208,7 +208,7 @@ Se de animerade tecknen i den genererade JSON-filen.
 
 ## <a name="limitations"></a>Begränsningar
 
-* För närvarande stöds inte funktionen "animation Identification" i regionen östra Asien.
+* För närvarande stöds inte funktionen "animation Identification" i East-Asia region.
 * Tecken som verkar vara små eller långt i videon kanske inte identifieras korrekt om videons kvalitet är låg.
 * Rekommendationen är att använda en modell per uppsättning animerade tecken (till exempel per animerad serie).
 

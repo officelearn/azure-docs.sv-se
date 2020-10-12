@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: f2a50872fdb71419a0c3f068712ec67523a098e0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90709034"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Krav och överväganden för att använda replikering över flera regioner 
@@ -40,10 +40,10 @@ Observera följande krav och överväganden om hur [du använder replikeringen �
 * Du kan ta bort manuella ögonblicks bilder på käll volymen för en replikeringsrelation när replikeringsrelationen är aktiv eller bruten, och även efter att replikeringsrelationen har tagits bort. Du kan inte ta bort manuella ögonblicks bilder för mål volymen förrän replikeringsrelationen är bruten.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skapa replikerings-peering](cross-region-replication-create-peering.md)
-* [Visa hälso status för replikeringsrelation](cross-region-replication-display-health-status.md)
+* [Skapa replikeringspeering](cross-region-replication-create-peering.md)
+* [Visa hälsostatus för replikeringsrelation](cross-region-replication-display-health-status.md)
 * [Hantera haveriberedskap](cross-region-replication-manage-disaster-recovery.md)
 * [Mått för volym replikering](azure-netapp-files-metrics.md#replication)
-* [Felsöka replikering över flera regioner](troubleshoot-cross-region-replication.md)
+* [Felsöka replikering mellan regioner](troubleshoot-cross-region-replication.md)
 
 

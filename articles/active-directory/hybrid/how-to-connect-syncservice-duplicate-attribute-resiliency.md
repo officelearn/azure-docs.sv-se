@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d1d364089d5df24cfc4e7a75c3fd6b81248f0cd6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91313322"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Identitetssynkronisering och duplicerad attributåterhämtning
@@ -66,7 +66,7 @@ Du kan kontrol lera om funktionen är aktive rad för din klient genom att ladda
 `Get-MsolDirSyncFeatures -Feature DuplicateProxyAddressResiliency`
 
 > [!NOTE]
-> Du kan inte längre använda set-MsolDirSyncFeature-cmdlet för att aktivera återhämtnings funktionen duplicerat attribut innan den är aktive rad för din klient. För att kunna testa funktionen måste du skapa en ny Azure Active Directory klient.
+> Du kan inte längre använda Set-MsolDirSyncFeature cmdlet för att aktivera återhämtnings funktionen duplicerat attribut innan den är aktive rad för din klient. För att kunna testa funktionen måste du skapa en ny Azure Active Directory klient.
 
 ## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>Identifiera objekt med DirSyncProvisioningErrors
 Det finns för närvarande två metoder för att identifiera objekt som har dessa fel på grund av duplicerade egenskaps konflikter, Azure Active Directory PowerShell och [Microsoft 365 administrations Center](https://admin.microsoft.com). Det finns planer på att utöka till ytterligare Portal baserad rapportering i framtiden.
@@ -85,7 +85,7 @@ Använd sedan följande cmdlets och operatorer för att visa fel på olika sätt
 2. [Efter egenskaps typ](#by-property-type)
 3. [Efter motstridigt värde](#by-conflicting-value)
 4. [Använda en strängs ökning](#using-a-string-search)
-5. Sorteras
+5. Sorted
 6. [I en begränsad kvantitet eller alla](#in-a-limited-quantity-or-all)
 
 #### <a name="see-all"></a>Visa alla

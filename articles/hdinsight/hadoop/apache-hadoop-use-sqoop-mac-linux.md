@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/28/2019
 ms.openlocfilehash: 0761ea059350369a363ee1022b21c9da2702b396
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86076121"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-azure-sql-database"></a>Använd Apache Sqoop för att importera och exportera data mellan Apache Hadoop på HDInsight och Azure SQL Database
@@ -119,7 +119,7 @@ Från SQL till Azure Storage.
 
 1. Använd [Beeline](./apache-hadoop-use-hive-beeline.md) för att kontrol lera att tabellen har skapats i Hive.
 
-    1. Anslut
+    1. Ansluta
 
         ```bash
         beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
@@ -156,7 +156,7 @@ Från SQL till Azure Storage.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du lärt dig hur du använder Sqoop. Du kan läsa mer här:
+Nu har du lärt dig hur du använder Sqoop. Mer information finns i:
 
 * [Använda Apache Oozie med HDInsight](../hdinsight-use-oozie-linux-mac.md): Använd Sqoop-åtgärd i ett Oozie-arbetsflöde.
 * [Analysera flyg fördröjnings data med HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md): Använd interaktiv fråga för att analysera flyg fördröjnings data och Använd sedan Sqoop för att exportera data till en databas i Azure.

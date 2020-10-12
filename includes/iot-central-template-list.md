@@ -9,15 +9,15 @@ ms.date: 02/11/2020
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 182296793b46f1900744bf629625906b2d6e9b2a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91377426"
 ---
 **Programmallar**
 
-| Mall                 | Name        | Beskrivning |
+| Mall                 | Namn        | Beskrivning |
 | ------------------------ | ----------- | ----------- |
 | IOTC – PnP – för hands version         | Anpassat program | Skapar ett tomt program som du kan fylla med dina egna enhetsmallar och enheter. |
 | IOTC – villkor           | In-Store Analytics – villkors övervakning | Skapar ett program för att ansluta och övervaka en lagrings miljö. |

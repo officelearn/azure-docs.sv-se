@@ -4,10 +4,10 @@ description: Den här artikeln förklarar hur prenumeranter kan definiera vilka 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 5df343ff63c01a7cf10315b758e3d6fba8ac5674
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88066754"
 ---
 # <a name="topic-filters-and-actions"></a>Ämnesfilter och åtgärder
@@ -30,7 +30,7 @@ Service Bus stöder tre filter villkor:
      - **ReplyTo**
      - **ReplyToSessionId**
      - **SessionId** 
-     - **Att**
+     - **Om du vill**
      - användardefinierade egenskaper. 
      
      En matchning finns när värdet för en egenskap som anländer är lika med värdet som anges i korrelations filtret. Jämförelsen är Skift läges känslig för sträng uttryck. När du anger flera matchnings egenskaper kombinerar filtret dem som ett logiskt och villkor, vilket innebär att filtret ska matcha, alla villkor måste matcha.
@@ -43,7 +43,7 @@ Komplexa filter regler kräver bearbetnings kapacitet. I synnerhet orsakar anvä
 
 Med villkor för SQL-filter kan du definiera en åtgärd som kan kommentera meddelandet genom att lägga till, ta bort eller ersätta egenskaper och deras värden. Åtgärden [använder ett SQL-like-uttryck som har en](service-bus-messaging-sql-filter.md) felaktig Lean-syntax i SQL Update-uttrycket. Åtgärden utförs på meddelandet efter att den har matchats och innan meddelandet har marker ATS i prenumerationen. Ändringarna i meddelande egenskaperna är privata för det meddelande som kopieras till prenumerationen.
 
-## <a name="usage-patterns"></a>Användnings mönster
+## <a name="usage-patterns"></a>Användningsmönster
 
 Det enklaste användnings scenariot för ett ämne är att varje prenumeration får en kopia av varje meddelande som skickas till ett ämne, vilket möjliggör ett sändnings mönster.
 

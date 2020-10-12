@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
 ms.openlocfilehash: 540cdc2948cbcd97bf7c8872f3aace2862280434
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513497"
 ---
 # <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share"></a>Så här lägger du till data uppsättningar till en befintlig resurs i Azure Data Share
@@ -21,7 +21,7 @@ Information om hur du lägger till data uppsättningar när du skapar en resurs 
 
 ## <a name="navigate-to-a-sent-data-share"></a>Navigera till en data resurs som skickats
 
-I Azure Data Share navigerar du till den skickade resursen och väljer fliken **data uppsättningar** . Klicka på **+ Lägg till data uppsättningar** om du vill lägga till fler data uppsättningar.
+Gå till den skickade resursen i Azure Data Share och välj fliken **data uppsättningar** . Lägg till fler data uppsättningar genom att klicka på **+ Lägg till data uppsättningar** .
 
 ![Lägg till data uppsättningar](./media/how-to/how-to-add-datasets/add-datasets.png)
 

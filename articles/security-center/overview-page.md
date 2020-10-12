@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cc52610eacc3916b7a8978cba17a1db3f3d50686
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f7298ec7bba82eaddc4a002723f44bc5da68433
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91447674"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945353"
 ---
 # <a name="azure-security-centers-overview-page"></a>Översikts sida för Azure Security Center
 
@@ -40,7 +40,7 @@ I mitten av sidan finns **fyra centrala paneler**, vart och ett länkar till en 
 - **Säker poäng** Security Center kontinuerligt utvärderar dina resurser, prenumerationer och din organisation efter säkerhets problem. Den sammanställer sedan alla resultat i en enda poäng så att du snabbt kan tala om din aktuella säkerhets situation: ju högre poäng, desto lägre är den identifierade risk nivån. [Läs mer](secure-score-security-controls.md).
 - **Efterlevnad** – Security Center ger insikter om position utifrån kontinuerlig utvärdering av Azure-miljön. Security Center analyserar riskfaktorer i din hybrid moln miljö enligt rekommenderade säkerhets metoder. De här utvärderingarna mappas till kompatibla kontroller från en uppsättning standarder som stöds. [Läs mer](security-center-compliance-dashboard.md).
 - **Azure Defender** – det här är CWPP (Cloud Worker Protection Platform) som är integrerad i Security Center för avancerade, intelligenta, skydd av dina Azure-och hybrid arbets belastningar. Panelen visar täckningen för dina anslutna resurser (för de valda prenumerationerna) och de senaste aviseringarna, färgkodade efter allvarlighets grad. [Läs mer](azure-defender.md).
-- **Inventering** – panelen visar antalet oövervakade virtuella datorer och en enkel barometer av dina resurser som övervakas av säkerhets CenterBen. [Läs mer](asset-inventory.md).
+- **Inventering** – panelen visar antalet oövervakade virtuella datorer och en enkel barometer av dina resurser som övervakas av Security Center. [Läs mer](asset-inventory.md).
 
 
 Fönstret **insikter** innehåller anpassade objekt för din miljö, inklusive:

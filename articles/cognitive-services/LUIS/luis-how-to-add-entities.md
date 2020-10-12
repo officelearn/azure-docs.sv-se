@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: c5c6836c2d68036bf2b9c5abe191943537349b8d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540973"
 ---
 # <a name="add-entities-to-extract-data"></a>Lägga till entiteter för att extrahera data
@@ -116,8 +116,8 @@ I följande lista visas kanoniskt namn och synonymer.
 
 |Objekt namn för färg lista|Färg synonymer|
 |--|--|
-|Red|Crimson, blod, äpple, eld-motor|
-|Blue|Himmelsblå, kobolt|
+|Röd|Crimson, blod, äpple, eld-motor|
+|Blå|Himmelsblå, kobolt|
 |Green|Kelly, kalk|
 
 Använd proceduren för att skapa en lista med entiteter. När entiteten lista har skapats behöver du inte märka exempel yttranden i ett avsikts syfte. List objekt och synonymer matchas med hjälp av exakt text.

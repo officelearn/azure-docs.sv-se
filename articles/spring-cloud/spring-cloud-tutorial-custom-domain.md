@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 5892fd732a1e66b2b7dd4c1031cabfcbcc768c6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fc20737ab371135a62d510d9d083e084b592fae
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326158"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945778"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mappa en befintlig anpassad domän till Azure våren Cloud
 
@@ -22,15 +22,59 @@ Domain Name Service (DNS) är en teknik för att lagra namn på nätverks-noder 
 
 Certifikaten krypterar webb trafik. Dessa TLS/SSL-certifikat kan lagras i Azure Key Vault. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Ett program som distribueras till Azure våren Cloud (se [snabb start: starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal](spring-cloud-quickstart.md)eller Använd en befintlig app).
 * Ett domän namn med åtkomst till DNS-registret för domän leverantören, till exempel GoDaddy.
 * Ett privat certifikat (det vill säga ditt självsignerade certifikat) från en tredje parts leverantör. Certifikatet måste matcha domänen.
 * En distribuerad instans av [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 
-## <a name="import-certificate"></a>Importera certifikatet 
-Proceduren för att importera ett certifikat kräver att PEM-eller PFX-filen finns på disk och att du måste ha en privat nyckel. 
+## <a name="import-certificate"></a>Importera certifikatet
+### <a name="prepare-your-certificate-file-in-pfx-optional"></a>Förbered din certifikat fil i PFX (valfritt)
+Azure Key Vault stöd för import av privat certifikat i PEM och PFX-format. Om PEM-filen som du fick från din certifikat leverantör inte fungerar i avsnittet nedan: [Spara certifikat i Key Vault](#save-certificate-in-key-vault)följer du stegen här för att generera en PFX-fil för Azure Key Vault.
 
+#### <a name="merge-intermediate-certificates"></a>Sammanfoga mellanliggande certifikat
+
+Om du får flera certifikat av din certifikatutfärdare i certifikatkedjan, måste du sammanfoga certifikaten i ordning.
+
+Gör detta genom att öppna varje certifikat som du fick i ett redigeringsprogram.
+
+Skapa en fil för det sammanfogade certifikatet med namnet _mergedcertificate.crt_. I redigeringsprogrammet kopierar du innehållet i varje certifikat till den här filen. Ordningen på dina certifikat ska följa ordningen i certifikatkedjan, först med ditt certifikat och sist med rotcertifikatet. Det ser ut som i följande exempel:
+
+```
+-----BEGIN CERTIFICATE-----
+<your entire Base64 encoded SSL certificate>
+-----END CERTIFICATE-----
+
+-----BEGIN CERTIFICATE-----
+<The entire Base64 encoded intermediate certificate 1>
+-----END CERTIFICATE-----
+
+-----BEGIN CERTIFICATE-----
+<The entire Base64 encoded intermediate certificate 2>
+-----END CERTIFICATE-----
+
+-----BEGIN CERTIFICATE-----
+<The entire Base64 encoded root certificate>
+-----END CERTIFICATE-----
+```
+
+#### <a name="export-certificate-to-pfx"></a>Exportera certifikat till PFX
+
+Exportera det kopplade TLS/SSL-certifikatet med den privata nyckel som din certifikatbegäran genererades med.
+
+Om du genererade din certifikatbegäran med hjälp av OpenSSL, har du skapat en privat nyckelfil. Kör följande kommando för att exportera certifikatet till PFX. Ersätt plats hållarna för den _ &lt; privata nyckel filen>_ och _ &lt; sammanfogade certifikat fil>_ med Sök vägarna till din privata nyckel och den sammanslagna certifikat filen.
+
+```bash
+openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
+```
+
+När du uppmanas till det anger du ett exportlösenord. Du använder det här lösen ordet när du överför TLS/SSL-certifikatet till Azure Key Vault senare.
+
+Om du använder IIS eller _Certreq.exe_ till att generera din certifikatbegäran, installerar du certifikatet på den lokala datorn och [exporterar sedan certifikatet till PFX](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754329(v=ws.11)).
+
+### <a name="save-certificate-in-key-vault"></a>Spara certifikat i Key Vault
+Proceduren för att importera ett certifikat kräver att PEM-eller PFX-filen finns på disk och att du måste ha en privat nyckel. 
+#### <a name="portal"></a>[Portal](#tab/Azure-portal)
 Så här överför du ditt certifikat till nyckel valvet:
 1. Gå till din Key Vault-instans.
 1. I det vänstra navigerings fönstret klickar du på **certifikat**.
@@ -42,7 +86,17 @@ Så här överför du ditt certifikat till nyckel valvet:
 
     ![Importera certifikat 1](./media/custom-dns-tutorial/import-certificate-a.png)
 
-För att ge Azure våren Cloud åtkomst till ditt nyckel valv innan du importerar certifikat:
+#### <a name="cli"></a>[CLI](#tab/Azure-CLI)
+
+```azurecli
+az keyvault certificate import --file <path to .pfx file> --name <certificate name> --vault-name <key vault name> --password <export password>
+```
+---
+
+### <a name="grant-azure-spring-cloud-access-to-your-key-vault"></a>Ge Azure våren Cloud åtkomst till ditt nyckel valv
+
+Du måste ge Azure våren Cloud åtkomst till ditt nyckel valv innan du importerar certifikat:
+#### <a name="portal"></a>[Portal](#tab/Azure-portal)
 1. Gå till din Key Vault-instans.
 1. Klicka på **åtkomst principer**i det vänstra navigerings fönstret.
 1. I den övre menyn klickar du på **Lägg till åtkomst princip**.
@@ -54,50 +108,41 @@ För att ge Azure våren Cloud åtkomst till ditt nyckel valv innan du importera
 
 ![Importera certifikat 2](./media/custom-dns-tutorial/import-certificate-b.png)
 
-Du kan också använda Azure CLI för att ge Azure våren Cloud åtkomst till nyckel valvet.
+#### <a name="cli"></a>[CLI](#tab/Azure-CLI)
 
-Hämta objekt-ID: t via följande kommando.
+Ge Azure våren Cloud Läs åtkomst till Key Vault, Ersätt `<key vault resource group>` och `<key vault name>` i följande kommando.
 ```
-az ad sp show --id <service principal id> --query objectId
-```
-
-Ge Azure våren Cloud Läs åtkomst till Key Vault, Ersätt objekt-ID: t i följande kommando.
-```
-az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 --certificate-permissions get list --secret-permissions get list
 ``` 
+---
 
-Importera certifikat till Azure våren-molnet:
+### <a name="import-certificate-to-azure-spring-cloud"></a>Importera certifikat till Azure våren Cloud
+#### <a name="portal"></a>[Portal](#tab/Azure-portal)
 1. Gå till din tjänst instans. 
 1. I det vänstra navigerings fönstret i appen väljer du **TLS/SSL-inställningar**.
 1. Klicka sedan på **importera Key Vault certifikat**.
 
     ![Importera certifikatet](./media/custom-dns-tutorial/import-certificate.png)
 
-Du kan också använda Azure CLI för att importera certifikatet:
+1. När du har importerat certifikatet ser du det i listan över **certifikat för privat nyckel**.
+
+    ![Certifikat för privat nyckel](./media/custom-dns-tutorial/key-certificates.png)
+
+#### <a name="cli"></a>[CLI](#tab/Azure-CLI)
 
 ```
 az spring-cloud certificate add --name <cert name> --vault-uri <key vault uri> --vault-certificate-name <key vault cert name>
 ```
 
-> [!IMPORTANT] 
-> Se till att ge Azure våren Cloud åtkomst till ditt nyckel valv innan du kör det tidigare import certifikat kommandot. Om du inte har gjort det kan du köra följande kommando för att ge åtkomst behörighet.
-
-```
-az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 --certificate-permissions get list
-``` 
-
-När du har importerat certifikatet ser du det i listan över **certifikat för privat nyckel**.
-
-![Certifikat för privat nyckel](./media/custom-dns-tutorial/key-certificates.png)
-
-Du kan också använda Azure CLI för att visa en lista över certifikat:
+Så här visar du en lista över importerade certifikat:
 
 ```
 az spring-cloud certificate list --resource-group <resource group name> --service <service name>
 ```
+---
 
 > [!IMPORTANT] 
-> Om du vill skydda en anpassad domän med det här certifikatet måste du fortfarande binda certifikatet till en speciell domän. Följ stegen i det här dokumentet under rubriken **Lägg till SSL-bindning**.
+> Om du vill skydda en anpassad domän med det här certifikatet måste du fortfarande binda certifikatet till en speciell domän. Följ stegen i det här avsnittet: [Lägg till SSL-bindning](#add-ssl-binding).
 
 ## <a name="add-custom-domain"></a>Lägg till anpassad domän
 Du kan använda en CNAME-post för att mappa ett anpassat DNS-namn till Azure våren Cloud. 
@@ -113,6 +158,7 @@ Gå till DNS-providern och Lägg till en CNAME-post för att mappa din domän ti
 ## <a name="map-your-custom-domain-to-azure-spring-cloud-app"></a>Mappa din anpassade domän till Azure våren Cloud-appen
 Om du inte har ett program i Azure våren-molnet följer du anvisningarna i [snabb start: starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal?branch=master).
 
+#### <a name="portal"></a>[Portal](#tab/Azure-portal)
 Gå till program sidan.
 
 1. Välj **anpassad domän**.
@@ -126,34 +172,38 @@ Gå till program sidan.
 
     ![Lägg till anpassad domän](./media/custom-dns-tutorial/add-custom-domain.png)
 
-Du kan också använda Azure CLI för att lägga till en anpassad domän:
-```
-az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
-```
-
 En app kan ha flera domäner, men en domän kan bara mappas till en enda app. När du har mappat din anpassade domän till appen visas den i den anpassade domän tabellen.
 
 ![Anpassad domän tabell](./media/custom-dns-tutorial/custom-domain-table.png)
 
-Du kan också använda Azure CLI för att visa en lista över anpassade domäner:
+#### <a name="cli"></a>[CLI](#tab/Azure-CLI)
+```
+az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
+```
+
+Så här visar du listan över anpassade domäner:
 ```
 az spring-cloud app custom-domain list --app <app name> --resource-group <resource group name> --service <service name>
 ```
+---
 
 > [!NOTE]
 > En **osäker etikett för** din anpassade domän innebär att den inte har bundits till något SSL-certifikat än. Eventuella HTTPS-förfrågningar från en webbläsare till din anpassade domän får ett fel eller en varning.
 
 ## <a name="add-ssl-binding"></a>Lägg till SSL-bindning
+
+#### <a name="portal"></a>[Portal](#tab/Azure-portal)
 I tabellen anpassad domän väljer du **Lägg till SSL-bindning** som visas i föregående bild.  
 1. Välj ditt **certifikat** eller importera det.
 1. Klicka på **Spara**.
 
     ![Lägg till SSL-bindning 1](./media/custom-dns-tutorial/add-ssl-binding.png)
 
-Du kan också använda Azure CLI för att **lägga till SSL-bindning**:
+#### <a name="cli"></a>[CLI](#tab/Azure-CLI)
 ```
-az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> 
+az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
+---
 
 När du har lagt till SSL-bindningen är domän tillståndet säker: **felfri**. 
 
@@ -161,16 +211,16 @@ När du har lagt till SSL-bindningen är domän tillståndet säker: **felfri**.
 
 ## <a name="enforce-https"></a>Använda HTTPS
 Som standard kan alla fortfarande komma åt din app med HTTP, men du kan omdirigera alla HTTP-förfrågningar till HTTPS-porten.
-
+#### <a name="portal"></a>[Portal](#tab/Azure-portal)
 På din app-sida väljer du **anpassad domän**i det vänstra navigerings fältet. Ange sedan **https**till *True*.
 
 ![Lägg till SSL-bindning 3](./media/custom-dns-tutorial/enforce-http.png)
 
-Du kan också använda Azure CLI för att genomdriva HTTPS:
+#### <a name="cli"></a>[CLI](#tab/Azure-CLI)
 ```
-az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
+az spring-cloud app update -n <app name> --resource-group <resource group name> --service <service name> --https-only
 ```
-
+---
 När åtgärden har slutförts navigerar du till någon av HTTPS-URL: erna som pekar på din app. Observera att HTTP-URL: er inte fungerar.
 
 ## <a name="see-also"></a>Se även

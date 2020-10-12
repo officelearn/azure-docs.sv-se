@@ -7,10 +7,10 @@ ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: e31693eafcf32de1460cfa5b74ae35ffd05b5a67
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90089929"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Aktivera Azure Multi-Factor Authentication för Windows Virtual Desktop
@@ -45,7 +45,7 @@ Så här skapar du en princip för villkorlig åtkomst som kräver Multi-Factor 
 4. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 5. Under **Tilldelningar** väljer du **Användare och grupper**.
 6. Under **Inkludera**väljer du **Välj användare och grupper**  >  **användare och grupper** > väljer den grupp som du skapade i [krav](#prerequisites) stadiet.
-7. Välj **Klar**.
+7. Välj **Done** (Klar).
 8. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Välj appar**.
 9. Välj en av följande appar baserat på vilken version av Windows Virtual Desktop som du använder.
    

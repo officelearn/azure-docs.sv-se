@@ -9,16 +9,16 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 5b0301a57c4223666ac612b997c87c87271fe49b
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 4c69f78ababedde30e9cb41613b8e9537c738b5f
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91649532"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945642"
 ---
 # <a name="edv4-and-edsv4-series"></a>Edv4- och Edsv4-serien
 
-Edv4 och Edsv4-serien körs på Intel &reg; Xeon &reg; PLATINa 8272CL-processorer (Cascade Lake) i en Hyper-threadd konfiguration och är idealiska för olika minnes intensiva företags program och funktioner upp till 504 GIB av RAM-minne, [Intel &reg; Turbo Boost Technology 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading-teknik](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) och [Intel &reg; Advanced Vector Extensions 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). De stöder också [Intel &reg; djup inlärnings förstärkning](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Dessa nya VM-storlekar kommer att ha 50% större lokal lagring, samt bättre IOPS för lokala diskar för både läsning och skrivning jämfört med [Ev3-/Esv3-](./ev3-esv3-series.md) storlekarna med [Gen2-VM](./linux/generation-2.md): ar. Den har en hållbar all Core Turbo klock hastighet på 3,4 GHz. 
+Edv4 och Edsv4-serien körs på Intel &reg; Xeon &reg; PLATINa 8272CL-processorer (Cascade Lake) i en Hyper-threadd konfiguration och är idealiska för olika minnes intensiva företags program och fungerar upp till 504 GIB RAM-minne, [Intel &reg; Turbo Boost technology 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) och [Intel &reg; Advanced Vector Extensions 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). De stöder också [Intel &reg; djup inlärnings förstärkning](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Dessa nya VM-storlekar kommer att ha 50% större lokal lagring, samt bättre IOPS för lokala diskar för både läsning och skrivning jämfört med [Ev3-/Esv3-](./ev3-esv3-series.md) storlekarna med [Gen2-VM](./linux/generation-2.md): ar. Den har all Core Turbo klock hastighet på 3,4 GHz. 
 
 ## <a name="edv4-series"></a>Edv4-serien
 

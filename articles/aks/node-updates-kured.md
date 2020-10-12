@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.openlocfilehash: 35c9e76c234e4b09fbb090eda363506ee3e11130
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88164248"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Tillämpa säkerhets-och kernel-uppdateringar på Linux-noder i Azure Kubernetes service (AKS)
@@ -21,7 +21,7 @@ Processen för att hålla Windows Server-noderna aktuella är lite annorlunda. W
 Den här artikeln visar hur du använder [kured (KUbernetes REboot daemon)][kured] för att se om det finns Linux-noder som kräver en omstart, och som automatiskt hanterar omschemaläggningen av pågående poddar och omstart av en nod.
 
 > [!NOTE]
-> `Kured`är ett projekt med öppen källkod från Weaveworks. Stöd för det här projektet i AKS tillhandahålls på bästa möjliga sätt. Ytterligare support finns i #weave-communityns slack-kanal.
+> `Kured` är ett projekt med öppen källkod från Weaveworks. Stöd för det här projektet i AKS tillhandahålls på bästa möjliga sätt. Ytterligare support finns i #weave-communityns slack-kanal.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -78,7 +78,7 @@ Som standard söker Linux-noder i AKS efter uppdateringar varje kväll. Om du in
 sudo apt-get update && sudo apt-get upgrade -y
 ```
 
-Om uppdateringar tillämpades som kräver en omstart av en nod, skrivs en fil till */var/run/reboot-required*. `Kured`söker efter noder som kräver en omstart var 60 minut som standard.
+Om uppdateringar tillämpades som kräver en omstart av en nod, skrivs en fil till */var/run/reboot-required*. `Kured` söker efter noder som kräver en omstart var 60 minut som standard.
 
 ## <a name="monitor-and-review-reboot-process"></a>Övervaka och granska omstart
 

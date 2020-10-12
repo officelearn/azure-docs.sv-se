@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 72602e1e74074f21c93950bdb779758e784ce171
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89659867"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrera data med hjälp av Azure Data Lake Storage fråga om acceleration
@@ -22,7 +22,7 @@ Den här artikeln visar hur du använder Query acceleration för att hämta en d
 
 Med hjälp av frågekörning kan program och analys ramverk dramatiskt optimera data bearbetningen genom att bara hämta de data som de behöver för att utföra en specifik åtgärd. Mer information finns i [Azure Data Lake Storage fråga om acceleration](data-lake-storage-query-acceleration.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du behöver en Azure-prenumeration för att få åtkomst till Azure Storage. Om du inte redan har en prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

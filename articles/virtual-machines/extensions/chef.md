@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
 ms.openlocfilehash: 9391bb4867717b6780b50cf90b998254227d2310
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082621"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Kock VM-tillägg för Linux och Windows
 
 Chef Software tillhandahåller en DevOps-plattform för automatisering för Linux och Windows som möjliggör hantering av både fysiska och virtuella serverkonfigurationer. Kock VM-tillägget är ett tillägg som möjliggör chef på virtuella datorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -67,26 +67,26 @@ Följande JSON visar schemat för VM-tillägget för chef. Tillägget kräver mi
 
 ### <a name="core-property-values"></a>Egenskaps värden för kärna
 
-| Namn | Värde/exempel | Datatyp
+| Name | Värde/exempel | Datatyp
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | sträng (datum) |
 | utgivare | `Chef.Bootstrap.WindowsAzure` | sträng |
-| typ | `LinuxChefClient`(Linux), `ChefClient` (Windows) | sträng |
+| typ | `LinuxChefClient` (Linux), `ChefClient` (Windows) | sträng |
 | typeHandlerVersion | `1210.13` | sträng (dubbel) |
 
 ### <a name="settings"></a>Inställningar
 
-| Namn | Värde/exempel | Datatyp | Obligatoriskt?
+| Name | Värde/exempel | Datatyp | Obligatoriskt?
 | ---- | ---- | ---- | ----
-| inställningar/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | sträng (URL) | Y |
-| inställningar/bootstrap_options/validation_client_name | `myorg-validator` | sträng | Y |
-| inställningar/Runlist | `recipe[mycookbook::default]` | sträng | Y |
+| inställningar/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | sträng (URL) | J |
+| inställningar/bootstrap_options/validation_client_name | `myorg-validator` | sträng | J |
+| inställningar/Runlist | `recipe[mycookbook::default]` | sträng | J |
 
 ### <a name="protected-settings"></a>Skyddade inställningar
 
-| Namn | Exempel | Datatyp | Obligatoriskt?
+| Name | Exempel | Datatyp | Obligatoriskt?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | sträng | Y |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | sträng | J |
 
 <!--
 ### Linux-specific settings

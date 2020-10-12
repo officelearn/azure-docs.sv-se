@@ -4,10 +4,10 @@ description: Kontroll av kart provet i Kanadas federala PBMM-exempel. Varje kont
 ms.date: 07/31/2020
 ms.topic: sample
 ms.openlocfilehash: b3879ee847a0cb7a4cb6d00e842c613de53579e2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541075"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Kontroll av kart provet i Kanadas federala PBMM-utkast
@@ -37,7 +37,7 @@ Den här skissen hjälper dig att granska konton som kanske inte uppfyller organ
 - Externa konton med Skriv behörighet bör tas bort från din prenumeration
 
 
-## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) konto hantering | Rollbaserade scheman
+## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) konto hantering | Role-Baseds scheman
 
 Azure implementerar [Azure rollbaserad åtkomst kontroll (Azure RBAC)](../../../../role-based-access-control/overview.md) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar också [Azure policy](../../../policy/overview.md) definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar och Service Fabric. Med hjälp av Azure Active Directory-autentisering möjliggörs förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster. Dessutom tilldelar den här skissen en Azure Policy-definition för att granska användningen av anpassade Azure RBAC-regler. Att förstå var anpassade Azure RBAC-regler implementeras kan hjälpa dig att kontrol lera behovet och korrekt implementering, eftersom anpassade Azure RBAC-regler är fel känsliga.
 
@@ -145,7 +145,7 @@ Adaptiva program kontroller i Azure Security Center är en intelligent, automati
 
 - Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
 
-## <a name="cm-11-user-installed-software"></a>CM – 11 användare-installerad program vara
+## <a name="cm-11-user-installed-software"></a>CM-11 User-Installed-programvara
 
 Adaptiva program kontroller i Azure Security Center är en intelligent, automatiserad slut punkt till slut punkt som ger en lista över lösningar som kan blockera eller förhindra att specifik program vara körs på dina virtuella datorer. Program kontroll kan hjälpa dig att upprätthålla och övervaka efterlevnaden av principer för begränsning av program vara. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka virtuella datorer där en lista över tillåtna program rekommenderas men inte har kon figurer ATS än.
 
@@ -173,7 +173,7 @@ Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitio
 - Distribuera krav för att granska virtuella Linux-datorer som inte har passwd-filbehörigheterna inställt på 0644
 - Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösen ord
 
-## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Authenticator-hantering | Lösenordsbaserad autentisering
+## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Authenticator-hantering | Password-Based autentisering
 
 Den här skissen hjälper dig att använda starka lösen ord genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar virtuella Windows-datorer som inte kräver lägsta möjliga styrka och andra lösen ords krav. Medvetenheten om virtuella datorer som strider mot principen för lösen ords styrka hjälper dig att vidta åtgärder för att se till att lösen ord för alla virtuella dator användar konton följer organisationens lösen ords princip.
 

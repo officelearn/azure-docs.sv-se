@@ -10,10 +10,10 @@ ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 08/21/2020
 ms.openlocfilehash: fd74bfca73323209012dfd1fda61bbaada84092f
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530700"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Självstudie: fråga ett Kognitiv sökning-index från Power Apps
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Power Apps-konto](https://make.powerapps.com)
 
@@ -49,7 +49,7 @@ En anslutning i Power Apps är en anslutning till data källan. I det här stege
 
 1. Välj  **+ ny anpassad anslutning**och välj sedan **skapa från Tom**.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Skapa från en tom meny" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Menyn anpassad anslutning" border="true":::
 
 1. Ge ditt anpassade anslutnings program ett namn (till exempel *AzureSearchQuery*) och klicka sedan på **Fortsätt**.
 
@@ -60,15 +60,15 @@ En anslutning i Power Apps är en anslutning till data källan. I det här stege
    * På värden måste du ange din Sök tjänst-URL (t. ex. `<yourservicename>.search.windows.net` )
    * För bas-URL anger du bara "/"
 
-    :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="Dialog rutan allmän information" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="Menyn anpassad anslutning" border="true":::
 
 1. På sidan säkerhet anger du *API-nyckel* som **Autentiseringstyp**, anger både parameter etiketten och parameter namnet till *API-nyckeln*. För **parameter plats**väljer du *sidhuvud* som visas nedan.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="Typ av autentiseringstyp" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="Menyn anpassad anslutning" border="true":::
 
 1. På sidan definitioner väljer du **+ ny åtgärd** för att skapa en åtgärd som kommer att fråga indexet. Ange värdet "fråga" för sammanfattningen och namnet på åtgärds-ID: t. Ange en beskrivning som *"frågar Sök indexet"*.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="Nya åtgärds alternativ" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="Menyn anpassad anslutning" border="true":::
 
 1. Rulla nedåt. I förfrågningar väljer du **+ Importera från exempel** för att konfigurera en förfrågan till din Sök tjänst:
 
@@ -80,23 +80,23 @@ En anslutning i Power Apps är en anslutning till data källan. I det här stege
 
      **Power Apps** använder syntaxen för att extrahera parametrar från frågan. Observera att Sök fältet uttryckligen definierats. 
 
-       :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Importera från exempel" border="true":::
+       :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Menyn anpassad anslutning" border="true":::
 
 1. Klicka på **Importera** för att fylla begäran automatiskt. Slutför inställningen av parameter-metadata genom att klicka på **...** -symbolen bredvid var och en av parametrarna. Klicka på **tillbaka** för att återgå till sidan för begäran efter varje parameter uppdatering.
 
-   :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Importera från exempel dialog" border="true":::
+   :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Menyn anpassad anslutning" border="true":::
 
 1. För *sökning*: ange `*` som **Standardvärde**, ange **obligatoriskt** som *falskt* och ange **synlighet** till *ingen*. 
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Metadata för Sök parameter" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Menyn anpassad anslutning" border="true":::
 
 1. För *Välj*: ange `HotelName,Description,Address/City` som **standardvärdet**, ange **obligatoriskt** till *falskt*, och Ställ in **visibility** på *none*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Välj parameter-metadata" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Menyn anpassad anslutning" border="true":::
 
 1. För *API-version*: ange `2020-06-30` som **Standardvärde**, ange **obligatorisk** till *Sant*och ange **synlighet** som *intern*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Metadata för versions parameter" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Menyn anpassad anslutning" border="true":::
 
 1. För *innehålls typ*: inställt på `application/json` .
 
@@ -158,7 +158,7 @@ Du behöver en [frågas-API-nyckel](search-security-api-keys.md#find-existing-ke
 
 1. Välj kopplingen, expandera åtgärds listan och välj **Visa egenskaper**.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-11-1-test-connector.png" alt-text="Visa egenskaper" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-11-1-test-connector.png" alt-text="Menyn anpassad anslutning" border="true":::
 
 1. Välj **Redigera** längst upp till höger.
 
@@ -170,7 +170,7 @@ Du behöver en [frågas-API-nyckel](search-security-api-keys.md#find-existing-ke
 
 1. I åtgärder klickar du på knappen **testa åtgärd** . Om du lyckas bör du se en 200-status och i bröd texten i svaret bör du se JSON som beskriver Sök resultaten.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-11-2-test-connector.png" alt-text="JSON-svar" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-11-2-test-connector.png" alt-text="Menyn anpassad anslutning" border="true":::
 
 ## <a name="3---visualize-results"></a>3 – visualisera resultat
 
@@ -178,7 +178,7 @@ I det här steget skapar du en Power app med en sökruta, en Sök knapp och ett 
 
 1. Till vänster expanderar du **appar**  >  **+ ny app**-  >  **arbetsyta**.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Skapa app för arbets yta" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Menyn anpassad anslutning" border="true":::
 
 1. Välj typ av program. I den här självstudien skapar du en **Tom app** med **layouten Phone**. **Power Apps Studio** visas.
 
@@ -186,13 +186,13 @@ I det här steget skapar du en Power app med en sökruta, en Sök knapp och ett 
 
    Ange API-nyckeln för frågan.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="Anslut koppling" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="Menyn anpassad anslutning" border="true":::
 
     Nu är *AzureSearchQuery* en data källa som är tillgänglig för användning från ditt program.
 
 1. Lägg till några kontroller på arbets ytan på **fliken Infoga**.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-4-add-controls.png" alt-text="Infoga kontroller" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-4-add-controls.png" alt-text="Menyn anpassad anslutning" border="true":::
 
 1. Infoga följande element:
 
@@ -203,7 +203,7 @@ I det här steget skapar du en Power app med en sökruta, en Sök knapp och ett 
 
     Arbets ytan bör se ut ungefär så här:
 
-    :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="Layout för kontroller" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="Menyn anpassad anslutning" border="true":::
 
 1. Om du vill att **Sök knappen** ska utfärda en fråga klistrar du in följande åtgärd i **OnSelect**:
 
@@ -214,7 +214,7 @@ I det här steget skapar du en Power app med en sökruta, en Sök knapp och ett 
 
    Följande skärm bild visar formel fältet för **OnSelect** -åtgärden.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Knapp OnSelect" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Menyn anpassad anslutning" border="true":::
 
    Den här åtgärden gör att knappen uppdaterar en ny samling som heter *azResult* med resultatet från Sök frågan med texten i text rutan *txtQuery* som frågeterm.
 
@@ -236,17 +236,17 @@ I det här steget skapar du en Power app med en sökruta, en Sök knapp och ett 
 
     Eftersom vi tillhandahöll ett exempel resultat när vi definierade kopplingen, är appen medveten om de fält som är tillgängliga i ditt index.
     
-    :::image type="content" source="./media/search-howto-powerapps/2-7-gallery-select-fields.png" alt-text="Gallerifält" border="true":::   
+    :::image type="content" source="./media/search-howto-powerapps/2-7-gallery-select-fields.png" alt-text="Menyn anpassad anslutning" border="true":::   
  
 1. Tryck på **F5** för att förhandsgranska appen.  
 
-    :::image type="content" source="./media/search-howto-powerapps/2-8-3-final.png" alt-text="Appen är klar" border="true":::    
+    :::image type="content" source="./media/search-howto-powerapps/2-8-3-final.png" alt-text="Menyn anpassad anslutning" border="true":::    
 
 <!--     Remember that the fields can be set to calculated values.
 
     For the example, setting using the *"Image, Title and Subtitle"* layout and specifying the *Image* function as the concatenation of the root path for the data and the file name (for instance, `"https://mystore.blob.core.windows.net/multilang/" & ThisItem.metadata_storage_name`) will produce the result below.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Final app" border="true":::         -->
+    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Menyn anpassad anslutning" border="true":::         -->
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 230613cc103cc851d1173f867b551af028ea898b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b22bb16c583c0385b31bde89f30763cd4fb478a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546873"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945933"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Självstudie: Azure Active Directory integrering med Kantega SSO för JIRA
 
@@ -30,7 +30,7 @@ Genom att integrera Kantega SSO för JIRA med Azure AD får du följande fördel
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Kantega SSO för JIRA behöver du följande objekt:
 
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ka
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning för Kantega SSO för JIRA-domän och URL: er](common/idp-intiated.png)
+    ![Skärm bild som visar "Basic S A M L-konfiguration" med text rutan "identifierare" och "svara U R L" och knappen "Spara" markerad.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -134,39 +134,39 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ka
 
 1. Hovra över kugghjulet och klicka på **Tillägg**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforjira-tutorial/addon1.png)
+    ![Skärm bild som visar ikonen "kugg hjuls" vald och "tillägg" valda i list rutan.](./media/kantegassoforjira-tutorial/addon1.png)
 
 1. I avsnittet Tillägg klickar du på **Hitta nya tillägg**. Sök **KANTEGA SSO för JIRA (SAML & Kerberos)** och klicka på knappen **Installera** för att installera det nya SAML-plugin-programmet.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforjira-tutorial/addon2.png)
+    ![Skärm bild som visar avsnittet "hitta nya tilläggs komponenter" med "Kantego S S O för JIRA (S A M L & Kerberos)" i sökrutan och knappen "installera" markerat.](./media/kantegassoforjira-tutorial/addon2.png)
 
 1. Plugin-installationen startar.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforjira-tutorial/addon3.png)
+    ![Skärm bild som visar dialog rutan för att installera plugin-programmet.](./media/kantegassoforjira-tutorial/addon3.png)
 
 1. När installationen är klar. Klicka på **Stäng**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforjira-tutorial/addon33.png)
+    ![Skärm bild som visar "installerad och redo att gå!" dialog rutan med åtgärden "Stäng" vald.](./media/kantegassoforjira-tutorial/addon33.png)
 
 1.  Klicka på **Hantera**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforjira-tutorial/addon34.png)
+    ![Skärm bild som visar app-sidan "Kantega S O" med knappen "hantera" markerad.](./media/kantegassoforjira-tutorial/addon34.png)
     
 1. Nytt plugin-program visas under **integreringar**. Klicka på **Konfigurera** för att konfigurera det nya plugin-programmet.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforjira-tutorial/addon35.png)
+    ![Skärm bild som visar "INTEGRERINGar" i den vänstra navigerings menyn och knappen "Konfigurera" som valts i avsnittet "Hantera tillägg".](./media/kantegassoforjira-tutorial/addon35.png)
 
 1. I **SAML** -avsnittet. Välj **Azure Active Directory (Azure AD)** i list rutan **Lägg till identitets leverantör** .
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforjira-tutorial/addon4.png)
+    ![Skärm bild som visar List rutan "Lägg till identitetsprovider" med "Azure Active Directory (Azure A D)" vald.](./media/kantegassoforjira-tutorial/addon4.png)
 
 1. Välj prenumerations nivå som **Basic**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforjira-tutorial/addon5.png)       
+    ![Skärm bild som visar avsnittet "förbereda Azure A D" med Basic-valt.](./media/kantegassoforjira-tutorial/addon5.png)     
 
 1. I avsnittet **app Properties** utför du följande steg: 
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforjira-tutorial/addon6.png)
+    ![Skärm bild som visar avsnittet "app Properties" med text rutan "app I D U R L" och kopierings knappen markerad, och knappen "Nästa" är markerad.](./media/kantegassoforjira-tutorial/addon6.png)
 
     a. Kopiera **app-ID-URI** -värdet och Använd det som **identifierare, svars-URL och Sign-On URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
@@ -174,7 +174,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ka
 
 1. I avsnittet **metadata-import** utför du följande steg: 
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforjira-tutorial/addon7.png)
+    ![Skärm bild som visar avsnittet "metadata-import" med "metadatafil" på den här datorn "markerat.](./media/kantegassoforjira-tutorial/addon7.png)
 
     a. Välj **metadatafil på den här datorn**och ladda upp metadatafilen, som du har laddat ned från Azure Portal.
 
@@ -182,7 +182,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ka
 
 1. I avsnittet **namn och SSO-plats** utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforjira-tutorial/addon8.png)
+    ![Skärm bild som visar "namn och S O-plats" med text rutan "namn på identitetsprovider" och "Nästa"-knappen markerad.](./media/kantegassoforjira-tutorial/addon8.png)
 
     a. Lägg till namnet på identitets leverantören i text rutan för **identitets leverantörs namn** (t. ex. Azure AD).
 
@@ -190,11 +190,11 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ka
 
 1. Verifiera signerings certifikatet och klicka på **Nästa**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforjira-tutorial/addon9.png)
+    ![Skärm bild som visar avsnittet "signaturverifiering" med knappen "Nästa" valt.](./media/kantegassoforjira-tutorial/addon9.png)
 
 1. Utför följande steg i avsnittet **JIRA User Accounts** :
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforjira-tutorial/addon10.png)
+    ![Skärm bild som visar "JIRA User Accounts" med alternativet "skapa användare i JIRAs interna katalog om det behövs" och knappen "Nästa" är markerad.](./media/kantegassoforjira-tutorial/addon10.png)
 
     a. Välj **skapa användare i JIRA interna katalog om det behövs** och ange rätt namn på gruppen för användare (kan vara flera). av grupper åtskilda med kommatecken).
 
@@ -202,7 +202,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ka
 
 1. Klicka på **Finish**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforjira-tutorial/addon11.png)
+    ![Skärm bild som visar avsnittet "Sammanfattning" med knappen "Slutför" markerat.](./media/kantegassoforjira-tutorial/addon11.png)
 
 1. Utför följande steg på avsnittet **kända domäner för Azure AD** :
 
@@ -274,11 +274,11 @@ Om du vill att Azure AD-användare ska kunna logga in på JIRA måste de tillhan
 
 1. Hovra över kugghjulet och klicka på **Användarhantering**.
 
-    ![Lägga till medarbetare](./media/kantegassoforjira-tutorial/user1.png) 
+    ![Skärm bild som visar ikonen "kugg hjuls" vald och "användar hantering" som valts i list rutan.](./media/kantegassoforjira-tutorial/user1.png) 
 
 1. Under fliken **användar hantering** klickar du på **skapa användare**.
 
-    ![Lägga till medarbetare](./media/kantegassoforjira-tutorial/user2.png) 
+    ![Skärm bild som visar avsnittet "användar hantering" med knappen "skapa användare" vald.](./media/kantegassoforjira-tutorial/user2.png) 
 
 1. I dialogrutan **”Skapa ny användare”** utför du följande steg:
 

@@ -9,22 +9,22 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 59c00b06f1fef613b00ade13c7cacc0b88e61bf1
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 959906f25cbae0158dfb0baf0b7664b8f9b9b5d4
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91649554"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945676"
 ---
 # <a name="dv4-and-dsv4-series"></a>DV4- och Dsv4-serien
 
-DV4 och Dsv4-serien körs på Intel &reg; Xeon &reg; platina 8272CL-processorer (Cascade Lake) i en Hyper-threadd konfiguration, vilket ger ett bättre värde för de flesta allmänna arbets belastningar. Den har en hållbar all Core Turbo klock hastighet på 3,4 GHz. 
+DV4 och Dsv4-serien körs på Intel &reg; Xeon &reg; platina 8272CL-processorer (Cascade Lake) i en Hyper-threadd konfiguration, vilket ger ett bättre värde för de flesta allmänna arbets belastningar. Den har all Core Turbo klock hastighet på 3,4 GHz. 
 
 > [!NOTE]
 > För vanliga frågor, se  [Azure VM-storlekar utan en lokal temporär disk](azure-vms-no-temp-disk.md).
 ## <a name="dv4-series"></a>DV4-serien
 
-DV4-seriens storlekar körs på Intel &reg; Xeon &reg; platina-8272CL (överlappande sjö). Storlekarna i DV4-serien erbjuder en kombination av alternativ för vCPU, minne och Fjärrlagring för de flesta produktions arbets belastningar. Virtuella datorer i DV4-serien har [Intel &reg; Hyper-Threading-teknik](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html).
+DV4-seriens storlekar körs på Intel &reg; Xeon &reg; platina-8272CL (överlappande sjö). Storlekarna i DV4-serien erbjuder en kombination av alternativ för vCPU, minne och Fjärrlagring för de flesta produktions arbets belastningar. Virtuella datorer i DV4-serien har [Intel &reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html).
 
 Lagring av fjärrdata-datadisk faktureras separat från virtuella datorer. Använd Dsv4-storlekarna om du vill använda Premium Storage-diskar. Pris-och debiterings mätare för Dsv4-storlekar är samma som för DV4-serien.
 
@@ -48,7 +48,7 @@ Lagring av fjärrdata-datadisk faktureras separat från virtuella datorer. Anvä
 
 ## <a name="dsv4-series"></a>Dsv4-serien
 
-Dsv4-seriens storlekar körs på Intel &reg; Xeon &reg; platina-8272CL (överlappande sjö). Storlekarna i DV4-serien erbjuder en kombination av alternativ för vCPU, minne och Fjärrlagring för de flesta produktions arbets belastningar. Virtuella datorer i Dsv4-serien har [Intel &reg; Hyper-Threading-teknik](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html). Lagring av fjärrdata-datadisk faktureras separat från virtuella datorer.
+Dsv4-seriens storlekar körs på Intel &reg; Xeon &reg; platina-8272CL (överlappande sjö). Storlekarna i DV4-serien erbjuder en kombination av alternativ för vCPU, minne och Fjärrlagring för de flesta produktions arbets belastningar. Virtuella datorer i Dsv4-serien har [Intel &reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html). Lagring av fjärrdata-datadisk faktureras separat från virtuella datorer.
 
 [ACU](acu.md): 195-210<br>
 [Premium Storage](premium-storage-performance.md): stöds<br>

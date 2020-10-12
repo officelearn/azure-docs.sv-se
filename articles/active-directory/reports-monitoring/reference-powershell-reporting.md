@@ -19,10 +19,10 @@ ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 4353ed5413f76b13425a59d31bb6108542e3bd23
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231137"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Azure AD PowerShell-cmdletar för rapportering
@@ -51,8 +51,8 @@ Du får åtkomst till gransknings loggarna med hjälp av cmdleten Get-AzureADAud
 
 | Scenario                      | PowerShell-kommando |
 | :--                           | :--                |
-| Programmets visnings namn      | Get-AzureADAuditDirectoryLogs-filter "initiatedBy/app/displayName EQ" Azure AD-molnbaserad synkronisering "" |
-| Kategori                      | Get-AzureADAuditDirectoryLogs – filter "Category EQ" ApplicationManagement "" |
+| Programmets visnings namn      | Get-AzureADAuditDirectoryLogs-filter "initiatedBy/app/displayName EQ" Azure AD Cloud Sync "" |
+| Kategori                      | Get-AzureADAuditDirectoryLogs-filter "Category EQ" ApplicationManagement " |
 | Datum/tid för aktivitet            | Get-AzureADAuditDirectoryLogs-filter "activityDateTime gt 2019-04-18" |
 | Alla alternativ ovan              | Get-AzureADAuditDirectoryLogs-filter "initiatedBy/app/displayName EQ" Azure AD Cloud Sync "och Category EQ" ApplicationManagement "och activityDateTime gt 2019-04-18"|
 
@@ -72,8 +72,8 @@ Du får åtkomst till inloggnings loggarna med hjälp av cmdleten Get-AzureADAud
 
 | Scenario                      | PowerShell-kommando |
 | :--                           | :--                |
-| Användarens visnings namn             | Get-AzureADAuditSignInLogs-filter "userDisplayName EQ" Timothy Perkins "" |
-| Skapa datum och tid              | Get-AzureADAuditSignInLogs-filter "createdDateTime gt 2019-04-18T17:30:00.0 Z" (allting sedan 5:30 PM på 4/18) |
+| Användarens visnings namn             | Get-AzureADAuditSignInLogs-filter "userDisplayName EQ Timothy Perkins" " |
+| Skapa datum och tid              | Get-AzureADAuditSignInLogs-filter "createdDateTime gt 2019-04-18T17:30:00.0 Z" (allt sedan 5:30 PM på 4/18) |
 | Status                        | Get-AzureADAuditSignInLogs-filter "status/errorCode EQ 50105" |
 | Programmets visnings namn      | Get-AzureADAuditSignInLogs-filter "appDisplayName EQ" StoreFrontStudio [wsfed Enabled] " |
 | Alla alternativ ovan              | Get-AzureADAuditSignInLogs-filter "userDisplayName EQ" Timothy Perkins "och status/errorCode Ne 0 och appDisplayName EQ StoreFrontStudio [wsfed Enabled]" |

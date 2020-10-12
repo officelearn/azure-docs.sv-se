@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 14e0b86f11c3eabf93e7d4f0ebf563e59c0c21e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081873"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Begränsningar för Orchestrator-funktions kod
@@ -35,7 +35,7 @@ I följande tabell visas exempel på API: er som du bör undvika eftersom de *in
 | Slumpmässiga siffror | API: er som returnerar slumpmässiga tal är icke-deterministiska eftersom det genererade värdet är olika för varje omuppspelning. | Använd en aktivitets funktion för att returnera slumptal till ett Orchestration-tal. De returnerade värdena för aktivitets funktioner är alltid säkra för uppspelning. |
 | Bindningar | Både indata och utdata-bindningar är I/O och är icke-deterministiska. En Orchestrator-funktion får inte använda direkt ens [Dirigerings klienten](durable-functions-bindings.md#orchestration-client) och [enhets klient](durable-functions-bindings.md#entity-client) bindningarna. | Använda indata och utgående bindningar i klient-eller aktivitets funktioner. |
 | Nätverk | Nätverks anrop omfattar externa system och är icke-deterministiska. | Använd aktivitets funktioner för att göra nätverks anrop. Om du behöver göra ett HTTP-anrop från din Orchestrator-funktion kan du också använda de [bestående HTTP-API: erna](durable-functions-http-features.md#consuming-http-apis). |
-| Blockera API: er | Blockering av API: er som `Thread.Sleep` i .net och liknande API: er kan orsaka prestanda-och skalnings problem för Orchestrator-funktioner och bör undvikas. I Azure Functions förbruknings planen kan de även leda till onödiga körnings avgifter. | Använd alternativ för att blockera API: er när de är tillgängliga. Använd `CreateTimer` till exempel för att införa fördröjningar i Orchestration-körningen. Fördröjda [timer](durable-functions-timers.md) -fördröjningar räknas inte mot körnings tiden för en Orchestrator-funktion. |
+| Blockera API: er | Blockering av API: er som `Thread.Sleep` i .net och liknande API: er kan orsaka prestanda-och skalnings problem för Orchestrator-funktioner och bör undvikas. I Azure Functions förbruknings planen kan de även leda till onödiga körnings avgifter. | Använd alternativ för att blockera API: er när de är tillgängliga. Använd  `CreateTimer` till exempel för att införa fördröjningar i Orchestration-körningen. Fördröjda [timer](durable-functions-timers.md) -fördröjningar räknas inte mot körnings tiden för en Orchestrator-funktion. |
 | Asynkrona API: er | Orchestrator-kod får aldrig starta en asynkron åtgärd förutom att använda `IDurableOrchestrationContext` API: et eller `context.df` objektets API. Du kan till exempel inte använda `Task.Run` , `Task.Delay` , och `HttpClient.SendAsync` i .net eller `setTimeout` och `setInterval` i Java Script. Det tåliga aktivitets ramverket Kör Orchestrator-kod på en enda tråd. Den kan inte samverka med andra trådar som kan anropas av andra asynkrona API: er. | En Orchestrator-funktion bör endast göra varaktiga asynkrona anrop. Aktivitets funktioner bör göra andra asynkrona API-anrop. |
 | Asynkrona JavaScript-funktioner | Du kan inte deklarera Java Script Orchestrator-funktioner som `async` eftersom node.js runtime inte garanterar att asynkrona funktioner är deterministiska. | Deklarera JavaScript Orchestrator-funktioner som synkrona Generator funktioner. |
 | Tråd kopplings-API: er | Det tåliga aktivitets ramverket Kör Orchestrator-kod på en enskild tråd och kan inte samverka med andra trådar. Att introducera nya trådar i en Dirigerings körning kan resultera i icke deterministisk körning eller död lägen. | Orchestrator-funktioner bör nästan aldrig använda tråd-API: er. I .NET bör du till exempel undvika att använda `ConfigureAwait(continueOnCapturedContext: false)` . Detta säkerställer att uppgifts fortsättningen körs på Orchestrator-funktionens ursprungliga `SynchronizationContext` . Om dessa API: er är nödvändiga begränsar du deras användning till endast aktivitets funktioner. |

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: sausin
 ms.openlocfilehash: 45dba3b7f46ec558c46b8505da26fd3ef4de4cbc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284191"
 ---
 # <a name="add-configurations-to-commands-parameters"></a>Lägga till konfigurationer i parametrar för kommandon
@@ -24,7 +24,7 @@ I den här artikeln får du lära dig mer om konfiguration av avancerad paramete
  - Hur parameter värden kan tillhöra en uppsättning som definierats externt till anpassade kommando program
  - Lägga till verifierings satser i värdet för parametrarna
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha slutfört stegen i följande artiklar:
 
@@ -84,7 +84,7 @@ Välj sedan **Spara**.
 > [!IMPORTANT]
 > Du kan inte se ett alternativ för att konfigurera en parameter att acceptera indata från en extern katalog om du inte har angett webb slut punkten i avsnittet **webb slut punkt** i det vänstra fönstret.
 
-### <a name="try-it-out"></a>Prova
+### <a name="try-it-out"></a>Prova nu
 
 Välj **träna** och vänta på slut för ande av utbildning. När inlärningen är klar väljer du **testa** och prova några interaktioner.
 
@@ -103,7 +103,7 @@ Välj **träna** och vänta på slut för ande av utbildning. När inlärningen 
 Testa verifieringar med kommandot **SetTemperature** . Använd följande steg för att lägga till en validering för **temperatur** parametern.
 
 1. Välj kommandot **SetTemperature** i det vänstra fönstret.
-1. Välj **temperatur** i fönstret i mitten.
+1. Välj  **temperatur** i fönstret i mitten.
 1. Välj **Lägg till en verifiering** i den högra rutan.
 1. I fönstret **ny validering** konfigurerar du verifiering enligt följande och väljer **skapa**.
 
@@ -112,12 +112,12 @@ Testa verifieringar med kommandot **SetTemperature** . Använd följande steg f�
     | ---- | ---- | ---- |
     | Minvärde | `60` | För Number-parametrar kan det minsta värdet som denna parameter anta |
     | Maxvärde | `80` | För Number-parametrar kan det högsta värdet som den här parametern anta |
-    | Haveri svar |  Enkel redigerare > första varianten >`Sorry, I can only set temperature between 60 and 80 degrees. What temperature do you want?` | Fråga om du vill ange ett nytt värde om valideringen Miss lyckas |
+    | Haveri svar |  Enkel redigerare > första varianten > `Sorry, I can only set temperature between 60 and 80 degrees. What temperature do you want?` | Fråga om du vill ange ett nytt värde om valideringen Miss lyckas |
 
     > [!div class="mx-imgBorder"]
     > ![Lägg till en intervall validering](media/custom-commands/add-validations-temperature.png)
 
-### <a name="try-it-out"></a>Prova
+### <a name="try-it-out"></a>Prova nu
 
 1. Välj **träna** ikon överst i den högra rutan.
 

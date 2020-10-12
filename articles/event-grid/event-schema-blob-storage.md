@@ -4,10 +4,10 @@ description: Beskriver de egenskaper som har angetts för Blob Storage-händelse
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: a914edbb6f624617766c77b277d7ee8e6ad08bd9
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87458951"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Azure Blob Storage som en Event Grid källa
@@ -304,7 +304,7 @@ En händelse har följande data på översta nivån:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | api | sträng | Den åtgärd som utlöste händelsen. |
 | clientRequestId | sträng | ett ID för begäran som tillhandahållits för Storage API-åtgärden. Detta ID kan användas för att korrelera Azure Storage diagnostikloggar med hjälp av fältet "client-Request-ID" i loggarna och kan tillhandahållas i klient begär Anden med hjälp av huvudet "x-MS-client-Request-ID". Se [logg format](/rest/api/storageservices/storage-analytics-log-format). |
@@ -317,7 +317,7 @@ Data-objektet har följande egenskaper:
 | destinationUrl |sträng | URL till den fil som ska finnas när åtgärden har slutförts. Om en fil till exempel byter namn, `destinationUrl` innehåller egenskapen URL: en för det nya fil namnet. <br>Visas endast för händelser som utlöses på Blob Storage-konton som har ett hierarkiskt namn område.|
 | sourceUrl |sträng | URL till den fil som finns före åtgärden. Om till exempel en fil får ett nytt namn, `sourceUrl` innehåller URL: en för det ursprungliga fil namnet före namnbytes åtgärden. <br>Visas endast för händelser som utlöses på Blob Storage-konton som har ett hierarkiskt namn område. |
 | url | sträng | Sökvägen till blobben. <br>Om klienten använder en BLOB-REST API, har URL: en följande struktur: * \<storage-account-name\> . blob.Core.Windows.net/ \<container-name\> / \<file-name\> *. <br>Om klienten använder en Data Lake Storage REST API har URL: en följande struktur: * \<storage-account-name\> . DFS.Core.Windows.net/ \<file-system-name\> / \<file-name\> *. |
-| rekursiva | sträng | `True`utföra åtgärden på alla underordnade kataloger. annars `False` . <br>Visas endast för händelser som utlöses på Blob Storage-konton som har ett hierarkiskt namn område. |
+| rekursiva | sträng | `True` utföra åtgärden på alla underordnade kataloger. annars `False` . <br>Visas endast för händelser som utlöses på Blob Storage-konton som har ett hierarkiskt namn område. |
 | sekvenseraren | sträng | Ett ogenomskinligt sträng värde som representerar den logiska sekvensen av händelser för ett visst BLOB-namn.  Användare kan använda standard sträng jämförelse för att förstå den relativa sekvensen av två händelser på samma BLOB-namn. |
 | storageDiagnostics | objekt | Diagnostikdata ingår ibland i Azure Storages tjänsten. I förekommande fall ska ignoreras av händelse konsumenter. |
 

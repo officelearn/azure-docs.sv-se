@@ -31,10 +31,6 @@
           href: azure-stack-edge-gpu-deploy-activate.md
         - name: 8 – Konfigurera beräkning
           href: azure-stack-edge-gpu-deploy-configure-compute.md
-        - name: 9A – Lägga till och ansluta till resurs
-          href: azure-stack-edge-j-series-deploy-add-shares.md
-        - name: 9B – Lägga till och ansluta till lagringskonton
-          href: azure-stack-edge-j-series-deploy-add-storage-accounts.md
     - name: Begrepp
       items:
         - name: Granska krav
@@ -87,6 +83,8 @@
               items:
                 - name: Tillståndslös app
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
+                - name: Utveckla en C#-modul
+                  href: azure-stack-edge-j-series-create-iot-edge-module.md
             - name: Via Azure Arc (förhandsversion)
               items:
                 - name: Aktivera Arc på Kubernetes-kluster
@@ -123,12 +121,14 @@
               href: azure-stack-edge-j-series-create-certificates-tool.md
             - name: Felsöka certifikatfel
               href: azure-stack-edge-j-series-certificate-troubleshooting.md
-        - name: Utveckla en C#-modul
-          href: azure-stack-edge-j-series-create-iot-edge-module.md
         - name: Hantera databehandling på gränsenheter
           href: azure-stack-edge-j-series-manage-compute.md
         - name: Hantera lagringsgateway
           items:
+            - name: Lägga till och ansluta till resurs
+              href: azure-stack-edge-j-series-deploy-add-shares.md
+            - name: Lägga till och ansluta till lagringskonton
+              href: azure-stack-edge-j-series-deploy-add-storage-accounts.md
             - name: Resurser
               href: azure-stack-edge-j-series-manage-shares.md
             - name: Användare
@@ -149,6 +149,10 @@
               href: azure-stack-edge-return-device.md
             - name: Ersätta enhet
               href: azure-stack-edge-replace-device.md
+            - name: Förbereda inför enhetsfel
+              href: azure-stack-edge-gpu-prepare-device-failure.md
+            - name: Återställa från enhetsfel
+              href: azure-stack-edge-gpu-recover-device-failure.md
         - name: Övervaka
           items:
             - name: Använda måttdiagram

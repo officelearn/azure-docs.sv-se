@@ -9,23 +9,23 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 97d3b87edad56394d42daca19cdb8dbf962fade9
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 2c6540513c46307e4bd51b163dd77984395006c5
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91649515"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945438"
 ---
 # <a name="ev4-and-esv4-series"></a>Ev4- och Esv4-serien
 
-Ev4 och Esv4-serien körs på Intel &reg; Xeon &reg; platina-8272CL (Cascade Lake) i en Hyper-threadd konfiguration, är idealiska för olika minnes intensiva företags program och funktioner upp till 504GiB RAM-minne. Den har en hållbar all Core Turbo klock hastighet på 3,4 GHz.
+Ev4 och Esv4-serien körs på Intel &reg; Xeon &reg; platina-8272CL (Cascade Lake) i en Hyper-threadd konfiguration, är idealiska för olika minnes intensiva företags program och funktioner upp till 504GiB RAM-minne. Den har all Core Turbo klock hastighet på 3,4 GHz.
 
 > [!NOTE]
 > För vanliga frågor, se  [Azure VM-storlekar utan en lokal temporär disk](azure-vms-no-temp-disk.md).
 
 ## <a name="ev4-series"></a>Ev4-serien
 
-Ev4-seriens storlekar körs på Intel Xeon &reg; platina-8272CL (överlappande sjö). Instanserna i Ev4-serien är idealiska för minnes intensiva företags program. Virtuella datorer i Ev4-serien har Intel &reg; Hyper-Threading-teknik.
+Ev4-seriens storlekar körs på Intel Xeon &reg; platina-8272CL (överlappande sjö). Instanserna i Ev4-serien är idealiska för minnes intensiva företags program. Virtuella datorer i Ev4-serien har Intel &reg; Hyper-Threading Technology.
 
 Lagring av fjärrdata-datadisk faktureras separat från virtuella datorer. Använd Esv4-storlekarna om du vill använda Premium Storage-diskar. Pris-och debiterings mätare för Esv4-storlekar är samma som för Ev4-serien.
 
@@ -51,7 +51,7 @@ Lagring av fjärrdata-datadisk faktureras separat från virtuella datorer. Anvä
 
 ## <a name="esv4-series"></a>Esv4-serien
 
-Esv4-seriens storlekar körs på Intel &reg; Xeon &reg; platina-8272CL (överlappande sjö). Instanserna i Esv4-serien är idealiska för minnes intensiva företags program. Virtuella datorer i Evs4-serien har Intel &reg; Hyper-Threading-teknik. Lagring av fjärrdata-datadisk faktureras separat från virtuella datorer.
+Esv4-seriens storlekar körs på Intel &reg; Xeon &reg; platina-8272CL (överlappande sjö). Instanserna i Esv4-serien är idealiska för minnes intensiva företags program. Virtuella datorer i Evs4-serien har Intel &reg; Hyper-Threading Technology. Lagring av fjärrdata-datadisk faktureras separat från virtuella datorer.
 
 [ACU](acu.md): 195-210<br>
 [Premium Storage](premium-storage-performance.md): stöds<br>

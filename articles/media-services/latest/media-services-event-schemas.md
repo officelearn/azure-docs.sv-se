@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 47ba1af15101ae68cf5311ed73f7078bf9fc7f35
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336436"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure Event Grid scheman för Media Services händelser
@@ -136,7 +136,7 @@ I följande exempel visas schemat för **JobStateChange** -händelsen:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | previousState | sträng | Jobbets tillstånd före händelsen. |
 | state | sträng | Det nya läget för jobbet som meddelas i den här händelsen. Till exempel "schemalagd: jobbet är klart att starta" eller "slutfört: jobbet har slutförts".|
@@ -206,7 +206,7 @@ För varje slutlig jobb tillstånds ändring (till exempel JobFinished, JobCance
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | utdata | Matris | Hämtar jobbets utdata.|
 
@@ -322,7 +322,7 @@ I följande exempel visas schemat för **LiveEventConnectionRejected** -händels
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | streamId | sträng | Identifierare för strömmen eller anslutningen. Kodare eller kund ansvarar för att lägga till detta ID i inmatnings-URL: en. |  
 | ingest | sträng | Inmatnings-URL som tillhandahålls av Live-händelsen. |  
@@ -358,7 +358,7 @@ I följande exempel visas schemat för **LiveEventEncoderConnected** -händelsen
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | streamId | sträng | Identifierare för strömmen eller anslutningen. Kodare eller kund ansvarar för att tillhandahålla detta ID i inmatnings-URL: en. |
 | ingest | sträng | Inmatnings-URL som tillhandahålls av Live-händelsen. |
@@ -392,7 +392,7 @@ I följande exempel visas schemat för **LiveEventEncoderDisconnected** -händel
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | streamId | sträng | Identifierare för strömmen eller anslutningen. Kodare eller kund ansvarar för att lägga till detta ID i inmatnings-URL: en. |  
 | ingest | sträng | Inmatnings-URL som tillhandahålls av Live-händelsen. |  
@@ -404,7 +404,7 @@ Du hittar fel resultat koderna i [fel koder för Live-händelser](live-event-err
 
 De korrekt resultat koderna för från koppling är:
 
-| Resultatkod | Description |
+| Resultatkod | Beskrivning |
 | ----------- | ----------- |
 | S_OK | Kodaren har kopplats från. |
 | MPE_CLIENT_TERMINATED_SESSION | Kodare frånkopplad (RTMP). |
@@ -442,7 +442,7 @@ I följande exempel visas schemat för **LiveEventIncomingDataChunkDropped** -h�
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | trackType | sträng | Typ av spår (ljud/video). |
 | trackName | sträng | Spårets namn. |
@@ -482,7 +482,7 @@ I följande exempel visas schemat för **LiveEventIncomingStreamReceived** -hän
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | trackType | sträng | Typ av spår (ljud/video). |
 | trackName | sträng | Namnet på spåret (antingen från kodaren eller, om det är RTMP, servern genererar i *TrackType_Bitrate* -format). |
@@ -521,7 +521,7 @@ I följande exempel visas schemat för **LiveEventIncomingStreamsOutOfSync** -h�
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | minLastTimestamp | sträng | Minsta antal senaste tidsstämplar bland alla spår (ljud eller video). |
 | typeOfTrackWithMinLastTimestamp | sträng | Typ av spår (ljud eller video) med minst senaste tidsstämpel. |
@@ -557,7 +557,7 @@ I följande exempel visas schemat för **LiveEventIncomingVideoStreamsOutOfSync*
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | firstTimestamp | sträng | Tidsstämpeln togs emot för en av bildens spår/kvalitets nivåer av typen video. |
 | firstDuration | sträng | Varaktigheten för data segmentet med den första tidsstämpeln. |
@@ -599,7 +599,7 @@ I följande exempel visas schemat för **LiveEventIngestHeartbeat** -händelsen:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | trackType | sträng | Typ av spår (ljud/video). |
 | trackName | sträng | Namnet på spåret (antingen från kodaren eller, om det är RTMP, servern genererar i *TrackType_Bitrate* -format). |
@@ -643,7 +643,7 @@ I följande exempel visas schemat för **LiveEventTrackDiscontinuityDetected** -
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | trackType | sträng | Typ av spår (ljud/video). |
 | trackName | sträng | Namnet på spåret (antingen från kodaren eller, om det är RTMP, servern genererar i *TrackType_Bitrate* -format). |
@@ -657,7 +657,7 @@ Data-objektet har följande egenskaper:
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Avsnittet EventGrid. Den här egenskapen har resurs-ID: t för det Media Services kontot. |
 | motiv | sträng | Resurs Sök vägen för Media Servicess kanalen under Media Services kontot. Genom att sammanfoga ämnet och ämnet får du resurs-ID för jobbet. |

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
 ms.openlocfilehash: 734d52dadbb849925303febb0d3d1195bbddb0df
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89236762"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Använd Azure-brandväggen för att kontrol lera trafik som är avsedd för en privat slut punkt
@@ -55,7 +55,7 @@ Mer information om avgifter som rör anslutningar med peer-kopplade virtuella n�
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Scenario 2: hubb-och eker-arkitektur – delat virtuellt nätverk för privata slut punkter och virtuella datorer
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Privata slut punkter och Virtual Machines i samma Virtual Network" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Dedikerade Virtual Network för privata slut punkter" border="true":::
 
 Det här scenariot implementeras när:
 
@@ -78,7 +78,7 @@ Mer information om avgifter som rör anslutningar med peer-kopplade virtuella n�
 
 ## <a name="scenario-3-single-virtual-network"></a>Scenario 3: enskilt virtuellt nätverk
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Enskilt virtuellt nätverk" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Dedikerade Virtual Network för privata slut punkter" border="true":::
 
 Det finns vissa begränsningar för implementeringen: det går inte att migrera till en hubb och eker-arkitektur. Samma saker som i scenario 2 gäller. I det här scenariot gäller inte peering-kostnader för virtuella nätverk.
 
@@ -87,7 +87,7 @@ Det finns vissa begränsningar för implementeringen: det går inte att migrera 
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Scenario 4: lokal trafik till privata slut punkter
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Lokal trafik till privata slut punkter" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Dedikerade Virtual Network för privata slut punkter" border="true":::
 
 Den här arkitekturen kan implementeras om du har konfigurerat anslutningen till ditt lokala nätverk med hjälp av något av följande: 
 
@@ -169,19 +169,19 @@ Ersätt följande parametrar i stegen med informationen nedan:
 
     | Inställning | Värde |
     | ------- | ----- |
-    | **Projekt information** | |
+    | **Projektinformation** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du har skapat den här resurs gruppen i föregående avsnitt.  |
-    | **Instans information** |  |
+    | **Instansinformation** |  |
     | Namn på virtuell dator | Ange **myVM**. |
     | Region | Välj **(US) södra centrala USA**. |
-    | Alternativ för tillgänglighet | Lämna kvar standardinställningen **Ingen infrastrukturredundans krävs**. |
+    | Alternativ för tillgänglighet | Lämna standard **ingen redundans för infrastruktur krävs**. |
     | Bild | Välj **Ubuntu Server 18,04 LTS-gen1**. |
     | Storlek | Välj **Standard_B2s**. |
     | **Administratörs konto** |  |
     | Autentiseringstyp | Välj **lösen ord**. |
     | Användarnamn | Ange ett användar namn som du väljer. |
-    | lösenordsinställning | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/linux/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../virtual-machines/linux/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösenordet igen. |
     | **Regler för inkommande portar** |  |
     | Offentliga inkommande portar | Välj **Ingen**. |
@@ -189,7 +189,7 @@ Ersätt följande parametrar i stegen med informationen nedan:
 
 3. Välj **Nästa: diskar**.
 
-4. Lämna standardvärdena i **skapa en virtuell dator – diskar**och välj **Nästa: nätverk**.
+4. I **Skapa en virtuell dator – diskar** lämnar du standardinställningarna och väljer **Nästa: Nätverk**.
 
 5. I **Skapa en virtuell dator – Nätverk** väljer du följande information:
 
@@ -197,14 +197,14 @@ Ersätt följande parametrar i stegen med informationen nedan:
     | ------- | ----- |
     | Virtuellt nätverk | Välj **myVMVNet**.  |
     | Undernät | Välj **VMSubnet (10.1.0.0/24)**.|
-    | Offentlig IP-adress | Lämna standardinställningen **(ny) myVm-ip**. |
+    | Offentlig IP-adress | Lämna standardvärdet **(New) myVm-IP**. |
     | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
     | Välj inkommande portar | Välj **SSH**.|
     ||
 
-6. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen.
+6. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure verifierar din konfiguration.
 
-7. När du ser meddelandet **valideringen har skickats** väljer du **skapa**.
+7. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**.
 
 ## <a name="deploy-the-firewall"></a>Distribuera brand väggen
 
@@ -218,21 +218,21 @@ Ersätt följande parametrar i stegen med informationen nedan:
 
     | Inställning | Värde |
     | ------- | ----- |
-    | **Projekt information** | |
+    | **Projektinformation** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**.  |
-    | **Instans information** |  |
+    | **Instansinformation** |  |
     | Name | Ange **myAzureFirewall**. |
     | Region | Välj **södra centrala USA**. |
-    | Tillgänglighetszon | Lämna kvar standardinställningen **Ingen**. |
+    | Tillgänglighetszon | Lämna standardvärdet **none**. |
     | Välj ett virtuellt nätverk    |    Välj **Använd befintlig**.    |
     | Virtuellt nätverk    |    Välj **myAzFwVNet**.    |
     | Offentlig IP-adress    |    Välj **Lägg till nytt** och i namn Ange **brand väggen-IP**.    |
     | Tvingad tunneltrafik    | Låt standardvärdet vara **inaktiverat**.    |
     |||
-5. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen.
+5. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure verifierar din konfiguration.
 
-6. När du ser meddelandet **valideringen har skickats** väljer du **skapa**.
+6. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**.
 
 ## <a name="enable-firewall-logs"></a>Aktivera brand Väggs loggar
 
@@ -269,7 +269,7 @@ I det här avsnittet skapar du en privat SQL Database.
 
     | Inställning | Värde |
     | ------- | ----- |
-    | **Projekt information** | |
+    | **Projektinformation** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du har skapat den här resurs gruppen i föregående avsnitt.|
     | **Databasinformation** |  |
@@ -277,16 +277,16 @@ I det här avsnittet skapar du en privat SQL Database.
     | Server | Välj **Skapa ny** och ange informationen nedan.    |
     | Servernamn | Ange **MyDBServer**. Ange ett unikt namn om det här namnet tas.   |
     | Inloggning för serveradministratör | Ange ett namn som du väljer. |
-    | lösenordsinställning    |    Ange ett valfritt lösenord.    |
-    | Bekräfta lösenord | Ange lösen ordet igen    |
+    | Lösenord    |    Ange ett valfritt lösenord.    |
+    | Bekräfta lösenord | Ange lösenordet igen    |
     | Plats    | Välj **(US) södra centrala USA**.    |
-    | Vill använda elastisk SQL-pool    | Lämna kvar standardinställningen **Nej**. |
+    | Vill använda elastisk SQL-pool    | Lämna standardvärdet **Nej**. |
     | Beräkning och lagring | Lämna standard **generell användning Gen5, 2 virtuella kärnor, 32 GB lagring**. |
     |||
 
-3. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen.
+3. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure verifierar din konfiguration.
 
-4. När du ser meddelandet **valideringen har skickats** väljer du **skapa**.
+4. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**.
 
 ## <a name="create-private-endpoint"></a>Skapa privat slut punkt
 
@@ -304,10 +304,10 @@ I det här avsnittet skapar du en privat slut punkt för Azure SQL-databasen i f
 
     | Inställning | Värde |
     | ------- | ----- |
-    | **Projekt information** | |
+    | **Projektinformation** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. |
-    | **Instans information** | |
+    | **Instansinformation** | |
     | Name | Ange **SQLPrivateEndpoint**. |
     | Region | Välj **(US) södra centrala USA.** |
 
@@ -321,7 +321,7 @@ I det här avsnittet skapar du en privat slut punkt för Azure SQL-databasen i f
     | Prenumeration | Välj din prenumeration. |
     | Resurstyp | Välj **Microsoft. SQL/Servers**. |
     | Resurs | Välj **MyDBServer** eller namnet på den server som du skapade i föregående steg.
-    | Mål under resurs | Välj **sqlServer**. |
+    | Målunderresurs | Välj **sqlServer**. |
 
 8. Välj fliken **konfiguration** eller Välj **Nästa: konfiguration** längst ned på sidan.
 
@@ -374,7 +374,7 @@ I det här avsnittet ska vi ansluta virtuella nätverk **myVMVNet** och **myPEVN
     | Tillåt vidarebefordrad trafik från det virtuella fjärrnätverket till myAzFwVNet    | Välj **Aktiverad**. |
     | Tillåt vidarebefordrad trafik från myAzFwVNet till fjärran sluten virtuellt nätverk | Välj **Aktiverad**. |
     | **Konfigurera inställningar för gateway-överföring** | |
-    | Tillåt Gateway-överföring | Lämna omarkerad |
+    | Tillåt Gateway-överföring | Lämna alternativet omarkerat |
     |||
 
 4. Välj **OK**.
@@ -400,7 +400,7 @@ I det här avsnittet ska vi ansluta virtuella nätverk **myVMVNet** och **myPEVN
     | Tillåt vidarebefordrad trafik från det virtuella fjärrnätverket till myAzFwVNet    | Välj **Aktiverad**. |
     | Tillåt vidarebefordrad trafik från myAzFwVNet till fjärran sluten virtuellt nätverk | Välj **Aktiverad**. |
     | **Konfigurera inställningar för gateway-överföring** | |
-    | Tillåt Gateway-överföring | Lämna omarkerad |
+    | Tillåt Gateway-överföring | Lämna alternativet omarkerat |
 
 7. Välj **OK**.
 
@@ -459,14 +459,14 @@ Den här regeln tillåter kommunikation via brand väggen som vi skapade i före
     | Namn | Ange **SQLPrivateEndpoint**. |
     | Prioritet | Ange **100**. |
     | Action | Ange **Tillåt**. |
-    | **Uttryck** |  |
+    | **Regler** |  |
     | **FQDN-taggar** | |
-    | Name  | Lämna tomt.  |
+    | Namn  | Lämna tomt.  |
     | Källtyp | Lämna standard **-IP-adressen**.    |
     | Källa | Lämna tomt. |
     | FQDN-taggar | Låt standardvärdet **0 vara markerat**. |
     | **Mål-FQDN** | |
-    | Name | Ange **SQLPrivateEndpoint**.    |
+    | Namn | Ange **SQLPrivateEndpoint**.    |
     | Källtyp | Lämna standard **-IP-adressen**. |
     | Källa | Ange **10.1.0.0/16**. |
     | Protokoll: port | Ange **MSSQL: 1433**. |
@@ -493,17 +493,17 @@ Vägen skickar trafik från **myVM** -undernätet till adress utrymmet för det 
 
     | Inställning | Värde |
     | ------- | ----- |
-    | **Projekt information** | |
+    | **Projektinformation** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**.  |
-    | **Instans information** |  |
+    | **Instansinformation** |  |
     | Region | Välj **södra centrala USA**. |
-    | Name | Ange **VMsubnet-till-AzureFirewall**. |
+    | Namn | Ange **VMsubnet-till-AzureFirewall**. |
     | Sprida Gateway-vägar | Välj **Nej**. |
 
-5. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen.
+5. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure verifierar din konfiguration.
 
-6. När du ser meddelandet **valideringen har skickats** väljer du **skapa**.
+6. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**.
 
 7. När distributionen är klar väljer **du gå till resurs**.
 

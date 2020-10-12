@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 9e6b8511164cd7e9a855a70d9edba4ce6492c3a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a25a1ec5f2d650501a7c5da8bb1c60f57ad549d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404748"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945795"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>ORC-format i Azure Data Factory
 
@@ -32,7 +32,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 | ---------------- | ------------------------------------------------------------ | -------- |
 | typ             | Data uppsättningens typ-egenskap måste anges till **Orc**. | Ja      |
 | location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Ja      |
-| compressionCodec         | Den komprimerings-codec som ska användas när du skriver till ORC-filer. Vid läsning från ORC-filer bestämmer data fabrikerna automatiskt komprimerings-codecen baserat på filens metadata.<br>De typer som stöds är **none**, **zlib**, **fästfunktionen** (default) och **LZO**. Obs! kopierings aktiviteten stöder för närvarande inte LZO vid läsning/skrivning av ORC-filer. | Inga      |
+| compressionCodec         | Den komprimerings-codec som ska användas när du skriver till ORC-filer. Vid läsning från ORC-filer bestämmer data fabrikerna automatiskt komprimerings-codecen baserat på filens metadata.<br>De typer som stöds är **none**, **zlib**, **fästfunktionen** (default) och **LZO**. Obs! kopierings aktiviteten stöder för närvarande inte LZO vid läsning/skrivning av ORC-filer. | Nej      |
 
 Nedan visas ett exempel på en ORC-datauppsättning på Azure Blob Storage:
 
@@ -59,7 +59,7 @@ Nedan visas ett exempel på en ORC-datauppsättning på Azure Blob Storage:
 
 Observera följande punkter:
 
-* Komplexa data typer stöds inte (STRUCT, MAP, LIST, UNION).
+* Komplexa data typer (t. ex. MAP, LIST, STRUCT) stöds för närvarande bara i data flöden, inte i kopierings aktivitet. Om du vill använda komplexa typer i data flöden ska du inte importera filschemat i data uppsättningen och lämna schemat tomt i data uppsättningen. I käll omvandlingen importerar du sedan projektionen.
 * Tomt utrymme i kolumn namnet stöds inte.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
@@ -73,7 +73,7 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* källa \* *** 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
 | typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **OrcSource**. | Ja      |
-| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Inga       |
+| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Nej       |
 
 ### <a name="orc-as-sink"></a>ORC som mottagare
 
@@ -82,16 +82,16 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* mottagare \* *
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
 | typ          | Egenskapen Type för kopierings aktivitetens Sink måste anges till **OrcSink**. | Ja      |
-| formatSettings | En grupp med egenskaper. Se **Orc Write Settings** Table nedan. |    Inga      |
-| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Inga       |
+| formatSettings | En grupp med egenskaper. Se **Orc Write Settings** Table nedan. |    Nej      |
+| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Nej       |
 
 **Skriv inställningar för Orc** som stöds under `formatSettings` :
 
 | Egenskap      | Beskrivning                                                  | Krävs                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | typ          | Typen för formatSettings måste anges till **OrcWriteSettings**. | Ja                                                   |
-| maxRowsPerFile | När du skriver data till en mapp kan du välja att skriva till flera filer och ange max rader per fil.  | Inga |
-| fileNamePrefix | Gäller när `maxRowsPerFile` har kon figurer ATS.<br> Ange prefixet för fil namn när du skriver data till flera filer, vilket resulterade i det här mönstret: `<fileNamePrefix>_00000.<fileExtension>` . Om inget anges skapas prefixet för fil namn automatiskt. Den här egenskapen gäller inte när källan är filbaserad lagring eller [partition-alternativ-aktiverat data lager](copy-activity-performance-features.md).  | Inga |
+| maxRowsPerFile | När du skriver data till en mapp kan du välja att skriva till flera filer och ange max rader per fil.  | Nej |
+| fileNamePrefix | Gäller när `maxRowsPerFile` har kon figurer ATS.<br> Ange prefixet för fil namn när du skriver data till flera filer, vilket resulterade i det här mönstret: `<fileNamePrefix>_00000.<fileExtension>` . Om inget anges skapas prefixet för fil namn automatiskt. Den här egenskapen gäller inte när källan är filbaserad lagring eller [partition-alternativ-aktiverat data lager](copy-activity-performance-features.md).  | Nej |
 
 ## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
 

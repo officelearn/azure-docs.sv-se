@@ -4,10 +4,10 @@ description: Kontroll mappning för SWIFT-CSCF v2020 skiss-exemplet. Varje kontr
 ms.date: 08/18/2020
 ms.topic: sample
 ms.openlocfilehash: 868971b0523e077f0f76c0340a87df550448913a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540820"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Kontroll mappning för SWIFT CSP-CSCF v2020 skiss-exempel
@@ -29,7 +29,7 @@ Den här skissen hjälper dig att granska konton som kanske inte uppfyller organ
 - Externa konton med Läs behörighet bör tas bort från din prenumeration
 - Externa konton med Skriv behörighet bör tas bort från din prenumeration
 
-## <a name="26-51-64-and-65a-account-management--role-based-schemes"></a>2,6, 5,1, 6,4 och 6.5 A konto hantering | Rollbaserade scheman
+## <a name="26-51-64-and-65a-account-management--role-based-schemes"></a>2,6, 5,1, 6,4 och 6.5 A konto hantering | Role-Baseds scheman
 
 [Rollbaserad åtkomst kontroll i Azure](../../../../role-based-access-control/overview.md) (Azure RBAC) som hjälper dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar också [Azure policy](../../../policy/overview.md) definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar och Service Fabric. Med hjälp av Azure Active Directory-autentisering möjliggörs förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster. Dessutom tilldelar den här skissen en Azure Policy-definition för att granska användningen av anpassade Azure RBAC-regler. Att förstå var anpassade Azure RBAC-regler implementeras kan hjälpa dig att kontrol lera behovet och korrekt implementering, eftersom anpassade Azure RBAC-regler är fel känsliga.
 
@@ -131,7 +131,7 @@ Adaptiva program kontroller i Azure Security Center är en intelligent, automati
 
 - Anpassningsbara program kontroller för att definiera säkra program ska aktive ras på dina datorer
 
-## <a name="11-user-installed-software"></a>1,1 användare-installerad program vara
+## <a name="11-user-installed-software"></a>1,1 User-Installed program vara
 
 Adaptiva program kontroller i Azure Security Center är en intelligent, automatiserad program filtrerings lösning från slut punkt till slut punkt som kan blockera eller förhindra att specifika program körs på dina virtuella datorer. Program kontroll kan hjälpa dig att upprätthålla och övervaka efterlevnaden av principer för begränsning av program vara. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka virtuella datorer där en lista över tillåtna program rekommenderas men inte har kon figurer ATS än.
 
@@ -162,7 +162,7 @@ Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitio
 - Visa gransknings resultat från virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
 - Distribuera krav för att granska virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
 
-## <a name="23-and-41-authenticator-management--password-based-authentication"></a>Hantering av 2,3 och 4,1-autentisering | Lösenordsbaserad autentisering
+## <a name="23-and-41-authenticator-management--password-based-authentication"></a>Hantering av 2,3 och 4,1-autentisering | Password-Based autentisering
 
 Den här skissen hjälper dig att använda starka lösen ord genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar virtuella Windows-datorer som inte kräver lägsta möjliga styrka och andra lösen ords krav. Medvetenheten om virtuella datorer som strider mot principen för lösen ords styrka hjälper dig att vidta åtgärder för att se till att lösen ord för alla virtuella dator användar konton följer organisationens lösen ords princip.
 

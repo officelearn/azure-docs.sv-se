@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 8/6/2020
 ms.openlocfilehash: 4c6d1d3877629150493ee2a57a04573760d2772a
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88870025"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics och Power BI: en real tids analys instrument panel för strömmande data
@@ -46,7 +46,7 @@ I självstudien om bedrägeri identifiering i real tid skickas utdata till Azure
 
    |**Inställning**  |**Föreslaget värde**  |
    |---------|---------|
-   |Utdataalias  |  CallStream – PowerBI  |
+   |Utdataalias  |  CallStream-PowerBI  |
    |Namn på datauppsättning  |   sa – data uppsättning  |
    |Tabellnamn |  bedrägliga samtal  |
 
@@ -166,7 +166,7 @@ Ditt strömnings analys jobb börjar söka efter bedrägliga anrop i den inkomma
 
     ![Rubrik och under rubrik för den nya panelen](./media/stream-analytics-power-bi-dashboard/pbi-new-tile-details.png)
 
-9. Klicka på **Använd**.
+9. Klicka på **Applicera**.
 
     Nu har du en bedrägeri räknare!
 

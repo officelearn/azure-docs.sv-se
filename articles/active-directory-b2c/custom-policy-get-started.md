@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 54d92da469625a3b81d0027558ec14166d916b80
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88163194"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Kom igång med anpassade principer i Azure Active Directory B2C
@@ -82,7 +82,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda **Ap
 1. Under **konto typer som stöds**väljer du **konton endast i den här organisations katalogen**.
 1. Under **omdirigerings-URI**väljer du **webb**och anger sedan `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` , där `your-tenant-name` är ditt Azure AD B2C klient domän namn.
 1. Under **behörigheter**markerar du kryss rutan *bevilja administratörs medgivande till OpenID och offline_access behörighet* .
-1. Välj **Registrera**.
+1. Välj **Register** (Registrera).
 1. Registrera **program-ID: t (Client)** för användning i ett senare steg.
 
 Sedan exponerar du API: et genom att lägga till ett omfång:
@@ -105,7 +105,7 @@ Sedan exponerar du API: et genom att lägga till ett omfång:
 1. Under **omdirigerings-URI**använder du List rutan för att välja **offentlig klient/ursprunglig (mobil & Desktop)**.
 1. För **omdirigerings-URI**anger du `myapp://auth` .
 1. Under **behörigheter**markerar du kryss rutan *bevilja administratörs medgivande till OpenID och offline_access behörighet* .
-1. Välj **Registrera**.
+1. Välj **Register** (Registrera).
 1. Registrera **program-ID: t (Client)** för användning i ett senare steg.
 
 Ange sedan att programmet ska behandlas som en offentlig klient:

@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: 8b34005f2796403e32b41a93e4163c7da16d40bb
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540956"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Batch-testning med en uppsättning exempel yttranden
@@ -34,7 +34,7 @@ ms.locfileid: "91540956"
 
 3. I fältet **data uppsättnings namn** anger du ett namn för din data uppsättnings fil. Data uppsättnings filen innehåller en **matris med yttranden** , inklusive *etikettens avsikt* och *entiteter*. Granska syntaxen i [exempel kommando filen](luis-concept-batch-test.md#batch-file-format) .
 
-4. Välj **Klar**. Data uppsättnings filen har lagts till.
+4. Välj **Done** (Klar). Data uppsättnings filen har lagts till.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Köra, byta namn på, exportera eller ta bort data uppsättning
 
@@ -49,7 +49,7 @@ Om du vill köra testet väljer du data uppsättningens namn och väljer sedan *
 
 Den nedladdnings bara data uppsättningen är samma fil som överfördes för batch-testning.
 
-|Stat|Innebörd|
+|Tillstånd|Innebörd|
 |--|--|
 |![Lyckad test grön cirkel-ikon](./media/luis-how-to-batch-test/batch-test-result-green.png)|Alla yttranden har slutförts.|
 |![Det gick inte att testa röd x-ikonen](./media/luis-how-to-batch-test/batch-test-result-red.png)|Minst en uttryck-avsikt matchade inte förutsägelsen.|

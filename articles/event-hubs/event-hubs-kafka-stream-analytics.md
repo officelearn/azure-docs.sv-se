@@ -4,10 +4,10 @@ description: 'Självstudie: den här artikeln visar hur du bearbetar Kafka-händ
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: 1f0c7bf40b721a3f35fcf68c71cb38a4302a56f6
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90531295"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Självstudie: bearbeta Apache Kafka för Event Hubs händelser med Stream Analytics 
@@ -20,7 +20,7 @@ Den här artikeln visar hur du strömmar data till Event Hubs och bearbetar dem 
 Du behöver inte ändra protokoll klienter eller köra egna kluster när du använder Kafka-slutpunkten som exponeras av en Event Hub. Azure Event Hubs stöder [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html) och senare. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här snabbstarten behöver du följande:
 

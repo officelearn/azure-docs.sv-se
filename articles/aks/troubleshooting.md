@@ -4,12 +4,12 @@ description: Lär dig hur du felsöker och löser vanliga problem när du använ
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 81adbfe7a5a04ffb8fcb3311ad3561135b77ab7b
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 930dae7ae163a04fb8b5fc5ae44b9170a7e3c6ce
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614027"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893143"
 ---
 # <a name="aks-troubleshooting"></a>AKS-felsökning
 
@@ -86,7 +86,7 @@ AKS har kontroll plan som skalas lodrätt i enlighet med antalet kärnor för at
 
 Dessa tids gränser kan vara relaterade till intern trafik mellan noder som blockeras. Kontrol lera att trafiken inte blockeras, till exempel av [nätverks säkerhets grupper](concepts-security.md#azure-network-security-groups) på under nätet för klustrets noder.
 
-## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Jag försöker aktivera rollbaserad Access Control (RBAC) i ett befintligt kluster. Hur kan jag göra det?
+## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Jag försöker aktivera Role-Based Access Control (RBAC) i ett befintligt kluster. Hur kan jag göra det?
 
 Att aktivera rollbaserad åtkomst kontroll (RBAC) i befintliga kluster stöds inte för tillfället, det måste anges när du skapar nya kluster. RBAC är aktiverat som standard när du använder CLI, Portal eller en API-version senare än `2020-03-01` .
 
@@ -198,6 +198,23 @@ Vid begränsning av utgående trafik från ett AKS-kluster [krävs och valfria r
 
 Kontrol lera att inställningarna inte står i konflikt med några av de obligatoriska eller valfria rekommenderade utgående portarna/nätverks reglerna och reglerna för FQDN/program.
 
+## <a name="im-receiving-429---too-many-requests-errors"></a>Jag får fel meddelanden om "429-för många begär Anden" 
+
+När ett Kubernetes-kluster på Azure (AKS eller No) ofta skalar upp/ned eller använder kluster autoskalning (CA), kan dessa åtgärder resultera i ett stort antal HTTP-anrop som i sin tur överskrider den tilldelade prenumerations kvoten som leder till fel. Felen kommer att se ut som
+
+```
+Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
+```
+
+Dessa begränsnings fel beskrivs i detalj [här](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling) och [här](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors)
+
+Omkommandoering från AKS Engineering-teamet är att se till att du kör version minst 1.18. x som innehåller många förbättringar. Mer information finns i dessa förbättringar [här](https://github.com/Azure/AKS/issues/1413) [.](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247)
+
+Med tanke på att dessa begränsnings fel mäts på prenumerations nivå kan de fortfarande inträffa om:
+- Det finns program från tredje part som gör GET-begäranden (t. ex. övervaka program osv...). Rekommendationen är att minska frekvensen för dessa anrop.
+- Det finns många AKS-kluster/-nodepools i VMSS. Den vanliga rekommendationen är att ha mindre än 20-30 kluster i en specifik prenumeration.
+
+
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Azure Storage-och AKS-felsökning
 
 ### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-disk"></a>Vilka är de rekommenderade stabila versionerna av Kubernetes för Azure disk? 
@@ -233,7 +250,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 |--|:--:|
 | 1,10 | 1.10.2 eller senare |
 | 1,11 | 1.11.0 eller senare |
-| 1,12 och senare | Saknas |
+| 1,12 och senare | E.t. |
 
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Det gick inte att ställa in UID och GID i mountOptions för Azure disk
@@ -290,7 +307,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.9 eller senare |
 | 1.13 | 1.13.6 eller senare |
 | 1,14 | 1.14.2 eller senare |
-| 1,15 och senare | Saknas |
+| 1,15 och senare | E.t. |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden har en föråldrad disk lista kan du minska genom att koppla bort alla icke-befintliga diskar från den virtuella datorn som en Mass åtgärd. **En separat från koppling av icke-befintliga diskar kan Miss lyckas.**
 
@@ -309,7 +326,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.10 eller senare |
 | 1.13 | 1.13.8 eller senare |
 | 1,14 | 1.14.4 eller senare |
-| 1,15 och senare | Saknas |
+| 1,15 och senare | E.t. |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden är i ett felaktigt tillstånd kan du minska genom att manuellt uppdatera VM-statusen med hjälp av någon av följande:
 
@@ -418,7 +435,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 |--|:--:|
 | 1.12 | 1.12.6 eller senare |
 | 1.13 | 1.13.4 eller senare |
-| 1,14 och senare | Saknas |
+| 1,14 och senare | E.t. |
 
 ### <a name="azure-files-mount-fails-because-of-storage-account-key-changed"></a>Azure Files monteringen Miss lyckas på grund av att lagrings konto nyckeln har ändrats
 

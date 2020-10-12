@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 78dcd9d020923251439a05316569b559c19057d1
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89661454"
 ---
 # <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Förnya Federations certifikat för Microsoft 365 och Azure Active Directory
@@ -69,13 +69,13 @@ Get-Adfsproperties
 ![AutoCertificateRollover](./media/how-to-connect-fed-o365-certs/autocertrollover.png)
 
 >[!NOTE] 
->Om du använder AD FS 2,0 måste du först köra Add-PSSnapin Microsoft. ADFS. PowerShell.
+>Om du använder AD FS 2,0 måste du först köra Add-Pssnapin Microsoft. ADFS. PowerShell.
 
 ### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Steg 2: bekräfta att AD FS och Azure AD är synkroniserade
 Öppna MSOnline PowerShell-prompten på AD FS-servern och Anslut till Azure AD.
 
 > [!NOTE]
-> MSOL-cmdlets är en del av MSOnline PowerShell-modulen.
+> MSOL-Cmdlets är en del av MSOnline PowerShell-modulen.
 > Du kan ladda ned MSOnline PowerShell-modulen direkt från PowerShell-galleriet.
 > 
 >
@@ -102,7 +102,7 @@ Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCe
 Om tumavtrycken i båda utdata matchar dina certifikat synkroniseras med Azure AD.
 
 ### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Steg 3: kontrol lera om certifikatet håller på att gå ut
-I utdata från antingen get-MsolFederationProperty eller get-AdfsCertificate, söker du efter datumet under "inte efter". Om datumet är mindre än 30 dagar långt bör du vidta åtgärder.
+I utdata från antingen Get-MsolFederationProperty eller get-AdfsCertificate, söker du efter datumet under "inte efter". Om datumet är mindre än 30 dagar långt bör du vidta åtgärder.
 
 | AutoCertificateRollover | Certifikat som synkroniseras med Azure AD | Federationsmetadata är offentligt tillgängliga | Bestämma | Action |
 |:---:|:---:|:---:|:---:|:---:|
@@ -152,7 +152,7 @@ Om du använder en icke-standardkonfiguration av AD FS (där **AutoCertificateRo
     PS C: \> Get-ADFSCertificate – CertificateType token-signing
 
    > [!NOTE]
-   > Om du använder AD FS 2,0 ska du först köra Add-PSSnapin Microsoft. ADFS. PowerShell.
+   > Om du använder AD FS 2,0 bör du först köra Add-Pssnapin Microsoft. ADFS. PowerShell.
    >
    >
 3. Titta på kommandoutdata i certifikaten i listan. Om AD FS har genererat ett nytt certifikat, bör du se två certifikat i utdata: ett för vilket **IsPrimary** -värdet är **Sant** och **NotAfter** -datumet infaller inom 5 dagar, och ett för vilka **IsPrimary** är **falskt** och **NotAfter** är ungefär ett år i framtiden.
@@ -167,9 +167,9 @@ Uppdatera Microsoft 365 med de nya token signerings certifikat som ska användas
 
 1. Öppna Microsoft Azure Active Directory-modul för Windows PowerShell.
 2. Kör $cred = Get-Credential. När du uppmanas att ange autentiseringsuppgifter för den här cmdleten skriver du autentiseringsuppgifterna för ditt moln tjänst administratörs konto.
-3. Kör Connect-MsolService – Credential $cred. Denna cmdlet ansluter dig till moln tjänsten. Att skapa en kontext som ansluter dig till moln tjänsten krävs innan du kör någon av de ytterligare cmdlets som installeras av verktyget.
-4. Om du kör de här kommandona på en dator som inte är AD FS primär Federations server kör du Set-MSOLAdfscontext-Computer &lt; AD FS Primary Server &gt; , där &lt; AD FS primär server &gt; är det interna fullständiga domän namnet för den primära AD FS servern. Denna cmdlet skapar en kontext som ansluter dig till AD FS.
-5. Kör Update-MSOLFederatedDomain – &lt; domän domän &gt; . Den här cmdleten uppdaterar inställningarna från AD FS till moln tjänsten och konfigurerar förtroende relationen mellan de två.
+3. Kör Connect-MsolService – autentiseringsuppgifter $cred. Denna cmdlet ansluter dig till moln tjänsten. Att skapa en kontext som ansluter dig till moln tjänsten krävs innan du kör någon av de ytterligare cmdlets som installeras av verktyget.
+4. Om du kör de här kommandona på en dator som inte är den primära Federations servern AD FS kör Set-MSOLAdfscontext-dator &lt; AD FS primär server &gt; där &lt; AD FS primär server &gt; är det interna fullständiga domän namnet för den primära AD FS servern. Denna cmdlet skapar en kontext som ansluter dig till AD FS.
+5. Kör Update-MSOLFederatedDomain – &lt; domän namn &gt; . Den här cmdleten uppdaterar inställningarna från AD FS till moln tjänsten och konfigurerar förtroende relationen mellan de två.
 
 > [!NOTE]
 > Om du behöver stöd för flera domäner på översta nivån, till exempel contoso.com och fabrikam.com, måste du använda växeln **supportmultipledomain** med alla cmdletar. Mer information finns i [stöd för flera domäner på den översta nivån](how-to-connect-install-multiple-domains.md).

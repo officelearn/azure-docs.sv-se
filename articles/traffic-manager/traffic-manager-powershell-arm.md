@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
 ms.openlocfilehash: 21076fe23301c189d9987f78706cc81691ce7a4f
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400576"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Använda PowerShell för att hantera Traffic Manager
@@ -61,7 +61,7 @@ Följande tabell beskriver parametrarna:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| Name |Resurs namnet för den Traffic Manager profil resursen. Profiler i samma resurs grupp måste ha unika namn. Det här namnet är skilt från DNS-namnet som används för DNS-frågor. |
+| Namn |Resurs namnet för den Traffic Manager profil resursen. Profiler i samma resurs grupp måste ha unika namn. Det här namnet är skilt från DNS-namnet som används för DNS-frågor. |
 | ResourceGroupName |Namnet på den resurs grupp som innehåller profil resursen. |
 | TrafficRoutingMethod |Anger den metod för trafikroutning som används för att avgöra vilken slut punkt som returneras som svar på en DNS-fråga. Möjliga värden är "prestanda", "viktad" eller "prioritet". |
 | RelativeDnsName |Anger hostname-delen av DNS-namnet som anges av den här Traffic Manager profilen. Det här värdet kombineras med DNS-domännamnet som används av Azure-Traffic Manager för att forma det fullständiga domän namnet (FQDN) för profilen. Om du till exempel anger värdet "contoso" blir "contoso.trafficmanager.net". |
@@ -109,7 +109,7 @@ Det finns tre typer av Traffic Manager slut punkter:
 I alla tre fall kan slut punkter läggas till på två sätt:
 
 1. Med en tre stegs process som beskrivits tidigare. Fördelen med den här metoden är att flera slut punkts ändringar kan göras i en enda uppdatering.
-2. Använda cmdleten New-AzTrafficManagerEndpoint. Denna cmdlet lägger till en slut punkt till en befintlig Traffic Manager-profil i en enda åtgärd.
+2. Använda New-AzTrafficManagerEndpoint-cmdleten. Denna cmdlet lägger till en slut punkt till en befintlig Traffic Manager-profil i en enda åtgärd.
 
 ## <a name="adding-azure-endpoints"></a>Lägger till Azure-slutpunkter
 
@@ -267,7 +267,7 @@ Så här inaktiverar du en Traffic Manager profil:
 Disable-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
 ```
 
-Cmdleten Disable-AzTrafficManagerProfile efterfrågar en bekräftelse. Den här uppmaningen kan ignoreras med parametern-Force.
+Du uppmanas att bekräfta med cmdleten Disable-AzTrafficManagerProfile. Den här uppmaningen kan ignoreras med parametern-Force.
 
 ### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>Exempel 2: Aktivera och inaktivera en Traffic Manager-slutpunkt
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
 ms.openlocfilehash: 81544d71db5131f76dc2f9a613b6fd89ed57d076
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326464"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Nätverks säkerhet för Azure Event Grid resurser
@@ -33,7 +33,7 @@ Du kan använda service märken för att definiera nätverks åtkomst kontroller
 ## <a name="ip-firewall"></a>IP-brandvägg 
 Azure Event Grid stöder IP-baserade åtkomst kontroller för publicering till ämnen och domäner. Med IP-baserade kontroller kan du begränsa utgivare till ett ämne eller en domän till endast en uppsättning godkända datorer och moln tjänster. Den här funktionen kompletterar de [autentiseringsmekanismer](security-authentication.md) som stöds av event Grid.
 
-Som standard är ämne och domän tillgängligt från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till en uppsättning IP-adresser eller IP-adressintervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Utgivare som härstammar från andra IP-adresser avvisas och får ett 403-svar (förbjuden).
+Som standard är ämne och domän tillgängligt från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till en uppsättning IP-adresser eller IP-adressintervall i [CIDR-notation (classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Utgivare som härstammar från andra IP-adresser avvisas och får ett 403-svar (förbjuden).
 
 Steg-för-steg-instruktioner för att konfigurera IP-brandvägg för ämnen och domäner finns i [Konfigurera IP-brandvägg](configure-firewall.md).
 
@@ -83,10 +83,10 @@ I följande tabell beskrivs olika tillstånd för den privata slut punkts anslut
 
 | Anslutnings status   |  Publiceringen lyckades (Ja/Nej) |
 | ------------------ | -------------------------------|
-| Godkända           | Yes                            |
-| Avslagen           | No                             |
-| Väntar            | No                             |
-| Frånkopplad       | No                             |
+| Godkända           | Ja                            |
+| Avslagen           | Inga                             |
+| Väntar            | Inga                             |
+| Frånkopplad       | Inga                             |
 
 För att publiceringen ska lyckas bör anslutnings statusen för den privata slut punkten **godkännas**. Om en anslutning avvisas kan den inte godkännas med hjälp av Azure Portal. Den enda möjligheten är att ta bort anslutningen och skapa en ny i stället.
 

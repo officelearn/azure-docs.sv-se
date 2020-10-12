@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 82af00c091aedb56e0cad954e554094e75df0013
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0832fe9ba65ac0df5dbff60b01b7a5eb91a2c3a2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88535891"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945251"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Självstudie: Azure Active Directory integrering med LockPath-indikering
 
@@ -30,7 +30,7 @@ Att integrera LockPath-indikering med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med LockPath-indikering behöver du följande objekt:
 
@@ -133,15 +133,15 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Lo
 
     b. I menyn högst upp klickar du på **person**och väljer sedan inställningar för att ställa in en **indikering**.
 
-    ![Konfigurera enkel inloggning](./media/keylight-tutorial/401.png)
+    ![Skärm bild som visar ikonen "person" som är markerad och "indikering för att konfigureras" med den nedrullningsbara List rutan.](./media/keylight-tutorial/401.png)
 
     c. Klicka på **SAML**i trädvyn till vänster.
 
-    ![Konfigurera enkel inloggning](./media/keylight-tutorial/402.png)
+    ![Skärm bild som visar "S A M L" som marker ATS i trädvyn.](./media/keylight-tutorial/402.png)
 
     d. I dialog rutan **SAML-inställningar** klickar du på **Redigera**.
 
-    ![Konfigurera enkel inloggning](./media/keylight-tutorial/404.png)
+    ![Skärm bild som visar fönstret "S A M L-inställningar" med knappen "redigera" markerad.](./media/keylight-tutorial/404.png)
 
 1. På dialog sidan **Redigera SAML-inställningar** utför du följande steg:
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: eb94b67b026ed108f31f6cd802010577665ec0d8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87286095"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Felsökning av anslutningsproblem mellan virtuella Azure-datorer
@@ -41,7 +41,7 @@ En virtuell Azure-dator kan inte ansluta till en annan virtuell Azure-dator.
 6. [Kontrol lera om trafik blockeras av ACL: er för den klassiska virtuella datorn](#step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm)
 7. [Kontrol lera om slut punkten har skapats för den klassiska virtuella datorn](#step-7-check-whether-the-endpoint-is-created-for-the-classic-vm)
 8. [Försök att ansluta till en nätverks resurs för virtuella datorer](#step-8-try-to-connect-to-a-vm-network-share)
-9. [Kontrol lera anslutningar mellan virtuella nätverk](#step-9-check-inter-vnet-connectivity)
+9. [Kontrol lera Inter-Vnet anslutningen](#step-9-check-inter-vnet-connectivity)
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 
@@ -67,7 +67,7 @@ Mer information finns i [lägga till nätverks gränssnitt eller ta bort från v
 
 ### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Steg 2: kontrol lera om nätverks trafiken är blockerad av NSG eller UDR
 
-Använd [Network Watcher IP-flöde verifiera](../network-watcher/network-watcher-ip-flow-verify-overview.md) och [NSG flödes loggning](../network-watcher/network-watcher-nsg-flow-logging-overview.md) för att avgöra om det finns en nätverks säkerhets grupp (NSG) eller en användardefinierad väg (UDR) som stör trafikflödet.
+Använd [Network Watcher IP-flöde verifiera](../network-watcher/network-watcher-ip-flow-verify-overview.md) och [NSG flödes loggning](../network-watcher/network-watcher-nsg-flow-logging-overview.md) för att avgöra om det finns en nätverks säkerhets grupp (NSG) eller User-Defined väg (UDR) som stör trafikflödet.
 
 ### <a name="step-3-check-whether-network-traffic-is-blocked-by-vm-firewall"></a>Steg 3: kontrol lera om nätverks trafiken blockeras av den virtuella datorns brand vägg
 
@@ -109,9 +109,9 @@ Alla virtuella datorer som du skapar i Azure med hjälp av den klassiska distrib
 
 Om du inte kan ansluta till en nätverks resurs för virtuella datorer kan problemet orsakas av otillgängliga nätverkskort på den virtuella datorn. Information om hur du tar bort otillgängliga nätverkskort finns i [ta bort otillgängliga nätverkskort](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
 
-### <a name="step-9-check-inter-vnet-connectivity"></a>Steg 9: kontrol lera anslutningar mellan virtuella nätverk
+### <a name="step-9-check-inter-vnet-connectivity"></a>Steg 9: kontrol lera Inter-Vnet anslutningen
 
-Använd [Network Watcher IP-flöde verifiera](../network-watcher/network-watcher-ip-flow-verify-overview.md) och [NSG flödes loggning](../network-watcher/network-watcher-nsg-flow-logging-overview.md) för att avgöra om det finns en NSG eller UDR som stör trafikflödet. Du kan också kontrol lera din konfiguration mellan virtuella nätverk [här](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections).
+Använd [Network Watcher IP-flöde verifiera](../network-watcher/network-watcher-ip-flow-verify-overview.md) och [NSG flödes loggning](../network-watcher/network-watcher-nsg-flow-logging-overview.md) för att avgöra om det finns en NSG eller UDR som stör trafikflödet. Du kan också kontrol lera Inter-Vnet konfigurationen [här](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections).
 
 ### <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 Om du fortfarande behöver hjälp kan du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) så får du hjälp att lösa problemet snabbt.

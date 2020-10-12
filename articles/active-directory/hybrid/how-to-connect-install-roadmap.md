@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 244456298e9a85f7cf7a5bdc175f1df5397ca207
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662142"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Installationsplan för Azure AD Connect och Azure AD Connect Health
@@ -46,7 +46,7 @@ Du kan ladda ned Azure AD Connect från [Microsoft Download Center](https://go.m
 |Installera med standardinställningar | [Snabbinstallation av Azure AD Connect](./how-to-connect-install-express.md)|
 |Installera med anpassade inställningar | [Anpassad installation av Azure AD Connect](./how-to-connect-install-custom.md)|
 |Uppgradera från DirSync | [Uppgradera från Azure AD-synkroniseringsverktyget (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
-|Efter installation | [Verifiera installationen och tilldela licenser](how-to-connect-post-installation.md)|
+|Efter installationen | [Verifiera installationen och tilldela licenser](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Mer information om installationen av Azure AD Connect
 Det är bra att vara förberedd om det skulle uppstå [driftproblem](./how-to-connect-sync-staging-server.md). Du kanske vill ha en reservserver som du enkelt kan redundansväxla till i händelse av ett [allvarligt fel](how-to-connect-sync-staging-server.md#disaster-recovery). Om du ofta kommer att göra konfigurationsändringar bör du planera för ett server i [mellanlagringsläge](how-to-connect-sync-staging-server.md).
@@ -169,7 +169,7 @@ På Azure AD Connect Health-portalen kan du visa varningar, övervaka prestanda 
    - **Åtkomst till data** från Azure AD-katalogen integritet endast av Microsoft i fel söknings syfte: om det här alternativet är aktiverat kan Microsoft komma åt samma data som visas av användaren. Den här informationen kan vara användbar för fel sökning och för att ge nödvändig hjälp. Det här alternativet är inaktiverat som standard
 * **Role based access control (IAM)** (Rollbaserad åtkomstkontroll) är avsnittet för att hantera åtkomst till Connect Health-data i rollbasen. 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Maskin vara och krav](how-to-connect-install-prerequisites.md) 
 - [Standardinställningar](how-to-connect-install-express.md)

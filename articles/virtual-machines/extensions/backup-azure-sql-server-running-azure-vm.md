@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
 ms.openlocfilehash: 84ff3e18cf488f5536d5945d7b8fc8d78882424e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511185"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Azure Backup för SQL Server som körs i Azure VM
@@ -20,7 +20,7 @@ ms.locfileid: "86511185"
 Azure Backup, bland annat erbjudanden, ger stöd för säkerhets kopiering av arbets belastningar som SQL Server som körs i virtuella Azure-datorer. Eftersom SQL-programmet körs i en virtuell Azure-dator måste säkerhets kopierings tjänsten ha behörighet att komma åt programmet och hämta nödvändig information.
 För att göra det, Azure Backup installerar tillägget **AzureBackupWindowsWorkload** på den virtuella datorn, där SQL Server körs, under registrerings processen som utlöses av användaren.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En lista över scenarier som stöds finns i [support mat ris](../../backup/sql-support-matrix.md#scenario-support) som stöds av Azure Backup.
 

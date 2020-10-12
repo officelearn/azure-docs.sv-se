@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: c053a7830e02eb7c460bd030ca3c6a10c00ea78a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323645"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Förstå appar och distribution i Azure våren Cloud
@@ -29,7 +29,7 @@ Azure våren Cloud standard-nivån tillåter att en app har en produktions distr
 ## <a name="app"></a>App
 Följande funktioner/egenskaper definieras på App-nivå.
 
-| Funktioner | Description |
+| Funktioner | Beskrivning |
 |:--|:----------------|
 | Offentliga</br>Slutpunkt | URL: en för att komma åt appen |
 | Anpassad</br>Domän | CNAME-post som skyddar den anpassade domänen |
@@ -55,7 +55,7 @@ Följande funktioner/egenskaper definieras på distributions nivå och kommer at
 
 * **En app måste ha en produktions distribution**: om du tar bort en produktions distribution blockeras API: et. Den bör växlas till mellanlagringsplatsen innan du tar bort den.
 * **En app kan ha högst två distributioner**: om du skapar fler än två distributioner blockeras API: et. Distribuera din nya binärfil till antingen den befintliga produktions-eller mellanlagrings distributionen.
-* **Distributions hantering är inte tillgängligt på Basic-nivån**: Använd standard nivån för blå och grön distributions kapacitet.
+* **Distributions hantering är inte tillgängligt på Basic-nivån**: Använd standard-nivån för Blue-Green distributions kapacitet.
 
 ## <a name="see-also"></a>Se även
 * [Konfigurera en utvecklings miljö i Azure våren Cloud](spring-cloud-howto-staging-environment.md)

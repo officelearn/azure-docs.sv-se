@@ -8,10 +8,10 @@ ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: ac48973653e89d43521979a5606a8a3a3c2e1346
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319991"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API: er för avläsning av Marketplace
@@ -34,7 +34,7 @@ Det går bara att generera en användnings händelse för varje timme i en kalen
 
 Det går bara att generera en användnings händelse för varje timme i en kalender dag per resurs. Om fler än en enhet används i en timme ackumulerar du alla enheter som förbrukas i timmen och genererar dem sedan i en enda händelse. Användnings händelser kan bara genereras under de senaste 24 timmarna. Om du genererar en användnings händelse när som helst mellan 8:00 och 8:59:59 (och godkänns) och skickar ytterligare en händelse för samma dag mellan 8:00 och 8:59:59, avvisas den som en dubblett.
 
-**Publicera**:`https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**Publicera**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
@@ -65,7 +65,7 @@ Det går bara att generera en användnings händelse för varje timme i en kalen
 ```
 
 >[!NOTE]
->`resourceId`har en annan betydelse för SaaS-appen och för en hanterad app som avger anpassad mätare. 
+>`resourceId` har en annan betydelse för SaaS-appen och för en hanterad app som avger anpassad mätare. 
 
 För Azure Application hanterade appar är planeringen som finns `resourceId` `resourceUsageId` under `billingDetails` i det hanterade metadata-objektet. Ett exempel skript för att hämta det finns i [använda Azure-Managed Identities-token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
@@ -95,7 +95,7 @@ Kod: 400 <br>
 Felaktig begäran.
 
 * Begär ande data som saknas eller är ogiltiga.
-* `effectiveStartTime`är mer än 24 timmar tidigare. Händelsen har upphört att gälla.
+* `effectiveStartTime` är mer än 24 timmar tidigare. Händelsen har upphört att gälla.
 * SaaS-prenumerationen har inte prenumerations status.
 
 Exempel på svars nytto last: 
@@ -189,7 +189,7 @@ Med event API för batch-användning kan du generera användnings händelser fö
 ```
 
 >[!NOTE]
->`resourceId`har en annan betydelse för SaaS-appen och för en hanterad app som avger anpassad mätare. 
+>`resourceId` har en annan betydelse för SaaS-appen och för en hanterad app som avger anpassad mätare. 
 
 För Azure Application hanterade appar är planeringen som finns `resourceId` `resourceUsageId` under `billingDetails` i det hanterade metadata-objektet. Ett exempel skript för att hämta det finns i [använda Azure-Managed Identities-token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 

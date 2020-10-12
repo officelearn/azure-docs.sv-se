@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: duau
 ms.openlocfilehash: 78a1681c743f65081b30657f4fd747ff8aaef5f5
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89392841"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Slutpunktsövervakning för Traffic Manager
@@ -67,7 +67,7 @@ Med inställningen profil status kan du aktivera eller inaktivera en speciell pr
 
 Status för slut punkts övervakare är ett Traffic Manager-genererat värde som visar slut punktens status. Du kan inte ändra den här inställningen manuellt. Status för slut punkts övervakning är en kombination av resultaten av slut punkts övervakning och den konfigurerade slut punkts statusen. De möjliga värdena för status för slut punkts övervakning visas i följande tabell:
 
-| Profilstatus | Slut punkts status | Status för slut punkts övervakare | Kommentarer |
+| Profilstatus | Slut punkts status | Status för slut punkts övervakare | Obs! |
 | --- | --- | --- | --- |
 | Inaktiverad |Enabled |Inaktiv |Profilen har inaktiverats. Även om slut punktens status är aktive rad, har profil statusen (inaktive rad) företräde. Slut punkter i inaktiverade profiler övervakas inte. En NXDOMAIN svars kod returneras för DNS-frågan. |
 | &lt;alla&gt; |Inaktiverad |Inaktiverad |Slut punkten har inaktiverats. Inaktiverade slut punkter övervakas inte. Slut punkten ingår inte i DNS-svar, vilket innebär att den inte tar emot trafik. |
@@ -85,7 +85,7 @@ Mer information om hur status för slut punkts övervakning beräknas för kapsl
 
 Profil övervaknings statusen är en kombination av den konfigurerade profil statusen och status värden för slut punkts övervakaren för alla slut punkter. De möjliga värdena beskrivs i följande tabell:
 
-| Profil status (som konfigurerat) | Status för slut punkts övervakare | Status för profil övervakare | Kommentarer |
+| Profil status (som konfigurerat) | Status för slut punkts övervakare | Status för profil övervakare | Obs! |
 | --- | --- | --- | --- |
 | Inaktiverad |&lt;en &gt; eller en profil utan definierade slut punkter. |Inaktiverad |Profilen har inaktiverats. |
 | Enabled |Status för minst en slut punkt har degraderats. |Degraderad |Granska de enskilda slut punkts status värdena för att avgöra vilka slut punkter som kräver ytterligare uppmärksamhet. |

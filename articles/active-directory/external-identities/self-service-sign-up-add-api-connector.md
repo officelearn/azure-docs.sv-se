@@ -12,10 +12,10 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: db68528a810ebc9cd61b205dd5167396d75db7f7
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613993"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Lägga till en API-anslutning till ett användar flöde
@@ -248,8 +248,8 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | Sträng            | Ja      | API-versionen.                                                                                                                                                                                                                                                                |
 | åtgärd                                             | Sträng            | Ja      | Värdet måste vara `Continue` .                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Nej       | Värden kan lagras i katalogen om de har valts som ett **anspråk att ta emot** i API-anslutningens konfiguration **och användarattribut** för ett användar flöde. Värdena kan returneras i token om de väljs som ett **program anspråk**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nej       | Det returnerade anspråket behöver inte innehålla `_<extensions-app-id>_` . Värdena lagras i katalogen om de valts som ett **anspråk att ta emot** i API-kopplingens konfiguration och **användarattribut** för ett användar flöde. Det går inte att skicka anpassade attribut tillbaka i token. |
+| \<builtInUserAttribute>                            | \<attribute-type> | Inga       | Värden kan lagras i katalogen om de har valts som ett **anspråk att ta emot** i API-anslutningens konfiguration **och användarattribut** för ett användar flöde. Värdena kan returneras i token om de väljs som ett **program anspråk**.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Inga       | Det returnerade anspråket behöver inte innehålla `_<extensions-app-id>_` . Värdena lagras i katalogen om de valts som ett **anspråk att ta emot** i API-kopplingens konfiguration och **användarattribut** för ett användar flöde. Det går inte att skicka anpassade attribut tillbaka i token. |
 
 ### <a name="example-of-a-blocking-response"></a>Exempel på ett blockerande svar
 
@@ -271,7 +271,7 @@ Content-type: application/json
 | version     | Sträng | Ja      | API-versionen.                                                    |
 | åtgärd      | Sträng | Ja      | Värdet måste vara `ShowBlockPage`                                              |
 | userMessage | Sträng | Ja      | Meddelande som ska visas för användaren.                                            |
-| kod        | Sträng | Nej       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
+| kod        | Sträng | Inga       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
 
 **Slut användar upplevelse med ett blockerande svar**
 
@@ -298,7 +298,7 @@ Content-type: application/json
 | åtgärd      | Sträng  | Ja      | Värdet måste vara `ValidationError` .                                           |
 | status      | Integer | Ja      | Måste vara `400` ett värde för ett ValidationError-svar.                        |
 | userMessage | Sträng  | Ja      | Meddelande som ska visas för användaren.                                            |
-| kod        | Sträng  | Nej       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
+| kod        | Sträng  | Inga       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
 
 **Slut användar upplevelse med ett verifierings fel svar**
 

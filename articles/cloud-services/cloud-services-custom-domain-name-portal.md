@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 37189df6b1c9bf3f9fca185226f2ee3eeb3ddd7d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092736"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurera ett anpassat domän namn för en Azure-moln tjänst
@@ -62,7 +62,7 @@ Om du vill skapa en CNAME-post måste du lägga till en ny post i DNS-tabellen f
 
        ![snabb blick-avsnittet som visar webbplatsens URL][csurl]
 
-       **ELLER**
+       **OR**
    * Installera och konfigurera [Azure PowerShell](/powershell/azure/)och Använd sedan följande kommando:
 
        ```powershell
@@ -95,7 +95,7 @@ Om du vill skapa en A-post måste du först hitta den virtuella IP-adressen för
 
        ![snabb genom delen som visar VIP][vip]
 
-       **ELLER**
+       **OR**
    * Installera och konfigurera [Azure PowerShell](/powershell/azure/)och Använd sedan följande kommando:
 
        ```powershell
@@ -135,7 +135,7 @@ Det här exemplet visar hur du skapar en A-post för rot domänen. Om du vill sk
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
 

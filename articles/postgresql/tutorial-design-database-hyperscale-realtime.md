@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.openlocfilehash: 41ac1cb856011d9730f7b49bbf85350f4dbccdbd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90895234"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Självstudie: utforma en instrument panel med real tids analys med Azure Database for PostgreSQL – storskalig (citus)
@@ -28,7 +28,7 @@ I den här självstudien använder du Azure Database for PostgreSQL-storskalig s
 > * Fråga rå data och sammanställda data
 > * Förfaller data
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 

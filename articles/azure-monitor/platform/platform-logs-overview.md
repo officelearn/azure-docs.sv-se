@@ -8,23 +8,23 @@ ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 6ea960e93dba634573ec1ef594f1d2c49be57ca9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84945315"
 ---
-# <a name="overview-of-azure-platform-logs"></a>Översikt över Azures plattforms loggar
+# <a name="overview-of-azure-platform-logs"></a>Översikt över Azure-plattformsloggar
 Plattforms loggar ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av. De genereras automatiskt även om du behöver konfigurera vissa plattforms loggar som ska vidarebefordras till en eller flera mål som ska behållas. Den här artikeln innehåller en översikt över plattforms loggar, inklusive vilken information de ger och hur du kan konfigurera dem för insamling och analys.
 
 ## <a name="types-of-platform-logs"></a>Typer av plattforms loggar
 I följande tabell visas de olika plattforms loggar som är tillgängliga på olika lager i Azure.
 
-| Logga | Lager | Beskrivning |
+| Logga | Skikt | Beskrivning |
 |:---|:---|:---|
 | [Resursloggar](resource-logs.md) | Azure-resurser | Ge insikter om åtgärder som utförts i en Azure-resurs ( *data planet*), till exempel för att få en hemlighet från en Key Vault eller göra en begäran till en databas. Innehållet i resurs loggar varierar beroende på Azure-tjänsten och resurs typen.<br><br>*Resurs loggar kallades tidigare för diagnostikloggar.*  |
-| [Aktivitetslogg](activity-log.md) | Azure-prenumeration | Ger inblick i åtgärderna för varje Azure-resurs i prenumerationen från utsidan (*hanterings planet*) utöver uppdateringar av service Health händelser. Använd aktivitets loggen för att fastställa _vad_, _vem_och _när_ för Skriv åtgärder (skicka, skicka och ta bort) som ska vidtas för resurserna i din prenumeration. Det finns en enda aktivitets logg för varje Azure-prenumeration. |
-| [Azure Active Directory loggar](../../active-directory/reports-monitoring/overview-reports.md) | Azure-klientorganisation |  Innehåller historiken för inloggnings aktivitet och gransknings spårning av ändringar som gjorts i Azure Active Directory för en viss klient.   |
+| [Aktivitetslogg](activity-log.md) | Azure Subscription (Azure-prenumeration) | Ger inblick i åtgärderna för varje Azure-resurs i prenumerationen från utsidan (*hanterings planet*) utöver uppdateringar av service Health händelser. Använd aktivitets loggen för att fastställa _vad_, _vem_och _när_ för Skriv åtgärder (skicka, skicka och ta bort) som ska vidtas för resurserna i din prenumeration. Det finns en enda aktivitets logg för varje Azure-prenumeration. |
+| [Azure Active Directory-loggar](../../active-directory/reports-monitoring/overview-reports.md) | Azure-klientorganisation |  Innehåller historiken för inloggnings aktivitet och gransknings spårning av ändringar som gjorts i Azure Active Directory för en viss klient.   |
 
 > [!NOTE]
 > Azure aktivitets loggen är främst avsedd för aktiviteter som förekommer i Azure Resource Manager. Den spårar inte resurser med hjälp av klassisk/RDFE-modell. Vissa klassiska resurs typer har en proxy-resurs leverantör i Azure Resource Manager (till exempel Microsoft. ClassicCompute). Om du interagerar med en klassisk resurs typ via Azure Resource Manager med hjälp av dessa providers-proxyservrar, visas åtgärderna i aktivitets loggen. Om du interagerar med en klassisk resurs typ utanför Azure Resource Manager-proxyservrar registreras dina åtgärder bara i åtgärds loggen. Du kan bläddra i åtgärds loggen i ett separat avsnitt i portalen.

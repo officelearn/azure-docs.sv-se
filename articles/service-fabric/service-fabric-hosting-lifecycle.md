@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: tugup
 ms.openlocfilehash: a39aecf16d1c3303c0a590b389ba2aa69d4472f2
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87405134"
 ---
 # <a name="azure-service-fabric-hosting-lifecycle"></a>Azure Service Fabric är värd för livs cykeln
@@ -58,7 +58,7 @@ När en CodePackage kraschar använder Service Fabric en säkerhets kopiering f�
 Värdet för säkerhets kopiering är alltid min (RetryTime, **ActivationMaxRetryInterval**) och det här värdet kan vara konstant, linjärt eller exponentiell baserat på **ActivationRetryBackoffExponentiationBase** -konfigurationen.
 
 - Konstant: om **ActivationRetryBackoffExponentiationBase** = = 0 Then RetryTime = **ActivationRetryBackoffInterval**;
-- Linjär: IF **ActivationRetryBackoffExponentiationBase** = = 0 Then RetryTime = ContinuousFailureCount * **ActivationRetryBackoffInterval** där ContinousFailureCount är antalet gånger som en CodePackage kraschar eller inte kan aktive ras.
+- Linjär: IF  **ActivationRetryBackoffExponentiationBase** = = 0 Then RetryTime = ContinuousFailureCount * **ActivationRetryBackoffInterval** där ContinousFailureCount är antalet gånger som en CodePackage kraschar eller inte kan aktive ras.
 - Exponentiell: RetryTime = (**ActivationRetryBackoffInterval** i sekunder) * (**ActivationRetryBackoffExponentiationBase** ^ ContinuousFailureCount);
     
 Du kan kontrol lera beteendet som du vill, t. ex. snabb omstarter. Låt oss prata om linjärt. Det innebär att om en CodePackage kraschar kommer start intervallet att vara efter 10, 20, 30 40 SEK tills CodePackage har inaktiverats. 
@@ -81,7 +81,7 @@ Service Fabric använder alltid en linjär säkerhets kopiering när det påträ
 > [!NOTE]
 > Innan du ändrar konfigurationerna finns här några exempel som du bör ha i åtanke.
 
-* Om CodePackage håller på att krascha och säkerhets kopie ras kommer ServiceType att inaktive ras. Men om aktiverings konfigurationen är sådan att den har en snabb omstart kan CodePackage komma upp några gånger innan den kan se inaktive ringen av ServiceType. För att: anta att CodePackage kommer igång registrerar du ServiceType med Service Fabric och sedan kraschar. I så fall, när en värd tar emot en typ registrering, annulleras **ServiceTypeDisableGraceInterval** -perioden. Detta kan upprepas tills CodePackage tillbaka till ett värde som är större än **ServiceTypeDisableGraceInterval** och sedan är ServiceType inaktiverat på noden. Det kan därför bero på att din ServiceType är inaktive rad på noden.
+* Om CodePackage håller på att krascha och säkerhets kopie ras kommer ServiceType att inaktive ras. Men om aktiverings konfigurationen är sådan att den har en snabb omstart kan CodePackage komma upp några gånger innan den kan se inaktive ringen av ServiceType. För att: anta att CodePackage kommer igång registrerar du ServiceType med Service Fabric och sedan kraschar. I så fall, när en värd tar emot en typ registrering, annulleras **ServiceTypeDisableGraceInterval** -perioden. Detta kan upprepas tills CodePackage tillbaka till ett värde som är större än  **ServiceTypeDisableGraceInterval** och sedan är ServiceType inaktiverat på noden. Det kan därför bero på att din ServiceType är inaktive rad på noden.
 
 * När Service Fabric systemet behöver placera en replik på en nod, ställer RA (ReconfigurationAgent) under system för att aktivera programmet och försöker aktivera begäran var 15: a 15 SEK (**RAPMessageRetryInterval**). För att Service Fabric systemet för att veta att ServiceType har inaktiverats, måste aktiverings åtgärden i vara aktiv under en längre period än återförsöksintervall och **ServiceTypeDisableGraceInterval**. Exempel: låt klustret ha inställningen configs **ActivationMaxFailureCount** inställd på 5 och **ActivationRetryBackoffInterval** inställd på 1 SEK. Det innebär att aktiverings åtgärden kommer att bli upp efter (0 + 1 + 2 + 3 + 4) = 10 SEK (första omförsöket sker omedelbart) och när den är värd för att försöka igen. I det här fallet kommer aktiverings åtgärden att slutföras och kommer inte att försöka igen efter 15 sekunder. Det hände eftersom Service Fabric uttömda alla omförsök inom 15 sekunder. Det innebär att varje nytt försök från ReconfigurationAgent skapar en ny aktiverings åtgärd i värd under systemet och mönstret fortsätter upprepas och ServiceType inaktive ras aldrig på noden. Eftersom ServiceType inte inaktive ras på noden, kommer SF-systemets komponent FM (FailoverManager) inte att flytta repliken till en annan nod.
 > 
@@ -128,23 +128,23 @@ Configs med standardvärden som påverkar aktiverings-decativation.
 
 ### <a name="servicetype"></a>ServiceType
 **ServiceTypeDisableFailureThreshold**: standard 1. Tröskelvärdet för antalet haverier efter vilken RM (FailoverManager) meddelas om att inaktivera tjänst typen på noden och testa en annan nod för placering.
-**ServiceTypeDisableGraceInterval**: 30 SEK. ett tidsintervall efter vilket tjänst typen kan inaktive ras.
+**ServiceTypeDisableGraceInterval**: standard 30 SEK. Tidsintervall efter vilket tjänst typen kan inaktive ras.
 **ServiceTypeRegistrationTimeout**: standard 300 SEK. Tids gränsen för ServiceType som ska registreras för Service Fabric.
 
 ### <a name="activation"></a>Aktivering
-**ActivationRetryBackoffInterval**: standard 10 SEK. backoff-intervall vid varje aktiverings haveri.
+**ActivationRetryBackoffInterval**: standard 10 SEK. Backoff-intervall vid varje aktiverings haveri.
 **ActivationMaxFailureCount**: standard 20. Det högsta antalet för vilka systemet kommer att försöka aktivera igen innan det upprättas. 
 **ActivationRetryBackoffExponentiationBase**: standard 1,5.
-**ActivationMaxRetryInterval**: standard 3600 SEK. Max-inaktive ring för aktivering vid haverier.
+**ActivationMaxRetryInterval**: standard 3600 SEK. Max-off för aktivering vid haverier.
 **CodePackageContinuousExitFailureResetInterval**: standard 300 SEK. Tids gränsen för att återställa det kontinuerliga avslutnings antalet för CodePackage.
 
 ### <a name="download"></a>Ladda ned
 **DeploymentRetryBackoffInterval**: standard 10. Intervall för distributions problem.
-**DeploymentMaxRetryInterval**: standard 3600 SEK. max. Max för distribution vid haverier.
+**DeploymentMaxRetryInterval**: standard 3600 SEK. Maximal säkerhets kopiering för distribution vid haverier.
 **DeploymentMaxFailureCount**: standard 20. Ett nytt försök att utföra program distributionen kommer att göras för DeploymentMaxFailureCount gånger innan distributionen av programmet på noden avbryts.
 
 ### <a name="deactivation"></a>Inaktive ring
-**DeactivationScanInterval**: standard 600 SEK. minsta tid för servicepack som värd för en replik om den aldrig har haft någon replik, d.v.s. om det inte används.
+**DeactivationScanInterval**: standard 600 SEK. Minsta tid för ServicePack som ska vara värd för en replik om den aldrig har haft någon replik, dvs. om det inte används.
 **DeactivationGraceInterval**: standard 60 SEK. Den tid som ett ServicePack har fått på att vara värd för en annan replik när det har varit en replik i händelse av en **delad** process modell.
 **ExclusiveModeDeactivationGraceInterval**: standard 1 s. Den tid som ett ServicePack har fått på att vara värd för en annan replik när det har varit värd för en replik i händelse av en **exklusiv** process modell.
 

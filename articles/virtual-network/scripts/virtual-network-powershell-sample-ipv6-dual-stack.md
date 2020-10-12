@@ -14,10 +14,10 @@ ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 0c7b1cb8be1768e709aaf68a4db9a3a405419833
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89077814"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-with-azure-powershell-script-sample-preview"></a>Konfigurera IPv6-slutpunkter i virtuellt nätverk med Azure PowerShell skript exempel (för hands version)
@@ -28,7 +28,7 @@ Du kan köra skriptet från Azure [Cloud Shell](https://shell.azure.com/powershe
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du distribuerar ett program med dubbla stackar i Azure måste du konfigurera din prenumeration bara en gång för för hands versions funktionen med följande Azure PowerShell:
 
 Registrera på följande sätt:
@@ -251,7 +251,7 @@ Remove-AzResourceGroup -Name <resourcegroupname> -Force
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuell dator, tillgänglighetsuppsättning, lastbalanserare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Skapar en undernätskonfiguration. Den här konfigurationen används med skapandeprocessen för virtuella nätverk. |

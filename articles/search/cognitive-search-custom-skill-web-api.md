@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: cb5ee7d3549e433fb184b8c55c28b9a28ed89272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84982126"
 ---
 # <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Anpassad webb-API-kunskap i en Azure Kognitiv sökning anriknings pipeline
@@ -37,7 +37,7 @@ Parametrar är skiftlägeskänsliga.
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
 | `uri` | URI för webb-API: t som _JSON_ -nyttolasten ska skickas till. Endast **https** URI-schema tillåts |
-| `httpMethod` | Den metod som ska användas vid sändning av nytto lasten. Tillåtna metoder är `PUT` eller`POST` |
+| `httpMethod` | Den metod som ska användas vid sändning av nytto lasten. Tillåtna metoder är `PUT` eller `POST` |
 | `httpHeaders` | En samling nyckel/värde-par där nycklarna representerar rubrik namn och värden representerar huvud värden som skickas till ditt webb-API tillsammans med nytto lasten. Följande rubriker är förbjudna att tas med i samlingen:,,,,,,, `Accept` `Accept-Charset` `Accept-Encoding` `Content-Length` `Content-Type` `Cookie` `Host` `TE` `Upgrade``Via` |
 | `timeout` | Valfritt Anger tids gränsen för http-klienten som gör API-anropet. Det måste formateras som ett XSD "dayTimeDuration"-värde (en begränsad delmängd av ett [varaktighets värde på ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Till exempel `PT60S` i 60 sekunder. Om inget värde anges väljs ett standardvärde på 30 sekunder. Tids gränsen kan anges till högst 230 sekunder och minst 1 sekund. |
 | `batchSize` | Valfritt Anger hur många "data poster" (se _JSON_ nytto Last strukturen nedan) som ska skickas per API-anrop. Om den inte anges väljs standardvärdet 1000. Vi rekommenderar att du använder den här parametern för att uppnå en lämplig kompromiss mellan indexering av data flödet och belastningen på ditt API |
@@ -87,7 +87,7 @@ Det finns inga fördefinierade utdata för den här kunskapen. Beroende på vilk
 Den här _JSON_ -strukturen representerar den nytto last som ska skickas till ditt webb-API.
 Den kommer alltid att följa dessa begränsningar:
 
-* Entiteten på den översta nivån anropas `values` och är en matris med objekt. Antalet sådana objekt är högst`batchSize`
+* Entiteten på den översta nivån anropas `values` och är en matris med objekt. Antalet sådana objekt är högst `batchSize`
 * Varje objekt i `values` matrisen kommer att ha
     * En `recordId` egenskap som är en **unik** sträng som används för att identifiera posten.
     * En `data` egenskap som är ett _JSON_ -objekt. Fälten i `data` egenskapen motsvarar de "namn" som anges i `inputs` avsnittet i kunskaps definitionen. Värdet för dessa fält kommer från `source` dessa fält (som kan komma från ett fält i dokumentet eller som kan komma från en annan kunskap)

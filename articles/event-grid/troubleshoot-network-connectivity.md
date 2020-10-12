@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
 ms.openlocfilehash: 5eb40d464fb718f0bd6dffe0d00f6420f4ea4995
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119012"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>Felsök anslutnings problem – Azure Event Grid
@@ -61,7 +61,7 @@ Om ditt program körs i ett undernät och om det finns en associerad nätverks s
 
 Kontrol lera att den offentliga IP-adressen för den dator där programmet körs inte har blockerats av EventGrid ämne/domän-IP-brandvägg.
 
-Som standard är Event Grid ämnen/domäner tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+Som standard är Event Grid ämnen/domäner tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i [CIDR-notation (classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 
 IP-brandväggens regler tillämpas på Event Grid ämne/domän nivå. Reglerna gäller därför för alla anslutningar från klienter som använder ett protokoll som stöds. Eventuella anslutnings försök från en IP-adress som inte matchar en tillåten IP-regel på Event Grid ämne/domän avvisas som förbjuden. Svaret innehåller ingen IP-regel.
 

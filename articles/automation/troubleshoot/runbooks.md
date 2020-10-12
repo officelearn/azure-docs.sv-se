@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: has-adal-ref
 ms.openlocfilehash: 1cbb5be8c1a4045b218c0e6bf5ac7ed0b901aa80
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87904810"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Felsöka runbook-problem
@@ -122,7 +122,7 @@ Följ dessa steg för att fastställa vad som är fel:
    }
    ```
 
-## <a name="scenario-run-login-azurermaccount-to-log-in"></a><a name="login-azurerm"></a>Scenario: kör login-AzureRMAccount för att logga in
+## <a name="scenario-run-login-azurermaccount-to-log-in"></a><a name="login-azurerm"></a>Scenario: kör Login-AzureRMAccount för att logga in
 
 ### <a name="issue"></a>Problem
 
@@ -368,7 +368,7 @@ Det här felet beror på att PowerShell-motorn inte kan hitta den cmdlet som du 
 * Om du har en namn konflikt och cmdleten är tillgänglig i två olika moduler, löser du problemet genom att använda det fullständigt kvalificerade namnet för cmdleten. Du kan till exempel använda `ModuleName\CmdletName`.
 * Om du kör en Runbook lokalt i en hybrid Worker-grupp kontrollerar du att modulen och cmdleten är installerade på den dator som är värd för Hybrid Worker.
 
-## <a name="scenario-incorrect-object-reference-on-call-to-add-azaccount"></a><a name="object-reference-not-set"></a>Scenario: felaktig objekt referens vid anrop till Add-AzAccount
+## <a name="scenario-incorrect-object-reference-on-call-to-add-azaccount"></a><a name="object-reference-not-set"></a>Scenario: felaktig objekt referens för anrop till Add-AzAccount
 
 ### <a name="issue"></a>Problem
 
@@ -671,7 +671,7 @@ Möjliga orsaker till det här problemet är:
 
 Följ [steg 5 – Lägg till autentisering för att hantera Azure-resurser](../learn/automation-tutorial-runbook-textual-powershell.md#step-5---add-authentication-to-manage-azure-resources) för att se till att du använder ett Kör som-konto för att få åtkomst till Key Vault.
 
-#### <a name="insufficient-permissions"></a>Otillräcklig behörighet
+#### <a name="insufficient-permissions"></a>Otillräckliga behörigheter
 
 [Lägg till behörigheter till Key Vault](../manage-runas-account.md#add-permissions-to-key-vault) för att säkerställa att ditt kör som-konto har tillräcklig behörighet för att komma åt Key Vault.
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
 ms.openlocfilehash: 3d07657fc3345ddd8dfadd163dc3c9f957d77af3
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90068395"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexering i Azure Cosmos DB – Översikt
@@ -180,7 +180,7 @@ De sökvägar som extraherades vid indexering av data gör det enkelt att söka 
 
 Överväg till exempel följande fråga: `SELECT location FROM location IN company.locations WHERE location.country = 'France'` . Frågans predikat (filtrering av objekt, där vilken plats som helst har "Frankrike" som land/region) matchar sökvägen som marker ATS i rött nedan:
 
-:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Matcha en angiven sökväg inom ett träd" border="false":::
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Det föregående objektet representeras som ett träd" border="false":::
 
 > [!NOTE]
 > En `ORDER BY` sats som sorteras efter en enskild egenskap behöver *alltid* ett intervall index och kommer att Miss betes om sökvägen den refererar till inte har en. På samma sätt `ORDER BY` behöver en fråga som order by flera egenskaper *alltid* ett sammansatt index.

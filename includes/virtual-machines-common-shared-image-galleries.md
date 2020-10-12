@@ -8,10 +8,10 @@ ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
 ms.openlocfilehash: 662afb902c97e164cc24bc664b854db118904210
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89494337"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina avbildningar. Delade avbildnings gallerier ger:
@@ -50,9 +50,9 @@ Det finns tre parametrar för varje avbildnings definition som används i kombin
 
 |Bilddefinition|Publisher|Erbjudande|Sku|
 |---|---|---|---|
-|myImage1|Contoso|Ekonomi|Serverdel|
-|myImage2|Contoso|Ekonomi|Klientdel|
-|myImage3|Testning|Ekonomi|Klientdel|
+|myImage1|Contoso|Finance|Serverdel|
+|myImage2|Contoso|Finance|Klientdel|
+|myImage3|Testning|Finance|Klientdel|
 
 Alla tre av dessa har unika uppsättningar med värden. Formatet liknar hur du för närvarande kan ange utgivare, erbjudande och SKU för [Azure Marketplace-avbildningar](../articles/virtual-machines/windows/cli-ps-findimage.md) i Azure PowerShell för att hämta den senaste versionen av en Marketplace-avbildning. Varje bild definition måste ha en unik uppsättning av dessa värden.
 
@@ -130,7 +130,7 @@ När galleriet för delad avbildning, bild definition och avbildnings version ä
 | Delat med användare     | Delat bildgalleri | Bilddefinition | Avbildningsversion |
 |----------------------|----------------------|--------------|----------------------|
 | Delat bildgalleri | Ja                  | Ja          | Ja                  |
-| Bilddefinition     | Nej                   | Ja          | Ja                  |
+| Bilddefinition     | Inga                   | Ja          | Ja                  |
 
 Vi rekommenderar att du delar på Galleri nivå för bästa möjliga upplevelse. Vi rekommenderar inte att du delar enskilda avbildnings versioner. Mer information om RBAC finns i [Hantera åtkomst till Azure-resurser med RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 

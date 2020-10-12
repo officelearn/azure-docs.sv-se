@@ -4,10 +4,10 @@ description: Läs om redundans och fel i Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87089540"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Om återställning av redundans/återställning vid fel på plats
@@ -54,7 +54,7 @@ Det finns ett antal krav för att ansluta till virtuella Azure-datorer som skapa
 
 Site Recovery tillhandahåller olika alternativ för redundans.
 
-**Redundans** | **Detaljer** | **Återställning** | **Workflow**
+**Redundans** | **Information** | **Återställande** | **Workflow**
 --- | --- | --- | ---
 **Redundanstest** | Används för att köra en detalj granskning som validerar din BCDR-strategi utan data förlust eller stillestånds tid.| Skapar en kopia av den virtuella datorn i Azure, utan påverkan på pågående replikering eller i produktions miljön. | 1. kör ett redundanstest på en enskild virtuell dator eller flera virtuella datorer i en återställnings plan.<br/><br/> 2. Välj en återställnings punkt som ska användas för redundanstest.<br/><br/> 3. Välj ett Azure-nätverk där den virtuella Azure-datorn ska finnas när den har skapats efter redundansväxlingen. Nätverket används endast för redundanstest.<br/><br/> 4. kontrol lera att granskningen fungerade som förväntat. Site Recovery rensar automatiskt virtuella datorer som skapats i Azure under detalj nivån.
 **Planerad redundans-Hyper-V**  | Används vanligt vis för planerad stillestånds tid.<br/><br/> Virtuella käll datorer stängs av. Den senaste informationen synkroniseras innan redundansväxlingen initieras. | Ingen data förlust för det planerade arbets flödet. | 1. planera en underhålls period för drift stopp och meddela användarna.<br/><br/> 2. ta appar som riktas mot användare offline.<br/><br/> 3. Starta en planerad redundansväxling med den senaste återställnings punkten. Redundansväxlingen körs inte om datorn inte är avstängd eller om fel påträffas.<br/><br/> 4. efter redundansväxlingen kontrollerar du att repliken för den virtuella Azure-datorn är aktiv i Azure.<br/><br/> 5. genomför redundansväxlingen genom att slutföra. Åtgärden commit tar bort alla återställnings punkter.
@@ -76,7 +76,7 @@ I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 m
 
 Under redundans kan du välja ett antal alternativ för återställnings punkt.
 
-**Alternativ** | **Detaljer**
+**Alternativ** | **Information**
 --- | ---
 **Senaste (lägsta återställnings punkt)** | Det här alternativet ger lägsta återställnings punkt mål. Först bearbetar den alla data som har skickats till Site Recovery-tjänsten, för att skapa en återställnings punkt för varje virtuell dator, innan de växlar över till den. Den här återställnings punkten har alla data som repliker ATS till Site Recovery När redundansväxlingen utlöstes.
 **Senast bearbetade**  | Det här alternativet växlar över virtuella datorer till den senaste återställnings punkten som bearbetats av Site Recovery. Om du vill se den senaste återställnings punkten för en viss virtuell dator kontrollerar du de **senaste återställnings punkterna** i VM-inställningarna. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.

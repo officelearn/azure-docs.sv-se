@@ -10,10 +10,10 @@ ms.author: rolyon
 ms.date: 09/22/2020
 ms.custom: generated
 ms.openlocfilehash: ade4a6b791a8aca963a056800bd8c58767aeb766
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400102"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure Resource Provider-åtgärder
@@ -93,7 +93,7 @@ Klicka på namnet på resurs leverantören i följande tabell om du vill se en l
 | [Microsoft. IoTCentral](#microsoftiotcentral) |
 | [Microsoft. NotificationHubs](#microsoftnotificationhubs) |
 | [Microsoft. TimeSeriesInsights](#microsofttimeseriesinsights) |
-| **Mixad verklighet** |
+| **Mixed Reality** |
 | [Microsoft. IoTSpaces](#microsoftiotspaces) |
 | [Microsoft. MixedReality](#microsoftmixedreality) |
 | **Integrering** |
@@ -1421,7 +1421,7 @@ Azure-tjänst: [Azure Data Box](../databox/index.yml)
 > | Microsoft. data-/Operations/Read | Lista eller hämta åtgärderna |
 > | **DataAction** | **Beskrivning** |
 > | Microsoft. data-/register/åtgärd | Registrera providern Microsoft. data, |
-> | Microsoft. data-/avregistrera/åtgärd | Avregistrera providern Microsoft. data-providern |
+> | Microsoft. data-/avregistrera/åtgärd | Un-Register providern Microsoft. data |
 > | Microsoft. data-/jobb/Avbryt/åtgärd | Avbryter en pågående order. |
 > | Microsoft. data-/jobb/bookShipmentPickUp/åtgärd | Gör det möjligt att boka en plockning för retur leveranser. |
 > | Microsoft. data-/jobb/listCredentials/åtgärd | Visar en lista med okrypterade autentiseringsuppgifter relaterade till beställningen. |
@@ -5667,7 +5667,7 @@ Azure-tjänst: [API Management](../api-management/index.yml)
 > | Microsoft. API Management/Service/policyDescriptions/Read | Visar en lista över alla princip beskrivningar. |
 > | Microsoft. API Management/Service/policySnippets/Read | Visar en lista över alla princip fragment. |
 > | Microsoft. API Management/Service/portalSettings/Read | Visar en samling av Portal inställningar. eller få inloggnings inställningar för portalen eller få registrerings inställningar för portalen eller hämta Delegerings inställningar för portalen. |
-> | Microsoft. API Management/Service/portalSettings/Write | Uppdatera inloggnings inställningar. eller skapa eller uppdatera inloggnings inställningar. eller uppdatera registrerings inställningarna eller uppdatera inställningarna för registrering eller uppdatera delegering. eller skapa eller uppdatera Delegerings inställningar. |
+> | Microsoft. API Management/Service/portalSettings/Write | Uppdatera Sign-In inställningar. eller skapa eller uppdatera Sign-In inställningar. eller uppdatera registrerings inställningarna eller uppdatera inställningarna för registrering eller uppdatera delegering. eller skapa eller uppdatera Delegerings inställningar. |
 > | Microsoft. API Management/Service/portalSettings/listSecrets/Action | Hämtar verifierings nyckeln för inställningarna för Portal delegering. eller hämta URI för BLOB-behållare för medie innehåll. |
 > | Microsoft. API Management/Service/Products/Read | Listar en samling produkter i den angivna tjänst instansen. eller hämtar information om den produkt som anges med dess identifierare. |
 > | Microsoft. API Management/Service/Products/Write | Skapar eller uppdaterar en produkt. eller uppdatera befintlig produkt information. |
@@ -6287,8 +6287,8 @@ Azure-tjänst: Azure Active Directory
 > | Microsoft. aadiam/diagnosticsettings/Read | Läser en diagnostisk inställning |
 > | Microsoft. aadiam/diagnosticsettings/Delete | Tar bort en diagnostisk inställning |
 > | Microsoft. aadiam/diagnosticsettingscategories/Read | Läser en diagnostisk inställnings kategori |
-> | Microsoft. aadiam/metricDefinitions/Read | Läser mått definitioner på klient nivå |
-> | Microsoft. aadiam/Metrics/Read | Läser mått på klient nivå |
+> | Microsoft. aadiam/metricDefinitions/Read | Läser Tenant-Level mått definitioner |
+> | Microsoft. aadiam/Metrics/Read | Läser Tenant-Level mått |
 > | Microsoft. aadiam/privateLinkForAzureAD/Read | Läsa princip definition för privat länk |
 > | Microsoft. aadiam/privateLinkForAzureAD/Write | Skapa och uppdatera princip definition för privat länk |
 > | Microsoft. aadiam/privateLinkForAzureAD/Delete | Ta bort princip definition för privat länk |

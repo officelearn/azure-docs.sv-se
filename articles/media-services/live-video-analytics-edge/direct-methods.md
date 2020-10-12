@@ -4,10 +4,10 @@ description: Live video analys på IoT Edge visar flera direkta metoder. De dire
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87091835"
 ---
 # <a name="direct-methods"></a>Direkta metoder
@@ -112,7 +112,7 @@ Detaljerade fel uppgifter, till exempel valideringar av graf-modul, läggs till 
 
 Den här direkta metoden hämtar en enda diagram sto pol Ogin.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 ```
 {
@@ -140,9 +140,9 @@ Den här direkta metoden hämtar en enda diagram sto pol Ogin.
 
 #### <a name="status-codes"></a>Statuskoder
 
-|Villkor  |Statuskod    |Detaljerad felkod|
+|Condition (Väderförhållanden)  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Entitet hittades|  200 |Ej tillämpligt
+|Entitet hittades|  200 |E.t.
 |Allmänna användar fel    |400 intervall  ||
 |Entiteten hittades inte   |404        ||
 |Allmänna Server fel| 500 intervall       ||
@@ -160,7 +160,7 @@ Viktiga aspekter:
     * Det finns inga referenser till borttagna parametrar i grafen
 * Topologi uppdateringar är inte tillåtna om det finns aktiva grafer
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 ```
 {
@@ -191,10 +191,10 @@ Viktiga aspekter:
 
 #### <a name="status-codes"></a>Statuskoder
 
-|Villkor  |Statuskod    |Detaljerad felkod|
+|Condition (Väderförhållanden)  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-Den befintliga entiteten har uppdaterats |200|   Ej tillämpligt|
-En ny entitet har skapats  |201|   Ej tillämpligt|
+Den befintliga entiteten har uppdaterats |200|   E.t.|
+En ny entitet har skapats  |201|   E.t.|
 Allmänna användar fel |400 intervall  ||
 Diagram verifierings fel |400    |GraphValidationError|
 Modul validerings fel|   400 |ModuleValidationError|
@@ -204,7 +204,7 @@ Allmänna Server fel   |500 intervall  ||
 
 Tar bort en enskild diagram sto pol Ogin.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 ```
 {
@@ -227,10 +227,10 @@ Tar bort en enskild diagram sto pol Ogin.
 
 #### <a name="status-codes"></a>Statuskoder
 
-|Villkor  |Statuskod    |Detaljerad felkod|
+|Condition (Väderförhållanden)  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Entitet borttagen|    200|    Ej tillämpligt|
-|Entiteten hittades inte|  204|    Ej tillämpligt|
+|Entitet borttagen|    200|    E.t.|
+|Entiteten hittades inte|  204|    E.t.|
 |Allmänna användar fel|   400 intervall   ||
 |Diagram sto pol Ogin refereras till av en eller flera diagram instanser| 409 |GraphTopologyInUse|
 |Allmänna Server fel| 500 intervall   ||
@@ -239,7 +239,7 @@ Tar bort en enskild diagram sto pol Ogin.
 
 Hämtar en lista över alla Graph-topologier som matchar filter kriterierna.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 ```
 {
@@ -285,9 +285,9 @@ Hämtar en lista över alla Graph-topologier som matchar filter kriterierna.
 
 #### <a name="status-codes"></a>Statuskoder
 
-|Villkor  |Statuskod    |Detaljerad felkod|
+|Condition (Väderförhållanden)  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Klart|   200 |Ej tillämpligt|
+|Klart|   200 |E.t.|
 |Allmänna användar fel|   400 intervall   ||
 |Allmänna Server fel| 500 intervall   ||
 
@@ -295,7 +295,7 @@ Hämtar en lista över alla Graph-topologier som matchar filter kriterierna.
 
 Hämtar en enstaka graf-förekomst:
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 ```
 {
@@ -323,9 +323,9 @@ Hämtar en enstaka graf-förekomst:
 
 #### <a name="status-codes"></a>Statuskoder
 
-|Villkor  |Statuskod    |Detaljerad felkod|
+|Condition (Väderförhållanden)  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Entitet hittades   |200|   Ej tillämpligt|
+|Entitet hittades   |200|   E.t.|
 |Allmänna användar fel|   400 intervall   ||
 |Entiteten hittades inte|  404 ||
 |Allmänna Server fel| 500 intervall   ||
@@ -342,7 +342,7 @@ Viktiga aspekter:
 * Uppdatering av diagram instanser är delvis begränsad medan grafen inte är i inaktivt läge.
 * Diagram instans uppdateringar är inte tillåtna i aktiva diagram.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 ```
 {
@@ -373,10 +373,10 @@ Viktiga aspekter:
 
 #### <a name="status-codes"></a>Statuskoder
 
-|Villkor  |Statuskod    |Detaljerad felkod|
+|Condition (Väderförhållanden)  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Den befintliga entiteten har uppdaterats    |200    |Ej tillämpligt|
-|En ny entitet har skapats|    201 |Ej tillämpligt|
+|Den befintliga entiteten har uppdaterats    |200    |E.t.|
+|En ny entitet har skapats|    201 |E.t.|
 |Allmänna användar fel|   400 intervall   ||
 |Diagram verifierings fel    |400|   GraphValidationError|
 |Modul validerings fel|  400 |ModuleValidationError|
@@ -391,7 +391,7 @@ Viktiga aspekter:
 
 * Endast inaktiverade diagram kan tas bort.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 ```
 {
@@ -414,10 +414,10 @@ Viktiga aspekter:
 
 #### <a name="status-codes"></a>Statuskoder
 
-|Villkor  |Statuskod    |Detaljerad felkod|
+|Condition (Väderförhållanden)  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Grafen har tagits bort|    200|    Ej tillämpligt|
-|Grafen hittades inte|   204|    Ej tillämpligt|
+|Grafen har tagits bort|    200|    E.t.|
+|Grafen hittades inte|   204|    E.t.|
 |Allmänna användar fel    |400 intervall  ||
 |Grafen är inte i läget "stoppad"    |409    |OperationNotAllowedInState|
 |Allmänna Server fel| 500 intervall   ||
@@ -427,7 +427,7 @@ Viktiga aspekter:
 Detta liknar GraphTopologyList. Den gör det möjligt att räkna upp graf-instanser.
 Hämtar en lista över alla grafer-instanser som matchar filter kriterierna.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 ```
 {
@@ -472,9 +472,9 @@ Hämtar en lista över alla grafer-instanser som matchar filter kriterierna.
 
 #### <a name="status-codes"></a>Statuskoder
 
-|Villkor  |Statuskod    |Detaljerad felkod|
+|Condition (Väderförhållanden)  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Klart    |200    |Ej tillämpligt|
+|Klart    |200    |E.t.|
 |Allmänna användar fel|   400 intervall   ||
 |Allmänna Server fel| 500 intervall   ||
 
@@ -493,7 +493,7 @@ Viktiga aspekter
     * Att starta en graf om tillståndet "aktivering" fungerar på samma sätt som om grafen inaktiverades (det vill säga: anropa block tills grafen har Aktiver ATS)
     * Aktivering av ett diagram på "aktivt" läge returnerar omedelbart.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 ```
 {
@@ -516,10 +516,10 @@ Viktiga aspekter
 
 #### <a name="status-codes"></a>Statuskoder
 
-|Villkor  |Statuskod    |Detaljerad felkod|
+|Condition (Väderförhållanden)  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Grafen har Aktiver ATS   |200    |Ej tillämpligt|
-|En ny entitet har skapats |201|   Ej tillämpligt|
+|Grafen har Aktiver ATS   |200    |E.t.|
+|En ny entitet har skapats |201|   E.t.|
 |Allmänna användar fel    |400 intervall  ||
 |Modul validerings fel   |400|   ModuleValidationError|
 |Resurs validerings fel|    409|    ResourceValidationError|
@@ -542,7 +542,7 @@ Viktiga aspekter:
     * Inaktive ring av diagram på status "inaktive ring" fungerar på samma sätt som om grafen inaktiverades (det vill säga: anropa block tills grafen är inaktive rad)
     * Inaktive ring av en graf i tillståndet "inaktiv" returneras omedelbart.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 ```
 {
@@ -565,10 +565,10 @@ Viktiga aspekter:
 }
 ```
 
-|Villkor  |Statuskod    |Detaljerad felkod|
+|Condition (Väderförhållanden)  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Grafen har Aktiver ATS   |200|   Ej tillämpligt|
-|En ny entitet har skapats |201|   Ej tillämpligt|
+|Grafen har Aktiver ATS   |200|   E.t.|
+|En ny entitet har skapats |201|   E.t.|
 |Allmänna användar fel    |400 intervall  ||
 |Grafen är i aktiverings läge   |409|   OperationNotAllowedInState|
 |Allmänna Server fel  |500 intervall  ||

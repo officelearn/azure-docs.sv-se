@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: allensu
 ms.openlocfilehash: 3b5aedb20bc7a8d2aa6f3aa3d8691a71af4cd3a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808377"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Hämta användnings statistik för Load Balancer med hjälp av REST API
@@ -38,7 +38,7 @@ Följande huvuden krävs:
 |Begärandehuvud|Beskrivning|  
 |--------------------|-----------------|  
 |*Content-Type:*|Krävs. Ange till `application/json`.|  
-|*Auktorisering:*|Krävs. Ange till en giltig -`Bearer` [åtkomsttoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|*Auktorisering:*|Krävs. Ange till en giltig `Bearer`-[åtkomsttoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ### <a name="uri-parameters"></a>URI-parametrar
 
@@ -47,7 +47,7 @@ Följande huvuden krävs:
 | subscriptionId | Det prenumerations-ID som identifierar en Azure-prenumeration. Om du har flera prenumerationer kan du läsa mer i [arbeta med flera prenumerationer](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | Namnet på den resurs grupp som innehåller resursen. Du kan hämta det här värdet från Azure Resource Manager API, CLI eller portalen. |
 | loadBalancerName | Namnet på Azure Load Balancer. |
-| mått namn | Kommaavgränsad lista över giltiga [load BALANCERS mått](/azure/load-balancer/load-balancer-standard-diagnostics). |
+| mått namn | Kommaavgränsad lista över giltiga  [load BALANCERS mått](/azure/load-balancer/load-balancer-standard-diagnostics). |
 | api-version | Den API-version som ska användas för begäran.<br /><br /> Det här dokumentet beskriver API-versionen `2018-01-01` , som ingår i ovanstående URL.  |
 | tidsintervall | Frågans TimeSpan. Det är en sträng med följande format `startDateTime_ISO/endDateTime_ISO` . Den här valfria parametern är inställd på att returnera en dags värde i exemplet. |
 | &nbsp; | &nbsp; |

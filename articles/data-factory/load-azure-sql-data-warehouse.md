@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/08/2020
 ms.openlocfilehash: c90590ac4c47f6ac8d51273fecfb653dfe056b1d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89485778"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Läs in data i Azure Synapse Analytics med hjälp av Azure Data Factory
@@ -38,7 +38,7 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 > [!NOTE]
 > Mer information finns i [Kopiera data till eller från Azure Synapse Analytics med hjälp av Azure Data Factory](connector-azure-sql-data-warehouse.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Azure Synapse Analytics: data lagret innehåller de data som kopieras från SQL-databasen. Om du inte har en Azure Synapse-analys kan du läsa anvisningarna i [skapa en Azure Synapse-analys](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).

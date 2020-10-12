@@ -9,10 +9,10 @@ ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: e3e2c9aa42ff3189e90f57d7c6e92b2a71f46639
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061620"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>Självstudie: flytta Azure SQL Database resurser till en annan region
@@ -38,7 +38,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar. Logga sedan in på [Azure Portal](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 -  Kontrol lera att du har *ägar* åtkomst till prenumerationen som innehåller de resurser som du vill flytta.
     - Första gången du lägger till en resurs för ett visst käll-och mål par i en Azure-prenumeration skapar resurs förflyttningen en [systemtilldelad hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (tidigare känd som hanterad tjänst identifiering (MSI)) som är betrodd av prenumerationen.

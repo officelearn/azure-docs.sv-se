@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
 ms.openlocfilehash: 279f54c3de964580cc37d1288a6e1b7726348e10
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208616"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Anslut data från Azure Active Directory (Azure AD)
@@ -28,7 +28,7 @@ ms.locfileid: "88208616"
 
 Du kan använda Azure Sentinels inbyggda koppling för att samla in data från [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) och strömma dem till Azure Sentinel. Med anslutnings programmet kan du strömma [inloggnings loggar](../active-directory/reports-monitoring/concept-sign-ins.md) och [gransknings loggar](../active-directory/reports-monitoring/concept-audit-logs.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 
 - Alla Azure AD-licenser (ledig/O365/P1/P2) räcker för att mata in inloggnings loggar i Azure Sentinel. Ytterligare per GB-kostnader kan tillkomma för Azure Monitor (Log Analytics) och Azure Sentinel.

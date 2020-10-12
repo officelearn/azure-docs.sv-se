@@ -4,10 +4,10 @@ description: Den här artikeln visar hur du kan använda automatisk uppdatering 
 ms.topic: how-to
 ms.date: 09/15/2020
 ms.openlocfilehash: 0a72cc991e768a7bed01762d984cc56238ae0ad0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90984650"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Uppdatera meddelande enheter automatiskt i ett Azure Service Bus namn område 
@@ -45,7 +45,7 @@ Med den här inställningen kan du ange ett fast antal meddelande enheter för n
 1. För inställning av **meddelande enheter** väljer du antalet meddelande enheter i den nedrullningsbara listan.
 1. Spara inställningen genom att välja **Spara** i verktygsfältet. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/manual-scale.png" alt-text="Skala meddelande enheter manuellt":::       
+    :::image type="content" source="./media/automate-update-messaging-units/manual-scale.png" alt-text="Sidan Service Bus namnrymd-skala":::       
 
 
 ## <a name="custom-autoscale---default-condition"></a>Anpassad autoskalning – standard villkor
@@ -64,14 +64,14 @@ Följande procedur visar hur du lägger till ett villkor för att automatiskt ö
 1. Välj **skala baserat på ett mått** för **skalnings läge**. 
 1. Välj **+ Lägg till en regel**. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-add-rule-link.png" alt-text="Standard-skala baserat på ett mått":::    
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-add-rule-link.png" alt-text="Sidan Service Bus namnrymd-skala":::    
 1. Följ dessa steg på sidan **skalnings regel** :
     1. Välj ett mått i list rutan **mått namn** . I det här exemplet är det **CPU**. 
     1. Välj en operatör och tröskelvärdes värden. I det här exemplet är de **större än** och **75** för **mått tröskelvärdet för att utlösa skalnings åtgärden**. 
     1. Välj en **åtgärd** i avsnittet **åtgärd** . I det här exemplet är den inställd på att **öka**. 
     1. Välj sedan **Lägg till**
     
-        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Standard – skala ut om CPU-användningen är större än 75%":::       
+        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Sidan Service Bus namnrymd-skala":::       
 
         > [!NOTE]
         > Funktionen för autoskalning ökar meddelande enheterna för namn området om den totala processor användningen går över 75% i det här exemplet. Stegvisa steg görs från 1 till 2, 2 till 4 och 4 till 8. 
@@ -81,13 +81,13 @@ Följande procedur visar hur du lägger till ett villkor för att automatiskt ö
     1. Välj en **åtgärd** i avsnittet **åtgärd** . I det här exemplet är det inställt på **minska**. 
     1. Välj sedan **Lägg till** 
 
-        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Standard skala i om CPU-användningen är mindre än 25%":::       
+        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Sidan Service Bus namnrymd-skala":::       
 
         > [!NOTE]
         > Funktionen för autoskalning minskar meddelande enheterna för namn området om den totala processor användningen går under 25% i det här exemplet. Minskningar görs från 8 till 4, 4 till 2 och 2 till 1. 
 1. Ange **lägsta** och **högsta** **antal meddelande** enheter.
 
-    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Standard regel baserat på ett mått":::
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Sidan Service Bus namnrymd-skala":::
 1. Spara inställningen för autoskalning genom att välja **Spara** i verktygsfältet. 
         
 ### <a name="scale-to-specific-number-of-messaging-units"></a>Skala till ett angivet antal meddelande enheter
@@ -98,7 +98,7 @@ Följ dessa steg om du vill konfigurera regeln för att skala namn området till
 1. Välj **skala till vissa meddelande enheter** för **skalnings läge**. 
 1. För **meddelande enheter**väljer du antalet standard meddelande enheter. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/default-scale-messaging-units.png" alt-text="Standard-skala till vissa meddelande enheter":::       
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-messaging-units.png" alt-text="Sidan Service Bus namnrymd-skala":::       
 
 ## <a name="custom-autoscale---additional-conditions"></a>Anpassad autoskalning – ytterligare villkor
 I föregående avsnitt visas hur du lägger till ett standard villkor för inställningen för autoskalning. I det här avsnittet visas hur du lägger till fler villkor i den automatiska skalnings inställningen. För dessa ytterligare icke-standardvillkor kan du ange ett schema som baseras på vissa dagar i en vecka eller ett datum intervall. 
@@ -107,7 +107,7 @@ I föregående avsnitt visas hur du lägger till ett standard villkor för inst�
 1. På sidan automatisk **skalnings inställning** väljer du **anpassad autoskalning** för alternativet **Välj hur du vill skala din resurs** . 
 1. Välj **Lägg till ett skalnings villkor** under **standard** blocket. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Anpassad – Lägg till en länk för skalnings villkor":::    
+    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Sidan Service Bus namnrymd-skala":::    
 1. Ange ett **namn** för villkoret. 
 1. Bekräfta att alternativet **skala baserat på ett mått** är markerat. 
 1. Välj **+ Lägg till en regel** för att lägga till en regel för att öka meddelande enheterna när den totala processor användningen går över 75%. Följ stegen i avsnittet [standard villkor](#custom-autoscale---default-condition) . 
@@ -115,26 +115,26 @@ I föregående avsnitt visas hur du lägger till ett standard villkor för inst�
 6. Du kan också ange ett **schema** för ett anpassat villkor (men inte på standard villkoret). Du kan antingen ange start-och slutdatum för villkoret (eller) välja särskilda dagar (måndag, tisdag osv.) i veckan. 
     1. Om du väljer **Ange start-/slutdatum**väljer du **tidszon**, **start datum och tid** och **slutdatum och tid** (som visas i följande bild) för att villkoret ska tillämpas. 
 
-       :::image type="content" source="./media/automate-update-messaging-units/custom-min-max-default.png" alt-text="Lägsta, högsta och standardvärden för antal meddelande enheter":::
+       :::image type="content" source="./media/automate-update-messaging-units/custom-min-max-default.png" alt-text="Sidan Service Bus namnrymd-skala":::
     1. Om du väljer **upprepa vissa dagar**väljer du vecko dagar, tidszon, start tid och slut tid när villkoret ska gälla. 
 
-        :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days.png" alt-text="Upprepa vissa dagar":::
+        :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days.png" alt-text="Sidan Service Bus namnrymd-skala":::
   
 ### <a name="scale-to-specific-number-of-messaging-units"></a>Skala till ett angivet antal meddelande enheter
 1. På sidan automatisk **skalnings inställning** väljer du **anpassad autoskalning** för alternativet **Välj hur du vill skala din resurs** . 
 1. Välj **Lägg till ett skalnings villkor** under **standard** blocket. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Anpassad – Lägg till en länk för skalnings villkor":::    
+    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Sidan Service Bus namnrymd-skala":::    
 1. Ange ett **namn** för villkoret. 
 2. Välj alternativet **skala till vissa meddelande enheter** för **skalnings läge**. 
 1. Välj antalet **meddelande enheter** i den nedrullningsbara listan. 
 6. För **schemat**anger du antingen start-och slutdatum för villkoret (eller) och väljer särskilda dagar (måndag, tisdag osv.) på en vecka och gånger. 
     1. Om du väljer **Ange start-/slutdatum**väljer du **tids zonen**, **start datum och tid** och **slutdatum och slut tid** för villkoret. 
     
-    :::image type="content" source="./media/automate-update-messaging-units/scale-specific-messaging-units-start-end-dates.png" alt-text="skala till särskilda meddelande enheter – start-och slutdatum":::        
+    :::image type="content" source="./media/automate-update-messaging-units/scale-specific-messaging-units-start-end-dates.png" alt-text="Sidan Service Bus namnrymd-skala":::        
     1. Om du väljer **upprepa vissa dagar**väljer du vecko dagar, tidszon, start tid och slut tid när villkoret ska gälla.
     
-    :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="skala till vissa meddelande enheter – upprepa vissa dagar":::
+    :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="Sidan Service Bus namnrymd-skala":::
 
 > [!IMPORTANT]
 > Om du vill veta mer om hur inställningarna för autoskalning fungerar, särskilt hur de väljer en profil eller ett villkor och utvärderar flera regler, se [förstå inställningarna för autoskalning](../azure-monitor/platform/autoscale-understanding-settings.md).          

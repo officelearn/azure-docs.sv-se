@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/28/2019
 ms.openlocfilehash: 094b78fa35da451101f4f5664cca46292d78d146
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88650561"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Regioner för virtuella datorer i Azure
@@ -75,8 +75,8 @@ Följande tabell ger en snabb översikt över skillnaderna mellan lagringsreplik
 
 | Replikeringsstrategi | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Data replikeras över flera anläggningar. |Nej |Ja |Ja |Ja |
-| Data kan läsas från den sekundära platsen och från den primära platsen. |Nej |Nej |Nej |Ja |
+| Data replikeras över flera anläggningar. |Inga |Ja |Ja |Ja |
+| Data kan läsas från den sekundära platsen och från den primära platsen. |Inga |Inga |Inga |Ja |
 | Antal kopior av data som finns på olika noder. |3 |3 |6 |6 |
 
 Du kan läsa mer om [Azure Storage-replikeringsalternativen här](../storage/common/storage-redundancy.md). Mer information om hanterade diskar finns i [Översikt över Azure Managed Disks](./managed-disks-overview.md).
@@ -85,10 +85,10 @@ Du kan läsa mer om [Azure Storage-replikeringsalternativen här](../storage/com
 Priserna varierar beroende på vilken lagringstyp och tillgänglighet du väljer.
 
 **Azure Managed Disks**
-* Premium Managed Disks backas upp av solid state-hårddiskar (SSD) och standard Managed Disks backas upp av vanliga snurrande diskar. Både Premium och Standard Managed Disks debiteras baserat på etablerad kapacitet för disken.
+* Premium Managed Disks backas upp av Solid-State-enheter (SSD) och standard Managed Disks backas upp av vanliga snurrande diskar. Både Premium och Standard Managed Disks debiteras baserat på etablerad kapacitet för disken.
 
 **Ohanterade diskar**
-* Premium Storage backas upp av solid state-hårddiskar (SSD) och debiteras baserat på diskens kapacitet.
+* Premium Storage backas upp av Solid-State-enheter (SSD) och debiteras utifrån diskens kapacitet.
 * Standard Storage använder roterande diskar och debiteras baserat på den kapacitet som används och önskad lagringstillgänglighet.
   * För RA-GRS tillkommer en extra dataöverföringsavgift för geo-replikering för bandbredden som används för att replikera dessa data till en annan Azure-region.
 

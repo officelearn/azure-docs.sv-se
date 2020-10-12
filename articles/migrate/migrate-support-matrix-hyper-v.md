@@ -4,10 +4,10 @@ description: Läs mer om stöd för Hyper-V-utvärdering med Azure Migrate Serve
 ms.topic: conceptual
 ms.date: 06/14/2020
 ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318185"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Stöd mat ris för Hyper-V-utvärdering
@@ -23,7 +23,7 @@ Om du vill konfigurera utvärdering av virtuell Hyper-V-dator skapar du ett Azur
 --- | ---
 **Utvärderings gränser** | Du kan identifiera och utvärdera upp till 35 000 virtuella Hyper-V-datorer i ett enda [Azure Migrate-projekt](migrate-support-matrix.md#azure-migrate-projects).
 **Projekt gränser** | Du kan skapa flera projekt i en Azure-prenumeration. Förutom virtuella Hyper-V-datorer kan ett projekt inkludera virtuella VMware-datorer och fysiska servrar, upp till utvärderings gränserna för var och en.
-**Identifikation** | Azure Migrates apparaten kan identifiera upp till 5000 virtuella Hyper-V-datorer.<br/><br/> Enheten kan ansluta till upp till 300 Hyper-V-värdar.
+**Identifiering** | Azure Migrates apparaten kan identifiera upp till 5000 virtuella Hyper-V-datorer.<br/><br/> Enheten kan ansluta till upp till 300 Hyper-V-värdar.
 **Utvärdering** | Du kan lägga till upp till 35 000 datorer i en enda grupp.<br/><br/> Du kan utvärdera upp till 35 000 virtuella datorer i en enda utvärdering för en grupp.
 
 [Läs mer](concepts-assessment-calculation.md) om utvärderingar.

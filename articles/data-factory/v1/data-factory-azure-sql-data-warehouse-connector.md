@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b7324115c880fb1ee4d5a1730a3b84a289cee4b0
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89490147"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-formerly-sql-data-warehouse-using-azure-data-factory"></a>Kopiera data till och från Azure Synapse Analytics (tidigare SQL Data Warehouse) med Azure Data Factory
@@ -96,7 +96,7 @@ De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten var
 ### <a name="sqldwsource"></a>SqlDWSource
 När källan är av typen **SqlDWSource**finns följande egenskaper i avsnittet **typeProperties** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: Välj * från tabellen tabell. |Inga |
 | sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från käll tabellen. |Namnet på den lagrade proceduren. Den sista SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Inga |
@@ -142,7 +142,7 @@ GO
 ### <a name="sqldwsink"></a>SqlDWSink
 **SqlDWSink** stöder följande egenskaper:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Ange en fråga för kopierings aktivitet som ska köras så att data i en angiven sektor rensas. Mer information finns i [avsnittet repeterbarhet](#repeatability-during-copy). |Ett frågeuttryck. |Inga |
 | allowPolyBase |Anger om PolyBase ska användas (när det är tillämpligt) i stället för BULKINSERT-mekanismen. <br/><br/> **Att använda PolyBase är det rekommenderade sättet att läsa in data i Azure Synapse Analytics.** Se [använda PolyBase för att läsa in data i avsnittet om Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) för begränsningar och information. |Sant <br/>False (standard) |Inga |
@@ -314,7 +314,7 @@ Data Factory skapar tabellen i mål lagret med samma tabell namn i käll data la
 | SmallMoney | SmallMoney |
 | Binär | Binär |
 | Varbinary | Varbinary (upp till 8000) |
-| Datum | Datum |
+| Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | Tid | Tid |
@@ -348,7 +348,7 @@ Mappningen är samma som [SQL Server data typs mappning för ADO.net](https://ms
 | binary |Byte [] |
 | bit |Boolesk |
 | char |Sträng, char [] |
-| datum |DateTime |
+| date |DateTime |
 | Datumtid |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |

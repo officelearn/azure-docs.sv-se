@@ -9,10 +9,10 @@ ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 3f68ca0fc577e6cf3f896ede0418f11f59756701
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86512629"
 ---
 | Resurs | Basic | Standard | Premium |
@@ -25,12 +25,12 @@ ms.locfileid: "86512629"
 | Ladda ned bandbredd MBps<sup>2</sup> | 30 | 60 | 100 |
 | Ladda upp bandbredd MBps<sup>2</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 500 |
-| Geo-replikering | Saknas | Saknas | [Stöds][geo-replication] |
-| Förtroende för innehåll | Saknas | Saknas | [Stöds][content-trust] |
-| Privat länk med privata slut punkter | Saknas | Saknas | [Stöds][plink] |
+| Geo-replikering | Saknas | Saknas | [Tillåtna][geo-replication] |
+| Förtroende för innehåll | Saknas | Saknas | [Tillåtna][content-trust] |
+| Privat länk med privata slut punkter | Saknas | Saknas | [Tillåtna][plink] |
 | &bull; Privata slut punkter | Saknas | Saknas | 10 |
 | Åtkomst till tjänst slut punktens VNet | Saknas | Saknas | [Förhandsgranskning][vnet] |
-| Kundhanterade nycklar | Saknas | Saknas | [Stöds][cmk] |
+| Kundhanterade nycklar | Saknas | Saknas | [Tillåtna][cmk] |
 | Databas – begränsade behörigheter | Saknas | Saknas | [Förhandsgranskning][token]|
 | &bull; Token | Saknas | Saknas | 20 000 |
 | &bull; Omfångs kartor | Saknas | Saknas | 20 000 |

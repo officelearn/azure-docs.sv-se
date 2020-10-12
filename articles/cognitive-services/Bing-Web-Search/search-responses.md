@@ -12,10 +12,10 @@ ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: a5e69fe855f0c1e99dc3672425d9aeea13d4e827
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297798"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>API för webbsökning i Bing svars struktur och svars typer  
@@ -316,7 +316,7 @@ Ett matematiskt uttryck kan innehålla följande funktioner:
 
 |Symbol|Beskrivning|
 |------------|-----------------|
-|Sortera|Kvadratrot|
+|Sortering|Kvadratrot|
 |Sin [x], cos [x], Tan [x]<br />CSC [x], SEK [x], COT [x]|Trigonometriska funktioner (med argument i radianer)|
 |Bågar i [x], ArcCos [x], ArcTan [x]<br />ArcCsc [x], ArcSec [x], ArcCot [x]|Invertera trigonometriska funktioner (ger resultat i radianer)|
 |EXP [x], E ^ x|Exponentiell funktion|

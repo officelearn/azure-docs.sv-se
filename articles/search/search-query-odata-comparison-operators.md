@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: fc5803f96c30ea1df362676aa8c4104bb0b69db3
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934879"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>OData-jämförelse operatörer i Azure kognitiv sökning –,,,, `eq` `ne` `gt` `lt` `ge` och `le`
@@ -49,7 +49,7 @@ Du kan använda intervall operatorerna i kombination med de [logiska operatörer
 
 ## <a name="syntax"></a>Syntax
 
-Följande EBNF ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken i ett OData-uttryck som använder jämförelse operatorer.
+Följande EBNF ([utökad Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken i ett OData-uttryck som använder jämförelse operatorer.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -81,13 +81,13 @@ Data typerna på båda sidor av en jämförelse operator måste vara kompatibla.
 | --- | --- | --- |
 | `Edm.Double` | `Edm.Double` | Jämförelse gäller [särskilda regler för `NaN` ](#special-case-nan) |
 | `Edm.Double` | `Edm.Int64` | Konstant konverteras till `Edm.Double` , vilket resulterar i en precisions förlust för värden av stor storlek |
-| `Edm.Double` | `Edm.Int32` | saknas |
+| `Edm.Double` | `Edm.Int32` | Saknas |
 | `Edm.Int64` | `Edm.Double` | Jämförelser till `NaN` , `-INF` eller `INF` är inte tillåtna |
-| `Edm.Int64` | `Edm.Int64` | saknas |
+| `Edm.Int64` | `Edm.Int64` | Saknas |
 | `Edm.Int64` | `Edm.Int32` | Konstanten konverteras till `Edm.Int64` före jämförelsen |
 | `Edm.Int32` | `Edm.Double` | Jämförelser till `NaN` , `-INF` eller `INF` är inte tillåtna |
-| `Edm.Int32` | `Edm.Int64` | saknas |
-| `Edm.Int32` | `Edm.Int32` | saknas |
+| `Edm.Int32` | `Edm.Int64` | Saknas |
+| `Edm.Int32` | `Edm.Int32` | Saknas |
 
 För jämförelser som inte är tillåtna, till exempel jämförelse av ett fält av typen `Edm.Int64` till `NaN` , returnerar Azure kognitiv sökning REST API fel meddelandet "http 400: felaktig begäran".
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
 ms.openlocfilehash: 308958f00a3658196f124ac911d4d0195ebeb228
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119845"
 ---
 # <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Kör distributions planeraren för VMware haveri beredskap
@@ -71,7 +71,7 @@ När du har skapat listan med virtuella datorer att profilera kan du köra verkt
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Parameternamn | Description |
+| Parameternamn | Beskrivning |
 |---|---|
 | -Operation | StartProfiling |
 | -Server | Fullständigt domännamn eller IP-adress för den vCenter-server/vSphere ESXi-värd vars virtuella datorer ska profileras.|
@@ -151,7 +151,7 @@ När profileringen är färdig kan köra du verktyget i läget för rapportgener
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|Parameternamn | Description |
+|Parameternamn | Beskrivning |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  Fullständigt domännamn eller IP-adress för vCenter-/vSphere-servern (använd samma namn eller IP-adress som du använde vid profileringen) där de profilerade virtuella datorer som rapporten ska gälla finns. Tänk på att om du har använt en vCenter-server vid profileringen kan du inte använda en vSphere-server till rapportgenerering och tvärtom.|
@@ -263,7 +263,7 @@ Om du vill få en uppskattning av vilket dataflöde som Site Recovery kan uppnå
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
-|Parameternamn | Description |
+|Parameternamn | Beskrivning |
 |-|-|
 | -Operation | GetThroughput |
 |-Virtualization|Ange visualiseringstyp (VMware eller Hyper-V).|

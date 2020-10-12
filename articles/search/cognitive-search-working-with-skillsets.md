@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.openlocfilehash: f1d8715fcadeda5ccd1a98192a70939b0c359c88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84976684"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Färdigheter-koncept i Azure Kognitiv sökning
@@ -85,7 +85,7 @@ De två första färdigheterna visas nedan:
 }
 ```
 > [!NOTE]
-> Du kan skapa komplexa färdighetsuppsättningar med slingor och förgreningar med hjälp av den [villkorliga kompetensen](cognitive-search-skill-conditional.md) för att skapa uttrycken. Syntaxen baseras på JSON- [pekarens](https://tools.ietf.org/html/rfc6901) Sök vägs notation, med några ändringar för att identifiera noder i berikande trädet. En `"/"` korsar en nivå som är lägre i trädet och `"*"` fungerar som en for-each-operator i kontexten. I många exempel i den här artikeln visas syntaxen. 
+> Du kan skapa komplexa färdighetsuppsättningar med slingor och förgreningar med hjälp av den [villkorliga kompetensen](cognitive-search-skill-conditional.md) för att skapa uttrycken. Syntaxen baseras på JSON- [pekarens](https://tools.ietf.org/html/rfc6901) Sök vägs notation, med några ändringar för att identifiera noder i berikande trädet. En `"/"` korsar en nivå som är lägre i trädet och  `"*"` fungerar som en for-each-operator i kontexten. I många exempel i den här artikeln visas syntaxen. 
 
 ### <a name="enrichment-tree"></a>Anriknings träd
 
@@ -223,7 +223,7 @@ Om du vill utöka exemplet kan du välja att ta bort infogad form och använda e
 
 #### <a name="shaper-skill-and-projection"></a>Formaren-kunskaper och projektion
 
-Detta 
+Den här 
 
 > [!Note]
 > Några av kolumnerna från dokument tabellen har tagits bort från det här exemplet för det kortfattat.

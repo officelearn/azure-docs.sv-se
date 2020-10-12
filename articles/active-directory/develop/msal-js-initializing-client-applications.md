@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 5af5d3a88262792f4b32e2ce3d8143ac680f083a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87027044"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Initiera klient program med hjälp av MSAL.js
@@ -36,7 +36,7 @@ När du har registrerat din app behöver du några eller alla följande värden 
 
 | Värde | Krävs | Beskrivning |
 |:----- | :------: | :---------- |
-| Program-ID (klient) | Obligatorisk | Ett GUID som unikt identifierar ditt program i Microsoft Identity Platform. |
+| Program-ID (klient) | Krävs | Ett GUID som unikt identifierar ditt program i Microsoft Identity Platform. |
 | Myndighet | Valfritt | Identitets leverantörens URL ( *instansen*) och *inloggnings mål gruppen* för ditt program. Instansen och inloggnings mål gruppen, när de sammanfogas, utgör *utfärdaren*. |
 | Katalog-ID (klient) | Valfritt | Ange detta om du skapar ett branschspecifika program enbart för din organisation, vilket ofta kallas ett program för en *klient*. |
 | Omdirigerings-URI | Valfritt | Om du skapar en webbapp anger i vilken `redirectUri` identitet leverantören (Microsoft Identity Platform) ska returnera de säkerhetstoken som den har utfärdat. |
@@ -107,9 +107,9 @@ Anropa [handleRedirectPromise][msal-js-handleredirectpromise] när ditt program 
 
 Det finns tre möjliga resultat från löftet:
 
-- `.then`anropas och `tokenResponse` är truthy: programmet returneras från en omdirigering som lyckades.
-- `.then`anropas och `tokenResponse` är falskt ( `null` ): programmet returneras inte från en omdirigering.
-- `.catch`anropas: programmet returneras från en omdirigering och ett fel uppstod.
+- `.then` anropas och `tokenResponse` är truthy: programmet returneras från en omdirigering som lyckades.
+- `.then` anropas och `tokenResponse` är falskt ( `null` ): programmet returneras inte från en omdirigering.
+- `.catch` anropas: programmet returneras från en omdirigering och ett fel uppstod.
 
 ## <a name="initialize-msaljs-1x-apps"></a>Initiera MSAL.js 1. x-appar
 

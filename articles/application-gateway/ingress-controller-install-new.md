@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: cbebf430bf44ccdee51bf44b11b8b01f23544dcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807144"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Så här installerar du en Application Gateway ingress-styrenhet (AGIC) med en ny Application Gateway
@@ -30,10 +30,10 @@ Du kan också starta Cloud Shell från Azure Portal med följande ikon:
 
 Din [Azure Cloud Shell](https://shell.azure.com/) har redan alla verktyg som krävs. Om du väljer att använda en annan miljö bör du kontrol lera att följande kommando rads verktyg är installerade:
 
-* `az`– Azure CLI: [installations anvisningar](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* `kubectl`-Kubernetes kommando rads verktyg: [installations anvisningar](https://kubernetes.io/docs/tasks/tools/install-kubectl)
-* `helm`– Kubernetes Package Manager: [installations anvisningar](https://github.com/helm/helm/releases/latest)
-* `jq`– kommando rads-JSON-processor: [Installationsinstruktioner](https://stedolan.github.io/jq/download/)
+* `az` – Azure CLI: [installations anvisningar](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* `kubectl` -Kubernetes kommando rads verktyg: [installations anvisningar](https://kubernetes.io/docs/tasks/tools/install-kubectl)
+* `helm` – Kubernetes Package Manager: [installations anvisningar](https://github.com/helm/helm/releases/latest)
+* `jq` – kommando rads-JSON-processor: [Installationsinstruktioner](https://stedolan.github.io/jq/download/)
 
 
 ## <a name="create-an-identity"></a>Skapa en identitet
@@ -66,7 +66,7 @@ Följ stegen nedan för att skapa ett [huvud namns objekt](https://docs.microsof
     }
     EOF
     ```
-    Om du vill distribuera ett **RBAC** -aktiverat kluster anger du `aksEnableRBAC` fältet till`true`
+    Om du vill distribuera ett **RBAC** -aktiverat kluster anger du `aksEnableRBAC` fältet till `true`
 
 ## <a name="deploy-components"></a>Distribuera komponenter
 I det här steget läggs följande komponenter till i din prenumeration:
@@ -124,7 +124,7 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
   Azure Active Directory Pod identitet ger tokenbaserad åtkomst till [Azure Resource Manager (arm)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
   [AAD Pod-identitet](https://github.com/Azure/aad-pod-identity) kommer att lägga till följande komponenter i ditt Kubernetes-kluster:
-   * Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity` , `AzureAssignedIdentity` ,`AzureIdentityBinding`
+   * Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity` , `AzureAssignedIdentity` , `AzureIdentityBinding`
    * Komponenten [hanterad identitets styrenhet (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic)
    * [NMI-komponent (Node Managed Identity)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi)
 
@@ -256,7 +256,7 @@ Så här installerar du AAD Pod-identiteten till klustret:
      - `appgw.name`: Namnet på Application Gateway. Exempel: `applicationgatewayd0f0`
      - `appgw.shared`: Den här booleska flaggan ska vara standard till `false` . Ange till `true` om du behöver en [delad Application Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
      - `kubernetes.watchNamespace`: Ange det namn område som AGIC ska titta på. Detta kan vara ett enskilt sträng värde eller en kommaavgränsad lista över namn områden.
-    - `armAuth.type`: kan vara `aadPodIdentity` eller`servicePrincipal`
+    - `armAuth.type`: kan vara `aadPodIdentity` eller `servicePrincipal`
     - `armAuth.identityResourceID`: Resurs-ID för den Azure-hanterade identiteten
     - `armAuth.identityClientId`: Klient-ID för identiteten. Se nedan för mer information om identitet
     - `armAuth.secretJSON`: Krävs endast när den hemliga typen för tjänst objekt väljs (när `armAuth.type` har angetts till `servicePrincipal` ) 
@@ -267,7 +267,7 @@ Så här installerar du AAD Pod-identiteten till klustret:
    > ```azurecli
    > az identity show -g <resource-group> -n <identity-name>
    > ```
-   > `<resource-group>`i kommandot ovan visas resurs gruppen för din Application Gateway. `<identity-name>`är namnet på den skapade identiteten. Alla identiteter för en angiven prenumeration kan listas med:`az identity list`
+   > `<resource-group>` i kommandot ovan visas resurs gruppen för din Application Gateway. `<identity-name>` är namnet på den skapade identiteten. Alla identiteter för en angiven prenumeration kan listas med: `az identity list`
 
 
 1. Installera paketet Application Gateway ingress-kontrollant:

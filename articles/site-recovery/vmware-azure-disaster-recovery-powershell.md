@@ -8,13 +8,13 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: de25a3f9df04b09a7337dc889a688a171d98db28
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86129903"
 ---
-# <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Konfigurera katastrof återställning av virtuella VMware-datorer till Azure med PowerShell
+# <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Konfigurera haveriberedskap för virtuella VMware-datorer till Azure med PowerShell
 
 I den här artikeln får du se hur du replikerar och redundansväxlas virtuella VMware-datorer till Azure med hjälp av Azure PowerShell.
 
@@ -31,22 +31,22 @@ Lär dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
 - Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](vmware-azure-architecture.md).
-- Granska [kraven för stöd](./vmware-physical-azure-support-matrix.md) för alla komponenter.
-- Du har Azure PowerShell- `Az` modulen. Om du behöver installera eller uppgradera Azure PowerShell, följ den här [guiden för att installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
+- Granska [support kraven](./vmware-physical-azure-support-matrix.md) för alla komponenter.
+- Du har Azure PowerShell- `Az`  modulen. Om du behöver installera eller uppgradera Azure PowerShell, följ den här [guiden för att installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Logga in på Azure
 
-Logga in på din Azure-prenumeration med cmdleten Connect-AzAccount:
+Logga in på Azure-prenumerationen med hjälp av Connect-AzAccount cmdlet:
 
 ```azurepowershell
 Connect-AzAccount
 ```
-Välj den Azure-prenumeration som du vill replikera virtuella VMware-datorer till. Använd cmdleten Get-AzSubscription för att hämta listan över Azure-prenumerationer som du har åtkomst till. Välj den Azure-prenumeration som du vill arbeta med med hjälp av cmdleten Select-AzSubscription.
+Välj den Azure-prenumeration som du vill replikera virtuella VMware-datorer till. Använd Get-AzSubscription-cmdlet för att hämta listan över Azure-prenumerationer som du har åtkomst till. Välj den Azure-prenumeration som du vill arbeta med med hjälp av Select-AzSubscription cmdlet.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionName "ASR Test Subscription"
@@ -102,7 +102,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 
 ### <a name="set-the-vault-context"></a>Ange valv kontext
 
-Ange valv kontexten med cmdleten Set-ASRVaultContext. När du har angett utförs efterföljande Azure Site Recovery åtgärder i PowerShell-sessionen i kontexten för det valda valvet.
+Ange valv kontexten med hjälp av Set-ASRVaultContext-cmdleten. När du har angett utförs efterföljande Azure Site Recovery åtgärder i PowerShell-sessionen i kontexten för det valda valvet.
 
 > [!TIP]
 > Azure Site Recovery PowerShell-modulen (AZ. RecoveryServices Module) har lätt att använda alias för de flesta cmdletar. Cmdletarna i modulen har formatet * \<Operation> - **AzRecoveryServicesAsr** \<Object> * och har motsvarande alias som gör att formatet * \<Operation> - **ASR** \<Object> *fungerar. Du kan ersätta cmdlet-aliasen för enkel användning.
@@ -118,7 +118,7 @@ I exemplet nedan används valv informationen från variabeln $vault för att ang
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Som ett alternativ till set-ASRVaultContext-cmdlet: en kan också använda cmdleten Import-AzRecoveryServicesAsrVaultSettingsFile för att ange valv kontexten. Ange den sökväg där valv registrerings nyckel filen finns som parametern-Path i cmdleten Import-AzRecoveryServicesAsrVaultSettingsFile. Ett exempel:
+Som ett alternativ till Set-ASRVaultContext-cmdlet: en kan också använda cmdleten Import-AzRecoveryServicesAsrVaultSettingsFile för att ange valv kontexten. Ange den sökväg där valv registrerings nyckel filen finns som parametern-Path i Import-AzRecoveryServicesAsrVaultSettingsFile-cmdleten. Exempel:
 
    ```azurepowershell
    Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
@@ -279,7 +279,7 @@ I det här steget skapas två principer för replikering. En princip för att re
 
 ## <a name="add-a-vcenter-server-and-discover-vms"></a>Lägg till en vCenter-Server och identifiera virtuella datorer
 
-Lägg till en vCenter Server med IP-adress eller värdnamn. Parametern **-port** anger porten på den vCenter-Server som du vill ansluta till, **-Name-** parametern anger ett eget namn som ska användas för vCenter-servern och parametern **-Account** anger den konto referens på konfigurations servern som ska användas för att identifiera virtuella datorer som hanteras av vCenter-servern.
+Lägg till en vCenter Server med IP-adress eller värdnamn. Parametern **-port** anger porten på den vCenter-Server som du vill ansluta till, **-Name-** parametern anger ett eget namn som ska användas för vCenter-servern och parametern  **-Account** anger den konto referens på konfigurations servern som ska användas för att identifiera virtuella datorer som hanteras av vCenter-servern.
 
 ```azurepowershell
 # The $AccountHandles[0] variable holds details of vCenter_account
@@ -351,10 +351,10 @@ Du behöver följande information för att skydda en identifierad virtuell dator
 Replikera nu följande virtuella datorer med de inställningar som anges i den här tabellen
 
 
-|Virtuell dator  |Processerver        |Lagringskonto              |Logg lagrings konto  |Policy           |Konto för mobilitets tjänst installation|Mål resurs grupp  | Virtuellt mål nätverk  |Mål under nät  |
+|Virtuell dator  |Processerver        |Lagringskonto              |Logg lagrings konto  |Princip           |Konto för mobilitets tjänst installation|Mål resurs grupp  | Virtuellt mål nätverk  |Mål under nät  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |CentOSVM1       |ConfigurationServer   |E.t.| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR – VNet                 |Undernät-1       |
-|Win2K12VM1       |Skalnings-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR – VNet                 |Undernät-1       |   
+|Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR – VNet                 |Undernät-1       |   
 |CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| E.t.                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR – VNet                 |Undernät-1       |   
 
 
@@ -411,7 +411,7 @@ Win2K12VM1   Protected                       Normal
 
 ## <a name="configure-failover-settings"></a>Konfigurera inställningar för redundans
 
-Redundansväxlingen för skyddade datorer kan uppdateras med cmdleten Set-ASRReplicationProtectedItem. Några av de inställningar som kan uppdateras med denna cmdlet är:
+Inställningarna för redundans för skyddade datorer kan uppdateras med hjälp av Set-ASRReplicationProtectedItem-cmdleten. Några av de inställningar som kan uppdateras med denna cmdlet är:
 * Namnet på den virtuella dator som ska skapas vid redundans
 * VM-storlek för den virtuella dator som ska skapas vid redundans
 * Virtuellt Azure-nätverk och undernät som nätverkskorten på den virtuella datorn ska anslutas till vid redundans
@@ -461,7 +461,7 @@ Errors           : {}
    ```
 2. När redundanstestning har slutförts kan du se att en virtuell dator med suffixet *"-test"* (Win2K12VM1-test i det här fallet) har skapats i Azure.
 3. Nu kan du ansluta till testet misslyckades över den virtuella datorn och verifiera redundanstest.
-4. Rensa redundanstestningen med cmdleten Start-ASRTestFailoverCleanupJob. Den här åtgärden tar bort den virtuella dator som skapats som en del av redundanstest.
+4. Rensa redundanstestningen med hjälp av Start-ASRTestFailoverCleanupJob cmdlet. Den här åtgärden tar bort den virtuella dator som skapats som en del av redundanstest.
 
    ```azurepowershell
    $Job_TFOCleanup = Start-AzRecoveryServicesAsrTestFailoverCleanupJob -ReplicationProtectedItem $ReplicatedVM1

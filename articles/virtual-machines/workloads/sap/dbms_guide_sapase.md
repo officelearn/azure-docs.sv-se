@@ -16,10 +16,10 @@ ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ce13c3bce7cdeb0f3e6dcf1f731be22d93a65587
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654607"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>DBMS-distribution för SAP-arbetsbelastning för SAP ASE på Azure Virtual Machines
@@ -179,7 +179,7 @@ Rekommendationen att tillämpa komprimering innan överföring till Azure erhål
 * Komprimerings Körningens varaktighet är kortare än att en kan använda starkare maskin vara med fler processorer eller högre I/O-bandbredd eller mindre I/O-latens lokalt
 * Mindre storlek på databaser kan leda till lägre kostnader för diskallokering
 
-Data-och LOB-komprimering fungerar på en virtuell dator som finns i Azure Virtual Machines eftersom det sker lokalt. Mer information om hur du kontrollerar om komprimering redan används i en befintlig SAP ASE-databas finns i [SAP support anmärkning 1750510](https://launchpad.support.sap.com/#/notes/1750510). Mer information om SAP-ASE för databas komprimering finns i [SAP support note #2121797](https://launchpad.support.sap.com/#/notes/2121797)
+Data-och LOB-Compression fungerar på en virtuell dator som finns i Azure Virtual Machines som lokalt. Mer information om hur du kontrollerar om komprimering redan används i en befintlig SAP ASE-databas finns i [SAP support anmärkning 1750510](https://launchpad.support.sap.com/#/notes/1750510). Mer information om SAP-ASE för databas komprimering finns i [SAP support note #2121797](https://launchpad.support.sap.com/#/notes/2121797)
 
 ## <a name="high-availability-of-sap-ase-on-azure"></a>Hög tillgänglighet för SAP ASE på Azure 
 HADR Users guide innehåller information om installation och konfiguration av en ASE-lösning (Always on) för två noder.  Dessutom stöds även en tredje återställnings nod. SAP ASE stöder många konfigurationer med hög tillgänglighet, inklusive delad disk och ursprungligt OS-kluster (flytande IP). Den enda konfiguration som stöds på Azure använder fel hanteraren utan flytande IP-adress.  Den flytande IP-metoden fungerar inte i Azure.  SAP-kerneln är en "HA medveten" applikation och vet om de primära och sekundära SAP ASE-servrarna. Det finns inga nära integreringar mellan SAP-ASE och Azure, den interna belastningsutjämnaren i Azure används inte. Därför bör den vanliga SAP ASE-dokumentationen följas från och med [SAP ASE hadr Users guide](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.7/en-US/a6645e28bc2b1014b54b8815a64b87ba.html) 
@@ -188,7 +188,7 @@ HADR Users guide innehåller information om installation och konfiguration av en
 > Den enda konfiguration som stöds på Azure använder fel hanteraren utan flytande IP-adress.  Den flytande IP-metoden fungerar inte i Azure. 
 
 ### <a name="third-node-for-disaster-recovery"></a>Tredje nod för haveri beredskap
-Förutom att använda SAP ASE Always on för lokal hög tillgänglighet kanske du vill utöka konfigurationen till en asynkront replikerad nod i en annan Azure-region. Dokumentation för sådana scenarier finns [här](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).
+Utöver att använda SAP ASE Always-On för lokal hög tillgänglighet kanske du vill utöka konfigurationen till en asynkront replikerad nod i en annan Azure-region. Dokumentation för sådana scenarier finns [här](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).
 
 ## <a name="sap-ase-database-encryption--ssl"></a>SAP ASE Database Encryption & SSL 
 SAP Software Provisioning Manager (SWPM) ger ett alternativ för att kryptera databasen under installationen.  Om du vill använda kryptering rekommenderar vi att du använder fullständig SAP-databas kryptering.  Se information som dokumenteras i:
@@ -239,7 +239,7 @@ och länkarna som genereras i Transaction DBACockpit ser ut ungefär så här:
 
 Beroende på hur den virtuella Azure-datorn som är värd för SAP-systemet är ansluten till AD och DNS måste du se till att ICM använder ett fullständigt kvalificerat värdnamn som kan lösas på den dator där du öppnar DBACockpit från. Se [SAP support note #773830](https://launchpad.support.sap.com/#/notes/773830) för att förstå hur ICM avgör det fullständigt kvalificerade värd namnet baserat på profil parametrar och ange parametern ICM/host_name_full uttryckligen vid behov.
 
-Om du har distribuerat den virtuella datorn i ett moln scenario utan anslutning mellan olika platser och Azure måste du definiera en offentlig IP-adress och en `domainlabel` . Formatet på det offentliga DNS-namnet på den virtuella datorn ser ut så här:
+Om du har distribuerat den virtuella datorn i ett Cloud-Only scenario utan anslutning mellan olika platser mellan lokala och Azure måste du definiera en offentlig IP-adress och en `domainlabel` . Formatet på det offentliga DNS-namnet på den virtuella datorn ser ut så här:
 
 > `<custom domainlabel`>. `<azure region`>. cloudapp.azure.com
 > 

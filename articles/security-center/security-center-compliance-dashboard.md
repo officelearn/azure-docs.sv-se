@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
 ms.openlocfilehash: 7f235f9255df49c096e224e1754ad2bbdf664423
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90895824"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Självstudie: förbättra din regelefterlevnad
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur man:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att gå igenom de funktioner som beskrivs i den här självstudien måste [Azure Defender](azure-defender.md) vara aktiverat. Du kan prova Azure Defender kostnads fritt i 30 dagar.
 

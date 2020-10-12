@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 03/30/2020
 ms.openlocfilehash: 3cdbe1f3428418f082d53febca950a6a443fe5ff
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86120384"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Använd en HTTPS-slutpunkt för att hantera affärs marknads platser
@@ -173,7 +173,7 @@ I den här artikeln beskrivs hur du skapar ett nytt flöde i Energis par för at
    - **Brödtext**: Lägg till den information som du vill ha i e-postmeddelandets brödtext i listan med dynamiskt innehåll. Använd till exempel LastName, FirstName, E-mail och Company. När du är klar med att konfigurera e-postmeddelandet ser det ut som exemplet på följande skärm bild.
 
 
-       ![Exempel på e-postavisering](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
+       ![Exempel på e-postmeddelande](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
 
 1. Välj **Spara** för att slutföra ditt flöde. En HTTP POST-URL skapas och är tillgänglig i fönstret **när en HTTP-förfrågan tas emot** . Kopiera den här URL: en med hjälp av kopierings kontrollen som finns till höger om HTTP POST-URL: en. Att använda den här kontrollen är viktigt så att du inte saknar någon del av hela URL: en. Spara den här URL: en eftersom du behöver den när du konfigurerar hantering av leads i publicerings portalen.
 
@@ -219,7 +219,7 @@ Du kan testa konfigurationen med [Postman](https://app.getpostman.com/app/downlo
     >[!NOTE] 
     >Om du inte ser ett e-postmeddelande från testet kontrollerar du mapparna spam och skräp post. I följande skärm ser du bara fält etiketterna som du lade till när du konfigurerade e-postmeddelandet. Om detta var ett faktiskt lead som genererats från ditt erbjudande, skulle du också se den faktiska informationen från lead-kontakten i bröd texten och på ämnes raden.
 
-   ![E-post mottagen](./media/commercial-marketplace-lead-management-instructions-https/email-received.png)
+   ![Mottaget e-postmeddelande](./media/commercial-marketplace-lead-management-instructions-https/email-received.png)
 
 ## <a name="configure-your-offer-to-send-leads-to-the-https-endpoint"></a>Konfigurera ditt erbjudande för att skicka leads till HTTPS-slutpunkten
 

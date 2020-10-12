@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 2b7a81357cc6ee2608d2acd3051dcac3e5d0e07e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87023474"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Ord lista för IoT Hub villkor
@@ -58,7 +58,7 @@ Det finns _tjänst-SDK_ : er för flera språk som gör att du kan skapa [backen
 
 [Azure IoT-verktygen](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) är ett plattforms oberoende Visual Studio Code-tillägg med öppen källkod som hjälper dig att hantera Azure-IoT Hub och enheter i vs Code. Med Azure IoT-verktyg kan IoT-utvecklare utveckla IoT-projekt i VS Code enkelt.
 
-## <a name="azure-portal"></a>Azure-portalen
+## <a name="azure-portal"></a>Azure Portal
 
 [Microsoft Azure-portalen](https://portal.azure.com) är en central plats där du kan etablera och hantera dina Azure-resurser. Den ordnar sitt innehåll med hjälp av _blad_.
 
@@ -142,7 +142,7 @@ En enhets App körs på [enheten](#device) och hanterar kommunikationen med [IoT
 
 Avser enhets tillståndsinformation, till exempel anslutnings metoden som används för närvarande, som rapporteras av en [app i enheten](#device-app). [Enhets appar](#device-app) kan också rapportera sina funktioner. Du kan fråga efter villkor och kapacitets information med hjälp av enhets dubbla.
 
-## <a name="device-data"></a>Enhets data
+## <a name="device-data"></a>Enhetsdata
 
 Enhets data refererar till de enhets data som lagras i IoT Hub [identitets registret](#identity-registry). Det går att importera och exportera dessa data.
 

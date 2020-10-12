@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: 207b597bc865c8234d447759ab8b0f53dc35413c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87090288"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Vanliga scenarier, exempel, självstudier och genom gångar för Azure Logic Apps
@@ -128,7 +128,7 @@ Du kan helt utveckla och distribuera Logi Kap par med Visual Studio, Azure DevOp
 
 Du kan komma åt, konvertera och transformera flera innehålls typer med hjälp av de många funktionerna i språket för Azure Logic Apps [Workflow definition](https://aka.ms/logicappsdocs). Du kan till exempel konvertera mellan en sträng, JSON och XML med-och- `@json()` `@xml()` arbets flödes uttryck. Logic Appss motorn bevarar innehålls typer för att stödja innehålls överföring på ett icke-förstörande sätt mellan tjänster.
 
-* [Hantera innehålls typer i Azure Logic Apps](../logic-apps/logic-apps-content-type.md), till exempel,, `application/` `application/octet-stream` och`multipart/formdata`
+* [Hantera innehålls typer i Azure Logic Apps](../logic-apps/logic-apps-content-type.md), till exempel,, `application/` `application/octet-stream` och `multipart/formdata`
 * [Referens guide för att använda funktioner i uttryck för Azure Logic Apps och energi automatisering](../logic-apps/workflow-definition-language-functions-reference.md)
 * [Språk schema för arbets flödes definition för Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md)
 

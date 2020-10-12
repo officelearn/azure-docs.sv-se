@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
 ms.openlocfilehash: f8f173291448d9da4d8967ff56b0fa027ca73409
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334556"
 ---
 # <a name="business-card-concepts"></a>Koncept för visitkort
@@ -56,7 +56,7 @@ På [kortet analysera](https://westcentralus.dev.cognitive.microsoft.com/docs/se
 
 |Svars huvud| Resultat-URL |
 |:-----|:----|
-|Åtgärds plats | `https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## <a name="the-get-analyze-business-card-result-operation"></a>Resultat åtgärden för att analysera affärs kort
 

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 11/15/2019
 ms.openlocfilehash: 90526b78e65c335f07a2a9d2d152b54b47233082
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88211031"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotera certifikat i Azure Kubernetes service (AKS)
@@ -62,7 +62,7 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 > [!IMPORTANT]
 > Det kan ta upp till 30 minuter `az aks rotate-certs` att slutföra. Om kommandot Miss lyckas innan du är klar använder `az aks show` du för att kontrol lera att klustrets status är ett certifikat som ska *roteras*. Om klustret är i ett felaktigt tillstånd, kör om `az aks rotate-certs` för att rotera dina certifikat igen.
 
-Kontrol lera att de gamla certifikaten inte längre är giltiga genom att köra ett `kubectl` kommando. Eftersom du inte har uppdaterat certifikaten som används av visas `kubectl` ett fel meddelande.  Till exempel:
+Kontrol lera att de gamla certifikaten inte längre är giltiga genom att köra ett `kubectl` kommando. Eftersom du inte har uppdaterat certifikaten som används av visas `kubectl` ett fel meddelande.  Exempel:
 
 ```console
 $ kubectl get no
@@ -75,7 +75,7 @@ Uppdatera certifikatet som används av `kubectl` genom att köra `az aks get-cre
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-Kontrol lera att certifikaten har uppdaterats genom att köra ett `kubectl` kommando som nu kommer att lyckas. Till exempel:
+Kontrol lera att certifikaten har uppdaterats genom att köra ett `kubectl` kommando som nu kommer att lyckas. Exempel:
 
 ```console
 kubectl get no

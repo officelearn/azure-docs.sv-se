@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
 ms.openlocfilehash: aa45494e9870daee079eed4fe92867f64c3c791e
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90057384"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cybersolutions-mailbasecmss"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med CyberSolutions MAILBASEΣ \ CMSS
@@ -103,7 +103,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -143,7 +143,7 @@ I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning
 
 Du kan också använda Microsoft Access-panelen för att testa programmet i vilket läge som helst. När du klickar på panelen CyberSolutions MAILBASEΣ \ CMSS i åtkomst panelen, om det kon figurer ATS i SP-läge, omdirigeras du till programmets inloggnings sida för att initiera inloggnings flödet och om det kon figurer ATS i IDP-läge, bör du logga in automatiskt på CyberSolutions MAILBASEΣ \ CMSS som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 När du har konfigurerat CyberSolutions MAILBASEΣ \ CMSS kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 

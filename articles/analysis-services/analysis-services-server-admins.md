@@ -8,10 +8,10 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: bc17d27837d5b96f06b5172fb019db873418db94
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87922957"
 ---
 # <a name="manage-server-administrators"></a>Hantera serveradministratörer
@@ -54,4 +54,4 @@ Använd [Update](https://docs.microsoft.com/rest/api/analysisservices/servers/up
 
 [Autentisering och användarbehörigheter](analysis-services-manage-users.md)  
 [Hantera databas roller och användare](analysis-services-database-users.md)  
-[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md)  
+[Azure RBAC (rollbaserad åtkomstkontroll)](../role-based-access-control/overview.md)  

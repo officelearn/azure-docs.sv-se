@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.openlocfilehash: c8bc9e844687c85255be972011eba03e9c38de48
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89488311"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Referens guide för att använda funktioner i uttryck för Azure Logic Apps och energi automatisering
@@ -103,7 +103,7 @@ Om du vill arbeta med samlingar, vanligt vis matriser, strängar och ibland kan 
 
 | Samlings funktion | Uppgift |
 | ------------------- | ---- |
-| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Kontrol lera om en samling har ett angivet objekt. |
+| [ingår](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Kontrol lera om en samling har ett angivet objekt. |
 | [tomt](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Kontrol lera om en samling är tom. |
 | [förstagångskörningen](../logic-apps/workflow-definition-language-functions-reference.md#first) | Returnera det första objektet från en samling. |
 | [överlappning](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Returnera en samling som *endast* innehåller gemensamma objekt i de angivna samlingarna. |
@@ -128,7 +128,7 @@ Om du vill arbeta med villkor, jämföra värden och resultat eller utvärdera o
 | Funktion för logisk jämförelse | Uppgift |
 | --------------------------- | ---- |
 | [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Kontrol lera om alla uttryck är sanna. |
-| [lika med](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Kontrol lera om båda värdena är likvärdiga. |
+| [är lika med](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Kontrol lera om båda värdena är likvärdiga. |
 | [större än](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Kontrol lera om det första värdet är större än det andra värdet. |
 | [större än eller lika med](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Kontrol lera om det första värdet är större än eller lika med det andra värdet. |
 | [eventuella](../logic-apps/workflow-definition-language-functions-reference.md#if) | Kontrol lera om ett uttryck är sant eller falskt. Returnera ett angivet värde baserat på resultatet. |
@@ -214,7 +214,7 @@ Fullständig referens för varje funktion finns i [alfabetisk lista](../logic-ap
 | [skapa](../logic-apps/workflow-definition-language-functions-reference.md#add) | Returnera resultatet från att lägga till två tal. |
 | [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | Returnera resultatet från att dividera två tal. |
 | [bekräftat](../logic-apps/workflow-definition-language-functions-reference.md#max) | Returnera det högsta värdet från en uppsättning tal eller en matris. |
-| [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | Returnera det lägsta värdet från en uppsättning tal eller en matris. |
+| [minimum](../logic-apps/workflow-definition-language-functions-reference.md#min) | Returnera det lägsta värdet från en uppsättning tal eller en matris. |
 | [rest](../logic-apps/workflow-definition-language-functions-reference.md#mod) | Returnera resten från att dividera två tal. |
 | [mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | Returnera produkten från att multiplicera två tal. |
 | [slump](../logic-apps/workflow-definition-language-functions-reference.md#rand) | Returnera ett slumpmässigt heltal från ett angivet intervall. |

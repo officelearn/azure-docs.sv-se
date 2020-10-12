@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
 ms.openlocfilehash: 6b95162d34b706b0bbb3e2940ea214e5a662655d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90984902"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrera SQL Server Agent jobb till ADF med SSMS
@@ -31,7 +31,7 @@ För utvalda SQL Agent-jobb med tillämpliga jobb stegs typer i allmänhet kan *
     > Paket platsen för fil systemet stöds bara.
 - Migrera tillämpliga jobb med tillämpliga jobb steg till motsvarande ADF-resurser enligt nedan:
 
-|Objekt för SQL Agent-jobb  |ADF-resurs  |Kommentarer|
+|Objekt för SQL Agent-jobb  |ADF-resurs  |Obs!|
 |---------|---------|---------|
 |SQL Agent-jobb|pipeline     |Namnet på pipelinen *som ska genereras för \<job name> *. <br> <br> Inbyggda Agent jobb är inte tillämpliga: <li> Underhålls jobb för SSIS-Server <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
 |SSIS jobb steg|Kör SSIS-paket-aktivitet|<li> Namnet på aktiviteten blir \<step name> . <li> Det proxy-konto som används i jobb steget migreras som Windows-autentisering för aktiviteten. <li> *Körnings alternativ* förutom att *använda 32-bitars körning* som definierats i jobb steget ignoreras i migreringen. <li> *Verifieringen* som definierats i jobb steget kommer att ignoreras i migreringen.|

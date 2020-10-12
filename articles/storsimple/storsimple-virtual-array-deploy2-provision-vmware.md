@@ -9,10 +9,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9810a34021aa039354aad24f84aff373229c0190
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87021485"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Distribuera StorSimple Virtual Array-etablera i VMware
@@ -169,10 +169,10 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 32. På sidan **Avancerade alternativ** godkänner du standardvärdet.
 
     ![Skärm bild av sidan Avancerade alternativ. Noden för den virtuella enheten är inställd på SCSI (0:0) och knappen Nästa är markerad.](./media/storsimple-virtual-array-deploy2-provision-vmware/image33.png)
-33. På sidan **redo att slutföra** granskar du disk alternativen. Klicka på **Slutför**.
+33. På sidan **redo att slutföra** granskar du disk alternativen. Klicka på **Finish**.
 
     ![Skärm bild av sidan klar att slutföra. En sammanfattning av disk alternativen visas och knappen Slutför är markerad.](./media/storsimple-virtual-array-deploy2-provision-vmware/image34.png)
-34. Gå tillbaka till egenskaps sidan för den virtuella datorn. En ny hård disk läggs till i den virtuella datorn. Klicka på **Slutför**.
+34. Gå tillbaka till egenskaps sidan för den virtuella datorn. En ny hård disk läggs till i den virtuella datorn. Klicka på **Finish**.
 
     ![Skärm bild av sidan Egenskaper för virtuell dator. Maskin varu listan innehåller den nya hård disken och knappen Slutför är markerad.](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
 35. När du har valt den virtuella datorn i den högra rutan går du till fliken **Sammanfattning** . Granska inställningarna för den virtuella datorn.
@@ -196,10 +196,10 @@ Utför följande steg för att starta den virtuella enheten och ansluta till den
    ![Skärm bild av vSphere-klientens konsol flik. Rutan lösen ord är tom.](./media/storsimple-virtual-array-deploy2-provision-vmware/image38.png)
 3. Av säkerhetsskäl upphör enhetens administratörslösenord vid första inloggningen. Du uppmanas att ändra lösenordet.
 
-   ![Skärm bild av vSphere-klientens konsol flik. texten på sidan anger att lösen ordet måste ändras.](./media/storsimple-virtual-array-deploy2-provision-vmware/image39.png)
+   ![Skärm bild av vSphere-klientens konsol flik. Texten på sidan anger att lösen ordet måste ändras.](./media/storsimple-virtual-array-deploy2-provision-vmware/image39.png)
 4. Ange ett lösenord som innehåller minst 8 tecken. Lösen ordet måste innehålla 3 av 4 av dessa krav: versaler, gemener, siffror och specialtecken. Ange lösenordet igen för att bekräfta det. Du får ett meddelande om att lösen ordet har ändrats.
 
-   ![Skärm bild av vSphere-klientens konsol flik. texten på sidan anger att lösen ordet har ändrats.](./media/storsimple-virtual-array-deploy2-provision-vmware/image40.png)
+   ![Skärm bild av vSphere-klientens konsol flik. Texten på sidan anger att lösen ordet har ändrats.](./media/storsimple-virtual-array-deploy2-provision-vmware/image40.png)
 5. När lösen ordet har ändrats kan den virtuella enheten startas om. Vänta tills omstarten har slutförts. Windows PowerShell-konsolen för enheten kan visas tillsammans med en förlopps indikator.
 
    ![Skärm bild som visar ett konsol fönster med en förlopps indikator. Text i fönstret anger att den första installationen pågår och ber användaren att vänta.](./media/storsimple-virtual-array-deploy2-provision-vmware/image41.png)
@@ -215,7 +215,7 @@ Utför följande steg för att starta den virtuella enheten och ansluta till den
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
-    ![Skärm bild som visar ett konsol fönster med utdata från kommandot Get-Help set-HcsIpAddress och korrekt användning av kommandot Set-HcsIpAddress.](./media/storsimple-virtual-array-deploy2-provision-vmware/image44.png)
+    ![Skärm bild som visar ett konsol fönster med utdata från kommandot Get-Help Set-HcsIpAddress och rätt användning av Set-HcsIpAddress kommandot.](./media/storsimple-virtual-array-deploy2-provision-vmware/image44.png)
 9. När den inledande installationen är klar och enheten har startats visas enhetens banderollstext. Anteckna den IP-adress och den URL som visas i banderollstexten för att hantera enheten. Du kommer att använda den här IP-adressen för att ansluta till webb gränssnittet för den virtuella enheten och slutföra den lokala installationen och registreringen.
 
    ![Skärm bild som visar ett konsol fönster med enhets informations text. Den texten omfattar enhetens IP-adress och URL.](./media/storsimple-virtual-array-deploy2-provision-vmware/image45.png)

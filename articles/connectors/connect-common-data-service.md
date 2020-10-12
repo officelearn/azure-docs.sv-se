@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
 ms.openlocfilehash: de85a61cbd699ec9ac2669f8abb6217254038de9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334590"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Skapa och hantera poster i Common Data Service med Azure Logic Apps
@@ -51,9 +51,9 @@ I det här exemplet lägger du till den Common Data Service utlösare som utlös
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Miljö** | Yes | Miljön som ska övervakas, till exempel "Fabrikam Sales Production". Mer information finns i [Översikt över Power Platform-miljöer](/power-platform/admin/environments-overview). |
-   | **Entitetsnamn** | Yes | Entiteten som ska övervakas, till exempel "leads" |
-   | **Omfång** | Yes | Källan som skapade den nya posten, till exempel en användare i din affär senhet eller någon annan användare i din organisation. I det här exemplet används "affär senhet". |
+   | **Miljö** | Ja | Miljön som ska övervakas, till exempel "Fabrikam Sales Production". Mer information finns i [Översikt över Power Platform-miljöer](/power-platform/admin/environments-overview). |
+   | **Entitetsnamn** | Ja | Entiteten som ska övervakas, till exempel "leads" |
+   | **Omfång** | Ja | Källan som skapade den nya posten, till exempel en användare i din affär senhet eller någon annan användare i din organisation. I det här exemplet används "affär senhet". |
    ||||
 
 ## <a name="add-common-data-service-action"></a>Lägg till Common Data Service åtgärd
@@ -72,8 +72,8 @@ Lägg nu till en Common Data Service-åtgärd som skapar en uppgifts post för e
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Organisationsnamn** | Yes | Miljön där du vill skapa posten, som inte behöver vara samma miljö i utlösaren, men är "Fabrikam Sales Production" i det här exemplet |
-   | **Entitetsnamn** | Yes | Entiteten där du vill skapa posten, till exempel "aktiviteter" |
+   | **Organisationsnamn** | Ja | Miljön där du vill skapa posten, som inte behöver vara samma miljö i utlösaren, men är "Fabrikam Sales Production" i det här exemplet |
+   | **Entitetsnamn** | Ja | Entiteten där du vill skapa posten, till exempel "aktiviteter" |
    | **Ämne** | Ja, baserat på den entitet som valts i det här exemplet | En kort beskrivning av målet för den här uppgiften |
    ||||
 
@@ -87,7 +87,7 @@ Lägg nu till en Common Data Service-åtgärd som skapar en uppgifts post för e
 
       ![Välj Utlös utdata som ska användas i uppgifts posten](./media/connect-common-data-service/create-new-record-action-select-trigger-outputs.png)
 
-      | Utlös utdata | Description |
+      | Utlös utdata | Beskrivning |
       |----------------|-------------|
       | **Förnamn** | Förnamnet från lead-posten som ska användas som primär kontakt i uppgifts posten |
       | **Efter namn** | Efter namnet från lead-posten som ska användas som primär kontakt i uppgifts posten |
@@ -148,7 +148,7 @@ Oavsett om du anger ett värde manuellt eller väljer ett värde i listan med dy
 
 I den här tabellen beskrivs några fält typer och de data typer som fälten kräver för sina värden.
 
-| Fält | Datatyp | Beskrivning |
+| Field | Datatyp | Beskrivning |
 |-------|-----------|-------------|
 | Textfält | Enskild rad med text | Kräver antingen en enskild rad med text eller dynamiskt innehåll som har data typen text, till exempel följande egenskaper: <p><p>- **Beteckning** <br>- **Kategori** |
 | Heltals fält | Heltal | Kräver antingen ett heltal eller dynamiskt innehåll som har data typen Integer, till exempel följande egenskaper: <p><p>- **Procent slutfört** <br>- **Giltighet** |

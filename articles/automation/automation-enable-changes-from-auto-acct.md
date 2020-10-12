@@ -6,10 +6,10 @@ ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 302e0cc9b77605afd4012e95fc7c0ab8a22fef3e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186324"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Aktivera Ändringsspårning och inventering från ett Automation-konto
@@ -19,7 +19,7 @@ Den här artikeln beskriver hur du kan använda ditt Automation-konto för att a
 > [!NOTE]
 > När du aktiverar Ändringsspårning och inventering, stöds bara vissa regioner för att länka en Log Analytics arbets yta och ett Automation-konto. En lista över mappnings par som stöds finns i [region mappning för Automation-konto och Log Analytics-arbetsyta](how-to/region-mappings.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation-konto](./index.yml) för att hantera datorer.

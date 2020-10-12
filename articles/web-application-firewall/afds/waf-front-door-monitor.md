@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 06/09/2020
 ms.author: victorh
 ms.openlocfilehash: 596374d4f3f188e08a10bd25b36b178cc79a6e57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808959"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Övervakning och loggning av brand vägg för Azure-webbprogram
@@ -24,7 +24,7 @@ WAF med ytterdörr-loggen är integrerad med [Azure Monitor](../../azure-monitor
 
 Från Azure Portal går du till resurs typen frontend-dörr. Från fliken **övervakning** / av**mått** till vänster kan du lägga till **WebApplicationFirewallRequestCount** för att spåra antalet förfrågningar som matchar WAF-regler. Anpassade filter kan skapas baserat på åtgärds typer och regel namn.
 
-:::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="WAFMetrics":::
+:::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="WAFMetrics ":::
 
 ## <a name="logs-and-diagnostics"></a>Loggar och diagnostik
 

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 09/01/2020
 ms.openlocfilehash: 8687d95878cde7d0ed3308d67f26ffc266abad1e
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297764"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Ta med dina egna nycklar (BYOK) med Azure-diskar i Azure Kubernetes service (AKS)
@@ -19,7 +19,7 @@ Azure Storage krypterar alla data i ett lagrings konto i vila. Som standard kryp
 * Stöd för data disk kryptering är begränsat till AKS-kluster som kör Kubernetes version 1,17 och senare.
 * Det går bara att aktivera kryptering av operativ system och data diskar med Kundhanterade nycklar när du skapar ett AKS-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Du måste aktivera mjuk borttagning och tömning av skydd för *Azure Key Vault* när du använder Key Vault för att kryptera hanterade diskar.
 * Du behöver Azure CLI-version 2.11.1 eller senare.
 

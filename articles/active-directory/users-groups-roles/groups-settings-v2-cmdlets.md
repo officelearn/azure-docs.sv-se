@@ -15,16 +15,16 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c00c89e5f81bcb142c50e5f3438c1af2d72a9de5
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056225"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory version 2-cmdletar för grupp hantering
 
 > [!div class="op_single_selector"]
-> - [Azure-portalen](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+> - [Azure Portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 > - [PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
@@ -76,7 +76,7 @@ Nu kan du börja använda AzureAD-cmdletar för att hantera grupper i din katalo
 
 ## <a name="retrieve-groups"></a>Hämta grupper
 
-Om du vill hämta befintliga grupper från katalogen använder du cmdleten Get-AzureADGroups. 
+Använd Get-AzureADGroups-cmdleten om du vill hämta befintliga grupper från katalogen. 
 
 Om du vill hämta alla grupper i katalogen använder du cmdleten utan parametrar:
 
@@ -138,7 +138,7 @@ Du kan söka efter en speciell grupp med parametern-filter. Den här parametern 
 
 ## <a name="create-groups"></a>Skapa grupper
 
-Om du vill skapa en ny grupp i katalogen använder du cmdleten New-AzureADGroup. Denna cmdlet skapar en ny säkerhets grupp med namnet "Marketing":
+Använd New-AzureADGroup-cmdleten om du vill skapa en ny grupp i din katalog. Denna cmdlet skapar en ny säkerhets grupp med namnet "Marketing":
 
 ```powershell
     PS C:\Windows\system32> New-AzureADGroup -Description "Marketing" -DisplayName "Marketing" -MailEnabled $false -SecurityEnabled $true -MailNickName "Marketing"
@@ -146,7 +146,7 @@ Om du vill skapa en ny grupp i katalogen använder du cmdleten New-AzureADGroup.
 
 ## <a name="update-groups"></a>Uppdaterings grupper
 
-Om du vill uppdatera en befintlig grupp använder du cmdleten Set-AzureADGroup. I det här exemplet ändrar vi egenskapen DisplayName för gruppen "Intune-administratörer". Först ska vi hitta gruppen med hjälp av cmdleten Get-AzureADGroup och filtrera med attributet DisplayName:
+Använd Set-AzureADGroup-cmdleten om du vill uppdatera en befintlig grupp. I det här exemplet ändrar vi egenskapen DisplayName för gruppen "Intune-administratörer". Först ska vi hitta gruppen med hjälp av Get-AzureADGroup-cmdlet och filtrera med attributet DisplayName:
 
 ```powershell
     PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
@@ -197,7 +197,7 @@ Om vi nu hittar gruppen igen, ser vi att egenskapen Description har uppdaterats 
 
 ## <a name="delete-groups"></a>Ta bort grupper
 
-Om du vill ta bort grupper från katalogen använder du cmdleten Remove-AzureADGroup på följande sätt:
+Om du vill ta bort grupper från katalogen använder du Remove-AzureADGroup cmdleten på följande sätt:
 
 ```powershell
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
@@ -207,7 +207,7 @@ Om du vill ta bort grupper från katalogen använder du cmdleten Remove-AzureADG
 
 ### <a name="add-members"></a>Lägg till medlemmar
 
-Om du vill lägga till nya medlemmar i en grupp använder du cmdleten Add-AzureADGroupMember. Detta kommando lägger till en medlem i gruppen Intune-administratörer som vi använde i föregående exempel:
+Använd Add-AzureADGroupMember-cmdleten om du vill lägga till nya medlemmar i en grupp. Detta kommando lägger till en medlem i gruppen Intune-administratörer som vi använde i föregående exempel:
 
 ```powershell
     PS C:\Windows\system32> Add-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -217,7 +217,7 @@ Parametern-ObjectId är det ObjectID för gruppen som vi vill lägga till en med
 
 ### <a name="get-members"></a>Hämta medlemmar
 
-Om du vill hämta befintliga medlemmar i en grupp använder du cmdleten Get-AzureADGroupMember, som i det här exemplet:
+Om du vill hämta befintliga medlemmar i en grupp använder du Get-AzureADGroupMember cmdlet, som i det här exemplet:
 
 ```powershell
     PS C:\Windows\system32> Get-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
@@ -230,7 +230,7 @@ Om du vill hämta befintliga medlemmar i en grupp använder du cmdleten Get-Azur
 
 ### <a name="remove-members"></a>Ta bort medlemmar
 
-Om du vill ta bort den medlem som vi tidigare lade till i gruppen använder du cmdleten Remove-AzureADGroupMember, som visas här:
+Om du vill ta bort den medlem som vi tidigare lade till i gruppen använder du Remove-AzureADGroupMember-cmdleten som visas här:
 
 ```powershell
     PS C:\Windows\system32> Remove-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -MemberId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -282,7 +282,7 @@ Så här inaktiverar du grupp skapande för icke-administratörer:
   
 ## <a name="manage-owners-of-groups"></a>Hantera ägare av grupper
 
-Om du vill lägga till ägare i en grupp använder du cmdleten Add-AzureADGroupOwner:
+Använd Add-AzureADGroupOwner-cmdleten om du vill lägga till ägare i en grupp:
 
 ```powershell
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -290,7 +290,7 @@ Om du vill lägga till ägare i en grupp använder du cmdleten Add-AzureADGroupO
 
 Parametern-ObjectId är det ObjectID för gruppen dit vi vill lägga till en ägare, och RefObjectId är ObjectID för den användare eller det tjänst huvud namn som vi vill lägga till som ägare till gruppen.
 
-Om du vill hämta ägare av en grupp använder du cmdleten Get-AzureADGroupOwner:
+Om du vill hämta ägare av en grupp använder du Get-AzureADGroupOwner-cmdlet:
 
 ```powershell
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
@@ -304,7 +304,7 @@ Cmdleten returnerar listan över ägare (användare och tjänstens huvud namn) f
                           e831b3fd-77c9-49c7-9fca-de43e109ef67 User
 ```
 
-Om du vill ta bort en ägare från en grupp använder du cmdleten Remove-AzureADGroupOwner:
+Använd Remove-AzureADGroupOwner-cmdleten om du vill ta bort en ägare från en grupp:
 
 ```powershell
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67

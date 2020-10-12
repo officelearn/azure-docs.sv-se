@@ -10,10 +10,10 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.openlocfilehash: ef0f542a27f378b6132d8ef19b55f386d4102d53
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90895261"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Självstudie: utforma en databas med flera innehavare med Azure Database for PostgreSQL – storskalig (citus)
@@ -29,7 +29,7 @@ I den här självstudien använder du Azure Database for PostgreSQL-storskalig s
 > * Dela data mellan klienter
 > * Anpassa schemat per klient
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 

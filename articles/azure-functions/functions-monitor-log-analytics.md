@@ -7,10 +7,10 @@ ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 51c611b2565ae0a5a054a45f0aedcb039351b46b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208358"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Övervaka Azure Functions med Azure Monitor loggar
@@ -38,7 +38,7 @@ Azure Monitor använder en version av [Kusto-frågespråket](/azure/kusto/query/
 
 1. Ange ett **namn på diagnostikinställningar**och välj sedan **Spara**.
 
-   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Lägg till en diagnostisk inställning":::
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Välj diagnostikinställningar":::
 
 ## <a name="user-generated-logs"></a>Loggar som skapats av användare
 
@@ -89,7 +89,7 @@ Så här frågar du på genererade loggar:
 
    Azure Functions skriver alla loggar till tabellen **FunctionAppLogs** under **LogManagement**. 
 
-   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Frågefönstret i Log Analytics arbets yta":::
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Välj diagnostikinställningar":::
 
 Här följer några exempel frågor:
 

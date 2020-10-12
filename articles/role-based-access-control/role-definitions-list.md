@@ -15,10 +15,10 @@ ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9819b90ba390e8601cc33a17338ce9b16bf3b3cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84982500"
 ---
 # <a name="list-azure-role-definitions"></a>Visa lista över Azure-roll definitioner
@@ -356,7 +356,7 @@ Om du vill lista roll definitioner använder du [roll definitionerna-list](/rest
 1. Ersätt *{filter}* med villkoret som du vill använda för att filtrera roll definitions listan.
 
     > [!div class="mx-tableFixed"]
-    > | Filter | Beskrivning |
+    > | Filtrera | Beskrivning |
     > | --- | --- |
     > | `$filter=atScopeAndBelow()` | Visar en lista över roll definitioner för det angivna omfånget och eventuella under omfattningar. |
     > | `$filter=type+eq+'{type}'` | Visar en lista med roll definitioner av den angivna typen. Typ av roll kan vara `CustomRole` eller `BuiltInRole` . |
@@ -476,7 +476,7 @@ Följande visar ett exempel på utdata:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Inbyggda Azure-roller](built-in-roles.md)
-- [Anpassade Azure-roller](custom-roles.md)
+- [Inbyggda roller i Azure](built-in-roles.md)
+- [Anpassade roller i Azure](custom-roles.md)
 - [Visa en lista med Azures roll tilldelningar med hjälp av Azure Portal](role-assignments-list-portal.md)
-- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](role-assignments-portal.md)
+- [Lägga till eller ta bort rolltilldelningar för Azure med hjälp av Azure-portalen](role-assignments-portal.md)

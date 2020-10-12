@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform
 ms.openlocfilehash: e3b4bd007ec2f4315ccd7d8581113e116db693ef
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90068435"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Aktivera övervakning av AKS-kluster (Azure Kubernetes service) redan distribuerat
@@ -26,7 +26,7 @@ Du kan aktivera övervakning av ett AKS-kluster som redan har distribuerats med 
 
 Logga in på [Azure-portalen](https://portal.azure.com).
 
-## <a name="enable-using-azure-cli"></a>Aktivera med hjälp av Azure CLI
+## <a name="enable-using-azure-cli"></a>Aktivera med Azure CLI
 
 Följande steg aktiverar övervakning av ditt AKS-kluster med hjälp av Azure CLI. I det här exemplet behöver du inte skapa eller ange en befintlig arbets yta. Med det här kommandot kan du förenkla processen åt dig genom att skapa en standard arbets yta i standard resurs gruppen för AKS-kluster prenumerationen om en sådan inte redan finns i regionen.  Standard arbets ytan som skapats liknar formatet *DefaultWorkspace- \<GUID> - \<Region> *.
 

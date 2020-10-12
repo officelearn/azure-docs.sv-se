@@ -12,10 +12,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.openlocfilehash: 50abe5071ef424b03d92522e01477d1152930b2e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187820"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure SSIS-integreringskörning till ett virtuellt nätverk
@@ -105,7 +105,7 @@ Det här diagrammet visar de anslutningar som krävs för din Azure-SSIS IR:
 
 ![Azure-SSIS IR](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
 
-### <a name="set-up-permissions"></a><a name="perms"></a>Konfigurera behörigheter
+### <a name="set-up-permissions"></a><a name="perms"></a> Konfigurera behörigheter
 
 Den användare som skapar Azure-SSIS IR måste ha följande behörigheter:
 
@@ -117,7 +117,7 @@ Den användare som skapar Azure-SSIS IR måste ha följande behörigheter:
 
 - Om du ansluter din SSIS-IR till ett klassiskt virtuellt nätverk, rekommenderar vi att du använder den inbyggda klassiska rollen virtuell dator deltagare. Annars måste du definiera en anpassad roll som innehåller behörighet att ansluta till det virtuella nätverket.
 
-### <a name="select-the-subnet"></a><a name="subnet"></a>Välj under nätet
+### <a name="select-the-subnet"></a><a name="subnet"></a> Välj under nätet
 
 När du väljer ett undernät: 
 
@@ -141,7 +141,7 @@ Om du vill använda egna statiska offentliga IP-adresser för Azure-SSIS IR samt
 
 - De och det virtuella nätverket bör vara under samma prenumeration och i samma region.
 
-### <a name="set-up-the-dns-server"></a><a name="dns_server"></a>Konfigurera DNS-servern 
+### <a name="set-up-the-dns-server"></a><a name="dns_server"></a> Konfigurera DNS-servern 
 Om du behöver använda din egen DNS-server i ett virtuellt nätverk som är anslutet av din Azure-SSIS IR för att matcha ditt privata värdnamn, kontrollerar du att det även kan matcha globala Azure-värdnamn (till exempel en Azure Storage-BLOB med namnet `<your storage account>.blob.core.windows.net` ). 
 
 En rekommenderad metod är nedan: 
@@ -153,7 +153,7 @@ Mer information finns i [namn matchning som använder din egen DNS-Server](../vi
 > [!NOTE]
 > Använd ett fullständigt kvalificerat domän namn (FQDN) för det privata värd namnet, t. ex. i `<your_private_server>.contoso.com` stället för `<your_private_server>` , eftersom Azure-SSIS IR inte automatiskt lägger till ditt eget DNS-suffix.
 
-### <a name="set-up-an-nsg"></a><a name="nsg"></a>Konfigurera en NSG
+### <a name="set-up-an-nsg"></a><a name="nsg"></a> Konfigurera en NSG
 Om du behöver implementera en NSG för under nätet som används av din Azure-SSIS IR ska du tillåta inkommande och utgående trafik via följande portar: 
 
 -   **Ingående krav för Azure-SSIS IR**
@@ -168,14 +168,14 @@ Om du behöver implementera en NSG för under nätet som används av din Azure-S
 
 | Riktning | Transport protokoll | Källa | Källportintervall | Mål | Målportintervall | Kommentarer |
 |---|---|---|---|---|---|---|
-| Utgående | TCP | VirtualNetwork | * | AzureCloud | 443 | Noderna i Azure-SSIS IR i det virtuella nätverket använder den här porten för att få åtkomst till Azure-tjänster, till exempel Azure Storage och Azure-Event Hubs. |
-| Utgående | TCP | VirtualNetwork | * | Internet | 80 | Valfritt Noderna i Azure-SSIS IR i det virtuella nätverket Använd den här porten för att hämta en lista över återkallade certifikat från Internet. Om du blockerar den här trafiken kan du få nedgradering av prestanda när du startar IR och förlorar möjlighet att kontrol lera listan över återkallade certifikat för certifikat användning. Om du vill begränsa destinationen till vissa FQDN ytterligare kan du läsa avsnittet **använda Azure ExpressRoute eller UDR** .|
-| Utgående | TCP | VirtualNetwork | * | SQL | 1433, 11000-11999 | Valfritt Den här regeln krävs bara när noderna i Azure-SSIS IR i det virtuella nätverket har åtkomst till en SSISDB som finns på servern. Om din server anslutnings princip är inställd på **proxy** i stället för **omdirigering**krävs bara port 1433. <br/><br/> Den här utgående säkerhets regeln gäller inte för en SSISDB som hanteras av din SQL-hanterade instans i det virtuella nätverket eller SQL Database som kon figurer ATS med privat slut punkt. |
-| Utgående | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | Valfritt Den här regeln krävs bara när noderna i Azure-SSIS IR i det virtuella nätverket har åtkomst till en SSISDB som hanteras av din SQL-hanterade instans i det virtuella nätverket eller SQL Database som kon figurer ATS med privat slut punkt. Om din server anslutnings princip är inställd på **proxy** i stället för **omdirigering**krävs bara port 1433. |
-| Utgående | TCP | VirtualNetwork | * | Lagring | 445 | Valfritt Den här regeln krävs bara när du vill köra SSIS-paketet som lagras i Azure Files. |
+| Outbound (Utgående) | TCP | VirtualNetwork | * | AzureCloud | 443 | Noderna i Azure-SSIS IR i det virtuella nätverket använder den här porten för att få åtkomst till Azure-tjänster, till exempel Azure Storage och Azure-Event Hubs. |
+| Outbound (Utgående) | TCP | VirtualNetwork | * | Internet | 80 | Valfritt Noderna i Azure-SSIS IR i det virtuella nätverket Använd den här porten för att hämta en lista över återkallade certifikat från Internet. Om du blockerar den här trafiken kan du få nedgradering av prestanda när du startar IR och förlorar möjlighet att kontrol lera listan över återkallade certifikat för certifikat användning. Om du vill begränsa destinationen till vissa FQDN ytterligare kan du läsa avsnittet **använda Azure ExpressRoute eller UDR** .|
+| Outbound (Utgående) | TCP | VirtualNetwork | * | SQL | 1433, 11000-11999 | Valfritt Den här regeln krävs bara när noderna i Azure-SSIS IR i det virtuella nätverket har åtkomst till en SSISDB som finns på servern. Om din server anslutnings princip är inställd på **proxy** i stället för **omdirigering**krävs bara port 1433. <br/><br/> Den här utgående säkerhets regeln gäller inte för en SSISDB som hanteras av din SQL-hanterade instans i det virtuella nätverket eller SQL Database som kon figurer ATS med privat slut punkt. |
+| Outbound (Utgående) | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | Valfritt Den här regeln krävs bara när noderna i Azure-SSIS IR i det virtuella nätverket har åtkomst till en SSISDB som hanteras av din SQL-hanterade instans i det virtuella nätverket eller SQL Database som kon figurer ATS med privat slut punkt. Om din server anslutnings princip är inställd på **proxy** i stället för **omdirigering**krävs bara port 1433. |
+| Outbound (Utgående) | TCP | VirtualNetwork | * | Storage | 445 | Valfritt Den här regeln krävs bara när du vill köra SSIS-paketet som lagras i Azure Files. |
 ||||||||
 
-### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a>Använd Azure ExpressRoute eller UDR
+### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a> Använd Azure ExpressRoute eller UDR
 Om du vill kontrol lera utgående trafik från Azure-SSIS IR kan du dirigera trafik som initierats från Azure-SSIS IR till lokal brand Väggs enhet via [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) Force-tunnlar (annonsera en BGP-väg, 0.0.0.0/0, till det virtuella nätverket) eller till en virtuell nätverks installation (NVA) som brand vägg eller [Azure-brandvägg](https://docs.microsoft.com/azure/firewall/) via [UDR](../virtual-network/virtual-networks-udr-overview.md). 
 
 ![NVA-scenario för Azure-SSIS IR](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir-nva.png)
@@ -279,7 +279,7 @@ Om du inte behöver ha möjlighet att inspektera utgående trafik i Azure-SSIS I
 > [!NOTE]
 > Ange Route med nästa hopp typ **Internet** innebär inte att all trafik går via Internet. Så länge mål adressen är för en av Azures tjänster dirigerar Azure trafiken direkt till tjänsten via Azures stamnät nätverk, i stället för att dirigera trafiken till Internet.
 
-### <a name="set-up-the-resource-group"></a><a name="resource-group"></a>Konfigurera resurs gruppen
+### <a name="set-up-the-resource-group"></a><a name="resource-group"></a> Konfigurera resurs gruppen
 
 Azure-SSIS IR måste skapa vissa nätverks resurser i samma resurs grupp som det virtuella nätverket. Dessa resurser omfattar:
 - En Azure Load Balancer med namnet * \<Guid> -azurebatch-cloudserviceloadbalancer*.
@@ -300,7 +300,7 @@ Se till att du inte har en Azure Policy tilldelning som förhindrar att följand
 
 Se till att resurs kvoten för din prenumeration är tillräckligt för de tre nätverks resurserna ovan. För varje Azure-SSIS IR som skapas i det virtuella nätverket måste du reservera två kostnads fria kvoter för var och en av de tre nätverks resurserna ovan. Den extra en kvot kommer att användas när vi regelbundet uppgraderar din Azure-SSIS IR.
 
-### <a name="faq"></a><a name="faq"></a>ASSURANCE
+### <a name="faq"></a><a name="faq"></a> ASSURANCE
 
 - Hur kan jag skydda den offentliga IP-adressen som exponeras på min Azure-SSIS IR för inkommande anslutning? Är det möjligt att ta bort den offentliga IP-adressen?
  

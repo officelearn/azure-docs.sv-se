@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
 ms.openlocfilehash: 894fc4066ad408f0749e7a982011d82b205e6fec
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90901342"
 ---
 # <a name="security-alerts-schemas"></a>Säkerhets aviserings scheman
@@ -68,7 +68,7 @@ Mer information om Azure Sentinel finns i [dokumentationen](https://docs.microso
 
 
 
-### <a name="azure-activity-log"></a>[Azure-aktivitetslogg](#tab/schema-activitylog)
+### <a name="azure-activity-log"></a>[Azure aktivitets logg](#tab/schema-activitylog)
 
 Azure Security Center granskar skapade säkerhets aviseringar som händelser i Azure aktivitets logg.
 
@@ -140,7 +140,7 @@ Du kan visa säkerhets aviserings händelser i aktivitets loggen genom att söka
 
 ### <a name="the-data-model-of-the-schema"></a>Data modellen för schemat
 
-|Fält|Beskrivning|
+|Field|Beskrivning|
 |----|----|
 |**kanal**|Konstant, "åtgärd"|
 |**correlationId**|Azure Security Center aviserings-ID|

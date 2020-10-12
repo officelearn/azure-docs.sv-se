@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.openlocfilehash: 5569e7e3a33c4f1bbbd3214e742b0cb889c65e31
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86040783"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Attitydanalys för Twitter i realtid i Azure Stream Analytics
@@ -33,7 +33,7 @@ För att kunna identifiera trender i ämnen i real tid på Twitter behöver för
 
 I den här instruktions guiden använder du ett klient program som ansluter till Twitter och letar efter Tweets som har vissa hashtagg (som du kan ställa in). Om du vill köra programmet och analysera tweets med Azure streaming Analytics måste du ha följande:
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
 * Ett [Twitter](https://twitter.com) -konto.
 
@@ -159,7 +159,7 @@ Nu när tweet-händelser strömmas i real tid från Twitter, kan du konfigurera 
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
    |Inmatat alias| *TwitterStream* | Ange ett alias för indatamängden. |
-   |Prenumeration  | \<Your subscription\> |  Ange den prenumeration som du vill använda. |
+   |Prenumeration  | \<Your subscription\> |  Välj den Azure-prenumeration som du vill använda. |
    |Namnområde för händelsehubb | *ASA-Twitter-eventhub* |
    |Namn på händelsehubb | *socialtwitter – händelsehubbnamnområde* | Välj *Använd befintlig*. Välj sedan den Händelsehubben som du skapade.|
    |Händelse komprimerings typ| GZip | Data komprimerings typen.|

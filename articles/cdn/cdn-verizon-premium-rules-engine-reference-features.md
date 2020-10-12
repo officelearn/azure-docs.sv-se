@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84343208"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN från Verizon Premium Rules Engine-funktioner
@@ -27,10 +27,10 @@ Tillgängliga typer av funktioner är:
 * [Åtkomst](#access)
 * [Caching](#caching)
 * [Kommentar](#comment)
-* [Rubriker](#headers)
+* [Sidhuvuden](#headers)
 * [Loggar](#logs)
 * [Optimera](#optimize)
-* [Ursprung](#origin)
+* [Kommer](#origin)
 * [Specialitet](#specialty)
 * [URL](#url)
 * [Brandvägg för webbaserade program](#waf)
@@ -42,10 +42,10 @@ Dessa funktioner är utformade för att styra åtkomsten till innehåll.
 | Name       | Syfte                                                           |
 |------------|-------------------------------------------------------------------|
 | [Neka åtkomst (403)](https://docs.vdms.com/cdn/Content/HRE/F/Deny-Access-403.htm) | Anger om alla förfrågningar avvisas med ett 403-förbjudet svar. |
-| [Token-autentisering](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm) | Anger om tokenbaserad autentisering ska tillämpas på en begäran. |
-| [Nekad token-auktoriseringskod](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm) | Bestämmer vilken typ av svar som ska returneras till en användare när en begäran nekas på grund av tokenbaserad autentisering. |
-| [Ignorera URL-fall för token auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Ignore-URL-Case.htm) | Anger om URL-jämförelser gjorda av tokenbaserad autentisering är Skift läges känsliga. |
-| [Parameter för token-autentisering](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Parameter.htm) | Anger om den token-baserade autentiseringens frågesträngs parameter ska byta namn. |
+| [Token-autentisering](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm) | Anger om Token-Based autentisering ska användas för en begäran. |
+| [Nekad token-auktoriseringskod](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm) | Bestämmer vilken typ av svar som ska returneras till en användare när en begäran nekas på grund av Token-Based autentisering. |
+| [Ignorera URL-fall för token auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Ignore-URL-Case.htm) | Anger om URL-jämförelser som görs av Token-Based autentisering är Skift läges känslig. |
+| [Parameter för token-autentisering](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Parameter.htm) | Anger om parametern Token-Based Authentication Query sträng ska byta namn. |
 
 **[Tillbaka till början](#top)**
 
@@ -58,24 +58,24 @@ Dessa funktioner är utformade för att anpassa när och hur innehållet ska cac
 | [Bandbredds parametrar](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Parameters.htm) | Bestämmer om bandbredds begränsnings parametrar (t. ex. ec_rate och ec_prebuf) ska aktive ras. |
 | [Bandbredds begränsning](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Throttling.htm) | Begränsar bandbredden för svar som tillhandahålls av våra Edge-servrar. |
 | [Kringgå cacheminne](https://docs.vdms.com/cdn/Content/HRE/F/Bypass-Cache.htm) | Bestämmer om begäran kan utnyttja vår caching-teknik. |
-| [Hantering av Cache-Control-huvud](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Control-Header-Treatment.htm) |  Styr genereringen av Cache-Control-huvuden av Edge-servern när den externa funktionen för max ålder är aktiv. |
+| [Hantering av Cache-Control-huvud](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Control-Header-Treatment.htm) |  Styr genereringen av Cache-Control sidhuvuden för Edge-servern när den externa Max-Age funktionen är aktiv. |
 | [Cache-nyckel frågesträng](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Bestämmer om **cache-Key*** ska inkludera eller exkludera frågeparametrar som är associerade med en begäran. <br> _* En relativ sökväg som unikt identifierar en till gång för cachelagring.  Våra Edge-servrar använder den här relativa sökvägen vid kontroll av cachelagrat innehåll.  Som standard kommer en cache-nyckel inte att innehålla parametrar för frågesträng._ |
 | [Cache-omarbetning av nyckel](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm) | Skriver om den cache-nyckel som är kopplad till en begäran. |
 | [Slutför cache-fyllning](https://docs.vdms.com/cdn/Content/HRE/F/Complete-Cache-Fill.htm) | Bestämmer vad som händer när en begäran resulterar i en partiell cache missar på en Edge-Server. |
 | [Komprimera filtyper](https://docs.vdms.com/cdn/Content/HRE/F/Compress-File-Types.htm) | Definierar de fil format som ska komprimeras på servern. | 
 | [Standard intern max ålder](https://docs.vdms.com/cdn/Content/HRE/F/Default-Internal-Max-Age.htm) | Fastställer standardvärdet för max-ålder för Edge-Server till ursprunglig Server cache-omverifiering. |
-| [Hantering av förfallo datum för huvud](https://docs.vdms.com/cdn/Content/HRE/F/Expires-Header-Treatment.htm) | Styr genereringen av Expires-huvuden av en Edge-Server när den externa maximala ålders funktionen är aktiv. |
+| [Hantering av förfallo datum för huvud](https://docs.vdms.com/cdn/Content/HRE/F/Expires-Header-Treatment.htm) | Styr genereringen av Expires-huvuden av en Edge-Server när den externa Max-Age funktionen är aktiv. |
 | [Extern högsta ålder](https://docs.vdms.com/cdn/Content/HRE/F/External-Max-Age.htm) | Fastställer Max-ålders intervallet för webbläsare till Edge Server-cache-omverifiering. |
 | [Framtvinga intern max ålder](https://docs.vdms.com/cdn/Content/HRE/F/Force-Internal-Max-Age.htm) | Fastställer Max-ålders intervallet för Edge-Server till ursprungs serverns cache-omverifiering. |
 | [Stöd för H. 264 (HTTP progressiv nedladdning)](https://docs.vdms.com/cdn/Content/HRE/F/H.264-Support-HPD.htm) | Bestämmer vilka typer av H. 264-filformat som kan användas för att strömma innehåll. |
 | [H. 264 stöder video Sök parametrar](https://docs.vdms.com/cdn/Content/HRE/F/H.264-Support-VSP-HPD.htm) | Åsidosätter de namn som tilldelats parametrar som styr sökning via H. 264-media när HTTP-progressiv nedladdning används. |
-| [Svara på no-cache-begäran](https://docs.vdms.com/cdn/Content/HRE/F/Honor-No-Cache-Request.htm) | Anger om en HTTP-klients begär Anden om antal cachen ska vidarebefordras till ursprungs servern. |
+| [Respektera No-Cache begäran](https://docs.vdms.com/cdn/Content/HRE/F/Honor-No-Cache-Request.htm) | Anger om en HTTP-klients begär Anden om antal cachen ska vidarebefordras till ursprungs servern. |
 | [Ignorera ursprung no-cache](https://docs.vdms.com/cdn/Content/HRE/F/Ignore-Origin-No-Cache.htm) | Bestämmer om vårt CDN ska ignorera vissa direktiv som hanteras från en ursprungs Server. |
 | [Ignorera områden som inte går att uppfylla](https://docs.vdms.com/cdn/Content/HRE/F/Ignore-Unsatisfiable-Ranges.htm) | Avgör vilket svar som returneras till klienter när en begäran genererar ett begärt intervall av 416 som inte kan uppfylla status koden. |
 | [Intern Max-inaktuell](https://docs.vdms.com/cdn/Content/HRE/F/Internal-Max-Stale.htm) | Styr hur lång tid det normala förfallo datumet för en cachelagrad till gång kan hanteras från en Edge-Server när gräns servern inte kan omverifiera den cachelagrade till gången med ursprungs servern. |
 | [Partiell cache-delning](https://docs.vdms.com/cdn/Content/HRE/F/Partial-Cache-Sharing.htm) | Anger om en begäran kan generera delvis cachelagrat innehåll. |
 | [Förvalidera cachelagrat innehåll](https://docs.vdms.com/cdn/Content/HRE/F/Prevalidate-Cached-Content.htm) | Anger om cachelagrat innehåll kommer att bli kvalificerat för tidig omverifiering innan dess TTL går ut. |
-| [Uppdatera cache-filer med noll byte](https://docs.vdms.com/cdn/Content/HRE/F/Refresh-Zero-Byte-Cache-Files.htm) | Bestämmer hur en HTTP-klients begäran för en cache-till-byte med 0 byte hanteras av våra Edge-servrar. |
+| [Uppdatera Zero-Byte cache-filer](https://docs.vdms.com/cdn/Content/HRE/F/Refresh-Zero-Byte-Cache-Files.htm) | Bestämmer hur en HTTP-klients begäran för en cache-till-byte med 0 byte hanteras av våra Edge-servrar. |
 | [Ange status koder för cachelagring](https://docs.vdms.com/cdn/Content/HRE/F/Set-Cacheable-Status-Codes.htm) | Definierar den uppsättning med status koder som kan leda till cachelagrat innehåll. |
 | [Inaktuell innehålls leverans vid fel](https://docs.vdms.com/cdn/Content/HRE/F/Stale-Content-Delivery-on-Error.htm) | Anger om förfallet cachelagrat innehåll ska levereras när ett fel uppstår under cache-omverifieringen eller när det begärda innehållet hämtas från kund ursprungs servern. | 
 | [Inaktuell vid omverifiering](https://docs.vdms.com/cdn/Content/HRE/F/Stale-While-Revalidate.htm) | Förbättrar prestandan genom att göra det möjligt för våra Edge-servrar att betjäna inaktuella klient till beställaren medan omverifieringen sker. |
@@ -88,7 +88,7 @@ Med kommentars funktionen kan du lägga till en anteckning i en regel.
 
 **[Tillbaka till början](#top)**
 
-### <a name="headers"></a><a name="headers"></a>Rubriker
+### <a name="headers"></a><a name="headers"></a>Sidhuvuden
 
 Dessa funktioner är utformade för att lägga till, ändra eller ta bort huvuden från begäran eller svaret.
 
@@ -124,13 +124,13 @@ Dessa funktioner avgör om en begäran kommer att genomgå de optimeringar som t
 
 **[Tillbaka till början](#top)**
 
-### <a name="origin"></a><a name="origin"></a>Ursprung
+### <a name="origin"></a><a name="origin"></a>Kommer
 
 Dessa funktioner är utformade för att styra hur CDN kommunicerar med en ursprungs Server.
 
 | Name       | Syfte                                                           |
 |------------|-------------------------------------------------------------------|
-| [Maximalt antal Keep-Alive-begäranden](https://docs.vdms.com/cdn/Content/HRE/F/Maximum-Keep-Alive-Requests.htm) | Definierar det maximala antalet begär Anden för en Keep-Alive-anslutning innan den stängs. |
+| [Maximalt antal Keep-Alive begär Anden](https://docs.vdms.com/cdn/Content/HRE/F/Maximum-Keep-Alive-Requests.htm) | Definierar maximalt antal begär Anden för en Keep-Alive anslutning innan den stängs. |
 | [Särskilda rubriker för proxy](https://docs.vdms.com/cdn/Content/HRE/F/Proxy-Special-Headers.htm) | Definierar den uppsättning [CDN-Specific begärandehuvuden](https://docs.vdms.com/cdn/Content/Knowledge_Base/Request-Format.htm#RequestHeaders) som ska vidarebefordras från en Edge-Server till en ursprungs Server. |
 
 **[Tillbaka till början](#top)**
@@ -173,6 +173,6 @@ De senaste funktionerna finns i [dokumentationen om Verizon Rules Engine](https:
 
 - [Regel motor referens](cdn-verizon-premium-rules-engine-reference.md)
 - [Regelmotor – villkorliga uttryck](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
-- [Regelmotor – matchningsvillkor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Regel motor matchnings villkor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Åsidosätt HTTP-beteende med regel motorn](cdn-verizon-premium-rules-engine.md)
 - [Översikt över Azure CDN](cdn-overview.md)

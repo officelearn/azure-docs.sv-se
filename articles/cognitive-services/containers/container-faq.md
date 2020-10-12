@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: 3d35a1f6913d0b657956489d0e57836a05f9eb1d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90900045"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Cognitive Services containers
@@ -37,14 +37,14 @@ ms.locfileid: "90900045"
 
 **A:** Vi vill göra fler Cognitive Services tillgängliga som container erbjudanden. Kontakta din lokala Microsoft-konto Manager för att få uppdateringar om nya behållar versioner och andra Cognitive Servicess meddelanden.
 
-**F: Vad är service nivå avtalet (SLA) för Cognitive Services behållare?**
+**F: Vad är Service-Level avtalet (SLA) för Cognitive Services behållare?**
 
 **A:** Cognitive Services behållare har inget service avtal (SLA).
 
 Cognitive Services behållar konfiguration av resurser styrs av kunder, så Microsoft erbjuder inte något service avtal för allmän tillgänglighet (GA). Kunderna är kostnads fria att distribuera behållare lokalt, vilket innebär att de definierar värd miljöerna.
 
 > [!IMPORTANT]
-> Mer information om Cognitive Services service nivå avtal [finns på vår SLA-sida](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
+> Mer information om Cognitive Services Service-Level avtal [finns på vår SLA-sida](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
 
 **F: finns de här behållarna tillgängliga i suveräna moln?**
 

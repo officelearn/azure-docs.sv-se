@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
 ms.openlocfilehash: 225252f2cd47c36de2c7eed4ed1e5dae3ebd81b2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87078750"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Uppgradera intern Azure-Load Balancer-utgående anslutning krävs
@@ -42,7 +42,7 @@ Det finns ett Azure PowerShell-skript tillgängligt som gör följande:
 
 ## <a name="download-the-script"></a>Hämta skriptet
 
-Hämta migrerings skriptet från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureLBUpgrade/2.0).
+Hämta migrerings skriptet från  [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureLBUpgrade/2.0).
 ## <a name="use-the-script"></a>Använd skriptet
 
 Det finns två alternativ för dig, beroende på din lokala PowerShell-Miljös konfiguration och inställningar:
@@ -52,7 +52,7 @@ Det finns två alternativ för dig, beroende på din lokala PowerShell-Miljös k
 
 Du kan ta reda på om du har installerat Azure AZ-moduler genom att köra `Get-InstalledModule -Name az` . Om du inte ser några installerade AZ-moduler kan du använda- `Install-Script` metoden.
 
-### <a name="install-using-the-install-script-method"></a>Installera med metoden install-script
+### <a name="install-using-the-install-script-method"></a>Installera med hjälp av metoden Install-Script
 
 Om du vill använda det här alternativet behöver du inte ha de Azure AZ-moduler som är installerade på datorn. Om de är installerade visar följande kommando ett fel. Du kan antingen avinstallera Azure AZ-moduler eller använda det andra alternativet för att ladda ned skriptet manuellt och köra det.
   

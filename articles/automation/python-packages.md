@@ -7,10 +7,10 @@ ms.date: 02/25/2019
 ms.topic: conceptual
 ms.custom: devx-track-python
 ms.openlocfilehash: 1ab0b2def1a22470c1d0b6339e1525cd683b4a0b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987563"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Hantera python 2-paket i Azure Automation
@@ -25,11 +25,11 @@ I ditt Automation-konto väljer du **python 2-paket** under **delade resurser**.
 
 På sidan Lägg till python 2-paket väljer du ett lokalt paket att ladda upp. Paketet kan vara en **. WHL** -eller **. tjär. gz** -fil. När paketet är markerat klickar du på **OK** för att ladda upp det.
 
-:::image type="content" source="media/python-packages/upload-package.png" alt-text="Skärm bild som visar sidan Lägg till python 2-paket med en uppladdad tar. gz-fil vald.":::
+:::image type="content" source="media/python-packages/upload-package.png" alt-text="Skärm bild av sidan python 2-paket visar python 2-paket på den vänstra menyn och Lägg till ett python 2-paket markerat.":::
 
 När ett paket har importer ATS visas det på sidan python 2-paket i ditt Automation-konto. Om du behöver ta bort ett paket markerar du paketet och klickar på **ta bort**.
 
-:::image type="content" source="media/python-packages/package-list.png" alt-text="Skärm bild som visar sidan python 2-paket efter att ett paket har importer ATS.":::
+:::image type="content" source="media/python-packages/package-list.png" alt-text="Skärm bild av sidan python 2-paket visar python 2-paket på den vänstra menyn och Lägg till ett python 2-paket markerat.":::
 
 ## <a name="import-packages-with-dependencies"></a>Importera paket med beroenden
 
@@ -54,7 +54,7 @@ När paketen har hämtats kan du importera dem till ditt Automation-konto.
 * – a \<automationAccount\>
 * -m \<modulePackage\>
 
-:::image type="content" source="media/python-packages/import-python-runbook.png" alt-text="Skärm bild som visar sidan Översikt för import_py2package_from_pypi i fönstret starta Runbook på höger sida.":::
+:::image type="content" source="media/python-packages/import-python-runbook.png" alt-text="Skärm bild av sidan python 2-paket visar python 2-paket på den vänstra menyn och Lägg till ett python 2-paket markerat.":::
 
 I Runbook-flödet kan du ange vilket paket som ska laddas ned. Om du till exempel använder `Azure` parametern hämtas alla Azure-moduler och alla beroenden (cirka 105).
 

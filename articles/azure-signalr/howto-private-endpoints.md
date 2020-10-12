@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
 ms.openlocfilehash: 645b2c643c1c1d4fe82eb5998a35ccc48536603e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84300206"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Använd privata slut punkter för Azure SignalR service
@@ -25,7 +25,7 @@ Med hjälp av privata slut punkter för Azure SignalR service kan du:
 - Öka säkerheten för det virtuella nätverket (VNet) genom att göra det möjligt att blockera exfiltrering av data från VNet.
 - Anslut säkert till Azure SignalR-tjänster från lokala nätverk som ansluter till VNet med [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](../expressroute/expressroute-locations.md) med privat peering.
 
-## <a name="conceptual-overview"></a>Konceptuell översikt
+## <a name="conceptual-overview"></a>Begreppsmässig översikt
 
 ![Översikt över privata slut punkter för Azure SignalR service](media/howto-private-endpoints/private-endpoint-overview.png)
 
@@ -57,7 +57,7 @@ När du matchar ditt Azure SignalR service-domännamn från utanför det virtuel
 
 För det illustrerat exemplet ovan kommer DNS-resursposterna för Azure SignalR-tjänsten "foobar", när de löses från utanför det virtuella nätverket som är värd för den privata slut punkten, att vara:
 
-| Name                                                  | Typ  | Värde                                                 |
+| Namn                                                  | Typ  | Värde                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
 | ``foobar.privatelink.service.signalr.net``            | A     | \<Azure SignalR Service public IP address\>           |
@@ -66,7 +66,7 @@ Som tidigare nämnts kan du neka eller kontrol lera åtkomsten för klienter uta
 
 DNS-resursposterna för ' foobar ', när de löses av en klient i det virtuella nätverk som är värd för den privata slut punkten, blir:
 
-| Name                                                  | Typ  | Värde                                                 |
+| Namn                                                  | Typ  | Värde                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
 | ``foobar.privatelink.service.signalr.net``            | A     | 10.1.1.5                                              |

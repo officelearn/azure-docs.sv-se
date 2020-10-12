@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
 ms.openlocfilehash: c98e377ec216bea6c1d4a96b15b3741aa52672e0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618164"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Vad är en hanterad Azure SQL-instans?
@@ -63,7 +63,7 @@ Huvud funktionerna i SQL-hanterad instans visas i följande tabell:
 | Antal datafiler (rader) per databas | Flera |
 | Antal loggfiler (logg) per databas | 1 |
 | VNet – Azure Resource Manager distribution | Ja |
-| VNet – klassisk distributions modell | Nej |
+| VNet – klassisk distributions modell | Inga |
 | Portal stöd | Ja|
 | Inbyggd integrerings tjänst (SSIS) | No-SSIS är en del av [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Inbyggd Analysis Service (SSAS) | No-SSAS är separat [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
@@ -217,7 +217,7 @@ Några viktiga skillnader:
 - Det finns bara automatiserade säkerhets kopieringar och återställning av tidpunkter. Kunder kan initiera `copy-only` säkerhets kopieringar som inte stör den automatiska säkerhets kopierings kedjan.
 - Det finns inte stöd för att ange fullständiga fysiska sökvägar, så alla motsvarande scenarier måste stödjas på olika sätt: Restore DB stöder inte flytt, CREATE DB tillåter inte fysiska sökvägar, BULK INSERT bara fungerar med Azure-blobbar, osv.
 - SQL-hanterad instans stöder [Azure AD-autentisering](../database/authentication-aad-overview.md) som ett moln alternativ till Windows-autentisering.
-- SQL-hanterad instans hanterar automatiskt XTP fil grupper och filer för databaser som innehåller InMemory OLTP-objekt.
+- SQL-hanterad instans hanterar automatiskt XTP fil grupper och filer för databaser som innehåller In-Memory OLTP-objekt.
 - SQL-hanterad instans stöder SQL Server Integration Services (SSIS) och kan vara värd för en SSIS-katalog (SSISDB) som lagrar SSIS-paket, men de körs på en hanterad Azure-SSIS Integration Runtime (IR) i Azure Data Factory. Se [skapa Azure-SSIS IR i Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Information om hur du jämför SSIS-funktionerna finns i [jämföra SQL Database till SQL-hanterad instans](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).
 
 ### <a name="administration-features"></a>Administrations funktioner

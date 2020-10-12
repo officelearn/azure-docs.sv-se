@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: 1a32e485dfc9cd465f6dd6d50abdb166737dc3aa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387990"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>Enhet: Roobo Smart Audio dev kit
@@ -69,7 +69,7 @@ Mer utvecklings information finns i [utvecklings guiden för Roobo](http://dwn.r
 
 ## <a name="audio"></a>Ljud
 
-Roobo tillhandahåller ett verktyg som fångar upp allt ljud till Flash-minnet. Det kan hjälpa dig att felsöka ljud problem. En version av verktyget tillhandahålls för varje utvecklings pakets konfiguration. Välj din enhet på [Roobo-webbplatsen](http://ddk.roobo.com/)och välj sedan länken **Roobo tools** längst ned på sidan.
+Roobo tillhandahåller ett verktyg som fångar upp allt ljud till Flash-minnet. Det kan hjälpa dig att felsöka ljud problem. En version av verktyget tillhandahålls för varje utvecklings pakets konfiguration. Välj din enhet på  [Roobo-webbplatsen](http://ddk.roobo.com/)och välj sedan länken **Roobo tools** längst ned på sidan.
 
 ## <a name="next-steps"></a>Nästa steg
 

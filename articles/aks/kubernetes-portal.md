@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: lahugh
 ms.openlocfilehash: 6a9567669445cb5aa94c1108051c961a216fabad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335610"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Få åtkomst till Kubernetes-resurser från Azure Portal (för hands version)
@@ -48,19 +48,19 @@ I det här exemplet ska vi använda vårt exempel på AKS-kluster för att distr
 
 När YAML-filen har lagts till visar Resource Viewer både Kubernetes-tjänster som skapades: den interna tjänsten (Azure-rösta) och den externa tjänsten (Azure-rösta-Front) för att få åtkomst till Azures röst program. Den externa tjänsten innehåller en länkad extern IP-adress så att du enkelt kan se programmet i din webbläsare.
 
-:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Information om Azure röstnings program som visas i Azure Portal." lightbox="media/kubernetes-portal/portal-services.png":::
+:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Kubernetes Pod-information som visas i Azure Portal." lightbox="media/kubernetes-portal/portal-services.png":::
 
 ### <a name="monitor-deployment-insights"></a>Övervaka distributions Insights
 
 AKS-kluster med [Azure Monitor för behållare][enable-monitor] aktiverade kan snabbt Visa distributions insikter. I vyn Kubernetes-resurser kan användare se Live-status för enskilda distributioner, inklusive processor-och minnes användning, samt över gång till Azure Monitor för mer detaljerad information. Här är ett exempel på distributions insikter från ett exempel på AKS-kluster:
 
-:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Distributions insikter som visas i Azure Portal." lightbox="media/kubernetes-portal/deployment-insights.png":::
+:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Kubernetes Pod-information som visas i Azure Portal." lightbox="media/kubernetes-portal/deployment-insights.png":::
 
 ## <a name="edit-yaml"></a>Redigera YAML
 
 Vyn Kubernetes innehåller även en YAML-redigerare. En inbyggd YAML-redigerare innebär att du kan uppdatera eller skapa tjänster och distributioner inifrån portalen och tillämpa ändringar direkt.
 
-:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="YAML-redigeraren för en Kubernetes-tjänst visas i Azure Portal.":::
+:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Kubernetes Pod-information som visas i Azure Portal.":::
 
 När du har redigerat YAML tillämpas ändringarna genom att välja **Granska + Spara**, bekräfta ändringarna och sedan Spara igen.
 
@@ -82,7 +82,7 @@ För att få åtkomst till Kubernetes-resurserna måste du ha åtkomst till AKS-
 
 För befintliga kluster kan du behöva aktivera resurs visningen Kubernetes. Om du vill aktivera resursvyn följer du anvisningarna i portalen för klustret.
 
-:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Azure Portal-meddelande om du vill aktivera resursvyn för Kubernetes." lightbox="media/kubernetes-portal/enable-resource-view.png":::
+:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Kubernetes Pod-information som visas i Azure Portal." lightbox="media/kubernetes-portal/enable-resource-view.png":::
 
 > [!TIP]
 > AKS-funktionen för [**tillåtna IP-intervall för API-servrar**](api-server-authorized-ip-ranges.md) kan läggas till för att begränsa åtkomsten till API-servern till endast brand väggens offentliga slut punkt. Ett annat alternativ för sådana kluster är att uppdatera för `--api-server-authorized-ip-ranges` att inkludera åtkomst för en lokal klient dator eller ett IP-adressintervall (från vilken Portal bläddras). För att tillåta den här åtkomsten behöver du datorns offentliga IPv4-adress. Du kan hitta den här adressen med kommandot nedan eller genom att söka efter "Vad är min IP-adress" i en webbläsare.

@@ -4,10 +4,10 @@ description: Den här artikeln beskriver hur du får åtkomst nyckeln för ett E
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.openlocfilehash: e5694fe0b5f22f7f76285c344627005ea727ae3c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105871"
 ---
 # <a name="get-access-keys-for-event-grid-resources-topics-or-domains"></a>Få åtkomst nycklar för Event Grid resurser (ämnen eller domäner)
@@ -15,7 +15,7 @@ ms.locfileid: "86105871"
 
 Den här artikeln beskriver hur du får åtkomst nycklar för en Event Grid resurs (ämne eller domän) med hjälp av Azure Portal, PowerShell eller CLI. 
 
-## <a name="azure-portal"></a>Azure-portalen
+## <a name="azure-portal"></a>Azure Portal
 I Azure Portal växlar du till fliken **åtkomst nycklar** i **avsnittet Event Grid** eller **Event Grid domän** för ämnet eller domänen.  
 
 :::image type="content" source="./media/get-access-keys/azure-portal.png" alt-text="Sidan åtkomst nycklar":::

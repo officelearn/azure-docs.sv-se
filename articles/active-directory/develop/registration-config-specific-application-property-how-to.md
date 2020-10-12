@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.openlocfilehash: 1469fcfa68b10353b78d31ccc758c61bf7746692
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88120702"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Registreringsfält för Azure-portalen för egenutvecklade appar
@@ -34,9 +34,9 @@ Den här artikeln innehåller en kort beskrivning av alla tillgängliga fält i 
 
 ## <a name="fields-in-the-application-registration-form"></a>Fält i program registrerings formuläret
 
-| Fält            | Beskrivning                                                                              |
+| Field            | Beskrivning                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Name             | Namnet på programmet. Det får innehålla minst fyra tecken.                |
+| Namn             | Namnet på programmet. Det får innehålla minst fyra tecken.                |
 | Kontotyper som stöds| Välj vilka konton som du vill att ditt program ska stödja: konton i den här organisations katalogen, konton i valfri organisations katalog eller konton i alla organisations kataloger och personliga Microsoft-konton.  |
 | Omdirigerings-URI (valfritt) | Välj den typ av app som du skapar, **webb** eller **offentlig klient (mobilt & Desktop)** och ange omdirigerings-URI (eller svars-URL) för ditt program. För webbappar anger du grundläggande URL för appen. Till exempel kan http://localhost:31544 vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram. För offentliga klientprogram anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifik för ditt program, till exempel myapp://auth. Om du vill se specifika exempel för webb program eller interna program kan du titta på våra [snabb starter](./index.yml).|
 
@@ -44,21 +44,21 @@ När du har fyllt i fälten ovan registreras programmet i Azure Portal och du om
 
 ### <a name="overview"></a>Översikt
 
-| Fält           | Beskrivning        |
+| Field           | Beskrivning        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Program-ID  | När du registrerar ett program tilldelar Azure AD ditt program ett program-ID. Program-ID: t kan användas för att unikt identifiera ditt program i autentiseringsbegäranden till Azure AD, samt för att få åtkomst till resurser som Graph API.                                                          |
 | URI för app-id      | Detta bör vara en unik URI, vanligt vis av formatet **https:// &lt; klient \_ namn &gt; / &lt; program \_ namn &gt; .** Detta används under flödet för auktoriserings beviljande, som en unik identifierare för att ange den resurs som token ska utfärdas för. Det blir också AUD-anspråket i den utfärdade åtkomsttoken. |
 
 ### <a name="branding"></a>Anpassning
 
-| Fält           | Beskrivning        |
+| Field           | Beskrivning        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ladda upp ny logo typ | Du kan använda den för att ladda upp en logo typ för ditt program. Logo typen måste vara i formatet. bmp,. jpg eller. png och fil storleken måste vara mindre än 100 KB. Måtten för bilden ska vara 215x215 pixlar, med centrala bild dimensioner för 94x94-bild punkter.|
 | URL för start sidan   | Detta är inloggnings-URL: en som anges under program registreringen.|
 
 ### <a name="authentication"></a>Autentisering
 
-| Fält           | Beskrivning        |
+| Field           | Beskrivning        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Utloggnings-URL      | Detta är URL: en för enkel utloggning. Azure AD skickar en utloggnings förfrågan till denna URL när användaren tar bort sin session med Azure AD med hjälp av något annat registrerat program.|
 | Kontotyper som stöds  | Den här växeln anger om programmet kan användas av flera klienter. Det innebär vanligt vis att externa organisationer kan använda ditt program genom att registrera det i klienten och bevilja åtkomst till organisationens data.|
@@ -66,7 +66,7 @@ När du har fyllt i fälten ovan registreras programmet i Azure Portal och du om
 
 ### <a name="certificates-and-secrets"></a>Certifikat och hemligheter
 
-| Fält           | Beskrivning        |
+| Field           | Beskrivning        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Klienthemligheter            | Du kan skapa klient hemligheter eller nycklar för att program mässigt få åtkomst till webb-API: er som skyddas av Azure AD utan användar interaktion. På sidan **ny klient hemlighet** anger du en nyckel beskrivning och förfallo datum och spara för att generera nyckeln. Se till att spara den på ett säkert sätt, eftersom du inte kan komma åt den senare.             |
 

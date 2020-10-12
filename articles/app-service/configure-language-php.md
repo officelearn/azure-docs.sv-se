@@ -1,15 +1,15 @@
 ---
 title: Konfigurera PHP-appar
-description: Lär dig hur du konfigurerar en PHP-app i interna Windows-instanser eller i en fördefinierad PHP-behållare i Azure App Service. Den här artikeln visar de vanligaste konfigurations åtgärderna.
+description: Lär dig hur du konfigurerar en PHP-app i interna Windows-instanser eller i en fördefinierad PHP-behållare i Azure App Service. I artikeln visas de vanligaste konfigurationsåtgärderna.
 ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: afac8273b5729bcf5470be471145214426dc7dab
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055307"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Konfigurera en PHP-app för Azure App Service
@@ -231,7 +231,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Få åtkomst till miljövariabler
 
-I App Service kan du [Ange inställningar för appar](configure-common.md#configure-app-settings) utanför appens kod. Sedan kan du komma åt dem med hjälp av standard mönstret för [getenv ()](https://secure.php.net/manual/function.getenv.php) . Om du till exempel vill få åtkomst till en appinställning med namnet `DB_HOST` använder du följande kod:
+I App Service kan du [ange appinställningar](configure-common.md#configure-app-settings) utanför din appkod. Sedan kan du komma åt dem med hjälp av standard mönstret för [getenv ()](https://secure.php.net/manual/function.getenv.php) . Om du till exempel vill få åtkomst till en appinställning med namnet `DB_HOST` använder du följande kod:
 
 ```php
 getenv("DB_HOST")
@@ -489,7 +489,7 @@ Prova följande när en fungerande PHP-app fungerar annorlunda i App Service ell
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [Vanliga frågor och svar om App Service Linux](faq-app-service-linux.md)
+> [Vanliga frågor och svar om App Service på Linux](faq-app-service-linux.md)
 
 ::: zone-end
 

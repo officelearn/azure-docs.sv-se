@@ -4,10 +4,10 @@ description: Beskriver vanliga nätverks mönster för Service Fabric och hur du
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: 20bd5e931307725016c3e2ad69dae91214b2caab
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87421475"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric nätverks mönster
@@ -342,7 +342,7 @@ Det här scenariot ersätter den externa belastningsutjämnaren i standard Servi
                 ],
     ```
 
-5. Ändra belastnings Utjämnings `frontendIPConfigurations` inställningen från att använda en `publicIPAddress` , för att använda ett undernät och `privateIPAddress` . `privateIPAddress`använder en fördefinierad statisk intern IP-adress. Om du vill använda en dynamisk IP-adress tar du bort `privateIPAddress` elementet och ändrar sedan `privateIPAllocationMethod` till **dynamiskt**.
+5. Ändra belastnings Utjämnings `frontendIPConfigurations` inställningen från att använda en `publicIPAddress` , för att använda ett undernät och `privateIPAddress` . `privateIPAddress` använder en fördefinierad statisk intern IP-adress. Om du vill använda en dynamisk IP-adress tar du bort `privateIPAddress` elementet och ändrar sedan `privateIPAllocationMethod` till **dynamiskt**.
 
     ```json
                 "frontendIPConfigurations": [

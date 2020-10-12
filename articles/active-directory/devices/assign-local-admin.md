@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5d3082e3dc45102bc8700c7d1285ef832d09712a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87419826"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala gruppen Administratörer på Azure AD-anslutna enheter
@@ -98,7 +98,7 @@ Från och med **Windows 10 1709** -versionen kan du utföra den här åtgärden 
 Dessutom kan du också lägga till användare med hjälp av kommando tolken:
 
 - Om klient användarna synkroniseras från lokala Active Directory använder du `net localgroup administrators /add "Contoso\username"` .
-- Om dina klient användare har skapats i Azure AD använder du`net localgroup administrators /add "AzureAD\UserUpn"`
+- Om dina klient användare har skapats i Azure AD använder du `net localgroup administrators /add "AzureAD\UserUpn"`
 
 ## <a name="considerations"></a>Överväganden 
 

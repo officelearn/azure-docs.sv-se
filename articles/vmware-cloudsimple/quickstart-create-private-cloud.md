@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 487308aca3231650aee3fac5ae127006649e19b9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073917"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Snabb start – konfigurera en privat moln miljö
@@ -64,7 +64,7 @@ Etablerings processen för privata moln startar.  Det kan ta upp till två timma
 
 ## <a name="launch-cloudsimple-portal"></a>Starta CloudSimple-portalen
 
-Du kan komma åt CloudSimple-portalen från Azure Portal.  CloudSimple-portalen startas med dina Azure-inloggnings uppgifter med hjälp av enkel inloggning (SSO).  För att få åtkomst till CloudSimple-portalen måste du auktorisera programmet för **CloudSimple-auktorisering** .  Mer information om hur du beviljar behörigheter finns i [medgivande to CloudSimple service Authorization Application](access-cloudsimple-portal.md#consent-to-cloudsimple-service-authorization-application).
+Du kan komma åt CloudSimple-portalen från Azure Portal.  CloudSimple-portalen startas med dina Azure-inloggnings uppgifter med hjälp av enkel Sign-On (SSO).  För att få åtkomst till CloudSimple-portalen måste du auktorisera programmet för **CloudSimple-auktorisering** .  Mer information om hur du beviljar behörigheter finns i [medgivande to CloudSimple service Authorization Application](access-cloudsimple-portal.md#consent-to-cloudsimple-service-authorization-application).
 
 1. Välj **Alla tjänster**.
 2. Sök efter **CloudSimple-tjänster**.
@@ -101,7 +101,7 @@ En punkt-till-plats-VPN-anslutning är det enklaste sättet att ansluta till dit
 
     * Alternativen **Lägg till automatiskt** anger den globala principen för den här gatewayen. Inställningarna gäller för den aktuella gatewayen. Inställningarna kan åsidosättas i **Select** -ytan.
     * Välj **Lägg till hanterings-VLAN/undernät för privata moln**.
-    * Om du vill lägga till alla användardefinierade VLAN/undernät klickar du på **Lägg till användardefinierade VLAN/undernät**.
+    * Om du vill lägga till alla användardefinierade VLAN/undernät klickar du på  **Lägg till användardefinierade VLAN/undernät**.
     * **Välj** inställningar åsidosätter de globala inställningarna under **Lägg till automatiskt**.
 
 7. Klicka på **Nästa** för att granska inställningarna. Klicka på Redigera ikoner för att göra ändringar.
@@ -159,7 +159,7 @@ Nu kan du logga in på vCenter för att konfigurera virtuella datorer och princi
     ![Starta vSphere-klienten](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. Välj önskad vSphere-klient för att komma åt vCenter och logga in med ditt användar namn och lösen ord.  Standardvärdena är:
-    * Användar namn:`CloudOwner@cloudsimple.local`
+    * Användar namn: `CloudOwner@cloudsimple.local`
     * Lösenord: `CloudSimple123!`
 
 VCenter-skärmarna i nästa procedur är från vSphere-klienten (HTML5).

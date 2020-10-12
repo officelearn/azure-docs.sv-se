@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
 ms.openlocfilehash: 5798220ad92a99f32f757ffa20f9233b8c79151b
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617442"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Distribuera en hanterad Azure SQL-instans till en instans-pool
@@ -30,11 +30,11 @@ I följande tabell visas tillgängliga åtgärder relaterade till instans-pooler
 
 |Kommando|Azure Portal|PowerShell|
 |:---|:---|:---|
-|Skapa en instans-pool|Nej|Ja|
-|Uppdatera en instans-pool (begränsat antal egenskaper)|Nej |Ja |
-|Kontrol lera användning och egenskaper för en instans pool|Nej|Ja |
-|Ta bort en instans-pool|Nej|Ja|
-|Skapa en hanterad instans i en instans-pool|Nej|Ja|
+|Skapa en instans-pool|Inga|Ja|
+|Uppdatera en instans-pool (begränsat antal egenskaper)|Inga |Ja |
+|Kontrol lera användning och egenskaper för en instans pool|Inga|Ja |
+|Ta bort en instans-pool|Inga|Ja|
+|Skapa en hanterad instans i en instans-pool|Inga|Ja|
 |Uppdatera resursanvändningen för en hanterad instans|Ja |Ja|
 |Kontrol lera användning och egenskaper för en hanterad instans|Ja|Ja|
 |Ta bort en hanterad instans från poolen|Ja|Ja|

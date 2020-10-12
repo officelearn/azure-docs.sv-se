@@ -4,10 +4,10 @@ description: Den här artikeln beskriver hur du publicerar en händelse i ett an
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 197d8eb1963300bc6576e664c7c3fd470cf70bb2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86108268"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicera till anpassat avsnitt för Azure Event Grid
@@ -92,15 +92,15 @@ Ett giltigt händelse data schema är till exempel:
 }]
 ```
 
-## <a name="response"></a>Svar
+## <a name="response"></a>Svarsåtgärder
 
 När du har bokfört till ämnes slut punkten får du ett svar. Svaret är en standard-HTTP-svarskod. Några vanliga svar är:
 
-|Resultat  |Svar  |
+|Resultat  |Svarsåtgärder  |
 |---------|---------|
 |Klart  | 200 OK  |
-|Felaktigt format för händelse data | 400 Felaktig begäran |
-|Ogiltig åtkomst nyckel | 401 obehörig |
+|Felaktigt format för händelse data | 400 – Felaktig begäran |
+|Ogiltig åtkomst nyckel | 401 – Ej behörig |
 |Felaktig slut punkt | 404 – Hittades inte |
 |Matris eller händelse överskrider storleks gränser | 413-nyttolasten är för stor |
 

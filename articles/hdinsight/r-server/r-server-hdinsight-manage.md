@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/19/2019
 ms.openlocfilehash: 1e04662cb0f67863e23f1fc1ce7e1f21ca4e9197
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087647"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Hantera ML Services-kluster i Azure HDInsight
@@ -201,11 +201,11 @@ Om du vill installera R-paket på arbetsnoderna i klustret måste du använda en
 
    * Som **namn**anger du ett namn för skript åtgärden.
 
-     * För **skript-URI för bash**anger du `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh` . Det här är det skript som installerar ytterligare R-paket på arbetsnoden
+     * För **skript-URI för bash**anger du  `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh` . Det här är det skript som installerar ytterligare R-paket på arbetsnoden
 
    * Markera bara kryss rutan för **Worker**.
 
-   * **Parametrar**: R-paketen som ska installeras. Till exempel, `bitops stringr arules`
+   * **Parametrar**: R-paketen som ska installeras. Till exempel `bitops stringr arules`
 
    * Markera kryss rutan för att **Spara den här skript åtgärden**.  
 

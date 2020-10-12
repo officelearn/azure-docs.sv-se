@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: victorh
 ms.openlocfilehash: 43755b312a64c429b38a07c8c4fad8c85b08342a
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89437861"
 ---
 # <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Använda Azure Firewall för att skydda AKS-distributioner (Azure Kubernetes Service)
@@ -24,7 +24,7 @@ I hanterings-och drift syfte måste noder i ett AKS-kluster ha åtkomst till vis
 
 Följ rikt linjerna i den här artikeln för att ge ytterligare skydd för ditt Azure Kubernetes-kluster med hjälp av Azure-brandväggen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett distribuerat Azure Kubernetes-kluster med program som körs.
 

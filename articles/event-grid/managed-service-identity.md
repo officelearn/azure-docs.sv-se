@@ -4,10 +4,10 @@ description: I den här artikeln beskrivs hur du aktiverar hanterad tjänst iden
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87534251"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Händelse leverans med en hanterad identitet
@@ -42,7 +42,7 @@ I föregående avsnitt har du lärt dig hur du aktiverar en Systemhanterad ident
 ### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 Följande procedur visar hur du aktiverar Systemhanterad identitet för ett ämne. Stegen för att aktivera en identitet för en domän är liknande. 
 
-1. Öppna [Azure-portalen](https://portal.azure.com).
+1. Gå till [Azure-portalen](https://portal.azure.com).
 2. Sök efter **händelse rutnäts ämnen** i Sök fältet högst upp.
 3. Välj det **avsnitt** som du vill aktivera den hanterade identiteten för. 
 4. Växla till fliken **identitet** . 
@@ -72,7 +72,7 @@ För närvarande stöder Azure Event Grid ämnen eller domäner som kon figurer 
 | ----------- | --------- | 
 | Service Bus köer och ämnen | [Azure Service Bus data avsändare](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
 | Azure Event Hubs | [Azure Event Hubs data avsändare](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
-| Azure Blob Storage | [Storage BLOB data-deltagare](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
+| Azure Blob Storage | [Storage Blob Data-deltagare](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
 | Azure Queue Storage |[Avsändare av data meddelande i lagrings köer](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
 ## <a name="add-an-identity-to-azure-roles-on-destinations"></a>Lägga till en identitet i Azure-roller på destinationer

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: jingwang
 ms.openlocfilehash: 78e7fc6b2a4c9804fbba60aa9946cc612b494461
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87531293"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Kopiera data från Zoho med Azure Data Factory (för hands version)
@@ -52,18 +52,18 @@ Följande egenskaper stöds för den länkade tjänsten Zoho:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **Zoho** | Yes |
-| connectionProperties | En grupp egenskaper som definierar hur du ansluter till Zoho. | Yes |
+| typ | Egenskapen Type måste anges till: **Zoho** | Ja |
+| connectionProperties | En grupp egenskaper som definierar hur du ansluter till Zoho. | Ja |
 | ***Under `connectionProperties` :*** | | |
-| slutpunkt | Slut punkten för Zoho-servern ( `crm.zoho.com/crm/private` ). | Yes |
-| authenticationType | Tillåtna värden är `OAuth_2.0` och `Access Token` . | Yes |
+| slutpunkt | Slut punkten för Zoho-servern ( `crm.zoho.com/crm/private` ). | Ja |
+| authenticationType | Tillåtna värden är `OAuth_2.0` och `Access Token` . | Ja |
 | ClientID | Det klient-ID som är associerat med ditt Zoho-program. | Ja för OAuth 2,0-autentisering | 
 | clientSecrect | Clientsecret som är kopplad till ditt Zoho-program. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja för OAuth 2,0-autentisering | 
 | refreshToken | Den OAuth 2,0-uppdateringstoken som är associerad med ditt Zoho-program, som används för att uppdatera åtkomsttoken när den upphör att gälla. Uppdaterings-token upphör aldrig att gälla. Om du vill hämta en uppdateringstoken måste du begära `offline` access_type, läsa mer i [den här artikeln](https://www.zoho.com/crm/developer/docs/api/auth-request.html). <br>Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md).| Ja för OAuth 2,0-autentisering |
-| accessToken | Åtkomsttoken för Zoho-autentisering. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | No |
-| useHostVerification | Anger om värd namnet i Server certifikatet måste matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | No |
-| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | No |
+| accessToken | Åtkomsttoken för Zoho-autentisering. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | Inga |
+| useHostVerification | Anger om värd namnet i Server certifikatet måste matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | Inga |
+| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | Inga |
 
 **Exempel: OAuth 2,0-autentisering**
 
@@ -130,7 +130,7 @@ Om du vill kopiera data från Zoho anger du egenskapen type för data uppsättni
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **ZohoObject** | Yes |
+| typ | Data uppsättningens typ-egenskap måste anges till: **ZohoObject** | Ja |
 | tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
@@ -160,7 +160,7 @@ Om du vill kopiera data från Zoho anger du käll typen i kopierings aktiviteten
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **ZohoSource** | Yes |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **ZohoSource** | Ja |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM Accounts"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**

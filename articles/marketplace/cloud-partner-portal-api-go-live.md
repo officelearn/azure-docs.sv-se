@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: d612b796f85c9eaab1600c55cde7e79acb49f352
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292938"
 ---
 # <a name="go-live"></a>Gå live
@@ -28,12 +28,12 @@ Detta API startar processen för att skicka en app till produktion. Den här åt
 
 |  **Namn**      |   **Beskrivning**                                                           | **Datatyp** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Utgivarens identifierare för erbjudandet att hämta, till exempel`contoso`       |  Sträng       |
+| publisherId    | Utgivarens identifierare för erbjudandet att hämta, till exempel `contoso`       |  Sträng       |
 | offerId        | Erbjudande-ID för erbjudandet som ska hämtas                                   |  Sträng       |
-| api-version    | Senaste versionen av API: et                                                   |  Datum         |
+| api-version    | Senaste versionen av API: et                                                   |  Date         |
 |  |  |  |
 
-## <a name="header"></a>Huvud
+## <a name="header"></a>Sidhuvud
 ------
 
 |  **Namn**       |     **Värde**       |
@@ -58,14 +58,14 @@ Detta API startar processen för att skicka en app till produktion. Den här åt
 
 |  **Namn**             |      **Värde**                                                            |
 |  --------             |      ----------                                                           |
-| Position    |  Den relativa sökvägen för att hämta den här åtgärdens status            |
+| Location    |  Den relativa sökvägen för att hämta den här åtgärdens status            |
 |  |  |
 
 ### <a name="response-status-codes"></a>Svars status koder
 
 | **Kod** |  **Beskrivning**                                                                        |
 | -------- |  ----------------                                                                        |
-|  202     | `Accepted`-Begäran har godkänts. Svaret innehåller en plats för att spåra åtgärdens status. |
-|  400     | `Bad/Malformed request`-Ytterligare fel information finns i svars texten. |
-|  404     |  `Not found`-Den angivna entiteten finns inte.                                       |
+|  202     | `Accepted` -Begäran har godkänts. Svaret innehåller en plats för att spåra åtgärdens status. |
+|  400     | `Bad/Malformed request` -Ytterligare fel information finns i svars texten. |
+|  404     |  `Not found` -Den angivna entiteten finns inte.                                       |
 |  |  |

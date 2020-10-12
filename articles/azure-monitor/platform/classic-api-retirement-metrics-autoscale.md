@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.openlocfilehash: 38a30f2adc0de7ccb9a9a3a4ba7ed53fd5fda3f7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87317390"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor pensionering av klassiska API: er för distributions modeller för mått och autoskalning
@@ -31,13 +31,13 @@ Den här artikeln gäller om du använder följande komponenter:
 
 - **Klassisk autoskalning** – om du anropar de [klassiska API: erna för autoskalning](/previous-versions/azure/reference/mt348562(v=azure.100)) från dina anpassade verktyg eller med hjälp av den [klassiska Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/), bör du växla till att använda [Resource Manager Azure Monitor REST API](/rest/api/monitor/autoscalesettings).
 
-- **Klassiska mått** – om du använder mått med de [klassiska REST-API: erna](/previous-versions/azure/reference/dn510374(v=azure.100)) eller [klassiska Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) från anpassade verktyg, bör du byta till [Resource Manager Azure Monitor REST API](/rest/api/monitor/autoscalesettings). 
+- **Klassiska mått** – om du använder mått med de [klassiska REST-API: erna](/previous-versions/azure/reference/dn510374(v=azure.100)) eller  [klassiska Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) från anpassade verktyg, bör du byta till [Resource Manager Azure Monitor REST API](/rest/api/monitor/autoscalesettings). 
 
 Om du är osäker på om din kod eller anpassade verktyg anropar de klassiska API: erna kan du titta på följande:
 
 - Granska den URI som refereras i din kod eller ditt verktyg. De klassiska API: erna använder URI: n https://management.core.windows.net . Du bör använda den nyare URI: n för Resource Manager-baserade API: er som börjar med `https://management.azure.com/` .
 
-- Jämför sammansättnings namnet på din dator. Den äldre klassiska sammansättningen finns på https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/ .
+- Jämför sammansättnings namnet på din dator. Den äldre klassiska sammansättningen finns på  https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/ .
 
 - Om du använder certifikatautentisering för att få åtkomst till mått eller autoskalning av API: er, använder du en klassisk slut punkt och ett bibliotek. De nyare Resource Manager-API: erna kräver Azure Active Directory autentisering via ett huvud namn för tjänsten eller användarens huvud namn.
 
@@ -53,7 +53,7 @@ Om du är osäker på om din kod eller anpassade verktyg anropar de klassiska AP
 
 Alla befintliga funktioner för autoskalning och mått kommer att fortsätta att fungera via de nya API: erna.  
 
-Migrering över till nyare API: er levereras med Resource Manager-baserade funktioner, till exempel stöd för konsekvent rollbaserad Access Control (RBAC) i alla övervaknings tjänster. Du får också ytterligare funktioner för mått: 
+Migrering över till nyare API: er levereras med Resource Manager-baserade funktioner, till exempel stöd för konsekventa Role-Based Access Control (RBAC) i alla övervaknings tjänster. Du får också ytterligare funktioner för mått: 
 
 - stöd för dimensioner
 - konsekvent 1-minuters Metric-kornig het i alla tjänster 

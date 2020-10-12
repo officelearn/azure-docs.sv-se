@@ -4,10 +4,10 @@ description: Lägg till ägare och användare i Azure DevTest Labs med antingen 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 40173589c4798a8b00d940bca2a71f4d61f2c199
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87533333"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Lägg till ägare och användare i Azure DevTest Labs
@@ -29,7 +29,7 @@ Följande tabell visar de åtgärder som kan utföras av användare i var och en
 | **Åtgärder som användare med den här rollen kan utföra** | **DevTest Labs-användare** | **Ägare** | **Deltagare** |
 | --- | --- | --- | --- |
 | **Labb uppgifter** | | | |
-| Lägga till användare i ett labb |Inga |Yes |Inga |
+| Lägga till användare i ett labb |Inga |Ja |Inga |
 | Uppdatera kostnads inställningar |Inga |Ja |Ja |
 | **Bas uppgifter för virtuella datorer** | | | |
 | Lägga till och ta bort anpassade avbildningar |Inga |Ja |Ja |

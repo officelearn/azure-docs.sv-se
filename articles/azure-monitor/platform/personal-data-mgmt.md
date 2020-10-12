@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
 ms.openlocfilehash: 64c461c5d3e1bb34f480e5173621f8753eadbbd8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318325"
 ---
-# <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Vägledning för personliga data som lagras i Log Analytics och Application Insights
+# <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Riktlinjer för personliga data som lagras i Log Analytics och Application Insights
 
 Log Analytics är ett data lager där personliga data troligt vis hittas. Application Insights lagrar data i en Log Analytics partition. Den här artikeln beskriver var i Log Analytics och Application Insights sådana data vanligt vis hittas, samt de funktioner som är tillgängliga för att hantera sådana data.
 
@@ -78,7 +78,7 @@ Som vi nämnt i avsnittet [strategi för hantering av personliga data](#strategy
 
 ### <a name="view-and-export"></a>Visa och exportera
 
-För både Visa och exportera data begär Anden, ska [API för Log Analytics fråga](https://dev.loganalytics.io/) eller [API för Application Insights fråga](https://dev.applicationinsights.io/quickstart) användas. Logik för att konvertera en form av data till en lämplig som du kan leverera till användarna är upp till dig att implementera. [Azure Functions](https://azure.microsoft.com/services/functions/) är en bra plats som värd för sådan logik.
+För både Visa och exportera data begär Anden, ska [API för Log Analytics fråga](https://dev.loganalytics.io/) eller  [API för Application Insights fråga](https://dev.applicationinsights.io/quickstart) användas. Logik för att konvertera en form av data till en lämplig som du kan leverera till användarna är upp till dig att implementera. [Azure Functions](https://azure.microsoft.com/services/functions/) är en bra plats som värd för sådan logik.
 
 > [!IMPORTANT]
 >  Det stora flertalet rensnings åtgärder kan utföras mycket snabbare än SLA, och **det formella service avtalet för slut för ande av rensnings åtgärder anges till 30 dagar** på grund av deras tunga påverkan på den data plattform som används. Detta är en automatiserad process. Det finns inget sätt att begära att en åtgärd hanteras snabbare.
@@ -102,7 +102,7 @@ När Azure Resource Manager rollen har tilldelats är två nya API-sökvägar ti
 #### <a name="log-data"></a>Loggdata
 
 * [Efter rensning](/rest/api/loganalytics/workspacepurge/purge) – tar ett objekt som anger data parametrar som ska tas bort och returnerar en referens-GUID 
-* Hämta rensnings status: POST rensnings anropet returnerar ett "x-MS-status-plats"-huvud som innehåller en URL som du kan anropa för att fastställa status för ditt rensnings-API. Till exempel:
+* Hämta rensnings status: POST rensnings anropet returnerar ett "x-MS-status-plats"-huvud som innehåller en URL som du kan anropa för att fastställa status för ditt rensnings-API. Exempel:
 
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
@@ -114,7 +114,7 @@ När Azure Resource Manager rollen har tilldelats är två nya API-sökvägar ti
 #### <a name="application-data"></a>Programdata
 
 * [Efter rensning](/rest/api/application-insights/components/purge) – tar ett objekt som anger data parametrar som ska tas bort och returnerar en referens-GUID
-* Hämta rensnings status: POST rensnings anropet returnerar ett "x-MS-status-plats"-huvud som innehåller en URL som du kan anropa för att fastställa status för ditt rensnings-API. Till exempel:
+* Hämta rensnings status: POST rensnings anropet returnerar ett "x-MS-status-plats"-huvud som innehåller en URL som du kan anropa för att fastställa status för ditt rensnings-API. Exempel:
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01

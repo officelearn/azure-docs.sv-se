@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.openlocfilehash: c8978504244fbf68875ca8cff7a92f042e8e988b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329609"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Akamai
@@ -45,7 +45,7 @@ Förutom Azure Active Directory inbyggt integrerings stöd för moderna autentis
 * VNC (Virtual Network data behandling)
 * Anonym autentisering eller inga inbyggta autentiseringscertifikat
 * NTLM-autentisering av appar (skydd med dubbla prompter för användaren)
-* Formulärbaserade program (skydd med dubbla prompter för användaren)
+* Forms-Based program (skydd med dubbla prompter för användaren)
 
 ### <a name="integration-scenarios"></a>Integrations scenarier
 
@@ -84,7 +84,7 @@ Akamai EAA-programmet konfigureras separat på Azure AD-portalen. Administratör
 
 ![Integrations scenario 2](./media/header-akamai-tutorial/scenario2.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -167,7 +167,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -313,7 +313,7 @@ Klicka på Spara och gå till autentisering.
 
     ![Skärm bild av fliken distribution av Akamai i EAA-konsolen som visar programmets status meddelande: "programmet har distribuerats".](./media/header-akamai-tutorial/configure15.png)
 
-1. Slut användar upplevelse.
+1. End-User upplevelse.
 
     ![Skärm bild av den öppna skärmen för myapps.microsoft.com med en bakgrunds bild och en inloggnings dialog ruta.](./media/header-akamai-tutorial/enduser01.png)
 
@@ -363,7 +363,7 @@ Klicka på **Spara och gå till avancerade inställningar**.
 
     ![Skärm bild av inställningarna för anpassade HTTP-huvuden för Akamai i EAA-konsolen för SECRETRDPAPP med knappen Spara och gå till distribution i det nedre högra hörnet.](./media/header-akamai-tutorial/configure24.png)
 
-1. Slut användar upplevelse
+1. End-User upplevelse
 
     ![Skärm bild av ett myapps.microsoft.com-fönster med en bakgrunds bild och en inloggnings dialog ruta.](./media/header-akamai-tutorial/enduser03.png)
 
@@ -429,7 +429,7 @@ Klicka på Spara och gå till distribution
 
     ![Skärm bild av fliken distribution av Akamai i EAA-konsolen för SSH-SECURE som visar knappen distribuera program.](./media/header-akamai-tutorial/configure32.png)
 
-1. Slut användar upplevelse
+1. End-User upplevelse
 
     ![Skärm bild av dialog rutan logga in i ett myapps.microsoft.com-fönster.](./media/header-akamai-tutorial/enduser03.png)
 

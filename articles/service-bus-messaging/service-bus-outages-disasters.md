@@ -4,10 +4,10 @@ description: De här artiklarna innehåller tekniker för att skydda program mot
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 4f3ff89e3ec59ad4445ab0b7ee7eeb45d18fa3b8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88065632"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Metodtips för isolering av program mot Service Bus-avbrott och katastrofer
@@ -19,9 +19,9 @@ Ett avbrott definieras som tillfälligt otillgängligt för Azure Service Bus. A
 En katastrof definieras som den permanenta förlusten av en Service Bus skalnings enhet eller data Center. Data centret kan vara otillgängligt igen. Normalt orsakar en katastrof förlust av vissa eller alla meddelanden eller andra data. Exempel på katastrofer är brand, översvämning eller jord bävning.
 
 ## <a name="protecting-against-outages-and-disasters---service-bus-premium"></a>Skydd mot avbrott och haverier – Service Bus Premium
-Koncepten för hög tillgänglighet och haveri beredskap är inbyggda i Azure Service Bus Premium-nivån, både inom samma region (via Tillgänglighetszoner) och mellan olika regioner (via geo-haveri återställning).
+Koncepten för hög tillgänglighet och haveri beredskap är inbyggda i Azure Service Bus Premium-nivån, både inom samma region (via Tillgänglighetszoner) och mellan olika regioner (via Geo-Disaster återställning).
 
-### <a name="geo-disaster-recovery"></a>Geo-katastrof återställning
+### <a name="geo-disaster-recovery"></a>Geo-Disaster återställning
 
 Service Bus Premium stöder geo-katastrof återställning på namn områdes nivå. Mer information finns i [Azure Service Bus geo-Disaster Recovery](service-bus-geo-dr.md). Funktionen för haveri beredskap, som endast är tillgänglig för [Premium SKU: n](service-bus-premium-messaging.md) , implementerar haveri beredskap för metadata och förlitar sig på de primära och sekundära katastrof återställnings namn områdena.
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87533911"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
@@ -54,7 +54,7 @@ Användare, grupper och program från den katalogen kan hantera resurser i Azure
 
 - Azure AD-användare har ingen åtkomst till fysiska till gångar eller platser, och därför är det inte möjligt för dem att kringgå de logiska RBAC-princip kontrollerna som anges nedan.
 
-För diagnostik-och underhålls behov krävs och används en drifts modell som använder sig av en just-in-Time-höjning. Azure AD Privileged Identity Management (PIM) introducerar konceptet för en berättigad administratör. [Berättigade administratörer](../../active-directory/privileged-identity-management/pim-configure.md) bör vara användare som behöver privilegie rad åtkomst nu och sedan, men inte varje dag. Rollen är inaktiv tills användaren behöver åtkomst. Därefter slutför användaren en aktiveringsprocess och blir aktiv administratör under en förinställd tidsperiod.
+För diagnostik-och underhålls behov krävs och används en drifts modell som använder sig av en just-in-Time-höjning. Azure AD Privileged Identity Management (PIM) introducerar begreppet en berättigad administratör. [berättigade administratörer](../../active-directory/privileged-identity-management/pim-configure.md) bör vara användare som behöver privilegie rad åtkomst nu och sedan, men inte varje dag. Rollen är inaktiv tills användaren behöver åtkomst. Därefter slutför användaren en aktiveringsprocess och blir aktiv administratör under en förinställd tidsperiod.
 
 ![Azure AD Privileged Identity Management](./media/isolation-choices/azure-isolation-fig2.png)
 
@@ -64,7 +64,7 @@ Begreppet klient behållare är djupt inkornigt i katalog tjänsten på alla lag
 
 Även om metadata från flera Azure Active Directory klienter lagras på samma fysiska disk, finns det ingen relation mellan andra behållare än vad som definieras av katalog tjänsten, vilket i sin tur styrs av klient organisations administratören.
 
-### <a name="azure-role-based-access-control-azure-rbac"></a>Rollbaserad åtkomst kontroll i Azure (Azure RBAC)
+### <a name="azure-role-based-access-control-azure-rbac"></a>Azure RBAC (rollbaserad åtkomstkontroll)
 
 [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md) hjälper dig att dela olika komponenter som är tillgängliga i en Azure-prenumeration genom att tillhandahålla detaljerad åtkomst hantering för Azure. Med Azure RBAC kan du åtskilja uppgifter i organisationen och bevilja åtkomst baserat på vad användarna behöver för att utföra sina jobb. I stället för att ge alla obegränsade behörigheter i Azure-prenumeration eller-resurser kan du bara tillåta vissa åtgärder.
 
@@ -76,7 +76,7 @@ Azure RBAC har tre grundläggande roller som gäller för alla resurs typer:
 
 - **Läsaren** kan visa befintliga Azure-resurser.
 
-![Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](./media/isolation-choices/azure-isolation-fig3.png)
+![Azure RBAC (rollbaserad åtkomstkontroll)](./media/isolation-choices/azure-isolation-fig3.png)
 
 Resten av Azure-rollerna i Azure möjliggör hantering av vissa Azure-resurser. Till exempel tillåter rollen Virtuell datordeltagare att en användare skapar och hanterar virtuella datorer. Den ger dem inte åtkomst till Azure-Virtual Network eller det undernät som den virtuella datorn ansluter till.
 
@@ -315,7 +315,7 @@ Azure-distributionen har flera lager av nätverks isolering. Följande diagram v
 
 [Undernät](../../virtual-network/virtual-networks-overview.md) erbjuder ett extra isolerings lager med i virtuellt nätverk baserat på IP-intervall. IP-adresser i det virtuella nätverket kan du dela upp ett virtuellt nätverk i flera undernät för organisation och säkerhet. VM:ar och PaaS-rollinstanser som distribuerats till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration. Du kan också konfigurera [nätverks säkerhets gruppen (NSG: er)](../../virtual-network/virtual-networks-overview.md) för att tillåta eller neka nätverks trafik till en virtuell dator instans baserat på regler som kon figurer ATS i åtkomst kontrol listan (ACL) för NSG. NSG:er kan associeras med antingen undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät tillämpas ACL-reglerna på alla VM-instanser i det undernätet.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [alternativ för nätverks isolering för datorer i virtuella Windows Azure-nätverk](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Detta omfattar det klassiska klient-och Server dels scenariot där datorer i ett visst Server dels nätverk eller under nätverk bara kan tillåta att vissa klienter eller andra datorer ansluter till en viss slut punkt baserat på en lista över tillåtna IP-adresser.
 

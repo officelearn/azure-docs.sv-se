@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: b00d4be72aaed980e2604291d8c67c9fec0fb25b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88115109"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Felkoder för Azure AD-autentisering och -auktorisering
@@ -188,7 +188,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist – användaren eller administratören har inte samtyckt till att använda programmet med ID X. skicka en interaktiv auktoriseringsbegäran för den här användaren och resursen. |
 | AADSTS65004 | UserDeclinedConsent – användaren avböjde ett medgivande till att få åtkomst till appen. Låt användaren logga in igen och ge samtycke till appen|
-| AADSTS65005 | MisconfiguredApplication – appens obligatoriska resurs åtkomst lista innehåller inte appar som kan upptäckas av resursen eller klient programmet har begärt åtkomst till resursen, som inte angavs i den nödvändiga resurs åtkomst listan eller diagram tjänsten returnerade en felaktig begäran eller så gick det inte att hitta resursen. Om appen har stöd för SAML kan du ha konfigurerat appen med fel identifierare (entitet). Prova lösningarna som anges för SAML med hjälp av länken nedan:[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](../manage-apps/application-sign-in-problem-federated-sso-gallery.md?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
+| AADSTS65005 | MisconfiguredApplication – appens obligatoriska resurs åtkomst lista innehåller inte appar som kan upptäckas av resursen eller klient programmet har begärt åtkomst till resursen, som inte angavs i den nödvändiga resurs åtkomst listan eller diagram tjänsten returnerade en felaktig begäran eller så gick det inte att hitta resursen. Om appen har stöd för SAML kan du ha konfigurerat appen med fel identifierare (entitet). Prova lösningarna som anges för SAML med hjälp av länken nedan: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](../manage-apps/application-sign-in-problem-federated-sso-gallery.md?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS650052 | Appen behöver åtkomst till en tjänst `(\"{name}\")` som din organisation `\"{organization}\"` inte har prenumererat på eller aktiverat. Kontakta IT-administratören om du vill granska konfigurationen av dina tjänst prenumerationer. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant – Autentiseringen misslyckades. Uppdateringstoken är ogiltig. Felet kan bero på följande orsaker:<ul><li>Token binding-huvud är tomt</li><li>Token binding hash matchar inte</li></ul> |
@@ -252,12 +252,12 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS90055 | TenantThrottlingError – det finns för många inkommande begär Anden. Detta undantag genereras för blockerade klienter. |
 | AADSTS90056 | BadResourceRequest-för att lösa in koden för en åtkomsttoken ska appen skicka en POST-begäran till `/token` slut punkten. Innan du gör det måste du också ange en auktoriseringskod och skicka den i POST-begäran till `/token` slut punkten. Läs den här artikeln om du vill ha en översikt över OAuth 2,0 Authorization Code Flow: [.. /azuread-dev/v1-Protocols-OAuth-Code.MD](../azuread-dev/v1-protocols-oauth-code.md). Dirigera användaren till `/authorize` slut punkten, vilket kommer att returnera en authorization_code. Genom att skicka en begäran till `/token` slut punkten får användaren åtkomst-token. Logga in på Azure Portal och kontrol lera **Appregistreringar > slut punkter** för att bekräfta att de två slut punkterna har kon figurer ATS korrekt. |
 | AADSTS90072 | PassThroughUserMfaError – det externa kontot som användaren loggar in med inte finns på den klient som de har loggat in på. Det innebär att användaren inte kan uppfylla MFA-kraven för klient organisationen. Kontot måste läggas till som en extern användare i klient organisationen först. Logga ut och logga in med ett annat användar konto för Azure AD. |
-| AADSTS90081 | OrgIdWsFederationMessageInvalid – ett fel uppstod när tjänsten försökte bearbeta ett WS-Federation-meddelande. Meddelandet är inte giltigt. |
+| AADSTS90081 | OrgIdWsFederationMessageInvalid – ett fel uppstod när tjänsten försökte bearbeta ett WS-Federation meddelande. Meddelandet är inte giltigt. |
 | AADSTS90082 | OrgIdWsFederationNotSupported-den valda autentiseringsmetoden för begäran stöds inte för närvarande. |
 | AADSTS90084 | OrgIdWsFederationGuestNotAllowed – gäst konton är inte tillåtna för den här platsen. |
 | AADSTS90085 | OrgIdWsFederationSltRedemptionFailed-tjänsten kan inte utfärda en token eftersom företags objektet inte har etablerats ännu. |
 | AADSTS90086 | OrgIdWsTrustDaTokenExpired – användarens DA-token har upphört att gälla. |
-| AADSTS90087 | OrgIdWsFederationMessageCreationFromUriFailed – ett fel uppstod när WS-Federation-meddelandet skapades från URI: n. |
+| AADSTS90087 | OrgIdWsFederationMessageCreationFromUriFailed – ett fel uppstod när WS-Federation meddelandet skulle skapas från URI: n. |
 | AADSTS90090 | GraphRetryableError – tjänsten är inte tillgänglig för tillfället. |
 | AADSTS90091 | GraphServiceUnreachable |
 | AADSTS90092 | GraphNonRetryableError |
@@ -315,7 +315,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS700022 | InvalidMultipleResourcesScope-det tillhandahållna värdet för parameter området för indata är inte giltigt eftersom det innehåller fler än en resurs. |
 | AADSTS700023 | InvalidResourcelessScope-det angivna värdet för Indataparametern för indata-parametern är inte giltigt när en åtkomsttoken begärs. |
 | AADSTS7000215 | Ogiltig klient hemlighet har angetts. Utvecklarens fel-appen försöker logga in utan nödvändiga eller korrekta autentiseringsmetoder.|
-| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided-de angivna klientens hemliga nycklar har upphört att gälla. Gå till Azure Portal om du vill skapa nya nycklar för appen eller Överväg att använda autentiseringsuppgifter för ytterligare säkerhet:[https://aka.ms/certCreds](https://aka.ms/certCreds) |
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided-de angivna klientens hemliga nycklar har upphört att gälla. Gå till Azure Portal om du vill skapa nya nycklar för appen eller Överväg att använda autentiseringsuppgifter för ytterligare säkerhet: [https://aka.ms/certCreds](https://aka.ms/certCreds) |
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant-auktoriseringskod är avsedd att användas gentemot andra klienter, vilket avvisas. OAuth2-auktoriseringskod måste lösas in mot samma klient som den förvärvades för (/vanliga eller/{tenant-ID} efter behov) |
 | AADSTS1000000 | UserNotBoundError – bindnings-API: t kräver att Azure AD-användaren också autentiseras med en extern IDP, vilket inte har hänt än. |
 | AADSTS1000002 | BindCompleteInterruptError – bindningen har slutförts, men användaren måste vara informerad. |

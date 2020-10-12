@@ -4,10 +4,10 @@ description: Kontroll mappning av exemplet på FedRAMP-måttlig skiss. Varje kon
 ms.date: 07/31/2020
 ms.topic: sample
 ms.openlocfilehash: adc91813e40c18d2ecd67d912db214d77776b8a5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530178"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Kontroll mappning för exemplet på FedRAMP-måttlig skiss
@@ -29,7 +29,7 @@ Den här skissen hjälper dig att granska konton som kanske inte uppfyller organ
 - Externa konton med Läs behörighet bör tas bort från din prenumeration
 - Externa konton med Skriv behörighet bör tas bort från din prenumeration
 
-## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) konto hantering | Rollbaserade scheman
+## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) konto hantering | Role-Baseds scheman
 
 [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../../../role-based-access-control/overview.md) hjälper dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar också [Azure policy](../../../policy/overview.md) definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar och Service Fabric. Med hjälp av Azure Active Directory-autentisering möjliggörs förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster. Dessutom tilldelar den här skissen en Azure Policy-definition för att granska användningen av anpassade Azure RBAC-regler. Att förstå var anpassade Azure RBAC-regler implementeras kan hjälpa dig att kontrol lera behovet och korrekt implementering, eftersom anpassade Azure RBAC-regler är fel känsliga.
 
@@ -112,7 +112,7 @@ Adaptiva program kontroller i Azure Security Center är en intelligent, automati
 
 - Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
 
-## <a name="cm-11-user-installed-software"></a>CM – 11 användare-installerad program vara
+## <a name="cm-11-user-installed-software"></a>CM-11 User-Installed-programvara
 
 Adaptiva program kontroller i Azure Security Center är en intelligent, automatiserad program filtrerings lösning från slut punkt till slut punkt som kan blockera eller förhindra att specifika program körs på dina virtuella datorer. Program kontroll kan hjälpa dig att upprätthålla och övervaka efterlevnaden av principer för begränsning av program vara. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka virtuella datorer där en lista över tillåtna program rekommenderas men inte har kon figurer ATS än.
 
@@ -148,7 +148,7 @@ Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitio
 - \[För hands version \] : Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösen ord
 - \[För hands version \] : Distribuera krav för att granska virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
 
-## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Authenticator-hantering | Lösenordsbaserad autentisering
+## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Authenticator-hantering | Password-Based autentisering
 
 Den här skissen hjälper dig att använda starka lösen ord genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar virtuella Windows-datorer som inte kräver lägsta möjliga styrka och andra lösen ords krav. Medvetenheten om virtuella datorer som strider mot principen för lösen ords styrka hjälper dig att vidta åtgärder för att se till att lösen ord för alla virtuella dator användar konton följer organisationens lösen ords princip.
 

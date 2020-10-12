@@ -8,10 +8,10 @@ ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87542746"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Hitta och ta bort frånkopplade Azure-hanterade och ohanterade diskar – Azure Portal
@@ -45,17 +45,17 @@ Om du har ohanterade diskar som inte är kopplade till en virtuell dator behöve
 
     En lista över alla ohanterade diskar visas. Alla diskar som har " **-** " i kolumnen **bifogad till** är en icke-ansluten disk.
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Skärm bild av bladet ej hanterade diskar. Diskar i det här bladet som är kopplade till kolumnen är inte kopplade.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Skärm bild av bladet enskilda hanterade diskar. Det här bladet visar unattached i disk tillstånd om det inte är kopplat. Du kan ta bort disken om du inte behöver bevara dess data längre":::
 
 1. Välj den icke-anslutna disken som du vill ta bort. Då öppnas bladet disk.
 
 1. På diskens blad kan du bekräfta att det är frånkopplat, eftersom det fortfarande är **kopplat till** **-** .
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Skärm bild av ett enskilt ohanterat disk blad. Den har-som bifogad till-värde om den är frånkopplad. Om du inte längre behöver dessa disk data kan du ta bort den.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Skärm bild av bladet enskilda hanterade diskar. Det här bladet visar unattached i disk tillstånd om det inte är kopplat. Du kan ta bort disken om du inte behöver bevara dess data längre":::
 
 1. Välj **Ta bort**.
 
-    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Skärm bild av ett enskilt ohanterat disk blad, markera ta bort.":::
+    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Skärm bild av bladet enskilda hanterade diskar. Det här bladet visar unattached i disk tillstånd om det inte är kopplat. Du kan ta bort disken om du inte behöver bevara dess data längre":::
 
 ## <a name="next-steps"></a>Nästa steg
 

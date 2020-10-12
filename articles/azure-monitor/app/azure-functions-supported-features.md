@@ -7,10 +7,10 @@ ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 333bba2b1d3cd83457196e38b827daa78199f235
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87033521"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application Insights för Azure Functions stödda funktioner
@@ -27,27 +27,27 @@ Mer information om kompatibla versioner av Application Insights finns i [beroend
 |-----------------------------------    |---------------    |------------------ |
 | | | | 
 | **Automatisk insamling av**        |                 |                   |               
-| &bull;Autentiseringsbegäran                     | Ja             | Ja               | 
-| &bull;Undantag                   | Ja             | Ja               | 
-| &bull;Prestanda räknare         | Ja             | Ja               |
-| &bull;Relation                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash;INKOMMANDE      |                 | Yes               | 
-| &nbsp;&nbsp;&nbsp;&mdash;Service Bus|                 | Yes               | 
-| &nbsp;&nbsp;&nbsp;&mdash;EventHub  |                 | Yes               | 
-| &nbsp;&nbsp;&nbsp;&mdash;SQL       |                 | Yes               | 
+| &bull; Autentiseringsbegäran                     | Ja             | Ja               | 
+| &bull; Undantag                   | Ja             | Ja               | 
+| &bull; Prestanda räknare         | Ja             | Ja               |
+| &bull; Relation                   |                   |                   |               
+| &nbsp;&nbsp;&nbsp;&mdash; INKOMMANDE      |                 | Ja               | 
+| &nbsp;&nbsp;&nbsp;&mdash; Service Bus|                 | Ja               | 
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | Ja               | 
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Ja               | 
 | | | | 
 | **Funktioner som stöds**                |                   |                   |               
-| &bull;QuickPulse/LiveMetrics       | Ja             | Ja               | 
-| &nbsp;&nbsp;&nbsp;&mdash;Säker kontroll kanal|                 | Yes               | 
-| &bull;Ta                     | Ja             | Ja               | 
-| &bull;Pulsslag                   |                 | Yes               | 
+| &bull; QuickPulse/LiveMetrics       | Ja             | Ja               | 
+| &nbsp;&nbsp;&nbsp;&mdash; Säker kontroll kanal|                 | Ja               | 
+| &bull; Ta                     | Ja             | Ja               | 
+| &bull; Pulsslag                   |                 | Ja               | 
 | | | | 
 | **Korrelation**                       |                   |                   |               
-| &bull;Service Bus                     |                   | Yes               | 
-| &bull;EventHub                       |                   | Yes               | 
+| &bull; Service Bus                     |                   | Ja               | 
+| &bull; EventHub                       |                   | Ja               | 
 | | | | 
 | **Konfigurerbar**                      |                   |                   |           
-| &bull;Helt konfigurerbart.<br/>Se [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) för instruktioner.<br/>Se [ASP.net Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) för alla alternativ.               |                   | Yes                   | 
+| &bull;Helt konfigurerbart.<br/>Se [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) för instruktioner.<br/>Se [ASP.net Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) för alla alternativ.               |                   | Ja                   | 
 
 
 ## <a name="performance-counters"></a>Prestandaräknare

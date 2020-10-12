@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
 ms.openlocfilehash: 5511ad5a517bbd320ce3d66de90a8aec084c7e15
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87290736"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Konfigurera ett labb för teknik klasser med hjälp av SOLIDWORKs
@@ -76,7 +76,7 @@ Stegen i det här avsnittet visar hur du konfigurerar en mall för virtuella dat
     > [!NOTE]
     > I dialog rutan **Lägg till Server** uppmanas du att ange det **port nummer** som används för licens servern och namnet eller IP-adressen för licens servern.
 
-## <a name="cost"></a>Cost (Kostnad)
+## <a name="cost"></a>Kostnad
 
 Vi ska se en möjlig kostnads uppskattning för den här klassen. Den här beräkningen omfattar inte kostnaden för att köra licens servern. Vi använder en klass av 25 studenter. Det finns 20 timmar med den schemalagda klass tiden. Dessutom får varje student en kvot på 10 timmar för läxor eller tilldelningar utanför schemalagda klass tider. Storleken på den virtuella datorn som vi valde var **liten GPU (visualisering)**, som är 160 lab-enheter.
 

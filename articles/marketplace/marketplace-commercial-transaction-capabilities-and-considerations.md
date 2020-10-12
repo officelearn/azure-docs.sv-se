@@ -8,10 +8,10 @@ ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
 ms.openlocfilehash: ca8f2e1721c99c79188917e5b44950b8db6895ce
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90006405"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Transact-funktioner för kommersiella Marketplace
@@ -107,7 +107,7 @@ I det här scenariot faktureras Microsoft $1,14 per timme för användning av de
 |Microsoft håller 100% av Azures användnings kostnad | $0,14 per timme |
 ||
 
-**Bring Your Own License (BYOL)**
+**Ta med din egen licens (BYOL)**
 
 BYOL har följande kostnads struktur:
 

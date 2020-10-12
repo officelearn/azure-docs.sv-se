@@ -4,10 +4,10 @@ description: Registrera och analysera resurs logg händelser för Azure Containe
 ms.topic: article
 ms.date: 06/01/2020
 ms.openlocfilehash: 63ccb944b9c3de9941acf55ca5ea85fda70a7008
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87553384"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Azure Container Registry loggar för diagnostisk utvärdering och granskning
@@ -37,7 +37,7 @@ Följande händelser på lagrings nivå för bilder och andra artefakter är fö
 
 Resurs loggar innehåller information som genereras av Azure-resurser som beskriver den interna åtgärden. I ett Azure Container Registry innehåller loggarna autentiserings-och lagrings nivå händelser som lagras i följande tabeller. 
 
-* **ContainerRegistryLoginEvents** – händelser och status för klientautentisering, inklusive inkommande identitet och IP-adress
+* **ContainerRegistryLoginEvents**  – händelser och status för klientautentisering, inklusive inkommande identitet och IP-adress
 * **ContainerRegistryRepositoryEvents** – åtgärder som push och pull för avbildningar och andra artefakter i register databaser
 * **AzureMetrics**  -  [Container Registry-mått](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries) som aggregerade push-och pull-antal.
 

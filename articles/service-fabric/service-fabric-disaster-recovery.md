@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 9c258d8d0a7aa26c96ab4f64017770ebdd153e60
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257515"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Haveri beredskap i Azure Service Fabric
@@ -151,7 +151,7 @@ Om du tar reda på att de återstående replikerna inte är tillräckliga för a
 > [!NOTE]
 > System tjänster kan också drabbas av förlust av kvorum. Påverkan är unik för den aktuella tjänsten. Till exempel påverkar kvorumet i namngivnings tjänsten namn matchning, medan kvorum i Redundanshanterarens tjänsten blockerar skapande av nya tjänster och redundans. 
 > 
-> Service Fabric system tjänster följer samma mönster som dina tjänster för tillstånds hantering, men vi rekommenderar inte att du försöker flytta dem bort från kvorumet och till potentiell data förlust. I stället rekommenderar vi att du [söker efter support](service-fabric-support.md) för att hitta en lösning som är riktad mot din situation. Det är vanligt vis bättre att bara vänta tills de båda replikerna har returnerats.
+> Service Fabric system tjänster följer samma mönster som dina tjänster för tillstånds hantering, men vi rekommenderar inte att du försöker flytta dem bort från kvorumet och till potentiell data förlust. I stället rekommenderar vi att du  [söker efter support](service-fabric-support.md) för att hitta en lösning som är riktad mot din situation. Det är vanligt vis bättre att bara vänta tills de båda replikerna har returnerats.
 >
 
 #### <a name="troubleshooting-quorum-loss"></a>Felsöka kvorum

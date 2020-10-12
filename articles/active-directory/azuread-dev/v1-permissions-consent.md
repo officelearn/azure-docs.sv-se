@@ -15,10 +15,10 @@ ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: c600e1fddc0089a508ff0cfebbbb3476f3a90008
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88117625"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Behörigheter och medgivande i Azure Active Directory v 1.0-slutpunkten
@@ -98,11 +98,11 @@ Program i Azure AD förlitar sig på godkännanden för att få åtkomst till re
 - Resurserna ska tydligt definiera behörigheterna `Read` och `ReadWrite` separat.
 - Resurserna ska markera alla behörigheter som ger åtkomst till data över användarens gränser som `Admin`-behörigheter.
 - Resurser bör följa namngivningsmönstret `Subject.Permission[.Modifier]`, där:
-  - `Subject`motsvarar den typ av data som är tillgänglig
-  - `Permission`motsvarar åtgärden som en användare kan utföra på dessa data
-  - `Modifier`används för att beskriva specialiseringar för en annan behörighet
+  - `Subject` motsvarar den typ av data som är tillgänglig
+  - `Permission` motsvarar åtgärden som en användare kan utföra på dessa data
+  - `Modifier` används för att beskriva specialiseringar för en annan behörighet
     
-    Till exempel:
+    Exempel:
   - Mail.Read – Tillåter att användarna läser e-post.
   - Mail.ReadWrite – Tillåter att användarna läser eller skriver e-post.
   - Mail.ReadWrite.All – Ger en administratör eller användare åtkomst till all e-post i organisationen.

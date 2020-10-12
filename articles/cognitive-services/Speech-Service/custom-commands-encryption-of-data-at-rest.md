@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
 ms.openlocfilehash: 83b6e6be8764a86c41bd9156cc96f8a594dbe1e9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87294557"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>Anpassade kommandon för kryptering av vilande data
@@ -25,7 +25,7 @@ Anpassade kommandon krypterar automatiskt dina data när de sparas i molnet. Den
 > Custom commands-tjänsten aktiverar inte automatiskt kryptering för de LUIS-resurser som är kopplade till ditt program. Om det behövs måste du aktivera kryptering för LUIS-resursen härifrån [.](./../LUIS/luis-encryption-of-data-at-rest.md)
 
 ## <a name="about-cognitive-services-encryption"></a>Om Cognitive Services kryptering
-Data krypteras och dekrypteras med hjälp av [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) [-kompatibla 256-bitars AES-](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) kryptering. Kryptering och dekryptering är transparent, vilket innebär att kryptering och åtkomst hanteras åt dig. Dina data är säkra som standard och du behöver inte ändra din kod eller dina program för att utnyttja kryptering.
+Data krypteras och dekrypteras med hjälp av [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) [-kompatibla 256-bitars AES-](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) kryptering. Kryptering och dekryptering är transparent, vilket innebär att kryptering och åtkomst hanteras åt dig. Dina data skyddas som standard och du behöver inte ändra din kod eller dina program för att utnyttja krypteringen.
 
 ## <a name="about-encryption-key-management"></a>Om hantering av krypterings nyckel
 
@@ -33,13 +33,13 @@ När du använder anpassade kommandon kommer tal tjänsten att lagra följande d
 * Konfigurations-JSON bakom programmet för anpassade kommandon
 * LUIS-redigering och förutsägelse nyckel
 
-Som standard använder din prenumeration Microsoft-hanterade krypterings nycklar. Du kan dock även hantera din prenumeration med dina egna krypterings nycklar. Kundhanterade nycklar (CMK), som även kallas för att ta med din egen nyckel (BYOK), erbjuder större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska de krypterings nycklar som används för att skydda dina data.
+Som standard använder din prenumeration krypteringsnycklar som hanteras av Microsoft. Men du kan också hantera din prenumeration med egna krypteringsnycklar. Kundhanterade nycklar (CMK) kallas även för BYOK och ger större flexibilitet att skapa, rotera, inaktivera och återkalla åtkomstkontroller. Du kan också granska krypteringsnycklarna som används för att skydda dina data.
 
 
 > [!IMPORTANT]
 > Kundhanterade nycklar är bara tillgängliga resurser som skapats efter den 27 juni 2020. Om du vill använda CMK med tal tjänster måste du skapa en ny tal resurs. När resursen har skapats kan du använda Azure Key Vault för att konfigurera din hanterade identitet.
 
-Om du vill begära möjlighet att använda Kundhanterade nycklar, fyller du i och skickar in kundhanterad nyckel fråge formulär. Det tar cirka 3-5 arbets dagar att höra om status för din begäran. Beroende på efter frågan kan du placera i en kö och godkännas som utrymme blir tillgängligt. När du har godkänt för att använda CMK med tal tjänster måste du skapa en ny tal resurs från Azure Portal.
+För att begära möjlighet att använda Kundhanterade nycklar, fyller du i och skickar Customer-Managed formuläret för förfrågnings formulär. Det tar cirka 3-5 arbets dagar att höra om status för din begäran. Beroende på efter frågan kan du placera i en kö och godkännas som utrymme blir tillgängligt. När du har godkänt för att använda CMK med tal tjänster måste du skapa en ny tal resurs från Azure Portal.
    > [!NOTE]
    > **Kundhanterade nycklar (CMK) stöds endast för anpassade kommandon.**
    >
@@ -151,7 +151,7 @@ När du inaktiverar Kundhanterade nycklar krypteras din tal resurs sedan med Mic
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Tal för kundhanterad nyckel förfrågnings formulär](https://aka.ms/cogsvc-cmk)
+* [Formulär för begäran om tal Customer-Managed nyckel](https://aka.ms/cogsvc-cmk)
 * [Läs mer om Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 * [Vad är hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 

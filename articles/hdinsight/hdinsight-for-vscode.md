@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: bb2fff699b31d8b3b311180c4b85e2bfd1da892c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530161"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Använda Spark & Hive-verktyg för Visual Studio Code
@@ -115,7 +115,7 @@ Du kan länka ett vanligt kluster genom att använda ett [Apache Ambari](https:/
 3. Ange den allmänna livy-slutpunkten. Till exempel: http \: //10.172.41.42:18080.
 
 4. Välj typ av auktorisering **Basic** eller **none**.  Om du väljer **Basic**:  
-    &emsp;en. Ange ditt Ambari-användarnamn; Standardvärdet är **admin**.  
+    &emsp;a. Ange ditt Ambari-användarnamn; Standardvärdet är **admin**.  
     &emsp;t. Ange ditt Ambari-lösenord.
 
 5. Granska vyn **utdata** för verifiering.
@@ -331,7 +331,7 @@ Metod 2 skicka en fil och Lägg märke till att `.vscode` mappen automatiskt lä
 
     **Publicera/batches** Brödtext i begäran
 
-    | namn | description | typ |
+    | name | description | typ |
     | --- | --- | --- |
     | file | Fil som innehåller det program som ska köras | Sökväg (obligatoriskt) |
     | proxyUser | Användare som ska personifieras när jobbet körs | Sträng |
@@ -347,12 +347,12 @@ Metod 2 skicka en fil och Lägg märke till att `.vscode` mappen automatiskt lä
     | numExecutors | Antal körningar som ska startas för den här sessionen | Int |
     | faxarkiv | Arkiv som ska användas i den här sessionen | Lista över strängar |
     | kö | Namnet på den garn kö som ska skickas till| Sträng |
-    | namn | Namnet på den här sessionen | Sträng |
+    | name | Namnet på den här sessionen | Sträng |
     | medför | Konfigurations egenskaper för Spark | Karta över nyckel = val |
 
     Svars text för det skapade batch-objektet.
 
-    | namn | description | typ |
+    | name | description | typ |
     | --- | ---| --- |
     | ID | Sessions-ID | Int |
     | appId | Programmets ID för den här sessionen | Sträng |

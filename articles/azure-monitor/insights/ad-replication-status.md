@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
 ms.openlocfilehash: c33e9105be1eb080025922ff9e612771a4f021cd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318087"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Övervaka Active Directory replikeringsstatus med Azure Monitor
@@ -26,7 +26,7 @@ AD-replikeringsstatuss lösningen övervakar regelbundet din Active Directory-mi
 ## <a name="installing-and-configuring-the-solution"></a>Installera och konfigurera lösningen
 Använd följande information för att installera och konfigurera lösningen.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * AD-replikeringsstatus-lösningen kräver en version av .NET Framework 4.6.2 som stöds eller som är installerad på varje dator som har Log Analytics agent för Windows (kallas även Microsoft Monitoring Agent (MMA)) installerad.  Agenten används av System Center 2016-Operations Manager, Operations Manager 2012 R2 och Azure Monitor.
 * Lösningen stöder domänkontrollanter som kör Windows Server 2008 och 2008 R2, Windows Server 2012 och 2012 R2 och Windows Server 2016.
@@ -41,7 +41,7 @@ Om du inte vill ansluta någon av domän kontrol Lanterna direkt till Azure Moni
 
 1. Kontrol lera att datorn är medlem i den domän som du vill övervaka med hjälp av AD-replikeringsstatus-lösningen.
 2. [Anslut Windows-datorn för att Azure Monitor](../platform/om-agents.md) eller [Anslut den med din befintliga Operations Manager miljö till Azure Monitor](../platform/om-agents.md), om den inte redan är ansluten.
-3. På den datorn anger du följande register nyckel:<br>Nyckel: **HKEY_LOCAL_MACHINE \System\currentcontrolset\services\healthservice\parameters\management Groups \<ManagementGroupName> \Solutions\ADReplication**<br>Värde: **IsTarget**<br>Värde data: **True**
+3. På den datorn anger du följande register nyckel:<br>Nyckel: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName> \Solutions\ADReplication**<br>Värde: **IsTarget**<br>Värde data: **True**
 
    > [!NOTE]
    > Ändringarna börjar inte gälla förrän du startar om tjänsten Microsoft Monitoring Agent (HealthService.exe).
@@ -52,9 +52,7 @@ Om du inte vill ansluta någon av domän kontrol Lanterna direkt till Azure Moni
 ## <a name="ad-replication-status-data-collection-details"></a>Information om AD-replikeringsstatus data insamling
 I följande tabell visas metoder för data insamling och annan information om hur data samlas in för AD-replikeringsstatus.
 
-| 
-    plattform
-   | Direkt agent | SCOM-agent | Azure Storage | SCOM krävs? | SCOM agent-data som skickats via hanterings grupp | samlings frekvens |
+| plattform | Direkt agent | SCOM-agent | Azure Storage | SCOM krävs? | SCOM agent-data som skickats via hanterings grupp | samlings frekvens |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |var femte dag |
 

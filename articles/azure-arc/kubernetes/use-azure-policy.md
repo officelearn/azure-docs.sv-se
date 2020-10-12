@@ -9,17 +9,17 @@ ms.author: mlearned
 description: Använd Azure Policy för att tillämpa klusterkonfigurationer i stor skala
 keywords: Kubernetes, båge, Azure, K8s, behållare
 ms.openlocfilehash: e4279f3d89376320116067bf191e3196271918ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87050045"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Använd Azure Policy om du vill använda klusterkonfigurationer i skala (för hands version)
 
 ## <a name="overview"></a>Översikt
 
-Använd Azure Policy för att framtvinga att varje `Microsoft.Kubernetes/connectedclusters` resurs eller git-Ops-aktiverad `Microsoft.ContainerService/managedClusters` resurs har en speciell `Microsoft.KubernetesConfiguration/sourceControlConfigurations` tillämpning. Om du vill använda Azure Policy väljer du en befintlig princip definition och skapar en princip tilldelning. När du skapar princip tilldelningen anger du omfånget för tilldelningen: det här är en Azure-resurs grupp eller-prenumeration. Du anger också parametrarna för `sourceControlConfiguration` som ska skapas. När tilldelningen har skapats kommer principmodulen att identifiera alla `connectedCluster` eller `managedCluster` resurser som finns inom omfånget och som ska gälla `sourceControlConfiguration` för var och en.
+Använd Azure Policy för att framtvinga att varje `Microsoft.Kubernetes/connectedclusters` resurs eller Git-Ops aktive rad `Microsoft.ContainerService/managedClusters` resurs har en speciell `Microsoft.KubernetesConfiguration/sourceControlConfigurations` tillämpning. Om du vill använda Azure Policy väljer du en befintlig princip definition och skapar en princip tilldelning. När du skapar princip tilldelningen anger du omfånget för tilldelningen: det här är en Azure-resurs grupp eller-prenumeration. Du anger också parametrarna för `sourceControlConfiguration` som ska skapas. När tilldelningen har skapats kommer principmodulen att identifiera alla `connectedCluster` eller `managedCluster` resurser som finns inom omfånget och som ska gälla `sourceControlConfiguration` för var och en.
 
 Om du använder flera git-databaser som källor till sanningen för varje kluster (till exempel en lagrings platsen för central IT/kluster operatör och andra databaser för program team), kan du aktivera detta genom att använda flera princip tilldelningar, varje princip tilldelning som kon figurer ATS för att använda en annan git-lagrings platsen.
 

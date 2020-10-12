@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 6d6b868f745803263339e6b27e2610aaca8f63fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87317475"
 ---
 # <a name="understand-autoscale-settings"></a>Förstå inställningarna för automatisk skalning
@@ -103,7 +103,7 @@ För att illustrera schemat för autoskalning av inställningar används följan
 | metricTrigger | timeGrain | Mått samplingens varaktighet. Till exempel innebär **TimeGrain = "PT1M"** att måtten ska aggregeras var 1 minut, genom att använda den agg regerings metod som anges i elementet statistik. |
 | metricTrigger | statistik | Agg regerings metoden inom timeGrain-perioden. Till exempel, **statistik = "Average"** och **TIMEGRAIN = "PT1M"** innebär att måtten ska aggregeras var 1 minut, genom att ta medelvärdet. Den här egenskapen anger hur måttet ska samplas. |
 | metricTrigger | timeWindow | Hur lång tid det får ta att se upp för Mät värden. Exempel: **timeWindow = "PT10M"** innebär att varje gång autoskalning körs, frågar den efter de senaste 10 minuterna. Tidsfönstret gör att dina mått är normaliserade och förhindrar att de reagerar på tillfälliga toppar. |
-| metricTrigger | timeAggregation | Den agg regerings metod som används för att aggregera exempel måtten. Till exempel ska **TimeAggregation = "Average"** summera de samplade måtten genom att ta medelvärdet. I föregående fall tar du provet med 10 minuter och beräknar medelvärdet. |
+| metricTrigger | timeAggregation | Den agg regerings metod som används för att aggregera exempel måtten. Till exempel ska **TimeAggregation = "Average"** summera de samplade måtten genom att ta medelvärdet. I föregående fall tar du med 10 1-minuters provet och beräknar det. |
 | allmänhet | scaleAction | Den åtgärd som ska vidtas när metricTrigger för regeln utlöses. |
 | scaleAction | riktning | "Öka" för att skala ut eller "minska" för att skala in.|
 | scaleAction | värde | Hur mycket du kan öka eller minska resursens kapacitet. |

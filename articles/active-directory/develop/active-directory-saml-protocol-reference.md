@@ -1,6 +1,6 @@
 ---
 title: Hur Microsoft Identity Platform använder SAML-protokollet
-description: Den här artikeln innehåller en översikt över SAML-profilerna för enkel inloggning och enkel inloggning i Azure Active Directory.
+description: Den här artikeln innehåller en översikt över SAML-profilerna för enskilda Sign-On och Sign-Out i Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
 ms.openlocfilehash: 06f80f94be25e42c9e8f0270e6cb15aca086ae18
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87552806"
 ---
 # <a name="how-microsoft-identity-platform-uses-the-saml-protocol"></a>Hur Microsoft Identity Platform använder SAML-protokollet
@@ -31,7 +31,7 @@ Microsoft Identity Platform använder moln tjänstens **metadata-URI** för att 
 
 Azure Active Directory exponerar klient-och common (klient oberoende) enkel inloggning och enkel inloggnings slut punkter. Dessa URL: er representerar adresser bara platser – de är inte bara identifierare – så att du kan gå till slut punkten för att läsa metadata.
 
-* Den klient-/regionsspecifika slut punkten finns på `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml` . *\<TenantDomainName>* Plats hållaren representerar ett registrerat domän namn eller ett TenantID-GUID för en Azure AD-klient. Contoso.com-klientens federationsmetadata är till exempel:https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+* Den klient-/regionsspecifika slut punkten finns på `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml` . *\<TenantDomainName>* Plats hållaren representerar ett registrerat domän namn eller ett TenantID-GUID för en Azure AD-klient. Contoso.com-klientens federationsmetadata är till exempel: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
 * Klient oberoende slut punkt finns på `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml` . I den här slut punkts adressen visas **vanligt** i stället för ett klient domän namn eller-ID.
 

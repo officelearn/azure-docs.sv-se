@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
 ms.openlocfilehash: 91bc7adaf7829766c471056c50c1c3abd70dda63
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87828786"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Viktig information om Microsoft Azure Storage Explorer
@@ -1031,7 +1031,7 @@ Slutligen kommer stöd för att använda AzCopy med fil resurser att komma i fra
 ### <a name="new"></a>Ny
 * Att komma åt $web behållare som används av statiska webbplatser stöds nu. På så sätt kan du enkelt ladda upp och hantera filer och mappar som används av din webbplats. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
 * App-fältet på macOS har omorganiserats. Ändringarna inkluderar en filmeny, vissa kortkommandon och flera nya kommandon under menyn app. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
-* Auktoritets slut punkten för att logga in på Azure amerikanska myndigheter har ändrats tillhttps://login.microsoftonline.us/
+* Auktoritets slut punkten för att logga in på Azure amerikanska myndigheter har ändrats till https://login.microsoftonline.us/
 * Hjälpmedel: när en skärm läsare är aktiv fungerar tangent bords navigering nu med de tabeller som används för att visa objekt på den högra sidan. Du kan använda piltangenterna för att navigera bland rader och kolumner, ange för att anropa standard åtgärder, snabb meny tangenten för att öppna snabb menyn för ett objekt och flytta eller styra till MultiSelect. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
 
 ### <a name="fixes"></a>Korrigeringar
@@ -1414,7 +1414,7 @@ Slutligen kommer stöd för att använda AzCopy med fil resurser att komma i fra
 * Storage Explorer pausar nu iteration under BLOB-uppladdning/nedladdning om den upptäcker att nätverks anslutningen har brutits. Du kan sedan återuppta iterationen när nätverks anslutningen har återupprättats.
 * Har lagt till möjligheten att "stänga alla", "Stäng andra" och "Stäng" flikar via snabb menyn.
 * Storage Explorer använder nu inbyggda dialog rutor och inbyggda snabb menyer.
-* Storage Explorer är nu mer tillgängligt. Förbättringarna är:
+* Storage Explorer är nu mer tillgängligt. Här är några av förbättringarna:
     * Förbättrat stöd för skärm läsare, för NVDA i Windows och för VoiceOver på Mac
     * Förbättrad hög kontrast
     * Tangent bords tabbar och tangent bords fokus korrigeras
@@ -1470,7 +1470,7 @@ Slutligen kommer stöd för att använda AzCopy med fil resurser att komma i fra
 * Storage Explorer pausar nu iteration under BLOB-uppladdning/nedladdning om den upptäcker att nätverks anslutningen har brutits. Du kan sedan återuppta iterationen när nätverks anslutningen har återupprättats.
 * Har lagt till möjligheten att "stänga alla", "Stäng andra" och "Stäng" flikar via snabb menyn.
 * Storage Explorer använder nu inbyggda dialog rutor och inbyggda snabb menyer.
-* Storage Explorer är nu mer tillgängligt. Förbättringarna är:
+* Storage Explorer är nu mer tillgängligt. Här är några av förbättringarna:
     * Förbättrat stöd för skärm läsare, för NVDA i Windows och för VoiceOver på Mac
     * Förbättrad hög kontrast
     * Tangent bords tabbar och tangent bords fokus korrigeras

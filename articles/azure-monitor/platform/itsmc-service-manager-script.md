@@ -7,10 +7,10 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
 ms.openlocfilehash: 46c219a82d45129ed0856d22d88be819938e5240
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87325312"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Skapa Service Manager-webbapp med det automatiserade skriptet
@@ -21,7 +21,7 @@ Kör skriptet genom att ange följande obligatoriska information:
 
 - Information om Azure-prenumeration
 - Namn på resursgrupp
-- Position
+- Location
 - Service Manager Server information (Server namn, domän, användar namn och lösen ord)
 - Prefix för webbplats namn för din webbapp
 - Service Bus-namnrymd.
@@ -32,7 +32,7 @@ Spara dessa värden. du behöver dessa värden när du skapar en anslutning med 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
  Windows Management Framework 5,0 eller senare.
 Windows 10 har 5,1 som standard. Du kan ladda ned ramverket [här](https://www.microsoft.com/download/details.aspx?id=50395):

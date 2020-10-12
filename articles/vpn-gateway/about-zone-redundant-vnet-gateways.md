@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: 2030469262baf406635fd170af384e154fec6ae6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401120"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Om zoner – redundanta virtuella nätverksgateway i Azure-tillgänglighetszoner
@@ -63,7 +63,7 @@ När du skapar en offentlig IP-adress med hjälp av **standard** -offentliga IP-
 
 När du skapar en offentlig IP-adress med hjälp av den **grundläggande** offentliga IP-SKU: n distribueras gatewayen som en regional gateway och har ingen zon-redundans inbyggd i gatewayen.
 
-## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a><a name="faq"></a>ASSURANCE
 
 ### <a name="what-will-change-when-i-deploy-these-new-skus"></a>Vad kommer att ändras när jag distribuerar dessa nya SKU: er?
 

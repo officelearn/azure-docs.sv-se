@@ -8,10 +8,10 @@ ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
 ms.openlocfilehash: 9ea98df4b6cd8572412e7082b451feac3736919c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327080"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights log-baserade mått
@@ -49,7 +49,7 @@ Mått i kategorin tillgänglighet gör att du kan se hälso tillståndet för di
 
 |Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
 |---|---|---|---|---|---|
-|Procent|Genomsnitt|Körnings plats, test namn|
+|Procentandel|Genomsnitt|Körnings plats, test namn|
 
 ```Kusto
 availabilityResults 
@@ -98,7 +98,7 @@ Webb läsar mått samlas in av Application Insights JavaScript SDK från verklig
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Ingen|
+|Millisekunder|Genomsnitt, min, max|Inget|
 
 ```Kusto
 browserTimings
@@ -114,7 +114,7 @@ browserTimings
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Ingen|
+|Millisekunder|Genomsnitt, min, max|Inget|
 
 ```Kusto
 browserTimings
@@ -130,7 +130,7 @@ browserTimings
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Ingen|
+|Millisekunder|Genomsnitt, min, max|Inget|
 
 ```Kusto
 browserTimings
@@ -146,7 +146,7 @@ browserTimings
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Ingen|
+|Millisekunder|Genomsnitt, min, max|Inget|
 
 ```Kusto
 browserTimings
@@ -162,7 +162,7 @@ browserTimings
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Ingen|
+|Millisekunder|Genomsnitt, min, max|Inget|
 
 ```Kusto
 browserTimings
@@ -184,7 +184,7 @@ Det här måttet visar antalet utlösta undantag från din program kod som körs
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Obs!|
 |---|---|---|---|
-|Antal|Antal|Ingen|Log-baserad version använder **Summa** agg regering|
+|Antal|Antal|Inget|Log-baserad version använder **Summa** agg regering|
 
 ```Kusto
 exceptions
@@ -199,7 +199,7 @@ Antalet misslyckade beroende anrop.
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Obs!|
 |---|---|---|---|
-|Antal|Antal|Ingen|Log-baserad version använder **Summa** agg regering|
+|Antal|Antal|Inget|Log-baserad version använder **Summa** agg regering|
 
 ```Kusto
 dependencies
@@ -224,7 +224,7 @@ exceptions
 
 ### <a name="failed-requests-requestsfailed"></a>Misslyckade förfrågningar (begär Anden/misslyckade)
 
-Antalet spårade server begär Anden som marker ATS som *misslyckade*. Som standard märker Application Insights SDK automatiskt varje serverbegäran som returnerade HTTP-svarskod 5xx eller 4xx som en misslyckad begäran. Du kan anpassa den här logiken genom att ändra egenskapen *lyckades* för objektet begär telemetri i en [anpassad telemetri-initierare](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
+Antalet spårade server begär Anden som marker ATS som *misslyckade*. Som standard märker Application Insights SDK automatiskt varje serverbegäran som returnerade HTTP-svarskod 5xx eller 4xx som en misslyckad begäran. Du kan anpassa den här logiken genom att ändra egenskapen  *lyckades* för objektet begär telemetri i en [anpassad telemetri-initierare](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Obs!|
 |---|---|---|---|
@@ -312,7 +312,7 @@ Måttet visar hur mycket av den totala processor kapaciteten som förbrukas av p
 
 |Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
 |---|---|---|
-|Procent|Genomsnitt, min, max|Moln roll instans
+|Procentandel|Genomsnitt, min, max|Moln roll instans
 
 ```Kusto
 performanceCounters
@@ -358,10 +358,10 @@ PROCESSOR förbrukning för *alla* processer som körs på den övervakade Serve
 
 |Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
 |---|---|---|
-|Procent|Genomsnitt, min, max|Moln roll instans
+|Procentandel|Genomsnitt, min, max|Moln roll instans
 
 >[!NOTE]
-> Måttet för processor tiden är inte tillgängligt för de program som finns i Azure App Services. Använd [process processor](#process-cpu-performancecountersprocesscpupercentage) måttet för att spåra processor användningen för de webb program som finns i app Services.
+> Måttet för processor tiden är inte tillgängligt för de program som finns i Azure App Services. Använd  [process processor](#process-cpu-performancecountersprocesscpupercentage) måttet för att spåra processor användningen för de webb program som finns i app Services.
 
 ```Kusto
 performanceCounters

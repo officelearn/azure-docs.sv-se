@@ -7,10 +7,10 @@ ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
 ms.openlocfilehash: fcc0538dfef1581a244ae5fd9a3515be3470026c
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850939"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Skapa en Azure Batch-pool utan offentliga IP-adresser
@@ -27,7 +27,7 @@ Om du vill begränsa åtkomsten till dessa noder och minska identifieringen av d
 > Stöd för pooler utan offentliga IP-adresser i Azure Batch är för närvarande en offentlig för hands version för följande regioner: Frankrike, centrala, Asien, östra, västra centrala USA, södra centrala USA, västra USA 2, östra USA, norra Europa, östra USA 2, centrala USA, västra Europa, norra centrala USA, västra USA, östra Australien, Östra Japan, västra Japan.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Autentisering**. Om du vill använda en pool utan offentliga IP-adresser i ett [virtuellt nätverk](./batch-virtual-network.md)måste batch-klientens API använda Azure Active Directory (AD)-autentisering. Mer dokumentation om stödet för Azure Batch i Azure Active Directory finns i [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md) (Autentisera lösningar för Batch-tjänsten med Active Directory). Om du inte skapar poolen i ett virtuellt nätverk kan du använda Azure AD-autentisering eller nyckelbaserad autentisering.
 

@@ -11,10 +11,10 @@ ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: c753e9a18f9869e1bf11aa437fb60484f2553e17
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259262"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera LexisNexis med Azure Active Directory B2C
@@ -49,7 +49,7 @@ I följande arkitektur diagram visas implementeringen.
 
 ![skärm bild för LexisNexis-Architecture-diagram](media/partner-lexisnexis/lexisnexis-architecture-diagram.png)
 
-|Steg | Description |
+|Steg | Beskrivning |
 |:--------------|:-------------|
 |1. | Användaren kommer till inloggnings sidan. Användaren väljer att registrera sig för att skapa ett nytt konto och ange information på sidan. Azure AD B2C samlar in användarattribut.
 | 2. | Azure AD B2C anropar API: t för mellanlager och passerar användar-attributen.
@@ -82,7 +82,7 @@ Distribuera den tillhandahållna [API-koden](https://github.com/azure-ad-b2c/par
 
 Program inställningar kan [konfigureras i App Service i Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings).  Med den här metoden kan du konfigurera inställningar på ett säkert sätt utan att kontrol lera dem i en lagrings plats. Du måste ange följande inställningar för REST-API: et:
 
-| Programinställningar | Källa | Kommentarer |
+| Programinställningar | Källa | Obs! |
 | :-------- | :------------| :-----------|
 |ThreatMetrix: URL | Konfiguration av ThreatMetrix-konto |     |
 |ThreatMetrix: OrgId | Konfiguration av ThreatMetrix-konto |     |

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: a1fedb637bee9d98fb09d8fc3fa133b2992ce86e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad7fc7d9d02cd9a9a6fe74534a7c674fe0ac778d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613675"
+ms.locfileid: "91893262"
 ---
 # <a name="pbr-materials"></a>PBR-material
 
@@ -40,6 +40,8 @@ Dessa egenskaper är gemensamma för allt material:
 * **useVertexColor:** Om nätet innehåller :::no-loc text="vertex"::: färger och det här alternativet är aktiverat :::no-loc text="vertex"::: multipliceras maskens färg med *albedoColor* och *albedoMap*. Som standard är *useVertexColor* inaktive rad.
 
 * **isDoubleSided:** Om Double-sidedness är inställt på Sant återges trianglar med det här materialet även om kameran tittar på bak sidorna. För Materials belysning i PBR-material beräknas också korrekt för bak ansikten. Som standard är det här alternativet inaktiverat. Se även [ :::no-loc text="Single-sided"::: åter givning](single-sided-rendering.md).
+
+* **TransparencyWritesDepth:** Om TransparencyWritesDepth-flaggan är inställd på materialet och materialet är transparent, kommer objekt som använder det här materialet också att bidra till den slutliga djup bufferten. Se flaggan PBR material *transparent* i nästa avsnitt. Aktivering av den här funktionen rekommenderas om ditt användnings fall behöver en mer plausible av [försenad fas omprojektion](late-stage-reprojection.md) av helt transparenta scener. För blandade ogenomskinliga/transparenta scener kan den här inställningen leda till implausible eller omprojektions-artefakter. Därför är standardinställningen och den rekommenderade inställningen för allmänt användnings fall att inaktivera den här flaggan. De skrivna djupen tas från djup skiktet per bild punkt i objektet som är närmast kameran.
 
 ## <a name="pbr-material-properties"></a>Egenskaper för PBR-material
 

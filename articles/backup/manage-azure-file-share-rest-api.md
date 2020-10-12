@@ -4,10 +4,10 @@ description: Lär dig hur du använder REST API för att hantera och övervaka A
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 5e2823472c6a7bdd6b3f9819db3079d7efa78c4e
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88892855"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Hantera säkerhets kopiering av Azure-filresurs med REST API
@@ -58,7 +58,7 @@ Namn  | Typ  |  Beskrivning
 --- | --- | ----
 200 OK |  JobResource  | OK
 
-#### <a name="response-example"></a>Svars exempel
+#### <a name="response-example"></a>Exempel på svar
 
 När *Hämta* URI har skickats returneras ett 200-svar.
 
@@ -166,7 +166,7 @@ msrest.http_logger :     'Azure-AsyncOperation': 'https://management.azure.com/S
 'Content-Length': '0'
 ```
 
-Spåra sedan den resulterande åtgärden med hjälp av plats rubriken eller Azure-AsyncOperation-huvudet med ett GET-kommando:
+Spåra sedan den resulterande åtgärden med hjälp av plats rubriken eller Azure-AsyncOperation huvud med ett GET-kommando:
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupoperations/b300922a-ad9c-4181-b4cd-d42ea780ad77?api-version=2016-12-01

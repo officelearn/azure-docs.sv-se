@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 5689bf60144cf3d66335eb4d77a96d29d8cdcc96
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401749"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifiera ExpressRoute-anslutning
@@ -36,24 +36,24 @@ Syftet med det här dokumentet är att hjälpa användarna att identifiera om oc
 
 ## <a name="overview"></a>Översikt
 Följande diagram visar den logiska anslutningen för ett kund nätverk till Microsoft-nätverk med ExpressRoute.
-[![81.1]][1]
+[![1]][1]
 
 I föregående diagram indikerar talen viktiga nätverks punkter. Dessa nätverks platser refereras i den här artikeln vid tidpunkten med deras associerade nummer. Beroende på ExpressRoute-anslutnings modell – molnets Exchange-samplacering, punkt-till-punkt-Ethernet-anslutning eller alla-till-alla (IPVPN)--nätverks punkterna 3 och 4 kan vara växlar (skikt 2 enheter) eller routrar (Layer 3-enheter). Det finns inga nätverks punkter 3 och 4 i den direkta anslutnings modellen. i stället är CEs (2) direkt ansluten till msee via mörk fiber. De viktiga nätverks punkterna illustreras på följande sätt:
 
 1.  Kund beräknings enhet (till exempel en server eller dator)
 2.  CEs: kund gräns routrar 
 3.  Parameterentiteter (CE Facing): providers yttre routrar/växlar som riktar sig mot kund gräns routrar. Kallas PE-CEs i det här dokumentet.
-4.  Parameterentiteter (MSEE: N Facing): providerns gräns routrar/växlar som är riktade till msee. Kallas PE-msee i det här dokumentet.
+4.  Parameterentiteter (MSEE: N Facing): providerns gräns routrar/växlar som är riktade till msee. Kallas PE-MSEEs i det här dokumentet.
 5.  Msee: Microsoft Enterprise Edge (MSEE: N) ExpressRoute-routrar
 6.  Virtual Network-Gateway (VNet)
 7.  Compute-enhet på Azure VNet
 
 Om Cloud Exchange-samplaceringen, punkt-till-punkt-Ethernet eller Direct anslutnings modeller används, upprättar CEs (2) BGP-peering med msee (5). 
 
-Om någon-till-valfri (IPVPN)-anslutnings modell används, upprättar PE-msee (4) BGP-peering med msee (5). PE-msee sprider de vägar som tas emot från Microsoft till kund nätverket via IPVPN Service Provider-nätverket.
+Om någon-till-valfri (IPVPN)-anslutnings modell används, upprättar PE-MSEEs (4) BGP-peering med msee (5). PE-MSEEs sprider de vägar som tas emot från Microsoft till kund nätverket via IPVPN Service Provider Network.
 
 > [!NOTE]
->För hög tillgänglighet upprättar Microsoft en fullständigt redundant parallell anslutning mellan msee-par (5) och PE-msee (4). En fullständigt redundant parallell nätverks Sök väg rekommenderas också mellan kundens nätverk och PE-CEs-par. Mer information om hög tillgänglighet finns i artikeln [design för hög tillgänglighet med ExpressRoute][HA]
+>För hög tillgänglighet upprättar Microsoft en fullständigt redundant parallell anslutning mellan msee (5) och PE-MSEEs (4) par. En fullständigt redundant parallell nätverks Sök väg rekommenderas också mellan kundens nätverk och PE-CEs paret. Mer information om hög tillgänglighet finns i artikeln [design för hög tillgänglighet med ExpressRoute][HA]
 >
 >
 
@@ -316,7 +316,7 @@ Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Se
 StatusCode: 400
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Mer information eller hjälp finns i följande länkar:
 
 - [Microsoft Support][Support]

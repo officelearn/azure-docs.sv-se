@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: jeedes
 ms.openlocfilehash: 7d2dc1d5d02f1a371d6d94f9eeddf395d49126d7
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91620145"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Oracle lib-Protected av F5 BIG-IP APM
@@ -27,7 +27,7 @@ I den här självstudien får du lära dig hur du integrerar Oracle, som skyddas
 * Hantera dina konton på en central plats – Azure Portal.
 * Den här självstudien beskriver instruktioner för Oracle i
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -73,8 +73,8 @@ Utför följande steg för att konfigurera och testa Azure AD SSO med Oracle 1 �
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
     1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-1. **[Konfigurera Oracle, som skyddas av F5, Big-IP APM SSO](#configure-oracle-peoplesoft-protected-by-f5-big-ip-apm-sso)** – för att konfigurera inställningar för enkel inloggning på program sidan.
-    1. **[Skapa Oracle, som skyddas av F5, Big-IP APM-testanvändare](#create-oracle-peoplesoft-protected-by-f5-big-ip-apm-test-user)** – för att ha en motsvarighet till B. Simon i Oracle, som skyddas av F5 Big-IP APM som är länkad till Azure AD-representation av användare.
+1. **[Konfigurera Oracle PeopleSoft-Protected av F5 Big-IP APM SSO](#configure-oracle-peoplesoft-protected-by-f5-big-ip-apm-sso)** – för att konfigurera inställningar för enkel inloggning på program sidan.
+    1. **[Skapa oracle PeopleSoft-Protected av F5 test användare av Big-IP APM](#create-oracle-peoplesoft-protected-by-f5-big-ip-apm-test-user)** – om du vill ha en motsvarighet till B. Simon i Oracle, som skyddas av F5 Big-IP APM som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
@@ -100,7 +100,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<FQDN>.peoplesoft.f5.com/`
 
     > [!NOTE]
-    >Dessa värden är inte verkliga. Uppdatera värdena med den faktiska inloggnings-URL: en, identifierare, svars-URL och utloggnings-URL. Kontakta [Oracle, som skyddas av F5-support teamet för Big-IP APM-klienten](https://support.f5.com) , för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    >Dessa värden är inte verkliga. Uppdatera värdena med faktisk Sign-On-URL, identifierare, svars-URL och utloggnings-URL. Kontakta [Oracle, som skyddas av F5-support teamet för Big-IP APM-klienten](https://support.f5.com) , för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. Oracle, som skyddas av F5 BIG-IP APM-program, förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
@@ -124,7 +124,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -140,7 +140,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Om du förväntar dig att en roll ska tilldelas användarna kan du välja den från List rutan **Välj en roll** . Om ingen roll har kon figurer ATS för den här appen ser du rollen "standard åtkomst" vald.
 1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-## <a name="configure-oracle-peoplesoft-protected-by-f5-big-ip-apm-sso"></a>Konfigurera Oracle lib– skyddas av F5 BIG-IP APM SSO
+## <a name="configure-oracle-peoplesoft-protected-by-f5-big-ip-apm-sso"></a>Konfigurera Oracle PeopleSoft-Protected av F5 BIG-IP APM SSO
 
 ### <a name="f5-saml-sp-configuration"></a>F5 SAML SP-konfiguration
 
@@ -259,25 +259,25 @@ I funktionen **getWWWAuthConfig ()** ersätter du värdet som har tilldelats **&
 
 ## <a name="setting-up-f5-big-ip-apm-to-populate-ps_sso_uid-http-header-with-the-peoplesoft-user-id"></a>Konfigurera F5 stor IP APM för att fylla i "PS_SSO_UID" HTTP-huvud med användar-ID: t
 
-### <a name="configuring-per-request-policy"></a>Konfigurera princip per begäran
-1. Navigera till **åtkomst > profil/principer > principer för varje begäran**, klicka på **skapa**, Slutför följande information och klicka på **Slutför**.
+### <a name="configuring-per-request-policy"></a>Konfigurera Per-Request princip
+1. Gå till **åtkomst > profil/principer > Per-Request principer**, klicka på **skapa**, Slutför följande information och klicka på **Slutför**.
 
     * Namn: `<Name>`
     * Profil typ: alla
     * Användning `<Language>`
 
-    ![Konfigurera princip per begäran ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/per-request.png)
+    ![Konfigurera Per-Request princip ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/per-request.png)
 
-1. Klicka på **Redigera** princip för att `<Name>` ![ Redigera principer per begäran PeopleSoftSSO ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-sso.png)
+1. Klicka på **redigera** Per-Request princip `<Name>` ![ Redigera Per-Request princip PeopleSoftSSO ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-sso.png)
 
     `Header Name: <Header Name>`   
     `Header Value: <Header Value>`
 
-### <a name="assign-per-request-policy-to-the-virtual-server"></a>Tilldela en princip per begäran till den virtuella servern
+### <a name="assign-per-request-policy-to-the-virtual-server"></a>Tilldela den virtuella servern Per-Request principen
 
-Navigera till **lokal trafik > virtuella servrar > Virtual Server List > PeopleSoftApp** ange `<Name>` enligt principen per begäran
+Navigera till **lokal trafik > virtuella servrar > Virtual Server List > PeopleSoftApp** ange `<Name>` som Per-Request princip
 
-![PeopleSoftSSO enligt principen per begäran ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-sso-1.png)
+![PeopleSoftSSO som Per-Request princip ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-sso-1.png)
 
 ## <a name="setting-up-f5-big-ip-apm-to-support-single-logout-from-peoplesoft-application"></a>Konfigurera F5 Big-IP APM för att stödja enkel utloggning från en/ett-program
 
@@ -311,9 +311,9 @@ Följ dessa steg om du vill lägga till ett enda utloggnings stöd för alla anv
         ![_iRule_PeopleSoftApp avslutad](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/common-irule.png)
 
 
-### <a name="create-oracle-peoplesoft-protected-by-f5-big-ip-apm-test-user"></a>Skapa Oracle, som skyddas av F5 test användare för BIG-IP APM
+### <a name="create-oracle-peoplesoft-protected-by-f5-big-ip-apm-test-user"></a>Skapa Oracle PeopleSoft-Protected av F5 test användare för BIG-IP APM
 
-I det här avsnittet skapar du en användare som heter B. Simon i Oracle, som skyddas av F5 av BIG-IP APM. Arbeta med [Oracle, som skyddas av F5, Big-IP APM support team](https://support.f5.com) för att lägga till användare i den Oracle-skyddade av F5-plattformen Big-IP APM. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B. Simon i Oracle PeopleSoft-Protected av F5 BIG-IP APM. Arbeta med [oracle PeopleSoft-Protected av F5 Big-IP APM support team](https://support.f5.com) för att lägga till användare i Oracle-PeopleSoft-Protected av F5-plattform för stor IP-adress. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO 
 
@@ -321,15 +321,15 @@ I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning
 
 #### <a name="sp-initiated"></a>SP initierad:
 
-* Klicka på **testa det här programmet** i Azure Portal. Detta omdirigeras till Oracle, som skyddas av F5 för BIG-IP APM-inloggnings-URL där du kan starta inloggnings flödet.  
+* Klicka på **testa det här programmet** i Azure Portal. Detta omdirigeras till Oracle PeopleSoft-Protected av F5 BIG-IP APM-inloggnings-URL där du kan starta inloggnings flödet.  
 
-* Gå till Oracle lib-Protected av F5 BIG-IP APM-inloggnings-URL direkt och starta inloggnings flödet därifrån.
+* Gå till Oracle PeopleSoft-Protected av F5 stor IP APM-inloggnings-URL direkt och starta inloggnings flödet därifrån.
 
 #### <a name="idp-initiated"></a>IDP initierad:
 
-* Klicka på **testa det här programmet** i Azure Portal så bör du loggas in automatiskt till Oracle-skyddet av stor IP APM som skyddas av F5 för vilken du konfigurerar SSO 
+* Klicka på **testa det här programmet** i Azure Portal och du bör logga in automatiskt till Oracle PeopleSoft-Protected av F5 Big-IP APM för vilken du konfigurerar SSO 
 
-Du kan också använda Microsoft Access-panelen för att testa programmet i vilket läge som helst. När du klickar på den Oracle: s-skyddade med F5 BIG-IP APM-panelen i åtkomst panelen, om den har kon figurer ATS i SP-läge, kommer du att omdirigeras till programmets inloggnings sida för att initiera inloggnings flödet och om det kon figurer ATS i IDP-läge, bör du logga in automatiskt till Oracle, som skyddas av F5 BIG-IP APM för vilken du konfigurerar Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Du kan också använda Microsoft Access-panelen för att testa programmet i vilket läge som helst. När du klickar på Oracle-PeopleSoft-Protected av en stor IP APM-panel i åtkomst panelen, om det kon figurer ATS i SP-läge, kommer du att omdirigeras till programmets inloggnings sida för att initiera inloggnings flödet och om det kon figurer ATS i IDP-läge, bör du logga in automatiskt till Oracle PeopleSoft-Protected av F5 BIG-IP APM som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## <a name="next-steps"></a>Nästa steg

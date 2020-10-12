@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: lagayhar
 ms.openlocfilehash: a538eaf06013dcce6529c91816b419159a2600a1
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89665031"
 ---
 # <a name="graph-visualizations"></a>Diagram visualiseringar
@@ -73,7 +73,7 @@ Diagrammet nedan visar data som flödar in/ut ur en dator via olika portar till/
 
 ## <a name="graph-settings"></a>Diagram inställningar
 
-| Inställningen         | Förklaring                                                                                                        |
+| Inställning         | Förklaring                                                                                                        |
 |:----------------|:-------------------------------------------------------------------------------------------------------------------|
 | `Node Id`       | Markerar en kolumn som innehåller det unika ID: t för noderna i grafen. Värdet för kolumnen kan vara en sträng eller ett tal. |
 | `Source Id`     | Markerar en kolumn som innehåller ID: n för källentiteter för kanter i grafen. Värdena måste mappas till ett värde i kolumnen _Node ID_ . |

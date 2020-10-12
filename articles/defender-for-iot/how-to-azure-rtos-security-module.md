@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: 9106e00fe2146978f97b480e3afd3b7ed58c9130
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937779"
 ---
 # <a name="configure-and-customize-security-module-for-azure-rtos-preview"></a>Konfigurera och anpassa säkerhetsmodulen för Azure återställnings tider (för hands version)
@@ -30,14 +30,14 @@ Använd följande fil för att konfigurera enhetens beteende.
 
 ### <a name="general"></a>Allmänt
 
-| Namn | Typ | Standardvärde | Information |
+| Namn | Typ | Default | Information |
 | - | - | - | - |
 | ASC_SECURITY_MODULE_ID | Sträng | --- | Unikt id för enheten  |
 | ASC_SECURITY_MODULE_PENDING_TIME  | Antal | 300 | Förväntad tid i sekunder för säkerhetsmodulen. Om tiden överskrider tillstånds ändringen för att pausa. |
 
 #### <a name="collection"></a>Samling
 
-| Namn | Typ | Standardvärde | Information |
+| Namn | Typ | Default | Information |
 | - | - | - | - |
 | ASC_HIGH_PRIORITY_INTERVAL | Antal | 10 | Samlar in grupp intervall med hög prioritet i sekunder. |
 | ASC_MEDIUM_PRIORITY_INTERVAL | Antal | 30 | Samlar in mellanliggande prioritets grupp intervall i sekunder. |
@@ -47,7 +47,7 @@ Använd följande fil för att konfigurera enhetens beteende.
 
 Om du vill anpassa konfigurationen för insamlarens nätverks aktivitet använder du följande:
 
-| Namn | Typ | Standardvärde | Information |
+| Namn | Typ | Default | Information |
 | - | - | - | - |
 | ASC_COLLECTOR_NETWORK_ACTIVITY_TCP_DISABLED | Boolesk | falskt | Filtrera `TCP` nätverks aktivitet |
 | ASC_COLLECTOR_NETWORK_ACTIVITY_UDP_DISABLED | Boolesk | falskt | Filtrera `UDP` nätverks aktivitets händelser |
@@ -61,7 +61,7 @@ Om du vill anpassa konfigurationen för insamlarens nätverks aktivitet använde
 Med compile Flags kan du åsidosätta de fördefinierade konfigurationerna.
 
 ### <a name="collectors"></a>Insamlare
-| Namn | Typ | Standardvärde | Information |
+| Namn | Typ | Default | Information |
 | - | - | - | - |
 | collector_heartbeat_enabled | Boolesk | ON | Aktivera pulsslags insamlaren |
 | collector_network_activity_enabled | Boolesk | ON | Aktivera insamlaren av nätverks aktivitet |

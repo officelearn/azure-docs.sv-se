@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: bef0b2d0387b82140e9874f837d9464408d78090
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05fd1fc23afc72174f5454c805dd59a6eb2e9714
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546975"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946050"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-confluence"></a>Självstudie: Azure Active Directory integrering med Kantega SSO för Confluence
 
@@ -30,7 +30,7 @@ Genom att integrera Kantega SSO för Confluence med Azure AD får du följande f
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Kantega SSO för Confluence behöver du följande objekt:
 
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ka
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning för Kantega SSO för Confluence-domän och URL: er](common/idp-intiated.png)
+    ![Skärm bild som visar avsnittet "Basic S A M L-konfiguration" med fälten "identifierare" och "svara U R L" markerade och knappen "Spara" markerad.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -134,47 +134,47 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ka
 
 1. Hovra över kugghjulet och klicka på **Tillägg**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon1.png)
+    ![Skärm bild som visar meny ikonen "kugg hjuls" och "tillägg" valda.](./media/kantegassoforconfluence-tutorial/addon1.png)
 
 1. Klicka på **Hitta nya tillägg** under fliken **ATLASSIAN MARKETPLACE**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon.png)
+    ![Skärm bild som visar fliken "ATTLASSIAN MARKETPLACE" med alternativet "hitta nya tillägg" markerat.](./media/kantegassoforconfluence-tutorial/addon.png)
 
 1. Sök i **KANTEGA SSO för Confluence SAML Kerberos** och klicka på knappen **Installera** för att installera det nya SAML-plugin-programmet.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon2.png)
+    ![Skärm bild som visar sidan "hitta nya tillägg" med "Kantega S S O för Confluence S A M L Kerberos" i sökrutan och knappen "installera" markerad.](./media/kantegassoforconfluence-tutorial/addon2.png)
 
 1. Plugin-installationen startar.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon3.png)
+    ![Skärm bild som visar skärmen för att installera plugin-programmet.](./media/kantegassoforconfluence-tutorial/addon3.png)
 
 1. När installationen är klar. Klicka på **Stäng**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon33.png)
+    ![Skärm bild som visar skärmen "installerad och klar att gå till" med åtgärden "Stäng" vald.](./media/kantegassoforconfluence-tutorial/addon33.png)
 
 1. Klicka på **Hantera**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon34.png)
+    ![Skärm bild som visar plugin-programmet "Kantega enkel inloggning med Kerberos och S A M L" med knappen "hantera" vald.](./media/kantegassoforconfluence-tutorial/addon34.png)
 
 1. Klicka på **Konfigurera** för att konfigurera det nya plugin-programmet.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon35.png)
+    ![Skärm bild som visar sidan "Kantega enkel inloggning med Kerberos och S A M L" med knappen "Konfigurera" vald.](./media/kantegassoforconfluence-tutorial/addon35.png)
 
 1. Det nya plugin-programmet visas även under fliken **Användare och säkerhet**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon36.png)
+    ![Skärm bild som visar fliken "användare & säkerhet" med åtgärden "Kantega enkel inloggning" vald.](./media/kantegassoforconfluence-tutorial/addon36.png)
 
 1. I **SAML** -avsnittet. Välj **Azure Active Directory (Azure AD)** i list rutan **Lägg till identitets leverantör** .
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon4.png)
+    ![Skärm bild som visar avsnittet "S A M L" med "Lägg till identitets leverantör" och "Azure Active Directory (Azure AD)" valt.](./media/kantegassoforconfluence-tutorial/addon4.png)
 
 1. Välj prenumerations nivå som **Basic**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon5.png)
+    ![Skärm bild som visar sidan "förbereda Azure AD" med "Basic" vald.](./media/kantegassoforconfluence-tutorial/addon5.png)
 
 1. I avsnittet **app Properties** utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon6.png)
+    ![Skärm bild som visar avsnittet "app-egenskaper" med knappen "app I D U R L" och "Kopiera" markerad, och knappen "Nästa" är markerad.](./media/kantegassoforconfluence-tutorial/addon6.png)
 
     a. Kopiera **app-ID-URI** -värdet och Använd det som **identifierare, svars-URL och Sign-On URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
@@ -182,7 +182,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ka
 
 1. I avsnittet **metadata-import** utför du följande steg: 
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon7.png)
+    ![Skärm bild som visar avsnittet "metadata-import" med "metadatafil" på den här datorn "markerat.](./media/kantegassoforconfluence-tutorial/addon7.png)
 
     a. Välj **metadatafil på den här datorn**och ladda upp metadatafilen, som du har laddat ned från Azure Portal.
 
@@ -190,7 +190,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ka
 
 1. I avsnittet **namn och SSO-plats** utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon8.png)
+    ![Skärm bild som visar "namn och S O-plats" med text rutan "namn på identitetsprovider" och "Nästa"-knappen markerad.](./media/kantegassoforconfluence-tutorial/addon8.png)
 
     a. Lägg till namnet på identitets leverantören i text rutan för **identitets leverantörs namn** (t. ex. Azure AD).
 
@@ -198,11 +198,11 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ka
 
 1. Verifiera signerings certifikatet och klicka på **Nästa**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon9.png)
+    ![Skärm bild som visar avsnittet "signaturverifiering" med knappen "Nästa" valt.](./media/kantegassoforconfluence-tutorial/addon9.png)
 
 1. Utför följande steg i avsnittet **Confluence User Accounts** :
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon10.png)
+    ![Skärm bild som visar avsnittet "Confluence User Accounts" med alternativet "skapa användare i Confluence: s interna katalog" om det behövs "och knappen" Nästa "har marker ATS.](./media/kantegassoforconfluence-tutorial/addon10.png)
 
     a. Välj **skapa användare i Confluence interna katalog om det behövs** och ange rätt namn på gruppen för användare (kan vara flera). av grupper åtskilda med kommatecken).
 
@@ -210,11 +210,11 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ka
 
 1. Klicka på **Finish**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon11.png)
+    ![Skärm bild av sidan Sammanfattning med knappen Slutför markerad.](./media/kantegassoforconfluence-tutorial/addon11.png)
 
 1. Utför följande steg på avsnittet **kända domäner för Azure AD** : 
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon12.png)
+    ![Skärm bild som visar sidan "kända domäner för Azure AD" där text rutan "kända domäner" är markerad och knappen "Spara" är markerad.](./media/kantegassoforconfluence-tutorial/addon12.png)
 
     a. Välj **kända domäner** i den vänstra panelen på sidan.
 
@@ -283,7 +283,7 @@ Om du vill att Azure AD-användare ska kunna logga in på Confluence måste de t
 
 1. Hovra över kugghjulet och klicka på **Användarhantering**.
 
-    ![Lägga till medarbetare](./media/kantegassoforconfluence-tutorial/user1.png)
+    ![Skärm bild som visar "kugg hjuls"-ikonen och "användar hantering" vald.](./media/kantegassoforconfluence-tutorial/user1.png)
 
 1. Under avsnittet användare klickar du på fliken **Lägg till användare** . Utför följande steg på dialog sidan **Lägg till en användare** :
 

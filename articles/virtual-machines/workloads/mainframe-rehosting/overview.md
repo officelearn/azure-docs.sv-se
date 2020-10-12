@@ -11,10 +11,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: d754f27a1510d9db0837eabb96b3a7cf75f76fc1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87835535"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Omvärdering av stordator på Azure Virtual Machines
@@ -33,7 +33,7 @@ Vissa stordator arbets belastningar kan migreras till Azure med relativt enkelt,
 
 ## <a name="mainframe-migration"></a>Stordatormigrering
 
-Rehost, återskapa, ersätta eller ta ur bruk? IaaS eller PaaS? För att fastställa rätt migrations strategi för stordator programmet, se Guide för [stordatorer](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview) i Azure Architecture Center.
+Rehost, återskapa, ersätta eller ta ur bruk? IaaS eller PaaS? För att fastställa rätt migrations strategi för stordator programmet, se Guide för [stordatorer](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)  i Azure Architecture Center.
 
 ## <a name="micro-focus-rehosting-platform"></a>Omvärdering av Micro Focus-plattform
 

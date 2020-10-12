@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: dc8b5e75b4feed886f843e7a516cc18429afec11
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 3a5e319115c124551c05f2ac5aa393ba19596d0d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728496"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893364"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Distribuera en anpassad behållare för att App Service med GitHub-åtgärder
 
@@ -22,10 +22,10 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 För ett arbets flöde för Azure App Service container har filen tre delar:
 
-|Section  |Uppgifter  |
+|Section  |Aktiviteter  |
 |---------|---------|
 |**Autentisering** | 1. Hämta ett huvud namn för tjänsten eller en publicerings profil. <br /> 2. skapa en GitHub-hemlighet. |
-|**Skapa** | 1. skapa miljön. <br /> 2. Bygg behållar avbildningen. |
+|**Konstruktion** | 1. skapa miljön. <br /> 2. Bygg behållar avbildningen. |
 |**Distribuera** | 1. distribuera behållar avbildningen. |
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -84,7 +84,7 @@ I [GitHub](https://github.com/), bläddra i din lagrings plats, välj **inställ
 
 Klistra in innehållet i JSON-utdata som värde för den hemliga variabeln. Ge hemligheten namnet som `AZURE_CREDENTIALS` .
 
-När du konfigurerar arbets flödes filen senare använder du hemligheten för indata `creds` från åtgärden för Azure-inloggning. Till exempel:
+När du konfigurerar arbets flödes filen senare använder du hemligheten för indata `creds` från åtgärden för Azure-inloggning. Exempel:
 
 ```yaml
 - uses: azure/login@v1
@@ -100,7 +100,7 @@ I [GitHub](https://github.com/), bläddra i din lagrings plats, välj **inställ
 
 Om du vill använda [autentiseringsuppgifter för program nivå](#generate-deployment-credentials)klistrar du in innehållet i den hämtade publicerings profil filen i fältet hemligt värde. Namnge hemligheten `AZURE_WEBAPP_PUBLISH_PROFILE` .
 
-När du konfigurerar ditt GitHub-arbetsflöde använder du `AZURE_WEBAPP_PUBLISH_PROFILE` åtgärden för att distribuera Azure Web App. Till exempel:
+När du konfigurerar ditt GitHub-arbetsflöde använder du `AZURE_WEBAPP_PUBLISH_PROFILE` åtgärden för att distribuera Azure Web App. Exempel:
     
 ```yaml
 - uses: azure/webapps-deploy@v2
@@ -114,7 +114,7 @@ I [GitHub](https://github.com/), bläddra i din lagrings plats, välj **inställ
 
 Om du vill använda [autentiseringsuppgifter för användar nivå](#generate-deployment-credentials)klistrar du in hela JSON-utdata från Azure CLI-kommandot till fältet hemligt värde. Ge hemligheten namnet som `AZURE_CREDENTIALS` .
 
-När du konfigurerar arbets flödes filen senare använder du hemligheten för indata `creds` från åtgärden för Azure-inloggning. Till exempel:
+När du konfigurerar arbets flödes filen senare använder du hemligheten för indata `creds` från åtgärden för Azure-inloggning. Exempel:
 
 ```yaml
 - uses: azure/login@v1
@@ -137,10 +137,6 @@ Definiera hemligheter som ska användas med Docker inloggnings åtgärden.
 ## <a name="build-the-container-image"></a>Bygg behållar avbildningen
 
 I följande exempel visas en del av arbets flödet som skapar en Node.JS Docker-avbildning. Använd [Docker-inloggning](https://github.com/azure/docker-login) för att logga in på ett privat behållar register. I det här exemplet används Azure Container Registry men samma åtgärd fungerar för andra register. 
-
-# <a name="publish-profile"></a>[Publicera profil](#tab/publish-profile)
-
-Det här exemplet visar hur du skapar en Node.JS Docker-avbildning med hjälp av en publicerings profil för autentisering.
 
 
 ```yaml
@@ -191,41 +187,6 @@ jobs:
         docker build . -t mycontainer.azurecr.io/myapp:${{ github.sha }}
         docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
 ```
-# <a name="service-principal"></a>[Tjänstens huvud namn](#tab/service-principal)
-
-Det här exemplet visar hur du skapar en Node.JS Docker-avbildning med hjälp av ett huvud namn för tjänsten för autentisering. 
-
-```yaml
-on: [push]
-
-name: Linux_Container_Node_Workflow
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    # checkout the repo
-    - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
-
-    - name: 'Login via Azure CLI'
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}   
-    - uses: azure/docker-login@v1
-      with:
-        login-server: mycontainer.azurecr.io
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}  
-    - run: |
-        docker build . -t mycontainer.azurecr.io/myapp:${{ github.sha }}
-        docker push mycontainer.azurecr.io/myapp:${{ github.sha }}      
-    - name: Azure logout
-      run: |
-        az logout
-```
-
----
 
 ## <a name="deploy-to-an-app-service-container"></a>Distribuera till en App Service-behållare
 
@@ -237,7 +198,7 @@ Om du vill distribuera avbildningen till en anpassad behållare i App Service an
 | **publicera – profil** | Valfritt Publicera profil filens innehåll med webb distributions hemligheter |
 | **avbildningar** | Fullständigt kvalificerat behållar avbildnings namn. Till exempel "myregistry.azurecr.io/nginx:latest" eller "python: 3.7.2-alpina/". För scenario med flera behållare kan du ange namn på flera behållar avbildningar (flera rader separerade) |
 | **plats namn** | Valfritt Ange en befintlig plats förutom produktions platsen |
-| **konfiguration – fil** | Valfritt Sökväg till Docker-Skriv filen |
+| **konfiguration – fil** | Valfritt Sökväg till Docker-Compose-filen |
 
 # <a name="publish-profile"></a>[Publicera profil](#tab/publish-profile)
 

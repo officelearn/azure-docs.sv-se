@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: 52508a6820ce0cbbbe3a0341a99894f8b92b1645
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87831234"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Förstå vanliga felmeddelanden när du hanterar virtuella datorer i Azure
@@ -79,7 +79,7 @@ Det här avsnittet innehåller vanliga fel meddelanden som du kan stöta på nä
 |  DiskBlobAlreadyInUseByAnotherDisk  |  Blobben {0} används redan av en annan disk som tillhör den virtuella datorn {1} . Du kan kontrol lera BLOB-metadata för diskens referens information.  |
 |  DiskBlobNotFound  |  Det gick inte att hitta VHD-blobben med URI {0} för disken {1} .  |
 |  DiskBlobNotFound  |  Det gick inte att hitta VHD-blobben med URI {0} .  |
-|  DiskEncryptionKeySecretMissingTags  |  {0}hemligheten har inte {1} taggarna. Uppdatera den hemliga versionen, Lägg till de nödvändiga taggarna och försök igen.  |
+|  DiskEncryptionKeySecretMissingTags  |  {0} hemligheten har inte {1} taggarna. Uppdatera den hemliga versionen, Lägg till de nödvändiga taggarna och försök igen.  |
 |  DiskEncryptionKeySecretUnwrapFailed  |  {0}Det gick inte att packa upp det hemliga värdet med nyckeln {1} .  |
 |  DiskImageNotReady  |  Disk avbildningen {0} har {1} statusen. Försök igen när avbildningen är klar.  |
 |  DiskPreparationError  |  Ett eller flera fel uppstod när VM-diskar skulle förberedas. Mer information finns i vyn disk instans.  |
@@ -91,7 +91,7 @@ Det här avsnittet innehåller vanliga fel meddelanden som du kan stöta på nä
 |  IncorrectImageBlobType  |  Disk-blobbar kan endast vara av typen Page blob. Blobb {0} för disken {1} är av typen Block-Blob.  |
 |  IncorrectImageBlobType  |  Disk-blobbar kan endast vara av typen Page blob. BLOB {0} är av typen ' {1} '.  |
 |  InternalOperationError  |  Det gick inte att matcha lagrings kontot {0} . Kontrol lera att den har skapats via Storage Resource Provider på samma plats som beräknings resursen.  |
-|  InternalOperationError  |  {0}måls sökning av aktiviteter misslyckades.  |
+|  InternalOperationError  |  {0} måls sökning av aktiviteter misslyckades.  |
 |  InternalOperationError  |  Ett fel uppstod när nätverks profilen för den virtuella datorn verifierades {0} .  |
 |  InvalidAccountType  |  Start@ {0} är ogiltig.  |
 |  InvalidParameter  |  Parameterns värde {0} är ogiltigt.  |
@@ -110,7 +110,7 @@ Det här avsnittet innehåller vanliga fel meddelanden som du kan stöta på nä
 |  InvalidParameter  |  Det angivna antalet fel domäner {0} måste ligga inom intervallet {1} till {2} .  |
 |  InvalidParameter  |  Licens typen {0} är ogiltig. Giltiga licens typer är: Windows_Client eller Windows_Server, SKIFT läges känsligt.  |
 |  InvalidParameter  |  Linux-värdnamnet får inte överskrida {0} tecken långa eller innehålla följande tecken: {1} .  |
-|  InvalidParameter  |  Mål Sök vägen för offentliga SSH-nycklar är för närvarande begränsad till sitt standardvärde {0} på grund av ett känt problem i Linux-etablerings agenten.  |
+|  InvalidParameter  |  Mål Sök vägen för offentliga SSH-nycklar är för närvarande begränsad till sitt standardvärde {0}  på grund av ett känt problem i Linux-etablerings agenten.  |
 |  InvalidParameter  |  Det finns redan en disk på LUN {0} .  |
 |  InvalidParameter  |  Prenumerationen {0} på begäran måste matcha den prenumeration {1} som finns i ID för hanterad disk.  |
 |  InvalidParameter  |  Anpassade data i OSProfile måste vara i base64-kodning och får bestå av högst {0} tecken.  |
@@ -171,13 +171,13 @@ Det här avsnittet innehåller vanliga fel meddelanden som du kan stöta på nä
 |  OperationNotAllowed  |  Det går inte att ändra storlek på den virtuella datorn eftersom den begärda storleken {0} inte är tillgänglig i klustret där tillgänglighets uppsättningen för närvarande är allokerad. Tillgängliga storlekar: {1} . Läs mer om strategi för storleks ändring av virtuella datorer på https://aka.ms/azure-resizevm .  |
 |  OperationNotAllowed  |  Det går inte att ändra storlek på den virtuella datorn eftersom den begärda storleken {0} inte är tillgänglig i klustret där den virtuella datorn för närvarande är allokerad. Om du vill ändra storlek på den virtuella datorn för att {1} frigöra (det här är en åtgärd i Azure Portal) och försök sedan att ändra storlek igen. Läs mer om strategi för storleks ändring av virtuella datorer på https://aka.ms/azure-resizevm .  |
 |  OSProvisioningClientError  |  OS-etableringen misslyckades för den virtuella datorn {0} eftersom gäst operativ systemet håller på att tillhandahållas.  |
-|  OSProvisioningClientError  |  OS-etableringen för den virtuella datorn {0} misslyckades. Fel information: {1} kontrol lera att avbildningen har förberetts på rätt sätt (generaliseras). <ul><li>Instruktioner för Windows:https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
-|  OSProvisioningClientError  |  Det gick inte att skapa SSH-nyckeln. Fel information: {0} . Lös problemet genom att kontrol lera om Linux-agenten är korrekt konfigurerad. <ul><li>Du kan kontrol lera anvisningarna på:https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
+|  OSProvisioningClientError  |  OS-etableringen för den virtuella datorn {0} misslyckades. Fel information: {1} kontrol lera att avbildningen har förberetts på rätt sätt (generaliseras). <ul><li>Instruktioner för Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
+|  OSProvisioningClientError  |  Det gick inte att skapa SSH-nyckeln. Fel information: {0} . Lös problemet genom att kontrol lera om Linux-agenten är korrekt konfigurerad. <ul><li>Du kan kontrol lera anvisningarna på: https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
 |  OSProvisioningClientError  |  Det angivna användar namnet för den virtuella datorn är ogiltigt för den här Linux-distributionen. Fel information: {0} .  |
 |  OSProvisioningInternalError  |  OS-etableringen misslyckades för den virtuella datorn {0} på grund av ett internt fel.  |
 |  OSProvisioningTimedOut  |  OS-etableringen för den virtuella datorn {0} kunde inte slutföras inom den angivna tiden. Den virtuella datorn kanske fortfarande har slutfört etableringen. Kontrol lera etablerings statusen senare.  |
 |  OSProvisioningTimedOut  |  OS-etableringen för den virtuella datorn {0} kunde inte slutföras inom den angivna tiden. Den virtuella datorn kanske fortfarande har slutfört etableringen. Kontrol lera etablerings statusen senare. Kontrol lera också att avbildningen har förberetts (generaliseras).   <ul><li>Instruktioner för [Windows]( ../windows/upload-generalized-managed.md).</li><li> Instruktioner för [Linux](../linux/capture-image.md)</li></ul>  |
-|  OSProvisioningTimedOut  |  OS-etableringen för den virtuella datorn {0} kunde inte slutföras inom den angivna tiden. Den virtuella datorns gästa Gent upptäcktes dock. Detta föreslår att gäst operativ systemet inte har förberetts för att användas som en VM-avbildning (med CreateOption = FromImage). Lös problemet genom att antingen använda den virtuella hård disken som är med CreateOption = Anslut eller förbereda den korrekt för användning som en avbildning:   <ul><li>Instruktioner för Windows:https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instruktioner för Linux:https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
+|  OSProvisioningTimedOut  |  OS-etableringen för den virtuella datorn {0} kunde inte slutföras inom den angivna tiden. Den virtuella datorns gästa Gent upptäcktes dock. Detta föreslår att gäst operativ systemet inte har förberetts för att användas som en VM-avbildning (med CreateOption = FromImage). Lös problemet genom att antingen använda den virtuella hård disken som är med CreateOption = Anslut eller förbereda den korrekt för användning som en avbildning:   <ul><li>Instruktioner för Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instruktioner för Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OverConstrainedAllocationRequest  |  Den nödvändiga VM-storleken är för närvarande inte tillgänglig på den valda platsen.  |
 |  ResourceUpdateBlockedOnPlatformUpdate  |  Det går inte att uppdatera resursen just nu på grund av en pågående plattforms uppdatering. Försök igen senare.  |
 |  StorageAccountLimitation  |  Lagrings kontot {0} har inte stöd för sid blobbar som krävs för att skapa diskar.  |

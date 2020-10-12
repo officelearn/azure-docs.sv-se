@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f6f87ed4ba74c3f7750e56d4bb8473cf4b1a4341
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 72b85388bf80a6ed2b9617b606940c243c5711f1
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575392"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945540"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-application-running-on-windows-to-iot-hub-c"></a>Självstudie: ansluta en IoT Plug and Play flera komponent enhets program som körs på Windows till IoT Hub (C#)
 
@@ -33,7 +33,7 @@ Om du vill slutföra den här självstudien i Windows installerar du följande p
 
 Om du har slutfört [snabb starten: ansluta ett exempel på IoT plug and Play Device-program som körs på Windows till IoT Hub (C#)](quickstart-connect-device-csharp.md)har du redan klonat lagrings platsen.
 
-Klona exemplen från Microsoft Azure IoT SDK för .NET GitHub-lagringsplatsen. Öppna en kommando tolk i valfri mapp. Kör följande kommando för att klona [Microsoft Azure IoT-exempel för .net](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub-lagringsplats:
+Klona exemplen från Azure IoT-exempel för C# GitHub-lagringsplatsen. Öppna en kommando tolk i valfri mapp. Kör följande kommando för att klona [Microsoft Azure IoT-exempel för .net](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub-lagringsplats:
 
 ```cmd
 git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git

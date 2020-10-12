@@ -7,10 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
 ms.openlocfilehash: a9f268e5080a5c04c5cdb4767f2db5fd2d77cd3c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326162"
 ---
 # <a name="expressroute-monitor"></a>Övervakaren ExpressRoute
@@ -109,7 +109,7 @@ I den här vyn visas virtuella nätverks anslutningar. 
 
 Du kan se meddelande koderna och ange aviseringar på dem via **LogAnalytics**. På sidan **NPM Diagnostics** kan du se beskrivningar för varje diagnostik-meddelande som utlöses.
 
-| Meddelande kod (loggar) | Description |
+| Meddelande kod (loggar) | Beskrivning |
 | --- | --- |
 | 5501 | Det går inte att passera genom den sekundära anslutningen av ExpressRoute-kretsen |
 | 5502 | Det gick inte att passera genom den primära anslutningen av ExpressRoute-kretsen |

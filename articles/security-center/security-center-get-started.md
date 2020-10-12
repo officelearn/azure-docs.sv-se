@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b583e3d86ba193a92080f2da9cc0b16d07c5a993
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 46bb3b1e450312a2c02fec3f98e2b3d7381b53d2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91447168"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946023"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Snabb start: Konfigurera Azure Security Center
 
@@ -33,7 +33,7 @@ Du måste ha en prenumeration på Microsoft Azure för att komma igång med Secu
 Om du vill aktivera Azure Defender för en prenumeration måste du ha tilldelats rollen som prenumerations ägare, prenumerations deltagare eller säkerhets administratör.
 
 
-## <a name="open-security-center-for-the-first-time"></a>Öppna Security Center för första gången
+## <a name="enable-security-center-on-your-azure-subscription"></a>Aktivera Security Center på din Azure-prenumeration
 
 1. Logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 
@@ -54,6 +54,8 @@ Inom några minuter efter att du har startat Security Center för första gånge
 
 Om du vill dra full nytta av Security Center måste du slutföra stegen nedan för att aktivera Azure Defender och installera Log Analytics-agenten.
 
+> [!TIP]
+> Om du vill aktivera Security Center för alla prenumerationer i en hanterings grupp, se [aktivera Security Center på flera Azure-prenumerationer](onboard-management-group.md).
 
 ## <a name="enable-azure-defender"></a>Aktivera Azure Defender
 

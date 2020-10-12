@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 11/20/2019
 ms.openlocfilehash: 15a86fd191eefc5882150fb276228d18efd6ff5d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323799"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Använda en Java UDF med Apache Hive i HDInsight
 
 Lär dig hur du skapar en Java-baserad användardefinierad funktion (UDF) som fungerar med Apache Hive. Java UDF i det här exemplet konverterar en tabell med text strängar till gemener.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks)
@@ -273,4 +273,4 @@ $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 
 Andra sätt att arbeta med Hive finns i [använda Apache Hive med HDInsight](hdinsight-use-hive.md).
 
-Mer information om användardefinierade Hive-funktioner finns i avsnittet [Apache Hive operatörer och användardefinierade funktioner](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) i Hive-wikin på Apache.org.
+Mer information om Hive User-Defined Functions finns i avsnittet [Apache Hive operatörer och User-Defined funktioner](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) i Hive wiki på Apache.org.

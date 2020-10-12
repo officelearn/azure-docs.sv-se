@@ -7,10 +7,10 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
 ms.openlocfilehash: b681e3fa4963a8fe899ccbad8dbf1bbdfbe452ce
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326910"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Lösning för övervakning av behållare i Azure Monitor
@@ -45,7 +45,7 @@ Innan du börjar läser du följande information för att kontrol lera att du up
 
 I följande tabell beskrivs stödet för Docker-dirigering och operativ system övervakning av behållar inventering, prestanda och loggar med Azure Monitor.   
 
-|Docker-dirigering | ACS | Linux | Windows | Container<br>Inventering | Bild<br>Inventering | Nod<br>Inventering | Container<br>Prestanda | Container<br>Händelse | Händelse<br>Loggas | Container<br>Loggas |
+|Docker-dirigering | ACS | Linux | Windows | Container<br>Inventering | Bild<br>Inventering | Node<br>Inventering | Container<br>Prestanda | Container<br>Händelse | Händelse<br>Logga | Container<br>Logga |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -360,7 +360,7 @@ Du kan välja att skapa omsagent-DaemonSets med eller utan hemligheter.
         KEY:    88 bytes
         ```
 
-    5. Skapa din omsagent-daemon-uppsättning genom att köra```sudo kubectl create -f omsagent-ds-secrets.yaml```
+    5. Skapa din omsagent-daemon-uppsättning genom att köra ```sudo kubectl create -f omsagent-ds-secrets.yaml```
 
 2. Kontrol lera att Log Analytics agent-DaemonSet körs, ungefär så här:
 
@@ -404,7 +404,7 @@ För Windows-Kubernetes använder du ett skript för att generera filen hemlighe
         ```
         #> sudo bash ./secret-gen.sh
         ```
-    3. Skapa din omsagent-daemon-uppsättning genom att köra```kubectl create -f omsagentsecret.yaml```
+    3. Skapa din omsagent-daemon-uppsättning genom att köra ```kubectl create -f omsagentsecret.yaml```
     4. Kontrol lera genom att köra följande:
 
         ```
@@ -431,7 +431,7 @@ För Windows-Kubernetes använder du ett skript för att generera filen hemlighe
         KEY:    88 bytes
         ```
 
-    5. Skapa din omsagent-daemon-uppsättning genom att köra```kubectl create -f ws-omsagent-de-secrets.yaml```
+    5. Skapa din omsagent-daemon-uppsättning genom att köra ```kubectl create -f ws-omsagent-de-secrets.yaml```
 
 2. Kontrol lera att Log Analytics agent-DaemonSet körs, ungefär så här:
 
@@ -447,7 +447,7 @@ För Windows-Kubernetes använder du ett skript för att generera filen hemlighe
 
 Utför följande steg för att använda Helm för att distribuera Log Analytics agent i Linux Kubernetes-miljön.
 
-1. Skapa din omsagent-daemon-uppsättning genom att köra```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
+1. Skapa din omsagent-daemon-uppsättning genom att köra ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
 2. Resultatet ser ut ungefär så här:
 
     ```
@@ -602,7 +602,7 @@ Log Analytics markerar en behållare som **misslyckad** om den har avslut ATS me
    ![misslyckade behållare](./media/containers/containers-state-failed-select.png)  
 1. Kör frågan och expandera sedan en rad i resultatet för att visa bild-ID: t.  
    ![misslyckade behållare](./media/containers/containers-state-failed.png)  
-1. Skriv följande i logg frågan. `ContainerImageInventory | where ImageID == <ImageID>`för att se information om bilden, till exempel bild storlek och antal stoppade och misslyckade avbildningar.  
+1. Skriv följande i logg frågan. `ContainerImageInventory | where ImageID == <ImageID>` för att se information om bilden, till exempel bild storlek och antal stoppade och misslyckade avbildningar.  
    ![misslyckade behållare](./media/containers/containers-failed04.png)
 
 ## <a name="query-logs-for-container-data"></a>Fråga efter loggar för behållar data
@@ -620,7 +620,7 @@ När du felsöker ett särskilt fel kan det hjälpa dig att se var det sker i di
 
 ### <a name="to-query-logs-for-container-data"></a>Så här frågar du efter loggar för behållar data
 
-* Välj en bild som du vet har misslyckats nyligen och hitta fel loggarna för den. Börja med att hitta ett behållar namn som kör avbildningen med en **ContainerInventory** -sökning. Sök till exempel efter`ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
+* Välj en bild som du vet har misslyckats nyligen och hitta fel loggarna för den. Börja med att hitta ett behållar namn som kör avbildningen med en **ContainerInventory** -sökning. Sök till exempel efter `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Sök efter Ubuntu-behållare](./media/containers/search-ubuntu.png)
 
   Expandera alla rader i resultaten om du vill visa information om behållaren.

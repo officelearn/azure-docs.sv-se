@@ -16,10 +16,10 @@ ms.date: 05/31/2017
 ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 31f690277675650323763a7bc6872ad736f5776c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87837014"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Använd övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager mallar
@@ -167,8 +167,8 @@ Exempel: *WADMetricsPT1HP10DV2S20151108* innehåller mått data som sammanställ
 
 Varje WADMetrics-tabell innehåller följande kolumner:
 
-* **PartitionKey**: partitionsnyckel konstrueras baserat på värdet *resourceID* för att unikt identifiera VM-resursen. Exempel: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
-* **RowKey**: följer formatet `<Descending time tick>:<Performance Counter Name>` . Tids Skale beräkningen för fallande timmar är Max tids skal minus tiden i början av agg regerings perioden. Exempel: om exempel perioden startades 10-nov-2015 och 00:00Hrs UTC skulle beräkningen vara: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)` . För prestanda räknaren tillgängliga minnes byte kommer rad nyckeln att se ut så här:`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
+* **PartitionKey**: partitionsnyckel konstrueras baserat på värdet *resourceID* för att unikt identifiera VM-resursen. Exempelvis: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
+* **RowKey**: följer formatet `<Descending time tick>:<Performance Counter Name>` . Tids Skale beräkningen för fallande timmar är Max tids skal minus tiden i början av agg regerings perioden. Exempel: om exempel perioden startades 10-nov-2015 och 00:00Hrs UTC skulle beräkningen vara: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)` . För prestanda räknaren tillgängliga minnes byte kommer rad nyckeln att se ut så här: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **CounterName**: är namnet på prestanda räknaren. Detta matchar den *counterSpecifier* som definierats i XML-konfigurationen.
 * **Maximum**: det maximala värdet för prestanda räknaren över samlings perioden.
 * **Minimum**: det minimala värdet för prestanda räknaren över samlings perioden.
@@ -176,7 +176,7 @@ Varje WADMetrics-tabell innehåller följande kolumner:
 * **Antal**: det totala antalet värden som rapporter ATS för prestanda räknaren.
 * **Genomsnitt**: det genomsnittliga värdet (total/Count) för prestanda räknaren över samlings perioden.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * En fullständig exempel mall för en virtuell Windows-dator med diagnostik-tillägg finns i [201-VM-Monitoring-Diagnostics-Extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * Distribuera Azure Resource Manager-mallen med [Azure PowerShell](../windows/ps-template.md) eller [Azure kommando rad](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * Läs mer om hur du [redigerar Azure Resource Manager mallar](../../azure-resource-manager/templates/template-syntax.md)

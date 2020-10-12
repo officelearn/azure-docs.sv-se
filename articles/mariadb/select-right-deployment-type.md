@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 47aff04dfd44ea7fd892fdee763e93d7fd13a9d1
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542401"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Välj rätt MariaDB Server-alternativ i Azure
@@ -49,7 +49,7 @@ De huvudsakliga skillnaderna mellan dessa alternativ visas i följande tabell:
 
 Det finns flera faktorer som kan påverka ditt beslut att välja PaaS eller IaaS för att vara värd för dina MariaDB-databaser.
 
-### <a name="cost"></a>Cost
+### <a name="cost"></a>Kostnad
 
 Begränsad finansiering är ofta den främsta överväganden som avgör den bästa lösningen för dina databaser. Detta gäller oavsett om du är en start med lite kontant eller ett team i ett etablerat företag som arbetar under tätt budget begränsningar. I det här avsnittet beskrivs grundläggande information om fakturering och licensiering i Azure eftersom de gäller för Azure Database for MariaDB och MariaDB på virtuella Azure-datorer.
 

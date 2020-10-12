@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: a47f720344a16d0f77559d6aabfb2b0245e62976
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89426341"
 ---
 # <a name="migrate-from-orchestrator-to-azure-automation-beta"></a>Migrera från Orchestrator till Azure Automation (beta)
@@ -73,7 +73,7 @@ ConvertFrom-SCORunbook -RunbookPath <string> -Module <string[]> -OutputFolder <s
 * Modul-kommaavgränsad lista över integrerings moduler som innehåller aktiviteter i Runbooks.
 * OutputFolder – sökvägen till mappen för att skapa konverterade grafiska runbooks.
 
-I följande exempel kommando konverterar Runbooks i en export fil med namnet **MyRunbooks. ois_export**.  Dessa Runbooks använder Active Directory och Data Protection Manager integrerings paket.
+I följande exempel kommando konverterar Runbooks i en export fil med namnet **MyRunbooks.ois_export**.  Dessa Runbooks använder Active Directory och Data Protection Manager integrerings paket.
 
 ```powershell
 ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks"

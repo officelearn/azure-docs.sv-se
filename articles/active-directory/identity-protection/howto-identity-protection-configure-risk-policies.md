@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54a6c455f3702433398035a2eb6398c39b609ce9
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87337457"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Gör så här: Konfigurera och aktivera risk principer
@@ -31,7 +31,7 @@ Båda principerna arbetar för att automatisera svaret på risk identifieringar 
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Om din organisation vill tillåta användare att själv åtgärda när risker upptäcks måste användarna registreras för lösen ords återställning via självbetjäning och Azure Multi-Factor Authentication. Vi rekommenderar att [du aktiverar den kombinerade registrerings upplevelsen för säkerhets information](../authentication/howto-registration-mfa-sspr-combined.md) för bästa möjliga upplevelse. Genom att tillåta användare att själv reparera får de tillbaka ett produktivt tillstånd snabbare utan att kräva administratörs åtgärder. Administratörer kan fortfarande se dessa händelser och undersöka dem efter faktumet. 
 

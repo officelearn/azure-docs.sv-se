@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 18814d23c634dc58148c26b67c2f669e22a136ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b84cbe57c40b12ae01952963b324b8bcfdcfd2e
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554302"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945489"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nuclino"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Nuclino
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Nuclino med Azure A
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -98,7 +98,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 7. Utöver ovan förväntar sig Nuclino-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     | ---------------| --------- |
     | first_name | user.givenname |
     | last_name | user.surname |
@@ -155,15 +155,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 4. Klicka på **ikonen**.
 
-    ![Nuclino-konfiguration](./media/nuclino-tutorial/configure1.png)
+    ![Skärm bild som visar ikonen "meny" som marker ATS bredvid "Azure A D S O".](./media/nuclino-tutorial/configure1.png)
 
 5. Klicka på **Azure AD SSO** och välj **grupp inställningar** i list rutan.
 
-    ![Nuclino-konfiguration](./media/nuclino-tutorial/configure2.png)
+    ![Skärm bild som visar List rutan "Azure A D S S O" och "team Settings" markerat.](./media/nuclino-tutorial/configure2.png)
 
 6. Välj **autentisering** från vänster navigerings fönster.
 
-    ![Nuclino-konfiguration](./media/nuclino-tutorial/configure3.png)
+    ![Skärm bild som visar "autentisering" vald.](./media/nuclino-tutorial/configure3.png)
 
 7. I avsnittet **autentisering** , utför följande steg:
 

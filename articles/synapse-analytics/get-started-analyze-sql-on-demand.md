@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 8d26a03a8b61850dc17bc4efff5f8ca12dfca191
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c42d1d988bc280d5e62c24f109225d91cb446ce
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300232"
+ms.locfileid: "91893500"
 ---
 # <a name="analyze-data-with-sql-on-demand"></a>Analysera data med SQL på begäran
 
@@ -57,4 +57,4 @@ Tabeller i Spark-databaser visas automatiskt och de kan frågas efter SQL på be
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Analysera med Spark](get-started-analyze-spark.md)
+> [Analysera data i lagring](get-started-analyze-storage.md)

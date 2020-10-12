@@ -1,5 +1,5 @@
 ---
-title: Granskade miljöer
+title: Organiserade miljöer
 titleSuffix: Azure Machine Learning
 description: Samling av granskade miljöer som är tillgängliga i Azure Machine Learning
 services: machine-learning
@@ -11,10 +11,10 @@ ms.subservice: core
 ms.topic: reference
 ms.date: 09/03/2020
 ms.openlocfilehash: 4ae96976f81aab9a0949594551c82d3a3fec4f0a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662084"
 ---
 # <a name="azure-machine-learning-curated-environments"></a>Azure Machine Learning granskade miljöer
@@ -24,7 +24,7 @@ Den här artikeln innehåller de granskade miljöerna i Azure Machine Learning o
 > [!NOTE]
 > Den här listan uppdateras från och med september 2020. Använd python SDK för att hämta den senast uppdaterade listan. Mer information finns i artikeln om [miljöer](./how-to-use-environments.md#use-a-curated-environment).
 
-## <a name="azureml-automl"></a>AzureML – AutoML
+## <a name="azureml-automl"></a>AzureML-AutoML
 
 **Paket kanaler:**
 
@@ -262,7 +262,7 @@ Den här artikeln innehåller de granskade miljöerna i Azure Machine Learning o
 * jupyterlab
 * lz4
 * mpi4py
-* 1150
+* notebook
 * pyarrow
 
 ## <a name="azureml-dask-gpu"></a>AzureML-dask-GPU
@@ -290,7 +290,7 @@ Den här artikeln innehåller de granskade miljöerna i Azure Machine Learning o
 * jupyterlab
 * lz4
 * mpi4py
-* 1150
+* notebook
 * pyarrow
 
 ## <a name="azureml-hyperdrive-forecastdnn"></a>AzureML-HyperDrive-ForecastDNN
@@ -311,7 +311,7 @@ Den här artikeln innehåller de granskade miljöerna i Azure Machine Learning o
 * azureml-train-automl-runtime
 * azureml-contrib-automl-DNN-Forecasting
 
-## <a name="azureml-minimal"></a>AzureML – minimal
+## <a name="azureml-minimal"></a>AzureML-Minimal
 
 **Paket kanaler:**
 
@@ -937,7 +937,7 @@ Den här artikeln innehåller de granskade miljöerna i Azure Machine Learning o
 * tensorflow – GPU
 * horovod
 
-## <a name="azureml-tutorial"></a>AzureML – självstudier
+## <a name="azureml-tutorial"></a>AzureML-Tutorial
 
 **Paket kanaler:**
 

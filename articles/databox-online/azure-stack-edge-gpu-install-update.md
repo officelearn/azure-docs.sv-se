@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/29/2020
 ms.author: alkohli
 ms.openlocfilehash: 7a534f794f7ab5323ad46ebc555e42b2514e94e2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542350"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Uppdatera Azure Stack Edge Pro GPU 
@@ -84,7 +84,7 @@ Vi rekommenderar att du installerar uppdateringar via Azure Portal. Enheten sök
 
     ![Program varu version efter uppdatering](./media/azure-stack-edge-gpu-install-update/portal-update-6.png)
 
-    Om du väljer att bara hämta uppdateringar väljer du meddelandet för att öppna bladet med **enhets uppdateringar** . Välj **Install** (Installera).
+    Om du väljer att bara hämta uppdateringar väljer du meddelandet för att öppna bladet med **enhets uppdateringar** . Välj **installera**.
   
     ![Program varu version efter uppdatering](./media/azure-stack-edge-gpu-install-update/portal-update-7.png)
 

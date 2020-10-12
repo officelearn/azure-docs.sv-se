@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 75aac74ae5ccf5b52234f1b554dc2a5edefcf32d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91260418"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Använd utökad Apache Spark historik Server för att felsöka och diagnostisera Apache Spark program
@@ -124,9 +124,9 @@ Om du vill spela upp jobbet väljer du **uppspelning**. Du kan välja **stoppa**
 |-|-|
 |Green|Lyckades: jobbet har slutförts.|
 |Orange|Nytt försök: instanser av aktiviteter som misslyckats men inte påverkar jobbets slut resultat. De här uppgifterna hade dubbla eller nya försök för instanser som kan lyckas senare.|
-|Blue|Körs: aktiviteten körs.|
+|Blå|Körs: aktiviteten körs.|
 |Vit|Väntar eller hoppas över: aktiviteten väntar på att köras eller så har fasen hoppats över.|
-|Red|Misslyckades: aktiviteten har misslyckats.|
+|Röd|Misslyckades: aktiviteten har misslyckats.|
 
 Följande bild visar status färgerna grön, orange och blå.
 
@@ -157,7 +157,7 @@ Hovra över diagram-noden för att se knapp beskrivningen när det inte finns n�
 
 På fliken jobb diagram har stadier en knapp beskrivning och en liten ikon som visas om de har aktiviteter som uppfyller följande villkor:
 
-|Condition (Väderförhållanden)|Description|
+|Condition (Väderförhållanden)|Beskrivning|
 |-|-|
 |Data skevning|data Läs storlek > genomsnittlig läsnings storlek för alla aktiviteter i det här steget * 2 och dataens Läs storlek > 10 MB|
 |Tids skevning|körnings tid > genomsnittlig körnings tid för alla aktiviteter i det här steget * 2 och körnings tiden > 2 minuter|

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
 ms.openlocfilehash: 8eafd99f07c64c20565a954216341f3dea9541b0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442642"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Elastic Database klient bibliotek med Entity Framework
@@ -191,7 +191,7 @@ Behovet av att kontrol lera var tillfälliga undantag gör oss tillbaka i räckv
 
 Kod exemplen ovan illustrerar standardvärdet för konstruktörer som krävs för ditt program för att kunna använda data beroende routning med Entity Framework. Följande tabell generaliserar den här metoden med andra konstruktorer.
 
-| Aktuell konstruktor | Omskriven konstruktor för data | Base-konstruktor | Kommentarer |
+| Aktuell konstruktor | Omskriven konstruktor för data | Base-konstruktor | Obs! |
 | --- | --- | --- | --- |
 | Kontext () |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection, bool) |Anslutningen måste vara en funktion i Shard-mappningen och den data beroende Dirigerings nyckeln. Du måste efter-pass skapa automatisk anslutning av EF, och i stället använda Shard-kartan för att hantera anslutningen. |
 | Kontext (sträng) |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection, bool) |Anslutningen är en funktion i Shard-mappningen och den data beroende Dirigerings nyckeln. Ett fast databas namn eller en anslutnings sträng fungerar inte när de skickas genom Shard-mappningen. |
@@ -271,7 +271,7 @@ En kan ha använt den version av konstruktorn som ärvts från Bask Lassen. Men 
 De metoder som beskrivs i det här dokumentet medför några begränsningar:
 
 * EF-program som använder **LocalDb** måste först migrera till en vanlig SQL Server databas innan du använder klient biblioteket för Elastic Database. Det går inte att skala ut ett program via horisontell partitionering med elastisk skalning med **LocalDb**. Observera att utvecklingen fortfarande kan använda **LocalDb**.
-* Ändringar i programmet som kräver databas schema ändringar måste gå igenom EF-migreringar på alla Shards. Exempel koden för det här dokumentet visar inte hur du gör detta. Överväg att använda Update-Database med en ConnectionString-parameter för att iterera över alla Shards; eller extrahera T-SQL-skriptet för den väntande migreringen med hjälp av Update-Database med alternativet-skript och tillämpa T-SQL-skriptet på din Shards.  
+* Ändringar i programmet som kräver databas schema ändringar måste gå igenom EF-migreringar på alla Shards. Exempel koden för det här dokumentet visar inte hur du gör detta. Överväg att använda Update-Database med en ConnectionString-parameter för att iterera över alla Shards; eller extrahera T-SQL-skriptet för den väntande migreringen med Update-Database med alternativet-skript och Använd T-SQL-skriptet på din Shards.  
 * Med en begäran antas det att all bearbetning av databasen finns i en enda Shard som identifieras av horisontell partitionering-nyckeln som anges i begäran. Detta antagande är dock inte alltid sant. Till exempel när det inte går att göra en horisontell partitionering-nyckel tillgänglig. För att åtgärda detta tillhandahåller klient biblioteket **MultiShardQuery** -klassen som implementerar en anslutnings abstraktion för frågor över flera Shards. Inlärning för att använda **MultiShardQuery** i kombination med EF är utanför det här dokumentets omfång
 
 ## <a name="conclusion"></a>Slutsats

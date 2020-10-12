@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
 ms.openlocfilehash: c290904c9f4bc7dba70dad9351dc45b676e0c236
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88893783"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Använd Azures brand Väggs princip för att definiera en regelmall
@@ -48,7 +48,7 @@ Skapa principer för var och en av program teamen:
 - En princip för brand vägg för databas. Principen för databas brand väggen ärver bas brand Väggs principen.
 - En ingenjörs brand Väggs princip. Den tekniska brand Väggs principen ärver också den grundläggande brand Väggs principen.
 
-:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Principmall" border="false":::
+:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Team och krav" border="false":::
 
 ### <a name="create-custom-roles-to-access-the-rule-collection-groups"></a>Skapa anpassade roller för att få åtkomst till regel samlings grupper 
 
@@ -122,7 +122,7 @@ Din JSON-fil bör se ut ungefär som i följande exempel:
                              "/subscriptions/xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxx"] 
 } 
 ```
-9. Skapa den nya anpassade rollen genom att använda kommandot New-AzRoleDefinition och ange definitions filen för JSON-rollen. 
+9. Om du vill skapa den nya anpassade rollen använder du kommandot New-AzRoleDefinition och anger definitions filen för JSON-rollen. 
 
    `New-AzRoleDefinition -InputFile "C:\CustomRoles\RuleCollectionGroupRole.json`
 
@@ -134,9 +134,9 @@ Om du vill visa en lista över alla anpassade roller kan du använda kommandot G
 
 Du kan också se de anpassade rollerna i Azure Portal. Gå till din prenumeration, Välj **åtkomst kontroll (IAM)**, **roller**.
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="SalesAppPolicy":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="Team och krav":::
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Läs behörighet för SalesAppPolicy":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Team och krav":::
 
 Mer information finns i [Självstudier: skapa en anpassad Azure-roll med hjälp av Azure PowerShell](../role-based-access-control/tutorial-custom-role-powershell.md).
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 09/02/2020
 ms.openlocfilehash: b30a7822511dc6b4c3ae7e852cba49ebff6e24ad
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400865"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med hjälp av skript åtgärder
@@ -133,7 +133,7 @@ Skript åtgärds skript kan användas via följande verktyg:
 
 HDInsight innehåller skript för att installera följande komponenter i HDInsight-kluster:
 
-| Name | Skript |
+| Namn | Skript |
 | --- | --- |
 | Lägg till ett Azure Storage konto |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Se [lägga till ytterligare lagrings konton i HDInsight](hdinsight-hadoop-add-storage.md). |
 | Installera nyans |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Se [Installera och använda nyans på HDInsight Hadoop-kluster](hdinsight-hadoop-hue-linux.md). |
@@ -158,7 +158,7 @@ I det här avsnittet beskrivs de olika sätten att använda skript åtgärder n�
     | Egenskap | Värde |
     | --- | --- |
     | Välj ett skript | Välj __anpassad__om du vill använda ett eget skript. Annars väljer du något av de angivna skripten. |
-    | Name |Ange ett namn för skript åtgärden. |
+    | Namn |Ange ett namn för skript åtgärden. |
     | Bash-skript-URI |Ange URI: n för skriptet. |
     | Head/Worker/ZooKeeper |Ange noderna som skriptet körs på: **Head**, **Work**eller **ZooKeeper**. |
     | Parametrar |Ange parametrarna, om det krävs av skriptet. |
@@ -232,7 +232,7 @@ I det här avsnittet beskrivs hur du tillämpar skript åtgärder på ett kluste
     | Egenskap | Värde |
     | --- | --- |
     | Välj ett skript | Välj __anpassad__om du vill använda ett eget skript. Annars väljer du ett tillhandahållet skript. |
-    | Name |Ange ett namn för skript åtgärden. |
+    | Namn |Ange ett namn för skript åtgärden. |
     | Bash-skript-URI |Ange URI: n för skriptet. |
     | Head/Worker/Zookeeper |Ange noderna som skriptet körs på: **Head**, **Work**eller **ZooKeeper**. |
     | Parametrar |Ange parametrarna, om det krävs av skriptet. |
@@ -274,7 +274,7 @@ Innan du börjar ska du kontrol lera att du installerar och konfigurerar Azure C
     az hdinsight script-action execute --cluster-name CLUSTERNAME --name SCRIPTNAME --resource-group RESOURCEGROUP --roles ROLES
     ```
 
-    Giltiga roller är `headnode` , `workernode` , `zookeepernode` , `edgenode` . Om skriptet ska tillämpas på flera nodtyper avgränsar du rollerna med ett blank steg. Till exempel `--roles headnode workernode`.
+    Giltiga roller är `headnode` , `workernode` , `zookeepernode` , `edgenode` . Om skriptet ska tillämpas på flera nodtyper avgränsar du rollerna med ett blank steg. Exempelvis `--roles headnode workernode`.
 
     Lägg till för att spara skriptet `--persist-on-success` . Du kan också Spara skriptet senare med hjälp av `az hdinsight script-action promote` .
 

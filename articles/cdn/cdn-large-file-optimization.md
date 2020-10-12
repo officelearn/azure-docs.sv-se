@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: 6258baf37d00d35da3b7c95519caabdfcaa34b2a
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192641"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optimering av stor fil hämtning med Azure CDN
@@ -122,7 +122,7 @@ När en anslutnings tid är slut försöker CDN ett antal gånger innan det skic
 
 I följande tabell visas en uppsättning villkor som ska uppfyllas för stor fil optimering:
 
-Villkor | Värden 
+Condition (Väderförhållanden) | Värden 
 --- | --- 
 Filtyper som stöds | 3G2, 3GP, ASF, AVI, bz2, DMG, exe, F4V, FLV, <br> GZ, HDP, ISO, JXR, M4V, MKV, MOV, MP4, <br> MPEG, MPG, MTS, pkg, QT, RM, SWF, tar, <br> tgz, WDP, webm, WEBP, WMA, WMV, zip  
 Minsta fil storlek | 10 MB 

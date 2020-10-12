@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 43006456142728287ddf4adba1fbb9b45f5ccc89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85211977"
 ---
 # <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Hantera och övervaka arbets belastnings prioritet i Azure Synapse Analytics
@@ -24,7 +24,7 @@ Hantera och övervaka Synapse för SQL-begäranden i Azure Synapse med hjälp av
 
 ## <a name="monitor-importance"></a>Övervaknings prioritet
 
-Övervaka prioritet med kolumnen ny prioritet i vyn [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) dynamisk hantering.
+Övervaka prioritet med kolumnen ny prioritet i vyn [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) dynamisk hantering.
 Övervaknings frågan nedan visar sändnings tid och start tid för frågor. Granska sändnings tiden och start tiden tillsammans med viktig information för att se hur viktigt det är att schemalägga.
 
 ```sql
@@ -39,7 +39,7 @@ Använd katalogvyer för att se mer i hur frågor schemaläggs.
 
 ## <a name="manage-importance-with-catalog-views"></a>Hantera prioritet med katalogvyer
 
-Vyn sys. workload_management_workload_classifiers Catalog innehåller information om klassificerare. Om du vill utesluta systemdefinierade klassificerare som mappar till resurs klasser kör du följande kod:
+Vyn sys.workload_management_workload_classifiers katalog innehåller information om klassificerare. Om du vill utesluta systemdefinierade klassificerare som mappar till resurs klasser kör du följande kod:
 
 ```sql
 SELECT *
@@ -47,7 +47,7 @@ SELECT *
   WHERE classifier_id > 12
 ```
 
-Vyn katalog, [sys. workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), innehåller information om de parametrar som används för att skapa klassificeraren.  Frågan nedan visar att ExecReportsClassifier skapades i ```membername``` parametern för värden med ExecutiveReports:
+I vyn katalog [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)finns information om de parametrar som används för att skapa klassificeraren.  Frågan nedan visar att ExecReportsClassifier skapades i ```membername``` parametern för värden med ExecutiveReports:
 
 ```sql
 SELECT c.name,cd.classifier_type, classifier_value

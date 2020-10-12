@@ -12,13 +12,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca9afda3303d828bdbb162a9e18ac817b7f8091e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85360664"
 ---
-# <a name="using-single-sign-on-with-cloud-provisioning"></a>Använda enkel inloggning med moln etablering
+# <a name="using-single-sign-on-with-cloud-provisioning"></a>Använda enkla Sign-On med moln etablering
 I följande dokument beskrivs hur du använder enkel inloggning med moln etablering.
 
 [!INCLUDE [active-directory-cloud-provisioning-sso.md](../../../includes/active-directory-cloud-provisioning-sso.md)]

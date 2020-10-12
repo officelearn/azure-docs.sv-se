@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 11629338a808ae0f83ac513b6475dce7a53814da
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88190166"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Åtkomstkontroll i Azure Data Lake Storage Gen1
@@ -59,7 +59,7 @@ Behörigheter för ett objekt i filsystemet är **Läsa**, **Skriva** och **Kör
 |--------------|------------|------------------------|
 | 7            | `RWX`        | Läsa + skriva + köra |
 | 5            | `R-X`        | Läsa + köra         |
-| 4            | `R--`        | Läsa                   |
+| 4            | `R--`        | Läs                   |
 | 0            | `---`        | Inga behörigheter         |
 
 
@@ -73,7 +73,7 @@ Nedan följer några vanliga scenarier som hjälper dig att förstå vilka behö
 
 | Åtgärd | Objekt              |    /      | Stockholm   | Portland   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
-| Läsa      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Läs      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Lägg till i | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
 | Ta bort    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Skapa    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
@@ -124,7 +124,7 @@ Användaren som skapade objektet är automatiskt ägande användare för objekte
 
 ### <a name="the-owning-group"></a>Ägande grupp
 
-**Lägg**
+**Bakgrund**
 
 I POSIX-ACL:er är varje användare associerad med en "primär grupp". Användaren "Alice" kan t.ex. tillhöra gruppen "Ekonomi". Alice kan också tillhöra flera grupper, men en grupp anges alltid som hennes primära grupp. När Alice skapar en fil i POSIX ställs den ägande gruppen för filen in som hennes primära grupp, som i det här fallet är "Ekonomi". Den ägande gruppen fungerar annars ungefär som tilldelade behörigheter för andra användare/grupper.
 
@@ -222,8 +222,8 @@ Umask för Azure Data Lake Storage Gen1 är ett konstant värde som är inställ
 
 | umask-komponent     | Numeriskt format | Kortformat | Innebörd |
 |---------------------|--------------|------------|---------|
-| umask. owning_user   |    0         |   `---`      | För ägande användare kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 
-| umask. owning_group  |    0         |   `---`      | För ägande grupp kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 
+| umask.owning_user   |    0         |   `---`      | För ägande användare kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 
+| umask.owning_group  |    0         |   `---`      | För ägande grupp kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 
 | umask. other         |    7         |   `RWX`      | För övrigt tar du bort alla behörigheter för barnets åtkomst-ACL |
 
 Umask-värdet som används av Azure Data Lake Storage Gen1 effektivt innebär att värdet för other aldrig skickas som standard på nya underordnade, oavsett vad standard-ACL: en visar. 

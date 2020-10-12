@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86524751"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Använda Azure Maps ritnings fel visualiserare
 
 Ritnings fel Visualiseraren är ett fristående webb program som visar [varningar från ritnings paket och fel som](drawing-conversion-error-codes.md) upptäckts under konverterings processen. Webb programmet för fel visualiserare består av en statisk sida som du kan använda utan att ansluta till Internet.  Du kan använda fel Visualiseraren för att åtgärda fel och varningar i enlighet med [kraven för ritnings paket](drawing-requirements.md). [Azure Maps Conversion API](https://docs.microsoft.com/rest/api/maps/conversion) returnerar bara ett svar med en länk till fel visualiseraren endast när ett fel upptäcks.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan ladda ned ritnings fel Visualiseraren måste du:
 
@@ -54,7 +54,7 @@ I den här självstudien används [Postman](https://www.postman.com/) -programme
 
 4. Hämta fel Visualiseraren för ritnings paket genom att göra en `HTTP-GET` begäran på URL: en `diagnosticPackageLocation` .
 
-## <a name="setup"></a>Konfiguration
+## <a name="setup"></a>Installation
 
 I det hämtade zippade paketet från `diagnosticPackageLocation` länken hittar du två filer.
 
@@ -82,11 +82,11 @@ När du har startat verktyget Rita fel visualiserare visas sidan uppladdning. Ö
 
 _ConversionWarningsAndErrors.jspå_ filen har placerats i roten för den hämtade katalogen. Om du vill läsa in _ConversionWarningsAndErrors.jspå_ kan du antingen dra & släppa filen i rutan eller klicka på rutan, leta upp filen i dialog rutan för Utforskaren och sedan ladda upp filen.
 
-:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Att rita fel visualisera appar – dra och släpp för att läsa in data":::
+:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="App för att rita fel visualiserare – start sida":::
 
 När _ConversionWarningsAndErrors.js_ när filen har lästs in visas en lista över fel och varningar i ritnings paketet. Varje fel eller varning anges av lagret, nivån och ett detaljerat meddelande. Om du vill visa detaljerad information om ett fel eller en varning klickar du på länken **information** . Ett avsnitt som kan vara störande visas sedan under listan. Du kan nu navigera till varje fel för att lära dig mer om hur du löser problemet.
 
-:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Drawing Error-program-fel och varningar":::
+:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="App för att rita fel visualiserare – start sida":::
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,10 +9,10 @@ ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c8e7e5272f180c482ca7fdd44302f49eb888b25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67187203"
 ---
 Använd antingen ett rotcertifikat som genererades med en företagslösning (rekommenderas) eller generera ett självsignerat rotcertifikat. När du har skapat rotcertifikatet exporterar du offentliga certifikatdata (inte den privata nyckeln) som en Base64-kodad X.509 .cer-fil. Ladda sedan upp offentliga certifikatdata till Azure-servern.

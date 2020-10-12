@@ -12,10 +12,10 @@ ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
 ms.openlocfilehash: 94947499452c7f1b8515fee56996b13120232f34
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462385"
 ---
 # <a name="speech-service-release-notes"></a>Viktig information om Speech service
@@ -57,7 +57,7 @@ ms.locfileid: "89462385"
     | `fr-CA` | Sylvie |
     | `fr-FR` | Denise |
     | `ja-JP` | Nanami |
-    | `ko-KR` | Sun – Hi |
+    | `ko-KR` | Sun-Hi |
 
 ### <a name="bug-fixes"></a>Felkorrigeringar
 
@@ -293,7 +293,7 @@ Håll dig frisk!
  - DialogServiceConnector stöder nu en valfri "robot ID"-parameter på BotFrameworkConfig. Med den här parametern kan du använda flera direkt linje tal robotar med en enda Azure tal-resurs. Utan den angivna parametern används standard-boten (som fastställs av konfigurations sidan för direkt linjens tal kanal).
  - DialogServiceConnector har nu en SpeechActivityTemplate-egenskap. Innehållet i den här JSON-strängen används av direkt linje tal för att fylla i en rad olika fält som stöds i alla aktiviteter som når en direkt rad tal robot, inklusive aktiviteter som skapas automatiskt som svar på händelser som tal igenkänning.
  - TTS använder nu prenumerations nyckeln för autentisering, vilket minskar den första byte fördröjningen för det första syntes resultatet när du har skapat en synthesizer.
- - Uppdaterade tal igenkännings modeller för 19 språk i ett genomsnittligt antal fel i Word-felgrader på 18,6% (es-ES, ES-MX, fr-CA, fr-FR, IT-IT, ja-JP, ko-KR, pt-BR, zh-CN, zh-HK, NB-NO, fi-fi, ru-RU, pl-PL, ca-ES, zh-TW, Th-PT, tr-TR). De nya modellerna ger avsevärda förbättringar i flera domäner, inklusive diktering, samtals Center avskrifter och video indexerings scenarier.
+ - Uppdaterade tal igenkännings modeller för 19 språk i ett genomsnittligt antal fel i Word-felgrader på 18,6% (es-ES, ES-MX, fr-CA, fr-FR, IT-IT, ja-JP, ko-KR, pt-BR, zh-CN, zh-HK, NB-NO, fi-fi, ru-RU, pl-PL, ca-ES, zh-TW, Th-PT, tr-TR). De nya modellerna ger avsevärda förbättringar i flera domäner, inklusive diktering, Call-Center avskrifter och video indexerings scenarier.
 
 **Fel korrigeringar**
 

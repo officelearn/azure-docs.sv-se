@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 4e0f71369bc02fdce5625d9c74e1d52264ed86be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80335745"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Mänsklig interaktion i Durable Functions-telefon verifierings exempel
@@ -19,7 +19,7 @@ Det här exemplet implementerar ett SMS-baserat telefon verifierings system. Des
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
-## <a name="scenario-overview"></a>Scenarioöversikt
+## <a name="scenario-overview"></a>Översikt över scenario
 
 Telefon verifiering används för att kontrol lera att slutanvändare av ditt program inte är avsändare och att de är de som de säger att de är. Multi-Factor Authentication är ett vanligt användnings fall för att skydda användar konton från hackare. Utmaningen med att implementera din egen telefon verifiering är att det krävs en **tillstånds känslig interaktion** med mänsklig. En slutanvändare tillhandahåller vanligt vis kod (till exempel ett fyrsiffrigt tal) och måste svara **på en rimlig tids period**.
 

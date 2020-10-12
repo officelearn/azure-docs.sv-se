@@ -11,15 +11,15 @@ ms.date: 06/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: f7d56ecc7fc6bd850fced33c2c1cf20902bb2df4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85361887"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Visa en lista med Azures roll tilldelningar med hjälp av Azure Portal
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Den här artikeln beskriver hur du visar roll tilldelningar med hjälp av Azure Portal.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Den här artikeln beskriver hur du visar roll tilldelningar med hjälp av Azure Portal.
 
 > [!NOTE]
 > Om din organisation har funktioner som har hanterats av en tjänst leverantör som använder [Azure-delegerad resurs hantering](../lighthouse/concepts/azure-delegated-resource-management.md), visas inte roll tilldelningar som har auktoriserats av tjänste leverantören här.
@@ -187,5 +187,5 @@ Följ dessa steg om du vill hämta roll tilldelningar i ett omfång.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](role-assignments-portal.md)
+- [Lägga till eller ta bort rolltilldelningar för Azure med hjälp av Azure-portalen](role-assignments-portal.md)
 - [Felsöka Azure RBAC](troubleshooting.md)

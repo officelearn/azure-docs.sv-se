@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 02/18/2019
 ms.openlocfilehash: a21460279420c46b11c43615ae5ecc7bfa81de4d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135803"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Undanta diskar från PowerShell-replikering av virtuella Azure-datorer
@@ -19,12 +19,12 @@ Den här artikeln beskriver hur du undantar diskar när du replikerar virtuella 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
 - Se till att du förstår [arkitekturen och komponenterna för katastrof återställning](azure-to-azure-architecture.md).
-- Granska [kraven för stöd](azure-to-azure-support-matrix.md) för alla komponenter.
+- Granska [support kraven](azure-to-azure-support-matrix.md) för alla komponenter.
 - Kontrol lera att du har AzureRm PowerShell-modulen "AZ". Information om hur du installerar eller uppdaterar PowerShell finns i [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
 - Se till att du har skapat ett Recovery Services-valv och skyddade virtuella datorer minst en gång. Om du inte har gjort det följer du processen för att [Konfigurera haveri beredskap för virtuella Azure-datorer med hjälp av Azure PowerShell](azure-to-azure-powershell.md).
 - [Läs den här artikeln](azure-to-azure-enable-replication-added-disk.md)om du vill ha information om hur du lägger till diskar till en virtuell Azure-dator som är aktive rad för replikering.

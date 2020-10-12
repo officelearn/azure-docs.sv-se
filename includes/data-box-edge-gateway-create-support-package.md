@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67187802"
 ---
 Om du får problem med enheten kan du skapa ett support paket från system loggarna. Microsoft Support använder det här paketet för att felsöka problemen. Följ de här stegen för att skapa ett support paket:

@@ -7,10 +7,10 @@ ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
 ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852403"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>Förstå migrerings alternativ för nya aviseringar
@@ -171,16 +171,16 @@ För Application Insights är motsvarande mått det som visas nedan:
 | clientPerformance. receiveRequest. Value | browserTimings/receiveDuration| Multiplicera det ursprungliga tröskelvärdet med 1000 eftersom enheter för klassiskt mått är i sekunder och för det nya är i millisekunder.  |
 | clientPerformance. sendRequest. Value | browserTimings/sendDuration| Multiplicera det ursprungliga tröskelvärdet med 1000 eftersom enheter för klassiskt mått är i sekunder och för det nya är i millisekunder.  |
 | clientPerformance. total. Value | browserTimings/totalDuration| Multiplicera det ursprungliga tröskelvärdet med 1000 eftersom enheter för klassiskt mått är i sekunder och för det nya är i millisekunder.  |
-| performanceCounter. available_bytes. Value | performanceCounters/memoryAvailableBytes|   |
-| performanceCounter. io_data_bytes_per_sec. Value | performanceCounters/processIOBytesPerSecond|   |
-| performanceCounter. number_of_exceps_thrown_per_sec. Value | performanceCounters/exceptionsPerSecond|   |
-| performanceCounter. percentage_processor_time_normalized. Value | performanceCounters/processCpuPercentage|   |
-| performanceCounter. percentage_processor_time. Value | performanceCounters/processCpuPercentage| Tröskelvärdet måste ändras på lämpligt sätt eftersom det ursprungliga måttet var över alla kärnor och det nya måttet normaliseras till en kärna. Migration Tool ändrar inte tröskelvärden.  |
-| performanceCounter. percentage_processor_total. Value | performanceCounters/processorCpuPercentage|   |
-| performanceCounter. process_private_bytes. Value | performanceCounters/processPrivateBytes|   |
-| performanceCounter. request_execution_time. Value | performanceCounters/requestExecutionTime|   |
-| performanceCounter. requests_in_application_queue. Value | performanceCounters/requestsInQueue|   |
-| performanceCounter. requests_per_sec. Value | performanceCounters/requestsPerSecond|   |
+| performanceCounter.available_bytes. Value | performanceCounters/memoryAvailableBytes|   |
+| performanceCounter.io_data_bytes_per_sec. Value | performanceCounters/processIOBytesPerSecond|   |
+| performanceCounter.number_of_exceps_thrown_per_sec. Value | performanceCounters/exceptionsPerSecond|   |
+| performanceCounter.percentage_processor_time_normalized. Value | performanceCounters/processCpuPercentage|   |
+| performanceCounter.percentage_processor_time. Value | performanceCounters/processCpuPercentage| Tröskelvärdet måste ändras på lämpligt sätt eftersom det ursprungliga måttet var över alla kärnor och det nya måttet normaliseras till en kärna. Migration Tool ändrar inte tröskelvärden.  |
+| performanceCounter.percentage_processor_total. Value | performanceCounters/processorCpuPercentage|   |
+| performanceCounter.process_private_bytes. Value | performanceCounters/processPrivateBytes|   |
+| performanceCounter.request_execution_time. Value | performanceCounters/requestExecutionTime|   |
+| performanceCounter.requests_in_application_queue. Value | performanceCounters/requestsInQueue|   |
+| performanceCounter.requests_per_sec. Value | performanceCounters/requestsPerSecond|   |
 | begäran. varaktighet | begär Anden/varaktighet| Multiplicera det ursprungliga tröskelvärdet med 1000 eftersom enheter för klassiskt mått är i sekunder och för det nya är i millisekunder.  |
 | begäran. Rate | begär Anden/pris|   |
 | requestFailed. Count | begär Anden/misslyckade| Använd `aggregationType` Count i stället för sum.   |

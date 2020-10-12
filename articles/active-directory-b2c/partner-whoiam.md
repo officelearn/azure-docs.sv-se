@@ -12,10 +12,10 @@ ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 718ccbaa57ffe9f4ebaf4e8df448b602ba8cc3fa
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89293159"
 ---
 # <a name="tutorial-for-configuring-whoiam-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera WhoIAM med Azure Active Directory B2C
@@ -24,7 +24,7 @@ I den här självstudien ger vi vägledning om hur du konfigurerar [WhoIAM](http
 
 BRIMS är en uppsättning appar och tjänster som har distribuerats i din miljö. Det ger dig röst-, SMS-och e-postverifiering av användar basen. BRIMS fungerar tillsammans med din befintliga identitets-och åtkomst hanterings lösning och är plattforms oberoende.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du:
 

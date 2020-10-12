@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
 ms.openlocfilehash: cad12a55332a6c7898f9709776c58d7dba8dd81a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86526443"
 ---
 # <a name="common-errors-within-the-azure-serial-console"></a>Vanliga fel i Azures serie konsol
@@ -34,7 +34,7 @@ Fel                             |   Åtgärd
 Ett "förbjudet" svar påträffades vid åtkomst till den här VM: s Boot Diagnostic Storage-konto. | Se till att startdiagnostik inte har en konto brand vägg. Det krävs ett tillgängligt lagrings konto för startdiagnostik för att den seriella konsolen ska fungera. Seriell konsol efter design fungerar inte med lagrings kontots brand väggar aktiverade på lagrings kontot för startdiagnostik.
 Du har inte de behörigheter som krävs för att använda den här virtuella datorn i serie konsolen. Se till att du har minst roll behörigheter för virtuell dator deltagare.| Åtkomst till serie konsolen kräver att du har åtkomst till deltagar nivå eller mer på den virtuella datorn eller skalnings uppsättningen för virtuella datorer. Mer information finns på [sidan Översikt](serial-console-overview.md).
 Det gick inte att hitta lagrings kontot som används för startdiagnostik på den här virtuella datorn. Kontrol lera att startdiagnostik har Aktiver ATS för den här virtuella datorn, att lagrings kontot inte har tagits bort och att du har åtkomst till det här lagrings kontot. | Dubbelkolla att du inte har tagit bort lagrings kontot för startdiagnostik för din virtuella dator eller skalnings uppsättning för virtuella datorer
-Den seriella konsolens anslutning till den virtuella datorn påträffade ett fel: "felaktig begäran (400) | Detta kan inträffa om startdiagnostik-URI: n är felaktig. Exempelvis användes "http://" i stället för "https://". Startdiagnostik-URI: n kan åtgärdas med följande kommando:`az vm boot-diagnostics enable --name vmName --resource-group rgName --storage https://<storageAccountUri>.blob.core.windows.net/`
+Den seriella konsolens anslutning till den virtuella datorn påträffade ett fel: "felaktig begäran (400) | Detta kan inträffa om startdiagnostik-URI: n är felaktig. Exempelvis användes "http://" i stället för "https://". Startdiagnostik-URI: n kan åtgärdas med följande kommando: `az vm boot-diagnostics enable --name vmName --resource-group rgName --storage https://<storageAccountUri>.blob.core.windows.net/`
 Du har inte de behörigheter som krävs för att skriva till lagrings kontot för startdiagnostik för den här virtuella datorn. Kontrol lera att du har minst behörigheter för VM-deltagare | Seriell konsol åtkomst kräver åtkomst till deltagar nivå på lagrings kontot för startdiagnostik. Mer information finns på [sidan Översikt](serial-console-overview.md).
 Det gick inte att fastställa resurs gruppen för startdiagnostikens lagrings konto * &lt; STORAGEACCOUNTNAME &gt; *. Kontrol lera att startdiagnostik har Aktiver ATS för den här virtuella datorn och att du har åtkomst till det här lagrings kontot. | Seriell konsol åtkomst kräver åtkomst till deltagar nivå på lagrings kontot för startdiagnostik. Mer information finns på [sidan Översikt](serial-console-overview.md).
 Etableringen av den här virtuella datorn har ännu inte slutförts. Kontrol lera att den virtuella datorn är fullständigt distribuerad och försök att ansluta till serie konsolen igen. | Den virtuella datorn eller skalnings uppsättningen för den virtuella datorn kan fortfarande tillhandahållas. Vänta en stund och försök igen.

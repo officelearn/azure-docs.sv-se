@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
 ms.openlocfilehash: 9c16b3ff013c2985ea381ed4bb002276b1c3fdb8
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462249"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Använda python-användardefinierade funktioner (UDF) med Apache Hive och Apache-gris i HDInsight
@@ -25,7 +25,7 @@ Python 2.7 installeras som standard på HDInsight 3,0 och senare. Apache Hive ka
 
 HDInsight innehåller även jython, som är en python-implementering som skrivits i Java. Jython körs direkt på Java Virtual Machine och använder inte direkt uppspelning. Jython är den rekommenderade python-tolken när du använder python med gris.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Ett Hadoop-kluster i HDInsight**. Se [Kom igång med HDInsight på Linux](apache-hadoop-linux-tutorial-get-started.md).
 * **En SSH-klient**. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -100,7 +100,7 @@ Det här skriptet utför följande åtgärder:
 1. Läser en rad med data från STDIN.
 2. Det avslutande rad matnings tecknet tas bort med hjälp av `string.strip(line, "\n ")` .
 3. Vid data bearbetning innehåller en enskild rad alla värden med ett tabbtecken mellan varje värde. `string.split(line, "\t")`Du kan använda den för att dela upp inmatade värden på varje flik och bara returnera fälten.
-4. När bearbetningen är klar måste utdata skrivas till STDOUT som en enskild linje, med en flik mellan varje fält. Till exempel `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
+4. När bearbetningen är klar måste utdata skrivas till STDOUT som en enskild linje, med en flik mellan varje fält. Exempelvis `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
 5. `while`Loopen upprepas tills ingen `line` läses.
 
 Skriptets utdata är en sammanfogning av indatavärdena för `devicemake` och `devicemodel` , och en hash av det sammanfogade värdet.

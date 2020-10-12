@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.openlocfilehash: b1998532c3d9e4272d91280d57d9ea2f6e7a262c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88586400"
 ---
 # <a name="keys-and-values"></a>Nycklar och värden
@@ -67,7 +67,7 @@ Använd etiketter som ett sätt att skapa flera versioner av ett nyckel värde. 
 
 Varje nyckelvärde identifieras unikt genom sin nyckel plus en etikett som kan vara `\0`. Du frågar efter ett konfigurations lager för nyckel värden genom att ange ett mönster. Konfigurations arkivet för appar returnerar alla nyckel värden som matchar mönstret, inklusive motsvarande värden och attribut. Använd följande nyckel mönster i REST API anrop till app-konfiguration:
 
-| Nyckel | Description |
+| Tangent | Beskrivning |
 |---|---|
 | `key` utelämnas eller `key=*` | Matchar alla nycklar |
 | `key=abc` | Matchar nyckel namn **ABC** exakt |
@@ -76,7 +76,7 @@ Varje nyckelvärde identifieras unikt genom sin nyckel plus en etikett som kan v
 
 Du kan också inkludera följande etikett mönster:
 
-| Etikett | Description |
+| Etikett | Beskrivning |
 |---|---|
 | `label` utelämnas eller `label=*` | Matchar alla etiketter, som innehåller `\0` |
 | `label=%00` | Matchar `\0` etikett |

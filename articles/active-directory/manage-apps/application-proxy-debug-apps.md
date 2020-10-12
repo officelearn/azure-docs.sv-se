@@ -12,10 +12,10 @@ ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: e61ea30f01e8ae141d24c9bd91b08edef4dbe74e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85555055"
 ---
 # <a name="debug-application-proxy-application-issues"></a>Felsöka problem med programproxy 
@@ -44,7 +44,7 @@ Det här flödesschemat vägleder dig genom stegen för att felsöka några av d
 |1 | Öppna en webbläsare, öppna appen och ange dina autentiseringsuppgifter | Försök att använda dina autentiseringsuppgifter för att logga in i appen och kontrol lera om det finns några användarspecifika fel som [den här företags appen inte går att komma åt](application-proxy-sign-in-bad-gateway-timeout-error.md). |
 |2 | Verifiera användar tilldelning till appen | Se till att ditt användar konto har behörighet att komma åt appen inifrån företags nätverket och testa sedan att logga in på appen genom att följa stegen i [testa programmet](application-proxy-add-on-premises-application.md#test-the-application). Om inloggnings problem kvarstår, se [Felsöka inloggnings fel](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).  |
 |3 | Öppna en webbläsare och försök att komma åt appen | Om ett fel visas omedelbart kontrollerar du att programproxyn har kon figurer ATS korrekt. Mer information om specifika fel meddelanden finns i [Felsöka problem med programproxy och fel meddelanden](application-proxy-troubleshoot.md).  |
-|4 | Kontrol lera den anpassade domän konfigurationen eller Felsök felet | Om sidan inte visas alls kontrollerar du att den anpassade domänen är korrekt konfigurerad genom att granska [arbetet med anpassade domäner](application-proxy-configure-custom-domain.md).<br></br>Om sidan inte läses in och ett fel meddelande visas, felsöka felet genom att referera till fel [sökning av problem med programproxy och fel meddelanden](application-proxy-troubleshoot.md). <br></br>Om det tar längre tid än 20 sekunder innan ett fel meddelande visas kan det vara problem med anslutningen. Gå till fel söknings artikeln för fel söknings [program proxy-kopplingar](application-proxy-debug-connectors.md) .  |
+|4 | Kontrol lera den anpassade domän konfigurationen eller Felsök felet | Om sidan inte visas alls kontrollerar du att den anpassade domänen är korrekt konfigurerad genom att granska [arbetet med anpassade domäner](application-proxy-configure-custom-domain.md).<br></br>Om sidan inte läses in och ett fel meddelande visas, felsöka felet genom att referera till fel  [sökning av problem med programproxy och fel meddelanden](application-proxy-troubleshoot.md). <br></br>Om det tar längre tid än 20 sekunder innan ett fel meddelande visas kan det vara problem med anslutningen. Gå till fel söknings artikeln för fel söknings [program proxy-kopplingar](application-proxy-debug-connectors.md) .  |
 |5 | Om problemen kvarstår går du till anslutnings fel sökning | Det kan finnas anslutnings problem mellan proxyn och anslutningen eller mellan anslutningen och Server delen. Gå till fel söknings artikeln för fel söknings [program proxy-kopplingar](application-proxy-debug-connectors.md) . |
 |6 | Publicera alla resurser, kontrol lera webbläsarens utvecklingsverktyg och åtgärda länkar | Se till att publicerings Sök vägen innehåller alla bilder, skript och formatmallar som krävs för ditt program. Mer information finns i [lägga till en lokal app i Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). <br></br>Använd webbläsarens utvecklarverktyg (F12-verktyg i Internet Explorer eller Microsoft Edge) och Sök efter publicerings problem på det sätt som beskrivs på [sidan program visas inte på rätt sätt](application-proxy-page-appearance-broken-problem.md). <br></br>Gransknings alternativ för att lösa brutna länkar i [länkar på sidan fungerar inte](application-proxy-page-links-broken-problem.md). |
 |7 | Sök efter nätverks fördröjning | Om sidan läses in långsamt kan du läsa om hur du minimerar nätverks fördröjningen i [överväganden för att minska svars tiden](application-proxy-network-topology.md#considerations-for-reducing-latency). | 

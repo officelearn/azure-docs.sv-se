@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 75603593e8c290b6bcb059207858d663ab5c96d9
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89460124"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Felsöka moln tjänst roller som inte startar
@@ -69,7 +69,7 @@ Du kan använda fjärr skrivbord för att få åtkomst till rollen och Visa mer 
 7. Skriv `IPconfig`.
 8. Observera värdet för IPV4-adressen.
 9. Öppna Internet Explorer.
-10. Ange adress och namn för webb programmet. Till exempel `http://<IPV4 Address>/default.aspx`.
+10. Ange adress och namn för webb programmet. Exempelvis `http://<IPV4 Address>/default.aspx`.
 
 Att navigera till webbplatsen kommer nu att returnera fler explicita fel meddelanden:
 

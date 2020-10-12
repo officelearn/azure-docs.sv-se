@@ -10,10 +10,10 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.openlocfilehash: 9d6e234e1f4c8ac5199b92a09eb12bf7aa41b01b
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88185493"
 ---
 # <a name="preview-no-code-model-deployment"></a>Förhandsgranskningsvyn Distribution utan kod modell
@@ -133,7 +133,7 @@ print(output)
 * [Skapa klient program för att använda webb tjänster](how-to-consume-web-service.md)
 * [Uppdatera webbtjänst](how-to-deploy-update-web-service.md)
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
-* [Använd TLS för att skydda en webb tjänst via Azure Machine Learning](how-to-secure-web-service.md)
+* [Använda TLS för att skydda en webbtjänst via Azure Machine Learning](how-to-secure-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
 * [Skapa händelse aviseringar och utlösare för modell distributioner](how-to-use-event-grid.md)

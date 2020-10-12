@@ -1,7 +1,7 @@
 ---
 title: Exempel-API Management-princip – ange varaktighet för svars-cache
 titleSuffix: Azure API Management
-description: Exempel på Azure API Management policy-visar hur du ställer in varaktigheten för svars-cachen med maxAge-värdet i Cache-Control-huvudet som skickas av Server delen.
+description: Exempel på Azure API Management policy-visar hur du ställer in varaktighet för svars-cache med ett maxAge-värde i Cache-Control rubrik som skickats av Server delen..
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 3101c5695272e8fa6b577ad313897cbc1fa29629
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75442401"
 ---
 # <a name="set-response-cache-duration"></a>Ange varaktighet för svarscache
 
-Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du anger varaktighet för svars-cachen med maxAge-värdet i Cache-Control-huvudet som skickas av Server delen. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
+Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du ställer in varaktigheten för svars cachen med ett maxAge-värde i Cache-Control rubriken som skickas av Server Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
 
 ## <a name="policy"></a>Princip
 

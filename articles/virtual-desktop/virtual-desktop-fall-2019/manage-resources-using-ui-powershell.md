@@ -8,10 +8,10 @@ ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: lizross
 ms.openlocfilehash: d7219751d584eb458cded9f4e30cccb1439dfa1b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89069025"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>Distribuera ett hanterings verktyg för Windows Virtual Desktop (klassiskt) med PowerShell
@@ -21,7 +21,7 @@ ms.locfileid: "89069025"
 
 I den här artikeln visas hur du distribuerar hanterings verktyget med PowerShell.
 
-## <a name="important-considerations"></a>Viktiga överväganden
+## <a name="important-considerations"></a>Att tänka på
 
 Varje Azure Active Directory (Azure AD)-klient organisations prenumeration måste ha en egen separat distribution av hanterings verktyget. Det här verktyget har inte stöd för Azure AD-scenarier för Business-to-Business (B2B).
 
@@ -60,7 +60,7 @@ Kom igång genom att logga in på både AZ-och Azure AD PowerShell-modulerna. S�
     Connect-AzureAD
     ```
 
-4. Efter det navigerar du till mappen där du sparade de två PowerShell-skripten från GitHub-lagrings platsen för RDS-mallar.
+4. Efter det navigerar du till mappen där du sparade de två PowerShell-skripten från RDS-Templates GitHub-lagrings platsen.
 
 Behåll PowerShell-fönstret som du använde för att logga in öppna för att köra ytterligare PowerShell-cmdletar när du är inloggad.
 

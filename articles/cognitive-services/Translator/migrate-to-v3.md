@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.openlocfilehash: fb907e0b9c923a77c6956723f6df397fabd84da8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86523986"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Translator v2 till v3-migrering
@@ -30,7 +30,7 @@ Slutet av det här dokumentet innehåller användbara länkar som hjälper dig a
 
 ## <a name="summary-of-features"></a>Sammanfattning av funktioner
 
-* Ingen spårnings-i v3-spårning gäller för alla pris nivåer i Azure Portal. Den här funktionen innebär att ingen text som skickas till v3-API: t sparas av Microsoft.
+* Ingen spårnings-i v3-No-Trace gäller för alla pris nivåer i Azure Portal. Den här funktionen innebär att ingen text som skickas till v3-API: t sparas av Microsoft.
 * JSON-XML har ersatts av JSON. Alla data som skickas till tjänsten och tas emot från tjänsten är i JSON-format.
 * Flera mål språk i en enskild begäran – översättnings metoden accepterar flera till-språk för översättning i en enskild begäran. Till exempel kan en enskild begäran vara från engelska och till tyska, spanska och japanska eller någon annan grupp av språk.
 * Tvåspråkig ord lista – en tvåspråkig ordboks metod har lagts till i API: et. Den här metoden inkluderar "Lookup" och "exempel".
@@ -118,8 +118,8 @@ Neurala-översättning med v3-text-API: t stöder inte användning av standard k
 
 | Version | Slutpunkt | Kompatibilitet för GDPR-processor | Använd Translator Hub | Använd anpassad översättare (förhands granskning) |
 | :------ | :------- | :------------------------ | :----------------- | :------------------------------ |
-|Översättare, version 2|    api.microsofttranslator.com|    Nej    |Ja    |Nej|
-|Översättare, version 3|    api.cognitive.microsofttranslator.com|    Ja|    Nej|    Ja|
+|Översättare, version 2|    api.microsofttranslator.com|    Inga    |Ja    |Inga|
+|Översättare, version 3|    api.cognitive.microsofttranslator.com|    Ja|    Inga|    Ja|
 
 **Översättare, version 3**
 * Är allmänt tillgänglig och stöds fullt ut.
@@ -141,7 +141,7 @@ Ingen version av Translator skapar en post med dina översättningar. Dina över
 
 * [Microsoft sekretesspolicy](https://privacy.microsoft.com/privacystatement)
 * [Microsoft Azure juridisk information](https://azure.microsoft.com/support/legal)
-* [Villkor för online tjänster](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
+* [Villkor för onlinetjänster](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 1b1ff8a54037392ac01402056ada0f3040dbd123
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89068940"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Aktivera Azure MFA per användare för att skydda inloggningshändelser
@@ -85,7 +85,7 @@ Om du vill ändra användar tillstånd med hjälp av [Azure AD PowerShell](/powe
 
 * *Aktiverad*
 * *Enforced*
-* *Disabled* (Inaktiverat)  
+* *Inaktiverad*  
 
 I allmänhet ska du inte flytta användare direkt till *tvingande* tillstånd om de inte redan har registrerats för MFA. Om du gör det slutar äldre autentiserings-appar att fungera eftersom användaren inte har gått igenom Azure Multi-Factor Authentication registrering och fått ett [applösenord](howto-mfa-app-passwords.md). I vissa fall kan det här problemet vara önskvärt, men påverkar användar upplevelsen tills användaren registrerar sig.
 

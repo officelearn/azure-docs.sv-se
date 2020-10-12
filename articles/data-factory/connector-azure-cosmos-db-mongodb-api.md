@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
 ms.openlocfilehash: 9b23f46a418f2663531cc121f00b83d00d84e48d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415448"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Kopiera data till eller från Azure Cosmos DB API för MongoDB med Azure Data Factory
@@ -47,12 +47,12 @@ Följande avsnitt innehåller information om egenskaper som du kan använda för
 
 Följande egenskaper stöds för Azure Cosmos DB: s API för den länkade tjänsten MongoDB:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** måste anges till **CosmosDbMongoDbApi**. | Ja |
 | Begär |Ange anslutnings strängen för din Azure Cosmos DBs API för MongoDB. Du hittar det i Azure Portal-> Cosmos DB bladet > primär eller sekundär anslutnings sträng med mönstret `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb` . <br/><br />Du kan också ange ett lösen ord i Azure Key Vault och hämta  `password`   konfigurationen från anslutnings strängen.Mer information finns [i lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md)   .|Ja |
 | databas | Namnet på den databas som du vill få åtkomst till. | Ja |
-| connectVia | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller en egen värd för integration Runtime (om ditt data lager finns i ett privat nätverk). Om den här egenskapen inte anges används standard Azure Integration Runtime. |Nej |
+| connectVia | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller en egen värd för integration Runtime (om ditt data lager finns i ett privat nätverk). Om den här egenskapen inte anges används standard Azure Integration Runtime. |Inga |
 
 **Exempel**
 
@@ -77,7 +77,7 @@ Följande egenskaper stöds för Azure Cosmos DB: s API för den länkade tjäns
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [data uppsättningar och länkade tjänster](concepts-datasets-linked-services.md). Följande egenskaper stöds för Azure Cosmos DB s API för MongoDB-datauppsättning:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens **typ** -egenskap måste anges till **CosmosDbMongoDbApiCollection**. |Ja |
 | Samling |Namnet på den Azure Cosmos DB samlingen. |Ja |
@@ -111,15 +111,15 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **CosmosDbMongoDbApiSource**. |Ja |
-| filter | Anger urvals filter med hjälp av fråge operatorer. Om du vill returnera alla dokument i en samling utelämnar du den här parametern eller skickar ett tomt dokument ( {} ). | Nej |
-| cursorMethods. Project | Anger de fält som ska returneras i dokument för projektion. Om du vill returnera alla fält i de matchande dokumenten utelämnar du den här parametern. | Nej |
-| cursorMethods. sort | Anger i vilken ordning som frågan returnerar matchande dokument. Se [cursor. sort ()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Nej |
-| cursorMethods. Limit | Anger det maximala antalet dokument som servern returnerar. Referera till [cursor. Limit ()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Nej | 
-| cursorMethods. Skip | Anger antalet dokument som ska hoppas över och från där MongoDB börjar returnera resultat. Se [cursor. SKIP ()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | Nej |
-| batchSize | Anger antalet dokument som ska returneras i varje batch av svaret från MongoDB-instansen. I de flesta fall kommer ändringar av batchstorleken inte att påverka användaren eller programmet. Cosmos DB gränser för varje batch får inte överstiga 40MB i storlek, vilket är summan av batchSize-antalet dokument storlek, så minska det här värdet om dokument storleken är stor. | Nej<br/>(Standardvärdet är **100**) |
+| filter | Anger urvals filter med hjälp av fråge operatorer. Om du vill returnera alla dokument i en samling utelämnar du den här parametern eller skickar ett tomt dokument ( {} ). | Inga |
+| cursorMethods. Project | Anger de fält som ska returneras i dokument för projektion. Om du vill returnera alla fält i de matchande dokumenten utelämnar du den här parametern. | Inga |
+| cursorMethods. sort | Anger i vilken ordning som frågan returnerar matchande dokument. Se [cursor. sort ()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Inga |
+| cursorMethods. Limit | Anger det maximala antalet dokument som servern returnerar. Referera till [cursor. Limit ()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Inga | 
+| cursorMethods. Skip | Anger antalet dokument som ska hoppas över och från där MongoDB börjar returnera resultat. Se [cursor. SKIP ()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | Inga |
+| batchSize | Anger antalet dokument som ska returneras i varje batch av svaret från MongoDB-instansen. I de flesta fall kommer ändringar av batchstorleken inte att påverka användaren eller programmet. Cosmos DB gränser för varje batch får inte överstiga 40MB i storlek, vilket är summan av batchSize-antalet dokument storlek, så minska det här värdet om dokument storleken är stor. | Inga<br/>(Standardvärdet är **100**) |
 
 >[!TIP]
 >ADF-support använder BSON-dokument i **strikt läge**. Kontrol lera att filter frågan är i strikt läge i stället för Shell-läge. Du hittar mer information på [MongoDB manual](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
@@ -166,12 +166,12 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
 Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** för kopierings aktivitetens Sink måste anges till **CosmosDbMongoDbApiSink**. |Ja |
-| writeBehavior |Beskriver hur du skriver data till Azure Cosmos DB. Tillåtna värden: **insert** och **upsert**.<br/><br/>Beteendet för **upsert** är att ersätta dokumentet om det redan finns ett dokument med samma `_id` . annars infogar du dokumentet.<br /><br />**Obs!** Data Factory automatiskt genererar ett `_id` för ett dokument om inget `_id` anges i det ursprungliga dokumentet eller med kolumn mappning. Det innebär att du måste se till att ditt dokument har ett ID för att **upsert** ska fungera som förväntat. |Nej<br />(Standardvärdet är **insert**) |
-| writeBatchSize | Egenskapen **writeBatchSize** styr storleken på dokument som ska skrivas i varje batch. Du kan prova att öka värdet för **writeBatchSize** för att förbättra prestandan och minska värdet om dokument storleken är stor. |Nej<br />(Standardvärdet är **10 000**) |
-| writeBatchTimeout | Vänte tiden för att infoga batch-operationen ska avslutas innan den nådde tids gränsen. Det tillåtna värdet är TimeSpan. | Nej<br/>(Standardvärdet är **00:30:00** – 30 minuter) |
+| writeBehavior |Beskriver hur du skriver data till Azure Cosmos DB. Tillåtna värden: **insert** och **upsert**.<br/><br/>Beteendet för **upsert** är att ersätta dokumentet om det redan finns ett dokument med samma `_id` . annars infogar du dokumentet.<br /><br />**Obs!** Data Factory automatiskt genererar ett `_id` för ett dokument om inget `_id` anges i det ursprungliga dokumentet eller med kolumn mappning. Det innebär att du måste se till att ditt dokument har ett ID för att **upsert** ska fungera som förväntat. |Inga<br />(Standardvärdet är **insert**) |
+| writeBatchSize | Egenskapen **writeBatchSize** styr storleken på dokument som ska skrivas i varje batch. Du kan prova att öka värdet för **writeBatchSize** för att förbättra prestandan och minska värdet om dokument storleken är stor. |Inga<br />(Standardvärdet är **10 000**) |
+| writeBatchTimeout | Vänte tiden för att infoga batch-operationen ska avslutas innan den nådde tids gränsen. Det tillåtna värdet är TimeSpan. | Inga<br/>(Standardvärdet är **00:30:00** – 30 minuter) |
 
 >[!TIP]
 >Information om hur du importerar JSON-dokument finns i avsnittet [Importera eller exportera JSON-dokument](#import-and-export-json-documents) . Om du vill kopiera från tabellbaserade data, se [schema mappning](#schema-mapping).

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.author: sideeksh
 ms.openlocfilehash: 429ffcab147142ae2e96de13b7c9e1e5ee1ac7ba
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86133225"
 ---
 # <a name="configure-mobility-service-proxy-settings-for-azure-to-azure-disaster-recovery"></a>Konfigurera proxyinställningar för mobilitets tjänsten för haveri beredskap i Azure till Azure
@@ -54,5 +54,5 @@ I det här fallet tillhandahåller kunden anpassade programproxy-inställningar 
 ProxyInfo. conf innehåller följande mall [proxy] address = http://1.2.3.4 port = 5678 BypassList = hypervrecoverymanager. windowsazure. com, login. microsoftonline. com, blob. Core. Windows. net. BypassList har inte stöd för jokertecken som "*. windows.net", men om du ger windows.net är det tillräckligt tillräckligt för att kringgå. 
 
 ## <a name="next-steps"></a>Nästa steg:
-- Läs [nätverks vägledning](./azure-to-azure-about-networking.md) för replikering av virtuella Azure-datorer.
+- Läs [nätverks vägledning](./azure-to-azure-about-networking.md)  för replikering av virtuella Azure-datorer.
 - Distribuera haveri beredskap genom att [Replikera virtuella Azure-datorer](./azure-to-azure-quickstart.md).

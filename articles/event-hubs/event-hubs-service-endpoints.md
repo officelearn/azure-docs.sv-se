@@ -4,10 +4,10 @@ description: Den här artikeln innehåller information om hur du lägger till en
 ms.topic: article
 ms.date: 07/29/2020
 ms.openlocfilehash: cb0d9a9c4d5e2503e68620ec4e6386d8e05d471c
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88185083"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Tillåt åtkomst till Azure Event Hubs-namnrymder från vissa virtuella nätverk 
@@ -105,7 +105,7 @@ Mallparametrar:
 > ```json
 > "defaultAction": "Allow"
 > ```
-> till
+> på
 > ```json
 > "defaultAction": "Deny"
 > ```

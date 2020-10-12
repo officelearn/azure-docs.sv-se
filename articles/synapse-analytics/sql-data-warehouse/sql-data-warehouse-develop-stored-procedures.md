@@ -1,5 +1,5 @@
 ---
-title: Använda lagrade procedurer
+title: Användning av lagrade procedurer
 description: Tips för att utveckla lösningar genom att implementera lagrade procedurer i Synapse SQL-pool.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -11,17 +11,17 @@ ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 87c7eaa57f9da87bd83f89953afc09632d42b1f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85213405"
 ---
 # <a name="using-stored-procedures-in-synapse-sql-pool"></a>Använda lagrade procedurer i Synapse SQL-pool
 
 Den här artikeln innehåller tips för att utveckla lösningar för SQL-pooler genom att implementera lagrade procedurer.
 
-## <a name="what-to-expect"></a>Vad som ska förväntas
+## <a name="what-to-expect"></a>Vad du kan förvänta dig
 
 SQL-poolen stöder många av de T-SQL-funktioner som används i SQL Server. Det är viktigt att det finns skalbara funktioner som du kan använda för att maximera prestandan för din lösning.
 

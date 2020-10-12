@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 83ab2c6b97435ace0d2bc508cbf522600391b60b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88926838"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>OData $orderby-syntax i Azure Kognitiv sökning
@@ -32,7 +32,7 @@ ms.locfileid: "88926838"
 
 ## <a name="syntax"></a>Syntax
 
-Parametern **$OrderBy** accepterar en kommaavgränsad lista med upp till 32 **order by-satser**. Syntaxen för en order by-sats beskrivs av följande EBNF ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
+Parametern **$OrderBy** accepterar en kommaavgränsad lista med upp till 32 **order by-satser**. Syntaxen för en order by-sats beskrivs av följande EBNF ([utökad Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 

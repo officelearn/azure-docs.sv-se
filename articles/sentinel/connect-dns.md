@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
 ms.openlocfilehash: a88696ba69fdf53f5c7e15d174b126d69f4230ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85555424"
 ---
 # <a name="connect-your-domain-name-server"></a>Anslut din domän namns Server
@@ -44,9 +44,9 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | **Ansluten källa** | **Support** | **Beskrivning** |
 | --- | --- | --- |
 | [Windows-agenter](../azure-monitor/platform/agent-windows.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
-| [Linux-agenter](../azure-monitor/learn/quick-collect-linux-computer.md) | No | Lösningen samlar inte in DNS-information från Direct Linux-agenter. |
+| [Linux-agenter](../azure-monitor/learn/quick-collect-linux-computer.md) | Inga | Lösningen samlar inte in DNS-information från Direct Linux-agenter. |
 | [System Center Operations Manager-hanteringsgrupp](../azure-monitor/platform/om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten Operations Manager hanterings grupp. En direkt anslutning från Operations Manager agent till Azure Monitor krävs inte. Data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan. |
-| [Azure Storage-konto](../azure-monitor/platform/collect-azure-metrics-logs.md) | No | Azure Storage används inte av lösningen. |
+| [Azure Storage-konto](../azure-monitor/platform/collect-azure-metrics-logs.md) | Inga | Azure Storage används inte av lösningen. |
 
 ### <a name="data-collection-details"></a>Information om data insamling
 

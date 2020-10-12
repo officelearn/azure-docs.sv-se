@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 658fd9178495f14274c85eab2129c9dcd3be7693
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67187374"
 ---
 | **Gräns för identifierare** | **Gräns** | **Kommentarer** |
@@ -22,7 +22,7 @@ ms.locfileid: "67187374"
 | Maximal storlek på en nivå volym |5 TB | |
 | Minsta storlek på en lokalt fäst resurs |50 GB | |
 | Minsta storlek på en lokalt fäst volym |50 GB | |
-| Maximal storlek på en lokalt fäst resurs |2 TB | |
+| Maximal storlek på en lokalt fäst resurs |2 TB | |
 | Maximal storlek på en lokalt fäst volym |200 GB | |
 | Maximalt antal iSCSI-anslutningar från initierare |512 | |
 | Maximalt antal åtkomst kontroll poster per enhet |64 | |

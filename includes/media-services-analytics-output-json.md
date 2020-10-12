@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67187757"
 ---
 Jobbet skapar en JSON-utdatafil som innehåller metadata om identifierade och spårade ansikten. Metadata innehåller koordinater som visar platsen för ansikten, samt ett ansikts-ID-nummer som visar spårningen av den enskilda. Ansikts-ID-nummer är känsliga att återställa under förhållanden när front ytan tappas bort eller överlappar varandra i ramen, vilket leder till att vissa personer får flera ID: n.
@@ -32,7 +32,7 @@ Utdata-JSON innehåller följande element:
 |---|---|
 | start |Start tiden för den första händelsen i "ticks". |
 | varaktighet |Längden på fragmentet i "tickas". |
-| Tabbindex | (Gäller endast Azure Media Redactor) definierar ram indexet för den aktuella händelsen. |
+| index | (Gäller endast Azure Media Redactor) definierar ram indexet för den aktuella händelsen. |
 | interval |Intervallet för varje händelse post i fragmentet, i "ticker". |
 | händelser |Varje händelse innehåller ansikten som har identifierats och spårats inom den tids perioden. Det är en matris med händelser. Den yttre matrisen representerar ett visst tidsintervall. Den inre matrisen består av 0 eller fler händelser som inträffade vid den tidpunkten. En tom hak paren tes [] innebär att inga ansikten har identifierats. |
 | id |ID för den ansikte som spåras. Det här talet kan oavsiktligt ändras om ett ansikte blir oidentifierat. En viss individ bör ha samma ID i den övergripande videon, men det kan inte garanteras på grund av begränsningar i detektions algoritmen (ocklusion osv.). |

@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: a4140a0b22f7ca8164d50cf60fe57c861f826eb4
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86132512"
 ---
-# <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Konfigurera katastrof återställning till Azure för virtuella Hyper-V-datorer med PowerShell och Azure Resource Manager
+# <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Konfigurera haveriberedskap till Azure för virtuella Hyper-V-datorer med PowerShell och Azure Resource Manager
 
 [Azure Site Recovery](site-recovery-overview.md) bidrar till din strategi för affärs kontinuitet och haveri beredskap (BCDR) genom att dirigera replikering, redundans och återställning av virtuella Azure-datorer (VM) och lokala virtuella datorer och fysiska servrar.
 
@@ -46,7 +46,7 @@ Dessutom har det särskilda exemplet som beskrivs i den här artikeln följande 
 
 1. Öppna en PowerShell-konsol och kör det här kommandot för att logga in på ditt Azure-konto. Cmdleten hämtar en webb sida där du uppmanas att ange dina autentiseringsuppgifter för ditt konto: `Connect-AzAccount` .
    - Alternativt kan du inkludera dina konto uppgifter som en parameter i `Connect-AzAccount` cmdleten med hjälp av parametern **Credential** .
-   - Om du är en CSP-partner som arbetar för en klient kan du ange kunden som en klient, genom att använda sitt tenantID eller klientens primära domän namn. Exempel: `Connect-AzAccount -Tenant "fabrikam.com"`
+   - Om du är en CSP-partner som arbetar för en klient kan du ange kunden som en klient, genom att använda sitt tenantID eller klientens primära domän namn. Exempelvis: `Connect-AzAccount -Tenant "fabrikam.com"`
 1. Associera den prenumeration som du vill använda med kontot, eftersom ett konto kan ha flera prenumerationer:
 
    ```azurepowershell

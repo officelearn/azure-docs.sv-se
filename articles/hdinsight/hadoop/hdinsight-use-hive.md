@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: 37fdf863d29015bba7015fcff1ae49a34aebd785
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462283"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Vad är Apache Hive och HiveQL på Azure HDInsight?
@@ -137,7 +137,7 @@ I föregående exempel utför HiveQL-instruktionerna följande åtgärder:
 |SKAPA EXTERN TABELL|Skapar en ny **extern** tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive. Data placeras kvar på den ursprungliga platsen och i det ursprungliga formatet.|
 |RAD FORMAT|Anger Hive hur data formateras. I det här fallet separeras fälten i varje logg med ett blank steg.|
 |LAGRAD SOM TEXTFILE-PLATS|Anger Hive var data lagras ( `example/data` katalogen) och lagras som text. Data kan finnas i en fil eller spridas över flera filer i katalogen.|
-|SELECT|Väljer ett antal rader där kolumnen **T4** innehåller värdet **[Error]**. Den här instruktionen returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.|
+|VÄLJ|Väljer ett antal rader där kolumnen **T4** innehåller värdet **[Error]**. Den här instruktionen returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.|
 |INPUT__FILE__NAME som%. log|Hive försöker tillämpa schemat på alla filer i katalogen. I det här fallet innehåller katalogen filer som inte matchar schemat. För att förhindra skräp data i resultaten anger den här instruktionen Hive att vi bara ska returnera data från filer som slutar med. log.|
 
 > [!NOTE]  

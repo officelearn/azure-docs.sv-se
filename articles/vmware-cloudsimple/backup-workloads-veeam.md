@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86525049"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Säkerhetskopiera virtuella arbets belastnings datorer på CloudSimple privata moln med Veeam B&R
@@ -54,7 +54,7 @@ För miljöer med mindre än 30 TB som ska säkerhets kopie ras rekommenderar Cl
 
 * Veeam backup server och proxy server installerad på samma virtuella dator i det privata molnet.
 * En Linux-baserad primär säkerhets kopierings databas i Azure som är konfigurerad som mål för säkerhets kopierings jobb.
-* `azcopy`används för att kopiera data från den primära säkerhets kopie databasen till en Azure Blob-behållare som replikeras till en annan region.
+* `azcopy` används för att kopiera data från den primära säkerhets kopie databasen till en Azure Blob-behållare som replikeras till en annan region.
 
 ![Grundläggande distributions scenarier](media/veeam-basicdeployment.png)
 
@@ -65,7 +65,7 @@ För miljöer med mer än 30 TB som ska säkerhets kopie ras rekommenderar Cloud
 * En proxyserver per nod i virtuellt San-klustret, som rekommenderas av Veeam.
 * Windows-baserad primär säkerhets kopierings lagring i det privata molnet för att cachelagra fem dagars data för snabb återställning.
 * Linux backup-lagringsplats i Azure som mål för säkerhets kopierings jobb för längre varaktighets kvarhållning. Den här lagrings platsen ska konfigureras som en lagrings plats för säkerhets kopiering.
-* `azcopy`används för att kopiera data från den primära säkerhets kopie databasen till en Azure Blob-behållare som replikeras till en annan region.
+* `azcopy` används för att kopiera data från den primära säkerhets kopie databasen till en Azure Blob-behållare som replikeras till en annan region.
 
 ![Grundläggande distributions scenarier](media/veeam-advanceddeployment.png)
 

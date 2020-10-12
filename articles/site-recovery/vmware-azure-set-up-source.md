@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: afd3979690b8952c915a49099ee04b3d416031fd
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88189740"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Konfigurera käll miljön för VMware till Azure-replikering
 
 Den här artikeln beskriver hur du konfigurerar din lokala lokala miljö för att replikera virtuella VMware-datorer till Azure. Artikeln innehåller steg för att välja ett scenario för replikering, konfigurera en lokal dator som Site Recovery konfigurations Server och identifiera lokala virtuella datorer automatiskt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Artikeln förutsätter att du redan har:
 

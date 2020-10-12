@@ -7,10 +7,10 @@ ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: efe4c07a6231e0b2c95b049db056a4e5d055db98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77153000"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokal Git-distribution till Azure App Service
@@ -152,7 +152,7 @@ Följande vanliga fel meddelanden kan visas när du använder Git för att publi
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Du har inte angett någon gren under `git push` eller så har du inte angett `push.default` värdet i `.gitconfig` .|Kör `git push` igen och ange huvud grenen: `git push azure master` .|
 |`src refspec [branchname] does not match any.`|Du försökte skicka till en annan gren än Master på Azure-fjärrplatsen.|Kör `git push` igen och ange huvud grenen: `git push azure master` .|
 |`RPC failed; result=22, HTTP code = 5xx.`|Det här felet kan inträffa om du försöker skicka en stor git-lagringsplats via HTTPS.|Ändra git-konfigurationen på den lokala datorn så att den blir `postBuffer` större. Exempel: `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|Du har distribuerat en Node.js-app med en _package.jspå_ en fil som anger ytterligare nödvändiga moduler.|Granska `npm ERR!` fel meddelandena före det här felet för mer information om felet. Följande är kända orsaker till det här felet och motsvarande `npm ERR!` meddelanden:<br /><br />**Felaktig package.jspå fil**:`npm ERR! Couldn't read dependencies.`<br /><br />**Den ursprungliga modulen har ingen binär distribution för Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />eller <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
+|`Error - Changes committed to remote repository but your web app not updated.`|Du har distribuerat en Node.js-app med en _package.jspå_ en fil som anger ytterligare nödvändiga moduler.|Granska `npm ERR!` fel meddelandena före det här felet för mer information om felet. Följande är kända orsaker till det här felet och motsvarande `npm ERR!` meddelanden:<br /><br />**Felaktig package.jspå fil**: `npm ERR! Couldn't read dependencies.`<br /><br />**Den ursprungliga modulen har ingen binär distribution för Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />eller <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

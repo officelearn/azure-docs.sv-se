@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57325363909664bb527c2e2101505641858c4285
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706276"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor om Azure Multi-Factor Authentication
@@ -182,7 +182,7 @@ Leverans av SMS-meddelanden är inte garanterad eftersom det finns okontrollerad
 
 Säkerhetsappar från tredje part kan också blockera verifierings kodens textmeddelande eller telefonsamtal. Om du använder en säkerhets app från tredje part kan du försöka inaktivera skyddet och sedan begära en annan MFA-verifierings kod.
 
-Om användarna ofta har problem med att ta emot textmeddelanden på ett tillförlitligt sätt kan du be dem att använda Microsoft Authenticator appen eller Telefonsamtals metoden i stället. Microsoft Authenticator kan ta emot meddelanden både via mobil nät och Wi-Fi-anslutningar. Dessutom kan mobilappen generera verifierings koder även om enheten inte har någon signal alls. Microsoft Authenticator-appen finns för [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [iOS](https://go.microsoft.com/fwlink/?Linkid=825073) och [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
+Om användarna ofta har problem med att ta emot textmeddelanden på ett tillförlitligt sätt kan du be dem att använda Microsoft Authenticator appen eller Telefonsamtals metoden i stället. Microsoft Authenticator kan ta emot meddelanden både via mobil nät och Wi-Fi anslutningar. Dessutom kan mobilappen generera verifierings koder även om enheten inte har någon signal alls. Microsoft Authenticator-appen finns för [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [iOS](https://go.microsoft.com/fwlink/?Linkid=825073) och [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
 
 ### <a name="can-i-change-the-amount-of-time-my-users-have-to-enter-the-verification-code-from-a-text-message-before-the-system-times-out"></a>Kan jag ändra hur lång tid mina användare måste ange verifierings koden från ett SMS innan systemet nått tids gränsen?
 

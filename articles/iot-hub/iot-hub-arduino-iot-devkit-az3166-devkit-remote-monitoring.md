@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
 ms.openlocfilehash: d75e7e7b4870f46c978fd70039441c8851844082
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87337967"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Ansluta MXChip IoT DevKit till Azure IoT Remote Monitor Solution Accelerator
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig hur du kör en exempel-app på din De
 
 Slutför [komma igång guiden](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) för att:
 
-* Låt dina DevKit vara anslutna till Wi-Fi
+* Låt din DevKit vara ansluten till Wi-Fi
 * Förbereda utvecklingsmiljön
 
 En aktiv Azure-prenumeration. Om du inte har någon kan du registrera dig via någon av följande två metoder:

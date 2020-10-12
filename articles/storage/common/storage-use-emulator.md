@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.openlocfilehash: 959a58a38861075c6509fe57136d8991eeb98ce6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88588203"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure Storage emulatorn för utveckling och testning
@@ -323,7 +323,7 @@ Det finns inga skillnader vad gäller Queue Storage i emulatorn.
 ### <a name="version-30"></a>Version 3,0
 
 * Azure Storage emulatorn levereras inte längre i samma paket som Compute-emulatorn.
-* Grafiskt användar gränssnitt i Storage-emulatorn är inaktuellt. Den har ersatts av ett skript bara kommando rads gränssnitt. Mer information om kommando rads gränssnittet finns i kommando rads verktyget Storage mula reference. Det grafiska gränssnittet fortsätter att finnas i version 3,0, men det går bara att komma åt den när du har installerat beräknings-emulatorn genom att högerklicka på ikonen system fält och välja Visa användar gränssnitt för Storage-emulatorn.
+* Grafiskt användar gränssnitt i Storage-emulatorn är inaktuellt. Den har ersatts av ett skript bara kommando rads gränssnitt. Mer information om kommando rads gränssnittet finns i referens för Storage emulator Command-Line-verktyget. Det grafiska gränssnittet fortsätter att finnas i version 3,0, men det går bara att komma åt den när du har installerat beräknings-emulatorn genom att högerklicka på ikonen system fält och välja Visa användar gränssnitt för Storage-emulatorn.
 * Version 2013-08-15 av Azure Storage-tjänster stöds nu fullt ut. (Tidigare har den här versionen endast stöd för för hands versionen av Storage mula version 2.2.1.)
 
 ## <a name="next-steps"></a>Nästa steg

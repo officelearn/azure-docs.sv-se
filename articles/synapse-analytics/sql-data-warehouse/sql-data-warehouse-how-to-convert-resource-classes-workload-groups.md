@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: fe65aa8c69bc4bd3837ea68bc48ffdbbeed87e0e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89461382"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Konvertera resurs klasser till arbets belastnings grupper
@@ -27,7 +27,7 @@ Arbets belastnings grupper tillhandahåller en mekanism för att isolera och inn
 
 ## <a name="understanding-the-existing-resource-class-configuration"></a>Förstå den befintliga resurs klass konfigurationen
 
-Arbets belastnings grupper kräver en parameter `REQUEST_MIN_RESOURCE_GRANT_PERCENT` med namnet som anger procent andelen totala system resurser som allokeras per begäran.  Resursallokering görs för [resurs klasser](resource-classes-for-workload-management.md#what-are-resource-classes) genom att allokera samtidiga platser.  `REQUEST_MIN_RESOURCE_GRANT_PERCENT`Använd sys. dm_workload_management_workload_groups_stats DMV för att avgöra värdet som ska anges för <link tbd> .  Frågan nedan returnerar exempelvis ett värde som kan användas för `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parametern för att skapa en arbets belastnings grupp som liknar staticrc40.
+Arbets belastnings grupper kräver en parameter `REQUEST_MIN_RESOURCE_GRANT_PERCENT` med namnet som anger procent andelen totala system resurser som allokeras per begäran.  Resursallokering görs för [resurs klasser](resource-classes-for-workload-management.md#what-are-resource-classes) genom att allokera samtidiga platser.  Använd sys.dm_workload_management_workload_groups_stats DMV för att avgöra värdet som ska anges för `REQUEST_MIN_RESOURCE_GRANT_PERCENT` <link tbd> .  Frågan nedan returnerar exempelvis ett värde som kan användas för `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parametern för att skapa en arbets belastnings grupp som liknar staticrc40.
 
 ```sql
 SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant_percent

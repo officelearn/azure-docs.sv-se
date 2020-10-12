@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b3907882df09bfae1d6453fbffbd3e7562554f7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67187225"
 ---
 * **Principbaserad:** Principbaserad-VPN kallades tidigare för statiska routnings-gatewayer i den klassiska distributions modellen. Principbaserad VPN krypterar och dirigerar paket via IPsec-tunnlar baserat på IPsec-principerna som kon figurer ATS med kombinationer av adressprefix mellan ditt lokala nätverk och Azure VNet. Principen (eller trafikväljaren) definieras vanligtvis som en åtkomstlista i VPN-enhetens konfiguration. Värdet för en principbaserad VPN-typ är *Principbaserad*. Tänk på följande begränsningar när du använder en principbaserad VPN:

@@ -12,17 +12,17 @@ ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: d5e06d0a6f7693ca9cc69f05f6b2318d6b60b5e3
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89070810"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect: ADConnectivityTools PowerShell-referens
 
 Följande dokumentation innehåller referensinformation för PowerShell-modulen ADConnectivityTools. psm1 som ingår i Azure AD Connect.
 
-## <a name="confirm-dnsconnectivity"></a>Bekräfta – DnsConnectivity
+## <a name="confirm-dnsconnectivity"></a>Confirm-DnsConnectivity
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
@@ -109,7 +109,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
-## <a name="confirm-forestexists"></a>Bekräfta – ForestExists
+## <a name="confirm-forestexists"></a>Confirm-ForestExists
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
@@ -156,7 +156,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
-## <a name="confirm-functionallevel"></a>Bekräfta – FunctionalLevel
+## <a name="confirm-functionallevel"></a>Confirm-FunctionalLevel
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
@@ -257,7 +257,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
-## <a name="confirm-networkconnectivity"></a>Bekräfta – NetworkConnectivity
+## <a name="confirm-networkconnectivity"></a>Confirm-NetworkConnectivity
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
@@ -311,7 +311,7 @@ Accept wildcard characters: False
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
 Om användaren inte använder DNS-tjänster som tillhandahålls av AD-platsen/inloggnings-DC, kanske de vill hoppa över att kontrol lera port 53.
-Användaren måste fortfarande kunna matcha _. LDAP. _tcp.\<forestfqdn\>
+Användaren måste fortfarande kunna lösa _.ldap._tcp.\<forestfqdn\>
 för att konfigurationen av Active Directory Connector ska lyckas.
 
 ```yml
@@ -348,7 +348,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
-## <a name="confirm-targetsarereachable"></a>Bekräfta – TargetsAreReachable
+## <a name="confirm-targetsarereachable"></a>Confirm-TargetsAreReachable
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
@@ -417,7 +417,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
-## <a name="confirm-validdomains"></a>Bekräfta – ValidDomains
+## <a name="confirm-validdomains"></a>Confirm-ValidDomains
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
@@ -517,7 +517,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
-## <a name="confirm-validenterpriseadmincredentials"></a>Bekräfta – ValidEnterpriseAdminCredentials
+## <a name="confirm-validenterpriseadmincredentials"></a>Confirm-ValidEnterpriseAdminCredentials
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
@@ -641,7 +641,7 @@ Accept wildcard characters: False
 
 #### <a name="-returnexceptiononerror"></a>-ReturnExceptionOnError
 
-Tilläggs parameter som används av funktionen start-NetworkConnectivityDiagnosisTools
+Tilläggs parameter som används av Start-NetworkConnectivityDiagnosisTools funktion
 
 ```yml
 Type: SwitchParameter

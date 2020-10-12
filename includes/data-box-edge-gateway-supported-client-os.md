@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 674ca630aa41d930ad7d7cfebccbe9b44351b68c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67187788"
 ---
 Här är en lista över operativ system som stöds för klienter eller värdar som är anslutna till din enhet. Dessa versioner av operativ systemet testades internt.

@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: sömlös enkel inloggning – så här fungerar det | Microsoft Docs'
-description: Den här artikeln beskriver hur Azure Active Directory sömlös enkel inloggnings funktion fungerar.
+title: 'Azure AD Connect: sömlöst enskilt Sign-On – hur det fungerar | Microsoft Docs'
+description: Den här artikeln beskriver hur Azure Active Directory sömlösa en Sign-On-funktion fungerar.
 services: active-directory
 keywords: Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
 documentationcenter: ''
@@ -17,15 +17,15 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bde937adba8d2469390a6cf404f6cce8c5008e87
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86144701"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sömlös enkel inloggning: tekniskt djup
 
-Den här artikeln ger dig teknisk information om hur funktionen Azure Active Directory sömlös enkel inloggning (sömlös SSO) fungerar.
+Den här artikeln innehåller teknisk information om hur funktionen Azure Active Directory sömlös enkel Sign-On (sömlös SSO) fungerar.
 
 ## <a name="how-does-seamless-sso-work"></a>Hur fungerar sömlös enkel inloggning?
 
@@ -82,8 +82,8 @@ Inloggnings flödet på en ursprunglig klient är följande:
 
 1. Användaren försöker komma åt ett internt program (till exempel Outlook-klienten) från en domänansluten företags enhet i företags nätverket.
 2. Om användaren inte redan är inloggad hämtar det interna programmet användar namnet för användaren från enhetens Windows-session.
-3. Appen skickar användar namnet till Azure AD och hämtar klient organisationens WS-Trust MEX-slutpunkt. Den här WS-Trust-slutpunkten används exklusivt av funktionen sömlös SSO och är inte en allmän implementering av WS-Trust-protokollet i Azure AD.
-4. Appen skickar sedan en fråga till WS-Trust MEX-slutpunkten för att se om den integrerade autentiseringens slut punkt är tillgänglig. Den integrerade autentiseringens slut punkt används exklusivt av sömlös SSO-funktionen.
+3. Appen skickar användar namnet till Azure AD och hämtar klient organisationens WS-Trust MEX-slutpunkt. Den här WS-Trust slut punkten används exklusivt av funktionen sömlös SSO och är inte en allmän implementering av WS-Trust-protokollet på Azure AD.
+4. Appen frågar sedan WS-Trust MEX-slutpunkten för att se om den integrerade autentiseringens slut punkt är tillgänglig. Den integrerade autentiseringens slut punkt används exklusivt av sömlös SSO-funktionen.
 5. Om steg 4 lyckas utfärdas en Kerberos-utmaning.
 6. Om appen kan hämta Kerberos-biljetten vidarebefordras den till Azure ADs integrerade autentiserings slut punkt.
 7. Azure AD dekrypterar Kerberos-biljetten och verifierar den.

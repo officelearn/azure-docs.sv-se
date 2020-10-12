@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 08/05/2020
 ms.author: alkohli
 ms.openlocfilehash: 866cf01243983863292ada0b086f8f5b2f94e412
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87925569"
 ---
 # <a name="troubleshoot-disk-unlocking-issues-in-azure-data-box-disk"></a>Felsök problem med att låsa upp diskar i Azure Data Box Disk
@@ -51,7 +51,7 @@ I det här avsnittet beskrivs några av de vanligaste problemen vid distribution
 
 Du har använt lösen ordet i BitLocker-dialogrutan och försöker låsa upp disken via dialog rutan för att låsa upp BitLocker-enheter. Detta fungerar inte.
 
-**Upplösning**
+**Lösning**
 
 Om du vill låsa upp Data Box-enhet diskarna måste du använda verktyget Data Box Disk upplåsning och ange lösen ordet från Azure Portal. Mer information finns i [Självstudier: packa upp, Anslut och lås upp Azure Data Box disk](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
  
@@ -65,7 +65,7 @@ Du kan se följande fel i fel loggen och kan inte låsa upp eller verifiera viss
  
 Det tyder på att du troligen saknar rätt version av Windows PowerShell på Windows-klienten.
 
-**Upplösning**
+**Lösning**
 
 Du kan installera [Windows PowerShell v 5,0](https://www.microsoft.com/download/details.aspx?id=54616) och försöka utföra åtgärden igen.
  

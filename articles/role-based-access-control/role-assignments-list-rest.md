@@ -16,15 +16,15 @@ ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 634e1111c9374a1749e7dbb0666740ce2833a688
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790984"
 ---
 # <a name="list-azure-role-assignments-using-the-rest-api"></a>Visa en lista med Azures roll tilldelningar med hjälp av REST API
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Den här artikeln beskriver hur du visar roll tilldelningar med hjälp av REST API.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Den här artikeln beskriver hur du visar roll tilldelningar med hjälp av REST API.
 
 > [!NOTE]
 > Om din organisation har funktioner som har hanterats av en tjänst leverantör som använder [Azure-delegerad resurs hantering](../lighthouse/concepts/azure-delegated-resource-management.md), visas inte roll tilldelningar som har auktoriserats av tjänste leverantören här.
@@ -54,7 +54,7 @@ I Azure RBAC, för att visa åtkomst, visar du roll tilldelningarna. Om du vill 
 1. Ersätt *{filter}* med villkoret som du vill använda för att filtrera roll tilldelnings listan.
 
     > [!div class="mx-tableFixed"]
-    > | Filter | Beskrivning |
+    > | Filtrera | Beskrivning |
     > | --- | --- |
     > | `$filter=atScope()` | Visar endast roll tilldelningar för det angivna omfånget, inte inklusive roll tilldelningarna i underscope. |
     > | `$filter=assignedTo('{objectId}')` | Visar en lista över roll tilldelningar för en viss användare eller tjänstens huvud namn.<br/>Om användaren är medlem i en grupp som har en roll tilldelning visas även den roll tilldelningen. Det här filtret är transitivt för grupper, vilket innebär att om användaren är medlem i en grupp och gruppen är medlem i en annan grupp som har en roll tilldelning visas även roll tilldelningen.<br/>Filtret accepterar bara ett objekt-ID för en användare eller ett tjänst objekt. Det går inte att skicka ett objekt-ID för en grupp. |
@@ -92,5 +92,5 @@ Följande visar ett exempel på utdata:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av REST API](role-assignments-rest.md)
-- [Referens för Azure-REST API](/rest/api/azure/)
+- [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av REST API](role-assignments-rest.md)
+- [Azure REST API-referens](/rest/api/azure/)

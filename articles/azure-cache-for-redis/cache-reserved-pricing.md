@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: c4ea8db464c7cae57b80837ced9f8886a8b3cf4a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87093025"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Förskottsbetala för Azure cache för Redis Compute-resurser med reserverad kapacitet
@@ -48,14 +48,14 @@ Anta till exempel att du kör två cacheminnen – en till 13 GB och den andra v
 
 I följande tabell beskrivs obligatoriska fält.
 
-| Fält | Beskrivning |
+| Field | Beskrivning |
 | :------------ | :------- |
 | Prenumeration   | Prenumerationen som används för att betala för Azure cache för Redis reserverad kapacitets reservation. Betalnings metoden för prenumerationen debiteras de direkta kostnaderna för Azure-cachen för Redis reserverad kapacitet. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller ett enskilt avtal med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. För en enskild prenumeration med priset betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.
 | Omfång | Reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: </br></br> **Shared**Reservations rabatten tillämpas på Azure cache för Redis-instanser som körs i alla prenumerationer i din fakturerings kontext. För företags kunder är det delade omfånget registreringen och innehåller alla prenumerationer i registreringen. För Betala per användning-kunder gäller den delade omfattningen samtliga Betala per användning-prenumerationer som kontoadministratören har skapat.</br></br> **Enskild prenumeration**tillämpas reservations rabatten på Azure cache för Redis-instanser i den här prenumerationen. </br></br> **En enda resurs grupp**, reservations rabatten tillämpas på Azure cache för Redis-instanser i den valda prenumerationen och den valda resurs gruppen i den prenumerationen.
 | Region | Den Azure-region som omfattas av Azure-cachen för Redis reserverad kapacitets reservation.
 | Prisnivå | Tjänst nivån för Azure cache för Redis-servrar.
-| Term | Ett år eller tre år
-| Antal | Mängden data bearbetnings resurser som köps i Azure-cachen för Redis reserverad kapacitet reservation. Antalet är ett antal cacheminnen i den valda Azure-regionen och tjänst nivån som reserveras och kommer att få fakturerings rabatten. Om du till exempel kör eller planerar att köra en Azure-cache för Redis-servrar med den totala cache-kapaciteten på 26 GB i regionen USA, östra, anger du den kvantitet som ger dig motsvarande 26 GB för att maximera fördelarna med alla cacheminnen. Detta kan vara 1 P3 eller 2 P2 cacheminnen.
+| Period | Ett år eller tre år
+| Kvantitet | Mängden data bearbetnings resurser som köps i Azure-cachen för Redis reserverad kapacitet reservation. Antalet är ett antal cacheminnen i den valda Azure-regionen och tjänst nivån som reserveras och kommer att få fakturerings rabatten. Om du till exempel kör eller planerar att köra en Azure-cache för Redis-servrar med den totala cache-kapaciteten på 26 GB i regionen USA, östra, anger du den kvantitet som ger dig motsvarande 26 GB för att maximera fördelarna med alla cacheminnen. Detta kan vara 1 P3 eller 2 P2 cacheminnen.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 

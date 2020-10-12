@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/01/2020
 ms.author: tomfitz
 ms.openlocfilehash: 949118214851c3eceffd8c1d638a4093bdf7f366
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89303961"
 ---
 | Resurs | Gräns |
@@ -28,10 +28,10 @@ ms.locfileid: "89303961"
 
 | Värde | Gräns |
 | --- | --- |
-| Parameters (Parametrar) |256 |
-| Variables (Variabler) |256 |
+| Parametrar |256 |
+| Variabler |256 |
 | Resurser (inklusive antal exemplar) |800 |
-| Outputs (Utdata) |64 |
+| Utdata |64 |
 | Mall uttryck |24 576 tecken |
 | Resurser i exporterade mallar |200 |
 | Mallens storlek |4 MB |

@@ -4,10 +4,10 @@ description: Lär dig hur du samlar in och analyserar data från en hybrid dator
 ms.topic: tutorial
 ms.date: 09/23/2020
 ms.openlocfilehash: 97ab390570f434295a5aa836ef994640f6dc14f8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335423"
 ---
 # <a name="tutorial-monitor-a-hybrid-machine-with-azure-monitor-for-vms"></a>Självstudie: övervaka en hybrid dator med Azure Monitor for VMs
@@ -40,15 +40,15 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. I den vänstra rutan under avsnittet **övervakning** väljer du **insikter** och **aktiverar**sedan.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-option.png" alt-text="Välj Insights-alternativ på menyn till vänster" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-option.png" alt-text="Sök efter Arc-aktiverade servrar i alla tjänster" border="false":::
 
 1. På sidan Azure Monitor **insikter-onboarde** uppmanas du att skapa en arbets yta. I den här självstudien rekommenderar vi inte att du väljer en befintlig Log Analytics arbets yta om du redan har en. Välj standard, som är en arbets yta med ett unikt namn i samma region som din registrerade anslutna dator. Den här arbets ytan skapas och konfigureras åt dig.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/enable-vm-insights.png" alt-text="Aktivera Azure Monitor for VMs sida" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/enable-vm-insights.png" alt-text="Sök efter Arc-aktiverade servrar i alla tjänster" border="false":::
 
 1. Du får status meddelanden medan konfigurationen utförs. Den här processen tar några minuter eftersom tillägg är installerade på den anslutna datorn.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Aktivera Azure Monitor for VMs förlopps status meddelande" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Sök efter Arc-aktiverade servrar i alla tjänster" border="false":::
 
     När det är klart får du ett meddelande om att datorn har registrerats och insikten har distribuerats.
 
@@ -56,11 +56,11 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 När distributionen och konfigurationen är slutförd väljer du **insikter**och väljer sedan fliken **prestanda** . På fliken prestanda visas en Välj grupp med prestanda räknare som samlats in från gäst operativ systemet på den virtuella datorn. Rulla nedåt för att visa fler räknare och flytta musen över ett diagram för att Visa medelvärde och percentiler som tas från den tidpunkt då Log Analytics VM-tillägget installerades på datorn.
 
-:::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Azure Monitor for VMs prestanda diagram för vald dator" border="false":::
+:::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Sök efter Arc-aktiverade servrar i alla tjänster" border="false":::
 
 Välj **Map** för att öppna funktionen Maps, som visar de processer som körs på den virtuella datorn och deras beroenden. Välj **Egenskaper** för att öppna egenskaps rutan om den inte redan är öppen.
 
-:::image type="content" source="./media/tutorial-enable-vm-insights/insights-map.png" alt-text="Azure Monitor for VMs karta för vald dator" border="false":::
+:::image type="content" source="./media/tutorial-enable-vm-insights/insights-map.png" alt-text="Sök efter Arc-aktiverade servrar i alla tjänster" border="false":::
 
 Expandera processerna för den virtuella datorn. Välj en av processerna för att visa dess information och för att markera dess beroenden.
 

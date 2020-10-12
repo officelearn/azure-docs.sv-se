@@ -1,5 +1,5 @@
 ---
-title: Översikt över Azure-diagnostik-tillägg
+title: Översikt över Azure Diagnostics-tillägg
 description: Använd Azure Diagnostics för fel sökning, mäta prestanda, övervakning, trafik analys i moln tjänster, virtuella datorer och Service Fabric
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
@@ -7,17 +7,17 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 6201a4e0551f0f75dde65b2bc4b8b560a0f5ea20
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87008004"
 ---
-# <a name="azure-diagnostics-extension-overview"></a>Översikt över Azure-diagnostik-tillägg
+# <a name="azure-diagnostics-extension-overview"></a>Översikt över Azure Diagnostics-tillägg
 Azure-diagnostik tillägget är en [agent i Azure Monitor](agents-overview.md) som samlar in övervaknings data från gäst operativ systemet i Azure Compute-resurser, inklusive virtuella datorer. Den här artikeln innehåller en översikt över Azure-diagnostik-tillägget, inklusive de funktioner som stöds och alternativ för installation och konfiguration. 
 
 > [!NOTE]
-> Azure-diagnostik tillägget är en av de agenter som är tillgängliga för att samla in övervaknings data från gäst operativ systemet för beräknings resurser. Se [Översikt över Azure Monitor agenter](agents-overview.md) för en beskrivning av de olika agenterna och vägledningen för att välja lämpliga agenter för dina behov.
+> Azure-diagnostik tillägget är en av de agenter som är tillgängliga för att samla in övervaknings data från gäst operativ systemet för beräknings resurser. Se [Översikt över Azure Monitor agenter ](agents-overview.md) för en beskrivning av de olika agenterna och vägledningen för att välja lämpliga agenter för dina behov.
 
 ## <a name="primary-scenarios"></a>Primära scenarier
 De primära scenarierna som hanteras av tillägget för diagnostik är:

@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 1c1b38c4021660b9f59098f8442d16bfd0ecc582
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87925550"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Använd loggar för att felsöka validerings problem i Azure Data Box Disk
@@ -21,7 +21,7 @@ Den här artikeln gäller för Microsoft Azure Data Box Disk. I artikeln beskriv
 
 ## <a name="validation-tool-log-files"></a>Loggfiler för validerings verktyg
 
-När du validerar data på diskarna med hjälp av [validerings verktyget](data-box-disk-deploy-copy-data.md#validate-data)genereras en *error.xml* för att logga eventuella fel. Logg filen finns i `Drive:\DataBoxDiskImport\logs` mappen på enheten. Du får en länk till fel loggen när du kör verifieringen.
+När du validerar data på diskarna med hjälp av [validerings verktyget](data-box-disk-deploy-copy-data.md#validate-data)genereras en *error.xml* för att logga eventuella fel. Logg filen finns i  `Drive:\DataBoxDiskImport\logs` mappen på enheten. Du får en länk till fel loggen när du kör verifieringen.
 
 <!--![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)-->
 

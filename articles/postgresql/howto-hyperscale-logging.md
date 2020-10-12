@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 7/13/2020
 ms.openlocfilehash: 1dc7bc8e119de7c8fdcf09713286be2633457486
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90895868"
 ---
 # <a name="logs-in-azure-database-for-postgresql---hyperscale-citus"></a>Loggar i Azure Database for PostgreSQL-storskalig (citus)
@@ -26,11 +26,11 @@ Om du vill komma åt PostgreSQL-loggar för en citus-koordinator eller arbetsnod
 
 Öppna **diagnostikinställningar**på den markerade noden och klicka på **+ Lägg till diagnostisk inställning**.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="Knappen Lägg till diagnostikinställningar":::
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="lista över noder":::
 
 Välj ett namn för de nya diagnostikinställningar och markera rutan **PostgreSQLLogs** .  Välj vilka mål som ska ta emot loggarna.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="Välj PostgreSQL-loggar":::
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="lista över noder":::
 
 ## <a name="next-steps"></a>Nästa steg
 

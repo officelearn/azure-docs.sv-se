@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.openlocfilehash: 34f43d51bf0df488e04605f7f7c77e9c6dcfe9a4
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87374090"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Hitta Linux VM-avbildningar på Azure Marketplace med Azure CLI
 
 I det här avsnittet beskrivs hur du använder Azure CLI för att hitta VM-avbildningar på Azure Marketplace. Använd den här informationen för att ange en Marketplace-avbildning när du skapar en virtuell dator program mässigt med CLI-, Resource Manager-mallar eller andra verktyg.
 
-Du kan också hitta tillgängliga bilder och erbjudanden med hjälp av [Azure Marketplace](https://azuremarketplace.microsoft.com/) -butik, [Azure Portal](https://portal.azure.com)eller [Azure PowerShell](../windows/cli-ps-findimage.md). 
+Du kan också hitta tillgängliga bilder och erbjudanden med hjälp av [Azure Marketplace](https://azuremarketplace.microsoft.com/) -butik, [Azure Portal](https://portal.azure.com)eller  [Azure PowerShell](../windows/cli-ps-findimage.md). 
 
 Se till att du har installerat den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli) och är inloggad på ett Azure-konto ( `az login` ).
 
@@ -192,7 +192,7 @@ Använd den här informationen för att hitta erbjudanden från en speciell utgi
 az vm image list-offers --location westus --publisher Canonical --output table
 ```
 
-Resultat:
+Utdata:
 
 ```
 Location    Name
@@ -209,7 +209,7 @@ Du ser det i regionen Västra USA, kanoniskt publicera *UbuntuServer* -erbjudand
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
 ```
 
-Resultat:
+Utdata:
 
 ```
 Location    Name
@@ -284,7 +284,7 @@ Till exempel har den kanoniska Ubuntu Server 18,04 LTS-avbildningen inga ytterli
 az vm image show --location westus --urn Canonical:UbuntuServer:18.04-LTS:latest
 ```
 
-Resultat:
+Utdata:
 
 ```
 {
@@ -305,7 +305,7 @@ Om du kör ett liknande kommando för RabbitMQ-certifierad av Bitnami-bilden vis
 ```azurecli
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 ```
-Resultat:
+Utdata:
 
 ```
 {
@@ -327,7 +327,7 @@ Resultat:
 
 ### <a name="accept-the-terms"></a>Acceptera villkoren
 
-Om du vill visa och godkänna licens villkoren använder du kommandot [AZ VM Image accept-terms](/cli/azure/vm/image?) . När du godkänner villkoren aktiverar du program mässig distribution i din prenumeration. Du behöver bara godkänna villkoren en gång per prenumeration på avbildningen. Till exempel:
+Om du vill visa och godkänna licens villkoren använder du kommandot [AZ VM Image accept-terms](/cli/azure/vm/image?) . När du godkänner villkoren aktiverar du program mässig distribution i din prenumeration. Du behöver bara godkänna villkoren en gång per prenumeration på avbildningen. Exempel:
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest

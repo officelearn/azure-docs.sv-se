@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 5353fa70be4705b28dab9350fcdf7819b22faf54
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985544"
 ---
 # <a name="core-reports-from-verizon"></a>Core-rapporter från Verizon
@@ -100,7 +100,7 @@ Om du vill minska antalet utgångna cacheträffar ställer du in en till gång t
 * TCP_MISS: denna status anger att en cachelagrad version av den begärda till gången inte hittades på den POP som är närmast klienten. Till gången begärs antingen från en ursprungs Server eller en ursprungs skärms Server. Om ursprungs servern eller ursprungs skärms servern returnerar en till gång, hanteras den till klienten och cachelagras på både klienten och Edge-servern. Annars returneras en status kod som inte är 200 (till exempel 403 förbjuden eller 404).
 * TCP_EXPIRED_HIT: den här statusen rapporteras när en begäran som riktar sig mot en till gång med ett utgånget TTL-värde betjänades direkt från POP till klienten. Till exempel när till gångens max ålder har upphört att gälla. 
   
-   En förfallen begäran resulterar vanligt vis i en revaliditets-begäran till ursprungs servern. För att en TCP_EXPIRED_HIT status ska ske måste ursprungs servern ange att det inte finns någon nyare version av till gången. Den här situationen resulterar vanligt vis i en uppdatering av till gångens Cache-Control-och Expires-huvuden.
+   En förfallen begäran resulterar vanligt vis i en revaliditets-begäran till ursprungs servern. För att en TCP_EXPIRED_HIT status ska ske måste ursprungs servern ange att det inte finns någon nyare version av till gången. Den här situationen resulterar vanligt vis i en uppdatering av till gångens Cache-Control och Expires-huvuden.
 * TCP_EXPIRED_MISS: den här statusen rapporteras när en nyare version av en utgången cachelagrad till gång hanteras från POP till klienten. Den här statusen inträffar när TTL för en cachelagrad till gång har upphört att gälla (till exempel utgånget max ålder) och ursprungs servern returnerar en nyare version av till gången. Den här nya versionen av till gången hanteras till klienten i stället för den cachelagrade versionen. Dessutom cachelagras den på Edge-servern och klienten.
 * CONFIG_NOCACHE: denna status anger att en kundspecifik konfiguration av Edge POP hindrade till gången från att cachelagras.
 * INGEN – denna status anger att det inte utfördes någon uppdaterings kontroll för cache-innehåll.

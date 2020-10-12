@@ -1,6 +1,6 @@
 ---
-title: Distribuera OpenShift container Platform 3,11 själv Managed Marketplace-erbjudande i Azure
-description: Distribuera OpenShift container Platform 3,11-erbjudandet för egen hantering i Azure.
+title: Distribuera OpenShift container Platform 3,11 Self-Managed Marketplace-erbjudande i Azure
+description: Distribuera OpenShift container Platform 3,11 Self-Managed Marketplace-erbjudandet i Azure.
 author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
@@ -11,10 +11,10 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 36adf35c5fbfc3e88b7d9af425ebabc852707e69
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87374107"
 ---
 # <a name="configure-prerequisites"></a>Konfigurera krav
@@ -53,7 +53,7 @@ Klicka på erbjudandet om du vill visa information om erbjudandet. Klicka på **
    ![Rubrik sida för erbjudande](media/openshift-marketplace-self-managed/ocp-titlepage.png)  
 <br>
 
-**Grunderna**
+**Grundläggande inställningar**
 
 Om du vill ha hjälp med någon av indataparametrarna hovrar du över ***i*** rutan bredvid parameter namnet.
 
@@ -65,7 +65,7 @@ Ange värden för indataparametrarna och klicka på **OK**.
 | Offentlig SSH-nyckel för administratörs användare | Offentlig SSH-nyckel som används för att logga in på en virtuell dator – får inte ha en lösen fras |
 | Prenumeration | Azure-prenumeration för att distribuera kluster till |
 | Resursgrupp | Skapa en ny resurs grupp eller Välj en befintlig tom resurs grupp för kluster resurser |
-| Position | Azure-region för att distribuera kluster till |
+| Location | Azure-region för att distribuera kluster till |
 
    ![Bladet med grundläggande erbjudanden](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>

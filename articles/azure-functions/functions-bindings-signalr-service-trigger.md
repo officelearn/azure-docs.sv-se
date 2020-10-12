@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
 ms.openlocfilehash: e2651afbcdc3bae71bb531aa0e821f83264c295d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212592"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Signalerar tjänst utlöser bindning för Azure Functions
@@ -171,9 +171,9 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**bastyp**| saknas | Måste anges till `SignalRTrigger` .|
-|**position**| saknas | Måste anges till `in` .|
-|**Namn**| saknas | Variabel namn som används i funktions kod för kontext objekt för Utlös ande anrop. |
+|**bastyp**| Saknas | Måste anges till `SignalRTrigger` .|
+|**position**| Saknas | Måste anges till `in` .|
+|**Namn**| Saknas | Variabel namn som används i funktions kod för kontext objekt för Utlös ande anrop. |
 |**hubName**|**HubName**| Värdet måste anges till namnet på Signals Hub för den funktion som ska utlösas.|
 |**kategori**|**Kategori**| Värdet måste anges som kategori för meddelanden för funktionen som ska utlösas. Kategorin kan vara något av följande värden: <ul><li>**anslutningar**: inklusive *anslutna* och *frånkopplade* händelser</li><li>**meddelanden**: inklusive alla andra händelser utom de i kategorin *anslutningar*</li></ul> |
 |**händelse**|**Händelse**| Värdet måste anges som händelse för meddelanden för att funktionen ska kunna utlösas. I kategorin *meddelanden* är händelsen *målet* i [anrops meddelandet](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) som klienter skickar. För kategorin *anslutningar* används endast *anslutna* och *frånkopplade* . |

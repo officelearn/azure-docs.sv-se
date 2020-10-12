@@ -12,10 +12,10 @@ ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.openlocfilehash: 3f6b1bb189390f6ddd02e9ea2d636dcaa66a4f19
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88210870"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD-programproxy: versions historik
@@ -83,7 +83,7 @@ Den 22 juli 2020: lanserad för nedladdning den här versionen är bara tillgän
 - WebSocket-stöd har lagts till för QlikSense-programmet. Mer information om hur du integrerar QlikSense med Application Proxy finns i den här [genom gången](application-proxy-qlik.md). 
 - Förbättrade installations guiden för att göra det enklare att konfigurera en utgående proxy. 
 - Ange TLS 1,2 som standard protokoll för kopplingar. 
-- Lade till ett nytt licens avtal för slutanvändare (EULA).  
+- Lade till ett nytt End-User licens avtal (EULA).  
 
 ### <a name="fixed-issues"></a>Åtgärdade problem
 

@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: f9b81a7263dc9a1bdae9fd881519ac734da2c6bc
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88642205"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
@@ -471,7 +471,7 @@ Du kan också använda grundläggande autentiseringsuppgifter för autentisering
 
 #### <a name="install-local-packages"></a>Installera lokala paket
 
-Om ditt projekt använder paket som inte är offentligt tillgängliga för våra verktyg kan du göra dem tillgängliga för din app genom att placera dem i \_ \_ appen \_ \_ /. python_packages-katalogen. Innan du publicerar kör du följande kommando för att installera beroendena lokalt:
+Om ditt projekt använder paket som inte är offentligt tillgängliga för våra verktyg kan du göra dem tillgängliga för din app genom att placera dem i \_ \_ app \_ \_ /.python_packages-katalogen. Innan du publicerar kör du följande kommando för att installera beroendena lokalt:
 
 ```command
 pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt

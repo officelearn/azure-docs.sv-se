@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 6f8ec56cc5747921ee786bd4c069070ff865f9fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85507933"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Installera uppdatering 1,1 på din virtuella StorSimple-matris
@@ -32,7 +32,7 @@ Du tillämpar program uppdateringarna eller hotfixarna för att hålla din StorS
 > [!IMPORTANT]
 > - Uppdatering 1,1 motsvarar **10.0.10307.0** program varu version på enheten. Information om vad som är nytt i den här uppdateringen finns i [viktig information om uppdatering 1,1](storsimple-virtual-array-update-11-release-notes.md).
 >
-> - Kom ihåg att om du installerar en uppdatering eller snabb korrigering startas enheten om. Med tanke på att den virtuella StorSimple-matrisen är en enskild Node-enhet avbryts alla i/O-åtgärder och enheten upplever drift stopp.
+> - Kom ihåg enheten startas om när du installerar en uppdatering eller korrigering. Med tanke på att den virtuella StorSimple-matrisen är en enskild Node-enhet avbryts alla i/O-åtgärder och enheten upplever drift stopp.
 >
 > - Uppdatering 1,1 finns bara i Azure Portal om den virtuella matrisen kör uppdatering 1. För virtuella matriser som kör uppdatering 0,6-versioner måste du först installera uppdatering 1,0 och sedan använda uppdatering 1,1.
 
@@ -103,7 +103,7 @@ Den här proceduren tar cirka 4 minuter att slutföra. Utför följande steg fö
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update-11/update1m.png)
 
-2. I **Uppdatera fil Sök väg**anger du fil namnet för uppdateringen eller snabb korrigeringen. Du kan också bläddra till installations filen för uppdateringen eller hotfixen om den placeras på en nätverks resurs. Klicka på **Använd**.
+2. I **Uppdatera fil Sök väg**anger du fil namnet för uppdateringen eller snabb korrigeringen. Du kan också bläddra till installations filen för uppdateringen eller hotfixen om den placeras på en nätverks resurs. Klicka på **Applicera**.
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update-11/update2m.png)
 

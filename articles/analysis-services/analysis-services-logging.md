@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7e1eab20a8e315b977c21de46dd4f6ea2fec9f5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83701490"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurera diagnostisk loggning
@@ -43,7 +43,7 @@ Om du väljer **motor** loggar alla [xEvents](https://docs.microsoft.com/analysi
 |Kommandon     |  Kommando börjar       |
 |Kommandon     |  Kommando slut       |
 |Fel & varningar     |   Fel      |
-|Utforska     |   Identifiera slut      |
+|Identifiera     |   Identifiera slut      |
 |Meddelande     |    Meddelande     |
 |Session     |  Sessionsinitiering       |
 |Lås    |  Hamn       |
@@ -154,7 +154,7 @@ Loggar är vanligt vis tillgängliga inom några timmar efter att du ställer in
 
 Mått och Server händelser är integrerade med xEvents i din Log Analytics arbets ytans resurs för analys sida vid sida. Log Analytics arbets ytan kan också konfigureras för att ta emot händelser från andra Azure-tjänster som ger en heltäckande vy över diagnostisk loggnings data i din arkitektur.
 
-Om du vill visa dina diagnostikdata går du till Log Analytics arbets yta och öppnar **loggar** på den vänstra menyn.
+Om du vill visa dina diagnostikdata går du till Log Analytics arbets yta och öppnar **loggar**  på den vänstra menyn.
 
 ![Loggs öknings alternativ i Azure Portal](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
@@ -213,7 +213,7 @@ Det finns hundratals frågor som du kan använda. Mer information om frågor fin
 
 ## <a name="turn-on-logging-by-using-powershell"></a>Aktivera loggning med hjälp av PowerShell
 
-I den här snabb självstudien skapar du ett lagrings konto i samma prenumeration och resurs grupp som Analysis Services-servern. Sedan använder du Set-AzDiagnosticSetting för att aktivera diagnostikloggning och skicka utdata till det nya lagrings kontot.
+I den här snabb självstudien skapar du ett lagrings konto i samma prenumeration och resurs grupp som Analysis Services-servern. Du använder sedan Set-AzDiagnosticSetting för att aktivera diagnostikloggning och skicka utdata till det nya lagrings kontot.
 
 ### <a name="prerequisites"></a>Krav
 För att slutföra den här självstudien måste du ha följande resurser:
@@ -269,7 +269,7 @@ $account = Get-AzResource -ResourceGroupName awsales_resgroup `
 
 ### <a name="enable-logging"></a>Aktivera loggning
 
-Om du vill aktivera loggning använder du cmdleten Set-AzDiagnosticSetting tillsammans med variablerna för det nya lagrings kontot, Server kontot och kategorin. Kör följande kommando och ange flaggan **-Enabled** till **$True**:
+Om du vill aktivera loggning använder du Set-AzDiagnosticSetting cmdlet tillsammans med variablerna för det nya lagrings kontot, Server kontot och kategorin. Kör följande kommando och ange flaggan **-Enabled** till **$True**:
 
 ```powershell
 Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 06/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: 9cc5e5107784d447640ef0ae77d412885b1e5668
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185780"
 ---
 # <a name="update-azure-powershell-modules"></a>Uppdatera Azure PowerShell-moduler
@@ -46,7 +46,7 @@ Om du vill använda denna Runbook på suveräna moln använder du `AzEnvironment
 
 ## <a name="use-the-update-runbook-to-update-a-specific-module-version"></a>Använd uppdaterings-Runbook för att uppdatera en angiven version av en modul
 
-Om du vill använda en speciell Azure PowerShell-modul i stället för den senaste modulen som finns på PowerShell-galleriet, måste du skicka dessa versioner till den valfria `ModuleVersionOverrides` parametern för **Update-AutomationAzureModulesForAccount-** runbooken. Exempel finns i [Update-AutomationAzureModulesForAccount.ps1](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update/blob/master/Update-AutomationAzureModulesForAccount.ps1) Runbook. Azure PowerShell moduler som inte nämns i `ModuleVersionOverrides` parametern uppdateras med de senaste modulerna på PowerShell-galleriet. Om du inte skickar något till `ModuleVersionOverrides` parametern, uppdateras alla moduler med de senaste modulerna på PowerShell-galleriet. Detta är samma sak som knappen **Uppdatera Azure-moduler** i Azure Portal.
+Om du vill använda en speciell Azure PowerShell-modul i stället för den senaste modulen som finns på PowerShell-galleriet, måste du skicka dessa versioner till den valfria `ModuleVersionOverrides` parametern för **Update-AutomationAzureModulesForAccount-** runbooken. Exempel finns i  [Update-AutomationAzureModulesForAccount.ps1](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update/blob/master/Update-AutomationAzureModulesForAccount.ps1) Runbook. Azure PowerShell moduler som inte nämns i `ModuleVersionOverrides` parametern uppdateras med de senaste modulerna på PowerShell-galleriet. Om du inte skickar något till `ModuleVersionOverrides` parametern, uppdateras alla moduler med de senaste modulerna på PowerShell-galleriet. Detta är samma sak som knappen **Uppdatera Azure-moduler** i Azure Portal.
 
 ## <a name="next-steps"></a>Nästa steg
 

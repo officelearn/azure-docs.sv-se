@@ -17,10 +17,10 @@ ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
 ms.openlocfilehash: 54c14f1ef78694055c567ded0fdccede062605ba
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400323"
 ---
 # <a name="azure-identity-management-security-overview"></a>Översikt över Azure Identity Management-säkerhet
@@ -41,12 +41,12 @@ Artikeln fokuserar på följande viktiga funktioner i Azure Identity Management:
 * Enkel inloggning
 * Omvänd proxy
 * Multi-Factor Authentication
-* Rollbaserad åtkomst kontroll i Azure (Azure RBAC)
+* Azure RBAC (rollbaserad åtkomstkontroll)
 * Säkerhetsövervakning, varningar och Machine Learning-baserade rapporter
 * Konsument identitets-och åtkomst hantering
 * Enhetsregistrering
 * Privileged Identity Management
-* Identitetsskydd
+* Identity Protection
 * Hybrid identitets hantering/Azure AD Connect
 * Azure AD-åtkomstgranskningar
 
@@ -163,7 +163,7 @@ Läs mer:
 * [Vad är Azure AD Privileged Identity Management?](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Tilldela Azure AD Directory-roller i PIM](../../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
-## <a name="identity-protection"></a>Identitetsskydd
+## <a name="identity-protection"></a>Identity Protection
 
 Azure AD Identity Protection är en säkerhets tjänst som tillhandahåller en samlad vy över risk identifieringar och potentiella sårbarheter som påverkar organisationens identiteter. Identitets skydd drar nytta av befintliga funktioner för avvikelse identifiering i Azure AD, som är tillgängliga via rapporter om avvikande aktivitets rapporter i Azure AD. Identitets skydd introducerar också nya risk identifierings typer som kan identifiera avvikelser i real tid.
 

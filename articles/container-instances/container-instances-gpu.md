@@ -4,10 +4,10 @@ description: Lär dig hur du distribuerar Azure Container instances för att kö
 ms.topic: article
 ms.date: 07/22/2020
 ms.openlocfilehash: 19240560baa0cebdb6777d7b63d8c91832b12e1a
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387105"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuera behållar instanser som använder GPU-resurser
@@ -103,7 +103,7 @@ Distributionen tar normalt flera minuter för att slutföras. Sedan startar beh�
 az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
 ```
 
-Resultat:
+Utdata:
 
 ```Console
 [Vector addition of 50000 elements]
@@ -180,7 +180,7 @@ Distributionen tar normalt flera minuter för att slutföras. Sedan startar beh�
 az container logs --resource-group myResourceGroup --name gpucontainergrouprm --container-name gpucontainer
 ```
 
-Resultat:
+Utdata:
 
 ```Console
 2018-10-25 18:31:10.155010: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA

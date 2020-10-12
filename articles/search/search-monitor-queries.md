@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: a5589a46a63437fb395db280222f8a9e84775df3
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935083"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Övervaka fråge förfrågningar i Azure Kognitiv sökning
@@ -38,8 +38,8 @@ Det är vanligt att frågor körs i millisekunder, så endast frågor som mäter
 
 | Sammansättningstyp | Beskrivning |
 |------------------|-------------|
-| Medelvärde | Genomsnittligt antal sekunder inom en minut under vilken frågekörningen genomfördes.|
-| Count | Antalet mått som har spridits till loggen inom en minuters intervall. |
+| Genomsnitt | Genomsnittligt antal sekunder inom en minut under vilken frågekörningen genomfördes.|
+| Antal | Antalet mått som har spridits till loggen inom en minuters intervall. |
 | Maximal | Det högsta antalet Sök frågor per sekund som registrerats under en minut. |
 | Minimum | Det lägsta antalet Sök frågor per sekund som registrerats under en minut.  |
 | Summa | Summan av alla frågor som körs inom minuten.  |
@@ -56,8 +56,8 @@ I hela världen mäts frågans prestanda som Sök fördröjning (hur lång tid e
 
 | Sammansättningstyp | Svarstid | 
 |------------------|---------|
-| Medelvärde | Genomsnittlig fråge varaktighet i millisekunder. | 
-| Count | Antalet mått som har spridits till loggen inom en minuters intervall. |
+| Genomsnitt | Genomsnittlig fråge varaktighet i millisekunder. | 
+| Antal | Antalet mått som har spridits till loggen inom en minuters intervall. |
 | Maximal | Den längsta aktiva frågan i exemplet. | 
 | Minimum | Kortast körning av fråga i exemplet.  | 
 | Totalt | Total körnings tid för alla frågor i exemplet, som körs inom intervallet (en minut).  |
@@ -84,8 +84,8 @@ För att bekräfta begränsade frågor, Använd **begränsade Sök frågor** må
 
 | Sammansättningstyp | Begränsning |
 |------------------|-----------|
-| Medelvärde | Procent andel frågor som tagits bort inom intervallet. |
-| Count | Antalet mått som har spridits till loggen inom en minuters intervall. |
+| Genomsnitt | Procent andel frågor som tagits bort inom intervallet. |
+| Antal | Antalet mått som har spridits till loggen inom en minuters intervall. |
 | Maximal | Procent andel frågor som tagits bort inom intervallet.|
 | Minimum | Procent andel frågor som tagits bort inom intervallet. |
 | Totalt | Procent andel frågor som tagits bort inom intervallet. |

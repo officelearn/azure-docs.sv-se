@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: dech
 ms.openlocfilehash: 66eee67ae191d764228a85aaf1e63eae43208cc3
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537743"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Självstudie: Använda datamigreringsverktyget för att migrera data till Azure Cosmos DB
@@ -31,7 +31,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Importera data från olika datakällor
 > * Exportera från Azure Cosmos DB till JSON
 
-## <a name="prerequisites"></a><a id="Prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a><a id="Prerequisites"></a>Krav
 
 Innan du följer anvisningarna i den här artikeln bör du se till att du utför följande steg:
 

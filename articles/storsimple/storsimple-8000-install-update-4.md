@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.openlocfilehash: ed6f9d58c5c54c88acf8e3a0e7fda7d2d65b8637
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514313"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Installera uppdatering 4 på din StorSimple-enhet
@@ -76,10 +76,10 @@ Du måste ladda ned och installera följande snabb korrigeringar i den angivna o
 
 | Beställa | KB | Beskrivning | Uppdateringstyp | Installationstid |Installera i mapp|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |Program uppdatering |Normal <br></br>Icke-störande |~ 25 minuter |FirstOrderUpdate|
-| blankett. |KB4011841 <br> KB4011842 |Uppdatering av LSI-drivrutin och inbyggd program vara <br> Uppdatering av USM POLICYEGENSKAPER inbyggd program vara (version 3,38) |Normal <br></br>Icke-störande |~ 3 timmar <br> (inkluderar 2A. + 2B. + 2C.)|SecondOrderUpdate|
-| 2b. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Paket för säkerhets uppdateringar av operativ system <br> Hämta Windows Server 2012 R2 |Normal <br></br>Icke-störande |- |SecondOrderUpdate|
-| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Paket för operativ Systems uppdatering <br> Hämta Windows Server 2012 R2 |Normal <br></br>Icke-störande |- |SecondOrderUpdate|
+| 1. |KB4011839 |Program uppdatering |Återkommande <br></br>Icke-störande |~ 25 minuter |FirstOrderUpdate|
+| blankett. |KB4011841 <br> KB4011842 |Uppdatering av LSI-drivrutin och inbyggd program vara <br> Uppdatering av USM POLICYEGENSKAPER inbyggd program vara (version 3,38) |Återkommande <br></br>Icke-störande |~ 3 timmar <br> (inkluderar 2A. + 2B. + 2C.)|SecondOrderUpdate|
+| 2b. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Paket för säkerhets uppdateringar av operativ system <br> Hämta Windows Server 2012 R2 |Återkommande <br></br>Icke-störande |- |SecondOrderUpdate|
+| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Paket för operativ Systems uppdatering <br> Hämta Windows Server 2012 R2 |Återkommande <br></br>Icke-störande |- |SecondOrderUpdate|
 
 Du kan också behöva installera uppdateringar av inbyggd disk på alla uppdateringar som visas i föregående tabeller. Du kan kontrol lera om du behöver diskens inbyggda program varu uppdateringar genom att köra `Get-HcsFirmwareVersion` cmdleten. Om du kör dessa versioner av inbyggd program vara:,,,,, `XMGJ` `XGEG` `KZ50` `F6C2` `VR08` `N002` `0106` , behöver du inte installera dessa uppdateringar.
 

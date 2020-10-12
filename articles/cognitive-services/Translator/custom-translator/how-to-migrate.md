@@ -10,10 +10,10 @@ ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 5334168081ea18650bd6afd2411e076952e08749
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86537994"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrera Hub-arbetsytan och projekt till anpassad översättare
@@ -134,9 +134,9 @@ I den här tabellen jämförs funktionerna mellan Microsoft Translator Hub och d
 | ------- | :-: | :---------------: |
 | Status för anpassnings funktion    | Allmän tillgänglighet    | Allmän tillgänglighet |
 | Text-API-version    | V2     | V3  |
-| SMT-anpassning    | Ja    | Nej |
-| Anpassning av NMT    | Nej    | Ja |
-| Ny anpassning av enhetligt tal tjänster    | Nej    | Ja |
+| SMT-anpassning    | Ja    | Inga |
+| Anpassning av NMT    | Inga    | Ja |
+| Ny anpassning av enhetligt tal tjänster    | Inga    | Ja |
 | Ingen spårning | Ja | Ja |
 
 ## <a name="new-languages"></a>Nya språk

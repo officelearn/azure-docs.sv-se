@@ -8,10 +8,10 @@ ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: d9cf7b3cf996e41f90e3a40a6ee08d0fd51c8457
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85510342"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200-migrering till Azure File Sync
@@ -210,11 +210,11 @@ Du har avslutat migreringen av en resurs/grupp av resurser till en gemensam rot 
 Du kan försöka att köra några av dessa kopior parallellt. Vi rekommenderar att du bearbetar omfånget för en Azure-filresurs i taget.
 
 > [!WARNING]
-> När du har flyttat alla data från dig StorSimple till Windows Server och migreringen är slutförd: gå tillbaka till ***alla*** Sync-grupper i Azure Portal och justera moln skiktet volym utrymme för ledigt utrymme i procent till något som passar bättre för användningen av cacheminnet, t. ex. 20%. 
+> När du har flyttat alla data från dig StorSimple till Windows Server och migreringen är slutförd: gå tillbaka till ***alla***  Sync-grupper i Azure Portal och justera moln skiktet volym utrymme för ledigt utrymme i procent till något som passar bättre för användningen av cacheminnet, t. ex. 20%. 
 
 Lagrings principen för ledigt utrymme i molnet fungerar på en volym nivå med eventuellt flera Server slut punkter som synkroniseras från den. Om du glömmer att justera det lediga utrymmet på en server slut punkt fortsätter synkroniseringen att tillämpa den mest restriktiva regeln och försöker behålla 99% ledigt disk utrymme, vilket gör att den lokala cachen inte fungerar som förväntat. Om det inte är målet att bara ha namn området för en volym som bara innehåller data som används sällan, arkiverade data.
 
-## <a name="troubleshoot"></a>Felsök
+## <a name="troubleshoot"></a>Felsöka
 
 Det mest sannolika problemet som du kan köra i är att kommandot RoboCopy Miss lyckas med *"Volume full"* på Windows Server-sidan. Om så är fallet är nedladdnings hastigheten förmodligen bättre än uppladdnings hastigheten. Moln nivåer fungerar en gång per timme för att evakuera innehåll från den lokala Windows Server-disken som har synkroniserats.
 

@@ -8,10 +8,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: c457dacd947c7af8a6be94205ed135ce04a49a06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85509514"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Hantera registrerade servrar med Azure File Sync
@@ -186,4 +186,4 @@ När Azure File Sync finns på en virtuell dator som körs på en Windows Server
 - [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)
 - [Distribuera Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Övervaka Azure File Sync](storage-sync-files-monitoring.md)
-- [Felsök Azure File Sync](storage-sync-files-troubleshoot.md)
+- [Felsöka Azure File Sync](storage-sync-files-troubleshoot.md)

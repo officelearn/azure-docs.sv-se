@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
 ms.openlocfilehash: ef85b6f9e4595e7b4ff367da415fad777de68679
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88211299"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Vanliga frågor och svar om Azure cache för Redis-utveckling
@@ -34,7 +34,7 @@ I det här avsnittet beskrivs följande vanliga frågor och svar:
 Det finns flera sätt att komma igång med Azure cache för Redis.
 
 * Du kan titta på någon av våra självstudier som är tillgängliga för [.net](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.net](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md)och [python](cache-python-get-started.md).
-* Du kan se [hur du skapar appar med hög prestanda med Microsoft Azure cache för Redis](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
+* Du kan se [hur du skapar High-Performance appar med hjälp av Microsoft Azure cache för Redis](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
 * Du kan läsa klient dokumentationen för de klienter som matchar ditt projekts utvecklings språk och se hur du använder Redis. Det finns många Redis-klienter som kan användas med Azure cache för Redis. En lista över Redis-klienter finns i [https://redis.io/clients](https://redis.io/clients) .
 
 Om du inte redan har ett Azure-konto kan du:
@@ -64,7 +64,7 @@ Vanligt vis räcker standardvärdena för-klienten. Du kan finjustera alternativ
   * Använd en enda ConnectionMultiplexer-instans för programmet. Du kan använda en LazyConnection för att skapa en enda instans som returneras av en anslutnings egenskap, som du ser i [Anslut till cachen med klassen ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Ange `ConnectionMultiplexer.ClientName` egenskapen till ett unikt namn för App-instansen.
   * Använd flera `ConnectionMultiplexer` instanser för anpassade arbets belastningar.
-      * Du kan följa den här modellen om du har varierande belastning i ditt program. Till exempel:
+      * Du kan följa den här modellen om du har varierande belastning i ditt program. Exempel:
       * Du kan ha en multiplexor för att hantera stora nycklar.
       * Du kan ha en multiplexor för att hantera små nycklar.
       * Du kan ange olika värden för timeout för anslutningar och omprövnings logik för varje ConnectionMultiplexer som du använder.

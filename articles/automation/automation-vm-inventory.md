@@ -7,10 +7,10 @@ keywords: inventory, automation, change, tracking
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: 32d3c17a5f3d152f32b19ffbfd5c9793a7a34b80
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185729"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Hantera inventeringsinsamling från virtuella datorer
@@ -65,7 +65,7 @@ I följande avsnitt finns information om varje egenskap som kan konfigureras fö
 |---------|---------|
 |Enabled     | Fastställer om inställningen tillämpas        |
 |Objektnamn     | Eget namn på filen som ska spåras        |
-|Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
+|Group     | Ett gruppnamn för att gruppera filer logiskt        |
 |Windows-registernyckel   | Sökvägen för att söka efter filen Till exempel: ”HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
 
 ### <a name="windows-files"></a>Windows-filer
@@ -74,7 +74,7 @@ I följande avsnitt finns information om varje egenskap som kan konfigureras fö
 |---------|---------|
 |Enabled     | Sant om inställningen tillämpas och annars FALSE.        |
 |Objektnamn     | Det egna namnet på filen som ska spåras.        |
-|Grupp     | Ett grupp namn för logisk gruppering av filer.       |
+|Group     | Ett grupp namn för logisk gruppering av filer.       |
 |Ange sökväg     | Sökvägen för att söka efter filen, till exempel **c:\temp\myfile.txt**.
 
 ### <a name="linux-files"></a>Linux-filer
@@ -83,7 +83,7 @@ I följande avsnitt finns information om varje egenskap som kan konfigureras fö
 |---------|---------|
 |Enabled     | Sant om inställningen tillämpas och annars FALSE.        |
 |Objektnamn     | Det egna namnet på filen som ska spåras.        |
-|Grupp     | Ett grupp namn för logisk gruppering av filer.        |
+|Group     | Ett grupp namn för logisk gruppering av filer.        |
 |Ange sökväg     | Sökvägen för att söka efter filen, till exempel **/etc/*. conf**.       |
 |Sökvägstyp     | Den typ av objekt som ska spåras. Värden är fil och katalog.        |
 |Rekursion     | Sant om rekursion används vid sökning efter objektet som ska spåras och falskt annars.        |

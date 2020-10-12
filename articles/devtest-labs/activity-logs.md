@@ -4,10 +4,10 @@ description: Den här artikeln innehåller steg för att Visa aktivitets loggar 
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.openlocfilehash: 24b5eb25f1c8c9044ad6e77545381a43a11714f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87099791"
 ---
 # <a name="view-activity-logs-for-labs-in-azure-devtest-labs"></a>Visa aktivitets loggar för labb i Azure DevTest Labs 
@@ -27,24 +27,24 @@ Den här artikeln förklarar hur du visar aktivitets loggar för ett labb i Azur
     :::image type="content" source="./media/activity-logs/configuration-policies-link.png" alt-text="Välj konfiguration och principer på den vänstra menyn":::
 1. På sidan **konfiguration och principer** väljer du **aktivitets logg** på den vänstra menyn under **Hantera**. Du bör se poster för åtgärder som utförs i labbet. 
 
-    :::image type="content" source="./media/activity-logs/activity-log.png" alt-text="Aktivitetslogg":::    
+    :::image type="content" source="./media/activity-logs/activity-log.png" alt-text="Välj konfiguration och principer på den vänstra menyn":::    
 1. Välj en händelse om du vill visa information om den. På sidan **Sammanfattning** visas information som åtgärds namn, tidstämpel och vem som gjorde åtgärden. 
     
-    :::image type="content" source="./media/activity-logs/stop-vm-event.png" alt-text="Stoppa VM-händelse – Sammanfattning":::        
+    :::image type="content" source="./media/activity-logs/stop-vm-event.png" alt-text="Välj konfiguration och principer på den vänstra menyn":::        
 1. Växla till **JSON** -fliken om du vill visa mer information. I följande exempel kan du se namnet på den virtuella datorn och åtgärden som utfördes på den virtuella datorn (Stoppad).
 
-    :::image type="content" source="./media/activity-logs/stop-vm-event-json.png" alt-text="Stoppa VM-händelse – JSON":::           
+    :::image type="content" source="./media/activity-logs/stop-vm-event-json.png" alt-text="Välj konfiguration och principer på den vänstra menyn":::           
 1. Växla till fliken **ändrings historik (förhands granskning)** om du vill se historiken för ändringar. I följande exempel visas den ändring som gjorts på den virtuella datorn. 
 
-    :::image type="content" source="./media/activity-logs/change-history.png" alt-text="Stoppa VM-händelse – ändrings historik":::             
+    :::image type="content" source="./media/activity-logs/change-history.png" alt-text="Välj konfiguration och principer på den vänstra menyn":::             
 1. Välj ändringen i listan Ändra historik för att se mer information om ändringen. 
 
-    :::image type="content" source="./media/activity-logs/change-details.png" alt-text="Stoppa VM-händelse – ändrings information":::             
+    :::image type="content" source="./media/activity-logs/change-details.png" alt-text="Välj konfiguration och principer på den vänstra menyn":::             
 
 Mer information om aktivitets loggar finns i [Azure aktivitets logg](../azure-monitor/platform/activity-log.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om hur du anger **aviseringar** för aktivitets loggar finns i [skapa aviseringar](create-alerts.md).
-- Mer information om aktivitets loggar finns i [Azure aktivitets logg](../azure-monitor/platform/activity-log.md).
+- Mer information om aktivitets loggar finns i  [Azure aktivitets logg](../azure-monitor/platform/activity-log.md).
 

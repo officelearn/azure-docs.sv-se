@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: v-demjoh
 ms.openlocfilehash: bb904482f3cb5900b724803816269f1b10ab3720
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83727882"
 ---
-# <a name="improve-custom-speech-accuracy"></a>Förbättra Custom Speechs noggrannhet
+# <a name="improve-custom-speech-accuracy"></a>Förbättra noggrannhet i Custom Speech
 
 I den här artikeln får du lära dig hur du förbättrar kvaliteten på din anpassade modell genom att lägga till ljud, mänskligt avskrifter och relaterad text.
 
@@ -38,7 +38,7 @@ Olika scenarier ger olika kvalitets resultat. I följande tabell kontrol leras h
 |----------|----------------------------|------------------|-----------------|---------------------|
 | Kundtjänst | Medel (< 30% WER) | Låg, förutom när andra människor pratar i bakgrunden | Kan vara hög. Call Center kan vara störningar och överlappande högtalare kan förvirra modellen | Medel. Produkter och person namn kan orsaka dessa fel |
 | Röstassistent | Hög (kan vara < 10% WER) | Låg | Låg | Medel, på grund av sång titlar, produkt namn eller platser |
-| Diktering | Hög (kan vara < 10% WER) | Låg | Låg | Hög |
+| Diktering | Hög (kan vara < 10% WER) | Låg | Låg | Högt |
 | Textning för video dold | Är beroende av video typ (kan vara < 50% WER) | Låg | Kan vara högt på grund av musik, brus, mikrofon kvalitet | Jargong kan orsaka dessa fel |
 
 Genom att fastställa komponenterna i WER (antal fel vid infogning, borttagning och ersättning) kan du avgöra vilken typ av data som ska läggas till för att förbättra modellen. Använd [Custom Speech Portal](https://speech.microsoft.com/customspeech) för att visa kvaliteten på en bas linje modell. Portalen rapporterar infognings-, ersättnings-och borttagnings frekvenser som kombineras i rapporten för WER-kvalitet.
@@ -89,7 +89,7 @@ I följande tabell visas scenarier för röst igenkänning och en lista över k�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Träna din modell](how-to-custom-speech-train-model.md)
+- [Träna modellen](how-to-custom-speech-train-model.md)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

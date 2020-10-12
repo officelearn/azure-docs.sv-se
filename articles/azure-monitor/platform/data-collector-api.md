@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
 ms.openlocfilehash: 40f688d6acd1714999210e67567d25faa14c5d6e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87384862"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Skicka loggdata till Azure Monitor med API: t för HTTP-datainsamling (offentlig för hands version)
@@ -49,10 +49,10 @@ Om du vill använda API: et för HTTP-datainsamling skapar du en POST-begäran s
 | API-version |Den version av API: et som ska användas med den här begäran. För närvarande är det 2016-04-01. |
 
 ### <a name="request-headers"></a>Begärandehuvuden
-| Huvud | Description |
+| Sidhuvud | Beskrivning |
 |:--- |:--- |
 | Auktorisering |Signaturen för auktorisering. Senare i artikeln kan du läsa om hur du skapar ett HMAC-SHA256-huvud. |
-| Logg typ |Ange post typen för de data som skickas. Får bara innehålla bokstäver, siffror och under streck (_) och får inte överstiga 100 tecken. |
+| Log-Type |Ange post typen för de data som skickas. Får bara innehålla bokstäver, siffror och under streck (_) och får inte överstiga 100 tecken. |
 | x-MS-date |Datumet då begäran bearbetades i RFC 1123-format. |
 | x-MS-AzureResourceId | Resurs-ID för den Azure-resurs som data ska associeras med. Detta fyller i egenskapen [_ResourceId](log-standard-properties.md#_resourceid) och gör att data kan tas med i [resurs kontext](design-logs-deployment.md#access-mode) frågor. Om det här fältet inte anges tas data inte med i resurs kontext frågor. |
 | tidsgenererat-fält | Namnet på ett fält i data som innehåller tidsstämpeln för dataobjektet. Om du anger ett fält används dess innehåll för **TimeGenerated**. Om det här fältet inte anges är standardvärdet för **TimeGenerated** den tidpunkt då meddelandet matas in. Innehållet i meddelande fältet ska följa ISO 8601-formatet ÅÅÅÅ-MM-DDThh: mm: ssZ. |
@@ -183,7 +183,7 @@ HTTP-statuskod 200 innebär att begäran har tagits emot för bearbetning. Detta
 
 Den här tabellen innehåller en fullständig uppsättning status koder som tjänsten kan returnera:
 
-| Kod | Status | Felkod | Description |
+| Kod | Status | Felkod | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |Begäran har godkänts. |
 | 400 |Felaktig begäran |InactiveCustomer |Arbets ytan har stängts. |
@@ -555,7 +555,7 @@ post_data(customer_id, shared_key, body, log_type)
 ## <a name="alternatives-and-considerations"></a>Alternativ och överväganden
 Även om data insamlings-API: n ska innehålla de flesta av dina behov av att samla in information om fritt formulär till Azure-loggar, finns det instanser där ett alternativ kan krävas för att lösa vissa begränsningar i API: et. Alla alternativ är följande: viktiga överväganden ingår:
 
-| Andra | Description | Passar bäst för |
+| Andra | Beskrivning | Passar bäst för |
 |---|---|---|
 | [Anpassade händelser](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): inbyggd SDK-baserad inmatning i Application Insights | Application Insights, vanligt vis genom ett SDK i ditt program, ger dig möjlighet att skicka anpassade data via anpassade händelser. | <ul><li> Data som genereras i programmet, men som inte hämtats av SDK via någon av standard data typerna (begär Anden, beroenden, undantag och så vidare).</li><li> Data som ofta korreleras med andra program data i Application Insights </li></ul> |
 | API för data insamling i Azure Monitor loggar | API för data insamling i Azure Monitor loggar är ett helt öppet sätt att mata in data. Alla data som är formaterade i ett JSON-objekt kan skickas hit. När den har skickats bearbetas den och är tillgänglig i loggarna för att korreleras med andra data i loggarna eller mot andra Application Insights data. <br/><br/> Det är ganska enkelt att överföra data som filer till en Azure blob-blob, från var de här filerna ska bearbetas och överföras till Log Analytics. I [den här](./create-pipeline-datacollector-api.md) artikeln hittar du en exempel implementering av en sådan pipeline. | <ul><li> Data som inte nödvändigt vis genereras inom ett program som är instrumenterade i Application Insights.</li><li> Exempel är lookup-och fakta tabeller, referens data, församlad statistik och så vidare. </li><li> Avsedd för data som ska refereras till i andra Azure Monitor data (Application Insights, andra loggar data typer, Security Center, Azure Monitor för behållare/VM: ar). </li></ul> |

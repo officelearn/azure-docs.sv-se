@@ -12,10 +12,10 @@ ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: 8f54ece9a932ed4cc0adc29747e1c58ee22646c8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333876"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Identifiera data avvikelser (för hands version) på data uppsättningar
@@ -41,7 +41,7 @@ Du kan visa data drifts mått med python SDK eller i Azure Machine Learning Stud
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill skapa och arbeta med data uppsättnings övervakare behöver du:
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 * En [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 * [Azure Machine Learning SDK för python installerat](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), som innehåller paketet azureml-DataSets.
 * Strukturerad (tabell) data med en tidsstämpel som anges i fil Sök vägen, fil namnet eller kolumnen i data.
@@ -85,7 +85,7 @@ Utför analys av tidigare data. | Det här scenariot kan användas för att för
 
 Data uppsättnings övervakare är beroende av följande Azure-tjänster.
 
-|Azure-tjänst  |Description  |
+|Azure-tjänst  |Beskrivning  |
 |---------|---------|
 | *Datamängd* | Använd Machine Learning data uppsättningar för att hämta tränings data och jämföra data för modell träning.  Generering av data profiler används för att generera några av de rapporterade måtten, t. ex. minsta, högsta, distinkta värden, antal distinkta värden. |
 | *Azureml pipeline och Compute* | Jobbet för avvikelse beräkning finns i azureml-pipeline.  Jobbet utlöses på begäran eller enligt schema som ska köras vid en beräkning som kon figurer ATS vid skapande av körnings tid.
@@ -131,7 +131,7 @@ dset = dset.register(ws, 'target')
 
 Ett komplett exempel på hur du `timeseries` kan använda data uppsättnings egenskaper finns i [exempel på Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) eller [data uppsättningarna SDK-dokumentationen](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
-### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure Machine Learning-studio
+### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure Machine Learning Studio
 
 Om du skapar din data uppsättning med Azure Machine Learning Studio, se till att sökvägen till dina data innehåller tidsstämpel-information, inkludera alla undermappar med data och ange partitionens format.
 
@@ -145,7 +145,7 @@ I **schema** inställningarna anger du kolumnen tidsstämpelkolumn från en virt
 
 Om dina data är partitionerade efter datum, som är fallet här, kan du också ange partition_timestamp.  Detta ger en mer effektiv bearbetning av datum.
 
-:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Partitionera tidstämpel":::
+:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Ange tidsstämpel":::
 
 
 ## <a name="create-dataset-monitors"></a>Skapa data uppsättnings övervakare
@@ -213,7 +213,7 @@ Ett komplett exempel på hur du konfigurerar en data `timeseries` uppsättning o
 
 1. Klicka på knappen **+ Skapa Övervakare** och fortsätt att gå igenom guiden genom att klicka på **Nästa**.  
 
-:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Guiden skapa en övervakare":::
+:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Ange tidsstämpel":::
 
 * **Välj mål data uppsättning**.  Mål data uppsättningen är en tabell data uppsättning med en tidsstämpel-kolumn som ska analyseras för data avvikelser. Mål data uppsättningen måste ha funktioner gemensamt med bas linje data uppsättningen och måste vara en `timeseries` data uppsättning som nya data läggs till i. Historiska data i mål data uppsättningen kan analyseras eller också kan nya data övervakas.
 
@@ -223,14 +223,14 @@ Ett komplett exempel på hur du konfigurerar en data `timeseries` uppsättning o
 
     | Inställning | Beskrivning | Tips | Föränderlig | 
     | ------- | ----------- | ---- | ------- |
-    | Name | Namnet på data uppsättnings övervakaren. | | No |
-    | Funktioner | Lista över funktioner som kommer att analyseras för data drift över tid. | Ställ in till en modells utmatnings funktion (er) för att mäta begrepps avvikelsen. Inkludera inte funktioner som används naturligt över tid (månad, år, index osv.). Du kan fylla på och befintlig data riktnings övervakning när du har justerat listan med funktioner. | Yes | 
-    | Beräkningsmål | Azure Machine Learning Compute Target för att köra data uppsättnings övervaknings jobben. | | Yes | 
-    | Aktivera | Aktivera eller inaktivera schemat i pipelinen för data uppsättnings övervakaren | Inaktivera schemat för att analysera historiska data med den egna fyllnings inställningen. Den kan aktive ras när data uppsättnings övervakaren har skapats. | Yes | 
-    | Frequency | Den frekvens som används för att schemalägga pipeline-jobbet och analysera historiska data om en hel fyllning körs. Alternativen omfattar varje dag, varje vecka eller varje månad. | Varje körning jämför data i mål data uppsättningen enligt frekvensen: <li>Varje dag: jämför senaste fullständiga dag i mål data uppsättningen med bas linje <li>Varje vecka: jämför den senaste fullständiga veckan (måndag – söndag) i mål data uppsättningen med bas linje <li>Varje månad: jämför den senaste fullständiga månaden i mål data uppsättningen med bas linje | No | 
-    | Svarstid | Tid i timmar tar det för data att komma in i data uppsättningen. Till exempel, om det tar tre dagar innan data tas emot i SQL DB-datauppsättningen inkapslade, ställer du in svars tiden på 72. | Kan inte ändras efter att data uppsättnings övervakaren har skapats | No | 
-    | E-postadresser | E-postadresser för aviseringar baserat på överträdelse av tröskelvärdet för data avvikelse i procent. | E-postmeddelanden skickas via Azure Monitor. | Yes | 
-    | Tröskelvärde | Tröskelvärde för data avvikelse i procent för e-postavisering. | Ytterligare aviseringar och händelser kan anges för många andra mått i arbets ytans associerade Application Insights-resurs. | Yes |
+    | Namn | Namnet på data uppsättnings övervakaren. | | Inga |
+    | Funktioner | Lista över funktioner som kommer att analyseras för data drift över tid. | Ställ in till en modells utmatnings funktion (er) för att mäta begrepps avvikelsen. Inkludera inte funktioner som används naturligt över tid (månad, år, index osv.). Du kan fylla på och befintlig data riktnings övervakning när du har justerat listan med funktioner. | Ja | 
+    | Beräkningsmål | Azure Machine Learning Compute Target för att köra data uppsättnings övervaknings jobben. | | Ja | 
+    | Aktivera | Aktivera eller inaktivera schemat i pipelinen för data uppsättnings övervakaren | Inaktivera schemat för att analysera historiska data med den egna fyllnings inställningen. Den kan aktive ras när data uppsättnings övervakaren har skapats. | Ja | 
+    | Frequency | Den frekvens som används för att schemalägga pipeline-jobbet och analysera historiska data om en hel fyllning körs. Alternativen omfattar varje dag, varje vecka eller varje månad. | Varje körning jämför data i mål data uppsättningen enligt frekvensen: <li>Varje dag: jämför senaste fullständiga dag i mål data uppsättningen med bas linje <li>Varje vecka: jämför den senaste fullständiga veckan (måndag – söndag) i mål data uppsättningen med bas linje <li>Varje månad: jämför den senaste fullständiga månaden i mål data uppsättningen med bas linje | Inga | 
+    | Svarstid | Tid i timmar tar det för data att komma in i data uppsättningen. Till exempel, om det tar tre dagar innan data tas emot i SQL DB-datauppsättningen inkapslade, ställer du in svars tiden på 72. | Kan inte ändras efter att data uppsättnings övervakaren har skapats | Inga | 
+    | E-postadresser | E-postadresser för aviseringar baserat på överträdelse av tröskelvärdet för data avvikelse i procent. | E-postmeddelanden skickas via Azure Monitor. | Ja | 
+    | Tröskelvärde | Tröskelvärde för data avvikelse i procent för e-postavisering. | Ytterligare aviseringar och händelser kan anges för många andra mått i arbets ytans associerade Application Insights-resurs. | Ja |
 
 När du har slutfört guiden visas den resulterande data uppsättnings övervakaren i listan. Välj den för att gå till den övervakarens informations sida.
 
@@ -240,7 +240,7 @@ Det här avsnittet visar resultatet av övervakning av en data uppsättning, som
 
 Börja med insikter på den översta nivån i data driftens storlek och en högdager av funktioner som ska undersökas ytterligare.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Avvikelse översikt":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Ange tidsstämpel":::
 
 
 | Mått | Beskrivning | 
@@ -253,7 +253,7 @@ Börja med insikter på den översta nivån i data driftens storlek och en högd
 
 Se hur data uppsättningen skiljer sig från mål data uppsättningen under den angivna tids perioden.  Närmare 100% är fler än de två data uppsättningarna olika.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Tendens för drifts storlek":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Ange tidsstämpel":::
 
 ### <a name="drift-magnitude-by-features"></a>Funktions storlek efter funktioner
 
@@ -263,7 +263,7 @@ Mål data uppsättningen är också profilerad över tid. Det statistiska avstå
 
 I Azure Machine Learning Studio klickar du på en stapel i diagrammet för att se information om funktions nivå för det datumet. Som standard visas distribution av bas linjens data uppsättning och den senaste körnings distributionen av samma funktion.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Funktions storlek efter funktioner":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Ange tidsstämpel":::
 
 Dessa mått kan också hämtas i python SDK genom `get_metrics()` metoden för ett `DataDriftDetector` objekt.
 
@@ -271,7 +271,7 @@ Dessa mått kan också hämtas i python SDK genom `get_metrics()` metoden för e
 
 Rulla slutligen nedåt för att visa information om varje enskild funktion.  Använd List rutorna ovanför diagrammet för att välja funktionen och välj sedan det mått som du vill visa.
 
-:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Numeriskt funktions diagram och jämförelse":::
+:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Ange tidsstämpel":::
 
 Måtten i diagrammet beror på typen av funktion.
 
@@ -293,7 +293,7 @@ Måtten i diagrammet beror på typen av funktion.
 
 I det här diagrammet väljer du ett datum för att jämföra funktions fördelningen mellan målet och det här datumet för den visade funktionen. För numeriska funktioner visar detta två sannolikhets distributioner.  Om funktionen är numerisk visas ett stapeldiagram.
 
-:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Välj ett datum som ska jämföras med målet":::
+:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Ange tidsstämpel":::
 
 ## <a name="metrics-alerts-and-events"></a>Mått, aviseringar och händelser
 

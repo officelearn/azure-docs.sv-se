@@ -9,10 +9,10 @@ ms.date: 03/06/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: db6f5927e1cbdb3527014ccbb277c7ec20b02600
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84231602"
 ---
 1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**.
@@ -32,7 +32,7 @@ ms.locfileid: "84231602"
 
 1. I **App Service: skapa ny**, Använd de värden som anges i följande tabell:
 
-    | Inställning      | Värde  | Beskrivning                                |
+    | Inställningen      | Värde  | Beskrivning                                |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Namn** | Globalt unikt namn | Namn som unikt identifierar din nya funktionsapp. Acceptera det här namnet eller ange ett nytt namn. Giltiga tecken är: `a-z` , `0-9` , och `-` . |
     | **Prenumeration** | Din prenumeration | Den Azure-prenumeration som ska användas. Godkänn denna prenumeration eller Välj en ny i list rutan. |

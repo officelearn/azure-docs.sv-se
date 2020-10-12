@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 02/05/2018
 ms.author: jejiang
 ms.openlocfilehash: a99196cfad7abad38408c847a8a0b64ffe95fff5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85508800"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Hantera Azure Data Lake Storage Gen1 resurser med Storage Explorer
@@ -108,7 +108,7 @@ När du har skapat ett Data Lake Storage Gen1-konto kan du:
 
 Följande objekt visar hur du hanterar resurser i ett Data Lake Storage Gen1-konto. Följ stegen för den uppgift som du vill utföra.
 
-### <a name="upload-files"></a>Överföra filer
+### <a name="upload-files"></a>Ladda upp filer
 
 1. Gå till verktygsfältet i huvudfönstret, välj **Ladda upp** och välj sedan **Ladda upp filer** i den nedrullningsbara menyn.
 

@@ -10,10 +10,10 @@ ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 0e98078fe2799d1c524190c8ced36588f35498b4
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186443"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Kom igång med konfiguration av Azure Automation tillstånd
@@ -22,7 +22,7 @@ Den här artikeln innehåller en steg-för-steg-guide om hur du utför de vanlig
 
 Om du vill ha en exempel miljö som redan har kon figurer ATS utan att följa stegen som beskrivs i den här artikeln kan du använda [mallen Azure Automation hanterad nod](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Med den här mallen ställer du in en fullständig tillstånds konfiguration (DSC)-miljö, inklusive en virtuell Azure-dator som hanteras av State Configuration (DSC).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att slutföra exemplen i den här artikeln:
 
@@ -83,7 +83,7 @@ När du har importerat en konfiguration kan du Visa den i Azure Portal.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
-1. På sidan Automation-konto väljer du **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
+1. På sidan Automation-konto väljer du  **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
 1. På sidan tillstånds konfiguration (DSC) klickar du på fliken **konfigurationer** och sedan på **TestConfig**. Det här är namnet på konfigurationen som du importerade i föregående procedur.
 1. I konfigurations fönstret för TestConfig klickar du på **Visa konfigurations källa**.
 

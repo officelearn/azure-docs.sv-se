@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 10/04/2019
 ms.author: sngun
 ms.openlocfilehash: 4ac5222e735e0699e507ca1392dc5dd42fc77105
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400476"
 ---
 # <a name="azure-cosmos-db-gremlin-limits"></a>Gremlin-gränser i Azure Cosmos DB
@@ -19,7 +19,7 @@ Den här artikeln beskriver gränserna för Azure Cosmos DB Gremlin-motorn och f
 
 Cosmos DB Gremlin skapas ovanpå Cosmos DB-infrastruktur. På grund av detta gäller alla gränser som beskrivits i [Azure Cosmos DB tjänst gränser](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) fortfarande.
 
-## <a name="limits"></a>Gränser
+## <a name="limits"></a>Begränsningar
 
 När Gremlin-gränsen uppnås avbryts Traversal med en **x-MS-status-kod** på 429 som indikerar ett begränsnings fel. Mer information finns i [Gremlin-serverns svars rubriker](gremlin-limits.md) .
 

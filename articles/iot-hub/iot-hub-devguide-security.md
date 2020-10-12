@@ -17,10 +17,10 @@ ms.custom:
 - devx-track-js
 - devx-track-csharp
 ms.openlocfilehash: c7ad38dc43280164fc9dbca5d5f2381e613dc1ae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91281342"
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
@@ -472,7 +472,7 @@ Följande referens avsnitt innehåller mer information om hur du styr åtkomsten
 
 I följande tabell visas de behörigheter som du kan använda för att kontrol lera åtkomsten till IoT Hub.
 
-| Behörighet | Kommentarer |
+| Behörighet | Obs! |
 | --- | --- |
 | **RegistryRead** |Ger Läs behörighet till identitets registret. Mer information finns i [identitets registret](iot-hub-devguide-identity-registry.md). <br/>Den här behörigheten används av Server dels moln tjänster. |
 | **RegistryReadWrite** |Ger Läs-och Skriv behörighet till identitets registret. Mer information finns i [identitets registret](iot-hub-devguide-identity-registry.md). <br/>Den här behörigheten används av Server dels moln tjänster. |

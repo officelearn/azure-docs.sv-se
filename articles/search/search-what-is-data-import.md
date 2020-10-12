@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 148310419ad4f760219003514dbc078b7c675be6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91538795"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Översikt över data import – Azure Kognitiv sökning
@@ -52,7 +52,7 @@ I REST API skickar du HTTP POST-begäranden med JSON-begäranden till URL: en f�
 I .NET SDK ska du paketera dina data i ett `IndexBatch` objekt. En `IndexBatch` kapslar in en samling `IndexAction` objekt som innehåller ett dokument och en egenskap som talar om för Azure kognitiv sökning vilka åtgärder som ska utföras i dokumentet. Ett kod exempel finns i [snabb start för C#](search-get-started-dotnet.md).
 
 
-| @search.action | Beskrivning | Nödvändiga fält för varje dokument | Kommentarer |
+| @search.action | Beskrivning | Nödvändiga fält för varje dokument | Obs! |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |En `upload`-åtgärd liknar en ”upsert” där dokumentet infogas om det är nytt och uppdateras/ersätts om det finns. |nyckel plus eventuella andra fält som du vill definiera |När du uppdaterar och ersätter ett befintligt dokument tilldelas alla fält som inte angetts i begäran `null`. Detta sker även om fältet tidigare hade ett värde som inte var null. |
 | `merge` |Uppdaterar ett befintligt dokument med de angivna fälten. Sammanfogningen misslyckas om dokumentet inte finns i indexet. |nyckel plus eventuella andra fält som du vill definiera |Alla fält som du anger i en sammanfogning ersätter det befintliga fältet i dokumentet. I .NET SDK omfattar detta fält av typen `DataType.Collection(DataType.String)` . I REST API innehåller detta fält av typen `Collection(Edm.String)` . Om dokumentet till exempel innehåller ett `tags`-fält med värdet `["budget"]` och du utför en sammanfogning med värdet `["economy", "pool"]` för `tags` så blir det slutliga värdet för fältet `tags``["economy", "pool"]`. Det blir inte `["budget", "economy", "pool"]`. |

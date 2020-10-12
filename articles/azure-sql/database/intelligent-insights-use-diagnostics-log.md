@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
 ms.openlocfilehash: 5fd0f14f4bbc919efd5b3c236b13654574d456d7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334981"
 ---
 # <a name="use-the-intelligent-insights-performance-diagnostics-log-of-azure-sql-database-and-azure-sql-managed-instance-performance-issues"></a>Använd Intelligent Insights prestanda-diagnostikloggar för Azure SQL Database och prestanda problem med Azure SQL-hanterad instans
@@ -93,7 +93,7 @@ Beroende på det identifierade prestanda problemet skiljer sig detaljerna i den 
 | TempDB-konkurrens | <li>Fråga hashar för frågor som orsakar konkurrens</li><li>Frågans tilldelning till den övergripande vänte tiden för databas PAGELATCH [%]</li> |
 | DTU-underskott för elastisk pool | <li>Elastisk pool</li><li>Högsta DTU-förbrukar databas</li><li>Procent av pool-DTU som används av topp konsumenten</li> |
 | Plan regression | <li>Fråga hashar</li><li>Lämplig plan-ID</li><li>Dåliga plan-ID: n</li> |
-| Ändring av konfigurations värde för databas omfattning | <li>Konfigurations ändringar i databasen jämfört med standardvärdena</li> |
+| Ändra Database-Scoped konfigurations värde | <li>Konfigurations ändringar i databasen jämfört med standardvärdena</li> |
 | Långsam klient | <li>Fråga hashar</li><li>Vänte tider</li> |
 | Nedgradering av pris nivå | <li>SMS-meddelande</li> |
 

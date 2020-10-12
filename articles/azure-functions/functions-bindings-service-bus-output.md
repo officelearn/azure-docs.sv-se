@@ -8,10 +8,10 @@ ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 3fc8f205bff52fad6e55b7aa6692ec80ae5e954a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212151"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus utgående bindning för Azure Functions
@@ -282,9 +282,9 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**bastyp** | saknas | Måste vara inställd på "Service Bus". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
-|**position** | saknas | Måste anges till "out". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
-|**Namn** | saknas | Namnet på variabeln som representerar kön eller ämnes meddelandet i funktions koden. Ange till "$return" för att referera till funktionens retur värde. |
+|**bastyp** | Saknas | Måste vara inställd på "Service Bus". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
+|**position** | Saknas | Måste anges till "out". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
+|**Namn** | Saknas | Namnet på variabeln som representerar kön eller ämnes meddelandet i funktions koden. Ange till "$return" för att referera till funktionens retur värde. |
 |**queueName**|**QueueName**|Köns namn.  Ange endast om köa meddelanden ska skickas, inte för ett ämne.
 |**topicName**|**TopicName**|Namn på ämnet. Ange endast om meddelande ämnen skickas, inte för en kö.|
 |**anslutningen**|**Anslutning**|Namnet på en app-inställning som innehåller den Service Bus anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet. Om du till exempel anger `connection` "MyServiceBus" söker Functions-körningen efter en app-inställning med namnet "AzureWebJobsMyServiceBus". Om du lämnar `connection` tomt använder Functions-körningen standard Service Bus anslutnings strängen i appens inställning med namnet "AzureWebJobsServiceBus".<br><br>Om du vill hämta en anslutnings sträng följer du stegen som visas i [Hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). Anslutnings strängen måste vara för ett Service Bus-namnområde, inte begränsat till en viss kö eller ett ämne.|
@@ -384,7 +384,7 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 
 Om du har `isSessionsEnabled` ställt in till `true` , `sessionHandlerOptions` kommer att användas.  Om du har `isSessionsEnabled` ställt in till `false` , `messageHandlerOptions` kommer att användas.
 
-|Egenskap  |Standardvärde | Beskrivning |
+|Egenskap  |Default | Beskrivning |
 |---------|---------|---------|
 |prefetchCount|0|Hämtar eller anger antalet meddelanden som meddelande mottagaren samtidigt kan begära.|
 |maxAutoRenewDuration|00:05:00|Den längsta tid som meddelande låset ska förnyas automatiskt.|

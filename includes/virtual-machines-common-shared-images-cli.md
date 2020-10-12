@@ -9,10 +9,10 @@ ms.date: 03/24/2020
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: b49dc6ef2bfee311bc3ca524a5ccb0a4e4b5ca9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84793670"
 ---
 ## <a name="create-an-image-gallery"></a>Skapa ett bild galleri 
@@ -30,7 +30,7 @@ az sig create --resource-group myGalleryRG --gallery-name myGallery
 
 ## <a name="share-the-gallery"></a>Dela galleriet
 
-Du kan dela avbildningar över prenumerationer med hjälp av rollbaserad Access Control (RBAC). Du kan dela bilder i galleriet, bild definitionen eller bild versions nivån. Alla användare som har Läs behörighet till en avbildnings version, även över prenumerationer, kan distribuera en virtuell dator med hjälp av avbildnings versionen.
+Du kan dela avbildningar över prenumerationer med hjälp av Role-Based Access Control (RBAC). Du kan dela bilder i galleriet, bild definitionen eller bild versions nivån. Alla användare som har Läs behörighet till en avbildnings version, även över prenumerationer, kan distribuera en virtuell dator med hjälp av avbildnings versionen.
 
 Vi rekommenderar att du delar med andra användare på Galleri nivån. Om du vill hämta objekt-ID: t för galleriet använder du [AZ sig Visa](/cli/azure/sig#az-sig-show).
 

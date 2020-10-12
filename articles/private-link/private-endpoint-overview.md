@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
 ms.openlocfilehash: 7456402605328592d4f5677767bcd985941173ec
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88639842"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
-Azure Private Endpoint är ett nätverksgränssnitt som ger dig en privat och säker anslutning till en tjänst som drivs av Azure Private Link. Privat slut punkt använder en privat IP-adress från ditt VNet, vilket effektivt tar tjänsten till ditt VNet. Tjänsten kan vara en Azure-tjänst, till exempel Azure Storage, Azure Cosmos DB, SQL osv. eller en egen [privat länk-tjänst](private-link-service-overview.md).
+Azure Private Endpoint är ett nätverksgränssnitt som ger dig en privat och säker anslutning till en tjänst som drivs av Azure Private Link. Den privata slutpunkten använder en privat IP-adress från ditt VNet, vilket effektivt tar tjänsten till ditt VNet. Tjänsten kan vara en Azure-tjänst, till exempel Azure Storage, Azure Cosmos DB, SQL osv. eller en egen [privat länk-tjänst](private-link-service-overview.md).
   
 ## <a name="private-endpoint-properties"></a>Egenskaper för privat slut punkt 
  En privat slut punkt anger följande egenskaper: 

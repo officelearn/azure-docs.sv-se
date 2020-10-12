@@ -8,10 +8,10 @@ ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
 ms.openlocfilehash: fef1870c396055cb9121aa5d8c7859440d107f98
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88002330"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>För hands version: Logga in på en virtuell Linux-dator i Azure med Azure Active Directory autentisering
@@ -158,7 +158,7 @@ Du uppmanas att logga in på Azure AD med en engångs kod på [https://microsoft
 
 När du uppmanas till det anger du dina inloggnings uppgifter för Azure AD på inloggnings sidan. 
 
-Följande meddelande visas i webbläsaren när du har autentiserats:`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+Följande meddelande visas i webbläsaren när du har autentiserats: `You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
 Stäng webbläsarfönstret, gå tillbaka till SSH-prompten och tryck på **RETUR** -tangenten. 
 

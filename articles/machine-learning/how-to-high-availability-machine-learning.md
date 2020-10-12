@@ -11,10 +11,10 @@ author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/16/2020
 ms.openlocfilehash: 64665c0b1e32970f29233f5abdd6b2d2d020a6b2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90897515"
 ---
 # <a name="increase-azure-machine-learning-resiliency"></a>Öka Azure Machine Learning återhämtning
@@ -55,10 +55,10 @@ I följande tabell visas vilka Azure-tjänster som hanteras av Microsoft, som ha
 | Azure Storage | Du | |
 | Key Vault | Du | ✓ |
 | Container Registry | Du | |
-| Application Insights | Du | NA |
+| Application Insights | Du | Ej tillämpligt |
 | **Beräknings resurser** |
 | Beräkninsinstans | Microsoft |  |
-| Beräknings kluster | Microsoft |  |
+| Beräkningskluster | Microsoft |  |
 | Andra beräknings resurser som AKS, <br>Azure Databricks, Container Instances, HDInsight | Du |  |
 | **Ytterligare data lager** , till exempel Azure Storage, SQL Database,<br> Azure Database for PostgreSQL Azure Database for MySQL, <br>Azure Databricks fil system | Du | |
 

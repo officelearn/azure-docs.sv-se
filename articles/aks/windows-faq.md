@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/29/2020
 ms.openlocfilehash: df9a4dd546ddc5944d9a282e74c2444a5161b862
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927573"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Vanliga frågor och svar om Windows Server Node-pooler i AKS
@@ -58,7 +58,7 @@ AKS-kluster med Windows-noder måste använda nätverks modellen Azure CNI (avan
 
 För närvarande stöds inte [IP-konservering för klient källa][client-source-ip] med Windows-noder.
 
-## <a name="can-i-change-the-max--of-pods-per-node"></a>Kan jag ändra max. antal poddar per nod?
+## <a name="can-i-change-the-max--of-pods-per-node"></a>Kan jag ändra max. # för poddar per nod?
 
 Ja. Information om vilka effekter och alternativ som är tillgängliga finns i [Max antalet poddar][maximum-number-of-pods].
 

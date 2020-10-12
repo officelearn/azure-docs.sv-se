@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
 ms.openlocfilehash: 182e04625f829304168bfdefe000bb8797646c75
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87926900"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Kopiera data från Teradata-Vantage med hjälp av Azure Data Factory
@@ -73,8 +73,8 @@ Fler anslutnings egenskaper som du kan ange i anslutnings strängen per ärende:
 | Egenskap | Beskrivning | Standardvärde |
 |:--- |:--- |:--- |
 | UseDataEncryption | Anger om all kommunikation med Teradata-databasen ska krypteras. Tillåtna värden är 0 eller 1.<br><br/>- **0 (inaktive rad, standard)**: krypterar endast autentiseringsinformation.<br/>- **1 (aktive rad)**: krypterar alla data som skickas mellan driv rutinen och databasen. | Inga |
-| CharacterSet | Den teckenuppsättning som ska användas för sessionen. T. ex., `CharacterSet=UTF16` .<br><br/>Det här värdet kan vara en användardefinierad teckenuppsättning eller någon av följande fördefinierade teckenuppsättningar: <br/>– ASCII<br/>– UTF8<br/>– UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, DOS-kompatibel, KANJISJIS_0S)<br/>– EUC (UNIX-kompatibel, KANJIEC_0U)<br/>– IBM-stordator (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>– BIG5 (TCHBIG5_1R0)<br/>– GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | Standardvärdet är `ASCII` . |
-| MaxRespSize |Maximal storlek för svars buffert för SQL-begäranden i kilobyte (KB). T. ex., `MaxRespSize=‭10485760‬` .<br/><br/>För Teradata-databas version 16,00 eller senare är det maximala värdet 7361536. För anslutningar som använder tidigare versioner är det maximala värdet 1048576. | Standardvärdet är `65536` . |
+| CharacterSet | Den teckenuppsättning som ska användas för sessionen. T. ex., `CharacterSet=UTF16` .<br><br/>Det här värdet kan vara en användardefinierad teckenuppsättning eller någon av följande fördefinierade teckenuppsättningar: <br/>– ASCII<br/>– UTF8<br/>– UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, DOS-kompatibel, KANJISJIS_0S)<br/>– EUC (UNIX-kompatibel, KANJIEC_0U)<br/>– IBM-stordator (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>– BIG5 (TCHBIG5_1R0)<br/>– GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | Standardvärdet är `ASCII`. |
+| MaxRespSize |Maximal storlek för svars buffert för SQL-begäranden i kilobyte (KB). T. ex., `MaxRespSize=‭10485760‬` .<br/><br/>För Teradata-databas version 16,00 eller senare är det maximala värdet 7361536. För anslutningar som använder tidigare versioner är det maximala värdet 1048576. | Standardvärdet är `65536`. |
 
 **Exempel med grundläggande autentisering**
 
@@ -173,7 +173,7 @@ Följande egenskaper stöds för att kopiera data från Teradata:
 
 > [!NOTE]
 >
-> `RelationalTable`typ data uppsättningen stöds fortfarande. Vi rekommenderar dock att du använder den nya data uppsättningen.
+> `RelationalTable` typ data uppsättningen stöds fortfarande. Vi rekommenderar dock att du använder den nya data uppsättningen.
 
 **Föregående nytto last:**
 
@@ -208,13 +208,13 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att k
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`.<br>När du aktiverar partitionerad belastning måste du koppla alla motsvarande inbyggda partitionsalternativ i frågan. Exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej (om tabellen i data uppsättningen har angetts) |
 | partitionOptions | Anger de data partitionerings alternativ som används för att läsa in data från Teradata. <br>Tillåt värden är: **ingen** (standard), **hash** -och **DynamicRange**.<br>När ett partitions alternativ är aktiverat (dvs. inte `None` ), kontrol leras graden av parallellitet för att data ska läsas in från Teradata av [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) inställningen på kopierings aktiviteten. | Inga |
 | partitionSettings | Ange gruppen med inställningar för data partitionering. <br>Använd när partition alternativet inte är `None` . | Inga |
-| partitionColumnName | Ange namnet på den käll kolumn som ska användas av intervall partition eller hash-partition för parallell kopiering. Om inget anges identifieras primärt index för tabellen automatiskt och används som partition-kolumn. <br>Använd när alternativet partition är `Hash` eller `DynamicRange` . Om du använder en fråga för att hämta källdata, Hook `?AdfHashPartitionCondition` eller `?AdfRangePartitionColumnName` i WHERE-satsen. Se exempel i [Parallel Copy från Teradata](#parallel-copy-from-teradata) -avsnittet. | Inga |
+| partitionColumnName | Ange namnet på den käll kolumn som ska användas av intervall partition eller hash-partition för parallell kopiering. Om inget anges identifieras primärt index för tabellen automatiskt och används som partition-kolumn. <br>Använd när alternativet partition är `Hash` eller `DynamicRange` . Om du använder en fråga för att hämta källdata, Hook `?AdfHashPartitionCondition` eller  `?AdfRangePartitionColumnName` i WHERE-satsen. Se exempel i [Parallel Copy från Teradata](#parallel-copy-from-teradata) -avsnittet. | Inga |
 | partitionUpperBound | Det maximala värdet för partition-kolumnen för att kopiera data. <br>Använd när partition alternativet är `DynamicRange` . Om du använder Query för att hämta källdata, Hook `?AdfRangePartitionUpbound` i WHERE-satsen. Ett exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Inga |
 | partitionLowerBound | Det minimala värdet för kolumnen partition som ut data ska kopieras. <br>Använd när alternativet partition är `DynamicRange` . Om du använder en fråga för att hämta källdata, Hook `?AdfRangePartitionLowbound` i WHERE-satsen. Ett exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Inga |
 
 > [!NOTE]
 >
-> `RelationalSource`typ kopierings källan stöds fortfarande, men den har inte stöd för den nya inbyggda parallella inläsningen från Teradata (partitionsalternativ). Vi rekommenderar dock att du använder den nya data uppsättningen.
+> `RelationalSource` typ kopierings källan stöds fortfarande, men den har inte stöd för den nya inbyggda parallella inläsningen från Teradata (partitionsalternativ). Vi rekommenderar dock att du använder den nya data uppsättningen.
 
 **Exempel: kopiera data med en grundläggande fråga utan partition**
 

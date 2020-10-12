@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
 ms.openlocfilehash: a5bee2da5059213e85e03d5a0e4df0ef88c26b03
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90986038"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Övervaka tillgängligheten för en webbplats
@@ -43,7 +43,7 @@ Om du vill skapa din första tillgänglighets förfrågan öppnar du fönstret t
 
 ### <a name="create-a-test"></a>Skapa ett test
 
-|Inställningen| Förklaring
+|Inställning| Förklaring
 |----|----|----|
 |**URL** |  URL: en kan vara en webbsida som du vill testa, men den måste vara synlig från Internet. URL: en kan innehålla en frågesträng. Du kan arbeta med din databas om du vill. Om URL-adressen matchar en omdirigering följer vi den upp till tio omdirigeringar.|
 |**Parsa beroende begär Anden**| Testbegäran-bilder, skript, formatfiler och andra filer som ingår i webb sidan under testet. Den registrerade svarstiden innefattar den tid det tar att hämta dessa filer. Testet Miss lyckas om någon av dessa resurser inte kan laddas ned inom tids gränsen för hela testet. Om alternativet inte är markerat begärs endast filen på den URL som du har angett i testet. Att aktivera det här alternativet resulterar i en striktare kontroll. Det kan hända att testet Miss lyckas för fall, vilket inte kan märkas när du bläddrar på platsen manuellt.
@@ -58,7 +58,7 @@ Om du vill skapa din första tillgänglighets förfrågan öppnar du fönstret t
 
 ### <a name="success-criteria"></a>Lyckade kriterier
 
-|Inställningen| Förklaring
+|Inställning| Förklaring
 |----|----|----|
 | **Timeout för test** |Minska det här värdet om du vill få aviseringar om långsamma svar. Testet räknas som misslyckat om svaren från din webbplats inte har tagits emot inom denna period. Om du valde **Parsa beroende begäranden** måste alla bilder, formatfiler, skript och andra beroende resurser ha tagits emot inom denna period.|
 | **HTTP-svar** | Den returnerade status koden som räknas som lyckad. 200 är koden som anger att en normal webbsida har returnerats.|
@@ -66,7 +66,7 @@ Om du vill skapa din första tillgänglighets förfrågan öppnar du fönstret t
 
 ### <a name="alerts"></a>Aviseringar
 
-|Inställningen| Förklaring
+|Inställning| Förklaring
 |----|----|----|
 |**Nära real tid (för hands version)** | Vi rekommenderar att du använder aviseringar i nästan real tid. Konfigurationen av den här typen av avisering görs efter att ditt tillgänglighets test har skapats.  |
 |**Klassisk** | Vi rekommenderar inte längre att använda klassiska aviseringar för nya tillgänglighets test.|

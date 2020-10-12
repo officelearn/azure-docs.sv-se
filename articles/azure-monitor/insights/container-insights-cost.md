@@ -4,10 +4,10 @@ description: I den här artikeln beskrivs övervaknings kostnaden för mått & i
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: a03e94fa7650c56a4d3b3beda3c27283329aebbe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84204658"
 ---
 # <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Förstå övervaknings kostnader för Azure Monitor för behållare
@@ -118,7 +118,7 @@ Du kan se tabeller och volymer med data som genereras per timme i den tilldelade
 |KubeNodeInventory | 0,75 |
 |KubeServices | 0.13 |
 |ContainerInventory | 3,6 |
-|KubeHealth | 0.1 |
+|KubeHealth | 0,1 |
 |KubeMonAgentEvents |0,005 |
 
 Totalt = 31 MB/timme = 23,1 GB/månad (en månad = 31 dagar)

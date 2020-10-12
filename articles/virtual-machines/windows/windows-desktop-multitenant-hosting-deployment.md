@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
 ms.openlocfilehash: ceb8b8b31963317ccbbd1aee9f1b2606afc5a5db
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91279033"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Så här distribuerar du Windows 10 på Azure med värd rättigheter för flera innehavare 
@@ -28,10 +28,10 @@ För PowerShell-, CLI-och Azure Resource Manager mall-distributioner kan Windows
 
 | Operativsystem  |      PublisherName      |  Erbjudande | Sku |
 |:----------|:-------------:|:------|:------|
-| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2 – Pro   |
-| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2 – ProN  |
-| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3 – Pro   |
-| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3 – ProN  |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
 
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Laddar upp Windows 10-VHD till Azure
 Observera att om du överför en generaliserad Windows 10-hårddisk har Windows 10 inte inbyggt administratörs konto aktiverat som standard. Om du vill aktivera det inbyggda administratörs kontot inkluderar du följande kommando som en del av det anpassade skript tillägget.
@@ -105,6 +105,6 @@ LicenseType              :
 >
 >
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 - Läs mer om hur du [konfigurerar VDA för Windows 10](/windows/deployment/vda-subscription-activation)
 - Läs mer om [värd för flera innehavare för Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)

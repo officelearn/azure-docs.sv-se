@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
 ms.openlocfilehash: cff2e918c7b67f6d3bccb9b56366cbf034ed1bb5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89300110"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Hantera åtkomst till loggdata och arbetsytor i Azure Monitor
@@ -106,7 +106,7 @@ Varje arbets yta kan ha flera associerade konton, och varje konto kan ha åtkoms
 
 Följande aktiviteter kräver även Azure-behörigheter:
 
-|Action |Azure-behörigheter krävs |Kommentarer |
+|Action |Azure-behörigheter krävs |Obs! |
 |-------|-------------------------|------|
 | Lägga till och ta bort övervaknings lösningar | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Behörigheterna måste beviljas på resursgrupp- eller prenumerationsnivå. |
 | Ändra prisnivån | `Microsoft.OperationalInsights/workspaces/*/write` | |

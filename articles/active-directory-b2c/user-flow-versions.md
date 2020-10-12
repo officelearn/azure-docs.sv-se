@@ -11,10 +11,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67949c31c710d88a05e1e110860fe703caf66d04
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87481333"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Användar flödes versioner i Azure Active Directory B2C
@@ -33,7 +33,7 @@ Användar flöden i Azure Active Directory B2C (Azure AD B2C) hjälper dig att s
 
 Rekommenderade användar flöden är för hands versioner som kombinerar nya funktioner med äldre v2-och V 1.1-funktioner. Vi går vidare och de rekommenderade användar flödena kommer att behållas och uppdateras.
 
-| Användarflöde | Description |
+| Användarflöde | Beskrivning |
 | --------- | ----------- |
 | Lösen ords återställning (förhands granskning) | Gör det möjligt för en användare att välja ett nytt lösen ord när de har verifierat sin e-post. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>Kompatibilitetsinställningar för token</li><li>[Åldershantering](basic-age-gating.md)</li><li>[krav för lösen ords komplexitet](user-flow-password-complexity.md)</li></ul> |
 | Profil redigering (förhands granskning) | Gör det möjligt för en användare att konfigurera sina användarattribut. Med det här användar flödet kan du konfigurera: <ul><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li><li>Sessionens beteende</li></ul> |
@@ -45,7 +45,7 @@ Rekommenderade användar flöden är för hands versioner som kombinerar nya fun
 
 Standard användar flöden (tidigare kallat v1) är allmänt tillgängliga, produktions färdiga användar flöden. Standard användar flöden kommer inte att uppdateras framåt.
 
-| Användarflöde | Description |
+| Användarflöde | Beskrivning |
 | --------- | ----------- | ----------- |
 | Lösenordsåterställning | Gör det möjligt för en användare att välja ett nytt lösen ord när de har verifierat sin e-post. Med det här användar flödet kan du konfigurera: <ul><li>[Multifaktorautentisering](custom-policy-multi-factor-authentication.md)</li><li>Kompatibilitetsinställningar för token</li><li>[Krav för lösen ords komplexitet](user-flow-password-complexity.md)</li></ul> |
 | Redigera profil | Gör det möjligt för en användare att konfigurera sina användarattribut. Med det här användar flödet kan du konfigurera: <ul><li>[Livs längd för token](tokens-overview.md)</li><li>Kompatibilitetsinställningar för token</li><li>Sessionens beteende</li></ul> |

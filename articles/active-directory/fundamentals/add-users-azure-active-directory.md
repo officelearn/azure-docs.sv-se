@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9fbdccfa7ff16bd63dda1f7c21c07e6d20e086e1
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89321097"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Lägga till eller ta bort användare med hjälp av Azure Active Directory
@@ -42,7 +42,7 @@ Följ dessa steg om du vill lägga till en ny användare:
 
    - **Namn**. Krävs. Det första och sista namnet på den nya användaren. Till exempel *Mary parker*.
 
-   - **Användar namn**. Krävs. Den nya användarens användar namn. Till exempel `mary@contoso.com`.
+   - **Användar namn**. Krävs. Den nya användarens användar namn. Exempelvis `mary@contoso.com`.
 
      Domän delen av användar namnet måste antingen använda det inledande standard domän namnet, * \<yourdomainname> . onmicrosoft.com*eller ett anpassat domän namn, till exempel *contoso.com*. Mer information om hur du skapar ett anpassat domän namn finns i [lägga till ditt anpassade domän namn med hjälp av Azure Active Directory portalen](add-custom-domain.md).
 

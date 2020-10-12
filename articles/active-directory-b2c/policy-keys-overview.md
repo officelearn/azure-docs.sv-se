@@ -11,10 +11,10 @@ ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8019c049d830df0c2f3301a450eed60145c8eab3
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89570481"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Översikt över princip nycklar i Azure Active Directory B2C
@@ -36,7 +36,7 @@ Du kan konfigurera hemligheter och certifikat för att upprätta förtroende mel
 
 Resursen på den översta nivån för princip nycklar i Azure AD B2C är behållaren **nyckel uppsättning** . Varje nyckel uppsättning innehåller minst en **nyckel**. En nyckel har följande attribut:
 
-| Attribut |  Obligatorisk | Kommentarer |
+| Attribut |  Krävs | Kommentarer |
 | --- | --- |--- |
 | `use` | Ja | Användning: identifierar den avsedda användningen av den offentliga nyckeln. Kryptera data `enc` eller verifiera signaturen på data `sig` .|
 | `nbf`| Inga | Datum och tid för aktivering. |

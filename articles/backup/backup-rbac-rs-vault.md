@@ -1,17 +1,17 @@
 ---
-title: Hantera säkerhets kopior med rollbaserad Access Control
+title: Hantera säkerhets kopior med Role-Based Access Control
 description: Använd rollbaserad Access Control för att hantera åtkomst till säkerhets kopierings hanterings åtgärder i Recovery Services valvet.
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.openlocfilehash: c24d075dcb9ac36ce741db746d69aa9e61fac39d
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89376136"
 ---
-# <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Använd rollbaserad Access Control för att hantera Azure Backup återställnings punkter
+# <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Använd Role-Based Access Control för att hantera Azure Backup återställnings punkter
 
 Rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör detaljerad åtkomst hantering för Azure. Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete.
 

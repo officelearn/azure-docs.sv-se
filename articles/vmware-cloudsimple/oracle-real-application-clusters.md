@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 2cc2f954f4255c00b7c3549ab5d33d71b240fb70
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86507682"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimera ditt CloudSimple privata moln för att installera Oracle RAC
@@ -46,10 +46,10 @@ I följande exempel används diskarna som definierats i tabellen nedan.
 
 | Disk                                      | Syfte                                       | Delad disk |
 |-------------------------------------------|-----------------------------------------------|-------------|
-| Operativsystem                                        | Operativsystemdisk                         | Nej          |
-| STÖDRASTRET                                      | Installations plats för Oracle Grid-programvara     | Nej          |
-| DATABASE                                  | Installations plats för Oracle Database-programvara | Nej          |
-| ORAHOME                                   | Bas plats för binärfiler för Oracle-databasen    | Nej          |
+| Operativsystem                                        | Operativsystemdisk                         | Inga          |
+| STÖDRASTRET                                      | Installations plats för Oracle Grid-programvara     | Inga          |
+| DATABASE                                  | Installations plats för Oracle Database-programvara | Inga          |
+| ORAHOME                                   | Bas plats för binärfiler för Oracle-databasen    | Inga          |
 | DATA1, DATA2, DATA3, DATA4                | Disk där Oracle-databasfiler lagras   | Ja         |
 | REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | Gör om logg diskar                                | Ja         |
 | OCR1, OCR2, OCR3, OCR4, OCR5              | Röstnings diskar                                  | Ja         |

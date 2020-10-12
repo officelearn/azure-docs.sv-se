@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: v-mibufo
 ms.openlocfilehash: b07033f96402edc24edd51de57661603e57472bc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347769"
 ---
 # <a name="windows-stop-error---0xc000021a-status-system-process-terminated"></a>Windows Stop-fel-0xC000021A status system process avslutad
@@ -37,7 +37,7 @@ När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-mac
 
 Fel 0xC000021A betyder **STATUS_SYSTEM_PROCESS_TERMINATED**.
 
-Felet uppstår när en kritisk process, t. ex. WinLogon (winlogon.exe) eller under systemet för klient serverns kör tids system (csrss.exe) Miss lyckas. När kärnan känner av att någon av dessa tjänster har stoppats genererar den **Stop 0xc000021a** -felet. Det här felet kan ha flera orsaker, inklusive:
+Felet uppstår när en kritisk process, till exempel WinLogon (winlogon.exe) eller klient servern Run-Time under system (csrss.exe) Miss lyckas. När kärnan känner av att någon av dessa tjänster har stoppats genererar den **Stop 0xc000021a** -felet. Det här felet kan ha flera orsaker, inklusive:
 
 - Felmatchade systemfiler har installerats.
 - Det gick inte att installera en Service Pack-eller KB-uppdatering.
@@ -61,7 +61,7 @@ För att lösa det här problemet måste krasch dumpning analyseras. Samla in mi
 2.  Leta upp filen Memory. dmp och skicka sedan [ett support ärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med minnesdumpen.
 3.  Om du har problem med att hitta Memory. dmp-filen kanske du vill använda [icke-maskbart avbrott (NMI) i serie konsolen i](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls) stället. Du kan följa guiden för att [generera en kraschdump-fil med hjälp av NMI-anrop här](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Mer felsöknings information finns i [Felsöka vanliga start fel](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-error-troubleshoot) eller [Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell dator för återställning](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-windows). Du bör också bekanta dig med [hur du använder startdiagnostik för att felsöka en virtuell dator](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics).
 - Mer information om hur du använder Resource Manager finns i [Azure Resource Manager översikt](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).

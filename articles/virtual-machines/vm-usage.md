@@ -11,10 +11,10 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
 ms.openlocfilehash: d43f94d3555a660d6b7c8f755eebfec253d31dc2
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322989"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Förstå användningen av virtuella Azure-datorer
@@ -24,7 +24,7 @@ Genom att analysera Azures användnings data kan kraftfulla förbruknings insikt
 Börja med att [Hämta din användnings information](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Tabellen nedan innehåller definitionen och exempel på användnings värden för Virtual Machines som distribueras via Azure Resource Manager. Det här dokumentet innehåller ingen detaljerad information för virtuella datorer som distribueras via vår klassiska modell.
 
 
-| Fält | Innebörd | Exempel värden | 
+| Field | Innebörd | Exempel värden | 
 |---|---|---|
 | Datum för användning | Det datum då resursen användes | `11/23/2017` |
 | Meter ID | Identifierar den översta tjänst som den här användningen tillhör| `Virtual Machines`|
@@ -59,7 +59,7 @@ För vissa bilder i Azure-galleriet fylls avbildnings typen i fältet ytterligar
 - Windows Server Preview 
 
 ## <a name="service-type"></a>Typ av tjänst
-Fältet typ av tjänst i fältet ytterligare information motsvarar den exakta VM-storlek som du har distribuerat. Virtuella datorer i Premium Storage (SSD-baserade) och icke-Premium-virtuella datorer (HDD-baserade) är i samma pris. Om du distribuerar en SSD-baserad storlek, som standard \_ DS2 \_ v2, kan du se storleken på den icke-SSD ( `Standard\_D2\_v2 VM` ) i kolumnen mätar under kategori och SSD-storlek ( `Standard\_DS2\_v2` ) i fältet ytterligare information.
+Fältet typ av tjänst i fältet ytterligare information motsvarar den exakta VM-storlek som du har distribuerat. Virtuella datorer i Premium Storage (SSD-baserade) och icke-Premium-virtuella datorer (HDD-baserade) är i samma pris. Om du distribuerar en SSD-baserad storlek, till exempel \_ standard \_ -DS2 v2, ser du storlekarna non-SSD ( `Standard\_D2\_v2 VM` ) i mätar Sub-Categorys kolumnen och SSD-storlek ( `Standard\_DS2\_v2` ) i fältet ytterligare information.
 
 ## <a name="region-names"></a>Region namn
 Region namnet som fyllts i i fältet resurs plats i användnings informationen varierar från det region namn som används i Azure Resource Manager. Här är en mappning mellan värdena för regionen:
@@ -76,7 +76,7 @@ Region namnet som fyllts i i fältet resurs plats i användnings informationen v
 | chinaeast | Kina, östra|
 | chinanorth | Kina, norra|
 | eastasia | Asien, östra|
-| USA, östra | East US|
+| eastus | East US|
 | usaöstra2 | USA, östra 2|
 | GermanyCentral | DE centrala|
 | GermanyNortheast | DE nordöstra|
@@ -103,7 +103,7 @@ Region namnet som fyllts i i fältet resurs plats i användnings informationen v
 | Europa, västra | Europa, västra|
 | Usavästracentrala | Indien, västra|
 | westus | USA, västra|
-| USA, västra 2 | USA, västra 2|
+| westus2 | USA, västra 2|
 
 
 ## <a name="virtual-machine-usage-faq"></a>Vanliga frågor om användning av virtuell dator

@@ -18,10 +18,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b5139f75084eb0646db2fc8b05b04aaf3ddb2a12
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89010791"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnostisera ignorerade aviseringar i Azure Notification Hubs
@@ -289,7 +289,7 @@ Mer information om programmerings åtkomst finns i [program mässig åtkomst](/p
 <!-- LINKS -->
 [Översikt över Notification Hubs]: notification-hubs-push-notification-overview.md
 [Kom igång med Azure Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Onlinemallar]: /previous-versions/azure/azure-services/dn530748(v=azure.100)
+[Mallar]: /previous-versions/azure/azure-services/dn530748(v=azure.100)
 [APN-översikt]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Om FCM-meddelanden]: https://firebase.google.com/docs/cloud-messaging/concept-options
 [Export and modify registrations in bulk]: /previous-versions/azure/azure-services/dn790624(v=azure.100)

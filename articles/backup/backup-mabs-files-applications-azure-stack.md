@@ -4,10 +4,10 @@ description: Använd Azure Backup för att säkerhetskopiera och återställa Az
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: cae95c10c510969cc0553a54a506789d6be427d7
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89180991"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Säkerhetskopiera filer och program på Azure Stack
@@ -52,13 +52,13 @@ Om du vill konfigurera Azure Backup Server för att skydda filer i Azure Stack v
 
     Om du vill välja att **Jag vill ha onlineskydd**måste du först välja **Jag vill ha kortvarigt skydd med:** disk. Azure Backup Server skyddar inte till band, så disk är det enda alternativet för kortsiktigt skydd.
 
-5. På skärmen **Ange kortvariga mål** väljer du hur länge du vill behålla återställnings punkterna som sparas på disk och när du ska spara stegvisa säkerhets kopior. Välj **Nästa**.
+5. På skärmen **ange Short-Term mål** väljer du hur länge du vill behålla återställnings punkterna som sparas på disk och när du ska spara stegvisa säkerhets kopior. Välj **Nästa**.
 
     > [!IMPORTANT]
     > Du bör **inte** behålla återställnings data (säkerhets kopiering) på Azure Backup Server anslutna diskar i mer än fem dagar.
     >
 
-    ![Ange kortsiktiga mål](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png)
+    ![Ange Short-Term mål](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png)
 
     I stället för att välja ett intervall för stegvisa säkerhets kopieringar för att köra en fullständig snabb säkerhets kopiering precis innan varje schemalagd återställnings punkt väljer du **precis innan en återställnings punkt**. Om du skyddar program arbets belastningar skapar Azure Backup Server återställnings punkter enligt schemat för synkroniseringsfrekvens (förutsatt att programmet stöder stegvis säkerhets kopiering). Om programmet inte har stöd för stegvisa säkerhets kopieringar kör Azure Backup Server en fullständig snabb säkerhets kopiering.
 

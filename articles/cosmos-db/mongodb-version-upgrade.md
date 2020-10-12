@@ -8,10 +8,10 @@ ms.topic: guide
 ms.date: 09/22/2020
 ms.author: jasonh
 ms.openlocfilehash: c6369be39d0a964f07c64083e3269bb1c0c49c7f
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91409671"
 ---
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>Uppgradera MongoDB Wire Protocol-versionen av din Azure Cosmos DBs API för MongoDB-konto
@@ -62,27 +62,27 @@ Du måste ersätta den befintliga slut punkten i dina program och driv rutiner s
 
 2. Välj bladet från alternativen till vänster `Features` . Detta visar de konto nivå funktioner som är tillgängliga för ditt databas konto.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Azure Portal med MongoDB konto översikt med bladet funktioner markerat" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Översikt över Azure Portal med MongoDB-konto" border="false":::
 
 3. Klicka på `Upgrade to Mongo server version 3.6` raden. Om du inte ser det här alternativet kanske kontot inte är giltigt för den här uppgraderingen. Ange [ett support ärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om så är fallet.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Funktions blad med alternativ." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Översikt över Azure Portal med MongoDB-konto" border="false":::
 
 4. Granska informationen som visas om den här uppgraderingen. Observera att uppgraderingen endast slutförs förrän dina program använder den uppdaterade slut punkten, som du ser i det här avsnittet. Klicka på `Enable` så snart du är redo att starta processen.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Utökad uppgraderings vägledning." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Översikt över Azure Portal med MongoDB-konto" border="false":::
 
 5. När processen har startats visas `Features` uppgraderingens status i menyn. Statusen skickas från till till `Pending` `In Progress` `Upgraded` . Den här processen påverkar inte befintliga funktioner eller åtgärder för databas kontot.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Uppgraderings status efter initiering." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Översikt över Azure Portal med MongoDB-konto" border="false":::
 
 6. När uppgraderingen har slutförts visas statusen som `Upgraded` . Klicka på den för att lära dig mer om nästa steg och åtgärder som du behöver utföra för att slutföra processen. [Kontakta supporten](https://azure.microsoft.com/en-us/support/create-ticket/) om du har problem med att bearbeta din begäran.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Status för uppgraderat konto." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Översikt över Azure Portal med MongoDB-konto" border="false":::
 
 7. **Om du vill börja använda den uppgraderade versionen av ditt databas konto**går du tillbaka till `Overview` bladet och kopierar den nya anslutnings strängen som ska användas i ditt program. Programmen kommer att börja använda den uppgraderade versionen så fort de ansluter till den nya slut punkten. Befintliga anslutningar avbryts inte och kan uppdateras när du vill. För att säkerställa en konsekvent upplevelse måste alla program använda den nya slut punkten.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Bladet ny översikt." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Översikt över Azure Portal med MongoDB-konto" border="false":::
 
 ## <a name="next-steps"></a>Nästa steg
 

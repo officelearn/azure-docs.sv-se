@@ -11,10 +11,10 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704736"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planera och hantera kostnader för Azure Machine Learning
@@ -109,11 +109,11 @@ Här följer några alternativ som du har:
 
 ## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a> Använd virtuella datorer med låg prioritet
 
-Med Azure kan du använda outnyttjad kapacitet för virtuella datorer med låg prioritet över virtuella datorers skalnings uppsättningar, batch och tjänsten Machine Learning. Dessa allokeringar är emptible men kommer till ett reducerat pris jämfört med dedikerade virtuella datorer. I allmänhet rekommenderar vi att du använder virtuella datorer med låg prioritet för batch-arbetsbelastningar. Du bör också använda dem där avbrott kan återskapas antingen via omsändningar (för batch-Inferencing) eller genom omstarter (för djup inlärnings utbildning med kontroll punkt).
+Med Azure kan du använda överflödigt outnyttjad kapacitet som Low-Priority virtuella datorer i skalnings uppsättningar för virtuella datorer, batch och tjänsten Machine Learning. Dessa allokeringar är emptible men kommer till ett reducerat pris jämfört med dedikerade virtuella datorer. I allmänhet rekommenderar vi att du använder Low-Priority virtuella datorer för batch-arbetsbelastningar. Du bör också använda dem där avbrott kan återskapas antingen via omsändningar (för batch-Inferencing) eller genom omstarter (för djup inlärnings utbildning med kontroll punkt).
 
-Virtuella datorer med låg prioritet har en enda kvot som är separat från det dedikerade kvot svärdet, som ingår i VM-serien. Läs [mer om AmlCompute-kvoter](how-to-manage-quotas.md).
+Low-Priority virtuella datorer har en enda kvot som är separat från det dedikerade kvot svärdet, som ingår i VM-serien. Läs [mer om AmlCompute-kvoter](how-to-manage-quotas.md).
 
- Virtuella datorer med låg prioritet fungerar inte för beräknings instanser eftersom de behöver stöd för interaktiva Notebook-upplevelser.
+ Low-Priority virtuella datorer fungerar inte för beräknings instanser eftersom de behöver stöd för interaktiva Notebook-upplevelser.
 
 ## <a name="use-reserved-instances"></a>Använda reserverade instanser
 

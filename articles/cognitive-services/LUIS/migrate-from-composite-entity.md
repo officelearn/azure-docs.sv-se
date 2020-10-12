@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.openlocfilehash: 5c3ac14af6eb863daa9eadd32727f4fb53d2185f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322865"
 ---
 # <a name="upgrade-composite-entity-to-machine-learning-entity"></a>Uppgradera sammansatt entitet till enhet för maskin inlärning
@@ -34,7 +34,7 @@ Uppgraderings processen:
 
 Använd följande diagram för att förstå hur din modell ändras:
 
-|Gammalt objekt|Nytt objekt|Kommentarer|
+|Gammalt objekt|Nytt objekt|Obs!|
 |--|--|--|
 |Sammansatt entitet|enhet för maskin inlärning med struktur|Båda objekten är överordnade objekt.|
 |Sammansatt entitets underordnade entitet är **enkel entitet**|underentitet|Båda objekten är underordnade objekt.|

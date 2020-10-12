@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
 ms.openlocfilehash: 6381170df93fdf52c2d0dc7059ad47bbff734025
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378040"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Support mat ris för säkerhets kopiering av Azure-filresurs
@@ -41,7 +41,7 @@ Säkerhets kopiering av Azure-filresurser är tillgänglig i alla regioner **uto
 
 ## <a name="protection-limits"></a>Skydds gränser
 
-| Inställningen                                                      | Gräns |
+| Inställning                                                      | Gräns |
 | ------------------------------------------------------------ | ----- |
 | Maximalt antal fil resurser som kan skyddas per valv per dag| 200   |
 | Maximalt antal lagrings konton som kan registreras per valv per dag | 50    |
@@ -50,14 +50,14 @@ Säkerhets kopiering av Azure-filresurser är tillgänglig i alla regioner **uto
 
 ## <a name="backup-limits"></a>Säkerhets kopierings gränser
 
-| Inställningen                                      | Gräns |
+| Inställning                                      | Gräns |
 | -------------------------------------------- | ----- |
 | Maximalt antal säkerhets kopior på begäran per dag | 10   |
 | Maximalt antal schemalagda säkerhets kopieringar per dag | 1     |
 
 ## <a name="restore-limits"></a>Återställa gränser
 
-| Inställningen                                                      | Gräns   |
+| Inställning                                                      | Gräns   |
 | ------------------------------------------------------------ | ------- |
 | Maximalt antal återställningar per dag                           | 10      |
 | Maximalt antal filer per återställning                         | 10      |
@@ -65,7 +65,7 @@ Säkerhets kopiering av Azure-filresurser är tillgänglig i alla regioner **uto
 
 ## <a name="retention-limits"></a>Gräns för kvarhållning
 
-| Inställningen                                                      | Gräns    |
+| Inställning                                                      | Gräns    |
 | ------------------------------------------------------------ | -------- |
 | Maximalt antal återställnings punkter per fil resurs vid varje tidpunkt | 200      |
 | Högsta kvarhållning av återställnings punkt som skapats av säkerhets kopiering på begäran | 10 år |

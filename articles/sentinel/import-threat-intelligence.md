@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
 ms.openlocfilehash: e04d7fa1f319ca3969d8acdc0235e2838bb3a88d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997606"
 ---
-# <a name="import-threat-intelligence-into-azure-sentinel"></a>Importera Hot information till Azure Sentinel
+# <a name="import-threat-intelligence-into-azure-sentinel"></a>Importera hotinformation till Azure Sentinel
 
 ## <a name="introduction-to-threat-intelligence"></a>Introduktion till hot information
 
@@ -78,7 +78,7 @@ Den här informationen kommer alltid från din Azure Active Directory via en pro
 
 1. Välj ett namn för program registreringen, Välj alternativ knappen **enskild klient** och välj **Registrera**.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-register-application.png" alt-text="Registrera ett program":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-register-application.png" alt-text="Import Sök väg för hot information":::
 
 1. Kopiera ID-värdena för **program (klient** ) och **katalog (klient)** på skärmen som visas. Detta är de två första uppgifterna du behöver senare för att konfigurera ditt tips eller en anpassad lösning för att skicka hot indikatorer till Azure Sentinel.
 
@@ -96,13 +96,13 @@ Den här informationen kommer alltid från din Azure Active Directory via en pro
 
 1. Välj **ThreatIndicators. readwrite. OwnedBy** och välj **Lägg till behörigheter** för att lägga till behörigheten till appens lista över behörigheter.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-1.png" alt-text="Ange behörigheter":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-1.png" alt-text="Import Sök väg för hot information":::
 
 **Få medgivande från din organisation för att bevilja dessa behörigheter**
 
 1. För att bevilja medgivande behöver du en Azure Active Directory global administratör för att välja alternativet **bevilja administratörs medgivande för din klient** organisation på APPENs API-behörigheter. Om du inte har rollen global administratör på ditt konto är den här knappen inte tillgänglig och du måste be en global administratör från din organisation att utföra det här steget.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-2.png" alt-text="Bevilja medgivande":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-2.png" alt-text="Import Sök väg för hot information":::
 
 1. När medgivande har beviljats för din app, bör du se en grön bock markering under **status**.
  
@@ -114,7 +114,7 @@ Nu när din app har registrerats och behörigheter har beviljats kan du få den 
 
 1. Välj **certifikat & hemligheter** på menyn och klicka på knappen **ny klient hemlighet** för att hämta en hemlighet (API-nyckel) för din app.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-client-secret.png" alt-text="Hämta klient hemlighet":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-client-secret.png" alt-text="Import Sök väg för hot information":::
 
 1. Klicka på knappen **Lägg till** och **Se till att kopiera klient hemligheten**, eftersom du inte kan hämta den här hemligheten igen om du lämnar den här sidan. Du behöver det här värdet när du konfigurerar ditt tips eller en anpassad lösning.
 
@@ -145,7 +145,7 @@ På några minuter ska hot indikatorer börja flöda till den här Azure Sentine
 
 Den mest tillämpade bransch standarden för överföring av hot information är en [kombination av Stix-dataformat och taxii-protokollet](https://oasis-open.github.io/cti-documentation/). Om din organisation erhåller hot indikatorer från lösningar som har stöd för den aktuella STIX/TAXIi-versionen (2,0 eller 2,1) kan du använda **Threat Intelligence-** data kopplingen för att ta dina hot indikatorer till Azure Sentinel. Threat Intelligence – TAXI data Connector möjliggör en inbyggd TAXIi-klient i Azure Sentinel som används för att importera Hot information från TAXIi 2. x-servrar.
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-taxii-import-path.png" alt-text="TAXIi import väg":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-taxii-import-path.png" alt-text="Import Sök väg för hot information":::
  
 Följ dessa steg om du vill importera STIX-formaterade hot indikatorer till Azure Sentinel från en TAXI-Server:
 
@@ -287,7 +287,7 @@ Följ dessa steg om du vill importera hot indikatorer till Azure Sentinel från 
 
 1. Skriv ett **namn** på den här taxii Server-samlingen, **API-rot-URL**, **samlings-ID**, **användar namn** (om det behövs) och **lösen ord** (om det behövs) och klicka på knappen **Lägg till** .
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-configure-taxii-servers.png" alt-text="Konfigurera TAXIi-servrar":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-configure-taxii-servers.png" alt-text="Import Sök väg för hot information":::
  
 Du bör få en bekräftelse på att en anslutning till TAXI-servern har upprättats och du kan upprepa steg (4) över så många gånger som du vill ansluta till flera samlingar från samma eller olika TAXI-servrar.
 
@@ -307,7 +307,7 @@ Nu när du har importerat hot indikatorer till Azure Sentinel med hjälp av **Th
 
 Resultatet bör se ut ungefär som den exempel hot indikator som visas nedan:
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-sample-query.png" alt-text="Exempel fråga efter data":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-sample-query.png" alt-text="Import Sök väg för hot information":::
  
 ## <a name="manage-your-threat-indicators-in-the-new-threat-intelligence-area-of-azure-sentinel"></a>Hantera dina hot indikatorer i det nya Threat Intelligence-avsnittet i Azure Sentinel
 
@@ -322,7 +322,7 @@ Nu ska vi titta på två vanliga uppgifter och skapa nya hot indikatorer och tag
 
 1. Välj knappen **Lägg till ny** på den översta menyn på sidan.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-add-new-indicator.png" alt-text="Lägg till en ny hot indikator" lightbox="media/import-threat-intelligence/threat-intel-add-new-indicator.png":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-add-new-indicator.png" alt-text="Import Sök väg för hot information" lightbox="media/import-threat-intelligence/threat-intel-add-new-indicator.png":::
 
 1. Välj indikator typ och fyll sedan i de obligatoriska fälten som är markerade med en röd asterisk (*) på den **nya indikator** panelen.
 
@@ -330,7 +330,7 @@ Nu ska vi titta på två vanliga uppgifter och skapa nya hot indikatorer och tag
 
 Att tagga hot indikatorer är ett enkelt sätt att gruppera dem så att de blir lättare att hitta. Normalt kan du tillämpa en tagg på indikatorer som rör en viss incident eller till indikatorer som visar hot från en viss känd aktör eller en välkänd angrepps kampanj. Du kan tagga hot indikatorer individuellt eller flera markerings indikatorer och tagga dem på samma gång. Nedan visas ett exempel på hur du kan tagga flera indikatorer med ett incident-ID. Eftersom taggning är kostnads fritt, är en rekommenderad metod att skapa standard namngivnings konventioner för hot indikator taggar. Du kan använda flera taggar för varje indikator.
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Använd taggar för hot indikatorer" lightbox="media/import-threat-intelligence/threat-intel-tagging-indicators.png":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Import Sök väg för hot information" lightbox="media/import-threat-intelligence/threat-intel-tagging-indicators.png":::
 
 ## <a name="analytics-puts-your-threat-indicators-to-work-detecting-potential-threats"></a>Analys placerar dina hot indikatorer för att identifiera potentiella hot
 
@@ -350,11 +350,11 @@ Låt oss ta en titt på någon av dessa regelmallar och gå igenom hur du aktive
 
 1. Navigera till regeln med rubriken **ti Map-IP-enhet till AzureActivity** och se till att du har anslutit alla data källor som krävs enligt beskrivningen nedan.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-required-data-sources.png" alt-text="Nödvändiga data källor":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-required-data-sources.png" alt-text="Import Sök väg för hot information":::
 
 1. Välj den här regeln och klicka på knappen **Skapa regel** . Detta öppnar en guide för att konfigurera regeln. Slutför inställningarna här och välj knappen **Nästa: Ange regel logik >** .
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-create-analytics-rule.png" alt-text="Skapa analys regel":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-create-analytics-rule.png" alt-text="Import Sök väg för hot information":::
 
 1. Regel logik delen i guiden innehåller:
     - Frågan som ska användas i regeln.
@@ -397,7 +397,7 @@ Nu ska vi gå igenom hur du hittar en hot informations arbets bok som finns i Az
 
 1. Navigera till arbets boken med rubriken **Hot information** och kontrol lera att du har data i tabellen **ThreatIntelligenceIndicator** enligt nedan.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-verify-data.png" alt-text="Verifiera data":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-verify-data.png" alt-text="Import Sök väg för hot information":::
  
 1. Välj knappen **Spara** och välj en Azure-plats där du vill lagra arbets boken. Det här steget krävs om du ska ändra arbets boken på ett valfritt sätt och spara ändringarna.
 
@@ -417,7 +417,7 @@ Nu ska vi gå igenom hur du hittar en hot informations arbets bok som finns i Az
 
 1. Klicka på knappen **klar redigering** . Du har skapat ett nytt diagram för din arbets bok.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="Stapeldiagram":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="Import Sök väg för hot information":::
 
 Arbets böcker tillhandahåller kraftfulla interaktiva instrument paneler som ger dig insikter om alla aspekter av Azure Sentinel. Det finns ett helt parti som du kan göra med arbets böcker, medan de angivna mallarna är en bra start punkt vill du förmodligen gå in i och anpassa dessa mallar eller skapa nya instrument paneler som kombinerar många olika data källor så att du kan visualisera dina data på ett unikt sätt. Eftersom Azure Sentinel-arbetsböcker baseras på Azure Monitor arbets böcker finns det redan omfattande dokumentation tillgänglig och många fler mallar. En bra plats för att börja är den här artikeln om hur du [skapar interaktiva rapporter med Azure Monitor arbets böcker](../azure-monitor/platform/workbooks-overview.md). 
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
 ms.openlocfilehash: a54de6dbfb320ca530e9c885af9ebe5d833274cc
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89323032"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Stöd för virtuella datorer i generation 2 i Azure
@@ -67,7 +67,7 @@ Virtuella datorer i generation 2 stöder följande Marketplace-avbildningar:
 * Oracle Linux 7,7, 7,7 – CI
 
 > [!NOTE]
-> Vissa storlekar på virtuella datorer som Mv2-serien har kanske bara stöd för en delmängd av dessa avbildningar. mer information finns i dokumentationen för den aktuella virtuella datorns storlek.
+> Vissa storlekar på virtuella datorer som Mv2-Series kanske bara har stöd för en delmängd av dessa avbildningar. mer information finns i dokumentationen för den aktuella virtuella datorns storlek.
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Lokala eller Azure generation 2-datorer
 
@@ -93,13 +93,13 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Funktioner för generation 1 vs. generation 2
 
-| Kapacitet | Generation 1 | Generation 2 |
+| Funktion | Generation 1 | Generation 2 |
 |------------|--------------|--------------|
 | OS-disk > 2 TB                    | röntgen                | :heavy_check_mark: |
 | Anpassad disk/avbildning/växla OS         | :heavy_check_mark: | :heavy_check_mark: |
 | Stöd för skalnings uppsättning för virtuell dator | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
-| Säkerhets kopiering/återställning                    | :heavy_check_mark: | :heavy_check_mark: |
+| Säkerhetskopiera och återställa                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galleri för delad avbildning              | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Disk Encryption             | :heavy_check_mark: | röntgen                |
 

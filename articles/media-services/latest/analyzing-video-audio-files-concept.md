@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 29d80d2c6dc4e090e30d7a90460dc970ff4d8ca9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89320689"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analysera video-och ljudfiler med Azure Media Services
@@ -71,7 +71,7 @@ Utdata innehåller en JSON-fil (insights.jspå) med alla insikter som finns i vi
 
 ### <a name="transcript"></a>avskrifts
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Rad-ID.|
 |text|Själva avskriften.|
@@ -109,7 +109,7 @@ Exempel:
 
 ### <a name="ocr"></a>stöd
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|ID för OCR-linje.|
 |text|OCR-text.|
@@ -152,7 +152,7 @@ Exempel:
 
 ### <a name="faces"></a>ytor
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Ansikts-ID.|
 |name|Ansikts namnet. Det kan vara okänt #0, ett identifierat kändis eller en kundutbildad person.|
@@ -197,7 +197,7 @@ Exempel:
 
 ### <a name="shots"></a>bilder
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Bild-ID.|
 |Nyckel rutor|En lista över nyckel bild rutor i instansen (var och en har ett ID och en lista över instanser av instans intervallet). Nyckel bilds instanser har ett thumbnailId-fält med nyckel rutans miniatyr-ID.|
@@ -254,7 +254,7 @@ Exempel:
 
 ### <a name="statistics"></a>uppgifterna
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |CorrespondenceCount|Antal korrespondens i videon.|
 |WordCount|Antalet ord per talare.|
@@ -267,7 +267,7 @@ Exempel:
 
 Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). Till exempel 0-0,1, 0,1-0,2.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Sentiment-ID.|
 |averageScore |Medelvärdet av alla resultat från alla instanser av sentiment-typ positiv/neutral/negativ|
@@ -302,7 +302,7 @@ Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). 
 
 ### <a name="labels"></a>Etiketter
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Etikett-ID: t.|
 |name|Etikett namnet (till exempel "dator", "TV").|
@@ -360,7 +360,7 @@ Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). 
 
 ### <a name="keywords"></a>nyckelord
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Nyckelords-ID: t.|
 |text|Nyckelords texten.|
@@ -411,7 +411,7 @@ VisualContentModeration-blocket innehåller tidsintervall som Video Indexer hitt
 
 Videor som innehåller vuxen eller vågat innehåll kan endast vara tillgängliga för privat vy. Användare kan skicka en begäran om en mänsklig granskning av innehållet, vilket innebär att `IsAdult` attributet innehåller resultatet av mänsklig granskning.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|ID för moderator för visuellt innehåll.|
 |adultScore|Den vuxen poängen (från Content moderator).|

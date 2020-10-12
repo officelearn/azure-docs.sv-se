@@ -13,10 +13,10 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8b94f6388d77cca2ef74c802aec7648091172775
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79281137"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Flytta data från Salesforce med hjälp av Azure Data Factory
@@ -66,10 +66,10 @@ I följande avsnitt finns information om JSON-egenskaper som används för att d
 ## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 Följande tabell innehåller beskrivningar av JSON-element som är speciella för den länkade Salesforce-tjänsten.
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen Type måste anges till: **Salesforce**. |Ja |
-| environmentUrl | Ange URL: en för Salesforce-instansen. <br><br> -Standard är "https: \/ /login.Salesforce.com". <br> – Om du vill kopiera data från sandbox anger du " https://test.salesforce.com ". <br> – Om du vill kopiera data från en anpassad domän anger du exempelvis "https://[domän]. My. Salesforce. com". |No |
+| environmentUrl | Ange URL: en för Salesforce-instansen. <br><br> -Standard är "https: \/ /login.Salesforce.com". <br> – Om du vill kopiera data från sandbox anger du " https://test.salesforce.com ". <br> – Om du vill kopiera data från en anpassad domän anger du exempelvis "https://[domän]. My. Salesforce. com". |Inga |
 | användarnamn |Ange ett användar namn för användar kontot. |Ja |
 | password |Ange ett lösen ord för användar kontot. |Ja |
 | securityToken |Ange en säkerhetstoken för användar kontot. Se [Hämta säkerhetstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) för instruktioner om hur du återställer/hämtar en säkerhetstoken. Mer information om säkerhetstoken i allmänhet finns i [säkerhet och API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Ja |
@@ -79,7 +79,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet typeProperties för en data uppsättning av typen **RelationalTable** har följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på tabellen i Salesforce. |Nej (om en **fråga** för **RelationalSource** har angetts) |
 
@@ -95,7 +95,7 @@ De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten, å
 
 När källan är av typen **RelationalSource** (som innehåller Salesforce) i kopierings aktiviteten är följande egenskaper tillgängliga i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd den anpassade frågan för att läsa data. |En SQL-92-fråga eller en [SOQL-fråga (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) . Exempel: `select * from MyTable__c`. |Nej (om **data uppsättningens** **TableName** anges) |
 
@@ -106,9 +106,9 @@ När källan är av typen **RelationalSource** (som innehåller Salesforce) i ko
 
 ## <a name="query-tips"></a>Tips om frågor
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Hämtar data med WHERE-satsen i kolumnen DateTime
-När du anger SOQL-eller SQL-frågan ska du tänka på DateTime-formatets skillnad. Ett exempel:
+När du anger SOQL-eller SQL-frågan ska du tänka på DateTime-formatets skillnad. Exempel:
 
-* **SOQL-exempel**:`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
+* **SOQL-exempel**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
 * **SQL-exempel**:
     * **Använda guiden Kopiera för att ange frågan:**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
     * **Använd JSON-redigering för att ange frågan (escape-tecken korrekt):**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`

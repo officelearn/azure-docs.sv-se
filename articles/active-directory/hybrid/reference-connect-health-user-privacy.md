@@ -16,10 +16,10 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58ecdfefa79716bcc0a69063293d5a1067693a78
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182368"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Användar sekretess och Azure AD Connect Health 
@@ -32,7 +32,7 @@ ms.locfileid: "89182368"
 ## <a name="user-privacy-classification"></a>Sekretess klassificering för användare
 Azure AD Connect Health hamnar i **data processor** kategorin för GDPR-klassificeringen. Som data behandlings pipeline tillhandahåller tjänsten data bearbetnings tjänster för viktiga partner och slut konsumenter. Azure AD Connect Health genererar inte användar data och har ingen oberoende kontroll över vilka personliga data som samlas in och hur de används. Data hämtning, sammansättning, analys och rapportering i Azure AD Connect Health baseras på befintliga lokala data. 
 
-## <a name="data-retention-policy"></a>Princip för data bevarande
+## <a name="data-retention-policy"></a>Datakvarhållningsprincip
 Azure AD Connect Health genererar inte rapporter, utför analyser eller ger insikter mer än 30 dagar. Därför lagrar Azure AD Connect Health inte, bearbetar eller behåller data mer än 30 dagar. Den här designen är kompatibel med reglerna för GDPR, Microsofts sekretess regler för efterlevnad och Azure AD-datakvarhållning. 
 
 Servrar med aktiva **hälso tjänst data är inte uppdaterade** **fel** aviseringar i mer än 30 dagar i följd, föreslå att inga data har uppnått Connect Health under den tids perioden. Dessa servrar kommer att inaktive ras och visas inte i Connect Health-portalen. Om du vill återaktivera servrarna måste du avinstallera och [installera om hälso agenten](how-to-connect-health-agent-install.md). Observera att detta inte gäller för **varningar** med samma aviserings typ. Varningar anger att partiella data saknas på den server som du är aviserad om. 

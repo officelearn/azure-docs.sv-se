@@ -4,10 +4,10 @@ description: Tillhandahåller vissa typer av klasser som du kan använda för at
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 21159aacfcd87bb929eaeaf9884b0275c7005e1a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87001631"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Översikt över klass typer – Azure Lab Services
@@ -46,7 +46,7 @@ Du kan konfigurera en mall på Azure Lab Services med de verktyg som behövs fö
 
 Detaljerad information om hur du konfigurerar den här typen av labb finns i [Konfigurera ett labb för att lära data vetenskap med python-och Jupyter-anteckningsböcker](class-type-jupyter-notebook.md).
 
-## <a name="big-data-analytics"></a>Stordataanalys
+## <a name="big-data-analytics"></a>Stordataanalyser
 Du kan ställa in ett GPU-labb för att lära en stor data analys klass. Med den här typen av klass kan studenter lära sig att hantera stora mängder data och använda algoritmer för maskin-och statistiska inlärning för att härleda data insikter. Ett viktigt mål för studenter är att lära sig att använda verktyg för data analys som Apache Hadoop programmets program varu paket med öppen källkod som innehåller verktyg för att lagra, hantera och bearbeta Big data. 
 
 Detaljerad information om hur du konfigurerar den här typen av labb finns i [Konfigurera ett labb för Big data Analytics med Docker-distribution av HortonWorks Data Platform](class-type-big-data-analytics.md).

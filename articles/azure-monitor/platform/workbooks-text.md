@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81687333"
 ---
 # <a name="workbook-text-parameters"></a>Text parametrar för arbets bok
@@ -27,10 +27,10 @@ En vanlig användning av text rutor är som interna variabler som används av an
 2. Välj _Lägg till parametrar_ från länkarna i arbets boken.
 3. Klicka på knappen blå _Lägg till parameter_ .
 4. I fönstret ny parameter som öppnas anger du:
-    1. Parameter namn:`SlowRequestThreshold`
-    2. Parameter typ:`Text`
-    3. Kunna`checked`
-    4. Hämta standardvärdet från fråga:`unchecked`
+    1. Parameter namn: `SlowRequestThreshold`
+    2. Parameter typ: `Text`
+    3. Kunna `checked`
+    4. Hämta standardvärdet från fråga: `unchecked`
 5. Skapa parametern genom att välja Spara i verktygsfältet.
 
     ![Bild som visar hur en text parameter skapas](./media/workbooks-text/text-create.png)
@@ -67,10 +67,10 @@ Så här kommer arbets boken att se ut i Read-mode.
 2. Välj _Lägg till parametrar_ från länkarna i arbets boken.
 3. Klicka på knappen blå _Lägg till parameter_ .
 4. I fönstret ny parameter som öppnas anger du:
-    1. Parameter namn:`SlowRequestThreshold`
-    2. Parameter typ:`Text`
-    3. Kunna`checked`
-    4. Hämta standardvärdet från fråga:`checked`
+    1. Parameter namn: `SlowRequestThreshold`
+    2. Parameter typ: `Text`
+    3. Kunna `checked`
+    4. Hämta standardvärdet från fråga: `checked`
 5. I rutan KQL lägger du till följande kodfragment:
     ```kusto
     requests

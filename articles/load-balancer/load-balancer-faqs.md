@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
 ms.openlocfilehash: 2b547dbc8671481275952f4c3eae5683e9e3a06c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207535"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Vanliga frågor och svar om Load Balancer
@@ -25,7 +25,7 @@ För båda dessa typer erbjuder Azure en grundläggande SKU och standard-SKU som
 Se artikeln [Uppgradera från Basic till standard](upgrade-basic-standard.md) för ett automatiserat skript och vägledning om hur du uppgraderar en Load Balancer SKU.
 
  ## <a name="what-are-the-different-load-balancing-options-in-azure"></a>Vilka är de olika alternativen för belastnings utjämning i Azure?
-Se [teknik guiden för belastningsutjämnare](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) för de tillgängliga belastnings Utjämnings tjänsterna och rekommenderade användnings områden för var och en.
+Se [teknik guiden för belastningsutjämnare](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)  för de tillgängliga belastnings Utjämnings tjänsterna och rekommenderade användnings områden för var och en.
 
 ## <a name="where-can-i-find-load-balancer-arm-templates"></a>Var hittar jag Load Balancer ARM-mallar?
 Se [listan över Azure Load Balancer snabb starts mallar](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates) för ARM-mallar för vanliga distributioner.

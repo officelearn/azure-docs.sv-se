@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84628058"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Förbereda data för Custom Speech
@@ -46,9 +46,9 @@ I den här tabellen listas godkända data typer, när varje datatyp ska använda
 
 | Datatyp | Används för testning | Rekommenderad kvantitet | Används för utbildning | Rekommenderad kvantitet |
 |-----------|-----------------|----------|-------------------|----------|
-| [Ljud](#audio-data-for-testing) | Ja<br>Används för visuell granskning | 5 + ljudfiler | Nej | Saknas |
+| [Ljud](#audio-data-for-testing) | Ja<br>Används för visuell granskning | 5 + ljudfiler | Inga | E.t. |
 | [Ljud + medmärkta avskrifter](#audio--human-labeled-transcript-data-for-testingtraining) | Ja<br>Används för att utvärdera noggrannhet | 0,5 – 5 timmars ljud | Ja | 1 – 1000 timmars ljud |
-| [Relaterad text](#related-text-data-for-training) | Nej | Ej tillämpligt | Ja | 1-200 MB relaterad text |
+| [Relaterad text](#related-text-data-for-training) | Inga | Ej tillämpligt | Ja | 1-200 MB relaterad text |
 
 Filerna ska grupperas efter typ i en data uppsättning och laddas upp som en zip-fil. Varje data uppsättning får bara innehålla en enda datatyp.
 
@@ -80,7 +80,7 @@ Använd den här tabellen för att se till att ljudfilerna är korrekt formatera
 | Samplings frekvens              | 8 000 Hz eller 16 000 Hz |
 | Kanaler                 | 1 (mono)              |
 | Maximal längd per ljud | 2 timmar               |
-| Exempel format            | PCM, 16-bitars           |
+| Samplingsformat            | PCM, 16-bitars           |
 | Arkiv format           | .zip                  |
 | Maximal Arkiv storlek     | 2 GB                  |
 
@@ -108,7 +108,7 @@ Ljudfiler kan ha tystnad i början och slutet av inspelningen. Om möjligt, inkl
 | Samplings frekvens              | 8 000 Hz eller 16 000 Hz               |
 | Kanaler                 | 1 (mono)                            |
 | Maximal längd per ljud | 2 timmar (testning)/60 s (utbildning) |
-| Exempel format            | PCM, 16-bitars                         |
+| Samplingsformat            | PCM, 16-bitars                         |
 | Arkiv format           | .zip                                |
 | Maximal zip-storlek         | 2 GB                                |
 
@@ -119,7 +119,7 @@ Ljudfiler kan ha tystnad i början och slutet av inspelningen. Om möjligt, inkl
 
 För att lösa problem som Word-borttagning eller ersättning krävs en stor mängd data för att förbättra igenkänningen. I allmänhet rekommenderar vi att du ger ord för ord-avskrifter i ungefär 10 till 1 000 timmar av ljud. Transkriptioner för alla WAV-filer bör ingå i en enda fil med oformaterad text. Varje rad i transkriptionsfilen ska innehålla namnet på en av ljudfilerna följt av motsvarande transkription. Filnamnet och transkriptionen ska separeras med ett tabbtecken (\t).
 
-  Till exempel:
+  Exempel:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -203,5 +203,5 @@ Använd följande tabell för att kontrol lera att den relaterade data filen fö
 
 * [Inspektera dina data](how-to-custom-speech-inspect-data.md)
 * [Utvärdera dina data](how-to-custom-speech-evaluate-data.md)
-* [Träna din modell](how-to-custom-speech-train-model.md)
+* [Träna modellen](how-to-custom-speech-train-model.md)
 * [Distribuera din modell](how-to-custom-speech-deploy-model.md)

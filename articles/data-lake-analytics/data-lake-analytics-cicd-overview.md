@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.workload: big-data
 ms.date: 09/14/2018
 ms.openlocfilehash: 3517938ae0e08af62a6fcf0d3d0a43a5eaee48dd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87496125"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Så här konfigurerar du en CI/CD-pipeline för Azure Data Lake Analytics  
@@ -355,7 +355,7 @@ Att lägga till test fall för tabell värdes funktioner och lagrade procedurer 
 
 ## <a name="deploy-u-sql-database-through-azure-pipelines"></a>Distribuera U-SQL-databas via Azure-pipeliner
 
-`PackageDeploymentTool.exe`tillhandahåller programmerings-och kommando rads gränssnitt som hjälper till att distribuera distributions paket för U-SQL-databasen, **. usqldbpack**. SDK ingår i [U-SQL SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), som finns på **build/runtime/PackageDeploymentTool.exe**. Med hjälp av `PackageDeploymentTool.exe` kan du distribuera U-SQL-databaser till både Azure Data Lake Analytics och lokala konton.
+`PackageDeploymentTool.exe` tillhandahåller programmerings-och kommando rads gränssnitt som hjälper till att distribuera distributions paket för U-SQL-databasen, **. usqldbpack**. SDK ingår i [U-SQL SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), som finns på **build/runtime/PackageDeploymentTool.exe**. Med hjälp av `PackageDeploymentTool.exe` kan du distribuera U-SQL-databaser till både Azure Data Lake Analytics och lokala konton.
 
 > [!NOTE]
 >
@@ -425,7 +425,7 @@ Utför följande steg för att konfigurera en databas distributions uppgift i Az
     copy USQLSDK\build\runtime\*.* $DBDeploymentTool
     ```
 
-2. Lägg till en **kommando rad aktivitet** i en pipeline för build eller release och fyll i skriptet genom att anropa `PackageDeploymentTool.exe` . `PackageDeploymentTool.exe`finns under den definierade **$DBDeploymentTool** mappen. Exempel skriptet ser ut så här: 
+2. Lägg till en **kommando rad aktivitet** i en pipeline för build eller release och fyll i skriptet genom att anropa `PackageDeploymentTool.exe` . `PackageDeploymentTool.exe` finns under den definierade **$DBDeploymentTool** mappen. Exempel skriptet ser ut så här: 
 
     * Distribuera en U-SQL-databas lokalt:
 
@@ -455,7 +455,7 @@ Utför följande steg för att konfigurera en databas distributions uppgift i Az
 
 #### <a name="common-parameters"></a>Vanliga parametrar
 
-| Parameter | Beskrivning | Standardvärde | Obligatorisk |
+| Parameter | Beskrivning | Standardvärde | Krävs |
 |---------|-----------|-------------|--------|
 |Paket|Sökvägen till U-SQL-databasens distributions paket som ska distribueras.|null|true|
 |Databas|Det databas namn som ska distribueras till eller skapas.|master|falskt|
@@ -464,18 +464,18 @@ Utför följande steg för att konfigurera en databas distributions uppgift i Az
 
 #### <a name="parameter-for-local-deployment"></a>Parameter för lokal distribution
 
-|Parameter|Beskrivning|Standardvärde|Obligatorisk|
+|Parameter|Beskrivning|Standardvärde|Krävs|
 |---------|-----------|-------------|--------|
 |DataRoot|Sökvägen till den lokala rotmappen för data.|null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parametrar för Azure Data Lake Analytics distribution
 
-|Parameter|Beskrivning|Standardvärde|Obligatorisk|
+|Parameter|Beskrivning|Standardvärde|Krävs|
 |---------|-----------|-------------|--------|
 |Konto|Anger vilket Azure Data Lake Analytics-konto som ska distribueras efter konto namn.|null|true|
 |ResourceGroup|Namnet på Azure-resurs gruppen för Azure Data Lake Analytics kontot.|null|true|
 |SubscriptionId|ID för Azure-prenumerationen för Azure Data Lake Analytics-kontot.|null|true|
-|Klientorganisation|Klient namnet är Azure Active Directory (Azure AD)-domän namnet. Hitta den på sidan prenumerations hantering i Azure Portal.|null|true|
+|Klient|Klient namnet är Azure Active Directory (Azure AD)-domän namnet. Hitta den på sidan prenumerations hantering i Azure Portal.|null|true|
 |AzureSDKPath|Sökvägen för att söka efter beroende sammansättningar i Azure SDK.|null|true|
 |Interaktiv|Huruvida interaktivt läge ska användas för autentisering.|falskt|falskt|
 |ClientId|Det program-ID för Azure AD som krävs för icke-interaktiv autentisering.|null|Krävs för icke-interaktiv autentisering.|

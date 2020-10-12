@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 09/26/2019
 ms.openlocfilehash: c0648100e155d1462f3291a7f5f078cf316bc0aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84465651"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrera Azure NetApp Files med Azure Kubernetes-tjänsten
@@ -36,7 +36,7 @@ Följande begränsningar gäller när du använder Azure NetApp Files:
 ## <a name="configure-azure-netapp-files"></a>Konfigurera Azure NetApp Files
 
 > [!IMPORTANT]
-> Innan du kan registrera *Microsoft. NetApp* -resurs leverantören måste du fylla i [Azure NetApp Files Waitlist-överförings formulär][anf-waitlist] för din prenumeration. Du kan inte registrera resursen förrän du får det officiella bekräftelse meddelandet från Azure NetApp Filess teamet.
+> Innan du kan registrera  *Microsoft. NetApp* -resurs leverantören måste du fylla i [Azure NetApp Files Waitlist-överförings formulär][anf-waitlist] för din prenumeration. Du kan inte registrera resursen förrän du får det officiella bekräftelse meddelandet från Azure NetApp Filess teamet.
 
 Registrera *Microsoft. NetApp* -resurs leverantören:
 
@@ -146,7 +146,7 @@ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_
 }
 ```
 
-Skapa en `pv-nfs.yaml` definition av en PersistentVolume. Ersätt `path` med *creationToken* och `server` med *ipAddress* från föregående kommando. Ett exempel:
+Skapa en `pv-nfs.yaml` definition av en PersistentVolume. Ersätt `path` med *creationToken* och `server` med *ipAddress* från föregående kommando. Exempel:
 
 ```yaml
 ---
@@ -178,7 +178,7 @@ kubectl describe pv pv-nfs
 
 ## <a name="create-the-persistentvolumeclaim"></a>Skapa PersistentVolumeClaim
 
-Skapa en `pvc-nfs.yaml` definition av en PersistentVolume. Ett exempel:
+Skapa en `pvc-nfs.yaml` definition av en PersistentVolume. Exempel:
 
 ```yaml
 apiVersion: v1
@@ -208,7 +208,7 @@ kubectl describe pvc pvc-nfs
 
 ## <a name="mount-with-a-pod"></a>Montera med en POD
 
-Skapa en `nginx-nfs.yaml` definition av en pod som använder PersistentVolumeClaim. Ett exempel:
+Skapa en `nginx-nfs.yaml` definition av en pod som använder PersistentVolumeClaim. Exempel:
 
 ```yaml
 kind: Pod

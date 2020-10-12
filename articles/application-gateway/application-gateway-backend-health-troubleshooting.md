@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
 ms.openlocfilehash: 531a7fd8547130b4897f3dad0900e1c27fb7fe9a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132049"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Felsök problem med Server delens hälsa i Application Gateway
@@ -131,7 +131,7 @@ Kontrol lera också om någon NSG/UDR/brand vägg blockerar åtkomsten till IP-a
 
 **Lösning:** Följ dessa steg om du får det här felet:
 
-1.  Kontrol lera om du kan ansluta till backend-servern på den port som anges i HTTP-inställningarna med hjälp av en webbläsare eller PowerShell. Kör till exempel följande kommando:`Test-NetConnection -ComputerName
+1.  Kontrol lera om du kan ansluta till backend-servern på den port som anges i HTTP-inställningarna med hjälp av en webbläsare eller PowerShell. Kör till exempel följande kommando: `Test-NetConnection -ComputerName
     www.bing.com -Port 443`
 
 1.  Om den port som anges inte är den önskade porten anger du rätt port nummer för Application Gateway för att ansluta till backend-servern

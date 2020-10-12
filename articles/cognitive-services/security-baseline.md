@@ -8,10 +8,10 @@ ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 796ef0b82c15940ce9200e0b50916ca657f10b99
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393901"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Azures säkerhets bas linje för Cognitive Services
@@ -948,7 +948,7 @@ Microsofts program mot skadlig kod har Aktiver ATS på den underliggande värden
 
 Du kan också använda funktionen för livs cykel hantering för att säkerhetskopiera data till Arkiv nivån. Aktivera dessutom mjuk borttagning för dina säkerhets kopior som lagras i lagrings kontot.
 
-* [Förstå Azure Storage redundans och service nivå avtal](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+* [Förstå Azure Storage redundans och Service-Level avtal](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 * [Hantera Azure Blob Storage-livscykeln](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)
 
@@ -992,13 +992,13 @@ Du kan också använda funktionen för livs cykel hantering för att säkerhetsk
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: se till att skydda säkerhets kopior och Kundhanterade nycklar
 
-**Vägledning**: Använd Azure-DevOps för att lagra och hantera dina Azure Resource Manager-mallar på ett säkert sätt. För att skydda resurser som du hanterar i Azure DevOps, kan du bevilja eller neka behörigheter till särskilda användare, inbyggda säkerhets grupper eller grupper som definierats i Azure Active Directory (Azure AD) om det är integrerat med Azure DevOps eller Active Directory om det är integrerat med TFS.  Använd rollbaserad åtkomst kontroll för att skydda kundens hanterade nycklar. Aktivera mjuk borttagning och rensning av skydd i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning. 
+**Vägledning**: Använd Azure-DevOps för att lagra och hantera dina Azure Resource Manager-mallar på ett säkert sätt. För att skydda resurser som du hanterar i Azure DevOps, kan du bevilja eller neka behörigheter till särskilda användare, inbyggda säkerhets grupper eller grupper som definierats i Azure Active Directory (Azure AD) om det är integrerat med Azure DevOps eller Active Directory om det är integrerat med TFS.  Använd rollbaserad åtkomst kontroll för att skydda kundens hanterade nycklar. Aktivera Soft-Delete och rensa skydd i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning. 
 
 * [Så här lagrar du kod i Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 * [Om behörigheter och grupper i Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
 
-* [Så här aktiverar du skydd mot mjuk borttagning och rensning i Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [Aktivera Soft-Delete och rensa skydd i Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Azure Security Center övervakning**: Ja
 

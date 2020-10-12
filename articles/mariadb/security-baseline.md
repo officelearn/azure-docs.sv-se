@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: f067d4c777bb9a49ac2cc50595046249479a8f7a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393844"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Azures säkerhets bas linje för Azure Database for MariaDB
@@ -28,7 +28,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1,1: skydda resurser med hjälp av nätverks säkerhets grupper eller Azure-brandvägg på din Virtual Network
 
-**Vägledning**: Konfigurera en privat länk för Azure Database for MariaDB med privata slut punkter. Med privat länk kan du ansluta till olika PaaS-tjänster i Azure via en privat slut punkt. Azures privata länk placerar Azure-tjänster i ditt privata Virtual Network (VNet). Trafiken mellan ditt virtuella nätverk och MariaDB-instansen skickas till Microsoft stamnätet-nätverket.
+**Vägledning**: Konfigurera en privat länk för Azure Database for MariaDB med privata slut punkter. Med Private Link kan du ansluta till olika PaaS-tjänster i Azure via en privat slutpunkt. Azure Private Link ger dig tillgång till Azure-tjänster i ditt privata virtuella nätverk (VNet). Trafiken mellan ditt virtuella nätverk och MariaDB-instansen skickas till Microsoft stamnätet-nätverket.
 
 Du kan också använda Virtual Network tjänstens slut punkter för att skydda och begränsa nätverks åtkomsten till dina Azure Database for MariaDB-implementeringar. Regler för virtuella nätverk är en brand Väggs säkerhetsfunktion som styr om din Azure Database for MariaDB accepterar kommunikation som skickas från vissa undernät i virtuella nätverk.
 
@@ -956,7 +956,7 @@ Microsofts program mot skadlig kod har Aktiver ATS på den underliggande värden
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: se till att vanlig automatisk säkerhets kopiering UPS
 
-**Vägledning**: Azure Database for MariaDB tar fullständiga, differentiella och transaktions logg säkerhets kopior.  Azure Database for MariaDB skapar automatiskt Server säkerhets kopior och lagrar dem i användar konfiguration lokalt redundant eller Geo-redundant lagring. Säkerhetskopieringar kan användas för att återställa servern till en vald tidpunkt. Säkerhets kopiering och återställning är en viktig del av en strategi för affärs kontinuitet eftersom de skyddar dina data från oavsiktlig skada eller borttagning.  Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan också konfigurera det upp till 35 dagar. Alla säkerhets kopior krypteras med AES 256-bitars kryptering.
+**Vägledning**: Azure Database for MariaDB tar fullständiga, differentiella och transaktions logg säkerhets kopior.  Azure Database for MariaDB skapar automatiskt Server säkerhets kopior och lagrar dem i användar konfiguration lokalt redundant eller Geo-redundant lagring. Säkerhetskopieringar kan användas för att återställa servern till en vald tidpunkt. Säkerhets kopiering och återställning är en viktig del av en strategi för affärs kontinuitet eftersom de skyddar dina data från oavsiktlig skada eller borttagning.  Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan också konfigurera det upp till 35 dagar. Alla säkerhetskopior krypteras med AES 256-bitars kryptering.
 
 Förstå säkerhets kopieringar för MariaDB:  https://docs.microsoft.com/azure/mariadb/concepts-backup
 
@@ -998,7 +998,7 @@ Förstå säkerhets kopiering och återställning i Azure Database for MariaDB: 
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: se till att skydda säkerhets kopior och Kundhanterade nycklar
 
-**Vägledning**: Azure Database for MariaDB tar fullständiga, differentiella och transaktions logg säkerhets kopior. Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan också konfigurera det upp till 35 dagar. Alla säkerhets kopior krypteras med AES 256-bitars kryptering.
+**Vägledning**: Azure Database for MariaDB tar fullständiga, differentiella och transaktions logg säkerhets kopior. Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan också konfigurera det upp till 35 dagar. Alla säkerhetskopior krypteras med AES 256-bitars kryptering.
 
 Förstå säkerhets kopiering och återställning i Azure Database for MariaDB:  https://docs.microsoft.com/azure/mariadb/concepts-backup
 

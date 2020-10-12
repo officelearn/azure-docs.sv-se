@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: bf9209e0c256412ccb06ea62a197046a7b012e00
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84629026"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Träna en modell för Custom Speech
@@ -44,7 +44,7 @@ Det första steget för att träna en modell är att överföra tränings data. 
 4. Ge sedan din utbildning ett **namn** och en **Beskrivning**.
 5. Välj det scenario som passar din domän bäst på den nedrullningsbara menyn för **scenario och bas linje modell** . Om du är osäker på vilket scenario du väljer väljer du **Allmänt**. Bas linje modellen är start punkten för utbildning. Den senaste modellen är vanligt vis det bästa valet.
 6. På sidan **Välj tränings data** väljer du en eller flera ljud-och data uppsättningar med mänsklig etikett som du vill använda för utbildning.
-7. När utbildningen är klar kan du välja att utföra testning av precisionen för den nytränade modellen. Det här steget är valfritt.
+7. När utbildningen är klar kan du välja att utföra testning av precisionen för den nytränade modellen. Det här är valfritt.
 8. Välj **skapa** för att skapa din anpassade modell.
 
 I övnings tabellen visas en ny post som motsvarar den nyligen skapade modellen. Tabellen visar också status: bearbetning, lyckades, misslyckades.
@@ -67,4 +67,4 @@ Om du väljer att testa noggrannhet är det viktigt att välja en akustisk data 
 - [Förbered och testa dina data](how-to-custom-speech-test-data.md)
 - [Inspektera dina data](how-to-custom-speech-inspect-data.md)
 - [Utvärdera dina data](how-to-custom-speech-evaluate-data.md)
-- [Träna din modell](how-to-custom-speech-train-model.md)
+- [Träna modellen](how-to-custom-speech-train-model.md)

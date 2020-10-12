@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
 ms.openlocfilehash: 5ebbac39c8850737ea6f9ef333e45d305a520655
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79461222"
 ---
 ## <a name="use-cli-shell"></a>Använd CLI-gränssnitt
@@ -31,7 +31,7 @@ Om CLI kan öppna din standardwebbläsare så sker det och en inloggningssida l�
 
 Med många Media Services CLI-kommandon kan du skicka en parameter med ett fil namn. Om du använder **Cloud Shell**kan du överföra filen till din clouddrive (med bash eller PowerShell). 
 
-![Överföra filer]
+![Ladda upp filer]
 
 Oavsett om du använder en lokal CLI eller **Cloud Shell**, måste du ange fil Sök vägen enligt det OS-eller Cloud Shell (bash eller PowerShell) som du använder. Nedan visas några exempel:
 
@@ -45,6 +45,6 @@ Absolut fil Sök väg på Linux/Mac och Windows OS
 * `@ "/usr/home/mytestfile.json"`
 *    `@"c:\tmp\user\mytestfile.json"`
 
-Använd `{file}` om kommandot frågar efter sökvägen till filen. Till exempel `az ams transform create -a amsaccount -g resourceGroup -n custom --preset .\customPreset.json`. <br/> Använd `@{file}` om kommandot ska läsa in den angivna filen. Till exempel `az ams account-filter create -a amsaccount -g resourceGroup -n filterName --tracks @tracks.json`.
+Använd `{file}` om kommandot frågar efter sökvägen till filen. Exempelvis `az ams transform create -a amsaccount -g resourceGroup -n custom --preset .\customPreset.json`. <br/> Använd `@{file}` om kommandot ska läsa in den angivna filen. Exempelvis `az ams account-filter create -a amsaccount -g resourceGroup -n filterName --tracks @tracks.json`.
 
-[Överföra filer]: ./media/media-services-cli/upload-download-files.png
+[Ladda upp filer]: ./media/media-services-cli/upload-download-files.png

@@ -4,10 +4,10 @@ description: Behandlar vanliga frågor om säkerhets kopiering av filer och mapp
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.openlocfilehash: e3a5b6d07982c3261b457d4999025c44489c0a8d
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182521"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Vanliga frågor och svar – Microsoft Azure Recovery Services (MARS) Agent
@@ -22,7 +22,7 @@ Den senaste MARS-agenten som används för att säkerhetskopiera Windows Server-
 
 ### <a name="where-can-i-download-the-vault-credentials-file"></a>Var kan jag hämta filen med autentiseringsuppgifter för valvet?
 
-I Azure Portal navigerar du till **Egenskaper** för valvet. Under **autentiseringsuppgifter för säkerhets kopiering**markerar du kryss rutan för **att redan använda den senaste Recovery Services agenten**. Välj **Download** (Ladda ned).
+I Azure Portal navigerar du till **Egenskaper** för valvet. Under **autentiseringsuppgifter för säkerhets kopiering**markerar du kryss rutan för **att redan använda den senaste Recovery Services agenten**. Välj **Hämta**.
 
 ![Hämta autentiseringsuppgifter](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
 
@@ -140,7 +140,7 @@ Storleken på cache-mappen avgör mängden data som du säkerhetskopierar.
     Net start obengine
     ```
 
-7. Kör en säkerhets kopiering på begäran. När säkerhets kopieringen har slutförts med den nya platsen kan du ta bort den ursprungliga cache-mappen.
+7. Köra en säkerhetskopiering på begäran. När säkerhets kopieringen har slutförts med den nya platsen kan du ta bort den ursprungliga cache-mappen.
 
 ### <a name="where-should-the-cache-folder-be-located"></a>Var ska cache-mappen finnas?
 

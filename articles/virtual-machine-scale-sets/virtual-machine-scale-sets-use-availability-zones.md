@@ -10,10 +10,10 @@ ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: cb4d30a2bb7704ef7d4d4760f3d8cf74788945c2
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89611912"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Skapa en skalnings uppsättning för virtuell dator som använder Tillgänglighetszoner
@@ -62,10 +62,10 @@ När du skapar en skalnings uppsättning i en enda zon, styr du vilken zon alla 
 
 Om du vill använda Tillgänglighetszoner måste din skalnings uppsättning skapas i en [Azure-region som stöds](../availability-zones/az-region.md). Du kan skapa en skalnings uppsättning som använder Tillgänglighetszoner med någon av följande metoder:
 
-- [Azure-portalen](#use-the-azure-portal)
+- [Azure Portal](#use-the-azure-portal)
 - Azure CLI
 - [Azure PowerShell](#use-azure-powershell)
-- [Azure Resource Manager mallar](#use-azure-resource-manager-templates)
+- [Azure Resource Manager-mallar](#use-azure-resource-manager-templates)
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 

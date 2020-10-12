@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: 183bc416dde941f11bd94cfcff3bf738b35f876f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207383"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Fråga Apache Hive via JDBC-drivrutinen i HDInsight
@@ -108,7 +108,7 @@ SQuirreL SQL är en JDBC-klient som kan användas för att fjärrköra Hive-frå
     |Drivrutinen|Använd List rutan för att välja **Hive** -drivrutinen.|
     |URL|`jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`. Ersätt **KLUSTERNAMN** med namnet på ditt HDInsight-kluster.|
     |Användarnamn|Kluster inloggnings konto namnet för ditt HDInsight-kluster. Standardvärdet är **admin**.|
-    |Lösenord|Lösen ordet för klustrets inloggnings konto.|
+    |lösenordsinställning|Lösen ordet för klustrets inloggnings konto.|
 
     ![dialog rutan Lägg till alias med parametrar](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png)
 

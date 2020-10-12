@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
 ms.openlocfilehash: 00fdaf93553c97112c67caa66cb2246756b63c33
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207490"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk för att Azure Monitor logg fråga
@@ -25,15 +25,15 @@ I följande tabell jämförs begrepp och data strukturer mellan Splunk och Azure
  | --- | --- | --- | ---
  | Distributions enhet  | cluster |  cluster |  Azure Monitor tillåter godtyckliga kors kluster frågor. Splunk har inte det. |
  | Cachelagrade data |  buckets  |  Principer för cachelagring och bevarande |  Styr period-och lagrings nivå för data. Den här inställningen påverkar direkt prestanda för frågorna och kostnaden för distributionen. |
- | Logisk partition med data  |  Tabbindex  |  databas  |  Tillåter logisk avgränsning av data. Båda implementeringarna tillåter unioner och anslutning mellan dessa partitioner. |
- | Metadata för strukturerad händelse | Ej tillämpligt | tabell |  Splunk har inte det koncept som exponeras för sökspråket för händelsens metadata. Azure Monitor loggar har en tabell som har kolumner. Varje händelse instans mappas till en rad. |
- | Data post | händelse | radhöjd |  Endast terminologi ändring. |
+ | Logisk partition med data  |  index  |  databas  |  Tillåter logisk avgränsning av data. Båda implementeringarna tillåter unioner och anslutning mellan dessa partitioner. |
+ | Metadata för strukturerad händelse | E.t. | tabell |  Splunk har inte det koncept som exponeras för sökspråket för händelsens metadata. Azure Monitor loggar har en tabell som har kolumner. Varje händelse instans mappas till en rad. |
+ | Data post | händelse | rad |  Endast terminologi ändring. |
  | Datapost-attribut | fält |  kolumn |  I Azure Monitor är detta fördefinierat som en del av tabell strukturen. I Splunk har varje händelse en egen uppsättning fält. |
  | Typer | datatype |  datatype |  Azure Monitor data typer är mer explicita eftersom de är inställda på kolumnerna. Båda har möjlighet att arbeta dynamiskt med data typer och ungefär samma uppsättning data typer, inklusive JSON-stöd. |
  | Fråga och Sök  | sök | DocumentDB |  Begreppen är i stort sett samma mellan Azure Monitor och Splunk. |
  | Tid för händelse hämtning | System tid | ingestion_time() |  I Splunk hämtar varje händelse en tidsstämpel för systemet för den tidpunkt då händelsen indexerades. I Azure Monitor kan du definiera en princip som kallas ingestion_time som visar en system kolumn som kan refereras via funktionen ingestion_time (). |
 
-## <a name="functions"></a>Functions (Funktioner)
+## <a name="functions"></a>Functions
 
 I följande tabell anges funktioner i Azure Monitor som motsvarar Splunk-funktioner.
 
@@ -65,16 +65,16 @@ I följande avsnitt får du exempel på hur du kan använda olika operatorer mel
 > [!NOTE]
 > I följande _exempel mappas_ Splunk-till en tabell i Azure Monitor och Splunk standard-tidsstämpeln mappas till kolumnen loggar Analytics _ingestion_time ()_ .
 
-### <a name="search"></a>Sök
+### <a name="search"></a>Search
 I Splunk kan du utelämna `search` nyckelordet och ange en sträng med citat tecken. I Azure Monitor måste du starta varje fråga med `find` , en icke-Citerad sträng är ett kolumn namn och uppslags värdet måste vara en sträng i citat tecken. 
 
 | | Operator | Exempel |
 |:---|:---|:---|
 | **Splunk** | **Sök** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
-| **Azure Monitor** | **hitta** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
+| **Azure Monitor** | **reda** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 
 
-### <a name="filter"></a>Filter
+### <a name="filter"></a>Filtrera
 Azure Monitor logg frågor börjar från en tabell resultat uppsättning där filtret. I Splunk är filtrering standard åtgärden för det aktuella indexet. Du kan också använda `where` operatorn i Splunk, men det rekommenderas inte.
 
 | | Operator | Exempel |
@@ -107,7 +107,7 @@ Splunk har också en `eval` funktion som inte ska vara jämförbar med `eval` op
 | **Azure Monitor** | **batteri** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend state = iif(Data_Exception == 0,"success" ,"error")</code> |
 
 ### <a name="rename"></a>Byt namn 
-Azure Monitor använder `project-rename` operatorn för att byta namn på ett fält. `project-rename`tillåter att frågan kan dra nytta av alla index som skapats i förväg för ett fält. Splunk har en `rename` operator att göra samma.
+Azure Monitor använder `project-rename` operatorn för att byta namn på ett fält. `project-rename` tillåter att frågan kan dra nytta av alla index som skapats i förväg för ett fält. Splunk har en `rename` operator att göra samma.
 
 | | Operator | Exempel |
 |:---|:---|:---|
@@ -119,7 +119,7 @@ Splunk verkar inte ha en operator som liknar `project-away` . Du kan använda an
 
 | | Operator | Exempel |
 |:---|:---|:---|
-| **Splunk** | **partitionstabell** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
+| **Splunk** | **table** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
 | **Azure Monitor** | **projektfilerna**<br>**projekt bort** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 
 ### <a name="aggregation"></a>Mängd
@@ -139,7 +139,7 @@ Join i Splunk har avsevärda begränsningar. Under frågan har en gräns på 100
 | **Splunk** | **ansluta** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias \| join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
 | **Azure Monitor** | **ansluta** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
 
-### <a name="sort"></a>Sortering
+### <a name="sort"></a>Sortera
 I Splunk måste du använda operatorn för att sortera i stigande ordning `reverse` . Azure Monitor också stöd för att definiera var nullvärden ska användas, i början eller i slutet.
 
 | | Operator | Exempel |

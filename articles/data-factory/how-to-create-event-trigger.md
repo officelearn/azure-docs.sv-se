@@ -12,10 +12,10 @@ ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.openlocfilehash: 10f0079f47e5d2fd99b358fcc5cfb4c80aa9bd91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84508904"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Skapa en utlösare som kör en pipeline som svar på en händelse
@@ -85,7 +85,7 @@ Följande tabell innehåller en översikt över de schema element som är relate
 | **planering** | Den typ av händelser som orsakar utlösaren att utlösa. | Matris    | Microsoft. Storage. BlobCreated, Microsoft. Storage. BlobDeleted | Ja, valfri kombination av dessa värden. |
 | **blobPathBeginsWith** | BLOB-sökvägen måste börja med det mönster som tillhandahölls för utlösaren för att starta. Till exempel `/records/blobs/december/` utlöses utlösaren för blobbar i `december` mappen under `records` behållaren. | Sträng   | | Du måste ange ett värde för minst en av följande egenskaper: `blobPathBeginsWith` eller `blobPathEndsWith` . |
 | **blobPathEndsWith** | BLOB-sökvägen måste sluta med det mönster som tillhandahölls för utlösaren för att starta. Till exempel `december/boxes.csv` utlöses endast utlösaren för blobbar som heter `boxes` i en `december` mapp. | Sträng   | | Du måste ange ett värde för minst en av följande egenskaper: `blobPathBeginsWith` eller `blobPathEndsWith` . |
-| **ignoreEmptyBlobs** | Om blobar med noll byte ska utlösa en pipeline-körning. Som standard är detta inställt på sant. | Boolesk | sant eller falskt | No |
+| **ignoreEmptyBlobs** | Om blobar med noll byte ska utlösa en pipeline-körning. Som standard är detta inställt på sant. | Boolesk | sant eller falskt | Inga |
 
 ## <a name="examples-of-event-based-triggers"></a>Exempel på händelsebaserade utlösare
 

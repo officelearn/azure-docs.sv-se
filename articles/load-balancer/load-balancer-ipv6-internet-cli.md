@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
 ms.openlocfilehash: edc17b9636792ce00458716e3461077fa689b3ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87001581"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Skapa en offentlig belastningsutjämnare med IPv6 med Azure CLI
@@ -157,7 +157,7 @@ I det här exemplet skapas följande objekt:
 * En NAT-regel som översätter all inkommande trafik på port 3391 till port 3389 för Remote Desktop Protocol (RDP).\*
 * En belastnings Utjämnings regel som balanserar all inkommande trafik på port 80 till port 80 på adresserna i backend-poolen.
 
-\*NAT-regler är associerade med en angiven instans av en virtuell dator bakom belastningsutjämnaren. Nätverks trafiken som anländer på port 3389 skickas till den angivna virtuella datorn och porten som är associerad med NAT-regeln. Du måste ange ett protokoll (UDP eller TCP) för en NAT-regel. Du kan inte tilldela båda protokollen till samma port.
+\* NAT-regler är associerade med en angiven instans av en virtuell dator bakom belastningsutjämnaren. Nätverks trafiken som anländer på port 3389 skickas till den angivna virtuella datorn och porten som är associerad med NAT-regeln. Du måste ange ett protokoll (UDP eller TCP) för en NAT-regel. Du kan inte tilldela båda protokollen till samma port.
 
 1. Konfigurera PowerShell-variablerna:
 

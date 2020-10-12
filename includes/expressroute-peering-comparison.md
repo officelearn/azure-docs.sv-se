@@ -5,15 +5,15 @@ ms.service: expressroute
 ms.topic: include
 ms.author: cherylmc
 ms.openlocfilehash: b6ab3e80c7a27263039de3d371adea3d49ddfcc9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75436993"
 ---
 |  | **Privat peering** | **Microsoft-peering** |  **Offentlig peering** (inaktuell för nya kretsar) |
 | --- | --- | --- | --- |
-| **Bekräftat. antal prefix som stöds per peering** |4000 som standard 10 000 med ExpressRoute Premium |200 |200 |
+| **Max. # prefix som stöds per peering** |4000 som standard 10 000 med ExpressRoute Premium |200 |200 |
 | **IP-adressintervall som stöds** |En giltig IP-adress i WAN-nätverket. |Offentliga IP-adresser som ägs av dig eller anslutnings leverantören. |Offentliga IP-adresser som ägs av dig eller anslutnings leverantören. |
 | **SOM nummer krav** |Privat och offentlig som tal. Du måste äga det offentliga AS-numret om du väljer att använda en. |Privat och offentlig som tal. Du måste dock bevisa ägarskap för offentliga IP-adresser. |Privat och offentlig som tal. Du måste dock bevisa ägarskap för offentliga IP-adresser. |
 | **IP-protokoll som stöds**| IPv4 |  IPv4, IPv6 | IPv4 |

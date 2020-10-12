@@ -9,10 +9,10 @@ ms.date: 04/24/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: c20b0741f12ee2cab40d8f5b53c51ad537801bf2
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393181"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Skapa och ändra peering för en ExpressRoute-krets med CLI
@@ -20,7 +20,7 @@ ms.locfileid: "89393181"
 Den här artikeln hjälper dig att skapa och hantera konfiguration/peering av routning för en ExpressRoute-krets i distributions modellen för Resource Manager med CLI. Du kan också kontrol lera status, uppdatera eller ta bort och avetablera peer-kopplingar för en ExpressRoute-krets. Om du vill använda en annan metod för att arbeta med din krets väljer du en artikel i följande lista:
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
 > * [Offentlig peering](about-public-peering.md)

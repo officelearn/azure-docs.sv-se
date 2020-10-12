@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: mqtt
 ms.openlocfilehash: 5c14e8cfcbf8df86b0f71d6b12025594d2e648c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81730113"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Schemalägga jobb på flera enheter
@@ -33,7 +33,7 @@ Azure IoT Hub möjliggör ett antal bygg stenar som [enhets dubbla egenskaper oc
 Jobb initieras av lösningens Server del och underhålls av IoT Hub. Du kan starta ett jobb via en tjänst som är riktad till en URI ( `PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30` ) och fråga efter förloppet för ett jobb som körs via en service FACING URI ( `GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30` ). Kör en jobb fråga om du vill uppdatera statusen för jobb som körs när ett jobb har initierats.
 
 > [!NOTE]
-> När du startar ett jobb kan egenskaps namn och värden bara innehålla US ASCII-utskrivbar alfanumerisk, förutom i följande uppsättning:`$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
+> När du startar ett jobb kan egenskaps namn och värden bara innehålla US ASCII-utskrivbar alfanumerisk, förutom i följande uppsättning: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
 
 ## <a name="jobs-to-execute-direct-methods"></a>Jobb för att köra direkta metoder
 
@@ -181,7 +181,7 @@ I följande lista visas egenskaper och motsvarande beskrivningar, som du kan anv
 | Egenskap | Beskrivning |
 | --- | --- |
 | **jobId** |ID för programbegäran för jobbet. |
-| **startTime** |Den angivna start tiden för programmet (ISO-8601) för jobbet. |
+| **/St** |Den angivna start tiden för programmet (ISO-8601) för jobbet. |
 | **endTime** |IoT Hub det angivna datumet (ISO-8601) för när jobbet har slutförts. Endast giltigt efter att jobbet har nått status ' slutfört '. |
 | **bastyp** |Typer av jobb: |
 | | **scheduleUpdateTwin**: ett jobb som används för att uppdatera en uppsättning av önskade egenskaper eller taggar. |

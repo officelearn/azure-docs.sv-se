@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 09/05/2019
 ms.author: victorh
 ms.openlocfilehash: 158bfe30bf48ee420be8efb9ff32fff0e555d9e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79475832"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Anpassade regler för brand vägg för webb program med Azures front dörr
@@ -75,7 +75,7 @@ Du kan kontrol lera åtkomst med en anpassad WAf-regel som definierar ett priori
      - UrlEncode
      
    - **Matchnings värde:** Värden för HTTP-begäran som stöds är:
-     - HÄMTA
+     - GET
      - POST
      - PUT
      - HEAD

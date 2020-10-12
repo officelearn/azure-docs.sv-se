@@ -12,10 +12,10 @@ ms.date: 07/31/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5528607b0559dad246262748c83c9d359ee2144e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385747"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrera ett OWIN webb-API till b2clogin.com
@@ -107,7 +107,7 @@ I det här avsnittet uppdaterar du koden för att ange att både token utfärdar
     };
     ```
 
-`TokenValidationParameters`tillhandahålls av MSAL.NET och används av OWIN mellanprogram i nästa avsnitt av kod i *startup.auth.cs*. När flera giltiga utfärdare har angetts görs OWIN program pipelinen medveten om att båda token-slutpunkterna är giltiga utfärdare.
+`TokenValidationParameters` tillhandahålls av MSAL.NET och används av OWIN mellanprogram i nästa avsnitt av kod i *startup.auth.cs*. När flera giltiga utfärdare har angetts görs OWIN program pipelinen medveten om att båda token-slutpunkterna är giltiga utfärdare.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions

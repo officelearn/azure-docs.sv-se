@@ -4,10 +4,10 @@ description: Skapa en token med behörigheter som är begränsade till vissa dat
 ms.topic: article
 ms.date: 05/27/2020
 ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84509414"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Skapa en token med databasens begränsade behörigheter
@@ -157,9 +157,9 @@ I följande exempel skapas en token och en omfångs karta skapas med följande b
 1. Under **omfångs karta**väljer du **Skapa ny**.
 1. Konfigurera omfångs kartan:
     1. Ange ett namn och en beskrivning för omfångs kartan. 
-    1. Under **databaser**, ange och `samples/hello-world` under **behörigheter**väljer du `content/read` och `content/write` . Välj sedan **+ Lägg till**.  
+    1. Under **databaser**, ange och `samples/hello-world` under **behörigheter**väljer du  `content/read` och `content/write` . Välj sedan **+ Lägg till**.  
 
-        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Skapa omfångs karta i portalen":::
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Skapa token i portalen":::
 
     1. När du har lagt till databaser och behörigheter väljer du **Lägg** till för att lägga till omfångs kartan.
 1. Godkänn standardvärdet **för token** **aktive rad** och välj sedan **skapa**.
@@ -176,7 +176,7 @@ Om du vill använda en token som skapats i portalen måste du generera ett löse
 1. I lösen ords skärmen anger du ett förfallo datum för lösen ordet och väljer **generera**. Vi rekommenderar att du anger ett förfallo datum.
 1. När du har genererat ett lösen ord kopierar du och sparar det på en säker plats. Du kan inte hämta ett genererat lösen ord när du har stängt skärmen, men du kan skapa ett nytt lösen ord.
 
-    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Skapa lösen ord för token i portalen":::
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Skapa token i portalen":::
 
 ## <a name="authenticate-with-token"></a>Autentisera med token
 
@@ -184,13 +184,13 @@ När en användare eller tjänst använder en token för att autentisera med må
 
 Autentiseringsmetoden beror på den konfigurerade åtgärden eller de åtgärder som är associerade med token.
 
-|Åtgärd  |Så här autentiserar du  |
+|Action  |Så här autentiserar du  |
   |---------|---------|
-  |`content/delete`    | `az acr repository delete`i Azure CLI<br/><br/>Exempel: `az acr repository delete --name myregistry --repository myrepo --username MyToken --password xxxxxxxxxx`|
-  |`content/read`     |  `docker login`<br/><br/>`az acr login`i Azure CLI<br/><br/>Exempel: `az acr login --name myregistry --username MyToken --password xxxxxxxxxx`  |
-  |`content/write`     |  `docker login`<br/><br/>`az acr login`i Azure CLI     |
-  |`metadata/read`    | `az acr repository show`<br/><br/>`az acr repository show-tags`<br/><br/>`az acr repository show-manifests`i Azure CLI   |
-  |`metadata/write`     |  `az acr repository untag`<br/><br/>`az acr repository update`i Azure CLI |
+  |`content/delete`    | `az acr repository delete` i Azure CLI<br/><br/>Exempel: `az acr repository delete --name myregistry --repository myrepo --username MyToken --password xxxxxxxxxx`|
+  |`content/read`     |  `docker login`<br/><br/>`az acr login` i Azure CLI<br/><br/>Exempel: `az acr login --name myregistry --username MyToken --password xxxxxxxxxx`  |
+  |`content/write`     |  `docker login`<br/><br/>`az acr login` i Azure CLI     |
+  |`metadata/read`    | `az acr repository show`<br/><br/>`az acr repository show-tags`<br/><br/>`az acr repository show-manifests` i Azure CLI   |
+  |`metadata/write`     |  `az acr repository untag`<br/><br/>`az acr repository update` i Azure CLI |
 
 ## <a name="examples-use-token"></a>Exempel: Använd token
 
@@ -256,7 +256,7 @@ az acr scope-map update \
   --remove samples/hello-world content/write 
 ```
 
-På Azure Portal:
+I Azure-portalen:
 
 1. Navigera till behållar registret.
 1. Under **lagrings behörigheter**väljer du **omfångs kartor (för hands version)** och väljer omfångs mappningen som ska uppdateras.
@@ -341,7 +341,7 @@ Exempel på utdata:
 
 ### <a name="list-scope-maps"></a>Lista omfångs kartor
 
-Använd kommandot [AZ ACR scope-Map List][az-acr-scope-map-list] eller sidan **omfångs kartor (för hands version)** i portalen för att visa en lista över alla omfångs mappningar som kon figurer ATS i ett register. Ett exempel:
+Använd kommandot [AZ ACR scope-Map List][az-acr-scope-map-list] eller sidan **omfångs kartor (för hands version)** i portalen för att visa en lista över alla omfångs mappningar som kon figurer ATS i ett register. Exempel:
 
 ```azurecli
 az acr scope-map list \
@@ -361,14 +361,14 @@ MyScopeMap           UserDefined    2019-11-15T21:17:34Z  Sample scope map
 
 ### <a name="show-token-details"></a>Visa information om token
 
-Om du vill visa information om en token, till exempel dess status och lösen ordets förfallo datum, kör du kommandot [AZ ACR token show][az-acr-token-show] eller väljer token på skärmen för **token (förhands granskning)** i portalen. Ett exempel:
+Om du vill visa information om en token, till exempel dess status och lösen ordets förfallo datum, kör du kommandot [AZ ACR token show][az-acr-token-show] eller väljer token på skärmen för **token (förhands granskning)** i portalen. Exempel:
 
 ```azurecli
 az acr scope-map show \
   --name MyScopeMap --registry myregistry
 ```
 
-Använd kommandot [AZ ACR token List][az-acr-token-list] eller på skärmen för **token (förhands granskning)** i portalen för att visa alla token som kon figurer ATS i ett register. Ett exempel:
+Använd kommandot [AZ ACR token List][az-acr-token-list] eller på skärmen för **token (förhands granskning)** i portalen för att visa alla token som kon figurer ATS i ett register. Exempel:
 
 ```azurecli
 az acr token list --registry myregistry --output table
@@ -390,7 +390,7 @@ Om du vill använda Azure Portal för att generera ett token-lösenord, se stege
 
 ### <a name="update-token-with-new-scope-map"></a>Uppdatera token med ny omfångs karta
 
-Om du vill uppdatera en token med en annan omfångs karta kör du [AZ ACR token Update][az-acr-token-update] och anger den nya omfångs kartan. Ett exempel:
+Om du vill uppdatera en token med en annan omfångs karta kör du [AZ ACR token Update][az-acr-token-update] och anger den nya omfångs kartan. Exempel:
 
 ```azurecli
 az acr token update --name MyToken --registry myregistry \

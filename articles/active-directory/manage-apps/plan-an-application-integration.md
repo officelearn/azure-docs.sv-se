@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc691148723e610f0885f7c20fd8684f11a81dc0
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182334"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Att integrera Azure Active Directory med program komma igång-guide
@@ -71,7 +71,7 @@ I följande artiklar diskuteras de olika sätten att integrera med Azure AD och 
 * [Integrerings lista för integrering av SaaS-program](../active-directory-saas-tutorial-list.md)
 
 ### <a name="authentication-types"></a>Autentiseringstyper
-Varje program kan ha olika autentiseringskrav. Med Azure AD kan du använda signerings certifikat med program som använder SAML 2,0, WS-Federation eller OpenID Connect-protokoll samt lösen ords enkel inloggning. Mer information om programautentiserings typer som används med Azure AD finns i [Hantera certifikat för federerad enkel inloggning i Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) och [lösen ords baserad enkel inloggning](what-is-single-sign-on.md).
+Varje program kan ha olika autentiseringskrav. Med Azure AD kan du använda signerings certifikat med program som använder SAML 2,0, WS-Federation eller OpenID Connect-protokoll samt lösen ords enkel inloggning. Mer information om programautentiserings typer som används med Azure AD finns i [Hantera certifikat för federerade enkla Sign-On i Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) och [lösen ords baserad enkel inloggning](what-is-single-sign-on.md).
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Aktivera SSO med Azure AD App proxy
 Med Microsoft Azure AD Application Proxy kan du ge åtkomst till program som finns i ditt privata nätverk på ett säkert sätt, från valfri plats och på valfri enhet. När du har installerat en Application Proxy-koppling i din miljö kan den enkelt konfigureras med Azure AD.
@@ -79,7 +79,7 @@ Med Microsoft Azure AD Application Proxy kan du ge åtkomst till program som fin
 ### <a name="integrating-custom-applications"></a>Integrera anpassade program
 Om du skriver ett nytt program och vill hjälpa utvecklare att använda kraften i Azure AD, se [GUID-utvecklare](../active-directory-applications-guiding-developers-for-lob-applications.md).
 
-Om du vill lägga till ett anpassat program i Azure Application galleriet, se ["ta med din egen app" med Azure AD-tjänsten för självbetjänings-och konfiguration](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
+Om du vill lägga till ett anpassat program i Azure Application galleriet, se ["ta med din egen app" med Azure AD Self-Service SAML-konfiguration](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
 ## <a name="managing-access-to-applications"></a>Hantera åtkomst till program
 I följande artiklar beskrivs hur du kan hantera åtkomst till program när de har integrerats med Azure AD med hjälp av Azure AD-anslutningar och Azure AD.

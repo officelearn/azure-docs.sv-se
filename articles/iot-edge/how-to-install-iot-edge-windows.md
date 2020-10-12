@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: kgremban
 ms.openlocfilehash: ba3e8b9d7649d56d1639f7f608d85a2da04ff74a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84465566"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installera Azure IoT Edge-körningen i Windows
 
-Azure IoT Edge runtime är vad som förvandlar en enhet till en IoT Edge enhet. Körningen kan distribueras på enheter så små som Raspberry Pi eller lika stora som en industriell Server. När en enhet har kon figurer ATS med IoT Edge runtime kan du börja distribuera affärs logiken till den från molnet.
+Azure IoT Edge runtime är vad som förvandlar en enhet till en IoT Edge enhet. Körningen kan distribueras på enheter så små som Raspberry Pi eller lika stora som en industriell Server. När en enhet har konfigurerats med IoT Edge-körningen kan du börja distribuera affärslogiken till den från molnet.
 
 Mer information om IoT Edge runtime finns i [förstå Azure IoT Edge Runtime och dess arkitektur](iot-edge-runtime.md).
 
@@ -80,7 +80,7 @@ Det här exemplet visar en manuell installation med Windows-behållare:
 
    * [Azure Portal](how-to-register-device.md#register-in-the-azure-portal)
    * [Azure CLI](how-to-register-device.md#register-with-the-azure-cli)
-   * [Visuell Studio-kod](how-to-register-device.md#register-with-visual-studio-code)
+   * [Visual Studio Code](how-to-register-device.md#register-with-visual-studio-code)
 
 2. Kör PowerShell som administratör.
 
@@ -109,7 +109,7 @@ Det här exemplet visar en manuell installation med Windows-behållare:
 
 6. När du uppmanas till det anger du den enhets anslutnings sträng som du hämtade i steg 1. Enhets anslutnings strängen kopplar den fysiska enheten med ett enhets-ID i IoT Hub.
 
-   Enhets anslutnings strängen har följande format och ska inte innehålla citat tecken:`HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
+   Enhets anslutnings strängen har följande format och ska inte innehålla citat tecken: `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
 7. Använd stegen i [kontrol lera att installationen har slutförts](#verify-successful-installation) för att kontrol lera status för IoT Edge på enheten.
 
@@ -250,7 +250,7 @@ Om du vill ha mer information om avinstallations alternativ använder du kommand
 
 ## <a name="verify-installation-script"></a>Verifiera installations skript
 
-De installations kommandon som anges i den här artikeln använder cmdleten Invoke-WebRequest för att begära installations skriptet från `aka.ms/iotedge-win` . Den här länken pekar på `IoTEdgeSecurityDaemon.ps1` skriptet från den senaste [IoT Edge versionen](https://github.com/Azure/azure-iotedge/releases). Du kan också hämta skriptet eller en version av skriptet från en speciell version för att köra installations kommandona på din IoT Edge-enhet.
+Installations kommandona som anges i den här artikeln använder cmdleten Invoke-WebRequest för att begära installations skriptet från `aka.ms/iotedge-win` . Den här länken pekar på `IoTEdgeSecurityDaemon.ps1` skriptet från den senaste [IoT Edge versionen](https://github.com/Azure/azure-iotedge/releases). Du kan också hämta skriptet eller en version av skriptet från en speciell version för att köra installations kommandona på din IoT Edge-enhet.
 
 Det tillhandahållna skriptet är signerat för att öka säkerheten. Du kan kontrol lera signaturen genom att ladda ned skriptet till enheten och sedan köra följande PowerShell-kommando:
 
@@ -264,9 +264,9 @@ Status för utdata är **giltig** om signaturen verifieras.
 
 I föregående avsnitt introducerades vanliga installations scenarier med exempel på hur du använder parametrar för att ändra installations skriptet. Det här avsnittet innehåller referens tabeller för de gemensamma parametrarna som används för att installera, uppdatera eller avinstallera IoT Edge.
 
-### <a name="deploy-iotedge"></a>Distribuera – IoTEdge
+### <a name="deploy-iotedge"></a>Deploy-IoTEdge
 
-Kommandot Deploy-IoTEdge hämtar och distribuerar IoT Edge Security daemon och dess beroenden. Distributions kommandot accepterar dessa vanliga parametrar, bland annat. För den fullständiga listan använder du kommandot `Get-Help Deploy-IoTEdge -full` .  
+Deploy-IoTEdge kommandot laddar ned och distribuerar IoT Edge Security daemon och dess beroenden. Distributions kommandot accepterar dessa vanliga parametrar, bland annat. För den fullständiga listan använder du kommandot `Get-Help Deploy-IoTEdge -full` .  
 
 | Parameter | Godkända värden | Kommentarer |
 | --------- | --------------- | -------- |
@@ -274,16 +274,16 @@ Kommandot Deploy-IoTEdge hämtar och distribuerar IoT Edge Security daemon och d
 | **Proxy** | Proxy-URL | Ta med den här parametern om enheten måste gå igenom en proxyserver för att komma åt Internet. Mer information finns i [Konfigurera en IoT Edge enhet för att kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Sökväg till katalog | Om den här parametern tas med, kontrollerar installations programmet katalogen för de IoT Edge CAB-och VC runtime-MSI-filer som krävs för installationen. Filer som inte hittas i katalogen laddas ned. Om båda filerna finns i katalogen kan du installera IoT Edge utan Internet anslutning. Du kan också använda den här parametern för att använda en speciell version. |
 | **InvokeWebRequestParameters** | Hash-värde för parametrar och värden | Under installationen görs flera webb förfrågningar. Använd det här fältet om du vill ange parametrar för dessa webb förfrågningar. Den här parametern är användbar för att konfigurera autentiseringsuppgifter för proxyservrar. Mer information finns i [Konfigurera en IoT Edge enhet för att kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
-| **RestartIfNeeded** | inget | Med den här flaggan kan distributions skriptet starta om datorn utan att behöva ange om det behövs. |
+| **RestartIfNeeded** | ingen | Med den här flaggan kan distributions skriptet starta om datorn utan att behöva ange om det behövs. |
 
-### <a name="initialize-iotedge"></a>Initiera-IoTEdge
+### <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
 Kommandot Initialize-IoTEdge konfigurerar IoT Edge med enhetens anslutnings sträng och drift information. Mycket av den information som genereras av det här kommandot lagras sedan i iotedge\config.yaml-filen. Initierings kommandot accepterar dessa vanliga parametrar, bland annat. För den fullständiga listan använder du kommandot `Get-Help Initialize-IoTEdge -full` .
 
 | Parameter | Godkända värden | Kommentarer |
 | --------- | --------------- | -------- |
-| **Manuell** | Ingen | **Växlings parameter**. Om ingen etablerings typ anges, är manuell standardvärdet.<br><br>Deklarerar att du kommer att ange en enhets anslutnings sträng för att etablera enheten manuellt |
-| **–** | Ingen | **Växlings parameter**. Om ingen etablerings typ anges, är manuell standardvärdet.<br><br>Förklarar att du kommer att tillhandahålla ett omfångs-ID för enhets etablerings tjänsten (DPS) och din enhets registrerings-ID för att etablera genom DPS.  |
+| **Manuell** | Inget | **Växlings parameter**. Om ingen etablerings typ anges, är manuell standardvärdet.<br><br>Deklarerar att du kommer att ange en enhets anslutnings sträng för att etablera enheten manuellt |
+| **–** | Inget | **Växlings parameter**. Om ingen etablerings typ anges, är manuell standardvärdet.<br><br>Förklarar att du kommer att tillhandahålla ett omfångs-ID för enhets etablerings tjänsten (DPS) och din enhets registrerings-ID för att etablera genom DPS.  |
 | **DeviceConnectionString** | En anslutnings sträng från en IoT Edge enhet som är registrerad i en IoT Hub, med enkla citat tecken | **Krävs** för manuell etablering. Om du inte anger någon anslutnings sträng i skript parametrarna uppmanas du att ange en. |
 | **ScopeId** | Ett scope-ID från en instans av enhets etablerings tjänsten som är kopplad till din IoT Hub. | **Krävs** för DPS-etablering. Om du inte anger ett omfångs-ID i skript parametrarna uppmanas du att ange ett. |
 | **RegistrationId** | Ett registrerings-ID som genereras av din enhet | **Krävs** för DPS-etablering om du använder TPM eller symmetrisk nyckel attestering. **Valfritt** om du använder 509-certifikat för certifikats attestering i X. |
@@ -293,10 +293,10 @@ Kommandot Initialize-IoTEdge konfigurerar IoT Edge med enhetens anslutnings str�
 | **Container** | **Windows** eller **Linux** | Om inget behållar operativ system anges är Windows standardvärdet.<br><br>För Windows-behållare använder IoT Edge Moby container Engine som ingår i installationen. För Linux-behållare måste du installera en behållar motor innan du startar installationen. |
 | **InvokeWebRequestParameters** | Hash-värde för parametrar och värden | Under installationen görs flera webb förfrågningar. Använd det här fältet om du vill ange parametrar för dessa webb förfrågningar. Den här parametern är användbar för att konfigurera autentiseringsuppgifter för proxyservrar. Mer information finns i [Konfigurera en IoT Edge enhet för att kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
 | **AgentImage** | IoT Edge agent avbildnings-URI | Som standard använder en ny IoT Edge-installation den senaste rullande taggen för IoT Edge agent-avbildningen. Använd den här parametern för att ange en speciell tagg för avbildnings versionen eller för att ange en egen agent avbildning. Mer information finns i [förstå IoT Edge Taggar](how-to-update-iot-edge.md#understand-iot-edge-tags). |
-| **Användar** | Användar namn för container registret | Använd bara den här parametern om du anger parametern-AgentImage till en behållare i ett privat register. Ange ett användar namn med åtkomst till registret. |
+| **Användarnamn** | Användar namn för container registret | Använd bara den här parametern om du anger parametern-AgentImage till en behållare i ett privat register. Ange ett användar namn med åtkomst till registret. |
 | **Lösenord** | Säker lösen ords sträng | Använd bara den här parametern om du anger parametern-AgentImage till en behållare i ett privat register. Ange lösen ordet för att få åtkomst till registret. |
 
-### <a name="update-iotedge"></a>Uppdatera – IoTEdge
+### <a name="update-iotedge"></a>Update-IoTEdge
 
 | Parameter | Godkända värden | Kommentarer |
 | --------- | --------------- | -------- |
@@ -304,14 +304,14 @@ Kommandot Initialize-IoTEdge konfigurerar IoT Edge med enhetens anslutnings str�
 | **Proxy** | Proxy-URL | Ta med den här parametern om enheten måste gå igenom en proxyserver för att komma åt Internet. Mer information finns i [Konfigurera en IoT Edge enhet för att kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
 | **InvokeWebRequestParameters** | Hash-värde för parametrar och värden | Under installationen görs flera webb förfrågningar. Använd det här fältet om du vill ange parametrar för dessa webb förfrågningar. Den här parametern är användbar för att konfigurera autentiseringsuppgifter för proxyservrar. Mer information finns i [Konfigurera en IoT Edge enhet för att kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Sökväg till katalog | Om den här parametern tas med, kontrollerar installations programmet katalogen för de IoT Edge CAB-och VC runtime-MSI-filer som krävs för installationen. Filer som inte hittas i katalogen laddas ned. Om båda filerna finns i katalogen kan du installera IoT Edge utan Internet anslutning. Du kan också använda den här parametern för att använda en speciell version. |
-| **RestartIfNeeded** | inget | Med den här flaggan kan distributions skriptet starta om datorn utan att behöva ange om det behövs. |
+| **RestartIfNeeded** | ingen | Med den här flaggan kan distributions skriptet starta om datorn utan att behöva ange om det behövs. |
 
-### <a name="uninstall-iotedge"></a>Avinstallera-IoTEdge
+### <a name="uninstall-iotedge"></a>Uninstall-IoTEdge
 
 | Parameter | Godkända värden | Kommentarer |
 | --------- | --------------- | -------- |
-| **Inför** | inget | Den här flaggan tvingar avinstallationen om det tidigare försöket att avinstallera misslyckades.
-| **RestartIfNeeded** | inget | Den här flaggan gör att avinstallations skriptet kan starta om datorn utan att begära det om det behövs. |
+| **Inför** | ingen | Den här flaggan tvingar avinstallationen om det tidigare försöket att avinstallera misslyckades.
+| **RestartIfNeeded** | ingen | Den här flaggan gör att avinstallations skriptet kan starta om datorn utan att begära det om det behövs. |
 
 ## <a name="next-steps"></a>Nästa steg
 

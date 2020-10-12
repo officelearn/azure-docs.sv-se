@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
 ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79220307"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Sök efter videor med API för videosökning i Bing
@@ -120,10 +120,10 @@ Mer information om hur du använder [videoId](https://docs.microsoft.com/rest/ap
 
 Som standard returnerar API för videosökning i Bing alla videor som är relevanta för frågan. Om du bara vill visa kostnadsfria videor eller klipp som är kortare än fem minuter skulle du använda följande filterparametrar i frågan:
 
-- [pris](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing)&mdash;filter videor efter prissättning (till exempel videor som är kostnads fria eller som du måste betala för)
-- [lösnings](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution)&mdash;filter videor efter upplösning (till exempel video med en 720p eller högre upplösning)
-- [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength)&mdash;filtrera videor efter video längd (till exempel videor som är mindre än fem minuter långt)
-- [aktualitets](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness)&mdash;filter videor per ålder (till exempel videor som upptäckts av Bing den senaste veckan)
+- [priser](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing) &mdash; Filtrera videor efter prissättning (till exempel videor som är kostnads fria eller som du måste betala för)
+- [lösning](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution) &mdash; Filtrera videor efter upplösning (till exempel video med en 720p eller högre upplösning)
+- [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength) &mdash; Filtrera videor efter video längd (till exempel videor som är mindre än fem minuter långt)
+- [aktualitet](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness) &mdash; Filtrera videor efter ålder (till exempel videor som upptäckts av Bing den senaste veckan)
 
 Om du vill hämta videor från en specifik domän tar du med frågeoperatorn [site:](https://msdn.microsoft.com/library/ff795613.aspx) i frågesträngen.
 

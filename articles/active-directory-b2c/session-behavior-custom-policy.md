@@ -11,10 +11,10 @@ ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a2f20a4521efe2806c4bc66e4612b99caf84382a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385271"
 ---
 # <a name="configure-session-behavior-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera sessionens beteende med anpassade principer i Azure Active Directory B2C
@@ -59,7 +59,7 @@ När du omdirigerar användaren till Azure AD B2C utloggnings slut punkt (för b
 
 För att stödja enkel utloggning måste token Issuer tekniska profiler för både JWT och SAML ange:
 
-- Protokoll namnet, t. ex.`<Protocol Name="OpenIdConnect" />`
+- Protokoll namnet, t. ex. `<Protocol Name="OpenIdConnect" />`
 - Referens till teknisk profil för sessionen, till exempel `UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />` .
 
 I följande exempel illustrerar JWT-och SAML-token-utfärdare med enkel utloggning:

@@ -8,10 +8,10 @@ ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 21e2b197c31a30ab8a249e2e8e398072a624154c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394099"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Azures säkerhets bas linje för Azure Functions
@@ -1031,7 +1031,7 @@ Microsofts program mot skadlig kod har Aktiver ATS på den underliggande värden
 
 **Vägledning**: Använd funktionen säkerhets kopiering och återställning för att schemalägga regelbundna säkerhets kopieringar av din app. Function-appar som körs i Premium-planen har samma värd funktioner som webbappar i Azure App Service, vilket innefattar funktionen säkerhets kopiering och återställning.
 
-Du kan också använda en lösning för käll kontroll som Azure databaser och Azure DevOps för att lagra och hantera din kod på ett säkert sätt. Azure DevOps Services utnyttjar många av funktionerna i Azure Storage för att säkerställa att data är tillgängliga i händelse av maskin varu problem, avbrott i tjänsten eller region haverien. Azure DevOps-teamet följer dessutom procedurer för att skydda data från oavsiktlig eller skadlig borttagning.
+Du kan också använda en lösning för käll kontroll som Azure databaser och Azure DevOps för att lagra och hantera din kod på ett säkert sätt. Azure DevOps Services utnyttjar många av funktionerna i Azure Storage för att säkerställa att data är tillgängliga i händelse av maskinvaruproblem, avbrott i tjänsten eller haveri. Azure DevOps-teamet följer dessutom procedurer för att skydda data från oavsiktlig eller skadlig borttagning.
 
 - [Säkerhetskopiera din app i Azure](../app-service/manage-backup.md)
 
@@ -1049,7 +1049,7 @@ Du kan också använda en lösning för käll kontroll som Azure databaser och A
 
 **Vägledning**: Använd funktionen säkerhets kopiering och återställning för att schemalägga regelbundna säkerhets kopieringar av din app. Function-appar som körs i Premium-planen har samma värd funktioner som webbappar i Azure App Service, vilket innefattar funktionen säkerhets kopiering och återställning. Säkerhetskopiera kund hanterade nycklar inom Azure Key Vault.
 
-Du kan också använda en lösning för käll kontroll som Azure databaser och Azure DevOps för att lagra och hantera din kod på ett säkert sätt. Azure DevOps Services utnyttjar många av funktionerna i Azure Storage för att säkerställa att data är tillgängliga i händelse av maskin varu problem, avbrott i tjänsten eller region haverien. Azure DevOps-teamet följer dessutom procedurer för att skydda data från oavsiktlig eller skadlig borttagning.
+Du kan också använda en lösning för käll kontroll som Azure databaser och Azure DevOps för att lagra och hantera din kod på ett säkert sätt. Azure DevOps Services utnyttjar många av funktionerna i Azure Storage för att säkerställa att data är tillgängliga i händelse av maskinvaruproblem, avbrott i tjänsten eller haveri. Azure DevOps-teamet följer dessutom procedurer för att skydda data från oavsiktlig eller skadlig borttagning.
 
 - [Säkerhetskopiera din app i Azure](../app-service/manage-backup.md)
 
@@ -1083,11 +1083,11 @@ Du kan också använda en lösning för käll kontroll som Azure databaser och A
 
 **Vägledning**: säkerhets kopieringar från funktionen säkerhets kopiering och återställning använder ett Azure Storage konto i din prenumeration. Azure Storage krypterar alla data i ett lagrings konto i vila. Som standard krypteras data med Microsoft-hanterade nycklar. Om du vill ha ytterligare kontroll över krypterings nycklar kan du ange Kundhanterade nycklar för kryptering av lagrings data.
 
-Om du använder Kundhanterade nycklar ser du till att mjuk borttagning i Key Vault är aktive rad för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
+Om du använder Kundhanterade nycklar kontrollerar du att Soft-Delete i Key Vault är aktiverat för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
 
 - [Azure Storage-kryptering i vila](../storage/common/storage-service-encryption.md)
 
-- [Så här aktiverar du mjuk borttagning i Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [Så här aktiverar du Soft-Delete i Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
 
 **Azure Security Center övervakning**: Ja
 

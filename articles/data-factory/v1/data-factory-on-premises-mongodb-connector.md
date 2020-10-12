@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79281345"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Flytta data från MongoDB med hjälp av Azure Data Factory
@@ -61,7 +61,7 @@ I följande avsnitt finns information om JSON-egenskaper som används för att d
 ## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 Följande tabell innehåller en beskrivning av JSON-element som är speciella för **OnPremisesMongoDB** -länkade tjänster.
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen Type måste anges till: **OnPremisesMongoDb** |Ja |
 | server |IP-adressen eller värd namnet för MongoDB-servern. |Ja |
@@ -79,7 +79,7 @@ En fullständig lista över avsnitt & egenskaper som är tillgängliga för att 
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet typeProperties för data uppsättningen av typen **MongoDbCollection** har följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | Samling |Namnet på samlingen i MongoDB-databasen. |Ja |
 
@@ -90,7 +90,7 @@ Vilka egenskaper som är tillgängliga i avsnittet **typeProperties** i aktivite
 
 När källan är av typen **MongoDbSource** finns följande egenskaper i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-92-frågesträng. Exempel: Välj * från tabellen tabell. |Nej (om **samlings** - **dataset** har angetts) |
 
@@ -321,14 +321,14 @@ Du kan använda [guiden Kopiera](data-factory-data-movement-activities.md#create
 ### <a name="example"></a>Exempel
 Till exempel är "ExampleTable" nedan en MongoDB-tabell med en kolumn med en matris med objekt i varje cell – fakturor och en kolumn med en matris av skalära typer – klassificeringar.
 
-| _id | Kundnamn | Fakturor | Service nivå | Klassificeringar |
+| _id | Kundnamn | Fakturor | Servicenivå | Klassificeringar |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id: "123", item: "toaster", Price: "456", Discount: "0,2"}, {invoice_id: "124", item: "ugn", pris: "1235", rabatt: "0,2"}] |Silver |[5, 6] |
 | 2222 |XYZ |[{invoice_id: "135", item: "kyl skåp", Price: "12543", Discount: "0,0"}] |Guld |[1, 2] |
 
 Driv rutinen skulle generera flera virtuella tabeller som representerar den här enskilda tabellen. Den första virtuella tabellen är bas tabellen med namnet "ExampleTable", som visas nedan. Bas tabellen innehåller alla data i den ursprungliga tabellen, men data från matriserna har utelämnats och expanderats i de virtuella tabellerna.
 
-| _id | Kundnamn | Service nivå |
+| _id | Kundnamn | Servicenivå |
 | --- | --- | --- |
 | 1111 |ABC |Silver |
 | 2222 |XYZ |Guld |

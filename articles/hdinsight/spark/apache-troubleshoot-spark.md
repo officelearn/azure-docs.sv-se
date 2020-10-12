@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
 ms.openlocfilehash: 80bca2dab1d07d9b99e75e283068bff99335fa18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79271946"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Felsöka Apache Spark med Azure HDInsight
@@ -97,7 +97,7 @@ Starta Spark-Shell med hjälp av ett kommando som liknar följande. Ändra det f
 spark-submit --master yarn-cluster --class com.microsoft.spark.application --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4 /home/user/spark/sparkapplication.jar
 ```
 
-### <a name="additional-reading"></a>Ytterligare läsning
+### <a name="additional-reading"></a>Mer att läsa
 
 [Apache Spark att skicka jobb på HDInsight-kluster](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 

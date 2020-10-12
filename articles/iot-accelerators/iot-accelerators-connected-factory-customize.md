@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
 ms.openlocfilehash: a092859517ee6ac41e62e55fe95f72b8bfdf87d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91290730"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Anpassa hur den anslutna fabriks lösningen visar data från OPC UA-servrar
@@ -78,7 +78,7 @@ När du är klar med att göra ändringar i **ContosoTopologyDescription.js** fi
 
 **Azure-IoT-Connected-Factory-** databasen innehåller ett **build.ps1** PowerShell-skript som du kan använda för att återskapa och distribuera lösningen.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Läs mer om den anslutna fabriks lösnings acceleratorn genom att läsa följande artiklar:
 

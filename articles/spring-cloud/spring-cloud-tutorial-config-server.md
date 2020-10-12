@@ -8,10 +8,10 @@ author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: 2f788452455bfbbc47f0a48689ccf3344515fdae
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904244"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Konfigurera en våren Cloud config Server-instans för din tjänst
@@ -59,9 +59,9 @@ Alla konfigurerbara egenskaper som används för att konfigurera den offentliga 
 
 | Egenskap        | Krävs | Funktion                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
-| `uri`           | Yes    | URI: n för git-lagringsplatsen som används som konfigurations serverns Server del börjar med *http://*, *https://*, *git@* eller *SSH://*. |
-| `default-label` | No     | Standard etiketten för git-lagringsplatsen ska vara *gren namnet*, *taggnamnet*eller lagrings- *ID* för lagrings platsen. |
-| `search-paths`  | No     | En sträng mat ris som används för att söka efter under kataloger i git-lagringsplatsen. |
+| `uri`           | Ja    | URI: n för git-lagringsplatsen som används som konfigurations serverns Server del börjar med *http://*, *https://*, *git@* eller *SSH://*. |
+| `default-label` | Inga     | Standard etiketten för git-lagringsplatsen ska vara *gren namnet*, *taggnamnet*eller lagrings- *ID* för lagrings platsen. |
+| `search-paths`  | Inga     | En sträng mat ris som används för att söka efter under kataloger i git-lagringsplatsen. |
 
 ------
 
@@ -74,13 +74,13 @@ Alla konfigurerbara egenskaper som används för att konfigurera en privat git-l
 
 | Egenskap                   | Krävs | Funktion                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
-| `uri`                      | Yes    | Den URI för git-lagringsplatsen som används som konfigurations serverns Server del bör startas med *http://*, *https://*, *git@* eller *SSH://*. |
-| `default-label`            | No     | Standard etiketten för git-lagringsplatsen ska vara *gren namnet*, *taggnamnet*eller lagrings- *ID* för lagrings platsen. |
-| `search-paths`             | No     | En sträng mat ris som används för att söka i under kataloger på git-lagringsplatsen. |
-| `private-key`              | No     | Den privata SSH-nyckeln för åtkomst till git-lagringsplatsen, som _krävs_ när URI: n börjar med *git@* eller *SSH://*. |
-| `host-key`                 | No     | Värd nyckeln för git-lagringsplatsen bör inte innehålla prefixet algoritm som omfattas av `host-key-algorithm` . |
-| `host-key-algorithm`       | No     | Algoritmen för värd nycklar ska vara *SSH-DSS*, *SSH-RSA*, *ECDSA-SHA2-nistp256*, *ECDSA-SHA2-nistp384*eller *ECDSA-SHA2-nistp521*. *Krävs* endast om `host-key` finns. |
-| `strict-host-key-checking` | No     | Anger om konfigurations Server instansen inte kan starta vid användning av privat `host-key` . Ska vara *Sant* (standardvärde) eller *falskt*. |
+| `uri`                      | Ja    | Den URI för git-lagringsplatsen som används som konfigurations serverns Server del bör startas med *http://*, *https://*, *git@* eller *SSH://*. |
+| `default-label`            | Inga     | Standard etiketten för git-lagringsplatsen ska vara *gren namnet*, *taggnamnet*eller lagrings- *ID* för lagrings platsen. |
+| `search-paths`             | Inga     | En sträng mat ris som används för att söka i under kataloger på git-lagringsplatsen. |
+| `private-key`              | Inga     | Den privata SSH-nyckeln för åtkomst till git-lagringsplatsen, som _krävs_ när URI: n börjar med *git@* eller *SSH://*. |
+| `host-key`                 | Inga     | Värd nyckeln för git-lagringsplatsen bör inte innehålla prefixet algoritm som omfattas av `host-key-algorithm` . |
+| `host-key-algorithm`       | Inga     | Algoritmen för värd nycklar ska vara *SSH-DSS*, *SSH-RSA*, *ECDSA-SHA2-nistp256*, *ECDSA-SHA2-nistp384*eller *ECDSA-SHA2-nistp521*. *Krävs* endast om `host-key` finns. |
+| `strict-host-key-checking` | Inga     | Anger om konfigurations Server instansen inte kan starta vid användning av privat `host-key` . Ska vara *Sant* (standardvärde) eller *falskt*. |
 
 -----
 
@@ -93,11 +93,11 @@ Alla konfigurerbara egenskaper som används för att konfigurera en privat git-l
 
 | Egenskap        | Krävs | Funktion                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
-| `uri`           | Yes    | URI: n för git-lagringsplatsen som används som konfigurations serverns Server del bör startas med *http://*, *https://*, *git@* eller *SSH://*. |
-| `default-label` | No     | Standard etiketten för git-lagringsplatsen ska vara *gren namnet*, *taggnamnet*eller lagrings- *ID* för lagrings platsen. |
-| `search-paths`  | No     | En sträng mat ris som används för att söka i under kataloger på git-lagringsplatsen. |
-| `username`      | No     | Det användar namn som används för att få åtkomst till git-lagringsplatsen, vilket _krävs_ när git-lagringsplatsen stöder `Http Basic Authentication` . |
-| `password`      | No     | Lösen ordet som används för att få åtkomst till git-lagringsplatsen, vilket _krävs_ när git-lagringsplatsen stöder `Http Basic Authentication` . |
+| `uri`           | Ja    | URI: n för git-lagringsplatsen som används som konfigurations serverns Server del bör startas med *http://*, *https://*, *git@* eller *SSH://*. |
+| `default-label` | Inga     | Standard etiketten för git-lagringsplatsen ska vara *gren namnet*, *taggnamnet*eller lagrings- *ID* för lagrings platsen. |
+| `search-paths`  | Inga     | En sträng mat ris som används för att söka i under kataloger på git-lagringsplatsen. |
+| `username`      | Inga     | Det användar namn som används för att få åtkomst till git-lagringsplatsen, vilket _krävs_ när git-lagringsplatsen stöder `Http Basic Authentication` . |
+| `password`      | Inga     | Lösen ordet som används för att få åtkomst till git-lagringsplatsen, vilket _krävs_ när git-lagringsplatsen stöder `Http Basic Authentication` . |
 
 > [!NOTE]
 > Många `Git` databas servrar stöder användning av tokens i stället för lösen ord för http Basic-autentisering. Vissa lagrings platser, till exempel GitHub, tillåter token att kvarhållas på obestämd tid. Vissa git-lagringsplatser, inklusive Azure DevOps, tvingar dock token att gå ut inom några timmar. Databaser som gör att token upphör att gälla bör inte använda tokenbaserad autentisering med Azure våren Cloud.
@@ -111,18 +111,18 @@ Alla konfigurerbara egenskaper som används för att konfigurera git-databaser m
 
 | Egenskap                           | Krävs         | Funktion                                                      |
 | :--------------------------------- | ---------------- | ------------------------------------------------------------ |
-| `repos`                            | No             | En karta som består av inställningarna för en git-lagringsplats med ett angivet namn. |
+| `repos`                            | Inga             | En karta som består av inställningarna för en git-lagringsplats med ett angivet namn. |
 | `repos."uri"`                      | Ja på `repos` | URI: n för git-lagringsplatsen som används som konfigurations serverns Server del bör startas med *http://*, *https://*, *git@* eller *SSH://*. |
 | `repos."name"`                     | Ja på `repos` | Ett namn som ska identifieras på git-lagringsplatsen, vilket _krävs_ endast om `repos` finns. Till exempel *Team-A*, *team-B*. |
-| `repos."pattern"`                  | No             | En sträng mat ris som används för att matcha ett program namn. Använd `{application}/{profile}` formatet med jokertecken för varje mönster. |
-| `repos."default-label"`            | No             | Standard etiketten för git-lagringsplatsen ska vara *gren namnet*, *taggnamnet*eller lagrings- *ID* för lagrings platsen. |
-| `repos."search-paths`"             | No             | En sträng mat ris som används för att söka i under kataloger på git-lagringsplatsen. |
-| `repos."username"`                 | No             | Det användar namn som används för att få åtkomst till git-lagringsplatsen, vilket _krävs_ när git-lagringsplatsen stöder `Http Basic Authentication` . |
-| `repos."password"`                 | No             | Lösen ordet som används för att få åtkomst till git-lagringsplatsen, vilket _krävs_ när git-lagringsplatsen stöder `Http Basic Authentication` . |
-| `repos."private-key"`              | No             | Den privata SSH-nyckeln för att komma åt git-lagringsplats _krävs_ när URI: n börjar med *git@* eller *SSH://*. |
-| `repos."host-key"`                 | No             | Värd nyckeln för git-lagringsplatsen bör inte innehålla prefixet algoritm som omfattas av `host-key-algorithm` . |
-| `repos."host-key-algorithm"`       | No             | Algoritmen för värd nycklar ska vara *SSH-DSS*, *SSH-RSA*, *ECDSA-SHA2-nistp256*, *ECDSA-SHA2-nistp384*eller *ECDSA-SHA2-nistp521*. *Krävs* endast om `host-key` finns. |
-| `repos."strict-host-key-checking"` | No             | Anger om konfigurations Server instansen inte kan starta vid användning av privat `host-key` . Ska vara *Sant* (standardvärde) eller *falskt*. |
+| `repos."pattern"`                  | Inga             | En sträng mat ris som används för att matcha ett program namn. Använd `{application}/{profile}` formatet med jokertecken för varje mönster. |
+| `repos."default-label"`            | Inga             | Standard etiketten för git-lagringsplatsen ska vara *gren namnet*, *taggnamnet*eller lagrings- *ID* för lagrings platsen. |
+| `repos."search-paths`"             | Inga             | En sträng mat ris som används för att söka i under kataloger på git-lagringsplatsen. |
+| `repos."username"`                 | Inga             | Det användar namn som används för att få åtkomst till git-lagringsplatsen, vilket _krävs_ när git-lagringsplatsen stöder `Http Basic Authentication` . |
+| `repos."password"`                 | Inga             | Lösen ordet som används för att få åtkomst till git-lagringsplatsen, vilket _krävs_ när git-lagringsplatsen stöder `Http Basic Authentication` . |
+| `repos."private-key"`              | Inga             | Den privata SSH-nyckeln för att komma åt git-lagringsplats _krävs_ när URI: n börjar med *git@* eller *SSH://*. |
+| `repos."host-key"`                 | Inga             | Värd nyckeln för git-lagringsplatsen bör inte innehålla prefixet algoritm som omfattas av `host-key-algorithm` . |
+| `repos."host-key-algorithm"`       | Inga             | Algoritmen för värd nycklar ska vara *SSH-DSS*, *SSH-RSA*, *ECDSA-SHA2-nistp256*, *ECDSA-SHA2-nistp384*eller *ECDSA-SHA2-nistp521*. *Krävs* endast om `host-key` finns. |
+| `repos."strict-host-key-checking"` | Inga             | Anger om konfigurations Server instansen inte kan starta vid användning av privat `host-key` . Ska vara *Sant* (standardvärde) eller *falskt*. |
 
 ## <a name="attach-your-config-server-repository-to-azure-spring-cloud"></a>Koppla din konfigurations Server lagring till Azure våren Cloud
 

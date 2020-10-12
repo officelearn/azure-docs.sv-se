@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.openlocfilehash: 122c96c95aea794fbba9cab8a9a5b867f9f34b48
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008975"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Felsöka problem på Azure Cache for Redis-klientsidan
@@ -30,7 +30,7 @@ Minnes belastningen på klient datorn leder till alla typer av prestanda problem
 Identifiera minnes belastning på klienten:
 
 - Övervaka minnes användningen på datorn för att säkerställa att den inte överskrider det tillgängliga minnet.
-- Övervaka klientens `Page Faults/Sec` prestanda räknare. Under normal drift har de flesta system vissa sidfel. Toppar i sidfel som motsvarar timeout för begär Anden kan indikera minnes belastning.
+- Övervaka klientens `Page Faults/Sec` prestanda räknare. Under normal drift har de flesta system vissa sidfel. Toppar i sidfel i samband med timeouter för begäranden kan indikera minnestryck.
 
 Hög minnes belastning på klienten kan begränsas på flera sätt:
 
@@ -41,7 +41,7 @@ Hög minnes belastning på klienten kan begränsas på flera sätt:
 
 Burst-trafik i kombination med dåliga `ThreadPool` inställningar kan leda till fördröjningar i behandlings data som redan har skickats av Redis-servern men som ännu inte har använts på klient sidan.
 
-Övervaka hur `ThreadPool` statistiken förändras över tid med hjälp av [ett `ThreadPoolLogger` exempel ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Du kan använda `TimeoutException` meddelanden från stackexchange. Redis som nedan för att undersöka:
+Övervaka hur `ThreadPool` statistiken förändras över tid med hjälp av [ett `ThreadPoolLogger` exempel ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Du kan använda  `TimeoutException` meddelanden från stackexchange. Redis som nedan för att undersöka:
 
 ```output
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,

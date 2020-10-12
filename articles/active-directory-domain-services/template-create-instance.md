@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 07/09/2020
 ms.author: iainfou
 ms.openlocfilehash: 316f77b2447bd75b03a05c4e6466d153bf51201d
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88722644"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Skapa en Azure Active Directory Domain Services hanterad domän med hjälp av en Azure Resource Manager mall
@@ -23,7 +23,7 @@ Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade 
 
 Den här artikeln visar hur du skapar en hanterad domän med hjälp av en Azure Resource Manager-mall. Stöd resurser skapas med hjälp av Azure PowerShell.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här artikeln behöver du följande resurser:
 

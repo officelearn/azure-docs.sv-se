@@ -6,13 +6,13 @@ ms.topic: reference
 ms.date: 07/22/2020
 ms.subservice: metrics
 ms.openlocfilehash: ca6acb97e52123a0663d988b3f217d305bce2c4b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87131692"
 ---
-# <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Azure Monitor plattforms mått som kan exporteras via diagnostikinställningar
+# <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Azure Monitor-plattformsmått som kan exporteras via diagnostikinställningar
 
 Azure Monitor tillhandahåller [plattforms mått](data-platform-metrics.md) som standard utan konfiguration. Det ger dig flera olika sätt att interagera med plattforms mått, inklusive att lägga till dem i portalen, komma åt dem via REST API eller genom att fråga dem med hjälp av PowerShell eller CLI. Se [mått – stöds](metrics-supported.md) för en fullständig lista över plattforms mått som för närvarande är tillgängliga med Azure Monitor den konsoliderade mått pipelinen. Använd [2018-01-01 API-versionen](/rest/api/monitor/metricdefinitions)för att fråga efter och komma åt dessa mått. Andra mått kan vara tillgängliga i portalen eller med äldre API: er.
 
@@ -218,10 +218,10 @@ Följande är en lista över de mått vars beteende har ändrats.
 | Microsoft. Insights/komponenter | performanceCounters/exceptionsPerSecond |  Undantags frekvens  | 
 | Microsoft. Insights/komponenter | pageViews/antal |  Sid visningar  | 
 | Microsoft. Insights/komponenter | undantag/antal |  Undantag  | 
-| Microsoft. Kusto/kluster | StreamingIngestResults |  Resultat av strömnings inmatning  | 
-| Microsoft. Kusto/kluster | StreamingIngestDuration |  Hämtnings tid för strömning  | 
-| Microsoft. Kusto/kluster | StreamingIngestDataRate |  Data hastighet för strömnings intag  | 
-| Microsoft. Kusto/kluster | SteamingIngestRequestRate |  Begär ande frekvens för strömning  | 
+| Microsoft. Kusto/kluster | StreamingIngestResults |  Resultat för strömningsinmatning  | 
+| Microsoft. Kusto/kluster | StreamingIngestDuration |  Varaktighet för strömningsinmatning  | 
+| Microsoft. Kusto/kluster | StreamingIngestDataRate |  Datahastighet för strömningsinmatning  | 
+| Microsoft. Kusto/kluster | SteamingIngestRequestRate |  Förfrågningsfrekvens för strömningsinmatning  | 
 | Microsoft. Kusto/kluster | QueryDuration |  Frågans varaktighet  | 
 | Microsoft. Kusto/kluster | KeepAlive |  Behåll Alive  | 
 | Microsoft. Kusto/kluster | IngestionVolumeInMB |  Inmatnings volym (i MB)  | 
@@ -372,7 +372,7 @@ Följande är en lista över de mått vars beteende har ändrats.
 | Microsoft. SQL/managedInstances | avg_cpu_percent |  Genomsnittlig CPU-procent  | 
 | Microsoft. SQL/Servers | dtu_used |  Använt DTU  | 
 | Microsoft. SQL/Servers | dtu_consumption_percent |  DTU-procent  | 
-| Microsoft. SQL/Servers/databaser | xtp_storage_percent |  Minnes intern OLTP-lagring i procent  | 
+| Microsoft. SQL/Servers/databaser | xtp_storage_percent |  In-Memory OLTP-lagring i procent  | 
 | Microsoft. SQL/Servers/databaser | workers_percent |  Arbetare i procent  | 
 | Microsoft. SQL/Servers/databaser | sessions_percent |  Sessioner i procent  | 
 | Microsoft. SQL/Servers/databaser | physical_data_read_percent |  Data IO-procent  | 
@@ -388,7 +388,7 @@ Följande är en lista över de mått vars beteende har ändrats.
 | Microsoft. SQL/Servers/databaser | connection_failed |  Misslyckade anslutningar  | 
 | Microsoft. SQL/Servers/databaser | cache_hit_percent |  Procent andel cacheträffar  | 
 | Microsoft. SQL/Servers/databaser | blocked_by_firewall |  Blockerad av brand väggen  | 
-| Microsoft. SQL/Servers/elasticPools | xtp_storage_percent |  Minnes intern OLTP-lagring i procent  | 
+| Microsoft. SQL/Servers/elasticPools | xtp_storage_percent |  In-Memory OLTP-lagring i procent  | 
 | Microsoft. SQL/Servers/elasticPools | workers_percent |  Arbetare i procent  | 
 | Microsoft. SQL/Servers/elasticPools | sessions_percent |  Sessioner i procent  | 
 | Microsoft. SQL/Servers/elasticPools | physical_data_read_percent |  Data IO-procent  | 
@@ -520,7 +520,7 @@ Följande är en lista över de mått vars beteende har ändrats.
 | Microsoft. SQL/Servers/databaser | connection_failed | Misslyckade anslutningar | 
 | Microsoft. SQL/Servers/databaser | blocked_by_firewall | Blockerad av brand väggen | 
 | Microsoft. SQL/Servers/databaser | hamn | Låsningar | 
-| Microsoft. SQL/Servers/databaser | xtp_storage_percent | Minnes intern OLTP-lagring i procent | 
+| Microsoft. SQL/Servers/databaser | xtp_storage_percent | In-Memory OLTP-lagring i procent | 
 | Microsoft. SQL/Servers/databaser | workers_percent | Arbetare i procent | 
 | Microsoft. SQL/Servers/databaser | sessions_percent | Sessioner i procent | 
 | Microsoft. SQL/Servers/databaser | dtu_used | Använt DTU | 
@@ -545,7 +545,7 @@ Följande är en lista över de mått vars beteende har ändrats.
 | Microsoft. SQL/Servers/elasticPools | workers_percent | Arbetare i procent | 
 | Microsoft. SQL/Servers/elasticPools | sessions_percent | Sessioner i procent | 
 | Microsoft. SQL/Servers/elasticPools | eDTU_used | eDTU använt | 
-| Microsoft. SQL/Servers/elasticPools | xtp_storage_percent | Minnes intern OLTP-lagring i procent | 
+| Microsoft. SQL/Servers/elasticPools | xtp_storage_percent | In-Memory OLTP-lagring i procent | 
 | Microsoft. SQL/Servers | dtu_consumption_percent | DTU-procent | 
 | Microsoft. SQL/Servers | dtu_used | Använt DTU | 
 | Microsoft. SQL/managedInstances | avg_cpu_percent | Genomsnittlig CPU-procent | 

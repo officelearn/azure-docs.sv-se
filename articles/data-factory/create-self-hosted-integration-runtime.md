@@ -12,10 +12,10 @@ manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
 ms.openlocfilehash: cac7b4f376300722762b1cedbf52a5c2e0ecb6e4
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89596131"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera lokalt installerad integrationskörning
@@ -66,7 +66,7 @@ Använd följande steg för att skapa en IR med egen värd med hjälp av Azure D
 
 1. På sidan **installation av integration runtime** väljer du **Azure, egen värd**och väljer sedan **Fortsätt**. 
 
-1. På följande sida väljer du **egen värd** för att skapa en IR med egen värd och välj sedan **Fortsätt**.
+1. På följande sida väljer du **egen värd** för att skapa en Self-Hosted IR och väljer sedan **Fortsätt**.
    ![Skapa en selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
 1. Ange ett namn för din IR och välj **skapa**.
@@ -117,7 +117,7 @@ Här följer information om programmets parametrar och egenskaper:
 | **Nyckel** "`<AuthenticationKey>`"                                 | Skriv över eller uppdatera föregående autentiseringsnyckel. Var försiktig med den här åtgärden. Din tidigare IR-nod med egen värd kan gå offline om nyckeln är en ny integrerings körning. | Inga       |
 | **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Skapa en säkerhets kopierings fil för den aktuella noden. Säkerhets kopian innehåller nodens nyckel och autentiseringsuppgifter för data lagring. | Inga       |
 | **ImportBackupFile** "`<filePath>`" "`<password>`"              | Återställ noden från en säkerhets kopia.                          | Inga       |
-| **Starta om**                                                     | Starta om värd tjänsten för integration runtime med egen värd.   | Inga       |
+| **Börja**                                                     | Starta om värd tjänsten för integration runtime med egen värd.   | Inga       |
 | **Start**                                                       | Starta värd tjänsten för integration runtime med egen värd.     | Inga       |
 | **Stopp**                                                        | Stoppa värd tjänsten för integration runtime med egen värd.        | Inga       |
 | **StartUpgradeService**                                         | Starta uppgraderings tjänsten för integration runtime med egen värd.       | Inga       |
@@ -153,7 +153,7 @@ Här följer en översikt över de data flödes steg som krävs för att kopiera
 - Använd integration runtime med egen värd även om data lagret finns i molnet på en virtuell IaaS-dator (Azure Infrastructure as a Service).
 - Aktiviteter kan Miss Miss kan utföras i en integration runtime med egen värd som du har installerat på en Windows Server för vilken FIPS-kompatibel kryptering har Aktiver ATS. Undvik det här problemet genom att inaktivera FIPS-kompatibel kryptering på servern. Om du vill inaktivera FIPS-kompatibel kryptering ändrar du följande register under nyckels värde från 1 (aktiverat) till 0 (inaktiverat): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - De Windows-versioner som stöds är:
   + Windows 7 Service Pack 1

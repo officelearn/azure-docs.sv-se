@@ -12,10 +12,10 @@ ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67ea7324419d86fa5b5c23a2f0aa5f8c057495d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385985"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Spåra användar beteende i Azure Active Directory B2C att använda Application Insights
@@ -106,10 +106,10 @@ Tekniska profiler kan betraktas som funktioner i Azure AD B2C för identitets up
 
 | Teknisk profil | Uppgift |
 | ----------------- | -----|
-| AppInsights – common | Den gemensamma uppsättningen parametrar som ska ingå i alla Azure Insights-tekniska profiler. |
-| AppInsights – SignInRequest | Registrerar en `SignInRequest` händelse med en uppsättning anspråk när en inloggnings förfrågan har mottagits. |
-| AppInsights – UserSignUp | Registrerar en `UserSignUp` händelse när användaren utlöser inloggnings alternativet i en inloggnings-eller inloggnings resa. |
-| AppInsights – SignInComplete | Registrerar en `SignInComplete` händelse när en autentisering har slutförts, när en token har skickats till det förlitande part programmet. |
+| AppInsights-Common | Den gemensamma uppsättningen parametrar som ska ingå i alla Azure Insights-tekniska profiler. |
+| AppInsights-SignInRequest | Registrerar en `SignInRequest` händelse med en uppsättning anspråk när en inloggnings förfrågan har mottagits. |
+| AppInsights-UserSignUp | Registrerar en `UserSignUp` händelse när användaren utlöser inloggnings alternativet i en inloggnings-eller inloggnings resa. |
+| AppInsights-SignInComplete | Registrerar en `SignInComplete` händelse när en autentisering har slutförts, när en token har skickats till det förlitande part programmet. |
 
 Lägg till profilerna i *TrustFrameworkExtensions.xml* -filen från start paketet. Lägg till dessa element i **ClaimsProviders** -elementet:
 
@@ -223,11 +223,11 @@ Spara och ladda upp *TrustFrameworkExtensions.xml* -filen. Anropa sedan den för
 2. Välj **användnings**  >  **händelser**.
 3. Anges **under** till **sista timmen** och **med** **3 minuter**.  Du kan behöva välja **Uppdatera** för att visa resultatet.
 
-![Application Insights användning – händelser Blase](./media/analytics-with-application-insights/app-ins-graphic.png)
+![Application Insights USAGE-Events Blase](./media/analytics-with-application-insights/app-ins-graphic.png)
 
 ## <a name="optional-collect-more-data"></a>Valfritt Samla in mer data
 
-Lägg till anspråks typer och händelser till din användar resa för att passa dina behov. Du kan använda [anspråks matchare](claim-resolver-overview.md) eller valfri typ av sträng anspråk, lägga till anspråken genom att lägga till ett **indatamängds** element i Application Insights-händelsen eller till AppInsights-vanliga tekniska profiler.
+Lägg till anspråks typer och händelser till din användar resa för att passa dina behov. Du kan använda [anspråks matchare](claim-resolver-overview.md) eller valfri typ av sträng anspråk, lägga till anspråken genom att lägga till ett **indatamängds** element i Application Insights-händelsen eller till AppInsights-Common tekniska profilen.
 
 - **ClaimTypeReferenceId** är referensen till en anspråks typ.
 - **PartnerClaimType** är namnet på den egenskap som visas i Azure Insights. Använd syntaxen för `{property:NAME}` , där `NAME` är egenskapen som läggs till i händelsen.

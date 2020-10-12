@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: baa48e4f7193e2f71534e25827e953f0ccf9cb3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84629528"
 ---
 <!--
@@ -18,7 +18,7 @@ ms.locfileid: "84629528"
 Om du vill utföra kopierings aktiviteten med en pipeline kan du använda något av följande verktyg eller SDK: er:
 
 - [Verktyget Kopiera data](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
-- [Azure Portal](../articles/data-factory/quickstart-create-data-factory-portal.md)
+- [Azure-portalen](../articles/data-factory/quickstart-create-data-factory-portal.md)
 - [.NET SDK](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
 - [Python SDK](../articles/data-factory/quickstart-create-data-factory-python.md)
 - [Azure PowerShell](../articles/data-factory/quickstart-create-data-factory-powershell.md)

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 5/26/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 2d03a67fc8a8172573598662ad9770b28493e9a2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87497111"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mariadb-server-using-powershell"></a>Utöka lagringen automatiskt i Azure Database for MariaDB server med PowerShell

@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
 ms.openlocfilehash: ed429d2f584da20439b0cb0eedcf4742b9ae4599
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84634511"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualisera real tids sensor data från Azure IoT Hub med Power BI
@@ -34,7 +34,7 @@ Du får lära dig att visualisera real tids sensor data som Azure IoT hub tar em
 
 * Skapa och publicera en Power BI rapport för att visualisera data.
 
-## <a name="what-you-need"></a>Vad du behöver
+## <a name="what-you-need"></a>Detta behöver du
 
 * Slutför själv studie kursen om [Raspberry Pi online Simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) eller någon av enhets självstudierna. till exempel [Raspberry Pi med node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Dessa artiklar behandlar följande krav:
   
@@ -122,7 +122,7 @@ Vi börjar med att skapa ett Stream Analytics jobb. När du har skapat jobbet de
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Konfigurera frågan för Stream Analytics-jobbet
 
-1. Under **jobb sto pol Ogin**väljer du **fråga**.
+1. Välj **Fråga** under **Jobbtopologi**.
 
 2. Ersätt `[YourInputAlias]` med inmatat alias för jobbet.
 

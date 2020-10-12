@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 726fc9cc0e4eb5a8f9bed5cca8dd4d3df588ac7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79371568"
 ---
 Azure Storage erbjuder flera typer av lagrings konton. Varje typ stöder olika funktioner och har en egen pris modell. Tänk på dessa skillnader innan du skapar ett lagrings konto för att fastställa vilken typ av konto som passar bäst för dina program. Typerna av lagrings konton är:

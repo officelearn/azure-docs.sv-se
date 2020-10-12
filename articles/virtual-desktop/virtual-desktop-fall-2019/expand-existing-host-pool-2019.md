@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 61cf28b0f1ebee6a0312ec3f23f22b01c6c4919e
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009179"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Expandera en befintlig adresspool med nya sessionsbaserade värdar i Windows Virtual Desktop (klassisk)
@@ -64,7 +64,7 @@ Så här distribuerar du om Azure Resource Manager-mallen för att expandera en 
      >[!NOTE]
      >Om du ser ett fel som uppmanar dig att välja en annan resurs grupp även om den du angav är korrekt väljer du en annan resurs grupp och väljer sedan den ursprungliga resurs gruppen.
 
-8. Ange följande URL för *_artifactsLocation*:`https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/`
+8. Ange följande URL för *_artifactsLocation*: `https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/`
 9. Ange det nya totala antalet värddatorer som du vill använda för *RDSH-antalet instanser*. Om du till exempel expanderar din värddator från fem värdar till åtta, anger du **8**.
 10. Ange samma befintliga domän lösen ord som du använde för det befintliga domän-UPN: t. Ändra inte användar namnet eftersom det kommer att orsaka ett fel när du kör mallen.
 11. Ange samma klient administratörs lösen ord som du använde för användar-eller program-ID: t som du angav för *klient-admin-UPN eller program-ID*. Ändra inte användar namnet igen.
@@ -74,7 +74,7 @@ Så här distribuerar du om Azure Resource Manager-mallen för att expandera en 
 
 Följ anvisningarna i [skapa en adresspool med hjälp av Azure Marketplace](create-host-pools-azure-marketplace-2019.md) tills du har kommit [till att köra Azure Marketplace-erbjudandet för att etablera en ny adresspool](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). När du kommer till den punkten måste du ange följande information för varje flik:
 
-### <a name="basics"></a>Grunder
+### <a name="basics"></a>Grundläggande inställningar
 
 Alla värden i det här avsnittet ska matcha det du angav när du först skapade värddatorn och de virtuella datorerna i sessionen, förutom användare som är *Standard användare*:
 

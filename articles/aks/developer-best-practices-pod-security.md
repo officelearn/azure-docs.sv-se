@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
 ms.openlocfilehash: fab4943cad1a87bda70a4c4332ab6135ed99bf1b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022283"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Metod tips för Pod-säkerhet i Azure Kubernetes service (AKS)
@@ -97,7 +97,7 @@ Med Pod Identity Project kan du autentisera mot stöd för Azure-tjänster. För
 
 När program behöver en autentiseringsuppgift kommunicerar de med det digitala valvet, hämtar det senaste hemliga innehållet och ansluter sedan till den tjänst som krävs. Azure Key Vault kan vara det här digitala valvet. Det förenklade arbets flödet för att hämta autentiseringsuppgifter från Azure Key Vault med Pod-hanterade identiteter visas i följande diagram:
 
-:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Förenklat arbets flöde för att hämta autentiseringsuppgifter från Key Vault med en POD-hanterad identitet":::
+:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Förenklat arbets flöde för Pod-hanterad identitet i Azure":::
 
 Med Key Vault kan du lagra och regelbundet rotera hemligheter som autentiseringsuppgifter, lagrings konto nycklar eller certifikat. Du kan integrera Azure Key Vault med ett AKS-kluster med hjälp av [Azure Key Vault providern för hemligheter från CSI-drivrutinen](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). Med hemligheter för att lagra CSI-drivrutinen kan AKS-klustret Hämta hemligt innehåll från Key Vault och på ett säkert sätt tillhandahålla dem till den begär ande pod. Samar beta med din kluster operatör för att distribuera hemligheter för att lagra CSI-drivrutinen på AKS Worker-noder. Du kan använda en POD-hanterad identitet för att begära åtkomst till Key Vault och hämta det hemliga innehåll som behövs via filen CSI-driv rutinen för hemligheter.
 

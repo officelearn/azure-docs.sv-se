@@ -10,7 +10,7 @@
     - name: Skapa din första statiska webbapp
       expanded: true
       items:
-        - name: Visuell Studio-kod
+        - name: Visual Studio-koden
           href: getting-started.md
         - name: Azure Portal
           href: get-started-portal.md

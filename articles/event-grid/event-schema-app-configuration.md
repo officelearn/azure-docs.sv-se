@@ -4,10 +4,10 @@ description: I den här artikeln beskrivs hur du använder Azure App konfigurati
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: bdd077c291bd1e1c441217740daf39c8bcaad732
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86117006"
 ---
 # <a name="azure-app-configuration-as-an-event-grid-source"></a>Azure App konfiguration som en Event Grid källa
@@ -19,7 +19,7 @@ Den här artikeln innehåller egenskaper och schema för Azure App konfiguration
 
 Azure App konfiguration avger följande händelse typer:
 
-| Händelsetyp | Description |
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
 | Microsoft. AppConfiguration. KeyValueModified | Utlöses när ett nyckel värde skapas eller ersätts. |
 | Microsoft. AppConfiguration. KeyValueDeleted | Utlöses när ett nyckel värde tas bort. |
@@ -68,10 +68,10 @@ Schemat för en händelse som tar bort nyckel värde liknar:
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
-| motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
 | Händelsetid | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | ID | sträng | Unikt ID för händelsen. |
@@ -81,7 +81,7 @@ En händelse har följande data på översta nivån:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | key | sträng | Nyckeln till det nyckel värde som ändrades eller togs bort. |
 | etikett | sträng | Etiketten, om det finns, för det nyckel värde som ändrades eller togs bort. |
@@ -89,7 +89,7 @@ Data-objektet har följande egenskaper:
 
 ## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
 
-|Titel | Beskrivning |
+|Rubrik | Beskrivning |
 |---------|---------|
 | [Reagera på Azure App konfigurations händelser med Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Översikt över att integrera Azure App-konfiguration med Event Grid. |
 | [Snabb start: dirigera Azure App konfigurations händelser till en anpassad webb slut punkt med Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visar hur du använder Azure CLI för att skicka Azure App konfigurations händelser till en webhook. |

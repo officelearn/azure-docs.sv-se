@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 15b876104dfa1a35077a34aa178d650e2d68855e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266739"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Utför Direktsänd strömning med lokala kodare med hjälp av Azure Portal
@@ -85,7 +85,7 @@ Följande steg beskriver uppgifter som ingår i att skapa vanliga appar för dir
 ## <a name="to-view-notifications-and-errors"></a>Visa meddelanden och fel
 Klicka på meddelandeikonen om du vill visa meddelanden och fel som genereras av Azure-portalen.
 
-![Aviseringar](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
+![Meddelanden](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
 
 ## <a name="create-and-start-pass-through-channels-and-events"></a>Skapa och starta genomströmningskanaler och händelser
 En kanal är associerad med händelser och program som gör att du kan styra publicering och lagring av segment i en direktsänd dataström. Kanaler hanterar händelser. 

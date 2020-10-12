@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 0454ffc1ed68056b2aedc10a6e904a9a934ab223
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333518"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Zscaler ZSCloud för automatisk användar etablering
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig hur du konfigurerar Azure Active Dire
 > I den här självstudien beskrivs en koppling som bygger på Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör och hur den fungerar och svar på vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../active-directory-saas-app-provisioning.md).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra stegen som beskrivs i den här självstudien behöver du följande:
 
@@ -102,7 +102,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Konfigurera SAML-fönster](./media/zscaler-zscloud-provisioning-tutorial/secrettoken2.png)
 
-    Välj **Aktivera scim-baserad etablering** och kopiera **bas-URL: en** och **Bearer-token**och spara sedan inställningarna. I Azure Portal klistrar du in **bas-URL:** en i rutan **klient-URL** och **Bearer-token** i rutan **hemlig token** .
+    Välj **aktivera SCIM-Based etablering** och kopiera **bas-URL: en** och **Bearer-token**och spara sedan inställningarna. I Azure Portal klistrar du in **bas-URL:** en i rutan **klient-URL** och **Bearer-token** i rutan **hemlig token** .
 
 7. När du har angett värdena i rutorna **klient-URL** och **hemlig token** väljer du **Testa anslutning** för att kontrol lera att Azure AD kan ansluta till Zscaler ZSCloud. Om anslutningen Miss lyckas kontrollerar du att Zscaler ZSCloud-kontot har administratörs behörighet och försöker igen.
 

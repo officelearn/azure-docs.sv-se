@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
 ms.openlocfilehash: 23c7112639a64097d95df29bde16636702837f9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83832987"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Referens arkitektur: händelse bearbetning i real tid med Microsoft Azure Stream Analytics
@@ -24,12 +24,12 @@ Microsoft Azure tillhandahåller en omfattande katalog med analys tekniker som k
 
 ## <a name="contents"></a>Innehåll
 * Sammanfattning
-* Introduktion till real tids analys
-* Värde förslag på real tids data i Azure
-* Vanliga scenarier för analys i real tid
+* Introduktion till Real-Time analys
+* Värde förslag för Real-Time data i Azure
+* Vanliga scenarier för Real-Time Analytics
 * Arkitektur och komponenter
   * Datakällor
-  * Data integrations lager
+  * Data-Integration lager
   * Analys lager i real tid
   * Data lagrings lager
   * Presentation/förbruknings lager

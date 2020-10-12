@@ -1,5 +1,5 @@
 ---
-title: Lär dig mer om IoT Plug and Play Digitals, dubbla
+title: Lär dig mer om digitala tvillingar i IoT Plug and Play
 description: Förstå hur IoT Plug and Play använder digitala dubbla
 author: prashmo
 ms.author: prashmo
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578061"
 ---
-# <a name="understand-iot-plug-and-play-digital-twins"></a>Lär dig mer om IoT Plug and Play Digitals, dubbla
+# <a name="understand-iot-plug-and-play-digital-twins"></a>Lär dig mer om digitala tvillingar i IoT Plug and Play
 
 En IoT plug and Play-enhet implementerar en modell som beskrivs av [DTDL-schemat (Digital Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl) . En modell beskriver en uppsättning av komponenter, egenskaper, kommandon och telemetri som en viss enhet kan ha. En enhet med dubbla och en digital anslutning initieras första gången en IoT Plug and Play-enhet ansluter till en IoT-hubb.
 
@@ -22,7 +22,7 @@ IoT Plug and Play använder DTDL version 2. Mer information om den här versione
 
 DTDL är inte exklusiv för IoT Plug and Play. Andra IoT-tjänster, till exempel [Azure Digital-dubbla](../digital-twins/overview.md), använder den för att representera hela miljöer som byggnader och energi nät. Mer information finns i [förstå dubbla modeller i Azure Digitals dubbla](../digital-twins/concepts-models.md).
 
-Den här artikeln beskriver hur komponenter och egenskaper representeras i *önskade* och *rapporterade* avsnitt på en enhet. Det beskriver också hur dessa begrepp mappas till motsvarande digitala dubbla.
+Den här artikeln beskriver hur komponenter och egenskaper representeras i *önskade* och *rapporterade* avsnitt på en enhet. Artikeln beskriver också hur dessa begrepp relaterar till den associerade digitala tvillingen.
 
 IoT plug and Play-enheten i den här artikeln som implementerar [temperatur styrenhets modellen](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) med [termostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) -komponenten.
 
@@ -131,7 +131,7 @@ Egenskaper är data fält som representerar statusen för en entitet (som egensk
 
 #### <a name="read-only-property"></a>Skrivskyddad egenskap
 
-Schema:
+Schema
 
 ```json
 {
@@ -309,9 +309,9 @@ I följande kodfragment visas en sida-vid-sida-JSON-representation av `thermosta
 
 Azure Digitals-enheter är utrustade med **skapa digitala dubbla**, **Uppdatera digitala dubbla**, **anropa komponent** -och **Invoke-kommando** för att hantera enhetens digitala dubbla. Du kan antingen använda [REST-API: erna](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) direkt eller via ett [service SDK](../iot-pnp/libraries-sdks.md).
 
-## <a name="digital-twin-change-events"></a>Digitala dubbla ändrings händelser
+## <a name="digital-twin-change-events"></a>Ändringshändelser för digitala tvillingar
 
-När digitala dubbla ändrings händelser aktive ras utlöses en händelse när det aktuella eller önskade värdet för komponent-eller egenskaps ändringar. Digitala dubbla ändrings händelser skapas i [JSON patch](http://jsonpatch.com/) -format. Motsvarande händelser genereras i enhetens dubbla format om dubbla ändrings händelser är aktiverade.
+När ändringshändelser för digitala tvillingar är aktiverat utlöses en händelse när komponentens eller egenskapens aktuella eller önskade värde ändras. Digitala dubbla ändrings händelser skapas i [JSON patch](http://jsonpatch.com/) -format. Motsvarande händelser genereras i enhetens dubbla format om dubbla ändrings händelser är aktiverade.
 
 Information om hur du aktiverar routning för enhet och digitala dubbla händelser finns i [använda IoT Hub meddelanderoutning för att skicka meddelanden från enhet till moln till olika slut punkter](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). Information om meddelande formatet finns i [skapa och läsa IoT Hub meddelanden](../iot-hub/iot-hub-devguide-messages-construct.md).
 

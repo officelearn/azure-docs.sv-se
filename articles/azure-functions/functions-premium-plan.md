@@ -9,10 +9,10 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578044"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions Premium-plan
@@ -124,7 +124,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 
 När du skapar eller skalar planen kan du välja mellan tre instans storlekar.  Du debiteras för det totala antalet kärnor och minne som har allokerats, per sekund som varje instans allokeras till dig.  Din app kan automatiskt skala ut till flera instanser efter behov.  
 
-|SKU|Kärnor|Minne|Lagring|
+|SKU|Kärnor|Minne|Storage|
 |--|--|--|--|
 |EP1|1|3,5 GB|GB|
 |EP2|2|7GB|GB|

@@ -9,17 +9,17 @@ ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
 ms.openlocfilehash: 554a7504e4e72eb2b2921c56e535343398cfa8b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333655"
 ---
 # <a name="deploy-server-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Distribuera Server-renderade Next.js webbplatser på Azures statiska Web Apps för hands version
 
 I den här självstudien lär du dig att distribuera en [Next.js](https://nextjs.org) genererad statisk webbplats till [Azure static Web Apps](overview.md). För att börja, lär du dig att konfigurera, konfigurera och distribuera en Next.js app. Under den här processen lär du dig också att hantera vanliga utmaningar ofta när du genererar statiska sidor med Next.js
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/).
 - Ett GitHub-konto. [Skapa ett konto kostnads fritt](https://github.com/join).
@@ -63,7 +63,7 @@ Navigera till `http://localhost:3000` för att öppna appen, där du bör se fö
 
 När du klickar på ett ramverk/bibliotek bör du se en informations sida om det valda objektet:
 
-:::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Sidan Details (Detaljer)":::
+:::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Starta Next.js app":::
 
 ## <a name="generate-a-static-website-from-nextjs-build"></a>Skapa en statisk webbplats från Next.js build
 
@@ -146,7 +146,7 @@ Följande steg visar hur du länkar appen som du precis har push-överför till 
 1. I list rutan *region* väljer du en region som är närmast dig.
 1. Välj **kostnads fritt** från List rutan SKU.
 
-   :::image type="content" source="media/deploy-nextjs/create-static-web-app.png" alt-text="Skapa en statisk webbapp":::
+   :::image type="content" source="media/deploy-nextjs/create-static-web-app.png" alt-text="Starta Next.js app":::
 
 ### <a name="add-a-github-repository"></a>Lägg till en GitHub-lagringsplats
 
@@ -157,7 +157,7 @@ Det nya kontot för statisk Web Apps behöver åtkomst till lagrings platsen med
 1. Sök efter och välj namnet på den databas som du skapade tidigare.
 1. Välj **Master** som gren i list rutan *gren* .
 
-   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Ansluta GitHub":::
+   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Starta Next.js app":::
 
 ### <a name="configure-the-build-process"></a>Konfigurera Bygg processen
 
@@ -165,7 +165,7 @@ Azures statiska Web Apps skapas för att automatiskt utföra vanliga uppgifter s
 
 1. Klicka på fliken **build (Bygg** ) för att konfigurera mappen statiska utdata.
 
-   :::image type="content" source="media/deploy-nextjs/build-tab.png" alt-text="Fliken bygge":::
+   :::image type="content" source="media/deploy-nextjs/build-tab.png" alt-text="Starta Next.js app":::
 
 2. Skriv **ut** i text rutan *app artefakt plats* .
 
@@ -195,7 +195,7 @@ Gå tillbaka till terminalen och kör följande kommando `git pull origin master
 
 Navigera till den nyligen distribuerade platsen och klicka på någon av Ramverks-eller biblioteks logo typerna. I stället för att få en informations sida får du en felsida på 404.
 
-:::image type="content" source="media/deploy-nextjs/404-in-production.png" alt-text="404 på dynamiska vägar":::
+:::image type="content" source="media/deploy-nextjs/404-in-production.png" alt-text="Starta Next.js app":::
 
 Orsaken till felet är att Next.js bara skapade start sidan baserat på program konfigurationen.
 
@@ -231,7 +231,7 @@ Orsaken till felet är att Next.js bara skapade start sidan baserat på program 
 
 2. Skicka de nya ändringarna till GitHub-lagringsplatsen och vänta några minuter medan GitHub-åtgärder skapar din webbplats igen. När versionen har slutförts försvinner felet 404.
 
-   :::image type="content" source="media/deploy-nextjs/404-in-production-fixed.png" alt-text="404 på dynamiska vägar har åtgärd ATS":::
+   :::image type="content" source="media/deploy-nextjs/404-in-production-fixed.png" alt-text="Starta Next.js app":::
 
 > [!div class="nextstepaction"]
 > [Konfigurera en anpassad domän](custom-domain.md)

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9510bd564ced2f458a9a78ff23200bb32358c3e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89268544"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Vanliga frågor och svar om inställningar och dataväxling
@@ -29,7 +29,7 @@ I den här artikeln besvaras några frågor som IT-administratörer kan ha om in
 * *Tema*, som inbegriper funktioner såsom skrivbordstema och inställningar för aktivitetsfältet.
 * *Internet Explorer-inställningar*, inklusive nyligen öppnade flikar och favoriter.
 * *Inställningar för Microsoft Edge-webbläsare*, till exempel favoriter och läslista.
-* *Lösen ord*, inklusive Internet lösen ord, Wi-Fi-profiler och andra.
+* *Lösen ord*, inklusive Internet lösen ord, Wi-Fi profiler och andra.
 * *Språkinställningar* såsom inställningar för tangentbordslayouter, systemspråk, datum och tid med mera.
 * *Hjälpmedelsfunktioner* som högkontrasttema, skärmläsaren och förstoringsglaset.
 * *Andra Windows-inställningar*, till exempel musinställningar.
@@ -66,7 +66,7 @@ Om den lokala Active Directorys domänen ansluter med Azure AD försöker enhete
 Om du har lagrat personliga data på din företags enhet bör du vara medveten om att Windows operativ system-och program data kommer att börja synkroniseras med Azure AD. Detta har följande konsekvenser:
 
 * Dina personliga Microsoft-konto inställningar påverkar inte inställningarna på ditt arbets-eller skol Azure AD-konto. Detta beror på att synkroniseringen av Microsoft-konto och Azure AD-inställningar nu använder separata konton.
-* Personliga data som Wi-Fi-lösenord, webbautentiseringsuppgifter och Internet Explorer-favoriter som tidigare har synkroniserats via en ansluten Microsoft-konto kommer att synkroniseras via Azure AD.
+* Personliga data, till exempel Wi-Fi lösen ord, webbautentiseringsuppgifter och Internet Explorer-favoriter som tidigare har synkroniserats via en ansluten Microsoft-konto, kommer att synkroniseras via Azure AD.
 
 ## <a name="how-do-microsoft-account-and-azure-ad-enterprise-state-roaming-interoperability-work"></a>Hur fungerar Microsoft-konto och Azure AD Enterprise State Roaming-interoperabilitet?
 
@@ -77,7 +77,7 @@ I november 2015 eller senare versioner av Windows 10 stöds Enterprise State Roa
 När flera Azure AD-konton från olika Azure AD-klienter finns på samma enhet måste du uppdatera enhetens register för att kommunicera med Azure Rights Management-tjänsten för varje Azure AD-klient.  
 
 1. Hitta GUID för varje Azure AD-klient. Öppna Azure Portal och välj en Azure AD-klient. Klientens GUID finns på egenskaps sidan för den valda klient organisationen ( https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) och märkt **katalog-ID**. 
-2. När du har GUID måste du lägga till register nyckeln **HKEY_LOCAL_MACHINE \software\microsoft\windows\settingsync\winmsipc \<tenant ID GUID> **.
+2. När du har GUID måste du lägga till register nyckeln **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID> **.
    Skapa ett nytt multi-sträng-värde (REG-MULTI-SZ) med namnet **AllowedRMSServerUrls**från ID-nyckeln för **klient-ID** : t. Ange URL: er för licens distributions platsen för de andra Azure-klienter som enheten har åtkomst till för dess data.
 3. Du hittar URL: erna för licens distributions platsen genom att köra cmdleten **Get-AadrmConfiguration** från AADRM-modulen. Ange båda värdena om värdena för **LicensingIntranetDistributionPointUrl** och **LicensingExtranetDistributionPointUrl** skiljer sig. Om värdena är desamma anger du värdet bara en gång.
 

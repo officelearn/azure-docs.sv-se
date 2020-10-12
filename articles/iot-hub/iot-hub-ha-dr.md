@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
 ms.openlocfilehash: d4a5ad36e9d6d71ad88d0b5c56b6079f34483347
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89021440"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Hög tillgänglighet och haveriberedskap för IoT Hub
@@ -134,9 +134,9 @@ Här är en sammanfattning av de HA/DR-alternativ som visas i den här artikeln 
 
 | HA/DR-alternativ | RTO | RPO | Krävs manuell åtgärd? | Implementerings komplexitet | Ytterligare kostnads påverkan|
 | --- | --- | --- | --- | --- | --- |
-| Microsoft-initierad redundans |2-26 timmar|Referera till tabellen återställnings punkt ovan|Nej|Inga|Inga|
-| Manuell redundans |10 min – 2 timmar|Referera till tabellen återställnings punkt ovan|Ja|Mycket låg. Du behöver bara utlösa den här åtgärden från portalen.|Inga|
-| Flera regioner HA |< 1 min|Beror på replikeringsfrekvens för din anpassade HA-lösning|Nej|Hög|> 1x kostnaden för 1 IoT Hub|
+| Microsoft-initierad redundans |2-26 timmar|Referera till tabellen återställnings punkt ovan|Inga|Inget|Inget|
+| Manuell redundans |10 min – 2 timmar|Referera till tabellen återställnings punkt ovan|Ja|Mycket låg. Du behöver bara utlösa den här åtgärden från portalen.|Inget|
+| Flera regioner HA |< 1 min|Beror på replikeringsfrekvens för din anpassade HA-lösning|Inga|Hög|> 1x kostnaden för 1 IoT Hub|
 
 ## <a name="next-steps"></a>Nästa steg
 

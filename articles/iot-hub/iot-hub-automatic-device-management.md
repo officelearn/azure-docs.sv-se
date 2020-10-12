@@ -11,10 +11,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 6d3661128008c13e5d4d459f6f8e7925aa18a9a4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87322779"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Automatisk hantering av IoT-enheter och -moduler med Azure-portalen
@@ -108,7 +108,7 @@ Varje konfiguration kan ha upp till fem anpassade mått.
 
 2. Ange en fråga för **mått villkor**.  Frågan baseras på enhetens dubbla rapporterade egenskaper.  Måttet representerar antalet rader som returneras av frågan.
 
-Till exempel:
+Exempel:
 
 ```sql
 SELECT deviceId FROM devices 
@@ -123,7 +123,7 @@ SELECT deviceId FROM devices
   WHERE configurations.[[yourconfigname]].status='Applied'
 ```
 
-Om du skapar ett mått för att rapportera om konfigurerade moduler väljer du `moduleId` från `devices.modules` . Till exempel:
+Om du skapar ett mått för att rapportera om konfigurerade moduler väljer du `moduleId` från `devices.modules` . Exempel:
 
 ```sql
 SELECT deviceId, moduleId FROM devices.modules

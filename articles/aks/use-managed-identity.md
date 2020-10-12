@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
 ms.openlocfilehash: 836a5a003268a98dd8e63eed9bfdba741abcf4ed
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397053"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Använda hanterade identiteter i Azure Kubernetes-tjänsten
@@ -37,21 +37,21 @@ Du måste ha följande resurs installerad:
 
 AKS använder flera hanterade identiteter för inbyggda tjänster och tillägg.
 
-| Identitet                       | Name    | Användningsfall | Standard behörigheter | Ta med din egen identitet
+| Identitet                       | Namn    | Användningsfall | Standard behörigheter | Ta med din egen identitet
 |----------------------------|-----------|----------|
 | Kontrollplan | inte synlig | Används av AKS för hanterade nätverks resurser inklusive ingångs utjämning och AKS offentliga IP-adresser | Deltagar roll för nod resurs grupp | Förhandsgranskning
 | Kubelet | AKS-kluster namn – agentpoolegenskap | Autentisering med Azure Container Registry (ACR) | NA (för Kubernetes v 1.15 +) | Stöds för närvarande inte
-| Tillägg | AzureNPM | Ingen identitet krävs | NA | No
-| Tillägg | AzureCNI nätverks övervakning | Ingen identitet krävs | NA | No
-| Tillägg | azurepolicy (Gatekeeper) | Ingen identitet krävs | NA | No
-| Tillägg | azurepolicy | Ingen identitet krävs | NA | No
-| Tillägg | Calico | Ingen identitet krävs | NA | No
-| Tillägg | Instrumentpanel | Ingen identitet krävs | NA | No
-| Tillägg | HTTPApplicationRouting | Hanterar nödvändiga nätverks resurser | Läsar roll för nod resurs grupp, deltagar roll för DNS-zon | No
-| Tillägg | Ingress Application Gateway | Hanterar nödvändiga nätverks resurser| Deltagar roll för nod resurs grupp | No
-| Tillägg | omsagent | Används för att skicka AKS-mått till Azure Monitor | Övervaknings mått utgivar rollen | No
-| Tillägg | Virtuell-nod (ACIConnector) | Hanterar nödvändiga nätverks resurser för Azure Container Instances (ACI) | Deltagar roll för nod resurs grupp | No
-| OSS-projekt | AAD-Pod – identitet | Gör det möjligt för program att komma åt moln resurser på ett säkert sätt med Azure Active Directory (AAD) | NA | Steg för att bevilja behörighet på https://github.com/Azure/aad-pod-identity#role-assignment .
+| Tillägg | AzureNPM | Ingen identitet krävs | Ej tillämpligt | Inga
+| Tillägg | AzureCNI nätverks övervakning | Ingen identitet krävs | Ej tillämpligt | Inga
+| Tillägg | azurepolicy (Gatekeeper) | Ingen identitet krävs | Ej tillämpligt | Inga
+| Tillägg | azurepolicy | Ingen identitet krävs | Ej tillämpligt | Inga
+| Tillägg | Calico | Ingen identitet krävs | Ej tillämpligt | Inga
+| Tillägg | Instrumentpanel | Ingen identitet krävs | Ej tillämpligt | Inga
+| Tillägg | HTTPApplicationRouting | Hanterar nödvändiga nätverks resurser | Läsar roll för nod resurs grupp, deltagar roll för DNS-zon | Inga
+| Tillägg | Ingress Application Gateway | Hanterar nödvändiga nätverks resurser| Deltagar roll för nod resurs grupp | Inga
+| Tillägg | omsagent | Används för att skicka AKS-mått till Azure Monitor | Övervaknings mått utgivar rollen | Inga
+| Tillägg | Virtual-Node (ACIConnector) | Hanterar nödvändiga nätverks resurser för Azure Container Instances (ACI) | Deltagar roll för nod resurs grupp | Inga
+| OSS-projekt | AAD-Pod – identitet | Gör det möjligt för program att komma åt moln resurser på ett säkert sätt med Azure Active Directory (AAD) | Ej tillämpligt | Steg för att bevilja behörighet på https://github.com/Azure/aad-pod-identity#role-assignment .
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Skapa ett AKS-kluster med hanterade identiteter
 

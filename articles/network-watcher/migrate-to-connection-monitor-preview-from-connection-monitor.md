@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
 ms.openlocfilehash: 05b42024529b8d9de3590488ecafbdf83283e007
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441824"
 ---
 # <a name="migrate-to-connection-monitor-preview-from-connection-monitor"></a>Migrera till anslutnings övervakaren (förhands granskning) från anslutnings övervakaren
@@ -34,7 +34,7 @@ Migreringen hjälper till att producera följande resultat:
    * **Aviseringar**: migreras automatiskt till de nya måtten.
    * **Instrument paneler och integreringar**: Kräv manuell redigering av de angivna måtten. 
     
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du använder en anpassad arbets yta ser du till att Network Watcher är aktive rad i din prenumeration och i den region i Log Analytics arbets ytan. 
 

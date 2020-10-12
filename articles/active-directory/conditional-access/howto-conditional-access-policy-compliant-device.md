@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c98269f9851272e8caa9b26ae0c57ed13e9a99f2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89049136"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Villkorlig åtkomst: Kräv kompatibla enheter
@@ -40,10 +40,10 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för a
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
-   1. Välj **Klar**.
+   1. Välj **Done** (Klar).
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **alla molnappar**.
    1. Om du måste utesluta vissa program från principen kan du välja dem från fliken **exkludera** under **Välj exkluderade molnappar** och välj **Välj**.
-   1. Välj **Klar**.
+   1. Välj **Done** (Klar).
 1. Under **villkor**  >  **klient program (för hands version)**  >  **väljer du de klient program som den här principen ska gälla för**. lämna alla standardvärden markerade och välj **Slutför**.
 1. Under **åtkomst kontroller**  >  **tilldelar**väljer **du Kräv att enheten ska markeras som kompatibel**.
    1. Välj **Välj**.

@@ -16,10 +16,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
 ms.openlocfilehash: 85ebb7f5ac52f4eea25f9e6f1a2b1b5ac6f4caa5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87077922"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: vanliga frågor och svar
@@ -200,7 +200,7 @@ Du kan också program mässigt komma åt Mät värden. Mer information finns i f
 > [!NOTE]
 > Lyckade meddelanden innebär bara att push-meddelanden har levererats till den externa PNS (till exempel APN för iOS och macOS eller FCM för Android-enheter). Det åligger PNS att leverera meddelanden till mål enheter. Normalt visar PNS inte leverans måtten för tredje part.  
 
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Notification Hubs priser]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Notification Hubs REST-API: er]: /previous-versions/azure/reference/dn530746(v=azure.100)
@@ -212,6 +212,6 @@ Du kan också program mässigt komma åt Mät värden. Mer information finns i f
 [Notification Hubs fel sökning]: ./notification-hubs-push-notification-fixer.md
 [Notification Hubs mått]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Export/import av registreringar]: ./export-modify-registrations-bulk.md
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

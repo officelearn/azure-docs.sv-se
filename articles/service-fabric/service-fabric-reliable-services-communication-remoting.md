@@ -7,10 +7,10 @@ ms.date: 09/20/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 246b1456c05605c4015c19e1a139e9ad65f6eaba
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022164"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Tjänst-Remoting i C# med Reliable Services
@@ -221,7 +221,7 @@ Den här ändringen ser till att tjänsten lyssnar på belyssnaren v1 och v2.
 Det här steget ser till att klienten använder v2-stacken.
 Ingen ändring i klient projekt/tjänst krävs. Det räcker med att skapa klient projekt med uppdaterad gränssnitts sammansättning.
 
-3. Det här steget är valfritt. Använd attributet v2 Listener och uppgradera sedan v2-tjänsten.
+3. Det här är valfritt. Använd attributet v2 Listener och uppgradera sedan v2-tjänsten.
 Det här steget ser till att tjänsten bara lyssnar på v2-lyssnaren.
 
     ```csharp
@@ -348,7 +348,7 @@ Den här ändringen ser till att tjänsten lyssnar på v1 och V2_1 lyssnare.
 Det här steget kontrollerar att klienten använder V2_1 stacken.
 Ingen ändring i klient projekt/tjänst krävs. Det räcker med att skapa klient projekt med uppdaterad gränssnitts sammansättning.
 
-3. Det här steget är valfritt. Ta bort v1-lyssnings versionen från attributet och uppgradera sedan v2-tjänsten.
+3. Det här är valfritt. Ta bort v1-lyssnings versionen från attributet och uppgradera sedan v2-tjänsten.
 Det här steget ser till att tjänsten bara lyssnar på v2-lyssnaren.
 
     ```csharp

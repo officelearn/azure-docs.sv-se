@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: 4d10f06577738364e3f4a0ea40221d37ebfb31c0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86116292"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Optimera Mass infogningar och använda tillfälliga data på en Azure Database for PostgreSQL-enskild server 
@@ -19,7 +19,7 @@ Den här artikeln beskriver hur du kan optimera Mass infognings åtgärder och a
 ## <a name="use-unlogged-tables"></a>Använd ej loggade tabeller
 Om du har arbets belastnings åtgärder som involverar tillfälliga data eller lägger till stora data mängder i bulk bör du överväga att använda ej loggade tabeller.
 
-Ej loggade tabeller är en PostgreSQL-funktion som kan användas effektivt för att optimera Mass infogningar. PostgreSQL använder Write-Ahead-loggning (WAL). Den ger atomiska och tålighet som standard. Atomicitet, konsekvens, isolering och hållbarhet utgör egenskaperna för syror. 
+Ej loggade tabeller är en PostgreSQL-funktion som kan användas effektivt för att optimera Mass infogningar. PostgreSQL använder Write-Ahead loggning (WAL). Den ger atomiska och tålighet som standard. Atomicitet, konsekvens, isolering och hållbarhet utgör egenskaperna för syror. 
 
 Infogning i en ej loggad tabell innebär att PostgreSQL infogar utan att skriva till transaktions loggen, som själva är en I/O-åtgärd. Därför är tabellerna betydligt snabbare än vanliga tabeller.
 

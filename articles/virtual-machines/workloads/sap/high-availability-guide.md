@@ -16,10 +16,10 @@ ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: efd3f0f19325bdaccf98d10306c90488c78b3de7
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88653774"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer
@@ -469,7 +469,7 @@ De här artiklarna avser SAP-distributioner i Azure:
 
 Dessa SAP-anteckningar är relaterade till ämnet i SAP i Azure:
 
-| Antecknings nummer | Title |
+| Antecknings nummer | Rubrik |
 | --- | --- |
 | [1928533] |SAP-program på Azure: produkter och storlek som stöds |
 | [2015553] |SAP på Microsoft Azure: stöd för krav |
@@ -678,7 +678,7 @@ Mallarna på tre nivåer i Azure Resource Manager också stöd för scenarier me
 Här kan du få Azure Resource Manager mallar för exempel scenariot som vi beskriver i den här artikeln:
 
 * [Azure Marketplace-avbildning](https://github.com/Azure/azure-quickstart-templates/)  
-* [Anpassad bild](https://github.com/Azure/azure-quickstart-templates/)
+* [Anpassad avbildning](https://github.com/Azure/azure-quickstart-templates/)
 
 Förbereda infrastrukturen för arkitektur mal len 1:
 
@@ -769,7 +769,7 @@ Du kan använda den här Azure Resource Manager mallen för SAP för att förenk
 Här kan du hämta Azure Resource Manager mallar för det här distributions scenariot:
 
 * [Azure Marketplace-avbildning](https://github.com/Azure/azure-quickstart-templates/)  
-* [Anpassad bild](https://github.com/Azure/azure-quickstart-templates/)
+* [Anpassad avbildning](https://github.com/Azure/azure-quickstart-templates/)
 
 
 ### <a name="prepare-the-infrastructure-for-architectural-template-3"></a>Förbered infrastrukturen för arkitektur mal len 3
@@ -798,7 +798,7 @@ Konfigurera ASCS/SCS multi-SID-mallen genom att ange värden för följande para
   -  **System tillgänglighet**. Välj **ha**.
   -  **Administratörens användar namn och administratörs lösen ord**. Skapa en ny användare som kan användas för att logga in på datorn.
   -  **Nytt eller befintligt undernät**. Ange om ett nytt virtuellt nätverk och undernät ska skapas, eller om ett befintligt undernät ska användas. Om du redan har ett virtuellt nätverk som är anslutet till ditt lokala nätverk väljer du **befintligt**.
-  -  **Undernät-ID**. Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:/Subscriptions/<*prenumerations-id*>/ResourceGroups/<*resurs grupp namn*>/providers/Microsoft.Network/virtualnetworks/<*virtuellt nätverks namn*>/subnets/<*namn på undernät*>
+  -  **Undernät-ID**. Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:/Subscriptions/<*prenumerations-id*>/resourceGroups/<*resurs grupp namn*>/providers/Microsoft.Network/virtualNetworks/<*virtuellt nätverks namn*>/subnets/<*namn på undernät*>
 
 Mallen distribuerar en Azure Load Balancer instans, som stöder flera SAP-system.
 

@@ -5,10 +5,10 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
 ms.openlocfilehash: 78ec5ff3fc87ef29d25e439b7d4c69bb3a10f3a7
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578078"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur måttaviseringar fungerar i Azure Monitor
@@ -53,7 +53,7 @@ Anta att du har skapat en mått regel för enkla dynamiska tröskelvärden enlig
 
 När varnings regeln har skapats, kommer Machine Learning-algoritmen för dynamiska tröskelvärden att hämta historiska data som är tillgängliga, beräkna tröskel som bäst passar mått seriens beteende mönster och kommer ständigt att lära sig utifrån nya data för att göra tröskelvärdet mer exakt.
 
-När aviserings regeln skapas körs övervakaren var 1: e minut och tittar på mått värden under de senaste 20 minuterna grupperade i 5 minuters perioder och kontrollerar om genomsnittet för period värden i var och en av de 4 perioderna överstiger det förväntade tröskelvärdet. Om villkoret är uppfyllt, vilket är den genomsnittliga procent andelen av processorn under de senaste 20 minuterna (fyra 5 minuter) som avviker från förväntat beteende fyra gånger, utlöses aviserings regeln av ett aktiverat meddelande. Om du har konfigurerat ett e-postmeddelande eller en webhook-åtgärd i den åtgärds grupp som är associerad med varnings regeln får du ett aktiverat meddelande på båda.
+När aviserings regeln skapas körs övervakaren var 1: e minut och tittar på mått värden under de senaste 20 minuterna grupperade i 5 minuters perioder och kontrollerar om genomsnittet för period värden i var och en av de 4 perioderna överstiger det förväntade tröskelvärdet. Om villkoret är uppfyllt, vilket är den genomsnittliga procent andelen av processor under de senaste 20 minuterna (4 5 minuter) som avviker från det förväntade beteendet fyra gånger, utlöses aviserings regeln av ett aktiverat meddelande. Om du har konfigurerat ett e-postmeddelande eller en webhook-åtgärd i den åtgärds grupp som är associerad med varnings regeln får du ett aktiverat meddelande på båda.
 
 ### <a name="view-and-resolution-of-fired-alerts"></a>Visa och matcha utlösta aviseringar
 
@@ -137,7 +137,7 @@ Den här funktionen stöds för närvarande för plattforms mått (inte anpassad
 
 | Tjänst | Offentlig Azure | Myndigheter | Kina |
 |:--------|:--------|:--------|:--------|
-| Virtuella datorer<sup>1</sup>  | **Ja** | Nej | Nej |
+| Virtuella datorer<sup>1</sup>  | **Ja** | Inga | Inga |
 | SQL Server-databaser | **Ja** | **Ja** | **Ja** |
 | Elastiska SQL Server-pooler | **Ja** | **Ja** | **Ja** |
 | Kapacitets pooler för NetApp-filer | **Ja** | **Ja** | **Ja** |

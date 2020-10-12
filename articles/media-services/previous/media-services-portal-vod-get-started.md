@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 223779dfba5faa77e38221d6f6f4e26dbc44b0cc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89268391"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Kom igång med att leverera innehåll på begäran med hjälp av Azure-portalen
@@ -59,13 +59,13 @@ Starta slutpunkten för direktuppspelning:
 4. Välj ikonen **Start**.
 5. Välj knappen **Spara**.
 
-## <a name="upload-files"></a>Överföra filer
+## <a name="upload-files"></a>Ladda upp filer
 För att strömma videor med Azure Media Services ska du ladda upp källvideorna, koda dem till flera olika bithastigheter och sedan publicera resultatet. I det här avsnittet beskrivs det första steget. 
 
 1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
 2. Välj **Inställningar**  >  **till gångar**. Välj sedan knappen **Ladda upp**.
    
-    ![Överföra filer](./media/media-services-portal-vod-get-started/media-services-upload.png)
+    ![Ladda upp filer](./media/media-services-portal-vod-get-started/media-services-upload.png)
    
     Fönstret **Överför en videotillgång** visas.
    

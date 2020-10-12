@@ -1,13 +1,13 @@
 ---
-title: Distribuera Azure VMware-lösning
+title: Distribuera Azure VMware Solution
 description: Steg för att distribuera en Azure VMware-lösning med hjälp av Azure Portal.
 ms.topic: include
 ms.date: 09/28/2020
 ms.openlocfilehash: 4d0881721cd8c13d1b6c9fb3a29e4cdb6d6a753f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578331"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
@@ -18,7 +18,7 @@ ms.locfileid: "91578331"
 
 1. Ange värden för fälten på fliken **grundläggande** . I följande tabell visas egenskaperna för fälten.
 
-   | Fält   | Värde  |
+   | Field   | Värde  |
    | ---| --- |
    | **Prenumeration** | Prenumerationen som du planerar att använda för distributionen.|
    | **Resursgrupp** | Resurs gruppen för dina privata moln resurser. |

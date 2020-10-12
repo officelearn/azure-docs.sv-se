@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: eec032ad56d00778627fc147761f61c03ba8bafd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89442096"
 ---
 # <a name="security-controls-for-azure-sql-database-and-sql-managed-instance"></a>Säkerhets kontroller för Azure SQL Database-och SQL-hanterad instans
@@ -26,7 +26,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="network"></a>Nätverk
 
-| Säkerhets kontroll | Ja/nej | Kommentarer |
+| Säkerhets kontroll | Ja/nej | Obs! |
 |---|---|--|
 | Stöd för tjänst slut punkt| Ja | Gäller endast för [SQL Database](../index.yml) . |
 | Stöd för Azure Virtual Network-injektering| Ja | Gäller endast för [SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) . |
@@ -35,7 +35,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="monitoring--logging"></a>Övervaka & loggning
 
-| Säkerhets kontroll | Ja/nej | Kommentarer|
+| Säkerhets kontroll | Ja/nej | Obs!|
 |---|---|--|
 | Stöd för Azure-övervakning, till exempel Log Analytics eller Application Insights| Ja | SecureSphere, SIEM-lösningen från Imperva, stöds också via [Azure Event Hubs](../event-hubs/../index.yml) integration via [SQL-granskning](../../azure-sql/database/auditing-overview.md). |
 | Kontroll – plan och hantering – plan loggning och granskning| Ja | Ja endast för vissa händelser |
@@ -43,14 +43,14 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="identity"></a>Identitet
 
-| Säkerhets kontroll | Ja/nej | Kommentarer|
+| Säkerhets kontroll | Ja/nej | Obs!|
 |---|---|--|
 | Autentisering| Ja | Azure Active Directory (Azure AD) |
 | Auktorisering| Ja | Inget |
 
 ## <a name="data-protection"></a>Dataskydd
 
-| Säkerhets kontroll | Ja/nej | Kommentarer |
+| Säkerhets kontroll | Ja/nej | Obs! |
 |---|---|--|
 | Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Kallas "kryptering i användning", enligt beskrivningen i artikeln [Always Encrypted](always-encrypted-certificate-store-configure.md). Kryptering på Server sidan använder [transparent data kryptering](transparent-data-encryption-tde-overview.md).|
 | Kryptering under överföring:<ul><li>Azure ExpressRoute-kryptering</li><li>Kryptering i ett virtuellt nätverk</li><li>Kryptering mellan virtuella nätverk</ul>| Ja | Använda HTTPS. |
@@ -60,13 +60,13 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhets kontroll | Ja/nej | Kommentarer|
+| Säkerhets kontroll | Ja/nej | Obs!|
 |---|---|--|
 | Konfiguration – hanterings stöd, till exempel konfiguration av versioner| Inga  | Inget |
 
 ## <a name="additional-security-controls-for-sql-database"></a>Ytterligare säkerhets kontroller för SQL Database
 
-| Säkerhets kontroll | Ja/nej | Kommentarer|
+| Säkerhets kontroll | Ja/nej | Obs!|
 |---|---|--|
 | Förebyggande: sårbarhets bedömning | Ja | Se [SQL sårbarhet Assessment service hjälper dig att identifiera databas sårbarheter](sql-vulnerability-assessment.md). |
 | Förebyggande: data identifiering och klassificering  | Ja | Se [Azure SQL Database och Azure Synapse Analytics data discovery & klassificering](data-discovery-and-classification-overview.md). |

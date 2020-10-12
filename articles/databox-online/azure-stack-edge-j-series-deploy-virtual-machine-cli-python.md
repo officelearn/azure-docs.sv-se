@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: alkohli
 ms.openlocfilehash: c27f6ef47b8e4db83ceb63e308e318803800f8a5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90890717"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Distribuera virtuella datorer på Azure Stack Edge Pro GPU-enhet med hjälp av Azure CLI och python
@@ -281,7 +281,7 @@ Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge Pr
     | Värde | Beskrivning | Exempel |
     | --- | --- | --- |
     | Miljönamn | Namnet på den miljö som du försöker ansluta till | Ange ett namn, till exempel `aze-environ` |
-    | Resource Manager-slutpunkt | URL: en är `https://Management.<appliancename><dnsdomain>` . <br> Om du vill hämta den här URL: en går du till sidan **enheter** i enhetens lokala webb gränssnitt. |Till exempel `https://management.team3device.teatraining1.com`.  |
+    | Resource Manager-slutpunkt | URL: en är `https://Management.<appliancename><dnsdomain>` . <br> Om du vill hämta den här URL: en går du till sidan **enheter** i enhetens lokala webb gränssnitt. |Exempelvis `https://management.team3device.teatraining1.com`.  |
     
     ```powershell
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.<appliance name>.<DNS domain>"

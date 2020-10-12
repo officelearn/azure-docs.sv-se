@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: raynew
 ms.openlocfilehash: f9f7b3b64cf91019ed4e40d5d52b859419b74836
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86107639"
 ---
 # <a name="contoso-migration-series"></a>Contoso-migreringsserie
@@ -26,7 +26,7 @@ Artiklarna i serien sammanfattas i tabellen nedan.
 - För varje distributions scenario tillhandahåller vi information om affärs drivande faktorer och mål, en föreslagen arkitektur, steg för att utföra migreringen och rekommendationer för rensning och nästa steg när migreringen är klar.
 
 
-**Artiklar** | **Detaljer** 
+**Artikel** | **Information** 
 --- | --- 
 [Artikel 1: översikt](/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-overview) | Översikt över artikel serien, Contosos migrations strategi och de exempel appar som används i serien. 
 [Artikel 2: Distribuera Azure-infrastruktur](/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure) | Contoso förbereder den lokala infrastrukturen och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla artiklar i serien. 

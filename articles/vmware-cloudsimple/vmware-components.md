@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ff9aec1904be754990958869666e9d67038e4fb3
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88142510"
 ---
 # <a name="private-cloud-vmware-components"></a>VMware-komponenter för privata moln
@@ -33,7 +33,7 @@ En VMware-stack för privata moln distribueras med följande program varu versio
 |-----------|---------|------------------|
 | ESXi | 6.7 U2 | Enterprise plus |
 | vCenter | 6.7 U2 | vCenter standard |
-| Virtuellt San | 6.7 | Stora företag |
+| Virtuellt San | 6.7 | Enterprise |
 | NSX Data Center | 2.4.1 | Avancerat |
 
 ## <a name="esxi"></a>ESXi
@@ -48,7 +48,7 @@ vCenter Server-installation (VCSA) tillhandahåller autentiserings-, hanterings-
 
 ### <a name="vcenter-single-sign-on"></a>enkel inloggning för vCenter
 
-Embedded Platform service Controller på VCSA är associerad med en **vCenter-domän för enkel inloggning**.  Domän namnet är **cloudsimple. local**.  En standard användare **CloudOwner@cloudsimple.com** skapas för åtkomst till vCenter.  Du kan lägga till dina lokala/Azure Active Directory [Identity sources för vCenter](set-vcenter-identity.md).
+Embedded Platform service Controller på VCSA är kopplad till en **vCenter Single Sign-On-domän**.  Domän namnet är **cloudsimple. local**.  En standard användare **CloudOwner@cloudsimple.com** skapas för åtkomst till vCenter.  Du kan lägga till dina lokala/Azure Active Directory [Identity sources för vCenter](set-vcenter-identity.md).
 
 ## <a name="vsan-storage"></a>Virtuellt SAN-lagring
 

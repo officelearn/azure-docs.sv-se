@@ -16,10 +16,10 @@ ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: b459f44308827308c28687db3c3fc33df470ea8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790198"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>Skapa eller uppdatera anpassade Azure-roller med hjälp av REST API
@@ -44,7 +44,7 @@ Om du vill visa en lista med alla anpassade roller i en katalog använder du RES
 1. Ersätt *{filter}* med roll typen.
 
     > [!div class="mx-tableFixed"]
-    > | Filter | Beskrivning |
+    > | Filtrera | Beskrivning |
     > | --- | --- |
     > | `$filter=type+eq+'CustomRole'` | Filtrera baserat på typen av CustomRole |
 
@@ -71,7 +71,7 @@ Om du vill visa en lista med anpassade roller i ett omfång använder du [roll d
 1. Ersätt *{filter}* med roll typen.
 
     > [!div class="mx-tableFixed"]
-    > | Filter | Beskrivning |
+    > | Filtrera | Beskrivning |
     > | --- | --- |
     > | `$filter=type+eq+'CustomRole'` | Filtrera baserat på typen av CustomRole |
 
@@ -98,9 +98,9 @@ Om du vill hämta information om en anpassad roll med dess visnings namn använd
 1. Ersätt *{filter}* med rollens visnings namn.
 
     > [!div class="mx-tableFixed"]
-    > | Filter | Beskrivning |
+    > | Filtrera | Beskrivning |
     > | --- | --- |
-    > | `$filter=roleName+eq+'{roleDisplayName}'` | Använd URL-kodad form med det exakta visnings namnet för rollen. Till exempel,`$filter=roleName+eq+'Virtual%20Machine%20Contributor'` |
+    > | `$filter=roleName+eq+'{roleDisplayName}'` | Använd URL-kodad form med det exakta visnings namnet för rollen. Till exempel, `$filter=roleName+eq+'Virtual%20Machine%20Contributor'` |
 
 ## <a name="list-a-custom-role-definition-by-id"></a>Lista en anpassad roll definition efter ID
 
@@ -132,7 +132,7 @@ Om du vill skapa en anpassad roll använder du [roll definitionerna-skapa eller 
 
 1. Granska listan över [resurs leverantörs åtgärder](resource-provider-operations.md) som är tillgängliga för att skapa behörigheter för din anpassade roll.
 
-1. Använd ett GUID-verktyg för att generera en unik identifierare som ska användas för den anpassade roll identifieraren. Identifieraren har formatet:`00000000-0000-0000-0000-000000000000`
+1. Använd ett GUID-verktyg för att generera en unik identifierare som ska användas för den anpassade roll identifieraren. Identifieraren har formatet: `00000000-0000-0000-0000-000000000000`
 
 1. Börja med följande begäran och brödtext:
 
@@ -340,6 +340,6 @@ Om du vill ta bort en anpassad roll använder du [roll definitionerna-ta bort](/
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Anpassade Azure-roller](custom-roles.md)
-- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av REST API](role-assignments-rest.md)
-- [Referens för Azure-REST API](/rest/api/azure/)
+- [Anpassade roller i Azure](custom-roles.md)
+- [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av REST API](role-assignments-rest.md)
+- [Azure REST API-referens](/rest/api/azure/)

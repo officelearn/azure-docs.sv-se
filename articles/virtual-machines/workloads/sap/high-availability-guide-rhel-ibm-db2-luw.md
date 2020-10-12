@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.openlocfilehash: 527d9e2e43a4003dd5300c26fc58b1e456186351
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87077402"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Hög tillgänglighet för IBM Db2 LUW på virtuella Azure-datorer på Red Hat Enterprise Linux Server
@@ -41,7 +41,7 @@ Innan du påbörjar en installation kan du läsa följande SAP-anteckningar och 
 | [2191498] | SAP på Linux med Azure: förbättrad övervakning |
 | [2243692] | Linux på Azure (IaaS) VM: SAP-licens problem |
 | [2002167] | Red Hat Enterprise Linux 7. x: installation och uppgradering |
-| [2694118] | Red Hat Enterprise Linux HA-tillägget på Azure |
+| [2694118] | Red Hat Enterprise Linux HA Add-On på Azure |
 | [1999351] | Felsöka utökad Azure-övervakning för SAP |
 | [2233094] | DB6: SAP-program på Azure som använder IBM DB2 för Linux, UNIX och Windows – Ytterligare information |
 | [1612105] | DB6: vanliga frågor och svar om DB2 med HADR |
@@ -54,11 +54,11 @@ Innan du påbörjar en installation kan du läsa följande SAP-anteckningar och 
 | [Azure Virtual Machines-distribution för SAP på Linux][deployment-guide] (den här artikeln) |
 | [Distributions system för Azure Virtual Machines Database Management system (DBMS) för SAP på Linux-][dbms-guide] guiden |
 | [SAP-arbetsbelastning på Azure planering och distribution check lista][azr-sap-plancheck] |
-| [Översikt över tillägget för hög tillgänglighet för Red Hat Enterprise Linux 7][rhel-ha-addon] |
-| [Administrations tillägg med hög tillgänglighet][rhel-ha-admin] |
-| [Referens för hög tillgänglighets tillägg][rhel-ha-ref] |
+| [Översikt över Add-On med hög tillgänglighet för Red Hat Enterprise Linux 7][rhel-ha-addon] |
+| [Add-On administration med hög tillgänglighet][rhel-ha-admin] |
+| [Add-On referens för hög tillgänglighet][rhel-ha-ref] |
 | [Support principer för RHEL-kluster med hög tillgänglighet – Microsoft Azure Virtual Machines som kluster medlemmar][rhel-azr-supp]
-| [Installera och konfigurera ett kluster med hög tillgänglighet för Red Hat Enterprise Linux 7,4 (och senare) på Microsoft Azure][rhel-azr-inst]
+| [Installera och konfigurera en Red Hat Enterprise Linux 7,4 (och senare) High-Availability kluster på Microsoft Azure][rhel-azr-inst]
 | [DBMS-distribution för SAP-arbetsbelastning för IBM Db2 på virtuella Azure-datorer][dbms-db2] |
 | [IBM DB2 HADR 11,1][db2-hadr-11.1] |
 | [IBM DB2 HADR 10,5][db2-hadr-10.5] |

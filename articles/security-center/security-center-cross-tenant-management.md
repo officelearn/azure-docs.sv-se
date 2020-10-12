@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
 ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84782820"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Hantering av flera innehavare i Security Center
@@ -28,7 +28,7 @@ Med hantering av flera innehavare kan du Visa och hantera säkerhets position f�
 
 - Säkerhets team för organisationer med flera klienter kan visa och hantera sina säkerhets position från en enda plats.
 
-## <a name="set-up-cross-tenant-management"></a>Konfigurera hantering av flera innehavare
+## <a name="set-up-cross-tenant-management"></a>konfigurera hantering av flera klientorganisationer.
 
 Konfigurera hantering av flera innehavare genom att delegera åtkomst till resurser av hanterade klienter till din egen klient med [Azure delegerad resurs hantering](../lighthouse/concepts/azure-delegated-resource-management.md).
 

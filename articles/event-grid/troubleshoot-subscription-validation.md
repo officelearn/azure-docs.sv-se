@@ -4,10 +4,10 @@ description: Den här artikeln visar hur du kan felsöka prenumerations valideri
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 48844859013507ab684ef8879b7b85dd6b6fe8cd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86118995"
 ---
 # <a name="troubleshoot-azure-event-grid-subscription-validations"></a>Felsöka Azure Event Grid prenumerations valideringar
@@ -72,7 +72,7 @@ Om webhooken returnerar 403 (förbjuden) i svaret kontrollerar du att webhooken 
   - 942430 (begränsad SQL Character-avvikelse identifiering (argument): # av specialtecken har överskridits (12))
   - 920230 (flera URL-kodning identifierade)
   - 942130 (SQL-injektering: SQL-Tautology har identifierats.)
-  - 931130 (möjliga RFI-angrepp (Remote File inkludering) = av-domän referens/länk)
+  - 931130 (möjligt RFI-angrepp (Remote File inkludering) = Off-Domain referens/länk)
 
 ## <a name="next-steps"></a>Nästa steg
 Om du behöver mer hjälp kan du publicera ditt problem i [Stack Overflow-forumet](https://stackoverflow.com/questions/tagged/azure-eventgrid) eller öppna ett [support ärende](https://azure.microsoft.com/support/options/). 

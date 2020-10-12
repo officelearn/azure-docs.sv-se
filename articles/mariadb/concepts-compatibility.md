@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 79c91fff837e3869eda0f45ce892e63b6611a1d0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86107214"
 ---
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>MariaDB-drivrutiner och hanterings verktyg som är kompatibla med Azure Database for MariaDB
@@ -23,7 +23,7 @@ Azure Database for MariaDB använder community-versionen av MariaDB-servern. Dä
 
 Målet är att stödja de tre senaste versionerna av MariaDB-drivrutinerna och ansträngningar med författare från communityn för öppen källkod för att ständigt förbättra funktionaliteten och användbarheten hos MariaDB-drivrutiner. En lista med driv rutiner som har testats och som är kompatibla med Azure Database for MariaDB 10,2 finns i följande tabell:
 
-**Drivrutin** | **Länkar** | **Kompatibla versioner** | **Inkompatibla versioner** | **Anteckningar**
+**Drivrutinen** | **Länkar** | **Kompatibla versioner** | **Inkompatibla versioner** | **Kommentarer**
 ---|---|---|---|---
 PHP | https://secure.php.net/downloads.php | 5,5, 5,6, 7. x | 5.3 | För PHP 7,0-anslutning med SSL MySQLi lägger du till MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT i anslutnings strängen. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> SUB set: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` alternativ till false.
 .NET | [MySqlConnector på GitHub](https://github.com/mysql-net/MySqlConnector) <br> [Installations paket från NuGet](https://www.nuget.org/packages/MySqlConnector/) | 0,27 och efter | 0.26.5 och före |
@@ -37,7 +37,7 @@ Java | https://downloads.mariadb.org/connector-java/ | 2,1, 2,0, 1,6 | 1.5.5 och
 
 Fördelen med kompatibilitet är också till för databas hanterings verktyg. Dina befintliga verktyg bör fortsätta att fungera med Azure Database for MariaDB, så länge databas hanteringen fungerar inom de olika användar behörigheterna. Tre vanliga verktyg för databas hantering som har testats och visat sig vara kompatibla med Azure Database for MariaDB 10,2 visas i följande tabell:
 
-| Åtgärd | **MySQL Workbench 6. x och uppåt** | **Navicat 12** | **PHPMyAdmin 4. x och uppåt**
+| Action | **MySQL Workbench 6. x och uppåt** | **Navicat 12** | **PHPMyAdmin 4. x och uppåt**
 ---|---|---|---
 Skapa, uppdatera, läsa, skriva, ta bort | X | X | X
 SSL-anslutning | X | X | X

@@ -15,10 +15,10 @@ ms.date: 09/29/2020
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: af168fe4c4dca71077464fdb9caf30f27c4b9fe2
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578265"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor-loggar    
@@ -124,7 +124,7 @@ Mer information om begränsningar för pris nivåer finns i [Azure-prenumeration
 Ingen av de äldre pris nivåerna har regional-baserade priser.  
 
 > [!NOTE]
-> Om du vill använda rättigheterna som kommer från inköp av OMS E1 Suite, OMS E2 Suite eller OMS-tillägg för System Center väljer du pris nivån Log Analytics *per nod* .
+> Om du vill använda rättigheterna som kommer från inköp av OMS E1 Suite, OMS E2 Suite eller OMS Add-On för System Center väljer du pris nivån Log Analytics *per nod* .
 
 ## <a name="change-the-data-retention-period"></a>Ändra kvarhållningsperioden för data
 
@@ -567,7 +567,7 @@ union *
 Den här frågan är inte en exakt replikering av hur användningen beräknas, men kommer att fungera för att tillhandahålla rekommendationer för pris nivåer i de flesta fall.  
 
 > [!NOTE]
-> Om du vill använda rättigheterna som kommer från inköp av OMS E1 Suite, OMS E2 Suite eller OMS-tillägg för System Center väljer du pris nivån Log Analytics *per nod* .
+> Om du vill använda rättigheterna som kommer från inköp av OMS E1 Suite, OMS E2 Suite eller OMS Add-On för System Center väljer du pris nivån Log Analytics *per nod* .
 
 ## <a name="create-an-alert-when-data-collection-is-high"></a>Skapa en avisering när data insamlingen är hög
 

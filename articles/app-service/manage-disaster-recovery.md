@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 1388dc11254324f74efcbaa55c97cac2ccd0c026
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073739"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Flytta en App Service app till en annan region
@@ -19,7 +19,7 @@ App Service-resurser är landsspecifika och kan inte flyttas mellan regioner. Du
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Inget. Att [återställa från ögonblicks bilder](app-service-web-restore-snapshots.md) kräver vanligt vis **Premium** -nivå, men i haveri beredskaps läge aktive ras den automatiskt för din påverkade app, oavsett vilken nivå den berörda appen är i.
+- Inga. Att [återställa från ögonblicks bilder](app-service-web-restore-snapshots.md) kräver vanligt vis **Premium** -nivå, men i haveri beredskaps läge aktive ras den automatiskt för din påverkade app, oavsett vilken nivå den berörda appen är i.
 
 ## <a name="prepare"></a>Förbereda
 
@@ -47,7 +47,7 @@ Vissa resurser, t. ex. importerade certifikat eller hybrid anslutningar, innehå
 
 1. På sidan **Återställ säkerhets kopia** konfigurerar du återställnings åtgärden enligt följande tabell. Klicka på **OK**när du är färdig.
 
-   | Inställning | Värde | Beskrivning |
+   | Inställningen | Värde | Beskrivning |
    |-|-|-|
    | **Ögonblicks bild (för hands version)** | Välj en ögonblicks bild. | De två senaste ögonblicks bilderna är tillgängliga. |
    | **Återställ mål** | **Befintlig app** | Klicka på kommentaren nedan om **du vill ändra appen för återställnings mål** och välja mål programmet. I ett katastrof scenario kan du bara återställa ögonblicks bilden till en app i en annan Azure-region. |
@@ -78,7 +78,7 @@ Om du bara vill återställa filerna från den påverkade appen utan att återst
     Kopiera tre attributvärden: 
         
     - `publishUrl`: FTP-värdnamnet
-    - `userName`och `userPWD` : FTP-autentiseringsuppgifterna
+    - `userName` och `userPWD` : FTP-autentiseringsuppgifterna
 
 1. Använd valfri FTP-klient och Anslut till den berörda appens FTP-värd med hjälp av värdnamn och autentiseringsuppgifter.
 

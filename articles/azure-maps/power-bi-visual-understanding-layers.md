@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: a5c7296a0e7b7f6ea33c1f4a669675efd90f9e9a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86262101"
 ---
 # <a name="understanding-layers-in-the-azure-maps-power-bi-visual"></a>Förstå skikt i Azure Maps Power BI visuella objekt
@@ -87,15 +87,15 @@ Avsnittet Allmänt lager i fönstret **format** är vanliga inställningar som g
 > [Lägga till ett bubbelskikt](power-bi-visual-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Lägg till ett stapeldiagrams lager](power-bi-visual-add-bar-chart-layer.md)
+> [Lägg till ett stapeldiagramslager](power-bi-visual-add-bar-chart-layer.md)
 
 Lägg till mer kontext till kartan:
 
 > [!div class="nextstepaction"]
-> [Lägg till ett referens skikt](power-bi-visual-add-reference-layer.md)
+> [Lägg till ett referenslager](power-bi-visual-add-reference-layer.md)
 
 > [!div class="nextstepaction"]
 > [Lägga till ett panelskikt](power-bi-visual-add-tile-layer.md)
 
 > [!div class="nextstepaction"]
-> [Visa real tids trafik](power-bi-visual-show-real-time-traffic.md)
+> [Visa trafik i realtid](power-bi-visual-show-real-time-traffic.md)

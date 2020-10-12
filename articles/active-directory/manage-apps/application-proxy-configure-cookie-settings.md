@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 656841fc8e62e81318ffd568069c0664192b1747
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764901"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Cookie-inställningar för åtkomst till lokala program i Azure Active Directory
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) har åtkomst och sessionscookies för att komm
 
 | Cookie-inställning | Default | Beskrivning | Rekommendationer |
 | -------------- | ------- | ----------- | --------------- |
-| Använd endast HTTP-cookie | **Nej** | **Ja** tillåter att Application Proxy inkluderar HTTPOnly-flaggan i HTTP-svarshuvuden. Den här flaggan ger ytterligare säkerhets fördelar, till exempel förhindrar skript på klient sidan (CSS) från att kopiera eller ändra cookies.<br></br><br></br>Innan vi har stöd för HTTP-inställningen, krypterade och skickade cookies via en säker TLS-kanal för att skydda mot ändring. | Använd **Ja** på grund av de ytterligare säkerhets fördelarna.<br></br><br></br>Använd **Nej** för klienter eller användar agenter som behöver åtkomst till sessions-cookien. Använd till exempel **Nej** för en RDP-eller MTSC-klient som ansluter till en server för fjärrskrivbordsgateway via programproxyn.|
+| Använd endast HTTP-cookie | **Nej** | **Ja** tillåter att Application Proxy inkluderar HTTPOnly-flaggan i HTTP-svarshuvuden. Den här flaggan ger ytterligare säkerhets fördelar, till exempel förhindrar skript på klient sidan (CSS) från att kopiera eller ändra cookies.<br></br><br></br>Innan vi har stöd för den HTTP-Only inställningen krypterade programproxyn och skickade cookies via en säker TLS-kanal för att skydda mot ändring. | Använd **Ja** på grund av de ytterligare säkerhets fördelarna.<br></br><br></br>Använd **Nej** för klienter eller användar agenter som behöver åtkomst till sessions-cookien. Använd till exempel **Nej** för en RDP-eller MTSC-klient som ansluter till en server för fjärrskrivbordsgateway via programproxyn.|
 | Använd säker cookie | **Nej** | **Ja** låter programproxyn ta med säker flagga i HTTP-svarshuvuden. Säkra cookies ökar säkerheten genom att skicka cookies via en säker TLS-kanal, till exempel HTTPS. Detta förhindrar att cookies observeras av obehöriga parter på grund av överföring av cookien i klartext. | Använd **Ja** på grund av de ytterligare säkerhets fördelarna.|
 | Använd beständig cookie | **Nej** | **Ja** tillåter att programproxyn anger att åtkomst-cookies inte upphör att gälla när webbläsaren stängs. Persistence varar tills åtkomsttoken upphör att gälla, eller tills användaren manuellt tar bort de permanenta cookies. | Använd **Nej** på grund av säkerhets risken som är kopplad till användarens autentiserade.<br></br><br></br>Vi rekommenderar att du bara använder **Ja** för äldre program som inte kan dela cookies mellan processer. Det är bättre att uppdatera ditt program för att hantera delning av cookies mellan processer i stället för att använda beständiga cookies. Du kan till exempel behöva beständiga cookies för att tillåta att en användare öppnar Office-dokument i Utforskarvyn från en SharePoint-webbplats. Utan permanenta cookies kan den här åtgärden Miss Miss kan uppstå om åtkomst-cookies inte delas mellan webbläsaren, Explorer-processen och Office-processen. |
 
@@ -41,7 +41,7 @@ Från och med version Chrome 80 och slutligen i webbläsare som använder krom, 
 
 De här ändringarna i Application Proxy-cookies kommer att distribueras under de kommande två veckorna innan versions datumet för Chrome 80.
 
-Om ditt serverprogram har cookies som måste vara tillgängliga i en tredjeparts-kontext måste du dessutom uttryckligen välja att ändra ditt program till att använda SameSite = none för dessa cookies. Programproxyn översätter set-cookie-sidhuvudet till dess URL: er och följer inställningarna för dessa cookies som anges av Server dels programmet.
+Om ditt serverprogram har cookies som måste vara tillgängliga i en tredjeparts-kontext måste du dessutom uttryckligen välja att ändra ditt program till att använda SameSite = none för dessa cookies. Programproxyn översätter Set-Cookie rubriken till URL: erna och följer inställningarna för dessa cookies som anges av Server dels programmet.
 
 
 

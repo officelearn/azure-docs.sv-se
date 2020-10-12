@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 924aff8f2ba3d796b65f52494845f3b10018065c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87063971"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>GRÄNSSNITTs element för Microsoft. Common. section
@@ -45,10 +45,10 @@ En kontroll som grupperar ett eller flera element under en rubrik.
 
 ## <a name="remarks"></a>Kommentarer
 
-- `elements`måste ha minst ett element och kan ha alla element typer förutom `Microsoft.Common.Section` .
+- `elements` måste ha minst ett element och kan ha alla element typer förutom `Microsoft.Common.Section` .
 - Det här elementet har inte stöd för `toolTip` egenskapen.
 
-## <a name="sample-output"></a>Exempel på utdata
+## <a name="sample-output"></a>Exempelutdata
 Om du vill komma åt indatavärdena för element i `elements` använder du funktionerna [Basic ()](create-ui-definition-referencing-functions.md#basics) eller Step [()](create-ui-definition-referencing-functions.md#steps) och punkt notation:
 
 ```json

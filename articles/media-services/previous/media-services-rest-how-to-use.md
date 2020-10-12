@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 84e94a431efdc84ff6896de416bd222120784899
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264291"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Översikt över Media Services åtgärder REST API
@@ -78,11 +78,11 @@ Följande är en uppsättning valfria huvuden:
 
 | Sidhuvud | Typ | Värde |
 | --- | --- | --- |
-| Datum |RFC 1123-datum |Tidsstämpel för begäran |
+| Date |RFC 1123-datum |Tidsstämpel för begäran |
 | Acceptera |Innehållstyp |Begärd innehålls typ för svaret, till exempel följande:<p> -Application/JSON; OData = verbose<p> -Application/Atom + XML<p> Svar kan ha en annan innehålls typ, till exempel en BLOB Fetch, där ett lyckat svar innehåller BLOB-dataströmmen som nytto lasten. |
 | Accept-Encoding |Gzip, deflate |GZIP och DEFLATE-kodning, om tillämpligt. Obs! för stora resurser kan Media Services ignorera detta sidhuvud och returnera data som inte är komprimerade. |
 | Accept-Language |"sv", "es" och så vidare. |Anger det språk som ska besvaras. |
-| Acceptera-teckenuppsättning |Teckenuppsättnings typ som "UTF-8" |Standardvärdet är UTF-8. |
+| Accept-Charset |Teckenuppsättnings typ som "UTF-8" |Standardvärdet är UTF-8. |
 | X-HTTP-metod |HTTP-metod |Tillåter att klienter eller brand väggar som inte stöder HTTP-metoder som att lägga till eller ta bort använder dessa metoder, tunnlade via ett GET-anrop. |
 | Content-Type |Innehållstyp |Innehålls typ för begär ande texten i begäran om att skicka eller publicera. |
 | klient-begärande-ID |Sträng |Ett callation-definierat värde som identifierar den angivna begäran. Om det här värdet anges tas det här värdet med i svarsmeddelandet som ett sätt att mappa begäran. <p><p>**Viktigt**<p>Värdena bör vara tak vid 2096b (2 000). |
@@ -94,7 +94,7 @@ Följande är en uppsättning huvuden som kan returneras till dig, beroende på 
 | --- | --- | --- |
 | begärande-ID |Sträng |En unik identifierare för den aktuella åtgärden, genererad tjänst. |
 | klient-begärande-ID |Sträng |En identifierare som anges av anroparen i den ursprungliga begäran, om sådan finns. |
-| Datum |RFC 1123-datum |Datum/tid då begäran bearbetades. |
+| Date |RFC 1123-datum |Datum/tid då begäran bearbetades. |
 | Content-Type |Det varierar |Innehålls typen för svars texten. |
 | Content-Encoding |Det varierar |Gzip eller deflatera efter behov. |
 

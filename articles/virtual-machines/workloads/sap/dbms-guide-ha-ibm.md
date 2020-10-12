@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 03/06/2020
 ms.author: juergent
 ms.openlocfilehash: 7d453fba37e62e8528ae7b4ea86d1604973b84a1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87051992"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Hög tillgänglighet för IBM DB2-LUW på virtuella Azure-datorer på SUSE Linux Enterprise Server med pacemaker
@@ -327,7 +327,7 @@ Följande objekt föregås av antingen:
 > - För SLES 15/15 SP1 måste versionen vara minst resurs agenter-4.3.0184.6 ee15eb2-4.13.1.  
 >
 > Observera att ändringen kräver kortare stillestånds tid.  
-> För befintliga pacemaker-kluster, om konfigurationen redan har ändrats för att använda socat, enligt beskrivningen i [Azure Load-Balancer Detection härdning](https://www.suse.com/support/kb/doc/?id=7024128), finns det inget krav på att växla direkt till Azure-lb Resource agent.
+> För befintliga pacemaker-kluster, om konfigurationen redan har ändrats för att använda socat enligt beskrivningen i [azure Load-Balancer Avkännings härdning](https://www.suse.com/support/kb/doc/?id=7024128), finns det inget krav på att växla direkt till Azure-lb Resource agent.
 
 **[1]** IBM DB2 hadr-Specific pacemaker-konfiguration:
 <pre><code># Put Pacemaker into maintenance mode
@@ -478,7 +478,7 @@ Om du utförde installationen innan du skapade DB2 HADR-konfigurationen gör du 
 
 Använd verktyget J2EE config för att kontrol lera eller uppdatera JDBC-URL: en. Eftersom verktyget J2EE config är ett grafiskt verktyg måste du ha installerat X-servern:
  
-1. Logga in på den primära program servern för J2EE-instansen och kör:`sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
+1. Logga in på den primära program servern för J2EE-instansen och kör:   `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. I den vänstra rutan väljer du **säkerhets lager**.
 1. I den högra rutan väljer du nyckeln JDBC/pool/ \<SAPSID> /URL.
 1. Ändra värd namnet i JDBC-URL: en till det virtuella värd namnet.

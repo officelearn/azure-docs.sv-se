@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 04/16/2020
 ms.openlocfilehash: 09f5d61984d5802184d70867f94815fac8fe2b7d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86103576"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Så här kommer du igång i AppSource och Azure Marketplace
@@ -30,7 +30,7 @@ Du kan vidta följande åtgärder för att förbättra dina poäng:
 1. *Kontrol lera att din app eller tjänst är korrekt kategoriserad*: Välj tre kategorier som representerar appen eller tjänstens funktioner.
 2. *Azure Marketplace-appar: öka din användnings månad i Azure.* Om du kan uppnå 1 000 timmars Azure-användning per månad ökar du kraftigt.
 3. *AppSource-appar: öka de förvärv som kommer till ditt erbjudande.* Om du kan uppnå 10 anskaffningar per månad ökar du kraftigt. 
-4. Ge *Medförsäljnings klar status*: slutför kraven för medförsäljnings klar.
+4. *Få Co-Sell klar status*: slutför kraven för medförsäljnings klar.
 5. *Förbättra kvaliteten på ditt erbjudande*: information om hur du ändrar ditt erbjudande finns i [rikt linjer för innehålls registrering](marketplace-criteria-content-validation.md)
 6. Publicera flera erbjudanden på Marketplace: är alla dina viktigaste appar och tjänster angivna? Har du en utvärderings version?
 7. Uppmuntra kunderna att skriva recensioner.

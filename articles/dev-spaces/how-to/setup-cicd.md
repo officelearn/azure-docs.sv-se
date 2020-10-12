@@ -9,10 +9,10 @@ manager: gwallace
 description: Lär dig hur du konfigurerar kontinuerlig integrering/kontinuerlig distribution med Azure DevOps med Azure dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
 ms.openlocfilehash: c7b3eba0bea85082dbb4e39d108af9471d5dc45e
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88080274"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Använda CI/CD med Azure Dev Spaces
@@ -70,14 +70,14 @@ Alternativet att inaktivera:
 
 I _azds_updates_ Branch har vi inkluderat en enkel [Azure pipeline-yaml](/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) som definierar de build-steg som krävs för *mywebapi* och *webfrontend*.
 
-Beroende på vilket språk du har valt har pipelinen YAML checkats in i en sökväg som liknar:`samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
+Beroende på vilket språk du har valt har pipelinen YAML checkats in i en sökväg som liknar: `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 
 Så här skapar du en pipeline från den här filen:
 1. På DevOps-projektets huvud sida navigerar du till pipelines > builds.
 1. Välj alternativet för att skapa en **ny** versions pipeline.
 1. Välj **GitHub** som källa, auktorisera med ditt GitHub-konto om det behövs och välj den _azds_updates_ grenen från den förgrenade versionen av exempel program lagrings platsen för _dev-Spaces_ .
 1. Välj **konfiguration som kod**eller **yaml**som mall.
-1. Nu visas en konfigurations sida för din build-pipeline. Som vi nämnt ovan navigerar du till den språkspecifika sökvägen för sökvägen till **yaml-filen** med hjälp av **...** -knappen. Till exempel `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. Nu visas en konfigurations sida för din build-pipeline. Som vi nämnt ovan navigerar du till den språkspecifika sökvägen för sökvägen till **yaml-filen** med hjälp av **...** -knappen. Exempelvis `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. Gå till fliken **variabler** .
 1. Lägg till _dockerId_ manuellt som en variabel, vilket är användar namnet för ditt [Azure Container Registry administratörs konto](../../container-registry/container-registry-authentication.md#admin-account). (Anges i artikel förutsättningar)
 1. Lägg till _dockerPassword_ manuellt som en variabel, vilket är lösen ordet för ditt [Azure Container Registry administratörs konto](../../container-registry/container-registry-authentication.md#admin-account). Se till att ange _dockerPassword_ som en hemlighet (genom att välja Lås ikonen) av säkerhets synpunkt.
@@ -160,7 +160,7 @@ Versionen görs när alla aktiviteter har slutförts.
 
 I _produktions_ fasen för CI/CD-pipelinen används en belastningsutjämnare i stället för en ingångs enhet för dev-utrymmen för att ge åtkomst till _produktions_ tjänsterna. Tjänster som distribueras i _produktions_ stadiet är tillgängliga som IP-adresser i stället för DNS-namn. I en produktions miljö kan du välja att skapa en egen ingångs kontroll som är värd för dina tjänster baserat på din egen DNS-konfiguration.
 
-Om du vill fastställa IP-adressen för webfrontend-tjänsten klickar du på det **offentliga IP-steget Skriv ut webfrontend** för att expandera loggens utdata. Använd IP-adressen som visas i loggens utdata för att få åtkomst till **webfrontend** -programmet.
+Om du vill fastställa IP-adressen för webfrontend-tjänsten klickar du på det  **offentliga IP-steget Skriv ut webfrontend** för att expandera loggens utdata. Använd IP-adressen som visas i loggens utdata för att få åtkomst till **webfrontend** -programmet.
 
 ```cmd
 ...

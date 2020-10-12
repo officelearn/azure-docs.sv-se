@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 4443b0f479079a4722a5d62fea40afcb4a58632d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86262155"
 ---
 # <a name="add-a-bubble-layer"></a>Lägga till ett bubbelskikt
@@ -49,7 +49,7 @@ Om ett fält skickas till **storleks** Bucket för **fält** fönstret, skalas b
 |---------------------|--------------|
 | Minsta storlek            | Minsta bubbelstorlek vid skalning av data.|
 | Max storlek            | Maximal bubbelstorlek vid skalning av data.|
-| Metod för storleks skalning | Skalnings algoritm som används för att fastställa relativ bubbelstorlek.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Linjärt inmatnings data linjärt mappat till minsta och högsta storlek. (standard)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Logg intervallet för indata-logarithmically mappas till minsta och högsta storlek.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Kubisk-Bezier-ange x1, Y1, x2, Y2-värden för en kubikmeter för en kubikmeter för att skapa en anpassad skalnings metod. |
+| Metod för storleks skalning | Skalnings algoritm som används för att fastställa relativ bubbelstorlek.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Linjärt inmatnings data linjärt mappat till minsta och högsta storlek. (standard)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Logg intervallet för indata-logarithmically mappas till minsta och högsta storlek.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cubic-Bezier – ange x1, Y1, x2, Y2-värden för en Cubic-Bezier kurva för att skapa en anpassad skalnings metod. |
 
 När **storleks skalnings metoden** är inställd på **log**blir följande alternativ tillgängliga.
 
@@ -67,25 +67,25 @@ När **storleks skalnings metoden** har angetts till **kubisk-Bezier**görs föl
 | Y2      | Y2-parameter för en kubikmeter av en kubikmeter. |
 
 > [!TIP]
-> [https://cubic-bezier.com/](https://cubic-bezier.com/)har ett användbart verktyg för att skapa parametrar för kubikmeter för kubikmeter.
+> [https://cubic-bezier.com/](https://cubic-bezier.com/) har ett användbart verktyg för att skapa parametrar för Cubic-Bezier kurvor.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Ändra hur dina data visas på kartan:
 
 > [!div class="nextstepaction"]
-> [Lägg till ett stapeldiagrams lager](power-bi-visual-add-bar-chart-layer.md)
+> [Lägg till ett stapeldiagramslager](power-bi-visual-add-bar-chart-layer.md)
 
 Lägg till mer kontext till kartan:
 
 > [!div class="nextstepaction"]
-> [Lägg till ett referens skikt](power-bi-visual-add-reference-layer.md)
+> [Lägg till ett referenslager](power-bi-visual-add-reference-layer.md)
 
 > [!div class="nextstepaction"]
 > [Lägga till ett panelskikt](power-bi-visual-add-tile-layer.md)
 
 > [!div class="nextstepaction"]
-> [Visa real tids trafik](power-bi-visual-show-real-time-traffic.md)
+> [Visa trafik i realtid](power-bi-visual-show-real-time-traffic.md)
 
 Anpassa det visuella objektet:
 

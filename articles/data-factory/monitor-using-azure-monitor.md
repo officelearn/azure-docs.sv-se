@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.openlocfilehash: 6f0e688f3d483536e0d82186dd8e498cdadf97da
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87563559"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Övervaka och varna Data Factory med Azure Monitor
@@ -221,7 +221,7 @@ PUT
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-##### <a name="headers"></a>Sidhuvuden
+##### <a name="headers"></a>Rubriker
 
 * Ersätt `{api-version}` med `2016-09-01`.
 * Ersätt `{resource-id}` med ID för den resurs som du vill redigera diagnostikinställningar för. Mer information finns i [använda resurs grupper för att hantera dina Azure-resurser](../azure-resource-manager/management/manage-resource-groups-portal.md).
@@ -341,7 +341,7 @@ GET
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-##### <a name="headers"></a>Sidhuvuden
+##### <a name="headers"></a>Rubriker
 
 * Ersätt `{api-version}` med `2016-09-01`.
 * Ersätt `{resource-id}` med ID för den resurs som du vill redigera diagnostikinställningar för. Mer information finns i [använda resurs grupper för att hantera dina Azure-resurser](../azure-resource-manager/management/manage-resource-groups-portal.md).
@@ -446,7 +446,7 @@ Mer information finns i [diagnostikinställningar](https://docs.microsoft.com/re
 | --- | --- | --- | --- |
 | **Nivå** |Sträng | Nivån för diagnostikloggar. För aktivitets körnings loggar anger du egenskap svärdet 4. | `4` |
 | **correlationId** |Sträng | Unikt ID för spårning av en viss begäran. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **tid** | Sträng | Tiden för händelsen i UTC-formatet i TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
+| **time** | Sträng | Tiden för händelsen i UTC-formatet i TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
 |**activityRunId**| Sträng| ID för aktivitets körningen. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |**pipelineRunId**| Sträng| ID för pipeline-körningen. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**resourceId**| Sträng | Det ID som är kopplat till Data Factory-resursen. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -492,7 +492,7 @@ Mer information finns i [diagnostikinställningar](https://docs.microsoft.com/re
 | --- | --- | --- | --- |
 | **Nivå** |Sträng | Nivån för diagnostikloggar. För aktivitets körnings loggar anger du egenskap svärdet 4. | `4` |
 | **correlationId** |Sträng | Unikt ID för spårning av en viss begäran. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **tid** | Sträng | Tiden för händelsen i UTC-formatet i TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
+| **time** | Sträng | Tiden för händelsen i UTC-formatet i TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
 |**runId**| Sträng| ID för pipeline-körningen. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**resourceId**| Sträng | Det ID som är kopplat till Data Factory-resursen. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**kategori**| Sträng | Kategorin för diagnostikloggar. Ange egenskapens värde till `PipelineRuns` . | `PipelineRuns` |
@@ -535,7 +535,7 @@ Mer information finns i [diagnostikinställningar](https://docs.microsoft.com/re
 | --- | --- | --- | --- |
 | **Nivå** |Sträng | Nivån för diagnostikloggar. För aktivitets körnings loggar anger du egenskap svärdet 4. | `4` |
 | **correlationId** |Sträng | Unikt ID för spårning av en viss begäran. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **tid** | Sträng | Tiden för händelsen i UTC-formatet i TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
+| **time** | Sträng | Tiden för händelsen i UTC-formatet i TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z` . | `2017-06-28T21:00:27.3534352Z` |
 |**triggerId**| Sträng| ID: t för utlösarens körning. | `08587023010602533858661257311` |
 |**resourceId**| Sträng | Det ID som är kopplat till Data Factory-resursen. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**kategori**| Sträng | Kategorin för diagnostikloggar. Ange egenskapens värde till `PipelineRuns` . | `PipelineRuns` |
@@ -570,7 +570,7 @@ Här följer SSIS för IR-åtgärder för start/stopp/underhåll.
 
 | Egenskap                   | Typ   | Beskrivning                                                   | Exempel                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
-| **tid**                   | Sträng | Tiden för händelsen i UTC-format:`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| **time**                   | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | Sträng | Namnet på din SSIS-IR-åtgärd                            | `Start/Stop/Maintenance` |
 | **kategori**               | Sträng | Kategorin för diagnostikloggar                               | `SSISIntegrationRuntimeLogs` |
 | **correlationId**          | Sträng | Unikt ID för att spåra en viss åtgärd             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
@@ -610,15 +610,15 @@ Här är de loggnings attributen för villkor som rör händelse meddelanden som
 
 | Egenskap                   | Typ   | Beskrivning                                                          | Exempel                        |
 | -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
-| **tid**                   | Sträng | Tiden för händelsen i UTC-format:`YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | Sträng | Detta är inställt på`YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
+| **time**                   | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | Sträng | Detta är inställt på `YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
 | **kategori**               | Sträng | Kategorin för diagnostikloggar                                      | `SSISPackageEventMessageContext` |
 | **correlationId**          | Sträng | Unikt ID för att spåra en viss åtgärd                    | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | Sträng | Namnet på din ADF                                                 | `MyADFv2` |
 | **integrationRuntimeName** | Sträng | Namnet på din SSIS-IR                                             | `MySSISIR` |
 | **nivå**                  | Sträng | Nivån för diagnostikloggar                                         | `Informational` |
-| **operationId**            | Sträng | Unikt ID för att spåra en viss åtgärd i SSISDB          | `1`(1 betyder åtgärder relaterade till paket som **inte** lagras i SSISDB/anropas via T-SQL) |
-| **contextDepth**           | Sträng | Djupet i händelse meddelande kontexten                              | `0`(0 anger kontexten innan paket körningen börjar, 1 anger kontexten när ett fel inträffar, och det ökar när kontexten är ytterligare från felet) |
+| **operationId**            | Sträng | Unikt ID för att spåra en viss åtgärd i SSISDB          | `1` (1 betyder åtgärder relaterade till paket som **inte** lagras i SSISDB/anropas via T-SQL) |
+| **contextDepth**           | Sträng | Djupet i händelse meddelande kontexten                              | `0` (0 anger kontexten innan paket körningen börjar, 1 anger kontexten när ett fel inträffar, och det ökar när kontexten är ytterligare från felet) |
 | **packagePath**            | Sträng | Sökvägen till paket objekt som händelse meddelandets kontext källa      | `\Package` |
 | **contextType**            | Sträng | Typ av paket objekt som kontext källa för händelse meddelande      | `60`(se [fler kontext typer](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15#remarks)) |
 | **contextSourceName**      | Sträng | Namnet på paket objekt som kontext källa för händelse meddelande      | `MyPackage` |
@@ -660,14 +660,14 @@ Här är de logg-attribut för händelse meddelanden som genereras av SSIS-paket
 
 | Egenskap                   | Typ   | Beskrivning                                                        | Exempel                        |
 | -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
-| **tid**                   | Sträng | Tiden för händelsen i UTC-format:`YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | Sträng | Detta är inställt på`YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
+| **time**                   | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | Sträng | Detta är inställt på `YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
 | **kategori**               | Sträng | Kategorin för diagnostikloggar                                    | `SSISPackageEventMessages` |
 | **correlationId**          | Sträng | Unikt ID för att spåra en viss åtgärd                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | Sträng | Namnet på din ADF                                               | `MyADFv2` |
 | **integrationRuntimeName** | Sträng | Namnet på din SSIS-IR                                           | `MySSISIR` |
 | **nivå**                  | Sträng | Nivån för diagnostikloggar                                       | `Informational` |
-| **operationId**            | Sträng | Unikt ID för att spåra en viss åtgärd i SSISDB        | `1`(1 betyder åtgärder relaterade till paket som **inte** lagras i SSISDB/anropas via T-SQL) |
+| **operationId**            | Sträng | Unikt ID för att spåra en viss åtgärd i SSISDB        | `1` (1 betyder åtgärder relaterade till paket som **inte** lagras i SSISDB/anropas via T-SQL) |
 | **messageTime**            | Sträng | Tiden då ditt händelse meddelande skapas i UTC-format          | `2017-06-28T21:00:27.3534352Z` |
 | **messageType**            | Sträng | Typ av händelse meddelande                                     | `70`(se [fler meddelande typer](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
 | **messageSourceType**      | Sträng | Typ av händelse meddelande källa                              | `20`(se [fler typer av meddelande källor](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
@@ -678,7 +678,7 @@ Här är de logg-attribut för händelse meddelanden som genereras av SSIS-paket
 | **messageSourceId**        | Sträng | Unikt ID för paket komponenten som källa för händelse meddelande    | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
 | **subcomponentName**       | Sträng | Namnet på data flödes komponenten som din händelse meddelande källa       | `SSIS.Pipeline` |
 | **packagePath**            | Sträng | Sökvägen till paket objekt som din händelse meddelande källa            | `\Package\Data Flow Task` |
-| **executionPath**          | Sträng | Den fullständiga sökvägen från det överordnade paketet till komponenten som körs            | `\Transformation\Data Flow Task`(Den här sökvägen fångar även komponent iterationer) |
+| **executionPath**          | Sträng | Den fullständiga sökvägen från det överordnade paketet till komponenten som körs            | `\Transformation\Data Flow Task` (Den här sökvägen fångar även komponent iterationer) |
 | **threadId**               | Sträng | Unikt ID för tråden som körs när ditt händelse meddelande loggas | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
 
 #### <a name="ssis-executable-statistics-log-attributes"></a>SSIS körbar statistik logg attribut
@@ -709,19 +709,19 @@ Här är de loggfiler för körbar statistik som genereras av SSIS-paket körnin
 
 | Egenskap                   | Typ   | Beskrivning                                                      | Exempel                        |
 | -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
-| **tid**                   | Sträng | Tiden för händelsen i UTC-format:`YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | Sträng | Detta är inställt på`YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
+| **time**                   | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | Sträng | Detta är inställt på `YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
 | **kategori**               | Sträng | Kategorin för diagnostikloggar                                  | `SSISPackageExecutableStatistics` |
 | **correlationId**          | Sträng | Unikt ID för att spåra en viss åtgärd                | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | Sträng | Namnet på din ADF                                             | `MyADFv2` |
 | **integrationRuntimeName** | Sträng | Namnet på din SSIS-IR                                         | `MySSISIR` |
 | **nivå**                  | Sträng | Nivån för diagnostikloggar                                     | `Informational` |
-| **executionId frågeparameter**            | Sträng | Unikt ID för att spåra en viss körning i SSISDB      | `1`(1 indikerar körningar relaterade till paket som **inte** lagras i SSISDB/som anropas via T-SQL) |
-| **executionPath**          | Sträng | Den fullständiga sökvägen från det överordnade paketet till komponenten som körs          | `\Transformation\Data Flow Task`(Den här sökvägen fångar även komponent iterationer) |
-| **startTime**              | Sträng | Tiden då den körbara filen går in i UTC-format  | `2017-06-28T21:00:27.3534352Z` |
+| **executionId frågeparameter**            | Sträng | Unikt ID för att spåra en viss körning i SSISDB      | `1` (1 indikerar körningar relaterade till paket som **inte** lagras i SSISDB/som anropas via T-SQL) |
+| **executionPath**          | Sträng | Den fullständiga sökvägen från det överordnade paketet till komponenten som körs          | `\Transformation\Data Flow Task` (Den här sökvägen fångar även komponent iterationer) |
+| **/St**              | Sträng | Tiden då den körbara filen går in i UTC-format  | `2017-06-28T21:00:27.3534352Z` |
 | **endTime**                | Sträng | Tiden då den körbara filen anges efter körning i UTC-format | `2017-06-28T21:00:27.3534352Z` |
 | **executionDuration**      | Sträng | Körnings tiden för den körbara filen i millisekunder                   | `1,125` |
-| **executionResult**        | Sträng | Resultatet av att köra körbara filer                                 | `0`(0 betyder att det går att slutföra, 1 betyder att det är slut, 2 betyder slut för ande och 3 anger att annulleringen ska avbrytas) |
+| **executionResult**        | Sträng | Resultatet av att köra körbara filer                                 | `0` (0 betyder att det går att slutföra, 1 betyder att det är slut, 2 betyder slut för ande och 3 anger att annulleringen ska avbrytas) |
 | **executionValue**         | Sträng | Det användardefinierade värdet som returnerades genom att köra körbar fil            | `1` |
 | **resourceId**             | Sträng | Unikt ID för din ADF-resurs                               | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
@@ -754,19 +754,19 @@ Här följer logg attributen för körnings statistik för data flödes komponen
 
 | Egenskap                   | Typ   | Beskrivning                                                         | Exempel                        |
 | -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
-| **tid**                   | Sträng | Tiden för händelsen i UTC-format:`YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | Sträng | Detta är inställt på`YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
+| **time**                   | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | Sträng | Detta är inställt på `YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
 | **kategori**               | Sträng | Kategorin för diagnostikloggar                                     | `SSISPackageExecutionComponentPhases` |
 | **correlationId**          | Sträng | Unikt ID för att spåra en viss åtgärd                   | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | Sträng | Namnet på din ADF                                                | `MyADFv2` |
 | **integrationRuntimeName** | Sträng | Namnet på din SSIS-IR                                            | `MySSISIR` |
 | **nivå**                  | Sträng | Nivån för diagnostikloggar                                        | `Informational` |
-| **executionId frågeparameter**            | Sträng | Unikt ID för att spåra en viss körning i SSISDB         | `1`(1 indikerar körningar relaterade till paket som **inte** lagras i SSISDB/som anropas via T-SQL) |
+| **executionId frågeparameter**            | Sträng | Unikt ID för att spåra en viss körning i SSISDB         | `1` (1 indikerar körningar relaterade till paket som **inte** lagras i SSISDB/som anropas via T-SQL) |
 | **packageName**            | Sträng | Namnet på den körda paket filen                              | `MyPackage.dtsx` |
 | **/TN**               | Sträng | Namnet på uppgiften körd data flöde                                 | `Data Flow Task` |
 | **subcomponentName**       | Sträng | Namnet på data flödes komponenten                                     | `Derived Column` |
 | **fasa**                  | Sträng | Körnings fasens namn                                         | `AcquireConnections` |
-| **startTime**              | Sträng | Tiden då körnings fasen startar i UTC-format                  | `2017-06-28T21:00:27.3534352Z` |
+| **/St**              | Sträng | Tiden då körnings fasen startar i UTC-format                  | `2017-06-28T21:00:27.3534352Z` |
 | **endTime**                | Sträng | Tiden då körnings fasen slutar i UTC-format                    | `2017-06-28T21:00:27.3534352Z` |
 | **executionPath**          | Sträng | Sökväg för körning av data flödes uppgift                            | `\Transformation\Data Flow Task` |
 | **resourceId**             | Sträng | Unikt ID för din ADF-resurs                                  | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -802,14 +802,14 @@ Här följer de Säkerhetsattributen för data förflyttningar genom varje steg 
 
 | Egenskap                     | Typ   | Beskrivning                                                        | Exempel                        |
 | ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
-| **tid**                     | Sträng | Tiden för händelsen i UTC-format:`YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**            | Sträng | Detta är inställt på`YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
+| **time**                     | Sträng | Tiden för händelsen i UTC-format: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**            | Sträng | Detta är inställt på `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
 | **kategori**                 | Sträng | Kategorin för diagnostikloggar                                    | `SSISPackageExecutionDataStatistics` |
 | **correlationId**            | Sträng | Unikt ID för att spåra en viss åtgärd                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**          | Sträng | Namnet på din ADF                                               | `MyADFv2` |
 | **integrationRuntimeName**   | Sträng | Namnet på din SSIS-IR                                           | `MySSISIR` |
 | **nivå**                    | Sträng | Nivån för diagnostikloggar                                       | `Informational` |
-| **executionId frågeparameter**              | Sträng | Unikt ID för att spåra en viss körning i SSISDB        | `1`(1 indikerar körningar relaterade till paket som **inte** lagras i SSISDB/som anropas via T-SQL) |
+| **executionId frågeparameter**              | Sträng | Unikt ID för att spåra en viss körning i SSISDB        | `1` (1 indikerar körningar relaterade till paket som **inte** lagras i SSISDB/som anropas via T-SQL) |
 | **packageName**              | Sträng | Namnet på den körda paket filen                             | `MyPackage.dtsx` |
 | **/TN**                 | Sträng | Namnet på uppgiften körd data flöde                                | `Data Flow Task` |
 | **dataflowPathIdString**     | Sträng | Unikt ID för spårning av data flödes Sök väg                          | `Paths[SQLDB Table3.ADO NET Source Output]` |

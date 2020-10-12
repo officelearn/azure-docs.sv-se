@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
 ms.openlocfilehash: d9da2ee893244afc7150ab6249dbe51845d5d0c2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332720"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
@@ -129,12 +129,12 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 **Dator** | **Komprimera till MABS/DPM (TCP)** | **Komprimera till valv (HTTPS)**
 --- | --- | ---
 **Direkt säkerhets kopiering av lokala Windows-datorer** | Ej tillämpligt | ![Ja][green]
-**Säkerhets kopiering av virtuella Azure-datorer med hjälp av VM-tillägg** | NA | NA
+**Säkerhets kopiering av virtuella Azure-datorer med hjälp av VM-tillägg** | NA | Ej tillämpligt
 **Säkerhetskopiera lokalt/Azure-datorer med hjälp av MABS/DPM** | ![Ja][green] | ![Ja][green]
 
 ## <a name="retention-limits"></a>Gräns för kvarhållning
 
-**Inställning** | **Gränser**
+**Inställning** | **Begränsningar**
 --- | ---
 **Högsta antal återställnings punkter per skyddad instans (dator eller arbets belastning)** | 9 999
 **Maximal förfallo tid för en återställnings punkt** | Obegränsad
@@ -151,9 +151,9 @@ Azure Backup har lagt till funktionen för återställning av kors region för a
 | Typ av säkerhets kopierings hantering | Stöds                                                    | Regioner som stöds |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Ja.   Stöds för krypterade virtuella datorer och virtuella datorer med mindre än 4 TB diskar | Alla offentliga Azure-regioner och suveräna moln.  |
-| SQL-/SAP HANA | Yes                                                          | Västra USA 2 (WUS2), västra centrala USA (WCUS), Kanada, centrala (CNC), Kanada, östra (CNE), USA, östra (EUS), västra USA (WUS), Östra Japan (JPE), Östra Japan (JPE) |
-| MARS-agent/lokalt  | No                                                           | Saknas               |
-| AFS (Azure-filresurser)                 | No                                                           | Saknas               |
+| SQL-/SAP HANA | Ja                                                          | Västra USA 2 (WUS2), västra centrala USA (WCUS), Kanada, centrala (CNC), Kanada, östra (CNE), USA, östra (EUS), västra USA (WUS), Östra Japan (JPE), Östra Japan (JPE) |
+| MARS-agent/lokalt  | Inga                                                           | E.t.               |
+| AFS (Azure-filresurser)                 | Inga                                                           | E.t.               |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
 ms.openlocfilehash: 82e3374491aa119d9985ea7ef31e180c920511d3
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087749"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Skapa Apache HBase-kluster på HDInsight i Azure Virtual Network
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 I det här avsnittet skapar du ett Linux-baserat Apache HBase-kluster med det beroende Azure Storage-kontot i ett virtuellt Azure-nätverk med hjälp av en [Azure Resource Manager-mall](../../azure-resource-manager/templates/deploy-powershell.md). För andra metoder för att skapa kluster och förstå inställningarna, se [skapa HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md). Mer information om hur du använder en mall för att skapa Apache Hadoop kluster i HDInsight finns i [skapa Apache Hadoop kluster i HDInsight med Azure Resource Manager mallar](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
 > [!NOTE]  
-> Vissa egenskaper är hårdkodade i mallen. Ett exempel:
+> Vissa egenskaper är hårdkodade i mallen. Exempel:
 >
 > * **Plats**: USA, östra 2
 > * **Klusterversion**: 3.6
@@ -43,7 +43,7 @@ I det här avsnittet skapar du ett Linux-baserat Apache HBase-kluster med det be
 > * **Under näts namn**: subnet1
 > * **Adress intervall för under nätet**: 10.0.0.0/24
 >
-> `CLUSTERNAME`ersätts med det kluster namn som du anger när du använder mallen.
+> `CLUSTERNAME` ersätts med det kluster namn som du anger när du använder mallen.
 
 1. Välj följande bild för att öppna mallen i Azure Portal. Mallen finns i [snabb starts mallar för Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
@@ -92,11 +92,11 @@ När du använder ett Java-program för att fjärrans luta till HBase måste du 
 
 * Använda en webbläsare för att göra ett [Apache Ambari](https://ambari.apache.org/) -anrop:
 
-    Bläddra till `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts?minimal_response=true`. Den returnerar en JSON-fil med DNS-suffix.
+    Gå till `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts?minimal_response=true`. Den returnerar en JSON-fil med DNS-suffix.
 
 * Använd Ambari webbplats:
 
-    1. Bläddra till `https://CLUSTERNAME.azurehdinsight.net`.
+    1. Gå till `https://CLUSTERNAME.azurehdinsight.net`.
     2. Välj **värdar** på den översta menyn.
 
 * Använd sväng för att göra REST-anrop:
@@ -105,13 +105,13 @@ När du använder ett Java-program för att fjärrans luta till HBase måste du 
     curl -u <username>:<password> -k https://CLUSTERNAME.azurehdinsight.net/ambari/api/v1/clusters/CLUSTERNAME.azurehdinsight.net/services/hbase/components/hbrest
     ```
 
-Leta upp posten "host_name" i de JavaScript Object Notation (JSON) som returneras. Den innehåller FQDN för noderna i klustret. Ett exempel:
+Leta upp posten "host_name" i de JavaScript Object Notation (JSON) som returneras. Den innehåller FQDN för noderna i klustret. Exempel:
 
 ```
 "host_name" : "hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net"
 ```
 
-Den del av domän namnet som börjar med kluster namnet är DNS-suffixet. Till exempel `hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
+Den del av domän namnet som börjar med kluster namnet är DNS-suffixet. Exempelvis `hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
 
 <!--
 3.    Change the primary DNS suffix configuration of the virtual machine. This enables the virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to workernode0 of the HBase cluster.
@@ -130,9 +130,9 @@ Den del av domän namnet som börjar med kluster namnet är DNS-suffixet. Till e
 
 ### <a name="verify-communication-inside-virtual-network"></a>Verifiera kommunikation i virtuellt nätverk
 
-Du kan kontrol lera att den virtuella datorn kan kommunicera med HBase-klustret genom att använda kommandot `ping headnode0.<dns suffix>` från den virtuella datorn. Till exempel `ping hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
+Du kan kontrol lera att den virtuella datorn kan kommunicera med HBase-klustret genom att använda kommandot `ping headnode0.<dns suffix>` från den virtuella datorn. Exempelvis `ping hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
 
-Om du vill använda den här informationen i ett Java-program kan du följa stegen i [använda Apache Maven för att skapa Java-program som använder Apache HBase med HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) för att skapa ett program. Om du vill att programmet ska ansluta till en fjärran sluten HBase-Server ändrar du **hbase-site.xml** filen i det här exemplet för att använda det fullständiga domän namnet för Zookeeper. Ett exempel:
+Om du vill använda den här informationen i ett Java-program kan du följa stegen i [använda Apache Maven för att skapa Java-program som använder Apache HBase med HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) för att skapa ett program. Om du vill att programmet ska ansluta till en fjärran sluten HBase-Server ändrar du **hbase-site.xml** filen i det här exemplet för att använda det fullständiga domän namnet för Zookeeper. Exempel:
 
 ```xml
 <property>
@@ -146,11 +146,11 @@ Om du vill använda den här informationen i ett Java-program kan du följa steg
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du skapar ett Apache HBase-kluster. Du kan läsa mer här:
+I den här artikeln har du lärt dig hur du skapar ett Apache HBase-kluster. Mer information finns i:
 
 * [Kom igång med HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Använd tomma Edge-noder i HDInsight](../hdinsight-apps-use-edge-node.md)
 * [Konfigurera Apache HBase-replikering i HDInsight](apache-hbase-replication.md)
 * [Skapa Apache Hadoop kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Kom igång med Apache HBase med Apache Hadoop i HDInsight](./apache-hbase-tutorial-get-started-linux.md)
-* [Översikt över virtuella nätverk](../../virtual-network/virtual-networks-overview.md)
+* [Översikt över Virtual Network](../../virtual-network/virtual-networks-overview.md)

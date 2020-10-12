@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6b201565ae2bcadccf55cee78ade0e011e603a15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85515383"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Utveckla för Azure Files med C++
@@ -160,7 +160,7 @@ directory.delete_directory_if_exists();
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Räkna upp filer och kataloger i en Azure-filresurs
 
-Att hämta en lista över filer och kataloger i en resurs görs enkelt genom att anropa **list_files_and_directories** på en **cloud_file_directory** referens. För att få åtkomst till den omfattande uppsättningen med egenskaper och metoder för en returnerad **list_file_and_directory_item**måste du anropa metoden **list_file_and_directory_item. as_file** för att hämta ett **cloud_file** -objekt eller **list_file_and_directory_item. as_directory** -metoden för att hämta ett **cloud_file_directory** -objekt.
+Att hämta en lista över filer och kataloger i en resurs görs enkelt genom att anropa **list_files_and_directories** på en **cloud_file_directory** referens. För att få åtkomst till den omfattande uppsättningen med egenskaper och metoder för en returnerad **list_file_and_directory_item**, måste du anropa metoden **list_file_and_directory_item. as _file** för att hämta ett **cloud_file** -objekt, eller **list_file_and_directory_item. as _directory** -metoden för att hämta ett **cloud_file_directory** -objekt.
 
 Följande kod visar hur du hämtar och matar ut URI för varje objekt i resursens rot Katalog.
 
@@ -185,7 +185,7 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 }
 ```
 
-## <a name="upload-a-file"></a>Överför en fil
+## <a name="upload-a-file"></a>Ladda upp en fil
 
 En Azure-filresurs innehåller minst en rot katalog där filerna kan finnas. I det här avsnittet får du lära dig hur du laddar upp en fil från lokal lagring till rot katalogen för en resurs.
 
@@ -218,7 +218,7 @@ azure::storage::cloud_file file4 =
 file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 ```
 
-## <a name="download-a-file"></a>Hämta en fil
+## <a name="download-a-file"></a>Ladda ned en fil
 
 Hämta filer genom att först hämta en fil referens och sedan anropa metoden **download_to_stream** för att överföra fil innehållet till ett Stream-objekt, som du sedan kan behålla till en lokal fil. Du kan också använda metoden **download_to_file** för att ladda ned innehållet i en fil till en lokal fil. Du kan använda metoden **download_text** för att ladda ned innehållet i en fil som en text sträng.
 
@@ -369,5 +369,5 @@ Utforska gärna dessa resurser om du vill veta mer om Azure Storage:
 
 * [Storage-klientbibliotek för C++](https://github.com/Azure/azure-storage-cpp)
 * [Azure Storage fil tjänst exempel i C++](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
-* [Azure Lagringsutforskaren](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure Storage dokumentation](https://azure.microsoft.com/documentation/services/storage/)

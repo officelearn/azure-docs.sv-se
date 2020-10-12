@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
 ms.openlocfilehash: 4f6bbbdbbee6cf83a6bea463cf200be0cf671897
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317063"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights att använda AI för att övervaka och felsöka databas prestanda (för hands version)
@@ -158,7 +158,7 @@ De insikter som genereras innehåller antalet förfrågningar om timeout och ant
 
 ## <a name="excessive-wait-times"></a>Lång vänte tid
 
-Den förstora vänte tids modellen övervakar enskilda databas frågor. Den identifierar ovanligt hög vänte tid för frågor som korsade de absoluta tröskelvärdena som hanteras av systemet. Följande fråga för överdriven väntan/tid-mått observeras med hjälp av [query Store wait stats (sys. query_store_wait_stats)](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql):
+Den förstora vänte tids modellen övervakar enskilda databas frågor. Den identifierar ovanligt hög vänte tid för frågor som korsade de absoluta tröskelvärdena som hanteras av systemet. Följande fråga för överdriven väntan/tid-mått observeras med hjälp av, [vänte läge för Query Store (sys.query_store_wait_stats)](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql):
 
 - Når resurs gränser
 - Når resurs gränser för elastisk pool

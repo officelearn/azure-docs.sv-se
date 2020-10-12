@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fbb7b7da4ed5268e66260e48d6367bbe02f0845a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87797584"
 ---
 # <a name="add-or-remove-group-members-using-azure-active-directory"></a>Lägg till eller ta bort grupp medlemmar med Azure Active Directory
@@ -31,7 +31,7 @@ Med hjälp av Azure Active Directory kan du fortsätta att lägga till och ta bo
 
 3. Från sidan **grupper – alla grupper** söker du efter och väljer den grupp som du vill lägga till medlemmen i. I det här fallet använder du vår tidigare skapade grupp, **MDM-princip – väst**.
 
-    ![Grupper – sidan alla grupper, grupp namn markerat](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
+    ![Sidan Groups-All grupper, grupp namn har marker ATS](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
 
 4. På **översiktssidan för MDM policy – West** väljer du **Medlemmar** i området **Hantera**.
 

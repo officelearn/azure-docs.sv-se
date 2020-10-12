@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 07/24/2020
 ms.openlocfilehash: a6e304e5ffeab8f0a44cbdfe1566465f2b9bf34a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88607424"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integrera din handels Marketplace-lista med Azure Active Directory
@@ -33,12 +33,12 @@ De olika [listorna över försäljnings platser och erbjudande typer](determine-
 
 | Erbjudandetyp    | Behöver du ringa till Azure AD SSO för att kontakta mig?  | Azure AD SSO krävs för utvärderings versionen? | Vill du att Azure AD SSO krävs för test enheten?  | Azure AD SSO krävs för Transact |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-| Virtuell dator | Ej tillämpligt | Nej | Nej | Nej |
+| Virtuell dator | E.t. | Inga | Inga | Inga |
 | Azure-appar (lösnings mal len)  | Saknas | Saknas | Saknas | Saknas |
-| Hanterade appar  | Saknas | Saknas | Saknas | Nej |
-| SaaS  | Nej | Ja | Ja | Ja |
-| Containrar  | Saknas | Saknas | Saknas | Nej |
-| Rådgivningstjänster  | Nej | Saknas | Saknas | Saknas |
+| Hanterade appar  | Saknas | Saknas | Saknas | Inga |
+| SaaS  | Inga | Ja | Ja | Ja |
+| Containrar  | Saknas | Saknas | Saknas | Inga |
+| Rådgivningstjänster  | Inga | Saknas | Saknas | Saknas |
 
 Mer information om tekniska krav för SaaS finns [i Azure AD och transactable SaaS-erbjudanden på den kommersiella marknaden](./azure-ad-saas.md).
 

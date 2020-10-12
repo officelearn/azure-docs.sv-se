@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 25199aeb7a3ed6332e74ad05835a8c4fca763c00
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116469"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Felsöka: lokalt Azure AD-lösenord
@@ -50,7 +50,7 @@ Huvud symptomet för det här problemet är 30018 händelser i händelse loggen 
 
 1. Se till att skogen och alla proxyservrar är registrerade gentemot samma Azure-klient.
 
-   Du kan kontrol lera detta krav genom att `Get-AzureADPasswordProtectionProxy` köra `Get-AzureADPasswordProtectionDCAgent` -och PowerShell-cmdletarna och sedan jämföra `AzureTenant` egenskapen för varje returnerad artikel. För korrekt åtgärd måste det rapporterade klient namnet vara detsamma för alla DC-agenter och proxyservrar.
+   Du kan kontrol lera detta krav genom att  `Get-AzureADPasswordProtectionProxy` köra `Get-AzureADPasswordProtectionDCAgent` -och PowerShell-cmdletarna och sedan jämföra `AzureTenant` egenskapen för varje returnerad artikel. För korrekt åtgärd måste det rapporterade klient namnet vara detsamma för alla DC-agenter och proxyservrar.
 
    Om ett matchnings fel för ett Azure-klientnummer finns kan det här problemet åtgärdas genom att köra `Register-AzureADPasswordProtectionProxy` och/eller `Register-AzureADPasswordProtectionForest` PowerShell-cmdletar efter behov, och se till att använda autentiseringsuppgifter från samma Azure-klient för alla registreringar.
 
@@ -84,7 +84,7 @@ The forest has not been registered with Azure. Password policies cannot be downl
 
 Det finns två möjliga orsaker till det här problemet.
 
-1. Skogen har inte registrerats. Lös problemet genom att köra kommandot register-AzureADPasswordProtectionForest enligt beskrivningen i [distributions kraven](howto-password-ban-bad-on-premises-deploy.md).
+1. Skogen har inte registrerats. Lös problemet genom att köra kommandot Register-AzureADPasswordProtectionForest enligt beskrivningen i [distributions kraven](howto-password-ban-bad-on-premises-deploy.md).
 1. Skogen har registrerats, men DC-agenten kan inte dekryptera skogens registrerings data. Det här fallet har samma rotor saken som problem #2 som anges ovan under [DC-agenten kan inte kryptera eller dekryptera filer för lösen ords princip](howto-password-ban-bad-on-premises-troubleshoot.md#dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files). Ett enkelt sätt att bekräfta den här teorien är att du bara ser det här felet på DC-agenter som körs på Windows Server 2012 eller Windows Server 2012R2 domänkontrollanter, medan DC-agenter som körs på Windows Server 2016 och senare domänkontrollanter fungerar. Lösningen är densamma: uppgradera alla domänkontrollanter till Windows Server 2016 eller senare.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Svaga lösen ord godkänns men bör inte

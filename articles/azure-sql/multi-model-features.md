@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
 ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073318"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Funktioner för flera modeller i Azure SQL Database & SQL-hanterad instans
@@ -142,7 +142,7 @@ CREATE TABLE Collection (
 
 Du kan anpassa den här nyckel värdes strukturen så att den passar dina behov utan begränsningar. Värdet kan till exempel vara XML-dokument i stället för `nvarchar(max)` typ, om värdet är JSON-dokument, kan du ange `CHECK` en begränsning som verifierar att JSON-innehåll är giltigt. Du kan placera ett valfritt antal värden som är relaterade till en nyckel i de ytterligare kolumnerna, lägga till beräknade kolumner och index för att förenkla och optimera data åtkomst, definiera tabellen som en minnes/optimerad schema tabell för att få bättre prestanda osv.
 
-Se [hur bwin använder minnes intern OLTP för att uppnå oöverträffade prestanda och skalning](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) för sin ASP.net caching-lösning som nådde 1.200.000 batchar per sekund, som ett exempel på hur Relations modellen kan användas som nyckel värdes par lösning i praxis.
+Se [hur bwin använder In-Memory OLTP för att uppnå oöverträffad prestanda och skalning](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) för sin ASP.net caching-lösning som nådde 1.200.000 batchar per sekund, som ett exempel på hur Relations modellen kan användas som nyckel värdes par lösning i praxis.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: b65697c224f612a1bc9d5bfa193355832cafd73f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88799255"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure Data Catalog utveckla koncept
@@ -111,7 +111,7 @@ Antecknings typer representerar typer av metadata som kan tilldelas andra typer 
 <tr><td><b>Antecknings typ (namn på kapslad vy)</b></td><td><b>Ytterligare egenskaper</b></td><td><b>Datatyp</b></td><td><b>Kommentarer</b></td></tr>
 
 <tr><td>Beskrivning ("beskrivningar")</td><td></td><td></td><td>Den här egenskapen innehåller en beskrivning av en till gång. Varje användare av systemet kan lägga till en egen beskrivning.  Endast den användaren kan redigera Description-objektet.  (Administratörer och till gångs ägare kan ta bort Description-objektet men inte redigera det). Systemet bibehåller användarnas beskrivningar separat.  Det finns därför en matris med beskrivningar för varje till gång (en för varje användare som har bidragit med sina kunskaper om till gången, förutom en som innehåller information som härletts från data källan).</td></tr>
-<tr><td></td><td>beskrivning</td><td>sträng</td><td>En kort beskrivning (2-3 rader) av till gången</td></tr>
+<tr><td></td><td>description</td><td>sträng</td><td>En kort beskrivning (2-3 rader) av till gången</td></tr>
 
 <tr><td>Tagg ("Taggar")</td><td></td><td></td><td>Den här egenskapen definierar en tagg för en till gång. Varje användare av systemet kan lägga till flera taggar för en till gång.  Endast den användare som skapade tagga objekt kan redigera dem.  (Administratörer och till gångs ägare kan ta bort taggnamnet men inte redigera det). Systemet bibehåller användarnas Taggar separat.  Det finns därför en matris med att tagga objekt på varje till gång.</td></tr>
 <tr><td></td><td>tagg</td><td>sträng</td><td>En tagg som beskriver till gången.</td></tr>
@@ -124,7 +124,7 @@ Antecknings typer representerar typer av metadata som kan tilldelas andra typer 
 
 <tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>Den här egenskapen innehåller en beskrivning av en kolumn.  Varje användare av systemet kan lägga till egna beskrivningar för flera kolumner (högst ett per kolumn). Endast den användare som skapade ColumnDescription-objekt kan redigera dem.  (Administratörer och till gångs ägare kan ta bort ColumnDescription-objektet men inte redigera det). Systemet underhåller dessa användares kolumn beskrivningar separat.  Därför finns det en matris med ColumnDescription-objekt på varje till gång (en per kolumn för varje användare som har bidragit till deras kännedom om kolumnen, förutom en som innehåller information som härletts från data källan).  ColumnDescription binds löst till schemat så att det kan bli osynkroniserade. ColumnDescription kan beskriva en kolumn som inte längre finns i schemat.  Det är upp till skrivaren att behålla beskrivningen och schemat synkroniserat.  Data källan kan också ha kolumn beskrivnings information och de är ytterligare ColumnDescription-objekt som skulle skapas när verktyget körs.</td></tr>
 <tr><td></td><td>columnName</td><td>Sträng</td><td>Namnet på kolumnen som beskrivningen refererar till.</td></tr>
-<tr><td></td><td>beskrivning</td><td>Sträng</td><td>en kort beskrivning (2-3 rader) i kolumnen.</td></tr>
+<tr><td></td><td>description</td><td>Sträng</td><td>en kort beskrivning (2-3 rader) i kolumnen.</td></tr>
 
 <tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>Den här egenskapen innehåller en tagg för en kolumn. Varje användare av systemet kan lägga till flera taggar för en specifik kolumn och kan lägga till taggar för flera kolumner. Endast den användare som skapade ColumnTag-objekt kan redigera dem. (Administratörer och till gångs ägare kan ta bort ColumnTag-objektet men inte redigera det). Systemet underhåller dessa användares kolumn etiketter separat.  Därför finns det en matris med ColumnTag-objekt på varje till gång.  ColumnTag binds löst till schemat så att det kan bli osynkroniserade. ColumnTag kan beskriva en kolumn som inte längre finns i schemat.  Det är upp till skribenten att behålla kolumn tag gen och schemat synkroniserat.</td></tr>
 <tr><td></td><td>columnName</td><td>Sträng</td><td>Namnet på kolumnen som den här taggen refererar till.</td></tr>
@@ -142,7 +142,7 @@ Antecknings typer representerar typer av metadata som kan tilldelas andra typer 
 
 <tr><td>TableDataProfile ("tableDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>numberOfRows</td></td><td>int</td><td>Antalet rader i data uppsättningen</td></tr>
-<tr><td></td><td>ikoner</td><td>long</td><td>Data uppsättningens storlek i byte.  </td></tr>
+<tr><td></td><td>size</td><td>long</td><td>Data uppsättningens storlek i byte.  </td></tr>
 <tr><td></td><td>schemaModifiedTime</td><td>sträng</td><td>När schemat senast ändrades</td></tr>
 <tr><td></td><td>dataModifiedTime</td><td>sträng</td><td>Den senaste gången data uppsättningen ändrades (data lades till, ändrades eller togs bort)</td></tr>
 

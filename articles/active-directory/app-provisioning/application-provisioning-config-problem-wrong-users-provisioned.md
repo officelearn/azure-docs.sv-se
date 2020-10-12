@@ -12,10 +12,10 @@ ms.date: 09/20/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.openlocfilehash: 5a109f1a06e7ee8aff3e455c009217ff670d2781
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84782219"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Fel uppsättning användare tillhandahålls till ett Azure AD Gallery-program
@@ -108,4 +108,4 @@ Om etableringen har kon figurer ATS och redan körs för en app, ska nya använd
 Om etablerings grupper har Aktiver ATS, se till att granska mappningar för attribut för att säkerställa att ett lämpligt fält används för "matchande ID". Detta matchnings-ID kan vara visnings namnet eller e-postaliaset. Gruppen och dess medlemmar är inte etablerade om matchande egenskap är tom eller inte har fyllts i för en grupp i Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg
-[Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md)
+[Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md)

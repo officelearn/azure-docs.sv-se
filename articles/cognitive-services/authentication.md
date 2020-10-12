@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
 ms.openlocfilehash: 4fab0be90e6941d1a6b8f137ae574223b0d7a9d1
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86232754"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autentisera begär anden till Azure Cognitive Services
@@ -34,7 +34,7 @@ Du kan hämta din prenumerations nyckel från [Azure Portal](cognitive-services-
 
 Vi går snabbt igenom de autentiseringsscheman som är tillgängliga för användning med Azure Cognitive Services.
 
-| Huvud | Beskrivning |
+| Sidhuvud | Beskrivning |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Använd den här rubriken för att autentisera med en prenumerations nyckel för en enskild tjänst eller en prenumerations nyckel för flera tjänster. |
 | OCP-APIM-Subscription-region | Den här rubriken krävs bara när du använder en prenumerations nyckel för flera tjänster med [tjänsten Translator](./Translator/reference/v3-0-reference.md). Använd den här rubriken för att ange prenumerations region. |
@@ -75,7 +75,7 @@ Prenumerations nyckeln anges i varje begäran som `Ocp-Apim-Subscription-Key` ru
 
 ### <a name="supported-regions"></a>Regioner som stöds
 
-När du använder prenumerations nyckeln för flera tjänster för att göra en begäran till `api.cognitive.microsoft.com` måste du inkludera regionen i URL: en. Här är ett exempel: `westus.api.cognitive.microsoft.com`.
+När du använder prenumerations nyckeln för flera tjänster för att göra en begäran till `api.cognitive.microsoft.com` måste du inkludera regionen i URL: en. Exempel: `westus.api.cognitive.microsoft.com`.
 
 När du använder en prenumerations nyckel för flera tjänster med Translator-tjänsten måste du ange prenumerations region med `Ocp-Apim-Subscription-Region` rubriken.
 

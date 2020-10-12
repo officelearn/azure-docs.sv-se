@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 7642a32ce69dbbbb5ddebbe56b74f3202b2e6422
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86039576"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Vanliga fel och fel söknings steg för Azure Active Directory Domain Services
@@ -28,7 +28,7 @@ Den här artikeln innehåller fel söknings steg för vanliga problem i Azure AD
 
 Om du har problem med att aktivera Azure AD DS kan du läsa följande vanliga fel och steg för att lösa dem:
 
-| **Exempel på fel meddelande** | **Upplösning** |
+| **Exempel på fel meddelande** | **Lösning** |
 | --- |:--- |
 | *Namnet aaddscontoso.com används redan i det här nätverket. Ange ett namn som inte används.* |[Domän namns konflikt i det virtuella nätverket](troubleshoot.md#domain-name-conflict) |
 | *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Tjänsten har inte tillräcklig behörighet för programmet som heter "Azure AD Domain Services Sync". Ta bort programmet som heter "Azure AD Domain Services Sync" och försök sedan Aktivera domän tjänster för Azure AD-klienten.* |[Domän tjänster har inte tillräcklig behörighet för Azure AD Domain Services Sync-programmet](troubleshoot.md#inadequate-permissions) |
@@ -41,7 +41,7 @@ Om du har problem med att aktivera Azure AD DS kan du läsa följande vanliga fe
 
 *Namnet aaddscontoso.com används redan i det här nätverket. Ange ett namn som inte används.*
 
-**Upplösning**
+**Lösning**
 
 Kontrol lera att du inte har en befintlig AD DS-miljö med samma domän namn på samma eller ett peer-kopplat virtuellt nätverk. Du kan till exempel ha en AD DS-domän med namnet *aaddscontoso.com* som körs på virtuella Azure-datorer. När du försöker aktivera en Azure AD DS-hanterad domän med samma domän namn *aaddscontoso.com* i det virtuella nätverket, Miss lyckas den begärda åtgärden.
 
@@ -53,7 +53,7 @@ Det här felet beror på namn konflikter för domän namnet i det virtuella nät
 
 *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Tjänsten har inte tillräcklig behörighet för programmet som heter "Azure AD Domain Services Sync". Ta bort programmet som heter "Azure AD Domain Services Sync" och försök sedan Aktivera domän tjänster för Azure AD-klienten.*
 
-**Upplösning**
+**Lösning**
 
 Kontrol lera om det finns ett program med namnet *Azure AD Domain Services Sync* i Azure AD-katalogen. Om det här programmet finns tar du bort det och försöker sedan aktivera Azure AD DS igen. För att söka efter ett befintligt program och ta bort det vid behov, utför följande steg:
 
@@ -68,7 +68,7 @@ Kontrol lera om det finns ett program med namnet *Azure AD Domain Services Sync*
 
 *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Domän tjänst programmet i din Azure AD-klient har inte de behörigheter som krävs för att aktivera domän tjänster. Ta bort programmet med program identifieraren d87dcbc6-a371-462e-88e3-28ad15ec4e64 och försök sedan att aktivera Domain Services för din Azure AD-klient.*
 
-**Upplösning**
+**Lösning**
 
 Kontrol lera att du har ett befintligt program med namnet *AzureActiveDirectoryDomainControllerServices* med ett program-ID för *D87DCBC6-A371-462E-88E3-28AD15EC4E64* i Azure AD-katalogen. Om det här programmet finns tar du bort det och försöker sedan igen för att aktivera Azure AD DS.
 
@@ -112,7 +112,7 @@ if ($sp -ne $null)
 
 *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Microsoft Azure AD programmet är inaktiverat i din Azure AD-klient. Aktivera programmet med program identifieraren 00000002-0000-0000-C000-000000000000 och försök sedan aktivera Domain Services för din Azure AD-klient.*
 
-**Upplösning**
+**Lösning**
 
 Kontrol lera om du har inaktiverat ett program med identifieraren *00000002-0000-0000-C000-000000000000*. Det här programmet är Microsoft Azure AD programmet och ger Graph API åtkomst till din Azure AD-klient. Detta program måste vara aktiverat för att du ska kunna synkronisera din Azure AD-klient.
 

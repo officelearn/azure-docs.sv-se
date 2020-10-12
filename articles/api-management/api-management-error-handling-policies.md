@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: bddb4ea3759d19d1e122739fb69cf9bf96c66635
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243553"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Felhantering i API Management-principer
@@ -83,12 +83,12 @@ När ett fel uppstår och styr hopp till `on-error` princip avsnittet lagras fel
 | Namn       | Typ   | Beskrivning                                                                                               | Krävs |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | `Source`   | sträng | Namnger elementet där felet inträffade. Kan vara antingen en princip eller ett inbyggt steg namn för pipelinen.      | Ja      |
-| `Reason`   | sträng | Maskin vänlig felkod som kan användas vid fel hantering.                                       | Nej       |
+| `Reason`   | sträng | Maskin vänlig felkod som kan användas vid fel hantering.                                       | Inga       |
 | `Message`  | sträng | Fel Beskrivning av människo läsbarhet.                                                                         | Ja      |
-| `Scope`    | sträng | Namnet på det omfång där felet inträffade och kan vara en av "global", "Product", "API" eller "operation" | Nej       |
-| `Section`  | sträng | Avsnitts namn där fel uppstod. Möjliga värden: "inkommande", "backend", "utgående" eller "på-fel".      | Nej       |
-| `Path`     | sträng | Anger kapslad princip, till exempel "Välj [3]/when [2]".                                                 | Nej       |
-| `PolicyId` | sträng | Värdet för `id` attributet, om det anges av kunden, på principen där felet uppstod             | Nej       |
+| `Scope`    | sträng | Namnet på det omfång där felet inträffade och kan vara en av "global", "Product", "API" eller "operation" | Inga       |
+| `Section`  | sträng | Avsnitts namn där fel uppstod. Möjliga värden: "inkommande", "backend", "utgående" eller "på-fel".      | Inga       |
+| `Path`     | sträng | Anger kapslad princip, till exempel "Välj [3]/when [2]".                                                 | Inga       |
+| `PolicyId` | sträng | Värdet för `id` attributet, om det anges av kunden, på principen där felet uppstod             | Inga       |
 
 > [!TIP]
 > Du kan komma åt status koden via kontexten. Response. StatusCode.
@@ -100,7 +100,7 @@ När ett fel uppstår och styr hopp till `on-error` princip avsnittet lagras fel
 
 Följande fel är fördefinierade för fel villkor som kan uppstå under utvärderingen av de inbyggda bearbetnings stegen.
 
-| Källa        | Villkor                                 | Orsak                  | Meddelande                                                                                                                |
+| Källa        | Condition (Väderförhållanden)                                 | Orsak                  | Meddelande                                                                                                                |
 | ------------- | ----------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | konfiguration | URI: n matchar inte någon API eller åtgärd | OperationNotFound       | Det gick inte att matcha inkommande begäran till en åtgärd.                                                                      |
 | auktorisering | Ingen prenumerations nyckel har angetts             | SubscriptionKeyNotFound | Åtkomst nekad på grund av saknad prenumerations nyckel. Se till att inkludera prenumerations nyckel när du gör förfrågningar till detta API. |
@@ -113,7 +113,7 @@ Följande fel är fördefinierade för fel villkor som kan uppstå under utvärd
 
 Följande fel är fördefinierade för fel villkor som kan uppstå under utvärdering av principer.
 
-| Källa       | Villkor                                                       | Orsak                    | Meddelande                                                                                                                              |
+| Källa       | Condition (Väderförhållanden)                                                       | Orsak                    | Meddelande                                                                                                                              |
 | ------------ | --------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | hastighets begränsning   | Hastighets gränsen har överskridits                                             | RateLimitExceeded         | Hastighets gränsen har överskridits                                                                                                               |
 | kvot        | Kvoten överskreds                                                  | QuotaExceeded             | Slut på kvot för samtalsvolym. Kvoten kommer att fyllas i XX: XX: xx. -eller-slut på bandbredds kvot. Kvoten kommer att fyllas i XX: XX: xx. |

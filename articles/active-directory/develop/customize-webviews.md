@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: a8486ec87b5198231a33b1dab382ba457c8c8066
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85478135"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Gör så här: anpassa webbläsare och webbvy för iOS/macOS
@@ -36,7 +36,7 @@ För iOS och macOS:
 - [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc)
 - [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview?language=objc).
 
-MSAL för macOS stöder bara `WKWebView` äldre OS-versioner. `ASWebAuthenticationSession`stöds endast på macOS 10,15 och senare. 
+MSAL för macOS stöder bara `WKWebView` äldre OS-versioner. `ASWebAuthenticationSession` stöds endast på macOS 10,15 och senare. 
 
 ## <a name="system-browsers"></a>System webbläsare
 
@@ -61,8 +61,8 @@ Som standard kommer MSAL att identifiera iOS-versionen dynamiskt och välja den 
 
 Utvecklare kan också välja en annan system webbläsare för MSAL-appar:
 
-- `SFAuthenticationSession`är iOS 11-versionen av `ASWebAuthenticationSession` .
-- `SFSafariViewController`är mer generell användning och innehåller ett gränssnitt för att surfa på webben och kan även användas för inloggnings ändamål. I iOS 9 och 10 delas cookies och andra webbplats data med Safari – men inte i iOS 11 och senare.
+- `SFAuthenticationSession` är iOS 11-versionen av `ASWebAuthenticationSession` .
+- `SFSafariViewController` är mer generell användning och innehåller ett gränssnitt för att surfa på webben och kan även användas för inloggnings ändamål. I iOS 9 och 10 delas cookies och andra webbplats data med Safari – men inte i iOS 11 och senare.
 
 ## <a name="in-app-browser"></a>Webbläsare i app
 
@@ -72,13 +72,13 @@ Utvecklare kan också välja en annan system webbläsare för MSAL-appar:
 
 Den webbläsare du använder påverkar SSO-upplevelsen på grund av hur de delar cookies. I följande tabeller sammanfattas SSO-upplevelser per webbläsare.
 
-| Teknologi    | Typ av webbläsare  | tillgänglighet för iOS | macOS-tillgänglighet | Delar cookies och andra data  | MSAL tillgänglighet | Enkel inloggning |
+| Teknik    | Typ av webbläsare  | tillgänglighet för iOS | macOS-tillgänglighet | Delar cookies och andra data  | MSAL tillgänglighet | Enkel inloggning |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
 | [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System | iOS12 och upp | macOS 10,15 och uppåt | Ja | iOS-och macOS-10.15 + | b/Safari-instanser
 | [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | System | iOS11 och upp | E.t. | Ja | enbart iOS |  b/Safari-instanser
-| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System | iOS11 och upp | E.t. | No | enbart iOS | Nej * *
+| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System | iOS11 och upp | E.t. | Inga | enbart iOS | Nej * *
 | **SFSafariViewController** | System | iOS10 | E.t. | Ja | enbart iOS |  b/Safari-instanser
-| **WKWebView**  | In-app | iOS8 och upp | macOS 10,10 och uppåt | No | iOS och macOS | Nej * *
+| **WKWebView**  | In-app | iOS8 och upp | macOS 10,10 och uppåt | Inga | iOS och macOS | Nej * *
 
 * * För att SSO ska fungera måste tokens delas mellan appar. Detta kräver ett token-cache-eller Broker-program, till exempel Microsoft Authenticator för iOS.
 
@@ -96,7 +96,7 @@ Varje begäran kan konfigureras att åsidosätta standard webbläsaren genom att
 
 Dessutom stöder MSAL överföring i en anpassad `WKWebView` genom att ange `MSALInteractiveTokenParameters.webviewParameters.customWebView` egenskapen.
 
-Ett exempel:
+Exempel:
 
 Objective-C
 ```objc

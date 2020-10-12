@@ -7,10 +7,10 @@ ms.date: 06/15/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ebde1be459078f4f3473ebc3042d8acebcce910a
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613733"
 ---
 # <a name="debug-rendering"></a>Rendering av felsökning
@@ -19,7 +19,7 @@ API för fel söknings åter givning innehåller en uppsättning globala alterna
 
 ## <a name="available-debug-rendering-effects"></a>Tillgängliga fel söknings åter givnings effekter
 
-|Inställningen                          | Effekt                               |
+|Inställning                          | Effekt                               |
 |---------------------------------|:-------------------------------------|
 |Bild Rute räknare                    | Återger ett text överlägg i det övre vänstra hörnet av ramen. Texten visar det aktuella ram-ID: t för Server sidan, som kontinuerligt ökar när åter givningen fortsätter. |
 |Antal polygoner                    | Återger ett text överlägg i det övre vänstra hörnet av ramen. Texten visar den aktuella åter givnings mängden av polygoner, samma värde som efter frågas av [prestanda frågor på Server sidan](performance-queries.md)| 

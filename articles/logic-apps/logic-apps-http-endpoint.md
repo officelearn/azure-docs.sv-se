@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 08/27/2020
 ms.openlocfilehash: 5032676848536f0b9498cf4beecf86277484a901
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89230814"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Anropa, utlösa eller kapsla Logi Kap par genom att använda HTTPS-slutpunkter i Azure Logic Apps
@@ -25,7 +25,7 @@ Den här artikeln visar hur du skapar en anropad slut punkt i din Logic app geno
 
 Information om kryptering, säkerhet och auktorisering för inkommande samtal till din Logic app, till exempel [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), som tidigare kallades Secure SOCKETS Layer (SSL) eller [Azure Active Directory öppen autentisering (Azure AD OAuth)](../active-directory/develop/index.yml)finns i [skydda åtkomst och data åtkomst för inkommande anrop till begär ande-baserade utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto och prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -355,7 +355,7 @@ Svaren har följande egenskaper:
 | Egenskap (Visa) | Egenskap (JSON) | Beskrivning |
 |--------------------|-----------------|-------------|
 | **Status kod** | `statusCode` | HTTPS-statuskod som ska användas i svaret på inkommande begäran. Den här koden kan vara vilken giltig status kod som helst som börjar med 2xx, 4xx eller 5xx. 3xx status koder är dock inte tillåtna. |
-| **Sidhuvuden** | `headers` | En eller flera huvuden som ska inkluderas i svaret |
+| **Rubriker** | `headers` | En eller flera huvuden som ska inkluderas i svaret |
 | **Brödtext** | `body` | Ett Body-objekt som kan vara en sträng, ett JSON-objekt eller till och med ett binärt innehåll som refereras från ett föregående steg |
 ||||
 

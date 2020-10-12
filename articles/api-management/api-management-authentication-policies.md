@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
 ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243723"
 ---
 # <a name="api-management-authentication-policies"></a>Principer för API Management-autentisering
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a>Autentiseringsprinciper
+##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a> Autentiseringsprinciper
 
 -   [Autentisera med Basic](api-management-authentication-policies.md#Basic) -autentisera med en backend-tjänst med grundläggande autentisering.
 
@@ -31,7 +31,7 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 -   [Autentisera med hanterad identitet](api-management-authentication-policies.md#ManagedIdentity) – autentisera med den [hanterade identiteten](../active-directory/managed-identities-azure-resources/overview.md) för den API Management tjänsten.
 
-##  <a name="authenticate-with-basic"></a><a name="Basic"></a>Autentisera med Basic
+##  <a name="authenticate-with-basic"></a><a name="Basic"></a> Autentisera med Basic
  Använd `authentication-basic` principen för att autentisera med en backend-tjänst med grundläggande autentisering. Den här principen anger att HTTP-Authorization-huvudet ska vara det värde som motsvarar de autentiseringsuppgifter som anges i principen.
 
 ### <a name="policy-statement"></a>Princip kommentar
@@ -54,10 +54,10 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Krävs|Standard|
+|Name|Beskrivning|Krävs|Default|
 |----------|-----------------|--------------|-------------|
-|användarnamn|Anger användar namnet för den grundläggande autentiseringsuppgiften.|Ja|Ej tillämpligt|
-|password|Anger lösen ordet för grundläggande autentiseringsuppgifter.|Ja|Ej tillämpligt|
+|användarnamn|Anger användar namnet för den grundläggande autentiseringsuppgiften.|Ja|E.t.|
+|password|Anger lösen ordet för grundläggande autentiseringsuppgifter.|Ja|E.t.|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](./api-management-howto-policies.md#sections) och [områden](./api-management-howto-policies.md#scopes).
@@ -66,7 +66,7 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 -   **Princip omfattningar:** alla omfattningar
 
-##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a>Autentisera med klient certifikat
+##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Autentisera med klient certifikat
  Använd `authentication-certificate` principen för att autentisera med en backend-tjänst med hjälp av klient certifikat. Certifikatet måste [installeras i API Management](https://go.microsoft.com/fwlink/?LinkID=511599) först och identifieras av sitt tumavtryck.
 
 ### <a name="policy-statement"></a>Princip kommentar
@@ -103,12 +103,12 @@ I det här exemplet anges klient certifikatet i principen i stället för att h�
   
 ### <a name="attributes"></a>Attribut  
   
-|Namn|Beskrivning|Krävs|Standard|  
+|Name|Beskrivning|Krävs|Default|  
 |----------|-----------------|--------------|-------------|  
-|begäran|Tumavtryck för klient certifikatet.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Ej tillämpligt|
-|certifikat-ID|Certifikat resursens namn.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Ej tillämpligt|
-|body|Klient certifikat som en byte mat ris.|Nej|Ej tillämpligt|
-|password|Lösen ordet för klient certifikatet.|Används om certifikatet som anges i `body` är lösenordsskyddat.|Ej tillämpligt|
+|begäran|Tumavtryck för klient certifikatet.|Antingen `thumbprint` eller `certificate-id` måste finnas.|E.t.|
+|certifikat-ID|Certifikat resursens namn.|Antingen `thumbprint` eller `certificate-id` måste finnas.|E.t.|
+|body|Klient certifikat som en byte mat ris.|Inga|E.t.|
+|password|Lösen ordet för klient certifikatet.|Används om certifikatet som anges i `body` är lösenordsskyddat.|E.t.|
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](./api-management-howto-policies.md#sections) och [områden](./api-management-howto-policies.md#scopes).  
@@ -117,7 +117,7 @@ I det här exemplet anges klient certifikatet i principen i stället för att h�
   
 -   **Princip omfattningar:** alla omfattningar  
 
-##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a>Autentisera med hanterad identitet  
+##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a> Autentisera med hanterad identitet  
  Använd `authentication-managed-identity` principen för att autentisera med en backend-tjänst med hjälp av den hanterade identiteten. Den här principen använder i princip den hanterade identiteten för att hämta en åtkomsttoken från Azure Active Directory för åtkomst till den angivna resursen. När token har hämtats ställer principen in värdet för token i `Authorization` rubriken med `Bearer` schemat.
 
 Både systemtilldelad identitet och någon av de flera användare som tilldelats identiteter kan användas för att begära token. Om `client-id` inte anges används en tilldelad identitet. Om `client-id` variabeln har angetts begärs token för den användarens tilldelade identitet från Azure Active Directory
@@ -180,12 +180,12 @@ Både systemtilldelad identitet och någon av de flera användare som tilldelats
   
 ### <a name="attributes"></a>Attribut  
   
-|Namn|Beskrivning|Krävs|Standard|  
+|Name|Beskrivning|Krävs|Default|  
 |----------|-----------------|--------------|-------------|  
-|resource|Sträng. App-ID för mål webb-API (säker resurs) i Azure Active Directory.|Ja|Ej tillämpligt|
-|klient-ID|Sträng. App-ID: t för den användarspecifika identiteten i Azure Active Directory.|Nej|systemtilldelad identitet|
-|output-token-variabel-namn|Sträng. Namnet på den Sammanhangs variabel som kommer att ta emot token-värde som en objekt typ `string` . |Nej|Ej tillämpligt|  
-|Ignorera-fel|Booleskt. Om detta är inställt på `true` , fortsätter princip pipelinen att köras även om en åtkomsttoken inte har hämtats.|Nej|falskt|  
+|resource|Sträng. App-ID för mål webb-API (säker resurs) i Azure Active Directory.|Ja|E.t.|
+|klient-ID|Sträng. App-ID: t för den användarspecifika identiteten i Azure Active Directory.|Inga|systemtilldelad identitet|
+|output-token-variabel-namn|Sträng. Namnet på den Sammanhangs variabel som kommer att ta emot token-värde som en objekt typ `string` . |Inga|E.t.|  
+|Ignorera-fel|Booleskt. Om detta är inställt på `true` , fortsätter princip pipelinen att köras även om en åtkomsttoken inte har hämtats.|Inga|falskt|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](./api-management-howto-policies.md#sections) och [områden](./api-management-howto-policies.md#scopes).  

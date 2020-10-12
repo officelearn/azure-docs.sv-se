@@ -7,21 +7,21 @@ ms.date: 3/23/2020
 ms.topic: how-to
 ms.service: notification-hubs
 ms.openlocfilehash: c99af881b8f93b75633741c2352dc5df17dd2963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80146893"
 ---
 # <a name="use-apns-voip-through-notification-hubs-not-officially-supported"></a>Använd APN VOIP via Notification Hubs (stöds inte officiellt)
 
 Du kan använda APN VOIP-meddelanden via Azure Notification Hubs; Det finns dock inget statligt stöd för det här scenariot.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 Om du fortfarande väljer att skicka APN VOIP-meddelanden via Notification Hubs bör du vara medveten om följande begränsningar:
 
-- Att skicka ett VOIP-meddelande kräver att `apns-topic` sidhuvudet anges till programpaket-ID + `.voip` suffixet. Exempel: för en exempel-app med paket-ID `com.microsoft.nhubsample` : t måste `apns-topic` rubriken anges till`com.microsoft.nhubsample.voip.`
+- Att skicka ett VOIP-meddelande kräver att `apns-topic` sidhuvudet anges till programpaket-ID + `.voip` suffixet. Exempel: för en exempel-app med paket-ID `com.microsoft.nhubsample` : t måste `apns-topic` rubriken anges till `com.microsoft.nhubsample.voip.`
 
    Den här metoden fungerar inte bra med Azure Notification Hubs eftersom appens paket-ID måste konfigureras som en del av hubbens APN-autentiseringsuppgifter och värdet kan inte ändras. Notification Hubs tillåter inte heller att värdet för `apns-topic` huvudet åsidosätts vid körning.
 

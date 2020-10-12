@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
 ms.openlocfilehash: ff0c7001184af58432a7915b3a7df29f900bedec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006610"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Kör MapReduce-jobb med Apache Hadoop på HDInsight med hjälp av PowerShell
@@ -21,7 +21,7 @@ ms.locfileid: "87006610"
 
 Det här dokumentet innehåller ett exempel på hur du använder Azure PowerShell för att köra ett MapReduce-jobb i ett Hadoop i HDInsight-kluster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Apache Hadoop kluster i HDInsight. Se [skapa Apache Hadoop kluster med hjälp av Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -35,10 +35,10 @@ Följande cmdletar används när du kör MapReduce-jobb i ett fjärran slutet HD
 
 |Cmdlet | Beskrivning |
 |---|---|
-|Anslut – AzAccount|Autentiserar Azure PowerShell till din Azure-prenumeration.|
+|Connect-AzAccount|Autentiserar Azure PowerShell till din Azure-prenumeration.|
 |New-AzHDInsightMapReduceJobDefinition|Skapar en ny *jobb definition* med hjälp av den angivna MapReduce-informationen.|
 |Start-AzHDInsightJob|Skickar jobb definitionen till HDInsight och startar jobbet. Ett *jobb* objekt returneras.|
-|Vänta-AzHDInsightJob|Använder jobbobjektet för att kontrol lera jobbets status. Den väntar tills jobbet har slutförts eller tills vänte tiden har överskridits.|
+|Wait-AzHDInsightJob|Använder jobbobjektet för att kontrol lera jobbets status. Den väntar tills jobbet har slutförts eller tills vänte tiden har överskridits.|
 |Get-AzHDInsightJobOutput|Används för att hämta utdata för jobbet.|
 
 Följande steg visar hur du använder dessa cmdlets för att köra ett jobb i HDInsight-klustret.

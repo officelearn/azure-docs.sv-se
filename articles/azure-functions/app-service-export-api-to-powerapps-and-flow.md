@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/28/2020
 ms.reviewer: sunayv
 ms.openlocfilehash: 7d968c62afbfc92952f747e1e7627c98fe07436d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015093"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportera en Azure-värdbaserad API till PowerApps och Microsoft Flow
@@ -58,7 +58,7 @@ Slutför exporten i **Express** läge genom att följa dessa steg:
 
 2. Använd de inställningar som anges i tabellen.
 
-    |Inställning|Beskrivning|
+    |Inställningen|Beskrivning|
     |--------|------------|
     |**Miljö**|Välj den miljö som den anpassade anslutningen ska sparas i. Mer information finns i [Översikt över miljöer](https://powerapps.microsoft.com/tutorials/environments-overview/).|
     |**Anpassat API-namn**|Ange ett namn som PowerApps och Microsoft Flows byggare ser i sin kopplings lista.|

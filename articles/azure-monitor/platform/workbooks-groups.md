@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
 ms.openlocfilehash: b6377cdcdb5816426eba62fdbef79eeb42659dcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82892087"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Använda grupper i arbets böcker
@@ -24,7 +24,7 @@ Grupper i arbets böcker är användbara för flera saker:
 
 - Layout
   - I scenarier där du vill att objekt ska ordnas lodrätt kan du skapa en grupp med objekt som alla staplar upp och ange att gruppens format ska vara en procents ATS bredd i stället för att ange procent bredden för alla enskilda objekt.
-- Synlighet
+- Visibility (Sikt)
   - I scenarier där du vill att många objekt ska dölja/visas tillsammans kan du ange synligheten för hela gruppen med objekt, i stället för att ställa in Synlighets inställningar för varje enskilt objekt. Detta kan vara användbart i mallar som använder flikar, eftersom du kan använda en grupp som innehåll på fliken, och hela gruppen kan döljas/visas baserat på en parameter som angetts av den valda fliken.
 - Prestanda
   - I de fall där du har en mycket stor mall med många avsnitt eller flikar kan du konvertera varje avsnitt till en egen underordnad mall och använda grupper för att läsa in alla undermallar i mallen på den översta nivån. Innehållet i undermallarna läses inte in eller körs förrän användaren gör grupperna synliga. Lär dig mer om [hur du delar upp en stor mall i många mallar](#how-to-split-a-large-template-into-many-templates).
@@ -68,7 +68,7 @@ Gruppen kommer bara att läsas in när objektet visas. Detta gör att en grupp k
 
 För grupper som skapats från en mall hämtas inte innehållet i mallen och objekten i gruppen skapas inte förrän gruppen blir synlig. Användaren ser förlopps rotations rutor för hela gruppen när innehållet hämtas.
 
-### <a name="explicit"></a>Manuellt
+### <a name="explicit"></a>Explicit
 
 I det här läget visas en knapp där gruppen skulle vara, och inget innehåll hämtas eller skapas förrän användaren klickar på knappen för att läsa in innehållet. Detta är användbart i scenarier där innehållet kan vara dyrt att beräkna eller använda sällan. Författaren kan ange vilken text som ska visas på knappen.
 
@@ -98,8 +98,8 @@ När en mall läses in i en grupp försöker arbets boken sammanfoga alla parame
 
 Överväg en mall som har två parametrar överst.
 
-- `TimeRange`– en tids intervalls parameter.
-- `Filter`– en text parameter.
+- `TimeRange` – en tids intervalls parameter.
+- `Filter` – en text parameter.
 
 ![Redigera parameter objekt: "Top-Level-parametrar"](./media/workbooks-groups/groups-top-level-params.png)
 
@@ -113,12 +113,12 @@ När den andra mallen läses in i gruppen sammanfogas de duplicerade parametrarn
 
 Överväg en grupps mall som har två parametrar överst.
 
-- `TimeRange`– en tids intervalls parameter.
-- `FilterB`– en text parameter, Observera att den inte `Filter` liknar den översta mallen.
+- `TimeRange` – en tids intervalls parameter.
+- `FilterB` – en text parameter, Observera att den inte `Filter` liknar den översta mallen.
 
 ![Redigera ett grupp objekt med resultatet av parametrar som kopplas bort](./media/workbooks-groups/groups-wont-merge-away.png)
 
-När gruppens item's-mall läses in, `TimeRange` kommer parametern att slås samman från gruppen. Sedan kommer arbets boken att ha de första parametrarna steg för `TimeRange` och `Filter` , och gruppens parameter steg omfattar bara`FilterB`
+När gruppens item's-mall läses in, `TimeRange` kommer parametern att slås samman från gruppen. Sedan kommer arbets boken att ha de första parametrarna steg för `TimeRange` och `Filter` , och gruppens parameter steg omfattar bara `FilterB`
 
 ![resultat av parametrar som inte ska sammanfogas](./media/workbooks-groups/groups-wont-merge-away-result.png)
 

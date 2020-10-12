@@ -4,10 +4,10 @@ description: Lär dig hur du konfigurerar en bevarande princip, rensar fabriken 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 115fdff215399a9a51171161191ecf5009e8e20e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476061"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Konfigurera bevarande princip i Azure DevTest Labs
@@ -47,7 +47,7 @@ Den här uppgiften tar bort alla gamla bilder och behåller bara en historik som
 
 ![Ta bort gamla bilder PowerShell-aktivitet](./media/set-retention-policy-cleanup/retire-old-image-task.png)
 
-Skript parametrarna är:`-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(devTestLabName) -ImagesToSave $(ImageRetention)`
+Skript parametrarna är: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(devTestLabName) -ImagesToSave $(ImageRetention)`
 
 ## <a name="queue-the-build"></a>Köa versionen
 Nu när du har slutfört build-definitionen ska du köa en ny version för att se till att allt fungerar. När versionen har slutförts visas de nya anpassade bilderna i mål labbet och om du markerar avbildningen Factory Lab visas inga etablerade virtuella datorer. Om du lägger till fler versioner i kö kan du se att rensnings aktiviteterna tar bort gamla anpassade bilder från DevTest Labs i enlighet med det kvarhållning värde som angavs i build-variablerna.

@@ -12,10 +12,10 @@ ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: c6bcf6f228049c4f5c4d1cd0d22cb69fb9677c1a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347037"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>Spåra Azure Databricks ML experiment med MLflow och Azure Machine Learning (förhands granskning)
@@ -172,7 +172,7 @@ mlflow.sklearn.log_model(model, artifact_path = "model",
 
 När du är redo att skapa en slut punkt för dina ML-modeller. Du kan distribuera som, 
 
-* En webb tjänst för en Azure Machine Learning Request-Response för interaktivt resultat. Med den här distributionen kan du utnyttja och använda Azure Machine Learning modell hantering samt funktioner för data Avkännings avkänning i dina produktions modeller. 
+* En Azure Machine Learning Request-Response webb tjänst för interaktiv poäng. Med den här distributionen kan du utnyttja och använda Azure Machine Learning modell hantering samt funktioner för data Avkännings avkänning i dina produktions modeller. 
 
 * MLFlow modell objekt, som kan användas i direkt uppspelnings-eller batch-pipeliner som python Functions eller Pandas UDF: er i Azure Databricks-arbetsyta.
 

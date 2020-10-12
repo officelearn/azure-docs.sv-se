@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3cb22bc2cd032e51dcdb7429e2c0684c578b0870
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89005657"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Hantera resursförbrukning och belastning i Service Fabric med mått
@@ -29,7 +29,7 @@ Anta att du vill komma igång med att skriva och distribuera tjänsten. I det h�
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |Hög |
 | ReplicaCount |0 |1 |1 |Medium |
-| Count |1 |1 |1 |Låg |
+| Antal |1 |1 |1 |Låg |
 
 
 För grundläggande arbets belastningar tillhandahåller standard måtten en vettigt-distribution av arbetet i klustret. I följande exempel ska vi se vad som händer när vi skapar två tjänster och förlitar sig på standard måtten för balansering. Den första tjänsten är en tillstånds känslig tjänst med tre partitioner och en mål replik uppsättnings storlek på tre. Den andra tjänsten är en tillstånds lös tjänst med en partition och ett instans antal på tre.

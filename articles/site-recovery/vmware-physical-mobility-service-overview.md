@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
 ms.openlocfilehash: 14f0eaee1ede4da3b80ddd94d5c915438e97f8f4
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530071"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Om mobilitets tjänsten för virtuella VMware-datorer och fysiska servrar
@@ -85,15 +85,15 @@ Under en push-installation av mobilitets tjänsten utförs följande steg:
 
 1. Övervaka installationen i **installations förloppet**. När installationen är färdig väljer du **Fortsätt till konfiguration** för att registrera tjänsten med konfigurations servern.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Registrerings sidan för mobilitets tjänsten.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Sidan installations alternativ för mobilitets tjänsten.":::
 
 1. I **konfigurations Server information**anger du den IP-adress och den lösen fras som du har konfigurerat.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Registrerings sidan för mobilitets tjänsten.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Sidan installations alternativ för mobilitets tjänsten.":::
 
 1. Välj **Registrera** för att slutföra registreringen.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Den sista sidan för mobilitets tjänst registrering.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Sidan installations alternativ för mobilitets tjänsten.":::
 
 ## <a name="install-the-mobility-service-using-command-prompt"></a>Installera mobilitets tjänsten med hjälp av kommando tolken
 

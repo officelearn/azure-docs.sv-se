@@ -9,10 +9,10 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 4f7ec9bbf7877d8067b3d8b1566a5cd2c2075281
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86050241"
 ---
 Sakernas Internet (IoT) utgör unika utmaningar för säkerhet, sekretess och efterlevnad för företag över hela världen. Till skillnad från traditionell cyberhot-teknik där problemen kretsar kring program vara och hur de implementeras, berör IoT vad som händer när cyberhot och det fysiska världar konvergerar. Att skydda IoT-lösningar kräver säker etablering av enheter, säker anslutning mellan enheterna och molnet och skyddar data skyddet i molnet under bearbetning och lagring. Att arbeta med sådana funktioner är dock resurs begränsade enheter, geografisk distribution av distributioner och ett stort antal enheter inom en lösning.

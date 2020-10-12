@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 96bd6b461a5374b5f5bc578c5f58dbcd09cd7087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84699302"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Utveckla dina egna IoT Edge-moduler
@@ -77,11 +77,11 @@ För alla språk i följande tabell IoT Edge stöder utveckling för AMD64-och A
 
 | Utvecklingsspråk | Utvecklingsverktyg |
 | -------------------- | ----------------- |
-| C | Visuell Studio-kod<br>Visual Studio 2017/2019 |
-| C# | Visuell Studio-kod<br>Visual Studio 2017/2019 |
-| Java | Visuell Studio-kod |
-| Node.js | Visuell Studio-kod |
-| Python | Visuell Studio-kod |
+| C | Visual Studio-koden<br>Visual Studio 2017/2019 |
+| C# | Visual Studio-koden<br>Visual Studio 2017/2019 |
+| Java | Visual Studio-koden |
+| Node.js | Visual Studio-koden |
+| Python | Visual Studio-koden |
 
 >[!NOTE]
 >Att utveckla och felsöka stöd för ARM64 Linux-enheter finns i [offentlig för hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Mer information finns i [utveckla och FELSÖKA ARM64 IoT Edge moduler i Visual Studio Code (för hands version)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
@@ -103,4 +103,4 @@ För alla språk i följande tabell IoT Edge stöder utveckling för AMD64 Windo
 
 [Använd Visual Studio Code för att utveckla moduler för IoT Edge](how-to-vs-code-develop-module.md)
 
-[Förstå och Använd Azure IoT Hub SDK: er](../iot-hub/iot-hub-devguide-sdks.md)
+[Förstå och använda SDK:er för Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md)

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: f0e5a153efe26640e54f386600f07c7b3d4711d0
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89649060"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Översikt över Application Gateway Health Monitoring
@@ -64,7 +64,7 @@ Följande tabell innehåller definitioner av egenskaperna för en anpassad häls
 
 | Egenskapen avsökning | Beskrivning |
 | --- | --- |
-| Name |Namn på avsökningen. Det här namnet används för att identifiera och referera till avsökningen i Server dels-HTTP-inställningar. |
+| Namn |Namn på avsökningen. Det här namnet används för att identifiera och referera till avsökningen i Server dels-HTTP-inställningar. |
 | Protokoll |Protokoll som används för att skicka avsökningen. Detta måste överensstämma med det protokoll som definierats i Server dels-HTTP-inställningarna som det är kopplat till|
 | Värd |Värd namn att skicka avsökningen med. I v1 SKU används det här värdet endast för värd rubriken för avsöknings förfrågan. I v2 SKU används både som värd huvud och SNI |
 | Sökväg |Den relativa sökvägen för avsökningen. En giltig sökväg börjar med "/" |

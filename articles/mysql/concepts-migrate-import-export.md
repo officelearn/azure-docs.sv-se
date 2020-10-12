@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/22/2020
 ms.openlocfilehash: 6d0a29d8ef8123eafd6a1616a24003c1e36e6e59
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905926"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrera MySQL-databasen med hjälp av import och export
@@ -31,7 +31,7 @@ För att ansluta, letar du upp anslutnings informationen i **översikten** över
 
 Lägg till anslutnings informationen till MySQL Workbench.
 
-:::image type="content" source="./media/concepts-migrate-import-export/2_setup-new-connection.png" alt-text="Anslutnings sträng för MySQL Workbench":::
+:::image type="content" source="./media/concepts-migrate-import-export/2_setup-new-connection.png" alt-text="Hitta anslutnings informationen i Azure Portal":::
 
 ## <a name="determine-when-to-use-import-and-export-techniques"></a>Avgöra när import-och export tekniker ska användas
 
@@ -68,7 +68,7 @@ Det finns två sätt att exportera och importera data i MySQL Workbench. Var och
 > - För MySQL-flexibla Server kan du bara använda "username" om du använder " username@servername " för att ansluta.
 
 ### <a name="table-data-export-and-import-wizards-from-the-object-browsers-context-menu"></a>Guide för export och import av tabell data från objekt webbläsarens snabb meny
-:::image type="content" source="./media/concepts-migrate-import-export/p1.png" alt-text="Guide för MySQL-Workbench på objekt läsarens snabb meny":::
+:::image type="content" source="./media/concepts-migrate-import-export/p1.png" alt-text="Hitta anslutnings informationen i Azure Portal":::
 
 Guiderna för tabell data stöder import-och export åtgärder med hjälp av CSV-och JSON-filer. De innehåller flera konfigurations alternativ, till exempel avgränsare, val av kolumn och kodning. Du kan utföra varje guide mot lokala eller fjärranslutna MySQL-servrar. Import åtgärden inkluderar tabell-, kolumn-och typ mappning.
 
@@ -94,7 +94,7 @@ I följande exempel importeras tabellen från en CSV-fil:
 Använd en guide för att exportera eller importera SQL som skapats av MySQL Workbench eller genererats från mysqldump-kommandot. Öppna de här guiderna från fönstret **Navigator** eller genom att välja **Server** på huvud menyn. Välj sedan **data export** eller **data import**.
 
 #### <a name="data-export"></a>Dataexport
-:::image type="content" source="./media/concepts-migrate-import-export/p2.png" alt-text="MySQL Workbench data export med hjälp av fönstret navigatör":::
+:::image type="content" source="./media/concepts-migrate-import-export/p2.png" alt-text="Hitta anslutnings informationen i Azure Portal":::
 
 Du kan använda fliken **data export** för att exportera MySQL-data.
 1. Välj varje schema som du vill exportera, om du vill kan du välja vissa schema objekt/tabeller från varje schema och generera exporten. Konfigurations alternativen omfattar export till en projektmapp eller en fristående SQL-fil, dumpa lagrade rutiner och händelser eller hoppa över tabell data.
@@ -107,7 +107,7 @@ Du kan använda fliken **data export** för att exportera MySQL-data.
 
 
 #### <a name="data-import"></a>Data import
-:::image type="content" source="./media/concepts-migrate-import-export/p3.png" alt-text="MySQL Workbench data import med Management Navigator":::
+:::image type="content" source="./media/concepts-migrate-import-export/p3.png" alt-text="Hitta anslutnings informationen i Azure Portal":::
 
 Du kan använda fliken **data import** för att importera eller återställa exporterade data från data export åtgärden eller från mysqldump-kommandot.
 1. Välj projektmappen eller den fristående SQL-filen, Välj det schema som du vill importera till eller Välj **ny** för att definiera ett nytt schema.

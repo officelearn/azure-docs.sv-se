@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.openlocfilehash: 052b12817b788ff38f0fab72a5420896b062c732
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82857431"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Fel Spark fel sökning av jobb med Azure Toolkit for IntelliJ (för hands version)
@@ -72,7 +72,7 @@ Skapa ett Spark-Scala/Java-program och kör sedan programmet på ett Spark-klust
 
    ![IntelliJ Lägg till ny konfiguration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
 
-3. Växla till **fjärran sluten på fliken kluster** . Ange information om **namn**, **Spark-kluster**och **huvud klass namn**. Våra verktyg stöder fel sökning med **körningar**. **NumExectors**är standardvärdet 5, och du har inte angett fler än 3. Du kan minska körnings tiden genom att lägga till **Spark. garn. maxAppAttempts** i **jobb konfigurationerna** och ange värdet till 1. Spara konfigurationen genom att klicka på **OK** .
+3. Växla till **fjärran sluten på kluster** -fliken. Ange information om **namn**, **Spark-kluster**och **huvud klass namn**. Våra verktyg stöder fel sökning med **körningar**. **NumExectors**är standardvärdet 5, och du har inte angett fler än 3. Du kan minska körnings tiden genom att lägga till **Spark. garn. maxAppAttempts** i **jobb konfigurationerna** och ange värdet till 1. Spara konfigurationen genom att klicka på **OK** .
 
    ![IntelliJ kör felsöknings konfiguration ny](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png)
 

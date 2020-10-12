@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: rohink
 ms.openlocfilehash: 9b6cac64d2e3def673f6d7c27e80bd64eead9e97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84689171"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Hantera DNS-zoner i Azure Portal
@@ -38,12 +38,12 @@ Den här artikeln visar hur du hanterar DNS-zoner med hjälp av Azure Portal. Du
 4. På bladet **Skapa DNS-zon** anger du följande värden och klickar sedan på **Skapa**:
 
 
-   | **Inställning** | **Värde** | **Detaljer** |
+   | **Inställning** | **Värde** | **Information** |
    |---|---|---|
    |**Namn**|contoso.com|Namnet på DNS-zonen|
    |**Prenumeration**|[Din prenumeration]|Välj en prenumeration att skapa DNS-zonen i.|
    |**Resursgrupp**|**Skapa ny:** contosoDNSRG|Skapa en resursgrupp. Resursgruppens namn måste vara unikt inom den prenumeration du valde. Mer information om resurs grupper finns i översikts artikeln om [Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) .|
-   |**Position**|USA, västra||
+   |**Plats**|USA, västra||
 
 > [!NOTE]
 > Resursgruppen refererar till platsen för resursgruppen och har ingen inverkan på DNS-zonen. Platsen för DNS-zonen är alltid "global" och visas inte.

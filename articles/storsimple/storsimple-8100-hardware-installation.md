@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84699132"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Packa upp, rack montering och kabel din StorSimple 8100-enhet
@@ -178,7 +178,7 @@ Enheten är en aktiv standby-konfiguration: när som helst är en Controller-mod
 För att stödja redundans av redundanta styrenheter måste du kontakta enhetens nätverk enligt beskrivningen i följande steg.
 
 #### <a name="to-cable-for-network-connection"></a>För kabel för nätverks anslutning
-1. Enheten har sex nätverks gränssnitt på varje styrenhet: fyra 1 Gbit/s och 2 10 Gbit/s Ethernet-portar. Identifiera de olika data portarna på enhetens bakplan.
+1. Enheten har sex nätverks gränssnitt på varje styrenhet: 4 1 Gbit/s och 2 10 Gbit/s Ethernet-portar. Identifiera de olika data portarna på enhetens bakplan.
    
     ![Bakplanering av 8100-enhet](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
    

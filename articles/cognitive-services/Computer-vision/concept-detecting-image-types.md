@@ -12,10 +12,10 @@ ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 4e6c2db5333962d7ae43534998ffc1c48b0dba45
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80244570"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Identifiera avbildnings typer med Visuellt innehåll
@@ -26,7 +26,7 @@ Med [analys avbildnings](https://westus.dev.cognitive.microsoft.com/docs/service
 
 Visuellt innehåll analyserar en bild och mäter sannolikheten för att bilden ska vara en ClipArt-fil på en skala på 0 till 3, enligt beskrivningen i följande tabell.
 
-| Värde | Betydelse |
+| Värde | Innebörd |
 |-------|---------|
 | 0 | Non-clip-art |
 | 1 | Registrerade |

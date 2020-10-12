@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045407"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Felsöka Azure Stream Analytics frågor lokalt med hjälp av jobb diagram i Visual Studio
@@ -52,7 +52,7 @@ I det här avsnittet ska du utforska de mått som är tillgängliga för varje d
 
 ![Jobb diagram Live ingångs källor](./media/debug-locally-using-job-diagram/live-input.png)
 
-|Metric|Beskrivning|
+|Mått|Beskrivning|
 |-|-|
 |**TaxiRide**| Namnet på indatamängden.|
 |**Händelsehubb** | Typ av indatakälla.|
@@ -62,13 +62,13 @@ I det här avsnittet ska du utforska de mått som är tillgängliga för varje d
 | **Degraderade händelser**|Antalet händelser som hade ett annat problem än med deserialisering.|
 |**Tidiga händelser**| Antalet händelser som har en program tids stämpling före den övre gränsen.|
 |**Sena händelser**| Antalet händelser som har en tidsstämpel för program efter den övre gränsen.|
-|**Händelse källor**| Antalet data enheter som lästs. Till exempel antalet blobbar.|
+|**Händelsekällor**| Antalet data enheter som lästs. Till exempel antalet blobbar.|
 
 #### <a name="input-sources-local-input"></a>Inmatade källor (lokala ingångar)
 
 ![Jobb diagram lokala ingångs källor](./media/debug-locally-using-job-diagram/local-input.png)
 
-|Metric|Beskrivning|
+|Mått|Beskrivning|
 |-|-|
 |**TaxiRide**| Namnet på indatamängden.|
 |**Radantal**| Antalet rader som genereras från steget.|
@@ -79,7 +79,7 @@ I det här avsnittet ska du utforska de mått som är tillgängliga för varje d
 
 ![Frågeresultat för jobb diagram](./media/debug-locally-using-job-diagram/query-step.png)
 
-|Metric|Beskrivning|
+|Mått|Beskrivning|
 |-|-|
 |**TripData**|Namnet på den tillfälliga resultat uppsättningen.|
 |**Radantal**| Antalet rader som genereras från steget.|
@@ -89,7 +89,7 @@ I det här avsnittet ska du utforska de mått som är tillgängliga för varje d
 
 ![Data mottagare för lokalt utgående jobb diagram](./media/debug-locally-using-job-diagram/live-output.png)
 
-|Metric|Beskrivning|
+|Mått|Beskrivning|
 |-|-|
 |**regionaggEH**|Namnet på utdata.|
 |**Händelser**|Antalet händelser som ska matas till sinks.|
@@ -98,7 +98,7 @@ I det här avsnittet ska du utforska de mått som är tillgängliga för varje d
 
 ![Data mottagare för lokalt utgående jobb diagram](./media/debug-locally-using-job-diagram/local-output.png)
 
-|Metric|Beskrivning|
+|Mått|Beskrivning|
 |-|-|
 |**regionaggEH**|Namnet på utdata.|
 |**Lokal utdata**| Resultat av utdata till en lokal fil.|

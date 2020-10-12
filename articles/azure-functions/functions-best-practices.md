@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84697698"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimera säkerheten och tillförlitligheten för Azure Functions
@@ -44,7 +44,7 @@ Event Hub är användbara för att stödja hög volym kommunikation.
 
 ### <a name="write-functions-to-be-stateless"></a>Skriv funktioner som tillstånds lösa 
 
-Funktioner ska vara tillstånds lösa och idempotenta om möjligt. Koppla all nödvändig statusinformation till dina data. En beställning som bearbetas skulle till exempel ha en associerad `state` medlem. En funktion kan bearbeta en ordning baserat på det läget, medan själva funktionen fortfarande är tillstånds lös. 
+Funktioner ska vara tillstånds lösa och idempotenta om möjligt. Koppla all nödvändig tillståndsinformation till dina data. En beställning som bearbetas skulle till exempel ha en associerad `state` medlem. En funktion kan bearbeta en ordning baserat på det läget, medan själva funktionen fortfarande är tillstånds lös. 
 
 Idempotenta-funktioner rekommenderas särskilt för timer-utlösare. Om du till exempel har något som är absolut måste köra en gång om dagen skriver du det så att det kan köras när som helst under dagen med samma resultat. Funktionen kan avslutas när det inte finns något arbete för en viss dag. Även om en tidigare körning inte kunde slutföras, ska nästa körning fortsätta där den slutade.
 
@@ -114,7 +114,7 @@ För C#-funktioner kan du ändra typen till en starkt angiven matris.  I ställe
 
 Inställningarna i host.jspå filen gäller för alla funktioner i appen, inom en *enda instans* av funktionen. Om du till exempel har en Function-app med två HTTP-funktioner och [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) begär Anden som har angetts till 25, räknas en begäran till HTTP-utlösaren mot de delade 25 samtidiga förfrågningarna.  När den här funktionen är skalad till 10 instanser, tillåter de två funktionerna att 250 samtidiga begär Anden på ett effektivt sätt (10 instanser * 25 samtidiga begär Anden per instans). 
 
-Andra värd konfigurations alternativ finns i [artikelnhost.jsi konfigurations artikeln](functions-host-json.md).
+Andra värd konfigurations alternativ finns i [ artikelnhost.jsi konfigurations artikeln](functions-host-json.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

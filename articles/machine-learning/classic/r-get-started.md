@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
 ms.openlocfilehash: 133c7e95e620bfea51d1d6c9f6fd1d2946eeca33
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347265"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Kom igång med Azure Machine Learning Studio (klassisk) i R
@@ -1280,7 +1280,7 @@ RStudio är väl dokumenterad. Här följer några länkar till de viktigaste av
 * **Redigera och kör r-kod**: RStudio tillhandahåller en integrerad miljö för att redigera och köra r-kod. Mer information finns i [Redigera och köra kod](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code).
 * **Felsök**: RStudio innehåller kraftfulla fel söknings funktioner. Mer information om dessa funktioner finns i [fel sökning med RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio). Information om fel söknings funktioner för Bryt punkter finns i [fel sökning av Bryt punkter](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting).
 
-## <a name="further-reading"></a><a id="appendixb"></a>Mer läsning
+## <a name="further-reading"></a><a id="appendixb"></a>Mer information
 
 Den här själv studie kursen beskriver grunderna om vad du behöver för att använda R-språket med Machine Learning Studio (klassisk). Om du inte är bekant med R finns två introduktioner på CRAN:
 

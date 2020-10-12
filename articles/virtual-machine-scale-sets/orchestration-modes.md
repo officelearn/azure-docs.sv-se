@@ -10,10 +10,10 @@ ms.date: 10/23/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: eb7d4d8a6f1c1ee55601cdd839e330147e60bcc7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87011081"
 ---
 # <a name="orchestration-modes-preview"></a>Orchestration-lägen (förhands granskning)
@@ -44,7 +44,7 @@ Skalnings uppsättningar för virtuella datorer har stöd för 2 distinkta Orche
 
 | Funktion                     | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
-| Konfigurations modell för virtuell dator      | Ingen                                       | Obligatorisk |
+| Konfigurations modell för virtuell dator      | Inget                                       | Krävs |
 | Lägger till ny virtuell dator i skalnings uppsättningen  | Virtuella datorer läggs explicit till i skalnings uppsättningen när den virtuella datorn skapas. | Virtuella datorer skapas implicit och läggs till i skalnings uppsättningen baserat på den virtuella datorns konfigurations modell, instans antal och regler för automatisk skalning | |
 | Ta bort virtuell dator                   | Virtuella datorer måste tas bort individuellt, skalnings uppsättningen tas inte bort om den har några virtuella datorer i den. | Virtuella datorer kan tas bort individuellt. om du tar bort skalnings uppsättningen raderas alla VM-instanser.  |
 | Ansluta/koppla från virtuella datorer           | Stöds inte                              | Stöds inte |

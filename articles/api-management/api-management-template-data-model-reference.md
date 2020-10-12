@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 868ad3d1c6e7e7ef2cf32dcf675bc471a614f3ed
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243162"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Data modell referens för Azure API Management-mall
@@ -38,7 +38,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 -   [Kodexempel](#Sample)  
 -   [Kommentar](#Comment)  
 -   [Filtrering](#Filtering)  
--   [Huvud](#Header)  
+-   [Sidfot](#Header)  
 -   [HTTP-begäran](#HTTPRequest)  
 -   [HTTP-svar](#HTTPResponse)  
 -   [Problem](#Issue)  
@@ -56,7 +56,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 -   [Användar inloggning](#UseSignIn)  
 -   [Användar registrering](#UserSignUp)  
   
-##  <a name="api"></a><a name="API"></a>Application  
+##  <a name="api"></a><a name="API"></a> Application  
  `API`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Description|  
@@ -70,7 +70,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`authenticationSettings`|[Autentiseringsinställningar för verifiering av Server](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Samling autentiseringsinställningar som ingår i detta API.|  
 |`subscriptionKeyParameterNames`|objekt|Valfri egenskap som kan användas för att ange anpassade namn för fråge-och/eller rubrik parametrar som innehåller prenumerations nyckeln. När den här egenskapen finns måste den innehålla minst en av de två följande egenskaperna.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
-##  <a name="api-summary"></a><a name="APISummary"></a>API-Sammanfattning  
+##  <a name="api-summary"></a><a name="APISummary"></a> API-Sammanfattning  
  `API summary`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Description|  
@@ -79,7 +79,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`name`|sträng|Namnet på API: et. Får inte vara tomt. Maximal längd är 100 tecken.|  
 |`description`|sträng|Beskrivning av API: et. Får inte vara tomt. Kan innehålla HTML-taggar. Maximal längd är 1000 tecken.|  
   
-##  <a name="application"></a><a name="Application"></a>Applicering  
+##  <a name="application"></a><a name="Application"></a> Applicering  
  `application`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Description|  
@@ -97,7 +97,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`Attachments`|Samling av [bilage](#Attachment) enheter.|Bifogade filer för programmet, till exempel skärm bilder eller ikoner.|  
 |`Icon`|[Bilaga](#Attachment)|Ikonen för programmet.|  
   
-##  <a name="attachment"></a><a name="Attachment"></a>Lage  
+##  <a name="attachment"></a><a name="Attachment"></a> Lage  
  `attachment`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Description|  
@@ -107,7 +107,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`Type`|sträng|Typ av bifogad fil.|  
 |`ContentType`|sträng|Den bifogade filens medietyp.|  
   
-##  <a name="code-sample"></a><a name="Sample"></a>Kod exempel  
+##  <a name="code-sample"></a><a name="Sample"></a> Kod exempel  
   
 |Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
@@ -121,10 +121,10 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`path`|sträng|Åtgärdens sökväg.|  
 |`query`|sträng|Exempel på frågesträng med definierade parametrar.|  
 |`host`|sträng|URL-adressen till API Management Gateway för det API som innehåller den här åtgärden.|  
-|`headers`|Samling med [huvud](#Header) enheter.|Sidhuvud för den här åtgärden.|  
+|`headers`|Samling med                                  [huvud](#Header) enheter.|Sidhuvud för den här åtgärden.|  
 |`parameters`|Samling av [parameter](#Parameter) enheter.|Parametrar som har definierats för den här åtgärden.|  
   
-##  <a name="comment"></a><a name="Comment"></a>Kommentar  
+##  <a name="comment"></a><a name="Comment"></a> Kommentar  
  `API`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  
@@ -134,7 +134,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`DeveloperCompany`|sträng|Företags namnet för utvecklaren.|  
 |`PostedOn`|DateTime|Datum och tid då kommentaren publicerades.|  
   
-##  <a name="issue"></a><a name="Issue"></a>Ge  
+##  <a name="issue"></a><a name="Issue"></a> Ge  
  `issue`Entiteten har följande egenskaper.  
   
 |Egenskap|Typ|Description|  
@@ -150,7 +150,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`Attachments`|Samling av [bilage](api-management-template-data-model-reference.md#Attachment) enheter.|Bifogade filer till problemet.|  
 |`Services`|Samling av [API](#API) -entiteter.|API: er som prenumererar på av användaren som har arkiverat problemet.|  
   
-##  <a name="filtering"></a><a name="Filtering"></a>Statisk  
+##  <a name="filtering"></a><a name="Filtering"></a> Statisk  
  `filtering`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Description|  
@@ -158,7 +158,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`Pattern`|sträng|Den aktuella Sök termen; eller `null` om det inte finns någon sökterm.|  
 |`Placeholder`|sträng|Texten som ska visas i sökrutan när det inte finns någon angiven sökterm.|  
   
-##  <a name="header"></a><a name="Header"></a>Sidfot  
+##  <a name="header"></a><a name="Header"></a> Sidfot  
  I det här avsnittet beskrivs `parameter` åter givningen.  
   
 |Egenskap|Typ|Description|  
@@ -171,7 +171,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`required`|boolean|Om rubriken är obligatorisk.|  
 |`readOnly`|boolean|Om rubriken är skrivskyddad.|  
   
-##  <a name="http-request"></a><a name="HTTPRequest"></a>HTTP-begäran  
+##  <a name="http-request"></a><a name="HTTPRequest"></a> HTTP-begäran  
  I det här avsnittet beskrivs `request` åter givningen.  
   
 |Egenskap|Typ|Description|  
@@ -181,7 +181,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`parameters`|[parameter](#Parameter) mat ris|Samling med parametrar för åtgärds förfrågan.|  
 |`representations`|Representation av [representation](#Representation)|Samling av representationer av åtgärds begär Anden.|  
   
-##  <a name="http-response"></a><a name="HTTPResponse"></a>HTTP-svar  
+##  <a name="http-response"></a><a name="HTTPResponse"></a> HTTP-svar  
  I det här avsnittet beskrivs `response` åter givningen.  
   
 |Egenskap|Typ|Beskrivning|  
@@ -190,7 +190,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`description`|sträng|Beskrivning av åtgärds svar.|  
 |`representations`|Representation av [representation](#Representation)|Samling av representationer av åtgärds svar.|  
   
-##  <a name="operation"></a><a name="Operation"></a>Reparation  
+##  <a name="operation"></a><a name="Operation"></a> Reparation  
  `operation`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Description|  
@@ -205,7 +205,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`request`|[HTTP-begäran](#HTTPRequest)|En entitet som innehåller information om begäran.|  
 |`responses`|matris med [http-svar](#HTTPResponse)|Matris med åtgärder för [http-svar](#HTTPResponse) .|  
   
-##  <a name="operation-menu"></a><a name="Menu"></a>Åtgärds meny  
+##  <a name="operation-menu"></a><a name="Menu"></a> Åtgärds meny  
  `operation menu`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Description|  
@@ -215,7 +215,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`Action`|sträng|Meny typen.|  
 |`MenuItems`|Samling av [Åtgärds meny alternativ](#MenuItem) enheter.|Åtgärder för aktuellt API.|  
   
-##  <a name="operation-menu-item"></a><a name="MenuItem"></a>Meny alternativ för åtgärd  
+##  <a name="operation-menu-item"></a><a name="MenuItem"></a> Meny alternativ för åtgärd  
  `operation menu item`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Description|  
@@ -224,7 +224,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`Title`|sträng|Åtgärdens beskrivning.|  
 |`HttpMethod`|sträng|Åtgärdens http-metod.|  
   
-##  <a name="paging"></a><a name="Paging"></a>Växlings  
+##  <a name="paging"></a><a name="Paging"></a> Växlings  
  `paging`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  
@@ -235,7 +235,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`ShowAll`|boolean|Om alla resultat ska visas på en enda sida.|  
 |`PageCount`|nummer|Antalet resultat sidor.|  
   
-##  <a name="parameter"></a><a name="Parameter"></a>ProfileServiceApplicationProxy  
+##  <a name="parameter"></a><a name="Parameter"></a> ProfileServiceApplicationProxy  
  I det här avsnittet beskrivs `parameter` åter givningen.  
   
 |Egenskap|Typ|Description|  
@@ -248,7 +248,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`kind`|nummer|Om den här parametern är en Sök vägs parameter (1) eller en QueryString-parameter (2).|  
 |`typeName`|sträng|Parameter typ.|  
   
-##  <a name="product"></a><a name="Product"></a>Momsproduktbokföringsmallar  
+##  <a name="product"></a><a name="Product"></a> Momsproduktbokföringsmallar  
  `product`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Description|  
@@ -261,7 +261,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`AllowMultipleSubscriptions`|boolean|Anger om en användare kan ha flera prenumerationer på produkten samtidigt.|  
 |`MultipleSubscriptionsCount`|nummer|Maximalt antal prenumerationer för den här produkten som en användare får ha på samma gång.|  
   
-##  <a name="provider"></a><a name="Provider"></a>CSP  
+##  <a name="provider"></a><a name="Provider"></a> CSP  
  `provider`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  
@@ -270,7 +270,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`AuthenticationType`|sträng|Typ av Provider. (Azure Active Directory, Facebook login, Google-konto, Microsoft-konto, Twitter).|  
 |`Caption`|sträng|Leverantörens visnings namn.|  
   
-##  <a name="representation"></a><a name="Representation"></a>Bilden  
+##  <a name="representation"></a><a name="Representation"></a> Bilden  
  I det här avsnittet beskrivs en `representation` .  
   
 |Egenskap|Typ|Description|  
@@ -278,7 +278,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`contentType`|sträng|Anger en registrerad eller anpassad innehålls typ för den här presentationen, till exempel `application/xml` .|  
 |`sample`|sträng|Ett exempel på representationen.|  
   
-##  <a name="subscription"></a><a name="Subscription"></a>Prenumerera  
+##  <a name="subscription"></a><a name="Subscription"></a> Prenumerera  
  `subscription`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Description|  
@@ -288,7 +288,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`ProductTitle`|sträng|Namn på produkten. Får inte vara tomt. Maximal längd är 100 tecken.|  
 |`ProductDescription`|sträng|Beskrivning av produkten. Får inte vara tomt. Kan innehålla HTML-taggar. Maximal längd är 1000 tecken.|  
 |`ProductDetailsUrl`|sträng|Relativ URL till produkt information.|  
-|`state`|sträng|Prenumerationens tillstånd. Möjliga tillstånd är:<br /><br /> - `0 - suspended`– prenumerationen är blockerad och prenumeranten kan inte anropa några API: er för produkten.<br /><br /> - `1 - active`– prenumerationen är aktiv.<br /><br /> - `2 - expired`– prenumerationen har nått sitt förfallo datum och inaktiverades.<br /><br /> - `3 - submitted`– prenumerations förfrågan har gjorts av utvecklaren, men har ännu inte godkänts eller avvisats.<br /><br /> - `4 - rejected`– prenumerations förfrågan har nekats av en administratör.<br /><br /> - `5 - cancelled`– prenumerationen har avbrutits av utvecklaren eller administratören.|  
+|`state`|sträng|Prenumerationens tillstånd. Möjliga tillstånd är:<br /><br /> - `0 - suspended` – prenumerationen är blockerad och prenumeranten kan inte anropa några API: er för produkten.<br /><br /> - `1 - active` – prenumerationen är aktiv.<br /><br /> - `2 - expired` – prenumerationen har nått sitt förfallo datum och inaktiverades.<br /><br /> - `3 - submitted` – prenumerations förfrågan har gjorts av utvecklaren, men har ännu inte godkänts eller avvisats.<br /><br /> - `4 - rejected` – prenumerations förfrågan har nekats av en administratör.<br /><br /> - `5 - cancelled` – prenumerationen har avbrutits av utvecklaren eller administratören.|  
 |`DisplayName`|sträng|Visnings namn för prenumerationen.|  
 |`CreatedDate`|dateTime|Det datum då prenumerationen skapades, i ISO 8601-format: `2014-06-24T16:25:00Z` .|  
 |`CanBeCancelled`|boolean|Om prenumerationen kan avbrytas av den aktuella användaren.|  
@@ -304,7 +304,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`CancelUrl`|sträng|Den relativa URL: en för att avbryta prenumerationen.|  
 |`RenewUrl`|sträng|Den relativa URL: en för att förnya prenumerationen.|  
   
-##  <a name="subscription-summary"></a><a name="SubscriptionSummary"></a>Prenumerations Sammanfattning  
+##  <a name="subscription-summary"></a><a name="SubscriptionSummary"></a> Prenumerations Sammanfattning  
  `subscription summary`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Description|  
@@ -312,7 +312,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`Id`|sträng|Resurs-ID. Identifierar en unik prenumeration i den aktuella API Management tjänst instansen. Värdet är en giltig relativ URL i formatet `subscriptions/{sid}` där `{sid}` är ett prenumerations-ID. Den här egenskapen är skrivskyddad.|  
 |`DisplayName`|sträng|Prenumerationens visnings namn|  
   
-##  <a name="user-account-info"></a><a name="UserAccountInfo"></a>Användar konto information  
+##  <a name="user-account-info"></a><a name="UserAccountInfo"></a> Användar konto information  
  `user account info`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Description|  
@@ -325,7 +325,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`ProviderName`|sträng|Namn på autentiseringsprovider.|  
 |`IsBasicAccount`|boolean|Sant om det här kontot registrerades med e-post och lösen ord; falskt om kontot registrerades med en provider.|  
   
-##  <a name="user-sign-in"></a><a name="UseSignIn"></a>Användar inloggning  
+##  <a name="user-sign-in"></a><a name="UseSignIn"></a> Användar inloggning  
  `user sign in`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Description|  
@@ -343,7 +343,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`UserRegistrationTerms`|sträng|Villkor som en användare måste samtycka till innan de kan logga in.|  
 |`UserRegistrationTermsEnabled`|boolean|Om villkor är aktiverade.|  
   
-##  <a name="user-sign-up"></a><a name="UserSignUp"></a>Användar registrering  
+##  <a name="user-sign-up"></a><a name="UserSignUp"></a> Användar registrering  
  `user sign up`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  

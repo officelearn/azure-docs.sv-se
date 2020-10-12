@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
 ms.openlocfilehash: d2b1afea746410e966b43bef01a039a8471d4ae7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87007936"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Windows Diagnostics-tilläggsprogram schema
@@ -39,7 +39,7 @@ Tillagt i version 1,3.
 
 Elementet på den översta nivån i konfigurations filen för diagnostik.  
 
-**Attribut** för xmlns – XML-namnområdet för diagnostikens konfigurations fil är:  
+**Attribut**  för xmlns – XML-namnområdet för diagnostikens konfigurations fil är:  
 `http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration`
 
 
@@ -57,9 +57,9 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
 |**WadCfg**|Krävs. Se beskrivningen på en annan plats på den här sidan.|  
-|**StorageAccount**|Namnet på det Azure Storage konto som data ska lagras i. Kan också anges som en parameter när cmdleten Set-AzureServiceDiagnosticsExtension körs.|  
+|**StorageAccount**|Namnet på det Azure Storage konto som data ska lagras i. Kan också anges som en parameter när du kör Set-AzureServiceDiagnosticsExtension-cmdleten.|  
 |**StorageType**|Kan vara *Table*, *BLOB*eller *TableAndBlob*. Tabellen är standard. När TableAndBlob väljs skrivs diagnostikdata två gånger – en gång till varje typ.|  
-|**LocalResourceDirectory**|Katalogen på den virtuella datorn där övervaknings agenten lagrar händelse data. Om inte, ange, används standard katalogen:<br /><br /> För en Worker/Web-roll:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> För en virtuell dator:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Obligatoriska attribut är:<br /><br /> - **sökväg** – katalogen i systemet som ska användas av Azure-diagnostik.<br /><br /> - **expandEnvironment** – styr om miljövariablerna expanderas i Sök vägs namnet.|  
+|**LocalResourceDirectory**|Katalogen på den virtuella datorn där övervaknings agenten lagrar händelse data. Om inte, ange, används standard katalogen:<br /><br /> För en Worker/Web-roll: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> För en virtuell dator: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Obligatoriska attribut är:<br /><br /> - **sökväg** – katalogen i systemet som ska användas av Azure-diagnostik.<br /><br /> - **expandEnvironment** – styr om miljövariablerna expanderas i Sök vägs namnet.|  
 
 ## <a name="wadcfg-element"></a>WadCFG-element  
  *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG*
@@ -70,7 +70,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration-element
  *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration*
 
- Obligatorisk
+ Krävs
 
 |Attribut|Beskrivning|  
 |----------------|-----------------|  
@@ -208,7 +208,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 
 |Underordnat element|Beskrivning|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Följande attribut krävs:<br /><br /> - **counterSpecifier** – namnet på prestanda räknaren. Till exempel `\Processor(_Total)\% Processor Time`. Om du vill hämta en lista över prestanda räknare på värden kör du kommandot `typeperf` .<br /><br /> - **sampleRate** – hur ofta räknaren ska samplas.<br /><br /> Valfritt attribut:<br /><br /> **enhet** – enhets måttet för räknaren. Värdena är tillgängliga i [UnitType-klassen](/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
+|**PerformanceCounterConfiguration**|Följande attribut krävs:<br /><br /> - **counterSpecifier** – namnet på prestanda räknaren. Exempelvis `\Processor(_Total)\% Processor Time`. Om du vill hämta en lista över prestanda räknare på värden kör du kommandot `typeperf` .<br /><br /> - **sampleRate** – hur ofta räknaren ska samplas.<br /><br /> Valfritt attribut:<br /><br /> **enhet** – enhets måttet för räknaren. Värdena är tillgängliga i [UnitType-klassen](/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
 |**mottagare** | Tillagt i 1,5. Valfritt. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Azure Monitor eller Event Hubs. Observera att du måste lägga till egenskapen *resourceId* under *mått* elementet om du vill att händelser som laddats upp till Event Hubs har ett resurs-ID.|    
 
 
@@ -239,7 +239,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 |**bufferQuotaInMB**|**unsignedInt**|Valfritt. Anger den maximala mängden fil system lagring som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferLogLevelFilter**|**nollängd**|Valfritt. Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
 |**scheduledTransferPeriod**|**giltighet**|Valfritt. Anger intervallet mellan schemalagda data överföringar, avrundade uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
-|**mottagare** |**sträng**| Tillagt i 1,5. Valfritt. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Application Insights eller Event Hubs. Observera att du måste lägga till egenskapen *resourceId* under *mått* elementet om du vill att händelser som laddats upp till Event Hubs har ett resurs-ID.|  
+|**mottagare** |**nollängd**| Tillagt i 1,5. Valfritt. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Application Insights eller Event Hubs. Observera att du måste lägga till egenskapen *resourceId* under *mått* elementet om du vill att händelser som laddats upp till Event Hubs har ett resurs-ID.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-DockerSources*
@@ -284,7 +284,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 
 |Element|Typ|Beskrivning|  
 |-------------|----------|-----------------|  
-|**Kanalig**|sträng|Se beskrivningen på en annan plats på den här sidan.|  
+|**Kanal**|sträng|Se beskrivningen på en annan plats på den här sidan.|  
 
 ## <a name="channel-element"></a>Kanal element
  *Träd: root-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-Sink-Channels-Channel*
@@ -295,8 +295,8 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 
 |Attribut|Typ|Beskrivning|  
 |----------------|----------|-----------------|  
-|**logLevel**|**sträng**|Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
-|**Namn**|**sträng**|Ett unikt namn på den kanal som ska referera till|  
+|**logLevel**|**nollängd**|Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
+|**Namn**|**nollängd**|Ett unikt namn på den kanal som ska referera till|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig-element

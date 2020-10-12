@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 56f266eaba76bb990a4d2bc3d902f4c5911d9c47
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86026193"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Datavetenskap med Scala och Spark på Azure
@@ -77,14 +77,14 @@ val beginningTime = Calendar.getInstance().getTime()
 
 De Spark-kerneler som ingår i Jupyter Notebooks har förinställda kontexter. Du behöver inte uttryckligen ange Spark-eller Hive-kontexterna innan du börjar arbeta med programmet som du utvecklar. De förinställda kontexterna är:
 
-* `sc`för SparkContext
-* `sqlContext`för HiveContext
+* `sc` för SparkContext
+* `sqlContext` för HiveContext
 
 ### <a name="spark-magics"></a>Spark-Magic
 Spark-kärnan innehåller några fördefinierade "MAGICS", som är särskilda kommandon som du kan anropa med `%%` . Två av dessa kommandon används i följande kod exempel.
 
-* `%%local`anger att koden i efterföljande rader ska köras lokalt. Koden måste vara en giltig Scala-kod.
-* `%%sql -o <variable name>`kör en Hive-fråga mot `sqlContext` . Om `-o` parametern skickas, sparas resultatet av frågan i `%%local` Scala-kontexten som en spark data-ram.
+* `%%local` anger att koden i efterföljande rader ska köras lokalt. Koden måste vara en giltig Scala-kod.
+* `%%sql -o <variable name>` kör en Hive-fråga mot `sqlContext` . Om `-o` parametern skickas, sparas resultatet av frågan i `%%local` Scala-kontexten som en spark data-ram.
 
 Mer information om kernelerna för Jupyter-anteckningsböcker och deras fördefinierade "magiska" som du anropar med `%%` (till exempel `%%local` ) finns i [kernels som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
@@ -258,8 +258,8 @@ sqlResultsDF.show(3)
 | fare_amount | passenger_count | tip_amount | lutad |
 | --- | --- | --- | --- |
 |        13,5 |1.0 |2.9 |1.0 |
-|        16,0 |2.0 |3.4 |1.0 |
-|        10.5 |2.0 |1.0 |1.0 |
+|        16,0 |2,0 |3.4 |1.0 |
+|        10.5 |2,0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Data utforskning och visualisering
 När du hämtar data till Spark är nästa steg i data vetenskaps processen att få en djupare förståelse för data genom utforskning och visualisering. I det här avsnittet undersöker du taxi-data med hjälp av SQL-frågor. Importera sedan resultaten till en data ram för att rita upp målvärdena och potentiella funktioner för visuell granskning med hjälp av funktionen för automatisk visualiserings Jupyter.

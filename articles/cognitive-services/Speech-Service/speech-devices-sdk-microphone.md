@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
 ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86232533"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Tal enheter SDK mikrofon mat ris rekommendationer
@@ -30,7 +30,7 @@ Följande array-Geometries rekommenderas för användning med Microsoft Audio-st
 | MICS & Geometry | Cirkulär matris | Cirkulär matris | Linjär matris | Linjär matris |
 | --- | -------------- | --- | ------------ | --- |
 |     | <img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/> | <img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/> |
-| \#Mics | 7 | 4 | 4 | 2 |
+| \# Mics | 7 | 4 | 4 | 2 |
 | Geometri | 6, yttre, 1 Center, radie = 42,5 mm, jämnt fördelad | 3 yttre, 1 Center, radie = 42,5 mm, jämnt fördelad | Length = 120 mm, avstånd = 40 mm | Avstånd = 40 mm |
 
 Mikrofon kanaler bör sorteras enligt den numrering som visas för varje över gång, vilket ökar från 0. Microsoft Audio-stacken kräver en ytterligare referens ström för ljud uppspelning för att utföra avvisning av eko.
@@ -62,7 +62,7 @@ Mikrofonens prestanda när den är integrerad i en enhet skiljer sig från kompo
 
 | Parameter          | Rekommenderas                                        |
 | ------------------ | -------------------------------------------------- |
-| SNR                | \>63 dB (1 kHz Signal 94 dBSPL, viktat brus) |
+| SNR                | \> 63 dB (1 kHz Signal 94 dBSPL, viktat brus) |
 | Känslighet för utdata | – 26 dBFS/pa @ 1 kHz (rekommenderas)                  |
 | Amplitud matchning | ± 2 dB, 200-8000 Hz                                |
 | THD%\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL, femte ordningen             |
@@ -81,7 +81,7 @@ Eftersom avvisning av eko krävs för tal igenkännings enheter som innehåller 
 | Överväganden vid linearitet | Ingen icke-linjär bearbetning efter en högtalar referens krävs annars en maskinvarubaserad loopback-referens ström |
 | Talare loopback | Tillhandahålls via WASAPI, privata API: er, anpassade ALSA-plugin-program (Linux) eller tillhandahålls via kanal för inbyggd program vara |
 | THD% | 3: e oktav band som ligger minst femte ordningen, 70 dBA-uppspelning @ 0,8 m ≤ 6,3%, 315-500 Hz ≤ 5%, 630-5000 Hz |
-| Eko koppling till mikrofoner | \>– 10 dB-TCLw med ITU-T G. 122, bilaga B. 4 metod, normaliserad till MIC-nivå<br />TCLw = TCLwmeasured \+ (uppmätt nivå – känslighet för mål)<br />TCLw = TCLwmeasured \+ (uppmätt nivå – (-26)) |
+| Eko koppling till mikrofoner | \> – 10 dB-TCLw med ITU-T G. 122, bilaga B. 4 metod, normaliserad till MIC-nivå<br />TCLw = TCLwmeasured \+ (uppmätt nivå – känslighet för mål)<br />TCLw = TCLwmeasured \+ (uppmätt nivå – (-26)) |
 
 ## <a name="integration-design-architecture"></a>Integrations design arkitektur
 

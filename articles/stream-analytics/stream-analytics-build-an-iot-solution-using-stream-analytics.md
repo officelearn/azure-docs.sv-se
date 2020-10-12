@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: e0e2244d8c70ca2e6d379e741d543d9cd260b7f8
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86044591"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Bygg en IoT-lösning med hjälp av Stream Analytics
@@ -43,7 +43,7 @@ Den här lösningen fungerar med två data strömmar. Sensorer som är installer
 ### <a name="entry-data-stream"></a>Data ström för post
 Data strömmen i posten innehåller information om bilar när de ansätts till ett avgifts stationer. Händelsen Avsluta data strömmas direkt till en Event Hub-kö från en webbapp som ingår i exempel appen.
 
-| TollID | EntryTime | LicensePlate | Status | Modell | Modell | VehicleType | VehicleWeight | Kostnads | Tagga |
+| TollID | EntryTime | LicensePlate | Tillstånd | Modell | Modell | VehicleType | VehicleWeight | Kostnads | Tagga |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
@@ -59,7 +59,7 @@ Här är en kort beskrivning av kolumnerna:
 | TollID |Den väg-ID för väg som unikt identifierar en väg-Monte |
 | EntryTime |Datum och tid för när fordonet anträtt till avgifts hytten i UTC |
 | LicensePlate |Fordonets licens skylt |
-| Status |Ett tillstånd i USA |
+| Tillstånd |Ett tillstånd i USA |
 | Modell |Tillverkaren av bilen |
 | Modell |Den mobila enhetens modell nummer |
 | VehicleType |Antingen 1 för passagerar fordon eller 2 för kommersiella fordon |

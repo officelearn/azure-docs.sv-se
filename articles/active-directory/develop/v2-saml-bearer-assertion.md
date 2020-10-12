@@ -12,10 +12,10 @@ ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.openlocfilehash: 6e7e4dd6383b1f264ff2da7893d9f86a3708217d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89227924"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft Identity Platform och OAuth 2,0 SAML Bearer-försäkrat flöde
@@ -34,7 +34,7 @@ Det försäkrade OAuth SAML-flödet stöds bara för användare som autentiseras
 ## <a name="call-graph-using-saml-bearer-assertion"></a>Anropa graf med SAML Bearer-kontroll
 Nu ska vi lära oss hur vi faktiskt kan hämta SAML Assertion program mässigt. Den här metoden har testats med ADFS. Detta fungerar dock med alla identitets leverantörer som har stöd för att returnera SAML Assertion program mässigt. Den grundläggande processen är: Hämta en SAML-kontroll, hämta en åtkomsttoken och få åtkomst Microsoft Graph.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Upprätta en förtroende relation mellan auktoriseringsservern/miljön (Microsoft 365) och identitets leverantören, eller utfärdaren av SAML 2,0 Bearer Assertion (ADFS). Om du vill konfigurera ADFS för enkel inloggning och som identitets leverantör kan du se [den här artikeln](/archive/blogs/canitpro/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365).
 

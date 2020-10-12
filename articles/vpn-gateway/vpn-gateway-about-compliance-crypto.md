@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
 ms.openlocfilehash: 499d184d373b896ba7bffcf990693ef5e6ac466b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88032432"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Om kryptografiska krav och Azure VPN-gatewayer
@@ -36,7 +36,7 @@ Standard principen som har angetts för Azure VPN-gatewayen visas i artikeln: [o
 
 För kommunikation som kräver särskilda kryptografiska algoritmer eller parametrar, vanligt vis på grund av efterlevnad eller säkerhets krav, kan du nu konfigurera deras Azure VPN-gatewayer så att de använder en anpassad IPsec/IKE-princip med särskilda krypteringsalgoritmer och viktiga styrkor, i stället för Azures standard princip uppsättningar.
 
-Till exempel IKEv2s huvud läges principer för Azure VPN-gatewayer använder bara Diffie-Hellman-grupp 2 (1024 bitar), men du kan behöva ange starkare grupper som ska användas i IKE, till exempel grupp 14 (2048-bitars), grupp 24 (2048-bitars MODP Group) eller ECP (Elliptic kurv grupper) 256 eller 384 bit (grupp 19 respektive grupp 20 respektive). Liknande krav gäller även IPsec-principer för snabb läge.
+IKEv2 huvud läges principer för Azure VPN-gatewayer använder till exempel bara Diffie-Hellman grupp 2 (1024 bitar), men du kan behöva ange starkare grupper som ska användas i IKE, till exempel grupp 14 (2048-bitars), grupp 24 (2048-bitars MODP Group) eller ECP (Elliptic kurv grupper) 256 eller 384 bit (grupp 19 respektive grupp 20 respektive). Liknande krav gäller även IPsec-principer för snabb läge.
 
 ## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Anpassad IPsec/IKE-princip med Azure VPN-gatewayer
 

@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
 ms.openlocfilehash: f85a7e2acf911772ecc6562217918352e909fcbb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254082"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetri och fel sökning
 
-Rums analys innehåller en uppsättning funktioner som övervakar systemets hälso tillstånd och hjälp med att diagnostisera problem.
+Rumslig analys innehåller en uppsättning funktioner som övervakar systemets hälsotillstånd och hjälper till att diagnostisera problem.
 
 ## <a name="enable-visualizations"></a>Aktivera visualiseringar
 
@@ -103,7 +103,7 @@ När modulen teleympkvistar har distribuerats kan de rapporterade måtten nås v
 
 ### <a name="system-health-events"></a>System hälso händelser
 
-| Händelsenamn | Description|
+| Händelsenamn | Beskrivning|
 |------|---------|
 |archon_exit    |Skickas när en användare ändrar status för spatial Analysis-modulen från att *köras* till *stoppad*.  |
 |archon_error   |Skickas när någon av processerna i behållarens krasch. Detta är ett kritiskt fel.  |
@@ -229,7 +229,7 @@ Loggar överförs på begäran med `getRTCVLogs` metoden IoT Edge, i `diagnostic
 >[!NOTE]
 > `getRTCVLogs`Att anropa metoden med en tom nytto Last returnerar en lista över alla behållare som har distribuerats på enheten. Metod namnet är Skift läges känsligt. Du får ett 501-fel om ett felaktigt metod namn anges.
 
-:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Anropar metoden getRTCVLogs ":::
+:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Azure Monitor telemetri-rapport":::
 ![Sidan getRTCVLogs Direct-metod](./media/spatial-analysis/direct-log-collection.png)
 
  
@@ -248,7 +248,7 @@ I tabellen nedan visas de parametrar som du kan använda när du frågar efter l
 
 I följande tabell visas attributen i svaret på frågan.
 
-| Följt | Description|
+| Följt | Beskrivning|
 |--|--|
 |DoPost| Antingen *Sant* eller *falskt*. Anger om loggarna har överförts eller inte. Om du väljer att inte ladda upp loggar, returnerar API information ***synkront***. När du väljer att ladda upp loggar returnerar API 200, om begäran är giltig och börjar ladda upp loggar ***asynkront***.|
 |TimeFilter| Tids filtret som används för loggarna.|
@@ -336,7 +336,7 @@ Anslut via fjärr anslutning från en Windows-klient. När Kubernetes-klustret h
 1. Kör en Windows PowerShell-session som administratör. 
     1. Kontrol lera att tjänsten Windows Remote Management körs på klienten. Skriv i kommando tolken `winrm quickconfig` .
 
-2. Tilldela en variabel för enhetens IP-adress. Till exempel `$ip = "<device-ip-address>"`.
+2. Tilldela en variabel för enhetens IP-adress. Exempelvis `$ip = "<device-ip-address>"`.
 
 3. Använd följande kommando för att lägga till IP-adressen för enheten i klientens lista över betrodda värdar. 
 

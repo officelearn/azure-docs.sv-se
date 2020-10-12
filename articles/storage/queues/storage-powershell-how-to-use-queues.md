@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 8f45a4de2e13f936556f8dd99aa107110edc6e91
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89077933"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utför Azure Queue Storage-åtgärder med Azure PowerShell
@@ -164,7 +164,7 @@ $queue.CloudQueue.DeleteMessageAsync($queueMessage.Result.Id,$queueMessage.Resul
 
 ## <a name="delete-a-queue"></a>Ta bort en kö
 
-Om du vill ta bort en kö och alla meddelanden som finns i den anropar du cmdleten Remove-AzStorageQueue. I följande exempel visas hur du tar bort den aktuella kön som används i den här övningen med hjälp av cmdleten Remove-AzStorageQueue.
+Anropa Remove-AzStorageQueue-cmdleten om du vill ta bort en kö och alla meddelanden som finns i den. I följande exempel visas hur du tar bort den aktuella kön som används i den här övningen med hjälp av Remove-AzStorageQueue-cmdlet.
 
 ```powershell
 # Delete the queue

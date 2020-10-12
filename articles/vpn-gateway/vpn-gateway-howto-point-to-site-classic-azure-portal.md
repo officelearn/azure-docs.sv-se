@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: f68631771b8f86d995108112b1243ab38bf826bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84984783"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Konfigurera en punkt-till-plats-anslutning med hjälp av certifikatautentisering (klassisk)
@@ -81,7 +81,7 @@ Innan du börjar kontrollerar du att du har en Azure-prenumeration. Om du inte h
 
 Om du inte redan har ett virtuellt nätverk (VNet) skapar du ett. Skärmbilderna anges som exempel. Se till att ersätta värdena med dina egna. Följ stegen nedan för att skapa ett VNet med Azure Portal:
 
-1. På [Azure Portal](https://portal.azure.com) -menyn eller på **Start** sidan väljer du **skapa en resurs**. Sidan **Nytt** öppnas.
+1. I menyn i [Azure-portalen](https://portal.azure.com) eller på sidan **Start** väljer du **Skapa en resurs**. Sidan **Nytt** öppnas.
 
 2. I fältet **Sök på Marketplace** anger du *virtuellt nätverk* och väljer **Virtuellt nätverk** i listan som returneras. Sidan **Virtuellt nätverk** öppnas.
 
@@ -93,7 +93,7 @@ Om du inte redan har ett virtuellt nätverk (VNet) skapar du ett. Skärmbilderna
 
 5. Välj den **prenumeration** som du vill använda i listrutan.
 
-6. Välj en befintlig **resursgrupp**. Alternativt skapar du en ny resursgrupp genom att välja **Skapa ny** och ange ett namn. Om du skapar en ny resursgrupp namnger du den baserat på dina planerade konfigurationsvärden. Mer information om resurs grupper finns i [Azure Resource Manager översikt](../azure-resource-manager/management/overview.md#resource-groups).
+6. Välj en befintlig **resursgrupp**. Alternativt skapar du en ny resursgrupp genom att välja **Skapa ny** och ange ett namn. Om du skapar en ny resursgrupp namnger du den baserat på dina planerade konfigurationsvärden. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
 
 7. Välj en **plats** för det virtuella nätverket. Den här inställningen avgör den geografiska platsen för de resurser som du distribuerar till det här virtuella nätverket.
 

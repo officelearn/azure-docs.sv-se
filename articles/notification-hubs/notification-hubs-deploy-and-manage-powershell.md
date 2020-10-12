@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: f000251009bda730b15458f3ab4d8b7d6ca1db6d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87030308"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuera och hantera Notification Hub med PowerShell
@@ -78,7 +78,7 @@ catch [System.Exception]
 
 Om du vill etablera Notification Hubs skapar du en instans av klassen [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) från SDK: n.
 
-Du kan använda cmdleten [Get-AzureSBAuthorizationRule] som ingår i Azure PowerShell för att hämta en auktoriseringsregel som används för att ange en anslutnings sträng. En referens till `NamespaceManager` instansen lagras i `$NamespaceManager` variabeln. `$NamespaceManager`används för att etablera en Notification Hub.
+Du kan använda cmdleten [Get-AzureSBAuthorizationRule] som ingår i Azure PowerShell för att hämta en auktoriseringsregel som används för att ange en anslutnings sträng. En referens till `NamespaceManager` instansen lagras i `$NamespaceManager` variabeln. `$NamespaceManager` används för att etablera en Notification Hub.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace

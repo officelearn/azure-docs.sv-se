@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985302"
 ---
 # <a name="configure-the-application-dashboard"></a>Konfigurera program instrument panelen
@@ -33,7 +33,7 @@ När du har valt **redigera** eller **nytt**är instrument panelen i *redigering
 1. Välj en eller flera enheter i list rutan **enheter** som ska visas på panelen. Nu ser du tillgängliga telemetri, egenskaper och kommandon från enheterna.
 1. Välj **temperatur** i avsnittet telemetri och välj sedan **Lägg till panel**. Panelen visas nu på instrument panelen där du kan ändra visualiseringen, ändra storlek på panelen och konfigurera den:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Lägg till en panel för temperatur telemetri på instrument panelen":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Instrument panel för program som baseras på den anpassade program mal len":::
 
 När du är klar med att lägga till och anpassa paneler på instrument panelen väljer du **Spara**.
 
@@ -75,23 +75,23 @@ För paneler som visar aggregerade värden väljer du kugg hjuls ikonen bredvid 
 
 För linje diagram, liggande diagram och cirkel diagram kan du anpassa färgen på de olika värdena för telemetri. Välj palett-ikonen bredvid den telemetri som du vill anpassa:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Ändra färg på ett telemetri värde":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Instrument panel för program som baseras på den anpassade program mal len":::
 
 För paneler som visar sträng egenskaper eller telemetridata kan du välja hur du vill att texten ska visas. Om enheten till exempel lagrar en URL i en sträng egenskap kan du Visa den som en klicknings bara länk. Om URL: en refererar till en bild kan du återge bilden i ett sista känt värde eller en egenskaps panel. Om du vill ändra hur en sträng visas i panelen konfiguration väljer du kugg hjuls ikonen bredvid typen av telemetri eller egenskap:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Ändra hur en sträng visas på en panel":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Instrument panel för program som baseras på den anpassade program mal len":::
 
 För numeriska **KPI**: er, **senast kända värde**och **egenskaps** paneler kan du använda villkorsstyrd formatering för att anpassa panelens färg baserat på dess aktuella värde. Om du vill lägga till villkorsstyrd formatering väljer du **Konfigurera** på panelen och väljer sedan ikonen **villkorsstyrd formatering** bredvid värdet som du vill anpassa:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Skärm bild som visar hur du hittar alternativet Konfigurera för en panel och sedan ikonen villkorsstyrd formatering":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Instrument panel för program som baseras på den anpassade program mal len":::
 
 Lägg till reglerna för villkorsstyrd formatering:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Skärm bild som visar regler för villkorsstyrd formatering för Genomsnittligt flöde. Det finns tre regler som är mindre Tha 20 är gröna, mindre än 50 är gult och allt över 50 är rött":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Instrument panel för program som baseras på den anpassade program mal len":::
 
 Följande skärm bild visar resultatet av regeln för villkorsstyrd formatering:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Skärm bild som visar den gula bakgrunds färgen på panelen Genomsnittligt vatten flöde. Numret på panelen är 40,84":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Instrument panel för program som baseras på den anpassade program mal len":::
 
 ## <a name="next-steps"></a>Nästa steg
 

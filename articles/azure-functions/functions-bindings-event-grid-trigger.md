@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
 ms.openlocfilehash: 96daa93c28617bd34f263b11afcd244e3b7bacf0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88214142"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Event Grid utlösare för Azure Functions
@@ -407,7 +407,7 @@ För funktioner som du utvecklar i Azure Portal med Event Grid utlösare väljer
 
 När du väljer den här länken, öppnar portalen sidan **Skapa händelse prenumeration** med den aktuella utlösare som redan har definierats.
 
-:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Skapa händelse prenumeration med funktions slut punkten redan definierad" :::
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Anslut en ny händelse prenumeration till utlösaren i portalen." :::
 
 Mer information om hur du skapar prenumerationer med hjälp av Azure Portal finns i avsnittet [Skapa anpassad händelse-Azure Portal](../event-grid/custom-event-quickstart-portal.md) i Event Grid-dokumentationen.
 

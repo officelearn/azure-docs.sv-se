@@ -17,10 +17,10 @@ ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c16008ac4a328f93669179ccca783efb9ef092a5
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91773513"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
@@ -320,13 +320,13 @@ Du kan expandera en hanterad domän så att den har fler än en replik uppsättn
 
 ---
 
-### <a name="general-availability-of-azure-ad-my-sign-ins"></a>Allmän tillgänglighet för mina inloggningar i Azure AD
+### <a name="general-availability-of-azure-ad-my-sign-ins"></a>Allmän tillgänglighet för Azure AD My Sign-Ins
 
 **Typ:** Ny funktion  
 **Tjänste kategori:** Autentiseringar (inloggningar)  
 **Produkt kapacitet:** Slut användar upplevelser
  
-Azure AD mina inloggningar är en ny funktion som gör det möjligt för företags användare att granska sin inloggnings historik för att söka efter ovanliga aktiviteter. Dessutom gör den här funktionen att slutanvändarna kan rapportera "det här inte jag" eller "det var jag" på misstänkta aktiviteter. Mer information om hur du använder den här funktionen finns i [Visa och söka efter din senaste inloggnings aktivitet från sidan mina inloggningar](../user-help/my-account-portal-sign-ins-page.md#confirm-unusual-activity).
+Azure AD My Sign-Ins är en ny funktion som gör det möjligt för företags användare att granska sin inloggnings historik för att söka efter ovanliga aktiviteter. Dessutom gör den här funktionen att slutanvändarna kan rapportera "det här inte jag" eller "det var jag" på misstänkta aktiviteter. Mer information om hur du använder den här funktionen finns i [Visa och söka efter din senaste inloggnings aktivitet från sidan mina Sign-Ins](../user-help/my-account-portal-sign-ins-page.md#confirm-unusual-activity).
  
 ---
 
@@ -460,7 +460,7 @@ TLS (Transport Layer Security) 1,2 och uppdaterings servrar och klienter kommer 
  
 Windows Hello för företag gör att slutanvändarna kan logga in på Windows-datorer med en gest (t. ex. en PIN-kod eller bio metrisk). Azure AD-administratörer kan vilja särskilja inloggnings program för Windows Hello för företag från andra Windows-inloggningar som en del av en organisations resan till lösen ords lös autentisering. 
 
-Administratörer kan nu se om en Windows-autentisering har använt Windows Hello för företag genom att kontrol lera fliken autentiseringsinformation för en Windows-inloggnings händelse på bladet Azure AD-inloggningar i Azure Portal. Windows Hello för företag-autentiseringar kommer att innehålla "WindowsHelloForBusiness" i fältet autentiseringsmetod. Mer information om hur du tolkar inloggnings loggar finns i dokumentationen om [inloggnings loggar](../reports-monitoring/concept-sign-ins.md).
+Administratörer kan nu se om en Windows-autentisering använder Windows Hello för företag genom att kontrol lera fliken autentiseringsinformation för en Windows-inloggnings händelse på bladet Azure AD Sign-Ins i Azure Portal. Windows Hello för företag-autentiseringar kommer att innehålla "WindowsHelloForBusiness" i fältet autentiseringsmetod. Mer information om hur du tolkar Sign-In loggar finns i [dokumentationen för inloggnings loggar](../reports-monitoring/concept-sign-ins.md).
  
 ---
 
@@ -593,7 +593,7 @@ Användar risk villkoret kräver Azure AD Premium P2 eftersom det använder Azur
 **Tjänste kategori:** Företags program  
 **Produkt kapacitet:** DEFINITION
  
-Vissa SAML-program kräver att SPNameQualifier returneras i intygets ämne när det begärs. Azure AD svarar nu korrekt när en SPNameQualifier begärs i NameID-principen för begäran. Detta fungerar även för SP-initierad inloggning och IdP initierad inloggning kommer att följa.  Mer information om SAML-protokoll i Azure Active Directory finns i [SAML-protokoll för enkel inloggning](../develop/single-sign-on-saml-protocol.md).
+Vissa SAML-program kräver att SPNameQualifier returneras i intygets ämne när det begärs. Azure AD svarar nu korrekt när en SPNameQualifier begärs i NameID-principen för begäran. Detta fungerar även för SP-initierad inloggning och IdP initierad inloggning kommer att följa.  Mer information om SAML-protokoll i Azure Active Directory finns i [Single Sign-On SAML-protokollet](../develop/single-sign-on-saml-protocol.md).
 
 ---
 
@@ -1039,7 +1039,7 @@ Mer information finns [i den nya appens registrerings upplevelse för Azure AD B
 
 **Produkt kapacitet:** & skydd för identitets säkerhet
 
-Den kombinerade registrerings upplevelsen för Multi-Factor Authentication (MFA) och lösen ords återställning via självbetjäning (SSPR) är nu allmänt tillgänglig. Den här nya registreringen gör det möjligt för användare att registrera sig för MFA-och SSPR i en enda steg-för-steg-process. När du distribuerar den nya upplevelsen för din organisation kan användarna registrera sig på kortare tid och med färre krångel. Kolla in blogg inlägget [här](https://bit.ly/3etiRyQ).
+Den kombinerade registrerings upplevelsen för Multi-Factor Authentication (MFA) och Self-Service återställning av lösen ord (SSPR) är nu allmänt tillgänglig. Den här nya registreringen gör det möjligt för användare att registrera sig för MFA-och SSPR i en enda steg-för-steg-process. När du distribuerar den nya upplevelsen för din organisation kan användarna registrera sig på kortare tid och med färre krångel. Kolla in blogg inlägget [här](https://bit.ly/3etiRyQ).
 
 ---
 
@@ -1237,7 +1237,7 @@ Mer information finns i [hantering av administrativa enheter i Azure Active Dire
 
 **Produkt kapacitet:** Access Control
 
-Användare med den här rollen kan aktivera, konfigurera och hantera tjänster och inställningar för att aktivera hybrid identitet i Azure AD. Den här rollen ger möjlighet att konfigurera Azure AD till någon av de tre autentiseringsmetoder som stöds&#8212;(PHS), direktautentisering (PTA) eller Federation (AD FS eller tredjepartsleverantörer) &#8212;och för att distribuera relaterad lokal infrastruktur för att aktivera dem. Lokal infrastruktur innehåller etablerings-och PTA-agenter. Den här rollen ger möjlighet att aktivera sömlös enkel inloggning (S-SSO) för att möjliggöra sömlös autentisering på icke-Windows 10-enheter eller datorer som inte är Windows Server 2016. Dessutom ger den här rollen möjlighet att se inloggnings loggar och för att få åtkomst till hälso-och analys funktioner för övervakning och fel sökning. [Läs mer.](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)
+Användare med den här rollen kan aktivera, konfigurera och hantera tjänster och inställningar för att aktivera hybrid identitet i Azure AD. Den här rollen ger möjlighet att konfigurera Azure AD till någon av de tre autentiseringsmetoder som stöds&#8212;(PHS), direktautentisering (PTA) eller Federation (AD FS eller tredjepartsleverantörer) &#8212;och för att distribuera relaterad lokal infrastruktur för att aktivera dem. Lokal infrastruktur innehåller etablerings-och PTA-agenter. Den här rollen ger möjlighet att aktivera sömlös enkel Sign-On (S-SSO) för att möjliggöra sömlös autentisering på icke-Windows 10-enheter eller datorer som inte är Windows Server 2016. Dessutom ger den här rollen möjlighet att se inloggnings loggar och för att få åtkomst till hälso-och analys funktioner för övervakning och fel sökning. [Läs mer.](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)
 
 ---
 

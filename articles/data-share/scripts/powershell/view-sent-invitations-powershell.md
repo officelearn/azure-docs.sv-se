@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
 ms.openlocfilehash: 3f0374ba5b98c145359d18143584e23fc543c552
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985621"
 ---
 # <a name="use-powershell-to-get-a-data-share-invitation"></a>Använd PowerShell för att hämta en inbjudan till data resursen
@@ -38,7 +38,7 @@ Get-AzDataShareInvitation -location -invitationId
 
 I det här skriptet används följande kommandon: 
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [Get-AzDataShareInvitation](/powershell/module/az.datashare/get-azdatashareinvitation?view=azps-2.6.0) | Hämta och visa en lista över inbjudningar till skickade data resurser. |
 |||

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/30/2020
 ms.author: memildin
 ms.openlocfilehash: a04f94f5ebc7c1fdaf7b95e71dc8549e19863b39
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91614170"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Självstudie: prioritering, undersöka och reagera på säkerhets aviseringar
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur man:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill gå igenom de funktioner som beskrivs i den här självstudien måste du ha Azure Defender aktiverat. Du kan testa Azure Defender utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabb start [Kom igång med Security Center](security-center-get-started.md) hjälper dig att uppgradera.
 
 

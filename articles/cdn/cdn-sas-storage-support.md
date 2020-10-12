@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
 ms.openlocfilehash: d716b026159311c12341c30a8c32d5a9ecc6fa3f
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87432749"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Använda Azure CDN med SAS
@@ -39,7 +39,7 @@ När du har skapat en SAS-token kan du komma åt Blob Storage-filen genom att l�
 
 `https://<account name>.blob.core.windows.net/<container>/<file>?sv=<SAS token>`
  
-Ett exempel:
+Exempel:
  ```
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
@@ -58,9 +58,9 @@ Det här alternativet är det enklaste och använder en enkel SAS-token, som ski
 
 2. När du har konfigurerat SAS på ditt lagrings konto måste du använda SAS-token med URL: en för CDN-slutpunkten och ursprungs servern för att komma åt filen. 
    
-   Den resulterande CDN-slutpunktens URL har följande format:`https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
+   Den resulterande CDN-slutpunktens URL har följande format: `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
-   Ett exempel:   
+   Exempel:   
    ```
    https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
@@ -90,9 +90,9 @@ Det här alternativet är endast tillgängligt för **Azure CDN Premium från Ve
    ![CDN URL för att skriva om regel-Left ](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
     ![ CDN URL, Skriv om regel-höger](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. När den nya regeln blir aktiv, kan vem som helst komma åt filer i den angivna behållaren på CDN-slutpunkten oavsett om de använder en SAS-token i URL: en. Här är formatet:`https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. När den nya regeln blir aktiv, kan vem som helst komma åt filer i den angivna behållaren på CDN-slutpunkten oavsett om de använder en SAS-token i URL: en. Här är formatet: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
-   Ett exempel:   
+   Exempel:   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
@@ -107,7 +107,7 @@ Om du vill använda autentisering med Azure CDN säkerhetstoken måste du ha ett
    En URL för säkerhetstoken har följande format:   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
  
-   Ett exempel:   
+   Exempel:   
    ```
    https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
@@ -134,7 +134,7 @@ Om du vill använda autentisering med Azure CDN säkerhetstoken måste du ha ett
 
 Eftersom SAS-parametrar inte är synliga för Azure CDN kan Azure CDN inte ändra leverans beteendet baserat på dem. De definierade parameter begränsningarna gäller endast för begär Anden som Azure CDN gör till ursprungs servern, inte för förfrågningar från klienten till Azure CDN. Den här skillnaden är viktig att tänka på när du anger SAS-parametrar. Om dessa avancerade funktioner krävs och du använder [Alternativ 3](#option-3-using-cdn-security-token-authentication-with-a-rewrite-rule), anger du lämpliga begränsningar för Azure CDN säkerhetstoken.
 
-| SAS-parameter namn | Description |
+| SAS-parameter namn | Beskrivning |
 | --- | --- |
 | Start | Den tid som Azure CDN kan börja komma åt BLOB-filen. På grund av klock skillnaden (när en klock signal anländer vid olika tidpunkter för olika komponenter), väljer du en tid 15 minuter innan du vill att till gången ska vara tillgänglig direkt. |
 | Slut | Tiden efter vilken Azure CDN inte längre kan komma åt BLOB-filen. Tidigare cachelagrade filer på Azure CDN är fortfarande tillgängliga. Om du vill kontrol lera förfallo tiden för filen anger du antingen lämplig förfallo tid för Azure CDN säkerhetstoken eller rensar till gången. |

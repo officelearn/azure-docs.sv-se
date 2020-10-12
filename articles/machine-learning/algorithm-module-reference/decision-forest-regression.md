@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 7f9677bfd793e7ff21ff2c6c7e6760b630dc074b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898533"
 ---
 # <a name="decision-forest-regression-module"></a>Besluts skogs Regressions modul
@@ -38,7 +38,7 @@ Besluts träd har följande fördelar:
 
 Denna Regressions modell består av en ensemble i besluts träd. Varje träd i en Regressions besluts skog matar ut en Gaussisk-distribution som en förutsägelse. En agg regering utförs över ensemblen i träd för att hitta en Gaussisk-distribution som är närmast den kombinerade distributionen för alla träd i modellen.
 
-Mer information om det teoretiska ramverket för den här algoritmen och dess implementering finns i den här artikeln: [besluts skogar: ett enhetligt ramverk för klassificering, regression, densitets beräkning, plattforms inlärning och delvis övervakad inlärning](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+Mer information om det teoretiska ramverket för den här algoritmen och dess implementering finns i den här artikeln: [besluts skogar: ett enhetligt ramverk för klassificering, regression, densitets beräkning, samlings inlärning och Semi-Supervised inlärning](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Konfigurera Regressions modellen för besluts skogar
 

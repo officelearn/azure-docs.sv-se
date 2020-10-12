@@ -1,7 +1,7 @@
 ---
-title: 'PCA-baserad avvikelse identifiering: modulreferens'
+title: 'PCA-Based avvikelse identifiering: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder PCA-baserad avvikelse identifiering för att skapa en modell för avvikelse identifiering baserat på huvud komponent analys (PCA).
+description: Lär dig hur du använder modulen PCA-Based avvikelse identifiering för att skapa en avvikelse identifierings modell baserad på huvud komponent analys (PCA).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: fa90fcb9ebc17be9a658b08873234eada98b0fba
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898466"
 ---
-# <a name="pca-based-anomaly-detection-module"></a>PCA-baserad avvikelse identifierings modul
+# <a name="pca-based-anomaly-detection-module"></a>Modul för PCA-Based avvikelse identifiering
 
-Den här artikeln beskriver hur du använder den PCA-baserade modulen för avvikelse identifiering i Azure Machine Learning designer för att skapa en modell för avvikelse identifiering baserat på Principal Component Analysis (PCA).
+Den här artikeln beskriver hur du använder modulen PCA-Based avvikelse identifiering i Azure Machine Learning designer för att skapa en modell för avvikelse identifiering baserat på Principal Component Analysis (PCA).
 
 Med den här modulen kan du skapa en modell i scenarier där det är enkelt att hämta tränings data från en klass, till exempel giltiga transaktioner, men svårt att få tillräckligt med exempel på mål avvikelser. 
 
-För att till exempel identifiera bedrägliga transaktioner har du ofta inte tillräckligt många exempel på bedrägerier att träna på. Men du kan ha många exempel på användbara transaktioner. Den PCA-baserade modulen för avvikelse identifiering löser problemet genom att analysera tillgängliga funktioner för att fastställa vad som utgör en "normal"-klass. Modulen använder sedan avstånds mått för att identifiera fall som representerar avvikelser. Med den här metoden kan du träna en modell med hjälp av befintliga obalanserade data.
+För att till exempel identifiera bedrägliga transaktioner har du ofta inte tillräckligt många exempel på bedrägerier att träna på. Men du kan ha många exempel på användbara transaktioner. Modulen PCA-Based avvikelse identifiering löser problemet genom att analysera tillgängliga funktioner för att fastställa vad som utgör en "normal"-klass. Modulen använder sedan avstånds mått för att identifiera fall som representerar avvikelser. Med den här metoden kan du träna en modell med hjälp av befintliga obalanserade data.
 
 ## <a name="more-about-principal-component-analysis"></a>Mer om analys av huvud objekts komponenter
 
@@ -38,7 +38,7 @@ Mer information om hur PCA fungerar och om implementeringen av avvikelse identif
 
 - [Hitta strukturen med slumpmässig het: Probabilistic-algoritmer för att konstruera ungefärlig mat ris dekompositioner](http://users.cms.caltech.edu/~jtropp/papers/HMT11-Finding-Structure-SIREV.pdf) (PDF-nedladdning), av Halko, Martinsson och Tropp
 
-## <a name="how-to-configure-pca-based-anomaly-detection"></a>Konfigurera PCA-baserad avvikelse identifiering
+## <a name="how-to-configure-pca-based-anomaly-detection"></a>Så här konfigurerar du PCA-Based avvikelse identifiering
 
 1. Lägg till modulen **PCA-baserad avvikelse identifiering** i din pipeline i designern. Du hittar den här modulen i kategorin för **avvikelse identifiering** .
 

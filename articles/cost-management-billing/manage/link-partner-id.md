@@ -4,16 +4,16 @@ description: Spåra interaktioner med Azure-kunder genom att länka ett partner-
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 03953e210f1c4caf1541db272ce4c02c271dafaa
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: f030a9e75507063e104e0bae0ca5654bd3528bac
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371838"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772727"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Länka ett partner-ID till dina Azure-konton
 
@@ -43,7 +43,7 @@ När du har åtkomst till kundens resurser använder du Azure-portalen, PowerShe
 
 2. Logga in på Azure Portal.
 
-3. Ange Microsofts partner-ID. Partner-ID:t är ID:t för [Microsoft Partner Network](https://partner.microsoft.com/) för din organisation.
+3. Ange Microsofts partner-ID. Partner-ID:t är ID:t för [Microsoft Partner Network](https://partner.microsoft.com/) för din organisation. Se till att använda **associerat MPN-ID** som visas i din partnerprofil.
 
    ![Skärmbild som visar Länka till ett partner-ID](./media/link-partner-id/link-partner-id01.png)
 
@@ -61,7 +61,8 @@ När du har åtkomst till kundens resurser använder du Azure-portalen, PowerShe
     C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
-3. Länka till det nya partner-ID:t. Partner-ID:t är ID:t för [Microsoft Partner Network](https://partner.microsoft.com/) för din organisation.
+3. Länka till det nya partner-ID:t. Partner-ID:t är ID:t för [Microsoft Partner Network](https://partner.microsoft.com/) för din organisation. Se till att använda **associerat MPN-ID** som visas i din partnerprofil.
+
 
     ```azurepowershell-interactive
     C:\> new-AzManagementPartner -PartnerId 12345
@@ -141,7 +142,7 @@ Länken är kopplad på användarkontonivå. Du är den enda som kan redigera el
 
 **Vilket MPN-ID ska jag använda om mitt företag har flera?**
 
-Partnerplatskonton och associerade MPN-ID:n bör användas för att länka partner-ID:n.  Läs mer om [partnerkonton](https://docs.microsoft.com/partner-center/account-structure)
+Se till att använda **associerat MPN-ID** som visas i din partnerprofil.
 
 **Var kan jag se hur intäkterna påverkas av länkade partner-ID:n?**
 

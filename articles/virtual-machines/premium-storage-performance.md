@@ -8,10 +8,10 @@ ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: f89358f4ca34c39527d7e65307ada042ba3df7e0
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776161"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium-lagring: design för hög prestanda
@@ -197,7 +197,7 @@ För att vittnea effekterna av IO-storleken på program prestanda kan du köra b
 
 ## <a name="high-scale-vm-sizes"></a>Hög skalning av VM-storlekar
 
-När du börjar utforma ett program, en av de första saker som du bör göra, väljer du en virtuell dator som är värd för ditt program. Premium Storage levereras med hög skalnings storlekar för virtuella datorer som kan köra program som kräver högre beräknings kraft och en hög I/O-prestanda för lokala diskar. De här virtuella datorerna ger snabbare processorer, en högre förhållande mellan minne och kärna och en SSD-enhet (Solid-State Drive) för den lokala disken. Exempel på virtuella datorer med hög skalning som stöder Premium Storage är virtuella datorer i DS och GS-serien.
+När du börjar utforma ett program, en av de första saker som du bör göra, väljer du en virtuell dator som är värd för ditt program. Premium Storage levereras med hög skalnings storlekar för virtuella datorer som kan köra program som kräver högre beräknings kraft och en hög I/O-prestanda för lokala diskar. De här virtuella datorerna ger snabbare processorer, ett högre förhållandet mellan minne och kärna och en Solid-State hård disk (SSD) för den lokala disken. Exempel på virtuella datorer med hög skalning som stöder Premium Storage är virtuella datorer i DS och GS-serien.
 
 Virtuella datorer med hög skalning är tillgängliga i olika storlekar med olika antal processor kärnor, minne, OS och temporär disk storlek. Varje VM-storlek har också maximalt antal data diskar som du kan ansluta till den virtuella datorn. Det innebär att den valda virtuella dator storleken påverkar hur mycket bearbetning, minne och lagrings kapacitet som är tillgängligt för ditt program. Det påverkar också beräknings-och lagrings kostnaden. Nedan visas till exempel specifikationerna för den största virtuella dator storleken i en DS-serie och GS-serien:
 
@@ -279,7 +279,7 @@ Följande är de rekommenderade diskens cacheinställningar för data diskar,
 
 | **Inställning av diskcachelagring** | **rekommendation när du ska använda den här inställningen** |
 | --- | --- |
-| Ingen |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
+| Inget |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
 | ReadOnly |Konfigurera Host-cache som skrivskyddat för skrivskyddade och Läs-och skriv diskar. |
 | ReadWrite |Konfigurera Host-cache enbart som ReadWrite om ditt program hanterar skrivningen av cachelagrade data korrekt till beständiga diskar vid behov. |
 

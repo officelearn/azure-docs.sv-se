@@ -12,10 +12,10 @@ author: slbird
 ms.reviewer: luquinta
 ms.date: 07/09/2020
 ms.openlocfilehash: 355d96fe5a617effab89fbd038f7f1785215f88f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90897686"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Använd differentiell sekretess i Azure Machine Learning (för hands version)
@@ -152,7 +152,7 @@ Du kan använda biblioteket för att skapa mer komplexa analys diagram, med fler
 | Antal         | Gaussisk   | Långa       |
 | Histogram     | Geometriska  | Ihopfogning   |
 | Medelvärde          | Laplace    | Digitalisera   |
-| Kvantiler     |            | Filtrera     |
+| Kvantiler     |            | Filter     |
 | Summa           |            | Tillvitelse |
 | Varians/kovarians |      | Transformering  |
 
@@ -249,6 +249,6 @@ with wn.Analysis() as analysis:
 Mer information finns i [antecknings boken för kovarians](
 https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/covariance.ipynb)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Utforska [WhiteNoise-exempel Notebooks](https://github.com/opendifferentialprivacy/whitenoise-samples/tree/master/analysis).

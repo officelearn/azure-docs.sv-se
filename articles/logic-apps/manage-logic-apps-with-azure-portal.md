@@ -10,10 +10,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 07/20/2020
 ms.openlocfilehash: d50f577a7170982be004cc8957114f79675fbc6e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87078623"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Hantera Logic Apps i Azure Portal
@@ -59,7 +59,7 @@ Följ dessa steg om du vill söka efter och öppna din Logic app:
    * **Resursgrupp**
    * **Plats**
    * **Typ** 
-   * **Subscription Name**
+   * **Prenumerations namn**
    * **Prenumerations-ID**
    * **Åtkomst slut punkt**
    * **Utgående IP-adresser för körning**

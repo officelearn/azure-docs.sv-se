@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
 ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654862"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Azure HDInsight-accelererade skrivningar för Apache HBase
@@ -32,7 +32,7 @@ Om en **RegionServer** kraschar eller blir otillgänglig innan memstores töms, 
 
 ## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Accelererade skrivningar i Azure HDInsight för Apache HBase
 
-Funktionen accelererade skrivningar löser problemet med högre Skriv-fördröjning som orsakas av att skriva loggar som finns i moln lagring.  Funktionen accelererade skrivningar för HDInsight Apache HBase-kluster, ansluter Premium SSD-hanterade diskar till varje RegionServer (arbetsnoden). Skriv loggar i förväg skrivs sedan till Hadoop-filsystemet (HDFS) som är monterat på dessa Premium-hanterade diskar i stället för till moln lagring.  Premium-hanterade – diskar använder Solid-State-diskar (SSD) och erbjuder utmärkta I/O-prestanda med fel tolerans.  Till skillnad från ohanterade diskar påverkar den inte andra lagrings enheter i samma tillgänglighets uppsättning om en lagrings enhet slutar fungera.  Det innebär att hanterade diskar ger låg Skriv fördröjning och bättre återhämtning för dina program. Mer information om Azure-hanterade diskar finns i [Introduktion till Azure Managed disks](../../virtual-machines/managed-disks-overview.md).
+Funktionen accelererade skrivningar löser problemet med högre Skriv-fördröjning som orsakas av att skriva loggar som finns i moln lagring.  Funktionen accelererade skrivningar för HDInsight Apache HBase-kluster, ansluter Premium SSD-hanterade diskar till varje RegionServer (arbetsnoden). Skriv loggar i förväg skrivs sedan till Hadoop-filsystemet (HDFS) som är monterat på dessa Premium-hanterade diskar i stället för till moln lagring.  Premium-hanterade – diskar använder Solid-State diskar (SSD) och erbjuder utmärkt I/O-prestanda med fel tolerans.  Till skillnad från ohanterade diskar påverkar den inte andra lagrings enheter i samma tillgänglighets uppsättning om en lagrings enhet slutar fungera.  Det innebär att hanterade diskar ger låg Skriv fördröjning och bättre återhämtning för dina program. Mer information om Azure-hanterade diskar finns i [Introduktion till Azure Managed disks](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Så här aktiverar du påskyndade skrivningar för HBase i HDInsight
 

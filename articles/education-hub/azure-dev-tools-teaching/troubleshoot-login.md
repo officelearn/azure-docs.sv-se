@@ -8,10 +8,10 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
 ms.openlocfilehash: 276ab2cc1d79235c00ce1bb50ff9b648bb1de6ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87099720"
 ---
 # <a name="troubleshooting-student-login-issues"></a>Felsöka problem med student inloggning
@@ -39,16 +39,16 @@ Om en student har en befintlig Microsoft-konto (till exempel Xbox) kan de anslut
 
 1. Klicka på **hantera hur du loggar**in på Microsoft. Du uppmanas att verifiera din identitet. Du kommer att e-posta en säkerhets kod.
 
-    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in.png" alt-text="Hantera inloggning." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in.png" alt-text="Fel meddelande för inloggning." border="false":::
 
 1. Ange den e-postrelaterade säkerhets koden.
 
-    :::image type="content" source="media/troubleshoot-accounts/sign-in-enter-code.png" alt-text="Ange inloggnings kod." border="false":::!
+    :::image type="content" source="media/troubleshoot-accounts/sign-in-enter-code.png" alt-text="Fel meddelande för inloggning." border="false":::!
 
 1. Klicka på **Lägg till e-post** till ditt konto och ange din e-postadress för University.
 Nästa gång du loggar in kan du använda din e-postadress i University för att få åtkomst till dina Azure dev-verktyg för utbildning.
 
-    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Hantera hur du loggar in på Microsoft." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Fel meddelande för inloggning." border="false":::
 
 ## <a name="next-steps"></a>Nästa steg
 - [Vanliga frågor och svar](program-faq.md)

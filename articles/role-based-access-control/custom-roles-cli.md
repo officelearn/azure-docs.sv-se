@@ -15,10 +15,10 @@ ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 8fa77f13b99564246c048e7b7a8129f9fc141c47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84984177"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>Skapa eller uppdatera anpassade Azure-roller med Azure CLI
@@ -243,5 +243,5 @@ az role definition delete --name "Virtual Machine Operator"
 ## <a name="next-steps"></a>Nästa steg
 
 - [Självstudie: skapa en anpassad Azure-roll med hjälp av Azure CLI](tutorial-custom-role-cli.md)
-- [Anpassade Azure-roller](custom-roles.md)
-- [Åtgärder för Azure Resource Manager Resource Provider](resource-provider-operations.md)
+- [Anpassade roller i Azure](custom-roles.md)
+- [Åtgärder för resursprovidern Azure Resource Manager](resource-provider-operations.md)

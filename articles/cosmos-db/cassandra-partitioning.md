@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: 26df3c49e44dd79d87a1e0a982ceb8133f425447
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87423328"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Partitionering i Azure Cosmos DB API för Cassandra
@@ -58,7 +58,7 @@ I den här designen har vi definierat `id` fältet som primär nyckel. Den prim�
 
 ## <a name="compound-primary-key"></a>Sammansatt primär nyckel
 
-Apache Cassandra har även begreppet `compound keys` . En sammansatt `primary key` består av mer än en kolumn. den första kolumnen är `partition key` och eventuella ytterligare kolumner är `clustering keys` . Syntaxen för en `compound primary key` visas nedan:
+Apache Cassandra har även begreppet  `compound keys` . En sammansatt `primary key` består av mer än en kolumn. den första kolumnen är `partition key` och eventuella ytterligare kolumner är `clustering keys` . Syntaxen för en `compound primary key` visas nedan:
 
 ```shell
 PRIMARY KEY (partition_key_column_name, clustering_column_name [, ...])

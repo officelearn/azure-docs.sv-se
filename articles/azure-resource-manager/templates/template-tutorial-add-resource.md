@@ -7,17 +7,17 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
 ms.openlocfilehash: 58a6423944abca703a42b68044e58d86187457bc
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91614384"
 ---
 # <a name="tutorial-add-a-resource-to-your-arm-template"></a>Självstudie: Lägg till en resurs i ARM-mallen
 
 I den [föregående själv studie kursen](template-tutorial-create-first-template.md)har du lärt dig hur du skapar en tom mall och distribuerar den. Nu är du redo att distribuera en faktisk resurs. I den här självstudien lägger du till ett lagrings konto. Det tar ungefär **9 minuter** att slutföra den här kursen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Vi rekommenderar att du slutför [introduktions kursen om mallar](template-tutorial-create-first-template.md), men det är inte obligatoriskt.
 

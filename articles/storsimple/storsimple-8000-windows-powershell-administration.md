@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: bba3666fbce6a8ea591654d1abdad319f1e0857c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86999525"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Använda Windows PowerShell för StorSimple för att administrera din enhet
@@ -57,16 +57,16 @@ Se till att du använder följande inställningar för SparaTillFil för att ans
    | Funktions tangenter och knapps ATS |ESC [n ~ |
    | Ursprungligt tillstånd för markör nycklar |Normal |
    | Ursprungligt tillstånd för numeriskt tangent bord |Normal |
-   | Aktivera extra tangent bords funktioner |Ctrl-Alt skiljer sig från AltGr |
+   | Aktivera extra tangent bords funktioner |Control-Alt skiljer sig från AltGr |
    
     ![Inställningar för SparaTillFil som stöds](./media/storsimple-windows-powershell-administration/IC740877.png)
-3. Klicka på **Använd**.
+3. Klicka på **Applicera**.
 4. I fönstret **kategori** väljer du **översättning**.
 5. Välj **UTF-8**i list rutan **teckenuppsättning för fjärrobjekt** .
 6. Under **hantering av linje ritnings tecken**väljer du **Använd Unicode-linje ritning kod punkter**. Följande skärm bild visar rätt val av SparaTillFil.
    
     ![UTF-inställningar](./media/storsimple-windows-powershell-administration/IC740878.png)
-7. Klicka på **Använd**.
+7. Klicka på **Applicera**.
 
 Du kan nu använda SparaTillFil för att ansluta till enhetens serie konsol genom att utföra följande steg.
 
@@ -157,8 +157,8 @@ Följande är en kort beskrivning av de olika typerna av hjälp för Windows Pow
 
 ### <a name="to-get-help-for-a-cmdlet"></a>För att få hjälp med en cmdlet
 
-* Använd följande kommando för att få hjälp med en cmdlet eller funktion:`Get-Help <cmdlet-name>`
-* Använd föregående cmdlet med parametern för att få onlinehjälp för alla cmdlet: ar `-Online` :`Get-Help <cmdlet-name> -Online`
+* Använd följande kommando för att få hjälp med en cmdlet eller funktion: `Get-Help <cmdlet-name>`
+* Använd föregående cmdlet med parametern för att få onlinehjälp för alla cmdlet: ar `-Online` : `Get-Help <cmdlet-name> -Online`
 * För fullständig hjälp kan du använda- `–Full` parametern, och till exempel använder du `–Examples` parametern.
 
 ### <a name="to-update-help"></a>Så här uppdaterar du hjälpen
@@ -167,7 +167,7 @@ Du kan enkelt uppdatera hjälpen i Windows PowerShell-gränssnittet. Utför föl
 
 #### <a name="to-update-cmdlet-help"></a>Så här uppdaterar du cmdlet-hjälpen
 1. Starta Windows PowerShell med alternativet **Kör som administratör** .
-2. Skriv följande i kommando tolken:`Update-Help`
+2. Skriv följande i kommando tolken:  `Update-Help`
 3. De uppdaterade hjälpfilerna kommer att installeras.
 4. När hjälpfilerna har installerats skriver du: `Get-Help Get-Command` . Detta visar en lista över cmdletar för vilka hjälpen är tillgänglig.
 

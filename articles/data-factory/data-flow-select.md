@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/02/2020
 ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84322098"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Välj omvandling i data flöde för mappning
@@ -72,7 +72,7 @@ Om din definierade projektion har en hierarki kan du använda regelbaserade mapp
 
 ![regel baserad mappning](media/data-flow/rule-based-hierarchy.png "Regel baserad mappning")
 
-Ovanstående exempel matchar på alla under kolumner i komplex kolumn `a` . `a`innehåller två under kolumner `b` och `c` . Utdata-schemat kommer att innehålla två kolumner `b` och `c` som villkoret ' name as ' `$$` .
+Ovanstående exempel matchar på alla under kolumner i komplex kolumn `a` . `a` innehåller två under kolumner `b` och `c` . Utdata-schemat kommer att innehålla två kolumner `b` och `c` som villkoret ' name as ' `$$` .
 
 ### <a name="parameterization"></a>Parameterisering
 

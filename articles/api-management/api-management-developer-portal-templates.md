@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 7a8c348340be143f7059ce7e64a1c66b66074a45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75430779"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Anpassa Azure API Management Developer-portalen med hjälp av mallar
@@ -103,7 +103,7 @@ I föregående exempel finns det två produkter som visas i Developer-portalen s
 }
 ```
 
-Markeringen i **produkt list** mal len bearbetar data för att tillhandahålla önskade utdata genom att gå igenom insamling av produkter för att visa information och en länk till varje enskild produkt. Observera `<search-control>` `<page-control>` elementen och i markeringen. Dessa styr visningen av Sök-och sid kontroller på sidan. `ProductsStrings|PageTitleProducts`är en lokaliserad sträng referens som innehåller `h2` sidans sidhuvud text. En lista över sträng resurser, sid kontroller och ikoner som är tillgängliga för användning i mallar för utvecklare finns i [API Management Developer Portal templates Reference](api-management-developer-portal-templates-reference.md).
+Markeringen i **produkt list** mal len bearbetar data för att tillhandahålla önskade utdata genom att gå igenom insamling av produkter för att visa information och en länk till varje enskild produkt. Observera `<search-control>` `<page-control>` elementen och i markeringen. Dessa styr visningen av Sök-och sid kontroller på sidan. `ProductsStrings|PageTitleProducts` är en lokaliserad sträng referens som innehåller `h2` sidans sidhuvud text. En lista över sträng resurser, sid kontroller och ikoner som är tillgängliga för användning i mallar för utvecklare finns i [API Management Developer Portal templates Reference](api-management-developer-portal-templates-reference.md).
 
 ```html
 <search-control></search-control>

@@ -9,10 +9,10 @@ ms.date: 02/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: a3c10ca35ee2f085d4ce41e862a895ff17ff63a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84317647"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Hur många slutpunkter på VPN-klienter kan jag ha i min punkt-till-plats-konfiguration?
@@ -83,7 +83,7 @@ Förbereda Windows 10 eller Server 2016 för IKEv2:
 
 1. Installera uppdateringen.
 
-   | OS-version | Datum | Antal/länk |
+   | OS-version | Date | Antal/länk |
    |---|---|---|
    | Windows Server 2016<br>Windows 10, version 1607 | 17 januari 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10, version 1703 | 17 januari 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |

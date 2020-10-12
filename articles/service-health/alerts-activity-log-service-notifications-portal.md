@@ -4,10 +4,10 @@ description: Lär dig hur du använder Azure Portal för att ställa in aktivite
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: 88fbdeeb8bdcc239f1591e053aaf4fb1c36b9b19
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91289794"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications-using-the-azure-portal"></a>Skapa aktivitets logg aviseringar för tjänst meddelanden med hjälp av Azure Portal

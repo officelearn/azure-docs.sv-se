@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74931789"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Flytta data från DB2 med Azure Data Factory kopierings aktivitet
@@ -56,7 +56,7 @@ Data Factory DB2-anslutaren stöder följande IBM DB2-plattformar och versioner 
 
 > [!TIP]
 > Om du får fel meddelandet "Det gick inte att hitta paketet som motsvarar en körnings förfrågan för SQL-instruktionen. SQLSTATE = 51002 SQLCODE =-805, "orsaken är att ett nödvändigt paket inte skapas för den normala användaren på operativ systemet. Lös problemet genom att följa de här instruktionerna för din DB2-Server Typ:
-> - DB2 för i (AS400): Låt en privilegie rad användare skapa samlingen för den normala användaren innan kopierings aktiviteten körs. Använd kommandot för att skapa samlingen:`create collection <username>`
+> - DB2 för i (AS400): Låt en privilegie rad användare skapa samlingen för den normala användaren innan kopierings aktiviteten körs. Använd kommandot för att skapa samlingen: `create collection <username>`
 > - DB2 för z/OS eller LUW: Använd ett konto med hög behörighet – en privilegie rad användare eller administratör som har paket utfärdare och BIND, BINDADD, bevilja körning till offentliga behörigheter – för att köra kopian en gång. Det nödvändiga paketet skapas automatiskt under kopieringen. Efteråt kan du växla tillbaka till den normala användaren för din efterföljande kopierings körning.
 
 ## <a name="getting-started"></a>Komma igång
@@ -78,15 +78,15 @@ Följande avsnitt innehåller information om de JSON-egenskaper som används fö
 ## <a name="db2-linked-service-properties"></a>Egenskaper för länkad DB2-tjänst
 I följande tabell visas de JSON-egenskaper som är speciella för en DB2-länkad tjänst.
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | **bastyp** |Den här egenskapen måste anges till **OnPremisesDb2**. |Ja |
 | **servernamn** |Namnet på DB2-servern. |Ja |
 | **databas** |Namnet på DB2-databasen. |Ja |
-| **schema** |Namnet på schemat i DB2-databasen. Den här egenskapen är Skift läges känslig. |No |
+| **schema** |Namnet på schemat i DB2-databasen. Den här egenskapen är Skift läges känslig. |Inga |
 | **authenticationType** |Den typ av autentisering som används för att ansluta till DB2-databasen. Möjliga värden är: Anonym, Basic och Windows. |Ja |
-| **användar** |Namnet på användar kontot om du använder Basic-eller Windows-autentisering. |No |
-| **lösenord** |Lösen ordet för användar kontot. |No |
+| **användar** |Namnet på användar kontot om du använder Basic-eller Windows-autentisering. |Inga |
+| **lösenord** |Lösen ordet för användar kontot. |Inga |
 | **gatewayName** |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala DB2-databasen. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
@@ -94,7 +94,7 @@ En lista över de avsnitt och egenskaper som är tillgängliga för att definier
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet **typeProperties** för en data uppsättning av typen **RelationalTable**, som innehåller DB2-datauppsättningen, har följande egenskap:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | **tableName** |Namnet på tabellen i DB2-databas instansen som den länkade tjänsten refererar till. Den här egenskapen är Skift läges känslig. |Nej (om egenskapen **fråga** för en kopierings aktivitet av typen **RelationalSource** har angetts) |
 
@@ -103,9 +103,9 @@ En lista över de avsnitt och egenskaper som är tillgängliga för att definier
 
 För kopierings aktiviteten, när källan är av typen **RelationalSource** (som innehåller DB2), är följande egenskaper tillgängliga i avsnittet **typeProperties** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| **frågeterm** |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `"query": "select * from "MySchema"."MyTable""` |Nej (om egenskapen **TableName** för en data uppsättning anges) |
+| **frågeterm** |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempelvis: `"query": "select * from "MySchema"."MyTable""` |Nej (om egenskapen **TableName** för en data uppsättning anges) |
 
 > [!NOTE]
 > Schema-och tabell namn är Skift läges känsliga. I frågeuttrycket omger du egenskaps namnen med hjälp av "" (dubbla citat tecken).
@@ -308,9 +308,9 @@ Följande mappningar används när kopierings aktiviteten konverterar data från
 | Typ av DB2-databas | .NET Framework typ |
 | --- | --- |
 | SmallInt |Int16 |
-| Integer |Int32 |
+| Heltal |Int32 |
 | BigInt |Int64 |
-| Verkligen |Enskilt |
+| Verkligen |Enkel |
 | Double |Double |
 | Float |Double |
 | Decimal |Decimal |
@@ -318,7 +318,7 @@ Följande mappningar används när kopierings aktiviteten konverterar data från
 | Numeriskt |Decimal |
 | Datum |DateTime |
 | Tid |TimeSpan |
-| Tidsstämpel |DateTime |
+| Timestamp |DateTime |
 | Xml |Byte [] |
 | Char |Sträng |
 | VarChar |Sträng |
@@ -334,9 +334,9 @@ Följande mappningar används när kopierings aktiviteten konverterar data från
 | Blob |Byte [] |
 | DbClob |Sträng |
 | SmallInt |Int16 |
-| Integer |Int32 |
+| Heltal |Int32 |
 | BigInt |Int64 |
-| Verkligen |Enskilt |
+| Verkligen |Enkel |
 | Double |Double |
 | Float |Double |
 | Decimal |Decimal |
@@ -344,7 +344,7 @@ Följande mappningar används när kopierings aktiviteten konverterar data från
 | Numeriskt |Decimal |
 | Datum |DateTime |
 | Tid |TimeSpan |
-| Tidsstämpel |DateTime |
+| Timestamp |DateTime |
 | Xml |Byte [] |
 | Char |Sträng |
 

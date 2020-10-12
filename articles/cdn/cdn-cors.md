@@ -15,15 +15,15 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 89adc283fa9d6edc49536cb9459a479710c94435
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85921164"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Använda Azure CDN med CORS
 ## <a name="what-is-cors"></a>Vad är CORS?
-CORS (resurs delning mellan ursprung) är en HTTP-funktion som gör det möjligt för ett webb program att köras under en domän för att få åtkomst till resurser i en annan domän. För att minska risken för skript angrepp över flera webbplatser, implementerar alla moderna webbläsare en säkerhets begränsning som kallas princip för [samma ursprung](https://www.w3.org/Security/wiki/Same_Origin_Policy).  Detta förhindrar att en webb sida anropar API: er i en annan domän.  CORS är ett säkert sätt att tillåta ett ursprung (ursprungs domänen) att anropa API: er i ett annat ursprung.
+CORS (Cross Origin Resource Sharing) är en HTTP-funktion som gör det möjligt för ett webbprogram som körs i en domän att komma åt resurser i en annan domän. För att minska risken för skript angrepp över flera webbplatser, implementerar alla moderna webbläsare en säkerhets begränsning som kallas princip för [samma ursprung](https://www.w3.org/Security/wiki/Same_Origin_Policy).  Detta förhindrar att en webb sida anropar API: er i en annan domän.  CORS är ett säkert sätt att tillåta ett ursprung (ursprungs domänen) att anropa API: er i ett annat ursprung.
 
 ## <a name="how-it-works"></a>Så här fungerar det
 Det finns två typer av CORS-begäranden, *enkla begär Anden* och *komplexa begär Anden.*
@@ -36,7 +36,7 @@ Det finns två typer av CORS-begäranden, *enkla begär Anden* och *komplexa beg
 
 2. Servern kan svara med något av följande:
 
-   * En **Access-Control-Allow-Origin** -rubrik i sitt svar som anger vilken ursprungs plats som tillåts. Ett exempel:
+   * En **Access-Control-Allow-Origin** -rubrik i sitt svar som anger vilken ursprungs plats som tillåts. Exempel:
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 

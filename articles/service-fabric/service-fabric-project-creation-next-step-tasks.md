@@ -4,17 +4,17 @@ description: Lär dig mer om programprojektet som du nyss skapade i Visual Studi
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.openlocfilehash: e8fc105657bda6114851f4819be4658926ad621c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75349403"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Ditt Service Fabric program och nästa steg
 Ditt Azure Service Fabric-program har skapats. I den här artikeln beskrivs några självstudier för att prova, makeup för ditt projekt, viss mer information som du kanske är intresse rad av och potentiella nästa steg.
 
 ## <a name="get-started-with-tutorials-walk-throughs-and-samples"></a>Kom igång med självstudier, anvisningar och exempel
-Redo att sätta igång?  
+Är du redo att sätta igång?  
 
 Arbeta i självstudien om .NET-program. Lär dig hur du [skapar en app](service-fabric-tutorial-create-dotnet-app.md) med en ASP.net Core frontend och en tillstånds känslig Server del, [distribuerar programmet](service-fabric-tutorial-deploy-app-to-party-cluster.md) till ett kluster, [konfigurerar CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)och konfigurerar [övervakning och diagnostik](service-fabric-tutorial-monitoring-aspnet.md).
 

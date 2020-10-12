@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: c09d0532b845472d0ccaac1ad57e3772630bb5c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74932052"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>PowerShell-skript – transformera data i molnet med hjälp av Azure Data Factory
@@ -61,7 +61,7 @@ Det här exemplet på PowerShell-skriptet skapar en pipeline som transformerar d
 6. Överför filen **WordCount_Spark.py** till undermappen **script**. 
 
 
-### <a name="upload-the-input-file"></a>Överför indatafilen
+### <a name="upload-the-input-file"></a>Överföra indatafilen
 1. Skapa en fil med namnet **minecraftstory.txt** med lite text. Spark-programmet räknar antalet ord i texten. 
 2. Skapa en undermapp med namnet `inputfiles` i `spark` mappen i BLOB-behållaren. 
 3. Överför `minecraftstory.txt` till mappen `inputfiles`. 

@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 0442c701f39fd3e84361ad0201aaf8d1840d8851
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81606272"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Översikt över mappning av data flödes omvandling
@@ -29,7 +29,7 @@ Nedan visas en lista över de omvandlingar som stöds för närvarande i mappnin
 | [Finns](data-flow-exists.md) | Flera indata/utdata | Kontrol lera om dina data finns i en annan källa eller Stream. | 
 | [Filter](data-flow-filter.md) | Rads modifierare | Filtrera en rad baserat på ett villkor. |
 | [Platta ut](data-flow-flatten.md) | Schema modifierare |  Ta mat ris värden i hierarkiska strukturer, till exempel JSON och avregistrera dem i enskilda rader. |
-| [Anslut](data-flow-join.md) | Flera indata/utdata |  Kombinera data från två källor eller strömmar. |
+| [Join](data-flow-join.md) | Flera indata/utdata |  Kombinera data från två källor eller strömmar. |
 | [Sökning](data-flow-lookup.md) | Flera indata/utdata | Referens data från en annan källa. |
 | [Ny gren](data-flow-new-branch.md) | Flera indata/utdata | Tillämpa flera uppsättningar av åtgärder och omvandlingar mot samma data ström. |
 | [Pivotera](data-flow-pivot.md) | Schema modifierare | En agg regering där en eller flera grupperade kolumner har sina distinkta rad värden omvandlade till enskilda kolumner. |

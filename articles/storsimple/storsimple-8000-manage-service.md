@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 73373f788a4a87a36a800d69ffcdc646f4cd2084
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91249560"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuera StorSimple Enhetshanteraren-tjänsten för enheter med StorSimple 8000-serien
@@ -191,23 +191,23 @@ I Azure Portal stöds endast de StorSimple-enheter som kör uppdatering 5,0 och 
 
 | Åtgärd                                                                                                                       | Stöds      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Registrera en enhet                                                                                                               | Yes            |
-| Konfigurera enhets inställningar som allmänt, nätverk och säkerhet                                                                | Yes            |
-| Skanna, ladda ned och installera uppdateringar                                                                                             | Yes            |
-| Inaktivera enhet                                                                                                               | Yes            |
-| Ta bort enhet                                                                                                                   | Yes            |
-| Skapa, ändra och ta bort en volym behållare                                                                                   | No             |
-| Skapa, ändra och ta bort en volym                                                                                             | No             |
-| Skapa, ändra och ta bort en princip för säkerhets kopiering                                                                                      | No             |
-| Gör en manuell säkerhets kopiering                                                                                                            | No             |
+| Registrera en enhet                                                                                                               | Ja            |
+| Konfigurera enhets inställningar som allmänt, nätverk och säkerhet                                                                | Ja            |
+| Skanna, ladda ned och installera uppdateringar                                                                                             | Ja            |
+| Inaktivera enhet                                                                                                               | Ja            |
+| Ta bort enhet                                                                                                                   | Ja            |
+| Skapa, ändra och ta bort en volym behållare                                                                                   | Inga             |
+| Skapa, ändra och ta bort en volym                                                                                             | Inga             |
+| Skapa, ändra och ta bort en princip för säkerhets kopiering                                                                                      | Inga             |
+| Gör en manuell säkerhets kopiering                                                                                                            | Inga             |
 | Gör en schemalagd säkerhets kopiering                                                                                                         | Inte tillämpligt |
-| Återställ från en säkerhets kopian                                                                                                        | No             |
-| Klona till en enhet som kör uppdatering 3,0 och senare <br> Käll enheten kör version före uppdatering 3,0.                                | Yes            |
-| Klona till en enhet som kör versioner före uppdateringen 3,0                                                                          | No             |
-| Redundans som käll enhet <br> (från en enhet som kör version före uppdatering 3,0 till en enhet som kör uppdatering 3,0 och senare)                                                               | Yes            |
-| Redundansväxling som mål enhet <br> (till en enhet som kör program varu version före uppdatering 3,0)                                                                                   | No             |
-| Rensa en avisering                                                                                                                  | Yes            |
-| Visa säkerhets kopierings principer, säkerhets kopierings katalog, volymer, volym behållare, övervaknings diagram, jobb och aviseringar som skapats i den klassiska portalen | Yes            |
+| Återställ från en säkerhets kopian                                                                                                        | Inga             |
+| Klona till en enhet som kör uppdatering 3,0 och senare <br> Käll enheten kör version före uppdatering 3,0.                                | Ja            |
+| Klona till en enhet som kör versioner före uppdateringen 3,0                                                                          | Inga             |
+| Redundans som käll enhet <br> (från en enhet som kör version före uppdatering 3,0 till en enhet som kör uppdatering 3,0 och senare)                                                               | Ja            |
+| Redundansväxling som mål enhet <br> (till en enhet som kör program varu version före uppdatering 3,0)                                                                                   | Inga             |
+| Rensa en avisering                                                                                                                  | Ja            |
+| Visa säkerhets kopierings principer, säkerhets kopierings katalog, volymer, volym behållare, övervaknings diagram, jobb och aviseringar som skapats i den klassiska portalen | Ja            |
 | Aktivera och inaktivera enhets styrenheter                                                                                              | Ja            |
 
 

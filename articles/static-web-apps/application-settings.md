@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: buhollan
 ms.custom: devx-track-js
 ms.openlocfilehash: c89ccee430d374d9aee58326627ff800f737324b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250036"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Konfigurera program inställningar för för hands versionen av Azure statisk Web Apps
@@ -144,7 +144,7 @@ Azure CLI-kommandot kräver ett antal värden som är speciella för ditt konto 
 2. Namn på resursgrupp
 3. Prenumerations-ID:t
 
-:::image type="content" source="media/application-settings/overview.png" alt-text="Översikt över Azures statiska Web Apps":::
+:::image type="content" source="media/application-settings/overview.png" alt-text="Konfigurations vy för Azure statisk Web Apps":::
 
 4. Kör följande kommando från en terminal eller kommando rad. Se till att ersätta plats hållarna för `<YOUR_STATIC_SITE_NAME>` , `<YOUR_RESOURCE_GROUP_NAME>` och `<YOUR_SUBSCRIPTION_ID>` med dina värden från _översikts_ fönstret.
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75360352"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Så här uppdaterar du en moln tjänst
@@ -53,7 +53,7 @@ I följande tabell visas de tillåtna ändringarna av en tjänst under en uppdat
 | Inställningar för lokal lagring |Öka bara<sup>2</sup> |Ja |Ja |
 | Lägga till eller ta bort roller i en tjänst |Ja |Ja |Ja |
 | Antal instanser av en viss roll |Ja |Ja |Ja |
-| Antal eller typ av slut punkter för en tjänst |Ja<sup>2</sup> |Nej |Ja |
+| Antal eller typ av slut punkter för en tjänst |Ja<sup>2</sup> |Inga |Ja |
 | Namn och värden för konfigurations inställningar |Ja |Ja |Ja |
 | Värden (men inte namn) för konfigurations inställningar |Ja |Ja |Ja |
 | Lägg till nya certifikat |Ja |Ja |Ja |
@@ -104,7 +104,7 @@ När du uppgraderar en tjänst från en enda instans till flera instanser kommer
 |Omstart av virtuell dator|Behåll|Behåll|Behåll|
 |Starta om portalen|Behåll|Behåll|Förstörs|
 |Avbildning av Portal|Behåll|Förstörs|Förstörs|
-|Uppgradering på plats|Behåll|Behåll|Förstörs|
+|In-Place uppgradering|Behåll|Behåll|Förstörs|
 |Node-migrering|Förstörs|Förstörs|Förstörs|
 
 Observera att i listan ovan representerar enheten E:-enheten rollens rot enhet och bör inte vara hårdkodad. Använd i stället miljövariabeln **% RoleRoot%** för att representera enheten.

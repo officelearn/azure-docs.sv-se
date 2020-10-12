@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 8bd896573dbd0b24df11c0d66009098de19654ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74974946"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Hantera enhets registreringar med Azure Portal
@@ -32,7 +32,7 @@ Det finns två sätt att registrera enheter med etablerings tjänsten:
   1. Klicka på den enhets etablerings tjänst som du vill registrera enheten på från listan över resurser.  
   1. I etablerings tjänsten:  
      a. Klicka på **Hantera registreringar**och välj sedan fliken **registrerings grupper** .  
-     b. Klicka på knappen **Lägg till** högst upp.  
+     b. Klicka på knappen **Lägg till** längst upp.  
      c. När panelen "Lägg till registrerings grupp" visas anger du informationen för registrerings List posten.  **Grupp namn** måste anges. Välj också "CA eller mellanliggande" för **certifikat typ**och överför **primärt rot certifikat** för enhets gruppen.  
      d. Klicka på **Spara**. När du har skapat din registrerings grupp bör du se att grupp namnet visas under fliken **registrerings grupper** .  
 
@@ -47,7 +47,7 @@ Det finns två sätt att registrera enheter med etablerings tjänsten:
     1. Klicka på den enhets etablerings tjänst som du vill registrera enheten på från listan över resurser.
     1. I etablerings tjänsten:  
        a. Klicka på **Hantera registreringar**och välj sedan fliken **enskilda registreringar** .  
-       b. Klicka på knappen **Lägg till** högst upp.   
+       b. Klicka på knappen **Lägg till** längst upp.   
        c. När panelen "Lägg till registrering" visas anger du informationen för registrerings List posten. Välj först **mekanismen** för attestering för enheten (X. 509 eller TPM). X. 509-attestering kräver att du överför det **primära löv certifikatet** för enheten. TPM kräver att du anger **attesterings nyckel** och **registrerings-ID** för enheten.  
        d. Klicka på **Spara**. När du har skapat din registrerings grupp bör du se att enheten visas under fliken **enskilda registreringar** .  
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: mimckitt
 ms.openlocfilehash: e78a18055d85e2105ea604d568c154c889ab0655
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86206015"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Network Watcher virtuell agent för virtuella datorer för Windows
@@ -30,7 +30,7 @@ ms.locfileid: "86206015"
 
 Det här dokumentet innehåller information om vilka plattformar och distributions alternativ som stöds för Network Watcher agentens tillägg för virtuell dator för Windows. Installationen av agenten störs inte eller kräver en omstart av den virtuella datorn. Du kan distribuera tillägget till virtuella datorer som du distribuerar. Om den virtuella datorn distribueras av en Azure-tjänst kan du läsa dokumentationen för tjänsten för att avgöra om den tillåter att installera tillägg på den virtuella datorn.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -64,7 +64,7 @@ Följande JSON visar schemat för Network Watcher agent-tillägget. Tillägget k
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Namn | Värde/exempel |
+| Name | Värde/exempel |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | utgivare | Microsoft. Azure. NetworkWatcher |

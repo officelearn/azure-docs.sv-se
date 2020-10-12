@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.openlocfilehash: 9b3353d3ba1af572b118001691e38af497f6f1fd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91290049"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Så här indexerar du Cosmos DB-data med hjälp av en indexerare i Azure Cognitive Search 
@@ -181,7 +181,7 @@ Formulera en POST-begäran för att skapa en data Källa:
 
 Bröd texten i begäran innehåller definitionen av data källan, som ska innehålla följande fält:
 
-| Fält   | Beskrivning |
+| Field   | Beskrivning |
 |---------|-------------|
 | **Namn** | Krävs. Välj ett namn som ska representera ditt data käll objekt. |
 |**bastyp**| Krävs. Måste vara `cosmosdb` . |
@@ -278,7 +278,7 @@ Se till att schemat för mål indexet är kompatibelt med schemat för käll-JSO
 | Matriser med primitiva typer, till exempel ["a", "b", "c"] |Collection(Edm.String) |
 | Strängar som ser ut som datum |EDM. DateTimeOffset, EDM. String |
 | Subjson-objekt, till exempel {"typ": "Point", "koordinater": [Long, Lat]} |Edm.GeographyPoint |
-| Andra JSON-objekt |Saknas |
+| Andra JSON-objekt |E.t. |
 
 ### <a name="4---configure-and-run-the-indexer"></a>4 – Konfigurera och kör indexeraren
 

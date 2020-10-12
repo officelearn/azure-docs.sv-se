@@ -19,10 +19,10 @@ author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13d56ec321cd257412c2b0abbe0be655c6cb4dbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85360103"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Hantera AD FS-förtroende med Azure AD med hjälp av Azure AD Connect
@@ -56,15 +56,15 @@ Azure AD Connect uppdaterar inte alla inställningar för Azure AD-förtroende u
 
 | Körnings flöde | Inställningar som påverkas |
 | :--- | :--- |
-| Första pass installation (Express) | Ingen |
+| Första pass installation (Express) | Inget |
 | Första pass installationen (ny AD FS server grupp) | En ny AD FS grupp skapas och ett förtroende med Azure AD skapas från grunden. |
 | Första pass installation (befintlig AD FS server grupp, befintligt Azure AD-förtroende) | Azure AD-förtroende-ID, regler för utfärdande av utfärdande, Azure AD-slutpunkter, alternativ-ID (vid behov), automatisk uppdatering av metadata |
 | Återställ Azure AD-förtroende | Token signerings certifikat, token Signeringsalgoritm, Azure AD Trust Identifier, regler för utfärdande av utfärdande, Azure AD-slutpunkter, alternativ-ID (vid behov), automatisk uppdatering av metadata |
-| Lägg till Federations Server | Ingen |
-| Lägg till WAP-server | Ingen |
+| Lägg till Federations Server | Inget |
+| Lägg till WAP-server | Inget |
 | Enhetsalternativ | Omvandlings regler för utfärdande, IWA för enhets registrering |
 | Lägg till federerad domän | Om domänen har lagts till för första gången, det vill säga, ändras konfigurationen från en enda domän federation till federationen för flera domäner – Azure AD Connect kommer att återskapa förtroendet från grunden. Om förtroendet med Azure AD redan har kon figurer ATS för flera domäner, ändras endast regler för utfärdande av utfärdande. |
-| Uppdatera TLS | Ingen |
+| Uppdatera TLS | Inget |
 
 Under alla åtgärder ändras, i vilken alla inställningar ändras, Azure AD Connect en säkerhets kopia av aktuella förtroende inställningar på **%programdata%\AADConnect\ADFS**
 

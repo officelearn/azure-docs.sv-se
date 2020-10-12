@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.openlocfilehash: 9db013d13098fc6aa4552459a2189e0ad8fc3ea6
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378805"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Bygg in landnings sidan för ditt SaaS-erbjudande i kommersiellt marknads plats
@@ -84,7 +84,7 @@ När köparen skickas till landnings sidan läggs en token till i URL-parametern
 > [!NOTE]
 > I de flesta fall är det bättre att göra det här anropet från ett andra program med en enda klient. Se [använda två Azure AD-appar för att förbättra säkerheten i produktionen](#use-two-azure-ad-apps-to-improve-security-in-production) tidigare i den här artikeln.
 
-### <a name="request-an-access-token"></a>Begär en åtkomsttoken
+### <a name="request-an-access-token"></a>Begära åtkomsttoken
 
 Om du vill autentisera ditt program med SaaS-API: er behöver du en åtkomsttoken som kan genereras genom att anropa Azure AD OAuth-slutpunkten. Se [hur du hämtar utgivarens](./partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token)autentiseringstoken.
 

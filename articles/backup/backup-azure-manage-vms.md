@@ -4,10 +4,10 @@ description: Lär dig att hantera och övervaka virtuella Azure-säkerhetskopier
 ms.topic: conceptual
 ms.date: 08/02/2020
 ms.openlocfilehash: 5a677221f16d00c19ee7083b72540ac7e1bb9cd0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89145441"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Hantera virtuella Azure-säkerhetskopieringar med Azure Backup tjänsten
@@ -34,7 +34,7 @@ Visa virtuella datorer på valv-instrument panelen:
 
     ![Välj Alla tjänster](./media/backup-azure-manage-vms/select-all-services.png)
 
-1. I dialogrutan **Alla tjänster** anger du *Recovery Services*. Listan över resurser filtreras enligt dina inaktuella inaktuella. Välj **Recovery Services valv**i listan över resurser.
+1. I dialogrutan **Alla tjänster** anger du *Recovery Services*. Listan med resurser filtreras enligt din inmatning. I resurslistan väljer du **Recovery Services-valv**.
 
     ![Ange och välja Recovery Services-valv](./media/backup-azure-manage-vms/all-services.png)
 
@@ -86,7 +86,7 @@ Så här hanterar du en säkerhets kopierings princip:
 
      ![Välj en säkerhetskopieringsprincip](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
-## <a name="run-an-on-demand-backup"></a>Köra en säkerhets kopiering på begäran
+## <a name="run-an-on-demand-backup"></a>Köra en säkerhetskopiering på begäran
 
 Du kan köra en säkerhets kopiering på begäran av en virtuell dator efter att du har konfigurerat skyddet. Tänk på följande:
 

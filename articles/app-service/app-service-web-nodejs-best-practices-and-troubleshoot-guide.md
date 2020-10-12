@@ -9,10 +9,10 @@ ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 3b4a9547a1bd62b7464b4a79fe68720572630f3d
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961898"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Metod tips och fel söknings guide för Node-program i Azure App Service Windows
@@ -143,7 +143,7 @@ let keepaliveAgent = new Agent({
 Du kan få rekommendationer från Azure App Service på portalen om hög CPU-förbrukning. Du kan också konfigurera Övervakare för att se vissa [mått](web-sites-monitor.md). När du kontrollerar CPU-användningen på [instrument panelen i Azure-portalen](../azure-monitor/app/web-monitor-performance.md)kontrollerar du Max värdena för CPU så att du inte saknar högsta värden.
 Om du tror att ditt program förbrukar för mycket CPU och du inte kan förklara varför kan du profilera ditt Node-program för att ta reda på det.
 
-#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Profilering av Node-programmet på Azure App Service med V8-profiler
+#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Profilering av Node-programmet på Azure App Service med V8-Profiler
 
 Anta till exempel att du har en Hello World-app som du vill profilera enligt följande:
 

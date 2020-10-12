@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.openlocfilehash: 29492ee6b7bce50c4807a36d0c252e18e6aadf87
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008958"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Felsöka dataförlust i Azure Cache for Redis
@@ -120,5 +120,5 @@ Cacheminnen på standard-och Premium-nivåerna ger mycket högre återhämtning 
 
 - [Felsöka problem på Azure Cache for Redis-serversidan](cache-troubleshoot-server.md)
 - [Välja rätt nivå](cache-overview.md#choosing-the-right-tier)
-- [Så här övervakar du Azure cache för Redis](cache-how-to-monitor.md)
+- [Övervaka Azure Cache for Redis](cache-how-to-monitor.md)
 - [Hur kan jag köra Redis-kommandon?](cache-development-faq.md#how-can-i-run-redis-commands)

@@ -8,10 +8,10 @@ ms.date: 06/04/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 995e5a1a87ee332c48641f42c4134e3e58f11cfa
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87495428"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Konfigurera åtkomst från virtuella nätverk (VNet)
@@ -47,7 +47,7 @@ I följande avsnitt beskrivs hur du konfigurerar en tjänst slut punkt för virt
 
 1. När Azure Cosmos DB-kontot har Aktiver ATS för åtkomst från ett virtuellt nätverk kommer det att tillåta trafik från endast det valda under nätet. Det virtuella nätverk och undernät som du har lagt till ska visas som visas på följande skärm bild:
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="Virtuellt nätverk och undernät har kon figurer ATS":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="Välj virtuellt nätverk och undernät":::
 
 > [!NOTE]
 > Om du vill aktivera tjänst slut punkter för virtuella nätverk måste du ha följande prenumerations behörigheter:
@@ -67,7 +67,7 @@ Här följer anvisningar för att registrera prenumeration med Resource Provider
 
 1. Ange den information som krävs för att skapa ett nytt virtuellt nätverk och välj sedan **skapa**. Under nätet skapas med en tjänst slut punkt för "Microsoft. AzureCosmosDB" aktive rad.
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Välj ett virtuellt nätverk och undernät för ett nytt virtuellt nätverk":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Välj virtuellt nätverk och undernät":::
 
 Om ditt Azure Cosmos DB-konto används av andra Azure-tjänster som Azure Kognitiv sökning eller nås från Stream Analytics eller Power BI kan du tillåta åtkomst genom att välja **acceptera anslutningar från globala Azure-datacenter**.
 
@@ -81,7 +81,7 @@ För att se till att du har åtkomst till Azure Cosmos DB mått från portalen m
 
 1. Om du vill ta bort ett virtuellt nätverk eller en under näts regel väljer du **...** bredvid det virtuella nätverket eller under nätet och väljer **ta bort**.
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Ta bort ett virtuellt nätverk":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Välj virtuellt nätverk och undernät":::
 
 1. Klicka på **Spara** för att tillämpa dina ändringar.
 

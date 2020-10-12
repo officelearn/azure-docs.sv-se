@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: 12d78846f5892e71388de6e6e76b868f9b14d4de
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008924"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Felsöka problem på Azure Cache for Redis-serversidan
@@ -35,12 +35,12 @@ Minnes belastningen på Server sidan leder till alla typer av prestanda problem 
 
 Redis exponerar två statistik via kommandot [info](https://redis.io/commands/info) som kan hjälpa dig att identifiera det här problemet: "used_memory" och "used_memory_rss". Du kan [Visa dessa mått](cache-how-to-monitor.md#view-metrics-with-azure-monitor) med hjälp av portalen.
 
-Det finns flera möjliga ändringar som du kan göra för att se till att minnes användningen blir felfri:
+Det finns flera ändringar du kan göra för att hålla minnesanvändningen felfri:
 
 - [Konfigurera en minnes princip](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) och ange förfallo tider för dina nycklar. Den här principen kanske inte räcker om du har fragmentering.
 - [Konfigurera ett maxmemory-reserverat värde](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) som är tillräckligt stort för att kompensera för fragmentering av minne.
 - Dela upp dina stora cachelagrade objekt i mindre relaterade objekt.
-- [Skapa aviseringar](cache-how-to-monitor.md#alerts) för mått som till exempel använt minne för att få ett meddelande om eventuell påverkan.
+- [Skapa aviseringar](cache-how-to-monitor.md#alerts) för mått, till exempel använt minne, så att du i god tid informeras om potentiell påverkan.
 - [Skala](cache-how-to-scale.md) till en större cachestorlek med mer minnes kapacitet.
 
 ## <a name="high-cpu-usage-or-server-load"></a>Hög CPU-användning eller server belastning
@@ -70,7 +70,7 @@ Måtten "cache Read" och "cache Write" kan användas för att se hur mycket band
 För att undvika situationer där bandbredds användningen för nätverk är nära maximal kapacitet:
 
 - Ändra klientens anrops beteende för att minska nätverks behovet.
-- [Skapa aviseringar](cache-how-to-monitor.md#alerts) för mått som cache-läsning eller cache-skrivning för att meddelas tidigt om potentiella konsekvenser.
+- [Skapa aviseringar](cache-how-to-monitor.md#alerts) för mått såsom cacheläsning och cacheskrivning så att du tidigt varnas om potentiella problem.
 - [Skala](cache-how-to-scale.md) till en större cachestorlek med mer bandbredds kapacitet för nätverk.
 
 ## <a name="additional-information"></a>Ytterligare information
@@ -78,5 +78,5 @@ För att undvika situationer där bandbredds användningen för nätverk är nä
 - [Felsöka problem på Azure Cache for Redis-klientsidan](cache-troubleshoot-client.md)
 - [Välja rätt nivå](cache-overview.md#choosing-the-right-tier)
 - [Hur kan jag mäta och testa prestanda för mitt cacheminne?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
-- [Så här övervakar du Azure cache för Redis](cache-how-to-monitor.md)
+- [Övervaka Azure Cache for Redis](cache-how-to-monitor.md)
 - [Hur kan jag köra Redis-kommandon?](cache-development-faq.md#how-can-i-run-redis-commands)

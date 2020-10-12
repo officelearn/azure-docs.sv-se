@@ -9,10 +9,10 @@ ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
 ms.openlocfilehash: c84367a5e3ab57090f59196e8474c14cba87f32b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250155"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Lägg till en API till för hands versionen av Azure statisk Web Apps med Azure Functions
@@ -43,7 +43,7 @@ När projektet har skapats kopierar du webb adressen i webbläsaren för den nya
 1. Tryck på **F1** för att öppna kommandot i kommando paletten.
 1. Klistra in webb adressen i _git: Clone_ -prompten och tryck på **RETUR**.
 
-   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Klona ett GitHub-projekt med Visual Studio Code":::
+   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Skapa en ny lagrings plats från vanilj – Basic":::
 
     Följ anvisningarna för att välja en lagrings plats för att klona projektet.
 
@@ -59,7 +59,7 @@ Därefter skapar du ett Azure Functions-projekt som programmets API.
 1. Välj mappen **API** som katalog för projekt arbets ytan
 1. Välj **Välj**
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Skapa en ny Azure Functions med hjälp av Visual Studio Code":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Skapa en ny lagrings plats från vanilj – Basic":::
 
 1. Ange följande information i prompten:
 
@@ -145,13 +145,13 @@ Visual Studio Code integreras med [Azure Functions Core tools](../azure-function
 
     Kärn verktygen visar utdata från det program som körs på panelen _Terminal_ . Som en del av utdata kan du se URL-slutpunkten för din HTTP-utlöst funktion som körs lokalt.
 
-    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Skapa en ny Azure Functions med hjälp av Visual Studio Code":::
+    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Skapa en ny lagrings plats från vanilj – Basic":::
 
 1. Med kärn verktyg som kör, navigerar du till följande URL för att kontrol lera att API: et körs korrekt: `http://localhost:7071/api/message` .
 
    Svaret i webbläsaren bör se ut ungefär som i följande exempel:
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Skapa en ny Azure Functions med hjälp av Visual Studio Code":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Skapa en ny lagrings plats från vanilj – Basic":::
 
 1. Tryck på **Shift + F5** för att stoppa felsökningssessionen.
 
@@ -199,7 +199,7 @@ Vid distribution till Azure dirigeras begär anden till API: et automatiskt till
 
     Du bör nu se API-meddelandet på webb sidan.
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Skapa en ny Azure Functions med hjälp av Visual Studio Code":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Skapa en ny lagrings plats från vanilj – Basic":::
 
    > [!NOTE]
    > Du kan använda andra HTTP-servrar eller proxyservrar för att hantera `index.html` filen. Åtkomst till `index.html` från `file:///` fungerar inte.
@@ -251,11 +251,11 @@ Lägg sedan till följande versions information.
 
     När appen skapas i bakgrunden kan du klicka på banderollen som innehåller en länk för att Visa versions status.
 
-    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="GitHub-arbetsflöde":::
+    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Skapa en ny lagrings plats från vanilj – Basic":::
 
 1. När distributionen är klar kan ou navigera till webbappen genom att klicka på _URL_ -länken som visas på _översikts_ sidan.
 
-    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Åtkomst till statisk App-URL från Azure Portal":::
+    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Skapa en ny lagrings plats från vanilj – Basic":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
 ms.openlocfilehash: c1142ef7b37dee916118964778f6c1db2a65d591
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88719742"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Push-inställningar till app-konfiguration med Azure-pipeline
@@ -87,7 +87,7 @@ Följande parametrar används av app Configurations push-aktivitet:
 - **Label**: en sträng som har lagts till i varje nyckel värde som etikett i appens konfigurations arkiv.
 - **Innehålls typ**: en sträng som läggs till i varje nyckel värde som innehålls typen i appens konfigurations arkiv.
 - **Taggar**: ett JSON-objekt i formatet `{"tag1":"val1", "tag2":"val2"}` , som definierar taggar som läggs till varje nyckel värde som skickas till appens konfigurations lager.
-- **Ta bort alla andra nyckel värden i butiken med angivet prefix och etikett**: standardvärdet är **avmarkerat**.
+- **Ta bort alla andra Key-Values i Store med angivet prefix och etikett**: standardvärdet är **avmarkerat**.
   - **Markerad**: tar bort alla nyckel värden i appens konfigurations arkiv som matchar både det angivna prefixet och etiketten innan nya nyckel värden flyttas från konfigurations filen.
   - **Avmarkerad**: push-överför alla nyckel värden från konfigurations filen till appens konfigurations Arkiv och lämnar allt annat i appens konfigurations Arkiv intakt.
 

@@ -4,10 +4,10 @@ description: Den här artikeln visar hur du flyttar ett dedikerat Azure Event Hu
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: 94be44ee8f9442a3a65e899d7a58524b2570f194
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89381089"
 ---
 # <a name="move-an-azure-event-hubs-dedicated-cluster-to-another-region"></a>Flytta ett dedikerat Azure Event Hubs-kluster till en annan region
@@ -15,7 +15,7 @@ Den här artikeln visar hur du exporterar en Azure Resource Manager mall för et
 
 Om du har andra resurser, till exempel namn rymder och händelse nav i den Azure-resurs grupp som innehåller Event Hubs-klustret, kanske du vill exportera mallen på resurs grupps nivå så att alla relaterade resurser kan flyttas till den nya regionen i ett enda steg. Stegen i den här artikeln visar hur du exporterar ett **Event Hubs-kluster** till mallen. Stegen för att exportera en **resurs grupp** till mallen liknar varandra. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Se till att det dedikerade klustret kan skapas i mål regionen. Det enklaste sättet att ta reda på är att använda Azure Portal för att försöka [skapa ett Event Hubs dedikerat kluster](event-hubs-dedicated-cluster-create-portal.md). Du ser listan över regioner som stöds vid tidpunkten för att skapa klustret. 
 
 ## <a name="prepare"></a>Förbereda
@@ -50,7 +50,7 @@ Distribuera mallen för att skapa ett Event Hubs dedikerat kluster i mål region
     4. Utför följande steg i avsnittet **Inställningar** :    
         1. Ange det nya **kluster namnet**. 
 
-            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Distribuera Resource Manager-mall":::
+            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Ladda ned Resource Manager-mall":::
     5. Välj **Granska + skapa** längst ned på sidan. 
     1. På sidan **Granska + skapa** granskar du inställningarna och väljer sedan **skapa**.  
 

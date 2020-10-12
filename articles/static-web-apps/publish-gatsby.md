@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-js
 ms.openlocfilehash: e24a2a19eb39e2c6c7612631ad98f95cb4c5b9ef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250172"
 ---
 # <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>Självstudie: publicera en Gatsby-webbplats till Azures statiska Web Apps för hands version
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. Om du inte har någon kan du [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/).
 - Ett GitHub-konto. Om du inte har någon kan du [skapa ett konto kostnads fritt](https://github.com/join).
@@ -102,7 +102,7 @@ Följande steg visar hur du skapar en ny statisk plats-app och distribuerar den 
 
 1. För _SKU_väljer du **kostnads fri**.
 
-   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="Information ifylld":::
+   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="Skapa en statisk Web Apps (för hands version) i portalen":::
 
 1. Klicka på knappen **Logga in med GitHub** .
 
@@ -112,7 +112,7 @@ Följande steg visar hur du skapar en ny statisk plats-app och distribuerar den 
 
 1. För _grenen_ Välj **huvud**.
 
-   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Slutförd GitHub-information":::
+   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Skapa en statisk Web Apps (för hands version) i portalen":::
 
 ### <a name="build"></a>Skapa
 
@@ -126,7 +126,7 @@ Lägg sedan till de konfigurations inställningar som bygg processen använder f
 
    Ett värde för _API-platsen_ är inte nödvändigt eftersom du inte distribuerar ett API för tillfället.
 
-   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="Build-inställningar":::
+   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="Skapa en statisk Web Apps (för hands version) i portalen":::
 
 ### <a name="review-and-create"></a>Granska och skapa
 
@@ -138,7 +138,7 @@ Lägg sedan till de konfigurations inställningar som bygg processen använder f
 
 1. Öppna det distribuerade programmet genom att klicka på _URL_ -länken på resurs skärmen. Du kan behöva vänta en minut eller två för att GitHub-åtgärden ska slutföras.
 
-   :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="Distribuerat program":::
+   :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="Skapa en statisk Web Apps (för hands version) i portalen":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

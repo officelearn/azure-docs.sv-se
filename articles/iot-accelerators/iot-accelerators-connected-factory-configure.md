@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91290695"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Konfigurera den anslutna fabriks lösnings acceleratorn
@@ -267,7 +267,7 @@ Alla egenskaper som används i konfigurations filen kan grupperas i olika katego
 
 Egenskaperna i den här kategorin definierar det visuella utseendet på den anslutna fabriks instrument panelen. Exempel:
 
-* Name
+* Namn
 * Beskrivning
 * Bild
 * Plats

@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
 ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207159"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Felsök vanliga frågor eller problem med ingångs kontroll
@@ -95,7 +95,7 @@ Hämta listan över ingress: `kubectl get ingress` . Vi förväntar oss att en i
 
 ![poddar](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
-En av poddar kommer att vara AGIC. `kubectl get pods`visar en lista över poddar som kommer att börja med "ingress-Azure". Hämta alla loggar för den Pod med `kubectl logs <name-of-ingress-controller-pod>` för att kontrol lera att vi har haft en lyckad distribution. Vid en lyckad distribution lades följande rader till i loggen:
+En av poddar kommer att vara AGIC. `kubectl get pods` visar en lista över poddar som kommer att börja med "ingress-Azure". Hämta alla loggar för den Pod med `kubectl logs <name-of-ingress-controller-pod>` för att kontrol lera att vi har haft en lyckad distribution. Vid en lyckad distribution lades följande rader till i loggen:
 ```
 I0927 22:34:51.281437       1 process.go:156] Applied Application Gateway config in 20.461335266s
 I0927 22:34:51.281585       1 process.go:165] cache: Updated with latest applied config.
@@ -142,7 +142,7 @@ Följande måste finnas för att AGIC ska fungera som förväntat:
      ```
 
   2. En eller flera **tjänster**som refererar till poddar ovan via matchande `selector` etiketter.
-     Verifiera detta från [Cloud Shell](https://shell.azure.com/) med`kubectl get services -o wide`
+     Verifiera detta från [Cloud Shell](https://shell.azure.com/) med `kubectl get services -o wide`
      ```bash
      delyan@Azure:~$ kubectl get services -o wide --show-labels
 
@@ -150,7 +150,7 @@ Följande måste finnas för att AGIC ska fungera som förväntat:
      aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>     
      ```
 
-  3. **Ingress**, kommenterad med `kubernetes.io/ingress.class: azure/application-gateway` , som refererar till tjänsten ovan kontrol lera detta från [Cloud Shell](https://shell.azure.com/) med`kubectl get ingress -o wide --show-labels`
+  3. **Ingress**, kommenterad med `kubernetes.io/ingress.class: azure/application-gateway` , som refererar till tjänsten ovan kontrol lera detta från [Cloud Shell](https://shell.azure.com/) med `kubectl get ingress -o wide --show-labels`
      ```bash
      delyan@Azure:~$ kubectl get ingress -o wide --show-labels
 
@@ -199,9 +199,9 @@ Följande måste finnas för att AGIC ska fungera som förväntat:
 
 
 * Om AGIC-Pod inte är felfri ( `STATUS` kolumn från kommandot ovan är inte `Running` ):
-  - få loggar för att förstå varför:`kubectl logs <pod-name>`
-  - för föregående instans av pod:`kubectl logs <pod-name> --previous`
-  - Beskriv Pod för att få mer kontext:`kubectl describe pod <pod-name>`
+  - få loggar för att förstå varför: `kubectl logs <pod-name>`
+  - för föregående instans av pod: `kubectl logs <pod-name> --previous`
+  - Beskriv Pod för att få mer kontext: `kubectl describe pod <pod-name>`
 
 
 * Har du en Kubernetes [-tjänst](https://kubernetes.io/docs/concepts/services-networking/service/) och [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) -resurser?
@@ -224,7 +224,7 @@ Följande måste finnas för att AGIC ska fungera som förväntat:
 
 
 * AGIC avger Kubernetes händelser för vissa kritiska fel. Du kan visa följande:
-  - i terminalen via`kubectl get events --sort-by=.metadata.creationTimestamp`
+  - i terminalen via `kubectl get events --sort-by=.metadata.creationTimestamp`
   - i webbläsaren med [Kubernetes webb gränssnitt (instrument panel)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
 
 
@@ -245,7 +245,7 @@ Kubernetes-communityn har upprättat 9 loggnings nivåer för [kubectl](https://
 
 Detalj nivån är justerbar via `verbosityLevel` variabeln i filen [Helm-config. yaml](#sample-helm-config-file) . Öka utförlig nivå till `5` för att hämta JSON-konfigurationen som skickas till [arm](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview):
   - Lägg till `verbosityLevel: 5` på en rad själva i [Helm-config. yaml](#sample-helm-config-file) och installera om
-  - Hämta loggar med`kubectl logs <pod-name>`
+  - Hämta loggar med `kubectl logs <pod-name>`
 
 ### <a name="sample-helm-config-file"></a>Exempel på Helm konfigurations fil
 ```yaml

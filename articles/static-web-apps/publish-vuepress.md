@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-js
 ms.openlocfilehash: 72b1bd4d46b0b04364b25a8460361d6a008d42a6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250138"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Självstudie: publicera en VuePress-webbplats till Azures statiska Web Apps för hands version
@@ -27,7 +27,7 @@ I den här guiden får du lära dig att:
 > - Konfigurera en statisk Azure-Web Apps
 > - Distribuera VuePress-appen till Azure
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. Om du inte har någon kan du [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/).
 - Ett GitHub-konto. Om du inte har någon kan du [skapa ett konto kostnads fritt](https://github.com/join).
@@ -127,7 +127,7 @@ Följande steg visar hur du skapar ett nytt statiskt Web Apps-program och distri
 
 1. För _SKU_väljer du **kostnads fri**.
 
-   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Information ifylld":::
+   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Skapa en statisk Web Apps (för hands version) i portalen":::
 
 1. Klicka på knappen **Logga in med GitHub** .
 
@@ -137,7 +137,7 @@ Följande steg visar hur du skapar ett nytt statiskt Web Apps-program och distri
 
 1. För _grenen_ Välj **huvud**.
 
-   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Slutförd GitHub-information":::
+   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Skapa en statisk Web Apps (för hands version) i portalen":::
 
 ### <a name="build"></a>Skapa
 
@@ -151,7 +151,7 @@ Sedan lägger du till de konfigurations inställningar som bygg processen använ
 
 Ett värde för _API-platsen_ är inte nödvändigt eftersom du inte distribuerar ett API för tillfället.
 
-   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Build-inställningar":::
+   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Skapa en statisk Web Apps (för hands version) i portalen":::
 
 ### <a name="review-and-create"></a>Granska och skapa
 
@@ -163,7 +163,7 @@ Ett värde för _API-platsen_ är inte nödvändigt eftersom du inte distribuera
 
 1. Öppna det distribuerade programmet genom att klicka på _URL_ -länken på resurs skärmen. Du kan behöva vänta en minut eller två för att GitHub-åtgärden ska slutföras.
 
-   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Distribuerat program":::
+   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Skapa en statisk Web Apps (för hands version) i portalen":::
 
 ### <a name="clean-up-resources"></a>Rensa resurser
 

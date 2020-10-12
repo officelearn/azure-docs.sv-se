@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: a24d1716448363a199151a50a260bbdbd1e8e634
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91249492"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrera Azure Stream Analytics med Azure Machine Learning (förhands granskning)
@@ -45,19 +45,19 @@ Du kan lägga till Azure Machine Learning funktioner till ditt Stream Analytics-
 
    ![Konfigurera Azure Machine Learning UDF](./media/machine-learning-udf/configure-azure-machine-learning-udf.png)
 
-### <a name="visual-studio-code"></a>Visuell Studio-kod
+### <a name="visual-studio-code"></a>Visual Studio-koden
 
 1. Öppna ditt Stream Analytics-projekt i Visual Studio Code och högerklicka på mappen **Functions** . Välj sedan **Lägg till funktion**. Välj **Machine Learning UDF** i list rutan.
 
    :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function.png" alt-text="Lägg till UDF i VS Code":::
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="Lägg till Azure Machine Learning UDF i VS Code":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="Lägg till UDF i VS Code":::
 
 2. Ange funktions namnet och fyll i inställningarna i konfigurations filen genom **att använda Välj från dina prenumerationer** i CodeLens.
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="Välj Azure Machine Learning UDF i VS Code":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="Lägg till UDF i VS Code":::
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="Konfigurera Azure Machine Learning UDF i VS Code":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="Lägg till UDF i VS Code":::
 
 I följande tabell beskrivs varje egenskap för Azure Machine Learning tjänst funktioner i Stream Analytics.
 

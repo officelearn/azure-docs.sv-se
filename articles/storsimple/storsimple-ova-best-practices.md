@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81460655"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Metodtips för StorSimple Virtual Array
@@ -149,7 +149,7 @@ Använd följande rekommendationer för lagrings konton som är kopplade till de
   
   * Vi rekommenderar att du skapar den i den region som ligger närmast det fjärranslutna kontoret/avdelnings kontoret där din virtuella StorSimple-matris distribueras för att minimera fördröjning.
   * Tänk på att du inte kan flytta ett lagrings konto mellan olika regioner. Du kan inte heller flytta en tjänst mellan prenumerationer.
-  * Använd ett lagrings konto som implementerar redundans mellan data Center. Geo-redundant lagring (GRS), zon redundant lagring (ZRS) och lokalt redundant lagring (LRS) stöds för användning med den virtuella matrisen. Mer information om de olika typerna av lagrings konton finns i [Azure Storage-replikering](../storage/common/storage-redundancy.md).
+  * Använd ett lagrings konto som implementerar redundans mellan data Center. Geo-Redundant Storage (GRS), zon redundant lagring (ZRS) och lokalt redundant lagring (LRS) stöds för användning med den virtuella matrisen. Mer information om de olika typerna av lagrings konton finns i [Azure Storage-replikering](../storage/common/storage-redundancy.md).
 
 ### <a name="shares-and-volumes"></a>Resurser och volymer
 För din virtuella StorSimple-matris kan du etablera resurser när de är konfigurerade som en fil server och volymer när de konfigureras som en iSCSI-server. De bästa metoderna för att skapa resurser och volymer är relaterade till den storlek och den typ som kon figurer ATS.

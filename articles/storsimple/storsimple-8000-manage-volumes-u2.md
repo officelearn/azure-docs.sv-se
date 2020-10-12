@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 920f7f2fa6fb6e80b060f0308b124a3a1214cb3f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86204450"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Använda tjänsten StorSimple Enhetshanteraren för att hantera volymer (uppdatering 3 eller senare)
@@ -57,8 +57,8 @@ Se följande tabell för den högsta etablerade kapaciteten för varje enhet och
 | 8100 |64 TB |8 TB |
 | 8600 |64 TB |20 TB |
 | **Virtuella enheter** | | |
-| 8010 |30 TB |Ej tillämpligt |
-| 8020 |64 TB |Ej tillämpligt |
+| 8010 |30 TB |E.t. |
+| 8020 |64 TB |E.t. |
 
 ## <a name="the-volumes-blade"></a>Bladet volymer
 
@@ -157,7 +157,7 @@ Din nya volym är nu redo att användas.
 
        ![Granska effekten av att ta volymen offline](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
 
-5. Klicka på **Spara** för att spara ändringarna. Klicka på **Ja** när du uppmanas att bekräfta åtgärden. I Azure Portal visas ett uppdaterings volym meddelande. Ett meddelande visas när volymen har uppdaterats.
+5. Klicka på **Spara** för att spara dina ändringar. Klicka på **Ja** när du uppmanas att bekräfta åtgärden. I Azure Portal visas ett uppdaterings volym meddelande. Ett meddelande visas när volymen har uppdaterats.
 
     ![Granska effekten av att ta volymen offline](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
 

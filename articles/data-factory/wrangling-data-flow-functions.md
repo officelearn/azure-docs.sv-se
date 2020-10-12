@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.openlocfilehash: e63c3f329cb9c1fd5ca91274540f5145c3ad098a
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85921548"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Omvandlings funktioner i datatransformering Data Flow
@@ -68,15 +68,15 @@ Följande M-funktioner lägger till eller transformerar kolumner: [Table. AddCol
 ----------------------
 * Power Query skapar en kapslad koppling (Table. NestedJoin; användare kan också manuellt skriva [tabellen. AddJoinColumn](https://docs.microsoft.com/powerquery-m/table-addjoincolumn)).
     Användarna måste sedan expandera den kapslade kopplings kolumnen till en icke-kapslad koppling (Table. ExpandTableColumn, stöds inte i någon annan kontext).
-* M-funktions [tabellen. koppling](https://docs.microsoft.com/powerquery-m/table-join) kan skrivas direkt för att undvika behovet av ytterligare ett expansions steg, men användaren måste se till att det inte finns några dubbletter av kolumn namn bland de kopplade tabellerna
-* Kopplings typer som stöds: [Inner](https://docs.microsoft.com/powerquery-m/joinkind-inner), [LeftOuter](https://docs.microsoft.com/powerquery-m/joinkind-leftouter), [RightOuter](https://docs.microsoft.com/powerquery-m/joinkind-rightouter), [FullOuter](https://docs.microsoft.com/powerquery-m/joinkind-fullouter)
-* Både [Value. equals](https://docs.microsoft.com/powerquery-m/value-equals) och [Value. NullableEquals](https://docs.microsoft.com/powerquery-m/value-nullableequals) stöds som jämförelser av nyckel likheter
+* M-funktions   [tabellen. koppling](https://docs.microsoft.com/powerquery-m/table-join) kan skrivas direkt för att undvika behovet av ytterligare ett expansions steg, men användaren måste se till att det inte finns några dubbletter av kolumn namn bland de kopplade tabellerna
+* Kopplings typer som stöds:   [Inner](https://docs.microsoft.com/powerquery-m/joinkind-inner),   [LeftOuter](https://docs.microsoft.com/powerquery-m/joinkind-leftouter),   [RightOuter](https://docs.microsoft.com/powerquery-m/joinkind-rightouter),   [FullOuter](https://docs.microsoft.com/powerquery-m/joinkind-fullouter)
+* Både   [Value. equals](https://docs.microsoft.com/powerquery-m/value-equals) och   [Value. NullableEquals](https://docs.microsoft.com/powerquery-m/value-nullableequals) stöds som jämförelser av nyckel likheter
 
 ## <a name="group-by"></a>Gruppera efter
 
 Använd [Table. Group](https://docs.microsoft.com/powerquery-m/table-group) för att aggregera värden.
 * Måste användas med en agg regerings funktion
-* Sammansättnings funktioner som stöds: [Table. rowCount](https://docs.microsoft.com/powerquery-m/table-rowcount), [list. sum](https://docs.microsoft.com/powerquery-m/list-sum), [list. Count](https://docs.microsoft.com/powerquery-m/list-count), [list. genomsnitt](https://docs.microsoft.com/powerquery-m/list-average), [list. min](https://docs.microsoft.com/powerquery-m/list-min), [list. Max](https://docs.microsoft.com/powerquery-m/list-max), [list. StandardDeviation](https://docs.microsoft.com/powerquery-m/list-standarddeviation), [list. First](https://docs.microsoft.com/powerquery-m/list-first), list. [Last](https://docs.microsoft.com/powerquery-m/list-last)
+* Sammansättnings funktioner som stöds:   [Table. rowCount](https://docs.microsoft.com/powerquery-m/table-rowcount),   [list. sum](https://docs.microsoft.com/powerquery-m/list-sum),   [list. Count](https://docs.microsoft.com/powerquery-m/list-count),   [list. genomsnitt](https://docs.microsoft.com/powerquery-m/list-average),   [list. min](https://docs.microsoft.com/powerquery-m/list-min),   [list. Max](https://docs.microsoft.com/powerquery-m/list-max),   [list. StandardDeviation](https://docs.microsoft.com/powerquery-m/list-standarddeviation),   [list. First](https://docs.microsoft.com/powerquery-m/list-first), list.   [Last](https://docs.microsoft.com/powerquery-m/list-last)
 
 ## <a name="sorting"></a>Sortering
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: cbdc81789fcd996774090f12523e7404c0aa0111
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86205857"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Skala en Azure API Management-instans automatiskt  
@@ -27,11 +27,11 @@ Artikeln vägleder dig genom processen med att konfigurera autoskalning och för
 > [!NOTE]
 > API Management tjänsten i **förbruknings** nivån skalas automatiskt utifrån trafiken – utan någon ytterligare konfiguration som behövs.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att följa stegen i den här artikeln måste du:
 
-+ Ha en aktiv Azure-prenumeration.
++ En aktiv Azure-prenumeration.
 + Ha en Azure API Management-instans. Mer information finns i [skapa en Azure API Management-instans](get-started-create-service-instance.md).
 + Förstå konceptet med [kapacitet för en Azure API Management-instans](api-management-capacity.md).
 + Förstå [manuell skalnings process för en Azure API Management-instans](upgrade-and-scale.md), inklusive kostnads konsekvenser.

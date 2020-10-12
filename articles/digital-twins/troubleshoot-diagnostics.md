@@ -8,10 +8,10 @@ ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.openlocfilehash: fc397b6d6beb719e11dc3959bbcf4d75c08a8dda
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723936"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Felsöka Azure Digitals sammanflätade: diagnostikloggning
@@ -49,7 +49,7 @@ Så här aktiverar du diagnostikinställningar för din Azure Digital-instansen:
     
 4. Spara de nya inställningarna. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Skärm bild som visar sidan för diagnostikinställningar där användaren har fyllt i ett namn för diagnostikinställningar och gjort några kryss rutor för kategori information och mål information. Knappen Spara är markerad.":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Skärm bild som visar sidan diagnostikinställningar och knappen som ska läggas till":::
 
 Nya inställningar börjar gälla om 10 minuter. Därefter visas loggar i det konfigurerade målet tillbaka på sidan **diagnostikinställningar** för din instans. 
 
@@ -69,7 +69,7 @@ Varje logg kategori består av åtgärder av Skriv-, Läs-, borttagnings-och åt
 | Händelsetyp | REST API åtgärder |
 | --- | --- |
 | Skriva | PLACERING och korrigering |
-| Läsa | GET |
+| Läs | GET |
 | Ta bort | DELETE |
 | Action | POST |
 

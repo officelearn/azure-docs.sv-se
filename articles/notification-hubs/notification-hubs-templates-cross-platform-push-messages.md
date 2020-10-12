@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: e3c64155053517205ab006673bb8f400325ad3c4
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86219971"
 ---
 # <a name="notification-hubs-templates"></a>Notification Hubs mallar
@@ -145,7 +145,7 @@ Följande tabell visar det språk som tillåts i mallar:
 
 Uttrycken kan vara något av de föregående formulären.
 
-När du använder sammanfogning måste hela uttrycket omges av `{}` . Ett exempel är `{$(prop) + ‘ - ’ + $(prop2)}`.
+När du använder sammanfogning måste hela uttrycket omges av `{}` . Exempelvis `{$(prop) + ‘ - ’ + $(prop2)}`.
 
 Följande mall är till exempel inte en giltig XML-mall:
 
@@ -159,7 +159,7 @@ Följande mall är till exempel inte en giltig XML-mall:
 </tile>
 ```
 
-Som förklaras tidigare, när du använder sammanfogning, måste uttryck omges av klammerparenteser. Till exempel:
+Som förklaras tidigare, när du använder sammanfogning, måste uttryck omges av klammerparenteser. Exempel:
 
 ```xml
 <tile>

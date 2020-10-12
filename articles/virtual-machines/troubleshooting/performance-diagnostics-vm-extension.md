@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: c570c43560ad865b8bcc5161cbd0c6731ea4a237
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90090660"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Azures VM-tillägg för prestandadiagnostik för Windows
@@ -79,7 +79,7 @@ Följande JSON visar schemat för Azure Performance Diagnostics VM-tillägget. D
 |apiVersion|2015-06-15|API-versionen.
 |utgivare|Microsoft. Azure. Performance. Diagnostics|Utgivarens namn område för tillägget.
 |typ|AzurePerformanceDiagnostics|Typ av VM-tillägg.
-|typeHandlerVersion|1,0|Tilläggs hanterarens version.
+|typeHandlerVersion|1.0|Tilläggs hanterarens version.
 |performanceScenario|frö|Det prestanda scenario som data ska samlas in för. Giltiga värden är: **Basic**, **vmslow**, **migreringsåtgärden**och **Custom**.
 |traceDurationInSeconds|300|Spårens varaktighet, om något av spårnings alternativen är markerat.
 |perfCounterTrace|P|Alternativ för att aktivera spårning av prestanda räknare. Giltiga värden är **p** eller ett tomt värde. Lämna värdet tomt om du inte vill avbilda den här spårningen.

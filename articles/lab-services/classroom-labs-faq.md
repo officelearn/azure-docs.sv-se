@@ -4,10 +4,10 @@ description: Den här artikeln innehåller svar på vanliga frågor och svar om 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ca35d70bc1106e46df4e3c68889b03679fd54b86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85443306"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Klass rums labb i Azure Lab Services – vanliga frågor och svar
@@ -19,7 +19,7 @@ Få svar på några av de vanligaste frågorna om klass rums labb i Azure Lab Se
 Den kvot som du har angett för ett labb är för varje student under hela Labbets varaktighet. Och den [schemalagda körningen av virtuella datorer](how-to-create-schedules.md) räknas inte mot den kvot som tilldelats till en användare. Kvoten är för tiden utanför de schema timmar som en student tillbringar på virtuella datorer.  Mer information om kvoter finns i [Ange kvoter för användare](how-to-configure-student-usage.md#set-quotas-for-users).
 
 ### <a name="if-educator-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Om lärare aktiverar en elev-VM, påverkar detta student kvoten? 
-Nej. Det inte. När lärare slår på den virtuella student datorn påverkar den inte den kvot som tilldelats studenten. 
+Nej. Det har den inte. När lärare slår på den virtuella student datorn påverkar den inte den kvot som tilldelats studenten. 
 
 ## <a name="schedules"></a>Scheman
 
@@ -42,7 +42,7 @@ Du kan också se den privata IP-adressen för varje virtuell dator på fliken **
 ### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Vilka offentliga IP-adressintervall ska jag öppna i min organisations brand Väggs inställningar för att ansluta till virtuella labb datorer via RDP/SSH?
 Se [Azure IP-intervall och service märken – offentliga moln](https://www.microsoft.com/download/details.aspx?id=56519), som tillhandahåller det offentliga IP-adressintervallet för data Center i Azure. Du kan öppna IP-adresserna för de regioner där dina labb konton finns.
 
-## <a name="virtual-machine-images"></a>Avbildningar av virtuella datorer
+## <a name="virtual-machine-images"></a>Virtuella datoravbildningar
 
 ### <a name="as-a-lab-creator-why-cant-i-enable-additional-image-options-in-the-virtual-machine-images-dropdown-when-creating-a-new-lab"></a>Varför kan jag inte aktivera ytterligare avbildnings alternativ i list rutan avbildning av virtuella datorer när jag skapar en ny labb-skapare?
 

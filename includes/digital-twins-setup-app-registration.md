@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
 ms.openlocfilehash: 45f55e6c18d7cc551a6b96504ad2ce2ec3f84d86
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009685"
 ---
 När du har konfigurerat en Azure Digitals-instans är det vanligt att interagera med den instansen via ett klient program. För att kunna skapa ett fungerande klient program måste du kontrol lera att klient programmet kommer att kunna autentisera mot Azures digitala dubbla. Det gör du genom att konfigurera en [Azure Active Directory (Azure AD)-](../articles/active-directory/fundamentals/active-directory-whatis.md) **app-registrering** för din klient app som ska användas.

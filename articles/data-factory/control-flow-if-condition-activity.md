@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9f65ffc9ef24b18ce0f18571c1f3fc91e7ca7fdf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85414614"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Om villkors aktivitet i Azure Data Factory
@@ -65,7 +65,7 @@ If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk.
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 name | Namnet på IF-condition-aktiviteten. | Sträng | Ja
 typ | Måste anges till **IfCondition** | Sträng | Ja
@@ -79,7 +79,7 @@ Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil. Map
 > [!NOTE]
 > Det här avsnittet innehåller JSON-definitioner och exempel på PowerShell-kommandon för att köra pipelinen. En genom gång med stegvisa instruktioner för att skapa en Data Factory pipeline med hjälp av Azure PowerShell-och JSON-definitioner finns i [Självstudier: skapa en data fabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pipeline med IF-condition-aktivitet (Adfv2QuickStartPipeline.jspå)
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pipeline med IF-Condition aktivitet (Adfv2QuickStartPipeline.jspå)
 
 ```json
 {

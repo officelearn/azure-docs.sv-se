@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
 ms.openlocfilehash: 79b5f4492d05880e263f8d489a64ba0cc218d355
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86223405"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Förstå hälso tillstånden och lösa inaktiverade domäner i Azure Active Directory Domain Services
@@ -41,7 +41,7 @@ En hanterad domän kan vara i något av följande tillstånd:
 
 En hanterad domän som är korrekt konfigurerad och utan problem är i *körnings* tillstånd. Detta är det önskade läget för en hanterad domän.
 
-### <a name="what-to-expect"></a>Vad som ska förväntas
+### <a name="what-to-expect"></a>Vad du kan förvänta dig
 
 * Azure-plattformen kan regelbundet övervaka hälso tillståndet för den hanterade domänen.
 * Domänkontrollanter för den hanterade domänen korrigeras och uppdateras regelbundet.
@@ -58,7 +58,7 @@ Ett exempel på en avisering är när det finns en begränsande nätverks säker
 
 Mer information finns i [fel sökning av aviseringar för en hanterad domän][resolve-alerts].
 
-### <a name="what-to-expect"></a>Vad som ska förväntas
+### <a name="what-to-expect"></a>Vad du kan förvänta dig
 
 När en hanterad domän är i *behovs* känslig status kan Azure-plattformen kanske inte övervaka, korrigera, uppdatera eller säkerhetskopiera data regelbundet. I vissa fall, till exempel en ogiltig nätverks konfiguration, kan det hända att domän kontrol Lanterna för den hanterade domänen inte kan kontaktas.
 
@@ -79,7 +79,7 @@ En hanterad domän övergår i **pausat** tillstånd av någon av följande anle
 
 Hanterade domäner pausas när Azure-plattformen inte kan hantera, övervaka, korrigera eller säkerhetskopiera domänen. En hanterad domän förblir i ett *inaktiverat* tillstånd i 15 dagar. För att upprätthålla åtkomsten till den hanterade domänen löser du viktiga aviseringar direkt.
 
-### <a name="what-to-expect"></a>Vad som ska förväntas
+### <a name="what-to-expect"></a>Vad du kan förvänta dig
 
 Följande beteende uppstår när en hanterad domän är i tillståndet *Suspended* :
 
@@ -110,7 +110,7 @@ När du har löst aviseringar när den hanterade domänen är i *paus* läge [ö
 
 Om en hanterad domän förblir i *pausat* tillstånd i 15 dagar tas den bort. Den här processen kan inte återställas.
 
-### <a name="what-to-expect"></a>Vad som ska förväntas
+### <a name="what-to-expect"></a>Vad du kan förvänta dig
 
 När en hanterad domän går in i det *borttagna* läget visas följande:
 

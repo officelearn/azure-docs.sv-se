@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82188165"
 ---
 # <a name="configure-apache-spark-settings"></a>Konfigurera Apache Spark-inställningar
@@ -29,7 +29,7 @@ Antalet virtuella datorer och VM-storlekar för noderna i HDInsight-klustret kan
 
 Använd den bästa Spark-versionen för klustret.  HDInsight-tjänsten innehåller flera versioner av både Spark och HDInsight.  Varje version av Spark innehåller en uppsättning standard kluster inställningar.  
 
-När du skapar ett nytt kluster finns det flera Spark-versioner att välja mellan. Om du vill se en fullständig lista, [HDInsight-komponenter och-versioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+När du skapar ett nytt kluster finns det flera Spark-versioner att välja mellan. Om du vill se en fullständig lista,  [HDInsight-komponenter och-versioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
 
 > [!NOTE]  
 > Standard versionen av Apache Spark i HDInsight-tjänsten kan ändras utan föregående meddelande. Om du har ett versions beroende rekommenderar Microsoft att du anger den specifika versionen när du skapar kluster med .NET SDK, Azure PowerShell och klassisk Azure-CLI.
@@ -90,7 +90,7 @@ Tre nyckel parametrar som ofta justeras för att justera Spark-konfigurationer f
 > [!NOTE]  
 > Dessa tre konfigurations parametrar kan konfigureras på kluster nivå (för alla program som körs i klustret) och också anges för varje enskilt program.
 
-En annan informations källa om resurser som används av Spark-körningar är Spark-programgränssnittet.  I användar gränssnittet visar **körningarna** Sammanfattning och detaljer om konfigurationen och förbrukade resurser.  Bestäm om du vill ändra körnings värden för hela klustret eller en viss uppsättning jobb körningar.
+En annan informations källa om resurser som används av Spark-körningar är Spark-programgränssnittet.  I användar gränssnittet visar  **körningarna** Sammanfattning och detaljer om konfigurationen och förbrukade resurser.  Bestäm om du vill ändra körnings värden för hela klustret eller en viss uppsättning jobb körningar.
 
 ![Spark-körningar](./media/apache-spark-settings/apache-spark-executors.png)
 

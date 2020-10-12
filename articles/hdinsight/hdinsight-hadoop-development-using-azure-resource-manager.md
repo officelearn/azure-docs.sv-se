@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: faf13f580f6600e761cdaa9927fee4efa2b5995f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87500188"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster
@@ -31,21 +31,21 @@ HDInsight är inaktuellt Azure Service Manager-baserade (ASM) verktyg för HDIns
 
 Följande är de grundläggande kommandona för att arbeta med HDInsight via den klassiska Azure-CLI:
 
-* `azure hdinsight cluster create`-skapar ett nytt HDInsight-kluster
-* `azure hdinsight cluster delete`-tar bort ett befintligt HDInsight-kluster
-* `azure hdinsight cluster show`– Visa information om ett befintligt kluster
-* `azure hdinsight cluster list`– visar HDInsight-kluster för din Azure-prenumeration
+* `azure hdinsight cluster create` -skapar ett nytt HDInsight-kluster
+* `azure hdinsight cluster delete` -tar bort ett befintligt HDInsight-kluster
+* `azure hdinsight cluster show` – Visa information om ett befintligt kluster
+* `azure hdinsight cluster list` – visar HDInsight-kluster för din Azure-prenumeration
 
 Använd `-h` växeln för att kontrol lera de parametrar och växlar som är tillgängliga för varje kommando.
 
 ### <a name="new-commands"></a>Nya kommandon
 Nya kommandon som är tillgängliga med Azure Resource Manager är:
 
-* `azure hdinsight cluster resize`-ändrar antalet arbets noder i klustret dynamiskt
-* `azure hdinsight cluster enable-http-access`-aktiverar HTTPs-åtkomst till klustret (aktiverat som standard)
-* `azure hdinsight cluster disable-http-access`-inaktiverar HTTPs-åtkomst till klustret
-* `azure hdinsight script-action`– innehåller kommandon för att skapa/hantera skript åtgärder i ett kluster
-* `azure hdinsight config`– innehåller kommandon för att skapa en konfigurations fil som kan användas med `hdinsight cluster create` kommandot för att tillhandahålla konfigurations information.
+* `azure hdinsight cluster resize` -ändrar antalet arbets noder i klustret dynamiskt
+* `azure hdinsight cluster enable-http-access` -aktiverar HTTPs-åtkomst till klustret (aktiverat som standard)
+* `azure hdinsight cluster disable-http-access` -inaktiverar HTTPs-åtkomst till klustret
+* `azure hdinsight script-action` – innehåller kommandon för att skapa/hantera skript åtgärder i ett kluster
+* `azure hdinsight config` – innehåller kommandon för att skapa en konfigurations fil som kan användas med `hdinsight cluster create` kommandot för att tillhandahålla konfigurations information.
 
 ### <a name="deprecated-commands"></a>Föråldrade kommandon
 Om du använder `azure hdinsight job` kommandona för att skicka jobb till ditt HDInsight-kluster är de här kommandona inte tillgängliga via Resource Manager-kommandona. Om du behöver skicka jobb program mässigt till HDInsight från skript bör du i stället använda de REST-API: er som tillhandahålls av HDInsight. Mer information om hur du skickar jobb med hjälp av REST API: er finns i följande dokument.
@@ -59,26 +59,26 @@ Information om andra sätt att köra Apache Hadoop MapReduce, Apache Hive och Ap
 ### <a name="examples"></a>Exempel
 **Skapa ett kluster**
 
-* Gammalt kommando (ASM)-`azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
-* Nytt kommando-`azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Gammalt kommando (ASM)- `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Nytt kommando- `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
 
 **Ta bort ett kluster**
 
-* Gammalt kommando (ASM)-`azure hdinsight cluster delete myhdicluster`
-* Nytt kommando-`azure hdinsight cluster delete mycluster -g myresourcegroup`
+* Gammalt kommando (ASM)- `azure hdinsight cluster delete myhdicluster`
+* Nytt kommando- `azure hdinsight cluster delete mycluster -g myresourcegroup`
 
 **Lista kluster**
 
-* Gammalt kommando (ASM)-`azure hdinsight cluster list`
-* Nytt kommando-`azure hdinsight cluster list`
+* Gammalt kommando (ASM)- `azure hdinsight cluster list`
+* Nytt kommando- `azure hdinsight cluster list`
 
 > [!NOTE]  
 > För list kommandot visas `-g` bara kluster i den angivna resurs gruppen om du anger resurs gruppen med hjälp av.
 
 **Visa kluster information**
 
-* Gammalt kommando (ASM)-`azure hdinsight cluster show myhdicluster`
-* Nytt kommando-`azure hdinsight cluster show myhdicluster -g myresourcegroup`
+* Gammalt kommando (ASM)- `azure hdinsight cluster show myhdicluster`
+* Nytt kommando- `azure hdinsight cluster show myhdicluster -g myresourcegroup`
 
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migrerar Azure PowerShell till Azure Resource Manager
 Allmän information om Azure PowerShell i Azure Resource Manager läge finns i [använda Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).

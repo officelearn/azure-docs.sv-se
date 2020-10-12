@@ -4,10 +4,10 @@ description: I den här artikeln lär du dig hur du använder översikts instrum
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.openlocfilehash: 74351d781287d863db8be0fc7d20517e0479106c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89002138"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Övervaka och hantera Recovery Services-valv
@@ -243,9 +243,9 @@ Du kan visa en åtgärd eller alla åtgärder. Det går inte att välja två ell
 Du kan visa all status eller en. Du kan inte välja två eller tre status värden. Tillgängliga statusar är:
 
 * Alla status
-* Slutförd
+* Slutfört
 * Pågår
-* Misslyckad
+* Misslyckades
 * Avbrutna
 * Slutfört med varningar
 

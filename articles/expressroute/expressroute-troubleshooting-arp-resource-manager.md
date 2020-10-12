@@ -9,10 +9,10 @@ ms.date: 01/30/2017
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 9272bb8bac2054d7a02a7eac8c214395a86ceebf
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394864"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Hämta ARP-tabeller i distributions modellen för Resource Manager
@@ -193,7 +193,7 @@ Age InterfaceProperty IpAddress  MacAddress
 * Du ser ingen ARP-tabell för en peering om det finns problem på Microsoft-sidan. 
 * Öppna ett support ärende med [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Ange att du har problem med Layer 2-anslutning. 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * Validera Layer 3-konfigurationer för din ExpressRoute-krets
   * Hämta väg Sammanfattning för att fastställa tillstånd för BGP-sessioner 
   * Hämta routningstabellen för att avgöra vilka prefix som annonseras via ExpressRoute

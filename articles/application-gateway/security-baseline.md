@@ -8,10 +8,10 @@ ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: b470fa72518f805c10403931280bdec96bda0fbe
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89226547"
 ---
 # <a name="azure-security-baseline-for-azure-application-gateway"></a>Azures säkerhets bas linje för Azure Application Gateway
@@ -983,7 +983,7 @@ Konfigurera diagnostikinställningar för dina Azure Application Gateway-distrib
 
 **Vägledning**: Azure Application Gateway lagrar inte kund information. Men om du använder anpassade Azure policy-definitioner, använder du Azure DevOps eller Azure databaser för att lagra och hantera din kod på ett säkert sätt.
 
-Azure DevOps Services utnyttjar många av funktionerna i Azure Storage för att säkerställa att data är tillgängliga i händelse av maskin varu problem, avbrott i tjänsten eller region haverien. Azure DevOps-teamet följer dessutom procedurer för att skydda data från oavsiktlig eller skadlig borttagning.
+Azure DevOps Services utnyttjar många av funktionerna i Azure Storage för att säkerställa att data är tillgängliga i händelse av maskinvaruproblem, avbrott i tjänsten eller haveri. Azure DevOps-teamet följer dessutom procedurer för att skydda data från oavsiktlig eller skadlig borttagning.
 
 * [Förstå data tillgänglighet i Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
 

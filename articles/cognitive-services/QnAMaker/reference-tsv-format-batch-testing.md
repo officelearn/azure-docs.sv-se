@@ -9,10 +9,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 10/24/2019
 ms.openlocfilehash: 0ed948b4bf69fc672a59a7825279a12868d10521
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132134"
 ---
 # <a name="batch-testing-tsv-format"></a>Batch-test av TSV-format
@@ -34,7 +34,7 @@ Använd följande information för att förstå och implementera TSV-formatet f�
 
 ## <a name="tsv-input-fields"></a>Indatatyper för TSV
 
-|Fält för TSV-indatafiler|Kommentarer|
+|Fält för TSV-indatafiler|Obs!|
 |--|--|
 |KBID|Ditt KB-ID finns på publicerings sidan.|
 |Fråga|Frågan som en användare skulle ange.|
@@ -46,7 +46,7 @@ Använd följande information för att förstå och implementera TSV-formatet f�
 
 ## <a name="tsv-output-fields"></a>Fält för TSV-utdata 
 
-|Parametrar för TSV output-filer|Kommentarer|
+|Parametrar för TSV output-filer|Obs!|
 |--|--|
 |KBID|Ditt KB-ID finns på publicerings sidan.|
 |Fråga|Frågan som anges i indatafilen.|

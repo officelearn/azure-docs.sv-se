@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: jingwang
 ms.openlocfilehash: 16f7a1481b15f280995bb71fa9e30ed3a129ab6d
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89612628"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Kopiera data från MySQL med Azure Data Factory
@@ -41,7 +41,7 @@ Du kan kopiera data från MySQL-databasen till alla mottagar data lager som stö
 
 Mer specifikt stöder den här MySQL-anslutaren MySQL **version 5,6, 5,7 och 8,0**.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -65,7 +65,7 @@ Följande egenskaper stöds för MySQL-länkade tjänster:
 
 En typisk anslutnings sträng är `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>` . Fler egenskaper som du kan ställa in per ärende:
 
-| Egenskap | Beskrivning | Alternativ | Obligatorisk |
+| Egenskap | Beskrivning | Alternativ | Krävs |
 |:--- |:--- |:--- |:--- |
 | SSLMode | Det här alternativet anger om driv rutinen använder TLS-kryptering och verifiering vid anslutning till MySQL. T. ex.,  `SSLMode=<0/1/2/3/4>` .| Inaktive rad (0)/PRIORITERAt (1) **(standard)** /obligatoriskt (2)/VERIFY_CA (3)/VERIFY_IDENTITY (4) | Inga |
 | SSLCert | Den fullständiga sökvägen till och namnet på en. PEM-fil som innehåller SSL-certifikatet som används för att bevisa klientens identitet. <br/> Om du vill ange en privat nyckel för att kryptera det här certifikatet innan det skickas till servern använder du `SSLKey` egenskapen.| | Ja, om du använder tvåvägs SSL-verifiering. |
@@ -184,7 +184,7 @@ För att kopiera data från MySQL stöds följande egenskaper i avsnittet Kopier
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **MySqlSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 

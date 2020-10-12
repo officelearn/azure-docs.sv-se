@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 tags: connectors
 ms.openlocfilehash: 05ce944d195cf43f860fc2b39975a736a4454c05
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89226522"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-begäranden i Azure Logic Apps
@@ -30,7 +30,7 @@ Den här artikeln visar hur du använder begäran om utlösare och åtgärder s�
 
 Information om kryptering, säkerhet och auktorisering för inkommande samtal till din Logic app, till exempel [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), som tidigare kallades Secure SOCKETS Layer (SSL) eller [Azure Active Directory öppen autentisering (Azure AD OAuth)](../active-directory/develop/index.yml)finns i [skydda åtkomst och data åtkomst för inkommande anrop till begär ande-baserade utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto och prenumeration. Om du inte har någon prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -57,8 +57,8 @@ Din Logi Kap par ser till att en inkommande begäran endast öppnas under en [be
 
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
-   | **HTTP POST-URL** | alternativet | Yes | Slut punkts-URL: en som genereras efter att du har sparat Logic-appen och som används för att anropa din Logic app |
-   | **Begär ande text JSON-schema** | `schema` | No | JSON-schemat som beskriver egenskaperna och värdena i den inkommande begär ande texten |
+   | **HTTP POST-URL** | alternativet | Ja | Slut punkts-URL: en som genereras efter att du har sparat Logic-appen och som används för att anropa din Logic app |
+   | **Begär ande text JSON-schema** | `schema` | Inga | JSON-schemat som beskriver egenskaperna och värdena i den inkommande begär ande texten |
    |||||
 
 1. I rutan **begär text-JSON-schema** kan du ange ett JSON-schema som beskriver bröd texten i den inkommande begäran, till exempel:
@@ -164,8 +164,8 @@ Din Logi Kap par ser till att en inkommande begäran endast öppnas under en [be
 
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
-   | **Metod** | `method` | No | Metoden som inkommande begäran måste använda för att anropa Logic-appen |
-   | **Relativ sökväg** | `relativePath` | No | Den relativa sökvägen för den parameter som den logiska appens slut punkts-URL kan acceptera |
+   | **Metod** | `method` | Inga | Metoden som inkommande begäran måste använda för att anropa Logic-appen |
+   | **Relativ sökväg** | `relativePath` | Inga | Den relativa sökvägen för den parameter som den logiska appens slut punkts-URL kan acceptera |
    |||||
 
    I det här exemplet läggs egenskapen **metod** till:
@@ -254,9 +254,9 @@ När du använder begär ande utlösare för att hantera inkommande begär Anden
 
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
-   | **Status kod** | `statusCode` | Yes | Status koden som ska returneras i svaret |
-   | **Sidhuvuden** | `headers` | No | Ett JSON-objekt som beskriver en eller flera huvuden som ska inkluderas i svaret |
-   | **Brödtext** | `body` | No | Svars texten |
+   | **Status kod** | `statusCode` | Ja | Status koden som ska returneras i svaret |
+   | **Rubriker** | `headers` | Inga | Ett JSON-objekt som beskriver en eller flera huvuden som ska inkluderas i svaret |
+   | **Brödtext** | `body` | Inga | Svars texten |
    |||||
 
 1. Om du vill ange ytterligare egenskaper, till exempel ett JSON-schema för svars texten, öppnar du listan **Lägg till ny parameter** och väljer de parametrar som du vill lägga till.

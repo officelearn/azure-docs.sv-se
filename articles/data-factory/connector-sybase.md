@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: jingwang
 ms.openlocfilehash: ac9dff4b16d8ba1b346a2827f3b5487dbf97392e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84669842"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Kopiera data från Sybase med Azure Data Factory
@@ -59,7 +59,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för den länkade tjänsten Sybase:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen måste anges till: **Sybase** | Ja |
 | server | Sybase-serverns namn. |Ja |
@@ -100,7 +100,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds för att kopiera data från Sybase:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **SybaseTable** | Ja |
 | tableName | Namnet på tabellen i Sybase-databasen. | Nej (om "fråga" i aktivitets källan har angetts) |
@@ -132,7 +132,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att kopiera data från Sybase:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **SybaseSource** | Ja |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |

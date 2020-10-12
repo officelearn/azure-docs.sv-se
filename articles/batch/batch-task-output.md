@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4ebe0b6d57225eff9f3f1251d5e491c95e9b7ffc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85965118"
 ---
 # <a name="persist-job-and-task-output"></a>Bevara jobb- och uppgiftsutdata
@@ -59,7 +59,7 @@ Du kanske vill implementera namngivnings standarden för fil konventioner själv
 
 Du kan också implementera din egen fullständiga lösning för fil förflyttning. Använd den här metoden när:
 
-- Du vill spara uppgifts data till ett annat data lager än Azure Storage. Om du vill ladda upp filer till ett data lager som Azure SQL eller Azure DataLake kan du skapa ett anpassat skript eller en körbar fil som du kan överföra till den platsen. Sedan kan du anropa det på kommando raden när du har kört den primära körbara filen. På en Windows-nod kan du till exempel anropa följande två kommandon:`doMyWork.exe && uploadMyFilesToSql.exe`
+- Du vill spara uppgifts data till ett annat data lager än Azure Storage. Om du vill ladda upp filer till ett data lager som Azure SQL eller Azure DataLake kan du skapa ett anpassat skript eller en körbar fil som du kan överföra till den platsen. Sedan kan du anropa det på kommando raden när du har kört den primära körbara filen. På en Windows-nod kan du till exempel anropa följande två kommandon: `doMyWork.exe && uploadMyFilesToSql.exe`
 - Du vill utföra en kontroll punkt eller tidig uppladdning av de första resultaten.
 - Du vill ha detaljerad kontroll över fel hanteringen. Du kanske till exempel vill implementera din egen lösning om du vill använda aktivitets beroende åtgärder för att utföra vissa uppladdnings åtgärder baserat på specifika slut koder för aktiviteter. Mer information om aktivitets beroende åtgärder finns i [skapa aktivitets beroenden för att köra uppgifter som är beroende av andra uppgifter](batch-task-dependencies.md).
 

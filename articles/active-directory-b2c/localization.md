@@ -11,10 +11,10 @@ ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 84850b7d44033a2759c51c5c6b9c53d1c945a99d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005386"
 ---
 # <a name="localization-element"></a>Lokaliserings element
@@ -41,7 +41,7 @@ ms.locfileid: "87005386"
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Enabled | No | Möjliga värden: `true` eller `false` . |
+| Enabled | Inga | Möjliga värden: `true` eller `false` . |
 
 **Lokaliserings** elementet innehåller följande XML-element
 
@@ -56,8 +56,8 @@ ms.locfileid: "87005386"
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| DefaultLanguage | Yes | Det språk som ska användas som standard för lokaliserade resurser. |
-| MergeBehavior | No | Ett uppräknings värde för värden som slås samman med en ClaimType som finns i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i bas principen. Möjliga värden: `Append` , `Prepend` , eller `ReplaceAll` . `Append`Värdet anger att data uppsättningen som finns ska läggas till i slutet av den samling som anges i den överordnade principen. `Prepend`Värdet anger att data uppsättningen som finns ska läggas till innan den samling som anges i den överordnade principen. `ReplaceAll`Värdet anger att data uppsättningen som definieras i den överordnade principen ska ignoreras, med i stället de data som definierats i den aktuella principen. |
+| DefaultLanguage | Ja | Det språk som ska användas som standard för lokaliserade resurser. |
+| MergeBehavior | Inga | Ett uppräknings värde för värden som slås samman med en ClaimType som finns i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i bas principen. Möjliga värden: `Append` , `Prepend` , eller `ReplaceAll` . `Append`Värdet anger att data uppsättningen som finns ska läggas till i slutet av den samling som anges i den överordnade principen. `Prepend`Värdet anger att data uppsättningen som finns ska läggas till innan den samling som anges i den överordnade principen. `ReplaceAll`Värdet anger att data uppsättningen som definieras i den överordnade principen ska ignoreras, med i stället de data som definierats i den aktuella principen. |
 
 ### <a name="supportedlanguages"></a>SupportedLanguages
 
@@ -73,7 +73,7 @@ ms.locfileid: "87005386"
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Yes | En identifierare som används för att identifiera lokaliserade resurser unikt. |
+| Id | Ja | En identifierare som används för att identifiera lokaliserade resurser unikt. |
 
 **LocalizedResources** -elementet innehåller följande element:
 
@@ -96,9 +96,9 @@ ms.locfileid: "87005386"
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ElementType | Yes | Refererar till ett ClaimType-element eller ett användar gränssnitts element i princip filen. |
-| ElementId | Yes | En sträng som innehåller en referens till en anspråks typ som redan har definierats i ClaimsSchema-avsnittet som används om **ElementType** har angetts till en claimType. |
-| TargetCollection | Yes | Mål samlingen. |
+| ElementType | Ja | Refererar till ett ClaimType-element eller ett användar gränssnitts element i princip filen. |
+| ElementId | Ja | En sträng som innehåller en referens till en anspråks typ som redan har definierats i ClaimsSchema-avsnittet som används om **ElementType** har angetts till en claimType. |
+| TargetCollection | Ja | Mål samlingen. |
 
 **LocalizedCollection** -elementet innehåller följande element:
 
@@ -110,9 +110,9 @@ Elementet **item** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Text | Yes | Den användarvänliga visnings strängen som ska visas för användaren i användar gränssnittet för det här alternativet. |
-| Värde | Yes | Det sträng anspråks värde som är associerat med att välja det här alternativet. |
-| SelectByDefault | No | Anger om det här alternativet ska vara markerat som standard i användar gränssnittet. Möjliga värden: true eller false. |
+| Text | Ja | Den användarvänliga visnings strängen som ska visas för användaren i användar gränssnittet för det här alternativet. |
+| Värde | Ja | Det sträng anspråks värde som är associerat med att välja det här alternativet. |
+| SelectByDefault | Inga | Anger om det här alternativet ska vara markerat som standard i användar gränssnittet. Möjliga värden: true eller false. |
 
 I följande exempel visas användningen av **LocalizedCollections** -elementet. Den innehåller två **LocalizedCollection** -element, ett för engelska och ett för spanska. Båda anger **begränsnings** samlingen för anspråket `Gender` med en lista över objekt för engelska och spanska.
 
@@ -146,9 +146,9 @@ I följande exempel visas användningen av **LocalizedCollections** -elementet. 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ElementType | Yes | Möjliga värden: [ClaimsProvider](#claimsprovider), [claimType](#claimtype), [errormessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [predikat](#predicate), [InputValidation](#inputvalidation)eller [UxElement](#uxelement).   | 
-| ElementId | Yes | Om **ElementType** är inställt på `ClaimType` , `Predicate` eller `InputValidation` , innehåller det här elementet en referens till en anspråks typ som redan har definierats i avsnittet ClaimsSchema. |
-| StringId | Yes | Om **ElementType** är inställt på `ClaimType` , innehåller det här elementet en referens till ett attribut för en anspråks typ. Möjliga värden: `DisplayName` , `AdminHelpText` , eller `PatternHelpText` . `DisplayName`Värdet används för att ange visnings namn för anspråket. `AdminHelpText`Värdet används för att ange hjälp text namnet för anspråks användaren. `PatternHelpText`Värdet används för att ange hjälp texten för anspråks mönstret. Om **ElementType** är inställt på `UxElement` , innehåller det här elementet en referens till ett attribut i ett användar gränssnitts element. Om **ElementType** är inställt på `ErrorMessage` , anger det här elementet identifieraren för ett fel meddelande. Se [lokaliserings Strängs-ID: n](localization-string-ids.md) för en fullständig lista över `UxElement` identifierare.|
+| ElementType | Ja | Möjliga värden: [ClaimsProvider](#claimsprovider), [claimType](#claimtype), [errormessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [predikat](#predicate), [InputValidation](#inputvalidation)eller [UxElement](#uxelement).   | 
+| ElementId | Ja | Om **ElementType** är inställt på `ClaimType` , `Predicate` eller `InputValidation` , innehåller det här elementet en referens till en anspråks typ som redan har definierats i avsnittet ClaimsSchema. |
+| StringId | Ja | Om **ElementType** är inställt på `ClaimType` , innehåller det här elementet en referens till ett attribut för en anspråks typ. Möjliga värden: `DisplayName` , `AdminHelpText` , eller `PatternHelpText` . `DisplayName`Värdet används för att ange visnings namn för anspråket. `AdminHelpText`Värdet används för att ange hjälp text namnet för anspråks användaren. `PatternHelpText`Värdet används för att ange hjälp texten för anspråks mönstret. Om **ElementType** är inställt på `UxElement` , innehåller det här elementet en referens till ett attribut i ett användar gränssnitts element. Om **ElementType** är inställt på `ErrorMessage` , anger det här elementet identifieraren för ett fel meddelande. Se [lokaliserings Strängs-ID: n](localization-string-ids.md) för en fullständig lista över `UxElement` identifierare.|
 
 ## <a name="elementtype"></a>ElementType
 

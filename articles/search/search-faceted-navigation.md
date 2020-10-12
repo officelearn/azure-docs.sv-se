@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 05be5295ae5f8c73c916a21bba7dbc98ab0c5e87
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89002801"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Implementera fasettisk navigering i Azure Kognitiv sökning
@@ -382,7 +382,7 @@ När du arbetar med Sök resultat kan du titta på URL: en för ändringar i fr�
 
 1. Om du vill använda kart funktionen i demonstrations appen hämtar du en Bing Maps-nyckel från [Bing Maps dev Center](https://www.bingmapsportal.com/). Klistra in det över den befintliga nyckeln på `index.cshtml` sidan. `BingApiKey`Inställningen i `Web.config` filen används inte. 
 
-2. Kör programmet. Ta den valfria rund turen eller Stäng dialog rutan.
+2. Kör appen. Ta den valfria rund turen eller Stäng dialog rutan.
    
 3. Ange en sökterm, till exempel "analytikert" och klicka på Sök ikonen. Frågan körs snabbt.
    
@@ -398,7 +398,7 @@ När du arbetar med Sök resultat kan du titta på URL: en för ändringar i fr�
    
 <a name="nextstep"></a>
 
-## <a name="learn-more"></a>Mer information
+## <a name="learn-more"></a>Läs mer
 Titta på [Azure kognitiv sökning djupgående](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Vid 45:25 finns det en demonstration om hur du implementerar ansikte.
 
 För mer information om design principer för fasett-navigering rekommenderar vi följande länkar:

@@ -7,10 +7,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 10/30/2018
 ms.openlocfilehash: 4bb6ee60df291c1939d3bb0d72a9b3992be9b3c0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132151"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Metod tips för att hantera U-SQL-sammansättningar i en CI/CD-pipeline
@@ -82,7 +82,7 @@ Du kan distribuera en U-SQL-databas med ett U-SQL Database-projekt eller ett `.u
 
 ### <a name="deploy-a-u-sql-database-in-azure-devops"></a>Distribuera en U-SQL-databas i Azure DevOps
 
-`PackageDeploymentTool.exe`tillhandahåller programmerings-och kommando rads gränssnitt som hjälper till att distribuera U-SQL-databaser. SDK ingår i [U-SQL SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)som finns på `build/runtime/PackageDeploymentTool.exe` .
+`PackageDeploymentTool.exe` tillhandahåller programmerings-och kommando rads gränssnitt som hjälper till att distribuera U-SQL-databaser. SDK ingår i [U-SQL SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)som finns på `build/runtime/PackageDeploymentTool.exe` .
 
 I Azure DevOps kan du använda en kommando rad uppgift och denna SDK för att konfigurera en automatiserings pipeline för U-SQL Database-uppdateringen. [Lär dig mer om SDK och hur du konfigurerar en CI/CD-pipeline för distribution av U-SQL-databasen](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-azure-pipelines).
 

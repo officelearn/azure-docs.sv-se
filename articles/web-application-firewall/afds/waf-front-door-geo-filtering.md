@@ -9,10 +9,10 @@ ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
 ms.openlocfilehash: fcd7a0fe60639bbb17661a906d15136996b325e4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005454"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door-service"></a>Vad är geo-filtrering på en domän för Azure frontend-tjänsten?
@@ -145,7 +145,7 @@ Du kan konfigurera en princip för geo-filtrering för din front dörr genom att
 | MX | Mexico|
 | MY | Malaysia|
 | MZ | Moçambique|
-| Ej tillämpligt | Namibia|
+| NA | Namibia|
 | NE | Niger|
 | NG | Nigeria|
 | NI | Nicaragua|

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
 ms.openlocfilehash: 10851754bda73fc769e613153582e491265ebb71
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85963248"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Samla in prestanda räknare för Linux-program i Azure Monitor 
@@ -44,7 +44,7 @@ Posterna i filen i autentiseringen beskrivs i följande tabell.
 | Egenskap | Beskrivning |
 |:--|:--|
 | Port | Representerar den aktuella porten som MySQL-instansen lyssnar på. Port 0 anger att egenskaperna som följer används för standard instansen. |
-| Bindnings adress| Aktuell MySQL-bindning-adress. |
+| Bind-Address| Aktuell MySQL-bindning-adress. |
 | användarnamn| MySQL-användare som används för att övervaka MySQL-serverinstansen. |
 | Base64-kodat lösen ord| Lösen ordet för MySQL Monitoring-användaren kodad i base64. |
 | Autoupdater| Anger om du vill söka efter ändringar i filen My. cnf och skriva över MySQL-OMI när MySQL OMI-providern har uppgraderats. |
@@ -113,7 +113,7 @@ GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
 
 När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Azure Monitor måste du konfigurera de prestanda räknare som ska samlas in.  Använd proceduren i [prestanda data källor i Windows och Linux i Azure Monitor](data-sources-performance-counters.md) med räknarna i följande tabell.
 
-| Objekt namn | Räknar namn |
+| Objekt namn | Räknarens namn |
 |:--|:--|
 | MySQL-databas | Disk utrymme i byte |
 | MySQL-databas | Tabeller |
@@ -151,7 +151,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Azure Monitor måste du konfigurera de prestanda räknare som ska samlas in.  Använd proceduren i [prestanda data källor i Windows och Linux i Azure Monitor](data-sources-performance-counters.md) med räknarna i följande tabell.
 
-| Objekt namn | Räknar namn |
+| Objekt namn | Räknarens namn |
 |:--|:--|
 | Apache HTTP-Server | Upptagna arbetare |
 | Apache HTTP-Server | Inaktiva arbetare |

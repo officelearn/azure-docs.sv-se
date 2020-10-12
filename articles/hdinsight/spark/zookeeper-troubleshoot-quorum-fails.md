@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 05/20/2020
 ms.openlocfilehash: 9038630a2623a8b20ddfcf98899ce9a89f16bdc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84673368"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>Apache ZooKeeper servern kan inte bilda ett kvorum i Azure HDInsight
@@ -57,7 +57,7 @@ Message
 
 * Hitta Zookeeper-servrarna från/etc/hosts-filen eller från Ambari-ANVÄNDARGRÄNSSNITTET
 * Kör följande kommando
-  * `echo stat | nc <ZOOKEEPER_HOST_IP> 2181`(eller 2182)  
+  * `echo stat | nc <ZOOKEEPER_HOST_IP> 2181` (eller 2182)  
   * Port 2181 är Apache Zookeeper-instansen
   * Port 2182 används av HDInsight-Zookeeper (för att tillhandahålla hektar för tjänster som inte har något inbyggt)
   * Om kommandot inte visar några utdata innebär det att Zookeeper-servrarna inte körs
@@ -105,12 +105,12 @@ Node count: 133212
 * Zookeepers har kon figurer ATS för att rensa gamla ögonblicks bilder automatiskt
 * De sista 30 ögonblicks bilderna bevaras som standard
 * Antalet ögonblicks bilder som kvarhålls styrs av konfigurations nyckeln `autopurge.snapRetainCount` . Du hittar den här egenskapen i följande filer:
-  * `/etc/zookeeper/conf/zoo.cfg`för Hadoop-Zookeeper
-  * `/etc/hdinsight-zookeeper/conf/zoo.cfg`för HDInsight-Zookeeper
+  * `/etc/zookeeper/conf/zoo.cfg` för Hadoop-Zookeeper
+  * `/etc/hdinsight-zookeeper/conf/zoo.cfg` för HDInsight-Zookeeper
 * Ange `autopurge.snapRetainCount` värdet 3 och starta om Zookeeper-servrarna
   * Hadoop Zookeeper-konfigurationen kan uppdateras och tjänsten kan startas om via Ambari
   * Stoppa och starta om HDInsight-Zookeeper manuellt
-    * `sudo lsof -i :2182`ger dig det process-ID som ska stoppas
+    * `sudo lsof -i :2182` ger dig det process-ID som ska stoppas
     * `sudo python /opt/startup_scripts/startup_hdinsight_zookeeper.py`
 * Rensa inte ögonblicks bilder manuellt – borttagning av ögonblicks bilder manuellt kan leda till data förlust
 

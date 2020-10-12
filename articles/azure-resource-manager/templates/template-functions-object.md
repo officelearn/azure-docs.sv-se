@@ -4,10 +4,10 @@ description: Beskriver de funktioner som används i en Azure Resource Manager ma
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: fede4d6c71e45b119e500d4c9c6f91765d052036
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84676802"
 ---
 # <a name="object-functions-for-arm-templates"></a>Objekt funktioner för ARM-mallar
@@ -18,10 +18,10 @@ Resource Manager innehåller flera funktioner för att arbeta med objekt i din A
 * [tomt](#empty)
 * [överlappning](#intersection)
 * [utgör](#json)
-* [krävande](#length)
+* [length](#length)
 * [Union](#union)
 
-## <a name="contains"></a>innehåller
+## <a name="contains"></a>contains
 
 `contains(container, itemToFind)`
 
@@ -93,7 +93,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | stringTrue | Bool | Sant |
 | stringFalse | Bool | Falskt |
@@ -161,7 +161,7 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | Sant |
 | objectEmpty | Bool | Sant |
@@ -179,7 +179,7 @@ Returnerar en enskild matris eller ett objekt med de gemensamma elementen från 
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att hitta vanliga element. |
 | arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att hitta vanliga element. |
-| ytterligare argument |No |matris eller objekt |Ytterligare värden som ska användas för att hitta vanliga element. |
+| ytterligare argument |Inga |matris eller objekt |Ytterligare värden som ska användas för att hitta vanliga element. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -228,7 +228,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | objectOutput | Objekt | {"One": "a", "tre": "c"} |
 | arrayOutput | Matris | ["två", "tre"] |
@@ -296,7 +296,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | jsonOutput1 | Boolesk | Sant |
 | jsonOutput2 | Objekt | {"a": "b"} |
@@ -372,7 +372,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -390,7 +390,7 @@ Returnerar en enskild matris eller ett objekt med alla element från parametrarn
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att koppla ihop element. |
 | arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att koppla ihop element. |
-| ytterligare argument |No |matris eller objekt |Ytterligare värden som ska användas för att koppla ihop element. |
+| ytterligare argument |Inga |matris eller objekt |Ytterligare värden som ska användas för att koppla ihop element. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -439,7 +439,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | objectOutput | Objekt | {"One": "a", "två": "b", "tre": "C2", "fyra": "d", "fem": "e"} |
 | arrayOutput | Matris | ["One", "två", "tre", "fyra"] |

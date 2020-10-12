@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: duau
 ms.openlocfilehash: 24057de44f3d28df96bcb93e89af9c3afa6fa3c6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394915"
 ---
 # <a name="security-controls-for-azure-expressroute"></a>Säkerhets kontroller för Azure-ExpressRoute
@@ -22,7 +22,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="network"></a>Nätverk
 
-| Säkerhets kontroll | Ja/nej | Kommentarer |
+| Säkerhets kontroll | Ja/nej | Obs! |
 |---|---|--|
 | Stöd för tjänst slut punkt| E.t. |  |
 | Stöd för VNet-injektering| E.t. | |
@@ -31,7 +31,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="monitoring--logging"></a>Övervaka & loggning
 
-| Säkerhets kontroll | Ja/nej | Kommentarer|
+| Säkerhets kontroll | Ja/nej | Obs!|
 |---|---|--|
 | Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Se [ExpressRoute-övervakning, mått och aviseringar](expressroute-monitoring-metrics-alerts.md).|
 | Loggning och granskning av kontroll-och hanterings plan| Ja |  |
@@ -39,25 +39,25 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="identity"></a>Identitet
 
-| Säkerhets kontroll | Ja/nej | Kommentarer|
+| Säkerhets kontroll | Ja/nej | Obs!|
 |---|---|--|
 | Autentisering| Ja | Tjänst konto för gateway för Microsoft (GWM) (kontrollant); JIT-åtkomst (just in Time) för utveckling och OP. |
 | Auktorisering|  Ja |Tjänst konto för gateway för Microsoft (GWM) (kontrollant); JIT-åtkomst (just in Time) för utveckling och OP. |
 
 ## <a name="data-protection"></a>Dataskydd
 
-| Säkerhets kontroll | Ja/nej | Kommentarer |
+| Säkerhets kontroll | Ja/nej | Obs! |
 |---|---|--|
 | Kryptering på Server sidan i vila: Microsoft-hanterade nycklar |  E.t. | ExpressRoute lagrar inte kund information. |
 | Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | E.t. |  |
 | Kryptering på kolumn nivå (Azure Data Services)| E.t. | |
-| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Inga | |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet kryptering)| Inga | |
 | Krypterade API-anrop| Ja | Via [Azure Resource Manager](../azure-resource-manager/index.yml) och https. |
 
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhets kontroll | Ja/nej | Kommentarer|
+| Säkerhets kontroll | Ja/nej | Obs!|
 |---|---|--|
 | Konfigurations hanterings stöd (konfigurations version osv.)| Ja | Via nätverks resurs leverantören (NRP). |
 

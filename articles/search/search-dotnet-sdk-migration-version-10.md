@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: bfe24ff38446fa0d0ccea96799e6f42b561713bf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89002818"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Uppgradera till Azure Kognitiv sökning .NET SDK version 10
@@ -112,7 +112,7 @@ var webApiSkill = new WebApiSkill(
 
 Formaren-kunskaper kan nu tillåta inkapsling av inkapslade kontexter. För att aktivera den här ändringen har vi ändrat `InputFieldMappingEntry` så att den kan instansieras genom att bara ange en `Source` egenskap eller både `SourceContext` `Inputs` egenskaperna och.
 
-Du behöver förmodligen inte göra några kod ändringar. Observera dock att endast en av dessa två kombinationer är tillåtna. Detta innebär att:
+Du behöver förmodligen inte göra några kod ändringar. Observera dock att endast en av dessa två kombinationer är tillåtna. Det innebär att du måste:
 
 - Att skapa en `InputFieldMappingEntry` där endast `Source` initieras är giltig.
 - Att skapa en `InputFieldMappingEntry` där `SourceContext` och `Inputs` är initierad är giltig.

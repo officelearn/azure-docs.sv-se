@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: b560b02544eeb96167e68ed305d4d9942d2b1e0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82232980"
 ---
 # <a name="self-hosted-gateway-overview"></a>Översikt över gateway med egen värd
@@ -55,7 +55,7 @@ Följande funktioner som finns i de hanterade gatewayerna är **inte tillgängli
 - Återförhandlat klient certifikat. Det innebär att för [autentisering av klient certifikat](api-management-howto-mutual-certificates-for-clients.md) till arbets-API-konsumenter måste presentera sina certifikat som en del av den första TLS-handskakningen. För att se till att aktivera inställningen förhandla klient certifikat när du konfigurerar ett anpassat värdnamn för en egen värd.
 - Inbyggt cacheminne. Se det här [dokumentet](api-management-howto-cache-external.md) om du vill veta mer om hur du använder extern cache i egna värdbaserade gatewayer.
 
-## <a name="connectivity-to-azure"></a>Anslutning till Azure
+## <a name="connectivity-to-azure"></a>Anslutningar till Azure SQL
 
 Gatewayer för egen värd kräver utgående TCP/IP-anslutning till Azure på port 443. Varje lokal gateway måste associeras med en enda API Management tjänst och konfigureras via dess hanterings plan. Den egna värdbaserade gatewayen använder anslutning till Azure för:
 

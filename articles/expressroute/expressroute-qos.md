@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: duau
 ms.openlocfilehash: 871af5b767e8cfe10db3a0a1c15c47340e25581f
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89395034"
 ---
 # <a name="expressroute-qos-requirements"></a>QoS-krav för ExpressRoute
@@ -31,7 +31,7 @@ Följande tabell innehåller en lista över DSCP-markeringar som används av Mic
 | **Röst** |EF (46) |Skype/Microsoft Teams/Lync röst |
 | **Ej** |AF41 (34) |Video, VBSS |
 | |AF21 (18) |Appdelning | 
-| **Standardvärde** |AF11 (10) |Filöverföring |
+| **Default** |AF11 (10) |Filöverföring |
 | |CS0 (0) |Annat |
 
 * Du bör klassificera arbetsbelastningarna och markera rätt DSCP-värden. Följ riktlinjerna [här](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/configuring-port-ranges-for-your-skype-clients#configure-quality-of-service-policies-for-clients-running-on-windows-10) om hur du anger DSCP-markeringar i nätverket.

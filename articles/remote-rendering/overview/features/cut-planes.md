@@ -7,10 +7,10 @@ ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 468d21abc861e905472d1d15405b1c8ba9e5be74
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904884"
 ---
 # <a name="cut-planes"></a>Klippa ut planer
@@ -75,10 +75,10 @@ Exempel:
 
 | Klipp ut plan filter mask | Geometri filter mask  | Resultat av logisk `AND` | Klipp ut-planet påverkar geometrin?  |
 |--------------------|-------------------|-------------------|:----------------------------:|
-| (0000 0001) = = 1   | (0000 0001) = = 1  | (0000 0001) = = 1  | Yes |
-| (1111 0000) = = 240 | (0001 0001) = = 17 | (0001 0000) = = 16 | Yes |
-| (0000 0001) = = 1   | (0000 0010) = = 2  | (0000 0000) = = 0  | No |
-| (0000 0011) = = 3   | (0000 1000) = = 8  | (0000 0000) = = 0  | No |
+| (0000 0001) = = 1   | (0000 0001) = = 1  | (0000 0001) = = 1  | Ja |
+| (1111 0000) = = 240 | (0001 0001) = = 17 | (0001 0000) = = 16 | Ja |
+| (0000 0001) = = 1   | (0000 0010) = = 2  | (0000 0000) = = 0  | Inga |
+| (0000 0011) = = 3   | (0000 1000) = = 8  | (0000 0000) = = 0  | Inga |
 
 >[!TIP]
 > Om du anger ett klipp ut planet `ObjectFilterMask` till 0 så påverkas inte geometrin eftersom resultatet av logiska objekt `AND` aldrig får vara null. Åter givnings systemet tar inte hänsyn till dessa plan på den första platsen, så det är en lättaste metod för att inaktivera enskilda stycknings plan. Dessa stycknings plan räknas inte heller mot gränsen på åtta aktiva plan.

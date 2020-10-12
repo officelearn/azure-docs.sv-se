@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
 ms.openlocfilehash: 177b79e0a33f4d43d07da9d0dea26df40e2ef11e
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723868"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Data insamlings regler i Azure Monitor (för hands version)
@@ -48,7 +48,7 @@ Varje data källa har en typ av data källa. Varje typ definierar en unik uppsä
 | windowsEventLogs | Händelse loggen i Windows |
 
 
-## <a name="limits"></a>Gränser
+## <a name="limits"></a>Begränsningar
 I följande tabell visas de gränser som för närvarande gäller för varje data insamlings regel.
 
 | Gräns | Värde |

@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
 ms.openlocfilehash: 12725c28c3e128317301bc51f9ce93f76021cc2b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91291375"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-managed-instance-online-using-dms"></a>Självstudie: Migrera RDS-SQL Server till Azure SQL Database eller en Azure SQL-hanterad instans online med DMS
@@ -43,7 +43,7 @@ I den här guiden får du lära dig att:
 
 I den här artikeln beskrivs en online-migrering från RDS-SQL Server till SQL Database eller en SQL-hanterad instans.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -250,7 +250,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 4. Välj **Spara** när du har angett följande **Avancerade inställningar för onlinemigrering**.
 
-    | Inställning | Beskrivning |
+    | Inställningen | Beskrivning |
     | ------------- | ------------- |
     | **Maximalt antal tabeller som kan läsas in parallellt** | Anger antalet tabeller som DMS kör parallellt under migreringen. Standardvärdet är 5, men det kan ställas in på ett optimalt värde för att uppfylla specifika migreringsbehov baserat på alla POC-migreringar. |
     | **När en källtabell trunkeras** | Anger om DMS trunkerar måltabellen under migreringen. Den här inställningen kan vara användbar om en eller flera tabeller trunkeras som en del av migreringsprocessen. |

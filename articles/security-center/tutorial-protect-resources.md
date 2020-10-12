@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
 ms.openlocfilehash: 56dd74fba46aa8b79c94b1460996bb6edb1ff93f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904605"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Självstudie: Skydda dina resurser ed Azure Security Center
@@ -30,7 +30,7 @@ I den här guiden får du lära du dig hur man:
 > * Konfigurera en just-in-Time-princip för VM-åtkomst
 > * Konfigurera en princip för programkontroll
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill gå igenom de funktioner som beskrivs i den här självstudien måste du ha Azure Defender aktiverat. Du kan testa Azure Defender utan kostnad. Mer information finns i [testa Azure Defender](security-center-pricing.md).
 
 ## <a name="manage-vm-access"></a>Hantera åtkomst till virtuella datorer

@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: 819fe5ced6c91819c817065305a31fca456ea5c0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91291851"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>Kända problem/migrerings begränsningar med hybrid läge
@@ -61,7 +61,7 @@ Certifikatet som genereras av åtgärden GenerateCert är ett självsignerat cer
 
 Som standard körs tjänsten Azure Database Migration Service hybrid Worker som det lokala system kontot. Du kan ändra det konto som används för den här tjänsten så länge det konto som du använder har nätverks behörighet. Använd följande process för att ändra tjänstens kör som-konto.
 
-1. Stoppa tjänsten, antingen via Windows-tjänster eller med hjälp av kommandot Stop-service i PowerShell.
+1. Stoppa tjänsten, antingen via Windows-tjänster eller med hjälp av Stop-Service kommandot i PowerShell.
 
 2. Uppdatera tjänsten för att använda ett annat inloggnings konto.
 

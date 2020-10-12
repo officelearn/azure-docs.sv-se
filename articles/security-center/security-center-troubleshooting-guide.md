@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
 ms.openlocfilehash: e2922d19dbcad7da2808a86896e39d21420e73d5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904738"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
@@ -105,10 +105,10 @@ I följande tabell visas resurser som krävs för kommunikation.
 
 | Agentresurs | Portar | Kringgå HTTPS-kontroll |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | Yes |
-| *.oms.opinsights.azure.com | 443 | Yes |
-| *.blob.core.windows.net | 443 | Yes |
-| *.azure-automation.net | 443 | Yes |
+| *.ods.opinsights.azure.com | 443 | Ja |
+| *.oms.opinsights.azure.com | 443 | Ja |
+| *.blob.core.windows.net | 443 | Ja |
+| *.azure-automation.net | 443 | Ja |
 
 Om du får problem med att komma igång med agenten, kan du hitta mer information i artikeln [Felsökning av problem med att komma igång med Operations Management Suite](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 

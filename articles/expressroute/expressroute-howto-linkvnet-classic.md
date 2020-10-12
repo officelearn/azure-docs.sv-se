@@ -9,15 +9,15 @@ ms.date: 12/06/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: a731962f22985268093c547b09a8cd77c5b92660
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89395816"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets med PowerShell (klassisk)
 > [!div class="op_single_selector"]
-> * [Azure-portalen](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [Video – Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
@@ -85,7 +85,7 @@ Krets ägaren har möjlighet att ändra och återkalla auktorisering när som he
 
 **Skapa en auktorisering**
 
-Krets ägaren godkänner administratörer för andra prenumerationer att använda den angivna kretsen. I följande exempel gör kretsen administratör (contoso IT) administratören för en annan prenumeration (dev-test) för att länka upp till två virtuella nätverk till kretsen. Contoso IT-administratören möjliggör detta genom att ange Microsoft-ID: t för dev-test. Cmdleten skickar inte e-post till det angivna Microsoft-ID: t. Krets ägaren måste uttryckligen meddela den andra prenumerations ägaren att auktoriseringen är slutförd.
+Krets ägaren godkänner administratörer för andra prenumerationer att använda den angivna kretsen. I följande exempel gör kretsen administratör (contoso IT) administratören för en annan prenumeration (dev-test) för att länka upp till två virtuella nätverk till kretsen. Contoso IT-administratören möjliggör detta genom att ange Dev-Test Microsoft ID. Cmdleten skickar inte e-post till det angivna Microsoft-ID: t. Krets ägaren måste uttryckligen meddela den andra prenumerations ägaren att auktoriseringen är slutförd.
 
 ```powershell
 New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 92540c57179ae0198f78b588681167fe48097362
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82134369"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Distribuera IoT Edge moduler i skala med Visual Studio Code
@@ -24,7 +24,7 @@ Mer information finns i [förstå IoT Edge automatiska distributioner för enski
 
 I den här artikeln ställer du in Visual Studio Code och IoT-tillägget. Du lär dig sedan hur du distribuerar moduler till en uppsättning IoT Edge enheter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) i din Azure-prenumeration.
 * En [IoT Edge-enhet](how-to-register-device.md#register-with-visual-studio-code) med IoT Edge runtime installerad.

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
 ms.openlocfilehash: c2668bdda5002ebd2a34b8a2ffa5885263aec0c9
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009683"
 ---
 Det är möjligt att organisationen kräver ytterligare åtgärder från prenumerations ägare/-administratörer för att kunna konfigurera en registrering av appen (och därmed slutföra konfigurationen av en användbar Azure Digital-instans). De steg som krävs kan variera beroende på organisationens aktuella inställningar.
@@ -20,7 +20,7 @@ Här följer några vanliga potentiella aktiviteter som en ägare/administratör
     :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/grant-admin-consent.png" alt-text="Portal visning av knappen bevilja administrativt medgivande under API-behörigheter":::
   - Om medgivande har beviljats, bör posten för Azure Digital-dubbla, Visa ett *status* värde för _beviljat **(ditt företag)** _
    
-    :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/granted-admin-consent-done.png" alt-text="Portal visning av administrativt medgivande som beviljats för företaget under API-behörigheter":::
+    :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/granted-admin-consent-done.png" alt-text="Portal visning av knappen bevilja administrativt medgivande under API-behörigheter":::
 * Aktivera offentlig klient åtkomst
 * Ange vissa svars-URL: er för webb-och skriv bords åtkomst
 * Tillåt för implicita OAuth2-autentiserings flöden

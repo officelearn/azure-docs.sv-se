@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/13/2020
 ms.author: iainfou
 ms.openlocfilehash: 9eb6a43557da43e8f792bcc3858e7123f2b6c607
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005165"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Anslut en virtuell CentOS Linux-dator till en Azure Active Directory Domain Services hanterad domän
@@ -24,7 +24,7 @@ För att användarna ska kunna logga in på virtuella datorer i Azure med en end
 
 Den här artikeln visar hur du ansluter en virtuell CentOS Linux-dator till en hanterad domän.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -42,7 +42,7 @@ Om du har en befintlig virtuell CentOS Linux-dator i Azure ansluter du till den 
 
 Om du behöver skapa en virtuell CentOS Linux-dator, eller om du vill skapa en virtuell test dator för användning med den här artikeln kan du använda någon av följande metoder:
 
-* [Azure-portalen](../virtual-machines/linux/quick-create-portal.md)
+* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 

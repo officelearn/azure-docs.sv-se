@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
 ms.openlocfilehash: 277faa2d47df9fddd1762d90d9aa2fb5bf00d4df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82508145"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Azure-hanterat program med hanterad identitet
@@ -327,8 +327,8 @@ Begär ande text parametrar:
 
 Parameter | Krävs | Beskrivning
 ---|---|---
-authorizationAudience | *nej* | Mål resursens app-ID-URI. Det är också `aud` anspråk (Audience) för Utfärdad token. Standardvärdet är " https://management.azure.com/ "
-userAssignedIdentities | *nej* | Listan över användarspecifika hanterade identiteter för att hämta en token för. Om inget anges `listTokens` returnerar token för den systemtilldelade hanterade identiteten.
+authorizationAudience | *Nej* | Mål resursens app-ID-URI. Det är också `aud` anspråk (Audience) för Utfärdad token. Standardvärdet är " https://management.azure.com/ "
+userAssignedIdentities | *Nej* | Listan över användarspecifika hanterade identiteter för att hämta en token för. Om inget anges `listTokens` returnerar token för den systemtilldelade hanterade identiteten.
 
 
 Ett exempel svar kan se ut så här:

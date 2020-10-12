@@ -14,10 +14,10 @@ caps.latest.revision: 17
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79534736"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>NetworkTrafficRules-schema för Azure Cloud Services-definition
@@ -64,16 +64,16 @@ AllowAllTraffic-element
 
 [FromRole-element](#FromRole)
 
-##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a>NetworkTrafficRules-element
+##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a> NetworkTrafficRules-element
 `NetworkTrafficRules`Elementet anger vilka roller som kan kommunicera med vilken slut punkt på en annan roll. En tjänst kan innehålla en `NetworkTrafficRules` definition.
 
-##  <a name="onlyallowtrafficto-element"></a><a name="OnlyAllowTrafficTo"></a>OnlyAllowTrafficTo-element
+##  <a name="onlyallowtrafficto-element"></a><a name="OnlyAllowTrafficTo"></a> OnlyAllowTrafficTo-element
 `OnlyAllowTrafficTo`Elementet beskriver en samling mål slut punkter och de roller som kan kommunicera med dem. Du kan ange flera `OnlyAllowTrafficTo` noder.
 
-##  <a name="destinations-element"></a><a name="Destinations"></a>Mål element
+##  <a name="destinations-element"></a><a name="Destinations"></a> Mål element
 `Destinations`Elementet beskriver en samling RoleEndpoints än vad som kan kommunicera med.
 
-##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a>RoleEndpoint-element
+##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a> RoleEndpoint-element
 `RoleEndpoint`Elementet beskriver en slut punkt för en roll för att tillåta kommunikation med. Du kan ange flera `RoleEndpoint` element om det finns fler än en slut punkt på rollen.
 
 | Attribut      | Typ     | Beskrivning |
@@ -84,14 +84,14 @@ AllowAllTraffic-element
 ## <a name="allowalltraffic-element"></a>AllowAllTraffic-element
 `AllowAllTraffic`Elementet är en regel som tillåter att alla roller kommunicerar med de slut punkter som definierats i `Destinations` noden.
 
-##  <a name="whensource-element"></a><a name="WhenSource"></a>WhenSource-element
+##  <a name="whensource-element"></a><a name="WhenSource"></a> WhenSource-element
 `WhenSource`Elementet beskriver en samling roller än vad som kan kommunicera med de slut punkter som definierats i `Destinations` noden.
 
 | Attribut | Typ     | Beskrivning |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Krävs. Anger den regel som ska användas när kommunikation tillåts. Det enda giltiga värdet är för närvarande `AnyRule` .|
   
-##  <a name="fromrole-element"></a><a name="FromRole"></a>FromRole-element
+##  <a name="fromrole-element"></a><a name="FromRole"></a> FromRole-element
 `FromRole`Elementet anger de roller som kan kommunicera med de slut punkter som definierats i `Destinations` noden. Du kan ange flera `FromRole` element om det finns mer än en roll som kan kommunicera med slut punkterna.
 
 | Attribut  | Typ     | Beskrivning |

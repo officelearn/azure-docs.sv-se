@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 5c76e45f09a0f432d2775eb19d3dcaa668294e6f
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84672671"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Language Understanding (LUIS) begränsningar för behållare
@@ -39,7 +39,7 @@ App-konfigurationer som inte stöds|Information|
 |Entiteter som inte stöds för alla kulturer|Fördefinierad enhets [fras](luis-reference-prebuilt-keyphrase.md) för alla kulturer|
 |Entiteter som inte stöds för engelska ( `en-US` ) kultur|[GeographyV2](luis-reference-prebuilt-geographyV2.md) fördefinierade entiteter|
 |Tal Prima|Externa beroenden stöds inte i behållaren.|
-|Sentimentanalys|Externa beroenden stöds inte i behållaren.|
+|Attitydanalys|Externa beroenden stöds inte i behållaren.|
 |Stavnings kontroll i Bing|Externa beroenden stöds inte i behållaren.|
 
 ## <a name="languages-supported"></a>Språk som stöds

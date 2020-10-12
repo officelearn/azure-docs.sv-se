@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.openlocfilehash: 32e9da592d4c8f3997d5b1844065bf550d7d7d48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82207521"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Skapa och använda en volym med Azure-diskar i Azure Kubernetes service (AKS) manuellt
@@ -59,7 +59,7 @@ Disk resurs-ID: t visas när kommandot har slutförts, som visas i följande exe
 
 ## <a name="mount-disk-as-volume"></a>Montera disk som volym
 
-Om du vill montera Azure-disken i din POD konfigurerar du volymen i behållar specifikationen. skapa en ny fil med namnet `azure-disk-pod.yaml` med följande innehåll. Uppdatera `diskName` med namnet på disken som skapades i föregående steg och `diskURI` med det disk-ID som visas i utdata från kommandot disk Create. Om du vill kan du uppdatera `mountPath` , som är den sökväg där Azure-disken är monterad i pod. För Windows Server-behållare anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"*.
+Om du vill montera Azure-disken i din POD konfigurerar du volymen i behållar specifikationen. Skapa en ny fil `azure-disk-pod.yaml` med namnet med följande innehåll. Uppdatera `diskName` med namnet på disken som skapades i föregående steg och `diskURI` med det disk-ID som visas i utdata från kommandot disk Create. Om du vill kan du uppdatera `mountPath` , som är den sökväg där Azure-disken är monterad i pod. För Windows Server-behållare anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"*.
 
 ```yaml
 apiVersion: v1

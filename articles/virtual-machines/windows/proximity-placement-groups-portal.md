@@ -1,5 +1,5 @@
 ---
-title: Skapa en närhets placerings grupp med hjälp av portalen
+title: Skapa en närhetsplaceringsgrupp med hjälp av portalen
 description: Lär dig hur du skapar en närhets placerings grupp med hjälp av Azure Portal.
 author: cynthn
 ms.service: virtual-machines
@@ -8,13 +8,13 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: cynthn
 ms.openlocfilehash: 6a14e2bd7385430c3d0fbec06259a876af556e38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82190409"
 ---
-# <a name="create-a-proximity-placement-group-using-the-portal"></a>Skapa en närhets placerings grupp med hjälp av portalen
+# <a name="create-a-proximity-placement-group-using-the-portal"></a>Skapa en närhetsplaceringsgrupp med hjälp av portalen
 
 För att få virtuella datorer så nära som möjligt, vilket ger lägsta möjliga fördröjning, bör du distribuera dem i en [närhets placerings grupp](co-location.md#proximity-placement-groups).
 
@@ -58,7 +58,7 @@ Om den virtuella datorn är en del av tillgänglighets uppsättningen måste du 
 1. I [portalen](https://portal.azure.com) söker du efter *tillgänglighets uppsättningar* och väljer din tillgänglighets uppsättning från resultaten.
 1. Stop\deallocate varje virtuell dator i tillgänglighets uppsättningen genom att välja den virtuella datorn och sedan välja **stoppa** på sidan för den virtuella datorn och välj sedan **OK** för att stoppa den virtuella datorn.
 1. Kontrol lera att alla virtuella datorer har **statusen** **stoppad (Frigjord)** på sidan för din tillgänglighets uppsättning.
-1. På den vänstra menyn väljer du **konfiguration**.
+1. I den vänstra menyn väljer du **Konfiguration**.
 1. Välj en placerings grupp i list rutan under **närhets placerings grupp**och välj sedan **Spara**.
 1. Välj **Översikt** på den vänstra menyn för att visa listan över virtuella datorer igen. 
 1. Välj varje virtuell dator i tillgänglighets uppsättningen och välj sedan **Starta** på sidan för varje virtuell dator. 

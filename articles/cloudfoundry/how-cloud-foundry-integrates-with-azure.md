@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
 ms.openlocfilehash: f3b84ba1c3571e3660d1d71a0167a7489c6ec4ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82145132"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrera Cloud Foundry med Azure
@@ -40,7 +40,7 @@ Tillgänglighets zonen i Azure uppnår HA en uppsättning virtuella datorer i 2 
 ## <a name="2-network-routing"></a>2. nätverks dirigering
 Som standard används Azure Basic Load Balancer för inkommande CF API/Apps-begär Anden, som vidarebefordrar dem till Gorouters. CF-komponenter som Diego hjärna, MySQL, ERT kan också använda belastningsutjämnaren för att balansera trafiken för HA. Azure tillhandahåller också en uppsättning helt hanterade lösningar för belastnings utjämning. Om du letar efter TLS/SSL-avslutning ("SSL-avlastning") eller per HTTP/HTTPS-begäran, bör du överväga Application Gateway. För belastnings utjämning med hög tillgänglighet och skalbarhet på nivå 4, Överväg standard Load Balancer.
 ### <a name="azure-application-gateway-"></a>Azure Application Gateway *
-[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) erbjuder olika funktioner för belastnings utjämning i Layer 7, inklusive SSL-avlastning, slut punkt till slut punkt för TLS, brand vägg för webb program, cookie-baserad session tillhörighet och mer. Du kan [konfigurera Application Gateway i Cloud Foundry med öppen källkod](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway). För PCF kontrollerar du viktig information för POC-test i [PCF 2,1](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) .
+[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) erbjuder olika funktioner för belastnings utjämning i Layer 7, inklusive SSL-avlastning, slut punkt till slut punkt för TLS, brand vägg för webb program, cookie-baserad session tillhörighet och mer. Du kan [konfigurera Application Gateway i Cloud Foundry med öppen källkod](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway). För PCF kontrollerar du viktig information för POC-test i  [PCF 2,1](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) .
 
 ### <a name="azure-standard-load-balancer-"></a>Azure Standard Load Balancer *
 Azure Load Balancer är en Layer 4-belastningsutjämnare. Den används för att distribuera trafiken mellan instanser av tjänster i en belastningsutjämnad uppsättning. Standard versionen innehåller [avancerade funktioner](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) ovanpå Basic-versionen. Till exempel 1. Max gränsen för backend-poolen höjs från 100 till 1000 virtuella datorer.  2. Slut punkterna stöder nu flera tillgänglighets uppsättningar i stället för en enda tillgänglighets uppsättning.  3. Ytterligare funktioner som t. ex. HA-portar, bättre övervaknings data och så vidare. Om du flyttar till tillgänglighets zonen i Azure måste du använda standard belastnings utjämning. För en ny distribution rekommenderar vi att du börjar med Azure Standard Load Balancer. 

@@ -14,10 +14,10 @@ ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82192424"
 ---
 # <a name="operating-system-upgrade"></a>Uppgradering av operativ system
@@ -95,7 +95,7 @@ SAP på Azure HANA stora instanser (typ I) kan vara i ett icke startbart tillst�
 
 
 *   Kör `multipath -ll` kommando.
-*   Hämta det LUN-ID vars storlek är ungefär 50G eller Använd kommandot:`fdisk -l | grep mapper`
+*   Hämta det LUN-ID vars storlek är ungefär 50G eller Använd kommandot: `fdisk -l | grep mapper`
 *   Uppdatera `/etc/default/grub_installdevice` filen med rad `/dev/mapper/<LUN ID>` . Exempel:/dev/mapper/3600a09803830372f483f495242534a56
 >[!NOTE]
 >LUN-ID varierar från server till server.
@@ -110,7 +110,7 @@ SAP på Azure HANA stora instanser (typ I) kan vara i ett icke startbart tillst�
 ```
 lsmod | grep -i edac 
 ```
-* Inaktivera modulerna genom att lägga till följande rader i filen`/etc/modprobe.d/blacklist.conf`
+* Inaktivera modulerna genom att lägga till följande rader i filen `/etc/modprobe.d/blacklist.conf`
 ```
 blacklist sb_edac
 blacklist edac_core
@@ -121,8 +121,8 @@ En omstart krävs för att göra ändringar på plats. Kör `lsmod` kommandot oc
 ### <a name="kernel-parameters"></a>Kernel-parametrar
    Kontrol lera att rätt inställning för `transparent_hugepage` , `numa_balancing` , `processor.max_cstate` `ignore_ce` och `intel_idle.max_cstate` tillämpas.
 
-* intel_idle. max_cstate = 1
-* processor. max_cstate = 1
+* intel_idle intel_idle.max_cstate = 1
+* processor.max_cstate = 1
 * transparent_hugepage = aldrig
 * numa_balancing = inaktivera
 * MCE = ignore_ce
@@ -130,7 +130,7 @@ En omstart krävs för att göra ändringar på plats. Kör `lsmod` kommandot oc
 
 #### <a name="execution-steps"></a>Körnings steg
 
-* Lägg till dessa parametrar till `GRB_CMDLINE_LINUX` raden i filen`/etc/default/grub`
+* Lägg till dessa parametrar till `GRB_CMDLINE_LINUX` raden i filen `/etc/default/grub`
 ```
 intel_idle.max_cstate=1 processor.max_cstate=1 transparent_hugepage=never numa_balancing=disable mce=ignore_ce
 ```

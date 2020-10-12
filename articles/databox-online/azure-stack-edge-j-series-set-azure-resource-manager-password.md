@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 ms.openlocfilehash: df5fea8101834dae089ab97354c438363321a707
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904492"
 ---
 # <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Ange Azure Resource Manager lösen ord på Azure Stack Edge Pro GPU-enhet
@@ -122,7 +122,7 @@ Hur du ställer in lösen ordet kan vara olika beroende på om du använder Azur
     $pass = ConvertTo-SecureString $password -AsPlainText -Force
     $key = ConvertTo-SecureString $cik -AsPlainText -Force
     ```
-    Använd de skyddade strängarna ovan genererade som parametrar i cmdleten Set-AzDataBoxEdgeUser för att återställa lösen ordet. Använd samma resurs grupp som du använde när du skapade Azure Stack Edge Pro/Data Box Gateway-resursen.
+    Använd de skyddade strängarna ovan genererade som parametrar i Set-AzDataBoxEdgeUser cmdlet för att återställa lösen ordet. Använd samma resurs grupp som du använde när du skapade Azure Stack Edge Pro/Data Box Gateway-resursen.
 
     ```azurepowershell
     Set-AzDataBoxEdgeUser -ResourceGroupName $resourceGroup -DeviceName $devicename -Name EdgeARMUser  -Password $pass -EncryptionKey $key

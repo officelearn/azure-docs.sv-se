@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 8483fd2a1b33330b868fb21d71922377e906e6c8
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85958429"
 ---
 # <a name="best-practices-for-sql-pools-in-azure-synapse-analytics"></a>Metod tips för SQL-pooler i Azure Synapse Analytics
@@ -71,7 +71,7 @@ För att maximera data flödet när du använder gzip-textfiler kan du dela upp 
 
 PolyBase är inte optimalt för frågor. PolyBase-tabeller för SQL-pooler stöder för närvarande endast Azure Blob-filer och Azure Data Lake lagring. De här filerna har inga beräknings resurser som kan återställas. Därför kan SQL-pooler inte avlasta detta arbete och måste läsa hela filen genom att läsa in den i tempdb så att den kan läsa data.
 
-Om du har flera frågor för att fråga dessa data är det bättre att läsa in dessa data en gång och låta frågor använda den lokala tabellen. Ytterligare PolyBase-vägledning finns i [hand boken för att använda PolyBase](data-loading-best-practices.md) -artikeln.
+Om du har flera frågor för att fråga dessa data är det bättre att läsa in dessa data en gång och låta frågor använda den lokala tabellen. Ytterligare PolyBase-vägledning finns i  [hand boken för att använda PolyBase](data-loading-best-practices.md) -artikeln.
 
 ## <a name="hash-distribute-large-tables"></a>Hash-distribuera stora tabeller
 
@@ -171,7 +171,7 @@ Mer information om resurs klasser finns i artikeln [resurs klasser för hanterin
 
 Om du ser en lång fördröjning i användar frågorna kan användarna köras i större resurs klasser. Det här scenariot befordrar förbrukningen av samtidiga platser, vilket kan orsaka att andra frågor hamnar i kö.  För att avgöra om användarnas frågor är köade, kör `SELECT * FROM sys.dm_pdw_waits` för att se om några rader returneras.
 
-[Resurs klasserna för hantering av arbets belastning](../sql-data-warehouse/resource-classes-for-workload-management.md) och [sys. dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) artiklar ger dig mer information.
+[Resurs klasserna för hantering av arbets belastning](../sql-data-warehouse/resource-classes-for-workload-management.md) och [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) artiklar ger dig mer information.
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>Använda DMV:er för att övervaka och optimera frågor
 

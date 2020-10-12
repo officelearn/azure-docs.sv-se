@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/05/2019
 ms.author: victorh
 ms.openlocfilehash: 40f0195ced375da09891eb577bd81f36b2f37cba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005556"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Konfigurera en brand Väggs princip för webb program med hjälp av Azure PowerShell
@@ -19,7 +19,7 @@ ms.locfileid: "87005556"
 En princip för Azure Web Application-brandvägg (WAF) definierar kontroller som krävs när en begäran anländer till en front dörr.
 Den här artikeln visar hur du konfigurerar en WAF-princip som består av vissa anpassade regler och med Azure-hanterad standard regel uppsättning aktive rad.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

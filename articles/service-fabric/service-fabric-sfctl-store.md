@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: af5399be44d2946775622598c5c1db3d8355f7cd
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257078"
 ---
 # <a name="sfctl-store"></a>sfctl store
@@ -19,7 +19,7 @@ Utför grundläggande åtgärder på filnivå på klustrets avbildnings lager.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| ta bort | Tar bort befintligt bild lagrings innehåll. |
+| delete | Tar bort befintligt bild lagrings innehåll. |
 | rot-info | Hämtar innehålls informationen i roten för avbildnings arkivet. |
 | indikerar | Hämtar innehålls informationen för avbildnings arkivet. |
 

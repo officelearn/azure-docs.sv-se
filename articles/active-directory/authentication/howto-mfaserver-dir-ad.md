@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 866fa7333565a1875984aa5640d2028b6e399df1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88949549"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Katalogintegrering mellan Azure MFA Server och Active Directory
@@ -104,7 +104,7 @@ Attribut kan anges manuellt och behöver inte matcha ett attribut i attributlist
 | Fax |Ange attributnamnet för attributet som innehåller faxnumret i en användarpost.  Standardvärdet är facsimileTelephoneNumber. |
 | IP-telefon |Ange attributnamnet för attributet som innehåller IP-telefonnumret i en användarpost.  Standardvärdet är ipPhone. |
 | Anpassad |Ange attributnamnet för attributet som innehåller ett anpassat telefonnummer i en användarpost.  Standardvärdet är tomt. |
-| Filnamnstillägg |Ange attributnamnet för attributet som innehåller anknytningsnumret i en användarpost.  Värdet för anknytningsfältet används endast som anknytningen till det primära telefonnumret.  Standardvärdet är tomt. <br><br>Om attributet Anknytning inte anges kan anknytningar tas med som en del av telefonattributet. I så fall lägger du till ”x” före anknytningen så att den tolkas korrekt.  I exempelnumret 555-123-4567 x890 tolkas 555-123-4567 som telefonnumret och 890 som anknytningen. |
+| Anknytning |Ange attributnamnet för attributet som innehåller anknytningsnumret i en användarpost.  Värdet för anknytningsfältet används endast som anknytningen till det primära telefonnumret.  Standardvärdet är tomt. <br><br>Om attributet Anknytning inte anges kan anknytningar tas med som en del av telefonattributet. I så fall lägger du till ”x” före anknytningen så att den tolkas korrekt.  I exempelnumret 555-123-4567 x890 tolkas 555-123-4567 som telefonnumret och 890 som anknytningen. |
 | Knappen Återställ standardvärden |Klicka på **Återställ standardvärden** om du vill återställa standardvärdet för alla attribut.  Standardvärdena bör fungera korrekt med det vanliga Active Directory- eller ADAM-schemat. |
 
 Om du vill redigera attribut klickar du på **Redigera** på fliken attribut.  Då visas ett fönster där du kan redigera attributen. Välj **...** bredvid valfritt attribut så öppnas ett fönster där du kan välja vilka attribut som ska visas.

@@ -16,10 +16,10 @@ ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
 ms.openlocfilehash: 562d5010458fc938d9d62fed5d0d2c8284f2055d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936953"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Hantera utgång av webbinnehåll i Azure CDN
@@ -38,7 +38,7 @@ Du kan också styra cacheinställningar från Azure Portal genom att ange [regle
 > Mer information om hur Azure CDN arbetar för att påskynda åtkomst till filer och andra resurser finns i [Översikt över Azure-Content Delivery Network](cdn-overview.md).
 > 
 
-## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>Ange Cache-Control-huvuden med hjälp av regler för CDN-cachelagring
+## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>Ange Cache-Control rubriker med hjälp av regler för CDN-cachelagring
 Den bästa metoden för att ställa in en webb servers `Cache-Control` huvud är att använda regler för cachelagring i Azure Portal. Mer information om regler för CDN-cachelagring finns i [styra Azure CDN cachelagring med regler för cachelagring](cdn-caching-rules.md).
 
 > [!NOTE] 
@@ -57,7 +57,7 @@ Den bästa metoden för att ställa in en webb servers `Cache-Control` huvud är
    ![Sidan CDN-cachelagring](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 
-**Så här anger du en webb servers Cache-Control-rubriker med globala regler för cachelagring:**
+**Ange en webb servers Cache-Control rubriker med globala regler för cachelagring:**
 
 1. Under **globala regler för cachelagring**, **ställer du in** **beteende för cachelagring av frågesträngar** för att **Ignorera frågesträngar** och ställa in **beteende för cachelagring**
       
@@ -69,7 +69,7 @@ Den bästa metoden för att ställa in en webb servers `Cache-Control` huvud är
 
 1. Välj **Spara**.
 
-**Ange Cache-Control-rubriker för en webb server fil genom att använda anpassade regler för cachelagring:**
+**Så här ställer du in en webb servers fils Cache-Control rubriker med anpassade regler för cachelagring:**
 
 1. Skapa två matchnings villkor under **anpassade regler för cachelagring**:
 
@@ -84,7 +84,7 @@ Den bästa metoden för att ställa in en webb servers `Cache-Control` huvud är
 1. Välj **Spara**.
 
 
-## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Ange Cache-Control-huvuden med hjälp av konfigurationsfiler
+## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Ange Cache-Control rubriker med hjälp av konfigurationsfiler
 För statiskt innehåll, till exempel bilder och formatmallar, kan du styra uppdaterings frekvensen genom att ändra **applicationHost.config** eller **Web.config** konfigurationsfilerna för ditt webb program. Om du vill ange `Cache-Control` rubriken för ditt innehåll använder du `<system.webServer>/<staticContent>/<clientCache>` elementet i någon av filerna.
 
 ### <a name="using-applicationhostconfig-files"></a>Använda ApplicationHost.config-filer
@@ -109,7 +109,7 @@ Följande XML-konfigurationsfil visar hur du ställer in `<clientCache>` element
 
 Om du vill använda attributet **cacheControlMaxAge** måste du ange värdet för attributet **cacheControlMode** till `UseMaxAge` . Den här inställningen orsakade att HTTP-huvudet och-direktivet har lagts till i `Cache-Control: max-age=<nnn>` svaret. Formatet på TimeSpan-värdet för **cacheControlMaxAge** -attributet är `<days>.<hours>:<min>:<sec>` . Värdet konverteras till sekunder och används som värde för `Cache-Control` `max-age` direktivet. Mer information om `<clientCache>` -elementet finns i [client \<clientCache> cache ](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
-## <a name="setting-cache-control-headers-programmatically"></a>Ange Cache-Control-rubriker program mässigt
+## <a name="setting-cache-control-headers-programmatically"></a>Ange Cache-Control rubriker program mässigt
 För ASP.NET-program styr du funktionerna för CDN-cachelagring genom att ange egenskapen **HttpResponse. cache** i .NET-API: et. Information om egenskapen **HttpResponse. cache** finns i [HttpResponse. cache Property](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) och [HttpCachePolicy Class](/dotnet/api/system.web.httpcachepolicy).  
 
 Följ dessa steg om du vill cachelagra program innehåll program mässigt i ASP.NET:
@@ -128,7 +128,7 @@ Response.Cache.SetCacheability(HttpCacheability.Public);
 Response.Cache.SetLastModified(DateTime.Now);
 ```
 
-## <a name="testing-the-cache-control-header"></a>Testa Cache-Control-huvudet
+## <a name="testing-the-cache-control-header"></a>Testa Cache-Control huvud
 Du kan enkelt verifiera TTL-inställningarna för ditt webb innehåll. Testa att ditt webb innehåll innehåller svars huvudet med webbläsarens [utvecklingsverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) `Cache-Control` . Du kan också använda ett verktyg som **wget**, [Postman](https://www.getpostman.com/)eller [Fiddler](https://www.telerik.com/fiddler) för att undersöka svarshuvuden.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,6 +1,6 @@
 ---
 title: Klassiska Azure-prenumerationsadministratörer
-description: Beskriver hur du lägger till eller ändrar Azure-rollen som medadministratör och tjänst administratör och hur du visar konto administratören.
+description: Beskriver hur du lägger till eller ändrar Azure Co-Administrator-och tjänst administratörs roller och hur du visar konto administratören.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,30 +15,30 @@ ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 76b41e25a95f23b66edfbd4715037074537221f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076446"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Klassiska Azure-prenumerationsadministratörer
 
 Microsoft rekommenderar att du hanterar åtkomst till Azure-resurser med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC). Men om du fortfarande använder den klassiska distributions modellen måste du använda en klassisk prenumerations administratörs roll: tjänst administratör och delad administratör. Mer information finns i [Azure Resource Manager vs. Classic-distribution](../azure-resource-manager/management/deployment-models.md).
 
-I den här artikeln beskrivs hur du lägger till eller ändrar rollen som medadministratör och tjänst administratör och hur du visar konto administratören.
+Den här artikeln beskriver hur du lägger till eller ändrar rollen Co-Administrator-och tjänst administratör och hur du visar konto administratören.
 
 ## <a name="add-a-co-administrator"></a>Lägga till en medadministratör
 
 > [!TIP]
-> Du behöver bara lägga till en medadministratör om användaren behöver hantera klassiska Azure-distributioner med hjälp av [Azure Service Management PowerShell-modulen](/powershell/module/servicemanagement/azure.service). Om användaren bara använder Azure Portal för att hantera de klassiska resurserna behöver du inte lägga till den klassiska administratören för användaren.
+> Du behöver bara lägga till en Co-Administrator om användaren behöver hantera klassiska Azure-distributioner med hjälp av [Azure Service Management PowerShell-modulen](/powershell/module/servicemanagement/azure.service). Om användaren bara använder Azure Portal för att hantera de klassiska resurserna behöver du inte lägga till den klassiska administratören för användaren.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som tjänst administratör eller delad administratör.
 
 1. Öppna [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) och välj en prenumeration.
 
-    Medadministratörer kan bara tilldelas i prenumerations omfånget.
+    Co-Administrators kan bara tilldelas i prenumerations omfånget.
 
-1. Klicka på **Åtkomstkontroll (IAM)**.
+1. Klicka på **Åtkomstkontroll (IAM)** .
 
 1. Klicka på fliken **klassiska administratörer** .
 
@@ -52,7 +52,7 @@ I den här artikeln beskrivs hur du lägger till eller ändrar rollen som medadm
 
     ![Skärm bild som lägger till gemensam administratör](./media/classic-administrators/add-coadmin.png)
 
-## <a name="add-a-guest-user-as-a-co-administrator"></a>Lägg till en gäst användare som en medadministratör
+## <a name="add-a-guest-user-as-a-co-administrator"></a>Lägg till en gäst användare som en Co-Administrator
 
 Om du vill lägga till en gäst användare som en medadministratör följer du samma steg som i föregående avsnitt för att [lägga till en gemensam administratör](#add-a-co-administrator) . Gäst användaren måste uppfylla följande kriterier:
 
@@ -62,11 +62,11 @@ Mer information om hur du lägger till en gäst användare i din katalog finns i
 
 ### <a name="differences-for-guest-users"></a>Skillnader för gäst användare
 
-Gäst användare som har tilldelats rollen som medadministratör kan se vissa skillnader jämfört med medlems användare med rollen medadministratör. Föreställ dig följande scenario:
+Gäst användare som har tilldelats Co-Administrator-rollen kan se vissa skillnader jämfört med medlems användare med Co-Administrator-rollen. Föreställ dig följande scenario:
 
 - Användare A med ett Azure AD-konto (arbets-eller skol konto) är en tjänst administratör för en Azure-prenumeration.
 - Användare B har en Microsoft-konto.
-- Användare A tilldelar rollen som medadministratör till användare B.
+- Användare A tilldelar Co-Administrator rollen till användare B.
 - Användare B kan göra nästan allt, men kan inte registrera program eller söka efter användare i Azure AD-katalogen.
 
 Du förväntar dig att användare B kan hantera allt. Orsaken till den här skillnaden är att Microsoft-konto läggs till i prenumerationen som gäst användare i stället för en medlems användare. Gäst användare har olika standard behörigheter i Azure AD jämfört med medlems användare. Medlems användare kan till exempel läsa andra användare i Azure AD och gäst användare kan inte. Medlems användare kan registrera nya tjänst huvud namn i Azure AD-och gäst användare kan inte.
@@ -77,17 +77,17 @@ Observera att de [inbyggda Azure-rollerna](../role-based-access-control/built-in
 
 Information som jämför medlems användare och gäst användare finns i [Vad är standard användar behörigheter i Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 
-## <a name="remove-a-co-administrator"></a>Ta bort en gemensam administratör
+## <a name="remove-a-co-administrator"></a>Ta bort en Co-Administrator
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som tjänst administratör eller delad administratör.
 
 1. Öppna [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) och välj en prenumeration.
 
-1. Klicka på **Åtkomstkontroll (IAM)**.
+1. Klicka på **Åtkomstkontroll (IAM)** .
 
 1. Klicka på fliken **klassiska administratörer** .
 
-1. Lägg till en bock bredvid den medadministratör som du vill ta bort.
+1. Lägg till en bock bredvid Co-Administrator som du vill ta bort.
 
 1. Klicka på **Ta bort**.
 
@@ -125,8 +125,8 @@ Det kan bara finnas en tjänst administratör per Azure-prenumeration. Att ändr
 
 | Konto administratörs konto | Kan du ändra tjänst administratör till en annan Microsoft-konto? | Kan du ändra tjänst administratör till ett Azure AD-konto i samma katalog? | Kan du ändra tjänst administratör till ett Azure AD-konto i en annan katalog? |
 | --- | --- | --- | --- |
-| Microsoft-konto | Yes | Inga | Inga |
-| Azure AD-konto | Ja | Ja | No |
+| Microsoft-konto | Ja | Inga | Inga |
+| Azure AD-konto | Ja | Ja | Inga |
 
 Om konto administratören är ett Azure AD-konto kan du ändra tjänst administratören till ett Azure AD-konto i samma katalog, men inte i en annan katalog. Kan till exempel abby@contoso.com ändra tjänst administratören till bob@contoso.com , men kan inte ändra tjänst administratören till john@notcontoso.com om den inte john@notcontoso.com har en närvaro i contoso.com-katalogen.
 
@@ -151,5 +151,5 @@ Följ dessa steg om du vill visa konto administratören.
 ## <a name="next-steps"></a>Nästa steg
 
 * [Förstå de olika rollerna](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](../role-based-access-control/role-assignments-portal.md)
+* [Lägga till eller ta bort rolltilldelningar för Azure med hjälp av Azure-portalen](../role-based-access-control/role-assignments-portal.md)
 * [Lägg till eller ändra Azure-prenumerationsadministratörer](../cost-management-billing/manage/add-change-subscription-administrator.md)

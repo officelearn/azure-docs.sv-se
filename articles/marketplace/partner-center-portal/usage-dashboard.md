@@ -8,10 +8,10 @@ ms.date: 07/22/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 9b8432a54aa90b7d500898b2f6959d075ac89460
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88245340"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Instrument panelen för användning i Microsofts marknads plats analys
@@ -117,7 +117,7 @@ Om du har flera erbjudanden som använder anpassade mätare, visar rapporten fö
 > [!NOTE]
 > Användnings informationen och alla diagram på den här sidan visas för den valda mätnings dimensionen för sid filtret.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - En översikt över analys rapporter som är tillgängliga i partner Centers kommersiella marknads platser finns i [analys för den kommersiella Marketplace i Partner Center](./analytics.md).
 - För grafer, trender och värden för sammanställda data som sammanfattar Marketplace-aktivitet för ditt erbjudande, se [översikts instrument panel i](./summary-dashboard.md)marknads plats analys.

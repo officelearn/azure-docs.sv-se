@@ -1,6 +1,6 @@
 ---
-title: InMemory-exempel
-description: Prova Azure SQL Database minnes intern teknik med OLTP-och columnstore-exempel.
+title: In-Memory exempel
+description: Försök Azure SQL Database In-Memory tekniker med OLTP-och columnstore-exempel.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,23 +12,23 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: 2829b1c71aebcc97452fc658e6509e4fae42da8c
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91616813"
 ---
-# <a name="in-memory-sample"></a>InMemory-exempel
+# <a name="in-memory-sample"></a>In-Memory exempel
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-I minnes teknikerna i Azure SQL Database kan du förbättra programmets prestanda och eventuellt minska kostnaderna för din databas. Genom att använda minnes intern teknik i Azure SQL Database kan du uppnå prestanda förbättringar med olika arbets belastningar.
+Med In-Memory tekniker i Azure SQL Database kan du förbättra programmets prestanda och eventuellt minska kostnaderna för din databas. Genom att använda In-Memory tekniker i Azure SQL Database kan du uppnå prestanda förbättringar med olika arbets belastningar.
 
-I den här artikeln visas två exempel som illustrerar användningen av minnes intern OLTP, samt columnstore-index i Azure SQL Database.
+I den här artikeln visas två exempel som illustrerar användningen av In-Memory OLTP, samt columnstore-index i Azure SQL Database.
 
 Mer information finns i:
 
 - [Översikt över minnes intern OLTP och användnings scenarier](/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios) (innehåller referenser till kund fallstudier och information för att komma igång)
-- [Dokumentation för minnes intern OLTP](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
+- [Dokumentation för In-Memory OLTP](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
 - [Guide för columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-overview)
 - Hybrid transaktions-/analys bearbetning (HTAP), även kallat [drift analys i real tid](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
 
@@ -36,11 +36,11 @@ Mer information finns i:
 
 &nbsp;
 
-## <a name="1-install-the-in-memory-oltp-sample"></a>1. Installera OLTP-exemplet i minnet
+## <a name="1-install-the-in-memory-oltp-sample"></a>1. Installera In-Memory OLTP-exemplet
 
-Du kan skapa AdventureWorksLT-exempel databasen med några få klick i [Azure Portal](https://portal.azure.com/). Sedan förklarar stegen i det här avsnittet hur du kan utöka din AdventureWorksLT-databas med InMemory OLTP-objekt och demonstrera prestanda för delar.
+Du kan skapa AdventureWorksLT-exempel databasen med några få klick i [Azure Portal](https://portal.azure.com/). Sedan förklarar stegen i det här avsnittet hur du kan utöka din AdventureWorksLT-databas med In-Memory OLTP-objekt och demonstrera prestanda för delar.
 
-För en mer förenklad, men mer visuellt tilltalande prestanda demonstration för minnes intern OLTP, se:
+För en mer förenklad, men mer visuellt tilltalande prestanda demonstration för In-Memory OLTP, se:
 
 - Version: [in-memory-OLTP-demo-v 1.0](https://github.com/Microsoft/sql-server-samples/releases/tag/in-memory-oltp-demo-v1.0)
 - Källkod: [InMemory-OLTP-demo-källkod](https://github.com/microsoft/sql-server-samples/tree/master/samples/features/in-memory-database)
@@ -51,7 +51,7 @@ För en mer förenklad, men mer visuellt tilltalande prestanda demonstration fö
 
 2. Anslut till databasen med SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Kopiera [InMemory OLTP Transact-SQL-skriptet](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) till Urklipp. T-SQL-skriptet skapar nödvändiga minnes objekt i AdventureWorksLT-exempel databasen som du skapade i steg 1.
+3. Kopiera [InMemory OLTP Transact-SQL-skriptet](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) till Urklipp. T-SQL-skriptet skapar nödvändiga In-Memory objekt i AdventureWorksLT-exempel databasen som du skapade i steg 1.
 
 4. Klistra in T-SQL-skriptet i SSMS och kör skriptet. `MEMORY_OPTIMIZED = ON`Satsen CREATE TABLE satser är viktiga. Exempel:
 
@@ -70,15 +70,15 @@ Om du får fel 40536 när du kör T-SQL-skriptet kör du följande T-SQL-skript 
 SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
-Resultatet **0** innebär att minnet inte stöds och **1** betyder att det stöds. För att diagnosticera problemet kontrollerar du att databasen finns på nivån Premium-tjänst.
+Resultatet **0** innebär att In-Memory inte stöds och **1** innebär att det stöds. För att diagnosticera problemet kontrollerar du att databasen finns på nivån Premium-tjänst.
 
 ### <a name="about-the-created-memory-optimized-items"></a>Om de färdiga minnesoptimerade objekten
 
 **Tabeller**: exemplet innehåller följande minnesoptimerade tabeller:
 
-- SalesLT. Product_inmem
-- SalesLT. SalesOrderHeader_inmem
-- SalesLT. SalesOrderDetail_inmem
+- SalesLT.Product_inmem
+- SalesLT.SalesOrderHeader_inmem
+- SalesLT.SalesOrderDetail_inmem
 - Demo. DemoSalesOrderHeaderSeed
 - Demo. DemoSalesOrderDetailSeed
 
@@ -92,7 +92,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
     WHERE is_memory_optimized = 1;
 ```
 
-**Internt kompilerad lagrad procedur**: du kan granska SalesLT. usp_InsertSalesOrder_inmem via en katalogs visnings fråga:
+**Internt kompilerad lagrad procedur**: du kan kontrol lera SalesLT.usp_InsertSalesOrder_inmem via en katalog visnings fråga:
 
 ```sql
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
@@ -124,8 +124,8 @@ I det här avsnittet visas T-SQL-skriptet som är inbäddat i vår ostress.exe k
 
 Följande skript infogar en exempel försäljnings order med fem rad objekt i följande minnesoptimerade *tabeller*:
 
-- SalesLT. SalesOrderHeader_inmem
-- SalesLT. SalesOrderDetail_inmem
+- SalesLT.SalesOrderHeader_inmem
+- SalesLT.SalesOrderDetail_inmem
 
 ```sql
 DECLARE
@@ -160,8 +160,8 @@ På den virtuella datorn, eller på vilken värd du väljer, installerar du RML-
 
 Mer information finns i:
 
-- ostress.exe diskussion i [exempel databasen för minnes intern OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
-- [Exempel databas för minnes intern OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
+- ostress.exe diskussion i [exempel databasen för In-Memory OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
+- [Exempel databas för In-Memory OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
 - [Bloggen för att installera ostress.exe](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910).
 
 <!--
@@ -223,13 +223,13 @@ När du har fått resultatet från *_inmem* kör utför du följande steg för *
 
 #### <a name="expected-comparison-results"></a>Förväntade jämförelse resultat
 
-Våra minnes krävande tester har visat att prestanda förbättras med **nio gånger** för den här förenklad-arbetsbelastningen, med `ostress` körning på en virtuell Azure-dator i samma Azure-region som databasen.
+Våra In-Memory-tester har visat att prestanda förbättras med **nio gånger** för den här förenklad-arbetsbelastningen, med `ostress` körning på en virtuell Azure-dator i samma Azure-region som databasen.
 
 <a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
 
 &nbsp;
 
-## <a name="2-install-the-in-memory-analytics-sample"></a>2. Installera analys exemplet i minnet
+## <a name="2-install-the-in-memory-analytics-sample"></a>2. Installera In-Memory Analytics-exemplet
 
 I det här avsnittet ska du jämföra IO-och statistik resultaten när du använder ett columnstore-index jämfört med ett traditionellt b-träd index.
 
@@ -242,7 +242,7 @@ För real tids analys på en OLTP-arbets belastning är det ofta bäst att anvä
    - Välj en Premium service-nivå.
 
 2. Kopiera [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_analytics_sample.sql) till Urklipp.
-   - T-SQL-skriptet skapar nödvändiga minnes objekt i AdventureWorksLT-exempel databasen som du skapade i steg 1.
+   - T-SQL-skriptet skapar nödvändiga In-Memory objekt i AdventureWorksLT-exempel databasen som du skapade i steg 1.
    - Skriptet skapar dimensions tabellen och två fakta tabeller. Fakta tabellerna fylls med 3 500 000 rader.
    - Skriptet kan ta 15 minuter att slutföra.
 
@@ -250,7 +250,7 @@ För real tids analys på en OLTP-arbets belastning är det ofta bäst att anvä
 
 4. Ange AdventureWorksLT till kompatibilitetsnivå 130:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
 
-    Nivå 130 är inte direkt relaterad till InMemory-funktioner. Men nivå 130 ger vanligt vis snabbare prestanda för frågor än 120.
+    Nivå 130 är inte direkt relaterad till In-Memory funktioner. Men nivå 130 ger vanligt vis snabbare prestanda för frågor än 120.
 
 #### <a name="key-tables-and-columnstore-indexes"></a>Nyckel tabeller och columnstore-index
 
@@ -335,37 +335,37 @@ I en databas med P2-pris nivån kan du förväntar dig nio gånger prestanda vin
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Snabb start 1: minnes intern OLTP-teknik för snabbare T-SQL-prestanda](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Snabb start 1: In-Memory OLTP-teknik för snabbare T-SQL-prestanda](https://msdn.microsoft.com/library/mt694156.aspx)
 
-- [Använda minnes intern OLTP i ett befintligt Azure SQL-program](in-memory-oltp-configure.md)
+- [Använda In-Memory OLTP i ett befintligt Azure SQL-program](in-memory-oltp-configure.md)
 
-- [Övervaka minnes intern OLTP-lagring](in-memory-oltp-monitor-space.md) för minnes intern OLTP
+- [Övervaka In-Memory OLTP-lagring](in-memory-oltp-monitor-space.md) för In-Memory OLTP
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 ### <a name="deeper-information"></a>Djupare information
 
-- [Lär dig hur kvorum dubblerar nyckel databasens arbets belastning och sänker DTU med 70% med minnes intern OLTP i Azure SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [Lär dig hur kvorum dubblerar nyckel databasens arbets belastning och sänker DTU med 70% med In-Memory OLTP i Azure SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 - [Minnes intern OLTP i Azure SQL Database blogg inlägg](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
-- [Lär dig mer om minnes intern OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
+- [Lär dig mer om In-Memory OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
 
 - [Lär dig mer om columnstore-index](https://msdn.microsoft.com/library/gg492088.aspx)
 
 - [Lär dig mer om operativa analyser i real tid](https://msdn.microsoft.com/library/dn817827.aspx)
 
-- Se [vanliga arbets belastnings mönster och överväganden vid migrering](https://msdn.microsoft.com/library/dn673538.aspx) (som beskriver arbets belastnings mönster där minnes intern OLTP ofta ger avsevärda prestanda vinster)
+- Se [vanliga arbets belastnings mönster och överväganden vid migrering](https://msdn.microsoft.com/library/dn673538.aspx) (som beskriver arbets belastnings mönster där In-Memory OLTP ofta ger avsevärda prestanda vinster)
 
 #### <a name="application-design"></a>Programdesign
 
 - [Minnes intern OLTP (minnes intern optimering)](https://msdn.microsoft.com/library/dn133186.aspx)
 
-- [Använda minnes intern OLTP i ett befintligt Azure SQL-program](in-memory-oltp-configure.md)
+- [Använda In-Memory OLTP i ett befintligt Azure SQL-program](in-memory-oltp-configure.md)
 
 #### <a name="tools"></a>Verktyg
 
-- [Azure-portalen](https://portal.azure.com/)
+- [Azure Portal](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

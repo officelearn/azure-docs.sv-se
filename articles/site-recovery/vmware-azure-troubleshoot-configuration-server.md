@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
 ms.openlocfilehash: b60a53b05c0d2c80c36c94e27e4d00952b5af954
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113079"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Felsöka konfigurationsserverfel
@@ -28,8 +28,8 @@ Käll datorn registreras med konfigurations servern när du installerar mobilite
    1. Kontrol lera att det begärda värd-ID: t är detsamma som käll datorns värd-ID.
    2. Kontrol lera att käll datorn har minst en IP-adress tilldelad till det fysiska NÄTVERKSKORTet. För att agent registreringen med konfigurations servern ska lyckas måste käll datorn ha minst en giltig IP v4-adress tilldelad till det fysiska NÄTVERKSKORTet.
    3. Kör något av följande kommandon på käll datorn för att hämta alla IP-adresser för käll datorn:
-      - För Windows:`> ipconfig /all`
-      - För Linux:`# ifconfig -a`
+      - För Windows: `> ipconfig /all`
+      - För Linux: `# ifconfig -a`
 
 3. Om strängen **ingen giltig IP-adress** hittades söker du efter sträng **Orsaken =>null**. Det här felet uppstår om käll datorn använder en tom värd för att registrera med konfigurations servern. Om strängen hittas:
     - När du har löst problemen följer du rikt linjerna i [Registrera käll datorn med konfigurations servern](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) för att försöka registrera manuellt.
@@ -234,7 +234,7 @@ Det här felet kan inträffa när det finns flera instanser av konfigurations se
 
 Så här löser du problemet:
 
-1. Ta bort föråldrad/gammal virtuell dator från vCenter. Mer information finns i [ta bort servrar och inaktivera skydd](site-recovery-manage-registration-and-protection.md).
+1. Ta bort föråldrad/gammal virtuell dator från vCenter. Mer information finns i  [ta bort servrar och inaktivera skydd](site-recovery-manage-registration-and-protection.md).
 2. Logga in på den virtuella datorns konfigurations Server och Anslut till MySQL svsdb1-databasen. 
 3. Kör följande fråga:
 

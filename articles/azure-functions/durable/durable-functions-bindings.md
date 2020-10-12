@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 899bc3fdc94b8232acd3edf3e0cbab3c481ff8f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081856"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindningar för Durable Functions (Azure Functions)
@@ -32,7 +32,7 @@ När du skriver Orchestrator-funktioner i skript språk (till exempel java scrip
 }
 ```
 
-* `orchestration`är namnet på den dirigering som klienter måste använda när de vill starta nya instanser av den här Orchestrator-funktionen. Den här egenskapen är valfri. Om inget anges används namnet på funktionen.
+* `orchestration` är namnet på den dirigering som klienter måste använda när de vill starta nya instanser av den här Orchestrator-funktionen. Den här egenskapen är valfri. Om inget anges används namnet på funktionen.
 
 Internt denna Utlös ande bindning avsöker en serie med köer i standard lagrings kontot för Function-appen. Dessa köer är interna implementerings information om tillägget, vilket är anledningen till att de inte uttryckligen konfigureras i bindnings egenskaperna.
 
@@ -139,7 +139,7 @@ Om du använder VS Code eller Azure Portal för utveckling definieras aktivitets
 }
 ```
 
-* `activity`är namnet på aktiviteten. Det här värdet är det namn som Orchestrator Functions använder för att anropa den här aktivitets funktionen. Den här egenskapen är valfri. Om inget anges används namnet på funktionen.
+* `activity` är namnet på aktiviteten. Det här värdet är det namn som Orchestrator Functions använder för att anropa den här aktivitets funktionen. Den här egenskapen är valfri. Om inget anges används namnet på funktionen.
 
 Internt denna Utlös ande bindning avsöker en kö i standard lagrings kontot för Function-appen. Den här kön är en intern implementerings information om tillägget, vilket är orsaken till att den inte uttryckligen konfigureras i bindnings egenskaperna.
 
@@ -261,8 +261,8 @@ Om du använder skript språk (till exempel *. CSX* -eller *. js* -filer) för u
 }
 ```
 
-* `taskHub`– Används i scenarier där flera Functions-appar delar samma lagrings konto men måste isoleras från varandra. Om inget värde anges används standardvärdet från `host.json` . Värdet måste matcha det värde som används av målets Orchestrator-funktioner.
-* `connectionName`– Namnet på en app-inställning som innehåller en anslutnings sträng för lagrings kontot. Det lagrings konto som representeras av den här anslutnings strängen måste vara samma som används av mål-Orchestrator-funktionerna. Om inget värde anges används standard anslutnings strängen för lagrings kontot för Function-appen.
+* `taskHub` – Används i scenarier där flera Functions-appar delar samma lagrings konto men måste isoleras från varandra. Om inget värde anges används standardvärdet från `host.json` . Värdet måste matcha det värde som används av målets Orchestrator-funktioner.
+* `connectionName` – Namnet på en app-inställning som innehåller en anslutnings sträng för lagrings kontot. Det lagrings konto som representeras av den här anslutnings strängen måste vara samma som används av mål-Orchestrator-funktionerna. Om inget värde anges används standard anslutnings strängen för lagrings kontot för Function-appen.
 
 > [!NOTE]
 > I de flesta fall rekommenderar vi att du utelämnar dessa egenskaper och använder standard beteendet.
@@ -523,8 +523,8 @@ Om du använder skript språk (till exempel *. CSX* -eller *. js* -filer) för u
 }
 ```
 
-* `taskHub`– Används i scenarier där flera Functions-appar delar samma lagrings konto men måste isoleras från varandra. Om inget värde anges används standardvärdet från `host.json` . Värdet måste matcha det värde som används av entitetens mål.
-* `connectionName`– Namnet på en app-inställning som innehåller en anslutnings sträng för lagrings kontot. Det lagrings konto som representeras av den här anslutnings strängen måste vara samma som används av entiteten för målentiteten. Om inget värde anges används standard anslutnings strängen för lagrings kontot för Function-appen.
+* `taskHub` – Används i scenarier där flera Functions-appar delar samma lagrings konto men måste isoleras från varandra. Om inget värde anges används standardvärdet från `host.json` . Värdet måste matcha det värde som används av entitetens mål.
+* `connectionName` – Namnet på en app-inställning som innehåller en anslutnings sträng för lagrings kontot. Det lagrings konto som representeras av den här anslutnings strängen måste vara samma som används av entiteten för målentiteten. Om inget värde anges används standard anslutnings strängen för lagrings kontot för Function-appen.
 
 > [!NOTE]
 > I de flesta fall rekommenderar vi att du utelämnar de valfria egenskaperna och använder standard beteendet.

@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 61c31b24b01b40da4d73a308a4f304f6ff242e41
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88691419"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Distribuera diagnostikverktyget för Windows Virtual Desktop (klassiskt)
@@ -168,11 +168,11 @@ För att kunna visa hälso tillståndet för virtuella datorer måste du aktiver
 
 Distribuera Azures resurs hanterings mall för diagnostikverktyget:
 
-1.  Gå till [sidan GitHub Azure RDS – templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy).
+1.  Gå till [sidan med GitHub Azure-RDS-Templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy).
 2.  Distribuera mallen till Azure och följ instruktionerna i mallen. Se till att du har följande tillgängliga information:
 
-    -   Klient-ID
-    -   Klient hemlighet
+    -   Client-Id
+    -   Client-Secret
     -   Log Analytics-arbetsytans ID
 
 3.  När indataparametrarna har angetts accepterar du villkoren och väljer sedan **köp**.
@@ -191,7 +191,7 @@ Ange omdirigerings-URI: n:
 4.  I den vänstra panelen under avsnittet hantera väljer du **autentisering**.
 5.  Ange önskad omdirigerings-URI i text rutan **omdirigerings-URI** och välj sedan **Spara** i det övre vänstra hörnet på menyn.
 6. Välj **webbplats** under typ på den nedrullningsbara menyn.
-7. Ange URL: en från sidan Översikt över appen och Lägg till **/Security/signin-callback** i slutet av den. Till exempel: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
+7. Ange URL: en från sidan Översikt över appen och Lägg till **/Security/signin-callback** i slutet av den. Exempel: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
    > [!div class="mx-imgBorder"]
    > ![Sidan omdirigerings-URI](../media/redirect-uri-page.png)

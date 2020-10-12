@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: d29a5a6d0d4745655ce5b6d0cead3eaba77ed423
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91281634"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge enheter
@@ -119,7 +119,7 @@ I det här avsnittet skapar du en ny versions pipeline. Du konfigurerar pipeline
        | Parameter | Beskrivning |
        | --- | --- |
        | Sökväg för att publicera | Ange variabeln `$(Build.ArtifactStagingDirectory)` . Se [build-variabler](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) för att lära dig mer om beskrivningen. |
-       | Artefakt namn | Ange standard namnet: `drop` |
+       | Artefaktnamn | Ange standard namnet: `drop` |
        | Plats för artefakt publicering | Använd standard platsen: `Azure Pipelines` |
 
 9. Välj **Spara** i list rutan **Spara och kör** i det övre högra hörnet.

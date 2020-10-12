@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
 ms.openlocfilehash: ce7ff6ae134835de23a0d2670e8b4f44783654f8
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89079208"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Translator-kryptering av data i vila
@@ -37,7 +37,7 @@ För prenumerationer som bara stöder Microsoft-hanterade krypterings nycklar ha
 Som standard använder din prenumeration krypteringsnycklar som hanteras av Microsoft. Det finns också möjlighet att hantera din prenumeration med dina egna nycklar som kallas Kundhanterade nycklar (CMK). CMK erbjuder större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska krypteringsnycklarna som används för att skydda dina data. Om CMK har kon figurer ATS för din prenumeration tillhandahålls dubbla kryptering, vilket ger ett sekundärt skydds lager, samtidigt som du kan kontrol lera krypterings nyckeln via din Azure Key Vault.
 
 > [!IMPORTANT]
-> Kundhanterade nycklar är tillgängliga för alla pris nivåer för tjänsten Translator. Om du vill begära möjlighet att använda Kundhanterade nycklar, fyller du i och skickar [översättnings formuläret för den kund hanterade nyckeln](https://aka.ms/cogsvc-cmk) som det tar cirka 3-5 arbets dagar att ta del av statusen för din begäran. Beroende på efter frågan kan du placera i en kö och godkännas som utrymme blir tillgängligt. När du har godkänt för att använda CMK med tjänsten Translator måste du skapa en ny översättare-resurs. När du har skapat din Translator-resurs kan du använda Azure Key Vault för att konfigurera din hanterade identitet.
+> Kundhanterade nycklar är tillgängliga för alla pris nivåer för tjänsten Translator. För att kunna använda Kundhanterade nycklar kan du fylla i och skicka in [Translator Customer-Managed Key Request form](https://aka.ms/cogsvc-cmk) det tar cirka 3-5 arbets dagar att höra om status för din begäran. Beroende på efter frågan kan du placera i en kö och godkännas som utrymme blir tillgängligt. När du har godkänt för att använda CMK med tjänsten Translator måste du skapa en ny översättare-resurs. När du har skapat din Translator-resurs kan du använda Azure Key Vault för att konfigurera din hanterade identitet.
 
 Följ dessa steg om du vill aktivera Kundhanterade nycklar för översättare:
 
@@ -47,7 +47,7 @@ Följ dessa steg om du vill aktivera Kundhanterade nycklar för översättare:
 
 ### <a name="enable-customer-managed-keys"></a>Aktivera Kundhanterade nycklar
 
-Du måste använda Azure Key Vault för att lagra dina Kundhanterade nycklar. Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault API: er för att generera nycklar. Den Cognitive Services resursen och nyckel valvet måste finnas i samma region och i samma Azure Active Directory-klient (Azure AD), men de kan finnas i olika prenumerationer. Mer information om Azure Key Vault finns i [Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Du måste använda Azure Key Vault till att lagra dina kundhanterade nycklar. Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault API: er för att generera nycklar. Den Cognitive Services resursen och nyckel valvet måste finnas i samma region och i samma Azure Active Directory-klient (Azure AD), men de kan finnas i olika prenumerationer. Mer information om Azure Key Vault finns i [Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 En ny Cognitive Services resurs krypteras alltid med Microsoft-hanterade nycklar. Det går inte att aktivera Kundhanterade nycklar vid den tidpunkt då resursen skapas. Kundhanterade nycklar lagras i Azure Key Vault och nyckel valvet måste tillhandahållas med åtkomst principer som ger nyckel behörigheter till den hanterade identitet som är kopplad till den Cognitive Services resursen. Den hanterade identiteten är tillgänglig så snart resursen har skapats.
 

@@ -10,10 +10,10 @@ ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: f62eec29aebdcc98569134e0c3b75457467bc014
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90903682"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Självstudie: transformera data med Azure Stack Edge Pro för avancerat distributions flöde
@@ -41,7 +41,7 @@ I den här guiden får du lära dig att:
 > * Verifiera datatransformering och överföring
 
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du ställer in en beräknings roll på din Azure Stack Edge Pro-enhet ser du till att:
 
@@ -63,7 +63,7 @@ Om du vill konfigurera Compute på Azure Stack Edge Pro skapar du en IoT Hub res
 3. Ange följande på bladet **Konfigurera Edge Compute** :
 
    
-    |Fält  |Värde  |
+    |Field  |Värde  |
     |---------|---------|
     |IoT Hub     | Välj från **ny** eller **befintlig**. <br> Som standard används nivån Standard (S1) till att skapa en IoT-resurs. Om du vill använda en IoT-resurs på kostnadsfri nivå skapar du en sådan och väljer sedan den befintliga resursen. <br> I varje fall använder IoT Hub resursen samma prenumeration och resurs grupp som används av Azure Stack Edge-resursen.     |
     |Name     |Ange ett namn för din IoT Hub-resurs.         |
@@ -130,7 +130,7 @@ För den avancerade distributionen i den här självstudien behöver du två res
 
 2. Ange följande värden i bladet **Lägg till utlösare** .
 
-    |Fält  |Värde  |
+    |Field  |Värde  |
     |---------|---------|
     |Utlösarens namn     | Ett unikt namn för utlösaren.         |
     |Utlösartyp     | Välj **fil** utlösare. En filutlösare utlöses när en filhändelse inträffar, till exempel att en fil skrivs till den angivna resursen. En schemalagd utlösare å andra sidan, utlöses utifrån ett schema som definierats av dig. I det här exemplet behöver vi en fil utlösare.    |
@@ -181,7 +181,7 @@ I det här avsnittet lägger du till en anpassad modul till den IoT Edge enhet s
  
     2. Ange inställningarna för den anpassade IoT Edge-modulen. Mata in följande värden.
      
-        |Fält  |Värde  |
+        |Field  |Värde  |
         |---------|---------|
         |Namn     | Ett unikt namn för modulen. Den här modulen är en Docker-behållare som du kan distribuera till den IoT Edge enhet som är kopplad till din Azure Stack Edge Pro.        |
         |Bild-URI     | Avbildnings-URI för motsvarande behållar avbildning för modulen.        |

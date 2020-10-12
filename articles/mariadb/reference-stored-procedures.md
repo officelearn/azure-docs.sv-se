@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 453cb28b3053ee2fd2706a5537dc71b6cdca4174
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91539851"
 ---
 # <a name="azure-database-for-mariadb-management-stored-procedures"></a>Lagrade procedurer för Azure Database for MariaDB hantering
@@ -25,11 +25,11 @@ Följande lagrade procedurer används för att ställa in eller ta bort Datarepl
 
 |**Namn på lagrad procedur**|**Indataparametrar**|**Utdataparametrar**|**Användnings notering**|
 |-----|-----|-----|-----|
-|*MySQL. az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|Saknas|Överför data med SSL-läge genom att skicka certifikat utfärdarens certifikats kontext till master_ssl_ca-parametern. </br><br>Om du vill överföra data utan SSL skickar du en tom sträng till master_ssl_ca-parametern.|
-|*MySQL. az_replication _start*|Saknas|Saknas|Startar replikering.|
-|*MySQL. az_replication _stop*|Saknas|Saknas|Stoppar replikering.|
-|*MySQL. az_replication _remove_master*|Saknas|Saknas|Tar bort replikeringsrelationen mellan källan och repliken.|
-|*MySQL. az_replication_skip_counter*|Saknas|Saknas|Hoppar över ett replikeringsfel.|
+|*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|E.t.|Överför data med SSL-läge genom att skicka certifikat utfärdarens certifikats kontext till master_ssl_ca-parametern. </br><br>Om du vill överföra data utan SSL skickar du en tom sträng till master_ssl_ca-parametern.|
+|*mysql.az_replication _start*|Saknas|Saknas|Startar replikering.|
+|*mysql.az_replication _stop*|Saknas|Saknas|Stoppar replikering.|
+|*mysql.az_replication _remove_master*|Saknas|Saknas|Tar bort replikeringsrelationen mellan källan och repliken.|
+|*mysql.az_replication_skip_counter*|Saknas|Saknas|Hoppar över ett replikeringsfel.|
 
 Information om hur du konfigurerar Datareplikering mellan en källa och en replik i Azure Database for MariaDB finns i [så här konfigurerar du datareplikering](howto-data-in-replication.md).
 
@@ -39,9 +39,9 @@ Följande lagrade procedurer är tillgängliga i Azure Database for MariaDB att 
 
 |**Namn på lagrad procedur**|**Indataparametrar**|**Utdataparametrar**|**Användnings notering**|
 |-----|-----|-----|-----|
-|*MySQL. az_kill*|processlist_id|Saknas|Motsvarande [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) kommando. Avslutar anslutningen som är associerad med den angivna processlist_id när du har avslutat en instruktion som anslutningen körs.|
-|*MySQL. az_kill_query*|processlist_id|Saknas|Motsvarande [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) kommando. Avslutar instruktionen som anslutningen körs för tillfället. Lämnar själva anslutningen.|
-|*MySQL. az_load_timezone*|Saknas|Saknas|Läser in tids zons tabeller så att `time_zone` parametern kan anges till namngivna värden (t. ex. "USA/Stilla havs området").|
+|*mysql.az_kill*|processlist_id|E.t.|Motsvarande [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) kommando. Avslutar anslutningen som är associerad med den angivna processlist_id när du har avslutat en instruktion som anslutningen körs.|
+|*mysql.az_kill_query*|processlist_id|E.t.|Motsvarande [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) kommando. Avslutar instruktionen som anslutningen körs för tillfället. Lämnar själva anslutningen.|
+|*mysql.az_load_timezone*|Saknas|Saknas|Läser in tids zons tabeller så att `time_zone` parametern kan anges till namngivna värden (t. ex. "USA/Stilla havs området").|
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du konfigurerar [datareplikering](howto-data-in-replication.md)

@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.openlocfilehash: 0fd3778d50216e337b872f0a27cb30b04a0219f7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617238"
 ---
 # <a name="what-is-azure-sql-database"></a>Vad är Azure SQL Database?
@@ -182,7 +182,7 @@ Azure Defender för SQL är ett enhetligt paket för avancerade SQL-säkerhetsfu
 
 SQL Database hjälper till att skydda dina data med hjälp av kryptering. För data i rörelse används [Transport Layer Security](https://support.microsoft.com/kb/3135244). För data i vila används [transparent data kryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). För data som används används [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
-### <a name="data-discovery-and-classification"></a>Identifiering och klassificering av data
+### <a name="data-discovery-and-classification"></a>Dataidentifiering och -klassificering
 
 [Data identifiering och klassificering](data-discovery-and-classification-overview.md) innehåller funktioner som är inbyggda i Azure SQL Database för att upptäcka, klassificera, märka och skydda känsliga data i dina databaser. Den ger insyn i databas klassificerings tillstånd och spårar åtkomsten till känsliga data i databasen och utanför dess gränser.
 

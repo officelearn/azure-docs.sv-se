@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: f4f79a28dbe8a49e608ca6fae1781a1e19646619
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87448876"
 ---
 # <a name="troubleshoot-input-connections"></a>Felsöka indataanslutningar
@@ -71,7 +71,7 @@ AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1.
 
 Följ dessa steg om du vill lägga till en ny konsument grupp i Event Hubs-instansen:
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 
 2. Leta upp Händelsehubben.
 

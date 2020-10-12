@@ -7,10 +7,10 @@ ms.author: marwolff
 ms.date: 06/23/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 5b15492a36032a53ac81929eb55bce0bc70e040c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335139"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Käll kart stöd för JavaScript-program
@@ -81,7 +81,7 @@ Alla användare på portalen som använder den här funktionen måste minst till
     - Söker till exempel `/static/js/main.4e2ca5fa.chunk.js` efter blobben med namnet `main.4e2ca5fa.chunk.js.map`
 3. Kontrol lera webbläsarens konsol för att se om några fel loggas. Ta med detta i ett support ärende.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Azure-fil kopierings aktivitet](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
 

@@ -8,10 +8,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/23/2017
 ms.openlocfilehash: 6f2af2eed8aa01f35e1813bcd910f3ea22e2a335
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87128853"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Kom igång med U-SQL i Azure Data Lake Analytics
@@ -56,8 +56,8 @@ Lägg märke till frågetecknet bredvid data typen i `Duration` fältet. Det inn
 ### <a name="key-concepts"></a>Viktiga begrepp
 
 * **Rad uppsättnings variabler**: varje frågeuttryck som skapar en rad uppsättning kan tilldelas till en variabel. U-SQL följer namngivnings mönstret T-SQL-variabeln ( `@searchlog` till exempel) i skriptet.
-* Nyckelordet **Extract** läser data från en fil och definierar schemat vid läsning. `Extractors.Tsv`är en inbyggd U-SQL-Extractor för filer med Tabbavgränsade värden. Du kan utveckla anpassade Extraherare.
-* **Utdata** skriver data från en rad uppsättning till en fil. `Outputters.Csv()`är en inbyggd U-SQL-utsparatillfil för att skapa en fil med kommaavgränsade värden. Du kan utveckla anpassade utsparatillfiler.
+* Nyckelordet **Extract** läser data från en fil och definierar schemat vid läsning. `Extractors.Tsv` är en inbyggd U-SQL-Extractor för filer med Tabbavgränsade värden. Du kan utveckla anpassade Extraherare.
+* **Utdata** skriver data från en rad uppsättning till en fil. `Outputters.Csv()` är en inbyggd U-SQL-utsparatillfil för att skapa en fil med kommaavgränsade värden. Du kan utveckla anpassade utsparatillfiler.
 
 ### <a name="file-paths"></a>Fil Sök vägar
 

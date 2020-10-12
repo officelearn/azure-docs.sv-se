@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b78d3cab17b0cc4085c824cf35d4c6037f0e2af5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319868"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Uppgradera från en tidigare version till den senaste
@@ -131,7 +131,7 @@ Det kan finnas situationer där du inte vill att dessa åsidosättningar ska äg
 5. Kör följande cmdlet för att återuppta Schemaläggaren: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
-   > Kom ihåg att köra de nödvändiga stegen för synkronisering vid din tidigaste bekvämlighet. Du kan antingen utföra dessa steg manuellt med hjälp av Synchronization Service Manager eller lägga till åsidosättningarna med cmdleten Set-ADSyncSchedulerConnectorOverride.
+   > Kom ihåg att köra de nödvändiga stegen för synkronisering vid din tidigaste bekvämlighet. Du kan antingen utföra dessa steg manuellt med hjälp av Synchronization Service Manager eller lägga till åsidosättningarna igen med hjälp av Set-ADSyncSchedulerConnectorOverride-cmdleten.
 
 Om du vill lägga till åsidosättningarna för både fullständig import och fullständig synkronisering på en godtycklig koppling kör du följande cmdlet:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 

@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.openlocfilehash: 0ed8b04353c50bff53d074ebdb1efa2a286c8e59
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90086580"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Förhindra anonym offentlig Läs behörighet till behållare och blobbar
@@ -59,7 +59,7 @@ Följ dessa steg om du vill skapa ett mått som spårar anonyma begär Anden:
 
 När du har konfigurerat måttet kommer anonyma begär Anden att visas i grafen. Följande bild visar de anonyma begär Anden som aggregerats under de senaste 30 minuterna.
 
-:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Skärm bild som visar sammanställda anonyma begär Anden mot Blob Storage":::
+:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Skärm bild som visar hur du konfigurerar måttet till att summera BLOB-transaktioner":::
 
 Du kan också konfigurera en varnings regel för att meddela dig när ett visst antal anonyma begär Anden görs mot ditt lagrings konto. Mer information finns i [skapa, Visa och hantera mått aviseringar med hjälp av Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
@@ -85,7 +85,7 @@ Om du vill logga Azure Storage data med Azure Monitor och analysera dem med Azur
 1. Under **kategori information**i avsnittet **logg** väljer du vilka typer av begär Anden som ska loggas. Alla anonyma begär Anden kommer att läsas, så välj **StorageRead** för att avbilda anonyma begär Anden.
 1. Under **mål information**väljer **du skicka till Log Analytics**. Välj din prenumeration och Log Analytics arbets ytan som du skapade tidigare, som du ser i följande bild.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Skärm bild som visar hur du skapar en diagnostisk inställning för loggnings begär Anden":::
+    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Skärm bild som visar hur du konfigurerar måttet till att summera BLOB-transaktioner":::
 
 Efter att du har skapat den diagnostiska inställningen loggas begär anden till lagrings kontot sedan i enlighet med den inställningen. Mer information finns i [skapa diagnostisk inställning för insamling av resurs loggar och mått i Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
@@ -241,7 +241,7 @@ Följ dessa steg om du vill visa Kompatibilitetsrapport i Azure Portal:
 1. Filtrera resultaten för namnet på princip tilldelningen som du skapade i föregående steg. Rapporten visar hur många resurser som inte är kompatibla med principen.
 1. Du kan öka detalj nivån i rapporten för ytterligare information, inklusive en lista över lagrings konton som inte är kompatibla.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Skärm bild som visar Kompatibilitetsrapport för gransknings principen för offentlig BLOB-åtkomst":::
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Skärm bild som visar hur du konfigurerar måttet till att summera BLOB-transaktioner":::
 
 ## <a name="use-azure-policy-to-enforce-authorized-access"></a>Använd Azure Policy för att genomdriva auktoriserad åtkomst
 
@@ -277,7 +277,7 @@ När du har skapat principen med neka-inställningen och tilldelar den till ett 
 
 Följande bild visar det fel som uppstår om du försöker skapa ett lagrings konto som tillåter offentlig åtkomst (standard för ett nytt konto) när en princip med en neka-påverkan kräver att offentlig åtkomst inte tillåts.
 
-:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Skärm bild som visar felet som inträffar när du skapar ett lagrings konto som strider mot principen":::
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Skärm bild som visar hur du konfigurerar måttet till att summera BLOB-transaktioner":::
 
 ## <a name="next-steps"></a>Nästa steg
 

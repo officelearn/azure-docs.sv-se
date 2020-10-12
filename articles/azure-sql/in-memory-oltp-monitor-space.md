@@ -12,20 +12,20 @@ ms.author: jrasnick
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: 2134cf1fda5f0f1699feb46582813d198304f92e
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91616388"
 ---
-# <a name="monitor-in-memory-oltp-storage-in-azure-sql-database-and-azure-sql-managed-instance"></a>Övervaka minnes intern OLTP-lagring i Azure SQL Database och Azure SQL-hanterad instans
+# <a name="monitor-in-memory-oltp-storage-in-azure-sql-database-and-azure-sql-managed-instance"></a>Övervaka In-Memory OLTP-lagring i Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-När du använder [minnes intern OLTP](in-memory-oltp-overview.md)finns data i minnesoptimerade tabeller och table-variabler i minnes intern OLTP-lagring.
+När du använder [minnes intern OLTP](in-memory-oltp-overview.md)finns data i minnesoptimerade tabeller och tabell variabler i In-Memory OLTP-lagring.
 
-## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Ta reda på om data passar in i minnet för minnes intern OLTP-lagring
+## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Ta reda på om data passar i In-Memory OLTP-lagrings höljet
 
-Ta reda på lagrings nivåerna för de olika tjänst nivåerna. Varje Premium-och Affärskritisk tjänst nivå har en maximal lagrings storlek i minnet för OLTP.
+Ta reda på lagrings nivåerna för de olika tjänst nivåerna. Varje Premium-och Affärskritisk tjänst nivå har en maximal In-Memory OLTP-lagrings storlek.
 
 - [DTU-baserade resurs gränser – enskild databas](database/resource-limits-dtu-single-databases.md)
 - [DTU-baserade resurs gränser-elastiska pooler](database/resource-limits-dtu-elastic-pools.md)
@@ -55,9 +55,9 @@ Eller Använd följande fråga för att Visa lagrings belastningen i minnet:
 
 ## <a name="correct-out-of-in-memory-oltp-storage-situations---errors-41823-and-41840"></a>Åtgärda inaktuella minnes fel i OLTP-lagring-fel 41823 och 41840
 
-Genom att gå till lagrings gränsen för minnes intern OLTP i databasen resulterar det i att åtgärderna INSERT, UPDATE, ALTER och CREATE fungerar med fel meddelandet 41823 (för enskilda databaser) eller fel 41840 (för elastiska pooler). Båda felen gör att den aktiva transaktionen avbryts.
+Genom att trycka på In-Memory OLTP-lagrings gränsen i databas resultaten i INSERT-, UPDATE-, ALTER-och CREATE-åtgärder som inte fungerar med fel meddelandet 41823 (för enskilda databaser) eller fel 41840 (för elastiska pooler). Båda felen gör att den aktiva transaktionen avbryts.
 
-Fel meddelandena 41823 och 41840 anger att de minnesoptimerade tabellerna och tabellattribut i databasen eller poolen har nått den maximala lagrings storleken för minnes intern OLTP.
+Fel meddelandena 41823 och 41840 anger att de minnesoptimerade tabellerna och tabellattribut i databasen eller poolen har nått maximal lagrings storlek In-Memory OLTP.
 
 För att lösa det här felet, antingen:
 
@@ -65,7 +65,7 @@ För att lösa det här felet, antingen:
 - Uppgradera tjänst nivån till en med tillräckligt minnes intern lagring för de data du behöver behålla i minnesoptimerade tabeller.
 
 > [!NOTE]
-> I sällsynta fall kan fel 41823 och 41840 vara tillfälliga, vilket innebär att det finns tillräckligt med minnes intern OLTP-lagring och att försök utföra åtgärden igen. Vi rekommenderar därför att både övervaka den övergripande tillgängliga InMemory OLTP-lagring och att försöka igen när du först påträffar fel 41823 eller 41840. Mer information om logik för omprövning finns i [konflikt identifiering och Omförsöks logik med InMemory OLTP](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
+> I sällsynta fall kan fel 41823 och 41840 vara tillfälliga, vilket innebär att det finns tillräckligt med tillgänglig In-Memory OLTP-lagring och försök igen. Vi rekommenderar därför att både övervaka den övergripande tillgängliga In-Memory OLTP-lagring och att försöka igen när du först påträffar fel 41823 eller 41840. Mer information om logik för omprövning finns i [konflikt identifiering och omprövnings logik med In-Memory OLTP](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
 
 ## <a name="next-steps"></a>Nästa steg
 

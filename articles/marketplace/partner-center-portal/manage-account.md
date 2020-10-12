@@ -8,10 +8,10 @@ author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
 ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400697"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Hantera ditt kommersiella Marketplace-konto i Partner Center
@@ -111,7 +111,7 @@ När du har angett statusen för din utbetalnings spärr till **på**, kommer al
 > [!NOTE]
 > Ditt val av **utbetalnings status** gäller för **alla** intäkts källor som betalas via Microsoft Partner Center, inklusive Azure Marketplace, AppSource, Microsoft Store, annonsering osv.). Du kan inte välja olika spärr status för varje intäkts källa.
 
-### <a name="devices"></a>Enheter
+### <a name="devices"></a>Egenskaper
 
 Inställningarna för enhets hantering gäller endast för UWP-publicering. [Läs mer](https://docs.microsoft.com/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info).
 
@@ -265,7 +265,7 @@ Om du vill bevilja åtkomst till Partner Center till ett helt nytt Azure AD-prog
 
 1. Från sidan **användare** (under **konto inställningar**) väljer du **Lägg till Azure AD-program**.
 2. På nästa sida väljer du **nytt Azure AD-program**.
-3. Ange **svars-URL** för det nya Azure AD-programmet. Detta är URL: en där användarna kan logga in och använda ditt Azure AD-program (kallas ibland också appens URL eller inloggnings-URL). **Svars-URL: en** får inte vara längre än 256 tecken och måste vara unik i din katalog.
+3. Ange **svars-URL** för det nya Azure AD-programmet. Detta är URL: en där användarna kan logga in och använda ditt Azure AD-program (kallas ibland även för appens URL eller Sign-On-URL). **Svars-URL: en** får inte vara längre än 256 tecken och måste vara unik i din katalog.
 4. Ange **app-ID-URI** för det nya Azure AD-programmet. Detta är en logisk identifierare för Azure AD-programmet som presenteras när en begäran om enkel inloggning skickas till Azure AD. **App-ID-URI: n** måste vara unik för varje Azure AD-program i din katalog. Detta ID får inte vara längre än 256 tecken. Mer information om app-ID-URI: n finns i [integrera program med Azure Active Directory](../../active-directory/develop/quickstart-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts)).
 5. I avsnittet **roller** anger du roll (er) eller anpassade behörigheter för Azure AD-programmet.
 6. Välj **Spara**.

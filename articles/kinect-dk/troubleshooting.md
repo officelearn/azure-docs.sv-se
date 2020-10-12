@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: fel sökning, uppdatering, bugg, Kinect, feedback, återställning, loggning, tips
 ms.openlocfilehash: 2db7b17ffc8b6595107dbc52fae719aa9f2d15db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277745"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Kända problem och fel sökning i Azure Kinect
@@ -134,7 +134,7 @@ Om du inte sedan utför en [fabriks återställning](https://support.microsoft.c
 - För att dela bild kvalitets problem med teamet kan du:
 
 1) Ta en paus i visningen av [Azure Kinect Viewer](azure-kinect-viewer.md) och ta en skärm bild eller
-2) Ta en inspelning med [Azure Kinect Recorder](azure-kinect-recorder.md), till exempel`k4arecorder.exe -l 5 -r 5 output.mkv`
+2) Ta en inspelning med [Azure Kinect Recorder](azure-kinect-recorder.md), till exempel `k4arecorder.exe -l 5 -r 5 output.mkv`
 
 ## <a name="inconsistent-or-unexpected-device-timestamps"></a>Inkonsekventa eller oväntade tidsstämplar för enheter
 

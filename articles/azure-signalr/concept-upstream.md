@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
 ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89514245"
 ---
 # <a name="upstream-settings"></a>Överordnade inställningar
@@ -82,7 +82,7 @@ När du väljer `ManagedIdentity` måste du aktivera en hanterad identitet i Azu
 3. Lägg till URL: er under **mönster för överordnad URL**. Sedan visas standardvärdet i inställningar som **Hub-regler** .
 4. Om du vill ange inställningar för **Hubbs regler**, **händelse regler**, **kategori regler**och **överordnad autentisering**, väljer du värdet för **nav-regler**. En sida där du kan redigera inställningar visas:
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Information om överordnade inställningar":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Överordnade inställningar":::
 
 5. Om du vill ange en **överordnad autentisering**, se till att du har aktiverat en hanterad identitet först. Välj sedan **Använd hanterad identitet**. Beroende på dina behov kan du välja valfria alternativ under **resurs-ID för autentisering**. Mer information finns i [Managed identiteter för Azure SignalR service](howto-use-managed-identity.md) .
 
@@ -123,7 +123,7 @@ POST
 
 ### <a name="request-header"></a>Begärandehuvud
 
-|Name |Beskrivning|
+|Namn |Beskrivning|
 |---------|---------|
 |X-ASRS-Connection-ID |Anslutnings-ID för klient anslutningen.|
 |X-ASRS – hubb |Hubben som klient anslutningen tillhör.|

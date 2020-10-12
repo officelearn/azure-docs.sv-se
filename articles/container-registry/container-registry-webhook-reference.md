@@ -4,10 +4,10 @@ description: Referens för JSON-nyttolast för webhook-begäranden i ett Azure C
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: 8354ef9db24d5825238155ac567d5d829f9b0d7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74455970"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure Container Registry webhook-referens
@@ -158,7 +158,7 @@ Webhook utlöses när en avbildnings lagrings plats eller ett manifest tas bort.
 |[fokusera](#delete_target)|Komplex typ|Målet för den händelse som utlöste webhook-händelsen.|
 |[anmoda](#delete_request)|Komplex typ|Den begäran som genererade webhook-händelsen.|
 
-### <a name="target"></a><a name="delete_target"></a>fokusera
+### <a name="target"></a><a name="delete_target"></a> fokusera
 
 |Element|Typ|Beskrivning|
 |------------------|----------|-----------|
@@ -166,7 +166,7 @@ Webhook utlöses när en avbildnings lagrings plats eller ett manifest tas bort.
 |`digest`|Sträng|Sammanfattningen av innehållet, som definieras i HTTP API-specifikationen för registret v2.|
 |`repository`|Sträng|Namnet på databasen.|
 
-### <a name="request"></a><a name="delete_request"></a>anmoda
+### <a name="request"></a><a name="delete_request"></a> anmoda
 
 |Element|Typ|Beskrivning|
 |------------------|----------|-----------|
@@ -219,7 +219,7 @@ Webhook utlöses när ett Helm-diagram eller en lagrings plats tas bort.
 |`action`|Sträng|Den åtgärd som utlöste webhook-händelsen.|
 |[fokusera](#chart_delete_target)|Komplex typ|Målet för den händelse som utlöste webhook-händelsen.|
 
-### <a name="target"></a><a name="chart_delete_target"></a>fokusera
+### <a name="target"></a><a name="chart_delete_target"></a> fokusera
 
 |Element|Typ|Beskrivning|
 |------------------|----------|-----------|

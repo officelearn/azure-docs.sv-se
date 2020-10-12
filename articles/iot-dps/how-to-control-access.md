@@ -10,13 +10,13 @@ ms.date: 04/09/2019
 ms.author: wesmc
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 3a374dae89ddf22d33bc44cafd9db3b4b6a9e6fb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336828"
 ---
-# <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Kontrol lera åtkomst till Azure IoT Hub Device Provisioning Service
+# <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Kontrollera åtkomst till Azure IoT Hub Device Provisioning Service
 
 I den här artikeln beskrivs alternativen för att skydda IoT Device Provisioning-tjänsten. Etablerings tjänsten använder *behörigheter* för att bevilja åtkomst till varje slut punkt. Behörigheter begränsar åtkomsten till en tjänst instans baserat på funktioner.
 
@@ -80,7 +80,7 @@ Här är de förväntade värdena:
 | --- | --- |
 | signatur |En HMAC-SHA256 signatur sträng i formatet: `{URL-encoded-resourceURI} + "\n" + expiry` . **Viktigt**: nyckeln avkodas från base64 och används som nyckel för att utföra den HMAC-SHA256 beräkningen.|
 | förfallo |UTF8-strängar för antalet sekunder sedan 00:00:00 UTC på 1 januari 1970. |
-| {URL-kodad – resourceURI} | Gemen URL-kodning för den nedre fall resurs-URI: n. URI-prefix (efter segment) för de slut punkter som kan nås med denna token, med början på värd namnet för IoT Device Provisioning-tjänsten (inget protokoll). Till exempel `mydps.azure-devices-provisioning.net`. |
+| {URL-kodad – resourceURI} | Gemen URL-kodning för den nedre fall resurs-URI: n. URI-prefix (efter segment) för de slut punkter som kan nås med denna token, med början på värd namnet för IoT Device Provisioning-tjänsten (inget protokoll). Exempelvis `mydps.azure-devices-provisioning.net`. |
 | PolicyName |Namnet på den princip för delad åtkomst som denna token refererar till. |
 
 **Anmärkning om prefix**: URI-prefixet beräknas av segment och inte av-tecknen. Till exempel `/a/b` är ett prefix för `/a/b/c` men inte för `/a/bc` .
@@ -178,7 +178,7 @@ Följande referens avsnitt innehåller mer information om hur du styr åtkomsten
 
 I följande tabell visas de behörigheter som du kan använda för att kontrol lera åtkomsten till din IoT Device Provisioning-tjänst.
 
-| Behörighet | Kommentarer |
+| Behörighet | Obs! |
 | --- | --- |
 | **ServiceConfig** |Beviljar åtkomst för att ändra tjänst konfigurationerna. <br/>Den här behörigheten används av Server dels moln tjänster. |
 | **EnrollmentRead** |Ger Läs behörighet till enhets registreringar och registrerings grupper. <br/>Den här behörigheten används av Server dels moln tjänster. |

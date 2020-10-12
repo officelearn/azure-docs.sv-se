@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
 ms.openlocfilehash: ccc7fcd748323e05f21edcfff1535085d2cdbdc7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81421714"
 ---
 Hantering av komprimerat ljud implementeras med [gstreamer](https://gstreamer.freedesktop.org). Av licens skäl GStreamer binärfiler inte kompileras och länkas till tal-SDK: n. I stället måste du använda fördefinierade binärfiler för Android. Information om hur du hämtar färdiga bibliotek finns i [Installera för Android-utveckling](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
-`libgstreamer_android.so` måste anges. Kontrol lera att dina GStreamer-plugin-program `libgstreamer_android.so`är länkade i.
+`libgstreamer_android.so` måste anges. Kontrol lera att dina GStreamer-plugin-program är länkade i `libgstreamer_android.so` .
 
 ```makefile
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \
@@ -21,7 +21,7 @@ GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \
     opus wavparse alaw mulaw flac
 ```
 
-Ett exempel `Android.mk` och `Application.mk` en fil finns nedan. Följ de här stegen för att `gstreamer` skapa det delade`libgstreamer_android.so`objektet:.
+Ett exempel `Android.mk` och en `Application.mk` fil finns nedan. Följ de här stegen för att skapa det `gstreamer` delade objektet: `libgstreamer_android.so` .
 
 ```makefile
 # Android.mk
@@ -108,4 +108,4 @@ ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=armeab
 #ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=x86 NDK_LIBS_OUT=$(pwd)
 ```
 
-När det delade objektet (`libgstreamer_android.so`) är skapat måste programutvecklaren placera det delade objektet i Android-appen, så att det kan läsas in med tal-SDK.
+När det delade objektet ( `libgstreamer_android.so` ) är skapat måste programutvecklaren placera det delade objektet i Android-appen, så att det kan läsas in med tal-SDK.

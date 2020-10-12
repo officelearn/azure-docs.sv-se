@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
 ms.openlocfilehash: eb6029b206e7d47789371ee81e75c4e05c69ee65
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89087201"
 ---
 # <a name="move-azure-event-grid-system-topics-to-another-region"></a>Flytta Azure Event Grid system ämnen till en annan region
@@ -22,7 +22,7 @@ Här följer de övergripande steg som beskrivs i den här artikeln:
 - **Verifiera distributionen**. Kontrol lera att webhooken anropas när du laddar upp en fil till blob-lagringen i mål regionen. 
 - **Slutför flyttningen**genom att ta bort resurser (avsnittet händelse källa och system) från käll regionen. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - Slutför [snabb starten: dirigera Blob Storage-händelser till webb slut punkten med Azure Portal](blob-event-quickstart-portal.md) i käll regionen. Det här steget är **valfritt**. Testa stegen i den här artikeln. Behåll lagrings kontot i en separat resurs grupp från App Service och App Service plan. 
 - Se till att tjänsten Event Grid är tillgänglig i mål regionen. Se [tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
@@ -35,22 +35,7 @@ Kom igång genom att exportera en Resource Manager-mall för resurs gruppen som 
     :::image type="content" source="./media/move-system-topics-across-regions/resource-group-page.png" alt-text="Sidan resurs grupp":::        
 3. På den vänstra menyn väljer du **Exportera mall** under **Inställningar**och väljer sedan **Hämta** i verktygsfältet. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="Storage konto – exportera mall":::        
-5. Leta upp **zip** -filen som du laddade ned från portalen och zippa upp filen till en valfri mapp. Den här zip-filen innehåller mallar och parametrar JSON-filer. 
-1. Öppna **template.js** i valfritt redigerings program. 
-1. URL: en för webhooken har inte exporter ATS till mallen. Gör så här:
-    1. I mallfilen söker du efter **webhook**. 
-    1. I avsnittet **Egenskaper** lägger du till ett kommatecken ( `,` )-tangent i slutet av den sista raden. I det här exemplet är det `"preferredBatchSizeInKilobytes": 64` . 
-    1. Lägg till `endpointUrl` egenskapen med värdet som angetts till webhook-URL: en som visas i följande exempel. 
-
-        ```json
-        "destination": {
-            "properties": {
-                "maxEventsPerBatch": 1,
-                "preferredBatchSizeInKilobytes": 64,
-                "endpointUrl": "https://mysite.azurewebsites.net/api/updates"
-            },
-            "endpointType": "WebHook"
+    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="Sidan resurs grupp"
         }
         ```
 
@@ -91,7 +76,7 @@ Distribuera mallen för att skapa ett lagrings konto och ett system ämne för l
     1. I **ämnes namnet för systemet**anger du ett namn för det system ämne som ska associeras med lagrings kontot.  
     1. För **lagrings konto namnet**anger du ett namn för lagrings kontot som ska skapas i mål regionen. 
 
-        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Distribuera Resource Manager-mall":::
+        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Sidan resurs grupp":::
     5. Välj **Granska + skapa** längst ned på sidan. 
     1. På sidan **Granska + skapa** granskar du inställningarna och väljer **skapa**. 
 
@@ -110,7 +95,7 @@ Så här tar du bort en resurs grupp (källa eller mål) med hjälp av Azure Por
 1. I fönstret Sök högst upp i Azure Portal, Skriv **resurs grupper**och välj **resurs grupper** från Sök resultat. 
 2. Välj den resurs grupp som ska tas bort och välj **ta bort** från verktygsfältet. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/delete-resource-group-button.png" alt-text="Ta bort resursgrupp":::
+    :::image type="content" source="./media/move-system-topics-across-regions/delete-resource-group-button.png" alt-text="Sidan resurs grupp":::
 3. På sidan bekräftelse anger du namnet på resurs gruppen och väljer **ta bort**.  
 
 ## <a name="next-steps"></a>Nästa steg

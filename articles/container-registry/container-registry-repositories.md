@@ -4,10 +4,10 @@ description: Använd Azure Portal för att Visa Azure Container Registry-databas
 ms.topic: article
 ms.date: 01/05/2018
 ms.openlocfilehash: 1da72706d2554610a685f71199ab14af5e30ce1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74456291"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Visa behållare register Arkiv i Azure Portal
@@ -34,7 +34,7 @@ docker push myregistry.azurecr.io/samples/nginx
 
 Så här visar du en lagrings plats:
 
-1. Logga in på [Azure Portal][portal]
+1. Logga in på [Azure-portalen][portal]
 1. Välj den **Azure Container Registry** som du skickade nginx-avbildningen till
 1. Välj **databaser** om du vill visa en lista över de databaser som innehåller avbildningarna i registret
 1. Välj en lagrings plats för att se avbildnings taggarna i den lagrings platsen

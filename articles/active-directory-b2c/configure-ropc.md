@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3dbafac99ebc1b7472bf884647ad5e8657f0de0b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87482863"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure AD B2C
@@ -127,7 +127,7 @@ Ett lyckat svar ser ut som i följande exempel:
 > [!NOTE]
 > När du skapar användare via Graph API måste programmet ha behörigheterna "OpenID", "offline_access" och "profil" från Microsoft Graph.
 
-## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementera med din önskade inbyggda SDK eller Använd app-auth
+## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementera med din önskade inbyggda SDK eller Använd App-Auth
 
 Azure AD B2C-implementeringen uppfyller OAuth 2,0-standarder för offentliga autentiseringsuppgifter för klient resurs ägare och bör vara kompatibel med de flesta klient-SDK: er. Vi har testat det här flödet i stor utsträckning i produktion med AppAuth för iOS och AppAuth för Android. Den senaste informationen finns i [native app SDK för OAuth 2,0 och OpenID Connect implementering av moderna bästa metoder](https://appauth.io/).
 

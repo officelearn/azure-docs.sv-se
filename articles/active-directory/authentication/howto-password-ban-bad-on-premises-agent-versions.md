@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71fd33388cb1bdf7c87c44fb3273c6850122a0cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74847857"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Versions historik för Azure AD Password Protection-Agent
@@ -34,14 +34,14 @@ Utgivnings datum: 3/22/2019
 
 Utgivnings datum: 3/13/2019
 
-* Cmdletarna get-AzureADPasswordProtectionProxy och get-AzureADPasswordProtectionDCAgent rapporterar nu program varu versionen och den aktuella Azure-klienten med följande begränsningar:
+* Nu rapporterar Get-AzureADPasswordProtectionProxy-och Get-AzureADPasswordProtectionDCAgent-cmdletarna program varu versionen och den aktuella Azure-klienten med följande begränsningar:
   * Program varu versionen och Azures klient data är bara tillgängliga för DC-agenter och proxyservrar som kör version 1.2.116.0 eller senare.
   * Azure-klientens data kan inte rapporteras förrän en omregistrering (eller förnyad) av proxyn eller skogen har inträffat.
 * Proxy-tjänsten kräver nu att .NET 4,7 har installerats.
   * .NET 4,7 bör redan vara installerat på en helt uppdaterad Windows Server. Om detta inte är fallet kan du hämta och köra installations programmet som finns i [.NET Framework 4,7 Offline Installer för Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
   * På Server Core-system kan det vara nödvändigt att skicka flaggan/q till .NET 4,7-installations programmet för att det ska gå att slutföra.
 * Proxy-tjänsten stöder nu automatisk uppgradering. Vid automatisk uppgradering används tjänsten Microsoft Azure AD Connect agent Updateer som installeras sida vid sida med proxy-tjänsten. Automatisk uppgradering är aktiverat som standard.
-* Automatisk uppgradering kan aktive ras eller inaktive ras med cmdleten Set-AzureADPasswordProtectionProxyConfiguration. Den aktuella inställningen kan frågas med hjälp av cmdleten Get-AzureADPasswordProtectionProxyConfiguration.
+* Automatisk uppgradering kan aktive ras eller inaktive ras med hjälp av Set-AzureADPasswordProtectionProxyConfiguration cmdlet. Den aktuella inställningen kan frågas med hjälp av Get-AzureADPasswordProtectionProxyConfiguration cmdlet.
 * Tjänstens binärfil för DC-agenttjänsten har döpts om till AzureADPasswordProtectionDCAgent.exe.
 * Tjänstens binärfil för proxy-tjänsten har döpts om till AzureADPasswordProtectionProxy.exe. Brand Väggs regler kan behöva ändras i enlighet med detta om en brand vägg från tredje part används.
   * OBS! om en http-proxy-konfigurationsfil användes i en tidigare proxy-installation måste den byta namn (från *proxyservice.exe.config* till *AzureADPasswordProtectionProxy.exe.config*) efter uppgraderingen.
@@ -55,11 +55,11 @@ Utgivnings datum: 2/1/2019
 Något
 
 * DC-agenten och proxy service stöds nu på Server Core. Mininimum OS-krav är oförändrade från före: Windows Server 2012 för DC-agenter och Windows Server 2012 R2 för proxyservrar.
-* Cmdletarna register-AzureADPasswordProtectionProxy och registrera AzureADPasswordProtectionForest har nu stöd för enhets kods baserade Azure-autentiseringsläge.
-* Cmdlet: en get-AzureADPasswordProtectionDCAgent ignorerar Mangled och/eller ogiltiga tjänst anslutnings punkter. Detta åtgärdar felet där domänkontrollanter ibland skulle visas flera gånger i utdata.
-* Cmdlet: en get-AzureADPasswordProtectionSummaryReport ignorerar Mangled och/eller ogiltiga tjänst anslutnings punkter. Detta åtgärdar felet där domänkontrollanter ibland skulle visas flera gånger i utdata.
+* Cmdletarna Register-AzureADPasswordProtectionProxy och Register-AzureADPasswordProtectionForest har nu stöd för enhets kodsbaserade Azure-autentiseringsläge.
+* Get-AzureADPasswordProtectionDCAgent cmdlet ignorerar Mangled och/eller ogiltiga tjänst anslutnings punkter. Detta åtgärdar felet där domänkontrollanter ibland skulle visas flera gånger i utdata.
+* Get-AzureADPasswordProtectionSummaryReport cmdlet ignorerar Mangled och/eller ogiltiga tjänst anslutnings punkter. Detta åtgärdar felet där domänkontrollanter ibland skulle visas flera gånger i utdata.
 * Proxy PowerShell-modulen är nu registrerad från%ProgramFiles%\WindowsPowerShell\Modules. Datorns miljö variabel för PSModulePath ändras inte längre.
-* En ny get-AzureADPasswordProtectionProxy-cmdlet har lagts till för att hjälpa till att identifiera registrerade proxyservrar i en skog eller domän.
+* En ny Get-AzureADPasswordProtectionProxy-cmdlet har lagts till för att hjälpa till att identifiera registrerade proxyservrar i en skog eller domän.
 * DC-agenten använder en ny mapp i Sysvol-resursen för replikering av lösen ords principer och andra filer.
 
    Plats för gammal mapp:
@@ -110,8 +110,8 @@ Utgivnings datum: 8/17/2018
 
 Fixe
 
-* Registrera-AzureADPasswordProtectionProxy och registrera-AzureADPasswordProtectionForest stöder nu Multi-Factor Authentication
-* Register-AzureADPasswordProtectionProxy kräver en WS2012 eller en senare domänkontrollant i domänen för att undvika krypterings fel.
+* Register-AzureADPasswordProtectionProxy och Register-AzureADPasswordProtectionForest stöder nu Multi-Factor Authentication
+* Register-AzureADPasswordProtectionProxy kräver en WS2012 eller senare domänkontrollant i domänen för att undvika krypterings fel.
 * DC-agenttjänsten är mer tillförlitlig om du begär en ny lösen ords princip från Azure vid start.
 * DC-agenttjänsten begär en ny lösen ords princip från Azure varje timme om det behövs, men kommer nu att göra det på en slumpmässigt vald start tid.
 * DC-agenttjänsten kommer inte längre att orsaka en obegränsad fördröjning i New DC-annonsering när den installeras på en server innan dess befordran som en replik.

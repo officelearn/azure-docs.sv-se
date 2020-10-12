@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 tags: connectors
 ms.openlocfilehash: 5348ade1ba6eec6cbd360849411b4520cb3c2b19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74787344"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Fördröj körningen av nästa åtgärd i Azure Logic Apps
@@ -28,7 +28,7 @@ Här följer några exempel på hur du kan använda dessa åtgärder:
 
 * Fördröj ditt arbets flöde tills ett HTTP-anrop har slutförts innan du återupptar och hämtar data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -52,8 +52,8 @@ Här följer några exempel på hur du kan använda dessa åtgärder:
 
    | Egenskap | JSON-namn | Krävs | Typ | Beskrivning |
    |----------|-----------|----------|------|-------------|
-   | Antal | count | Ja | Integer | Antalet tidsenheter som ska förskjutas |
-   | Enhet | unit | Ja | Sträng | Tidsenhet, till exempel: `Second` ,,, `Minute` , `Hour` `Day` `Week` eller`Month` |
+   | Antal | count | Ja | Heltal | Antalet tidsenheter som ska förskjutas |
+   | Enhet | unit | Ja | Sträng | Tidsenhet, till exempel: `Second` ,,, `Minute` , `Hour` `Day` `Week` eller `Month` |
    ||||||
 
 1. Lägg till andra åtgärder som du vill köra i arbets flödet.
@@ -78,7 +78,7 @@ Här följer några exempel på hur du kan använda dessa åtgärder:
 
    | Egenskap | JSON-namn | Krävs | Typ | Beskrivning |
    |----------|-----------|----------|------|-------------|
-   | Tidsstämpel | timestamp | Ja | Sträng | Slutdatum och slut tid för att återuppta arbets flödet med det här formatet: <p>ÅÅÅÅ-MM-DDThh: mm: ssZ <p>Om du till exempel vill ha 18 september 2017 vid 2:00 PM, anger du "2017-09-18T14:00:00Z". <p>**Obs:** Tids formatet måste följa [ISO 8601-datum](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) /tid-specifikationen i [UTC-datum](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en UTC- [förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Utan en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). |
+   | Timestamp | timestamp | Ja | Sträng | Slutdatum och slut tid för att återuppta arbets flödet med det här formatet: <p>ÅÅÅÅ-MM-DDThh: mm: ssZ <p>Om du till exempel vill ha 18 september 2017 vid 2:00 PM, anger du "2017-09-18T14:00:00Z". <p>**Obs:** Tids formatet måste följa [ISO 8601-datum](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) /tid-specifikationen i [UTC-datum](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en UTC- [förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Utan en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). |
    ||||||
 
 1. Lägg till andra åtgärder som du vill köra i arbets flödet.

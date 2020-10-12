@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
 ms.openlocfilehash: 5427e9f996fb77d455aa8064fc7cb1c65e1fcf7e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74805985"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Förbereda data för att skapa en anpassad röst
@@ -53,15 +53,15 @@ Om du vill skapa ett bra röst teckensnitt skapar du inspelningarna i ett tyst r
 
 ### <a name="audio-files"></a>Ljudfiler
 
-Varje ljudfil bör innehålla en enda uttryck (en enda mening eller ett enda sätt i ett dialog system) som är mindre än 15 sekunder långt. Alla filer måste vara på samma talade språk. Anpassade text till tal-röster med flera språk stöds inte, med undantag för kinesiska-engelska bi-språk. Varje ljudfil måste ha ett unikt numeriskt fil namn med fil namns tillägget. wav.
+Varje ljudfil bör innehålla en enda uttryck (en enda mening eller ett enda sätt i ett dialog system) som är mindre än 15 sekunder långt. Alla filer måste vara på samma talade språk. Anpassade text till tal-röster med flera språk stöds inte, med undantag för Chinese-English bi-språk. Varje ljudfil måste ha ett unikt numeriskt fil namn med fil namns tillägget. wav.
 
 Följ dessa rikt linjer när du förbereder ljud.
 
 | Egenskap | Värde |
 | -------- | ----- |
-| Fil format | RIFF (. wav), grupperad i en. zip-fil |
+| Filformat | RIFF (. wav), grupperad i en. zip-fil |
 | Samplings frekvens | Minst 16 000 Hz |
-| Exempel format | PCM, 16-bitars |
+| Samplingsformat | PCM, 16-bitars |
 | Filnamn | Numeriskt, med fil namns tillägget. wav. Inga dubbla fil namn tillåts. |
 | Ljud längd | Kortare än 15 sekunder |
 | Arkiv format | .zip |
@@ -76,7 +76,7 @@ Avskrifts filen är en textfil med oformaterad text. Använd dessa rikt linjer f
 
 | Egenskap | Värde |
 | -------- | ----- |
-| Fil format | Oformaterad text (. txt) |
+| Filformat | Oformaterad text (. txt) |
 | Kodnings format | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE eller UTF-16-vara. För zh-CN-, ANSI/ASCII-och UTF-8-kodningar stöds inte. |
 | antal yttrande per rad | **En** – varje rad i avskrifts filen ska innehålla namnet på en av ljudfilerna följt av motsvarande avskrift. Filnamnet och transkriptionen ska separeras med ett tabbtecken (\t). |
 | Maximal filstorlek | 2048 MB |
@@ -106,13 +106,13 @@ Följ dessa rikt linjer när du förbereder ljud för segmentering.
 
 | Egenskap | Värde |
 | -------- | ----- |
-| Fil format | RIFF (. wav) med en samplings frekvens på minst 16 kHz – 16-bitars i PCM eller. mp3 med en bit hastighet på minst 256 kbit/s, grupperad i en. zip-fil |
+| Filformat | RIFF (. wav) med en samplings frekvens på minst 16 kHz – 16-bitars i PCM eller. mp3 med en bit hastighet på minst 256 kbit/s, grupperad i en. zip-fil |
 | Filnamn | ASCII-och Unicode-tecken stöds. Dubbla namn tillåts inte. |
 | Ljud längd | Längre än 20 sekunder |
 | Arkiv format | .zip |
 | Maximal Arkiv storlek | 2048 MB |
 
-Alla ljudfiler ska grupperas i en zip-fil. Det är OK att skicka WAV-filer och. mp3-filer till ett enda ljud-zip. Du kan till exempel Ladda upp en zip-fil som innehåller en ljudfil med namnet "kingstory. wav", 45-Second-Long och ett annat ljud med namnet "queenstory. mp3", 200-sekund-lång. Alla. mp3-filer omvandlas till. wav-formatet efter bearbetning.
+Alla ljudfiler ska grupperas i en zip-fil. Det är OK att skicka WAV-filer och. mp3-filer till ett enda ljud-zip. Du kan till exempel Ladda upp en zip-fil som innehåller en ljudfil med namnet "kingstory. wav", 45-Second-Long och ett annat ljud med namnet "queenstory.mp3", 200-sekund-lång. Alla. mp3-filer omvandlas till. wav-formatet efter bearbetning.
 
 ### <a name="transcripts"></a>Avskrifter
 
@@ -120,13 +120,13 @@ Avskrifter måste förberedas enligt de specifikationer som anges i den här tab
 
 | Egenskap | Värde |
 | -------- | ----- |
-| Fil format | Oformaterad text (. txt), grupperad i en. zip |
+| Filformat | Oformaterad text (. txt), grupperad i en. zip |
 | Filnamn | Använd samma namn som den matchande ljud filen |
 | Kodnings format | UTF-8-endast struktur |
 | antal yttrande per rad | Obegränsad |
 | Maximal filstorlek | 2048 MB |
 
-Alla avskrifts filer i den här data typen ska grupperas i en zip-fil. Du har till exempel laddat upp en zip-fil som innehåller en ljudfil med namnet "kingstory. wav", 45 sekunder och en annan med namnet "queenstory. mp3", 200 sekunder lång. Du måste ladda upp en annan zip-fil som innehåller två avskrifter, en med namnet "kingstory. txt", den andra som är queenstory. txt. I varje oformaterad textfil kommer du att ange en fullständig korrekt avskrift för det matchande ljudet.
+Alla avskrifts filer i den här data typen ska grupperas i en zip-fil. Du har exempelvis laddat upp en zip-fil som innehåller en ljudfil med namnet "kingstory. wav", 45 sekunder och en annan med namnet "queenstory.mp3", 200 sekunder lång. Du måste ladda upp en annan zip-fil som innehåller två avskrifter, en med namnet kingstory.txt, den andra queenstory.txt. I varje oformaterad textfil kommer du att ange en fullständig korrekt avskrift för det matchande ljudet.
 
 När din data uppsättning har laddats upp hjälper vi dig att segmentera ljud filen i yttranden baserat på avskriften. Du kan kontrol lera de segmenterade yttranden och de matchande avskrifterna genom att hämta data uppsättningen. Unika ID: n tilldelas automatiskt till segmentets yttranden. Det är viktigt att du ser till att avskrifterna du anger är 100% korrekta. Fel i avskrifterna kan minska noggrannheten under ljud segmentering och ger ytterligare kvalitets förluster i den utbildnings fas som kommer senare.
 
@@ -141,7 +141,7 @@ Följ dessa rikt linjer när du förbereder ljud.
 
 | Egenskap | Värde |
 | -------- | ----- |
-| Fil format | RIFF (. wav) med en samplings frekvens på minst 16 kHz – 16-bitars i PCM eller. mp3 med en bit hastighet på minst 256 kbit/s, grupperad i en. zip-fil |
+| Filformat | RIFF (. wav) med en samplings frekvens på minst 16 kHz – 16-bitars i PCM eller. mp3 med en bit hastighet på minst 256 kbit/s, grupperad i en. zip-fil |
 | Filnamn | ASCII-och Unicode-tecken stöds. Inget dubblettnamn tillåts. |
 | Ljud längd | Längre än 20 sekunder |
 | Arkiv format | .zip |

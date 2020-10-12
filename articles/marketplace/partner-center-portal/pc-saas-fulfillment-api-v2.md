@@ -8,10 +8,10 @@ ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 4a98207ef5b03f77a4f741894ec210f7551c5933
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378142"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>SaaS-API version 2 på den kommersiella marknaden
@@ -588,7 +588,7 @@ Partnern får också ett webhook-meddelande när åtgärden är redo att slutfö
 
 |  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  URL för att hämta åtgärdens status.  Till exempel `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
+|  `Operation-Location`        |  URL för att hämta åtgärdens status.  Exempelvis `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
 
 Felkod: 400 Felaktig begäran: verifierings fel.
 
@@ -653,7 +653,7 @@ Partnern får också ett webhook-meddelande när åtgärden är redo att slutfö
 
 |  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  Länka till en resurs för att få åtgärdens status.  Till exempel `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`.  |
+|  `Operation-Location`        |  Länka till en resurs för att få åtgärdens status.  Exempelvis `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`.  |
 
 Felkod: 400 Felaktig begäran: verifierings fel.
 
@@ -718,7 +718,7 @@ Partnern får också ett webhook-meddelande när åtgärden har slutförts på M
 
 |  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  Länka till en resurs för att få åtgärdens status.  Till exempel `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
+|  `Operation-Location`        |  Länka till en resurs för att få åtgärdens status.  Exempelvis `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
 
 Felkod: 400 Felaktig begäran.  Ta bort finns inte i `allowedCustomerOperations` listan för den här SaaS-prenumerationen.
 

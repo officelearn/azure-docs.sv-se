@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417886"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Webhook-aktivitet i Azure Data Factory
@@ -53,7 +53,7 @@ En webhook-aktivitet kan styra körningen av pipeliner via din anpassade kod. Me
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 **Namn** | Namnet på webhook-aktiviteten. | Sträng | Ja |
 **bastyp** | Måste vara inställt på "webhook". | Sträng | Ja |
@@ -61,15 +61,15 @@ Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 **adresser** | Mål slut punkten och sökvägen. | En sträng eller ett uttryck med **resultType** -värdet för en sträng. | Ja |
 **sidhuvud** | Huvuden som skickas till begäran. Här är ett exempel som anger språk och typ på en begäran: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | En sträng eller ett uttryck med **resultType** -värdet för en sträng. | Ja. En `Content-Type` rubrik som `"headers":{ "Content-Type":"application/json"}` är obligatorisk. |
 **brödtext** | Representerar den nytto last som skickas till slut punkten. | Giltigt JSON eller ett uttryck med **resultType** -värdet för JSON. Se [nytto Last schema för begäran](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) om schemat för nytto lasten för begäran. | Ja |
-**anspråksautentisering** | Autentiseringsmetoden som används för att anropa slut punkten. De typer som stöds är "grundläggande" och "ClientCertificate". Mer information finns i [Autentisering](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Om autentisering inte krävs utelämnar du den här egenskapen. | En sträng eller ett uttryck med **resultType** -värdet för en sträng. | Nej |
-**standardvärde** | Hur länge aktiviteten väntar på att återanropet som anges av **callBackUri** ska anropas. Standardvärdet är 10 minuter ("00:10:00"). Värdena har formatet TimeSpan *d*. *HH*:*mm*:*SS*. | Sträng | Nej |
-**Rapportera status vid motringning** | Låter en användare rapportera den misslyckade statusen för en webhook-aktivitet. | Boolesk | Nej |
+**anspråksautentisering** | Autentiseringsmetoden som används för att anropa slut punkten. De typer som stöds är "grundläggande" och "ClientCertificate". Mer information finns i [Autentisering](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Om autentisering inte krävs utelämnar du den här egenskapen. | En sträng eller ett uttryck med **resultType** -värdet för en sträng. | Inga |
+**standardvärde** | Hur länge aktiviteten väntar på att återanropet som anges av **callBackUri** ska anropas. Standardvärdet är 10 minuter ("00:10:00"). Värdena har formatet TimeSpan *d*. *HH*:*mm*:*SS*. | Sträng | Inga |
+**Rapportera status vid motringning** | Låter en användare rapportera den misslyckade statusen för en webhook-aktivitet. | Boolesk | Inga |
 
 ## <a name="authentication"></a>Autentisering
 
 En webhook-aktivitet stöder följande typer av autentisering.
 
-### <a name="none"></a>Ingen
+### <a name="none"></a>Inget
 
 Om autentisering inte krävs ska du inte inkludera egenskapen **Authentication** .
 

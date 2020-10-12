@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 6699178e514f4d25666305f3251e8eaf9d28e6dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417448"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Kopiera data från Concur med Azure Data Factory (för hands version)
@@ -51,15 +51,15 @@ I följande avsnitt finns information om egenskaper som används för att defini
 
 Följande egenskaper stöds för den länkade tjänsten Concur:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **Concur** | Ja |
 | ClientID | Program client_id som tillhandahålls av Concur app Management.  | Ja |
 | användarnamn | Det användar namn som du använder för att komma åt Concur-tjänsten.  | Ja |
 | password | Lösen ordet som motsvarar det användar namn som du angav i fältet användar namn. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | Nej |
-| useHostVerification | Anger om värd namnet i Server certifikatet måste matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | Nej |
-| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | Nej |
+| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | Inga |
+| useHostVerification | Anger om värd namnet i Server certifikatet måste matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | Inga |
+| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | Inga |
 
 **Exempel:**
 
@@ -86,7 +86,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Concur anger du egenskapen type för data uppsättningen till **ConcurObject**. Det finns ingen ytterligare typ bestämd egenskap i den här typen av data uppsättning. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **ConcurObject** | Ja |
 | tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
@@ -117,7 +117,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Concur anger du käll typen i kopierings aktiviteten till **ConcurSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **ConcurSource** | Ja |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM Opportunities where Id = xxx "`. | Nej (om "tableName" i data uppsättningen har angetts) |

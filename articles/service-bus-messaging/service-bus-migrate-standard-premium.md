@@ -4,10 +4,10 @@ description: Guide för att tillåta migrering av befintliga Azure Service Bus s
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85340742"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrera befintliga Azure Service Bus standard namn områden till Premium-nivån
@@ -211,7 +211,7 @@ Om du däremot kan migrera under ett planerat underhåll/underhåll-fönster och
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om [skillnaderna mellan standard-och Premium-meddelanden](./service-bus-premium-messaging.md).
-* Läs mer om [återställnings aspekterna med hög tillgänglighet och geo-haverier för Service Bus Premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
+* Läs mer om [återställnings aspekterna med hög tillgänglighet och Geo-Disaster för Service Bus Premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
 
 [Landnings sida för migrering]: ./media/service-bus-standard-premium-migration/1.png
 [Installations namn område]: ./media/service-bus-standard-premium-migration/2.png

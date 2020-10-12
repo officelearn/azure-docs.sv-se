@@ -4,10 +4,10 @@ description: Beskriver de funktioner som används i en Azure Resource Manager ma
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: c78e9481e6f2ba1f17389992aab2712719fc4c3b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378414"
 ---
 # <a name="arm-template-functions"></a>ARM-mallens funktioner
@@ -40,14 +40,14 @@ Resource Manager innehåller flera funktioner för att arbeta med matriser.
 
 * [matris](template-functions-array.md#array)
 * [concat](template-functions-array.md#concat)
-* [contains](template-functions-array.md#contains)
+* [ingår](template-functions-array.md#contains)
 * [createArray](template-functions-array.md#createarray)
 * [tomt](template-functions-array.md#empty)
 * [förstagångskörningen](template-functions-array.md#first)
 * [överlappning](template-functions-array.md#intersection)
 * [pågå](template-functions-array.md#last)
 * [length](template-functions-array.md#length)
-* [min](template-functions-array.md#min)
+* [minimum](template-functions-array.md#min)
 * [bekräftat](template-functions-array.md#max)
 * [intervall](template-functions-array.md#range)
 * [Ignorera](template-functions-array.md#skip)
@@ -66,7 +66,7 @@ Resource Manager innehåller flera funktioner för att arbeta med matriser.
 Resource Manager innehåller flera funktioner för att göra jämförelser i dina mallar.
 
 * [coalesce](template-functions-comparison.md#coalesce)
-* [lika med](template-functions-comparison.md#equals)
+* [är lika med](template-functions-comparison.md#equals)
 * [mindre än](template-functions-comparison.md#less)
 * [mindre än eller lika med](template-functions-comparison.md#lessorequals)
 * [större än](template-functions-comparison.md#greater)
@@ -128,7 +128,7 @@ Resource Manager innehåller följande funktioner för att arbeta med heltal:
 * [div](template-functions-numeric.md#div)
 * [float](template-functions-numeric.md#float)
 * [int](template-functions-numeric.md#int)
-* [min](template-functions-numeric.md#min)
+* [minimum](template-functions-numeric.md#min)
 * [bekräftat](template-functions-numeric.md#max)
 * [rest](template-functions-numeric.md#mod)
 * [mul](template-functions-numeric.md#mul)
@@ -140,7 +140,7 @@ Resource Manager innehåller följande funktioner för att arbeta med heltal:
 
 Resource Manager innehåller flera funktioner för att arbeta med objekt.
 
-* [contains](template-functions-object.md#contains)
+* [ingår](template-functions-object.md#contains)
 * [tomt](template-functions-object.md#empty)
 * [överlappning](template-functions-object.md#intersection)
 * [utgör](template-functions-object.md#json)
@@ -215,7 +215,7 @@ Resource Manager innehåller följande funktioner för att arbeta med strängar:
 * [base64ToJson](template-functions-string.md#base64tojson)
 * [base64ToString](template-functions-string.md#base64tostring)
 * [concat](template-functions-string.md#concat)
-* [contains](template-functions-string.md#contains)
+* [ingår](template-functions-string.md#contains)
 * [dataUri](template-functions-string.md#datauri)
 * [dataUriToString](template-functions-string.md#datauritostring)
 * [tomt](template-functions-string.md#empty)

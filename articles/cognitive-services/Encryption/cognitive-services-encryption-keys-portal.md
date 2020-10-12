@@ -1,5 +1,5 @@
 ---
-title: Kundhanterade nycklar för Cognitive Services
+title: Customer-Managed nycklar för Cognitive Services
 titleSuffix: Cognitive Services
 description: Lär dig hur du använder Azure Portal för att konfigurera Kundhanterade nycklar med Azure Key Vault. Med Kundhanterade nycklar kan du skapa, rotera, inaktivera och återkalla åtkomst kontroller.
 services: cognitive-services
@@ -9,15 +9,15 @@ ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
 ms.openlocfilehash: 1369f30c4a3bcb0a391a5f2b2a63191590afd622
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84310707"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-for-cognitive-services"></a>Konfigurera Kundhanterade nycklar med Azure Key Vault för Cognitive Services
 
-Processen för att aktivera Kundhanterade nycklar med Azure Key Vault för Cognitive Services varierar efter produkt. Använd de här länkarna för tjänstspecifika instruktioner:
+Processen för att aktivera Customer-Managed nycklar med Azure Key Vault för Cognitive Services varierar efter produkt. Använd de här länkarna för tjänstspecifika instruktioner:
 
 ## <a name="vision"></a>Visuellt innehåll
 
@@ -39,4 +39,4 @@ Processen för att aktivera Kundhanterade nycklar med Azure Key Vault för Cogni
 ## <a name="next-steps"></a>Nästa steg
 
 * [Vad är Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
-* [Formulär för Cognitive Services kundhanterad nyckel](https://aka.ms/cogsvc-cmk)
+* [Formulär för begäran om Cognitive Services Customer-Managed nyckel](https://aka.ms/cogsvc-cmk)

@@ -4,10 +4,10 @@ description: Lär dig hur Azure Backup kan kryptera dina säkerhetskopierade dat
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378295"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Kryptering av säkerhets kopierings data med Kundhanterade nycklar
@@ -31,7 +31,7 @@ I den här artikeln beskrivs följande:
 
 - Den här funktionen **stöder för närvarande inte säkerhets kopiering med mars-agenten**och du kanske inte kan använda ett CMK-krypterat valv för samma. MARS-agenten använder en kryptering baserad på användar lösen fras. Den här funktionen stöder inte heller säkerhets kopiering av klassiska virtuella datorer.
 
-- Den här funktionen är inte relaterad till [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), som använder gästkod kryptering av en virtuell dators diskar med BitLocker (för Windows) och dm-crypt (för Linux)
+- Den här funktionen är inte relaterad till [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), som använder gästkod kryptering av en virtuell dators diskar med BitLocker (för Windows) och DM-Crypt (för Linux)
 
 - Recovery Services-valvet kan bara krypteras med nycklar som lagras i en Azure Key Vault, som finns i **samma region**. Nycklar måste också vara **RSA 2048-nycklar** enbart och ska vara i **aktiverat** läge.
 

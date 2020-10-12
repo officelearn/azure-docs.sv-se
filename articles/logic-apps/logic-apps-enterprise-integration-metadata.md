@@ -9,17 +9,17 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/17/2019
 ms.openlocfilehash: bc119f1ce8efb821781dabfb9dd259cc5c8d9c23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74792466"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Hantera metadata för artefakter i integrationskonton med Azure Logic Apps och Enterprise-integrationspaket
 
 Du kan definiera anpassade metadata för artefakter på integrationskonton och hämta dessa metadata under körningen för din logikapp att använda. Du kan till exempel tillhandahålla metadata för artefakter, till exempel partner, avtal, scheman och kartor – alla lagra metadata med nyckel/värde-par. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
 
@@ -87,11 +87,11 @@ Du kan definiera anpassade metadata för artefakter på integrationskonton och h
       |----------|----------|-------|-------------| 
       | **Metod** | Ja | <*åtgärd att köra*> | HTTP-åtgärden som ska köras på artefakten. Den här HTTP-åtgärden använder till exempel metoden **Get** . | 
       | **URI** | Ja | <*metadata-plats*> | Om du vill komma åt `routingUrl` metadata-värdet från den artefakt du hämtade kan du använda ett uttryck, till exempel: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
-      | **Rubriker** | No | <*rubrik – värden*> | Eventuella sidhuvuds utdata från den utlösare som du vill skicka till HTTP-åtgärden. Om du till exempel vill skicka utlösarens `headers` egenskaps värde: du kan använda ett uttryck, till exempel: <p>`@triggeroutputs()['headers']` | 
-      | **Brödtext** | No | <*brödtext – innehåll*> | Annat innehåll som du vill skicka genom HTTP-åtgärdens `body` egenskap. I det här exemplet överförs artefaktens `properties` värden till HTTP-åtgärden: <p>1. Klicka inuti egenskapen **brödtext** så att listan med dynamiskt innehåll visas. Om inga egenskaper visas väljer du **Visa fler**. <br>2. gå till listan med dynamiskt innehåll och välj **Egenskaper**under **integrations kontots artefakt sökning**. | 
+      | **Sidhuvuden** | Inga | <*rubrik – värden*> | Eventuella sidhuvuds utdata från den utlösare som du vill skicka till HTTP-åtgärden. Om du till exempel vill skicka utlösarens `headers` egenskaps värde: du kan använda ett uttryck, till exempel: <p>`@triggeroutputs()['headers']` | 
+      | **Brödtext** | Inga | <*brödtext – innehåll*> | Annat innehåll som du vill skicka genom HTTP-åtgärdens `body` egenskap. I det här exemplet överförs artefaktens `properties` värden till HTTP-åtgärden: <p>1. Klicka inuti egenskapen **brödtext** så att listan med dynamiskt innehåll visas. Om inga egenskaper visas väljer du **Visa fler**. <br>2. gå till listan med dynamiskt innehåll och välj **Egenskaper**under **integrations kontots artefakt sökning**. | 
       |||| 
 
-      Ett exempel:
+      Exempel:
 
       ![Ange värden och uttryck för HTTP-åtgärd](media/logic-apps-enterprise-integration-metadata/add-http-action-values.png)
 

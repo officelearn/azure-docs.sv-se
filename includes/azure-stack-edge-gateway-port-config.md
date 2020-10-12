@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 12/16/2019
 ms.author: alkohli
 ms.openlocfilehash: baf18ae0263215e6ff83570557255d06c3117fd4
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89085273"
 ---
-| Port nr.| In eller ut | Port omfång| Obligatorisk|   Anteckningar |   |
+| Port nr.| In eller ut | Port omfång| Krävs|   Obs! |   |
 |--------|-----|-----|-----------|----------|-----------|
 | TCP 80 (HTTP)|Ut|WAN |Inga|Utgående port används för Internet åtkomst för att hämta uppdateringar. <br>Den utgående webbproxyn är användare konfigurerbar. |
 | TCP 443 (HTTPS)|Ut|WAN|Ja|Utgående port används för att komma åt data i molnet.<br>Den utgående webbproxyn är användare konfigurerbar.|

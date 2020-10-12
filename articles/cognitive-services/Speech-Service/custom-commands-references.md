@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 83725a3839d36fc753bb43803e67acaca7571a6e
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85851833"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Koncept och definitioner för anpassade kommandon
@@ -46,7 +46,7 @@ En parameter identifieras av egenskapen Name. Du bör alltid ge ett beskrivande 
 ### <a name="isglobal"></a>IsGlobal
 Den här kryss rutan anger om omfånget för den här parametern delas mellan alla kommandon i programmet. Om en parameter är global kan dess värde tillhandahållas från alla kommando områden. När ett värde har tilldelats kan det refereras från något av kommandona. 
 
-### <a name="required"></a>Obligatorisk
+### <a name="required"></a>Krävs
 Den här kryss rutan anger om ett värde för den här parametern krävs för kommando uppfyllelse eller slut för ande. Du måste konfigurera svar för att användaren ska kunna ange ett värde om en parameter har marker ATS som obligatorisk.
 
 ### <a name="type"></a>Typ

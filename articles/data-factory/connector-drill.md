@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
 ms.openlocfilehash: 050037748969fe76dd1be9db80d68fb23ccd7940
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417393"
 ---
 # <a name="copy-data-from-drill-using-azure-data-factory"></a>Kopiera data från detalj nivån med Azure Data Factory
@@ -35,7 +35,7 @@ Du kan kopiera data från detalj nivån till alla mottagar data lager som stöds
 
 Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -49,11 +49,11 @@ I följande avsnitt finns information om egenskaper som används för att defini
 
 Följande egenskaper stöds för den länkade tjänsten:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **detaljgranska** | Ja |
 | Begär | En ODBC-anslutningssträng för att ansluta till en detalj nivå. <br/>Du kan också ställa in lösen ord i Azure Key Vault och hämta `pwd` konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
-| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Nej |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Inga |
 
 **Exempel:**
 
@@ -106,7 +106,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från detalj nivån anger du egenskapen type för data uppsättningen till **DrillTable**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **DrillTable** | Ja |
 | schema | Schemats namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
@@ -138,7 +138,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från en detalj nivå anger du käll typen i kopierings aktiviteten till **DrillSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **DrillSource** | Ja |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |

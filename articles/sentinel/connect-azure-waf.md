@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: yelevin
 ms.openlocfilehash: 8f21b415ef36442d6ac1aac518cd1327f70b8927
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88264076"
 ---
 # <a name="connect-data-from-azure-web-application-firewall-waf"></a>Ansluta data från Azure Web Application-brandväggen (WAF)
@@ -21,7 +21,7 @@ ms.locfileid: "88264076"
 Webb program är alltmer riktade mot skadliga attacker som utnyttjar ofta kända sårbarheter. Azure brand vägg för webbaserade program (WAF) tillhandahåller centraliserat skydd av dina webb program från vanliga sårbarheter och hot, till exempel kod inmatning och skript körning över olika platser. Azure-WAF kan distribueras i [Azure Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) -tjänsten, [Azures frontend](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview) -tjänst och via en [Azure Content Delivery Network-WAF (CDN)](https://docs.microsoft.com/azure/web-application-firewall/cdn/cdn-overview) (den aktuella för närvarande i offentlig för hands version).
 Du kan ansluta Azure WAF-loggar till Azure Sentinel, så att du kan visa loggdata i arbets böcker, använda den för att skapa anpassade aviseringar och införliva den för att förbättra din undersökning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha läs-och Skriv behörighet på Azure Sentinel-arbetsytan.
 

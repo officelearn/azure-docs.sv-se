@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/7/2020
 ms.openlocfilehash: bea32b3b60c9013ea223513c95629092b9ab231b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86203309"
 ---
 # <a name="high-availability-in-azure-database-for-mariadb"></a>Hög tillgänglighet i Azure Database for MariaDB
@@ -60,8 +60,8 @@ Här följer några fel scenarier som kräver användar åtgärd för att åters
 
 | **Scenario** | **Återställnings plan** |
 | ---------- | ---------- |
-| <b>Regions haveri | En regions haveri är en sällsynt händelse. Men om du behöver skydd från ett regions haveri kan du konfigurera en eller flera Läs repliker i andra regioner för haveri beredskap (DR). (Mer information finns i [den här artikeln](howto-read-replicas-portal.md) om att skapa och hantera Läs repliker). I händelse av ett problem på regions nivå kan du manuellt befordra den skrivskyddade replik som kon figurer ATS i den andra regionen som din produktions databas server. |
-| <b>Logiska/användar fel | Återställning från användar fel, till exempel oavsiktligt borttagna tabeller eller felaktigt uppdaterade data, innebär att utföra en [tidpunkts återställning](concepts-backup.md) (PITR), genom att återställa och återställa data tills tiden strax innan felet uppstod.<br> <br>  Om du bara vill återställa en delmängd av databaser eller vissa tabeller i stället för alla databaser på databas servern, kan du återställa databas servern i en ny instans, exportera tabellen/tabellerna via [mysqldump](howto-migrate-dump-restore.md)och sedan använda [restore](howto-migrate-dump-restore.md#restore-your-mariadb-database) för att återställa dessa tabeller till databasen. |
+| <b> Regions haveri | En regions haveri är en sällsynt händelse. Men om du behöver skydd från ett regions haveri kan du konfigurera en eller flera Läs repliker i andra regioner för haveri beredskap (DR). (Mer information finns i [den här artikeln](howto-read-replicas-portal.md) om att skapa och hantera Läs repliker). I händelse av ett problem på regions nivå kan du manuellt befordra den skrivskyddade replik som kon figurer ATS i den andra regionen som din produktions databas server. |
+| <b> Logiska/användar fel | Återställning från användar fel, till exempel oavsiktligt borttagna tabeller eller felaktigt uppdaterade data, innebär att utföra en [tidpunkts återställning](concepts-backup.md) (PITR), genom att återställa och återställa data tills tiden strax innan felet uppstod.<br> <br>  Om du bara vill återställa en delmängd av databaser eller vissa tabeller i stället för alla databaser på databas servern, kan du återställa databas servern i en ny instans, exportera tabellen/tabellerna via [mysqldump](howto-migrate-dump-restore.md)och sedan använda [restore](howto-migrate-dump-restore.md#restore-your-mariadb-database) för att återställa dessa tabeller till databasen. |
 
 
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/06/2020
 ms.author: kumud
 ms.openlocfilehash: ddc7f5f8844c602defb99a56ea3f511f0ea88cbe
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90084711"
 ---
 # <a name="deploy-dedicated-azure-services-into-virtual-networks"></a>Distribuera dedikerade Azure-tjänster i virtuella nätverk
@@ -40,7 +40,7 @@ Det finns följande funktioner för att distribuera tjänster i ett virtuellt n�
 
 |Kategori|Tjänst| Dedikerat<sup>1</sup> undernät
 |-|-|-|
-| Compute | Virtuella datorer: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Skalnings uppsättningar för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Moln tjänst](https://msdn.microsoft.com/library/azure/jj156091): endast virtuellt nätverk (klassiskt)<br/> [Azure Batch](../batch/nodes-and-pools.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)| Inga <br/> Inga <br/> Inga <br/> Nr<sup>2</sup>
+| Compute | Virtuella datorer: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Skalningsuppsättningar för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Moln tjänst](https://msdn.microsoft.com/library/azure/jj156091): endast virtuellt nätverk (klassiskt)<br/> [Azure Batch](../batch/nodes-and-pools.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)| Inga <br/> Inga <br/> Inga <br/> Nr<sup>2</sup>
 | Nätverk | [Application Gateway-WAF](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)  <br/> [Azure Bastion](../bastion/bastion-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Virtuella nätverks enheter](/windows-server/networking/sdn/manage/use-network-virtual-appliances-on-a-vn)| Ja <br/> Ja <br/> Ja <br/> Ja <br/> Inga
 |Data|[RedisCache](../azure-cache-for-redis/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Hanterad Azure SQL-instans](../azure-sql/managed-instance/connectivity-architecture-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)| Ja <br/> Ja <br/> 
 |Analytics | [Azure HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Databricks](../azure-databricks/what-is-azure-databricks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |Nr<sup>2</sup> <br/> Nr<sup>2</sup> <br/> 

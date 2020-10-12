@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: mblythe
 ms.openlocfilehash: f3b4806bf46750d74a54f68bd2ab58e402e75091
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85852382"
 ---
 # <a name="manage-an-azure-support-request"></a>Hantera en Azure-supportbegäran
@@ -45,17 +45,17 @@ På den här sidan kan du söka efter, filtrera och sortera support förfrågnin
 
 1. På sidan **support förfrågan** väljer du **ändra**.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Ändra allvarlighets grad för support ärende":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Alla support förfrågningar":::
 
 1. Azure Portal visar en av två skärmar, beroende på om din begäran redan har tilldelats till en support tekniker:
 
     - Om din begäran inte har tilldelats ser du en skärm som liknar följande. Välj en ny allvarlighets grad och välj sedan **ändra**.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Välj en ny allvarlighets grad":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Alla support förfrågningar":::
 
     - Om din begäran har tilldelats ser du en skärm som liknar följande. Välj **OK**och skapa sedan ett [nytt meddelande](#send-a-message) för att begära en ändring av allvarlighets graden.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Det går inte att välja en ny allvarlighets grad":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Alla support förfrågningar":::
 
 ## <a name="share-diagnostic-information-with-azure-support"></a>Dela diagnostisk information med Azure-support
 
@@ -69,9 +69,9 @@ När du skapar en support förfrågan är som standard alternativet **dela diagn
     
     1. På sidan **support förfrågan** väljer du **bevilja behörighet**och väljer sedan **Ja** och **OK**.
     
-        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Bevilja behörighet för diagnostikinformation":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Alla support förfrågningar":::
 
-## <a name="upload-files"></a>Överföra filer
+## <a name="upload-files"></a>Ladda upp filer
 
 Du kan använda fil överförings alternativet för att ladda upp diagnostikfiler eller andra filer som du tror är relevanta för en support förfrågan.
 
@@ -79,7 +79,7 @@ Du kan använda fil överförings alternativet för att ladda upp diagnostikfile
 
 1. På sidan **supportbegäran** bläddrar du för att hitta filen och väljer sedan **Ladda upp**. Upprepa processen om du har flera filer.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Ladda upp filen":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Alla support förfrågningar":::
 
 ### <a name="file-upload-guidelines"></a>Rikt linjer för fil uppladdning
 
@@ -96,24 +96,24 @@ Följ dessa rikt linjer när du använder fil överförings alternativet:
 | .7z         | . dat  | .hwl        | . ODX  | . rar     | .tdb       | .xlam   |
 | . a          | . db   | . ICS        | . oft  | . RDL     | .tdf       | .xlr    |
 | . ABC        | . TAKT  | . ini        | . Old  | .rdlc    | . text      | .xls    |
-| . adm        | . do_  | .java       | . One  | . re_     | .thmx      | .xlsb   |
+| . adm        | .do_  | .java       | . One  | .re_     | .thmx      | .xlsb   |
 | . aspx       | .doc  | .jpg        | . OSD  | . reg     | .tif       | .xlsm   |
 | . ATF        | .docm | . LDF        | . GENOMFÖR  | . ta bort  | . TRC       | .xlsx   |
 | . b          | .docx | . brevhuvuden | . P1   | . ren     | . TDD       | .xlt    |
-| . ba_        | .dotm | . lnk        | .pcap | . Byt namn  | . tx_       | .xltx   |
-| . bak        | .dotx | . lo_        | . pdb  | .rft     | .txt       | .xml    |
+| .ba_        | .dotm | . lnk        | .pcap | . Byt namn  | .tx_       | .xltx   |
+| . bak        | .dotx | .lo_        | . pdb  | .rft     | .txt       | .xml    |
 | .bat        | .dtsx | . log        | .pdf  | . rpt     | .uccapilog | . XMLA   |
 | . blg        | . EDS  | .lpk        | .piz  | . RTE     | .uccplog   | .xps    |
-| . CA_        | . EMF  | . manifest   | .pmls | .rtf     | .udcx      | . xsd    |
-| . FÖRA        | . eml  | . Master     | .png  | . kör     | . vb_       | . xsn    |
-| . Cap        | .emz  | .mdmp       | .potx | .saz     | . vbs_      | . xxx    |
-| .catx       | . err  | . MOF        | .ppt  | .sql     | . vcf       | . z_     |
+| .CA_        | . EMF  | . manifest   | .pmls | .rtf     | .udcx      | . xsd    |
+| . FÖRA        | . eml  | . Master     | .png  | . kör     | .vb_       | . xsn    |
+| . Cap        | .emz  | .mdmp       | .potx | .saz     | .vbs_      | . xxx    |
+| .catx       | . err  | . MOF        | .ppt  | .sql     | . vcf       | .z_     |
 | . KONFIGURATION        | . etl  | .mp3        | .pptm | .sqlplan | . vsd       | .z01    |
 | . komprimerad | . evt  | .mpg        | .pptx | .stp     | .wdb       | .z02    |
-| . Konfigurationsfil     | . evtx | . ms_        | . prn  | .svclog  | . WKS       | . Zi     |
-| .cpk        | . PRISET   | . msg        | . polyesterstapelfibrer  |   -       | .wma       | . zi_    |
-| . cpp        | . ex_  | .msi        | . pst  |  -        | .wmv       | .zip    |
-| .cs         | .ex0  | . mso        | . pub  | -         | . wmz       | . zip_   |
+| . Konfigurationsfil     | . evtx | .ms_        | . prn  | .svclog  | . WKS       | . Zi     |
+| .cpk        | . PRISET   | . msg        | . polyesterstapelfibrer  |   -       | .wma       | .zi_    |
+| . cpp        | .ex_  | .msi        | . pst  |  -        | .wmv       | .zip    |
+| .cs         | .ex0  | . mso        | . pub  | -         | . wmz       | .zip_   |
 | . SKV        | . FRD  | . msu        | -      |-          | . WPS       | .zipp   |
 | .cvr        | .gif  | . NFO        | -      |-          | .wpt       | . zippa |
 | -            | . GUID | -            | -      | -         | . WSDL      | .zippy  |

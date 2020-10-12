@@ -4,10 +4,10 @@ description: Med Azure Backup kan du skicka data från nätverket med Azure impo
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: 368ae846a24ec04ee4b7da9b5971c00180be611d
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378465"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server (MABS)
@@ -36,7 +36,7 @@ Med funktionen offline-seeding i Azure Backup och tjänsten Azure import/export 
 > * SATA-enheterna skickas sedan till närmaste Azure-datacenter.
 > * När överföringen av säkerhets kopierings data till Azure är färdig Azure Backup kopierar säkerhetskopierade data till säkerhets kopierings valvet och de stegvisa säkerhets kopiorna schemaläggs.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att följande krav är uppfyllda innan du startar arbets flödet offline-säkerhetskopiering:
 

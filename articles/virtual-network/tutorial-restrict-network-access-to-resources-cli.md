@@ -18,10 +18,10 @@ ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 2be9b5e6fd489b331982d31693bf810d488d92b1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87484172"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Begränsa nätverks åtkomsten till PaaS-resurser med tjänst slut punkter för virtuella nätverk med hjälp av Azure CLI
@@ -35,7 +35,7 @@ Med tjänstslutpunkter för virtuellt nätverk kan du begränsa nätverksåtkoms
 * Bekräfta åtkomst till en resurs från ett undernät
 * Bekräfta att åtkomst nekas för en resurs från ett undernät och internet
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
 ms.openlocfilehash: fff8638a819511f84f15c52ad0695cdd5759f971
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89087213"
 ---
 # <a name="move-azure-event-grid-domains-to-another-region"></a>Flytta Azure Event Grid domäner till en annan region
@@ -25,7 +25,7 @@ Här följer de övergripande steg som beskrivs i den här artikeln:
 - **Verifiera distributionen**. Skicka en händelse till ett domän ämne i domänen och kontrol lera att händelse hanteraren som är associerad med prenumerationen har anropats. 
 - Ta bort domänen från käll regionen för att **slutföra flyttningen**. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - Se till att tjänsten Event Grid är tillgänglig i mål regionen. Se [tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
 ## <a name="prepare"></a>Förbereda
@@ -37,10 +37,10 @@ Kom igång genom att exportera en Resource Manager-mall för domänen.
     :::image type="content" source="./media/move-domains-across-regions/search-domains.png" alt-text="Sök efter och välj Event Grid domäner":::
 3. Välj den **domän** som du vill exportera till en Resource Manager-mall. 
 
-    :::image type="content" source="./media/move-domains-across-regions/select-domain.png" alt-text="Välj domän":::   
+    :::image type="content" source="./media/move-domains-across-regions/select-domain.png" alt-text="Sök efter och välj Event Grid domäner":::   
 4. På sidan **Event Grid domän** väljer du **Exportera mall** under **Inställningar** på den vänstra menyn och väljer sedan **Hämta** i verktygsfältet. 
 
-    :::image type="content" source="./media/move-domains-across-regions/export-template-download.png" alt-text="Exportera mall – > hämtning" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
+    :::image type="content" source="./media/move-domains-across-regions/export-template-download.png" alt-text="Sök efter och välj Event Grid domäner" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
 
     > [!IMPORTANT]
     > Avsnitt om domäner och domäner exporteras. Prenumerationer för avsnitt om domäner exporteras inte. Så du måste skapa prenumerationer för domän ämnen när du har flyttat domän ämnen. 
@@ -73,7 +73,7 @@ Distribuera mallen för att skapa domän-och domän ämnen i mål regionen.
     1. Ange ett nytt namn för domänen för **domän namnet**. 
     1. Välj **Granska + skapa**. 
     
-        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="Distribuera mall":::        
+        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="Sök efter och välj Event Grid domäner":::        
     1. När verifieringen av mallen lyckas väljer du **skapa** längst ned på sidan för att distribuera resursen. 
     1. När distributionen har slutförts väljer du **gå till resurs grupp** för att navigera till resurs grupp sidan. Bekräfta att det finns en domän i resurs gruppen. Välj domän. Bekräfta att det finns domän ämnen i domänen. 
 

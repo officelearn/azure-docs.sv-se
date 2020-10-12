@@ -11,10 +11,10 @@ ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91289777"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Konfigurera Azure Defender för lagring
@@ -69,7 +69,7 @@ Azure Defender har nu Aktiver ATS för alla lagrings konton i den här prenumera
 1. Navigera till ditt lagringskonto. Under **Inställningar**väljer du **avancerad säkerhet**.
 1. Välj **Aktivera Azure Defender för lagring**.
 
-    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Skärm bild som visar hur du aktiverar Azure Defender för ett Azure Storage konto":::
+    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Skärm bild som visar hur du aktiverar Azure Defender för lagring i Security Center":::
 
 Azure Defender har nu Aktiver ATS för det här lagrings kontot.
 
@@ -84,15 +84,15 @@ Använd en Azure Policy för att aktivera Azure Defender över lagrings konton u
 1. Starta sidan Azure **policy-definitions** .
 1. Sök efter principen **Distribuera Azure Defender på lagrings konton** .
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Använd princip för att aktivera Azure Defender för lagrings konton":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Skärm bild som visar hur du aktiverar Azure Defender för lagring i Security Center":::
 
 1. Välj en Azure-prenumeration eller resurs grupp.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="Välj en prenumeration eller resurs grupp för principens omfattning ":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="Skärm bild som visar hur du aktiverar Azure Defender för lagring i Security Center":::
 
 1. Tilldela principen.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Tilldela en princip för att aktivera Azure Defender för lagring":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Skärm bild som visar hur du aktiverar Azure Defender för lagring i Security Center":::
 
 ### <a name="rest-api"></a>[REST-API](#tab/rest-api)
 
@@ -125,11 +125,11 @@ När avvikelser i lagrings aktiviteter inträffar får du ett e-postmeddelande m
 
 E-postmeddelandet innehåller också information om möjliga orsaker och rekommenderade åtgärder för att undersöka och minimera det potentiella hotet.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Azure Defender för lagrings aviserings-e-post":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Skärm bild som visar hur du aktiverar Azure Defender för lagring i Security Center":::
 
 Du kan granska och hantera dina aktuella säkerhets aviseringar från Azure Security Center [rutan säkerhets aviseringar](../../security-center/security-center-managing-and-responding-alerts.md). Om du klickar på en enskild avisering visas information och åtgärder för att undersöka det aktuella hotet och åtgärda framtida hot.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Azure Defender för lagrings avisering":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Skärm bild som visar hur du aktiverar Azure Defender för lagring i Security Center":::
 
 ## <a name="security-alerts"></a>Säkerhetsaviseringar
 

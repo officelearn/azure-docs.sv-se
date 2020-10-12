@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
 ms.openlocfilehash: d4fbadd03f443d28376a122c7ecb06c475c2247d
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85850704"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Bli social med Azure Cosmos DB
@@ -171,7 +171,7 @@ Vi tar med användar information som exempel:
 
 Genom att titta på den här informationen kan du snabbt identifiera vilken som är viktig och inte, vilket innebär att du skapar en "stege":
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-ladder.png" alt-text="Diagram över ett steg-mönster" border="false":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-ladder.png" alt-text="Diagram som illustrerar en relativ Relations modell" border="false":::
 
 Det minsta steget kallas för en UserChunk, den minsta delen av information som identifierar en användare och den används för dataduplicering. Genom att minska den duplicerade data storleken till endast den information som du kommer att "Visa" kan du minska risken för enorma uppdateringar.
 
@@ -248,7 +248,7 @@ Cosmos DB kommer att köra dina frågor (inklusive [agg regeringar](https://azur
 
 Med tiden kan du komma att växa i trafik och resursförbrukning (mätt i [ru: er](request-units.md)eller enheter för programbegäran) ökar. Du kommer att läsa och skriva oftare när användar basen växer. Användar basen kommer att börja skapa och läsa mer innehåll. Det är därför viktigt att kunna **skala ditt data flöde** . Det är enkelt att öka din ru: er. Du kan göra det med några klick på Azure Portal eller genom [att utfärda kommandon via API: et](/rest/api/cosmos-db/replace-an-offer).
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Skala upp och definiera en partitionsnyckel":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Diagram som illustrerar en relativ Relations modell":::
 
 Vad händer om saker fortfarande kommer att bli bättre? Anta att användare från en annan region, ett land eller ett kontinents meddelande till din plattform och börjar använda den. Vad är en fantastisk överraskning!
 
@@ -258,13 +258,13 @@ Med Cosmos DB kan du [Replikera dina data globalt](../cosmos-db/tutorial-global-
 
 När du replikerar dina data globalt måste du se till att dina klienter kan dra nytta av den. Om du använder en webb-frontend eller åtkomst till API: er från mobila klienter kan du distribuera [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) och klona dina Azure App Service på alla önskade regioner, med hjälp av en prestanda konfiguration som stöder din utökade globala täckning. När klienterna har åtkomst till klient-eller API: er kommer de att dirigeras till närmast App Service, vilket i sin tur ansluter till den lokala Cosmos DB repliken.
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-global-replicate.png" alt-text="Lägga till global täckning på din sociala plattform" border="false":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-global-replicate.png" alt-text="Diagram som illustrerar en relativ Relations modell" border="false":::
 
 ## <a name="conclusion"></a>Slutsats
 
 Den här artikeln tar lite lätt till alternativen för att skapa sociala nätverk helt och hållet i Azure med tjänster med låg kostnad. den ger resultat genom att uppmuntra användningen av en lagrings lösning med flera lager och data distribution som kallas "stega".
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-azure-solution.png" alt-text="Diagram över interaktion mellan Azure-tjänster för sociala nätverk" border="false":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-azure-solution.png" alt-text="Diagram som illustrerar en relativ Relations modell" border="false":::
 
 Sanningen är att det inte finns någon silver punkt för den här typen av scenarier. Det är den synergieffekt som skapats av kombinationen av fantastiska tjänster som gör det möjligt för oss att skapa fantastiska upplevelser: hastigheten och friheten hos Azure Cosmos DB att tillhandahålla ett bra socialt program, intelligensen bakom en lösning för första klass som Azure Kognitiv sökning, flexibiliteten i Azure App tjänster som värd för inte ens oberoende program men kraftfulla bakgrunds processer och den utbyggbara Azure Storage och Azure SQL Database för lagring av enorma mängder data och den analytiska kraften hos Azure Machine Lär dig att skapa kunskap och information som kan ge feedback till dina processer och hjälpa oss att leverera rätt innehåll till rätt användare.
 

@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: mblythe
 ms.openlocfilehash: d8a480481e47995f9f819122a3e8cc0b0a21a254
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85851873"
 ---
 # <a name="create-an-azure-support-request"></a>Skapa en Azure-supportbegäran
@@ -23,9 +23,9 @@ Med Azure kan du skapa och hantera support förfrågningar, även kallade suppor
 > [!NOTE]
 > Azure Portal-URL: en är unik för det Azure-moln där din organisation har distribuerats.
 >
->* Azure Portal för kommersiellt bruk är:[https://portal.azure.com](https://portal.azure.com)
->* Azure Portal för Tyskland:[https://portal.microsoftazure.de](https://portal.microsoftazure.de)
->* Azure Portal för USA myndigheter är:[https://portal.azure.us](https://portal.azure.us)
+>* Azure Portal för kommersiellt bruk är: [https://portal.azure.com](https://portal.azure.com)
+>* Azure Portal för Tyskland: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
+>* Azure Portal för USA myndigheter är: [https://portal.azure.us](https://portal.azure.us)
 
 Support ärendets upplevelse fokuserar på tre huvudsakliga mål:
 
@@ -69,7 +69,7 @@ För att starta en support förfrågan i kontexten för resursen arbetar du för
 
 Vi vägleder dig genom några steg för att samla in information om ditt problem och hjälpa dig att lösa det. Varje steg beskrivs i följande avsnitt.
 
-### <a name="basics"></a>Grunderna
+### <a name="basics"></a>Grundläggande inställningar
 
 Det första steget i support förfrågnings processen samlar in grundläggande information om ditt problem och ditt support avtal.
 

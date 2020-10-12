@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
 ms.openlocfilehash: 26f635525afea289e2e791b802478040a7851eee
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87486518"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Skala ett Azure Cosmos DB API för Cassandra-konto elastiskt
@@ -38,7 +38,7 @@ Om du behöver minimera svars tiden finns det ett spektrum av alternativ för ha
 
 I följande avsnitt beskrivs fördelarna och nack delarna med varje metod. Du kan sedan välja den bästa strategin för att balansera systemets skalnings behov, den totala kostnaden och effektiviteten för din lösning.
 
-## <a name="use-the-azure-portal"></a><a id="use-azure-portal"></a>Använd Azure Portal
+## <a name="use-the-azure-portal"></a><a id="use-azure-portal"></a>Använda Azure-portalen
 
 Du kan skala resurserna i Azure Cosmos DB API för Cassandra konto genom att använda Azure Portal. Mer information finns i artikeln om att [etablera data flöde på behållare och databaser](set-throughput.md). I den här artikeln beskrivs de relativa fördelarna med att ställa in data flöde på antingen [databas](set-throughput.md#set-throughput-on-a-database) -eller [behållar](set-throughput.md#set-throughput-on-a-container) nivå i Azure Portal. Termerna "Database" och "container" som nämns i dessa artiklar mappar till "disk utrymme" och "Tabell" för API för Cassandra.
 

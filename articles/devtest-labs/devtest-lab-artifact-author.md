@@ -4,10 +4,10 @@ description: Lär dig hur du skapar artefakter som ska användas med Azure DevTe
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 85acfcc3811e671e58fadab08a23951778e1323d
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88270690"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Skapa anpassade artefakter för den virtuella DevTest Labs-datorn
@@ -46,15 +46,15 @@ I följande exempel visas de avsnitt som utgör bas strukturen för en definitio
 
 | Elementnamn | Obligatoriskt? | Beskrivning |
 | --- | --- | --- |
-| $schema |Nej |Plats för JSON-schemafilen. JSON-schemafilen kan hjälpa dig att testa giltighets tiden för definitions filen. |
-| rubrik |Ja |Namnet på den artefakt som visas i labbet. |
-| beskrivning |Ja |Beskrivning av den artefakt som visas i labbet. |
-| iconUri |Nej |URI för den ikon som visas i labbet. |
+| $schema |Inga |Plats för JSON-schemafilen. JSON-schemafilen kan hjälpa dig att testa giltighets tiden för definitions filen. |
+| title |Ja |Namnet på den artefakt som visas i labbet. |
+| description |Ja |Beskrivning av den artefakt som visas i labbet. |
+| iconUri |Inga |URI för den ikon som visas i labbet. |
 | targetOsType |Ja |Operativ system för den virtuella dator där artefakten är installerad. Alternativ som stöds är Windows och Linux. |
-| parametrar |Nej |Värden som anges när kommandot artefakt installation körs på en dator. Detta hjälper dig att anpassa din artefakt. |
+| parametrar |Inga |Värden som anges när kommandot artefakt installation körs på en dator. Detta hjälper dig att anpassa din artefakt. |
 | Kör |Ja |Artefakt installations kommando som körs på en virtuell dator. |
 
-### <a name="artifact-parameters"></a>Artefakt parametrar
+### <a name="artifact-parameters"></a>Artefaktparametrar
 I avsnittet parametrar i definitions filen anger du vilka värden som en användare kan ange när de installerar en artefakt. Du kan referera till dessa värden i kommandot artefakt installation.
 
 Använd följande struktur för att definiera parametrar:
@@ -73,7 +73,7 @@ Använd följande struktur för att definiera parametrar:
 | --- | --- | --- |
 | typ |Ja |Typ av parameter värde. Se följande lista för de tillåtna typerna. |
 | displayName |Ja |Namnet på den parameter som visas för en användare i labbet. |
-| beskrivning |Ja |Beskrivning av den parameter som visas i labbet. |
+| description |Ja |Beskrivning av den parameter som visas i labbet. |
 
 Tillåtna typer är:
 
@@ -95,7 +95,7 @@ Deklarera hemligheter som säkra strängar. Här är syntaxen för att deklarera
     },
 ```
 
-För kommandot artefakt installation kör du PowerShell-skriptet som tar den säkra sträng som skapats med hjälp av kommandot ConvertTo-SecureString. 
+Kör PowerShell-skriptet som tar den säkra sträng som skapats med kommandot ConvertTo-SecureString för kommandot artefakt installation. 
 
 ```json
   "runCommand": {

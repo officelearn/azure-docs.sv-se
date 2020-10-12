@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74871150"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Kopplingar i Azure Cosmos DB
@@ -23,7 +23,7 @@ Inre kopplingar resulterar i en fullständig kors produkt av uppsättningarna so
 
 Språket stöder syntaxen `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` . Den här frågan returnerar en uppsättning tupler med `N` värden. Varje tuppel har värden som skapas när alla containeralias itereras över sina respektive uppsättningar. 
 
-Nu ska vi titta på följande FROM-sats:`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
+Nu ska vi titta på följande FROM-sats: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
  Låt varje källa definiera `input_alias1, input_alias2, …, input_aliasN` . Denna FROM-sats returnerar en uppsättning av N-tupler (tupel med N värden). Varje tuppel har värden som skapas när alla containeralias itereras över sina respektive uppsättningar.  
   
@@ -33,11 +33,11 @@ Nu ska vi titta på följande FROM-sats:`<from_source1> JOIN <from_source2> JOIN
   
 - Gör `<from_source2>` det möjligt att referera till dokument med begränsad input_alias1 och representerar uppsättningar:  
   
-    {1, 2} för`input_alias1 = A,`  
+    {1, 2} för `input_alias1 = A,`  
   
-    {3}söker`input_alias1 = B,`  
+    {3} söker `input_alias1 = B,`  
   
-    {4, 5} för`input_alias1 = C,`  
+    {4, 5} för `input_alias1 = C,`  
   
 - FROM-satsen `<from_source1> JOIN <from_source2>` leder till följande tupler:  
   
@@ -51,17 +51,17 @@ Nu ska vi titta på följande FROM-sats:`<from_source1> JOIN <from_source2> JOIN
   
 - Gör `<from_source2>` det möjligt att referera till dokument omfattning `input_alias1` och representera uppsättningar:  
   
-    {1, 2} för`input_alias1 = A,`  
+    {1, 2} för `input_alias1 = A,`  
   
-    {3}söker`input_alias1 = B,`  
+    {3} söker `input_alias1 = B,`  
   
-    {4, 5} för`input_alias1 = C,`  
+    {4, 5} för `input_alias1 = C,`  
   
 - Gör `<from_source3>` det möjligt att referera till dokument omfattning `input_alias2` och representera uppsättningar:  
   
-    {100, 200} för`input_alias2 = 1,`  
+    {100, 200} för `input_alias2 = 1,`  
   
-    {300}söker`input_alias2 = 3,`  
+    {300} söker `input_alias2 = 3,`  
   
 - FROM-satsen `<from_source1> JOIN <from_source2> JOIN <from_source3>` leder till följande tupler:  
   
@@ -80,17 +80,17 @@ Nu ska vi titta på följande FROM-sats:`<from_source1> JOIN <from_source2> JOIN
   
 - Låt <from_source2> vara dokumenterad referens input_alias1 och representera uppsättningar:  
   
-    {1, 2} för`input_alias1 = A,`  
+    {1, 2} för `input_alias1 = A,`  
   
-    {3}söker`input_alias1 = B,`  
+    {3} söker `input_alias1 = B,`  
   
-    {4, 5} för`input_alias1 = C,`  
+    {4, 5} för `input_alias1 = C,`  
   
 - Ge `<from_source3>` omfång till `input_alias1` och representerar uppsättningar:  
   
-    {100, 200} för`input_alias2 = A,`  
+    {100, 200} för `input_alias2 = A,`  
   
-    {300}söker`input_alias2 = C,`  
+    {300} söker `input_alias2 = C,`  
   
 - FROM-satsen `<from_source1> JOIN <from_source2> JOIN <from_source3>` leder till följande tupler:  
   
@@ -224,7 +224,7 @@ Följande tillägg i föregående exempel utför en dubbel koppling. Du kan visa
     }
 ```
 
-`AndersenFamily`har en underordnad som har ett hus djur, så att kors produkten ger en rad (1 1 \* \* ) från den här familjen. `WakefieldFamily`har två underordnade, endast en av som har hus djur, men att barnet har två hus djur. Den här seriens kors produkt ger 1 \* 1 \* 2 = 2 rader.
+`AndersenFamily` har en underordnad som har ett hus djur, så att kors produkten ger en rad (1 1 \* \* ) från den här familjen. `WakefieldFamily` har två underordnade, endast en av som har hus djur, men att barnet har två hus djur. Den här seriens kors produkt ger 1 \* 1 \* 2 = 2 rader.
 
 I nästa exempel finns ett ytterligare filter på `pet` , som utesluter alla tupler där PET-namnet inte är det `Shadow` . Du kan bygga tupler från matriser, filtrera efter alla element i tuppeln och projicera en kombination av elementen.
 

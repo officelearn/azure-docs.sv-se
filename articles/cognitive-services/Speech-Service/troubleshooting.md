@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74815407"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Felsöka Speech SDK
@@ -109,7 +109,7 @@ Om du har angett en giltig autentiseringstoken returnerar kommandot avskriften f
 
 ## <a name="error-http-400-bad-request"></a>Fel: HTTP 400 Felaktig begäran
 
-Det här felet uppstår vanligt vis när begär ande texten innehåller ogiltiga ljud data. Det finns endast stöd för WAV-format. Kontrol lera också begärans rubriker för att se till att du anger lämpliga värden `Content-Type` för `Content-Length`och.
+Det här felet uppstår vanligt vis när begär ande texten innehåller ogiltiga ljud data. Det finns endast stöd för WAV-format. Kontrol lera också begärans rubriker för att se till att du anger lämpliga värden för `Content-Type` och `Content-Length` .
 
 ## <a name="error-http-408-request-timeout"></a>Fel: tids gräns för HTTP 408-begäran
 
@@ -119,7 +119,7 @@ Felet beror förmodligen på att inga ljud data skickas till tjänsten. Felet ka
 
 Det här problemet beror vanligt vis på ljuddata. Du kan se det här felet på grund av följande:
 
-* Det finns en lång utsträckning av tystnads tiden i början av ljudet. I så fall stoppar tjänsten igenkänningen efter några sekunder och returnerar `InitialSilenceTimeout`.
+* Det finns en lång utsträckning av tystnads tiden i början av ljudet. I så fall stoppar tjänsten igenkänningen efter några sekunder och returnerar `InitialSilenceTimeout` .
 
 * Ljudet använder ett codec-format som inte stöds, vilket gör att ljud data behandlas som tystnad.
 

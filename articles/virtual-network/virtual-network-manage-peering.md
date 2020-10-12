@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
 ms.openlocfilehash: 41cc2bfa39160d26b5c5f09687ddf1fef9ec5803
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89290199"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort en virtuell nätverks-peering
@@ -147,7 +147,7 @@ De konton som du använder för att arbeta med peering av virtuella nätverk må
 
 Om ditt konto inte har tilldelats någon av de tidigare rollerna, måste det tilldelas en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats nödvändiga åtgärder från följande tabell:
 
-| Action                                                          | Name |
+| Action                                                          | Namn |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Krävs för att skapa en peering från ett virtuellt nätverk A till virtuellt nätverk B. virtuellt nätverk A måste vara ett virtuellt nätverk (Resource Manager)          |
 | Microsoft. Network/virtualNetworks/peer/Action                   | Krävs för att skapa en peering från virtuellt nätverk B (Resource Manager) till virtuellt nätverk A                                                       |

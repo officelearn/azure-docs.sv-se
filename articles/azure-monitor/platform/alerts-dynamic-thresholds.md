@@ -6,10 +6,10 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81261082"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Mått aviseringar med dynamiska tröskelvärden i Azure Monitor
@@ -61,7 +61,7 @@ Du kan välja vilken avisering som ska utlösas på något av följande tre vill
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>Vad betyder de avancerade inställningarna i dynamiska tröskelvärden?
 
-Om du felsöker **perioder** – dynamiska tröskelvärden gör det också möjligt att konfigurera "antal överträdelser för att utlösa aviseringen", ett minsta antal avvikelser som krävs inom ett visst tidsfönster för att systemet ska kunna generera en avisering (standardvärdet för tids perioden är fyra avvikelser om 20 minuter). Användaren kan konfigurera perioder som inte kan konfigureras och välja vad som ska aviseras om genom att ändra fönstret för misslyckade perioder och tids perioden. Den här funktionen minskar aviserings bruset som genereras av tillfälliga toppar. Ett exempel:
+Om du felsöker **perioder** – dynamiska tröskelvärden gör det också möjligt att konfigurera "antal överträdelser för att utlösa aviseringen", ett minsta antal avvikelser som krävs inom ett visst tidsfönster för att systemet ska kunna generera en avisering (standardvärdet för tids perioden är fyra avvikelser om 20 minuter). Användaren kan konfigurera perioder som inte kan konfigureras och välja vad som ska aviseras om genom att ändra fönstret för misslyckade perioder och tids perioden. Den här funktionen minskar aviserings bruset som genereras av tillfälliga toppar. Exempel:
 
 Om du vill utlösa en avisering när problemet är kontinuerligt i 20 minuter, 4 gånger i följd under en viss period grupper på 5 minuter, använder du följande inställningar:
 

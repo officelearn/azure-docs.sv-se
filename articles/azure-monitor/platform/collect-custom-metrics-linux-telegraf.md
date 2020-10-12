@@ -8,10 +8,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: b80f27e490dd3b1890eab7740fb4650ba4280abb
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88207805"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Samla in anpassade mått för en virtuell Linux-dator med InfluxData-agenten för teleympkvistar
@@ -58,7 +58,7 @@ Skapa en ny virtuell Linux-dator:
 
 1. Den virtuella datorn fästs på Azure Portals instrumentpanel. När distributionen är klar öppnas den virtuella dator sammanfattningen automatiskt. 
 
-1. I fönstret virtuell dator navigerar du till fliken **identitet** . kontrol lera att den virtuella datorn har en tilldelad identitet inställd **på**. 
+1. I fönstret virtuell dator går du till fliken **identitet** . Se till att den virtuella datorn har en tilldelad identitet inställd **på**. 
  
     ![För hands version av netympkvistar VM-identitet](./media/collect-custom-metrics-linux-telegraf/connect-to-VM.png)
  

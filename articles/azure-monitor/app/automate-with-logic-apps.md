@@ -4,10 +4,10 @@ description: Lär dig hur du snabbt kan automatisera upprepade processer genom a
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.openlocfilehash: f6406c2e6fb933c561a8ae54009499768c81a204
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970870"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatisera Application Insights processer med Logic Apps
@@ -118,7 +118,7 @@ När du skapar egna frågor måste du kontrol lera att de fungerar korrekt i Ana
       ![Skärm bild för Office 365-e-postkonfiguration](./media/automate-with-logic-apps/12emailattachment.png)
 
 ### <a name="step-7-save-and-test-your-logic-app"></a>Steg 7: Spara och testa din Logic app
-* Klicka på **Spara** för att spara ändringarna.
+* Klicka på **Spara** för att spara dina ändringar.
 
 Du kan vänta på att utlösaren ska köra Logic-appen, eller så kan du köra Logic-appen direkt genom att välja **Kör**.
 

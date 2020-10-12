@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
 ms.openlocfilehash: 08e971e52f994ec5fa5663708fa9f173daf33d80
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135395"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Konfigurera katastrof återställning för ett SharePoint-program med flera nivåer för haveri beredskap med hjälp av Azure Site Recovery
 
-Den här artikeln beskriver i detalj hur du skyddar ett SharePoint-program med hjälp av [Azure Site Recovery](site-recovery-overview.md).
+Den här artikeln beskriver i detalj hur du skyddar ett SharePoint-program med hjälp av  [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="overview"></a>Översikt
@@ -34,7 +34,7 @@ Du kan titta på videon nedan om hur du återställer ett program på flera niv�
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrol lera att du förstår följande:
 
@@ -65,7 +65,7 @@ Site Recovery är program-oberoende och bör fungera med alla versioner av Share
 **Hyper-V** | Ja | Ja
 **VMware** | Ja | Ja
 **Fysisk server** | Ja | Ja
-**Azure** | NA | Yes
+**Azure** | Ej tillämpligt | Ja
 
 
 ### <a name="things-to-keep-in-mind"></a>Saker att tänka på
@@ -84,7 +84,7 @@ Följ [den här vägledningen](./vmware-azure-tutorial.md) för att påbörja re
 
 * Information om hur du skyddar databas nivån som körs på SQL Server finns i [skydda SQL Server](site-recovery-sql.md) -dokument.
 
-## <a name="networking-configuration"></a>Nätverks konfiguration
+## <a name="networking-configuration"></a>Nätverkskonfiguration
 
 ### <a name="network-properties"></a>Nätverks egenskaper
 

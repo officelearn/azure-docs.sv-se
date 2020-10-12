@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
 ms.openlocfilehash: a1a0462b82629b16bd8ccbe269fb1a917357d542
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90883509"
 ---
 # <a name="azure-stack-edge-pro-system-requirements"></a>System krav för Azure Stack Edge Pro
@@ -58,9 +58,9 @@ Azure IoT Edge tillåter utgående kommunikation från en lokal Edge-enhet till 
 
 Använd följande tabell för port konfiguration för servrar som är värdar för Azure IoT Edge Runtime:
 
-| Port nr. | In eller ut | Port omfång | Obligatorisk | Vägledning |
+| Port nr. | In eller ut | Port omfång | Krävs | Vägledning |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| Ut       | WAN        | Yes      | Utgående öppen för IoT Edge etablering. Den här konfigurationen krävs när du använder manuella skript eller DPS (Azure IoT Device Provisioning service).|
+| TCP 443 (HTTPS)| Ut       | WAN        | Ja      | Utgående öppen för IoT Edge etablering. Den här konfigurationen krävs när du använder manuella skript eller DPS (Azure IoT Device Provisioning service).|
 
 Fullständig information finns i [brand Väggs-och port konfigurations regler för IoT Edge distribution](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 

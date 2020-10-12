@@ -14,10 +14,10 @@ ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 0435b99525c34eb72d7cc5315ccb4359859cd528
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90033055"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registrera din personliga enhet i din organisations nätverk
@@ -49,7 +49,7 @@ Följ de här stegen för att registrera din personliga enhet i nätverket.
 
     ![Åtkomst till arbets-eller skol skärm med alternativet Anslut markerat](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
 
-3. På skärmen **Lägg till ett arbets-eller skol konto** skriver du in din e-postadress för ditt arbets-eller skol konto och väljer sedan **Nästa**. Till exempel alain@contoso.com.
+3. På skärmen **Lägg till ett arbets-eller skol konto** skriver du in din e-postadress för ditt arbets-eller skol konto och väljer sedan **Nästa**. Exempelvis alain@contoso.com.
 
 4. Logga in på ditt arbets-eller skol konto och välj sedan **Logga**in.
 

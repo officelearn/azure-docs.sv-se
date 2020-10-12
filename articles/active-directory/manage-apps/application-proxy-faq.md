@@ -12,10 +12,10 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88589171"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Vanliga frågor och svar om Active Directory (Azure AD) Application Proxy
@@ -141,7 +141,7 @@ Nej, det här scenariot stöds inte eftersom Application Proxy kommer att avslut
 
 Se [publicera fjärr skrivbord med Azure AD-programproxy](application-proxy-integrate-with-remote-desktop-services.md).
 
-### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>Kan jag använda Kerberos-begränsad delegering (enkel inloggning på Windows-integrerad autentisering) i publicerings scenariot för fjärrskrivbordsgateway?
+### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>Kan jag använda Kerberos-begränsad delegering (Single Sign-On-Windows-integrerad autentisering) i publicerings scenariot för fjärrskrivbordsgateway?
 
 Nej, det här scenariot stöds inte.  
 

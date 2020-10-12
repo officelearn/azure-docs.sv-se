@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: 17ea965758150adb72d8e8f9fee9937bd5387a48
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87371931"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuera IBM DB2 pureScale på Azure
@@ -71,7 +71,7 @@ GitHub-lagringsplatsen innehåller DB2server. rsp, en svars fil (. RSP) som gör
 > [!NOTE]
 > En exempel svars fil, DB2server. rsp, ingår i [DB2onAzure](https://aka.ms/db2onazure) -lagringsplatsen på GitHub. Om du använder den här filen måste du redigera den innan den kan fungera i din miljö.
 
-| Skärm namn               | Fält                                        | Värde                                                                                                 |
+| Skärm namn               | Field                                        | Värde                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Välkommen                   |                                              | Ny installation                                                                                           |
 | Välj en produkt          |                                              | DB2-version 11.1.3.3. Server versioner med DB2 pureScale                                              |

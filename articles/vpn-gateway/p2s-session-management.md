@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: cherylmc
 ms.openlocfilehash: 2f2184507e17e3ecae40bb33be4202c183d32b77
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274241"
 ---
 # <a name="point-to-site-vpn-session-management"></a>Hantering av VPN-sessioner med punkt-till-plats
@@ -44,7 +44,7 @@ Så här visar du och kopplar från en session med PowerShell:
    ```
 1. Kopiera **VpnConnectionId** för den session som du vill koppla från.
 
-   :::image type="content" source="./media/p2s-session-management/powershell.png" alt-text="PowerShell-exempel":::
+   :::image type="content" source="./media/p2s-session-management/powershell.png" alt-text="Portal exempel":::
 1. Kör följande kommando för att koppla från sessionen:
 
    ```azurepowershell-interactive

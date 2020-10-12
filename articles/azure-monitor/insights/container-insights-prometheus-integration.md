@@ -4,10 +4,10 @@ description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor f
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.openlocfilehash: f5a9b364bc3e51307bd44d8338485f482bda6e1e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90971364"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Konfigurera skrapning av Prometheus-mått med Azure Monitor för containrar
@@ -44,10 +44,10 @@ Aktiv kasse ring av mått från Prometheus utförs från ett av två perspektiv:
 
 När en URL anges, kommer Azure Monitor för behållare bara att kassera slut punkten. När Kubernetes-tjänsten anges, matchas tjänst namnet med klustrets DNS-server för att hämta IP-adressen och sedan kasseras den lösta tjänsten.
 
-|Omfång | Nyckel | Datatyp | Värde | Beskrivning |
+|Omfång | Tangent | Datatyp | Värde | Beskrivning |
 |------|-----|-----------|-------|-------------|
 | Hela klustret | | | | Ange en av följande tre metoder för att kassera slut punkter för mått. |
-| | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en bestämd Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
+| | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en bestämd Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
 | | `kubernetes_services` | Sträng | Kommaavgränsad matris | En matris med Kubernetes-tjänster för att kassera mått från Kube-State-Metrics. Till exempel, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
 | | `monitor_kubernetes_pods` | Boolesk | sant eller falskt | När det är inställt på `true` i inställningarna för hela klustret kommer Azure Monitor for containers agent att kassera Kubernetes-poddar över hela klustret för följande Prometheus-anteckningar:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolesk | sant eller falskt | Aktiverar kassation av pod. `monitor_kubernetes_pods` måste anges till `true` . |
@@ -55,7 +55,7 @@ När en URL anges, kommer Azure Monitor för behållare bara att kassera slut pu
 | | `prometheus.io/path` | Sträng | Kommaavgränsad matris | Den HTTP-resurs Sök väg som måtten ska hämtas från. Om måtten Path inte är det `/metrics` definierar du den med den här anteckningen. |
 | | `prometheus.io/port` | Sträng | 9102 | Ange en port att kassera från. Om porten inte har angetts är den standard 9102. |
 | | `monitor_kubernetes_pods_namespaces` | Sträng | Kommaavgränsad matris | En lista över tillåtna namn områden för att kassera mått från Kubernetes poddar.<br> Till exempel `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| Node-wide | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en bestämd Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
+| Node-wide | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en bestämd Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
 | Hela noden eller hela klustret | `interval` | Sträng | 60 s | Samlings intervallets standardvärdet är en minut (60 sekunder). Du kan ändra samlingen för antingen *[prometheus_data_collection_settings. node]* och/eller *[prometheus_data_collection_settings. Cluster]* till Time units, t. ex. s, m, h. |
 | Hela noden eller hela klustret | `fieldpass`<br> `fielddrop`| Sträng | Kommaavgränsad matris | Du kan ange att vissa mått ska samlas in eller inte från slut punkten genom att ange List rutan Tillåt ( `fieldpass` ) och neka ( `fielddrop` ). Du måste först ange listan över tillåtna. |
 

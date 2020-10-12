@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8087025810214f3edbb74e628698eb69558f3500
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74085279"
 ---
 När du skapar en virtuell nätverksgateway måste du ange vilken gateway-SKU som du vill använda. Välj den SKU som uppfyller dina krav baserat på typerna av arbetsbelastning, dataflöden, funktioner och serviceavtal. För virtuella nätverksgateway-SKU: er i Azure-tillgänglighetszoner, se [Azure-tillgänglighetszoner Gateway-SKU: er](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
@@ -41,7 +41,7 @@ De nya VPN gateway-SKU: erna effektiviserar de funktions uppsättningar som erbj
 
 ( \* \* ) Basic SKU anses vara en äldre SKU. Basic SKU:n har vissa funktionsbegränsningar. Du kan inte ändra storlek på en gateway som använder en Basic SKU till en av de nya gateway-SKU:erna. Du måste istället ändra till en ny SKU, vilket innebär att ta bort och återskapa din VPN-gateway.
 
-###  <a name="gateway-skus---production-vs-dev-test-workloads"></a><a name="workloads"></a>Gateway SKU – produktion eller arbets belastningar för utveckling och testning
+###  <a name="gateway-skus---production-vs-dev-test-workloads"></a><a name="workloads"></a>Gateway SKU – produktion jämfört med Dev-Test arbets belastningar
 
 På grund av skillnader i serviceavtal och funktioner, rekommenderar vi följande SKU: er för produktion jämfört med utv-test:
 

@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: 11c913b12b4dcb7d2a5ffa532064b347b82904ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80519914"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-twitter-login"></a>Konfigurera din App Service-eller Azure Functions-app för att använda Twitter-inloggning
@@ -26,7 +26,7 @@ För att kunna slutföra proceduren i den här artikeln behöver du ett Twitter-
 
 1. Logga in på [Azure Portal] och gå till ditt program. Kopiera din **URL**. Du använder den för att konfigurera din Twitter-app.
 1. Gå till webbplatsen för [Twitter-utvecklare] och logga in med dina Twitter-kontoautentiseringsuppgifter och välj **skapa en app**.
-1. Ange **appens namn** och **program beskrivningen** för den nya appen. Klistra in programmets **URL** i fältet **webbplats-URL** . I avsnittet **callback-URL: er** anger du HTTPS-URL: en för din app service-app och lägger till sökvägen `/.auth/login/twitter/callback` . Till exempel `https://contoso.azurewebsites.net/.auth/login/twitter/callback`.
+1. Ange **appens namn** och **program beskrivningen** för den nya appen. Klistra in programmets **URL** i fältet **webbplats-URL** . I avsnittet **callback-URL: er** anger du HTTPS-URL: en för din app service-app och lägger till sökvägen `/.auth/login/twitter/callback` . Exempelvis `https://contoso.azurewebsites.net/.auth/login/twitter/callback`.
 1. Längst ned på sidan skriver du minst 100 tecken i **berätta för oss hur den här appen ska användas**. Välj sedan **skapa**. Klicka på **skapa** igen i popup-fönstret. Programinformationen visas.
 1. Välj fliken **nycklar och åtkomst-token** .
 

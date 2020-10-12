@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
 ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86536580"
 ---
 # <a name="azure-farmbeats-apis"></a>Azure FarmBeats-API: er
@@ -68,10 +68,10 @@ headers = {"Authorization": "Bearer " + **access_token**}
 Här är de vanligaste begärandehuvuden som du måste ange när du gör ett API-anrop till Azure FarmBeats Datahub.
 
 
-**Huvud** | **Beskrivning och exempel**
+**Sidfot** | **Beskrivning och exempel**
 --- | ---
 Content-Type  | Formatet för begäran (Content-Type: Application/ <format> ). För Azure FarmBeats Datahub-API: er är formatet JSON. Innehålls typ: Application/JSON
-Auktorisering  | Anger den åtkomsttoken som krävs för att göra ett API-anrop. Auktorisering: innehavare <åtkomst-token>
+Auktorisering  | Anger den åtkomsttoken som krävs för att göra ett API-anrop. Auktorisering: Bearer <Access-Token>
 Acceptera | Svars formatet. För Azure FarmBeats Datahub-API: er är formatet JSON. Acceptera: Application/JSON
 
 ### <a name="api-requests"></a>API-begäranden
@@ -109,7 +109,7 @@ Azure FarmBeats Datahub-API: er returnerar standard-HTTP-fel. De vanligaste fel 
 
  |Felkod             | Beskrivning |
  |---                    | --- |
- |200                    | Success |
+ |200                    | Klart |
  |201                    | Create (post) lyckades |
  |400                    | Felaktig begäran. Det finns ett fel i begäran. |
  |401                    | Tillstånd. Anroparen för API: et har inte behörighet att komma åt resursen. |
@@ -149,7 +149,7 @@ Azure FarmBeats-API: er kan nås av en användare eller en app-registrering i Az
     - Ange ett namn.
     - Välj **konton endast i den här organisations katalogen (en enda klient)**.
     - Använd standardvärdena i resten av fälten.
-    - Välj **Registrera**.
+    - Välj **Register** (Registrera).
 
 3. Gör följande i **översikts** fönstret ny och befintlig app Registration:
 

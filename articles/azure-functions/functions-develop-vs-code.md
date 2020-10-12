@@ -1,17 +1,17 @@
 ---
-title: Utveckla Azure Functions med Visual Studio Code
+title: Utveckla Azure Functions med hjälp av Visual Studio Code
 description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av Azure Functions-tillägget för Visual Studio Code.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
 ms.openlocfilehash: 610c80dc5552eae4f2ad8442fa11b85f2eab35eb
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88206730"
 ---
-# <a name="develop-azure-functions-by-using-visual-studio-code"></a>Utveckla Azure Functions med Visual Studio Code
+# <a name="develop-azure-functions-by-using-visual-studio-code"></a>Utveckla Azure Functions med hjälp av Visual Studio Code
 
 Med [Azure Functions tillägget för Visual Studio Code] kan du lokalt utveckla funktioner och distribuera dem till Azure. Om den här upplevelsen är din första med Azure Functions kan du läsa mer i [Introduktion till Azure Functions](functions-overview.md).
 
@@ -39,7 +39,7 @@ Den här artikeln innehåller information om hur du använder Azure Functions-ti
 > [!IMPORTANT]
 > Blanda inte lokal utveckling och Portal utveckling för en enda Function-app. När du publicerar från ett lokalt projekt till en Function-app skriver distributions processen över alla funktioner som du har utvecklat i portalen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du installerar och kör tillägget [Azure Functions extension][Azure Functions för Visual Studio Code]måste du uppfylla följande krav:
 
@@ -259,7 +259,7 @@ Följande steg publicerar projektet till en ny function-app som skapats med avan
     | Välj en körnings miljö för den nya appen | Ditt projekt språk | Körningen måste matcha projektet som du publicerar. |
     | Välj en resurs grupp för nya resurser | Skapa ny resurs grupp | Vid nästa prompt skriver du ett resurs grupp namn, till exempel `myResourceGroup` och väljer sedan Retur. Du kan också välja en befintlig resurs grupp. |
     | Välj ett lagrings konto | Skapa ett nytt lagringskonto | Vid nästa prompt skriver du ett globalt unikt namn för det nya lagrings kontot som används av din Function-app och väljer sedan Retur. Lagrings konto namn måste innehålla mellan 3 och 24 tecken och får bara innehålla siffror och gemena bokstäver. Du kan också välja ett befintligt konto. |
-    | Välj en plats för nya resurser | regionen | Välj en plats i en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som dina funktioner har åtkomst till. |
+    | Välj en plats för nya resurser | region | Välj en plats i en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som dina funktioner har åtkomst till. |
 
     Ett meddelande visas när din Function-app har skapats och distributions paketet används. Välj **Visa utdata** i det här meddelandet för att Visa skapande-och distributions resultaten, inklusive de Azure-resurser som du har skapat.
 
@@ -431,7 +431,7 @@ Azure Functions-tillägget ger ett användbart grafiskt gränssnitt i avsnittet 
 | **Installera eller uppdatera Azure Functions Core Tools** | Installerar eller uppdaterar [Azure Functions Core tools], som används för att köra funktioner lokalt. |
 | **Omdistribuera**  | Gör att du kan distribuera projektfiler från en ansluten git-lagringsplats till en speciell distribution i Azure. [Publicera om projektet](#republish-project-files)om du vill publicera om lokala uppdateringar från Visual Studio Code. |
 | **Byt namn på Inställningar** | Ändrar nyckel namnet för en befintlig funktion i appens inställning i Azure. Det här kommandot påverkar inte inställningarna i local.settings.jsi filen. När du har bytt namn på inställningarna i Azure bör du [Hämta ändringarna till det lokala projektet](#download-settings-from-azure). |
-| **Starta om** | Startar om Function-appen i Azure. Om du distribuerar uppdateringar startas Function-appen också om. |
+| **Börja** | Startar om Function-appen i Azure. Om du distribuerar uppdateringar startas Function-appen också om. |
 | **Ange AzureWebJobsStorage**| Anger värdet för `AzureWebJobsStorage` program inställningen. Den här inställningen krävs av Azure Functions. Den ställs in när en Function-app skapas i Azure. |
 | **Start** | Startar en stoppad Function-app i Azure. |
 | **Starta strömmande loggar** | Startar strömmande loggar för Function-appen i Azure. Använd strömmande loggar vid fjärrfelsökning i Azure om du behöver se loggnings information i nära real tid. Mer information finns i [strömmande loggar](#streaming-logs). |

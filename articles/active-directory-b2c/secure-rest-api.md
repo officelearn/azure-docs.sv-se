@@ -12,10 +12,10 @@ ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 206768604c6d08a32c0caaf9b53a1417cfa1344b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385339"
 ---
 # <a name="secure-your-restful-services"></a>Skydda dina RESTful-tjänster 
@@ -320,7 +320,7 @@ Skapa en princip nyckel för att lagra värdet för Bearer-token.
 1. På sidan Översikt väljer du **ID för identitets miljö**.
 1. Välj **princip nycklar**och välj sedan **Lägg till**.
 1. För **alternativ**väljer du `Manual` .
-1. Ange ett **namn** för princip nyckeln. Till exempel `RestApiBearerToken`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
+1. Ange ett **namn** för princip nyckeln. Exempelvis `RestApiBearerToken`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
 1. I **hemlighet**anger du din klient hemlighet som du tidigare har spelat in.
 1. För **nyckel användning**väljer du `Encryption` .
 1. Välj **Skapa**.

@@ -1,7 +1,7 @@
 ---
 title: Strömma innehåll med CDN-integrering
 titleSuffix: Azure Media Services
-description: Lär dig mer om strömnings innehåll med CDN-integrering samt för hämtning och ursprung – hjälp CDN-prefetch.
+description: Lär dig mer om strömnings innehåll med CDN-integrering samt för hämtning och Origin-Assist CDN-prefetch.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: e1ea0a43783fb7abdc17655e3a3431d125d426f8
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89291287"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Strömma innehåll med CDN-integrering
@@ -32,7 +32,7 @@ Det populära innehållet kommer att betjänas direkt från CDN-cachen så läng
 Du måste också fundera över hur anpassningsbar strömning fungerar. Varje enskilt video fragment cachelagras som sin egen entitet. Anta till exempel att en viss video är bevakad första gången. Om visnings programmet hoppar över att titta bara några sekunder här och där finns det bara videofragment som är associerade med vad den person som bevakar cachelagrar i CDN. Med anpassningsbar strömning har du normalt 5 till 7 olika bit hastigheter för video. Om en person tittar på en bit hastighet och en annan person tittar på en annan bit hastighet, är de båda cachelagrade separat i CDN. Även om två personer tittar på samma bit hastighet kan de strömmas över olika protokoll. Varje protokoll (HLS, MPEG-streck, Smooth Streaming) cachelagras separat. Varje bit hastighet och protokoll cachelagras separat och endast de video fragment som har begärts cachelagras.
 
 Förutom test miljön rekommenderar vi att CDN aktive ras för både standard-och Premium-slutpunkter för direkt uppspelning. Varje typ av slut punkt för direkt uppspelning har en annan data flödes gräns som stöds.
-Det är svårt att göra en exakt beräkning för maximalt antal samtidiga strömmar som stöds av en strömnings slut punkt eftersom det finns olika faktorer att ta med i beräkningen. Dessa omfattar:
+Det är svårt att göra en exakt beräkning för maximalt antal samtidiga strömmar som stöds av en strömnings slut punkt eftersom det finns olika faktorer att ta med i beräkningen. Exempel:
 
 - Högsta antal bit hastigheter som används för strömning
 - Beteende för förbuffring och växling i spelaren. Spelarna försöker överföra segment från ett ursprung och använda belastnings hastigheten för att beräkna den anpassade bit hastighets växlingen. Om en strömmande slut punkt blir nära mättnad kan svars tiderna variera och spelarna börjar växla till lägre kvalitet. Eftersom detta minskar belastningen på de strömmande slut punkts spelarna kan du skala tillbaka till högre kvalitet och skapa oönskade växlings utlösare.
@@ -67,7 +67,7 @@ Azure Media Services integration med Azure CDN implementeras på **Azure CDN fr�
 
 Du kan avgöra om DNS-ändringar har gjorts på en strömmande slut punkt (trafiken dirigeras till Azure CDN) med hjälp av <https://www.digwebinterface.com> . Om du ser azureedge.net domän namn i resultaten kommer trafiken nu att pekas mot CDN.
 
-## <a name="origin-assist-cdn-prefetch"></a>Ursprung – hjälp CDN-prefetch
+## <a name="origin-assist-cdn-prefetch"></a>Origin-Assist CDN-Prefetch
 
 CDN-cachelagring är en reaktiv process. Om CDN kan förutsäga vad nästa objekt kommer att begäras, kan CDN proaktivt begära och cachelagra nästa objekt. Med den här processen kan du uppnå en cache-träff för alla (eller flest) objekt, vilket förbättrar prestandan.
 
@@ -125,11 +125,11 @@ Du kan prova följande steg för att se en del av det att huvud utbytet i funger
 
     Nej, CDN-prefetch görs bara efter en klient-initierad begäran/svar. CDN-prefetch utlöses aldrig av en för hämtning för att undvika en för hämtnings slinga.
 
-* Är ursprungs-Assist-funktionen CDN-prefetch Always on? Hur kan den aktive ras/inaktive ras?
+* Är Origin-Assist CDN-Prefetch funktionen alltid aktive ras? Hur kan den aktive ras/inaktive ras?
 
     Den här funktionen är inaktive rad som standard. Kunderna behöver aktivera den via Akamai API.
 
-* Vad skulle inträffa för direkt uppspelning, vad som skulle hända om nästa segment eller fragment ännu inte är tillgängligt?
+* Vad skulle hända med Live streaming Origin-Assist om nästa segment eller fragment ännu inte är tillgängligt?
 
     I det här fallet kommer Media Services ursprung inte `CDN-Origin-Assist-Prefetch-Path` att tillhandahålla header och CDN-för hämtning sker inte.
 

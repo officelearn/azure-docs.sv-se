@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
 ms.openlocfilehash: ae3417f991c0d810d8946cdaf358218ebbe4f6a5
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88590038"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reagerar på Azure App konfigurations händelser
@@ -29,7 +29,7 @@ Ta en titt på [Route Azure App konfigurations händelser till en anpassad webb 
 ## <a name="available-azure-app-configuration-events"></a>Tillgängliga Azure App konfigurations händelser
 Event Grid använder [händelse prenumerationer](../event-grid/concepts.md#event-subscriptions) för att dirigera händelse meddelanden till prenumeranter. Azure App konfigurations händelse prenumerationer kan innehålla två typer av händelser:  
 
-> |Händelsenamn|Description|
+> |Händelsenamn|Beskrivning|
 > |----------|-----------|
 > |`Microsoft.AppConfiguration.KeyValueModified`|Utlöses när ett nyckel värde skapas eller ersätts|
 > |`Microsoft.AppConfiguration.KeyValueDeleted`|Utlöses när ett nyckel värde tas bort|
@@ -37,15 +37,15 @@ Event Grid använder [händelse prenumerationer](../event-grid/concepts.md#event
 ## <a name="event-schema"></a>Händelseschema
 Azure App konfigurations händelser innehåller all information som du behöver för att svara på ändringar i dina data. Du kan identifiera en konfigurations händelse för appen eftersom egenskapen eventType börjar med "Microsoft. AppConfiguration". Ytterligare information om användningen av Event Grid händelse egenskaper dokumenteras i [Event Grid händelse schema](../event-grid/event-schema.md).  
 
-> |Egenskap|Typ|Description|
+> |Egenskap|Typ|Beskrivning|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |ämne|sträng|Fullständigt Azure Resource Manager-ID för den app-konfiguration som utsänder händelsen.|
-> |Ämne|sträng|URI för det nyckel värde som är ämnet för händelsen.|
+> |motiv|sträng|URI för det nyckel värde som är ämnet för händelsen.|
 > |Händelsetid|sträng|Datum/tid då händelsen genererades, i ISO 8601-format.|
 > |Händelsetyp|sträng|"Microsoft. AppConfiguration. KeyValueModified" eller "Microsoft. AppConfiguration. KeyValueDeleted".|
 > |Id|sträng|En unik identifierare för den här händelsen.|
 > |Dataversion|sträng|Dataobjektets schemaversion.|
-> |Metadataversion|sträng|Schema versionen för toppnivå egenskaper.|
+> |metadataVersion|sträng|Schema versionen för toppnivå egenskaper.|
 > |data|objekt|Samling med Azure App konfiguration av vissa händelse data|
 > |data. Key|sträng|Nyckeln till det nyckel värde som ändrades eller togs bort.|
 > |data. label|sträng|Etiketten, om det finns, för det nyckel värde som ändrades eller togs bort.|

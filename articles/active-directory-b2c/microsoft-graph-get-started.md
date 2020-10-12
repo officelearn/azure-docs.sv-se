@@ -12,10 +12,10 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d95b45b9be0893282a532bae9ec0278c3a141686
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385934"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Hantera Azure AD B2C med Microsoft Graph
@@ -53,7 +53,7 @@ Innan dina skript och program kan interagera med [Microsoft Graph-API][ms-graph-
 1. Ange ett **namn** för programmet. Till exempel *managementapp1*.
 1. Välj **konton endast i den här organisations katalogen**.
 1. Under **behörigheter**avmarkerar du kryss rutan *bevilja administratörs medgivande till OpenID och offline_access behörigheter* .
-1. Välj **Registrera**.
+1. Välj **Register** (Registrera).
 1. Registrera **program-ID: t (Client)** som visas på program översikts sidan. Du använder det här värdet i ett senare steg.
 
 ### <a name="grant-api-access"></a>Bevilja API-åtkomst

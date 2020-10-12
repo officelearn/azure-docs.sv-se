@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 6bc07dc4a46327981c432cf8982f0c3a646fda0d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89068923"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Använd inloggnings rapporten för att granska Azure Multi-Factor Authentication-händelser
@@ -127,7 +127,7 @@ Följande tabell kan användas för att felsöka händelser med den nedladdade v
 |SUCCESS_NO_PIN_BUT_TIMEOUT | Ingen telefonin text-tids gränsen uppnåddes | Anropet besvarades, men det fanns inget svar. Detta indikerar vanligt vis att samtalet hämtades av röst brev. |
 | SUCCESS_PIN_EXPIRED | PIN-koden har upphört och har inte ändrats | Användarens PIN-kod har upphört att gälla och du uppmanas att ändra den, men PIN-koden har ändrats. |
 | SUCCESS_USED_CACHE | Använt cacheminne | Autentiseringen lyckades utan ett Multi-Factor Authentication-anrop eftersom en tidigare lyckad autentisering för samma användar namn inträffade inom den konfigurerade cache-tidsramen. |
-| SUCCESS_BYPASSED_AUTH | Förhoppad autentisering | Autentiseringen lyckades med en eng ång slö fördröjning för användaren. Se rapporten över ignorerade användar historik för mer information om att kringgå. |
+| SUCCESS_BYPASSED_AUTH | Förhoppad autentisering | Autentiseringen lyckades med ett One-Time bypass initierades för användaren. Se rapporten över ignorerade användar historik för mer information om att kringgå. |
 | SUCCESS_USED_IP_BASED_CACHE | Använd IP-baserad cache | Autentiseringen lyckades utan ett Multi-Factor Authentication-anrop sedan en tidigare lyckad autentisering för samma användar namn, autentiseringstyp, program namn och IP inträffade inom den konfigurerade cache-tidsramen. |
 | SUCCESS_USED_APP_BASED_CACHE | Använd app-baserad cache | Autentiseringen lyckades utan ett Multi-Factor Authentication-anrop sedan en tidigare lyckad autentisering för samma användar namn, autentiseringstyp och program namn inom den konfigurerade cache-tidsramen. |
 | SUCCESS_INVALID_INPUT | Ogiltig telefonin ingång | Svaret som skickas från telefonen är inte giltigt. Detta kan vara från en fax maskin eller ett modem, eller så kan användaren ha angett * som en del av PIN-koden. |

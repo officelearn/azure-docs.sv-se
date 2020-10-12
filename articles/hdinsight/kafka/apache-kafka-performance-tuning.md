@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.openlocfilehash: 752068af531c4a0ecc832d266f88105c14452ecb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75494920"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Optimera prestanda för Apache Kafka HDInsight-kluster
@@ -50,7 +50,7 @@ Konfigurationen av den obligatoriska tillverkaren `acks` avgör hur många bekr�
 
 En Kafka-producent kan konfigureras för att komprimera meddelanden innan de skickas till utjämnare. `compression.type`Inställningen anger vilken komprimerings-codec som ska användas. Komprimerings-codecar som stöds är "gzip", "fästfunktionen" och "lz4". Komprimering är fördelaktigt och bör övervägas om det finns en begränsning på disk kapaciteten.
 
-Bland de två ofta använda komprimerings-codecarna `gzip` och `snappy` `gzip` har en högre komprimerings grad, vilket leder till lägre disk användning till kostnaden för högre CPU-belastning. `snappy`Codecen ger mindre komprimering med mindre processor belastning. Du kan bestämma vilken codec som ska användas baserat på Service Broker-disk eller tillverkarenas CPU-begränsningar. `gzip`kan komprimera data med en hastighet som är fem gånger högre än `snappy` .
+Bland de två ofta använda komprimerings-codecarna `gzip` och `snappy` `gzip` har en högre komprimerings grad, vilket leder till lägre disk användning till kostnaden för högre CPU-belastning. `snappy`Codecen ger mindre komprimering med mindre processor belastning. Du kan bestämma vilken codec som ska användas baserat på Service Broker-disk eller tillverkarenas CPU-begränsningar. `gzip` kan komprimera data med en hastighet som är fem gånger högre än `snappy` .
 
 Genom att använda data komprimering ökar antalet poster som kan lagras på en disk. Det kan också öka processor belastningen i fall där det finns ett matchnings fel mellan de komprimerings format som används av producenten och Broker. eftersom data måste komprimeras innan de skickas och expanderas innan bearbetningen.
 

@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.date: 05/24/2017
 ms.author: guybo
 ms.openlocfilehash: 08b18dae6cec3f30ba9ecc69a3537eec428cc9ee
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87372730"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Skapa och ladda upp en OpenBSD disk avbildning till Azure
 Den här artikeln visar hur du skapar och laddar upp en virtuell hård disk (VHD) som innehåller operativ systemet OpenBSD. När du har laddat upp det kan du använda det som en egen avbildning för att skapa en virtuell dator (VM) i Azure via Azure CLI.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har följande objekt:
 
 * **En Azure-prenumeration** – om du inte har något konto kan du skapa ett på bara några minuter. Om du har en MSDN-prenumeration kan du se [månatlig Azure-kredit för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Annars kan du lära dig hur du [skapar ett kostnads fritt utvärderings konto](https://azure.microsoft.com/pricing/free-trial/).  

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-python
 ms.date: 03/04/2020
 ms.openlocfilehash: ca5bff7f8a14efc0916210296048e3731aec5a59
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87873474"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ansluta till Apache Kafka på HDInsight via Azure Virtual Network
@@ -58,7 +58,7 @@ HDInsight tillåter inte direkt anslutning till Kafka via det offentliga Interne
 
 Mer information om hur du använder HDInsight i ett virtuellt nätverk finns i [planera ett virtuellt nätverk för Azure HDInsight-kluster](../hdinsight-plan-virtual-network-deployment.md).
 
-## <a name="connect-to-apache-kafka-from-an-on-premises-network"></a><a id="on-premises"></a>Ansluta till Apache Kafka från ett lokalt nätverk
+## <a name="connect-to-apache-kafka-from-an-on-premises-network"></a><a id="on-premises"></a> Ansluta till Apache Kafka från ett lokalt nätverk
 
 Om du vill skapa ett Kafka-kluster som kommunicerar med ditt lokala nätverk följer du stegen i [ansluta HDInsight till ditt lokala nätverks](./../connect-on-premises-network.md) dokument.
 
@@ -74,7 +74,7 @@ De här stegen skapar följande konfiguration:
 
 Du kan kontrol lera att en Kafka-klient kan ansluta till klustret lokalt genom att följa stegen i avsnittet [exempel: python-klient](#python-client) .
 
-## <a name="connect-to-apache-kafka-with-a-vpn-client"></a><a id="vpnclient"></a>Ansluta till Apache Kafka med en VPN-klient
+## <a name="connect-to-apache-kafka-with-a-vpn-client"></a><a id="vpnclient"></a> Ansluta till Apache Kafka med en VPN-klient
 
 Använd stegen i det här avsnittet för att skapa följande konfiguration:
 
@@ -290,7 +290,7 @@ Som standard returnerar Apache Zookeeper domän namnet för Kafka-utjämnarna ti
 
 Om du vill ansluta till VPN-gatewayen använder du avsnittet __Anslut till Azure__ i dokumentet [Konfigurera en punkt-till-plats-anslutning](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) .
 
-## <a name="example-python-client"></a><a id="python-client"></a>Exempel: python-klient
+## <a name="example-python-client"></a><a id="python-client"></a> Exempel: python-klient
 
 Om du vill verifiera anslutningen till Kafka kan du använda följande steg för att skapa och köra en python-tillverkare och-konsument:
 

@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: danis
 ms.openlocfilehash: 6785bb1f5ebde4f746dc8aa1ea9f586f406f8431
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87373682"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Förbered en befintlig Linux Azure VM-avbildning för användning med Cloud-Init
 Den här artikeln visar hur du tar en befintlig virtuell Azure-dator och förbereder den för distribution och redo att använda Cloud-init. Den resulterande avbildningen kan användas för att distribuera en ny virtuell dator eller skalnings uppsättningar för virtuella datorer – någon av dessa kan sedan anpassas ytterligare genom Cloud-Init vid distributions tillfället.  Dessa Cloud-Init-skript körs vid första start när resurserna har etablerats av Azure. Mer information om hur Cloud-Init fungerar internt i Azure och vilka Linux-distributioner som stöds finns i [Översikt över Cloud-Init](using-cloud-init.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Det här dokumentet förutsätter att du redan har en virtuell Azure-dator som kör en version av Linux-operativsystemet som stöds. Du har redan konfigurerat datorn så att den passar dina behov, installerat alla nödvändiga moduler, bearbetade alla nödvändiga uppdateringar och har testat den för att säkerställa att den uppfyller dina krav. 
 
 ## <a name="preparing-rhel-76--centos-76"></a>Förbereder RHEL 7,6/CentOS 7,6

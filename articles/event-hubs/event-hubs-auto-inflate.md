@@ -4,10 +4,10 @@ description: Aktivera automatisk ökning på ett namn område för att automatis
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1be564472011622b71b3066495748dfdbe6cc791
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86537249"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Skala automatiskt upp Azure Event Hubs data flödes enheter
@@ -64,7 +64,7 @@ Du kan också aktivera funktionen för automatisk ökning och ändra dess instä
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Aktivera automatisk ökning med en Azure Resource Manager-mall
 
-Du kan aktivera automatisk ökning under en Azure Resource Manager mall-distribution. Ange till exempel `isAutoInflateEnabled` egenskapen till **Sant** och inställd `maximumThroughputUnits` på 10. Till exempel:
+Du kan aktivera automatisk ökning under en Azure Resource Manager mall-distribution. Ange till exempel `isAutoInflateEnabled` egenskapen till **Sant** och inställd `maximumThroughputUnits` på 10. Exempel:
 
 ```json
 "resources": [

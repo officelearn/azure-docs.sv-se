@@ -8,10 +8,10 @@ ms.date: 12/02/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 6f41adbb726313ef095084d079dc7852736e0c06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74870538"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>System funktioner (Azure Cosmos DB)
@@ -45,4 +45,4 @@ Den största skillnaden mellan Cosmos DB Functions och ANSI SQL Functions är at
 - [Strängfunktioner](sql-query-string-functions.md)
 - [Funktioner för typkontroll](sql-query-type-checking-functions.md)
 - [Användardefinierade funktioner](sql-query-udfs.md)
-- [Samlingar](sql-query-aggregates.md)
+- [Aggregeringar](sql-query-aggregates.md)

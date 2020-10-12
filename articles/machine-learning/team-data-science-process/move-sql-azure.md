@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1f1120c78ef2a634c079705c85170d9742eabd1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87087432"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Flytta data till en Azure SQL Database för Azure Machine Learning
@@ -43,13 +43,13 @@ De procedurer som beskrivs här kräver att du har:
 
 Du kan antingen anpassa de procedurer som beskrivs här till en uppsättning dina egna data eller följa stegen som beskrivs i använda NYC taxi-datauppsättningen. Om du vill överföra NYC taxi-datauppsättningen till SQL Server databasen följer du proceduren som beskrivs i [Mass import av data i SQL Server Database](sql-walkthrough.md#dbload).
 
-## <a name="moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a>Flytta data från en platt fil källa till en Azure SQL Database
+## <a name="moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a> Flytta data från en platt fil källa till en Azure SQL Database
 Data i flata filer (CSV eller TSV formaterade) kan flyttas till en Azure SQL Database med hjälp av en SQL-fråga för Mass inmatning.
 
-### <a name="bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a>Mass infogning av SQL-fråga
+### <a name="bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a> Mass infogning av SQL-fråga
 Stegen för proceduren med hjälp av Mass infogning av SQL-fråga liknar riktningarna för att flytta data från en platt fil källa till SQL Server på en virtuell Azure-dator. Mer information finns i [Mass infogning av SQL-fråga](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
-## <a name="moving-data-from-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a>Flytta data från SQL Server till en Azure SQL Database
+## <a name="moving-data-from-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a> Flytta data från SQL Server till en Azure SQL Database
 Om käll informationen lagras i SQL Server finns det olika möjligheter att flytta data till en Azure SQL Database:
 
 1. [Exportera till flat fil](#export-flat-file)

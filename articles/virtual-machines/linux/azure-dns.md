@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/19/2016
 ms.author: rclaus
 ms.openlocfilehash: aa007888c68df41242f937e1062a90ec1b7fc3ce
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87372832"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Alternativ för DNS-namnmatchning för virtuella Linux-datorer i Azure
@@ -29,7 +29,7 @@ I följande tabell visas scenarier och motsvarande namn matchnings lösningar:
 | Namn matchning mellan roll instanser eller virtuella datorer i olika virtuella nätverk |Kundhanterade DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-using-your-own-dns-server). |Endast FQDN |
 | Matchning av lokala datorer och tjänst namn från roll instanser eller virtuella datorer i Azure |Kundhanterade DNS-servrar (till exempel en lokal domänkontrollant, en lokal skrivskyddad domänkontrollant eller en sekundär DNS-sekundär som synkroniseras med hjälp av zon överföringar). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-using-your-own-dns-server). |Endast FQDN |
 | Matchning av Azure-värdnamn från lokala datorer |Vidarebefordra frågor till en kundhanterad DNS-proxyserver i motsvarande virtuella nätverk. Proxyservern vidarebefordrar frågor till Azure för lösning. Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-using-your-own-dns-server). |Endast FQDN |
-| Omvänd DNS för interna IP-adresser |[Namn matchning med hjälp av en egen DNS-Server](#name-resolution-using-your-own-dns-server) |saknas |
+| Omvänd DNS för interna IP-adresser |[Namn matchning med hjälp av en egen DNS-Server](#name-resolution-using-your-own-dns-server) |Saknas |
 
 ## <a name="name-resolution-that-azure-provides"></a>Namn matchning som Azure tillhandahåller
 Tillsammans med matchning av offentliga DNS-namn tillhandahåller Azure intern namn matchning för virtuella datorer och roll instanser i samma virtuella nätverk. I virtuella nätverk som baseras på Azure Resource Manager är DNS-suffixet konsekvent i det virtuella nätverket. FQDN krävs inte. DNS-namn kan tilldelas till både nätverkskort och virtuella datorer. Även om namn matchningen som Azure tillhandahåller inte kräver någon konfiguration, är det inte det lämpligaste alternativet för alla distributions scenarier som visas i tabellen ovan.

@@ -4,10 +4,10 @@ description: Så här hämtar du den information du behöver från ditt privata 
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.openlocfilehash: 63d5440a9e2b15463e465e1d32762889508feca1
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88752235"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Få hjälp med Azures distribution av VMware-lösningar eller etablerings fel
@@ -29,7 +29,7 @@ Kopiera och spara det här korrelations-ID: t som ska ingå i tjänstbegäran. M
 
 Om ett fel inträffar i för validerings stegen, innan ett privat moln distribueras, genereras inget korrelations-ID. I det här fallet kan du bara ange den information som du använde när du skapade Azure VMware-lösningens privata moln, inklusive:
 
-- Plats
+- Location
 - Resursgrupp
 - Resursnamn
  
@@ -37,7 +37,7 @@ Om ett fel inträffar i för validerings stegen, innan ett privat moln distribue
 
 Information om eventuella fel kan också vara till hjälp när du löser problemet. Från föregående skärm väljer du **Klicka här om du vill se information** (markerad) och en sammanfattning av fel öppnas, som visas i följande skärm bild.
  
- :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Sammanfattning av fel.":::
+ :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Det gick inte att distribuera privat moln med korrelations-ID.":::
 
 Kopiera och spara den här sammanfattningen så att den ingår i SR.
  
@@ -45,15 +45,15 @@ Kopiera och spara den här sammanfattningen så att den ingår i SR.
 
 Du kan hämta tidigare distributioner, inklusive misslyckade, genom att söka i distributions aktivitets loggen som nås genom att välja ikonen meddelanden.
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Öppna meddelanden.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Det gick inte att distribuera privat moln med korrelations-ID.":::
 
 I meddelanden väljer du **Fler händelser i aktivitets loggen**.
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Länk: fler händelser i aktivitets loggen.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Det gick inte att distribuera privat moln med korrelations-ID.":::
 
 Sök sedan efter namnet på resursen eller på en annan unik information som du använde när du skapade resursen för att hitta den misslyckade distributionen och dess korrelations-ID. I följande exempel visas Sök resultat i en privat moln resurs (pc03).
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Hitta tidigare misslyckade distributioner av Azure VMware-lösningar.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Det gick inte att distribuera privat moln med korrelations-ID.":::
  
 Om du väljer åtgärds namnet för den misslyckade distributionen öppnas ett fönster med information. Välj JSON-fliken och leta efter correlationId. Kopiera och inkludera i SR. 
  
@@ -63,7 +63,7 @@ Kanske har du redan ett privat moln och du får ett problem när du försöker s
 
 När du visar ett privat moln i portalen väljer du **anslutning > ExpressRoute** och kopierar **ExpressRoute-ID: t** till Urklipp.
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Kopiera ExpressRoute-ID: t till Urklipp."::: 
+:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Det gick inte att distribuera privat moln med korrelations-ID."::: 
  
 Klistra in ExpressRoute-ID: t i lämpligt fält i den nya support förfrågan. Mer information finns i det här avsnittet [skapa en support förfrågan](#create-your-support-request).
  
@@ -78,7 +78,7 @@ Här följer ytterligare information om hur du skapar en SR för distribution av
 
 1. Välj **Hjälp** ikonen och sedan **+ ny supportbegäran**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Samla in ett ExpressRoute-ID för din SR.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Det gick inte att distribuera privat moln med korrelations-ID.":::
 
 2. Fyll i alla obligatoriska fält och på fliken **grundläggande** :
 

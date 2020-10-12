@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
 ms.openlocfilehash: 05d057be76a1b468f892b3123080e32a948153ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82598506"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Apache Hadoop kluster i HDInsight med hjälp av Azure Portal
@@ -21,7 +21,7 @@ ms.locfileid: "82598506"
 
 Med hjälp av [Azure Portal](https://portal.azure.com)kan du hantera [Apache Hadoop](https://hadoop.apache.org/) kluster i Azure HDInsight. Använd tabbväljaren ovan för information om hur du hanterar Hadoop-kluster i HDInsight med andra verktyg.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ett befintligt Apache Hadoop-kluster i HDInsight.  Se [skapa Linux-baserade kluster i HDInsight med hjälp av Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -29,13 +29,13 @@ Ett befintligt Apache Hadoop-kluster i HDInsight.  Se [skapa Linux-baserade klus
 
 Logga in på [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="list-and-show-clusters"></a><a name="showClusters"></a>Visa och Visa kluster
+## <a name="list-and-show-clusters"></a><a name="showClusters"></a> Visa och Visa kluster
 
 Sidan **HDInsight-kluster** visar dina befintliga kluster.  Från portalen:
 1. Välj **alla tjänster** på den vänstra menyn.
 2. Välj **HDInsight-kluster** under **Analytics**.
 
-## <a name="cluster-home-page"></a><a name="homePage"></a>Kluster start sida
+## <a name="cluster-home-page"></a><a name="homePage"></a> Kluster start sida
 
 Välj ditt kluster namn på sidan [**HDInsight-kluster**](#showClusters) .  Vyn **Översikt** öppnas, som ser ut ungefär som på följande bild:
 
@@ -96,7 +96,7 @@ Välj ditt kluster namn på sidan [**HDInsight-kluster**](#showClusters) .  Vyn 
     |Resurshälsa|Se [Översikt över Azure Resource Health](../service-health/resource-health-overview.md).|
     |Ny supportbegäran|Gör att du kan skapa ett support ärende med Microsoft support.|
 
-## <a name="cluster-properties"></a><a name="properties"></a>Kluster egenskaper
+## <a name="cluster-properties"></a><a name="properties"></a> Kluster egenskaper
 
 På [Start sidan för klustret](#homePage)under **Inställningar** väljer du **Egenskaper**.
 
@@ -110,7 +110,7 @@ På [Start sidan för klustret](#homePage)under **Inställningar** väljer du **
 |REGION|Azure-plats. En lista över Azure-platser som stöds finns i list rutan **region** på [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).|
 |SKAPAD DEN|Det datum då klustret distribuerades.|
 |OPERATIV SYSTEM|Antingen **Windows** eller **Linux**.|
-|TYPE|Hadoop, HBase, Storm, Spark.|
+|TYP|Hadoop, HBase, Storm, Spark.|
 |Version|Se [HDInsight-versioner](hdinsight-component-versioning.md).|
 |Lägsta TLS-version|TLS-versionen.|
 |PRENUMERATION|Prenumerations namn.|

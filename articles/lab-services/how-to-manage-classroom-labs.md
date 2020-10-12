@@ -4,10 +4,10 @@ description: Lär dig hur du skapar och konfigurerar ett klass rums labb, visar 
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.openlocfilehash: 1a251f668508ee0b727c5e2ace65d1ea4eb5123e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91251685"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Hantera klass rums labb i Azure Lab Services 
@@ -89,7 +89,7 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
 
 ### <a name="vm-sizes"></a>VM-storlekar  
 
-| Storlek | Kärnor | RAM | Description | 
+| Storlek | Kärnor | RAM | Beskrivning | 
 | ---- | ----- | --- | ----------- | 
 | Liten | 2 | 3,5 GB | Den här storleken passar bäst för kommando rad, öppna webbläsare, webb servrar med låg trafik, små till medel stora databaser. |
 | Medium | 4 | 7 GB | Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys | 

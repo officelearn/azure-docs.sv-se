@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005913"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Windows-stoppfel – status slut på minne
@@ -143,10 +143,10 @@ Innan du vidtar några steg bör du skapa en kopia av mappen **\Windows\System32
    1. Gå till **HKEY_LOCAL_MACHINE >> BROKENSYSTEM >> Välj**.
    1. Anteckna datavärdet för Current i de nycklar som visas. Om det här värdet till exempel är **1** eller **0x00000001 (1)**, blir kontroll uppsättningen ControlSet001.
 1. Kontrol lera den plats där växlings filen skapades.
-   1. I HKEY_LOCAL_MACHINE \BROKENSYSTEM expanderar du katalogen som matchar det ControlSet-nummer som du identifierade i steg 4, till exempel **ControlSet001**.
+   1. I HKEY_LOCAL_MACHINE\BROKENSYSTEM expanderar du katalogen som matchar det ControlSet-nummer som du identifierade i steg 4, till exempel **ControlSet001**.
    1. Gå till **kontroll >> sessionshanteraren >> minnes hantering** och notera platsen för **ExistingPageFiles** -nyckeln.
    1. Den här nyckeln bör finnas på Azure-standardplatsen för temp-enheten. Om den inte finns där och finns på en virtuell hård disk på en annan plats, t. ex. data disk enhet eller operativ system enhet, måste du ta bort den.
-   1. Bläddra till den platsen i Utforskaren och ta sedan bort **pagefile.syss** filen.
+   1. Bläddra till den platsen i Utforskaren och ta sedan bort **pagefile.syss ** filen.
 
 ### <a name="enable-the-serial-console-and-memory-dump-collection"></a>Aktivera samlings konsolen och minnes dumpnings samlingen
 

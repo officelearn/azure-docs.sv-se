@@ -11,10 +11,10 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.openlocfilehash: 69d6b8abc99863f29f82abcb44e18b426c5a456c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85959151"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Konfigurera en gemensam identitet på en Data Science Virtual Machine
@@ -55,7 +55,7 @@ Azure AD DS gör det enkelt att hantera dina identiteter genom att tillhandahål
     
    1. Distribuera det genererade lösen ordet på ett säkert sätt till den nya användaren så att de kan logga in.
 
-1. Skapa en Azure AD DS-instans. Följ anvisningarna i [aktivera Azure Active Directory Domain Services med hjälp av Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (avsnittet "skapa en instans och konfigurera grundläggande inställningar"). Det är viktigt att uppdatera befintliga användar lösen ord i Active Directory så att lösen ordet i Azure AD DS synkroniseras. Det är också viktigt att lägga till DNS i Azure AD DS, enligt beskrivningen under "Fyll i fälten i fönstret Basics i Azure Portal för att skapa en Azure AD DS-instans" i avsnittet.
+1. Skapa en Azure AD DS-instans. Följ anvisningarna i  [aktivera Azure Active Directory Domain Services med hjälp av Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (avsnittet "skapa en instans och konfigurera grundläggande inställningar"). Det är viktigt att uppdatera befintliga användar lösen ord i Active Directory så att lösen ordet i Azure AD DS synkroniseras. Det är också viktigt att lägga till DNS i Azure AD DS, enligt beskrivningen under "Fyll i fälten i fönstret Basics i Azure Portal för att skapa en Azure AD DS-instans" i avsnittet.
 
 1. Skapa ett separat DSVM-undernät i det virtuella nätverk som skapats i avsnittet "skapa och konfigurera det virtuella nätverket" i föregående steg.
 1. Skapa en eller flera DSVM-instanser i DSVM-undernätet.

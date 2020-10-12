@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
 ms.openlocfilehash: daf72fcf7baba289b4145d06d878c8a7232f1c6a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132423"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Köra och testa U-SQL med Azure Data Lake U-SQL SDK
@@ -35,7 +35,7 @@ Data Lake U-SQL SDK kräver följande beroenden:
 
     ![Data Lake verktyg för Visual Studio Local – kör Windows 10 SDK](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-  - Installera [data Lake verktyg för Visual Studio](https://aka.ms/adltoolsvs). Du hittar de förpaketerade Visual C++-och Windows SDK-filerna på`C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`
+  - Installera [data Lake verktyg för Visual Studio](https://aka.ms/adltoolsvs). Du hittar de förpaketerade Visual C++-och Windows SDK-filerna på `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`
 
     I det här fallet kan inte den lokala U-SQL-kompileraren hitta beroenden automatiskt. Du måste ange sökvägen till CppSDK. Du kan antingen kopiera filerna till en annan plats eller använda den som den är.
 
@@ -154,7 +154,7 @@ Följande är valfria argument för **körning**:
 |– Utförlig|Falskt|Visa detaljerade utdata från körning|
 |-WorkDir|Aktuell katalog|Katalog för användning och utdata av kompilerare|
 |-RunScopeCEP|0|ScopeCEP-läge som ska användas|
-|-ScopeCEPTempPath|styr|Temp-sökväg som ska användas för strömmande data|
+|-ScopeCEPTempPath|temp|Temp-sökväg som ska användas för strömmande data|
 |-OptFlags| |Kommaavgränsad lista över optimerings flaggor|
 
 Här är ett exempel:

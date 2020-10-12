@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: a1fedb637bee9d98fb09d8fc3fa133b2992ce86e
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613675"
 ---
 # <a name="pbr-materials"></a>PBR-material
@@ -76,7 +76,7 @@ Kärn idén med fysiskt baserad åter givning är att använda *BaseColor*, *Ege
 
 ## <a name="technical-details"></a>Teknisk information
 
-I Azure fjärrrendering används mikroaspekten Cook Torrance Micro-Face BRDF med GGX NDF, Schlick Fresnel och en GGX Smith-korrelerad Synlighets period med en Lambert diffusions period. Den här modellen är den som är i praktiken bransch standard för tillfället. Mer detaljerad information finns i den här artikeln: [fysiskt baserad åter givning-Cook Torrance](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
+Azure fjärrrendering använder Cook-Torrance mikroaspekt BRDF med GGX NDF, Schlick Fresnel och en GGX Smith-korrelerad Synlighets period med en Lambert diffusions period. Den här modellen är den som är i praktiken bransch standard för tillfället. Mer detaljerad information finns i den här artikeln: [fysiskt baserad åter givning-Cook Torrance](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
 
  Ett alternativ till den *metall-och tuffa PBR-* modell som används i Azure Remote rendering är en *spegel-Glossiness PBR-* modell. Den här modellen kan representera en bredare mängd material. Men det är dyrare och fungerar vanligt vis inte bra för real tids fall.
 Det är inte alltid möjligt att konvertera från *spegel-Glossiness* till *Metaly-grovhet* eftersom det finns *(diffusion, spegel)* värdepar som inte kan konverteras till *(BaseColor, metaly)*. Konverteringen i den andra riktningen är enklare och mer exakt eftersom alla *(BaseColor, metall)* par motsvarar väldefinierade *(diffusa, spegel)* par.

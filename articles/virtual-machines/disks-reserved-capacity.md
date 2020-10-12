@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: 9a6a56491a327d5d4eafc2c05dc2b54b137096b8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88752071"
 ---
-# <a name="reduce-costs-with-azure-disks-reservation"></a>Minska kostnaderna med Azure disks-reservation
+# <a name="reduce-costs-with-azure-disks-reservation"></a>Minska kostnader med Azures diskreservation
 
 Spara på Azure-disklagring-användning med reserverad kapacitet. Azure-disklagring reservationer kombinerat med Azure Reserved Virtual Machine Instances kan du sänka dina totala kostnader för virtuella datorer. Reservations rabatten tillämpas automatiskt på de matchande diskarna i det valda reservations omfånget. På grund av det här automatiska programmet behöver du inte tilldela en reservation till en hanterad disk för att få rabatterna.
 
@@ -71,7 +71,7 @@ Följ dessa steg för att köpa reserverad kapacitet:
    |---------|---------|
    |**Omfång**   |  Hur många prenumerationer kan använda fakturerings förmånen som är associerad med reservationen. Det här värdet anger även hur reservationen tillämpas på vissa prenumerationer. <br/><br/> Om du väljer **delad**tillämpas reservations rabatten på Azure Storage kapacitet i varje prenumeration i din fakturerings kontext. Fakturerings kontexten baseras på hur du registrerade dig för Azure. För företags kunder är det delade omfånget registreringen och innehåller alla prenumerationer i registreringen. För kunder som betalar per användning inkluderar det delade omfånget alla enskilda prenumerationer med priser enligt principen betala per användning som har skapats av konto administratören.  <br/><br/>  Om du väljer **enskild prenumeration**tillämpas reservations rabatten på Azure Storage kapacitet i den valda prenumerationen. <br/><br/> Om du väljer **enskild resurs grupp**tillämpas reservations rabatten på Azure Storage kapacitet i den valda prenumerationen och i den valda resurs gruppen för den aktuella prenumerationen. <br/><br/> Du kan ändra reservations omfånget när du har köpt reservationen.  |
    |**Prenumeration**  | Den prenumeration som du använder för att betala för Azure Storage reservationen. Betalnings metoden för den valda prenumerationen används för att debitera kostnaderna. Prenumerationen måste vara någon av följande typer:<br/><ul><li> Enterprise-avtal (erbjudande nummer MS-AZR-0017P och MS-AZR-0148P). För en företags prenumeration dras avgifterna från registreringen av betalnings åtagandet eller debiteras som överanvändning.</li><br/><li>Enskild prenumeration med priser enligt principen betala per användning (erbjudande nummer MS-AZR-0003P och MS-AZR-0023P). För en enskild prenumeration med priser enligt principen betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.</li></ul>    |
-   | **Disk** | Den SKU som du vill skapa. |
+   | **Diskar** | Den SKU som du vill skapa. |
    | **Region** | Den region där reservationen gäller. |
    | **Fakturerings frekvens** | Hur ofta kontot debiteras för reservationen. Alternativen omfattar **varje månad** och **längst fram**. |
 
@@ -104,4 +104,4 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Vad är Azure-reservationer?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Förstå hur reservationsrabatten tillämpas på Azure-disklagring](../cost-management-billing/reservations/understand-disk-reservations.md)
+- [Förstå hur reservations rabatten tillämpas på Azure-disklagring](../cost-management-billing/reservations/understand-disk-reservations.md)

@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 41f570f93e95e9801b08c06cacc0423b1bf3b8e5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91252791"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformera data med Hive-aktivitet i Azure Data Factory 
@@ -74,15 +74,15 @@ HDInsight Hive-aktiviteten i en Data Factory [pipelinen](data-factory-create-pip
 ## <a name="syntax-details"></a>Information om syntax
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| namn |Namn på aktiviteten |Yes |
-| description |Text som beskriver vad aktiviteten används för |No |
-| typ |HDinsightHive |Yes |
-| tillför |Indata som används av Hive-aktiviteten |No |
-| utdata |Utdata som produceras av Hive-aktiviteten |Yes |
-| linkedServiceName |Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory |Yes |
-| skript |Ange Hive-skriptet infogat |No |
-| scriptPath |Lagra Hive-skriptet i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |No |
-| definierar |Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet med hjälp av "hiveconf" |No |
+| name |Namn på aktiviteten |Ja |
+| description |Text som beskriver vad aktiviteten används för |Inga |
+| typ |HDinsightHive |Ja |
+| tillför |Indata som används av Hive-aktiviteten |Inga |
+| utdata |Utdata som produceras av Hive-aktiviteten |Ja |
+| linkedServiceName |Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory |Ja |
+| skript |Ange Hive-skriptet infogat |Inga |
+| scriptPath |Lagra Hive-skriptet i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |Inga |
+| definierar |Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet med hjälp av "hiveconf" |Inga |
 
 ## <a name="example"></a>Exempel
 Nu ska vi titta på ett exempel på spel loggar för att identifiera hur lång tid det tar för användare att spela spel som lanserats av ditt företag. 

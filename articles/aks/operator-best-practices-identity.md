@@ -8,10 +8,10 @@ ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 0e11f345bfed287be3170df38a909ed24149b754
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88010267"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Metod tips för autentisering och auktorisering i Azure Kubernetes service (AKS)
@@ -39,7 +39,7 @@ Med Azure AD-integrerade kluster i AKS skapar du *roller* eller *ClusterRoles* s
 
 1. Utvecklare autentiseras med Azure AD.
 1. Utfärdande slut punkten för Azure AD-token utfärdar åtkomst-token.
-1. Utvecklaren utför en åtgärd med Azure AD-token, till exempel`kubectl create pod`
+1. Utvecklaren utför en åtgärd med Azure AD-token, till exempel `kubectl create pod`
 1. Kubernetes validerar token med Azure Active Directory och hämtar utvecklarens grupp medlemskap.
 1. Kubernetes rollbaserad åtkomst kontroll (RBAC) och kluster principer tillämpas.
 1. Utvecklarens begäran har lyckats eller är inte baserad på tidigare validering av Azure AD-gruppmedlemskap och Kubernetes RBAC och principer.

@@ -4,10 +4,10 @@ description: Beskriver de funktioner som används i en Azure Resource Manager ma
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 00b44d971a487a0bbec27f3fc2d0746cedd6f874
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677924"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Numeriska funktioner för ARM-mallar
@@ -17,10 +17,10 @@ Resource Manager innehåller följande funktioner för att arbeta med heltal i d
 * [skapa](#add)
 * [copyIndex](#copyindex)
 * [div](#div)
-* [flyta](#float)
+* [float](#float)
 * [int](#int)
 * [bekräftat](#max)
-* [minimum](#min)
+* [min](#min)
 * [rest](#mod)
 * [mul](#mul)
 * [Build](#sub)
@@ -79,7 +79,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | addResult | Int | 8 |
 
@@ -93,8 +93,8 @@ Returnerar indexet för en upprepnings slinga.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| loopName | No | sträng | Namnet på slingan för att hämta iterationen. |
-| offset |No |int |Talet som ska läggas till i det nollbaserade upprepning svärdet. |
+| loopName | Inga | sträng | Namnet på slingan för att hämta iterationen. |
+| offset |Inga |int |Talet som ska läggas till i det nollbaserade upprepning svärdet. |
 
 ### <a name="remarks"></a>Kommentarer
 
@@ -202,11 +202,11 @@ Följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | divResult | Int | 2 |
 
-## <a name="float"></a>float
+## <a name="float"></a>flyt
 
 `float(arg1)`
 
@@ -283,11 +283,11 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | intResult | Int | 4 |
 
-## <a name="max"></a>bekräftat
+## <a name="max"></a>max
 
 `max (arg1)`
 
@@ -333,7 +333,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -384,7 +384,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -443,7 +443,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | modResult | Int | 1 |
 
@@ -501,7 +501,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | mulResult | Int | 15 |
 
@@ -559,7 +559,7 @@ I följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | under resultat | Int | 4 |
 

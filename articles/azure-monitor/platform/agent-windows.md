@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/03/2020
 ms.openlocfilehash: d283c2b2cdbbeb3ef4bc4e25f4288dfd95158552
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003379"
 ---
 # <a name="install-log-analytics-agent-on-windows-computers"></a>Installera Log Analytics agent på Windows-datorer
@@ -49,7 +49,7 @@ Se [Log Analytics agent-översikt](log-analytics-agent.md#network-requirements) 
 ## <a name="configure-agent-to-use-tls-12"></a>Konfigurera agenten att använda TLS 1,2
 [TLS 1,2](/windows-server/security/tls/tls-registry-settings#tls-12) -protokollet säkerställer säkerheten för data som överförs för kommunikation mellan Windows-agenten och tjänsten Log Analytics. Om du installerar på ett [operativ system utan TLS 1,2 aktiverat som standard](data-security.md#sending-data-securely-using-tls-12), bör du konfigurera TLS 1,2 med stegen nedan.
 
-1. Leta upp följande register under nyckel: **HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols**
+1. Leta upp följande register under nyckel: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
 2. Skapa en under nyckel under **protokoll** för TLS 1,2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1,2**
 3. Skapa en **klient** under nyckel under under nyckeln TLS 1,2 Protocol version som du skapade tidigare. Till exempel **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ client**.
 4. Skapa följande DWORD-värden under **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ client**:
@@ -59,9 +59,9 @@ Se [Log Analytics agent-översikt](log-analytics-agent.md#network-requirements) 
 
 Konfigurera .NET Framework 4,6 eller senare för att stödja säker kryptografi, som standard är inaktiverat. Den [starka kryptografi](/dotnet/framework/network-programming/tls#schusestrongcrypto) användningen använder säkrare nätverks protokoll som TLS 1,2 och blockerar protokoll som inte är säkra. 
 
-1. Leta upp följande register under nyckel: **HKEY_LOCAL_MACHINE \software\microsoft \\ . NETFramework\v4.0.30319**.  
+1. Leta upp följande register under nyckel: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\ . NETFramework\v4.0.30319**.  
 2. Skapa DWORD-värdet **SchUseStrongCrypto** under den här under nyckeln med värdet **1**.  
-3. Leta upp följande register under nyckel: **HKEY_LOCAL_MACHINE \software\wow6432node\microsoft \\ . NETFramework\v4.0.30319**.  
+3. Leta upp följande register under nyckel: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\ . NETFramework\v4.0.30319**.  
 4. Skapa DWORD-värdet **SchUseStrongCrypto** under den här under nyckeln med värdet **1**. 
 5. Starta om systemet för att inställningarna ska börja gälla. 
 
@@ -91,7 +91,7 @@ Den hämtade filen för agenten är ett fristående installations paket.  Instal
 
 I följande tabell visas de olika parametrarna som stöds av installations programmet för agenten, inklusive när du distribuerar med hjälp av Automation DSC.
 
-|MMA alternativ                   |Anteckningar         |
+|MMA alternativ                   |Obs!         |
 |---------------------------------------|--------------|
 | NOAPM=1                               | Valfri parameter. Installerar agenten utan prestanda övervakning av .NET-program.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = Konfigurera agenten att rapportera till en arbets yta                |
@@ -202,7 +202,7 @@ I Sök resultaten som returneras bör du se pulsslags poster för datorn som ind
 
 Data från Log Analytics agent cachelagras på den lokala datorn i *C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State* innan den skickas till Azure Monitor. Agenten försöker ladda upp var 20: e sekund. Om det Miss lyckas väntar det en exponentiellt ökande tid tills det lyckas. Det kommer att vänta 30 sekunder innan det andra försöket, 60 sekunder före nästa, 120 sekunder och så vidare till högst 8,5 timmar mellan försök tills den har anslutit igen. Den här vänte tiden är något slumpmässiga för att undvika att alla agenter försöker ansluta samtidigt. Äldsta data tas bort när den maximala bufferten nås.
 
-Standardcache-storleken är 50 MB men kan konfigureras mellan minst 5 MB och högst 1,5 GB. Den lagras i register nyckeln *HKEY_LOCAL_MACHINE \System\currentcontrolset\services\healthservice\parameters\persistence cache maximum*. Värdet representerar antalet sidor, med 8 KB per sida.
+Standardcache-storleken är 50 MB men kan konfigureras mellan minst 5 MB och högst 1,5 GB. Den lagras i register nyckeln *HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Persistence Cache Maximum*. Värdet representerar antalet sidor, med 8 KB per sida.
 
 
 ## <a name="next-steps"></a>Nästa steg

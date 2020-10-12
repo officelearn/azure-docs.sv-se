@@ -4,17 +4,17 @@ description: Beskriver de funktioner som används i en Azure Resource Manager ma
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677397"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Logiska funktioner för ARM-mallar
 
 Resource Manager innehåller flera funktioner för att göra jämförelser i dina Azure Resource Manager-mallar (ARM).
 
-* [och](#and)
+* [and](#and)
 * [boolesk](#bool)
 * [eventuella](#if)
 * [Ogiltigt](#not)
@@ -32,7 +32,7 @@ Kontrollerar om alla parameter värden är sanna.
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |boolean |Det första värdet för att kontrol lera om är sant. |
 | arg2 |Ja |boolean |Det andra värdet för att kontrol lera om är sant. |
-| ytterligare argument |No |boolean |Ytterligare argument för att kontrol lera om är true. |
+| ytterligare argument |Inga |boolean |Ytterligare argument för att kontrol lera om är true. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -66,7 +66,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falskt |
 | orExampleOutput | Bool | Sant |
@@ -119,7 +119,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | trueString | Bool | Sant |
 | falseString | Bool | Falskt |
@@ -177,7 +177,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | yesOutput | Sträng | ja |
 | nooutput | Sträng | nej |
@@ -275,7 +275,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falskt |
 | orExampleOutput | Bool | Sant |
@@ -300,7 +300,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Utdata från föregående exempel är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | Sant |
 
@@ -316,7 +316,7 @@ Kontrollerar om ett parameter värde är sant.
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |boolean |Det första värdet för att kontrol lera om är sant. |
 | arg2 |Ja |boolean |Det andra värdet för att kontrol lera om är sant. |
-| ytterligare argument |No |boolean |Ytterligare argument för att kontrol lera om är true. |
+| ytterligare argument |Inga |boolean |Ytterligare argument för att kontrol lera om är true. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -350,7 +350,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falskt |
 | orExampleOutput | Bool | Sant |

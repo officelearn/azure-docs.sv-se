@@ -4,10 +4,10 @@ description: Beskriver de funktioner som används i en Azure Resource Manager ma
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 4d4ee96888aee5421d88b5371ac25a69c0af4fd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677856"
 ---
 # <a name="array-functions-for-arm-templates"></a>Mat ris funktioner för ARM-mallar
@@ -22,12 +22,12 @@ Resource Manager innehåller flera funktioner för att arbeta med matriser i din
 * [förstagångskörningen](#first)
 * [överlappning](#intersection)
 * [pågå](#last)
-* [krävande](#length)
+* [length](#length)
 * [bekräftat](#max)
-* [minimum](#min)
+* [min](#min)
 * [intervall](#range)
 * [Ignorera](#skip)
-* [gå](#take)
+* [take](#take)
 * [Union](#union)
 
 Om du vill hämta en matris med sträng värden som är avgränsade med ett värde, se [dela](template-functions-string.md#split).
@@ -91,7 +91,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | intOutput | Matris |  [1] |
 | stringOutput | Matris | ["efgh"] |
@@ -108,7 +108,7 @@ Kombinerar flera matriser och returnerar den sammanfogade matrisen, eller kombin
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |matris eller sträng |Den första matrisen eller strängen för sammanfogning. |
-| ytterligare argument |No |matris eller sträng |Ytterligare matriser eller strängar i sekventiell ordning för sammanfogning. |
+| ytterligare argument |Inga |matris eller sträng |Ytterligare matriser eller strängar i sekventiell ordning för sammanfogning. |
 
 Den här funktionen kan ta valfritt antal argument och kan acceptera antingen strängar eller matriser för parametrarna. Du kan dock inte ange både matriser och strängar för parametrar. Matriser sammanfogas endast med andra matriser.
 
@@ -155,7 +155,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | återgå | Matris | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -183,11 +183,11 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | concatOutput | Sträng | prefix – 5yj4yjf5mbg72 |
 
-## <a name="contains"></a>innehåller
+## <a name="contains"></a>contains
 
 `contains(container, itemToFind)`
 
@@ -259,7 +259,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | stringTrue | Bool | Sant |
 | stringFalse | Bool | Falskt |
@@ -279,7 +279,7 @@ Skapar en matris från parametrarna.
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |Sträng, heltal, matris eller objekt |Det första värdet i matrisen. |
-| ytterligare argument |No |Sträng, heltal, matris eller objekt |Ytterligare värden i matrisen. |
+| ytterligare argument |Inga |Sträng, heltal, matris eller objekt |Ytterligare värden i matrisen. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -328,7 +328,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | stringArray | Matris | ["a", "b", "c"] |
 | intArray | Matris | [1, 2, 3] |
@@ -394,7 +394,7 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | Sant |
 | objectEmpty | Bool | Sant |
@@ -447,7 +447,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Sträng | en |
 | stringOutput | Sträng | O |
@@ -464,7 +464,7 @@ Returnerar en enskild matris eller ett objekt med de gemensamma elementen från 
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att hitta vanliga element. |
 | arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att hitta vanliga element. |
-| ytterligare argument |No |matris eller objekt |Ytterligare värden som ska användas för att hitta vanliga element. |
+| ytterligare argument |Inga |matris eller objekt |Ytterligare värden som ska användas för att hitta vanliga element. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -513,7 +513,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | objectOutput | Objekt | {"One": "a", "tre": "c"} |
 | arrayOutput | Matris | ["två", "tre"] |
@@ -565,7 +565,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Sträng | tre |
 | stringOutput | Sträng | e |
@@ -640,7 +640,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -657,7 +657,7 @@ Du kan använda den här funktionen med en matris för att ange antalet iteratio
 
 Mer information om hur du använder den här funktionen med en matris finns i [skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
 
-## <a name="max"></a>bekräftat
+## <a name="max"></a>max
 
 `max(arg1)`
 
@@ -703,7 +703,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -754,7 +754,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -806,7 +806,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | rangeOutput | Matris | [5, 6, 7] |
 
@@ -873,12 +873,12 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Matris | ["tre"] |
 | stringOutput | Sträng | 2 3 |
 
-## <a name="take"></a>gå
+## <a name="take"></a>take
 
 `take(originalValue, numberToTake)`
 
@@ -941,7 +941,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Matris | ["One", "två"] |
 | stringOutput | Sträng | på |
@@ -958,7 +958,7 @@ Returnerar en enskild matris eller ett objekt med alla element från parametrarn
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att koppla ihop element. |
 | arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att koppla ihop element. |
-| ytterligare argument |No |matris eller objekt |Ytterligare värden som ska användas för att koppla ihop element. |
+| ytterligare argument |Inga |matris eller objekt |Ytterligare värden som ska användas för att koppla ihop element. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1007,7 +1007,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | objectOutput | Objekt | {"One": "a", "två": "b", "tre": "C2", "fyra": "d", "fem": "e"} |
 | arrayOutput | Matris | ["One", "två", "tre", "fyra"] |

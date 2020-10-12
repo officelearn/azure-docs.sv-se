@@ -4,10 +4,10 @@ description: Lär dig mer om identitets-och åtkomst koncepten i Azure VMware-l�
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 9d5b7b4c7c2e0d55cffc99a3f371494f40320a16
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88750586"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Identitets koncept för Azure VMware-lösning
@@ -24,7 +24,7 @@ Behörigheterna CloudAdmin och CloudGlobalAdmin visas i tabellen nedan.
 
 |  Privilegie rad uppsättning           | CloudAdmin | CloudGlobalAdmin | Kommentar |
 | :---                     |    :---:   |       :---:      |   :--:  |
-|  Larm                  | En CloudAdmin-användare har alla larm privilegier för larm i beräknings-ResourcePool och virtuella datorer.     |          --        |  -- |
+|  Larm                  | En CloudAdmin-användare har alla larm privilegier för larm i Compute-ResourcePool och virtuella datorer.     |          --        |  -- |
 |  Automatisk distribution             |  --  |        --        |  Microsoft hanterar värd hantering.  |
 |  Certifikat            |  --  |        --       |  Microsoft certifikat hantering.  |
 |  Innehållsbibliotek         | En CloudAdmin-användare har behörighet att skapa och använda filer i ett innehålls bibliotek.    |         Aktive rad med SSO.         |  Microsoft distribuerar filer i innehålls biblioteket till ESXi-värdar.  |

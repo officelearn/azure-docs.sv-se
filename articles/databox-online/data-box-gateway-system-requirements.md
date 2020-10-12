@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: aadaedfd2c9ecf544d142e42a0fbeb410324b7d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82562448"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Azure Data Box Gateway system krav
@@ -48,7 +48,7 @@ Det underliggande värd systemet för Data Box Gateway kan dedicera följande re
 
 ## <a name="supported-virtualization-platforms-for-device"></a>Virtualization-plattformar som stöds för enhet
 
-| **Operativ system/plattform**  |**5**   |**Anteckningar**  |
+| **Operativ system/plattform**  |**Versioner**   |**Kommentarer**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |VMware-verktyg stöds inte.         |

@@ -4,10 +4,10 @@ description: Den här artikeln innehåller steg för att skapa aktivitets logg a
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.openlocfilehash: d5886ea26ddbeb07efc23d61d3197860620eebf3
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90526365"
 ---
 # <a name="create-activity-log-alerts-for-labs-in-azure-devtest-labs"></a>Skapa aktivitets loggs aviseringar för labb i Azure DevTest Labs
@@ -22,29 +22,29 @@ I det här exemplet skapar du en avisering för alla administrativa åtgärder i
     :::image type="content" source="./media/activity-logs/search-monitor.png" alt-text="Sök efter övervakare":::        
 1. Välj **aviseringar** på den vänstra menyn och välj sedan **ny varnings regel** i verktygsfältet. 
 
-    :::image type="content" source="./media/activity-logs/alerts-page.png" alt-text="Sidan aviseringar":::    
+    :::image type="content" source="./media/activity-logs/alerts-page.png" alt-text="Sök efter övervakare":::    
 1. Klicka på **Välj resurs**på sidan **skapa aviserings regel** . 
 
-    :::image type="content" source="./media/activity-logs/select-resource-link.png" alt-text="Välj resurs för aviseringen":::        
+    :::image type="content" source="./media/activity-logs/select-resource-link.png" alt-text="Sök efter övervakare":::        
 1. Välj **DevTest Labs** för **Filtrera efter resurs typ**, Välj ditt labb i listan och välj sedan **färdig**.
 
-    :::image type="content" source="./media/activity-logs/select-lab-resource.png" alt-text="Välj labbet som resurs":::
+    :::image type="content" source="./media/activity-logs/select-lab-resource.png" alt-text="Sök efter övervakare":::
 1. Tillbaka på sidan **skapa aviserings regel** klickar du på **Välj villkor**. 
 
-    :::image type="content" source="./media/activity-logs/select-condition-link.png" alt-text="Välj villkors länk":::    
+    :::image type="content" source="./media/activity-logs/select-condition-link.png" alt-text="Sök efter övervakare":::    
 1. På sidan **Konfigurera signal logik** väljer du en signal som stöds av DevTest Labs. 
 
-    :::image type="content" source="./media/activity-logs/select-signal.png" alt-text="Välj signal":::
+    :::image type="content" source="./media/activity-logs/select-signal.png" alt-text="Sök efter övervakare":::
 1. Filtrera efter **händelse nivå** (utförlig, information, varning, fel, kritiskt, alla), **status** (misslyckad, startad, lyckad) och **vem som initierade** händelsen. 
 1. Slutför konfigurationen av villkoret genom att välja **klart** . 
 
-    :::image type="content" source="./media/activity-logs/configure-signal-logic-done.png" alt-text="Konfigurera signal logik – färdig":::
+    :::image type="content" source="./media/activity-logs/configure-signal-logic-done.png" alt-text="Sök efter övervakare":::
 1. Du har angett för omfattningen (labb) och villkoret för aviseringen. Nu måste du ange en åtgärds grupp med åtgärder som ska köras när villkoret är uppfyllt. Gå tillbaka till sidan **skapa aviserings regel** och välj **Välj åtgärds grupp**. 
 
-    :::image type="content" source="./media/activity-logs/select-action-group-link.png" alt-text="Välj åtgärds grupp länk":::
+    :::image type="content" source="./media/activity-logs/select-action-group-link.png" alt-text="Sök efter övervakare":::
 1. Välj länken **skapa åtgärds grupp** i verktygsfältet. 
 
-    :::image type="content" source="./media/activity-logs/create-action-group-link.png" alt-text="Skapa åtgärds grupp länk":::
+    :::image type="content" source="./media/activity-logs/create-action-group-link.png" alt-text="Sök efter övervakare":::
 1. Följ dessa steg på sidan **Lägg till åtgärds grupp** :
     1. Ange ett **namn** på åtgärds gruppen.
     1. Ange ett **kort namn** för åtgärds gruppen. 
@@ -52,28 +52,28 @@ I det här exemplet skapar du en avisering för alla administrativa åtgärder i
     1. Ange ett **namn för åtgärden**. 
     1. Välj **Åtgärds typ** (i det här exemplet **e-Azure Resource Manager roll för e-post**). 
 
-        :::image type="content" source="./media/activity-logs/add-action-group.png" alt-text="Sidan Lägg till åtgärds grupp":::
+        :::image type="content" source="./media/activity-logs/add-action-group.png" alt-text="Sök efter övervakare":::
     1. På sidan **e-Azure Resource Manager roll** väljer du rollen. I det här exemplet är det **ägare**. Välj sedan **OK**. 
 
-        :::image type="content" source="./media/activity-logs/select-role.png" alt-text="Välj roll":::            
+        :::image type="content" source="./media/activity-logs/select-role.png" alt-text="Sök efter övervakare":::            
     1. Välj **OK** på sidan **Lägg till åtgärds grupp** . 
 1. På sidan **skapa aviserings regel** anger du ett namn för varnings regeln och väljer sedan **OK**. 
 
-    :::image type="content" source="./media/activity-logs/create-alert-rule-done.png" alt-text="Skapa aviserings regel – färdig":::
+    :::image type="content" source="./media/activity-logs/create-alert-rule-done.png" alt-text="Sök efter övervakare":::
 
 ## <a name="view-alerts"></a>Visa aviseringar 
 1. **Aviseringar visas för alla** administrativa åtgärder (i det här exemplet). Det kan ta en stund innan aviseringarna visas. 
 
-    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="Skärm dum par visar aviseringar på instrument panelen.":::
+    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="Sök efter övervakare":::
 1. Om du väljer tal i en kolumn (till exempel: **Totalt antal aviseringar**) visas de aviseringar som har Aktiver ATS. 
 
-    :::image type="content" source="./media/activity-logs/all-alerts.png" alt-text="Alla aviseringar":::
+    :::image type="content" source="./media/activity-logs/all-alerts.png" alt-text="Sök efter övervakare":::
 1. Om du väljer en avisering visas information om den. 
 
-    :::image type="content" source="./media/activity-logs/alert-details.png" alt-text="Aviseringsinformation":::
+    :::image type="content" source="./media/activity-logs/alert-details.png" alt-text="Sök efter övervakare":::
 1. I det här exemplet får du också ett e-postmeddelande med innehåll som visas i följande exempel: 
 
-    :::image type="content" source="./media/activity-logs/alert-email.png" alt-text="Aviseringsmeddelande":::
+    :::image type="content" source="./media/activity-logs/alert-email.png" alt-text="Sök efter övervakare":::
 
 ## <a name="next-steps"></a>Nästa steg
 - Mer information om hur du skapar åtgärds grupper med olika åtgärds typer finns i [skapa och hantera åtgärds grupper i Azure Portal](../azure-monitor/platform/action-groups.md).

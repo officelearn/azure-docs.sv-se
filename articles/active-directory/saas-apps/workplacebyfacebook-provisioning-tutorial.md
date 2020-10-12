@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
 ms.openlocfilehash: c72ca7cb521c5c7e7ed33e9a0539de0df252ac92
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321910"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets ytan efter Facebook för automatisk användar etablering
@@ -132,8 +132,8 @@ Med Azure AD-etableringstjänsten kan du bestämma vem som ska etableras, basera
    |urn:scim:schemas:extension:enterprise:1.0.costCenter|Sträng|
    |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|Sträng|
    |urn: scim: schemas: tillägg: Facebook: auth_method: 1.0: auth_method|Sträng|
-   |urn: scim: schemas: tillägg: Facebook: Frontline: 1.0. is_frontline|Boolesk|
-   |urn: scim: schemas: tillägg: Facebook: starttermdates: 1.0. StartDate|Heltal|
+   |urn: scim: schemas: tillägg: Facebook: Frontline: 1.0.is_frontline|Boolesk|
+   |urn: scim: schemas: tillägg: Facebook: starttermdates: 1.0. StartDate|Integer|
 
 
 10. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

@@ -8,10 +8,10 @@ ms.date: 01/23/2017
 ms.author: yegu
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: db55ac4ce868f2e6ce2afbfbf014aac67653ce4a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87500512"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Så här skapar och hanterar du Azure cache för Redis med hjälp av den klassiska Azure-CLI
@@ -37,12 +37,12 @@ Du måste utföra följande steg för att skapa och hantera Azure cache för Red
 ## <a name="azure-cache-for-redis-properties"></a>Egenskaper för Azure Cache for Redis
 Följande egenskaper används när du skapar och uppdaterar Azure cache för Redis-instanser.
 
-| Egenskap | Switch | Description |
+| Egenskap | Switch | Beskrivning |
 | --- | --- | --- |
 | name |-n,--namn |Namnet på Azure-cachen för Redis. |
 | Resursgrupp |-g,--resurs grupp |Namnet på resurs gruppen. |
 | location |-l,--plats |Plats för att skapa cache. |
-| ikoner |-z,--storlek |Storleken på Azure-cachen för Redis. Giltiga värden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| size |-z,--storlek |Storleken på Azure-cachen för Redis. Giltiga värden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | sku |-x,--SKU |Redis SKU. Ska vara en av: [Basic, standard, Premium] |
 | EnableNonSslPort |-e,--aktivera-icke-SSL-port |Egenskapen EnableNonSslPort för Azure cache för Redis. Lägg till den här flaggan om du vill aktivera en icke-TLS/SSL-port för cacheminnet |
 | Redis-konfiguration |-c,--Redis-Configuration |Redis-konfiguration. Ange en JSON-formaterad sträng med konfigurations nycklar och värden här. Format: "{" ":" "," ":" "}" |
@@ -50,9 +50,9 @@ Följande egenskaper används när du skapar och uppdaterar Azure cache för Red
 | Antal Shard |-r,--Shard-Count |Antalet Shards som ska skapas på en Premium-klustrad cache med klustring. |
 | Virtual Network |-v,--virtuellt nätverk |När du är värd för din cache i ett VNET anger du det exakta ARM-resurs-ID: t för det virtuella nätverket för att distribuera Azure-cachen för Redis i. Exempel format:/subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | nyckel typ |-t,--nyckel-typ |Typ av nyckel som ska förnyas. Giltiga värden: [primär, sekundär] |
-| StaticIP |-p,--statisk-IP\<static-ip\> |När du är värd för din cache i ett VNET, anger en unik IP-adress i under nätet för cachen. Om detta inte anges väljs en för dig från under nätet. |
-| Undernät |t,--undernät\<subnet\> |När du är värd för din cache i ett VNET anger namnet på det undernät som cachen ska distribueras till. |
-| VirtualNetwork |-v,--virtuellt nätverk\<virtual-network\> |När du är värd för din cache i ett VNET anger du det exakta ARM-resurs-ID: t för det virtuella nätverket för att distribuera Azure-cachen för Redis i. Exempel format:/subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| StaticIP |-p,--statisk-IP \<static-ip\> |När du är värd för din cache i ett VNET, anger en unik IP-adress i under nätet för cachen. Om detta inte anges väljs en för dig från under nätet. |
+| Undernät |t,--undernät \<subnet\> |När du är värd för din cache i ett VNET anger namnet på det undernät som cachen ska distribueras till. |
+| VirtualNetwork |-v,--virtuellt nätverk \<virtual-network\> |När du är värd för din cache i ett VNET anger du det exakta ARM-resurs-ID: t för det virtuella nätverket för att distribuera Azure-cachen för Redis i. Exempel format:/subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Prenumeration |-s,--prenumeration |Prenumerations-ID. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>Se alla Azure cache för Redis-kommandon

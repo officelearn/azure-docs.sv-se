@@ -9,15 +9,15 @@ ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e85dc8c079205484db9b7b7c43a0086f69feb3be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80059922"
 ---
 ## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>Skapa ett självsignerat rot certifikat
 
-Använd cmdleten New-SelfSignedCertificate för att skapa ett självsignerat rot certifikat. Mer parameter information finns i [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+Använd New-SelfSignedCertificate-cmdlet för att skapa ett självsignerat rot certifikat. Mer parameter information finns i [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
 1. Från en dator som kör Windows 10 eller Windows Server 2016 öppnar du en Windows PowerShell-konsol med utökade privilegier. Dessa exempel fungerar inte i Azure Cloud Shell "testa". Du måste köra dessa exempel lokalt.
 2. Använd följande exempel för att skapa det självsignerade rot certifikatet. I följande exempel skapas ett självsignerat rot certifikat med namnet ' P2SRootCert ' som installeras automatiskt i ' certificates-Current User\Personal\Certificates '. Du kan visa certifikatet genom att öppna *certmgr. msc*eller *hantera användar certifikat*.
@@ -36,7 +36,7 @@ Varje klientdator som ansluter till ett virtuellt nätverk med punkt-till-plats 
 
 Följande steg beskriver hur du skapar ett klient certifikat från ett självsignerat rot certifikat. Du kan generera flera klient certifikat från samma rot certifikat. När du genererar klient certifikat med stegen nedan installeras klient certifikatet automatiskt på den dator som du använde för att generera certifikatet. Om du vill installera ett klient certifikat på en annan klient dator kan du exportera certifikatet.
 
-Exemplen använder cmdleten New-SelfSignedCertificate för att generera ett klient certifikat som upphör att gälla om ett år. För ytterligare parameter information, till exempel att ange ett annat förfallo värde för klient certifikatet, se [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+Exemplen använder New-SelfSignedCertificate-cmdleten för att generera ett klient certifikat som upphör att gälla om ett år. För ytterligare parameter information, till exempel att ange ett annat förfallo värde för klient certifikatet, se [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
 ### <a name="example-1---powershell-console-session-still-open"></a>Exempel 1 – PowerShell-konsolsessionen är fortfarande öppen
 

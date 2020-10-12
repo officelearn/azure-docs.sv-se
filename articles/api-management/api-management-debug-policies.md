@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 09/22/2020
 ms.author: apimpm
 ms.openlocfilehash: 4eb32243df219d721d7baae80984c45d0fc4cf25
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91345129"
 ---
 # <a name="debug-azure-api-management-policies-in-visual-studio-code"></a>Felsöka Azure API Management-principer i Visual Studio Code
@@ -59,7 +59,7 @@ Du kommer att märka att **OCP-APIM-debug-** huvudet redan har lagts till i beg�
 
 ![Skicka en testbegäran](media/api-management-debug-policies/rest-client.png)
 
-## <a name="debug-policies"></a>Felsöka principer
+## <a name="debug-policies"></a>Felsökningsprinciper
 När test-HTTP-begäran har skickats öppnar tillägget fel söknings fönstret som visar de effektiva principerna för åtgärden och stoppar vid den första effektiva principen. 
 
 ![Felsöka principer](media/api-management-debug-policies/main-window.png)

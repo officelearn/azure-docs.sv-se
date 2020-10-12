@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
 ms.openlocfilehash: 416cf4f027b6f1e72641324be39ba0304301db37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82614504"
 ---
 # <a name="frequently-asked-questions-about-the-gremlin-api-in-azure-cosmos-db"></a>Vanliga frågor om Gremlin-API: et i Azure Cosmos DB
@@ -142,7 +142,7 @@ En Gremlin-anslutning görs via en WebSocket-anslutning. Även om WebSocket-ansl
 
 ### <a name="why-cant-i-use-fluent-api-calls-in-the-native-gremlin-drivers"></a>Varför kan jag inte använda Fluent API-anrop i de interna Gremlin-drivrutinerna?
 
-Fluent API-anrop stöds ännu inte av Azure Cosmos DB Gremlin-API: et. Fluent API-anrop kräver en intern formaterings funktion som kallas bytekod-stöd som för närvarande inte stöds av Azure Cosmos DB Gremlin API. På grund av samma orsak stöds inte den senaste Gremlin-JavaScript-drivrutinen för närvarande.
+Fluent API-anrop stöds ännu inte av Azure Cosmos DB Gremlin-API: et. Fluent API-anrop kräver en intern formaterings funktion som kallas bytekod-stöd som för närvarande inte stöds av Azure Cosmos DB Gremlin API. På grund av samma orsak stöds inte den senaste Gremlin-JavaScript driv rutinen för närvarande.
 
 ## <a name="next-steps"></a>Nästa steg
 

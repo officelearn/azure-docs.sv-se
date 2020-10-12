@@ -9,10 +9,10 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: e9d638a7ed17d08b585c71b1dac4a0177f4a2939
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88030528"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Justera prestanda: MapReduce, HDInsight & Azure Data Lake Storage Gen2
@@ -65,7 +65,7 @@ Om du använder ett tomt kluster kan minnet vara det totala garn minnet för klu
 
 GARN behållare bestämmer mängden samtidighet som är tillgänglig för jobbet.  Ta totalt garn minne och dividera det med MapReduce. map. Memory.  
 
-\#av garn behållare = totalt garn minne/MapReduce. map. Memory
+\# av garn behållare = totalt garn minne/MapReduce. map. Memory
 
 **Steg 5: Ange MapReduce. job. Maps/MapReduce. job. dereducerar**
 
@@ -93,7 +93,7 @@ Totalt minne från klustret är 8 noder * 96GB av garn minne för en D14 = 768GB
 
 **Steg 4: beräkna antalet garn behållare**
 
-\#av garn behållare = 768GB tillgängligt minne/3 GB minne = 256
+\# av garn behållare = 768GB tillgängligt minne/3 GB minne = 256
 
 **Steg 5: Ange MapReduce. job. Maps/MapReduce. job. dereducerar**
 

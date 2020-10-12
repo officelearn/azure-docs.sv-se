@@ -6,10 +6,10 @@ ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: how-to
 ms.openlocfilehash: 519b357e4e5fde30221f7dc804bb848ecec9704c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85979925"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Sök efter fel i pooler och noder
@@ -70,9 +70,9 @@ Du kanske vill ange en valfri [Start uppgift](/rest/api/batchservice/pool/add#st
 
 Vad händer om du har konfigurerat noden för att vänta på att aktiviteten slutförs, men start aktiviteten Miss lyckas? I så fall går det inte att använda noden, men kommer fortfarande att debiteras.
 
-Du kan identifiera start aktivitets problem genom att använda egenskaperna [result](/rest/api/batchservice/computenode/get#taskexecutionresult) och [failureInfo](/rest/api/batchservice/computenode/get#taskfailureinformation) för den översta [startTaskInfo](/rest/api/batchservice/computenode/get#starttaskinformation) Node-egenskapen.
+Du kan identifiera start aktivitets problem genom att använda egenskaperna [result](/rest/api/batchservice/computenode/get#taskexecutionresult) och  [failureInfo](/rest/api/batchservice/computenode/get#taskfailureinformation) för den översta [startTaskInfo](/rest/api/batchservice/computenode/get#starttaskinformation) Node-egenskapen.
 
-En misslyckad start aktivitet gör också att batch anger nodens [tillstånd](/rest/api/batchservice/computenode/get#computenodestate) till **starttaskfailed** om **waitForSuccess** har angetts till **True**.
+En misslyckad start aktivitet gör också att batch anger nodens [tillstånd](/rest/api/batchservice/computenode/get#computenodestate) till **starttaskfailed** om  **waitForSuccess** har angetts till **True**.
 
 Precis som med alla aktiviteter kan det finnas många orsaker till att start aktiviteten Miss Missing.  Du kan felsöka genom att kontrol lera STDOUT, stderr och eventuella ytterligare verksamhetsspecifika loggfiler.
 

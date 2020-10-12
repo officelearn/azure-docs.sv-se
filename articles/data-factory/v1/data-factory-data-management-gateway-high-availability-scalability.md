@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 4ee89f4bba70bb5e81eef21247d556f65a2a1f16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80065195"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway – hög tillgänglighet och skalbarhet (för hands version)
@@ -133,7 +133,7 @@ Det här avsnittet förutsätter att du har gått igenom följande två artiklar
 Du kan uppgradera en befintlig gateway om du vill använda funktionen hög tillgänglighet och skalbarhet. Den här funktionen fungerar bara med noder som har data Management Gateway för version >= 2.12. xxxx. Du kan se vilken version av data Management Gateway som är installerad på en dator på fliken **Hjälp** i Data Management Gateway Configuration Manager. 
 
 1. Uppdatera gatewayen på den lokala datorn till den senaste versionen genom att följa genom att hämta och köra ett MSI-installationspaket från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Mer information finns i [installations](data-factory-data-management-gateway.md#installation) avsnittet.  
-2. Navigera till Azure Portal. Starta **Data Factory sidan** för din data fabrik. Klicka på panelen länkade tjänster för att starta **sidan länkade tjänster**. Välj den gateway som ska starta **Gateway-sidan**. Klicka och aktivera **förhands gransknings funktionen** som visas i följande bild: 
+2. Gå till Azure-portalen. Starta **Data Factory sidan** för din data fabrik. Klicka på panelen länkade tjänster för att starta **sidan länkade tjänster**. Välj den gateway som ska starta **Gateway-sidan**. Klicka och aktivera **förhands gransknings funktionen** som visas i följande bild: 
 
     ![Data Management Gateway – aktivera förhands gransknings funktion](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png)   
 2. När du har aktiverat funktionen för förhands granskning i portalen stänger du alla sidor. Öppna Gateway- **sidan** igen för att se det nya användar gränssnittet för förhands granskning.

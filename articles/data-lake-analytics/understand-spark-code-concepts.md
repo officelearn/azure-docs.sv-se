@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
 ms.openlocfilehash: 7b5be20bb8b5eb1d56c1214104037d5d824445b3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132355"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Förstå Apache Spark kod för U-SQL-utvecklare
@@ -160,14 +160,14 @@ U-SQL: s kärn språk transformerar rad uppsättningar och baseras på SQL. Föl
 - `SELECT`/`FROM`/`WHERE`/`GROUP BY`+ Agg regeringar +`HAVING`/`ORDER BY`+`FETCH`
 - `INNER`/`OUTER`/`CROSS`/`SEMI``JOIN`uttryck
 - `CROSS`/`OUTER``APPLY`uttryck
-- `PIVOT`/`UNPIVOT`uttryck
-- `VALUES`rad uppsättnings konstruktor
+- `PIVOT`/`UNPIVOT` uttryck
+- `VALUES` rad uppsättnings konstruktor
 
-- Ange uttryck`UNION`/`OUTER UNION`/`INTERSECT`/`EXCEPT`
+- Ange uttryck `UNION`/`OUTER UNION`/`INTERSECT`/`EXCEPT`
 
 U-SQL innehåller dessutom en rad SQL-baserade skalära uttryck som
 
-- `OVER`fönster uttryck
+- `OVER` fönster uttryck
 - en mängd inbyggda agg regeringar och rangordnings funktioner ( `SUM` `FIRST` osv.)
 - Några av de mest välkända SQL skalära uttrycken: `CASE` , `LIKE` , ( `NOT` ) `IN` , `AND` , `OR` osv.
 

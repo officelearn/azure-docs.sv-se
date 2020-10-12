@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jixin
 ms.openlocfilehash: 1a75c083015d1f10a3ed3dba15480430747756eb
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90525024"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>Självstudie: bygga en app för att chatta med en blixt Server
@@ -24,7 +24,7 @@ I den här självstudien får du lära dig hur du skapar och ändrar en app med 
 > * Snabb distribution till Azure App Service i Visual Studio.
 > * Migrera den lokala signalen till Azure SignalR-tjänsten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * Installera [.net Core 3,0 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0) (version >= 3.0.100)
 * Installera [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) (version >= 16,3)
 > Visual Studio 2019 Preview-versionen fungerar också, som släpps med den senaste installations mal len för den senaste versionen av installations programmet för den nyare .net Core-versionen.

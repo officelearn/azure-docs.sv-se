@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
 ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005624"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Konfigurera en regel för IP-begränsning med en brand vägg för webbaserade program för Azures front dörr
@@ -24,17 +24,17 @@ Som standard är ditt webb program tillgängligt från Internet. Om du vill begr
 
 ## <a name="configure-a-waf-policy-with-the-azure-portal"></a>Konfigurera en WAF-princip med Azure Portal
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Skapa en profil för Azures frontend-dörr genom att följa anvisningarna i [snabb start: skapa en frontend-dörr för ett globalt webb program med hög](../../frontdoor/quickstart-create-front-door.md)tillgänglighet.
 
 ### <a name="create-a-waf-policy"></a>Skapa en WAF-princip
 
-1. På Azure Portal väljer du **skapa en resurs**, skriver **WebApplication-brandvägg** i sökrutan och väljer **brand vägg för webbaserade program (WAF)**.
+1. På Azure Portal väljer du **skapa en resurs**, skriver  **WebApplication-brandvägg** i sökrutan och väljer **brand vägg för webbaserade program (WAF)**.
 2. Välj **Skapa**.
 3. På sidan **skapa en WAF-princip** använder du följande värden för att slutföra fliken **grundläggande** :
    
-   |Inställning  |Värde  |
+   |Inställningen  |Värde  |
    |---------|---------|
    |Princip för     |Global WAF (Front dörr)|
    |Prenumeration     |Välj din prenumeration|
@@ -50,7 +50,7 @@ Skapa en profil för Azures frontend-dörr genom att följa anvisningarna i [sna
 4. Välj **Lägg till anpassad regel**.
 5. På sidan **Lägg till anpassad regel** använder du följande test värden för att skapa en anpassad regel:
 
-   |Inställning  |Värde  |
+   |Inställningen  |Värde  |
    |---------|---------|
    |Namn på anpassad regel     |FdWafCustRule|
    |Status     |Enabled|
@@ -76,14 +76,14 @@ Skapa en profil för Azures frontend-dörr genom att följa anvisningarna i [sna
 1. När din WAF-princip har distribuerats bläddrar du till värd namnet för klient delen av klient delen.
 2. Du bör se ditt anpassade block meddelande.
 
-   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Test av WAF-regel":::
+   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Anpassad regel":::
 
    > [!NOTE]
    > En privat IP-adress har avsiktligt använts i den anpassade regeln för att garantera att regeln utlöses. I en verklig distribution skapar du *Tillåt* och *neka* regler med IP-adresser för din specifika situation.
 
 ## <a name="configure-a-waf-policy-with-the-azure-cli"></a>Konfigurera en WAF-princip med Azure CLI
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 Innan du börjar konfigurera en princip för IP-begränsning ställer du in CLI-miljön och skapar en profil för Azure-frontend-dörren.
 
 #### <a name="set-up-the-azure-cli-environment"></a>Konfigurera Azure CLI-miljön
@@ -162,7 +162,7 @@ I det här exemplet tillämpas WAF-principen på **FrontendEndpoints [0]**. Du k
 
 ## <a name="configure-a-waf-policy-with-azure-powershell"></a>Konfigurera en WAF-princip med Azure PowerShell
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 Innan du börjar konfigurera en princip för IP-begränsning ställer du in din PowerShell-miljö och skapar en profil för Azures frontend-dörr.
 
 #### <a name="set-up-your-powershell-environment"></a>Konfigurera PowerShell-miljön

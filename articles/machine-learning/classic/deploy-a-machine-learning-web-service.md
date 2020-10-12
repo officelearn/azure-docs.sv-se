@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ms.openlocfilehash: c9cfe05b6547cbdc61a1c8cc6223f08900cf09d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91345052"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Distribuera en Azure Machine Learning Studio (klassisk)-webb tjänst
@@ -27,7 +27,7 @@ Machine Learning Studio (klassiska) webb tjänster tillhandahåller ett gränssn
 
 Azure Machine Learning Studio (klassisk) har två typer av webb tjänster:
 
-* Request-Response service (resurs poster): en mycket skalbar tjänst med låg fördröjning som utvärderar en enda data post.
+* Request-Response tjänst (RR): en mycket skalbar tjänst med låg fördröjning som tar en enda data post.
 * BES (batch execution service): en asynkron tjänst som utvärderar en batch med data poster.
 
 Indata för BES är som de indata som används av RRS. Den största skillnaden är att BES läser ett block med poster från olika källor, till exempel Azure Blob Storage, Azure Table Storage, Azure SQL Database, HDInsight (hive-fråga) och HTTP-källor.
@@ -160,7 +160,7 @@ På sidan snabb start för webb tjänst får du till gång till och vägledning 
 
 ### <a name="test-your-new-web-service"></a>Testa din nya webb tjänst
 
-Testa din nya webb tjänst genom att klicka på **test-webbtjänst** under vanliga uppgifter. På sidan test kan du testa din webb tjänst som en tjänst för begäran-svar (RR) eller en batch execution service (BES).
+Testa din nya webb tjänst genom att klicka på **test-webbtjänst** under vanliga uppgifter. På sidan test kan du testa webb tjänsten som en Request-Response tjänst (RR) eller en batch execution service (BES).
 
 På test sidan för resurs poster visas indata, utdata och eventuella globala parametrar som du har definierat för experimentet. Om du vill testa webb tjänsten kan du manuellt ange lämpliga värden för indata eller ange en fil med kommaavgränsade värden (CSV) som innehåller test värden.
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
 ms.openlocfilehash: 7cd368df1f2a94c8f49454530e7f5997f2659a32
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323782"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Utveckla Java-program för Apache HBase
@@ -21,7 +21,7 @@ Lär dig hur du skapar ett [Apache HBase](https://hbase.apache.org/) -program i 
 
 Stegen i det här dokumentet använder [Apache maven](https://maven.apache.org/) för att skapa och bygga projektet. Maven är ett verktyg för program varu projektledning och förståelse som gör att du kan bygga program vara, dokumentation och rapporter för Java-projekt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache HBase-kluster i HDInsight. Se [Kom igång med Apache HBase](./apache-hbase-tutorial-get-started-linux.md).
 
@@ -103,7 +103,7 @@ Det här avsnittet anger att projektet behöver **HBase-client-** och **Phoenix-
 | HDInsight-kluster version | Apache HBase-version som ska användas |
 | --- | --- |
 | 3,6 | 1.1.2 |
-| 4.0 | 2.0.0 |
+| 4,0 | 2.0.0 |
 
 Mer information om HDInsight-versioner och-komponenter finns i [Vad är de olika Apache Hadoops komponenter som är tillgängliga med HDInsight](../hdinsight-component-versioning.md).
 
@@ -703,7 +703,7 @@ I följande steg används modulen Azure PowerShell [AZ](https://docs.microsoft.c
     Start-HBaseExample -className com.microsoft.examples.DeleteTable -clusterName $myCluster
     ```
 
-### <a name="no-results-or-unexpected-results-when-using-start-hbaseexample"></a>Inga resultat eller oväntade resultat vid användning av start-HBaseExample
+### <a name="no-results-or-unexpected-results-when-using-start-hbaseexample"></a>Inga resultat eller oväntade resultat när du använder Start-HBaseExample
 
 Använd `-showErr` parametern för att Visa standard felet (STDERR) som skapas när jobbet körs.
 

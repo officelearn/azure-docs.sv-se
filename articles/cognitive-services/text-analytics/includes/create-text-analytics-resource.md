@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: daafea59b96cc8da6b78f0733c9f54e0e4d3a8c2
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779046"
 ---
 ## <a name="create-a-cognitive-services-text-analytics-resource"></a>Skapa en Cognitive Services Textanalys-resurs
@@ -35,7 +35,7 @@ ms.locfileid: "91779046"
 1. Klicka på **Skapa** och vänta tills resursen har skapats. Webbläsaren omdirigeras automatiskt till den nyligen skapade resurssidan.
 1. Samla in den konfigurerade `endpoint` och en API-nyckel:
 
-    |Fliken resurs i portalen|Inställningen|Värde|
+    |Fliken resurs i portalen|Inställning|Värde|
     |--|--|--|
     |**Översikt**|Slutpunkt|Kopiera slut punkten. Det ser ut ungefär som `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0` .|
     |**Nycklar**|API-nyckel|Kopiera en av de två nycklarna. Det är en alfanumerisk sträng på 32 tecken utan blank steg eller bindestreck: <`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`>.|

@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: 57449b0bbd39b6ea04ecae5a3ad766ae5687ca0b
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619839"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Ring buffertens mål kod för utökade händelser i Azure SQL Database
@@ -28,15 +28,15 @@ Du vill ha ett fullständigt kod exempel för det enklaste sättet att samla in 
 I det här avsnittet presenteras ett Transact-SQL-kod exempel som:
 
 1. Skapar en tabell med data att demonstrera med.
-2. Skapar en session för en befintlig utökad händelse, nämligen **SQLServer. sql_statement_starting**.
+2. Skapar en session för en befintlig utökad händelse, nämligen **SQLServer.sql_statement_starting**.
 
    * Händelsen är begränsad till SQL-uttryck som innehåller en viss uppdaterings sträng: **instruktion som% Update tabEmployee%**.
-   * Väljer att skicka utdata för händelsen till ett mål av typen ring-buffert, nämligen  **package0. ring_buffer**.
+   * Väljer att skicka utdata för händelsen till ett mål av typen ring-buffert, nämligen  **package0.ring_buffer**.
 3. Startar händelsesessionen.
 4. Utfärdar ett par enkla SQL UPDATE-instruktioner.
 5. Utfärdar ett SQL SELECT-uttryck för att hämta händelse utdata från ringbufferten.
 
-   * **sys. dm_xe_database_session_targets** och andra vyer för dynamisk hantering (DMV: er) är anslutna.
+   * **sys.dm_xe_database_session_targets** och andra vyer för dynamisk hantering (DMV: er) är anslutna.
 6. Stoppar händelsesessionen.
 7. Släpper målet för ringbufferten för att frigöra resurser.
 8. Släpper händelsesessionen och demonstrations tabellen.
@@ -57,8 +57,8 @@ I det här avsnittet presenteras ett Transact-SQL-kod exempel som:
 
 Med mycket mindre modifiering kan följande kod exempel för ringbufferten köras på antingen Azure SQL Database eller Microsoft SQL Server. Skillnaden är förekomsten av noden _database i namnet på vissa vyer för dynamisk hantering (DMV: er), som används i from-satsen i steg 5. Exempel:
 
-* sys. dm_xe<strong>_database</strong>_session_targets
-* sys. dm_xe_session_targets
+* sys.dm_xe<strong>_database</strong>_session_targets
+* sys.dm_xe_session_targets
 
 &nbsp;
 

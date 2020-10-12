@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: e9c56f59d6dd64002632a5f74e9f39c51293caab
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836368"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob filesystem-drivrutinen (ABFS): en dedikerad Azure Storage driv rutin för Hadoop
@@ -31,7 +31,7 @@ Det finns dock vissa funktioner som driv rutinen fortfarande måste utföra:
 
 ### <a name="uri-scheme-to-reference-data"></a>URI-schema för referens data
 
-ABFS-drivrutinen är konsekvent med andra fil Systems implementeringar i Hadoop och definierar det egna URI-schemat så att resurser (kataloger och filer) kan särskiljas tydligt. URI-schemat dokumenteras i [använd Azure Data Lake Storage Gen2-URI](./data-lake-storage-introduction-abfs-uri.md). URI-strukturen är:`abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
+ABFS-drivrutinen är konsekvent med andra fil Systems implementeringar i Hadoop och definierar det egna URI-schemat så att resurser (kataloger och filer) kan särskiljas tydligt. URI-schemat dokumenteras i [använd Azure Data Lake Storage Gen2-URI](./data-lake-storage-introduction-abfs-uri.md). URI-strukturen är: `abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
 
 Med hjälp av ovanstående URI-format kan du använda vanliga Hadoop-verktyg och ramverk för att referera till dessa resurser:
 

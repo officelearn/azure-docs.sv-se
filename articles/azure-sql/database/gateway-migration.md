@@ -11,10 +11,10 @@ ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
 ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90004280"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database trafikmigrering till nyare gateways
@@ -70,7 +70,7 @@ Nya SQL-gatewayer läggs till i följande regioner. Dessa SQL-gatewayer ska bör
 Befintliga SQL-gatewayer börjar att acceptera trafik i följande regioner. Dessa SQL-gatewayer ska börja acceptera kund trafik den **1 September 2020** :
 - Japan, öst: 40.79.184.8, 40.79.192.5
 
-# <a name="completed"></a>[Slutförd](#tab/completed-ip)
+# <a name="completed"></a>[Slutfört](#tab/completed-ip)
 
 Följande Gateway-migreringar har slutförts: 
 

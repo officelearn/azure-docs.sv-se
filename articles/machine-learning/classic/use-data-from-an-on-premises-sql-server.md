@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
 ms.openlocfilehash: 695539e4739002480b3622eb217ef920d4cb34e2
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91357496"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Utföra analyser med Azure Machine Learning Studio (klassisk) med hjälp av en SQL Server databas
@@ -40,9 +40,9 @@ Om du vill komma åt en SQL Server databas i Azure Machine Learning Studio (klas
 
 Du kan också installera IR i förväg genom att ladda ned och köra MSI-installationspaketet från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). MSI kan också användas för att uppgradera en befintlig IR till den senaste versionen, med alla inställningar bevarade.
 
-Den Data Factory egen värd Integration Runtime har följande krav:
+Data Factory Self-Hosted Integration Runtime har följande krav:
 
-* Den Data Factory egen värd integrering kräver ett 64-bitars operativ system med .NET Framework 4.6.1 eller senare.
+* Data Factory Self-Hosted-integrering kräver ett 64-bitars operativ system med .NET Framework 4.6.1 eller högre.
 * De versioner av Windows operativ system som stöds är Windows 10, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. 
 * Den rekommenderade konfigurationen för IR-datorn är minst 2 GHz, 4 kärnor, 8 GB RAM och 80 GB disk.
 * Om värddatorn försätts i vilo läge svarar IR inte på data begär Anden. Konfigurera därför ett lämpligt energi schema på datorn innan du installerar IR. Om datorn är konfigurerad för vilo läge visar IR-installationen ett meddelande.

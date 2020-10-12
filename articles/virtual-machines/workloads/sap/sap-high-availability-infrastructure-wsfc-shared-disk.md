@@ -17,10 +17,10 @@ ms.date: 08/25/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8f389581d8fbeb912507b303c46109dd08fcab8d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88871524"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Förbered Azure-infrastrukturen för SAP-HA med hjälp av ett Windows-redundanskluster och en delad disk för SAP ASCS/SCS
@@ -192,9 +192,9 @@ Värd namnen och IP-adresserna för det presenterade scenariot är:
 | --- | --- | --- |---| ---|
 | första klusternoden ASCS/SCS-kluster |PR1-ASCs-10 |10.0.0.4 |PR1-ASCs-avset |PR1PPG |
 | andra klusternoder ASCS/SCS-kluster |PR1-ASCs-11 |10.0.0.5 |PR1-ASCs-avset |PR1PPG |
-| Kluster nätverks namn | pr1clust |10.0.0.42 (**endast** för Win 2016-kluster) | saknas | saknas |
-| Nätverks namn för ASCS-kluster | pr1-ascscl |10.0.0.43 | saknas | saknas |
-| ERS kluster nätverks namn (**endast** för ERS2) | pr1-erscl |10.0.0.44 | saknas | saknas |
+| Kluster nätverks namn | pr1clust |10.0.0.42 (**endast** för Win 2016-kluster) | Saknas | Saknas |
+| Nätverks namn för ASCS-kluster | pr1-ascscl |10.0.0.43 | Saknas | Saknas |
+| ERS kluster nätverks namn (**endast** för ERS2) | pr1-erscl |10.0.0.44 | Saknas | Saknas |
 
 
 ## <a name="create-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Skapa intern Azure-belastningsutjämnare

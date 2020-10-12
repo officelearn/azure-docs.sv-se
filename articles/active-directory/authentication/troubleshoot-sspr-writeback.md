@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50e202d26574c0fc8adfeb7f73eb150ebb1781af
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89664635"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Felsöka tillbakaskrivning av lösen ord för självbetjänings återställning i Azure Active Directory
@@ -104,29 +104,29 @@ Azure AD Connect kräver tillbakaskrivning av AD DS- **lösenord** för att utf�
 1. Logga in på Azure AD Connect-servern och starta **Synchronization Service Manager** genom att välja **Starta**  >  **synkroniseringstjänst**.
 1. På fliken **anslutningar** väljer du den lokala **Active Directory Domain Services** anslutningen och väljer sedan **Egenskaper**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Synchronization Service Manager som visar hur du redigerar egenskaper" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Starta om Azure AD Sync tjänsten med hjälp av det grafiska användar gränssnittet" border="false":::
   
 1. I popup-fönstret väljer du **Anslut till Active Directory skog** och anteckna egenskapen **användar namn** . Den här egenskapen är det AD DS-konto som används av Azure AD Connect för att utföra en katalog synkronisering.
 
     För att Azure AD Connect ska kunna utföra tillbakaskrivning av lösen ord måste AD DS-kontot ha behörighet att återställa lösen ord. Du kontrollerar behörigheterna för det här användar kontot i följande steg.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Hitta synkroniseringstjänsten Active Directory-användarkonto" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Starta om Azure AD Sync tjänsten med hjälp av det grafiska användar gränssnittet" border="false":::
   
 1. Logga in på en lokal domänkontrollant och starta programmet **Active Directory användare och datorer** .
 1. Välj **Visa** och se till att alternativet **avancerade funktioner** är aktiverat.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Active Directory användare och datorer Visa avancerade funktioner" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Starta om Azure AD Sync tjänsten med hjälp av det grafiska användar gränssnittet" border="false":::
   
 1. Leta efter det AD DS-användarkonto som du vill verifiera. Högerklicka på konto namnet och välj **Egenskaper**.  
 1. Gå till fliken **säkerhet** i popup-fönstret och välj **Avancerat**.  
 1. I popup-fönstret **avancerade säkerhets inställningar för administratör** går du till fliken **gällande åtkomst** .
 1. Välj **Välj en användare**, Välj det AD DS-konto som används av Azure AD Connect och välj sedan **Visa gällande åtkomst**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Fliken gällande åtkomst visar synkroniseringsschemat" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Starta om Azure AD Sync tjänsten med hjälp av det grafiska användar gränssnittet" border="false":::
   
 1. Rulla nedåt och leta efter **Återställ lösen ord**. Om posten är markerad har AD DS-kontot behörighet att återställa lösen ordet för det valda Active Directory användar kontot.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Verifierar att Sync-kontot har behörigheten Återställ lösen ord" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Starta om Azure AD Sync tjänsten med hjälp av det grafiska användar gränssnittet" border="false":::
 
 ## <a name="common-password-writeback-errors"></a>Vanliga fel vid tillbakaskrivning av lösen ord
 
@@ -217,7 +217,7 @@ För att du ska kunna hjälpa dig, ber vi dig att ange så mycket information so
 * **Support kod**: Vad var den support kod som genererades när användaren såg felet?
    * Du hittar den här koden genom att återskapa felet och sedan välja länken **support kod** längst ned på skärmen och skicka support teknikern till det GUID som det resulterar i.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Support koden finns längst ned till höger i webbläsarfönstret.":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Starta om Azure AD Sync tjänsten med hjälp av det grafiska användar gränssnittet":::
 
   * Om du är på en sida utan support kod längst ned väljer du F12 och söker efter SID och CID och skickar dessa två resultat till support teknikern.
 * **Datum, tid och**tidszon: inkludera det exakta datumet och tiden *med tids zonen* då felet inträffade.

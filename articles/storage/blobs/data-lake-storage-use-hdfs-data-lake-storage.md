@@ -10,10 +10,10 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
 ms.openlocfilehash: 1d720aed44358dd314bc4226adb9ad517139cd18
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836317"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Använda HDFS CLI med Data Lake Storage Gen2
@@ -58,7 +58,7 @@ Du hittar anslutnings strängen i avsnittet "SSH + kluster inloggning" på blade
 
 Ersätt `<path>` plats hållaren med URI: n för behållaren eller container-mappen.
 
-Exempel: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
+Exempelvis: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
 ## <a name="create-a-directory"></a>Skapa en katalog
 
@@ -66,7 +66,7 @@ Exempel: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.n
 
 Ersätt `<path>` plats hållaren med rot behållar namnet eller en mapp i din behållare.
 
-Exempel: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+Exempelvis: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 
 ## <a name="delete-a-file-or-directory"></a>Ta bort en fil eller katalog
 
@@ -74,7 +74,7 @@ Exempel: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.window
 
 Ersätt `<path>` plats hållaren med URI: n för den fil eller mapp som du vill ta bort.
 
-Exempel: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
+Exempelvis: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 
 ## <a name="display-the-access-control-lists-acls-of-files-and-directories"></a>Visa Access Control listor (ACL: er) för filer och kataloger
 

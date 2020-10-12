@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 3764b261b491c660da16d7989be20742fead1fbf
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359162"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure Dedicated HSM-nätverk
@@ -39,7 +39,7 @@ Innan du konfigurerar en dedikerad HSM-enhet måste kunderna först skapa en Vir
 
 ### <a name="subnets"></a>Undernät
 
-Undernät segmenterar det virtuella nätverket i separata adress utrymmen som kan användas av de Azure-resurser som du placerar i dem. Dedikerade HSM: er distribueras till ett undernät i det virtuella nätverket. Varje dedikerad HSM-enhet som distribueras i kundens undernät kommer att få en privat IP-adress från det här under nätet. Under nätet där HSM-enheten distribueras måste vara uttryckligen delegerad till tjänsten: Microsoft. HardwareSecurityModules/dedicatedHSMs. Detta ger vissa behörigheter till HSM-tjänsten för distribution till under nätet. Delegering till dedikerade HSM: er tillämpar vissa princip begränsningar på under nätet. Nätverks säkerhets grupper (NSG: er) och användardefinierade vägar (UDR) stöds för närvarande inte i delegerade undernät. När ett undernät delegeras till dedikerade HSM: er, kan det därför endast användas för att distribuera HSM-resurser. Det går inte att distribuera andra kund resurser till under nätet.
+Undernät segmenterar det virtuella nätverket i separata adress utrymmen som kan användas av de Azure-resurser som du placerar i dem. Dedikerade HSM: er distribueras till ett undernät i det virtuella nätverket. Varje dedikerad HSM-enhet som distribueras i kundens undernät kommer att få en privat IP-adress från det här under nätet. Under nätet där HSM-enheten distribueras måste vara uttryckligen delegerad till tjänsten: Microsoft. HardwareSecurityModules/dedicatedHSMs. Detta ger vissa behörigheter till HSM-tjänsten för distribution till under nätet. Delegering till dedikerade HSM: er tillämpar vissa princip begränsningar på under nätet. Nätverks säkerhets grupper (NSG: er) och User-Defined vägar (UDR) stöds för närvarande inte i delegerade undernät. När ett undernät delegeras till dedikerade HSM: er, kan det därför endast användas för att distribuera HSM-resurser. Det går inte att distribuera andra kund resurser till under nätet.
 
 
 ### <a name="expressroute-gateway"></a>ExpressRoute-Gateway

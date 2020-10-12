@@ -11,10 +11,10 @@ ms.date: 04/23/2020
 ms.author: cathys
 keywords: VisualStudio
 ms.openlocfilehash: 5ec8e0f6448e725998628e41b917942966d3ef2a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836164"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar i Azure
@@ -31,7 +31,7 @@ Avbildningar för de senaste huvud versionerna, Visual Studio 2019, Visual Studi
 | Version                                                                                                                                                | Utgåvor              | Produktversion   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
 | [Visual Studio 2019: senaste (version 16,5)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, community | Version 16.5.4    |
-| Visual Studio 2019: RTW                         | Stora företag | Version 16.0.13    |
+| Visual Studio 2019: RTW                         | Enterprise | Version 16.0.13    |
 | Visual Studio 2017: senaste (version 15,9)           | Enterprise, community | Version 15.9.22   |
 | Visual Studio 2017: RTW                             | Enterprise, community | Version 15.0.28  |
 | Visual Studio 2015: senaste (uppdatering 3)               | Enterprise, community | Version 14.0.25431.01 |

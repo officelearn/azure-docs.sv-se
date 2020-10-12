@@ -12,10 +12,10 @@ ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: dc9123735ef65bec89e99a14d25cba881be306fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91297478"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Övervaka migrering av aktiviteter med hjälp av Azure Database Migration Service
@@ -93,7 +93,7 @@ I följande tabell visas fälten på bladet på databas nivå och en beskrivning
     </tr>
     <tr>
       <td rowspan="1" class="duration"><strong>Varaktighet</strong></td>
-      <td>Saknas</td>
+      <td>E.t.</td>
       <td>Total tid från migrerings aktivitet som initieras för migrering slutförd eller migrering misslyckades.</td>
     </tr>
      </tbody>
@@ -108,7 +108,7 @@ Den nedre delen av bladet listar tabellerna och visar en snabb sammanfattning av
 
 I följande tabell beskrivs fälten som visas i informationen på tabell nivå.
 
-| Fältnamn        | Description       |
+| Fältnamn        | Beskrivning       |
 | ------------- | ------------- |
 | **Fullständig inläsning slutförd**      | Antal tabeller slutförd fullständig data inläsning. |
 | **Fullständig belastning i kö**      | Antal tabeller som ställts i kö för fullständig belastning.      |
@@ -129,7 +129,7 @@ Det finns två flikar som visar migreringens förlopp vid fullständig belastnin
 
 I följande tabell beskrivs fälten som visas i migreringen av tabell nivå.
 
-| Fältnamn        | Description       |
+| Fältnamn        | Beskrivning       |
 | ------------- | ------------- |
 | **Status-synkronisering**      | Kontinuerlig synkronisering körs. |
 | **Infoga**      | Antal CDC-infogningar i rader som tillämpas på målet.      |

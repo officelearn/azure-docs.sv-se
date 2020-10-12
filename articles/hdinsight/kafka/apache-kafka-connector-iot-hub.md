@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
 ms.openlocfilehash: ea7aa7758b5ccf7be02fa8d450ce710dcbef86a4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087392"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Använda Apache Kafka på HDInsight med Azure IoT Hub
@@ -123,7 +123,7 @@ Från SSH-anslutningen till Edge-noden använder du följande steg för att konf
     |`bootstrap.servers=localhost:9092`|Ersätt `localhost:9092` värdet med Service Broker-värdarna från föregående steg|Konfigurerar den fristående konfigurationen för Edge-noden för att hitta Kafka-utjämnare.|
     |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|Med den här ändringen kan du testa att använda konsol tillverkaren som ingår i Kafka. Du kan behöva olika konverterare för andra producenter och konsumenter. Information om hur du använder andra konverterings värden finns i [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .|
     |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Samma som ovan.|
-    |E.t.|`consumer.max.poll.records=10`|Lägg till i slutet av filen. Den här ändringen är att förhindra timeout i mottagar anslutningen genom att begränsa den till 10 poster i taget. Mer information finns i [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .|
+    |E.t.|`consumer.max.poll.records=10`|Lägg till i slutet av filen. Den här ändringen är att förhindra timeout i mottagar anslutningen genom att begränsa den till 10 poster i taget. Mer information finns i [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
 1. Om du vill spara filen använder du __CTRL + X__, __Y__och __anger__sedan.
 

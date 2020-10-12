@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: e64de987bd82f6b93350cdd706fc1a243d2855b1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90977838"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Konfigurera en VPN-klient för P2S OpenVPN-protokollanslutningar: Azure AD-autentisering
@@ -154,7 +154,7 @@ Dessa steg hjälper dig att konfigurera anslutningen till att ansluta automatisk
 
     ![diagnostisera](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Hur gör jag för att lägga till DNS-suffix till VPN-klienten?
 
@@ -252,7 +252,7 @@ Du kan ändra den nedladdade profil-XML- ** \<excluderoutes> \<route> \<destinat
 ```
 ### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Kan jag importera profilen från kommando tolken?
 
-Du kan importera profilen från en kommando rads kommando tolk genom att placera den hämtade **azurevpnconfig.xml** filen i mappen **%USERPROFILE%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** och köra följande kommando:
+Du kan importera profilen från en kommando rads kommando tolk genom att placera den hämtade **azurevpnconfig.xml** filen i mappen **%USERPROFILE%\appdata\local\packages\ Microsoft.AzureVpn_8wekyb3d8bbwe \localstate** och köra följande kommando:
 
 ```
 azurevpn -i azurevpnconfig.xml 

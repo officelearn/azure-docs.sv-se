@@ -4,10 +4,10 @@ description: Distribuera steg för DoD-effekten nivå 5-exempel, inklusive infor
 ms.date: 09/17/2020
 ms.topic: sample
 ms.openlocfilehash: deb6ffa0f886cc6a4a9bea10a38d7cd82e7df8f1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90978222"
 ---
 # <a name="deploy-the-dod-impact-level-5-blueprint-sample"></a>Distribuera skiss exemplet DoD-effekt nivå 5
@@ -16,82 +16,82 @@ Om du vill distribuera ett skiss exempel på skydds avdelningen i Azure skisser 
 
 > [!div class="checklist"]
 > - Skapa en ny skiss från exemplet
-> - Markera din kopia av exemplet som **publicerad**
+> - Märk din kopia av exemplet som **Publicerat**
 > - Tilldela din kopia av skissen till en befintlig prenumeration
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 ## <a name="create-blueprint-from-sample"></a>Skapa skiss från exempel
 
-Börja med att implementera skiss exemplet genom att skapa en ny skiss i din miljö med hjälp av exemplet som ett start verktyg.
+Börja först med att implementera skissexemplet genom att skapa en ny skiss i din miljö, med exemplet som utgångspunkt.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Från sidan **komma igång** till vänster väljer du knappen **skapa** under _skapa en skiss_.
+1. På sidan **Komma igång** till vänster väljer du knappen **Skapa** under _Skapa en skiss_.
 
 1. Leta upp exempel på **DoD effekt nivå 5** under _andra exempel_ och välj **Använd det här exemplet**.
 
-1. Ange _grunderna_ för skiss exemplet:
+1. Ange _Grundinställningar_ för skissexemplet:
 
    - **Skiss namn**: Ange ett namn för din kopia av skiss exemplet för DoD-effekten nivå 5.
    - **Definitions plats**: Använd ellipsen och välj den hanterings grupp där du vill spara din kopia av exemplet.
 
-1. Välj fliken _artefakter_ överst på sidan eller **Nästa: artefakter** längst ned på sidan.
+1. Välj fliken _Artefakter_ överst på sidan eller **Nästa: Artefakter** längst ned på sidan.
 
-1. Granska listan över artefakter som utgör skiss exemplet. Många av artefakterna har parametrar som vi definierar senare. Välj **Spara utkast** när du är klar med att granska skiss exemplet.
+1. Granska listan med artefakter som utgör skissexemplet. Många av artefakterna innehåller parametrar som vi definierar senare. Välj **Spara utkast** när du har granskat skissexemplet.
 
-## <a name="publish-the-sample-copy"></a>Publicera exempel kopian
+## <a name="publish-the-sample-copy"></a>Publicera exempelkopian
 
-Din kopia av skiss exemplet har nu skapats i din miljö. Den skapas i **utkast** läge och måste **publiceras** innan den kan tilldelas och distribueras. Kopian av skiss exemplet kan anpassas efter din miljö och dina behov, men ändringen kan flyttas bort från justeringen med DoD-effekter på nivå 5.
-
-1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
-
-1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta din kopia av skiss exemplet och markera det.
-
-1. Välj **publicera skiss** överst på sidan. På den nya sidan till höger anger du en **version** för din kopia av skiss exemplet. Den här egenskapen är användbar för om du gör en ändring senare. Ange **ändrings anteckningar** som "första versionen som publicerats från DoD IL5 skiss-exemplet". Välj sedan **publicera** längst ned på sidan.
-
-## <a name="assign-the-sample-copy"></a>Tilldela exempel kopian
-
-När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenumeration i hanterings gruppen som den sparades till. Det här steget är den plats där parametrar tillhandahålls för att göra varje distribution av kopian av skiss exemplet unik.
+Din kopia av skissexemplet har nu skapats i din miljö. Den skapas i läget **Utkast** och måste vara **Publicerad** innan den kan tilldelas och distribueras. Kopian av skiss exemplet kan anpassas efter din miljö och dina behov, men ändringen kan flyttas bort från justeringen med DoD-effekter på nivå 5.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta din kopia av skiss exemplet och markera det.
+1. Välj sidan **Skissdefinitioner** till vänster. Använd filtren för att hitta din kopia av skissexemplet och markera det sedan.
 
-1. Välj **tilldela skiss** överst på skiss definitions sidan.
+1. Välj **Publicera skiss** överst på sidan. På den nya sidan till höger anger du en **Version** för din kopia av skissexemplet. Den här egenskapen är användbar om du gör en ändring senare. Ange **ändrings anteckningar** som "första versionen som publicerats från DoD IL5 skiss-exemplet". Välj därefter **Publicera** längst ned på sidan.
 
-1. Ange parameter värden för skiss tilldelningen:
+## <a name="assign-the-sample-copy"></a>Tilldela exempelkopian
+
+När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenumeration i hanterings gruppen som den sparades till. I det här steget anges parametrar för att göra varje distribution av skissexemplets kopia unik.
+
+1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
+
+1. Välj sidan **Skissdefinitioner** till vänster. Använd filtren för att hitta din kopia av skissexemplet och markera det sedan.
+
+1. Välj **Tilldela skiss** överst på skissdefinitionssidan.
+
+1. Ange parametervärden för skisstilldelningen:
 
    - Grundläggande inställningar
 
-     - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
+     - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer mer än en prenumeration, skapas en tilldelning för var och en med de angivna parametrarna.
      - **Tilldelnings namn**: namnet fylls i automatiskt för dig baserat på namnet på skissen.
-       Ändra vid behov eller lämna det som är.
+       Ändra vid behov eller lämna det som det är.
      - **Plats**: Välj en region som den hanterade identiteten ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [hanterade identiteter för Azure-resurser](../../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Ritnings definitions version**: Välj en **publicerad** version av din kopia av skiss exemplet.
 
    - Lås tilldelning
 
-     Välj skiss lås inställningen för din miljö. Mer information finns i [Låsa skissresurser](../../concepts/resource-locking.md).
+     Välj skissens låsinställning för din miljö. Mer information finns i [Låsa skissresurser](../../concepts/resource-locking.md).
 
    - Hanterad identitet
 
      Lämna alternativet standard _tilldelade_ hanterade identiteter.
 
-   - Artefakt parametrar
+   - Artefaktparametrar
 
-     De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. En fullständig lista eller artefakt parametrar och deras beskrivningar finns i [tabellen artefakt parametrar](#artifact-parameters-table).
+     De parametrar som definieras i avsnittet gäller för den artefakt som de definieras under. Dessa parametrar är [dynamiska parametrar](../../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. En fullständig lista eller artefakt parametrar och deras beskrivningar finns i [tabellen artefakt parametrar](#artifact-parameters-table).
 
-1. När alla parametrar har angetts väljer du **tilldela** längst ned på sidan. Skiss tilldelningen skapas och artefakt distributionen påbörjas. Distributionen tar ungefär en timme. Du kan kontrol lera statusen för distributionen genom att öppna skiss tilldelningen.
+1. När alla parametrar har angetts väljer du **Tilldela** längst ned på sidan. Skisstilldelningen skapas och artefaktdistributionen påbörjas. Distributionen tar ungefär en timme. Du kan kontrollera statusen för distributionen genom att öppna skisstilldelningen.
 
 > [!WARNING]
-> Tjänsten Azure-ritningar och de inbyggda skiss exemplen är **kostnads fria**. Azure-resurser [priss ätts per produkt](https://azure.microsoft.com/pricing/). Använd [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/) för att beräkna kostnaden för att köra resurser som distribuerats i skiss exemplet.
+> Tjänsten Azure Blueprints och de inbyggda skissexemplen är **kostnadsfria**. Azures resurser [prissätts per produkt](https://azure.microsoft.com/pricing/). Använd [priskalkylatorn](https://azure.microsoft.com/pricing/calculator/) till att beräkna kostnaden för att köra de resurser som distribueras i skissexemplet.
 
-## <a name="artifact-parameters-table"></a>Tabellen artefakt parametrar
+## <a name="artifact-parameters-table"></a>Tabell med artefaktparametrar
 
-I följande tabell visas en lista över Skissernas artefakt parametrar:
+I följande tabell visas en lista med skissartefaktens parametrar:
 
-|Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
+|Artefaktnamn|Artefakttyp|Parameternamn|Beskrivning|
 |-|-|-|-|
 |DoD:s effektnivå 5|Principtilldelning|Lista över användare som måste ingå i administratörs gruppen för en virtuell Windows-dator|En semikolonavgränsad lista med användare som ska ingå i den lokala gruppen Administratörer; T. ex. administratör; Mina Användare1; myUser2|
 |DoD:s effektnivå 5|Principtilldelning|Lista över användare som uteslutits från administratörs gruppen för Windows-datorer|En semikolonavgränsad lista med användare som ska undantas i den lokala gruppen Administratörer; T. ex. administratör; Mina Användare1; myUser2|

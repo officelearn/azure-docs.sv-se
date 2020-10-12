@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 181f5433de6653c8b6a2cda085f04e21c64082b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514661"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Alternativ för att migrera data från StorSimple 5000-7000-serien 
@@ -63,7 +63,7 @@ Läs mer om [migrering till Cohesity Data Platform](https://info.cohesity.com/mi
 
 Nasuni gör det enkelt för StorSimple 5000-7000-kunder att migrera och bevara sina data i Azure.  Nasuni är en ledande Azure-baserad lösning för NAS-lagring, vilket ger kunderna den prestanda och säkerhet som de förväntar sig från lokal lösningar, med tanke på utveckling och skalbarhet i molnet.  Förutom fil lagring med hög prestanda, Nasuni och Azure-säkerhetskopiering och DR, samtidigt som du kan dela och samar beta med dina data i hela världen med centraliserad hantering av fil lagring. 
 
-Nasuni har erfarenhet av att göra migreringen lätt – kom igång redan idag:https://info.nasuni.com/nasuni-storsimple-migration
+Nasuni har erfarenhet av att göra migreringen lätt – kom igång redan idag: https://info.nasuni.com/nasuni-storsimple-migration
 
 #### <a name="migrate-to-talon-fast"></a>Migrera till Talon FAST
 

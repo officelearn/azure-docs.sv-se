@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/30/2018
 ms.openlocfilehash: 215835bf7f1e6676adba6541da70dcb86fc3500c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86039049"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Processer som kan konfigureras med konfigurerbara regler i Azure Stream Analytics
@@ -137,7 +137,7 @@ Det här exemplet på JSON-data representerar de **mått** som används i den di
 - Tre exempel händelser visas inom 1 minutens TimeSpan, värde `T14:50` . 
 - Alla tre har samma `deviceId` värde `978648` .
 - Värdena för processor värden varierar i varje händelse, `98` `95` `80` respektive. Endast de två första exempel händelserna överskrider den CPU-varnings regel som fastställs i regeln.
-- Fältet includeDim i aviserings regeln var nyckel nummer 2. Motsvarande nyckel 2-fält i exempel händelserna heter `NodeName` . De tre exempel händelserna har värden `N024` , `N024` `N014` respektive. I utdata visas bara noden `N024` som är den enda data som matchar aviserings villkoren för hög processor. `N014`uppfyller inte tröskelvärdet för hög CPU.
+- Fältet includeDim i aviserings regeln var nyckel nummer 2. Motsvarande nyckel 2-fält i exempel händelserna heter `NodeName` . De tre exempel händelserna har värden `N024` , `N024` `N014` respektive. I utdata visas bara noden `N024` som är den enda data som matchar aviserings villkoren för hög processor. `N014` uppfyller inte tröskelvärdet för hög CPU.
 - Varnings regeln konfigureras med en `filter` enda på nyckel nummer 2, som motsvarar `cluster` fältet i exempel händelser. De tre exempel händelserna har alla värde `C1` och matchar filter kriterierna.
 
 ```json

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
 ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397257"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure-datakryptering i vila
@@ -107,7 +107,7 @@ Alla Managed Disks, ögonblicks bilder och avbildningar krypteras med hjälp av 
 
 #### <a name="custom-encryption-at-rest"></a>Anpassad kryptering i vila
 
-Vi rekommenderar att när det är möjligt utnyttjar IaaS-program Azure Disk Encryption och kryptering i rest-alternativ som tillhandahålls av alla förbrukade Azure-tjänster. I vissa fall, till exempel oregelbundet krypterings krav eller icke-Azure-baserad lagring, kan en utvecklare av ett IaaS-program behöva implementera kryptering i vila. Utvecklare av IaaS-lösningar kan bättre integrera med Azure-hantering och kund förväntningar genom att använda vissa Azure-komponenter. Mer specifikt bör utvecklare använda tjänsten Azure Key Vault för att tillhandahålla säker nyckel lagring samt förse sina kunder med enhetliga alternativ för nyckel hantering med det i de flesta Azure Platform-tjänster. Dessutom bör anpassade lösningar använda Azure-hanterade tjänst identiteter för att ge tjänst konton åtkomst till krypterings nycklar. Information om utvecklare om Azure Key Vault och hanterade tjänst identiteter finns i respektive SDK: er.
+Vi rekommenderar att när det är möjligt utnyttjar IaaS-program Azure Disk Encryption och kryptering i rest-alternativ som tillhandahålls av alla förbrukade Azure-tjänster. I vissa fall, till exempel oregelbundet krypterings krav eller icke-Azure-baserad lagring, kan en utvecklare av ett IaaS-program behöva implementera kryptering i vila. Utvecklare av IaaS-lösningar kan bättre integrera med Azure-hantering och kund förväntningar genom att använda vissa Azure-komponenter. Mer specifikt bör utvecklare använda tjänsten Azure Key Vault för att tillhandahålla säker nyckel lagring samt förse sina kunder med enhetliga alternativ för nyckel hantering med det i de flesta Azure Platform-tjänster. Dessutom bör anpassade lösningar använda Azure-Managed tjänst identiteter för att aktivera tjänst konton för åtkomst till krypterings nycklar. Information om utvecklare om Azure Key Vault och hanterade tjänst identiteter finns i respektive SDK: er.
 
 ## <a name="azure-resource-providers-encryption-model-support"></a>Azure Resource providers stöd för krypterings modell
 

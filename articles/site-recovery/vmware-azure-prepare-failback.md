@@ -4,13 +4,13 @@ description: Förbered för redundansväxling av virtuella VMware-datorer efter 
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: 5a330f8cba31640d0116ca3d5ccab352ce5b3509
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847735"
 ---
-# <a name="prepare-for-reprotection-and-failback-of-vmware-vms"></a>Förbereda för skydd och återställning efter fel för virtuella VMware-datorer
+# <a name="prepare-for-reprotection-and-failback-of-vmware-vms"></a>Förbereda för återaktivering av skydd och återställning efter fel för virtuella VMware-datorer
 
 Efter [redundansväxlingen](site-recovery-failover.md) av lokala virtuella VMware-datorer eller fysiska servrar till Azure skyddar du de virtuella Azure-datorer som skapats efter redundansväxlingen, så att de replikeras tillbaka till den lokala platsen. Med replikering från Azure till lokal plats kan du sedan växla tillbaka genom att köra en redundansväxling från Azure till lokalt när du är klar.
 
@@ -21,7 +21,7 @@ Innan du fortsätter får du en snabb överblick över den här videon om hur du
 
 Du behöver ett antal komponenter och inställningar på plats innan du kan återaktivera och återställa från Azure.
 
-**Komponent**| **Detaljer**
+**Komponent**| **Information**
 --- | ---
 **Lokal konfigurationsserver** | Den lokala konfigurations servern måste köras och vara ansluten till Azure.<br/><br/> Den virtuella dator som du växlar tillbaka till måste finnas i konfigurations serverns databas. Om haveriet påverkar konfigurations servern återställer du den med samma IP-adress för att se till att återställning efter fel fungerar.<br/><br/>  Om IP-adresser för replikerade datorer behålls vid redundans, ska plats-till-plats-anslutning (eller ExpressRoute-anslutning) upprättas mellan virtuella datorer i Azure och failback-NÄTVERKSKORTet på konfigurations servern. För kvarhållna IP-adresser behöver konfigurations servern två nätverkskort – ett för anslutning till käll datorer och en för Azures återställning efter fel. Detta förhindrar överlappande av adress intervall för under nätet för källan och misslyckades med virtuella datorer.
 **Processerver i Azure** | Du behöver en processerver i Azure innan du kan växla tillbaka till din lokala plats.<br/><br/> Processervern tar emot data från den skyddade virtuella Azure-datorn och skickar den till den lokala platsen.<br/><br/> Du behöver ett nätverk med låg latens mellan processervern och den skyddade virtuella datorn, så vi rekommenderar att du distribuerar processervern i Azure för högre replikerings prestanda.<br/><br/> För koncept bevis kan du använda den lokala processervern och ExpressRoute med privat peering.<br/><br/> Processervern bör finnas i det Azure-nätverk där den misslyckade virtuella datorn finns. Processervern måste också kunna kommunicera med den lokala konfigurations servern och huvud mål servern.

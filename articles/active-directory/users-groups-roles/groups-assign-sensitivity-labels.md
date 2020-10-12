@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3179bb294678ee030218e67dafa1c69dcf5d77a0
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056276"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Tilldela känslighets etiketter till Microsoft 365 grupper i Azure Active Directory
@@ -114,7 +114,7 @@ Alternativet känslighets etikett visas bara för grupper när följande villkor
 
 1. Etiketter publiceras i Microsoft 365 Compliance Center för den här Azure AD-organisationen.
 1. Funktionen är aktive rad, EnableMIPLabels har värdet true i från Azure AD PowerShell-modulen.
-1. Etiketter synkroniseras till Azure AD med cmdleten EXECUTE-AzureAdLabelSync i PowerShell-modulen Security & Compliance.
+1. Etiketter synkroniseras till Azure AD med Execute-AzureAdLabelSync-cmdlet i PowerShell-modulen för säkerhets & kompatibilitet.
 1. Gruppen är en Microsoft 365 grupp.
 1. Organisationen har en aktiv Azure Active Directory Premium P1-licens.
 1. Den aktuella inloggade användaren har tillräcklig behörighet för att tilldela etiketter. Användaren måste antingen vara global administratör, grupp administratör eller grupp ägare.

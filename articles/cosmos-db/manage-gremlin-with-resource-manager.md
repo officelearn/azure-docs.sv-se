@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mjbrown
 ms.openlocfilehash: 2ce6020d31f52a81450bfb7f8be499b13f2ce356
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86028188"
 ---
 # <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Hantera Azure Cosmos DB Gremlin-API-resurser med Azure Resource Manager-mallar
@@ -51,7 +51,7 @@ Den här mallen skapar ett Azure Cosmos-konto för Gremlin-API: et med en databa
 
 Här följer några ytterligare resurser:
 
-* [Azure Resource Manager dokumentation](/azure/azure-resource-manager/)
+* [Dokumentation om Azure Resource Manager](/azure/azure-resource-manager/)
 * [Schema för Azure Cosmos DB Resource Provider](/azure/templates/microsoft.documentdb/allversions)
 * [Azure Cosmos DB Snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
 * [Felsök vanliga Azure Resource Manager distributions fel](../azure-resource-manager/templates/common-deployment-errors.md)

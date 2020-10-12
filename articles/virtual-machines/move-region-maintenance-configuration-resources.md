@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
 ms.openlocfilehash: 38532fba2be1fedd275ed2e7f9dfc1bf5752499d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86501661"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>Flytta resurser i en underhålls kontroll konfiguration till en annan region
@@ -23,7 +23,7 @@ Med underhålls kontroll, med anpassade underhålls konfigurationer, kan du styr
 - Följ [dessa instruktioner](move-region-maintenance-configuration.md)om du vill flytta din konfiguration för underhålls kontroll, men inte de resurser som är associerade med konfigurationen.
 - Följ [dessa instruktioner](move-region-maintenance-configuration.md)för att flytta både underhålls konfigurationen och de resurser som är kopplade till den. Följ sedan instruktionerna i den här artikeln.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar flytta resurserna som är associerade med en underhålls kontroll konfiguration:
 
@@ -32,7 +32,7 @@ Innan du börjar flytta resurserna som är associerade med en underhålls kontro
 - När du hämtar konfigurationer för en resurs:
     - Se till att du använder prenumerations-ID för kontot, inte ett dedikerat värd-ID för Azure.
     - CLI: tabell parametern--output används endast för läsbarhet och kan tas bort eller ändras.
-    - PowerShell: formatet-tabellens namn parameter används endast för läsbarhet och kan tas bort eller ändras.
+    - PowerShell: parametern Format-Table Name används endast för läsbarhet och kan tas bort eller ändras.
     - Om du använder PowerShell får du ett fel meddelande om du försöker visa konfigurationer för en resurs som inte har några associerade konfigurationer. Felet ser ut ungefär så här: "åtgärden misslyckades med status:" hittades inte ". Information: 404-klient fel: hittades inte för URL: en.
 
     
@@ -40,7 +40,7 @@ Innan du börjar flytta resurserna som är associerade med en underhålls kontro
 
 1. Definiera dessa variabler innan du börjar. Vi har angett ett exempel för var och en.
 
-    **Variabel** | **Detaljer** | **Exempel**
+    **Variabel** | **Information** | **Exempel**
     --- | ---
     $subId | ID för prenumerationen som innehåller underhålls konfigurationerna | "vår-Subscription-ID"
     $rsrcGroupName | Resurs grupps namn (virtuell Azure-dator) | "VMResourceGroup"

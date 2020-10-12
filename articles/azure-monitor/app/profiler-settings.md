@@ -7,16 +7,16 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9d9cc377ead0c297e8334d34255bd2c7c7cd39fc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499417"
 ---
 # <a name="configure-application-insights-profiler"></a>Konfigurera Application Insights Profiler
 
 ## <a name="updated-profiler-agent"></a>Agenten har uppdaterats
-Utlösaren fungerar bara med version 2,6 eller senare av profilerings agenten. Om du kör en Azure App Service kommer agenten att uppdateras automatiskt. Du kan se vilken version av agenten du kör om du går till kudu-URL: en för din webbplats och lägger till \DiagnosticServices i slutet av den, så här: `https://yourwebsite.scm.azurewebsites.net/diagnosticservices` . Application Insights Profiler webbjobbet ska vara version 2,6 eller senare. Du kan tvinga en uppgradering genom att starta om din webbapp. 
+Utlösaren fungerar bara med version 2,6 eller senare av profilerings agenten. Om du kör en Azure App Service kommer agenten att uppdateras automatiskt. Du kan se vilken version av agenten du kör om du går till kudu-URL: en för din webbplats och lägger till \DiagnosticServices i slutet av den, så här:  `https://yourwebsite.scm.azurewebsites.net/diagnosticservices` . Application Insights Profiler webbjobbet ska vara version 2,6 eller senare. Du kan tvinga en uppgradering genom att starta om din webbapp. 
 
 Om du kör profileraren på en virtuell dator eller moln tjänst måste du ha Windows Azure-diagnostik (WAD)-tilläggs version 16.0.4 eller senare installerat. Du kan kontrol lera versionen av WAD genom att logga in på den virtuella datorn och titta på den här katalogen: C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. Katalog namnet är den version av WAD som är installerad. Azure VM-agenten kommer att uppdatera WAD automatiskt när nya versioner är tillgängliga.
 
@@ -48,7 +48,7 @@ För att en användare ska kunna utlösa en profilerad session manuellt, kräver
 
 Om du klickar på knappen utlösare på Meny raden öppnas rutan Utlös ande inställningar. Du kan ställa in utlösare för att starta profilering när procent andelen processor-eller minnes användning träffar den nivå som du har angett.
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |-|-|
 På/av-knapp | På: profiler kan startas av den här utlösaren. Off: profiler startas inte av den här utlösaren.
 Minnes tröskel | När den här procent andelen av minnet används startas profileraren.
@@ -58,7 +58,7 @@ Cooldown | Anger hur lång tid profiler ska vänta innan den söker efter minne 
 ## <a name="recent-profiling-sessions"></a>Senaste profilerings sessioner
 I det här avsnittet av sidan visas information om de senaste profilerings sessionerna. En profilerings session representerar den tids period då profilerings agenten tog en profil på en av datorerna som är värd för ditt program. Du kan öppna profilerna från en session genom att klicka på en av raderna. För varje session visar vi:
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |-|-|
 Utlöst av | Hur sessionen startades, antingen genom en utlösare, profil nu eller standard sampling. 
 Appnamn | Namnet på det program som profilerades.
@@ -68,7 +68,7 @@ Spåra | Antal spårningar som kopplats till enskilda begär Anden.
 CPU % | Procent andel CPU som användes när profileraren kördes.
 Minnesoptimerade | Procent andelen minne som användes när profileraren kördes.
 
-## <a name="use-web-performance-tests-to-generate-traffic-to-your-application"></a><a id="profileondemand"></a>Använd webb prestanda test för att generera trafik till ditt program
+## <a name="use-web-performance-tests-to-generate-traffic-to-your-application"></a><a id="profileondemand"></a> Använd webb prestanda test för att generera trafik till ditt program
 
 Du kan utlösa profiler manuellt med ett enda klick. Anta att du kör ett test för webb prestanda. Du behöver spår för att hjälpa dig att förstå hur din webbapp körs under belastning. Att ha kontroll över när spårningar samlas in är viktigt, eftersom du vet när belastnings testet ska köras. Men det slumpmässiga samplings intervallet kan sakna det.
 

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.openlocfilehash: 1a14615e96d5be4fbc8994073d66677997281131
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499893"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Skalningsalternativ för program i Azure Kubernetes Service
@@ -30,7 +30,7 @@ Vid skalning av noder anropar Kubernetes-API: t det relevanta Azure Compute-API:
 
 För att komma igång med manuell skalning av poddar och noder, se [skala program i AKS][aks-scale].
 
-## <a name="horizontal-pod-autoscaler"></a>Horisontell Pod autoskalning
+## <a name="horizontal-pod-autoscaler"></a>Horisontell autoskalning av poddar
 
 Kubernetes använder den vågräta Pod autoskalning (HPA) för att övervaka resurs behovet och skalar automatiskt antalet repliker. Som standard kontrollerar autoskalning i horisontella Pod mått-API var 30: e sekund för alla nödvändiga ändringar i replik antalet. När ändringar krävs ökas eller minskas antalet repliker i enlighet med detta. Horisontell Pod autoskalning fungerar med AKS-kluster som har distribuerat mått servern för Kubernetes 1.8 +.
 

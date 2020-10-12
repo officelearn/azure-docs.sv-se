@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.openlocfilehash: 07cbb28b98fcbac1932424c1c72f388813ec2400
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86037570"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Skala Stream Analytics jobb med Azure Automation
@@ -29,21 +29,21 @@ Innan du börjar konfigurera autoskalning för jobbet utför du följande steg.
 ### <a name="configure-variables"></a>Konfigurera variabler
 Lägg till följande variabler i Azure Automation-kontot. Dessa variabler kommer att användas i Runbooks som beskrivs i nästa steg.
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | --- | --- | --- |
 | **jobName** | Sträng | Namnet på det Stream Analytics jobb som du vill skala. |
 | **resourceGroupName** | Sträng | Namnet på resurs gruppen där jobbet finns. |
 | **subId** | Sträng | Prenumerations-ID som jobbet finns i. |
-| **increasedSU** | Integer | Det högre SU-värdet som du vill att jobbet ska skalas efter enligt ett schema. Värdet måste vara ett av de giltiga SU-alternativen som visas i **skalnings** inställningarna för jobbet när det körs. |
-| **decreasedSU** | Integer | Det lägre SU-värdet som du vill att jobbet ska skalas efter enligt ett schema. Värdet måste vara ett av de giltiga SU-alternativen som visas i **skalnings** inställningarna för jobbet när det körs. |
-| **maxSU** | Integer | Det maximala SU-värdet som du vill att jobbet ska skalas till i steg vid automatisk skalning efter belastning. Värdet måste vara ett av de giltiga SU-alternativen som visas i **skalnings** inställningarna för jobbet när det körs. |
-| **minSU** | Integer | Det minsta SU-värde som du vill att jobbet ska skalas till i steg vid automatisk skalning efter belastning. Värdet måste vara ett av de giltiga SU-alternativen som visas i **skalnings** inställningarna för jobbet när det körs. |
+| **increasedSU** | Heltal | Det högre SU-värdet som du vill att jobbet ska skalas efter enligt ett schema. Värdet måste vara ett av de giltiga SU-alternativen som visas i **skalnings** inställningarna för jobbet när det körs. |
+| **decreasedSU** | Heltal | Det lägre SU-värdet som du vill att jobbet ska skalas efter enligt ett schema. Värdet måste vara ett av de giltiga SU-alternativen som visas i **skalnings** inställningarna för jobbet när det körs. |
+| **maxSU** | Heltal | Det maximala SU-värdet som du vill att jobbet ska skalas till i steg vid automatisk skalning efter belastning. Värdet måste vara ett av de giltiga SU-alternativen som visas i **skalnings** inställningarna för jobbet när det körs. |
+| **minSU** | Heltal | Det minsta SU-värde som du vill att jobbet ska skalas till i steg vid automatisk skalning efter belastning. Värdet måste vara ett av de giltiga SU-alternativen som visas i **skalnings** inställningarna för jobbet när det körs. |
 
 ![Lägg till variabler i Azure Automation](./media/autoscale/variables.png)
 
 ### <a name="create-runbooks"></a>Skapa runbooks
 Nästa steg är att skapa två PowerShell-Runbooks. En för att skala upp och den andra för skalnings åtgärder.
-1. I ditt Azure Automation konto går du till **Runbooks** under **process automatisering** och väljer **skapa Runbook**.
+1. I ditt Azure Automation konto går du till **Runbooks** under **process automatisering**  och väljer **skapa Runbook**.
 2. Namnge den första Runbook- *ScaleUpRunbook* med typen inställt på PowerShell. Använd [ScaleUpRunbook PowerShell-skriptet](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleUpRunbook.ps1) som finns i GitHub. Spara och publicera den.
 3. Skapa en annan Runbook med namnet *ScaleDownRunbook* med typen PowerShell. Använd [ScaleDownRunbook PowerShell-skriptet](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleDownRunbook.ps1) som finns i GitHub. Spara och publicera den.
 

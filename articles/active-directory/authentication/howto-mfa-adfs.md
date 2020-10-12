@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 555673d1496ac33642e04c09233ba554ee2cca95
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531249"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Skydda molnresurser med Azure Multi-Factor Authentication och AD FS
@@ -44,7 +44,7 @@ Ställ in en anspråksregel så att Active Directory Federation Services generer
 7. Välj **Autentiseringsmetodreferenser** som den inkommande anspråkstypen.
 8. Välj **Släpp igenom alla anspråksvärden**.
     ![Skärm bild som visar guiden Lägg till anspråks regel för transformering där du väljer släpp igenom alla anspråks värden.](./media/howto-mfa-adfs/configurewizard.png)
-9. Klicka på **Slutför**. Stäng AD FS-hanteringskonsolen.
+9. Klicka på **Finish**. Stäng AD FS-hanteringskonsolen.
 
 ## <a name="trusted-ips-for-federated-users"></a>Tillförlitliga IP-adresser för federerade användare
 
@@ -67,7 +67,7 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
 6. I rutan bredvid Anspråksregelns namn ger du regeln ett namn. Exempel: InsideCorpNet.
 7. Välj **Inom företagsnätverket** i listrutan bredvid Typ av inkommande anspråk.
    ![Lägger till i företags nätverks anspråk](./media/howto-mfa-adfs/trustedip4.png)
-8. Klicka på **Slutför**.
+8. Klicka på **Finish**.
 9. För Utfärdande av transformeringsregler klickar du på **Lägg till regel**.
 10. I guiden Lägg till anspråksregel för transformering väljer du **Skicka anspråk med hjälp av en anpassad regel** i listrutan och klickar sedan på **Nästa**.
 11. I rutan under Anspråksregelns namn skriver du *Håll användarna inloggade*.
@@ -79,7 +79,7 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
     ![Create custom claim to keep users signed in](./media/howto-mfa-adfs/trustedip5.png)
 ```
 
-13. Klicka på **Slutför**.
+13. Klicka på **Finish**.
 14. Klicka på **Applicera**.
 15. Klicka på **OK**.
 16. Stäng AD FS-hantering.
@@ -97,4 +97,4 @@ När nu anspråken är på plats kan vi konfigurera tillförlitliga IP-adresser.
 4. På sidan Tjänstinställningar, under **Tillförlitliga IP-adresser** väljer du **Hoppa över multi-factor authentication för förfrågningar från federerade användare som kommer från mitt intranät**.  
 5. Klicka på **Spara**.
 
-Klart! I det här läget bör federerade Microsoft 365 användare bara behöva använda MFA när ett anspråk härstammar från utanför företags intranätet.
+Det är allt. I det här läget bör federerade Microsoft 365 användare bara behöva använda MFA när ett anspråk härstammar från utanför företags intranätet.

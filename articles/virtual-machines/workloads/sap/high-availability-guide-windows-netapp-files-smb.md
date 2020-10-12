@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.openlocfilehash: cd974377637f535383c4e099ac408bea88f887a4
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88853115"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer i Windows med Azure NetApp Files (SMB) för SAP-program
@@ -143,7 +143,7 @@ Du behöver följande program vara från SAP:
 
 ### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>Installera en ASCS/SCS-instans på den första ASCS/SCS-klusternoden
 
-1. Installera en SAP ASCS/SCS-instans på den första klusternoden. Starta installations verktyget för SAP-SWPM och gå sedan till: **produkt**-  >  **DBMS** > installation > program Server ABAP (eller Java) > system med hög tillgänglighet > ASCS/SCS-instans > första klusternoden.  
+1. Installera en SAP ASCS/SCS-instans på den första klusternoden. Starta installations verktyget för SAP-SWPM och gå sedan till: **produkt**-  >  **DBMS** > installation > program Server ABAP (eller Java) > High-Availability system > ASCS/SCS-instans > första klusternoden.  
 
 2. Välj **fil resurs kluster** som kluster resurs konfiguration i SWPM.  
 3. När du uppmanas till steg **SAP-systemets kluster parametrar**anger du värd namnet för den Azure NetApp Files SMB-resurs som du redan har skapat som **fil resurs värd namn**.  I det här exemplet är SMB-resursens värdnamn **anfsmb-9562**. 
@@ -158,7 +158,7 @@ Du behöver följande program vara från SAP:
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>Installera en ASCS/SCS-instans på den andra ASCS/SCS-klusternoden
 
-1. Installera en SAP ASCS/SCS-instans på den andra klusternoden. Starta installations verktyget för SAP-SWPM och navigera sedan till **produkt**  >  -**DBMS** > installation > program Server ABAP (eller Java) > system med hög tillgänglighet > ASCS/SCS-instans > ytterligare klusternod.  
+1. Installera en SAP ASCS/SCS-instans på den andra klusternoden. Starta installations verktyget för SAP-SWPM och navigera sedan till **produkt**  >  -**DBMS** > installation > program Server ABAP (eller Java) > High-Availability system > ASCS/SCS-instans > ytterligare klusternod.  
 
 ### <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installera en DBMS-instans och SAP-program servrar
 

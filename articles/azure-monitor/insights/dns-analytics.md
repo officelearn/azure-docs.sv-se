@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
 ms.openlocfilehash: 947b509468857b98b868881bdd48adf67a5d60db
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499009"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in insikter om din DNS-infrastruktur med DNS-analys för hands versions lösning
@@ -36,9 +36,9 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | **Ansluten källa** | **Support** | **Beskrivning** |
 | --- | --- | --- |
 | [Windows-agenter](../platform/agent-windows.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
-| [Linux-agenter](../learn/quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in DNS-information från Direct Linux-agenter. |
+| [Linux-agenter](../learn/quick-collect-linux-computer.md) | Inga | Lösningen samlar inte in DNS-information från Direct Linux-agenter. |
 | [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten Operations Manager hanterings grupp. En direkt anslutning från Operations Manager agent till Azure Monitor krävs inte. Data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan. |
-| [Azure Storage-konto](../platform/resource-logs.md#send-to-log-analytics-workspace) | Nej | Azure Storage används inte av lösningen. |
+| [Azure Storage-konto](../platform/resource-logs.md#send-to-log-analytics-workspace) | Inga | Azure Storage används inte av lösningen. |
 
 ### <a name="data-collection-details"></a>Information om data insamling
 

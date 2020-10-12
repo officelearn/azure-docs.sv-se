@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: tomfitz
 ms.openlocfilehash: 27efe1e03b8a0d373d566106a53a41007731973e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87810079"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>ARM-mall för att distribuera konsekvens åtgärder (för hands version)
@@ -110,18 +110,18 @@ Resource changes: 1 to modify.
 
 Om du vill förhandsgranska ändringar innan du distribuerar en mall använder du [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) eller [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment). Lägg till `-Whatif` switch-parametern i distributions kommandot.
 
-* `New-AzResourceGroupDeployment -Whatif`för resurs grupps distributioner
-* `New-AzSubscriptionDeployment -Whatif`och `New-AzDeployment -Whatif` för distributioner på prenumerations nivå
+* `New-AzResourceGroupDeployment -Whatif` för resurs grupps distributioner
+* `New-AzSubscriptionDeployment -Whatif` och `New-AzDeployment -Whatif` för distributioner på prenumerations nivå
 
 Du kan använda `-Confirm` switch-parametern för att förhandsgranska ändringarna och uppmanas att fortsätta med distributionen.
 
-* `New-AzResourceGroupDeployment -Confirm`för resurs grupps distributioner
-* `New-AzSubscriptionDeployment -Confirm`och `New-AzDeployment -Confirm` för distributioner på prenumerations nivå
+* `New-AzResourceGroupDeployment -Confirm` för resurs grupps distributioner
+* `New-AzSubscriptionDeployment -Confirm` och `New-AzDeployment -Confirm` för distributioner på prenumerations nivå
 
 Föregående kommandon returnerar en text sammanfattning som du kan kontrol lera manuellt. Använd [Get-AzResourceGroupDeploymentWhatIfResult](/powershell/module/az.resources/get-azresourcegroupdeploymentwhatifresult) eller [Get-AzSubscriptionDeploymentWhatIfResult](/powershell/module/az.resources/get-azdeploymentwhatifresult)för att hämta ett objekt som du kan använda program mässigt för att kontrol lera ändringar.
 
-* `$results = Get-AzResourceGroupDeploymentWhatIfResult`för resurs grupps distributioner
-* `$results = Get-AzSubscriptionDeploymentWhatIfResult`eller `$results = Get-AzDeploymentWhatIfResult` för distributioner på prenumerations nivå
+* `$results = Get-AzResourceGroupDeploymentWhatIfResult` för resurs grupps distributioner
+* `$results = Get-AzSubscriptionDeploymentWhatIfResult` eller `$results = Get-AzDeploymentWhatIfResult` för distributioner på prenumerations nivå
 
 ### <a name="azure-cli"></a>Azure CLI
 

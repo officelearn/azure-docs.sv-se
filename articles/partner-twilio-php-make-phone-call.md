@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: e75b5a265ba85813581e39a548d897ea57a33da6
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88080566"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Ringa ett telefonsamtal med Twilio i ett PHP-program på Azure
@@ -108,7 +108,7 @@ Förutom att ringa upp visar **MakeCall. php** vissa anrops-metadata som visas i
 Nästa steg är att [distribuera ditt program till Azure Web Apps med git](app-service/quickstart-php.md) (men inte all information som är relevant). 
 
 ## <a name="next-steps"></a>Nästa steg
-Den här koden angavs för att visa grundläggande funktioner med Twilio i PHP på Azure. Innan du distribuerar till Azure i produktion kanske du vill lägga till mer fel hantering eller andra funktioner. Till exempel:
+Den här koden angavs för att visa grundläggande funktioner med Twilio i PHP på Azure. Innan du distribuerar till Azure i produktion kanske du vill lägga till mer fel hantering eller andra funktioner. Exempel:
 
 * I stället för att använda ett webb formulär kan du använda Azure Storage-blobbar eller SQL Database för att lagra telefonnummer och samtals text. Information om hur du använder Azure Storage-blobbar i PHP finns i [använda Azure Storage med php-program][howto_blob_storage_php]. Information om hur du använder SQL Database i PHP finns i [använda SQL Database med php-program][howto_sql_azure_php].
 * **MakeCall. php** -koden använder Twilio URL ( [https://twimlets.com/message][twimlet_message_url] ) för att tillhandahålla ett TwiML-svar (Twilio Markup Language) som informerar Twilio hur anropet ska fortsätta. Den TwiML som returneras kan till exempel innehålla ett `<Say>` verb som resulterar i att text läses till mottagaren. I stället för att använda Twilio-URL: en kan du bygga din egen tjänst för att svara på Twilio: s begäran. Mer information finns i [så här använder du Twilio för röst-och SMS-funktioner i php][howto_twilio_voice_sms_php]. Mer information om TwiML finns i. du hittar [https://www.twilio.com/docs/api/twiml][twiml] Mer information om `<Say>` och andra Twilio-verb på [https://www.twilio.com/docs/api/twiml/say][twilio_say] .

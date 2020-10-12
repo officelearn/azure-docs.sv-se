@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: dad01212be3589af7167082ff22c624fa776772a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82193130"
 ---
 # <a name="security-control-network-security"></a>Säkerhets kontroll: nätverks säkerhet
@@ -22,7 +22,7 @@ Nätverks säkerhets rekommendationer fokusera på att ange vilka nätverks prot
 
 | Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 1.1 | 9,2, 9,4, 14,1, 14,2, 14,3 | Kund |
+| 1,1 | 9,2, 9,4, 14,1, 14,2, 14,3 | Kund |
 
 Se till att alla distributioner av Virtual Network undernät har en nätverks säkerhets grupp som tillämpas med nätverks åtkomst kontroller som är specifika för programmets betrodda portar och källor. När det är tillgängligt använder du privata slut punkter med privat länk för att skydda dina Azure-tjänsteresurser till ditt virtuella nätverk genom att utöka VNet-identiteten till tjänsten. Använd tjänstens slut punkter när privata slut punkter och privat länk inte är tillgänglig. Information om tjänstspecifika krav finns i säkerhets rekommendationer för den aktuella tjänsten. 
 
@@ -42,7 +42,7 @@ Om du har ett speciellt användnings fall kan kravet uppfyllas genom att impleme
 
 | Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 1.2 | 9,3, 12,2, 12,8 | Kund |
+| 1,2 | 9,3, 12,2, 12,8 | Kund |
 
 Använd Azure Security Center och följ rekommendationerna för nätverks skydd för att skydda dina nätverks resurser i Azure. Aktivera NSG Flow-loggar och skicka loggar till ett lagrings konto för trafik granskning. Du kan också skicka NSG Flow-loggar till en Log Analytics arbets yta och använda Trafikanalys för att ge insikter i trafikflöde i Azure-molnet. Några av fördelarna med Trafikanalys är möjligheten att visualisera nätverks aktivitet och identifiera aktiva punkter, identifiera säkerhetshot, förstå trafikflödes mönster och hitta nätverks problem.
 
@@ -102,7 +102,7 @@ Aktivera Network Watcher paket fångst för att undersöka avvikande aktiviteter
 |--|--|--|
 | 1.6 | 12,6, 12,7 | Kund |
 
-Välj ett erbjudande från Azure Marketplace som stöder ID/IP-funktioner med funktioner för nytto Last granskning.  Om intrångs identifiering och/eller skydd som baseras på nytto lasts granskning inte är ett krav kan du använda Azure-brandväggen med hot information. Azure Firewall Threat Intelligence-baserad filtrering kan varna och neka trafik till och från kända skadliga IP-adresser och domäner. IP-adresserna och domänerna är källor från Microsoft Threat Intelligence-flödet.
+Välj ett erbjudande från Azure Marketplace som stöder ID/IP-funktioner med funktioner för nytto Last granskning.  Om intrångs identifiering och/eller skydd som baseras på nytto lasts granskning inte är ett krav kan du använda Azure-brandväggen med hot information. Azure Firewall Threat Intelligence-baserad filtrering kan varna och neka trafik till och från kända skadliga IP-adresser och domäner. IP-adresserna och domänerna hämtas från Microsoft Threat Intelligence-flödet.
 
 Distribuera den brand Väggs lösning som du väljer för var och en av organisationens nätverks gränser för att upptäcka och/eller neka skadlig trafik.
 
@@ -116,7 +116,7 @@ Distribuera den brand Väggs lösning som du väljer för var och en av organisa
 
 | Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 1.7 | 12,9, 12,10 | Kund |
+| 1,7 | 12,9, 12,10 | Kund |
 
 Distribuera Azure Application Gateway för webb program med HTTPS/TLS aktiverat för betrodda certifikat.
 
@@ -144,7 +144,7 @@ Du kan också använda program säkerhets grupper för att förenkla komplex sä
 
 | Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 1.9 | 11,1 | Kund |
+| 1,9 | 11,1 | Kund |
 
 Definiera och implementera standardinställda säkerhetskonfigurationer för nätverks resurser med Azure Policy.
 

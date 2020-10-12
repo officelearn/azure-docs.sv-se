@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 137959f51b08dceee150962f77110ee2ac1dc193
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445006"
 ---
 # <a name="setup-a-lab-to-teach-matlab"></a>Konfigurera ett labb för att lära sig MATLAB
@@ -30,7 +30,7 @@ Om licens servern är placerad i ett lokalt nätverk eller ett privat nätverk i
 
 ## <a name="lab-configuration"></a>Labb konfiguration
 
-Du måste ha en Azure-prenumeration för att komma igång för att kunna konfigurera det här labbet.  Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har skaffat en Azure-prenumeration kan du antingen skapa ett nytt labb konto i Azure Lab Services eller använda ett befintligt konto.  Information om hur du skapar ett nytt labb konto finns i [själv studie kursen installera ett labb konto](tutorial-setup-lab-account.md).
+Du måste ha en Azure-prenumeration för att komma igång för att kunna konfigurera det här labbet.  Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har skaffat en Azure-prenumeration kan du antingen skapa ett nytt labb konto i Azure Lab Services eller använda ett befintligt konto.  Information om hur du skapar ett nytt labb konto finns i [själv studie kursen installera ett labb konto](tutorial-setup-lab-account.md).
 
 Om du vill skapa ett nytt labb, följer du anvisningarna i [klass rummet labb](tutorial-setup-classroom-lab.md).  Använd följande inställningar:
 
@@ -69,7 +69,7 @@ Du måste vara licens administratör för att kunna hämta installationsfilerna 
 11. Välj **Windows** som plattform för den dator som du ska installera MATLAB.
 12. På sidan **Välj produkt** ser du till att MATLAB är markerat tillsammans med andra MathWorks-produkter som du vill installera.
 13. På sidan **Bekräfta val och hämtning** klickar du på **starta nedladdning**.  
-14. Vänta tills de valda produkterna har laddats ned.  Klicka på **Slutför**.
+14. Vänta tills de valda produkterna har laddats ned.  Klicka på **Finish**.
 
 Du kan också hämta en ISO-avbildning från MathWorks-webbplatsen.
 
@@ -94,7 +94,7 @@ När filerna har hämtats är det andra steget att köra installations programme
 9. På sidan **Välj produkter** klickar du på **Nästa**.
 10. På sidan **Välj alternativ** klickar du på **Nästa**.
 11. På sidan **Bekräfta val och installation** klickar du på **påbörja installation**.
-12. Kontrol lera att **Aktivera MATLAB** är markerat på sidan **installationen har slutförts** .  Klicka på **Slutför**.
+12. Kontrol lera att **Aktivera MATLAB** är markerat på sidan **installationen har slutförts** .  Klicka på **Finish**.
 
 ## <a name="cost-estimate"></a>Kostnads uppskattning
 
@@ -102,7 +102,7 @@ Vi ska se en möjlig kostnads uppskattning för den här klassen.  Den här ber�
 
 Här är ett exempel på en möjlig kostnads uppskattning för den här klassen:
 
-25 studenter \* (20 schemalagda timmar + 10 kvot timmar) \* 55 lab-enheter \* 0,01 USD per timme = 412,50 USD
+25 studenter \* (20 schemalagda timmar + 10 kvot timmar) \* 55 lab-enheter \*  0,01 USD per timme = 412,50 USD
 
 >[!IMPORTANT]
 > Kostnads uppskattning är till exempel endast syfte.  Aktuell information om priser finns i [Azure Lab Services priser](https://azure.microsoft.com/pricing/details/lab-services/).  

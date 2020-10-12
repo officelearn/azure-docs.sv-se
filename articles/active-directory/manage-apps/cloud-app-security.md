@@ -12,10 +12,10 @@ ms.date: 02/03/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 62a77c1b21a6d602a2d54f56a2ed294fe800ac38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763660"
 ---
 # <a name="cloud-app-visibility-and-control"></a>Synlighet och kontroll för molnapp
@@ -36,8 +36,8 @@ Använd Microsoft Cloud App Discovery (en Azure Active Directory Premium P1-funk
  
 ### <a name="learn-more"></a>Läs mer
 
-- [Identifiera och hantera skugg-IT i nätverket](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it)
-- [Identifierade appar med Cloud App Security](https://docs.microsoft.com/cloud-app-security/discovered-apps)
+- [Identifiera och hantera skugg-IT i nätverket ](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it)
+- [Identifierade appar med Cloud App Security ](https://docs.microsoft.com/cloud-app-security/discovered-apps)
  
 ## <a name="user-session-visibility-and-control"></a>Synlighet och kontroll av användarens session 
 
@@ -53,7 +53,7 @@ Med den här kontrollen kan du:
  
 ### <a name="learn-more"></a>Läs mer
 
-- [Skydda appar med session Control i Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Skydda appar med session Control i Cloud App Security ](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
  
 ## <a name="advanced-app-visibility-and-controls"></a>Avancerad synlighet och kontroller för appen 
 
@@ -61,11 +61,11 @@ App-kopplingar använder API: er för app-leverantörer för att ge bättre synl
  
 ### <a name="learn-more"></a>Läs mer  
 
-- [Anslut appar i Cloud App Security](https://docs.microsoft.com/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
+- [Anslut appar i Cloud App Security ](https://docs.microsoft.com/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Identifiera och hantera skugg-IT i nätverket](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it)
-- [Identifierade appar med Cloud App Security](https://docs.microsoft.com/cloud-app-security/discovered-apps)
-- [Skydda appar med session Control i Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-- [Anslut appar i Cloud App Security](https://docs.microsoft.com/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
+- [Identifiera och hantera skugg-IT i nätverket ](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it)
+- [Identifierade appar med Cloud App Security ](https://docs.microsoft.com/cloud-app-security/discovered-apps)
+- [Skydda appar med session Control i Cloud App Security ](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Anslut appar i Cloud App Security ](https://docs.microsoft.com/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)

@@ -16,10 +16,10 @@ ms.date: 05/16/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: fa144c7ebd68e6f5dd192fca83dc6f306d7b8d63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81254112"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>Kina, innehålls leverans med Azure CDN
@@ -34,7 +34,7 @@ Azure CDN global och Azure CDN Kina har följande funktioner:
 
 - Azure CDN global:
 
-     - Portalhttps://portal.azure.com  
+     - Portal https://portal.azure.com  
 
      - Utför innehålls leverans utanför Kina
 
@@ -44,7 +44,7 @@ Azure CDN global och Azure CDN Kina har följande funktioner:
 
 - Azure CDN Kina:
 
-     - Portalhttps://portal.azure.cn
+     - Portal https://portal.azure.cn
 
      - Utför innehålls leverans inuti Kina
 

@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
 ms.openlocfilehash: 404ffbc09a69b623a421bd0c01550d72e5c03158
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88115993"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Konton och klientorganisationsprofiler (Android)
@@ -48,7 +48,7 @@ Ett konto i Microsoft Identity Platform består av:
 - Eftersom ett konto kan finnas i en eller flera klienter kan ett konto ha fler än en profil.
 
 > [!NOTE]
-> MSAL behandlar Microsoft-konto systemet (Live, MSA) som en annan klient i Microsoft Identity Platform. Klient-ID: t för den Microsoft-konto klienten är:`9188040d-6c67-4c5b-b112-36a304b66dad`
+> MSAL behandlar Microsoft-konto systemet (Live, MSA) som en annan klient i Microsoft Identity Platform. Klient-ID: t för den Microsoft-konto klienten är: `9188040d-6c67-4c5b-b112-36a304b66dad`
 
 ## <a name="account-overview-diagram"></a>Diagram över konto översikt
 
@@ -58,12 +58,12 @@ I diagrammet ovan:
 
 - Kontot `bob@contoso.com` skapas i den lokala Windows Server-Active Directory (ursprungligt lokalt system för Record).
 - Kontot `tom@live.com` skapas i Microsoft-konto klient organisationen.
-- `bob@contoso.com`har åtkomst till minst en resurs i följande Azure Active Directory klienter:
+- `bob@contoso.com` har åtkomst till minst en resurs i följande Azure Active Directory klienter:
   - contoso.com (moln system för Record-länkad till lokalt system för Record)
   - fabrikam.com
   - woodgrovebank.com
   - En klient profil för `bob@contoso.com` finns i var och en av dessa klienter.
-- `tom@live.com`har åtkomst till resurser i följande Microsoft-klienter:
+- `tom@live.com` har åtkomst till resurser i följande Microsoft-klienter:
   - contoso.com
   - fabrikam.com
   - En klient profil för `tom@live.com` finns i var och en av dessa klienter.
@@ -99,13 +99,13 @@ Förutom att begära en åtkomsttoken begär MSAL även alltid en ID-token från
 - OpenID
 - profil
 
-ID-token innehåller en lista över anspråk. `Claims`är namn/värde-par för kontot och används för att utföra begäran.
+ID-token innehåller en lista över anspråk. `Claims` är namn/värde-par för kontot och används för att utföra begäran.
 
 Som tidigare nämnts kan varje klient där ett konto finns lagra annan information om kontot, inklusive men inte begränsat till attribut som: befattning, kontors plats och så vidare.
 
 Även om ett konto kan vara medlem eller gäst i flera organisationer, frågar MSAL inte efter en tjänst för att hämta en lista över de klienter som kontot är medlem i. I stället skapar MSAL en lista över klienter som kontot finns i, till följd av token-begäranden som har gjorts.
 
-De anspråk som exponeras för kontot är alltid anspråk från/{Authority} "hem klient" för ett konto. Om kontot inte har använts för att begära en token för sin hem klient kan MSAL inte tillhandahålla anspråk via objektet konto.  Till exempel:
+De anspråk som exponeras för kontot är alltid anspråk från/{Authority} "hem klient" för ett konto. Om kontot inte har använts för att begära en token för sin hem klient kan MSAL inte tillhandahålla anspråk via objektet konto.  Exempel:
 
 ```java
 // Psuedo Code
@@ -125,7 +125,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 
 ### <a name="access-tenant-profile-claims"></a>Åtkomst till klient profil anspråk
 
-För att få åtkomst till anspråk om ett konto som de visas i andra klienter måste du först omvandla ditt konto objekt till `IMultiTenantAccount` . Alla konton kan vara flera klienter, men antalet klient profiler som är tillgängliga via MSAL baseras på vilka innehavare du har begärt token från att använda det aktuella kontot.  Till exempel:
+För att få åtkomst till anspråk om ett konto som de visas i andra klienter måste du först omvandla ditt konto objekt till `IMultiTenantAccount` . Alla konton kan vara flera klienter, men antalet klient profiler som är tillgängliga via MSAL baseras på vilka innehavare du har begärt token från att använda det aktuella kontot.  Exempel:
 
 ```java
 // Psuedo Code

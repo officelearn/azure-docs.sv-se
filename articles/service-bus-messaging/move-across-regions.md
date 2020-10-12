@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 573ea96437cf6cb76854ffa417fd3ad3fb86138b
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88861258"
 ---
 # <a name="move-an-azure-service-bus-namespace-to-another-region"></a>Flytta en Azure Service Bus-namnrymd till en annan region
@@ -28,7 +28,7 @@ Se till att Azure Service Bus och funktioner som ditt konto använder stöds i m
 ## <a name="prepare"></a>Förbereda
 Kom igång genom att exportera en Resource Manager-mall. Den här mallen innehåller inställningar som beskriver ditt Service Bus namn område.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **alla resurser** och välj sedan din Service Bus namn område.
 3. Välj **Settings**  >  **Exportera mall**för > inställningar.
 4. Välj **Hämta** på sidan **Exportera mall** .
@@ -48,19 +48,19 @@ Distribuera mallen för att skapa ett Service Bus-namnområde i mål regionen.
 1. I Azure Portal väljer du **skapa en resurs**.
 2. I **Sök på Marketplace**skriver du **mall distribution** för sök texten, väljer **malldistribution (distribuera med anpassade mallar)** och trycker sedan på **RETUR**.
 
-    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Distribution av ny mall":::    
+    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Ladda ned Resource Manager-mall":::    
 1. På sidan **malldistribution** väljer du **skapa**.
 
-    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Ny mall distribution-knappen Skapa":::        
+    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Ladda ned Resource Manager-mall":::        
 1. På sidan **Anpassad distribution** väljer du **Bygg en egen mall i redigeraren**.
 
-    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Bygg en egen mall i redigeraren – länk":::            
+    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Ladda ned Resource Manager-mall":::            
 1. På sidan **Redigera mall** väljer du **Läs in fil** i verktygsfältet och följer sedan anvisningarna för att läsa in **template.jspå** filen som du laddade ned i det sista avsnittet.
 
-    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Välj mall":::                
+    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Ladda ned Resource Manager-mall":::                
 1. Spara mallen genom att välja **Spara** . 
 
-    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Spara mall":::                    
+    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Ladda ned Resource Manager-mall":::                    
 1. Följ dessa steg på sidan **Anpassad distribution** : 
     1. Välj en Azure- **prenumeration**. 
     2. Välj en befintlig **resurs grupp** eller skapa en. 
@@ -68,26 +68,26 @@ Distribuera mallen för att skapa ett Service Bus-namnområde i mål regionen.
     4. Ange ett nytt **namn för namn området**.
     1. Välj **Granska + skapa**. 
 
-        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Distribuera Resource Manager-mall":::
+        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Ladda ned Resource Manager-mall":::
     1. På sidan **Granska + skapa** väljer du **skapa** längst ned på sidan. 
     
 ## <a name="verify"></a>Verifiera
 1. När distributionen har slutförts väljer **du gå till resurs grupp**.
 
-    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Gå till resurs grupps länk":::    
+    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Ladda ned Resource Manager-mall":::    
 1. På sidan **resurs grupp** väljer du Service Bus namn området. 
 
-    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Välj Service Bus namnrymd":::    
+    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Ladda ned Resource Manager-mall":::    
 1. På sidan **Service Bus namn område** kontrollerar du att du ser köer, ämnen och prenumerationer från käll regionen. 
     1. Du ser **köer** i namn området längst ned i den högra rutan.         
     
-        :::image type="content" source="./media/move-across-regions/queue-namespace.png" alt-text="Köer i namn området":::
+        :::image type="content" source="./media/move-across-regions/queue-namespace.png" alt-text="Ladda ned Resource Manager-mall":::
     2. Växla till fliken **ämnen** för att se ämnen i namn området
     
-        :::image type="content" source="./media/move-across-regions/topics-namespace.png" alt-text="Ämnen i namn området":::
+        :::image type="content" source="./media/move-across-regions/topics-namespace.png" alt-text="Ladda ned Resource Manager-mall":::
     3. Välj ämnet för att verifiera att prenumerationer skapas. 
 
-        :::image type="content" source="./media/move-across-regions/topic-subscriptions.png" alt-text="Ämnes prenumerationer":::      
+        :::image type="content" source="./media/move-across-regions/topic-subscriptions.png" alt-text="Ladda ned Resource Manager-mall":::      
     
     
 

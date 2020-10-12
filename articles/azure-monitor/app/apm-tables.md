@@ -6,10 +6,10 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
 ms.openlocfilehash: 1d7275c928b4d25e200a3a8d3d690c7575c056e7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323187"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Arbets ytans baserade resurs ändringar (för hands version)
@@ -18,7 +18,7 @@ Innan du inför införandet av [arbets ytans baserade Application Insights resur
 
 Med arbets ytans baserade Application Insights resurs data lagras i en Log Analytics arbets yta med andra övervaknings data och program data. Detta fören klar konfigurationen genom att göra det enklare att analysera data över flera lösningar och utnyttja funktionerna i arbets ytor.
 
-## <a name="table-structure"></a>Tabell struktur
+## <a name="table-structure"></a>Tabellstruktur
 
 | Äldre tabell namn | Nytt tabell namn | Beskrivning |
 |:---|:---|:---|
@@ -66,7 +66,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |itemCount|int|ItemCount|int|
 |itemId|sträng|\_ItemId|sträng|
 |itemType|sträng|Typ|Sträng|
-|location|sträng|Position|sträng|
+|location|sträng|Location|sträng|
 |meddelande|sträng|Meddelande|sträng|
 |name|sträng|Namn|sträng|
 |operation_Id|sträng|OperationId|sträng|
@@ -76,7 +76,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |performanceBucket|sträng|PerformanceBucket|sträng|
 |sdkVersion|sträng|SdkVersion|sträng|
 |session_Id|sträng|SessionId|sträng|
-|ikoner|real|Storlek|real|
+|size|real|Storlek|real|
 |lyckades|sträng|Klart|Bool|
 |timestamp|datetime|TimeGenerated|datetime|
 |user_AccountId|sträng|UserAccountId|sträng|

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: 90ffd1c01411982f56aed3332c499aa0c10b8a94
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257597"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric-säkerhet 
@@ -171,7 +171,7 @@ Om du vill aktivera systemtilldelad hanterad identitet under skapandet av en ska
 ```
 Se [Vad är Managed identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss.md#system-assigned-managed-identity) för mer information.
 
-Om du har skapat en [användardefinierad hanterad identitet](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity), måste du deklarera följande resurs i mallen för att tilldela den till den virtuella datorns skalnings uppsättning. Ersätt `\<USERASSIGNEDIDENTITYNAME\>` med namnet på den användare-tilldelade hanterade identitet som du skapade:
+Om du har skapat en  [användardefinierad hanterad identitet](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity), måste du deklarera följande resurs i mallen för att tilldela den till den virtuella datorns skalnings uppsättning. Ersätt `\<USERASSIGNEDIDENTITYNAME\>` med namnet på den användare-tilldelade hanterade identitet som du skapade:
 
 ```json
 "identity": {

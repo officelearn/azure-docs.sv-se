@@ -17,10 +17,10 @@ ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 217d5b060ca1b7d32cd334049db9b7c68b7949a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87065092"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Vilken SAP-programvara stöds för Azure-distributioner
@@ -117,7 +117,7 @@ För virtuella Azure-datorer dokumenteras dessa SAPS data flödes nummer i [SAP 
 
 I [#1928533 för SAP-support noterar](https://launchpad.support.sap.com/#/notes/1928533)du följande anmärkningar:
 
-- För virtuella Azure-datorer **i M-serien och virtuella datorer i Mv2-serien gäller olika lägsta OS-versioner än för andra typer av virtuella Azure-datorer**. Kravet på fler nyare OS-versioner baseras på ändringar som de olika operativ system leverantörer måste ge i sina operativ system versioner för att antingen aktivera sina operativ system på de olika typerna av virtuella Azure-datorer eller optimera prestanda och data flöde för SAP-arbetsbelastningar på dessa VM-typer
+- **För virtuella Azure-datorer i M-serien och Mv2-Series virtuella Azure-datorer gäller olika lägsta OS-versioner än för andra typer av virtuella Azure-datorer**. Kravet på fler nyare OS-versioner baseras på ändringar som de olika operativ system leverantörer måste ge i sina operativ system versioner för att antingen aktivera sina operativ system på de olika typerna av virtuella Azure-datorer eller optimera prestanda och data flöde för SAP-arbetsbelastningar på dessa VM-typer
 - Det finns två tabeller som anger olika typer av virtuella datorer. Den andra tabellen anger SAPS-dataflöde för Azure VM-typer som endast stöder Azure standard Storage. DBMS-distribution i de enheter som anges i den andra tabellen av anteckningen stöds inte
 
 

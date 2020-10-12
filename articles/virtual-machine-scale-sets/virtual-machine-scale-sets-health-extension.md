@@ -10,10 +10,10 @@ ms.date: 05/06/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: a38a715b45ab4d0810862ef4d016e4187ea507ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84783052"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Använda tillägget för programmets hälsotillstånd med VM-skalningsuppsättningar
@@ -61,16 +61,16 @@ Följande JSON visar schemat för program hälso tillägget. Tillägget kräver 
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
 | utgivare | `Microsoft.ManagedServices` | sträng |
-| typ | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows` (Windows) | sträng |
+| typ | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | sträng |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Inställningar
 
 | Name | Värde/exempel | Datatyp
 | ---- | ---- | ----
-| protokollhanterare | `http`eller `https` eller`tcp` | sträng |
-| port | Valfritt när protokollet är `http` eller `https` , obligatoriskt när protokollet är`tcp` | int |
-| requestPath | Obligatoriskt när protokollet är `http` eller `https` , tillåts inte när protokollet är`tcp` | sträng |
+| protokollhanterare | `http` eller `https` eller `tcp` | sträng |
+| port | Valfritt när protokollet är `http` eller `https` , obligatoriskt när protokollet är `tcp` | int |
+| requestPath | Obligatoriskt när protokollet är `http` eller `https` , tillåts inte när protokollet är `tcp` | sträng |
 
 ## <a name="deploy-the-application-health-extension"></a>Distribuera program hälso tillägget
 Det finns flera sätt att distribuera program hälso tillägget till dina skalnings uppsättningar enligt beskrivningen i exemplen nedan.
@@ -165,7 +165,7 @@ extension.jspå fil innehåll.
 ```
 
 
-## <a name="troubleshoot"></a>Felsök
+## <a name="troubleshoot"></a>Felsöka
 Utökning av utdata loggas till filer som finns i följande kataloger:
 
 ```Windows

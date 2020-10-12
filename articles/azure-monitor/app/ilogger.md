@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 171aaeb624bfedb9aa7408a736c11faca316b392
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87322643"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider för .NET Core ILogger-loggar
@@ -210,7 +210,7 @@ Du kan fortfarande använda den gamla providern. (Den tas bara bort i en större
 - Den tidigare providern saknar stöd för [logg omfattningar](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). I den nya providern läggs egenskaper från definitions området automatiskt till som anpassade egenskaper till den insamlade Telemetrin.
 - Loggar kan nu fångas mycket tidigare i program start pipelinen. Loggar från **program** -och **Start** klasserna kan nu fångas.
 - Med den nya providern görs filtrering på själva Ramverks nivån. Du kan filtrera loggar till Application Insights-providern på samma sätt som för andra leverantörer, inklusive inbyggda providers, t. ex. konsol, fel sökning och så vidare. Du kan också använda samma filter för flera providers.
-- I ASP.NET Core (2,0 och senare) är det rekommenderade sättet att [Aktivera loggnings leverantörer](https://github.com/aspnet/Announcements/issues/255) att använda tilläggs metoder på ILoggingBuilder i **program.cs** .
+- I ASP.NET Core (2,0 och senare) är det rekommenderade sättet att  [Aktivera loggnings leverantörer](https://github.com/aspnet/Announcements/issues/255) att använda tilläggs metoder på ILoggingBuilder i **program.cs** .
 
 > [!Note]
 > Den nya providern är tillgänglig för program som är riktade till netstandard 2.0 eller senare. Från [Microsoft. ApplicationInsights. ASPNET SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) -version 2.14.0 och senare är en ny provider också tillgänglig för program som är riktade till .NET Framework NET461 eller senare. Om programmet är inriktat över äldre .NET Core-versioner, t. ex. .NET core 1,1 eller om den är riktad mot .NET Framework mindre än NET46, fortsätter du att använda den gamla providern.
@@ -378,7 +378,7 @@ Duplicering kan inträffa om du har den äldre (nu föråldrade) versionen av Ap
  }
 ```
 
-Om du får dubbel loggning när du felsöker från Visual Studio, anger `EnableDebugLogger` du *falskt* i koden som aktiverar Application Insights, enligt följande. Den här dupliceringen och korrigeringen är bara relevant när du felsöker programmet.
+Om du får dubbel loggning när du felsöker från Visual Studio, anger `EnableDebugLogger` du  *falskt* i koden som aktiverar Application Insights, enligt följande. Den här dupliceringen och korrigeringen är bara relevant när du felsöker programmet.
 
 ```csharp
  public void ConfigureServices(IServiceCollection services)
@@ -444,7 +444,7 @@ public class MyController : ApiController
 
 ApplicationInsightsLoggerProvider fångar ILogger-loggar och skapar TraceTelemetry från dem. Om ett undantags objekt skickas till **log ()** -metoden på ILogger skapas *ExceptionTelemetry* i stället för TraceTelemetry. Dessa telemetri-objekt finns på samma platser som andra TraceTelemetry eller ExceptionTelemetry för Application Insights, inklusive Portal, analys eller Visual Studio Local-felsökning.
 
-Om du föredrar att alltid skicka TraceTelemetry, använder du det här kodfragmentet:```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```
+Om du föredrar att alltid skicka TraceTelemetry, använder du det här kodfragmentet: ```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```
 
 ### <a name="i-dont-have-the-sdk-installed-and-i-use-the-azure-web-apps-extension-to-enable-application-insights-for-my-aspnet-core-applications-how-do-i-use-the-new-provider"></a>Jag har inte installerat SDK och jag använder tillägget Azure Web Apps för att aktivera Application Insights för mina ASP.NET Core-program. Hur gör jag för att använder du den nya providern? 
 

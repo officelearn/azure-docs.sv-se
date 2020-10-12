@@ -15,13 +15,13 @@ ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: 3aaa5d2bc6fdbda0d1db212539c719aa65cae61b
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90709172"
 ---
-# <a name="troubleshoot-cross-region-replication"></a>Felsöka replikering över flera regioner
+# <a name="troubleshoot-cross-region-replication"></a>Felsöka replikering mellan regioner
 
 I den här artikeln beskrivs fel meddelanden och lösningar som kan hjälpa dig att felsöka replikeringar mellan regioner för Azure NetApp Files. 
 
@@ -68,7 +68,7 @@ I den här artikeln beskrivs fel meddelanden och lösningar som kan hjälpa dig 
 
 * [Replikering mellan regioner](cross-region-replication-introduction.md)
 * [Krav och överväganden för att använda replikering över flera regioner](cross-region-replication-requirements-considerations.md)
-* [Skapa replikerings-peering](cross-region-replication-create-peering.md)
-* [Visa hälso status för replikeringsrelation](cross-region-replication-display-health-status.md)
+* [Skapa replikeringspeering](cross-region-replication-create-peering.md)
+* [Visa hälsostatus för replikeringsrelation](cross-region-replication-display-health-status.md)
 * [Hantera haveriberedskap](cross-region-replication-manage-disaster-recovery.md)
-* [Felsöka replikering över flera regioner](troubleshoot-cross-region-replication.md)
+* [Felsöka replikering mellan regioner](troubleshoot-cross-region-replication.md)

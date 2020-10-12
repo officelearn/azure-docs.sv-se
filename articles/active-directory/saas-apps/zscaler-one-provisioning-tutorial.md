@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 978f8ff5e57a5a9a1df10152713c8c42901b3b6f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545870"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Zscaler en för automatisk användar etablering
@@ -88,11 +88,11 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Zscaler en länk i program listan](common/all-applications.png)
 
-3. Välj fliken **etablering** .
+3. Välj fliken **Etablering**.
 
     ![Zscaler en etablering](./media/zscaler-one-provisioning-tutorial/provisioning-tab.png)
 
-4. Ställ in **etablerings läget** på **automatiskt**.
+4. Ange **Etableringsläge** som **Automatiskt**.
 
     ![Zscaler ett etablerings läge](./media/zscaler-one-provisioning-tutorial/provisioning-credentials.png)
 
@@ -106,7 +106,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Zscaler en konfigurera SAML](./media/zscaler-one-provisioning-tutorial/secret-token-2.png)
 
-    b. Välj **Aktivera scim-baserad etablering** för att hämta inställningarna i bas- **URL** och **Bearer-token**. Spara inställningarna. Kopiera **bas-URL** -inställningen till **klient webb adressen** i Azure Portal. Kopiera inställningen för **Bearer-token** till **hemlig token** i Azure Portal.
+    b. Välj **aktivera SCIM-Based etablering** för att hämta inställningarna i bas- **URL** och **Bearer-token**. Spara inställningarna. Kopiera **bas-URL** -inställningen till **klient webb adressen** i Azure Portal. Kopiera inställningen för **Bearer-token** till **hemlig token** i Azure Portal.
 
 7. När du har fyllt i rutorna som visas i steg 5 väljer du **Testa anslutning** för att se till att Azure AD kan ansluta till Zscaler en. Om anslutningen Miss lyckas kontrollerar du att Zscaler ett konto har administratörs behörighet och försöker igen.
 
@@ -157,11 +157,11 @@ Information om hur du läser etablerings loggarna i Azure AD finns i [rapporteri
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../active-directory-saas-provisioning-reporting.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-one-provisioning-tutorial/tutorial-general-01.png

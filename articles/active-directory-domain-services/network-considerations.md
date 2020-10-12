@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 6e2b3badcda872db3ddb1d237b813615a1332ad0
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91396339"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Design överväganden för virtuellt nätverk och konfigurations alternativ för Azure Active Directory Domain Services
@@ -91,7 +91,7 @@ Du kan aktivera namn matchning med villkorliga DNS-vidarebefordrare på den DNS-
 
 En hanterad domän skapar vissa nätverks resurser under distributionen. De här resurserna behövs för lyckad åtgärd och hantering av den hanterade domänen och ska inte konfigureras manuellt.
 
-| Azure-resurs                          | Description |
+| Azure-resurs                          | Beskrivning |
 |:----------------------------------------|:---|
 | Nätverks gränssnitts kort                  | Azure AD DS är värd för den hanterade domänen på två domänkontrollanter (DCs) som körs på Windows Server som virtuella Azure-datorer. Varje virtuell dator har ett virtuellt nätverks gränssnitt som ansluter till det virtuella nätverkets undernät. |
 | Offentlig IP-adress för dynamisk standard      | Azure AD DS kommunicerar med tjänsten synkronisering och hantering med hjälp av en offentlig IP-adress för standard-SKU. Mer information om offentliga IP-adresser finns i [IP-diagramtyper och autentiseringsmetoder i Azure](../virtual-network/public-ip-addresses.md). |
@@ -108,11 +108,11 @@ En [nätverks säkerhets grupp (NSG)](../virtual-network/security-overview.md) i
 
 Följande regler för nätverks säkerhets grupper krävs för att den hanterade domänen ska kunna tillhandahålla autentiserings-och hanterings tjänster. Redigera inte eller ta bort dessa regler för nätverks säkerhets grupper för det virtuella nätverkets undernät som din hanterade domän distribueras till.
 
-| Portnummer | Protokoll | Källa                             | Mål | Action | Obligatorisk | Syfte |
+| Portnummer | Protokoll | Källa                             | Mål | Action | Krävs | Syfte |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Yes      | Synkronisering med din Azure AD-klient. |
-| 3389        | TCP      | CorpNetSaw                         | Alla         | Tillåt  | Yes      | Hantering av din domän. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Yes      | Hantering av din domän. |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Ja      | Synkronisering med din Azure AD-klient. |
+| 3389        | TCP      | CorpNetSaw                         | Alla         | Tillåt  | Ja      | Hantering av din domän. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Ja      | Hantering av din domän. |
 
 En Azure standard Load Balancer skapas som kräver att dessa regler placeras. Den här nätverks säkerhets gruppen säkrar Azure AD DS och krävs för att den hanterade domänen ska fungera korrekt. Ta inte bort den här nätverks säkerhets gruppen. Belastningsutjämnaren fungerar inte korrekt utan den.
 
@@ -175,5 +175,5 @@ Du måste också dirigera inkommande trafik från IP-adresserna som ingår i res
 Mer information om vissa nätverks resurser och anslutnings alternativ som används av Azure AD DS finns i följande artiklar:
 
 * [Peering för Azure Virtual Network](../virtual-network/virtual-network-peering-overview.md)
-* [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
+* [Azure VPN-gatewayer](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
 * [Azure-nätverkssäkerhetsgrupper](../virtual-network/security-overview.md)

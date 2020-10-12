@@ -4,10 +4,10 @@ description: Publicera som en Azure Event Grid partner ämnes typ. Lär dig mer 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 36f2178b7c21af016f9074d6f973a01cedb873d7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87826797"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>Publicera som en Azure Event Grid-partner
@@ -59,7 +59,7 @@ Med partner ämnen kan du publicera händelser till Azure Event Grid för använ
 Följande resurs modell är för partner ämnen.
 
 ### <a name="partner-registrations"></a>Partner registreringar
-* Klusterresursen`partnerRegistrations`
+* Klusterresursen `partnerRegistrations`
 * Används av: partners
 * Beskrivning: fångar de globala metadata för SaaS-partner (program vara som en tjänst) (till exempel namn, visnings namn, beskrivning, installations-URI).
     
@@ -75,13 +75,13 @@ Följande resurs modell är för partner ämnen.
 * Omfattning: bor i partnerns prenumeration.
 
 ### <a name="event-channel"></a>Händelse kanal
-* Klusterresursen`partnerNamespaces/eventChannels`
+* Klusterresursen `partnerNamespaces/eventChannels`
 * Används av: partners
 * Beskrivning: händelse tunnlarna är en spegling av kundens partner ämne. Genom att skapa en händelse tunnel och ange kundens Azure-prenumeration och resurs grupp i metadata signalerar du till Event Grid för att skapa ett partner ämne för kunden. Event Grid utfärdar ett ARM-anrop för att skapa en motsvarande partnerTopic i kundens prenumeration. Partner ämnet skapas i ett väntande tillstånd. Det finns en 1-till-en-länk mellan varje händelse tunnel och ett partner ämne.
 * Omfattning: bor i partnerns prenumeration.
 
 ### <a name="partner-topics"></a>Partnerämnen
-* Klusterresursen`partnerTopics`
+* Klusterresursen `partnerTopics`
 * Används av: kunder
 * Beskrivning: samarbets ämnen liknar anpassade ämnen och system ämnen i Event Grid. Varje partner ämne är associerat med en speciell källa (till exempel `Contoso:myaccount` ) och en speciell typ av partner ämne (till exempel contoso). Kunder skapar händelse prenumerationer i partner avsnittet för att dirigera händelser till olika händelse hanterare.
 
@@ -89,9 +89,9 @@ Följande resurs modell är för partner ämnen.
 * Omfattning: bor i kundens prenumeration.
 
 ### <a name="partner-topic-types"></a>Partner ämnes typer
-* Klusterresursen`partnerTopicTypes`
+* Klusterresursen `partnerTopicTypes`
 * Används av: kunder
-* Beskrivning: partner ämnes typer är resurs typer för flera klienter som gör det möjligt för kunder att identifiera listan över godkända partner ämnes typer. URL: en ser ut så härhttps://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
+* Beskrivning: partner ämnes typer är resurs typer för flera klienter som gör det möjligt för kunder att identifiera listan över godkända partner ämnes typer. URL: en ser ut så här https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
 * Omfattning: global
 
 ## <a name="publish-events-to-event-grid"></a>Publicera händelser till Event Grid

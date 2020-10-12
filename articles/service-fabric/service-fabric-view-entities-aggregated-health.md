@@ -7,10 +7,10 @@ ms.date: 2/28/2018
 ms.author: gwallace
 ms.custom: devx-track-csharp
 ms.openlocfilehash: eeb2fd94e6b98bc9d89be22501406db9a8ba7773
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89013171"
 ---
 # <a name="view-service-fabric-health-reports"></a>Visa Service Fabric hälso rapporter
@@ -1024,25 +1024,25 @@ Frågorna **som innehåller** hälsoattribut för entiteter är:
 
 * Node-lista: returnerar List-noderna i klustret (växlat).
   * API: [FabricClient. QueryClient. GetNodeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
-  * PowerShell: get-ServiceFabricNode
+  * PowerShell: Get-ServiceFabricNode
 * Program lista: returnerar listan över program i klustret (växlat).
   * API: [FabricClient. QueryClient. GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
-  * PowerShell: get-ServiceFabricApplication
+  * PowerShell: Get-ServiceFabricApplication
 * Tjänst lista: returnerar listan över tjänster i ett program (växlat).
   * API: [FabricClient. QueryClient. GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
-  * PowerShell: get-ServiceFabricService
+  * PowerShell: Get-ServiceFabricService
 * Partition lista: returnerar listan över partitioner i en tjänst (växlad).
   * API: [FabricClient. QueryClient. GetPartitionListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
-  * PowerShell: get-ServiceFabricPartition
+  * PowerShell: Get-ServiceFabricPartition
 * Replik lista: returnerar listan över repliker i en partition (växlad).
   * API: [FabricClient. QueryClient. GetReplicaListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
-  * PowerShell: get-Removeservicefabricreplica
+  * PowerShell: Get-ServiceFabricReplica
 * Distribuerad program lista: returnerar listan över distribuerade program på en nod.
   * API: [FabricClient. QueryClient. GetDeployedApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
-  * PowerShell: get-ServiceFabricDeployedApplication
+  * PowerShell: Get-ServiceFabricDeployedApplication
 * Distribuerad Service Pack-lista: returnerar listan över tjänst paket i ett distribuerat program.
   * API: [FabricClient. QueryClient. GetDeployedServicePackageListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
-  * PowerShell: get-ServiceFabricDeployedApplication
+  * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
 > Några av frågorna returnerar växlade resultat. Att returnera dessa frågor är en lista som härletts [från \<T> PagedList](/dotnet/api/system.fabric.query.pagedlist-1). Om resultatet inte passar ett meddelande returneras bara en sida och en ContinuationToken som spårar där uppräkningen stoppas. Fortsätt att anropa samma fråga och skicka i fortsättnings-token från föregående fråga för att få nästa resultat.

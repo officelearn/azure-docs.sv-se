@@ -9,17 +9,17 @@ ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a967777b65c06cf23239a47e8e691fb3a29231b4
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88815478"
 ---
 Om du ställer in Kundhanterade nycklar för dina diskar måste du skapa resurser i en viss ordning, om du gör det för första gången. Först måste du skapa och konfigurera en Azure Key Vault.
 
 ## <a name="set-up-your-azure-key-vault"></a>Konfigurera din Azure Key Vault
 
-1. Logga in på [Azure-portalen](https://aka.ms/diskencryptionupdates).
+1. Logga in på [Azure Portal](https://aka.ms/diskencryptionupdates).
 1. Sök efter och välj **nyckel valv**.
 
     [![Skärm bild av Azure Portal med dialog rutan Sök expanderad.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png)](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png#lightbox)
@@ -65,7 +65,7 @@ Om du ställer in Kundhanterade nycklar för dina diskar måste du skapa resurse
 1. Välj **en nyckel genom att klicka på Klicka**.
 1. Välj nyckel valvet och nyckeln som du skapade tidigare, samt versionen.
 1. Tryck på **Välj**.
-1. Välj **Granska + skapa** och sedan **skapa**.
+1. Välj **Granska och skapa** och sedan **Skapa**.
 
     ![Skärm bild av bladet för att skapa disk kryptering. Visar prenumeration, resurs grupp, namn på disk krypterings uppsättning, region och nyckel valv + nyckel väljare.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/11/2020
 ms.author: jeedes
 ms.openlocfilehash: 780421d93916c7da7897dfa15d09dc895cf56280
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88552670"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Självstudie: Azure Active Directory SSO-integrering med JAMF Pro
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera JAMF Pro med Azure Acti
 
 Mer information om SaaS app integration med Azure AD finns i [enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -71,8 +71,8 @@ I det här avsnittet konfigurerar och testar du Azure AD SSO med JAMF Pro.
 I det här avsnittet aktiverar du Azure AD SSO i Azure Portal.
 
 1. I [Azure Portal](https://portal.azure.com/)går du till sidan för integrering av **JAMF Pro** -program och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
-1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** väljer du Penn ikonen för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Välj en enda Sign-On metod** väljer du **SAML**.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du Penn ikonen för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera sidan grundläggande SAML-konfiguration.](common/edit-urls.png)
 
@@ -87,7 +87,7 @@ I det här avsnittet aktiverar du Azure AD SSO i Azure Portal.
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL: en och inloggnings-URL: en. Du får det faktiska ID-värdet från avsnittet **enkel inloggning** i JAMF Pro-portalen, som beskrivs senare i självstudien. Du kan extrahera det faktiska under domän svärdet från ID-värdet och använda under domän informationen som inloggnings-URL och svars-URL. Du kan också se de formler som visas i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat** , väljer **kopierings** knappen för att kopiera **URL för appens Federations-metadata**och sparar den sedan på din dator.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** går du till avsnittet **SAML-signeringscertifikat** , väljer **kopierings** knappen för att kopiera **URL: en för appens federationens metadata**och sparar den sedan på din dator.
 
     ![Länken för nedladdning av SAML-signeringscertifikat](common/copy-metadataurl.png)
 
@@ -99,7 +99,7 @@ I det här avsnittet skapar du en test användare i Azure Portal som kallas B. S
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.
-   1. I fältet **användar namn** anger du [Name] @ [companydomain]. [Extension]. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du [Name] @ [companydomain]. [Extension]. Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Välj **Skapa**.
 
@@ -139,15 +139,15 @@ I det här avsnittet beviljar du B. Simon-åtkomst till JAMF Pro.
 
 5. Välj **enkel inloggning**.
 
-    ![Välj enkel inloggning i JAMF Pro](./media/jamfprosamlconnector-tutorial/configure2.png)
+    ![Välj enstaka Sign-On i JAMF Pro](./media/jamfprosamlconnector-tutorial/configure2.png)
 
 6. Utför följande steg på sidan **enkel inloggning** .
 
-    ![Sidan för enkel inloggning i JAMF Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
+    ![Sidan enkel Sign-On i JAMF Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
     a. Välj **Redigera**.
 
-    b. Markera kryss rutan **aktivera autentisering med enkel inloggning** .
+    b. Markera kryss rutan **aktivera enkel Sign-On autentisering** .
 
   c. Välj **Azure** som ett alternativ på den nedrullningsbara menyn **identitets leverantör** .
 
@@ -162,7 +162,7 @@ I det här avsnittet beviljar du B. Simon-åtkomst till JAMF Pro.
 
 7. Rulla ned till **användar mappnings** avsnittet på samma sida. Utför sedan följande steg.
 
-    ![Avsnittet användar mappning på sidan för enkel inloggning i JAMF Pro.](./media/jamfprosamlconnector-tutorial/tutorial-jamfprosamlconnector-single.png)
+    ![Avsnittet användar mappning på sidan enkel Sign-On i JAMF Pro.](./media/jamfprosamlconnector-tutorial/tutorial-jamfprosamlconnector-single.png)
 
     a. Välj alternativet **NameID** för **identitets leverantörens användar mappning**. Som standard är det här alternativet inställt på **NameID**, men du kan definiera ett anpassat attribut.
 
@@ -170,7 +170,7 @@ I det här avsnittet beviljar du B. Simon-åtkomst till JAMF Pro.
 
     c. Klistra in värdet `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` i fältet **namn på autentiseringsprovider för identitetsprovider** .
 
-    d. Rulla ned till avsnittet **säkerhet** på samma sida och välj **Tillåt användare att kringgå autentisering med enkel inloggning**. Därför omdirigeras inte användare till inloggnings sidan för identitets leverantören för autentisering och kan logga in på JAMF Pro direkt i stället. När en användare försöker få åtkomst till Jamf Pro via identitetsprovidern sker görs IdP-initierad autentisering och auktorisering med enkel inloggning.
+    d. Rulla ned till avsnittet **säkerhet** på samma sida och välj **Tillåt användare att kringgå autentiseringen för enskild Sign-On**. Därför omdirigeras inte användare till inloggnings sidan för identitets leverantören för autentisering och kan logga in på JAMF Pro direkt i stället. När en användare försöker få åtkomst till Jamf Pro via identitetsprovidern sker görs IdP-initierad autentisering och auktorisering med enkel inloggning.
 
     e. Välj **Spara**.
 

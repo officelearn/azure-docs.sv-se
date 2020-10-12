@@ -7,13 +7,13 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.openlocfilehash: c066931cece60d14767b86254020ea5ba4bad1be
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88854504"
 ---
-# <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Support livs cykel för Azure Red Hat OpenShift 4
+# <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Supportlivscykel för Azure Red Hat OpenShift 4
 
 Red Hat släpper lägre versioner av Red Hat OpenShift container Platform (OCP) ungefär var tredje månad. Dessa versioner innehåller nya funktioner och förbättringar. Uppdaterings versioner är oftare (vanligt vis veckovis) och är endast avsedda för viktiga fel korrigeringar i en lägre version. Dessa korrigerings versioner kan innehålla korrigeringar av säkerhets sårbarheter eller större buggar.
 

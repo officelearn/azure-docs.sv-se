@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
 ms.openlocfilehash: b576b5e15461f34468bd7c2d512ac7a636b73ac9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332737"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
@@ -85,7 +85,7 @@ För Azure VM Linux-säkerhetskopieringar stöder Azure Backup listan över Linu
 
 ## <a name="backup-frequency-and-retention"></a>Säkerhets kopierings frekvens och kvarhållning
 
-**Inställning** | **Gränser**
+**Inställning** | **Begränsningar**
 --- | ---
 Högsta antal återställnings punkter per skyddad instans (dator/arbets belastning) | 9999.
 Maximal förfallo tid för en återställnings punkt | Ingen gräns.
@@ -107,7 +107,7 @@ Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 
 ## <a name="support-for-file-level-restore"></a>Stöd för återställning på filnivå
 
-**Återställa** | **Stöds**
+**Återställa** | **Tillåtna**
 --- | ---
 Återställa filer över operativ system | Du kan återställa filer på alla datorer som har samma (eller kompatibla) OS som den säkerhetskopierade virtuella datorn. Se den [kompatibla OS-tabellen](backup-azure-restore-files-from-vm.md#system-requirements).
 Återställa filer från krypterade virtuella datorer | Stöds inte.
@@ -120,7 +120,7 @@ Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 
 I följande tabell sammanfattas stödet för säkerhets kopiering under aktiviteter för hantering av virtuella datorer, till exempel att lägga till eller ersätta VM-diskar.
 
-**Återställa** | **Stöds**
+**Återställa** | **Tillåtna**
 --- | ---
 Återställ över prenumeration/region/zon. | Stöds inte.
 Återställa till en befintlig virtuell dator | Använd alternativet Ersätt disk.
@@ -164,7 +164,7 @@ Diskar med Skrivningsaccelerator aktiverat | Stöds inte.<br/><br/> Azure Backup
 Säkerhetskopiera & återställa deduplicerade virtuella datorer/diskar | Azure Backup har inte stöd för deduplicering. Mer information finns i den här [artikeln](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  -Azure Backup deduplicerar inte mellan virtuella datorer i Recovery Services-valvet <br/> <br/>  – Om det finns virtuella datorer i Deduplicerings tillstånd under återställningen kan filerna inte återställas eftersom valvet inte förstår formatet. Du kan dock utföra fullständig återställning av virtuella datorer.
 Lägg till disk i skyddad virtuell dator | Stöds.
 Ändra storlek på disk på skyddad virtuell dator | Stöds.
-Delad lagring| Säkerhets kopiering av virtuella datorer med klusterdelad volym (CSV) eller Skalbar filserver stöds inte. CSV-skrivare fungerar sannolikt inte under säkerhets kopieringen. Vid återställning kanske diskar som innehåller CSV-volymer inte kommer att visas.
+Delad lagring| Säkerhets kopiering av virtuella datorer med klusterdelad volym (CSV) eller Scale-Out fil Server stöds inte. CSV-skrivare fungerar sannolikt inte under säkerhets kopieringen. Vid återställning kanske diskar som innehåller CSV-volymer inte kommer att visas.
 [Delade diskar](../virtual-machines/disks-shared-enable.md) | Stöds inte.
 
 ## <a name="vm-network-support"></a>Stöd för virtuella dator nätverk
@@ -222,7 +222,7 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 **Dator** | **Komprimera till MABS/DPM (TCP)** | **Komprimera till valv (HTTPS)**
 --- | --- | ---
 Lokala Windows-datorer utan DPM/MABS | Ej tillämpligt | ![Ja][green]
-Virtuella Azure-datorer | NA | NA
+Virtuella Azure-datorer | NA | Ej tillämpligt
 Lokala/virtuella Azure-datorer med DPM | ![Ja][green] | ![Ja][green]
 Lokala/virtuella Azure-datorer med MABS | ![Ja][green] | ![Ja][green]
 

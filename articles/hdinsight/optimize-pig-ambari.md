@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.openlocfilehash: d6f20780ccd90d83631ce07411820fb8c9280c3e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084094"
 ---
 # <a name="optimize-apache-pig-with-apache-ambari-in-azure-hdinsight"></a>Optimera Apache-gris med Apache Ambari i Azure HDInsight
@@ -51,7 +51,7 @@ På samma sätt som Hive, används lokalt läge för att påskynda jobb med rela
 
 Gris kopierar JAR-filerna som krävs av UDF: er till en distribuerad cache för att göra dem tillgängliga för aktiviteter. Dessa JAR v7 ändras inte ofta. Om inställningen är aktive rad `pig.user.cache.enabled` kan jar v7 placeras i ett cacheminne för att återanvända dem för jobb som körs av samma användare. Den här inställningen resulterar i en mindre ökning av jobbets prestanda.
 
-1. Om du vill aktivera anger `pig.user.cache.enabled` du True. Standardvärdet är false.
+1. Om du vill aktivera anger `pig.user.cache.enabled` du True. Standardvärdet är False.
 
 1. Om du vill ange bas Sök vägen för den cachelagrade jar v7 anger `pig.user.cache.location` du bas Sök vägen. Standardvärdet är `/tmp`.
 

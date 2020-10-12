@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: c69276f726323c0d621648b604b5ac417b18e597
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88552557"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Självstudie: Azure Active Directory integrering med principer
@@ -30,7 +30,7 @@ Att integrera principer med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med principer för att använda principer behöver du följande objekt:
 
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning med Azure AD med principer måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning med auktoriseringsprinciper](#configure-mypolicies-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera principer för enkel inloggning](#configure-mypolicies-single-sign-on)** för att konfigurera de enskilda Sign-On inställningar på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa principer för att testa användare](#create-mypolicies-test-user)** – för att få en motsvarighet till Britta Simon i principer som är länkat till Azure AD-representation av användare.
@@ -122,7 +122,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med hj�
 
     c. Utloggnings-URL
 
-### <a name="configure-mypolicies-single-sign-on"></a>Konfigurera enkel inloggning för Auktoriseringsprinciper
+### <a name="configure-mypolicies-single-sign-on"></a>Konfigurera principer för enkel Sign-On
 
 Om du vill konfigurera enkel inloggning på **principer** -sidan måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet](mailto:support@mypolicies.com)för mina principer. De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
@@ -191,7 +191,7 @@ När du klickar på panelen för principer i åtkomst panelen, bör du loggas in
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

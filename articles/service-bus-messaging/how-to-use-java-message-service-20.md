@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 07/17/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 8363011187a4c2ef77681ece4bb8b1de73ec7a63
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87801650"
 ---
 # <a name="use-java-message-service-20-api-with-azure-service-bus-premium-preview"></a>Använd API för Java Message Service 2,0 med Azure Service Bus Premium (för hands version)
@@ -47,7 +47,7 @@ När beroenden har importer ATS kan Java-programmen skrivas i en JMS-Provider ob
 
 Om du vill ansluta med Azure Service Bus med JMS-klienter behöver du **anslutnings strängen** som är tillgänglig i "Shared Access policies" i [Azure Portal](https://portal.azure.com) under **primär anslutnings sträng**.
 
-1. Instansiera`ServiceBusJmsConnectionFactorySettings`
+1. Instansiera `ServiceBusJmsConnectionFactorySettings`
 
     ```java
     ServiceBusJmsConnectionFactorySettings connFactorySettings = new ServiceBusJmsConnectionFactorySettings();
@@ -60,7 +60,7 @@ Om du vill ansluta med Azure Service Bus med JMS-klienter behöver du **anslutni
     ConnectionFactory factory = new ServiceBusJmsConnectionFactory(ServiceBusConnectionString, connFactorySettings);
     ```
 
-3. Använd `ConnectionFactory` för att antingen skapa en `Connection` och sedan en`Session` 
+3. Använd `ConnectionFactory` för att antingen skapa en `Connection` och sedan en `Session` 
 
     ```java
     Connection connection = factory.createConnection();

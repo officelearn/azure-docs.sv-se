@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
 ms.openlocfilehash: 664e3851370be812cd7a0e58cf9beb1fddb5d991
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87291005"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Skapa, ändra eller ta bort en routningstabell
@@ -87,7 +87,7 @@ Mer information om vanliga Azure-inställningar finns i följande information:
 
 - [Aktivitetslogg](../azure-monitor/platform/platform-logs-overview.md)
 - [Åtkomstkontroll (IAM)](../role-based-access-control/overview.md)
-- [Taggar](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Taggen](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Lås](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Automationsskript](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -333,7 +333,7 @@ Efter en kort väntan meddelar Azure dig nästa hopp typ och ID för den väg so
 
 Om du vill utföra uppgifter i routningstabeller och vägar måste ditt konto tilldelas [rollen nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats lämpliga åtgärder i följande tabell:
 
-| Åtgärd                                                          |   Namn                                                  |
+| Action                                                          |   Namn                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft. Network/routeTables/Read                              |   Läsa en routningstabell                                    |
 | Microsoft. Network/routeTables/Write                             |   Skapa eller uppdatera en routningstabell                        |

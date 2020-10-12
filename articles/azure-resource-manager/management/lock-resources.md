@@ -5,15 +5,15 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: e76287c4524831a84a22fb23ddf8a5fdee8bc12b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87827290"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Låsa resurser för att förhindra oväntade ändringar
 
-Som administratör kan du behöva låsa en prenumeration, resursgrupp eller resurs för att förhindra att andra användare i organisationen av misstag tar bort eller ändrar viktiga resurser. Du kan ange låsnivån till **CanNotDelete** eller **ReadOnly**. I portalen kallas låsen **Delete** och **Read Only** .
+Som administratör kan du behöva låsa en prenumeration, resursgrupp eller resurs så att inga andra användare i organisationen tar bort eller ändrar viktiga resurser av misstag. Du kan ange låsnivån till **CanNotDelete** eller **ReadOnly**. I portalen kallas låsen **Delete** och **Read Only** .
 
 * **CanNotDelete** innebär att behöriga användare fortfarande kan läsa och ändra en resurs, men de kan inte ta bort resursen.
 * **ReadOnly** innebär att auktoriserade användare kan läsa en resurs, men de kan inte ta bort eller uppdatera resursen. Att använda det här låset liknar att begränsa alla behöriga användare till de behörigheter som har beviljats av rollen **läsare** .
@@ -76,13 +76,13 @@ När du använder en Resource Manager-mall för att distribuera ett lås, använ
 
 Använd följande format när du använder ett lås på en **resurs**:
 
-* ändrat`{resourceName}/Microsoft.Authorization/{lockName}`
-* bastyp`{resourceProviderNamespace}/{resourceType}/providers/locks`
+* ändrat `{resourceName}/Microsoft.Authorization/{lockName}`
+* bastyp `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
 Använd följande format när du använder ett lås till en **resurs grupp** eller **prenumeration**:
 
-* ändrat`{lockName}`
-* bastyp`Microsoft.Authorization/locks`
+* ändrat `{lockName}`
+* bastyp `Microsoft.Authorization/locks`
 
 I följande exempel visas en mall som skapar en app service-plan, en webbplats och ett lås på webbplatsen. Resurs typen för låset är resurs typen för den resurs som ska låsas och **/providers/Locks**. Namnet på låset skapas genom att resurs namnet kombineras med **/Microsoft.Authorization/** och namnet på låset.
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/22/2020
 ms.openlocfilehash: b5499a8c4fd6ee200ca0fac800c8c17c92a1cc0c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087851"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ansluta Excel till Apache Hadoop i Azure HDInsight med Microsoft Hives ODBC-drivrutin
@@ -51,7 +51,7 @@ Följande steg visar hur du skapar en ODBC-datakälla för Hive.
    | Egenskap | Beskrivning |
    | --- | --- |
    |  Namn på datakälla |Namnge din datakälla |
-   |  Värd (er) |Ange `HDInsightClusterName.azurehdinsight.net`. Till exempel `myHDICluster.azurehdinsight.net`. Obs!: `HDInsightClusterName-int.azurehdinsight.net` stöds så länge den virtuella datorn är peer-kopplad till samma virtuella nätverk. |
+   |  Värd (er) |Ange `HDInsightClusterName.azurehdinsight.net`. Exempelvis `myHDICluster.azurehdinsight.net`. Obs!: `HDInsightClusterName-int.azurehdinsight.net` stöds så länge den virtuella datorn är peer-kopplad till samma virtuella nätverk. |
    |  Port |Använd **443**. (Den här porten har ändrats från 563 till 443.) |
    |  Databas |Använd **standard**. |
    |  Mekanism |Välj **Windows Azure HDInsight-tjänst** |
@@ -96,7 +96,7 @@ Följande steg beskriver hur du importerar data från en Hive-tabell till en Exc
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du använder Microsoft Hive ODBC-drivrutin för att hämta data från HDInsight-tjänsten till Excel. På samma sätt kan du hämta data från HDInsight-tjänsten till SQL Database. Det går också att ladda upp data till en HDInsight-tjänst. Du kan läsa mer här:
+I den här artikeln har du lärt dig hur du använder Microsoft Hive ODBC-drivrutin för att hämta data från HDInsight-tjänsten till Excel. På samma sätt kan du hämta data från HDInsight-tjänsten till SQL Database. Det går också att ladda upp data till en HDInsight-tjänst. Mer information finns i:
 
 * [Visualisera Apache Hive data med Microsoft Power BI i Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
 * [Visualisera interaktiva Hive-frågedata med Power BI i Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).

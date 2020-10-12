@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: e98bfbf58c179fe9df0d99e0522e5747d220ae52
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317029"
 ---
-# <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Metod tips för kluster konfiguration (SQL Server på virtuella Azure-datorer)
+# <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Metod tips för klusterkonfiguration (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Ett kluster används för hög tillgänglighet och haveri beredskap (HADR) med SQL Server på Azure Virtual Machines (VM). 
@@ -82,7 +82,7 @@ Information om hur du kommer igång finns i [Konfigurera ett fil resurs vittne](
 
 **Operativ system som stöds**: Windows Server 2012 och senare   
 
-## <a name="connectivity"></a>Anslutningar
+## <a name="connectivity"></a>Anslutningsmöjlighet
 
 I en traditionell lokal nätverks miljö verkar en instans av en SQL Server-redundanskluster vara en enda instans av SQL Server som körs på en enda dator. Eftersom växlings kluster instansen växlar över från nod till nod, tillhandahåller det virtuella nätverks namnet (VNN) för instansen en enhetlig anslutnings punkt och gör det möjligt för program att ansluta till den SQL Server-instansen utan att veta vilken nod som för närvarande är aktiv. När en redundansväxling inträffar registreras det virtuella nätverks namnet på den nya aktiva noden när den har startats. Den här processen är transparent för den klient eller det program som ansluter till SQL Server, och detta minimerar stillestånds tiden som klienten eller program upplever vid ett haveri. 
 

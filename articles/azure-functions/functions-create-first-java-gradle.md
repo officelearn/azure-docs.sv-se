@@ -7,10 +7,10 @@ ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
 ms.openlocfilehash: ce2169838faaee8da459f80979fa31318e9d50c9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87322184"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Använd Java och Gradle för att skapa och publicera en funktion i Azure
@@ -20,7 +20,7 @@ Den här artikeln visar hur du skapar och publicerar ett Java-Function-projekt f
 > [!NOTE]
 > Om Gradle inte är ditt fördelaktiga utvecklingsverktyg kan du ta en titt på våra liknande själv studie kurser för Java-utvecklare med [maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [IntelliJ-idé](/azure/developer/java/toolkit-for-intellij/quickstart-functions) och vs- [kod](./functions-create-first-function-vs-code.md?pivots=programming-language-java).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna utveckla funktioner med hjälp av Java måste du ha följande installerat:
 
@@ -176,4 +176,4 @@ Du har skapat ett Java Functions-projekt med en HTTP-utlöst funktion, kört den
 
 
 [Azure CLI]: /cli/azure
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/02/2019
 ms.openlocfilehash: 9792641da4b3aebad047179e2c02dad757027801
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045271"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Polystaket och geospatiala agg regerings scenarier med Azure Stream Analytics
@@ -70,7 +70,7 @@ Enheten "C" finns inuti Byggnads-ID 2, vilket inte tillåts enligt referens data
 
 ### <a name="site-with-multiple-allowed-devices"></a>Webbplats med flera tillåtna enheter
 
-Om en plats tillåter flera enheter kan en matris med enhets-ID: n definieras i `AllowedDeviceID` och en användardefinierad funktion kan användas i `WHERE` -satsen för att kontrol lera om Stream-enhetens ID matchar alla enhets-ID: n i listan. Mer information finns i själv studie kursen om [JavaScript-skript](stream-analytics-javascript-user-defined-functions.md) för moln jobb och [C# UDF](stream-analytics-edge-csharp-udf.md) -självstudie för Edge-jobb.
+Om en plats tillåter flera enheter kan en matris med enhets-ID: n definieras i `AllowedDeviceID` och en User-Defined funktion kan användas i `WHERE` -satsen för att kontrol lera om ström enhets-ID: t matchar alla enhets-ID: n i listan. Mer information finns i själv studie kursen om [JavaScript-skript](stream-analytics-javascript-user-defined-functions.md) för moln jobb och [C# UDF](stream-analytics-edge-csharp-udf.md) -självstudie för Edge-jobb.
 
 ## <a name="geospatial-aggregation"></a>Geospatial agg regering
 

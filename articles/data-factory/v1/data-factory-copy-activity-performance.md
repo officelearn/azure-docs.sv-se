@@ -13,10 +13,10 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 785b42ab963c3784e63cd00eb0baa62b20952a8a
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441110"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide till prestandajustering för kopieringsaktiviteter
@@ -62,7 +62,7 @@ Som referens visas det kopierade data flödes numret i MBps i Mbit/s för den ak
 * För Hybrid kopiering mellan lokala och molnbaserade data lager, kördes varje gateway-nod på en dator som var skild från det lokala data lagret med specifikationen nedan. När en enskild aktivitet kördes på Gateway, förbrukade kopierings åtgärden bara en liten del av test datorns processor, minne eller nätverks bandbredd. Lär dig mer [om att tänka på Data Management Gateway](#considerations-for-data-management-gateway).
     <table>
     <tr>
-        <td>CPU</td>
+        <td>Processor</td>
         <td>32 kärnor 2,20 GHz Intel Xeon E5-2660 v2</td>
     </tr>
     <tr>
@@ -205,7 +205,7 @@ För närvarande kan du inte kopiera data mellan två lokala data lager med hjä
 ### <a name="configuration"></a>Konfiguration
 Konfigurera **enableStaging** -inställningen i kopierings aktivitet för att ange om du vill att data ska mellanlagras i Blob Storage innan du läser in dem i ett mål data lager. När du anger **enableStaging** till true anger du ytterligare egenskaper som anges i nästa tabell. Om du inte har en sådan måste du också skapa en signatur för delad åtkomst för en Azure Storage eller lagrings plats för delad åtkomst för mellanlagring.
 
-| Egenskap | Beskrivning | Standardvärde | Obligatorisk |
+| Egenskap | Beskrivning | Standardvärde | Krävs |
 | --- | --- | --- | --- |
 | **enableStaging** |Ange om du vill kopiera data via ett interimistiskt lagrings lager. |Falskt |Inga |
 | **linkedServiceName** |Ange namnet på en länkad [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) -eller [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) -tjänst som refererar till den lagrings instans som du använder som ett interimistiskt mellanlagrings lager. <br/><br/> Du kan inte använda Storage med en signatur för delad åtkomst för att läsa in data i Azure Synapse Analytics via PolyBase. Du kan använda den i alla andra scenarier. |E.t. |Ja, när **enableStaging** är inställt på True |

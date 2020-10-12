@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.openlocfilehash: 39bc6178d0cabf6c0220d2c54e0c532a6f9a5aa2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316740"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
@@ -64,7 +64,7 @@ Fel meddelande: den virtuella datorn är inte i ett tillstånd som tillåter sä
 Säkerhets kopierings åtgärden misslyckades eftersom den virtuella datorn är i ett felaktigt tillstånd. För att säkerhetskopieringen ska lyckas måste tillståndet för den virtuella datorn vara Körs, Stoppad eller Stoppad (frigjord).
 
 * Om den virtuella datorn är i ett tillfälligt tillstånd mellan att **köra** och **stänga**av, väntar du tills status har ändrats. Utlös sedan säkerhets kopierings jobbet.
-* Om den virtuella datorn är en virtuell Linux-dator och använder den säkerhetsförbättrade Linux-modulen för Linux, utelämnar du sökvägen **/var/lib/waagent** för Azure Linux-agenten från säkerhets principen och kontrollerar att säkerhets kopierings tillägget är installerat.
+* Om den virtuella datorn är en virtuell Linux-dator och använder modulen Security-Enhanced Linux-kernel, utelämnar du sökvägen **/var/lib/waagent** för Azure Linux-agenten från säkerhets principen och kontrollerar att säkerhets kopierings tillägget är installerat.
 
 ### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed – det gick inte att låsa en eller flera monterings punkter för den virtuella datorn för att ta en konsekvent fil system ögonblicks bild
 
@@ -98,7 +98,7 @@ Säkerhets kopieringen misslyckades på grund av ett problem med Windows-tjänst
   * Starta MSDTC-tjänsten
 * Starta Windows-tjänsten **com+-system tillämpning**. När **com+-system programmet** startar utlöser du ett säkerhets kopierings jobb från Azure Portal.</ol>
 
-### <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState-åtgärden misslyckades eftersom VSS-skrivare var i ett felaktigt tillstånd
+### <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState – Åtgärden för ögonblicksbild misslyckades eftersom VSS-skrivarna var i ett felaktigt tillstånd
 
 Felkod: ExtensionFailedVssWriterInBadState <br/>
 Fel meddelande: ögonblicks bild åtgärden misslyckades eftersom VSS-skrivare befann sig i ett felaktigt tillstånd.
@@ -132,7 +132,7 @@ Lösning:
 - Ändra säkerhets kopierings policyn för att utföra säkerhets kopieringar under låg belastnings tider, när belastningen på den virtuella datorn är den lägsta.
 - Uppgradera Azure-diskarna för att stödja högre IOPs. [Läs mer här](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
-### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState-åtgärden misslyckades på grund av VSS-tjänsten (Volume Shadow Copy) i felaktigt tillstånd
+### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState – Det gick inte att ta en ögonblicksbild eftersom VSS-tjänsten (Volume Shadow Copy) är i felaktigt tillstånd
 
 Felkod: ExtensionFailedVssServiceInBadState <br/>
 Fel meddelande: det gick inte att utföra ögonblicks bilder på grund av att tjänsten VSS (Volume Shadow Copy) är i felaktigt tillstånd.
@@ -279,7 +279,7 @@ Inaktivera BitLocker för alla enheter på den virtuella datorn och kontrol lera
 Felkod: VmNotInDesirableState <br/> Fel meddelande: den virtuella datorn är inte i ett tillstånd som tillåter säkerhets kopieringar.
 
 * Om den virtuella datorn är i ett tillfälligt tillstånd mellan att **köra** och **stänga**av, väntar du tills status har ändrats. Utlös sedan säkerhets kopierings jobbet.
-* Om den virtuella datorn är en virtuell Linux-dator och använder den säkerhetsförbättrade Linux-modulen för Linux, utelämnar du sökvägen **/var/lib/waagent** för Azure Linux-agenten från säkerhets principen och kontrollerar att säkerhets kopierings tillägget är installerat.
+* Om den virtuella datorn är en virtuell Linux-dator och använder modulen Security-Enhanced Linux-kernel, utelämnar du sökvägen **/var/lib/waagent** för Azure Linux-agenten från säkerhets principen och kontrollerar att säkerhets kopierings tillägget är installerat.
 
 * VM-agenten finns inte på den virtuella datorn: <br>Installera eventuella nödvändiga komponenter och VM-agenten. Starta sedan om åtgärden. | Läs mer om [installation av VM-agenten och hur du verifierar installationen av VM-agenten](#vm-agent).
 
@@ -288,15 +288,15 @@ Felkod: VmNotInDesirableState <br/> Fel meddelande: den virtuella datorn är int
 Felkod: ExtensionSnapshotFailedNoSecureNetwork <br/> Fel meddelande: ögonblicks bild åtgärden misslyckades på grund av att det inte gick att skapa en säker kanal för nätverkskommunikation.
 
 * Öppna Registereditorn genom att köra **regedit.exe** i förhöjd läge.
-* Identifiera alla versioner av .NET Framework som finns i systemet. De finns under hierarkin för register nyckeln **HKEY_LOCAL_MACHINE \software\microsoft**.
+* Identifiera alla versioner av .NET Framework som finns i systemet. De finns under hierarkin för register nyckeln **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**.
 * Lägg till följande nyckel för varje .NET Framework som finns i register nyckeln: <br> **SchUseStrongCrypto "= DWORD: 00000001**. </ol>
 
 ### <a name="extensionvcredistinstallationfailure---the-snapshot-operation-failed-because-of-failure-to-install-visual-c-redistributable-for-visual-studio-2012"></a>ExtensionVCRedistInstallationFailure-ögonblicks bild åtgärden misslyckades på grund av att det inte gick att installera Visual C++ Redistributable för Visual Studio 2012
 
 Felkod: ExtensionVCRedistInstallationFailure <br/> Fel meddelande: ögonblicks bild åtgärden misslyckades på grund av att det inte gick att installera Visual C++ Redistributable för Visual Studio 2012.
 
-* Navigera till `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` och installera vcredist2013_x64.<br/>Kontrol lera att värdet för register nyckeln som tillåter tjänst installationen har värdet korrekt. Det vill säga ange **startvärdet** i **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\msiserver** till **3** och inte **4**. <br><br>Om du fortfarande har problem med installationen startar du om installations tjänsten genom att köra **msiexec/unregister** följt av **msiexec/register** från en upphöjd kommando tolk.
-* Kontrol lera händelse loggen för att kontrol lera om du har märker åtkomst till relaterade problem. Exempel: *Product: Microsoft Visual C++ 2013 x64 minimal körning-12.0.21005--Error 1401. Det gick inte att skapa nyckeln: Software\Classes.  Systemfel 5.  Kontrol lera att du har tillräcklig åtkomst till nyckeln eller kontakta en support tekniker.* <br><br> Se till att administratören eller användar kontot har tillräcklig behörighet för att uppdatera register nyckeln **HKEY_LOCAL_MACHINE \software\classes**. Ange tillräckliga behörigheter och starta om Windows Azures gästa Gent.<br><br> <li> Om du har antivirus produkter på plats ser du till att de har rätt undantags regler för att tillåta installationen.
+* Navigera till `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` och installera vcredist2013_x64.<br/>Kontrol lera att värdet för register nyckeln som tillåter tjänst installationen har värdet korrekt. Det vill säga ange **startvärdet** i **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** till **3** och inte **4**. <br><br>Om du fortfarande har problem med installationen startar du om installations tjänsten genom att köra **msiexec/unregister** följt av **msiexec/register** från en upphöjd kommando tolk.
+* Kontrol lera händelse loggen för att kontrol lera om du har märker åtkomst till relaterade problem. Exempel: *Product: Microsoft Visual C++ 2013 x64 minimal körning-12.0.21005--Error 1401. Det gick inte att skapa nyckeln: Software\Classes.  Systemfel 5.  Kontrol lera att du har tillräcklig åtkomst till nyckeln eller kontakta en support tekniker.* <br><br> Se till att administratören eller användar kontot har tillräcklig behörighet för att uppdatera register nyckeln **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**. Ange tillräckliga behörigheter och starta om Windows Azures gästa Gent.<br><br> <li> Om du har antivirus produkter på plats ser du till att de har rätt undantags regler för att tillåta installationen.
 
 ### <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy – En ogiltig princip har konfigurerats på den virtuella datorn vilket förhindrar att åtgärden utförs för ögonblicksbilden
 
@@ -324,7 +324,7 @@ Om du efter att ha återställt ser du till att diskarna är offline.
 
 | Felinformation | Lösning |
 | --- | --- |
-| Återställningen misslyckades med ett internt moln fel. |<ol><li>Den moln tjänst som du försöker återställa till har kon figurer ATS med DNS-inställningar. Du kan kontrol lera följande: <br>**$Deployment = get-AzureDeployment-ServiceName "ServiceName"-fack "produktion" Get-AzureDns-DnsSettings $Deployment. DnsSettings**.<br>Om **adress** har kon figurer ATS konfigureras DNS-inställningarna.<br> <li>Den moln tjänst som du försöker återställa till har kon figurer ATS med **reservedip**och befintliga virtuella datorer i moln tjänsten är i stoppat läge. Du kan kontrol lera att en moln tjänst har reserverat en IP-adress med hjälp av följande PowerShell-cmdletar: **$Deployment = get-AzureDeployment-ServiceName "ServiceName"-plats "produktion" $DEP. ReservedIPName**. <br><li>Du försöker återställa en virtuell dator med följande särskilda nätverkskonfigurationer i samma moln tjänst: <ul><li>Virtuella datorer under belastnings Utjämnings konfiguration, intern och extern.<li>Virtuella datorer med flera reserverade IP-adresser. <li>Virtuella datorer med flera nätverkskort. </ul><li>Välj en ny moln tjänst i användar gränssnittet eller se [återställnings överväganden](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) för virtuella datorer med särskilda nätverkskonfigurationer.</ol> |
+| Återställningen misslyckades med ett internt moln fel. |<ol><li>Den moln tjänst som du försöker återställa till har kon figurer ATS med DNS-inställningar. Du kan kontrol lera följande: <br>**$Deployment = Get-AzureDeployment-ServiceName "ServiceName"-plats "produktion" Get-AzureDns-DnsSettings $Deployment. DnsSettings**.<br>Om **adress** har kon figurer ATS konfigureras DNS-inställningarna.<br> <li>Den moln tjänst som du försöker återställa till har kon figurer ATS med **reservedip**och befintliga virtuella datorer i moln tjänsten är i stoppat läge. Du kan kontrol lera att en moln tjänst har reserverat en IP-adress med hjälp av följande PowerShell-cmdlets: **$Deployment = Get-AzureDeployment-ServiceName "ServiceName"-plats "produktion" $DEP. ReservedIPName**. <br><li>Du försöker återställa en virtuell dator med följande särskilda nätverkskonfigurationer i samma moln tjänst: <ul><li>Virtuella datorer under belastnings Utjämnings konfiguration, intern och extern.<li>Virtuella datorer med flera reserverade IP-adresser. <li>Virtuella datorer med flera nätverkskort. </ul><li>Välj en ny moln tjänst i användar gränssnittet eller se [återställnings överväganden](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) för virtuella datorer med särskilda nätverkskonfigurationer.</ol> |
 | Det valda DNS-namnet har redan tagits: <br>Ange ett annat DNS-namn och försök igen. |Det här DNS-namnet refererar till moln tjänstens namn, vanligt vis slutar med **. cloudapp.net**. Det här namnet måste vara unikt. Om du får det här felet måste du välja ett annat namn för virtuell dator under återställningen. <br><br> Det här felet visas endast för användare av Azure Portal. Återställnings åtgärden via PowerShell slutförs eftersom den återställer endast diskarna och inte skapar den virtuella datorn. Felet kommer att visas när den virtuella datorn skapas explicit av dig efter disk återställnings åtgärden. |
 | Den angivna konfigurationen för virtuellt nätverk är felaktig: <br>Ange en annan konfiguration för virtuellt nätverk och försök igen. |Inget |
 | Den angivna moln tjänsten använder en reserverad IP-adress som inte matchar konfigurationen för den virtuella dator som återställs: <br>Ange en annan moln tjänst som inte använder en reserverad IP-adress. Eller Välj en annan återställnings punkt att återställa från. |Inget |

@@ -4,10 +4,10 @@ description: Den här artikeln innehåller svar på några vanliga frågor och s
 ms.topic: article
 ms.date: 07/17/2020
 ms.openlocfilehash: 3f36b8238ccb69b3b1f14166b522e47d5debe54e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289368"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
@@ -29,7 +29,7 @@ Vi arbetar för närvarande med att migrera befintliga blogg inlägg (exklusive 
 Vi kommer att publicera avbrott-uppdateringar med vår Twitter-referens från och med nu. Följ oss på Twitter för att få de senaste uppdateringarna om avbrott och kända buggar.
 
 ### <a name="twitter"></a>Twitter
-Vår Twitter-referens:[@azlabservices](https://twitter.com/azlabservices)
+Vår Twitter-referens: [@azlabservices](https://twitter.com/azlabservices)
 
 ## <a name="general"></a>Allmänt
 ### <a name="what-if-my-question-isnt-answered-here"></a>Vad händer om min fråga inte besvaras här?
@@ -68,7 +68,7 @@ DevTest Labs är en kostnads fri tjänst. Det är kostnads fritt att skapa labb 
 ## <a name="security"></a>Säkerhet
 
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Vilka är de olika säkerhets nivåerna i DevTest Labs?
-Säkerhets åtkomst bestäms av rollbaserad Access Control (RBAC). För att lära dig hur Access fungerar, hjälper det till att lära sig skillnaderna mellan en behörighet, en roll och ett omfång som definieras av RBAC.
+Säkerhets åtkomsten bestäms av Role-Based Access Control (RBAC). För att lära dig hur Access fungerar, hjälper det till att lära sig skillnaderna mellan en behörighet, en roll och ett omfång som definieras av RBAC.
 
 - **Behörighet**: en behörighet är en definierad åtkomst till en viss åtgärd. Till exempel kan en behörighet ha Läs behörighet till alla virtuella datorer.
 - **Roll**: en roll är en uppsättning behörigheter som kan grupperas och tilldelas till en användare. Till exempel har en användare med rollen prenumerations ägare åtkomst till alla resurser i en prenumeration.

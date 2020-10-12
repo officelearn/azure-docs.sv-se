@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 7b586edd7adce8bcea61419005a3ce8cfc814fb3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86254953"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Så här auktoriserar du utvecklarkonton med Azure Active Directory B2C i Azure API Management
@@ -64,7 +64,7 @@ Azure Active Directory B2C är en lösning för moln identitets hantering för w
 
     ![Programanspråk](./media/api-management-howto-aad-b2c/api-management-application-claims.png)
 
-1. Klicka på knappen **skapa** . När programmet har skapats visas det på bladet **program** . Klicka på program namnet om du vill se information om det.
+1. Klicka på knappen **Skapa**. När programmet har skapats visas det på bladet **program** . Klicka på program namnet om du vill se information om det.
 
    ![Registrera ett nytt program 4][api-management-howto-aad-b2c-app-created]
 

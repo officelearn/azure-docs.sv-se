@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0bfca096eb49ee9f1807935de1dac49151cc8ac3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84743770"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-privileged-identity-management"></a>Konfigurera säkerhets aviseringar för Azures resurs roller i Privileged Identity Management
@@ -36,13 +36,13 @@ Välj en avisering om du vill visa en rapport som visar de användare eller roll
 
 ## <a name="alerts"></a>Aviseringar
 
-| Varning | Severity | Utlösare | Rekommendation |
+| Varning | Allvarlighetsgrad | Utlösare | Rekommendation |
 | --- | --- | --- | --- |
 | **För många ägare har tilldelats till en resurs** |Medium |För många användare har ägar rollen. |Granska användarna i listan och tilldela om några till mindre privilegierade roller. |
 | **För många permanenta ägare har tilldelats till en resurs** |Medium |För många användare tilldelas permanent till en roll. |Granska användarna i listan och tilldela om några för att kräva aktivering för roll användning. |
 | **En duplicerad roll har skapats** |Medium |Flera roller har samma villkor. |Använd endast en av dessa roller. |
 
-### <a name="severity"></a>Severity
+### <a name="severity"></a>Allvarlighetsgrad
 
 - **Hög**: kräver omedelbar åtgärd på grund av en princip överträdelse. 
 - **Medels Tor**: kräver ingen omedelbar åtgärd, men signalerar en eventuell princip överträdelse.

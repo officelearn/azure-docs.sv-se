@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: makromer
 ms.openlocfilehash: 3d2ef6fb0cd7af444b9bff755eee4eee70d03d15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82691900"
 ---
-# <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrera normaliserat databas schema från Azure SQL Database till en avnormaliserad Azure CosmosDB-behållare
+# <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrera normaliserat databasschema från Azure SQL Database till avnormaliserad Azure CosmosDB-container
 
 Den här guiden förklarar hur du tar ett befintligt normaliserat databas schema i Azure SQL Database och konverterar det till ett denormaliserat Azure CosmosDB-schema för inläsning till Azure CosmosDB.
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/31/2020
 ms.openlocfilehash: 155f27b9f04db74955640aad8f582fdf05539368
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87511946"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Använda funktioner i Azure Monitor logg frågor
@@ -23,7 +23,7 @@ Skapa en funktion med Log Analytics i Azure Portal genom att klicka på **Spara*
 
 | Inställningen | Beskrivning |
 |:---|:---|
-| Name           | Visnings namn för frågan i **query Explorer**. |
+| Namn           | Visnings namn för frågan i **query Explorer**. |
 | Spara som        | Funktion |
 | Funktions Ali Aset | Kort namn för att använda funktionen i andra frågor. Får inte innehålla blank steg och måste vara unikt. |
 | Kategori       | En kategori för att organisera sparade frågor och funktioner i **query Explorer**. |

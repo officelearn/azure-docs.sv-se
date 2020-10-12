@@ -8,10 +8,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 40ff7bfe713f401a23dea0b3660be1b7728a1380
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87828565"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Konfigurera Log Analytics arbets yta för Azure Monitor for VMs
@@ -38,7 +38,7 @@ När arbets ytan har kon figurer ATS kan du använda något av de tillgängliga 
 Du kan skapa en ny Log Analytics arbets yta med någon av följande metoder. Mer information om hur du avgör hur många arbets ytor som du bör använda i din miljö och hur du utformar deras åtkomst strategi finns i [Designa din distribution av Azure Monitor loggar](../platform/design-logs-deployment.md) .
 
 
-* [Azure-portalen](../../azure-monitor/learn/quick-create-workspace.md)
+* [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
 * [PowerShell](../platform/powershell-workspace-configuration.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)

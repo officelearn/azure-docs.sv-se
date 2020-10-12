@@ -8,10 +8,10 @@ ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
 ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87287935"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager testen het
@@ -73,7 +73,7 @@ Du kan använda valfritt giltigt namn för parametrarna. test enheten känner ig
 | Typ av metadata   | Parameter typ  | Beskrivning     | Exempel värde    |
 |---|---|---|---|
 | **BaseUri**     | sträng          | Distributions paketets bas-URI| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
-| **användarnamn**    | sträng          | Nytt slumpmässigt användar namn.| admin68876      |
+| **användar**    | sträng          | Nytt slumpmässigt användar namn.| admin68876      |
 | **lösenord**    | säker sträng    | Nytt slumpmässigt lösen ord | LP! ACS- \^ 2kh     |
 | **sessions-ID**   | sträng          | Unikt ID för test driven session-ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
@@ -122,7 +122,7 @@ Test enheten initierar den här parametern med ett nytt slumpmässigt användar 
 }
 ```
 
-Exempel värde:`admin68876`
+Exempel värde: `admin68876`
 
 Du kan använda antingen slumpmässiga eller konstanta användar namn för din lösning.
 
@@ -144,7 +144,7 @@ Test enheten initierar den här parametern med ett nytt slumpmässigt lösen ord
 }
 ```
 
-Exempel värde:`Lp!ACS^2kh`
+Exempel värde:  `Lp!ACS^2kh`
 
 Du kan använda antingen slumpmässiga eller fasta lösen ord för din lösning.
 
@@ -166,7 +166,7 @@ Test enheten initierar den här parametern med ett unikt GUID som representerar 
 }
 ```
 
-Exempel värde:`b8c8693e-5673-449c-badd-257a405a6dee`
+Exempel värde: `b8c8693e-5673-449c-badd-257a405a6dee`
 
 Du kan använda den här parametern för att unikt identifiera testen hets sessionen, om det behövs.
 
@@ -266,7 +266,7 @@ Exempel:
 
 ### <a name="subscription-limits"></a>Prenumerations begränsningar
 
-Glöm inte om prenumerations-och tjänst begränsningar. Om du till exempel vill distribuera upp till tio virtuella datorer med 4 kärnor måste du se till att den prenumeration du använder för ditt labb gör att du kan använda 40 kärnor. Mer information om begränsningar för Azure-prenumeration och-tjänster finns i [begränsningar, kvoter och begränsningar för Azure-prenumerationer och tjänster](../azure-resource-manager/management/azure-subscription-service-limits.md). När flera test enheter kan vidtas samtidigt kontrollerar du att din prenumeration kan hantera antalet kärnor multiplicerat med det totala antalet samtidiga test enheter som kan tas.
+Glöm inte om prenumerations-och tjänst begränsningar. Om du till exempel vill distribuera upp till 10 4 virtuella datorer måste du se till att den prenumeration du använder för ditt labb gör att du kan använda 40 kärnor. Mer information om begränsningar för Azure-prenumeration och-tjänster finns i [begränsningar, kvoter och begränsningar för Azure-prenumerationer och tjänster](../azure-resource-manager/management/azure-subscription-service-limits.md). När flera test enheter kan vidtas samtidigt kontrollerar du att din prenumeration kan hantera antalet kärnor multiplicerat med det totala antalet samtidiga test enheter som kan tas.
 
 ### <a name="what-to-upload"></a>Vad som ska laddas upp
 

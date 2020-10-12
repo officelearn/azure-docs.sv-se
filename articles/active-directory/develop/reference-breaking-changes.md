@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88115041"
 ---
 # <a name="whats-new-for-authentication"></a>Vad är nytt för autentisering?
@@ -69,7 +69,7 @@ Användare med lösen ord som är längre än 256 tecken som loggar in direkt i 
 
 Felet i inloggnings loggarna blir AADSTS 50052: InvalidPasswordExceedsMaxLength
 
-Meddelande`The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
+Meddelande `The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
 
 Reparation
 
@@ -127,7 +127,7 @@ Du kan åtgärda det här problemet genom att använda administratörs medgivand
 
 #### <a name="example-request"></a>Exempelbegäran
 
-`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`I det här exemplet är resurs klienten (auktoritet) contoso.com, Resource-appen är en app med en klient som anropas `gateway.contoso.com/api` för Contoso-klienten och klient programmet är `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  Om klient programmet har ett huvud namn för tjänsten i Contoso.com kan denna begäran fortsätta.  Om den inte gör det Miss känner dock begäran med ovanstående fel.
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...` I det här exemplet är resurs klienten (auktoritet) contoso.com, Resource-appen är en app med en klient som anropas `gateway.contoso.com/api` för Contoso-klienten och klient programmet är `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  Om klient programmet har ett huvud namn för tjänsten i Contoso.com kan denna begäran fortsätta.  Om den inte gör det Miss känner dock begäran med ovanstående fel.
 
 Om contoso Gateway-appen var ett program för flera innehavare, skulle begäran fortsätta oavsett vilken klient app som har ett huvud namn för tjänsten i Contoso.com.
 

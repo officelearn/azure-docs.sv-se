@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.openlocfilehash: 095bc5594cf9b6eaf0df7929ea83c25a401793e2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86252121"
 ---
 # <a name="authentication-vs-authorization"></a>Autentisering mot auktorisering
@@ -55,5 +55,5 @@ För andra ämnen som behandlar grundläggande autentisering och auktorisering:
 * Se [appens inloggnings flöde](app-sign-in-flow.md) för att lära dig om inloggnings flödet för webben, skriv bordet och mobila appar i Microsoft Identity Platform.
 
 * Mer information om de protokoll som används av Microsoft Identity Platform finns i [OAuth 2,0-och OpenID Connect-protokoll på Microsoft Identity Platform](active-directory-v2-protocols.md).
-* Mer information om hur Microsoft Identity Platform stöder enkel inloggning finns i [SAML-protokoll för enkel inloggning](single-sign-on-saml-protocol.md) .
+* Se [single Sign-On SAML-protokoll](single-sign-on-saml-protocol.md) för mer information om hur Microsoft Identity Platform stöder enkel inloggning.
 * Mer information om hur du kan implementera enkel inloggning i din app finns i [enkel inloggning till program i Azure Active Directory](../manage-apps/what-is-single-sign-on.md) .

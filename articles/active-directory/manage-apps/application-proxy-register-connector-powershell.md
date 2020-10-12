@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a5fc1b84e624828d7feb64bd53e8fe8ffff2a7ff
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88054842"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Skapa ett obevakat installations skript för Azure AD-programproxy-anslutningen
@@ -45,7 +45,7 @@ Det finns två steg för en obevakad installation. Installera först anslutninge
 Använd följande steg för att installera anslutningen utan att registrera den:
 
 1. Öppna en kommandotolk.
-2. Kör följande kommando, där/q innebär tyst installation. En tyst installation kräver inte att du accepterar licens avtalet för slutanvändare.
+2. Kör följande kommando, där/q innebär tyst installation. En tyst installation kräver inte att du godkänner licens avtalet för End-User.
 
    ```
    AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q

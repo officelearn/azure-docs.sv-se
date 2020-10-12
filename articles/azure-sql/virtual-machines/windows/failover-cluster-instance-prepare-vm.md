@@ -13,10 +13,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: f42d6c8015061406958bdc16473dc0f042d3143a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272510"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Förbereda virtuella datorer för en FCI (SQL Server på virtuella Azure-datorer)
@@ -105,7 +105,7 @@ Om du använder en [belastningsutjämnare](hadr-vnn-azure-load-balancer-configur
 
 Den här tabellen innehåller information om de portar som du kan behöva öppna, beroende på din FCI-konfiguration: 
 
-   | Syfte | Port | Kommentarer
+   | Syfte | Port | Obs!
    | ------ | ------ | ------
    | SQL Server | TCP 1433 | Normal port för standard instanser av SQL Server. Om du använde en avbildning från galleriet öppnas porten automatiskt. </br> </br> **Används av**: alla FCI-konfigurationer. |
    | Hälsoavsökning | TCP 59999 | Alla öppna TCP-portar. Konfigurera belastnings utjämningens [hälso avsökning](hadr-vnn-azure-load-balancer-configure.md#configure-health-probe) och klustret för att använda den här porten. </br> </br> **Används av**: FCI med Load Balancer. |

@@ -10,10 +10,10 @@ ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 3281642134e7a6a2531f43ad4b3f80cff34d03b6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90890922"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Självstudie: transformera data med Azure Stack Edge Pro
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 > * Verifiera datatransformering och överföring
 
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du ställer in en beräknings roll på din Azure Stack Edge Pro-enhet ser du till att:
 
@@ -56,7 +56,7 @@ Om du vill konfigurera Compute på Azure Stack Edge Pro skapar du en IoT Hub res
 3. Ange följande på bladet **Konfigurera Edge Compute** :
 
    
-    |Fält  |Värde  |
+    |Field  |Värde  |
     |---------|---------|
     |IoT Hub     | Välj från **ny** eller **befintlig**. <br> Som standard används nivån Standard (S1) till att skapa en IoT-resurs. Om du vill använda en IoT-resurs på kostnadsfri nivå skapar du en sådan och väljer sedan den befintliga resursen. <br> I varje fall använder IoT Hub resursen samma prenumeration och resurs grupp som används av Azure Stack Edge-resursen.     |
     |Name     |Ange ett namn för din IoT Hub-resurs.         |
@@ -125,7 +125,7 @@ I det här avsnittet lägger du till en anpassad modul till den IoT Edge enhet s
 2. Ange följande värden i bladet **Konfigurera och Lägg till modul** :
 
     
-    |Fält  |Värde  |
+    |Field  |Värde  |
     |---------|---------|
     |Namn     | Ett unikt namn för modulen. Den här modulen är en Docker-behållare som du kan distribuera till den IoT Edge enhet som är kopplad till din Azure Stack Edge Pro.        |
     |Bild-URI     | Avbildnings-URI för motsvarande behållar avbildning för modulen.        |

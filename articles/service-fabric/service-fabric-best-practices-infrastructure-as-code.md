@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: c381c6e7d692eda32fea2033779bacddafc267bb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86253685"
 ---
 # <a name="infrastructure-as-code"></a>Infrastruktur som kod
@@ -104,7 +104,7 @@ Uppgraderingen av dina virtuella datorer är en initierad användare och vi reko
 ```
 När du använder automatiska OS-uppgraderingar med Service Fabric distribueras den nya operativ system avbildningen ut en uppdaterings domän i taget för att upprätthålla hög tillgänglighet för de tjänster som körs i Service Fabric. Om du vill använda automatiska operativ Systems uppgraderingar i Service Fabric klustret måste konfigureras för att använda silver hållbarhets nivån eller högre.
 
-Se till att följande register nyckel har angetts till false för att förhindra att Windows-värddatorer initierar inkoordinerade uppdateringar: HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+Se till att följande register nyckel har angetts till false för att förhindra att Windows-värddatorer initierar inkoordinerade uppdateringar: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
 Här följer egenskaperna för den virtuella datorns skalnings uppsättning i Resource Manager för att ange att register nyckeln för WindowsUpdate ska vara falskt:
 ```json

@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
 ms.openlocfilehash: 95bd7b5ac325ef5484bd01284c46489acb919a32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85830357"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Använda omdirigerings-URI: er med Microsoft Authentication Library för iOS och macOS
@@ -36,12 +36,12 @@ Du kan dock behöva ändra omdirigerings-URI: n för avancerade scenarier, enlig
 
 För att Microsoft Identity Platform ska kunna dela tokens mellan appar måste varje app ha samma klient-ID eller program-ID. Detta är den unika identifieraren som angavs när du registrerade din app i portalen (inte programpaket-ID: t som du registrerar per app med Apple).
 
-Omdirigerings-URI: erna måste vara olika för varje iOS-app. På så sätt kan Microsoft Identity service unikt identifiera olika appar som delar ett program-ID. Varje program kan ha flera omdirigerings-URI: er registrerade i Azure Portal. Varje app i din svit har en annan omdirigerings-URI. Till exempel:
+Omdirigerings-URI: erna måste vara olika för varje iOS-app. På så sätt kan Microsoft Identity service unikt identifiera olika appar som delar ett program-ID. Varje program kan ha flera omdirigerings-URI: er registrerade i Azure Portal. Varje app i din svit har en annan omdirigerings-URI. Exempel:
 
 Följande program registrering i Azure Portal:
 
 * Klient-ID: `ABCDE-12345` (detta är ett enda klient-ID)
-* RedirectUris: `msauth.com.contoso.app1://auth` , `msauth.com.contoso.app2://auth` ,`msauth.com.contoso.app3://auth`
+* RedirectUris: `msauth.com.contoso.app1://auth` , `msauth.com.contoso.app2://auth` , `msauth.com.contoso.app3://auth`
 
 APP1 använder omdirigering `msauth.com.contoso.app1://auth` . \
 APP2 använder `msauth.com.contoso.app2://auth` . \
@@ -53,13 +53,13 @@ När du migrerar kod som använde Azure AD Authentication Library (ADAL) till MS
 
 ## <a name="msal-redirect-uri-format-requirements"></a>Krav för omdirigering av URI-format för MSAL
 
-* MSAL omdirigerings-URI måste vara i formatet`<scheme>://host`
+* MSAL omdirigerings-URI måste vara i formatet `<scheme>://host`
 
     Var `<scheme>` är en unik sträng som identifierar din app. Det är främst baserat på paket-ID: n för ditt program för att garantera unika uppgifter. Om appens paket-ID till exempel är `com.contoso.myapp` , skulle omdirigerings-URI: n ha formatet: `msauth.com.contoso.myapp://auth` .
 
     Om du migrerar från ADAL kommer din omdirigerings-URI förmodligen att ha det här formatet: `<scheme>://[Your_Bundle_Id]` , där `scheme` är en unik sträng. Det här formatet fungerar fortfarande när du använder MSAL.
 
-* `<scheme>`måste registreras i appens info. plist under `CFBundleURLTypes > CFBundleURLSchemes` .  I det här exemplet har info. plist öppnats som käll kod:
+* `<scheme>` måste registreras i appens info. plist under `CFBundleURLTypes > CFBundleURLSchemes` .  I det här exemplet har info. plist öppnats som käll kod:
 
     ```xml
     <key>CFBundleURLTypes</key>
@@ -79,7 +79,7 @@ MSAL kontrollerar om din omdirigerings-URI registrerar sig korrekt och returnera
 
 ## <a name="use-a-custom-redirect-uri"></a>Använd en anpassad omdirigerings-URI
 
-Om du vill använda en anpassad omdirigerings-URI skickar `redirectUri` du parametern till `MSALPublicClientApplicationConfig` och skickar objektet till `MSALPublicClientApplication` när du initierar objektet. Om omdirigerings-URI: n är ogiltig, kommer initieraren att returnera `nil` och ange `redirectURIError` Ytterligare information.  Till exempel:
+Om du vill använda en anpassad omdirigerings-URI skickar `redirectUri` du parametern till `MSALPublicClientApplicationConfig` och skickar objektet till `MSALPublicClientApplication` när du initierar objektet. Om omdirigerings-URI: n är ogiltig, kommer initieraren att returnera `nil` och ange `redirectURIError` Ytterligare information.  Exempel:
 
 Mål-C:
 

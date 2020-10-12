@@ -15,10 +15,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5f987ab15201e4c4dabf147ac468184881e9ed17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85551639"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Auktorisera åtkomst till Azure Active Directory-webbprogram med beviljandeflödet för OAuth 2.0-kod
@@ -49,7 +49,7 @@ Registrera först ditt program med din Azure Active Directory (Azure AD)-klient.
    
    - **Namn** är appens namn och beskriver appen för användarna.
    - Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
-   - Ange **omdirigerings-URI**. För webb program är detta den grundläggande URL: en för din app där användarna kan logga in.  Till exempel `http://localhost:12345`. För en offentlig klient (mobil & Desktop) använder Azure AD den för att returnera svar från token. Ange ett specifikt värde för ditt program.  Till exempel `http://MyFirstAADApp`.
+   - Ange **omdirigerings-URI**. För webb program är detta den grundläggande URL: en för din app där användarna kan logga in.  Exempelvis `http://localhost:12345`. För en offentlig klient (mobil & Desktop) använder Azure AD den för att returnera svar från token. Ange ett specifikt värde för ditt program.  Exempelvis `http://MyFirstAADApp`.
    <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->  
    
 1. När du har slutfört registreringen tilldelar Azure AD programmet ett unikt klient-ID ( **program-ID**). Du behöver det här värdet i nästa avsnitt, så kopiera det från program sidan.
@@ -84,7 +84,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | client_id |krävs |Det program-ID som tilldelats din app när du registrerade den med Azure AD. Du hittar det här i Azure Portal. Klicka på **Azure Active Directory** på sid panelen tjänster, klicka på **Appregistreringar**och välj programmet. |
 | response_type |krävs |Måste innehålla `code` för flödet av auktoriseringskod. |
 | redirect_uri |rekommenderas |Appens redirect_uri, där autentiserings svar kan skickas och tas emot av din app. Det måste exakt matcha ett av de redirect_uris som du registrerade i portalen, förutom att det måste vara URL-kodat. Använd standardvärdet för interna & mobila appar `https://login.microsoftonline.com/common/oauth2/nativeclient` . |
-| response_mode |valfri |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Kan vara `query` , `fragment` eller `form_post` . `query`innehåller koden som en frågesträngparametern i omdirigerings-URI: n. Om du begär en ID-token med det implicita flödet kan du inte använda `query` enligt vad som anges i [OpenID-specifikationen](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Om du bara begär koden kan du använda `query` , `fragment` , eller `form_post` . `form_post`kör ett inlägg som innehåller koden för omdirigerings-URI: n. Standardvärdet är `query` för ett kod flöde.  |
+| response_mode |valfri |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Kan vara `query` , `fragment` eller `form_post` . `query` innehåller koden som en frågesträngparametern i omdirigerings-URI: n. Om du begär en ID-token med det implicita flödet kan du inte använda `query` enligt vad som anges i [OpenID-specifikationen](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Om du bara begär koden kan du använda `query` , `fragment` , eller `form_post` . `form_post` kör ett inlägg som innehåller koden för omdirigerings-URI: n. Standardvärdet är `query` för ett kod flöde.  |
 | state |rekommenderas |Ett värde som ingår i begäran som också returneras i svaret från token. Ett slumpmässigt genererat unikt värde används vanligt vis för [att förhindra förfalsknings attacker på begäran](https://tools.ietf.org/html/rfc6749#section-10.12)från en annan plats. Statusen används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
 | resource | rekommenderas |App-ID-URI för mål webb-API (säker resurs). Du hittar app-ID-URI: n i Azure-portalen genom att klicka på **Azure Active Directory**, klicka på **program registreringar**, öppna programmets **inställnings** sida och sedan klicka på **Egenskaper**. Det kan också vara en extern resurs som `https://graph.microsoft.com` . Detta krävs i någon av antingen auktoriserings-eller Tokenbegäran. För att se till att färre autentiseringar begärs, kan du placera det i auktoriseringsbegäran för att se till att medgivande tas emot från användaren. |
 | omfång | **ignoreras** | För v1 Azure AD-appar måste omfattningar konfigureras statiskt i Azure-portalen under program **inställningarna**, vilka **behörigheter som krävs**. |
@@ -163,7 +163,7 @@ grant_type=authorization_code
 //NOTE: client_secret only required for web apps
 ```
 
-| Parameter | Typ | Description |
+| Parameter | Typ | Beskrivning |
 | --- | --- | --- |
 | tenant |krävs |`{tenant}`Värdet i sökvägen till begäran kan användas för att styra vem som kan logga in på programmet. De tillåtna värdena är klient identifierare, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient oberoende token |
 | client_id |krävs |Det program-ID som tilldelats din app när du registrerade den med Azure AD. Du hittar det här i Azure Portal. Program-ID visas i inställningarna för appens registrering. |
@@ -288,7 +288,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 | resource_id |Returnerar resursens unika identifierare. Klient programmet kan använda den här identifieraren som `resource` parameter värde när den begär en token för resursen. <p><p> Det är viktigt att klient programmet kan verifiera det här värdet, annars kan en skadlig tjänst medföra en **utöknings bar behörighets** attack <p><p> Den rekommenderade strategin för att förhindra ett angrepp är att kontrol lera att `resource_id` matchar basen i webb-API-URL: en som används. Om till exempel används `https://service.contoso.com/data` `resource_id` kan det vara `https://service.contoso.com/` . Klient programmet måste avvisa en `resource_id` som inte börjar med bas-URL, såvida det inte finns ett tillförlitligt alternativ för att verifiera id: t. |
 
 #### <a name="bearer-scheme-error-codes"></a>Fel koder för Bearer-schema
-RFC 6750-specifikationen definierar följande fel för resurser som använder sig av WWW-autentisera-huvudet och Bearer-schemat i svaret.
+I RFC 6750-specifikationen definieras följande fel för resurser som använder WWW-Authenticate-huvudet och Bearer-schemat i svaret.
 
 | HTTP-statuskod | Felkod | Beskrivning | Klient åtgärd |
 | --- | --- | --- | --- |

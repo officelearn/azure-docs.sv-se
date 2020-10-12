@@ -4,10 +4,10 @@ description: 'Hur du skapar och hanterar din användar profil och ditt användar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.openlocfilehash: 9a1ff7f92faec21f537f068f0a33473700ddfed8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85831360"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Din profil och ditt användar-ID för Azure Notebooks för hands version
@@ -49,7 +49,7 @@ Din profil består av offentligt synlig information på URL: en `https://noteboo
 
 Om du vill redigera din profil använder du kommandot **Redigera profil information** på din profil sida. Avsnitten i profilen är följande:
 
-| Avsnitt | Innehåll |
+| Section | Innehåll |
 | --- | --- |
 | Profil foto | En bild som visas på din profil sida. |
 | Kontoinformation | Ditt visnings namn, användar-ID och offentliga e-postkonto. E-postkontot här ger andra användare ett medel att kontakta dig och kan skilja sig från det [konto](azure-notebooks-user-account.md) som du använder för att logga in på Azure Notebooks. |

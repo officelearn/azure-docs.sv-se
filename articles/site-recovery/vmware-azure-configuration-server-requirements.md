@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: 0b0942b517c8dc83c048bd1203a58d9861515dfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84704462"
 ---
-# <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Konfigurations Server krav för VMware haveri beredskap till Azure
+# <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Konfigurationsserverkrav för VMware-haveriberedskap till Azure
 
 Du distribuerar en lokal konfigurations server när du använder [Azure Site Recovery](site-recovery-overview.md) för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure.
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
 ms.openlocfilehash: 21d4af6985dbe246e60fe95f8f03de7f8aa0501b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91314070"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server 
@@ -149,7 +149,7 @@ Följande instruktioner förutsätter att du redan har distribuerat ditt [virtue
    
    I det här exemplet använde vi en separat Azure NetApp Files volym för varje HANA-data och logg volym. För en mer kostnads optimerad konfiguration på mindre eller icke-produktiva system är det möjligt att placera alla data monteringar och alla loggar monteras på en enda volym.  
 
-### <a name="important-considerations"></a>Viktiga överväganden
+### <a name="important-considerations"></a>Att tänka på
 
 När du skapar din Azure NetApp Files för SAP-NetWeaver på SUSE hög tillgänglighets arkitektur måste du tänka på följande viktiga överväganden:
 
@@ -183,7 +183,7 @@ För att uppfylla de lägsta data flödes kraven för SAP för data och logg, oc
 
 | Volym | Storlek på<br>Premium Storage nivå | Storlek på<br>Ultra Storage-nivå | NFS-protokoll som stöds |
 | --- | --- | --- | --- |
-| /hana/log/ | 4 TiB | 2 TiB | v 4.1 |
+| /hana/log/ | 4 TiB | 2 TiB | v 4.1 |
 | /hana/data | 6,3 TiB | 3,2 TiB | v 4.1 |
 | /hana/shared | Max (512 GB, 1xRAM) per 4 arbetsnoder | Max (512 GB, 1xRAM) per 4 arbetsnoder | v3 eller v 4.1 |
 
@@ -191,11 +191,11 @@ Den SAP HANA konfigurationen för den layout som presenteras i den här artikeln
 
 | Volym | Storlek på<br>Ultra Storage-nivå | NFS-protokoll som stöds |
 | --- | --- | --- |
-| /hana/log/mnt00001 | 2 TiB | v 4.1 |
-| /hana/log/mnt00002 | 2 TiB | v 4.1 |
+| /hana/log/mnt00001 | 2 TiB | v 4.1 |
+| /hana/log/mnt00002 | 2 TiB | v 4.1 |
 | /hana/data/mnt00001 | 3,2 TiB | v 4.1 |
 | /hana/data/mnt00002 | 3,2 TiB | v 4.1 |
-| /hana/shared | 2 TiB | v3 eller v 4.1 |
+| /hana/shared | 2 TiB | v3 eller v 4.1 |
 
 > [!NOTE]
 > De Azure NetApp Files storleks rekommendationer som anges här är avsedda att uppfylla de minimi krav som SAP rekommenderar för sina infrastruktur leverantörer. I verkliga kund distributioner och arbets belastnings scenarier är det inte säkert att dessa storlekar är tillräckliga. Använd de här rekommendationerna som en start punkt och anpassa baserat på kraven för din särskilda arbets belastning.  

@@ -8,10 +8,10 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.openlocfilehash: 360578a36b92711c55b1fc65befa1b3df7927aad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330901"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Förena flera Azure Monitor Application Insights resurser 
@@ -73,7 +73,7 @@ I följande tabell visas schema skillnaderna mellan Log Analytics och Applicatio
 | AvailabilityMessage | meddelande |
 | AvailabilityRunLocation | location |
 | AvailabilityTestId | id |
-| AvailabilityTestName | namn |
+| AvailabilityTestName | name |
 | AvailabilityTimestamp | timestamp |
 | Webbläsare | client_browser |
 | City | client_city |
@@ -82,7 +82,7 @@ I följande tabell visas schema skillnaderna mellan Log Analytics och Applicatio
 | Land | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
-| CustomEventName | namn | 
+| CustomEventName | name | 
 | DeviceModel | client_Model | 
 | DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
@@ -94,12 +94,12 @@ I följande tabell visas schema skillnaderna mellan Log Analytics och Applicatio
 | Operativsystem | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | varaktighet | 
-| PageViewName | namn | 
+| PageViewName | name | 
 | ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
 | RequestDuration | varaktighet | 
 | RequestID | id | 
-| RequestName | namn | 
+| RequestName | name | 
 | RequestSuccess | lyckades | 
 | ResponseCode | resultCode | 
 | Roll | cloud_RoleName |

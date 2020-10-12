@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 278fbdf7010fe7b14488bb021ab8a366393ad512
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087370"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Använd MirrorMaker för att replikera Apache Kafka-ämnen med Kafka i HDInsight
@@ -65,7 +65,7 @@ Den här arkitekturen innehåller två kluster i olika resurs grupper och virtue
 
     |Resursgrupp | Location |
     |---|---|
-    | Kafka-Primary-rg | USA, centrala |
+    | Kafka-Primary-rg | Central US |
     | Kafka – sekundär-rg | USA, norra centrala |
 
 1. Skapa ett nytt virtuellt nätverk **Kafka-Primary-VNet** i **Kafka-Primary-RG**. Låt standardinställningarna vara kvar.

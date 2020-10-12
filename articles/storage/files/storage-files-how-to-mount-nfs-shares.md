@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
 ms.openlocfilehash: 530ae82720e6b4eb6a3e4d1021c0b37b9f4dbf5c
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90707449"
 ---
 # <a name="how-to-mount-an-nfs-file-share"></a>Montera en NFS-filresurs
@@ -55,7 +55,7 @@ ms.locfileid: "90707449"
 1. Ange den monterings Sök väg som du vill använda och kopiera skriptet.
 1. Anslut till klienten och Använd det tillhandahållna monterings skriptet.
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Skärm bild av bladet fil resurs anslutning":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Skärm bild av skärmen för konfiguration av lagrings konto med säker överföring inaktive rad.":::
 
 Nu har du monterat din NFS-resurs.
 

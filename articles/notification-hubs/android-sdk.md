@@ -10,10 +10,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 63841bd603373d0fb325bcf82511ce3fb07b4136
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91315209"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-100-preview1"></a>Självstudie: skicka push-meddelanden till Android-enheter med Firebase SDK-version 1.0.0-preview1
@@ -30,7 +30,7 @@ Den här självstudien omfattar följande steg:
 - Anslut din app till hubben.
 - Testa appen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/free/).
 
@@ -62,23 +62,23 @@ Det första steget är att skapa ett projekt i Android Studio:
 
 2. När du har skapat projektet väljer du **Lägg till Firebase i din Android-app**.
 
-   :::image type="content" source="media/android-sdk/get-started.png" alt-text="Lägg till Firebase":::
+   :::image type="content" source="media/android-sdk/get-started.png" alt-text="Konfigurera projekt":::
 
 3. På sidan **Lägg till Firebase till din Android-app**   gör du följande:
 
    1. För **namn på Android-paket**kopierar du värdet för **applicationId**   i programmets **build. gradle** -fil. I det här exemplet är det  `com.fabrikam.fcmtutorial1app` .
 
-      :::image type="content" source="media/android-sdk/specify-package-name-fcm-settings.png" alt-text="Ange paket namn":::
+      :::image type="content" source="media/android-sdk/specify-package-name-fcm-settings.png" alt-text="Konfigurera projekt":::
 
    2. Välj **Registrera app**.
 
 4. Välj **hämta google-services.jspå**, spara filen i **app**   -mappen i projektet och välj sedan **Nästa**.
 
-   :::image type="content" source="media/android-sdk/download-google-service-button.png" alt-text="Hämta Google-tjänst":::
+   :::image type="content" source="media/android-sdk/download-google-service-button.png" alt-text="Konfigurera projekt":::
 
 5. Välj kugghjulet för ditt projekt i Firebase-konsolen. Välj sedan **projekt inställningar**.
 
-   :::image type="content" source="media/android-sdk/notification-hubs-firebase-console-project-settings.png" alt-text="Projekt inställningar":::
+   :::image type="content" source="media/android-sdk/notification-hubs-firebase-console-project-settings.png" alt-text="Konfigurera projekt":::
 
 6. Om du inte har hämtat **google-services.js** filen till mappen **app**   i Android Studio-projektet kan du göra det på den här sidan.
 
@@ -94,7 +94,7 @@ Det första steget är att skapa ett projekt i Android Studio:
 
 3. På sidan **Notification Hubs**   väljer du **Lägg till**   i verktygsfältet.
 
-   :::image type="content" source="media/android-sdk/add-hub.png" alt-text="Lägg till hubb":::
+   :::image type="content" source="media/android-sdk/add-hub.png" alt-text="Konfigurera projekt":::
 
 4.  **Notification Hubs**   Gör följande på sidan Notification Hubs:
 
@@ -108,15 +108,15 @@ Det första steget är att skapa ett projekt i Android Studio:
 
    5. Välj  **Skapa**.
 
-      :::image type="content" source="media/android-sdk/create-hub.png" alt-text="Skapa hubb":::
+      :::image type="content" source="media/android-sdk/create-hub.png" alt-text="Konfigurera projekt":::
 
 5. Välj **meddelanden**   (klock ikonen) och välj sedan **gå till resurs**. Du kan också uppdatera listan på sidan **Notification Hubs**   och välja hubben.
 
-   :::image type="content" source="media/android-sdk/notification-hubs.png" alt-text="Välj hubb":::
+   :::image type="content" source="media/android-sdk/notification-hubs.png" alt-text="Konfigurera projekt":::
 
 6. Välj **åtkomst principer**   från listan. Observera att det finns två anslutnings strängar tillgängliga. Du behöver dem senare för att hantera push-meddelanden.
 
-   :::image type="content" source="media/android-sdk/access-policies.png" alt-text="Åtkomstprinciper":::
+   :::image type="content" source="media/android-sdk/access-policies.png" alt-text="Konfigurera projekt":::
 
    > [!IMPORTANT]
    > Använd inte DefaultFullSharedAccessSignature- **DefaultFullSharedAccessSignature**   principen i ditt program. Den här principen ska endast användas i appens Server del.
@@ -129,7 +129,7 @@ Det första steget är att skapa ett projekt i Android Studio:
 
 3. Välj **Spara**i verktygsfältet.
 
-   :::image type="content" source="media/android-sdk/fcm-server-key.png" alt-text="Server nyckel":::
+   :::image type="content" source="media/android-sdk/fcm-server-key.png" alt-text="Konfigurera projekt":::
 
 4. Azure Portal visar ett meddelande om att navet har uppdaterats. Knappen **Spara**   är inaktive rad.
 
@@ -143,15 +143,15 @@ Notification Hub har nu kon figurer ATS för att fungera med Firebase Cloud Mess
 
 2. Välj mål versionen av Android SDK som används i projektet. Välj sedan **Visa paket information**.
 
-   :::image type="content" source="media/android-sdk/notification-hubs-android-studio-sdk-manager.png" alt-text="SDK-hanteraren":::
+   :::image type="content" source="media/android-sdk/notification-hubs-android-studio-sdk-manager.png" alt-text="Konfigurera projekt":::
 
 3. Välj **Google API: er**om det inte redan är installerat.
 
-   :::image type="content" source="media/android-sdk/google-apis-selected.png" alt-text="API:er":::
+   :::image type="content" source="media/android-sdk/google-apis-selected.png" alt-text="Konfigurera projekt":::
 
 4. Växla till fliken **SDK-verktyg**   . Om du inte redan har installerat Google Play-tjänster väljer du **Google Play Services**   som visas i följande bild. Välj sedan **Använd**   för att installera. Anteckna SDK-sökvägen för användning i ett senare steg.
 
-   :::image type="content" source="media/android-sdk/google-play-services-selected.png" alt-text="Spela upp tjänster":::
+   :::image type="content" source="media/android-sdk/google-play-services-selected.png" alt-text="Konfigurera projekt":::
 
 5. Om du ser dialog rutan **Bekräfta ändring**   väljer du **OK**. Komponent installations programmet installerar de begärda komponenterna. Välj **Slutför**   när komponenterna har installerats.
 
@@ -237,11 +237,11 @@ Notification Hub har nu kon figurer ATS för att fungera med Firebase Cloud Mess
 
 4. Se till att du har en virtuell enhet för att köra appen. Om du inte har ett kan du lägga till ett på följande sätt:
 
-   1. :::image type="content" source="media/android-sdk/open-device-manager.png" alt-text="Enhets hanteraren":::
-   2. :::image type="content" source="media/android-sdk/your-virtual-devices.png" alt-text="Virtuella enheter":::
+   1. :::image type="content" source="media/android-sdk/open-device-manager.png" alt-text="Konfigurera projekt":::
+   2. :::image type="content" source="media/android-sdk/your-virtual-devices.png" alt-text="Konfigurera projekt":::
    3. Kör appen på den valda enheten och kontrol lera att den har registrerats med hubben.
 
-      :::image type="content" source="media/android-sdk/device-registration.png" alt-text="Enhetsregistrering":::
+      :::image type="content" source="media/android-sdk/device-registration.png" alt-text="Konfigurera projekt":::
 
       > [!NOTE]
       > Registreringen kan Miss inledas under den första starten tills `onTokenRefresh()` metoden för instans-ID-tjänst anropas. En uppdatering bör initiera en lyckad registrering med Notification Hub.
@@ -258,7 +258,7 @@ Du kan skicka push-meddelanden till Notification Hub från [Azure Portal](https
 
 4. Se resultatet av åtgärden i listan längst ned på Portal sidan.
 
-   :::image type="content" source="media/android-sdk/notification-hubs-test-send.png" alt-text="Skicka test meddelande":::
+   :::image type="content" source="media/android-sdk/notification-hubs-test-send.png" alt-text="Konfigurera projekt":::
 
 5. Du ser meddelandet på enheten.
 

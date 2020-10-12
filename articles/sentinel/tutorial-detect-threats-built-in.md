@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
 ms.openlocfilehash: 5d73337c25c812363b7a542bf42372ca3baa10e8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88605430"
 ---
-# <a name="tutorial-detect-threats-out-of-the-box"></a>Självstudie: identifiera hot färdiga
+# <a name="tutorial-detect-threats-out-of-the-box"></a>Självstudie: Identifiera hot direkt
 
 
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ Följande typer av mallar är tillgängliga:
 
 1. Om du vill använda en inbyggd mall klickar du på mallnamnet och sedan på knappen **Skapa regel** i informations fönstret för att skapa en ny aktiv regel baserat på mallen. Varje mall innehåller en lista över nödvändiga data källor. När du öppnar mallen kontrol leras data källorna automatiskt för tillgänglighet. Om det finns ett tillgänglighets problem kan knappen **Skapa regel** vara inaktive rad, eller så kan du se en varning om den här inställningen.
   
-    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Panelen för hands version av identifierings regel":::
+    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Använd inbyggda identifieringar för att hitta hot med Azure Sentinel":::
  
 1. Om du klickar på knappen **Skapa regel** öppnas guiden Skapa regel som baseras på den valda mallen. All information fylls i och med de **schemalagda** eller **Microsoft** -säkerhetsmallarna kan du anpassa logiken och andra regel inställningar så att de passar dina behov bättre. Du kan upprepa den här processen för att skapa ytterligare regler baserade på den inbyggda mallen. När du har gått igenom stegen i guiden Skapa regel till slutet, kommer du att ha skapat en regel som baseras på mallen. De nya reglerna visas på fliken **aktiva regler** .
 

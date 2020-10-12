@@ -14,10 +14,10 @@ ms.reviewer: nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 977dfea28c5c0dc3f34ada0c138556d70c979e04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85551712"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Tjänst-till-tjänst-anrop med klientautentiseringsuppgifterna (delad hemlighet eller certifikat)
@@ -52,7 +52,7 @@ Det finns två fall beroende på om klient programmet väljer att skyddas av en 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Första fallet: begäran om åtkomsttoken med en delad hemlighet
 När du använder en delad hemlighet innehåller en begäran om tjänst-till-tjänst-åtkomsttoken följande parametrar:
 
-| Parameter | Typ | Description |
+| Parameter | Typ | Beskrivning |
 | --- | --- | --- |
 | grant_type |krävs |Anger den begärda anslags typen. I ett flöde för autentiseringsuppgifter för klientautentiseringsuppgifter måste värdet vara **client_credentials**. |
 | client_id |krävs |Anger Azure AD-klient-ID: t för den anropande webb tjänsten. Du hittar det anropande programmets klient-ID genom att klicka på **Azure Active Directory**i [Azure Portal](https://portal.azure.com), klicka på **Appregistreringar**, klicka på programmet. Client_id är *program-ID: t* |
@@ -73,11 +73,11 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: åtkomsttoken för begäran med ett certifikat
 En Tokenbegäran för tjänst-till-tjänst-begäran med ett certifikat innehåller följande parametrar:
 
-| Parameter | Typ | Description |
+| Parameter | Typ | Beskrivning |
 | --- | --- | --- |
 | grant_type |krävs |Anger den begärda svars typen. I ett flöde för autentiseringsuppgifter för klientautentiseringsuppgifter måste värdet vara **client_credentials**. |
 | client_id |krävs |Anger Azure AD-klient-ID: t för den anropande webb tjänsten. Du hittar det anropande programmets klient-ID genom att klicka på **Azure Active Directory**i [Azure Portal](https://portal.azure.com), klicka på **Appregistreringar**, klicka på programmet. Client_id är *program-ID: t* |
-| client_assertion_type |krävs |Värdet måste vara`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion_type |krävs |Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |krävs | En försäkran (en JSON Web Token) som du måste skapa och signera med det certifikat som du har registrerat som autentiseringsuppgifter för ditt program. Läs om [autentiseringsuppgifter för certifikat](../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) för att lära dig hur du registrerar ditt certifikat och formatet på intyget.|
 | resource | krävs |Ange app-ID-URI för den mottagande webb tjänsten. Du hittar app-ID-URI: n genom att klicka på **Azure Active Directory**i Azure Portal, klicka på **Appregistreringar**, klicka på tjänst programmet och sedan klicka på **Inställningar** och **Egenskaper**. |
 

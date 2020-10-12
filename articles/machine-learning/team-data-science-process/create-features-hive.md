@@ -12,14 +12,14 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6261e31fd84b9471fa4ea5d30e1d6a4afbac9115
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085386"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Skapa funktioner för data i ett Hadoop-kluster med Hive-frågor
-Det här dokumentet visar hur du skapar funktioner för data som lagras i ett Azure HDInsight Hadoop kluster med Hive-frågor. Dessa Hive-frågor använder inbäddade Hive-användardefinierade funktioner (UDF: er), de skript som har angetts.
+Det här dokumentet visar hur du skapar funktioner för data som lagras i ett Azure HDInsight Hadoop kluster med Hive-frågor. Dessa Hive-frågor använder Embedded Hive User-Defined functions (UDF: er), de skript som anges.
 
 De åtgärder som krävs för att skapa funktioner kan vara minnes krävande. Prestanda för Hive-frågor blir mer kritiska i sådana fall och kan förbättras genom justering av vissa parametrar. Justeringen av dessa parametrar beskrivs i det sista avsnittet.
 
@@ -27,7 +27,7 @@ Exempel på frågor som presenteras är särskilt för [NYC taxi-data](https://c
 
 Den här uppgiften är ett steg i [TDSP (Team data science process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Den här artikeln förutsätter att du har:
 
 * Skapat ett Azure Storage-konto. Om du behöver instruktioner, se [skapa ett Azure Storage konto](../../storage/common/storage-account-create.md)
@@ -150,7 +150,7 @@ De matematiska ekvationer som beräknar avståndet mellan två GPS-koordinater f
 
 En fullständig lista över inbäddade Hive-UDF: er finns i avsnittet **inbyggda funktioner** på <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a>Avancerade ämnen: finjustera Hive-parametrar för att förbättra frågans hastighet
+## <a name="advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Avancerade ämnen: finjustera Hive-parametrar för att förbättra frågans hastighet
 Standard parameter inställningarna för Hive-kluster kanske inte lämpar sig för Hive-frågor och data som frågorna behandlar. I det här avsnittet beskrivs vissa parametrar som användarna kan justera för att förbättra prestandan för Hive-frågor. Användare måste lägga till parameter justerings frågorna innan frågor om bearbetning av data.
 
 1. **Java heap-utrymme**: för frågor som rör anslutning av stora data uppsättningar, eller bearbetning av långa poster, är det ett av de vanliga felen att **köra utanför heap-utrymmet** . Det här felet kan undvikas genom att ange parametrarna *MapReduce. map. java.* Välj och *MapReduce. Task. io. sort. MB* till önskade värden. Här är ett exempel:

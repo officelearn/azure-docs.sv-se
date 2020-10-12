@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/24/2020
 ms.author: cherylmc
 ms.openlocfilehash: 79eb09a005f62846fc2f7e3e7b493d5e366edabc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84744331"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Ansluta till en virtuell Windows-dator med Azure skydds
@@ -38,9 +38,9 @@ För att ansluta till den virtuella Windows-datorn måste du ha följande portar
 
 * Inkommande portar: RDP (3389)
 
-## <a name="connect"></a><a name="rdp"></a>Anslut
+## <a name="connect"></a><a name="rdp"></a>Ansluta
 
-1. Öppna [Azure Portal](https://portal.azure.com). Navigera till den virtuella dator som du vill ansluta till och klicka sedan på **Anslut** och välj **skydds** i list rutan.
+1. Öppna [Azure-portalen](https://portal.azure.com). Navigera till den virtuella dator som du vill ansluta till och klicka sedan på **Anslut** och välj **skydds** i list rutan.
 
    ![Anslut till virtuell dator](./media/bastion-connect-vm-rdp/connect.png)
 1. När du klickar på skydds visas ett sido fält med tre flikar – RDP, SSH och skydds. Om skydds etablerades för det virtuella nätverket är fliken skydds aktiv som standard. Om du inte etablerar skydds för det virtuella nätverket kan du klicka på länken för att konfigurera skydds. Konfigurations anvisningar finns i [Konfigurera skydds](bastion-create-host-portal.md).

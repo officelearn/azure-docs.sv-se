@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: guybo
 ms.openlocfilehash: 73e07c612486d5f48b1ad3eca8044a561549092b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292122"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Förbereda en virtuell SLES- eller openSUSE-dator för Azure
@@ -136,8 +136,8 @@ Som ett alternativ till att skapa en egen virtuell hård disk publicerar SUSE oc
    | # | Alias                 | Namn                  | Enabled | Uppdatera
    | - | :-------------------- | :-------------------- | :------ | :------
    | 1 | Moln: Tools_13.1      | Moln: Tools_13.1      | Ja     | Ja
-   | 2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Ja     | Ja
-   | 3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Ja     | Ja
+   | 2 | openSUSE_13 openSUSE_13.1_OSS     | openSUSE_13 openSUSE_13.1_OSS     | Ja     | Ja
+   | 3 | openSUSE_13 openSUSE_13.1_Updates | openSUSE_13 openSUSE_13.1_Updates | Ja     | Ja
 
     Om kommandot returnerar "inga databaser har definierats..." Använd sedan följande kommandon för att lägga till dessa databaser:
 

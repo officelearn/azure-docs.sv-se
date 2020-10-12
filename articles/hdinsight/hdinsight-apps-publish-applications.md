@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: 2cee60a71f6f19e09194dc689f95999bb11faad3
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086474"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicera ett HDInsight-program på Azure Marketplace
@@ -25,7 +25,7 @@ Mer information finns i dessa artiklar om HDInsight-program:
 * [Installera HDInsight-program](hdinsight-apps-install-applications.md). Lär dig hur du installerar ett HDInsight-program i klustren.
 * [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md). Lär dig hur du installerar och testar anpassade HDInsight-program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill skicka in ditt anpassade program på Marketplace måste du först [skapa och testa ditt anpassade program](hdinsight-apps-install-custom-applications.md).
 
 Du måste också registrera ditt Developer-konto. Mer information finns i [publicera ett erbjudande på Azure Marketplace](../marketplace/marketplace-publishers-guide.md) och [skapa ett Microsoft Developer-konto](../marketplace/marketplace-publishers-guide.md).
@@ -44,7 +44,7 @@ Två steg är inblandade i att publicera program på Marketplace. Börja med att
 }
 ```
 
-| Fält | Description | Möjliga värden |
+| Field | Beskrivning | Möjliga värden |
 | --- | --- | --- |
 | typer |De klustertyper programmet är kompatibelt med. |Hadoop, HBase, Storm, Spark (eller någon kombination av dessa) |
 | versioner |De typer av HDInsight-kluster programmet är kompatibelt med. |3.4 |

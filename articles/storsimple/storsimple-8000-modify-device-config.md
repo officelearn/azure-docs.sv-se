@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: d0e13f8e66e6035c22c9c2323b9653c5c4a81671
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514676"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Använd tjänsten StorSimple Enhetshanteraren för att ändra StorSimple-enhetens konfiguration
@@ -44,7 +44,7 @@ Du kan använda Azure Portal för att ändra enhetens namn och tilldela det ett 
 
 En StorSimple-enhet som är ansluten till StorSimple Enhetshanteraren-tjänsten tilldelas ett standard namn. Standard namnet återspeglar vanligt vis enhetens serie nummer. Ett standardenhets namn som är 15 tecken långt, till exempel 8600-SHX0991003G44HT, anger följande:
 
-* **8600** – anger enhets modellen.
+* **8600**  – anger enhets modellen.
 * **SHX** – anger tillverknings platsen.
 * **0991003** -visar en speciell produkt.
 * **G44HT**– de sista 5 siffrorna ökar för att skapa unika serie nummer. Det kanske inte är en sekventiell uppsättning.

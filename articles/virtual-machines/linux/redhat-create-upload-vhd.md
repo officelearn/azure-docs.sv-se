@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: guybo
 ms.openlocfilehash: cc8d4458de5f3bbf1eaf111aa10f1377f3c9d46a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292300"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Förbereda en Red Hat-baserad virtuell dator för Azure
@@ -20,7 +20,7 @@ I den här artikeln får du lära dig hur du förbereder en virtuell Red Hat Ent
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Förbereda en Red Hat-baserad virtuell dator från Hyper-V Manager
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat-webbplatsen och installerat RHEL-avbildningen på en virtuell hård disk (VHD). Mer information om hur du använder Hyper-V Manager för att installera en operativ system avbildning finns i [Installera Hyper-v-rollen och konfigurera en virtuell dator](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 **Installations information för RHEL**
@@ -28,7 +28,7 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
 * Azure har inte stöd för VHDX-formatet. Azure stöder endast fast virtuell hård disk. Du kan använda Hyper-V Manager för att konvertera disken till VHD-format, eller så kan du använda cmdleten Convert-VHD. Om du använder VirtualBox väljer du **fast storlek** i stället för standard alternativet dynamiskt allokerat när du skapar disken.
 * Azure stöder gen1 (BIOS boot) & Gen2 (UEFI boot) virtuella datorer.
 * Den maximala storlek som tillåts för den virtuella hård disken är 1 023 GB.
-* Logical Volume Manager (LVM) stöds och kan användas på operativ system disken eller data diskarna på virtuella Azure-datorer. I allmänhet rekommenderas det dock att använda standardpartitioner på OS-disken i stället för LVM. Den här övningen undviker LVM namn konflikter med klonade virtuella datorer, särskilt om du skulle behöva koppla en operativ system disk till en annan identisk virtuell dator för fel sökning. Se även [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) och [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) -dokumentation.
+* Logical Volume Manager (LVM) stöds och kan användas på operativ system disken eller data diskarna på virtuella Azure-datorer. I allmänhet rekommenderas det dock att använda standardpartitioner på OS-disken i stället för LVM. Den här övningen undviker LVM namn konflikter med klonade virtuella datorer, särskilt om du skulle behöva koppla en operativ system disk till en annan identisk virtuell dator för fel sökning. Se även  [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) och [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) -dokumentation.
 * Kernel-stöd för montering av UDF-filsystem (Universal disk format) krävs. Vid den första starten av Azure skickar det UDF-formaterade mediet som är kopplat till gästen etablerings konfigurationen till den virtuella Linux-datorn. Azure Linux-agenten måste kunna montera UDF-filsystemet för att läsa konfigurationen och etablera den virtuella datorn.
 * Konfigurera inte en swap-partition på operativ system disken. Linux-agenten kan konfigureras för att skapa en växlings fil på den tillfälliga resurs disken.  Mer information om detta finns i följande steg.
 * Alla virtuella hård diskar på Azure måste ha en virtuell storlek som är justerad till 1 MB. När du konverterar från en RAW-disk till VHD måste du se till att den råa disk storleken är en multipel av 1 MB före konverteringen. Mer information hittar du i stegen nedan. Se även [Linux-installations anteckningar](create-upload-generic.md#general-linux-installation-notes) för mer information.
@@ -195,7 +195,7 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
     # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Om du vill göra ändringen öppnar du `/etc/default/grub` i en text redigerare och redigerar `GRUB_CMDLINE_LINUX` parametern. Till exempel:
+1. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Om du vill göra ändringen öppnar du `/etc/default/grub` i en text redigerare och redigerar `GRUB_CMDLINE_LINUX` parametern. Exempel:
 
     ```config-grub
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -525,7 +525,7 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
     # subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Om du vill göra detta kan du öppna `/etc/default/grub` i en text redigerare och redigera `GRUB_CMDLINE_LINUX` parametern. Till exempel:
+1. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Om du vill göra detta kan du öppna `/etc/default/grub` i en text redigerare och redigera `GRUB_CMDLINE_LINUX` parametern. Exempel:
 
     ```config-grub
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -664,7 +664,7 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
     ```
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Förbereda en Red Hat-baserad virtuell dator från VMware
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Det här avsnittet förutsätter att du redan har installerat en virtuell RHEL-dator i VMware. Mer information om hur du installerar ett operativ system i VMware finns i [installations guide för VMware gäst operativ system](https://partnerweb.vmware.com/GOSIG/home.html).
 
 * När du installerar Linux-operativsystemet rekommenderar vi att du använder standardpartitioner snarare än LVM, vilket ofta är standardvärdet för många installationer. På så sätt undviker du LVM namn konflikter med klonad virtuell dator, särskilt om en operativ system disk någonsin måste kopplas till en annan virtuell dator för fel sökning. LVM eller RAID kan användas på data diskar om det är lämpligt.
@@ -723,7 +723,7 @@ Det här avsnittet förutsätter att du redan har installerat en virtuell RHEL-d
     # subscription-manager repos --enable=rhel-6-server-extras-rpms
     ```
 
-1. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Det gör du genom att öppna `/etc/default/grub` i en text redigerare och redigera `GRUB_CMDLINE_LINUX` parametern. Till exempel:
+1. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Det gör du genom att öppna `/etc/default/grub` i en text redigerare och redigera `GRUB_CMDLINE_LINUX` parametern. Exempel:
 
     ```config-grub
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
@@ -864,7 +864,7 @@ Det här avsnittet förutsätter att du redan har installerat en virtuell RHEL-d
     # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Om du vill göra ändringen öppnar du `/etc/default/grub` i en text redigerare och redigerar `GRUB_CMDLINE_LINUX` parametern. Till exempel:
+1. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Om du vill göra ändringen öppnar du `/etc/default/grub` i en text redigerare och redigerar `GRUB_CMDLINE_LINUX` parametern. Exempel:
 
     ```config-grub
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"

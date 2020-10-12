@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
 ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329269"
 ---
 # <a name="public-ip-addresses"></a>Offentliga IP-adresser
@@ -60,7 +60,7 @@ Offentliga IP-adresser för standard-SKU:
 > [!NOTE]
 > Endast offentliga IP-adresser med Basic SKU är tillgängliga när du använder [IMDS för instans-metadata](../virtual-machines/windows/instance-metadata-service.md). Standard-SKU stöds inte.
 
-### <a name="basic"></a>Grundläggande
+### <a name="basic"></a>Basic
 
 Alla offentliga IP-adresser som skapades innan SKU:erna infördes är offentliga IP-adresser på nivån Basic. 
 
@@ -184,7 +184,7 @@ I följande tabell visas den egenskap som kan användas för att koppla en offen
 | Programgateway |Konfiguration på klientsidan |Ja (endast V1) |Ja (endast V2) |
 | Azure Firewall | Konfiguration på klientsidan | Inga | Ja|
 
-## <a name="limits"></a>Gränser
+## <a name="limits"></a>Begränsningar
 
 Begränsningarna för IP-adresser anges i den fullständiga uppsättningen [nätverks gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) i Azure. 
 

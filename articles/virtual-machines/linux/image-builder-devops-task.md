@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.openlocfilehash: 9f948fcc8ad36f8bef8b1ab6a1b74131faea9bd3
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88068361"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Azure Image Builder-DevOps uppgift
@@ -139,12 +139,12 @@ Välj knappen för att **bygga sökväg** för att välja den build-mapp som du 
 
 I följande exempel förklaras hur det fungerar:
 
-:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="En katalog struktur som visar hierarkin.":::
+:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Välj Lägg till en artefakt i versions pipelinen.":::
 
 
 * Windows-filer finns i `C:\` . En katalog med namnet `buildArtifacts` skapas som innehåller `webapp` katalogen.
 
-* Linux – filer finns i `/tmp` . `webapp`Katalogen skapas som innehåller alla filer och kataloger. Du måste flytta filerna från den här katalogen. Annars kommer de att tas bort eftersom de finns i den tillfälliga katalogen.
+* Linux – filer finns i  `/tmp` . `webapp`Katalogen skapas som innehåller alla filer och kataloger. Du måste flytta filerna från den här katalogen. Annars kommer de att tas bort eftersom de finns i den tillfälliga katalogen.
 
 #### <a name="inline-customization-script"></a>Infogat anpassnings skript
 
@@ -154,7 +154,7 @@ I följande exempel förklaras hur det fungerar:
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
-* Linux-på Linux-system placeras Bygg artefakterna i `/tmp` katalogen. Men på många Linux-OSs i en omstart tas katalogen/tmp-katalogens innehåll bort. Om du vill att artefakterna ska finnas i avbildningen måste du skapa en annan katalog och kopiera dem.  Till exempel:
+* Linux-på Linux-system placeras Bygg artefakterna i `/tmp` katalogen. Men på många Linux-OSs i en omstart tas katalogen/tmp-katalogens innehåll bort. Om du vill att artefakterna ska finnas i avbildningen måste du skapa en annan katalog och kopiera dem.  Exempel:
 
     ```bash
     sudo mkdir /lib/buildArtifacts
@@ -176,7 +176,7 @@ I följande exempel förklaras hur det fungerar:
 > Avbildnings verktyget tar inte bort Bygg artefakterna automatiskt, men vi rekommenderar starkt att du alltid har kod för att ta bort Bygg artefakterna.
 > 
 
-* Windows-Image Builder distribuerar filer till `c:\buildArtifacts` katalogen. Katalogen är beständig. du måste ta bort katalogen. Du kan ta bort den i skriptet som du kör. Till exempel:
+* Windows-Image Builder distribuerar filer till `c:\buildArtifacts` katalogen. Katalogen är beständig. du måste ta bort katalogen. Du kan ta bort den i skriptet som du kör. Exempel:
 
     ```PowerShell
     # Clean up buildArtifacts directory
@@ -186,7 +186,7 @@ I följande exempel förklaras hur det fungerar:
     Remove-Item -Path "C:\buildArtifacts" -Force 
     ```
     
-* Linux – build-artefakterna placeras i `/tmp` katalogen. Men på många Linux-OSs på en omstart `/tmp` raderas katalog innehållet. Vi rekommenderar att du har kod för att ta bort innehållet och inte förlitar dig på operativ systemet för att ta bort innehållet. Till exempel:
+* Linux – build-artefakterna placeras i `/tmp` katalogen. Men på många Linux-OSs på en omstart `/tmp` raderas katalog innehållet. Vi rekommenderar att du har kod för att ta bort innehållet och inte förlitar dig på operativ systemet för att ta bort innehållet. Exempel:
 
     ```bash
     sudo rm -R "/tmp/AppsAndImageBuilderLinux"
@@ -312,9 +312,9 @@ Nej. Ett unikt Mallnamn används och tas sedan bort.
 
 Om ett build-problem uppstår tar DevOps-aktiviteten inte bort den mellanlagrings resurs gruppen. Du kan komma åt den mellanlagrings resurs grupp som innehåller anpassnings loggen för build.
 
-Du kommer att se ett fel i DevOps-loggen för aktiviteten VM Image Builder och se platsen anpassning. log. Till exempel:
+Du kommer att se ett fel i DevOps-loggen för aktiviteten VM Image Builder och se platsen anpassning. log. Exempel:
 
-:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Exempel på DevOps-aktivitets fel som visar ett fel.":::
+:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Välj Lägg till en artefakt i versions pipelinen.":::
 
 Mer information om fel sökning finns i [Felsöka Azure Image Builder-tjänsten](image-builder-troubleshoot.md). 
 

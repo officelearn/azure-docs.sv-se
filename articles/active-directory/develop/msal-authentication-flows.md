@@ -13,10 +13,10 @@ ms.date: 07/08/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89437878"
 ---
 # <a name="authentication-flows"></a>Autentiserings flöden
@@ -136,7 +136,7 @@ Med det [implicita tilldelnings flödet för OAuth 2](v2-oauth2-implicit-grant-f
 
 Många moderna webb program skapas som på klient sidan, ett enda sid program (SPA) som skrivits i Java Script eller ett SPA-ramverk, till exempel vinkel, Vue.js och React.js. Dessa program körs i en webbläsare och har olika egenskaper för autentisering än traditionella webb program på Server sidan. Microsoft Identity Platform gör det möjligt för program att logga in användare och hämta token för att få åtkomst till backend-tjänster eller webb-API: er med hjälp av det implicita tilldelnings flödet. Det implicita flödet gör att programmet kan hämta ID-token för att representera den autentiserade användaren och även få åtkomst till tokens som krävs för att anropa skyddade API: er.
 
-Det här autentiseringsschemat omfattar inte program scenarier som använder plattforms oberoende JavaScript-ramverk som Electron eller reagerar-Native eftersom de kräver ytterligare funktioner för interaktion med de ursprungliga plattformarna.
+Det här autentiseringsschemat omfattar inte program scenarier som använder plattforms oberoende JavaScript-ramverk som Electron eller React-Native eftersom de kräver ytterligare funktioner för interaktion med de ursprungliga plattformarna.
 
 Token som utfärdas via det implicita flödes läget har en **längd begränsning** eftersom de returneras till webbläsaren via URL (där `response_mode` är antingen `query` eller `fragment` ). Vissa webbläsare begränsar längden på URL: en i webbläsarens fält och fungerar inte när den är för lång. Dessa implicita flödes-token innehåller därför inte `groups` eller `wids` anspråk.
 

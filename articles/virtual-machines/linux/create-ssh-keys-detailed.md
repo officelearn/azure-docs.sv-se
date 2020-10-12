@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/31/2020
 ms.author: cynthn
 ms.openlocfilehash: 34a84ed333172ea0931c529d2dbeee1b774ae8c5
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513203"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Detaljerade steg: skapa och hantera SSH-nycklar för autentisering till en virtuell Linux-dator i Azure
@@ -33,7 +33,7 @@ Om du inte vill använda SSH-nycklar kan du konfigurera din virtuella Linux-dato
 
 ## <a name="generate-keys-with-ssh-keygen"></a>Generera nycklar med ssh-keygen
 
-För att skapa nycklarna är ett önskat kommando `ssh-keygen` , som är tillgängligt med openssh-verktyg i Azure Cloud Shell, en MacOS-eller Linux-värd och Windows 10. `ssh-keygen`ställer en rad frågor och skriver sedan en privat nyckel och en matchande offentlig nyckel. 
+För att skapa nycklarna är ett önskat kommando `ssh-keygen` , som är tillgängligt med openssh-verktyg i Azure Cloud Shell, en MacOS-eller Linux-värd och Windows 10. `ssh-keygen` ställer en rad frågor och skriver sedan en privat nyckel och en matchande offentlig nyckel. 
 
 SSH-nycklarna sparas som standard i `~/.ssh`-katalogen.  Om du inte har någon `~/.ssh`-katalog skapar `ssh-keygen`-kommandot en åt dig med rätt behörigheter.
 
@@ -62,17 +62,17 @@ ssh-keygen \
 
 `ssh-keygen` = det program som används för att skapa nycklarna
 
-`-m PEM`= Formatera nyckeln som PEM
+`-m PEM` = Formatera nyckeln som PEM
 
-`-t rsa`= typen av nyckel som ska skapas, i det här fallet i RSA-format
+`-t rsa` = typen av nyckel som ska skapas, i det här fallet i RSA-format
 
-`-b 4096`= antalet bitar i nyckeln, i det här fallet 4096
+`-b 4096` = antalet bitar i nyckeln, i det här fallet 4096
 
 `-C "azureuser@myserver"` = en kommentar i slutet av filen för den offentliga nyckeln som gör det lätt att identifiera den. Normalt används en e-postadress som kommentar, men använder det som fungerar bäst för din infrastruktur.
 
-`-f ~/.ssh/mykeys/myprivatekey`= fil namnet på den privata nyckel filen, om du väljer att inte använda standard namnet. En motsvarande offentlig nyckel fil som läggs till med `.pub` genereras i samma katalog. Katalogen måste finnas.
+`-f ~/.ssh/mykeys/myprivatekey` = fil namnet på den privata nyckel filen, om du väljer att inte använda standard namnet. En motsvarande offentlig nyckel fil som läggs till med `.pub` genereras i samma katalog. Katalogen måste finnas.
 
-`-N mypassphrase`= ytterligare en lösen fras som används för att få åtkomst till den privata nyckel filen. 
+`-N mypassphrase` = ytterligare en lösen fras som används för att få åtkomst till den privata nyckel filen. 
 
 ### <a name="example-of-ssh-keygen"></a>Exempel på ssh-keygen
 

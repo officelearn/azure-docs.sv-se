@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2020
 ms.author: kegorman
 ms.openlocfilehash: 8f20ad13953e3767e7693733d8c68f3d0aa2057c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274485"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Översikt över Oracle-program och Azure-lösningar på Azure
@@ -91,7 +91,7 @@ Använd Oracle Database Cloud Services (autonom databas, RAC, Exadata, DBaaS, en
 
 ## <a name="licensing"></a>Licensiering
 
-Distribution av Oracle-program i Azure baseras på en "ta med din egen licens"-modell. Vi förutsätter att du är korrekt licensierad till att använda Oracle-programvara och att du har ett aktuellt support avtal på plats med Oracle. Oracle har garanterat licens mobilitet från lokal plats till Azure. Se [vanliga frågor och svar om](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)Oracle – Azure.
+Distribution av Oracle-program i Azure baseras på en "ta med din egen licens"-modell. Vi förutsätter att du är korrekt licensierad till att använda Oracle-programvara och att du har ett aktuellt support avtal på plats med Oracle. Oracle har garanterat licens mobilitet från lokal plats till Azure. Se [vanliga frågor och svar](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)om Oracle-Azure.
 
 ## <a name="next-steps"></a>Nästa steg
 

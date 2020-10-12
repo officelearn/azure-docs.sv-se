@@ -10,10 +10,10 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
 ms.openlocfilehash: fc99bc645b48739d6d6339111780047496c1984d
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90017123"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använd python för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2
@@ -96,7 +96,7 @@ def initialize_storage_account_ad(storage_account_name, client_id, client_secret
 
 ## <a name="create-a-container"></a>Skapa en container
 
-En behållare fungerar som ett fil system för dina filer. Du kan skapa en genom att anropa metoden **FileSystemDataLakeServiceClient. create_file_system** .
+En behållare fungerar som ett fil system för dina filer. Du kan skapa en genom att anropa metoden **FileSystemDataLakeServiceClient.create_file_system** .
 
 I det här exemplet skapas en behållare med namnet `my-file-system` .
 
@@ -114,7 +114,7 @@ def create_file_system():
 
 ## <a name="create-a-directory"></a>Skapa en katalog
 
-Skapa en katalog referens genom att anropa metoden **FileSystemClient. create_directory** .
+Skapa en katalog referens genom att anropa metoden **FileSystemClient.create_directory** .
 
 Det här exemplet lägger till en katalog med namnet `my-directory` i en behållare. 
 
@@ -129,7 +129,7 @@ def create_directory():
 
 ## <a name="rename-or-move-a-directory"></a>Byta namn på eller flytta en katalog
 
-Byt namn på eller flytta en katalog genom att anropa metoden **DataLakeDirectoryClient. rename_directory** . Skicka sökvägen till önskad katalog en parameter. 
+Byt namn på eller flytta en katalog genom att anropa metoden **DataLakeDirectoryClient.rename_directory** . Skicka sökvägen till önskad katalog en parameter. 
 
 I det här exemplet byter namn på en under katalog till namnet `my-subdirectory-renamed` .
 
@@ -149,7 +149,7 @@ def rename_directory():
 
 ## <a name="delete-a-directory"></a>Ta bort en katalog
 
-Ta bort en katalog genom att anropa metoden **DataLakeDirectoryClient. delete_directory** .
+Ta bort en katalog genom att anropa metoden **DataLakeDirectoryClient.delete_directory** .
 
 Det här exemplet tar bort en katalog med namnet `my-directory` .  
 
@@ -166,7 +166,7 @@ def delete_directory():
 
 ## <a name="manage-directory-permissions"></a>Hantera katalog behörigheter
 
-Hämta ACL (Access Control List) för en katalog genom att anropa metoden **DataLakeDirectoryClient. get_access_control** och ange ACL genom att anropa metoden **DataLakeDirectoryClient. set_access_control** .
+Hämta ACL (Access Control List) för en katalog genom att anropa metoden **DataLakeDirectoryClient.get_access_control** och ange ACL genom att anropa metoden **DataLakeDirectoryClient.set_access_control** .
 
 > [!NOTE]
 > Om ditt program tillåter åtkomst genom att använda Azure Active Directory (Azure AD) måste du kontrol lera att det säkerhets objekt som programmet använder för att auktorisera åtkomst har tilldelats rollen som [lagrings-BLOB-dataägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Mer information om hur ACL-behörigheter tillämpas och effekterna av att ändra dem finns i  [åtkomst kontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -196,11 +196,11 @@ def manage_directory_permissions():
      print(e) 
 ```
 
-Du kan också hämta och ange ACL: en för rot katalogen för en behållare. Om du vill hämta rot katalogen anropar du metoden **FileSystemClient. _get_root_directory_client** .
+Du kan också hämta och ange ACL: en för rot katalogen för en behållare. Om du vill hämta rot katalogen anropar du **FileSystemClient._get_root_directory_client** -metoden.
 
 ## <a name="upload-a-file-to-a-directory"></a>Ladda upp en fil till en katalog 
 
-Börja med att skapa en fil referens i mål katalogen genom att skapa en instans av klassen **DataLakeFileClient** . Ladda upp en fil genom att anropa metoden **DataLakeFileClient. append_data** . Se till att slutföra överföringen genom att anropa metoden **DataLakeFileClient. flush_data** .
+Börja med att skapa en fil referens i mål katalogen genom att skapa en instans av klassen **DataLakeFileClient** . Ladda upp en fil genom att anropa metoden **DataLakeFileClient.append_data** . Se till att slutföra överföringen genom att anropa metoden **DataLakeFileClient.flush_data** .
 
 I det här exemplet överförs en textfil till en katalog med namnet `my-directory` .   
 
@@ -226,11 +226,11 @@ def upload_file_to_directory():
 ```
 
 > [!TIP]
-> Om din fil storlek är stor måste koden göra flera anrop till metoden **DataLakeFileClient. append_data** . Överväg att använda metoden **DataLakeFileClient. upload_data** i stället. På så sätt kan du ladda upp hela filen i ett enda anrop. 
+> Om din fil storlek är stor måste koden göra flera anrop till metoden **DataLakeFileClient.append_data** . Överväg att använda metoden **DataLakeFileClient.upload_data** i stället. På så sätt kan du ladda upp hela filen i ett enda anrop. 
 
 ## <a name="upload-a-large-file-to-a-directory"></a>Ladda upp en stor fil till en katalog
 
-Använd metoden **DataLakeFileClient. upload_data** för att överföra stora filer utan att behöva göra flera anrop till **DataLakeFileClient. append_data** -metoden.
+Använd metoden **DataLakeFileClient.upload_data** för att överföra stora filer utan att behöva göra flera anrop till **DataLakeFileClient.append_data** -metoden.
 
 ```python
 def upload_file_to_directory_bulk():
@@ -254,7 +254,7 @@ def upload_file_to_directory_bulk():
 
 ## <a name="manage-file-permissions"></a>Hantera fil behörigheter
 
-Hämta ACL (Access Control List) för en fil genom att anropa metoden **DataLakeFileClient. get_access_control** och ange ACL genom att anropa metoden **DataLakeFileClient. set_access_control** .
+Hämta ACL (Access Control List) för en fil genom att anropa metoden **DataLakeFileClient.get_access_control** och ange ACL genom att anropa metoden **DataLakeFileClient.set_access_control** .
 
 > [!NOTE]
 > Om ditt program tillåter åtkomst genom att använda Azure Active Directory (Azure AD) måste du kontrol lera att det säkerhets objekt som programmet använder för att auktorisera åtkomst har tilldelats rollen som [lagrings-BLOB-dataägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Mer information om hur ACL-behörigheter tillämpas och effekterna av att ändra dem finns i  [åtkomst kontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -288,7 +288,7 @@ def manage_file_permissions():
 
 ## <a name="download-from-a-directory"></a>Ladda ned från en katalog 
 
-Öppna en lokal fil för skrivning. Skapa sedan en **DataLakeFileClient** -instans som representerar den fil som du vill ladda ned. Anropa filen **DataLakeFileClient. read_file** för att läsa byte från filen och skriv sedan dessa byte till den lokala filen. 
+Öppna en lokal fil för skrivning. Skapa sedan en **DataLakeFileClient** -instans som representerar den fil som du vill ladda ned. Anropa **DataLakeFileClient.read_file** för att läsa byte från filen och skriv sedan dessa byte till den lokala filen. 
 
 ```python
 def download_file_from_directory():
@@ -314,7 +314,7 @@ def download_file_from_directory():
 ```
 ## <a name="list-directory-contents"></a>Lista kataloginnehåll
 
-Lista katalog innehåll genom att anropa metoden **FileSystemClient. get_paths** och sedan räkna upp genom resultaten.
+Lista katalog innehåll genom att anropa metoden **FileSystemClient.get_paths** och sedan räkna upp genom resultaten.
 
 I det här exemplet skrivs sökvägen till varje under katalog och fil som finns i en katalog med namnet `my-directory` .
 

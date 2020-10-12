@@ -5,10 +5,10 @@ ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 ms.openlocfilehash: ea7c54e229178320329204a3199ab2b4c44058fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85807748"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>Versioner som stöds av Azure blockchain service-redovisning
@@ -37,7 +37,7 @@ Du kan kontrol lera kvorumloggen på din Azure blockchain service-medlem genom a
 
 ### <a name="using-geth"></a>Använda Geth
 
-Anslut till din Azure blockchain service-nod med hjälp av Geth. Till exempel `geth attach https://myblockchainmember.blockchain.azure.com:3200/<Access key>`.
+Anslut till din Azure blockchain service-nod med hjälp av Geth. Exempelvis `geth attach https://myblockchainmember.blockchain.azure.com:3200/<Access key>`.
 
 När noden är ansluten rapporterar Geth den som liknar följande utdata:
 

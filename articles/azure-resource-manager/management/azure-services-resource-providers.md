@@ -4,10 +4,10 @@ description: Visar en lista över alla resurs leverantörs namn områden för Az
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.openlocfilehash: b740c8ee7c28bfeeaecc42121d0c7ce4a323ab3e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330833"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resursleverantörer för Azure-tjänster
@@ -96,7 +96,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. HardwareSecurityModules | [Azure Dedicated HSM](../../dedicated-hsm/index.yml) |
 | Microsoft. HDInsight | [HDInsight](../../hdinsight/index.yml) |
 | Microsoft. HealthcareApis | [Azure API för FHIR](../../healthcare-apis/index.yml) |
-| Microsoft. HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
+| Microsoft. HybridCompute | [Azure-båge](../../azure-arc/index.yml) |
 | Microsoft. HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft. HybridNetwork  | [Privata gräns zoner](../../networking/edge-zones-overview.md) |
 | Microsoft. ImportExport | [Azure Import/Export](../../storage/common/storage-import-export-service.md) |
@@ -126,7 +126,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft. MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft. NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtual WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Lastbalanserare](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtual WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
 | Microsoft. Notebook | [Azure Notebooks](https://notebooks.azure.com/help/introduction) |
 | Microsoft. NotificationHubs | [Notification Hubs](../../notification-hubs/index.yml) |
 | Microsoft. ObjectStore | Objekt Arkiv |
@@ -135,7 +135,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. peering | [Azure Peering Service](../../peering-service/index.yml) |
 | Microsoft. PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft. Portal<sup>1</sup> | [Azure-portalen](../../azure-portal/index.yml) |
+| Microsoft. Portal<sup>1</sup> | [Azure Portal](../../azure-portal/index.yml) |
 | Microsoft. PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft. PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft. PowerPlatform | [Power Platform](/power-platform/) |

@@ -11,10 +11,10 @@ ms.reviewer: sstein
 ms.date: 03/12/2019
 ms.custom: seoapril2019 sqldbrb=1
 ms.openlocfilehash: bd3917c42859d4240fbb3a75f951ff38a548e204
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330816"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Hantera elastiska pooler i Azure SQL Database
@@ -93,8 +93,8 @@ Om du vill skapa och flytta databaser inom befintliga elastiska pooler eller ret
 |[SKAPA databas (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Skapar en ny databas i en befintlig pool eller som en enskild databas. Du måste vara ansluten till huvud databasen för att skapa en ny databas.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Flytta en databas till, ut eller mellan elastiska pooler.|
 |[SLÄPP databas (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Tar bort en databas.|
-|[sys. elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Returnerar statistik för resursanvändning för alla elastiska pooler på en server. För varje elastisk pool finns det en rad för varje 15 sekunders rapporterings fönster (fyra rader per minut). Detta omfattar CPU, IO, logg, lagrings användning och samtidig begäran/användning av alla databaser i poolen.|
-|[sys. database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returnerar utgåvan (tjänst nivå), tjänst mål (pris nivå) och namn på elastisk pool, om det finns någon, för en databas i SQL Database eller Azure Synapse Analytics (tidigare SQL Data Warehouse). Om du är inloggad på huvud databasen på en server returneras information om alla databaser. För Azure Synapse Analytics måste du vara ansluten till huvud databasen.|
+|[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Returnerar statistik för resursanvändning för alla elastiska pooler på en server. För varje elastisk pool finns det en rad för varje 15 sekunders rapporterings fönster (fyra rader per minut). Detta omfattar CPU, IO, logg, lagrings användning och samtidig begäran/användning av alla databaser i poolen.|
+|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returnerar utgåvan (tjänst nivå), tjänst mål (pris nivå) och namn på elastisk pool, om det finns någon, för en databas i SQL Database eller Azure Synapse Analytics (tidigare SQL Data Warehouse). Om du är inloggad på huvud databasen på en server returneras information om alla databaser. För Azure Synapse Analytics måste du vara ansluten till huvud databasen.|
 
 ## <a name="rest-api"></a>REST-API
 

@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: ad006279a656758ba856cd3f39c17b0410e525e6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90709037"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>Hantera haveri beredskap med replikering över flera regioner 
@@ -101,7 +101,7 @@ När omsynkroniseringen har slutförts från målet till källan måste du bryta
 
 * [Replikering mellan regioner](cross-region-replication-introduction.md)
 * [Krav och överväganden för att använda replikering över flera regioner](cross-region-replication-requirements-considerations.md)
-* [Visa hälso status för replikeringsrelation](cross-region-replication-display-health-status.md)
+* [Visa hälsostatus för replikeringsrelation](cross-region-replication-display-health-status.md)
 * [Mått för volym replikering](azure-netapp-files-metrics.md#replication)
-* [Felsöka replikering över flera regioner](troubleshoot-cross-region-replication.md)
+* [Felsöka replikering mellan regioner](troubleshoot-cross-region-replication.md)
 

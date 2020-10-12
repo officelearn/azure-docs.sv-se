@@ -14,10 +14,10 @@ ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a2be5daf5bcad0f5b4530ba7a76986dae4833aa5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331275"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>DBMS-distribution för SAP-arbetsbelastning för IBM Db2 på virtuella Azure-datorer
@@ -162,7 +162,7 @@ Microsoft Cluster Server (MSCS) stöds inte.
 
 Katastrof återställning av DB2-hög tillgänglighet (HADR) stöds. Om de virtuella datorerna i HA-konfigurationen har fungerande namn matchning, skiljer sig inte installationen i Azure från alla inställningar som görs lokalt. Vi rekommenderar inte att du bara använder IP-matchning.
 
-Använd inte geo-replikering för de lagrings konton som lagrar databas diskarna. Mer information finns i dokument [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md). 
+Använd inte Geo-Replication för de lagrings konton som lagrar databas diskarna. Mer information finns i dokument [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md). 
 
 ### <a name="accelerated-networking"></a>Accelererat nätverk
 För DB2-distributioner i Windows rekommenderar vi starkt att du använder Azure-funktionerna i accelererat nätverk enligt beskrivningen i dokumentet [Azure accelererat nätverk](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Överväg även rekommendationer som görs i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md). 

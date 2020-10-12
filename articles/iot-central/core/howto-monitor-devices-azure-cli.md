@@ -10,10 +10,10 @@ ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
 ms.openlocfilehash: 276513e41b1595180acb0a596b236428032d87a6
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90015984"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Övervaka enhetsanslutningar med Azure CLI
@@ -24,7 +24,7 @@ Använd Azure CLI IoT-tillägget för att se meddelanden som dina enheter skicka
 
 [Mer information finns i referensen för Azure CLI-tillägg](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Azure CLI installerat och är version 2.7.0 eller högre. Kontrol lera versionen av Azure CLI genom att köra `az --version` . Lär dig hur du installerar och uppdaterar från [Azure CLI-dokument](https://docs.microsoft.com/cli/azure/install-azure-cli)
 + Ett arbets-eller skol konto i Azure som har lagts till som en användare i ett IoT Central-program.

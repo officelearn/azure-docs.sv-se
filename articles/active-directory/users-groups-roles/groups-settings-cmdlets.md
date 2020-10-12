@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 63f0c55823899be8eb4146860787aede2cd2d6b5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797912"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-cmdletar för att konfigurera gruppinställningar
@@ -53,7 +53,7 @@ Se till att avinstallera en äldre version av Azure Active Directory PowerShell 
    ```
    
 ## <a name="create-settings-at-the-directory-level"></a>Skapa inställningar på katalog nivå
-De här stegen skapar inställningar på katalog nivå, som gäller för alla Microsoft 365 grupper i katalogen. Cmdlet: en get-AzureADDirectorySettingTemplate är bara tillgänglig i [för hands versionen av Azure AD PowerShell för Graph](https://www.powershellgallery.com/packages/AzureADPreview).
+De här stegen skapar inställningar på katalog nivå, som gäller för alla Microsoft 365 grupper i katalogen. Get-AzureADDirectorySettingTemplate-cmdleten är endast tillgänglig i [för hands versionen av Azure AD PowerShell för Graph](https://www.powershellgallery.com/packages/AzureADPreview).
 
 1. I DirectorySettings-cmdletar måste du ange ID: t för den SettingsTemplate som du vill använda. Om du inte känner till det här ID: t returnerar denna cmdlet listan över alla mallar för inställningar:
   

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/29/2018
 ms.author: tomfitz
 ms.openlocfilehash: 47c88e08e5d2eac09fbcd5b60a8ccd73b46c9616
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87063805"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>GRÄNSSNITTs element för Microsoft. Compute. CredentialsCombo
@@ -89,7 +89,7 @@ För **Linux**använder du följande schema:
 }
 ```
 
-## <a name="sample-output"></a>Exempel på utdata
+## <a name="sample-output"></a>Exempelutdata
 
 Om `osPlatform` är **Windows**, eller `osPlatform` är **Linux** och användaren har angett ett lösen ord i stället för en offentlig SSH-nyckel, returnerar kontrollen följande utdata:
 
@@ -111,7 +111,7 @@ Om `osPlatform` är **Linux** och användaren TILLHANDAHÖLL en offentlig SSH-ny
 
 ## <a name="remarks"></a>Kommentarer
 
-- `osPlatform`måste anges och kan vara antingen **Windows** eller **Linux**.
+- `osPlatform` måste anges och kan vara antingen **Windows** eller **Linux**.
 - Om `constraints.required` är inställt på **Sant**måste text rutorna lösen ord eller SSH-offentlig nyckel ha värden för att kunna verifiera. Standardvärdet är **True**.
 - Om `options.hideConfirmation` är inställt på **Sant**döljs den andra text rutan för att bekräfta användarens lösen ord. Standardvärdet är **falskt**.
 - Om `options.hidePassword` är inställt på **Sant**är alternativet för att använda lösenordsautentisering dolt. Den kan endast användas när `osPlatform` är **Linux**. Standardvärdet är **falskt**.

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: 84e2eaf71326f59102800428479768aeba9ef9ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87042147"
 ---
 # <a name="configure-runbook-input-parameters"></a>Konfigurera indataparametrar för Runbook
@@ -201,7 +201,7 @@ I etiketten under indatatypen kan du se de egenskaper som har ställts in för a
     }
    ```
 
-   Starta den här metoden genom att skapa en ord lista för att lagra Runbook-parametrarna `VMName` och `resourceGroupName` deras värden. Starta sedan runbooken. Nedan visas kodfragmentet C# för anrop av metoden som definieras ovan.
+   Starta den här metoden genom att skapa en ord lista för att lagra Runbook-parametrarna `VMName` och  `resourceGroupName` deras värden. Starta sedan runbooken. Nedan visas kodfragmentet C# för anrop av metoden som definieras ovan.
 
    ```csharp
    IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
@@ -216,7 +216,7 @@ I etiketten under indatatypen kan du se de egenskaper som har ställts in för a
 
 #### <a name="start-a-runbook-using-the-rest-api-and-assign-parameters"></a>Starta en Runbook med hjälp av REST API och tilldela parametrar
 
-Du kan skapa och starta ett Runbook-jobb med Azure Automation REST API med hjälp av `PUT` metoden med följande begär ande-URI:`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}?api-version=2017-05-15-preview`
+Du kan skapa och starta ett Runbook-jobb med Azure Automation REST API med hjälp av `PUT` metoden med följande begär ande-URI: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}?api-version=2017-05-15-preview`
 
 Ersätt följande parametrar i begärande-URI: n:
 
@@ -324,7 +324,7 @@ Nu kan du anropa runbooken från den lokala datorn med hjälp av Azure PowerShel
     >[!NOTE]
     >För PowerShell-Runbooks `Add-AzAccount` och `Add-AzureRMAccount` är alias för `Connect-AzAccount` . Observera att dessa alias inte är tillgängliga för grafiska runbooks. En grafisk Runbook kan bara använda `Connect-AzAccount` sig själv.
 
-1. Hämta innehållet i den sparade JSON-filen och konvertera den till en sträng. `JsonPath`anger sökvägen dit du sparade JSON-filen.
+1. Hämta innehållet i den sparade JSON-filen och konvertera den till en sträng. `JsonPath` anger sökvägen dit du sparade JSON-filen.
 
    ```powershell
    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string

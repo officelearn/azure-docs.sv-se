@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/28/2017
 ms.openlocfilehash: 0387b4363a438ac48142d97b2a829faf38f1895d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87036666"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Övervaka och hantera Stream Analytics jobb med Azure PowerShell-cmdletar
@@ -484,7 +484,7 @@ Start-AzStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US
 
 Det här PowerShell-kommandot startar jobbet StreamingJob med en anpassad start tid för utdata angivet till 12 december 2012 12:12:12 UTC.
 
-### <a name="stop-azurestreamanalyticsjob--stop-azstreamanalyticsjob"></a>Stopp-AzureStreamAnalyticsJob | Stop-AzStreamAnalyticsJob
+### <a name="stop-azurestreamanalyticsjob--stop-azstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzStreamAnalyticsJob
 Stoppar asynkront ett Stream Analytics jobb från att köras i Microsoft Azure och allokerar de resurser som användes. Jobb definitionen och metadata är fortfarande tillgängliga i din prenumeration via både API: erna för Azure Portal och hantering, så att jobbet kan redige ras och startas om. Du debiteras inte för ett jobb i stoppat tillstånd.
 
 **Exempel 1**

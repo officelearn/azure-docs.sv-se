@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: be87d2af698bb71573952943b5ddc3f0910a3333
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85838704"
 ---
 | Nivå | Kostnadsfri | Basic | Standard |
@@ -22,7 +22,7 @@ ms.locfileid: "85838704"
 | Schemalagda jobb |Begränsad |Ingår |Ingår |
 | Azure SQL Database (krävs) <br/>Standard taxa gäller för ytterligare kapacitet |20 MB ingår |20 MB ingår |20 MB ingår |
 | CPU-kapacitet |60 minuter per dag |Obegränsat |Obegränsat |
-| Utgående data överföring |165 MB per dag (daglig förnyelse) |Ingår |Ingår |
+| Utgående dataöverföring |165 MB per dag (daglig förnyelse) |Ingår |Ingår |
 
 Mer information om gränser och priser finns i [priser för Azure Mobile Services](https://azure.microsoft.com/pricing/details/mobile-services/). 
 

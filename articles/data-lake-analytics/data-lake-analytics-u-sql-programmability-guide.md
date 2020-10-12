@@ -8,10 +8,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 1c22aa9fb91b0a86704b95586afc1779023e85b6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87288941"
 ---
 # <a name="u-sql-programmability-guide"></a>Programmerings guide för U-SQL
@@ -83,7 +83,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>Använd C#-uttryck för dagens datum
 
-För att hämta dagens datum kan vi använda följande C#-uttryck:`DateTime.Now.ToString("M/d/yyyy")`
+För att hämta dagens datum kan vi använda följande C#-uttryck: `DateTime.Now.ToString("M/d/yyyy")`
 
 Här är ett exempel på hur du använder det här uttrycket i ett skript:
 
@@ -529,9 +529,9 @@ public class MyTypeFormatter : IFormatter<MyType>
 
 * **Serialisera**: serialiserar ett objekt eller diagram med objekt, med den angivna roten till den angivna data strömmen.
 
-`MyType`instans: instans av typen.  
-`IColumnWriter`skribent/ `IColumnReader` läsare: den underliggande kolumn data strömmen.  
-`ISerializationContext`Context: Enum som definierar en uppsättning flaggor som anger käll-eller mål kontexten för data strömmen under serialisering.
+`MyType` instans: instans av typen.  
+`IColumnWriter` skribent/ `IColumnReader` läsare: den underliggande kolumn data strömmen.  
+`ISerializationContext` Context: Enum som definierar en uppsättning flaggor som anger käll-eller mål kontexten för data strömmen under serialisering.
 
 * **Mellan**: anger att käll-eller mål kontexten inte är ett beständigt arkiv.
 
@@ -941,7 +941,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 * T2: den andra parametern som ska samlas
 * TResult: retur typen Avbryt
 
-Till exempel:
+Exempel:
 
 ```csharp
 public class GuidAggregate : IAggregate<string, int, int>
@@ -1259,9 +1259,9 @@ public class MyOutputter : IOutputter
 }
 ```
 
-* `Output`anropas för varje indataparameter. Den returnerar `IUnstructuredWriter output` rad uppsättningen.
+* `Output` anropas för varje indataparameter. Den returnerar `IUnstructuredWriter output` rad uppsättningen.
 * Klassen konstruktor används för att skicka parametrar till den användardefinierade uppslags listan.
-* `Close`används för att åsidosätta kostsamma tillstånd eller fastställa när den sista raden skrevs.
+* `Close` används för att åsidosätta kostsamma tillstånd eller fastställa när den sista raden skrevs.
 
 Attributet **SqlUserDefinedOutputter** anger att typen ska registreras som en användardefinierad Utskicks text. Det går inte att ärva den här klassen.
 
@@ -2105,7 +2105,7 @@ Attributet **SqlUserDefinedReducer** anger att typen ska vara registrerad som an
 **SqlUserDefinedReducer** är ett valfritt attribut för en användardefinierad minsknings definition. Den används för att definiera IsRecursive-egenskapen.
 
 * bool IsRecursive    
-* **True** = anger om denna minskning är associativ och commutative
+* **True**  = anger om denna minskning är associativ och commutative
 
 Huvud programmerings objekt är **indata** och **utdata**. Det inmatade objektet används för att räkna upp ingående rader. Utdata används för att ange utmatnings rader som ett resultat av en minskning av aktiviteten.
 

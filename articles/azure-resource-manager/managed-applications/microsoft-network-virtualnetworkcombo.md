@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 711f5293b205c1f500c6d9e08154342285ef959b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87033228"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>GRÄNSSNITTs element för Microsoft. Network. VirtualNetworkCombo
@@ -80,7 +80,7 @@ När användaren väljer ett befintligt virtuellt nätverk måste användaren ma
 }
 ```
 
-## <a name="sample-output"></a>Exempel på utdata
+## <a name="sample-output"></a>Exempelutdata
 
 ```json
 {
@@ -107,8 +107,8 @@ När användaren väljer ett befintligt virtuellt nätverk måste användaren ma
 
 - Om det här alternativet anges bestäms det första icke överlappande adressprefixet för storlek `defaultValue.addressPrefixSize` automatiskt utifrån de befintliga virtuella nätverken i användarens prenumeration.
 - Standardvärdet för `defaultValue.name` och `defaultValue.addressPrefixSize` är **Null**.
-- `constraints.minAddressPrefixSize`måste anges. Alla befintliga virtuella nätverk med ett adress utrymme som är mindre än det angivna värdet är inte tillgängliga för markering.
-- `subnets`måste anges och `constraints.minAddressPrefixSize` måste anges för varje undernät.
+- `constraints.minAddressPrefixSize` måste anges. Alla befintliga virtuella nätverk med ett adress utrymme som är mindre än det angivna värdet är inte tillgängliga för markering.
+- `subnets` måste anges och `constraints.minAddressPrefixSize` måste anges för varje undernät.
 - När du skapar ett nytt virtuellt nätverk beräknas varje undernäts adressprefix automatiskt baserat på det virtuella nätverkets adressprefix och respektive `addressPrefixSize` .
 - När du använder ett befintligt virtuellt nätverk är alla undernät som är mindre än respektive inte `constraints.minAddressPrefixSize` tillgängliga för markering. Dessutom är undernät som inte har minst `minAddressCount` tillgängliga adresser inte tillgängliga för markering. Standardvärdet är **0**. Om du vill se till att de tillgängliga adresserna är sammanhängande anger du **Sant** för `requireContiguousAddresses` . Standardvärdet är **True**.
 - Det finns inte stöd för att skapa undernät i ett befintligt virtuellt nätverk.

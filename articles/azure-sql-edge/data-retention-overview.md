@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
 ms.openlocfilehash: bb059a946c03f41e5b65944eec67070f84ee6b08
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90976335"
 ---
 # <a name="data-retention-overview"></a>Översikt över datakvarhållning
@@ -42,7 +42,7 @@ När data kvarhållning har kon figurer ATS för en tabell körs en bakgrunds ak
 - Det går inte att aktivera datakvarhållning för en temporal historik tabell
 - Datakvarhållning filter colomn kan inte ändras. Om du vill ändra kolumnen inaktiverar du datakvarhållning i tabellen.  
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Machine Learning och artificiell intelligens med ONNX i SQL Edge](onnx-overview.md).
 - [Skapa en IoT-lösning från slut punkt till slut punkt med SQL Edge med hjälp av IoT Edge](tutorial-deploy-azure-resources.md).

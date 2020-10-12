@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1731d5ea5d8db9ea1c5855a32d2daca0387c0bf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763218"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Hantera certifikat för federerad enkel inloggning i Azure Active Directory
@@ -59,12 +59,12 @@ Skapa och spara först ett nytt certifikat med ett annat förfallo datum:
 1. Välj det program som påverkas. En översikts sida för programmet visas.
 1. I det vänstra fönstret på sidan program översikt väljer du **enkel inloggning**.
 1. Om sidan **Välj en enkel inloggnings metod** visas väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML-förhands granskning** letar du upp certifikat rubriken för **SAML-signering** och väljer **redigerings** ikonen (en blyertspenna). Sidan **SAML-signeringscertifikat** visas, som visar status (**aktiv** eller **inaktiv**), utgångs datum och tumavtryck (en hash-sträng) för varje certifikat.
+1. På sidan **Konfigurera en enskild Sign-On med SAML-Preview** letar du upp certifikat rubriken för **SAML-signering** och väljer **redigerings** ikonen (en blyertspenna). Sidan **SAML-signeringscertifikat** visas, som visar status (**aktiv** eller **inaktiv**), utgångs datum och tumavtryck (en hash-sträng) för varje certifikat.
 1. Välj **nytt certifikat**. En ny rad visas under certifikat listan, där utgångs datum har ett standardvärde på exakt tre år efter det aktuella datumet. (Dina ändringar har inte sparats ännu, så du kan fortfarande ändra förfallo datumet.)
 1. Hovra över kolumnen utgångs datum i den nya certifikat raden och välj ikonen **Välj datum** (en kalender). En kalender kontroll visas, och visar dagar i månaden för den nya radens aktuella förfallo datum.
 1. Använd kalender kontrollen för att ange ett nytt datum. Du kan ange ett datum mellan det aktuella datumet och tre år efter det aktuella datumet.
 1. Välj **Spara**. Det nya certifikatet visas nu med statusen **inaktiv**, det utgångs datum som du har valt och ett tumavtryck.
-1. Välj **X** för att återgå till sidan **Konfigurera enkel inloggning med SAML-Preview** .
+1. Välj **X** för att återgå till sidan **Konfigurera enkla Sign-On med SAML-Preview** .
 
 ### <a name="upload-and-activate-a-certificate"></a>Ladda upp och aktivera ett certifikat
 

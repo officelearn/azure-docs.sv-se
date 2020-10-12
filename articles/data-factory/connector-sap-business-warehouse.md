@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 86d4f82b70a6b6b3ceed262cf96fa291e26dd53c
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87534387"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse med Azure Data Factory
@@ -69,13 +69,13 @@ Följande egenskaper stöds för den länkade tjänsten SAP Business Warehouse (
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **SapBw** | Yes |
-| server | Namnet på den server där SAP BW-instansen finns. | Yes |
-| systemNumber | System numret för det SAP BW systemet.<br/>Tillåtet värde: tvåsiffrigt decimal tal representeras som en sträng. | Yes |
-| ClientID | Klient-ID för klienten i SAP W-systemet.<br/>Tillåtet värde: tre-siffrigt decimal tal representeras som en sträng. | Yes |
-| userName | Namnet på den användare som har åtkomst till SAP-servern. | Yes |
-| password | Lösenordet för användaren. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Yes |
+| typ | Egenskapen Type måste anges till: **SapBw** | Ja |
+| server | Namnet på den server där SAP BW-instansen finns. | Ja |
+| systemNumber | System numret för det SAP BW systemet.<br/>Tillåtet värde: tvåsiffrigt decimal tal representeras som en sträng. | Ja |
+| ClientID | Klient-ID för klienten i SAP W-systemet.<br/>Tillåtet värde: tre-siffrigt decimal tal representeras som en sträng. | Ja |
+| userName | Namnet på den användare som har åtkomst till SAP-servern. | Ja |
+| password | Lösenordet för användaren. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Ja |
 
 **Exempel:**
 
@@ -137,8 +137,8 @@ För att kopiera data från SAP BW, stöds följande egenskaper i avsnittet Kopi
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **SapBwSource** | Yes |
-| DocumentDB | Anger MDX-frågan för att läsa data från SAP BW-instansen. | Yes |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **SapBwSource** | Ja |
+| DocumentDB | Anger MDX-frågan för att läsa data från SAP BW-instansen. | Ja |
 
 **Exempel:**
 

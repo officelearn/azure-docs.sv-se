@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/22/2020
 ms.openlocfilehash: 92cc94170a01aceaa3e6bd058f4ae6628db04f18
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87529593"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiera data från SAP HANA med Azure Data Factory
@@ -67,11 +67,11 @@ Följande egenskaper stöds för SAP HANA länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **SapHana** | Yes |
-| Begär | Ange information som behövs för att ansluta till SAP HANA med hjälp av **grundläggande autentisering** eller **Windows-autentisering**. Se följande exempel.<br>I anslutnings strängen är server/port obligatorisk (standard porten är 30015) och användar namn och lösen ord är obligatoriska när du använder grundläggande autentisering. Mer avancerade inställningar finns i [SAP HANA egenskaper för ODBC-anslutning](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>Du kan också ställa in lösen ord i Azure Key Vault och hämta lösen ords konfigurationen från anslutnings strängen. Se [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Yes |
-| userName | Ange användar namn när du använder Windows-autentisering. Exempel: `user@domain.com` | No |
-| password | Ange lösen ordet för användar kontot. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | No |
-| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Yes |
+| typ | Egenskapen Type måste anges till: **SapHana** | Ja |
+| Begär | Ange information som behövs för att ansluta till SAP HANA med hjälp av **grundläggande autentisering** eller **Windows-autentisering**. Se följande exempel.<br>I anslutnings strängen är server/port obligatorisk (standard porten är 30015) och användar namn och lösen ord är obligatoriska när du använder grundläggande autentisering. Mer avancerade inställningar finns i [SAP HANA egenskaper för ODBC-anslutning](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>Du kan också ställa in lösen ord i Azure Key Vault och hämta lösen ords konfigurationen från anslutnings strängen. Se [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
+| userName | Ange användar namn när du använder Windows-autentisering. Exempel: `user@domain.com` | Inga |
+| password | Ange lösen ordet för användar kontot. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Ja |
 
 **Exempel: Använd grundläggande autentisering**
 
@@ -148,7 +148,7 @@ Följande egenskaper stöds för att kopiera data från SAP HANA:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **SapHanaTable** | Yes |
+| typ | Data uppsättningens typ-egenskap måste anges till: **SapHanaTable** | Ja |
 | schema | Namnet på schemat i SAP HANA databasen. | Nej (om "fråga" i aktivitets källan har angetts) |
 | tabell | Namnet på tabellen i SAP HANA databasen. | Nej (om "fråga" i aktivitets källan har angetts) |
 
@@ -187,9 +187,9 @@ För att kopiera data från SAP HANA, stöds följande egenskaper i avsnittet Ko
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **SapHanaSource** | Yes |
-| DocumentDB | Anger SQL-frågan för att läsa data från SAP HANA-instansen. | Yes |
-| partitionOptions | Anger de data partitionerings alternativ som används för att mata in data från SAP HANA. Läs mer från [SAP HANA avsnittet om parallell kopiering](#parallel-copy-from-sap-hana) .<br>Tillåtna värden är: **ingen**   (standard), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Läs mer från [SAP HANA avsnittet om parallell kopiering](#parallel-copy-from-sap-hana) . `PhysicalPartitionsOfTable`kan endast användas när du kopierar data från en tabell men inte frågar. <br>När ett partitions alternativ är aktiverat (dvs. inte `None` ), kontrol leras graden av parallellitet för att samtidigt läsa in data från SAP HANA av [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) inställningen på kopierings aktiviteten. | Falskt |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **SapHanaSource** | Ja |
+| DocumentDB | Anger SQL-frågan för att läsa data från SAP HANA-instansen. | Ja |
+| partitionOptions | Anger de data partitionerings alternativ som används för att mata in data från SAP HANA. Läs mer från  [SAP HANA avsnittet om parallell kopiering](#parallel-copy-from-sap-hana) .<br>Tillåtna värden är: **ingen**   (standard), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Läs mer från  [SAP HANA avsnittet om parallell kopiering](#parallel-copy-from-sap-hana) . `PhysicalPartitionsOfTable` kan endast användas när du kopierar data från en tabell men inte frågar. <br>När ett partitions alternativ är aktiverat (dvs. inte `None` ), kontrol leras graden av parallellitet för att samtidigt läsa in data från SAP HANA av [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) inställningen på kopierings aktiviteten. | Falskt |
 | partitionSettings | Ange gruppen med inställningar för data partitionering.<br>Använd när partition alternativet är `SapHanaDynamicRange` . | Falskt |
 | partitionColumnName | Ange namnet på den käll kolumn som ska användas av en partition för parallell kopiering. Om detta inte anges identifieras indexet eller primär nyckeln för tabellen automatiskt och används som partition-kolumn.<br>Använd när alternativet partition är  `SapHanaDynamicRange` . Om du använder en fråga för att hämta källdata, Hook  `?AdfHanaDynamicRangePartitionCondition` i WHERE-satsen. Se exempel i [parallell kopiering från SAP HANA](#parallel-copy-from-sap-hana) -avsnittet. | Ja när du använder `SapHanaDynamicRange` partition. |
 | packetSize | Anger storleken på nätverks paketet (i kilobyte) för att dela data till flera block. Om du har stora mängder data som ska kopieras kan ökande paket storlek öka Läs hastigheten från SAP HANA i de flesta fall. Prestanda testning rekommenderas när du justerar paket storleken. | Nej.<br>Standardvärdet är 2048 (2 MB). |
@@ -285,7 +285,7 @@ När du kopierar data från SAP HANA används följande mappningar från SAP HAN
 | INTEGER            | Int32                          |
 | NCLOB              | Sträng                         |
 | NVARCHAR           | Sträng                         |
-| REAL               | Enskilt                         |
+| REAL               | Enkel                         |
 | SECONDDATE         | DateTime                       |
 | SHORTTEXT          | Sträng                         |
 | SMALLDECIMAL       | Decimal                        |

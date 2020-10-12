@@ -8,10 +8,10 @@ ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87062066"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Förstå digitala sammanflätade och deras dubbla diagram
@@ -21,7 +21,7 @@ I en Azure digital-lösning för dubbla lösningar representeras entiteterna i d
 > [!TIP]
 > "Azure Digital-dubbla" syftar på den här Azure-tjänsten som helhet. "Digitals dubbla (s)" eller "dubbla (s)" syftar på enskilda dubbla noder i din instans av tjänsten.
 
-## <a name="digital-twins"></a>Digitala dubbla
+## <a name="digital-twins"></a>Digitala tvillingenheter
 
 Innan du kan skapa en digital i din Azure Digitals-instans måste du ha en *modell* som överförs till tjänsten. En modell beskriver uppsättningen egenskaper, telemetri-meddelanden och relationer som en viss, t. ex. kan ha, bland annat. Information om vilka typer av information som definieras i en modell finns i [*begrepp: anpassade modeller*](concepts-models.md).
 
@@ -116,11 +116,11 @@ När ett digitalt objekt visas som ett JSON-objekt visas följande fält:
 | `$metadata.{propertyName}.desiredValue` | [Endast för skrivbara egenskaper] Det önskade värdet för den angivna egenskapen |
 | `$metadata.{propertyName}.desiredVersion` | [Endast för skrivbara egenskaper] Versionen för det önskade värdet |
 | `$metadata.{propertyName}.ackVersion` | Versionen som bekräftats av enhets appen som implementerar den digitala dubbla |
-| `$metadata.{propertyName}.ackCode` | [Endast för skrivbara egenskaper] `ack`Koden som returneras av enhets appen som implementerar den digitala dubbla |
-| `$metadata.{propertyName}.ackDescription` | [Endast för skrivbara egenskaper] `ack`Beskrivningen som returneras av enhets appen som implementerar den digitala dubbla |
+| `$metadata.{propertyName}.ackCode` | [Endast för skrivbara egenskaper] `ack` Koden som returneras av enhets appen som implementerar den digitala dubbla |
+| `$metadata.{propertyName}.ackDescription` | [Endast för skrivbara egenskaper] `ack` Beskrivningen som returneras av enhets appen som implementerar den digitala dubbla |
 | `{componentName}` | Ett JSON-objekt som innehåller komponentens egenskaps värden och metadata som liknar dem för rotobjektet. Det här objektet finns även om komponenten inte har några egenskaper. |
 | `{componentName}.{propertyName}` | Värdet för komponentens egenskap i JSON ( `string` , tal typ eller objekt) |
-| `{componentName}.$metadata` | Metadata-informationen för komponenten, som liknar rot nivån`$metadata` |
+| `{componentName}.$metadata` | Metadata-informationen för komponenten, som liknar rot nivån `$metadata` |
 
 Här är ett exempel på en digital, dubbels formaterad som ett JSON-objekt:
 

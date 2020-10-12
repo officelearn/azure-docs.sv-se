@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
 ms.openlocfilehash: 09fef350a0ff8cc8c2481acd7b8f74cee15d1b9d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86075560"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Använd SSH-tunnlar för att komma åt Apache Ambari Web UI, JobHistory, NameNode, Apache Oozie och andra UIs
@@ -40,7 +40,7 @@ Tjänster som installeras med skript åtgärder som exponerar en webb tjänst kr
 
 [SSH-tunnlar (Secure Shell)](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) ansluter en port på den lokala datorn till en head-nod i HDInsight. Trafik som skickas till den lokala porten dirigeras via en SSH-anslutning till Head-noden. Begäran löses som om den kommer från Head-noden. Svaret dirigeras sedan tillbaka via tunneln till din arbets Station.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -64,7 +64,7 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
 Det här kommandot skapar en anslutning som dirigerar trafik till den lokala porten 9876 till klustret via SSH. Alternativen är:
 
-|Alternativ |Description |
+|Alternativ |Beskrivning |
 |---|---|
 |D 9876|Den lokala porten som dirigerar trafik via tunneln.|
 |C|Komprimera alla data eftersom webb trafik huvudsakligen är text.|

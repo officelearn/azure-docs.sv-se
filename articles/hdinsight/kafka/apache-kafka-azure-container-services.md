@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
 ms.openlocfilehash: baf350e23025342cc74b4d063d9a1604e8ad2ffd
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087430"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Använda Azure Kubernetes-tjänsten med Apache Kafka på HDInsight
@@ -24,7 +24,7 @@ Lär dig hur du använder Azure Kubernetes service (AKS) med [Apache Kafka](http
 > [!NOTE]  
 > Det här dokumentet fokuserar på de steg som krävs för att aktivera Azure Kubernetes-tjänsten för att kommunicera med Kafka på HDInsight. Själva exemplet är bara en grundläggande Kafka-klient för att demonstrera att konfigurationen fungerar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * En Azure-prenumeration
@@ -94,7 +94,7 @@ Om du inte redan har ett AKS-kluster kan du använda något av följande dokumen
     |---|---|
     |Peer-kopplingens namn från \<this VN> till det virtuella fjärrnätverket|Ange ett unikt namn för peering-konfigurationen.|
     |Virtuellt nätverk|Välj det virtuella nätverket för **AKS-klustret**.|
-    |Namn på peer koppling från \<AKS VN> till\<this VN>|Ange ett unikt namn.|
+    |Namn på peer koppling från \<AKS VN> till \<this VN>|Ange ett unikt namn.|
 
     Lämna alla andra fält i standardvärdet och välj sedan __OK__ för att konfigurera peer koppling.
 

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/30/2020
 ms.openlocfilehash: ead79ca0a37a270f03a305064c80426553db59ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82628545"
 ---
 # <a name="scenario-cluster-node-runs-out-of-disk-space-in-azure-hdinsight"></a>Scenario: klusternoden tar slut på disk utrymme i Azure HDInsight
@@ -20,7 +20,7 @@ Den här artikeln beskriver fel söknings steg och möjliga lösningar för prob
 
 ## <a name="issue"></a>Problem
 
-Ett jobb kan Miss lyckas med ett fel meddelande som liknar:`/usr/hdp/2.6.3.2-14/hadoop/libexec/hadoop-config.sh: fork: No space left on device.`
+Ett jobb kan Miss lyckas med ett fel meddelande som liknar: `/usr/hdp/2.6.3.2-14/hadoop/libexec/hadoop-config.sh: fork: No space left on device.`
 
 Eller så kan du få Apache Ambari-aviseringar som liknar: `local-dirs usable space is below configured utilization percentage` .
 

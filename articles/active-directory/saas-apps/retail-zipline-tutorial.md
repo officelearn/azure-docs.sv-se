@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/23/2020
 ms.author: jeedes
 ms.openlocfilehash: db154cea379a3bac4d2fab33968c886c4665db45
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91373686"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-retail-zipline"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Retail zipline
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig hur du integrerar återförsäljar-zi
 * Gör det möjligt för användarna att logga in automatiskt till Retail-zipline med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -115,7 +115,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 

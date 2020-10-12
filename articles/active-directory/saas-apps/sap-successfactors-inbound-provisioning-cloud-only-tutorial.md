@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
 ms.openlocfilehash: b7571b0a064e10faf5f002c9487ecc804ac78665
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90017905"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>Självstudie: konfigurera SAP-SuccessFactors till användar etablering i Azure AD
@@ -244,7 +244,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från Success
 
          * **Endast vid skapande** – Använd endast den här mappningen för åtgärder för att skapa användare
 
-1. Spara dina mappningar genom att klicka på **Spara** överst i avsnittet attribut-mappning.
+1. Spara dina mappningar genom att klicka på **Spara** överst i Attribute-Mapping avsnittet.
 
 När du har slutfört konfigurationen av attributmappning kan du nu [Aktivera och starta användar etablerings tjänsten](#enable-and-launch-user-provisioning).
 
@@ -272,7 +272,7 @@ När SuccessFactors-konfigurationen har slutförts kan du aktivera etablerings t
 
 * [Läs mer om SuccessFactors-attribut som stöds för inkommande etablering](../app-provisioning/sap-successfactors-attribute-reference.md)
 * [Lär dig hur du konfigurerar tillbakaskrivning av e-post till SuccessFactors](sap-successfactors-writeback-tutorial.md)
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 * [Lär dig hur du konfigurerar enkel inloggning mellan SuccessFactors och Azure Active Directory](successfactors-tutorial.md)
 * [Lär dig hur du integrerar andra SaaS-program med Azure Active Directory](tutorial-list.md)
 * [Lär dig hur du exporterar och importerar dina etablerings konfigurationer](../app-provisioning/export-import-provisioning-configuration.md)

@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: 9ee804f7bed01ca0c7f365a04e6108afd9598157
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87066397"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Konfigurera en enskild IP-adress för en eller flera integrerings tjänst miljöer i Azure Logic Apps
@@ -52,7 +52,7 @@ Det här avsnittet visar hur du dirigerar utgående trafik via en Azure-brandvä
    | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
    | **Vägnamn** | <*unikt flöde-namn*> | Ett unikt namn för vägen i routningstabellen |
-   | **Adressprefix** | <*mål adress*> | Adressprefixet för ditt mål system där du vill att utgående trafik ska gå. Se till att du använder [CIDR-notering (Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) för den här adressen. I det här exemplet är detta adressprefix för en SFTP-server, som beskrivs i avsnittet [Konfigurera nätverks regel](#set-up-network-rule). |
+   | **Adressprefix** | <*mål adress*> | Adressprefixet för ditt mål system där du vill att utgående trafik ska gå. Se till att du använder [CIDR-notation (classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) för den här adressen. I det här exemplet är detta adressprefix för en SFTP-server, som beskrivs i avsnittet [Konfigurera nätverks regel](#set-up-network-rule). |
    | **Nästa hopp typ** | **Virtuell installation** | [Hopp typen](../virtual-network/virtual-networks-udr-overview.md#next-hop-types-across-azure-tools) som används av utgående trafik |
    | **Nexthop-adress** | <*brand vägg – privat IP-adress*> | Den privata IP-adressen för din brand vägg |
    |||
@@ -95,7 +95,7 @@ Det här avsnittet visar hur du dirigerar utgående trafik via en Azure-brandvä
 
    * [Konfigurera en nätverksregel](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule)
    * [Regelbearbetningslogik för Azure Firewall](../firewall/rule-processing.md#network-rules-and-applications-rules)
-   * [Vanliga frågor och svar om Azure-brandvägg](../firewall/firewall-faq.md)
+   * [Vanliga frågor och svar om Azure Firewall](../firewall/firewall-faq.md)
    * [Azure PowerShell: New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule)
    * [Azure CLI: AZ Network Firewall Network-Rule](/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
 

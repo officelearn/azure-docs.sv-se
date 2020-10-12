@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2018
 ms.openlocfilehash: aa1d8ff0743399d96436f33426ebc4c4ab4a29f6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045645"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Testa Stream Analytics frågor lokalt med Visual Studio
@@ -57,7 +57,7 @@ Kontrol lera resultaten i den lokala mappen.
 ![Resultat från lokal mapp](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-03.png)
    
 
-### <a name="sample-input"></a>Exempel på inmatade
+### <a name="sample-input"></a>Exempelindata
 Du kan också samla in exempel indata från dina indata-källor till en lokal fil. Högerklicka på konfigurations filen för indata och välj **exempel data**. 
 
 ![Exempeldata](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)

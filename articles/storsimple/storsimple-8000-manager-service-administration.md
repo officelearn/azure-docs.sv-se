@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
 ms.openlocfilehash: c8d8e3b9058b753dc2a6da35878449c94399225e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85508052"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Använd tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet
@@ -72,7 +72,7 @@ Klicka på lämplig procedur i tabellen om du vill ha mer information om varje a
 | Visa webbproxy-inställningar |[Konfigurera webbproxy för din enhet](storsimple-8000-configure-web-proxy.md) |
 | Ändra enhetens administratörs lösen ord</br>Ändra StorSimple Snapshot Manager-lösenord |[Ändra StorSimple-lösenord](storsimple-8000-change-passwords.md) |
 | Konfigurera fjärrhantering |[Fjärrans luta till din StorSimple-enhet](storsimple-8000-remote-connect.md) |
-| Konfigurera aviserings inställningar |[Visa och hantera StorSimple-aviseringar](storsimple-8000-manage-alerts.md) |
+| Konfigurera aviseringsinställningar |[Visa och hantera StorSimple-aviseringar](storsimple-8000-manage-alerts.md) |
 | Konfigurera CHAP för din StorSimple-enhet |[Konfigurera CHAP för din StorSimple-enhet](storsimple-configure-chap.md) |
 | Lägga till en säkerhetskopieringspolicy</br>Lägg till eller ändra ett schema</br>Ta bort en princip för säkerhets kopiering</br>Gör en manuell säkerhets kopiering</br>Skapa en anpassad säkerhets kopierings princip med flera volymer och scheman |[Hantera säkerhetskopieringsprinciper](storsimple-8000-manage-backup-policies-u2.md) |
 | Stoppa enhets styrenheter</br>Starta om enhets styrenheter</br>Stänga av enhets styrenheter</br>Återställa enheten till fabriks inställningarna</br>(Ovan gäller endast för lokala enheter) |[Hantera StorSimple enhets styrenhet](storsimple-8000-manage-device-controller.md) |

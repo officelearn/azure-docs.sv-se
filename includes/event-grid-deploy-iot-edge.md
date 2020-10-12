@@ -9,10 +9,10 @@ ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 0fc6a62a94f31617209bcc60bfaa95bc8927551a
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86050312"
 ---
 ## <a name="deploy-event-grid-iot-edge-module"></a>Distribuera Event Grid IoT Edge modul
@@ -27,7 +27,7 @@ Det finns flera sätt att distribuera moduler till en IoT Edge-enhet och alla fu
  
 ### <a name="select-your-iot-edge-device"></a>Välj din IoT Edge enhet
 
-1. Logga in på [Azure Portal](https://portal.azure.com)
+1. Logga in på [Azure-portalen](https://portal.azure.com)
 1. Navigera till din IoT Hub.
 1. Välj **IoT Edge** på menyn i avsnittet **Automatisk enhets hantering** . 
 1. Klicka på mål enhetens ID i listan över enheter
@@ -46,7 +46,7 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
 [!INCLUDE [event-grid-edge-module-version-update](event-grid-edge-module-version-update.md)]
 
    * **Namn**: eventgridmodule
-   * **Bild-URI**:`mcr.microsoft.com/azure-event-grid/iotedge:latest`
+   * **Bild-URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Alternativ för att skapa behållare**:
 
 ```json

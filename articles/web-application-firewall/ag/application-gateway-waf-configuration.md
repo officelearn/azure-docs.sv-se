@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: ddf631601510e725d77cc391ad41192a47ab0cf1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84752477"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Begär ande storleks gränser och undantags listor för WebApplication-brandvägg
@@ -24,9 +24,9 @@ Brand väggen för webbaserade program (WAF) i Azure Application Gateway tillhan
 
 Med undantags listor för WAF kan du utelämna vissa begär ande attribut från en WAF-utvärdering. Ett vanligt exempel är Active Directory infogade token som används för autentiserings-eller lösen ords fält. Sådana attribut är känsliga att innehålla specialtecken som kan utlösa ett falskt positivt värde från WAF-reglerna. När ett attribut har lagts till i undantags listan för WAF beaktas det inte av någon konfigurerad och aktiv WAF-regel. Undantags listor är globala i definitions området.
 
-Följande attribut kan läggas till i undantags listor efter namn. Värdena för det valda fältet utvärderas inte mot WAF-regler, men deras namn är fortfarande (se exempel 1 nedan) värdet för användar agentens huvud undantas från WAF-utvärderingen). Undantags listorna tar bort kontrollen av fältets värde.
+Följande attribut kan läggas till i undantags listor efter namn. Värdena i det valda fältet utvärderas inte mot WAF-regler, men deras namn är fortfarande (se exempel 1 nedan) User-Agents huvudets värde undantas från WAF-utvärderingen). Undantags listorna tar bort kontrollen av fältets värde.
 
-* Rubriker för begäran
+* Begärandehuvuden
 * Begär cookies
 * Attribut för begäran (argument) kan läggas till som ett undantags element, till exempel:
 

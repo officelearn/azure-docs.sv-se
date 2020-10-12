@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: a38d65e66debd8e718964efdce27fe42772d8e0a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91315549"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Förstå resultat från automatiserad maskininlärning
@@ -30,7 +30,7 @@ Läs mer om:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * Skapa ett experiment för din automatiserade Machine Learning-körning, antingen med SDK eller i Azure Machine Learning Studio.
 

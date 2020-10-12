@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: d7c7cf335336cc552adaf5d9490bc58d64b0cdc9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85515448"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Använd tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple virtuella matris
@@ -63,7 +63,7 @@ Klicka på lämplig procedur i tabellen om du vill ha mer information om varje a
 | Om lagrings konton</br>Lägg till ett lagrings konto</br>Redigera ett lagrings konto</br>Ta bort ett lagringskonto |[Hantera lagrings konton för den virtuella StorSimple-matrisen](storsimple-virtual-array-manage-storage-accounts.md) |
 | Om åtkomst kontroll poster</br>Lägga till eller ändra en åtkomst kontroll post </br>Ta bort en åtkomst kontroll post |[Hantera åtkomst kontroll poster för den virtuella StorSimple-matrisen](storsimple-virtual-array-manage-acrs.md) |
 | Visa jobbinformation |[Hantera StorSimple virtuella mat ris jobb](storsimple-virtual-array-manage-jobs.md) |
-| Konfigurera aviserings inställningar</br>Få varningsmeddelanden</br>Hantera aviseringar</br>Granska aviseringar |[Visa och hantera aviseringar för den virtuella StorSimple-matrisen](storsimple-virtual-array-manage-alerts.md) |
+| Konfigurera aviseringsinställningar</br>Få varningsmeddelanden</br>Hantera aviseringar</br>Granska aviseringar |[Visa och hantera aviseringar för den virtuella StorSimple-matrisen](storsimple-virtual-array-manage-alerts.md) |
 | Ändra enhetens administratörs lösen ord |[Ändra administratörs lösen ordet för virtuell StorSimple-enhet](storsimple-virtual-array-change-device-admin-password.md) |
 | Installera program uppdateringar |[Uppdatera din virtuella matris](storsimple-virtual-array-install-update.md) |
 

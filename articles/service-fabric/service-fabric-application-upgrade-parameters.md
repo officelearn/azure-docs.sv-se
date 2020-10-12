@@ -4,10 +4,10 @@ description: Beskriver parametrar för att uppgradera ett Service Fabric program
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 6b6116bf1188fcf191b2d672e6c698bb3c050e6c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86247973"
 ---
 # <a name="application-upgrade-parameters"></a>Programuppgraderingsparametrar
@@ -15,7 +15,7 @@ I den här artikeln beskrivs de olika parametrarna som gäller under uppgraderin
 - PowerShell
 - Visual Studio
 - SFCTL
-- [FLESTA](/rest/api/servicefabric/sfclient-api-startapplicationupgrade)
+- [REST](/rest/api/servicefabric/sfclient-api-startapplicationupgrade)
 
 Program uppgraderingar initieras via ett av tre uppgraderings lägen som kan väljas. Varje läge har en egen uppsättning program parametrar:
 - Övervakas
@@ -52,7 +52,7 @@ Parametrarna för hälso utvärdering är valfria. Om villkoren för hälso utv�
 > | --- | --- | --- |
 > | ApplicationParameter |PS, VS| Anger åsidosättningar för program parametrar.<br>PowerShell-programparametrar anges som hash-namn/värdepar. Till exempel @ {"VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1"}.<br>Visual Studio-programparametrar kan anges i dialog rutan publicera Service Fabric program i fältet **program parameter fil** .
 > | Bekräfta |PS| Tillåtna värden är **True** och **false**. Du uppmanas att bekräfta innan du kör cmdleten. |
-> | ConsiderWarningAsError |PS, VS |Tillåtna värden är **True** och **false**. Standardvärdet är **Falskt**. Behandla varnings hälso händelser för programmet som fel vid utvärdering av programmets hälso tillstånd under uppgraderingen. Som standard utvärderar Service Fabric inte varnings hälso händelser för fel (fel), så uppgraderingen kan fortsätta även om det finns varnings händelser. |
+> | ConsiderWarningAsError |PS, VS |Tillåtna värden är **True** och **false**. Standardvärdet är **false**. Behandla varnings hälso händelser för programmet som fel vid utvärdering av programmets hälso tillstånd under uppgraderingen. Som standard utvärderar Service Fabric inte varnings hälso händelser för fel (fel), så uppgraderingen kan fortsätta även om det finns varnings händelser. |
 > | DefaultServiceTypeHealthPolicy | PS, VS |Anger hälso principen för den standard tjänst typ som ska användas för den övervakade uppgraderingen i formatet MaxPercentUnhealthyPartitionsPerService, MaxPercentUnhealthyReplicasPerPartition, MaxPercentUnhealthyServices. Till exempel innehåller 5, 10, 15 följande värden: MaxPercentUnhealthyPartitionsPerService = 5, MaxPercentUnhealthyReplicasPerPartition = 10, MaxPercentUnhealthyServices = 15. |
 > | Force | PS, VS | Tillåtna värden är **True** och **false**. Anger att uppgraderings processen hoppar över varnings meddelandet och tvingar fram uppgraderingen även om versions numret inte har ändrats. Detta är användbart för lokal testning, men rekommenderas inte för användning i en produktions miljö eftersom den kräver att den befintliga distributionen tas bort, vilket leder till data förlust. |
 > | ForceRestart |PS, VS |Om du uppdaterar en konfiguration eller ett data paket utan att uppdatera tjänst koden startas tjänsten om endast om ForceRestart-egenskapen har angetts till **True**. När uppdateringen är klar meddelar Service Fabric tjänsten om att ett nytt konfigurations paket eller ett nytt data paket är tillgängligt. Tjänsten ansvarar för att tillämpa ändringarna. Om det behövs kan tjänsten starta om sig själv. |
@@ -82,7 +82,7 @@ Service Fabric program uppgraderingar med hjälp av Service Fabric CLI använder
 | --- | --- |
 | program-ID  |ID för programmet som uppgraderas. <br> Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric:". Från och med version 6,0 avgränsas hierarkiska namn med- \~ symbolen. Om program namnet exempelvis är Fabric:/MyApp/APP1, skulle program identiteten vara ' MyApp \~ APP1 ' i 6.0 + och ' MyApp/APP1 ' i tidigare versioner.|
 program version |Den version av program typen som uppgraderings målen gäller.|
-parameters  |En JSON-kodad lista över program parameter åsidosättningar som ska tillämpas vid uppgradering av programmet.|
+parametrar  |En JSON-kodad lista över program parameter åsidosättningar som ska tillämpas vid uppgradering av programmet.|
 
 ### <a name="optional-parameters"></a>Valfria parametrar
 
@@ -101,7 +101,7 @@ tjänstens hälso tillstånd | JSON-kodad karta med tjänst typens hälso princi
 timeout | Anger tids gräns tiden i sekunder för åtgärden. Standard: 60. |
 uppgradering – domän-timeout | Hur lång tid varje uppgraderings domän måste vara slutförd innan *FailureAction* körs. Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. Standardvärdet är aldrig (oändligt) och bör anpassas på lämpligt sätt för ditt program. Standard: P10675199DT02H48M 05.4775807 S. |
 uppgradering-timeout | Hur lång tid varje uppgraderings domän måste vara slutförd innan *FailureAction* körs. Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. Standardvärdet är aldrig (oändligt) och bör anpassas på lämpligt sätt för ditt program. Standard: P10675199DT02H48M 05.4775807 S.|
-varning-som-fel | Tillåtna värden är **True** och **false**. Standardvärdet är **Falskt**. Kan skickas som en flagga. Behandla varnings hälso händelser för programmet som fel vid utvärdering av programmets hälso tillstånd under uppgraderingen. Som standard utvärderar Service Fabric inte varnings hälso händelser för fel (fel), så uppgraderingen kan fortsätta även om det finns varnings händelser. |
+varning-som-fel | Tillåtna värden är **True** och **false**. Standardvärdet är **false**. Kan skickas som en flagga. Behandla varnings hälso händelser för programmet som fel vid utvärdering av programmets hälso tillstånd under uppgraderingen. Som standard utvärderar Service Fabric inte varnings hälso händelser för fel (fel), så uppgraderingen kan fortsätta även om det finns varnings händelser. |
 
 ## <a name="next-steps"></a>Nästa steg
 Genom [att uppgradera programmet med Visual Studio](service-fabric-application-upgrade-tutorial.md) går du igenom en program uppgradering med Visual Studio.

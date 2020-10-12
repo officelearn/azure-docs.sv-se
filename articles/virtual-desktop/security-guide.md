@@ -7,10 +7,10 @@ ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88002287"
 ---
 # <a name="security-best-practices"></a>Rekommenderade säkerhetsmetoder
@@ -42,7 +42,7 @@ Här är de säkerhets behov som du är ansvarig för i distributionen av Window
 
 Säkerheten behöver kunden är inte ansvarig för hanteras av Microsoft.
 
-## <a name="azure-security-best-practices"></a>Metod tips för Azure-säkerhet
+## <a name="azure-security-best-practices"></a>Metodtips för Azure Security
 
 Windows Virtual Desktop är en tjänst under Azure. För att maximera säkerheten för distributionen av virtuella Windows-datorer bör du se till att även skydda den omgivande Azure-infrastrukturen och hanterings planet. Om du vill skydda din infrastruktur bör du tänka på hur Windows Virtual Desktop passar in i ditt större Azure-eko system. Mer information om Azure-eko systemet finns i [metod tips och mönster för Azure-säkerhet](../security/fundamentals/best-practices-and-patterns.md).
 
@@ -80,7 +80,7 @@ Genom att aktivera [villkorlig åtkomst](../active-directory/conditional-access/
 
 Genom att aktivera Gransknings logg samling kan du Visa användar-och administratörs aktivitet som är relaterad till Windows Virtual Desktop. Några exempel på nyckel gransknings loggar är:
 
--   [Azure-aktivitetslogg](../azure-monitor/platform/activity-log-collect.md)
+-   [Azure aktivitets logg](../azure-monitor/platform/activity-log-collect.md)
 -   [Azure Active Directory aktivitets logg](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Värdar för sessioner](../azure-monitor/platform/agent-windows.md)

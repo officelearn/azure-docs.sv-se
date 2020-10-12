@@ -7,10 +7,10 @@ ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 42932d712d6c4a94cad28aec924b88fbc126662b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212795"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB bindning för Azure Functions 2. x och högre
@@ -1434,9 +1434,9 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**bastyp**     | saknas | Måste anges till `cosmosDB` .        |
-|**position**     | saknas | Måste anges till `in` .         |
-|**Namn**     | saknas | Namnet på den bindnings parameter som representerar dokumentet i funktionen.  |
+|**bastyp**     | Saknas | Måste anges till `cosmosDB` .        |
+|**position**     | Saknas | Måste anges till `in` .         |
+|**Namn**     | Saknas | Namnet på den bindnings parameter som representerar dokumentet i funktionen.  |
 |**Databas** |**DatabaseName** |Databasen som innehåller dokumentet.        |
 |**Samling** |**CollectionName** | Namnet på den samling som innehåller dokumentet. |
 |**id**    | **Identitet** | ID för det dokument som ska hämtas. Den här egenskapen stöder [bindnings uttryck](./functions-bindings-expressions-patterns.md). Ange inte både `id` egenskaperna och **sqlQuery** . Om du inte anger någon, hämtas hela samlingen. |

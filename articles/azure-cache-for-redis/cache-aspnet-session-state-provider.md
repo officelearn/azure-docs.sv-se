@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 05/01/2017
 ms.openlocfilehash: 7692bfda16ac1b8789ee49469c46ef8276c97f8a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88213297"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Provider av ASP.NET-sessionstillstånd för Azure Cache for Redis
@@ -125,7 +125,7 @@ När dessa steg har utförts är ditt program konfigurerat för att använda Azu
 * Provider för SQL Server-sessionstillstånd – denna provider lagrar sessionstillståndet i SQL Server. Använd den här providern om du vill lagra sessionstillståndet i beständig lagring. Du kan skala din webbapp, men att använda SQL Server för session har en prestanda påverkan på din webbapp. Du kan också använda providern med en [InMemory OLTP-konfiguration](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/11/28/asp-net-session-state-with-sql-server-in-memory-oltp/) för att förbättra prestanda.
 * Distribuerat i tillstånds leverantör för sessionstillstånd, till exempel Azure cache för Redis-providern för sessionstillstånd – den här leverantören ger dig det bästa av båda världar. Din webbapp kan ha en enkel, snabb och skalbar session för sessionstillstånd. Eftersom den här providern lagrar sessionstillståndet i en cache måste din app ta hänsyn till alla egenskaper som är associerade med att kommunicera med en distribuerad minnes-cache, till exempel tillfälliga nätverks haverier. Bästa praxis om hur du använder cache finns i [Guide för cachelagring](../best-practices-caching.md) från Microsoft patterns & praxis [Azure Cloud Application design och implementerings vägledning](https://github.com/mspnp/azure-guidance).
 
-Mer information om sessionstillstånd och andra bästa metoder finns i [metod tips för webb utveckling (skapa verkliga molnappar med Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
+Mer information om sessionstillstånd och andra bästa metoder finns i [metod tips för webb utveckling (skapa Real-World molnappar med Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
 ## <a name="third-party-session-state-providers"></a>Providers för sessionstillstånd från tredje part
 

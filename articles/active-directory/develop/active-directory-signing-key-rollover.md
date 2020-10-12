@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.openlocfilehash: b65ad1f22d20686a1ee47631f9209e1b15b0ab58
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88948138"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Signering av nyckel förnyelse i Microsoft Identity Platform
@@ -37,7 +37,7 @@ Hur ditt program hanterar nyckel förnyelse beror på variabler som typ av progr
 * [Interna klient program som har åtkomst till resurser](#nativeclient)
 * [Webb program/API: er som har åtkomst till resurser](#webclient)
 * [Webb program/API: er som skyddar resurser och bygger på Azure App Services](#appservices)
-* [Webb program/API: er som skyddar resurser med .NET OWIN OpenID Connect, WS-utfodras eller WindowsAzureActiveDirectoryBearerAuthentication mellan program](#owin)
+* [Webb program/API: er som skyddar resurser med .NET OWIN OpenID Connect, WS-Fed eller WindowsAzureActiveDirectoryBearerAuthentication mellan program](#owin)
 * [Webb program/API: er som skyddar resurser med .NET Core OpenID Connect eller JwtBearerAuthentication mellan program](#owincore)
 * [Webb program/API: er som skyddar resurser med Node.js Passport-Azure-AD-modul](#passport)
 * [Webb program/API: er som skyddar resurser och som skapats med Visual Studio 2015 eller senare](#vs2015)
@@ -65,8 +65,8 @@ Webb program och webb-API: er som använder app-only-flödet (klientautentiserin
 ### <a name="web-applications--apis-protecting-resources-and-built-using-azure-app-services"></a><a name="appservices"></a>Webb program/API: er som skyddar resurser och bygger på Azure App Services
 Azure App Services-funktionen för autentisering/auktorisering (EasyAuth) har redan den logik som krävs för att hantera förnyelse av nycklar automatiskt.
 
-### <a name="web-applications--apis-protecting-resources-using-net-owin-openid-connect-ws-fed-or-windowsazureactivedirectorybearerauthentication-middleware"></a><a name="owin"></a>Webb program/API: er som skyddar resurser med .NET OWIN OpenID Connect, WS-utfodras eller WindowsAzureActiveDirectoryBearerAuthentication mellan program
-Om ditt program använder .NET OWIN OpenID Connect, WS-utfodras eller WindowsAzureActiveDirectoryBearerAuthentication mellan program, har den redan den logik som krävs för att hantera nyckel förnyelse automatiskt.
+### <a name="web-applications--apis-protecting-resources-using-net-owin-openid-connect-ws-fed-or-windowsazureactivedirectorybearerauthentication-middleware"></a><a name="owin"></a>Webb program/API: er som skyddar resurser med .NET OWIN OpenID Connect, WS-Fed eller WindowsAzureActiveDirectoryBearerAuthentication mellan program
+Om ditt program använder .NET OWIN OpenID Connect, WS-Fed eller WindowsAzureActiveDirectoryBearerAuthentication mellan program, har den redan den logik som krävs för att hantera nyckel förnyelse automatiskt.
 
 Du kan bekräfta att ditt program använder något av dessa genom att söka efter något av följande kodfragment i programmets Startup.cs eller Startup.Auth.cs
 
@@ -284,7 +284,7 @@ Följ stegen nedan för att kontrol lera att logiken för nyckel förnyelse fung
           </keys>
    ```
 2. I **\<add thumbprint="">** inställningen ändrar du tumavtrycket genom att ersätta alla bokstäver med ett annat. Spara filen **Web.config**.
-3. Skapa programmet och kör det. Om du kan slutföra inloggnings processen uppdaterar programmet nyckeln genom att ladda ned den information som krävs från katalogens dokument för federationsmetadata. Om du har problem med att logga in bör du kontrol lera att ändringarna i programmet är korrekta genom att läsa den [lägga till inloggning i ditt webb program med hjälp av Microsoft Identity Platform](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) -artikeln eller ladda ned och inspektera följande kod exempel: [flera klient organisations program för Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
+3. Skapa programmet och kör det. Om du kan slutföra inloggnings processen uppdaterar programmet nyckeln genom att ladda ned den information som krävs från katalogens dokument för federationsmetadata. Om du har problem med att logga in, se till att ändringarna i programmet är korrekta genom att läsa [lägga till Sign-On i ditt webb program med hjälp av Microsoft Identity Platform](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) -artikeln eller ladda ned och inspektera följande kod exempel: [flera innehavares moln program för Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>Webb program skyddar resurser och har skapats med Visual Studio 2008 eller 2010 och Windows Identity Foundation (WIF) v 1.0 för .NET 3,5
 Om du har byggt ett program på WIF v 1.0 finns det ingen funktion för att automatiskt uppdatera programmets konfiguration för att använda en ny nyckel.

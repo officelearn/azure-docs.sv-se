@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.openlocfilehash: 83950c2d3c5439886ff787b69d9da4d0c214de31
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092549"
 ---
 # <a name="update-azure-machine-learning-studio-classic-models-by-using-update-resource-activity"></a>Uppdatera Azure Machine Learning Studio (klassiska) modeller med hjälp av aktiviteten uppdatera resurs
@@ -61,13 +61,13 @@ Följande JSON-kodfragment definierar en Azure Machine Learning Studio (klassisk
 
 | Egenskap                      | Beskrivning                              | Krävs |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | Namn på aktiviteten i pipelinen     | Yes      |
-| description                   | Text som beskriver vad aktiviteten gör.  | No       |
-| typ                          | För Azure Machine Learning Studio (klassisk) uppdatera resurs aktivitet är aktivitets typen **AzureMLUpdateResource**. | Yes      |
-| linkedServiceName             | Azure Machine Learning Studio (klassisk) länkad tjänst som innehåller egenskapen updateResourceEndpoint. | Yes      |
-| trainedModelName              | Namnet på den tränade modell modulen i webb tjänst experimentet som ska uppdateras | Yes      |
-| trainedModelLinkedServiceName | Namnet på Azure Storage länkade tjänsten som innehåller den ilearner-fil som överförs av uppdaterings åtgärden | Yes      |
-| trainedModelFilePath          | Den relativa fil Sök vägen i trainedModelLinkedService för att representera ilearner-filen som överförs av uppdaterings åtgärden | Yes      |
+| name                          | Namn på aktiviteten i pipelinen     | Ja      |
+| description                   | Text som beskriver vad aktiviteten gör.  | Inga       |
+| typ                          | För Azure Machine Learning Studio (klassisk) uppdatera resurs aktivitet är aktivitets typen  **AzureMLUpdateResource**. | Ja      |
+| linkedServiceName             | Azure Machine Learning Studio (klassisk) länkad tjänst som innehåller egenskapen updateResourceEndpoint. | Ja      |
+| trainedModelName              | Namnet på den tränade modell modulen i webb tjänst experimentet som ska uppdateras | Ja      |
+| trainedModelLinkedServiceName | Namnet på Azure Storage länkade tjänsten som innehåller den ilearner-fil som överförs av uppdaterings åtgärden | Ja      |
+| trainedModelFilePath          | Den relativa fil Sök vägen i trainedModelLinkedService för att representera ilearner-filen som överförs av uppdaterings åtgärden | Ja      |
 
 ## <a name="end-to-end-workflow"></a>Arbetsflödet slutpunkt till slutpunkt
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: v-erkel
 ms.openlocfilehash: 0da8a4fc1b59976c50cd96f2155715a4cb178cc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87072764"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Flytta data till Azure Blob Storage
@@ -42,7 +42,7 @@ Detaljerad information finns i CLFSLoad-distributionen för AVERT, som är tillg
 En allmän översikt över processen:
 
 1. Förbered ett Linux-system (VM eller fysisk) med python version 3,6 eller senare. Python 3,7 rekommenderas för bättre prestanda.
-1. Installera AVERT-CLFSLoad-programvaran på Linux-systemet.
+1. Installera Avere-CLFSLoad-programvaran på Linux-systemet.
 1. Kör överföringen från Linux-kommandoraden.
 
 Verktyget aver CLFSLoad behöver följande information:

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
 ms.openlocfilehash: ebfb175de67d7bb8ea011ac340b57f5d62d9e223
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318814"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Arbeta med data med hjälp av Azure Cosmos Explorer 
@@ -35,7 +35,7 @@ Azure Cosmos DB Explorer är ett fristående webbaserat gränssnitt som gör att
 
 4. Öppna bladet **datautforskaren** och välj **Öppna hel skärms läge**. I popup-dialogrutan kan du Visa två åtkomst webb adresser – **Läs-och skriv-** och **Läs**behörighet. Med dessa URL: er kan du dela ditt Azure Cosmos DB-konto tillfälligt med andra användare. Åtkomst till kontot upphör att gälla om 24 timmar efter vilken du kan återansluta med hjälp av en ny åtkomst-URL eller anslutnings strängen. 
 
-   **Read-Write** – när du delar URL: en med Läs-och Skriv behörighet till andra användare kan de Visa och ändra databaser, samlingar, frågor och andra resurser som är kopplade till det aktuella kontot.
+   **Läs-och skriv** åtgärder – när du delar Read-Write URL med andra användare kan de Visa och ändra databaser, samlingar, frågor och andra resurser som är kopplade till det aktuella kontot.
 
    **Läs** – när du delar den skrivskyddade URL: en med andra användare kan de se databaser, samlingar, frågor och andra resurser som är kopplade till det aktuella kontot. Om du till exempel vill dela resultatet av en fråga med dina grupp medlemmar som inte har åtkomst till Azure Portal eller ditt Azure Cosmos DB-konto kan du ange dem med denna URL.
 

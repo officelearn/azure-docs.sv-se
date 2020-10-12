@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.openlocfilehash: 8fd42169ab6ccb144215e1b6ad2ece09ff55c07f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87072843"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Använda Apache gris med Apache Hadoop på HDInsight
@@ -42,7 +42,7 @@ Med det latinska tillägget i gris kan du även använda användardefinierade fu
 
 För mer information om gris Latin, se [gris Latin Reference Manual 1](https://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) och [latinsk referens hand bok 2](https://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
-## <a name="example-data"></a><a id="data"></a>Exempeldata
+## <a name="example-data"></a><a id="data"></a>Exempel data
 
 HDInsight innehåller olika exempel data uppsättningar som lagras i `/example/data` `/HdiSamples` katalogerna och. Dessa kataloger finns i standard lagrings utrymmet för klustret. I exemplet i det här dokumentet används *log4j* -filen från `/example/data/sample.log` .
 

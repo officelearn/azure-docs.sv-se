@@ -16,10 +16,10 @@ ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2f835c270930734bf9963a7c7c3168b873eddaf6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84791919"
 ---
 # <a name="list-azure-deny-assignments-using-the-rest-api"></a>Visa en lista över Azure Deny-tilldelningar med hjälp av REST API
@@ -33,7 +33,7 @@ ms.locfileid: "84791919"
 
 För att få information om en neka-tilldelning måste du ha:
 
-- `Microsoft.Authorization/denyAssignments/read`behörighet, som ingår i de flesta [inbyggda Azure-roller](built-in-roles.md).
+- `Microsoft.Authorization/denyAssignments/read` behörighet, som ingår i de flesta [inbyggda Azure-roller](built-in-roles.md).
 
 ## <a name="list-a-single-deny-assignment"></a>Lista en enskild neka-tilldelning
 
@@ -80,7 +80,7 @@ För att få information om en neka-tilldelning måste du ha:
 1. Ersätt *{filter}* med villkoret som du vill använda för att filtrera listan neka tilldelning.
 
     > [!div class="mx-tableFixed"]
-    > | Filter | Beskrivning |
+    > | Filtrera | Beskrivning |
     > | --- | --- |
     > | (inget filter) | Visar alla neka-tilldelningar på, ovanför och under det angivna omfånget. |
     > | `$filter=atScope()` | Visar en lista över neka-tilldelningar för det angivna omfånget och ovan. Inkluderar inte neka-tilldelningar i underscope. |
@@ -102,7 +102,7 @@ För att få information om en neka-tilldelning måste du ha:
 1. Ersätt *{filter}* med villkoret som du vill använda för att filtrera listan neka tilldelning. Ett filter måste anges.
 
     > [!div class="mx-tableFixed"]
-    > | Filter | Beskrivning |
+    > | Filtrera | Beskrivning |
     > | --- | --- |
     > | `$filter=atScope()` | Visa lista över neka-tilldelningar för rot omfånget. Inkluderar inte neka-tilldelningar i underscope. |
     > | `$filter=denyAssignmentName+eq+'{deny-assignment-name}'` | Visa lista över nekade tilldelningar med det angivna namnet. |
@@ -113,4 +113,4 @@ För att få information om en neka-tilldelning måste du ha:
 
 - [Förstå Azure Deny-tilldelningar](deny-assignments.md)
 - [Utöka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper](elevate-access-global-admin.md)
-- [Referens för Azure-REST API](/rest/api/azure/)
+- [Azure REST API-referens](/rest/api/azure/)

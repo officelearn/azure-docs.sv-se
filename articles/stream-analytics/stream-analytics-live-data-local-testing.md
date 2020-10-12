@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: fe1caca11ec0a3d89ddae140d00cd3556b9d3d89
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86044472"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Testa Live data lokalt med Azure Stream Analytics verktyg för Visual Studio (för hands version)
@@ -26,8 +26,8 @@ Följande lokala test alternativ stöds:
 |**Indata**  |**Resultat**  |**Jobbtyp**  |
 |---------|---------|---------|
 |Lokala statiska data   |  Lokala statiska data   |   Moln/kant |
-|Direktsända indata   |  Lokala statiska data   |   Molnet |
-|Direktsända indata   |  Live output-data   |   Molnet |
+|Direktsända indata   |  Lokala statiska data   |   Moln |
+|Direktsända indata   |  Live output-data   |   Moln |
 
 ## <a name="local-testing-with-live-data"></a>Lokal testning med real tids data
 

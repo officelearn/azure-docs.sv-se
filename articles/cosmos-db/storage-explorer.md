@@ -8,10 +8,10 @@ ms.date: 08/24/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
 ms.openlocfilehash: 938968599f1824416666818a46cc73a1d33c5341
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987734"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Hantera Azure Cosmos DB resurser med Azure Storage Explorer
@@ -38,19 +38,19 @@ Om du vill installera de nyaste Azure Storage Explorer-bitarna, se [Azure Storag
 
 1. Välj **Lägg till ett Azure-konto** och välj sedan **Logga in**.
 
-   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Skärm bild av fönstret Anslut till Azure Storage som visar alternativ knappen Lägg till ett Azure-konto markerat och list menyn i Azure-miljön.":::
+   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 1. I dialog rutan **Azure-inloggning** väljer du logga in och anger sedan dina autentiseringsuppgifter **för**Azure.
 
-    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Skärm bild av inloggnings fönstret som visar var du anger dina autentiseringsuppgifter för din Azure-prenumeration.":::
+    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 1. Välj din prenumeration i listan och välj sedan **Använd**.
 
-    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Skärm bild av fönstret konto hantering som visar en lista över prenumerationer och knappen tillämpa.":::
+    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
     Explorer-fönstret uppdateras och visar kontona i den valda prenumerationen.
 
-    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="Skärm bild av fönstret Utforskaren, uppdaterat för att Visa kontona i den valda prenumerationen.":::
+    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
     Ditt **Cosmos DB-konto** är anslutet till din Azure-prenumeration.
 
@@ -60,7 +60,7 @@ Du kan använda en anslutnings sträng för att ansluta till en Azure Cosmos DB.
 
 1. Hitta **lokala och anslutna** i det vänstra trädet, högerklicka på **Cosmos DB konton**och välj sedan **Anslut till Cosmos DB**.
 
-    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Skärm bild som visar den nedrullningsbara menyn när du högerklickar, med Anslut till Azure Cosmos D B markerat.":::
+    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 2. I fönstret **Anslut till Cosmos DB** :
    1. Välj API på den nedrullningsbara menyn.
@@ -68,7 +68,7 @@ Du kan använda en anslutnings sträng för att ansluta till en Azure Cosmos DB.
    1. Ange en **konto etikett**och välj sedan **Nästa** för att kontrol lera sammanfattningen.
    1. Välj **Anslut** för att ansluta Azure Cosmos DB-kontot.
 
-      :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Skärm bild av fönstret Anslut till Cosmos D B, som visar den nedrullningsbara menyn för API, rutan anslutnings sträng och rutan konto etikett.":::
+      :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 ## <a name="use-a-local-emulator-to-connect-to-azure-cosmos-db"></a>Använd en lokal emulator för att ansluta till Azure Cosmos DB
 
@@ -78,14 +78,14 @@ Använd följande steg för att ansluta till en Azure Cosmos DB med en emulator.
 
 1. Hitta **lokala och anslutna** i det vänstra trädet, högerklicka på **Cosmos DB konton**och välj sedan **Anslut till Cosmos DB emulator**.
 
-    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Skärm bild som visar menyn som visas när du högerklickar, med Anslut till Azure Cosmos D B-emulator markerat.":::
+    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 1. I fönstret **Anslut till Cosmos DB** :
    1. Klistra in anslutnings strängen i rutan **anslutnings sträng** . Information om hur du hämtar den primära anslutnings strängen finns i [Hämta anslutnings strängen](manage-with-powershell.md#list-keys).
    1. Ange en **konto etikett**och välj sedan **Nästa** för att kontrol lera sammanfattningen.
    1. Välj **Anslut** för att ansluta Azure Cosmos DB-kontot.
 
-      :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Skärm bild av fönstret Anslut till Cosmos D B, som visar rutan anslutnings sträng och rutan konto etikett.":::
+      :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 ## <a name="azure-cosmos-db-resource-management"></a>Resurshantering för Azure Cosmos DB
 
@@ -105,13 +105,13 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 
 * Högerklicka på ett Azure Cosmos DB konto eller en databas och välj sedan **Öppna i portalen** för att hantera resursen i webbläsaren på Azure Portal.
 
-  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Skärm bild som visar menyn som visas när du högerklickar, med öppna i Portal markerat.":::
+  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 * Högerklicka på ett Azure Cosmos DB konto, en databas eller en samling och välj sedan **Lägg till i snabb åtkomst** för att lägga till den i snabb åtkomst menyn.
 
 * Välj **Sök härifrån** för att aktivera nyckelords sökning under den valda sökvägen.
 
-    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="Skärm bild som visar sökrutan markerad.":::
+    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 ### <a name="database-and-collection-management"></a>Databas- och samlingshantering
 
@@ -119,7 +119,7 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 
 1. Högerklicka på Azure Cosmos DB konto och välj sedan **skapa databas**.
 
-   :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Skärm bild som visar menyn som visas när du högerklickar, med skapa databas markerat.":::
+   :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 1. Ange databas namnet och tryck sedan på **RETUR** för att slutföra.
 
@@ -127,28 +127,28 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 
 1. Högerklicka på databasen och välj sedan **ta bort databas**. 
 
-   :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Skärm bild som visar menyn som visas när du högerklickar, där ta bort databas har marker ATS.":::
+   :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 1. Välj **Ja** i popup-fönstret. Databasnoden tas bort och Azure Cosmos DB-konto uppdateras automatiskt.
 
-   :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Skärm bild av bekräftelse fönstret med knappen Ja markerat.":::
+   :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 #### <a name="create-a-collection"></a>Skapa en samling
 
 1. Högerklicka på databasen och välj sedan **skapa samling**.
 
-   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Skärm bild som visar menyn som visas när du högerklickar med skapa samling markerat.":::
+   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 1. Ange den begärda informationen i fönstret Skapa samling, t. ex. **samlings-ID** och **lagrings kapacitet**och så vidare. Slutför genom att välja **OK**.
 
-   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Skärm bild av fönstret Skapa samling som visar knapparna för samling I D och lagrings kapacitet.":::
+   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 1. Välj **obegränsad** så att du kan ange en partitionsnyckel och välj sedan **OK** för att slutföra.
 
    > [!NOTE]
    > Om en partitionsnyckel används när du skapar en samling kan du inte ändra värdet för partitionsnyckel i samlingen när du har skapat den.
 
-    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="Skärm bild av fönstret Skapa samling, som visar obegränsad har marker ATS för lagrings kapacitet och rutan partitionsnyckel har marker ATS.":::
+    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 #### <a name="delete-a-collection"></a>Ta bort en samling
 
@@ -156,7 +156,7 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 
     Samlingsnoden tas bort och databasen uppdateras automatiskt.
 
-    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="Skärm bild som visar menyn som visas när du högerklickar, med ta bort samling markerat.":::
+    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 ### <a name="document-management"></a>Dokumenthantering
 
@@ -165,7 +165,7 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 - Öppna **dokument** i den vänstra rutan, Välj **nytt dokument**, redigera innehållet i den högra rutan och välj sedan **Spara**.
 - Du kan också uppdatera ett befintligt dokument och sedan välja **Spara**. Om du vill ignorera ändringarna väljer du **Ignorera**.
 
-  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Skärm bild som visar dokument som marker ATS i det vänstra fönstret. I den högra rutan är nytt dokument, Spara och ta bort markerade.":::
+  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 #### <a name="delete-a-document"></a>Ta bort ett dokument
 
@@ -175,7 +175,7 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 
 * Redigera dokument filtret genom att ange en [SQL-fråga](how-to-sql-query.md)och välj sedan **Använd**.
 
-  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Skärm bild av den högra rutan med filter och tillämpa knappar, ID-nummer och fråga-rutan markerad.":::
+  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 ### <a name="graph-management"></a>Graph-hantering
 
@@ -184,7 +184,7 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 * Om du vill skapa ett nytt hörn öppnar du **Graph** från den vänstra rutan, väljer **nytt hörn**, redigerar innehållet och väljer sedan **OK**.
 * Om du vill ändra en befintlig topp markerar du Penn ikonen i den högra rutan.
 
-   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Skärm bild som visar graf valt i det vänstra fönstret och som visar nya hörn och Penn ikonen markerad i den högra rutan.":::
+   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 #### <a name="delete-a-graph"></a>Ta bort en graf
 
@@ -194,7 +194,7 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 
 * Om du vill redigera graf-filtret anger du en [Gremlin-fråga](gremlin-support.md)och väljer sedan **Använd filter**.
 
-   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Skärm bild som visar graf som marker ATS i det vänstra fönstret och visar filtret Använd och där rutan fråga är markerad i den högra rutan.":::
+   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 ### <a name="table-management"></a>Tabellhantering
 
@@ -206,7 +206,7 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
    1. Välj knappen **Lägg till egenskap** för att lägga till en egenskap.
    1. Välj **Infoga**.
 
-      :::image type="content" source="./media/storage-explorer/table.png" alt-text="Skärm bild som visar entiteter markerade i det vänstra fönstret och visar Lägg till, redigera, Lägg till egenskap och Infoga markerade i den högra rutan.":::
+      :::image type="content" source="./media/storage-explorer/table.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 * Om du vill ändra en tabell väljer du **Redigera**, ändrar innehållet och väljer sedan **Uppdatera**.
 
@@ -217,26 +217,26 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 * Importera genom att välja knappen **Importera** och välj sedan en befintlig tabell.
 * Om du vill exportera väljer du knappen **Exportera** och väljer sedan ett mål.
 
-   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Skärm bild som visar knapparna importera och Exportera markerade i den högra rutan.":::
+   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 #### <a name="delete-entities"></a>Ta bort entiteter
 
 * Välj entiteterna och välj sedan knappen **ta bort** .
 
-  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Skärm bild som visar knappen Ta bort markerad i den högra rutan och ett bekräftelse fönster med Ja markerat.":::
+  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 #### <a name="query-a-table"></a>Fråga en tabell
 
 - Välj knappen **fråga** , ange ett villkor för frågan och välj sedan knappen **Kör fråga** . Om du vill stänga frågefönstret väljer du knappen **Stäng fråga** .
 
-  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Skärm bild av den högra rutan, som visar knappen Kör fråga och knappen Stäng fråga markerad.":::
+  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Hantera lagrade procedurer, utlösare och UDF:er
 
 * Så här skapar du en lagrad procedur:
   1. I det vänstra trädet högerklickar du på **lagrade procedurer**och väljer sedan **skapa lagrad procedur**.
   
-     :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Skärm bild av den vänstra rutan, som visar menyn som visas när du högerklickar, med skapa lagrad procedur markerad.":::
+     :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
   
   1. Ange ett namn till vänster, ange skripten för lagrade procedurer i den högra rutan och välj sedan **skapa**.
   
@@ -296,7 +296,7 @@ Om du inte kan hämta dina prenumerationer när du har loggat in kan du prova f�
   * .extaccounts
 * Öppna Developer-konsolen genom att trycka på F12-tangenten. Titta på konsolen för eventuella fel meddelanden när du loggar in.
 
-   :::image type="content" source="./media/storage-explorer/console.png" alt-text="Skärm bild av konsolen för utvecklarverktyg som visar konsolen markerad.":::
+   :::image type="content" source="./media/storage-explorer/console.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 #### <a name="unable-to-see-the-authentication-page"></a>Det gick inte att visa autentiseringssidan
 
@@ -331,19 +331,19 @@ Du kan inte Visa Azure Cosmos DB noder i det vänstra trädet när du konfigurer
 
 Det finns inget svar när du har valt noden **utveckling** under den **lokala och kopplade** noden i det vänstra trädet. Det här beteendet är förväntat.
 
-:::image type="content" source="./media/storage-explorer/development.png" alt-text="Skärm bild som visar den valda utvecklings noden.":::
+:::image type="content" source="./media/storage-explorer/development.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 ### <a name="attach-an-azure-cosmos-db-account-in-the-local-and-attached-node-error"></a>Bifoga ett Azure Cosmos DB-konto i fel i **lokal och ansluten** nod
 
 Om du ser följande fel när du har kopplat ett Azure Cosmos DB-konto i den **lokala och anslutna** noden, kontrollerar du att du använder rätt anslutnings sträng.
 
-:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Skärm bild av popup-fönstret det går inte att hämta underordnade resurser fel som indikerar getaddrinfo-ENOTFOUND.":::
+:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 ### <a name="expand-azure-cosmos-db-node-error"></a>Nodfel vid expandera Microsoft Azure Cosmos DB
 
 Följande fel kan visas när du försöker expandera noder i det vänstra trädet.
 
-:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="Skärm bild av popup-fönstret det går inte att hämta underordnade resurser fel, vilket indikerar att det inte går att ansluta till det här Cosmos D B-kontot.":::
+:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 Prova följande förslag:
 

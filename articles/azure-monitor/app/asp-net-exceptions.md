@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/11/2019
 ms.openlocfilehash: 36e916eabfca8e997fc3d46ff10f6201203457cd
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936511"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostisera undantag i dina webbappar med Application Insights
@@ -200,7 +200,7 @@ Men om du har aktiva omdirigeringar lägger du till följande rader i Applicatio
 ## <a name="mvc"></a>MVC
 Från och med Application Insights Web SDK version 2,6 (beta3 och senare), samlar Application Insights ut ohanterade undantag som har utlösts i metoderna MVC 5 + controllers automatiskt. Om du tidigare har lagt till en anpassad hanterare för att spåra sådana undantag (enligt beskrivningen i följande exempel) kan du ta bort den för att förhindra dubbel spårning av undantag.
 
-Det finns ett antal fall som undantags filtren inte kan hantera. Ett exempel:
+Det finns ett antal fall som undantags filtren inte kan hantera. Exempel:
 
 * Undantag som utlöses från styrenhetskonstruktörer.
 * Undantag som utlöses av meddelandehanterare.
@@ -256,7 +256,7 @@ Ersätt attributet HandleError med ditt nya attribut i dina styrenheter.
     ...
 ```
 
-[Exempel](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
+[Urvalsundersökningar](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
 Registrera `AiHandleErrorAttribute` som ett globalt filter i global.asax.CS:
@@ -271,7 +271,7 @@ Registrera `AiHandleErrorAttribute` som ett globalt filter i global.asax.CS:
      ...
 ```
 
-[Exempel](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
+[Urvalsundersökningar](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
 #### <a name="mvc-4-mvc5"></a>MVC 4, MVC5
 Registrera AiHandleErrorAttribute som ett globalt filter i FilterConfig.cs:
@@ -287,12 +287,12 @@ Registrera AiHandleErrorAttribute som ett globalt filter i FilterConfig.cs:
     }
 ```
 
-[Exempel](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
+[Urvalsundersökningar](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
 ## <a name="web-api"></a>Webb-API
 Från och med Application Insights Web SDK version 2,6 (beta3 och senare) samlar Application Insights ut ohanterade undantag som har utlösts i styrenhets metoderna automatiskt för WebAPI 2 +. Om du tidigare har lagt till en anpassad hanterare för att spåra sådana undantag (enligt beskrivningen i följande exempel) kan du ta bort den för att förhindra dubbel spårning av undantag.
 
-Det finns ett antal fall som undantags filtren inte kan hantera. Ett exempel:
+Det finns ett antal fall som undantags filtren inte kan hantera. Exempel:
 
 * Undantag som utlöses från styrenhetskonstruktörer.
 * Undantag som utlöses av meddelandehanterare.
@@ -355,7 +355,7 @@ Du kan lägga till detta åsidosatta attribut till vissa styrenheter eller lägg
     }
 ```
 
-[Exempel](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
+[Urvalsundersökningar](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
 #### <a name="web-api-2x"></a>Webb-API 2. x
 Lägg till en implementering av IExceptionLogger:
@@ -410,7 +410,7 @@ Lägg till detta i tjänsterna i WebApiConfig:
      }
 ```
 
-[Exempel](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
+[Urvalsundersökningar](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
 
 Som alternativ kan du:
 
@@ -480,7 +480,7 @@ Add the attribute to the service implementations:
          ...
 ```
 
-[Exempel](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
+[Urvalsundersökningar](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## <a name="exception-performance-counters"></a>Prestanda räknare för undantag
 Om du har [installerat Application Insights agent](./monitor-performance-live-website-now.md) på servern kan du få ett diagram över undantags frekvensen, mätt av .net. Detta inkluderar både hanterade och ohanterade .NET-undantag.

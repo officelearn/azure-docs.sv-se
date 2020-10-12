@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 0f33b5a28d7c83be7e546c3f61bc517047c51312
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934862"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>OData $filter-syntax i Azure Kognitiv sökning
@@ -32,7 +32,7 @@ Azure Kognitiv sökning använder [OData filter-uttryck](query-odata-filter-orde
 
 ## <a name="syntax"></a>Syntax
 
-Ett filter i OData-språket är ett booleskt uttryck som i sin tur kan vara ett av flera typer av uttryck, som visas i följande EBNF ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
+Ett filter i OData-språket är ett booleskt uttryck, vilket i sin tur kan vara en av flera typer av uttryck, som visas i följande EBNF ([utökad Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -75,7 +75,7 @@ Typerna av booleska uttryck är:
 
 Om du skriver ett filter uttryck utan parentes runt dess under uttryck, kommer Azure Kognitiv sökning att utvärdera det enligt en uppsättning av operatorernas prioritets regler. Dessa regler baseras på vilka operatorer som används för att kombinera under uttryck. I följande tabell visas en lista över operatorer i ordning från högsta till lägsta prioritet:
 
-| Gruppera | Operator (er) |
+| Group | Operator (er) |
 | --- | --- |
 | Logiska operatorer | `not` |
 | Jämförelseoperatorer | `eq`, `ne`, `gt`, `lt`, `ge`, `le` |

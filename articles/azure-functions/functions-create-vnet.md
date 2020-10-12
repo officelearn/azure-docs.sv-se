@@ -4,10 +4,10 @@ description: En steg-för-steg-självstudie som visar hur du ansluter en funktio
 ms.topic: article
 ms.date: 4/23/2020
 ms.openlocfilehash: f50c923104fdfcf26f400f20f0de66a82eb3d245
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387531"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Självstudie: integrera Functions med ett virtuellt Azure-nätverk
@@ -59,7 +59,7 @@ Skapa sedan en förkonfigurerad virtuell dator som kör WordPress i ett virtuell
     | ------------ | ---------------- | ---------------- |
     | **Prenumeration** | Din prenumeration | Den prenumeration som dina resurser skapas under. | 
     | **[Resurs grupp](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Välj `myResourceGroup` eller resurs gruppen som du skapade med din Function-app. Om du använder samma resurs grupp för Function-appen, WordPress VM och värd prenumerationen blir det enklare att rensa resurser när du är klar med den här självstudien. |
-    | **Namn på virtuell dator** | VNET-WordPress | Det virtuella dator namnet måste vara unikt i resurs gruppen |
+    | **Namn på virtuell dator** | VNET-Wordpress | Det virtuella dator namnet måste vara unikt i resurs gruppen |
     | **[Region](https://azure.microsoft.com/regions/)** | Östeuropa Västeuropa | Välj en region nära dig eller nära de funktioner som har åtkomst till den virtuella datorn. |
     | **Storlek** | B1S | Välj **ändra storlek** och välj sedan B1S Standard avbildning, som har 1 vCPU och 1 GB minne. |
     | **Autentiseringstyp** | lösenordsinställning | Om du vill använda lösenordsautentisering måste du också ange ett **användar namn**, ett säkert **lösen ord**och sedan **Bekräfta lösen ordet**. I den här självstudien behöver du inte logga in på den virtuella datorn om du inte behöver felsöka. |
@@ -74,7 +74,7 @@ Skapa sedan en förkonfigurerad virtuell dator som kör WordPress i ett virtuell
     | ------------ | ---------------- | ---------------- |
     | **Namn** | myResourceGroup-VNet | Du kan använda standard namnet som genereras för det virtuella nätverket. |
     | **Adressintervall** | 10.10.0.0/16 | Använd ett enda adress intervall för det virtuella nätverket. |
-    | **Under näts namn** | Självstudie – net | Namnet på under nätet. |
+    | **Namn på undernät** | Tutorial-Net | Namnet på under nätet. |
     | **Adress intervall** (undernät) | 10.10.1.0/24   | Under näts storleken definierar hur många gränssnitt som kan läggas till i under nätet. Det här under nätet används av WordPress-webbplatsen.  Ett `/24` undernät tillhandahåller 254-värd adresser. |
 
 1. Välj **OK** för att skapa det virtuella nätverket.
@@ -105,7 +105,7 @@ Med en WordPress-webbplats som körs i en virtuell dator i ett virtuellt nätver
 
 1. På sidan **VNet-integration** väljer du **Lägg till VNet**.
 
-    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Lägg till för hands versionen av VNet-integrering":::
+    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Välj nätverk i Function-appen":::
 
 1. I **nätverks funktions status**använder du inställningarna i tabellen under bilden:
 
@@ -115,7 +115,7 @@ Med en WordPress-webbplats som körs i en virtuell dator i ett virtuellt nätver
     | ------------ | ---------------- | ---------------- |
     | **Virtual Network** | MyResourceGroup-VNet | Det här virtuella nätverket är det som du skapade tidigare. |
     | **Undernät** | Skapa nytt undernät | Skapa ett undernät i det virtuella nätverket som din Function-app ska använda. VNet-integrering måste konfigureras för att använda ett tomt undernät. Det spelar ingen roll att dina funktioner använder ett annat undernät än den virtuella datorn. Det virtuella nätverket dirigerar automatiskt trafik mellan de två under näten. |
-    | **Under näts namn** | Funktion-net | Namnet på det nya undernätet. |
+    | **Namn på undernät** | Function-Net | Namnet på det nya undernätet. |
     | **Adress block för virtuellt nätverk** | 10.10.0.0/16 | Välj samma adress block som används av WordPress-platsen. Du bör bara ha ett definierat adress block. |
     | **Adressintervall** | 10.10.2.0/24   | Under näts storleken begränsar det totala antalet instanser som din Premium plan Function-app kan skala ut till. I det här exemplet används ett `/24` undernät med 254 tillgängliga värd adresser. Det här under nätet är överallokerat, men enkelt att beräkna. |
 
@@ -127,9 +127,9 @@ Function-appen kan nu komma åt det virtuella nätverk där WordPress-platsen k�
 
 Med VNet-integrering aktiverat kan du skapa en proxy i din Function-app för att vidarebefordra begär anden till den virtuella datorn som körs i det virtuella nätverket.
 
-1. I din Function-app väljer du **proxyservrar** på den vänstra menyn och väljer sedan **Lägg till**. Använd proxyinställningarna i tabellen under bilden:
+1. I din Function-app väljer du  **proxyservrar** på den vänstra menyn och väljer sedan **Lägg till**. Använd proxyinställningarna i tabellen under bilden:
 
-    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Definiera proxyinställningarna":::
+    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Välj nätverk i Function-appen":::
 
     | Inställning  | Föreslaget värde  | Beskrivning      |
     | -------- | ---------------- | ---------------- |
@@ -139,7 +139,7 @@ Med VNet-integrering aktiverat kan du skapa en proxy i din Function-app för att
 
 1. Välj **skapa** för att lägga till proxy i din Function-app.
 
-## <a name="try-it-out"></a>Prova
+## <a name="try-it-out"></a>Prova nu
 
 1. Försök att komma åt den URL som du använde som **Server dels-URL**i webbläsaren. Som förväntat, tids gränsen för begäran. En timeout inträffar eftersom WordPress-platsen bara är ansluten till ditt virtuella nätverk och inte Internet.
 

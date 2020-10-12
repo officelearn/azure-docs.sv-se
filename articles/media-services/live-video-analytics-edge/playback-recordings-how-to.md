@@ -4,10 +4,10 @@ description: Du kan använda video analys i real tid för IoT Edge för kontinue
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: 6222d2c05b2fe05945d4bcbef6dbb0d64bd4726a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84261081"
 ---
 # <a name="playback-of-recordings"></a>Uppspelning av inspelningar 
@@ -51,7 +51,7 @@ Om precision svärdet kan vara ett av: år, månad, dag eller fullständig (se n
 |Precision|år|månad|day|fullständig|
 |---|---|---|---|---|
 |Söka i data|`/availableMedia?precision=year&startTime=2018&endTime=2019`|`/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`|`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`|`/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`|
-|Svar|`{  "timeRanges":[{ "start":"2018", "end":"2019" }]}`|`{  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]}`|`{  "timeRanges":[    { "start":"2018-03-01", "end":"2018-03-07" },    { "start":"2018-03-09", "end":"2018-03-31" }  ]}`|Svar med fullständig åter givning. Om det inte fanns några luckor alls skulle starten vara StartTime och end skulle vara slut tid.|
+|Svarsåtgärder|`{  "timeRanges":[{ "start":"2018", "end":"2019" }]}`|`{  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]}`|`{  "timeRanges":[    { "start":"2018-03-01", "end":"2018-03-07" },    { "start":"2018-03-09", "end":"2018-03-31" }  ]}`|Svar med fullständig åter givning. Om det inte fanns några luckor alls skulle starten vara StartTime och end skulle vara slut tid.|
 |Avgränsar|&#x2022;StartTime <= slut tid<br/>&#x2022;båda ska vara i formatet åååå, annars returnerar fel.<br/>&#x2022;värden kan vara vilket som helst av flera års mellanrum.<br/>&#x2022;värden inkluderas.|&#x2022;StartTime <= slut tid<br/>&#x2022;båda ska vara i formatet ÅÅÅÅ-MM, annars returnerar fel.<br/>&#x2022;värden kan vara högst 12 månader isär.<br/>&#x2022;värden inkluderas.|&#x2022;StartTime <= slut tid<br/>&#x2022;båda ska vara i formatet ÅÅÅÅ-MM-DD, annars returnerar fel.<br/>&#x2022;värden kan vara högst 31 dagar isär.<br/>Värdena är inkluderade.|&#x2022;StartTime < slut tid<br/>&#x2022;värden kan vara högst 25 timmar isär.<br/>&#x2022;värden inkluderas.|
 
 #### <a name="additional-request-format-considerations"></a>Ytterligare överväganden vid formatering av begäran
@@ -209,8 +209,8 @@ GET https://hostname/locatorId/content.ism/availableMedia?precision=day&startTim
 
 Som vi nämnt ovan hjälper dessa filter dig att välja delar av din inspelning (till exempel från 9 till kl 11 på nya år) för uppspelning. Vid strömning via HLS skulle strömnings-URL: en se ut `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl).m3u8` . För att kunna välja en del av din inspelning lägger du till en StartTime-och en slut tid-parameter, till exempel: `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00Z,endTime=2019-12-21T10:00:00Z).m3u8` . Därför är tids intervalls filter URL-modifierare som används för att beskriva den del av inspelningens tids linje som ingår i strömnings manifestet:
 
-* `starttime`är en DateTime-stämpel i ISO 8601 som beskriver den önskade start tiden för video tids linjen i det returnerade manifestet.
-* `endtime`är en DateTime-stämpel i ISO 8601 som beskriver den önskade slut tiden för video tids linjen som returneras i manifestet.
+* `starttime` är en DateTime-stämpel i ISO 8601 som beskriver den önskade start tiden för video tids linjen i det returnerade manifestet.
+* `endtime` är en DateTime-stämpel i ISO 8601 som beskriver den önskade slut tiden för video tids linjen som returneras i manifestet.
 
 Den maximala längden (i tid) för ett sådant manifest får inte överstiga 24 timmar.
 
@@ -294,7 +294,7 @@ Med en sådan inspelning:
     `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T14:01:00.000Z,endTime=2019-12-21T03:00:00.000Z).m3u8`
 * Om du begär ett manifest där StartTime och slut tid fanns inuti "hål" i mitten – från 8.00 till 10 UTC fungerar tjänsten på samma sätt som om ett till gångs filter skulle resultera i ett tomt resultat.
 
-    [Detta är en begäran som får ett tomt svar]`GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00.000Z,endTime=2019-12-21T10:00:00.000Z).m3u8`
+    [Detta är en begäran som får ett tomt svar] `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00.000Z,endTime=2019-12-21T10:00:00.000Z).m3u8`
 * Om du begär ett manifest där endast en av StartTime eller slut tid är inuti "hål", innehåller det returnerade manifestet endast en del av det tidsintervallet. Det skulle fästa värdet för StartTime eller slut tid på närmast giltiga gränser. Om du t. ex. har bett om en data ström på 3 timmar från 10 till 1PM skulle svaret innehålla 1 – timmes värt medium under 12 middag till 1PM
 
     `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T10:00:00.000Z,endTime=2019-12-21T13:00:00.000Z).m3u8`
@@ -303,7 +303,7 @@ Med en sådan inspelning:
 
 ## <a name="recording-and-playback-latencies"></a>Fördröjning av inspelning och uppspelning
 
-När du använder real tids analys på IoT Edge att registrera till en till gång, anger du en segmentLength-egenskap som instruerar modulen att sammanställa en minimal video varaktighet (i sekunder) innan den registreras i molnet. Om segmentLength till exempel är inställt på 300, kommer modulen att ta upp 5 minuter av video innan du laddar upp ett 5 minuter "segment". gå sedan till ackumulerings läge under de närmaste 5 minuterna och ladda upp igen. Om du ökar segmentLength har du nytta av att sänka dina Azure Storage transaktionskostnader, eftersom antalet läsningar och skrivningar inte blir mer frekvent än en gång var segmentLength sekund.
+När du använder real tids analys på IoT Edge att registrera till en till gång, anger du en segmentLength-egenskap som instruerar modulen att sammanställa en minimal video varaktighet (i sekunder) innan den registreras i molnet. Om segmentLength till exempel är inställt på 300, kommer modulen att ta upp 5 minuter video innan du laddar upp 1 5 minuter "segment". gå sedan in i ackumulerings läge under de närmaste 5 minuterna och ladda upp igen. Om du ökar segmentLength har du nytta av att sänka dina Azure Storage transaktionskostnader, eftersom antalet läsningar och skrivningar inte blir mer frekvent än en gång var segmentLength sekund.
 
 Därför kommer strömmande av videon från Media Services att förskjutas med minst den tiden. 
 

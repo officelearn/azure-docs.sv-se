@@ -10,17 +10,17 @@ ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: c93508bebdcfce35a89b3d5e2a8abecc7ac84722
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91280155"
 ---
 # <a name="storage-account-overview"></a>Översikt över lagringskonto
 
 Ett Azure Storage-konto innehåller alla dina Azure Storage data objekt: blobbar, filer, köer, tabeller och diskar. Lagrings kontot tillhandahåller ett unikt namn område för dina Azure Storage data som är tillgängliga från var som helst i världen via HTTP eller HTTPS. Data i ditt Azure Storage-konto är tåliga och mycket tillgängliga, säkra och enorma skalbara.
 
-Information om hur du skapar ett Azure Storage-konto finns i [skapa ett lagrings konto](storage-account-create.md).
+Information om hur du skapar ett Azure-lagringskonto finns i [Skapa ett lagringskonto](storage-account-create.md).
 
 ## <a name="types-of-storage-accounts"></a>Typer av lagringskonton
 

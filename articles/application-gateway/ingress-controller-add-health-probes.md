@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 8c8b8b0090877db7abc8fae0e44f928e8b10dcf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807994"
 ---
 # <a name="add-health-probes-to-your-service"></a>Lägg till hälso avsökningar i din tjänst
 Som standard etablerar ingress Controller en HTTP GET-avsökning för exponerade poddar.
 Du kan anpassa egenskaper för avsökning genom att lägga till en [beredskaps-eller Direktmigrering](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) till din `deployment` / `pod` specifikation.
 
-## <a name="with-readinessprobe-or-livenessprobe"></a>Med `readinessProbe` eller`livenessProbe`
+## <a name="with-readinessprobe-or-livenessprobe"></a>Med `readinessProbe` eller `livenessProbe`
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -50,11 +50,11 @@ Kubernetes API-referens:
 * [HttpGet-åtgärd](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#httpgetaction-v1-core)
 
 > [!NOTE]
-> * `readinessProbe`och `livenessProbe` stöds när de konfigureras med `httpGet` .
+> * `readinessProbe` och `livenessProbe` stöds när de konfigureras med `httpGet` .
 > * Det finns för närvarande inte stöd för avsökning på en annan port än den som exponeras på pod.
 > * `HttpHeaders`, `InitialDelaySeconds` , `SuccessThreshold` stöds inte.
 
-##  <a name="without-readinessprobe-or-livenessprobe"></a>Utan `readinessProbe` eller`livenessProbe`
+##  <a name="without-readinessprobe-or-livenessprobe"></a>Utan `readinessProbe` eller `livenessProbe`
 Om avsökningarna ovan inte anges, gör ingångs enheten ett antagande om att tjänsten kan kontaktas `Path` för `backend-path-prefix` antecknings anteckning eller som `path` anges i `ingress` definitionen för tjänsten.
 
 ## <a name="default-values-for-health-probe"></a>Standardvärden för hälso avsökning

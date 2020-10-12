@@ -12,10 +12,10 @@ ms.date: 04/02/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7f1939536e033d2cf964dd2f4ee562e4ee20061b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934760"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Använd din modell med förutsägelse-API: et
@@ -43,7 +43,7 @@ När din modell har publicerats kan du hämta den information som krävs genom a
 
 ![Fliken prestanda visas med en röd rektangel som omger URL-knappen för förutsägelse.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
-![Fliken prestanda visas med en röd rektangel som omger värdet för förutsägelse-URL: en för att använda en bildfil och värdet för förutsägelse nyckeln.](./media/use-prediction-api/prediction-api-info.png)
+![Fliken prestanda visas med en röd rektangel som omger värdet för förutsägelse-URL: en för att använda en avbildnings fil och värdet Prediction-Key.](./media/use-prediction-api/prediction-api-info.png)
 
 
 I den här guiden ska du använda en lokal avbildning, så kopiera URL: en under **om du har en avbildnings fil** till en tillfällig plats. Kopiera även motsvarande __förutsägelse-nyckel__ värde.

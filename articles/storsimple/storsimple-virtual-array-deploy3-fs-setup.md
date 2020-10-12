@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e544d135883d0c936b3f23b3e50e385268c992c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006304"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuera virtuell StorSimple-matris – Ställ in som fil server via Azure Portal
@@ -72,11 +72,11 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
    1. Tilldela enheten ett unikt **namn** . Namnet kan innehålla 1-15 tecken och får innehålla bokstäver, siffror och bindestreck.
    2. Klicka på ikonen **fil Server** :::image type="icon" source="./media/storsimple-virtual-array-deploy3-fs-setup/image6.png"::: för den **typ** av enhet som du skapar. Med en fil Server kan du skapa delade mappar.
    3. Eftersom enheten är en fil server måste du ansluta enheten till en domän. Ange ett **domän namn**.
-   4. Klicka på **Använd**.
+   4. Klicka på **Applicera**.
 7. En dialog ruta visas. Ange autentiseringsuppgifterna för domänen i det angivna formatet. Klicka på kryss ikonen. Domänautentiseringsuppgifter verifieras. Ett fel meddelande visas om autentiseringsuppgifterna är felaktiga.
    
    ![Skärm bild som visar en dialog ruta med användar namn och lösen ord ifyllt.](./media/storsimple-virtual-array-deploy3-fs-setup/image7.png)
-8. Klicka på **Använd**. Detta gäller och validerar enhets inställningarna.
+8. Klicka på **Applicera**. Detta gäller och validerar enhets inställningarna.
    
    ![Skärm bild av sidan enhets inställningar. Enhets namnet och domän namnet fylls i.](./media/storsimple-virtual-array-deploy3-fs-setup/image8.png)
    
@@ -93,7 +93,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
    1. Ange **webbproxy-URL** i det här formatet: *http:// &lt; host-IP Address eller FQDN &gt; :P ort nummer*. Observera att HTTPS-URL: er inte stöds.
    2. Ange **autentisering** som **Basic** eller **none**.
    3. Om du använder autentisering måste du också ange ett **användar namn** och **lösen ord**.
-   4. Klicka på **Använd**. Detta validerar och tillämpar de konfigurerade webbproxyinställningarna.
+   4. Klicka på **Applicera**. Detta validerar och tillämpar de konfigurerade webbproxyinställningarna.
 10. (Valfritt) Konfigurera tid inställningarna för enheten, till exempel tidszon och primära och sekundära NTP-servrar. NTP-servrar krävs eftersom din enhet måste synkronisera tid så att den kan autentiseras med dina moln tjänst leverantörer.
     
     ![Skärm bild av sidan med tids inställningar. Tids zonen och den primära N T P-servern fylls i. Den sekundära N T T P-servern är tom.](./media/storsimple-virtual-array-deploy3-fs-setup/image10.png)
@@ -103,7 +103,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
     1. I list rutan väljer du **tidszon baserat på** den geografiska plats där enheten distribueras. Standard tids zonen för enheten är PST. Enheten använder den här tidszonen för alla schemalagda åtgärder.
     2. Ange en **primär NTP-server** för din enhet eller acceptera standardvärdet för Time.Windows.com. Kontrollera att ditt nätverk tillåter att NTP-trafik skickas från ditt datacenter till Internet.
     3. Alternativt kan du ange en **sekundär NTP-server** för enheten.
-    4. Klicka på **Använd**. Detta validerar och tillämpar de konfigurerade tids inställningarna.
+    4. Klicka på **Applicera**. Detta validerar och tillämpar de konfigurerade tids inställningarna.
 11. Konfigurera moln inställningarna för enheten. I det här steget ska du slutföra konfigurationen av den lokala enheten och sedan registrera enheten med StorSimple Enhetshanteraren-tjänsten.
     
     1. Ange **tjänst registrerings nyckeln** som du fick i [steg 2: Hämta tjänst registrerings nyckeln](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) för StorSimple Virtual Array.
@@ -124,7 +124,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
 Utför följande steg i [Azure Portal](https://portal.azure.com/) för att slutföra den nödvändiga enhets konfigurationen.
 
 #### <a name="to-configure-the-device-as-file-server"></a>Så här konfigurerar du enheten som fil Server
-1. Gå till StorSimple Enhetshanteraren-tjänsten och gå sedan till **hanterings > enheter**. På bladet **enheter** väljer du den enhet som du nyss skapade. Den här enheten skulle visas som **klar att konfigurera**.
+1. Gå till StorSimple Enhetshanteraren-tjänsten och gå sedan till  **hanterings > enheter**. På bladet **enheter** väljer du den enhet som du nyss skapade. Den här enheten skulle visas som **klar att konfigurera**.
    
    ![Konfigurera en fil Server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. Klicka på enheten så visas ett informations meddelande som anger att enheten är redo att konfigureras.

@@ -17,10 +17,10 @@ ms.date: 12/09/2016
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e5c3c0d9872fb4d50a0d4770e2c87b7be16c20bf
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88652958"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Skapa en SAP NetWeaver multi-SID-konfiguration
@@ -455,7 +455,7 @@ Den här artikeln fokuserar på hur du flyttar från en enda ASCS/SCS-installati
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du har redan konfigurerat ett WSFC-kluster som används för en SAP ASCS/SCS-instans, enligt beskrivningen i [hand boken för SAP-NetWeaver med hög tillgänglighet på virtuella Windows-datorer][sap-ha-guide] och som visas i det här diagrammet.
 
 ![Hög tillgänglighet SAP ASCS/SCS-instans][sap-ha-guide-figure-6001]

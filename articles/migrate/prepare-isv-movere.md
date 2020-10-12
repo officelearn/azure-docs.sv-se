@@ -4,10 +4,10 @@ description: Den här artikeln beskriver hur du förbereder Azure Migrate att ar
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.openlocfilehash: ed7652cb34705bac56a79b5c30e6bda3dac69af0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86103933"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Förbered för att arbeta med ett ISV-verktyg eller en arbets kraft
@@ -42,9 +42,9 @@ I din Azure-prenumeration måste ditt konto ha **Microsoft. Authorization/*/Writ
 
 För ISV-verktyg och Azure Database-Migration Assistant kan du ge åtkomst till de offentliga moln-URL: erna sammanfattade i tabellen. Om du använder en URL-baserad proxy för att ansluta till Internet, måste du kontrol lera att proxyn matchar eventuella CNAME-poster som tas emot vid sökning av URL: erna. 
 
-**URL** | **Detaljer**
+**URL** | **Information**
 --- | ---
-*.portal.azure.com  | Navigera till Azure Portal. 
+*.portal.azure.com  | Gå till Azure-portalen. 
 *.windows.net<br/> *.msftauth.net<br/> *.msauth.net <br/> *.microsoft.com<br/> *. live.com   | Logga in på din Azure-prenumeration. 
 *.microsoftonline.com<br/> *.microsoftonline-p.com | Skapa Azure Active Directory (AD) appar för att kunna kommunicera med Azure Migrate. 
 management.azure.com | Gör Azure Resource Manager anrop till Azure Migrate projektet.

@@ -10,13 +10,13 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: fe9e86f3c1d155a1f0b29f500de3954e360b4aa7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86262107"
 ---
-# <a name="show-real-time-traffic"></a>Visa real tids trafik
+# <a name="show-real-time-traffic"></a>Visa trafik i realtid
 
 Trafik skikts funktionen täcker real tids trafik data ovanpå kartan. Om du vill aktivera den här funktionen flyttar du skjutreglaget för **trafik nivå** i rutan **format** till **på** position. Detta kommer att täcka trafikflödes data som färgkodade vägar.
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: 9e233b93a1dc054e6d9f713e790e706d589bf01e
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504000"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrera ett Apache HBase-kluster till en ny version
@@ -32,8 +32,8 @@ Här är ett exempel på en versions mat ris. Y indikerar kompatibilitet och N a
 
 | Typ av kompatibilitet | Högre version| Delversion | Patch |
 | --- | --- | --- | --- |
-| Kompatibilitet med klient serverns tråd | N | J | J |
-| Server-Server-kompatibilitet | N | J | J |
+| Client-Server Wire Compatibility | N | J | J |
+| Server-Server kompatibilitet | N | J | J |
 | Kompatibilitet för fil format | N | J | J |
 | Kompatibilitet för klient-API | N | J | J |
 | Klient-binär kompatibilitet | N | N | J |

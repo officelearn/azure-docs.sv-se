@@ -11,10 +11,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: 42a595246f45b2c7423aaf77c95f17243cf8813c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87012391"
 ---
 # <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Utvecklingsverktyg på Azure-Data Science Virtual Machine
@@ -35,7 +35,7 @@ Data Science Virtual Machine (DSVM) paketerar flera populära verktyg i ett myck
 > [!NOTE]
 > Du kan få ett meddelande om att utvärderings perioden har upphört att gälla. Ange dina Microsoft-konto autentiseringsuppgifter. Eller skapa ett nytt kostnads fritt konto för att få åtkomst till Visual Studio Community.
 
-## <a name="visual-studio-code"></a>Visuell Studio-kod 
+## <a name="visual-studio-code"></a>Visual Studio-koden 
 
 | Kategori | Värde |
 | ------------- | ------------- |

@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: dabe914ffd4e84e8ded5c0e3b519036479fe33ec
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987592"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migrera Azure Monitor loggar uppdaterings distributioner till Azure Portal
@@ -43,7 +43,7 @@ Hanterings portalen för Operations Management Suite (OMS) är [inaktuell](../az
 
 Alla uppdaterings distributioner som skapas i OMS-portalen har en [Sparad sökning](../azure-monitor/platform/computer-groups.md) som också kallas en dator grupp, med samma namn som den uppdaterings distribution som finns. Den sparade sökningen innehåller en lista över datorer som har schemalagts i uppdaterings distributionen.
 
-:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Skärm bild av sidan med uppdaterings distributioner med fälten namn och servrar markerade.":::
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Skärm bild av sidan för hantering av uppdateringar.":::
 
 Följ dessa steg om du vill använda den befintliga sparade sökningen:
 
@@ -57,7 +57,7 @@ Följ dessa steg om du vill använda den befintliga sparade sökningen:
 
     | Egenskap | Beskrivning |
     | --- | --- |
-    |Name |Unikt namn som identifierar uppdateringsdistributionen. |
+    |Namn |Unikt namn som identifierar uppdateringsdistributionen. |
     |Operativsystem| Välj **Linux** eller **Windows**.|
     |Datorer som ska uppdateras |Välj en sparad sökning, importerad grupp eller Välj dator i list rutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md) |
     |Klassificering av uppdateringar|Välj alla uppdaterings klassificeringar som du behöver. CentOS stöder inte detta.|

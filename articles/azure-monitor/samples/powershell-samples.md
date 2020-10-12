@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 2/14/2018
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 74211df6f925aaa09a4c87a518056e8ef3206b87
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89078409"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Azure Monitor PowerShell-exempel
@@ -151,7 +151,7 @@ I följande tabell beskrivs de parametrar och värden som används för att skap
 
 | parameter | värde |
 | --- | --- |
-| Namn |simpletestdiskwrite |
+| Name |simpletestdiskwrite |
 | Plats för den här aviserings regeln |East US |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
@@ -159,7 +159,7 @@ I följande tabell beskrivs de parametrar och värden som används för att skap
 | operator |GreaterThan |
 | Tröskelvärde (antal/SEK i för det här måttet) |1 |
 | WindowSize (hh: mm: SS-format) |00:05:00 |
-| aggregator (statistik för måttet, som använder genomsnitts antal, i det här fallet) |Medelvärde |
+| aggregator (statistik för måttet, som använder genomsnitts antal, i det här fallet) |Genomsnitt |
 | anpassade e-postmeddelanden (sträng mat ris) |'foo@example.com','bar@example.com' |
 | Skicka e-post till ägare, deltagare och läsare |-SendToServiceOwners |
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/19/2019
 ms.openlocfilehash: d752b747a0156bcef587f81ee421c55a6de81e17
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89079480"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transformera data på ett säkert sätt med hjälp av data flödet för mappning
@@ -33,7 +33,7 @@ I den här självstudien gör du följande:
 > * Testkör pipelinen.
 > * Övervaka en data flödes aktivitet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage-konto**. Du använder Data Lake Storage som *käll* -och *mottagar* data lager. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal). *Se till att lagrings kontot bara tillåter åtkomst från valda nätverk.* 
 

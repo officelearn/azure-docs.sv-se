@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8360eae71ddd41d3105dbd037f273139262727ad
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87419571"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Konfigurera och aktivera användare för SMS-baserad autentisering med hjälp av Azure Active Directory (för hands version)
@@ -110,7 +110,7 @@ När registreringen är klar visas en bock för att SMS- *inloggningen ska vara 
 
 Utför följande steg för att testa det användar konto som nu är aktiverat för SMS-baserad inloggning:
 
-1. Öppna ett nytt InPrivate-eller Incognito-webbläsarfönster för att[https://www.office.com][office]
+1. Öppna ett nytt InPrivate-eller Incognito-webbläsarfönster för att [https://www.office.com][office]
 1. Välj **Logga**in i det övre högra hörnet.
 1. I inloggnings meddelandet anger du det telefonnummer som är associerat med användaren i föregående avsnitt och väljer sedan **Nästa**.
 

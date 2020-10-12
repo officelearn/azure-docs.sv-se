@@ -1,5 +1,5 @@
 ---
-title: Så här övervakar du Azure cache för Redis
+title: Övervaka Azure Cache for Redis
 description: Lär dig hur du övervakar hälsa och prestanda för Azure-cache för Redis-instanser
 author: yegu-ms
 ms.author: yegu
@@ -7,13 +7,13 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.openlocfilehash: 7d703c63ebdc5b70987ead3ed2ccbe5f4843a06f
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88004850"
 ---
-# <a name="how-to-monitor-azure-cache-for-redis"></a>Så här övervakar du Azure cache för Redis
+# <a name="how-to-monitor-azure-cache-for-redis"></a>Övervaka Azure Cache for Redis
 
 Azure cache för Redis använder [Azure Monitor](../azure-monitor/index.yml) för att tillhandahålla flera alternativ för att övervaka dina cache-instanser. Du kan visa mått, fästa mått diagram på Start sidan, anpassa datum-och tidsintervallet för övervaknings diagram, lägga till och ta bort mått från diagrammen och ange aviseringar när vissa villkor uppfylls. Med de här verktygen kan du övervaka Azure-cachens hälso tillstånd för Redis-instanser och hjälpa dig att hantera dina cachelagring-program.
 

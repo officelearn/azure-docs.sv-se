@@ -9,10 +9,10 @@ ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 2bf3dda6e3d99b5ed67298343f5238d304df7e2b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187378"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Använda moduler i Azure Automation
@@ -65,7 +65,7 @@ Automation importerar inte root AZ-modulen automatiskt till nya eller befintliga
 | PSDscResources | 2.9.0.0 |
 | SecurityPolicyDsc | 2.1.0.0 |
 | StateConfigCompositeResources | 1 |
-| xDSCDomainjoin | 1.1 |
+| xDSCDomainjoin | 1,1 |
 | xPowerShellExecutionPolicy | 1.1.0.0 |
 | xRemoteDesktopAdmin | 1.1.0.0 |
 
@@ -80,7 +80,7 @@ Azure Automation stöder den interna `Orchestrator.AssetManagement.Cmdlets` modu
 >[!NOTE]
 >De interna cmdletarna är bara tillgängliga när du kör Runbooks i sandbox-miljön i Azure eller på en Windows Hybrid Runbook Worker. 
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |
@@ -88,7 +88,7 @@ Azure Automation stöder den interna `Orchestrator.AssetManagement.Cmdlets` modu
 |Get-AutomationVariable|`Get-AutomationVariable [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]`|
 |Set-AutomationVariable|`Set-AutomationVariable [-Name] <string> -Value <Object> [<CommonParameters>]` |
 |Start-AutomationRunbook|`Start-AutomationRunbook [-Name] <string> [-Parameters <IDictionary>] [-RunOn <string>] [-JobId <guid>] [<CommonParameters>]`|
-|Vänta-AutomationJob|`Wait-AutomationJob -Id <guid[]> [-TimeoutInMinutes <int>] [-DelayInSeconds <int>] [-OutputJobsTransitionedToRunning] [<CommonParameters>]`|
+|Wait-AutomationJob|`Wait-AutomationJob -Id <guid[]> [-TimeoutInMinutes <int>] [-DelayInSeconds <int>] [-OutputJobsTransitionedToRunning] [<CommonParameters>]`|
 
 Observera att de interna cmdletarna skiljer sig från namn från AZ-och AzureRM-cmdletarna. Interna cmdlet-namn innehåller inte ord som `Azure` eller `Az` i substantiv, men Använd ordet `Automation` . Vi rekommenderar användning av AZ-eller AzureRM-cmdletar under körning av Runbook i en Azure-sandbox eller på en Windows-Hybrid Runbook Worker. De kräver färre parametrar och körs i kontexten för jobbet som redan körs.
 
@@ -242,7 +242,7 @@ Ett enklare och bättre sätt att utnyttja det här beteendet är genom att skic
   }
   ```
 
-Du kan aktivera liknande beteende för dina cmdlets genom att tillåta att de accepterar ett anslutnings objekt direkt som en parameter, i stället för bara anslutnings fält för parametrar. Vanligt vis vill du ha en parameter uppsättning för varje, så att en användare som inte använder Automation kan anropa dina cmdletar utan att skapa en hash-post som fungerar som anslutningsobjektet. Parameter uppsättningen `UserAccount` används för att skicka anslutnings fält egenskaper. `ConnectionObject`gör att du kan skicka anslutningen direkt genom.
+Du kan aktivera liknande beteende för dina cmdlets genom att tillåta att de accepterar ett anslutnings objekt direkt som en parameter, i stället för bara anslutnings fält för parametrar. Vanligt vis vill du ha en parameter uppsättning för varje, så att en användare som inte använder Automation kan anropa dina cmdletar utan att skapa en hash-post som fungerar som anslutningsobjektet. Parameter uppsättningen `UserAccount` används för att skicka anslutnings fält egenskaper. `ConnectionObject` gör att du kan skicka anslutningen direkt genom.
 
 ### <a name="output-type"></a>Utdatatyp
 

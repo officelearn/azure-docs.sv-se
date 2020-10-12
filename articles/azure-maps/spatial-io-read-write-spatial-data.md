@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: dd4a02ffdc062ed1940d35ca64e02a5e0a88a248
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333332"
 ---
 # <a name="read-and-write-spatial-data"></a>Läsa och skriva rumsliga data
@@ -29,7 +29,7 @@ I tabellen nedan visas de spatiala fil format som stöds för läsning och skriv
 | KML               | ✓  |  ✓  |
 | KMZ               | ✓  |  ✓  |
 | Spatial CSV       | ✓  |  ✓  |
-| Välkänd text   | ✓  |  ✓  |
+| Well-Known text   | ✓  |  ✓  |
 
 I följande avsnitt beskrivs alla olika verktyg för att läsa och skriva spatialdata med hjälp av den spatiala IO-modulen.
 
@@ -41,7 +41,7 @@ När du läser en komprimerad fil, antingen som en zip-eller KMZ, kommer den att
 
 Resultatet från funktionen Read är ett `SpatialDataSet` objekt. Det här objektet utökar FeatureCollection-klassen för polyjson. Det kan enkelt skickas till ett `DataSource` as-är att återge dess funktioner på en karta. `SpatialDataSet`Innehåller inte bara funktions information, men den kan även innehålla KML-Språköverlägg, bearbeta mått och annan information som beskrivs i följande tabell.
 
-| Egenskapsnamn | Typ | Description | 
+| Egenskapsnamn | Typ | Beskrivning | 
 |---------------|------|-------------|
 | `bbox` | `BoundingBox` | Avgränsnings ruta för alla data i data uppsättningen. |
 | `features` | `Feature[]` | Interjson-funktioner i data uppsättningen. |
@@ -123,26 +123,26 @@ atlas.io.read(data, {
 );
 ```
 
-## <a name="read-and-write-well-known-text-wkt"></a>Läs-och skriv välkänd text (well)
+## <a name="read-and-write-well-known-text-wkt"></a>Läsa och skriva Well-Known text (well)
 
 [Välkänd text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) (well) är en Open GEOSPATIAL CONSORTIUM (OGC) standard för att representera avstånds Geometries som text. Många geospatiala system stöder well, till exempel Azure SQL och Azure PostgreSQL med hjälp av PostGIS-plugin-programmet. Precis som de flesta OGC-standarder formateras koordinaterna som "longitud latitud" för att anpassas till "x"-konventionen. Som exempel kan en punkt vid longitud-110 och latitud 45 skrivas som ett `POINT(-110 45)` well-format.
 
 Välkänd text kan läsas med hjälp av `atlas.io.ogc.WKT.read` funktionen och skrivas med hjälp av `atlas.io.ogc.WKT.write` funktionen.
 
-## <a name="examples-of-reading-and-writing-well-known-text-wkt"></a>Exempel på läsning och skrivning av välkänd text (well)
+## <a name="examples-of-reading-and-writing-well-known-text-wkt"></a>Exempel på läsning och skrivning Well-Known text (well)
 
 Följande kod visar hur du läser den välkända text strängen `POINT(-122.34009 47.60995)` och återger den på kartan med ett bubbel-lager.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Läs välkänd text' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se den <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>välbekanta Skriv texten</a> för pennan genom att Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Läs Well-Known text' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>Well-Known text</a> efter Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Följande kod visar Läs-och skriv-välkänd text och tillbaka.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Läs-och skriv välkänd text' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Skriv <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>-och skriv-välkänd text</a> för pennan genom att Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Läsa och skriva Well-Known text' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>läsning och skrivning Well-Known text</a> med Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="read-and-write-gml"></a>Läs-och skriv GML

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 4/13/2020
 ms.openlocfilehash: 69368500a99b47238e74a960fdd5381c0339430a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905864"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Konfigurera och komma åt långsamma Query-loggar från Azure Portal
@@ -40,7 +40,7 @@ Konfigurera åtkomst till MySQLs långsamma fråga logg.
 
 8. Välj **Spara**. 
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Skärm bild av långsam frågans logg parametrar och spara.":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Skärm bild av alternativ för Server loggar":::
 
 På sidan **Server parametrar** kan du gå tillbaka till listan över loggar genom att stänga sidan.
 
@@ -53,7 +53,7 @@ När loggningen har påbörjats kan du Visa en lista över tillgängliga långsa
 
 3. Under avsnittet **övervakning** på sid panelen väljer du **Server loggar**. Sidan visar en lista över loggfilerna.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Skärm bild av sidan Server loggar med lista över loggar markerade":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Skärm bild av alternativ för Server loggar":::
 
    > [!TIP]
    > Namngivnings konventionen för loggen är **MySQL-långsamma-< ditt Server namn>-yyyymmddhh. log**. Datum och tid som används i fil namnet är den tidpunkt då loggen utfärdades. Loggfilerna roteras var 24: e timme eller 7,5 GB, beroende på vilket som kommer först. 
@@ -62,23 +62,23 @@ När loggningen har påbörjats kan du Visa en lista över tillgängliga långsa
 
 5. Om du vill hämta enskilda loggfiler väljer du nedåtpilen bredvid varje loggfil i tabell raden.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-download.png" alt-text="Skärm bild av sidan Server loggar med nedåtpil ikon markerad":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-download.png" alt-text="Skärm bild av alternativ för Server loggar":::
 
 ## <a name="set-up-diagnostic-logs"></a>Konfigurera diagnostikloggar
 
 1. Under avsnittet **övervakning** i sid panelen väljer du **diagnostiska inställningar**  >  **Lägg till diagnostikinställningar**.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Skärm bild av alternativ för diagnostikinställningar":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Skärm bild av alternativ för Server loggar":::
 
 1. Ange ett namn på en diagnostisk inställning.
 
 1. Ange vilka data mottagare som de långsamma frågarna ska skickas till (lagrings konto, händelsehubben eller Log Analytics arbets yta).
 
 1. Välj **MySqlSlowLogs** som logg typ.
-:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Skärm bild av konfigurations alternativ för diagnostikinställningar":::
+:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Skärm bild av alternativ för Server loggar":::
 
 1. När du har konfigurerat data Sinks att skicka in de långsamma frågeresultaten till väljer du **Spara**.
-:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Skärm bild av konfigurations alternativ för diagnostikinställningar med Spara markerat":::
+:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Skärm bild av alternativ för Server loggar":::
 
 1. Få åtkomst till långsamma fråga-loggar genom att utforska dem i de data mottagare du konfigurerade. Det kan ta upp till 10 minuter innan loggarna visas.
 

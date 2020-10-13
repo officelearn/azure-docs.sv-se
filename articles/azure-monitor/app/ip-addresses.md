@@ -2,15 +2,13 @@
 title: IP-adresser som används av Application Insights och Log Analytics | Microsoft Docs
 description: Undantag för Server brand väggen krävs av Application Insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/15/2020
-ms.openlocfilehash: e4c5331177541c7543b386bf8c489d6315fe0bc1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 755fd62482d7e453814cab5b5b617ba5eb0cc85a
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299029"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932370"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-adresser som används av Application Insights och Log Analytics
 Tjänsten [Azure Application Insights](./app-insights-overview.md) använder ett antal IP-adresser. Du kan behöva känna till de här adresserna om appen som du övervakar ligger bakom en brand vägg.
@@ -64,7 +62,7 @@ Om du använder Azure nätverks säkerhets grupper lägger du helt enkelt till *
 ### <a name="addresses-grouped-by-location"></a>Adresser grupperade efter plats
 
 > [!NOTE]
-> Dessa adresser listas med hjälp av CIDR-notering (Classless Inter-Domain routing). Det innebär att en post som `51.144.56.112/28` motsvarar 16 IP-adresser som börjar vid `51.144.56.112` och slutar vid `51.144.56.127` .
+> De här adresserna anges i CIDR-notation (Classless Inter-Domain routing). Det innebär att en post som `51.144.56.112/28` motsvarar 16 IP-adresser som börjar vid `51.144.56.112` och slutar vid `51.144.56.127` .
 
 ```
 Australia East

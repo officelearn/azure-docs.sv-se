@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
 ms.openlocfilehash: 4d6728d4fbde4b7d6cc8ed06e961642264ad31bc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321704"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Självstudie: Sök efter intresse punkter i närheten med hjälp av Azure Maps
@@ -26,7 +26,7 @@ Den här självstudiekursen visar hur du skapar ett konto med Azure Maps och sed
 > * Skapa en ny webbsida med API:n för kartkontroll
 > * Använda Maps-söktjänsten för att hitta orienteringspunkter i närheten
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 <a id="createaccount"></a>
 <a id="getkey"></a>

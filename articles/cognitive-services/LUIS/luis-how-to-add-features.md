@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: 33435d2367b92f312d41f0e32fdbb3a93d59a9fd
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540888"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Använd funktioner för att förstärka signalen av ord listan
@@ -41,7 +41,7 @@ Granska [begreppen](luis-concept-feature.md) för att förstå när och varför 
 
 1. Fras listan kan tillämpas på hela appen med den **globala** inställningen eller till en speciell modell (avsikt eller entitet). Om du skapar fras listan, som en _funktion_ från ett avsikt eller en entitet, är växlingen inte inställd för global. I det här fallet är syftet med växlingen att funktionen bara är lokal för den modellen, vilket innebär att den _inte är global_ för programmet.
 
-1. Välj **Klar**. Den nya funktionen läggs till på sidan med **ml-funktioner** .
+1. Välj **Done** (Klar). Den nya funktionen läggs till på sidan med **ml-funktioner** .
 
 <a name="edit-phrase-list"></a>
 <a name="delete-phrase-list"></a>

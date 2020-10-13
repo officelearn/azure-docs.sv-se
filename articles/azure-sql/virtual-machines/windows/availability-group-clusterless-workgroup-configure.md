@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
 ms.openlocfilehash: 43b0f64a1d88a71b221fac240392dc71b93eef76
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91298844"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Konfigurera en tillgänglighets grupp för arbets gruppen 
@@ -48,7 +48,7 @@ För referens används följande parametrar i den här artikeln, men kan ändras
 
 ## <a name="set-a-dns-suffix"></a>Ange ett DNS-suffix 
 
-I det här steget konfigurerar du DNS-suffixet för båda servrarna. Till exempel `ag.wgcluster.example.com`. På så sätt kan du använda namnet på det objekt som du vill ansluta till som en fullständigt kvalificerad adress i nätverket, till exempel `AGNode1.ag.wgcluster.example.com` . 
+I det här steget konfigurerar du DNS-suffixet för båda servrarna. Exempelvis `ag.wgcluster.example.com`. På så sätt kan du använda namnet på det objekt som du vill ansluta till som en fullständigt kvalificerad adress i nätverket, till exempel `AGNode1.ag.wgcluster.example.com` . 
 
 Följ dessa steg om du vill konfigurera DNS-suffixet:
 

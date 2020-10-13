@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c010fa4ea0289ed91f439a250f0b63703517f5bc
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91447778"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Skapa och etablera en simulerad IoT Edge enhet med en virtuell TPM i Windows
@@ -31,7 +31,7 @@ Den här artikeln visar hur du testar automatisk etablering på en simulerad IoT
 > [!TIP]
 > I den här artikeln beskrivs hur du testar automatisk etablering genom att använda TPM-attestering på virtuella enheter, men det är mycket som gäller när du använder den fysiska TPM-maskinvaran.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Windows-utvecklings dator. Den här artikeln använder Windows 10.
 * En aktiv IoT Hub.

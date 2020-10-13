@@ -11,10 +11,10 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
 ms.openlocfilehash: 9fe50388e2fc21c28ca1f04035cc7c725e4f87ec
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91275055"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Linux-tillägg för VM-ögonblicksbild för Azure Backup
@@ -62,9 +62,9 @@ Följande JSON visar schemat för ögonblicks bilds tillägget för den virtuell
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Name | Värde/exempel | Datatyp |
+| Namn | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
+| apiVersion | 2015-06-15 | date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | sträng |
 | commandStartTimeUTCTicks | 6.36458 e + 17 | sträng |
 | locale | sv-se | sträng |

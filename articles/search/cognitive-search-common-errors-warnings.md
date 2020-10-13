@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362822"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
@@ -35,7 +35,7 @@ Från och med API `2019-05-06` -versionen struktureras fel och varningar på obj
 | Egenskap | Beskrivning | Exempel |
 | --- | --- | --- |
 | key | Dokument-ID: t för dokumentet som påverkas av felet eller varningen. | https: \/ /coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
-| namn | Åtgärds namnet som beskriver var felet eller varningen uppstod. Detta genereras av följande struktur: [Category]. [under kategori]. [resourceType]. resourceName | DocumentExtraction. azureblob. myBlobContainerName-anrikning. WebApiSkill. mySkillName projektion. SearchIndex. OutputFieldMapping. myOutputFieldName projektion. SearchIndex. MergeOrUpload. myIndexName projektion. KnowledgeStore. Table. myTableName |
+| name | Åtgärds namnet som beskriver var felet eller varningen uppstod. Detta genereras av följande struktur: [Category]. [under kategori]. [resourceType]. resourceName | DocumentExtraction. azureblob. myBlobContainerName-anrikning. WebApiSkill. mySkillName projektion. SearchIndex. OutputFieldMapping. myOutputFieldName projektion. SearchIndex. MergeOrUpload. myIndexName projektion. KnowledgeStore. Table. myTableName |
 | meddelande | En övergripande beskrivning av felet eller varningen. | Det gick inte att köra kompetensen eftersom webb-API-begäran misslyckades. |
 | information | Ytterligare information som kan vara till hjälp för att diagnostisera problemet, till exempel WebApi-svar om det inte gick att köra en anpassad färdighet. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 källa, Func `2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... rest av stack spårning... |
 | documentationLink | En länk till relevant dokumentation med detaljerad information för att felsöka och lösa problemet. Den här länken pekar ofta på ett av nedanstående avsnitt på den här sidan. | https://go.microsoft.com/fwlink/?linkid=2106475 |

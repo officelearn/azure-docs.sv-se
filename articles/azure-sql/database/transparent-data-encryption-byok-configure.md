@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
 ms.openlocfilehash: e2cdf7d5213f1667b0b588cc5bfa9f105245b6b3
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619125"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell och Azure CLI: Aktivera transparent datakryptering med kundhanterad nyckel från Azure Key Vault
@@ -123,7 +123,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill installera den version av Azure CLI som krävs (version 2,0 eller senare) och ansluta till din Azure-prenumeration, se [Installera och konfigurera Azures plattforms oberoende kommando rads gränssnitt 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du vill installera den version av Azure CLI som krävs (version 2,0 eller senare) och ansluta till din Azure-prenumeration, se [Installera och konfigurera Azures plattforms oberoende Command-Line gränssnitt 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 Mer information om Key Vault finns i [hantera Key Vault med cli 2,0](../../key-vault/general/manage-with-cli2.md) och [hur du använder Key Vault mjuk borttagning med CLI](../../key-vault/general/soft-delete-cli.md).
 

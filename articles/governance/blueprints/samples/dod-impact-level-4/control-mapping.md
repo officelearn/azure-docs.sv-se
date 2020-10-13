@@ -1,14 +1,14 @@
 ---
 title: DoD effekt nivå 4 skiss exempel kontroller
-description: Kontroll mappning av DoD effekt nivå 4 skiss exempel. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
+description: Kontroll mappning av DoD effekt nivå 4 skiss exempel. Varje kontroll mappas till en eller flera Azure Policy definitioner som hjälper till med utvärderingen.
 ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: 52482fae2fefa0a58e82b3af38b56db7d5b19c25
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 433e77775fdd28032db27c017fe370ab32074a95
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540565"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929531"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Kontroll mappning av DoD effekt nivå 4 skiss exempel
 
@@ -17,8 +17,7 @@ I följande artikel beskrivs hur DoD IL4-skissen för Azure skisser på nivå 4 
 Följande mappningar är till **DoD påverkan på nivå 4** . Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj ** \[ förhands granskningen \] : DoD påverkan nivå 4** inbyggt princip initiativ.
 
 > [!IMPORTANT]
-> Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden.
-> Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md).
+> Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen en-till-en-eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden. Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md).
 
 ## <a name="ac-2-account-management"></a>Konto hantering för AC-2
 
@@ -30,7 +29,7 @@ Den här skissen hjälper dig att granska konton som kanske inte uppfyller organ
 - Externa konton med Läs behörighet bör tas bort från din prenumeration
 - Externa konton med Skriv behörighet bör tas bort från din prenumeration
 
-## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) konto hantering | Rollbaserade scheman
+## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) konto hantering | Role-Baseds scheman
 
 Azure implementerar [Azure rollbaserad åtkomst kontroll (Azure RBAC)](../../../../role-based-access-control/overview.md) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar också [Azure policy](../../../policy/overview.md) definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar och Service Fabric. Med hjälp av Azure Active Directory-autentisering möjliggörs förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster. Dessutom tilldelar den här skissen en Azure Policy-definition för att granska användningen av anpassade Azure RBAC-regler. Att förstå var anpassade Azure RBAC-regler implementeras kan hjälpa dig att kontrol lera behovet och korrekt implementering, eftersom anpassade Azure RBAC-regler är fel känsliga.
 
@@ -166,7 +165,7 @@ Dessa princip definitioner granskar också konfigurationen av diagnostikloggar f
 - Distribuera granskning på SQL-servrar
 - Distribuera diagnostikinställningar för nätverks säkerhets grupper
 
-## <a name="au-12-01-audit-generation--system-wide--time-correlated-audit-trail"></a>AU-12 (01) gransknings generation | Systemomfattande/tidskorrelerade gransknings spårning
+## <a name="au-12-01-audit-generation--system-wide--time-correlated-audit-trail"></a>AU-12 (01) gransknings generation | Gransknings historik för System-Wide/Time-Correlated
 
 Den här skissen hjälper dig att se till att system händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar logg inställningar på Azure-resurser.
 Den här inbyggda principen kräver att du anger en matris med resurs typer för att kontrol lera om diagnostikinställningar är aktiverade eller inte.
@@ -185,7 +184,7 @@ Adaptiva program kontroller i Azure Security Center är en intelligent, automati
 
 - Anpassningsbara program kontroller för att definiera säkra program ska aktive ras på dina datorer
 
-## <a name="cm-11-user-installed-software"></a>CM – 11 användare-installerad program vara
+## <a name="cm-11-user-installed-software"></a>CM-11 User-Installed-programvara
 
 Adaptiva program kontroller i Azure Security Center är en intelligent, automatiserad slut punkt till slut punkt som ger en lista över lösningar som kan blockera eller förhindra att specifik program vara körs på dina virtuella datorer. Program kontroll kan hjälpa dig att upprätthålla och övervaka efterlevnaden av principer för begränsning av program vara. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka virtuella datorer där en lista över tillåtna program rekommenderas men inte har kon figurer ATS än.
 
@@ -231,7 +230,7 @@ Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitio
 - \[För hands version \] : Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösen ord
 - \[För hands version \] : Distribuera krav för att granska virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
 
-## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Authenticator-hantering | Lösenordsbaserad autentisering
+## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Authenticator-hantering | Password-Based autentisering
 
 Den här skissen hjälper dig att använda starka lösen ord genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar virtuella Windows-datorer som inte kräver lägsta möjliga styrka och andra lösen ords krav. Medvetenheten om virtuella datorer som strider mot principen för lösen ords styrka hjälper dig att vidta åtgärder för att se till att lösen ord för alla virtuella dator användar konton följer organisationens lösen ords princip.
 

@@ -2,17 +2,14 @@
 title: Application Insights Telemetry i Visual Studio CodeLens | Microsoft Docs
 description: Kom snabbt åt din Application Insights-begäran och undantagstelemetri med CodeLens i Visual Studio.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
 ms.date: 03/17/2017
-ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: 2a562378ae626351922e43d33f38e62331ab58de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92879e9dc7b9de7ef5862f30241f2b80e6aac9e8
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323493"
+ms.locfileid: "91932659"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Application Insights Telemetry i Visual Studio CodeLens
 Metoderna i din webbapps kod kan kommenteras med telemetri om körtidsundantag och förfrågningssvarstider. Om du installerar [Azure Application Insights](./app-insights-overview.md) i ditt program visas telemetrin i Visual Studio [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2015) – anteckningarna längst upp för varje funktion där du är van att se användbar information som antalet platser som refererar till funktionen, eller den person som senast redigerade den.
@@ -68,9 +65,6 @@ Om du vill se mer information klickar du på indikatorn CodeLens-begäran:
 * Välj namnet på Application Insights-resursen i det övre vänstra hörnet i CodeLens-informationsvyn för att ändra den resurs som är källa för CodeLens-datan.
 
 ## <a name="next-steps"></a><a name="next"></a>Nästa steg
-|  |  |
-| --- | --- |
-| **[Arbeta med Application Insights i Visual Studio](./visual-studio.md)**<br/>Sök i telemetri, visa data i CodeLens och konfigurera Application Insights. Allt i Visual Studio. |![Högerklicka på projektet och välj Application Insights, Sök](./media/visual-studio-codelens/34.png) |
-| **[Lägga till mer information](./asp-net-more.md)**<br/>Övervaka användning, tillgänglighet, beroenden och undantag. Integrera spårningar från loggningsramverk. Skriv anpassad telemetri. |![Visual Studio](./media/visual-studio-codelens/64.png) |
-| **[Arbeta med Application Insights-portalen](./overview-dashboard.md)**<br/>Instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, live-mappning över beroenden för din app och telemetriexport. |![Visual Studio](./media/visual-studio-codelens/62.png) |
+* **[Arbeta med Application Insights i Visual Studio](./visual-studio.md)**. Sök i telemetri, visa data i CodeLens och konfigurera Application Insights. Allt i Visual Studio. 
+* **[Arbeta med Application Insights portalen](./overview-dashboard.md)**. Instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, live-mappning över beroenden för din app och telemetriexport. 
 

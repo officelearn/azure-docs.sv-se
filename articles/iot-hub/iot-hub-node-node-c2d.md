@@ -14,10 +14,10 @@ ms.custom:
 - mqtt
 - devx-track-js
 ms.openlocfilehash: e398138f12c38e5235a0004679d9574dbde607db
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91446884"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Skicka meddelanden från moln till enhet med IoT Hub (Node.js)
@@ -46,7 +46,7 @@ I slutet av den här självstudien kör du två Node.js-konsol program:
 > IoT Hub har SDK-stöd för många enhets plattformar och språk (inklusive C, Java, python och Java Script) via SDK: er för Azure IoT-enheter. Stegvisa instruktioner för hur du ansluter din enhet till den här själv studie kursen och i allmänhet till Azure IoT Hub finns i [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot).
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Node.js version 10.0. x eller senare. [Förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) beskriver hur du installerar Node.js för den här själv studie kursen på antingen Windows eller Linux.
 

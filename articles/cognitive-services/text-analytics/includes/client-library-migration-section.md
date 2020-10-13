@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 05/13/2020
 ms.author: aahi
 ms.openlocfilehash: 5f53c3ebe4bd15bc6afa8a62758309e9f40a71f0
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779610"
 ---
 Om du vill använda den senaste versionen av klient biblioteket för Textanalys v3 måste du hämta det senaste programpaketet i `Azure.AI.TextAnalytics` namn området. I avsnittet **ställa** in i [snabb starts artikeln](../quickstarts/text-analytics-sdk.md) visas de kommandon som du kan använda för det språk som du föredrar, med exempel kod.

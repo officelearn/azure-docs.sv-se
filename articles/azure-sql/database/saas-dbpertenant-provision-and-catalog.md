@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: bc649551986190f944e3225ff0914d091acd3f88
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619703"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Lär dig hur du etablerar nya klienter och registrerar dem i katalogen
@@ -103,7 +103,7 @@ Du behöver inte uttryckligen följa det här arbets flödet. Den förklarar hur
 
 * **Importera modulen CatalogAndDatabaseManagement. psm1.** Det ger en abstraktion av katalogen och klient nivån över [hanterings](elastic-scale-shard-map-management.md) funktionerna för Shard. Den här modulen kapslar in mycket av katalog mönstret och är värt att utforska.
 * **Importera modulen SubscriptionManagement. psm1.** Den innehåller funktioner för att logga in på Azure och välja den Azure-prenumeration som du vill arbeta med.
-* **Hämta konfigurations information.** Gå till Hämta-konfiguration med hjälp av F11 och se hur appens konfiguration anges. Resurs namn och andra AppData-värden definieras här. Ändra inte värdena förrän du är van vid skripten.
+* **Hämta konfigurations information.** Gå till Get-Configuration med hjälp av F11 och se hur appens konfiguration anges. Resurs namn och andra AppData-värden definieras här. Ändra inte värdena förrän du är van vid skripten.
 * **Hämta katalogobjektet.** Stega in i get-Catalog, som skapar och returnerar ett katalog objekt som används i skriptet på högre nivå. Den här funktionen använder Shard hanterings funktioner som importeras från **AzureShardManagement. psm1**. Katalogobjektet består av följande element:
 
    * $catalogServerFullyQualifiedName konstrueras med hjälp av standard skaftet plus ditt användar namn: _katalog- \<user\> . databas. Windows .net_.

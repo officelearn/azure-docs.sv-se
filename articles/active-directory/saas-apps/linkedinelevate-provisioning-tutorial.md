@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.openlocfilehash: 429ccacea8eb4fd66336543615b11179af3e9276
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361592"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Självstudie: Konfigurera LinkedIn-höjning för automatisk användar etablering
@@ -50,7 +50,7 @@ Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vi
 
 Det här avsnittet vägleder dig genom att ansluta din Azure AD till LinkedIn-höjning SCIM-API för användar konto och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i LinkedIn-höjning baserat på användar-och grupp tilldelning i Azure AD.
 
-**Tips:** Du kan också välja att aktivera SAML-baserad enkel inloggning för LinkedIn-höjning genom att följa anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra.
+**Tips:** Du kan också välja att aktivera SAML-baserade enkla Sign-On för LinkedIn-höjning genom att följa anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra.
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>Konfigurera automatisk användar konto etablering till LinkedIn-höjning i Azure AD:
 

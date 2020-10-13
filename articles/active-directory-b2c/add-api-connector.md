@@ -14,7 +14,7 @@ ms.openlocfilehash: 824b8f386e6bf822444450305e603e6068a34c5e
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91854366"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Lägga till en API-anslutning till ett användar flöde för registrering
@@ -283,7 +283,7 @@ Content-type: application/json
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | Sträng  | Ja      | API-versionen.                                                    |
 | åtgärd      | Sträng  | Ja      | Värdet måste vara `ValidationError` .                                           |
-| status      | Heltal | Ja      | Måste vara `400` ett värde för ett ValidationError-svar.                        |
+| status      | Integer | Ja      | Måste vara `400` ett värde för ett ValidationError-svar.                        |
 | userMessage | Sträng  | Ja      | Meddelande som ska visas för användaren.                                            |
 
 **Slut användar upplevelse med ett verifierings fel svar**

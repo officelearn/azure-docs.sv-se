@@ -9,7 +9,7 @@ ms.openlocfilehash: 870345d244a7f23011c900154e1c486e039a6d8d
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91854822"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Aktivera Uppdateringshantering från en runbook
@@ -24,7 +24,7 @@ Den här metoden använder två Runbooks:
 * **Enable-MultipleSolution** – den primära runbooken som frågar efter konfigurations information, frågar den angivna virtuella datorn och utför andra verifierings kontroller och anropar sedan **AutomationSolution-** runbooken för att konfigurera uppdateringshantering för varje virtuell dator i den angivna resurs gruppen.
 * **Enable-AutomationSolution** – aktiverar uppdateringshantering för en eller flera virtuella datorer som anges i mål resurs gruppen. Den verifierar att kraven är uppfyllda, verifierar att Log Analytics VM-tillägget är installerat och installeras om det inte hittas och lägger till de virtuella datorerna i omfattnings konfigurationen i den angivna Log Analytics arbets ytan som är länkad till Automation-kontot.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation-konto](../automation-security-overview.md) för att hantera datorer.

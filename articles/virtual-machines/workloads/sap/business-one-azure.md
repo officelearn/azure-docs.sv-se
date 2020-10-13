@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccec58f012dcd4b6371c15e79fa964600e775f54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ea10ee5b6fb14558e6bb93b83da0d5c46cff330
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654658"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977654"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One på Azure Virtual Machines
 Det här dokumentet innehåller rikt linjer för att distribuera SAP Business One på Azure Virtual Machines. Dokumentationen ersätter inte installations dokumentationen för Business One för SAP. Dokumentationen bör avse grundläggande planerings-och distributions rikt linjer för Azure-infrastrukturen för att köra företag ett program på.
@@ -95,7 +95,7 @@ Vilken nätverks infrastruktur du behöver distribuera i Azure beror på om du d
 Den förenklade konfigurationen presenterar flera säkerhets instanser som tillåter kontroll och begränsning av routning. Den börjar med 
 
 - Routern/brand väggen på den lokala kund sidan.
-- Nästa instans är den [Azure-nätverks säkerhets grupp](../../../virtual-network/security-overview.md) som du kan använda för att införa regler för Routning och säkerhet för det virtuella Azure-nätverket som du kör din SAP Business en konfiguration i.
+- Nästa instans är den [Azure-nätverks säkerhets grupp](../../../virtual-network/network-security-groups-overview.md) som du kan använda för att införa regler för Routning och säkerhet för det virtuella Azure-nätverket som du kör din SAP Business en konfiguration i.
 - För att undvika att användare av företag en klient kan se den server som kör företaget en server, som kör-databasen, bör du separera den virtuella datorn som är värd för företaget en klient och det företag en server i två olika undernät i VNet.
 - Du skulle använda Azure-NSG som tilldelats de två olika under näten igen för att begränsa åtkomsten till det företag en server.
 
@@ -111,7 +111,7 @@ SQL Server och SAP HANA för databas typen är tillgängliga. Oberoende av DBMS 
 
 Även om den har framhävts i de aktuella och allmänna databas dokumenten, bör du bekanta dig med:
 
-- [Hantera tillgängligheten för virtuella Windows-datorer i Azure](../../windows/manage-availability.md) och [Hantera tillgängligheten för virtuella Linux-datorer i Azure](../../linux/manage-availability.md)
+- [Hantera tillgängligheten för virtuella Windows-datorer i Azure](../../manage-availability.md) och [Hantera tillgängligheten för virtuella Linux-datorer i Azure](../../manage-availability.md)
 - [SLA för Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
 De här dokumenten bör hjälpa dig att bestämma urvalet av lagrings typer och konfiguration med hög tillgänglighet.

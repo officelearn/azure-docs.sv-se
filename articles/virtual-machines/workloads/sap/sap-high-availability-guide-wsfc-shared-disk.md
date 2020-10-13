@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b286812ba0a418d74738837fd5cfb7a7b617a9fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c580e44cc827de46c7464ba5f316e6c515de2940
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88854403"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977994"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Klustra en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure
 
@@ -119,7 +119,7 @@ _SAP ASCS/SCS HA-arkitektur med delad disk_
 
 Det finns två alternativ för delad disk i ett Windows-redundanskluster i Azure:
 
-- [Azure Shared disks](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared) – funktion som gör det möjligt att ansluta Azure Managed disk till flera virtuella datorer samtidigt. 
+- [Azure Shared disks](../../windows/disks-shared.md) – funktion som gör det möjligt att ansluta Azure Managed disk till flera virtuella datorer samtidigt. 
 - Använd program vara från tredje part [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster) för att skapa en speglad lagring som simulerar klusterdelad lagring. 
 
 Tänk på följande när du väljer teknik för delad disk:
@@ -128,7 +128,7 @@ Tänk på följande när du väljer teknik för delad disk:
 - Gör att du kan ansluta Azure Managed disk till flera virtuella datorer samtidigt utan att behöva ytterligare program vara för att underhålla och fungera 
 - Du kommer att arbeta med en enda Azure-delad disk på ett lagrings kluster. Det påverkar tillförlitligheten hos din SAP-lösning.
 - För närvarande är den enda distribution som stöds med Azure Shared Premium disk i tillgänglighets uppsättning. Azure Shared disk stöds inte i zonindelade-distribution.     
-- Se till att etablera en Azure Premium-disk med en minsta disk storlek som anges i [Premium SSD intervall](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared#disk-sizes) för att kunna ansluta till det antal virtuella datorer som krävs samtidigt (vanligt vis 2 för SAP ASCS Windows-redundanskluster). 
+- Se till att etablera en Azure Premium-disk med en minsta disk storlek som anges i [Premium SSD intervall](../../windows/disks-shared.md#disk-sizes) för att kunna ansluta till det antal virtuella datorer som krävs samtidigt (vanligt vis 2 för SAP ASCS Windows-redundanskluster). 
 - Azure Shared Ultra disk stöds inte för SAP-arbetsbelastningar eftersom den inte stöder distribution i tillgänglighets uppsättningar eller zonindelade-distribution.  
  
 **SIOS**
@@ -139,25 +139,25 @@ Tänk på följande när du väljer teknik för delad disk:
 
 ### <a name="shared-disk-using-azure-shared-disk"></a>Delad disk med hjälp av Azure Shared disk
 
-Microsoft erbjuder [Azure delade diskar](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared), som kan användas för att implementera SAP ASCS/SCS hög tillgänglighet med alternativet för delad disk.
+Microsoft erbjuder [Azure delade diskar](../../windows/disks-shared.md), som kan användas för att implementera SAP ASCS/SCS hög tillgänglighet med alternativet för delad disk.
 
 #### <a name="prerequisites-and-limitations"></a>Krav och begränsningar
 
 För närvarande kan du använda Azure Premium SSD-diskar som en Azure-delad disk för SAP ASCS/SCS-instansen. Följande begränsningar är för närvarande på plats:
 
--  [Azure Ultra disk](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk) stöds inte som Azure-delad disk för SAP-arbetsbelastningar. För närvarande går det inte att placera virtuella Azure-datorer med Azure Ultra disk i tillgänglighets uppsättning
--  [Azure Shared disk](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared) med Premium SSD-diskar stöds bara med virtuella datorer i tillgänglighets uppsättningen. Det stöds inte i Tillgänglighetszoner-distribution. 
--  Värdet för Azure-delad disk [maxShares](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable?tabs=azure-cli#disk-sizes) avgör hur många klusternoder som kan använda den delade disken. Normalt för SAP ASCS/SCS-instans konfigurerar du två noder i Windows-redundanskluster, och därför måste värdet för `maxShares` vara inställt på två.
--  Alla virtuella SAP ASCS/SCS-kluster måste distribueras i samma [placerings grupp för Azure närhet](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups).   
+-  [Azure Ultra disk](../../disks-types.md#ultra-disk) stöds inte som Azure-delad disk för SAP-arbetsbelastningar. För närvarande går det inte att placera virtuella Azure-datorer med Azure Ultra disk i tillgänglighets uppsättning
+-  [Azure Shared disk](../../windows/disks-shared.md) med Premium SSD-diskar stöds bara med virtuella datorer i tillgänglighets uppsättningen. Det stöds inte i Tillgänglighetszoner-distribution. 
+-  Värdet för Azure-delad disk [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) avgör hur många klusternoder som kan använda den delade disken. Normalt för SAP ASCS/SCS-instans konfigurerar du två noder i Windows-redundanskluster, och därför måste värdet för `maxShares` vara inställt på två.
+-  Alla virtuella SAP ASCS/SCS-kluster måste distribueras i samma [placerings grupp för Azure närhet](../../windows/proximity-placement-groups.md).   
    Även om du kan distribuera virtuella Windows-kluster i tillgänglighets uppsättning med Azure Shared disk utan PPG, ser PPG till att det går nära fysiskt nära Azure-delade diskar och de virtuella datorerna i klustret, vilket ger kortare latens mellan de virtuella datorerna och lagrings skiktet.    
 
-Mer information om begränsningar för Azure Shared disk finns i avsnittet [begränsningar](https://docs.microsoft.com/azure/virtual-machines/linux/disks-shared#limitations) i dokumentationen för Azure Shared disk.
+Mer information om begränsningar för Azure Shared disk finns i avsnittet [begränsningar](../../linux/disks-shared.md#limitations) i dokumentationen för Azure Shared disk.
 
 > [!IMPORTANT]
 > När du distribuerar SAP ASCS/SCS Windows-redundanskluster med Azure Shared disk bör du vara medveten om att distributionen kommer att fungera med en enda delad disk i ett lagrings kluster. Din SAP ASCS/SCS-instans skulle påverkas, i händelse av problem med lagrings klustret, där den Azure-delade disken distribueras.    
 
 > [!TIP]
-> Granska [SAP-NetWeaver på Azures planerings guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) och [Azure Storages guide för SAP-arbetsbelastningar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) för viktiga överväganden när du planerar SAP-distributionen.
+> Granska [SAP-NetWeaver på Azures planerings guide](./planning-guide.md) och [Azure Storages guide för SAP-arbetsbelastningar](./planning-guide-storage.md) för viktiga överväganden när du planerar SAP-distributionen.
 
 ### <a name="supported-os-versions"></a>OS-versioner som stöds
 

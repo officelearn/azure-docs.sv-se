@@ -4,10 +4,10 @@ description: Resurs typer som stöds via Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: e299e45f08b9e39af02208a0e74734475528b3ae
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91447057"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resurs typer och hälso kontroller i Azure Resource Health
@@ -254,7 +254,7 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 |---|
 |<ul><li>Är värd servern igång?</li><li>Körs Internet Information Server?</li><li>Körs belastningsutjämnaren?</li><li>Kan webb programmet nås från data centret?</li><li>Är lagrings kontot som är värd för plats innehållet tillgängligt?</li></ul>|
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 -  Se [Introduktion till Azure Service Health instrument panel](service-health-overview.md) och [Introduktion till Azure Resource Health](resource-health-overview.md) om du vill veta mer om dem. 
 -  [Vanliga frågor och svar om Azure Resource Health](resource-health-faq.md)
 - Konfigurera aviseringar så att du får ett meddelande om hälso problem. Mer information finns i [Konfigurera aviseringar för service Health-händelser](./alerts-activity-log-service-notifications-portal.md). 

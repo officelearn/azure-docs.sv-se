@@ -12,10 +12,10 @@ ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 07/16/2019
 ms.openlocfilehash: 65acde9ff6f9c6d2d32e5ac2cd2a19081665e8b7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321568"
 ---
 # <a name="use-powershell-to-add-a-database-to-a-failover-group"></a>Använda PowerShell för att lägga till en databas i en grupp för växling vid fel
@@ -46,7 +46,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en server. |

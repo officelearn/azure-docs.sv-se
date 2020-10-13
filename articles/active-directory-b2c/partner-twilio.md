@@ -12,10 +12,10 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 953653a758577ed3d48ca2d81403b4cb363ea294
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259076"
 ---
 # <a name="integrating-twilio-verify-app-with-azure-active-directory-b2c"></a>Integrera Twilio verifiera appen med Azure Active Directory B2C
@@ -45,7 +45,7 @@ Följande komponenter utgör Twilio-lösningen:
 | Steg | Beskrivning |
 |------|------|
 | 1     | Användaren initierar inloggning eller registrera dig till PSD2 demo-appen. Användaren autentiseras via Azure AD B2C kombinerad inloggnings-och registrerings princip. En token returneras till programmet. Vid registreringen verifieras användarens telefonnummer via SMS/telefon och registreras på deras Azure AD B2C-konto.     |
-| 2     | Användaren initierar en transaktion med hög risk, till exempel överföring av $50,00. Användarens aktuella åtkomsttoken utvärderas för PolicyId för att avgöra om användaren redan har autentiserats via en stegvis anpassad princip.     |
+| 2     | Användaren initierar en transaktion med hög risk, till exempel överföring av $50,00. Användarens aktuella åtkomsttoken utvärderas för PolicyId för att avgöra om användaren redan har autentiserats via en Step-Up anpassad princip.     |
 | 3     | Programmet registrerar transaktion svärdet och betalnings mottagaren, $50,00 och John berg och genererar en signerad token. Denna token kallas en `id_token_hint` och innehåller anspråket `amount:$500, payee:john doe` . `id_token_hint`Skickas tillsammans med begäran till den anpassade principen Azure AD B2C, som är integrerad med Twilio.     |
 | 4     | Azure AD B2C verifierar signaturen för id_token_hint genom att kontrol lera program `/.well-known` OpenID Connect-slutpunkten. Efter verifieringen extraheras anspråken från denna token, särskilt `amount` och `payee` . Användaren ser en sida för att verifiera mobiltelefon numret via SMS-meddelandet.     |
 | 5     | Användaren begär att verifiera sina telefonnummer via SMS-meddelandet och Azure AD B2C gör en REST API-begäran till Twilio för att verifiera API-slutpunkten. Den skickar även transaktionen `amount` och `payee` som en del av PSD2-processen för att generera eng ång slö sen ordet (eng ång slö sen ord). Twilio skickar ett SMS-meddelande till användarens registrerade telefonnummer.     |

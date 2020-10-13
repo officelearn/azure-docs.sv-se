@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
 ms.openlocfilehash: 0d57e86088ee472c63b433bde14a0e4316cc20a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321755"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Självstudie: hitta och Visa vägar för olika färd sätt med hjälp av Azure Maps
@@ -25,7 +25,7 @@ I den här självstudien får du lära dig hur du använder Azure Maps [Route se
 > * Återge trafik data i real tid på en karta
 > * Begära och Visa privata och kommersiella fordons vägar på en karta
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -121,7 +121,7 @@ Följande steg visar hur du skapar och visar kart kontrollen på en webb sida.
 
 2. Spara filen **MapTruckRoute.html** och uppdatera sidan i webbläsaren. Om du zoomar in i någon stad, t. ex. Los Angeles, ser du att gator visas med aktuella trafikflödes data.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Visa trafik på en karta":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Grundläggande kart åter givning av kart kontroll":::
 
 <a id="queryroutes"></a>
 
@@ -197,7 +197,7 @@ I den här självstudien beräknas och renderas två vägar på kartan. Den för
 
 3. Spara **TruckRoute.html** och uppdatera webbläsaren. Kartan centreras nu över Seattle. Den blå Teardrop-PIN-koden markerar start punkten. Den runda blå PIN-koden markerar slut punkten.
 
-   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Visa karta med start- och slutpunkter":::
+   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Grundläggande kart åter givning av kart kontroll":::
 
 <a id="multipleroutes"></a>
 
@@ -277,7 +277,7 @@ Det här avsnittet visar hur du använder tjänsten Azure Maps Route för att f�
 
 4. Spara **TruckRoute.html** -filen och uppdatera din webbläsare. Kartan bör nu Visa trucken och Car-vägarna.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Privata och kommersiella fordons vägar på en karta med Azure Route Service":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Grundläggande kart åter givning av kart kontroll":::
 
     Truck-vägen visas med en tjock blå linje. Car-vägen visas med en tunn lila linje. Bilen går över Lake Washington via I-90 och passerar tunnlar under bostads områden. Eftersom tunnlarna ligger nära bostads områden är farligt avfall Last begränsat. Truck-vägen, som anger en `USHazmatClass2` Last typ, dirigeras för att använda en annan väg.
 

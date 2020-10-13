@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 085da17a29e1d5ff1fa69a62e0029fb917d56bb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e404e4cc0e4131ba7ade5ec8ec6115e26268a2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936341"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965904"
 ---
 # <a name="call-the-computer-vision-api"></a>Anropa API:et för visuellt innehåll
 
@@ -35,7 +35,7 @@ Funktionerna erbjuder följande alternativ:
 - **Alternativ 1**: analys med omfång – analysera bara en angiven modell
 - **Alternativ 2**: förbättrad analys – analysera för att tillhandahålla ytterligare information genom att använda [86-kategorier, taxonomi](../Category-Taxonomy.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
@@ -254,4 +254,4 @@ Dessa fel är identiska med de som är i syn. analysera, med ytterligare NotSupp
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill använda REST-API, gå till [API-referens för datorvision](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f21b).
+Om du vill använda REST-API, gå till [API-referens för datorvision](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b).

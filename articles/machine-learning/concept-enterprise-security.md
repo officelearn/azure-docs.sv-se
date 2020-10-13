@@ -11,10 +11,10 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.openlocfilehash: 35b39ceb7ef54b0e00eaa53dad821c9336ea88ca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91302629"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
@@ -42,9 +42,9 @@ Mer information finns i [Konfigurera autentisering för Azure Machine Learning r
 
 Azure Machine Learning stöder två typer av autentisering för webb tjänster: nyckel och token. Varje webb tjänst kan bara aktivera en form av autentisering i taget.
 
-|Autentiseringsmetod|Description|Azure Container Instances|AKS|
+|Autentiseringsmetod|Beskrivning|Azure Container Instances|AKS|
 |---|---|---|---|
-|Nyckel|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
+|Tangent|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
 |Token|Token upphör att gälla efter en viss tids period och behöver uppdateras.| Inte tillgängligt| Inaktiverat som standard |
 
 Kod exempel finns i [avsnittet Web-Service Authentication](how-to-setup-authentication.md#web-service-authentication).
@@ -197,7 +197,7 @@ Om du vill använda nyckeln när du distribuerar en modell till Azure Container 
 
 Mer information om hur du skapar och använder en distributions konfiguration finns i följande artiklar:
 
-* Referens för [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
+* [AciWebservice.deploy_configuration ()-](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) referens
 * [Var och hur du distribuerar](how-to-deploy-and-where.md)
 * [Distribuera en modell till Azure Container Instances](how-to-deploy-azure-container-instance.md)
 

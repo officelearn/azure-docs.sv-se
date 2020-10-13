@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
 ms.openlocfilehash: 089476980ff3e8b2d3b72cb2d229934cf7850c03
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90899258"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes på din Azure Stack Edge Pro GPU-enhet
@@ -106,7 +106,7 @@ Om du vill ha mer information om hur du distribuerar program i ditt Kubernetes-k
 
 ### <a name="kubernetes-and-azure-arc"></a>Kubernetes och Azure-båge
 
-Azure Arc är ett hybrid hanterings verktyg som gör att du kan distribuera program i Kubernetes-kluster. Med Azure ARC kan du också använda Azure Monitor för behållare för att visa och övervaka dina kluster. Mer information finns i [Vad är Azure-Arc-aktiverade Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview). Information om priser för Azure Arc finns i [priser för Azure Arc](https://azure.microsoft.com/services/azure-arc/#pricing).
+Azure Arc är ett hybrid hanterings verktyg som gör att du kan distribuera program i Kubernetes-kluster. Med Azure ARC kan du också använda Azure Monitor för behållare för att visa och övervaka dina kluster. Mer information finns på [Azure-Arc aktiverade Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview). Information om priser för Azure Arc finns i [priser för Azure Arc](https://azure.microsoft.com/services/azure-arc/#pricing).
 
 
 ## <a name="next-steps"></a>Nästa steg

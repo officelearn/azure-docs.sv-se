@@ -4,10 +4,10 @@ description: Den här artikeln granskar rekommenderade mått varningar som är t
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.openlocfilehash: 83394faf3d7296522151b815bddd910d47e45d24
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619958"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Rekommenderade mått varningar (förhands granskning) från Azure Monitor för behållare
@@ -39,7 +39,7 @@ Innan du börjar ska du kontrol lera följande:
 
 För att varna om vad som är viktigt, innehåller Azure Monitor för behållare följande mått aviseringar för dina AKS-och Azure Arc-aktiverade Kubernetes-kluster:
 
-|Name| Beskrivning |Standard tröskel |
+|Namn| Beskrivning |Standard tröskel |
 |----|-------------|------------------|
 |Genomsnittlig container-CPU% |Beräknar Genomsnittlig CPU-användning per behållare.|När den genomsnittliga CPU-användningen per container är större än 95%.| 
 |Genomsnittlig container i arbets minnet% |Beräknar Genomsnittligt arbets minne som används per container.|När genomsnittlig användning av arbets minne per behållare är större än 95%. |

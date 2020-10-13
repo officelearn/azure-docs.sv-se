@@ -9,10 +9,10 @@ ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cfab8ba88c7da84efb3f6aed6f95bb100507f8da
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90981921"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Mass import av data till Azure Cosmos DB SQL API-konto med hjälp av .NET SDK
@@ -28,7 +28,7 @@ Den här självstudiekursen omfattar:
 > * Ansluta till ett Azure Cosmos-konto med Mass stöd aktiverat
 > * Utföra en data import via samtidiga skapande åtgärder
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Se till att du har följande resurser innan du följer anvisningarna i den här artikeln:
 

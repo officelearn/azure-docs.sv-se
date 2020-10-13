@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 08/25/2020
+ms.date: 10/09/2020
 ms.author: aahi
-ms.openlocfilehash: a0557c3ccf6510ab3ee2ae29cbef1fc754473345
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 570a21a307d60ab1e2c02d6481746576f5dcf0e3
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933026"
+ms.locfileid: "91930296"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Så här: identifiera sentiment med hjälp av API för textanalys
 
@@ -78,13 +78,13 @@ Dokument storleken måste vara under 5 120 tecken per dokument. Du kan ha upp ti
 
 Skicka en POST-begäran. Du kan [använda Postman](text-analytics-how-to-call-api.md) eller **konsolen för API-testning** i följande referens länkar för att snabbt strukturera och skicka en. 
 
-#### <a name="version-30"></a>[Version 3,0](#tab/version-3)
-
-[Attitydanalys v3-referens](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment)
-
 #### <a name="version-31-preview1"></a>[Version 3,1 – för hands version. 1](#tab/version-3-1)
 
 [Attitydanalys v 3.1-referens](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
+
+#### <a name="version-30"></a>[Version 3,0](#tab/version-3)
+
+[Attitydanalys v3-referens](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment)
 
 ---
 
@@ -95,10 +95,6 @@ Ange HTTPS-slutpunkten för sentiment-analys genom att antingen använda en Text
 > [!NOTE]
 > Du kan hitta din nyckel och slut punkt för din Textanalys-resurs på Azure-portalen. De kommer att finnas på resursens **snabb start** sida under **resurs hantering**. 
 
-#### <a name="version-30"></a>[Version 3,0](#tab/version-3)
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
-
 #### <a name="version-31-preview1"></a>[Version 3,1 – för hands version. 1](#tab/version-3-1)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
@@ -108,6 +104,10 @@ Du måste inkludera parametern för att få ett utgångs resultat för utåsikts
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
 
 Den här parametern är inställd på `false` som standard. 
+
+#### <a name="version-30"></a>[Version 3,0](#tab/version-3)
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
 
 ---
 
@@ -141,44 +141,6 @@ API för textanalys är tillstånds lös. Inga data lagras i ditt konto och resu
 Sentiment-analys returnerar en sentiment-etikett och förtroende poäng för hela dokumentet och varje mening i det. Resultat närmare 1 anger en högre exakthet i etikettens klassificering, medan lägre poäng visar lägre exakthet. Ett dokument kan ha flera meningar och konfidens intervallet i varje dokument eller mening lägger upp till 1.
 
 Utdata returneras direkt. Du kan strömma resultaten till ett program som accepterar JSON eller spara utdata till en fil på det lokala systemet. Importera sedan utdata till ett program som du kan använda för att sortera, söka och ändra data. På grund av stöd för flerspråkig och emoji kan svaret innehålla text förskjutningar. Mer information finns i [så här bearbetar du förskjutningar](../concepts/text-offsets.md) .
-
-#### <a name="version-30"></a>[Version 3,0](#tab/version-3)
-
-### <a name="sentiment-analysis-v30-example-response"></a>Exempel svar för Attitydanalys v 3.0
-
-Svar från Attitydanalys v3 innehåller sentiment etiketter och Poäng för varje analyserad mening och dokument.
-
-```json
-{
-    "documents": [
-        {
-            "id": "1",
-            "sentiment": "positive",
-            "confidenceScores": {
-                "positive": 1.0,
-                "neutral": 0.0,
-                "negative": 0.0
-            },
-            "sentences": [
-                {
-                    "sentiment": "positive",
-                    "confidenceScores": {
-                        "positive": 1.0,
-                        "neutral": 0.0,
-                        "negative": 0.0
-                    },
-                    "offset": 0,
-                    "length": 58,
-                    "text": "The restaurant had great food and our waiter was friendly."
-                }
-            ],
-            "warnings": []
-        }
-    ],
-    "errors": [],
-    "modelVersion": "2020-04-01"
-}
-```
 
 #### <a name="version-31-preview1"></a>[Version 3,1 – för hands version. 1](#tab/version-3-1)
 
@@ -266,6 +228,44 @@ Attitydanalys v 3.1 erbjuder en åsikts utvinning utöver objektet Response på 
                             "isNegated": false
                         }
                     ]
+                }
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2020-04-01"
+}
+```
+
+#### <a name="version-30"></a>[Version 3,0](#tab/version-3)
+
+### <a name="sentiment-analysis-v30-example-response"></a>Exempel svar för Attitydanalys v 3.0
+
+Svar från Attitydanalys v3 innehåller sentiment etiketter och Poäng för varje analyserad mening och dokument.
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "confidenceScores": {
+                "positive": 1.0,
+                "neutral": 0.0,
+                "negative": 0.0
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "confidenceScores": {
+                        "positive": 1.0,
+                        "neutral": 0.0,
+                        "negative": 0.0
+                    },
+                    "offset": 0,
+                    "length": 58,
+                    "text": "The restaurant had great food and our waiter was friendly."
                 }
             ],
             "warnings": []

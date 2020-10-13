@@ -10,10 +10,10 @@ ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: d2f8a30503e14e647cbc9151ebcea7efa000ca07
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91288298"
 ---
 # <a name="query-csv-files"></a>Köra frågor mot CSV-filer
@@ -131,7 +131,7 @@ Följande fråga visar hur du läser en fil utan en rubrik rad, med en ny rad me
 
 Fil för hands version:
 
-![De första 10 raderna i CSV-filen utan rubrik rad och med ny rad UNIX-typ.](./media/query-single-csv-file/population-unix.png)
+![De första 10 raderna i CSV-filen utan rubrik rad och med Unix-Style ny rad.](./media/query-single-csv-file/population-unix.png)
 
 ```sql
 SELECT *
@@ -159,7 +159,7 @@ Följande fråga visar hur du kan läsa en fil med en rubrik rad, med en ny rad 
 
 Fil för hands version:
 
-![De första 10 raderna i CSV-filen med rubrik raden och med ny rad UNIX-typ.](./media/query-single-csv-file/population-unix-hdr.png)
+![De första 10 raderna i CSV-filen med rubrik raden och med Unix-Style ny rad.](./media/query-single-csv-file/population-unix-hdr.png)
 
 ```sql
 SELECT *
@@ -187,7 +187,7 @@ Följande fråga visar hur du läser en fil med en rubrik rad, med en ny rad med
 
 Fil för hands version:
 
-![De första 10 raderna i CSV-filen med rubrik raden och med nya rad-och offererade värden i UNIX-format.](./media/query-single-csv-file/population-unix-hdr-quoted.png)
+![De första 10 raderna i CSV-filen med rubrik raden och med Unix-Style nya rad-och offererade värden.](./media/query-single-csv-file/population-unix-hdr-quoted.png)
 
 ```sql
 SELECT *
@@ -220,7 +220,7 @@ Följande fråga visar hur du läser en fil med en rubrik rad, med en ny rad med
 
 Fil för hands version:
 
-![De första 10 raderna i CSV-filen med rubrik raden och med ny rad och escape-tecken i UNIX-format som används för fält avgränsare.](./media/query-single-csv-file/population-unix-hdr-escape.png)
+![De första 10 raderna i CSV-filen med rubrik raden och med Unix-Style ny rad och escape-tecken som används för fält avgränsare.](./media/query-single-csv-file/population-unix-hdr-escape.png)
 
 ```sql
 SELECT *
@@ -283,7 +283,7 @@ Följande fråga visar hur du läser en fil med en rubrik rad, med en ny rad med
 
 Fil för hands version:
 
-![De första 10 raderna i CSV-filen med rubrik raden och med en ny rad med UNIX-typ och avgränsare.](./media/query-single-csv-file/population-unix-hdr-tsv.png)
+![De första 10 raderna i CSV-filen med rubrik raden och med Unix-Style nya rad-och TABB-avgränsare.](./media/query-single-csv-file/population-unix-hdr-tsv.png)
 
 ```sql
 SELECT *

@@ -257,12 +257,16 @@
           href: batch-pool-resize-start-event.md
         - name: Sluthändelse för storleksändring av pool
           href: batch-pool-resize-complete-event.md
+        - name: Händelse för poolautoskalning
+          href: batch-pool-autoscale-event.md
         - name: Starthändelse för uppgift
           href: batch-task-start-event.md
         - name: Sluthändelse för uppgift
           href: batch-task-complete-event.md
         - name: Händelse för misslyckad uppgift
           href: batch-task-fail-event.md
+        - name: Händelse för misslyckad aktivitetsschemaläggning
+          href: batch-task-schedule-fail-event.md
     - name: Inbyggda Azure Policy-program
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

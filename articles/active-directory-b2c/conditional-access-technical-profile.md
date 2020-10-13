@@ -12,10 +12,10 @@ ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ef7599441cbfa11c555453adea0ca135569524b5
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91459837"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för villkorlig åtkomst i en Azure Active Directory B2C anpassad princip
@@ -59,7 +59,7 @@ För varje inloggning utvärderar Azure AD B2C alla principer och säkerställer
 
 **InputClaims** -elementet innehåller en lista över anspråk att skicka till villkorlig åtkomst. Du kan också mappa namnet på ditt anspråk till namnet som definierats i den tekniska profilen för villkorlig åtkomst.
 
-| ClaimReferenceId | Obligatorisk | Datatyp | Beskrivning |
+| ClaimReferenceId | Krävs | Datatyp | Beskrivning |
 | --------- | -------- | ----------- |----------- |
 | UserId | Ja | sträng | Identifieraren för den användare som loggar in. |
 | AuthenticationMethodsUsed | Ja |stringCollection | Listan med metoder som användaren använde för att logga in. Möjliga värden: `Password` , och `OneTimePasscode` . |
@@ -73,7 +73,7 @@ För varje inloggning utvärderar Azure AD B2C alla principer och säkerställer
 
 **OutputClaims** -elementet innehåller en lista över anspråk som genererats av ConditionalAccessProtocolProvider. Du kan också mappa namnet på ditt anspråk till namnet som anges nedan.
 
-| ClaimReferenceId | Obligatorisk | Datatyp | Beskrivning |
+| ClaimReferenceId | Krävs | Datatyp | Beskrivning |
 | --------- | -------- | ----------- |----------- |
 | Utmaningar | Ja |stringCollection | Lista med åtgärder för att åtgärda det identifierade hotet. Möjliga värden: `block` |
 | MultiConditionalAccessStatus | Ja | stringCollection |  |
@@ -121,7 +121,7 @@ I följande exempel visas en teknisk profil för villkorlig åtkomst som använd
 
 **InputClaims** -elementet innehåller en lista över anspråk att skicka till villkorlig åtkomst. Du kan också mappa namnet på ditt anspråk till namnet som definierats i den tekniska profilen för villkorlig åtkomst.
 
-| ClaimReferenceId | Obligatorisk | Datatyp | Beskrivning |
+| ClaimReferenceId | Krävs | Datatyp | Beskrivning |
 | --------- | -------- | ----------- |----------- |
 | ChallengesSatisfied | Ja | stringCollection| Listan över uppfyllda utmaningar för att åtgärda det identifierade hotet som en återgång från utvärderings läget, utmaningarna är anspråk på.|
 

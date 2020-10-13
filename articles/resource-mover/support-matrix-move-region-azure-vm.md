@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: fa71cd502f730844e4f4398d41d06ada56fc2413
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602293"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945921"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Stöd för att flytta virtuella Azure-datorer mellan Azure-regioner
 
@@ -155,7 +155,7 @@ Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |20 MB/s | 1684 GB per di
 NIC | Stöds | Ange en befintlig resurs i mål regionen eller skapa en ny resurs under förberedelse processen. 
 Intern lastbalanserare | Stöds | Ange en befintlig resurs i mål regionen eller skapa en ny resurs under förberedelse processen.  
 Offentlig lastbalanserare | Stöds för närvarande inte | Ange en befintlig resurs i mål regionen eller skapa en ny resurs under förberedelse processen.  
-Offentlig IP-adress | Stöds | Ange en befintlig resurs i mål regionen eller skapa en ny resurs under förberedelse processen.  
+Offentlig IP-adress | Stöds | Ange en befintlig resurs i mål regionen eller skapa en ny resurs under förberedelse processen.<br/><br/> Den offentliga IP-adressen är landsspecifika och kommer inte att behållas i mål regionen efter flytten. Tänk på detta när du ändrar nätverks inställningar (inklusive belastnings Utjämnings regler) på mål platsen.
 Nätverkssäkerhetsgrupp | Stöds | Ange en befintlig resurs i mål regionen eller skapa en ny resurs under förberedelse processen.  
 Reserverad (statisk) IP-adress | Stöds | Du kan för närvarande inte konfigurera den här. Standardvärdet är källans värde. <br/><br/> Om NÄTVERKSKORTet på den virtuella käll datorn har en statisk IP-adress och mål under nätet har samma IP-adress, tilldelas den virtuella mål datorn.<br/><br/> Om mål under nätet inte har samma IP-adress kommer initieringen av den virtuella datorn att Miss förflyttningen.
 Dynamisk IP-adress | Stöds | Du kan för närvarande inte konfigurera den här. Standardvärdet är källans värde.<br/><br/> Om NÄTVERKSKORTet på källan har dynamisk IP-adressering, är NÄTVERKSKORTet på den virtuella mål datorn också dynamiskt som standard.

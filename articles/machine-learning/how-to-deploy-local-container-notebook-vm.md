@@ -12,10 +12,10 @@ author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
 ms.openlocfilehash: 7992283c1652199d665aad07c027b88e9489ddf0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90889830"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuera en modell för att Azure Machine Learning beräknings instanser
@@ -44,7 +44,7 @@ En exempel-anteckningsbok som visar lokala distributioner ingår i din beräknin
 
     ![Skärm bild av den lokala tjänsten som körs på antecknings boken](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
-1. Antecknings boken visar den URL och port som tjänsten körs på. Till exempel `https://localhost:6789`. Du kan också köra cellen som innehåller `print('Local service port: {}'.format(local_service.port))` för att Visa porten.
+1. Antecknings boken visar den URL och port som tjänsten körs på. Exempelvis `https://localhost:6789`. Du kan också köra cellen som innehåller `print('Local service port: {}'.format(local_service.port))` för att Visa porten.
 
     ![Skärm bild av den aktiva porten för den lokala tjänsten](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service-port.png)
 

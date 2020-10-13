@@ -8,10 +8,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/02/2020
 ms.openlocfilehash: ab37fcdb4012394f1c5131a23f7c67063d3d6e37
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91825766"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Översikt över Azure Monitor agenter
@@ -35,7 +35,7 @@ Följande tabeller ger en snabb jämförelse mellan Azure Monitors agenter för 
 | | Azure Monitor Agent (förhands granskning) | Diagnostik<br>tillägg (WAD) | Log Analytics<br>agent | Beroende<br>agent |
 |:---|:---|:---|:---|:---|
 | **Miljöer som stöds** | Azure | Azure | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal | 
-| **Agent krav**  | Ingen | Ingen | Ingen | Kräver Log Analytics agent |
+| **Agent krav**  | Inget | Inget | Inget | Kräver Log Analytics agent |
 | **Insamlade data** | Händelseloggar<br>Prestanda | Händelseloggar<br>ETW-händelser<br>Prestanda<br>Filbaserade loggar<br>IIS-loggar<br>.NET-app-loggar<br>Kraschdumpar<br>Loggar för agent-diagnostik | Händelseloggar<br>Prestanda<br>Filbaserade loggar<br>IIS-loggar<br>Insikter och lösningar<br>Övriga tjänster | Process beroenden<br>Mått för nätverks anslutning |
 | **Data som skickas till** | Azure Monitor-loggar<br>Azure Monitor mått | Azure Storage<br>Azure Monitor mått<br>Händelsehubb | Azure Monitor-loggar | Azure Monitor-loggar<br>(via Log Analytics agent) |
 | **Tjänster och**<br>**egenskaper**<br>**tillåtna** | Log Analytics<br>Måttutforskare | Måttutforskare | Azure Monitor för virtuella datorer<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | Azure Monitor för virtuella datorer<br>Tjänstkarta |
@@ -45,7 +45,7 @@ Följande tabeller ger en snabb jämförelse mellan Azure Monitors agenter för 
 | | Azure Monitor Agent (förhands granskning) | Diagnostik<br>tillägg (LAD) | Teleympkvistar<br>agent | Log Analytics<br>agent | Beroende<br>agent |
 |:---|:---|:---|:---|:---|:---|
 | **Miljöer som stöds** | Azure | Azure | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal |
-| **Agent krav**  | Ingen | Ingen | Ingen | Ingen | Kräver Log Analytics agent |
+| **Agent krav**  | Inget | Inget | Inget | Inget | Kräver Log Analytics agent |
 | **Insamlade data** | Syslog<br>Prestanda | Syslog<br>Prestanda | Prestanda | Syslog<br>Prestanda| Process beroenden<br>Mått för nätverks anslutning |
 | **Data som skickas till** | Azure Monitor-loggar<br>Azure Monitor mått | Azure Storage<br>Händelsehubb | Azure Monitor mått | Azure Monitor-loggar | Azure Monitor-loggar<br>(via Log Analytics agent) |
 | **Tjänster och**<br>**egenskaper**<br>**tillåtna** | Log Analytics<br>Måttutforskare | | Måttutforskare | Azure Monitor för virtuella datorer<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | Azure Monitor för virtuella datorer<br>Tjänstkarta |

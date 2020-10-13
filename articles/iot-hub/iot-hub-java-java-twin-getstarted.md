@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt, devx-track-java
 ms.openlocfilehash: b433ab29ab5a2520f503e002e630068126ddb328
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91838695"
 ---
 # <a name="get-started-with-device-twins-java"></a>Kom igång med enhets dubbla (Java)
@@ -29,7 +29,7 @@ I den här självstudien skapar du två Java-konsol program:
 > [!NOTE]
 > Artikeln [Azure IoT SDK](iot-hub-devguide-sdks.md) : er innehåller information om Azure IoT SDK: er som du kan använda för att bygga både enhets-och backend-appar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Java se Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Se till att du väljer **Java 8** under **långsiktigt stöd** för att hämta hämtningar för JDK 8.
 

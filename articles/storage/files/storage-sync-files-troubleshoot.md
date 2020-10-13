@@ -8,10 +8,10 @@ ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: a93c127d0b04667b0f28949f4b384f22769bace4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90018602"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
@@ -66,7 +66,7 @@ Register-AzureRmStorageSyncServer -SubscriptionId "<guid>" -ResourceGroupName "<
 Det här meddelandet visas om AZ eller AzureRM PowerShell-modulen inte är installerad på PowerShell 5,1. 
 
 > [!Note]  
-> ServerRegistration.exe stöder inte PowerShell 6. x. Du kan registrera servern med hjälp av cmdleten register-AzStorageSyncServer på PowerShell 6. x.
+> ServerRegistration.exe stöder inte PowerShell 6. x. Du kan registrera servern med hjälp av Register-AzStorageSyncServer-cmdleten på PowerShell 6. x.
 
 Utför följande steg för att installera AZ-eller AzureRM-modulen på PowerShell 5,1:
 
@@ -195,7 +195,7 @@ På den server som visas som "visas offline" i portalen tittar du på händelse-
 - Om **GetNextJob slutfördes med status:-2134347756** är loggad kan servern inte kommunicera med Azure File Sync tjänsten på grund av en brand vägg eller proxy. 
     - Om servern finns bakom en brandvägg kontrollerar du att port 443 för utgående trafik tillåts. Om brand väggen begränsar trafik till vissa domäner kontrollerar du att de domäner som anges i brand Väggs [dokumentationen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) är tillgängliga.
     - Om servern finns bakom en proxyserver konfigurerar du de datorövergripande proxyinställningarna genom att följa anvisningarna i proxy- [dokumentationen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
-    - Använd cmdleten test-StorageSyncNetworkConnectivity för att kontrol lera nätverks anslutningen till tjänstens slut punkter. Läs mer i [testa nätverks anslutningen till tjänstens slut punkter](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints).
+    - Använd Test-StorageSyncNetworkConnectivity-cmdlet för att kontrol lera nätverks anslutningen till tjänstens slut punkter. Läs mer i [testa nätverks anslutningen till tjänstens slut punkter](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints).
 
 - Om **GetNextJob slutfördes med status:-2134347764** är inloggad kan servern inte kommunicera med Azure File Sync tjänsten på grund av ett utgånget eller Borttaget certifikat.  
     - Kör följande PowerShell-kommando på servern för att återställa certifikatet som används för autentisering:
@@ -1027,7 +1027,7 @@ Skapa först en FSRM-filgrupp med [cmdleten New-FsrmFileGroup](https://docs.micr
 New-FsrmFileGroup -Name "Unsupported characters" -IncludePattern @(("*"+[char]0x00000090+"*"),("*"+[char]0x0000008F+"*"))
 ```
 
-När du har definierat en FSRM-filgrupp kan du skapa en FSRM-filskärm med cmdleten New-FsrmFileScreen.
+När du har definierat en FSRM-filgrupp kan du skapa en FSRM-filskärm med hjälp av New-FsrmFileScreen-cmdleten.
 
 ```powershell
 New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported characters" -IncludeGroup "Unsupported characters"
@@ -1146,7 +1146,7 @@ Om filerna inte kan återkallas:
 | 0x80c86030 | – 2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | Det gick inte att återkalla filen eftersom Azure-filresursen inte är tillgänglig. | Kontrol lera att fil resursen finns och att den är tillgänglig. Om fil resursen har tagits bort och återskapats utför du stegen som dokumenteras i [synkroniseringen eftersom Azure-filresursen togs bort och återskapas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810) för att ta bort och återskapa synkroniseringsresursen. |
 | 0x800705aa | – 2147023446 | ERROR_NO_SYSTEM_RESOURCES | Det gick inte att återkalla filen på grund av otillräckliga system resurser. | Om felet kvarstår bör du undersöka vilken program-eller kernel-lägesinstallation som förbrukar system resurser. |
 | 0x8007000e | – 2147024882 | ERROR_OUTOFMEMORY | Det gick inte att återkalla filen på grund av otillräckligt minne. | Om felet kvarstår bör du undersöka vilken program-eller kernel-läge driv rutin som orsakar det låga minnes tillståndet. |
-| 0x80070070 | – 2147024784 | ERROR_DISK_FULL | Filen kunde inte återkallas på grund av otillräckligt disk utrymme. | Lös problemet genom att frigöra utrymme på volymen genom att flytta filer till en annan volym, öka storleken på volymen eller tvinga filer till nivån genom att använda cmdleten Invoke-StorageSyncCloudTiering. |
+| 0x80070070 | – 2147024784 | ERROR_DISK_FULL | Filen kunde inte återkallas på grund av otillräckligt disk utrymme. | Lös problemet genom att frigöra utrymme på volymen genom att flytta filer till en annan volym, öka storleken på volymen eller tvinga filer till nivån genom att använda Invoke-StorageSyncCloudTiering cmdlet. |
 
 ### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>Nivåindelade filer är inte tillgängliga på servern efter att en serverslutpunkt har tagits bort
 Nivåbaserade filer på en server blir otillgängliga om filerna inte återkallas innan du tar bort en server slut punkt.
@@ -1191,7 +1191,7 @@ Det här alternativet tar bort de överblivna filer som finns på Windows Server
 3. Ta bort Server slut punkten i Sync-gruppen (om den finns) genom att följa stegen som beskrivs i [ta bort en server slut punkt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint).
 
 > [!Warning]  
-> Om Server slut punkten inte tas bort innan du använder cmdlet: en Remove-StorageSyncOrphanedTieredFiles tar du bort den överblivna skikt filen på servern. den fullständiga filen tas bort från Azure-filresursen. 
+> Om Server slut punkten inte tas bort innan du använder Remove-StorageSyncOrphanedTieredFiles-cmdlet: en tar bort den överblivna skikt filen på servern, tas den fullständiga filen bort i Azure-filresursen. 
 
 4. Kör följande PowerShell-kommandon för att visa en lista över överblivna filer på nivån:
 

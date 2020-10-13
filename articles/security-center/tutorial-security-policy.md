@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: db1b73e36a4917f1a10754424b472284094b563e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22885d9d29bfbfc008b668889f7813ece1df8918
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894583"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945760"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetspolicyer
 
@@ -46,7 +46,7 @@ Visa dina säkerhetsprinciper i Security Center:
 
 1. I instrument panelen **Security Center** väljer du **säkerhets princip**.
 
-    ![Fönstret för principhantering](./media/security-center-policies/security-center-policy-mgt.png)
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="Sidan princip hantering&quot;:::
 
    På skärmen **princip hantering** kan du se antalet hanterings grupper, prenumerationer och arbets ytor samt hanterings gruppens struktur.
 
@@ -57,7 +57,7 @@ Visa dina säkerhetsprinciper i Security Center:
    ![princip sida](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
-    > Om det finns en etikett "MG ärvd" tillsammans med standard principen, innebär det att principen har tilldelats till en hanterings grupp och ärvts av den prenumeration som du visar.
+    > Om det finns en etikett &quot;MG ärvd" tillsammans med standard principen, innebär det att principen har tilldelats till en hanterings grupp och ärvts av den prenumeration som du visar.
 
 
 1. Välj bland de tillgängliga alternativen på den här sidan:
@@ -68,8 +68,19 @@ Visa dina säkerhetsprinciper i Security Center:
 
     1. Om du vill visa och redigera standard principen väljer du **Visa gällande princip** och fortsätter enligt beskrivningen nedan. 
 
-       ![princip skärm](./media/security-center-policies/policy-screen.png)
-       
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Sidan princip hantering&quot;:::
+
+   På skärmen **princip hantering** kan du se antalet hanterings grupper, prenumerationer och arbets ytor samt hanterings gruppens struktur.
+
+1. Välj den prenumeration eller hanterings grupp vars principer du vill visa.
+
+1. Sidan säkerhets princip för den prenumerationen eller hanterings gruppen visas. Den visar de tillgängliga och tilldelade principerna.
+
+   ![princip sida](./media/tutorial-security-policy/security-policy-page.png)
+
+    > [!NOTE]
+    > Om det finns en etikett &quot;MG ärvd":::
+
        Den här **säkerhets princip** skärmen visar den åtgärd som vidtas av de principer som har tilldelats den prenumeration eller hanterings grupp du valt.
        
        * Använd länkarna överst för att öppna en princip **tilldelning** som gäller för prenumerationen eller hanterings gruppen. Med dessa länkar kan du komma åt tilldelningen och redigera eller inaktivera principen. Om du till exempel ser att en viss princip tilldelning på ett effektivt sätt nekar Endpoint Protection använder du länken för att redigera eller inaktivera principen.
@@ -131,8 +142,7 @@ Mer information om rekommendationer finns i [hantera säkerhets rekommendationer
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln förklaras säkerhets principer. Relaterad information finns i följande artiklar:
 
-* Instruktioner för hur du anger principer med hjälp av PowerShell finns i [snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med hjälp av modulen Azure PowerShell](../governance/policy/assign-policy-powershell.md)
-
-* Instruktioner för hur du redigerar en säkerhets princip i Azure Policy finns i [skapa och hantera principer för att genomdriva efterlevnad](../governance/policy/tutorials/create-and-manage.md).
-
-* Instruktioner för hur du ställer in en princip över prenumerationer eller på hanterings grupper med hjälp av Azure Policy finns [Azure policy?](../governance/policy/overview.md)
+- [Lär dig hur du ställer in principer med PowerShell](../governance/policy/assign-policy-powershell.md) - 
+- [Lär dig hur du redigerar en säkerhets princip i Azure Policy](../governance/policy/tutorials/create-and-manage.md) - 
+- [Lär dig hur du ställer in en princip över prenumerationer eller på hanterings grupper med Azure policy](../governance/policy/overview.md).
+- [Lär dig hur du aktiverar Security Center för alla prenumerationer i en hanterings grupp](onboard-management-group.md)

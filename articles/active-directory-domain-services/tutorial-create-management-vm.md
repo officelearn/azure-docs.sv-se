@@ -1,20 +1,20 @@
 ---
 title: Självstudie – Skapa en virtuell hanterings dator för Azure Active Directory Domain Services | Microsoft Docs
 description: I den här självstudien får du lära dig hur du skapar och konfigurerar en virtuell Windows-dator som du använder för att administrera Azure Active Directory Domain Services hanterad domän.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: afeac24a5d3c21fce120512813d68c49a505c6c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: cc183a047023e5377d7a45088b7c9ae2407f6829
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86024612"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967128"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: skapa en virtuell hanterings dator för att konfigurera och administrera en Azure Active Directory Domain Services hanterad domän
 
@@ -22,7 +22,7 @@ Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade 
 
 Den här självstudien visar hur du konfigurerar en virtuell Windows Server-dator i Azure och installerar de verktyg som krävs för att administrera en hanterad Azure AD DS-domän.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Förstå de tillgängliga administrativa uppgifterna i en hanterad domän
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 570653d620c5e314db9e6a0bc56d731f8acf9296
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 77c09385c69e4a2922fa3b2249143e6e969bfc5a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925659"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759912"
 ---
 ::: zone target="docs"
 
@@ -268,7 +268,7 @@ Om du stöter på problem när du låser upp diskarna går du till [Felsöka upp
     
 8. När disken är upplåst kan du gå till monteringspunkten och visa innehållet på disken. Nu är du redo att kopiera data till *BlockBlob*- eller *PageBlob*-mappen. 
 
-    ![Data Box-diskinnehåll](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
+    ![Data Box Disk-innehåll 2](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
 
 Om du stöter på problem när du låser upp diskarna går du till [Felsöka upplåsningsproblem](data-box-disk-troubleshoot-unlock.md). 

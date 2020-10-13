@@ -1,14 +1,14 @@
 ---
 title: Förstå hur effekter fungerar
 description: Azure Policy definitioner har olika effekter som avgör hur efterlevnaden hanteras och rapporteras.
-ms.date: 09/15/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: b6622796ab0554f692a3b64e0b41d60f49c561b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19811eca33be7dff4d9bee5b8bd89dd38f185a57
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252012"
+ms.locfileid: "91873956"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå Azure Policys effekter
 
@@ -98,7 +98,7 @@ Granskning används för att skapa en varnings händelse i aktivitets loggen nä
 
 ### <a name="audit-evaluation"></a>Gransknings utvärdering
 
-Audit är den senaste effekterna som kontrol leras av Azure Policy när en resurs skapas eller uppdateras. För ett Resource Manager-läge skickar Azure Policy resursen till resurs leverantören. Granskningen fungerar likadant för en resurs förfrågan och en utvärderings cykel. Azure Policy lägger till en `Microsoft.Authorization/policies/audit/action` åtgärd i aktivitets loggen och markerar resursen som icke-kompatibel.
+Audit är den senaste effekterna som kontrol leras av Azure Policy när en resurs skapas eller uppdateras. För ett Resource Manager-läge skickar Azure Policy resursen till resurs leverantören. Granskningen fungerar likadant för en resurs förfrågan och en utvärderings cykel. För nya och uppdaterade resurser lägger Azure Policy till en `Microsoft.Authorization/policies/audit/action` åtgärd i aktivitets loggen och markerar resursen som icke-kompatibel.
 
 ### <a name="audit-properties"></a>Gransknings egenskaper
 
@@ -145,7 +145,7 @@ AuditIfNotExists möjliggör granskning av resurser som är _relaterade_ till de
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists-utvärdering
 
-AuditIfNotExists körs efter att en resurs leverantör har hanterat en begäran om att skapa eller uppdatera resurs och returnerat en status kod som lyckats. Granskningen sker om det inte finns några relaterade resurser eller om resurserna som definieras av **ExistenceCondition** inte utvärderas till true. Azure Policy lägger till en `Microsoft.Authorization/policies/audit/action` åtgärd i aktivitets loggen på samma sätt som gransknings resultatet. När den utlöses är den resurs som uppfyllde **IF** -villkoret den resurs som har marker ATS som icke-kompatibel.
+AuditIfNotExists körs efter att en resurs leverantör har hanterat en begäran om att skapa eller uppdatera resurs och returnerat en status kod som lyckats. Granskningen sker om det inte finns några relaterade resurser eller om resurserna som definieras av **ExistenceCondition** inte utvärderas till true. För nya och uppdaterade resurser lägger Azure Policy till en `Microsoft.Authorization/policies/audit/action` åtgärd i aktivitets loggen och markerar resursen som icke-kompatibel. När den utlöses är den resurs som uppfyllde **IF** -villkoret den resurs som har marker ATS som icke-kompatibel.
 
 ### <a name="auditifnotexists-properties"></a>Egenskaper för AuditIfNotExists
 

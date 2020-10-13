@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/18/2020
 ms.openlocfilehash: dd59d0b09a28febfc0afe35d9f008ba0e0ee19ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295722"
 ---
 # <a name="server-group-size"></a>Servergruppstorlek
@@ -22,13 +22,13 @@ Citus-distributions alternativet använder sig av samdrifts databas servrar för
 
 Storleken på en Server grupp, vad gäller antal noder och deras maskin varu kapacitet, är enkelt att ändra ([se nedan](#scale-a-hyperscale-citus-server-group)). Du behöver dock fortfarande välja en ursprunglig storlek för en ny server grupp. Här följer några tips för ett rimligt val.
 
-### <a name="multi-tenant-saas-use-case"></a>Användnings fall för SaaS för flera innehavare
+### <a name="multi-tenant-saas-use-case"></a>SaaS för flera innehavare Use-Case
 
 För de som migreras till storskalig (citus) från en befintlig instans av en PostgreSQL-databas, rekommenderar vi att du väljer ett kluster där antalet arbets virtuella kärnor och RAM-minne totalt är lika med den ursprungliga instansen. I sådana scenarier har vi sett prestanda förbättringar på 2 – 3 – 3 gånger eftersom horisontell Partitionering förbättrar resursutnyttjande och ger mindre index osv.
 
 Antalet virtuella kärnor som krävs för koordinator-noden beror på din befintliga arbets belastning (Skriv-/läsnings data flöde). Koordinator-noden kräver inte lika mycket RAM som arbetsnoder, men RAM-allokering bestäms baserat på antalet vCore (enligt beskrivningen i [konfigurations alternativen för citus)](concepts-hyperscale-configuration-options.md)så att antalet vCore är i grunden det faktiska beslutet.
 
-### <a name="real-time-analytics-use-case"></a>Användnings fall för real tids analys
+### <a name="real-time-analytics-use-case"></a>Real-Time analys Use-Case
 
 Totalt antal virtuella kärnor: när du arbetar med data i RAM-minnet kan du förvänta en linjär prestanda förbättring på storskaligheten (citus) som är proportionell mot antalet arbets kärnor. Om du vill fastställa rätt antal virtuella kärnor för dina behov kan du tänka på den aktuella svars tiden för frågor i databasen med en nod och den svars tid som krävs i storskalig (citus). Dela den nuvarande svarstiden med den önskade svarstiden och avrunda resultatet.
 

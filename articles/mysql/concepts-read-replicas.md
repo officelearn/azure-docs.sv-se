@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: b32ef80ad670e369315ec3ddb6972aef30bec27a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42ca56e33ff0bc8f48c35849480d8094a2be1cb7
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627575"
+ms.locfileid: "91876557"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Skrivskyddad replik i Azure Database for MySQL
 
@@ -93,11 +93,9 @@ Ange lösen ordet för användar kontot vid prompten.
 
 ## <a name="monitor-replication"></a>Övervaka replikering
 
-Azure Database for MySQL anger måttet för **replikeringsfördröjning i sekunder** i Azure Monitor. Måttet är endast tillgängligt för repliker.
+Azure Database for MySQL anger måttet för **replikeringsfördröjning i sekunder** i Azure Monitor. Måttet är endast tillgängligt för repliker. Detta mått beräknas med hjälp av `seconds_behind_master` måttet som är tillgängligt i MySQL- `SHOW SLAVE STATUS` kommandot. Ange en avisering för att meddela dig när fördröjningen för replikering når ett värde som inte är acceptabelt för din arbets belastning.
 
-Detta mått beräknas med hjälp av `seconds_behind_master` måttet som är tillgängligt i MySQL- `SHOW SLAVE STATUS` kommandot.
-
-Ange en avisering för att meddela dig när fördröjningen för replikering når ett värde som inte är acceptabelt för din arbets belastning.
+Om du ser ökad replikeringsfördröjning kan du läsa [Felsök replikeringsfördröjning](howto-troubleshoot-replication-latency.md) för att felsöka och förstå möjliga orsaker.
 
 ## <a name="stop-replication"></a>Stoppa replikering
 

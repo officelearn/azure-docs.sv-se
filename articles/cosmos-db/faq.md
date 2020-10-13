@@ -8,10 +8,10 @@ ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 4bd29ce3bf2cc7cd69f86dbf172d3cd9a2044e79
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570356"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
@@ -177,7 +177,7 @@ SQL-API: et stöder låg latens agg regering i valfri skala via mängd funktione
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>Hur tillhandahåller SQL-API samtidighet?
 
-SQL-API: et stöder optimistisk samtidighets kontroll (OCC) via HTTP-entitetstyper eller ETags. Varje SQL-API-resurs har en ETag och ETag anges på servern varje gång ett dokument uppdateras. ETag-rubriken och det aktuella värdet ingår i alla svarsmeddelanden. ETags kan användas med If-Match-huvudet för att tillåta att servern bestämmer om en resurs ska uppdateras. Värdet If-Match är ETag-värdet som ska kontrol leras mot. Om ETag-värdet matchar Server-ETag-värdet, uppdateras resursen. Om ETag inte längre är aktuell, avvisar servern åtgärden med svars koden "HTTP 412-förväntas haveri". Klienten hämtar sedan resursen för att hämta det aktuella ETag-värdet för resursen. Dessutom kan ETags användas med rubriken If-None-Match för att avgöra om en återhämtning av en resurs krävs.
+SQL-API: et stöder optimistisk samtidighets kontroll (OCC) via HTTP-entitetstyper eller ETags. Varje SQL-API-resurs har en ETag och ETag anges på servern varje gång ett dokument uppdateras. ETag-rubriken och det aktuella värdet ingår i alla svarsmeddelanden. ETags kan användas med If-Match-rubriken för att tillåta att servern bestämmer om en resurs ska uppdateras. Värdet If-Match är det ETag-värde som ska kontrol leras mot. Om ETag-värdet matchar Server-ETag-värdet, uppdateras resursen. Om ETag inte längre är aktuell, avvisar servern åtgärden med svars koden "HTTP 412-förväntas haveri". Klienten hämtar sedan resursen för att hämta det aktuella ETag-värdet för resursen. Dessutom kan ETags användas med rubriken If-None-Match för att avgöra om en återhämtning av en resurs krävs.
 
 Om du vill använda optimistisk samtidighet i .NET använder du klassen [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) . Ett .NET-exempel finns i [program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) i DocumentManagement-exemplet på GitHub.
 

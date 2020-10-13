@@ -4,12 +4,12 @@ description: Lär dig hur du implementerar varaktiga timers i Durable Functions-
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 0226e5141b100aa3fcf89dd1a5cade8f3cd6cf1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb91f205a9b83b0b4b410644ef6c0fcbbf60876a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87056235"
+ms.locfileid: "91876455"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Timers i Durable Functions (Azure Functions)
 
@@ -22,7 +22,7 @@ Du skapar en varaktig timer genom att anropa `CreateTimer` (.net)-metoden eller 
 När du skapar en timer som upphör att gälla 4:30 PM kommer det underliggande ständiga aktivitets ramverket att köa ett meddelande som bara är synligt på 4:30 PM. När du kör i Azure Functions förbruknings planen ser det nyligen synliga timer-meddelandet till att Function-appen aktive ras på en lämplig virtuell dator.
 
 > [!NOTE]
-> * Varaktiga timers är för närvarande begränsade till sju dagar. Om längre fördröjningar behövs kan de simuleras med hjälp av timer-API: er i en `while` slinga.
+> * Från och med [version 2.3.0](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.3.0) av det varaktiga tillägget är de varaktiga tidsintervallen obegränsade. I tidigare versioner av tillägget är varaktiga timers begränsade till sju dagar. När du använder en tidigare version och behöver en fördröjning längre än sju dagar, använder du timer-API: erna i en `while` slinga för att simulera denna fördröjning.
 > * Använd alltid i `CurrentUtcDateTime` stället för `DateTime.UtcNow` i .net eller i `currentUtcDateTime` stället för `Date.now` eller `Date.UTC` i Java Script när du beräknar brand tiden för varaktiga timers. Mer information finns i artikeln om [begränsningar för Orchestrator-funktions kod](durable-functions-code-constraints.md) .
 
 ## <a name="usage-for-delay"></a>Användning för fördröjning

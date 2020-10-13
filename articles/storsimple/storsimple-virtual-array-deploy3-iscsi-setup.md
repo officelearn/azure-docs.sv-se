@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 81799e6ec366c7429fdb29b85b4ff65d353a8fba
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91742425"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Distribuera virtuell StorSimple-matris – konfigureras som en iSCSI-server via Azure Portal
@@ -77,7 +77,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
 5. DNS-servrar krävs eftersom de används när enheten försöker kommunicera med moln lagrings tjänst leverantörer eller för att lösa din enhet efter namn om den är konfigurerad som en fil server. På sidan **nätverks inställningar** under **DNS-servrarna**:
    
    1. En primär och en sekundär DNS-server kommer att konfigureras automatiskt. Om du väljer att konfigurera statiska IP-adresser kan du ange DNS-servrar. För hög tillgänglighet rekommenderar vi att du konfigurerar en primär och en sekundär DNS-server.
-   2. Klicka på **Godkänn**. Nätverks inställningarna tillämpas och kontrol leras.
+   2. Klicka på **Applicera**. Nätverks inställningarna tillämpas och kontrol leras.
 6. På sidan **enhets inställningar** :
    
    1. Tilldela enheten ett unikt **namn** . Namnet kan innehålla 1-15 tecken och får innehålla bokstäver, siffror och bindestreck.
@@ -93,7 +93,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
    4. En dialog ruta visas. Ange autentiseringsuppgifterna för domänen i det angivna formatet. Klicka på kryssikonen ![kryssikon](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Domänautentiseringsuppgifter kommer att verifieras. Ett fel meddelande visas om autentiseringsuppgifterna är felaktiga.
       
        ![autentiseringsuppgifter](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
-   5. Klicka på **Godkänn**. Detta gäller och validerar enhets inställningarna.
+   5. Klicka på **Applicera**. Detta gäller och validerar enhets inställningarna.
 7. (Valfritt) Konfigurera webbproxyservern. Även om webbproxykonfigurationen är valfri, var medveten om att om du använder en webbproxy så kan du bara konfigurera den här.
    
     ![Konfigurera webbproxy](./media/storsimple-virtual-array-deploy3-iscsi-setup/image9.png)
@@ -103,7 +103,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
    1. Ange **webbproxy-URL** i följande format: *http: \/ /host-IP-adress* eller *fullständigt domän namn: port nummer*. Observera att HTTPS-URL: er inte stöds.
    2. Ange **autentisering** som **Basic** eller **none**.
    3. Om du använder autentisering måste du också ange ett **användar namn** och **lösen ord**.
-   4. Klicka på **Godkänn**. Detta validerar och tillämpar de konfigurerade webbproxyinställningarna.
+   4. Klicka på **Applicera**. Detta validerar och tillämpar de konfigurerade webbproxyinställningarna.
 8. (Valfritt) Konfigurera tid inställningarna för enheten, till exempel tidszon och primära och sekundära NTP-servrar. NTP-servrar krävs eftersom din enhet måste synkronisera tid så att den kan autentiseras med dina moln tjänst leverantörer.
    
     ![Tids inställningar](./media/storsimple-virtual-array-deploy3-iscsi-setup/image10.png)
@@ -113,7 +113,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
    1. I list rutan väljer du **tidszon baserat på den geografiska** plats där enheten distribueras. Standard tids zonen för enheten är PST. Enheten använder den här tidszonen för alla schemalagda åtgärder.
    2. Ange en **primär NTP-server** för din enhet eller acceptera standardvärdet för Time.Windows.com. Kontrollera att ditt nätverk tillåter att NTP-trafik skickas från ditt datacenter till Internet.
    3. Alternativt kan du ange en **sekundär NTP-server** för enheten.
-   4. Klicka på **Godkänn**. Detta validerar och tillämpar de konfigurerade tids inställningarna.
+   4. Klicka på **Applicera**. Detta validerar och tillämpar de konfigurerade tids inställningarna.
 9. Konfigurera moln inställningarna för enheten. I det här steget ska du slutföra konfigurationen av den lokala enheten och sedan registrera enheten med StorSimple Enhetshanteraren-tjänsten.
    
    1. Ange **tjänst registrerings nyckeln** som du fick i **steg 2: Hämta tjänst registrerings nyckeln** i [distribuera StorSimple Virtual Array – Förbered portalen](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).

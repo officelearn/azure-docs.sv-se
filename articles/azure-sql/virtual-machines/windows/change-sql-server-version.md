@@ -15,10 +15,10 @@ ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
 ms.openlocfilehash: a57a432a5f0f8e5a6bd802ec08b18350da3a77b3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91293381"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Ändring på plats av SQL Server-version på en virtuell Azure-dator
@@ -31,7 +31,7 @@ I den här artikeln beskrivs hur du ändrar den version av Microsoft SQL Server 
 
 För att utföra en uppgradering på plats av SQL Server gäller följande villkor:
 
-- Installations mediet för den önskade versionen av SQL Server måste anges. Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) kan hämta sina installations medier från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installations mediet från en Azure Marketplace SQL Server VM-avbildning som har en senare version av SQL Server (finns vanligt vis i C:\SQLServerFull).
+- Installations mediet för den önskade versionen av SQL Server måste anges. Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) kan hämta installationsmedia från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installations mediet från en Azure Marketplace SQL Server VM-avbildning som har en senare version av SQL Server (finns vanligt vis i C:\SQLServerFull).
 - Uppgraderingar av utgåvor bör följa [sökvägar för support uppgradering](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15).
 
 ## <a name="planning-for-version-change"></a>Planera för versions ändring
@@ -69,11 +69,11 @@ Om du vill uppgradera versionen av SQL Server hämtar du SQL Server installation
 1. På sidan **produkt nyckel** väljer du ett alternativ för att ange om du uppgraderar till en kostnads fri version av SQL Server eller om du har en PID-nyckel för en produktions version av produkten. Mer information finns i [utgåvor och stödda funktioner i SQL Server 2019 (15. x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15) och [versioner som stöds och uppgraderingar av utgåvor (SQL Server 2016)](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades?view=sql-server-ver15).
 1. Välj **Nästa** tills du kommer till sidan **redo att uppgradera** och välj sedan **Uppgradera**. Installations fönstret kan sluta svara i flera minuter medan ändringen börjar att fungera. En **fullständig** sida bekräftar att uppgraderingen är klar. En steg-för-steg-procedur för att uppgradera finns i [hela proceduren](https://docs.microsoft.com/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup?view=sql-server-ver15#procedure).
 
-   :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Slutför Sidan":::
+   :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Val för uppgradering av versionen av SQL Server":::
 
 Om du har ändrat den SQL Server versionen, förutom att ändra versionen, uppdaterar du även versionen och läser avsnittet **kontrol lera version och utgåva i portalen** för att ändra den virtuella SQL-instansen.
 
-   :::image type="content" source="./media/change-sql-server-version/change-portal.png" alt-text="Ändra metadata för version":::
+   :::image type="content" source="./media/change-sql-server-version/change-portal.png" alt-text="Val för uppgradering av versionen av SQL Server":::
 
 ## <a name="downgrade-the-version-of-sql-server"></a>Nedgradera versionen av SQL Server
 
@@ -91,7 +91,7 @@ Du kan nedgradera versionen av SQL Server genom att följa dessa steg:
 
    Se till att du väljer rätt alternativ när du skriptar sådana objekt som mål version, beroende objekt och avancerade alternativ.
 
-   :::image type="content" source="./media/change-sql-server-version/scripting-options.png" alt-text="Skript alternativ":::
+   :::image type="content" source="./media/change-sql-server-version/scripting-options.png" alt-text="Val för uppgradering av versionen av SQL Server":::
 
 1. Avinstallera SQL Server och alla tillhör ande tjänster fullständigt.
 1. Starta om den virtuella datorn.
@@ -104,7 +104,7 @@ Du kan nedgradera versionen av SQL Server genom att följa dessa steg:
 
 När du har ändrat versionen av SQL Server registrerar du SQL Server VM med resurspoolen för [SQL-VM](sql-vm-resource-provider-register.md) igen så att du kan använda Azure Portal för att Visa versionen av SQL Server. Det listade versions numret ska nu avspegla den nyligen uppgraderade versionen och versionen av din SQL Server-installation.
 
-:::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Verifiera version":::
+:::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Val för uppgradering av versionen av SQL Server":::
 
 > [!NOTE]
 > Om du redan har registrerat dig hos en SQL VM-adressresurs [avregistrerar](sql-vm-resource-provider-register.md#unregister-from-rp) du [den virtuella SQL-resursen](sql-vm-resource-provider-register.md#register-with-rp) igen så att den identifierar rätt version och utgåva av SQL Server som är installerad på den virtuella datorn. Detta uppdaterar de metadata-och fakturerings uppgifter som är associerade med den här virtuella datorn.

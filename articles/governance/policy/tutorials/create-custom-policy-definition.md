@@ -1,14 +1,14 @@
 ---
 title: 'Självstudie: skapa en anpassad princip definition'
 description: I den här självstudien får du en anpassad princip definition för Azure Policy att använda anpassade affärs regler på dina Azure-resurser.
-ms.date: 06/16/2020
+ms.date: 10/05/2020
 ms.topic: tutorial
-ms.openlocfilehash: 72282cbc5ed1877cf3f61b792235e8dc2f72fffe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24058a2c8428d306c5e53a73393b0d98785831cf
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89649833"
+ms.locfileid: "91876302"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Självstudie: skapa en anpassad princip definition
 
@@ -66,12 +66,15 @@ Det finns många sätt att avgöra egenskaperna för en Azure-resurs. Vi ska tit
 
 ### <a name="arm-templates"></a>ARM-mallar
 
-Det finns flera sätt att titta på en [Resource Manager-mall](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) som innehåller egenskapen som du vill hantera.
+Det finns flera sätt att titta på på en [arm](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) som innehåller den egenskap som du vill hantera.
 
 #### <a name="existing-resource-in-the-portal"></a>Befintlig resurs i portalen
 
 Det enklaste sättet att hitta egenskaper är att titta på en befintlig resurs av samma typ. Resurser som redan har konfigurerats med inställningen som du vill framtvinga innehåller också värdet att jämföra med.
 Titta på sidan **Exportera mall** (under **inställningar**) i Azure Portal för den aktuella resursen.
+
+> [!WARNING]
+> ARM-mallen som exporteras av Azure Portal kan inte anslutas direkt till `deployment` egenskapen för en arm-mall i en princip definition för [deployIfNotExists](../concepts/effects.md#deployifnotexists) .
 
 :::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Skärm bild av sidan Exportera mall på en befintlig resurs i Azure Portal." border="false":::
 

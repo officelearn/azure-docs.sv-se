@@ -7,17 +7,17 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: 3b52cea1d440506caf5b8244c9643719edd8755c
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704279"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Konfigurera och få åtkomst till Azure Database for PostgreSQL-enstaka server loggar från Azure Portal
 
 Du kan konfigurera, lista och hämta [Azure Database for PostgreSQL loggar](concepts-server-logs.md) från Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Anvisningarna i den här artikeln kräver att du har [Azure Database for postgresql server](quickstart-create-server-database-portal.md).
 
 ## <a name="configure-logging"></a>Konfigurera loggning

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: ramakk
-ms.openlocfilehash: a8d81acc0fcb4afa0f981fca3fd099296a0361df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50669dcce044988f2e45acc2a17ae43c140d1ab5
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569500"
+ms.locfileid: "91930313"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Riktlinjer för Azure NetApp Files-nätverksplanering
 
 Planering av nätverks arkitektur är ett viktigt element i att utforma alla program infrastrukturer. Den här artikeln hjälper dig att utforma en effektiv nätverks arkitektur för dina arbets belastningar för att dra nytta av de omfattande funktionerna i Azure NetApp Files.
 
-Azure NetApp Files volymer är utformade för att ingå i ett särskilt syfte under nät som kallas för ett [delegerat undernät](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) i Azure Virtual Network. Därför kan du komma åt volymerna direkt från ditt VNet, från peer-virtuella nätverk i samma region eller från lokala platser över en Virtual Network Gateway (ExpressRoute eller VPN Gateway) om det behövs. Under nätet är dedikerat för Azure NetApp Files och det finns ingen anslutning till andra Azure-tjänster eller Internet.
+Azure NetApp Files volymer är utformade för att ingå i ett särskilt syfte under nät som kallas för ett [delegerat undernät](../virtual-network/virtual-network-manage-subnet.md) i Azure Virtual Network. Därför kan du komma åt volymerna direkt från ditt VNet, från peer-virtuella nätverk i samma region eller från lokala platser över en Virtual Network Gateway (ExpressRoute eller VPN Gateway) om det behövs. Under nätet är dedikerat för Azure NetApp Files och det finns ingen anslutning till andra Azure-tjänster eller Internet.
 
 ## <a name="considerations"></a>Överväganden  
 
@@ -71,11 +71,11 @@ Det här avsnittet beskriver begrepp som hjälper dig med planeringen av virtuel
 
 ### <a name="azure-virtual-networks"></a>Virtuella Azure-nätverk
 
-Innan du konfigurerar en Azure NetApp Files volym måste du skapa ett virtuellt Azure-nätverk (VNet) eller använda ett som redan finns i din prenumeration. VNet definierar volymens nätverks gränser.  Mer information om hur du skapar virtuella nätverk finns i [Azure Virtual Network-dokumentationen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Innan du konfigurerar en Azure NetApp Files volym måste du skapa ett virtuellt Azure-nätverk (VNet) eller använda ett som redan finns i din prenumeration. VNet definierar volymens nätverks gränser.  Mer information om hur du skapar virtuella nätverk finns i [Azure Virtual Network-dokumentationen](../virtual-network/virtual-networks-overview.md).
 
 ### <a name="subnets"></a>Undernät
 
-Undernät segmenterar det virtuella nätverket i separata adress utrymmen som kan användas av Azure-resurserna i dem.  Azure NetApp Files volymer finns i ett särskilt syfte undernät som kallas ett [delegerat undernät](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet). 
+Undernät segmenterar det virtuella nätverket i separata adress utrymmen som kan användas av Azure-resurserna i dem.  Azure NetApp Files volymer finns i ett särskilt syfte undernät som kallas ett [delegerat undernät](../virtual-network/virtual-network-manage-subnet.md). 
 
 Under näts delegering ger explicita behörigheter till tjänsten Azure NetApp Files för att skapa tjänstespecifika resurser i under nätet.  En unik identifierare används i distributionen av tjänsten. I det här fallet skapas ett nätverks gränssnitt för att möjliggöra anslutning till Azure NetApp Files.
 
@@ -102,7 +102,7 @@ Ett grundläggande scenario är att skapa eller ansluta till en Azure NetApp Fil
 
 ### <a name="vnet-peering"></a>VNet-peering
 
-Om du har ytterligare virtuella nätverk i samma region som behöver åtkomst till var and ras resurser, kan virtuella nätverk anslutas med VNet- [peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) för att möjliggöra säker anslutning via Azure-infrastrukturen. 
+Om du har ytterligare virtuella nätverk i samma region som behöver åtkomst till var and ras resurser, kan virtuella nätverk anslutas med VNet- [peering](../virtual-network/virtual-network-peering-overview.md) för att möjliggöra säker anslutning via Azure-infrastrukturen. 
 
 Betrakta VNet 2 och VNet 3 i diagrammet ovan. Om VM 1 behöver ansluta till den virtuella datorn 2 eller volym 2, eller om VM 2 måste ansluta till den virtuella datorn 1 eller volym 1, måste du aktivera VNet-peering mellan VNet 2 och VNet 3. 
 
@@ -116,7 +116,7 @@ Följande diagram illustrerar en hybrid miljö:
 
 ![Hybrid nätverks miljö](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-I hybrid scenariot behöver program från lokala data Center åtkomst till resurserna i Azure.  Detta är fallet om du vill utöka ditt data Center till Azure, eller om du vill använda Azure Native Services eller för haveri beredskap. Se [VPN gateway planerings alternativ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) för information om hur du ansluter flera resurser lokalt till resurser i Azure via en plats-till-plats-VPN eller en ExpressRoute.
+I hybrid scenariot behöver program från lokala data Center åtkomst till resurserna i Azure.  Detta är fallet om du vill utöka ditt data Center till Azure, eller om du vill använda Azure Native Services eller för haveri beredskap. Se [VPN gateway planerings alternativ](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%252fazure%252fvirtual-network%252ftoc.json#planningtable) för information om hur du ansluter flera resurser lokalt till resurser i Azure via en plats-till-plats-VPN eller en ExpressRoute.
 
 I en topologi med hybrid nav – ekrar fungerar Hub VNet i Azure som en central punkt för anslutningen till ditt lokala nätverk. Ekrarna är virtuella nätverk som peer-kopplas med hubben och de kan användas för att isolera arbets belastningar.
 

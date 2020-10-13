@@ -3,12 +3,12 @@ title: Självstudie – check lista för nätverks planering
 description: Läs om kraven för nätverks krav och information om nätverks anslutningar och nätverks portar för Azure VMware-lösningen.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 5538f9c5d6543ca312835f4ef6437e413dea231b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ee70b8a297e1b8418049ff229b3c1869819145b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576685"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948212"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Check lista för nätverks planering för Azure VMware-lösning 
 
@@ -36,6 +36,9 @@ Det privata molnet logiska nätverk levereras med företablerade NSX-T. En gatew
 Det privata AVS-molnet är anslutet till ditt virtuella Azure-nätverk med en Azure ExpressRoute-anslutning. Med den här hög bandbredden kan du få åtkomst till tjänster som körs i din Azure-prenumeration från din privata moln miljö. Routning är Border Gateway Protocol (BGP) baserat, automatiskt etablerade och aktiverat som standard för varje privat moln distribution. 
 
 AVS-privata moln kräver minst ett `/22` CIDR-adressblock för undernät som visas nedan. Det här nätverket kompletterar dina lokala nätverk. Adress blocket får inte överlappa adress block som används i andra virtuella nätverk i din prenumeration och lokala nätverk. I det här adress blocket kan hantering, etablering och vMotion-nätverk tillhandahållas automatiskt.
+
+>[!NOTE]
+>Tillåtna intervall för adress blocket är RFC 1918-privata adress utrymmen (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), med undantag för 172.17.0.0/16.
 
 Exempel på `/22` CIDR-nätverks adress block:  `10.10.0.0/22`
 

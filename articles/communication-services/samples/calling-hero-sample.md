@@ -2,19 +2,19 @@
 title: Exempel på gruppsamtal
 titleSuffix: An Azure Communication Services sample overview
 description: Översikt över att anropa hjälte-exemplet med Azure Communication Services så att utvecklare kan lära sig mer om det interna arbetet i exemplet.
-author: ddematheu
+author: ddematheu2
 manager: nimag
 services: azure-communication-services
 ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8ae69abc9a5f2969f0d60b2fa712c4c9910b678c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d4c3c8e2f8470d187156f0dd98fab2bd74eb33bc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823823"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963116"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Kom igång med en grupp som anropar ett hjälte exempel
 
@@ -54,9 +54,9 @@ När du trycker på knappen &quot;starta ett anrop":::
 
 Komponenter för den huvudsakliga uppringnings skärmen:
 
-- **Medie Galleri**: huvud steget där deltagarna visas. Om en deltagare har sin kamera aktive rad visas deras video flöde här. Varje deltagare har en enskild panel som visar visnings namn och video ström (när det finns en)
-- **Rubrik**: det är här som de primära samtals kontrollerna finns för att växla mellan inställningar och deltagar fält, förvandla video och mixa på/av, dela skärmen och lämna samtalet.
-- **Sido fältet**: här visas deltagare och inställnings information när de växlas med hjälp av kontrollerna i sidhuvudet. Komponenten kan hämtas med hjälp av X i det övre högra hörnet. Deltagarnas sido fält visar en lista över deltagare och en länk som bjuder in fler användare att chatta. I sid List rutan inställningar kan du konfigurera inställningar för mikrofon och kamera.
+1. **Medie Galleri**: huvud steget där deltagarna visas. Om en deltagare har sin kamera aktive rad visas deras video flöde här. Varje deltagare har en enskild panel som visar visnings namn och video ström (när det finns en)
+2. **Rubrik**: det är här som de primära samtals kontrollerna finns för att växla mellan inställningar och deltagar fält, förvandla video och mixa på/av, dela skärmen och lämna samtalet.
+3. **Sido fältet**: här visas deltagare och inställnings information när de växlas med hjälp av kontrollerna i sidhuvudet. Komponenten kan hämtas med hjälp av X i det övre högra hörnet. Deltagarnas sido fält visar en lista över deltagare och en länk som bjuder in fler användare att chatta. I sid List rutan inställningar kan du konfigurera inställningar för mikrofon och kamera.
 
 Nedan hittar du mer information om förutsättningar och steg för att konfigurera exemplet.
 

@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 03/17/2020
 ms.openlocfilehash: 81d0731f6ea77325b3f33f91bf8d5d1386dab2fb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91283385"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Anslutningsarkitektur för Azure SQL Managed Instance
@@ -111,7 +111,7 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Obligatoriska inkommande säkerhets regler med konfiguration för tjänstens under näts undernät
 
-| Name       |Port                        |Protokoll|Källa           |Mål|Action|
+| Namn       |Port                        |Protokoll|Källa           |Mål|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |MI-UNDERNÄT  |Tillåt |
 |            |9000, 9003                  |TCP     |CorpnetSaw       |MI-UNDERNÄT  |Tillåt |
@@ -121,14 +121,14 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Obligatoriska utgående säkerhets regler med konfiguration för tjänstens under näts undernät
 
-| Name       |Port          |Protokoll|Källa           |Mål|Action|
+| Namn       |Port          |Protokoll|Källa           |Mål|Action|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |443, 12000    |TCP     |MI-UNDERNÄT        |AzureCloud |Tillåt |
 |mi_subnet   |Alla           |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Användardefinierade vägar med konfiguration av tjänstestyrt undernät
 
-|Name|Adressprefix|Nästa hopp|
+|Namn|Adressprefix|Nästa hopp|
 |----|--------------|-------|
 |undernät-till-vnetlocal|MI-UNDERNÄT|Virtuellt nätverk|
 |mi-13-64-11-nexthop-Internet|13.64.0.0/11|Internet|
@@ -331,7 +331,7 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 
 ### <a name="mandatory-inbound-security-rules"></a>Obligatoriska inkommande säkerhets regler
 
-| Name       |Port                        |Protokoll|Källa           |Mål|Action|
+| Namn       |Port                        |Protokoll|Källa           |Mål|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |Alla              |MI-UNDERNÄT  |Tillåt |
 |mi_subnet   |Alla                         |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
@@ -339,7 +339,7 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 
 ### <a name="mandatory-outbound-security-rules"></a>Obligatoriska utgående säkerhets regler
 
-| Name       |Port          |Protokoll|Källa           |Mål|Action|
+| Namn       |Port          |Protokoll|Källa           |Mål|Action|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |443, 12000    |TCP     |MI-UNDERNÄT        |AzureCloud |Tillåt |
 |mi_subnet   |Alla           |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
@@ -357,7 +357,7 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 
 ### <a name="user-defined-routes"></a>Användardefinierade vägar
 
-|Name|Adressprefix|Nästa hopp|
+|Namn|Adressprefix|Nästa hopp|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI-UNDERNÄT|Virtuellt nätverk|
 |mi-13-64-11-nexthop-Internet|13.64.0.0/11|Internet|

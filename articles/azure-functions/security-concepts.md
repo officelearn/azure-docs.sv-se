@@ -4,10 +4,10 @@ description: Lär dig mer om hur du gör funktions koden igång i Azure säkrare
 ms.date: 4/13/2020
 ms.topic: conceptual
 ms.openlocfilehash: 470ee517b929b7327df76963e21c88db21d363da
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761421"
 ---
 # <a name="securing-azure-functions"></a>Skydda Azure Functions
@@ -58,7 +58,7 @@ System nycklarnas omfattning bestäms av tillägget, men det gäller vanligt vis
 
 I följande tabell jämförs användningen av olika typer av åtkomst nycklar:
 
-| Åtgärd                                        | Omfång                    | Giltiga nycklar         |
+| Action                                        | Omfång                    | Giltiga nycklar         |
 |-----------------------------------------------|--------------------------|--------------------|
 | Köra en funktion                            | Speciell funktion        | Funktion           |
 | Köra en funktion                            | Alla funktioner             | Funktion eller värd   |
@@ -76,7 +76,7 @@ Mer information om åtkomst nycklar finns i artikeln om [bindning av http-utlös
 
 Som standard lagras nycklar i en Blob Storage-behållare i kontot som anges av `AzureWebJobsStorage` inställningen. Du kan använda specifika program inställningar för att åsidosätta det här beteendet och lagra nycklar på en annan plats.
 
-|Location  |Inställningen | Värde | Beskrivning  |
+|Plats  |Inställning | Värde | Beskrivning  |
 |---------|---------|---------|---------|
 |Annat lagrings konto     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Lagrar nycklar i Blob Storage för ett andra lagrings konto, baserat på den angivna SAS-webbadressen. Nycklar krypteras innan de lagras med en hemlighet som är unik för din Function-app. |
 |Filsystem   | `AzureWebJobsSecretStorageType`   |  `files`       | Nycklar sparas i fil systemet, krypteras före lagring med hjälp av en hemlighet som är unik för din Function-app. |

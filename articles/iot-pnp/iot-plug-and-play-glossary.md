@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: d44866e2d04ab1bab5d2eca01374350a7d73a0ea
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91577347"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play"></a>Ord lista med villkor för IoT Plug and Play
@@ -59,7 +59,7 @@ En anslutnings sträng kapslar in den information som krävs för att ansluta ti
 
 Alla [enhets modeller](#device-model) har en standard komponent. En enkel enhets modell har bara en standard komponent – sådan en modell kallas även ingen komponent enhet. En mer komplex modell har flera komponenter som är kapslade under standard komponenten.
 
-## <a name="device-certification"></a>Enhets certifiering
+## <a name="device-certification"></a>Enhetscertifiering
 
 IoT Plug and Play enhets certifierings programmet verifierar att en enhet uppfyller IoT-Plug and Play certifierings krav. Du kan lägga till en certifierad enhet i [katalogen för offentlig certifierad för Azure IoT-enheter](https://aka.ms/devicecatalog).
 
@@ -81,7 +81,7 @@ Ett [Device Builder](#device-builder) -eller [modul Builder](#module-builder)anv
 
 En digital enhet är en modell av en [IoT plug and Play-enhet](#iot-plug-and-play-device). En Digitals fläta modelleras med hjälp av det [digitala, dubbla definitions språket](#digital-twins-definition-language). Du kan använda SDK: er för [Azure IoT-enheter](#azure-iot-device-sdk) för att interagera med digitala dubbla i kör tid. Du kan till exempel ange ett egenskaps värde i en digital enhet på en enhet och SDK: n skickar den här ändringen till din IoT-lösning i molnet.
 
-## <a name="digital-twin-change-events"></a>Digitala dubbla ändrings händelser
+## <a name="digital-twin-change-events"></a>Ändringshändelser för digitala tvillingar
 
 När en [iot plug and Play-enhet](#iot-plug-and-play-device) är ansluten till en [IoT-hubb](#azure-iot-hub)kan hubben använda sin routningsfunktioner för att skicka meddelanden om digitala dubbla ändringar. När ett [egenskaps](#properties) värde ändras på en enhet kan IoT Hub till exempel skicka ett meddelande till en slut punkt, till exempel en Event Hub.
 

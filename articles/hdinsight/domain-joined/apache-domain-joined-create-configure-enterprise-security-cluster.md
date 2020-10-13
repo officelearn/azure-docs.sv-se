@@ -9,10 +9,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
 ms.openlocfilehash: c0e35b94b4322d9273e5793c85792eb2bbd34d05
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536077"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Skapa och konfigurera Enterprise Security Package kluster i Azure HDInsight
@@ -159,7 +159,7 @@ Skapa en Active Directory klient organisations administratör.
     |Egenskap |Beskrivning |
     |---|---|
     |Användarnamn|Ange `fabrikamazureadmin` i text rutan. I list rutan domän namn väljer du `hdifabrikam.com`|
-    |Name| Ange `fabrikamazureadmin`.|
+    |Namn| Ange `fabrikamazureadmin`.|
 
     **Lösenord**
     1. Välj **Låt mig skapa lösen ordet**.
@@ -358,7 +358,7 @@ Kontrol lera att certifikatet är installerat i datorns **personliga** Arkiv:
         | Protokoll | Valfri |
         | Åtgärd | Tillåt |
         | Prioritet | \<Desired number> |
-        | Name | Port_LDAP_636 |
+        | Namn | Port_LDAP_636 |
 
     ![Dialog rutan Lägg till inkommande säkerhets regel](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 

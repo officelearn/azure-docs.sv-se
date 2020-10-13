@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
 ms.openlocfilehash: ab9b7fa330964f7db8393334dd8f209efd75573d
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91611310"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
@@ -140,7 +140,7 @@ Förutom standard resurs gruppen och cache namn parametrarna måste du ange föl
 
 * ``--virtual-namespace-path`` -Ange sökvägen till klientens fil för det här lagrings målet. Omge sökvägar med citat tecken. Läs [planera det sammanställda namn området](hpc-cache-namespace.md) för att lära dig mer om funktionen för virtuellt namn område.
 
-Exempel kommando:
+Exempelkommando:
 
 ```azurecli
 az hpc-cache blob-storage-target add --resource-group "hpc-cache-group" \
@@ -185,9 +185,9 @@ I den här tabellen sammanfattas skillnaderna mellan användnings modeller:
 
 | Användnings modell                   | Cacheläge | Verifiering på Server Sidan | Maximal Skriv åtgärds fördröjning |
 |-------------------------------|--------------|-----------------------|--------------------------|
-| Läs tung, sällan skrivna skrivningar | Läsa         | Aldrig                 | Ingen                     |
+| Läs tung, sällan skrivna skrivningar | Läs         | Aldrig                 | Inget                     |
 | Större än 15% skrivningar       | Läsa/skriva   | Aldrig                 | 1 timme                   |
-| Klienterna kringgår cachen      | Läsa         | 30 sekunder            | Ingen                     |
+| Klienterna kringgår cachen      | Läs         | 30 sekunder            | Inget                     |
 
 ### <a name="create-an-nfs-storage-target"></a>Skapa ett NFS-lagrings mål
 
@@ -248,7 +248,7 @@ Ange dessa värden utöver cache-namn och cache-resurs grupp:
 
   Läs [Konfigurera sammanställd namnrymd](hpc-cache-namespace.md) för att lära dig mer om funktionen för virtuellt namn område.
 
-Exempel kommando:
+Exempelkommando:
 
 ```azurecli
 

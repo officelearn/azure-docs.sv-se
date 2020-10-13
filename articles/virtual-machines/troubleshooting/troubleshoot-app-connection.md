@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a2fe1b8bdc80a5265add22bd3602050034471fe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dec5aeaac6f39a106899094e674864d3bd10dc02
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87036445"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966346"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Felsöka problem med programanslutningar på virtuella Azure-datorer
 
@@ -122,7 +122,7 @@ Om du inte kan komma åt programmet kontrollerar du följande inställningar:
   
   * Kontrol lera att den inkommande NAT-regelns konfiguration för den virtuella datorn tillåter inkommande trafik, särskilt protokollet (TCP eller UDP) och de offentliga och privata port numren.
   * Kontrol lera att nätverks säkerhets grupper tillåter inkommande begäran och utgående svars trafik.
-  * Mer information finns i [Vad är en nätverks säkerhets grupp?](../../virtual-network/security-overview.md)
+  * Mer information finns i [Vad är en nätverks säkerhets grupp?](../../virtual-network/network-security-groups-overview.md)
 
 Om den virtuella datorn eller slut punkten är medlem i en belastningsutjämnad uppsättning:
 

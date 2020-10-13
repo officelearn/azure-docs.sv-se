@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: b3a0b904d65e6597c058ccf05ec837696e9ca20e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/10/2020
+ms.openlocfilehash: 14f08502f35afdc8a9a2cdc741b539b5f9cca712
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893617"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945607"
 ---
 # <a name="select-columns-transform"></a>Välja kolumntranformering
 
@@ -46,8 +46,14 @@ Det här scenariot förutsätter att du vill använda funktions val för att gen
 
    *Anslut inte data uppsättningen för indata.* Lägg i stället till modulen [Använd omvandling](apply-transformation.md) och Anslut utdata från omvandling av funktions val.
 
+   Pipeline-strukturen bör vara som följer:
+
+   > [!div class="mx-imgBorder"]
+   > ![Exempel på pipeline](media/module/filter-based-feature-selection-score.png)
+
    > [!IMPORTANT]
    > Du kan inte vänta på att använda [filter baserat funktions val](filter-based-feature-selection.md) för poängsättnings data uppsättningen och få samma resultat. Eftersom val av funktioner baseras på värden kan det välja en annan uppsättning kolumner, vilket skulle resultera i att åtgärden misslyckades.
+    
 7. Skicka pipelinen.
 
 Den här processen för att spara och tillämpa en kolumn markering säkerställer att samma data schema är tillgängligt för utbildning och bedömning.

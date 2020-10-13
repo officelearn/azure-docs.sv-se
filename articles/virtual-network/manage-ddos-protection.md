@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
 ms.openlocfilehash: 706379649b47846b5c020dc76493a98e346c4a8f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317692"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Hantera Azure DDoS Protection standard med hjälp av Azure Portal
@@ -229,7 +229,7 @@ Aviseringarna inkluderar allmän information om den offentliga IP-adressen som �
 
 För att kunna arbeta med DDoS-skydds planer måste ditt konto tilldelas rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller en [anpassad](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som har tilldelats lämpliga åtgärder i följande tabell:
 
-| Action                                            | Name                                     |
+| Action                                            | Namn                                     |
 | ---------                                         | -------------                            |
 | Microsoft. Network/ddosProtectionPlans/Read        | Läs en DDoS skydds plan              |
 | Microsoft. Network/ddosProtectionPlans/Write       | Skapa eller uppdatera en DDoS-skydds plan  |

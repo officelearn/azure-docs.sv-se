@@ -1,16 +1,14 @@
 ---
 title: Migrera en Azure Monitor Application Insights klassisk resurs till en arbets yta-baserad resurs | Microsoft Docs
 description: Lär dig mer om de steg som krävs för att uppgradera din Azure Monitor Application Insights Classic-resurs till den nya arbets ytans-baserade modellen.
-author: mrbullwinkle
-ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: aab2d1ec5a6c3e046840e736ced0993e560c4661
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d2c7d1b9ee57e6d201205c04557e1b5f5623eb0
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333349"
+ms.locfileid: "91930586"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrera till arbets ytans baserade Application Insights resurser
 

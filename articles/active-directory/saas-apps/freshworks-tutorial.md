@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/11/2019
 ms.author: jeedes
 ms.openlocfilehash: c953297d4e66f737250451b9a5f42ce7f45dd2e4
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91821261"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshworks"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Freshworks
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Freshworks med Azur
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 

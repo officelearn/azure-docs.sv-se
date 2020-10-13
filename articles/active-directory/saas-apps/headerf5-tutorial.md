@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.openlocfilehash: d85e6bbaf85ebb84d3664d90e3d645f61b2cb60a
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91817369"
 ---
 # <a name="tutorial-configure-single-sign-on-sso-between-azure-active-directory-and-f5"></a>Självstudie: Konfigurera enkel inloggning (SSO) mellan Azure Active Directory och F5
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar F5 med Azure Active
 
 Mer information om SaaS app integration med enkel inloggning i Azure AD finns i [enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -245,7 +245,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Skärm bild som visar sidan Egenskaper för poolen.](./media/headerf5-tutorial/configure06.png)
 
-1. På skärmen Inställningar för enkel inloggning väljer du **aktivera enkel inloggning**. Under markerad typ av enkel inloggning väljer du **http-huvud-baserad**. Ersätt **session. SAML. senaste. identitet** med **session. SAML. Last. attr. Name. identitet** under användar namn källa (den här variabeln anges med anspråks mappning i Azure AD). Under SSO-rubriker.
+1. På skärmen Inställningar för enkel Sign-On väljer du **aktivera enkel inloggning**. Välj **http-huvudbaserad**under markerad enkel Sign-On typ. Ersätt **session. SAML. senaste. identitet** med **session. SAML. Last. attr. Name. identitet** under användar namn källa (den här variabeln anges med anspråks mappning i Azure AD). Under SSO-rubriker.
 
     * **Huvud: behörighet för autentisering**
 
@@ -258,7 +258,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
     >[!NOTE]
     >Konto namn är F5-Delegerings kontot som skapats (se F5-dokumentation).
 
-    ![Skärm bild som visar sidan med inställningar för enkel inloggning.](./media/headerf5-tutorial/configure07.png) 
+    ![Skärm bild som visar sidan för enskilda Sign-On inställningar.](./media/headerf5-tutorial/configure07.png) 
 
 1. I den här vägledningen kommer vi att hoppa över slut punkts kontroller.  Mer information finns i F5-dokumentationen. Välj **spara & nästa**.
 

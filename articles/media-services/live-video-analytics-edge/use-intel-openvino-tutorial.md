@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
 ms.openlocfilehash: d03737f43ee719b72860e7ffeff076e3f156cade
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776348"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Självstudie: analysera direktsänd video med hjälp av poly™ Model Server – AI-tillägg från Intel 
@@ -45,7 +45,7 @@ I den här snabb starten ska du använda video analys i real tid för IoT Edge t
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/use-intel-openvino-tutorial/http-extension-with-vino.svg" alt-text="Översikt":::
 
-Det här diagrammet visar hur signal flödet i den här snabb starten. En [Edge-modul](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulerar en IP-kamera som är värd för en RTSP-server (Real Time Streaming Protocol). En [RTSP-källmapp](media-graph-concept.md#rtsp-source) hämtar videofeeden från den här servern och skickar video bild rutor till den [RAM hastighet filter processor](media-graph-concept.md#frame-rate-filter-processor) noden. Den här processorn begränsar bild hastigheten för video strömmen som når noden för [http-tilläggsbegäranden](media-graph-concept.md#http-extension-processor) . 
+Det här diagrammet visar hur signal flödet i den här snabb starten. En [Edge-modul](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulerar en IP-kamera som är värd för en RTSP-server (Real-Time Streaming Protocol). En [RTSP-källmapp](media-graph-concept.md#rtsp-source) hämtar videofeeden från den här servern och skickar video bild rutor till den [RAM hastighet filter processor](media-graph-concept.md#frame-rate-filter-processor) noden. Den här processorn begränsar bild hastigheten för video strömmen som når noden för [http-tilläggsbegäranden](media-graph-concept.md#http-extension-processor) . 
 
 Noden HTTP-tillägg spelar rollen för en proxy. Den konverterar video bild rutorna till den angivna bild typen. Sedan vidarebefordrar avbildningen över REST till en annan Edge-modul som kör AI-modeller bakom en HTTP-slutpunkt. I det här exemplet är Edge-modulen Open™ modell Server – AI-tillägget från Intel. Noden för HTTP-tilläggsbegäranden samlar in identifierings resultaten och publicerar händelser till noden [IoT Hub mottagare](media-graph-concept.md#iot-hub-message-sink) . Noden skickar sedan händelserna till [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 

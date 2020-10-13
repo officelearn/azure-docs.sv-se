@@ -8,10 +8,10 @@ ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
 ms.openlocfilehash: 9a9cdef27276aa589a4aadd853185b0e3fb4be61
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91773747"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regioner och tillgänglighetszoner i Azure
@@ -79,7 +79,7 @@ Om ett tjänst erbjudande inte är tillgängligt i en speciell region kan du del
 | Regions typ | Icke-regional | Grundläggande | Konventionell | Specialiserade | Tillgänglighetszoner | Dataplacering |
 | --- | --- | --- | --- | --- | --- | --- |
 | Rekommenderas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | :heavy_check_mark: | :heavy_check_mark: |
-| Alternativa | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | Demand-driven | Ej tillämpligt | :heavy_check_mark: |
+| Alternativa | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | Demand-driven | E.t. | :heavy_check_mark: |
 
 ### <a name="services-by-category"></a>Tjänster efter kategori
 
@@ -99,10 +99,10 @@ Som tidigare nämnts klassificerar Azure tjänster i tre kategorier: grundlägga
 > | Azure ExpressRoute | Azure Bastion | Dedikerad HSM i Azure |
 > | Azure SQL Database | Azure Cache for Redis | Azure Dev Spaces |
 > | Cloud Services | Azure Cognitive Search | Azure Digital Twins |
-> | Cloud Services: AV2-serien | Azure-datautforskaren | Azure Lab Services |
-> | Cloud Services: Dv2-serien | Azure Data Share | Azure NetApp Files |
-> | Cloud Services: dv3-serien | Azure Database for MySQL | Azure Quantum |
-> | Cloud Services: Ev3-serien | Azure Database for PostgreSQL | Azure våren Cloud service |
+> | Cloud Services: Av2-Series | Azure-datautforskaren | Azure Lab Services |
+> | Cloud Services: Dv2-Series | Azure Data Share | Azure NetApp Files |
+> | Cloud Services: Dv3-Series | Azure Database for MySQL | Azure Quantum |
+> | Cloud Services: Ev3-Series | Azure Database for PostgreSQL | Azure våren Cloud service |
 > | Cloud Services: IP-adresser på instans nivå | Azure Database Migration Service | Azure Time Series Insights |
 > | Cloud Services: Reserverad IP | Azure Databricks | Azure VMware Solution by CloudSimple |
 > | Disklagring | Azure DDoS Protection | Cloud Services: G-serien |
@@ -113,47 +113,47 @@ Som tidigare nämnts klassificerar Azure tjänster i tre kategorier: grundlägga
 > | Service Fabric | Azure HPC Cache | Data Catalog |
 > | Virtual Machine Scale Sets | Azure IoT Hub | Data Factory: Data Factory v1 |
 > | Virtual Machines | Azure Kubernetes Service (AKS) | Data Lake Analytics |
-> | Virtual Machines: AV2-serien | Azure Machine Learning | Azure Machine Learning Studio (klassisk)|
-> | Virtual Machines: BS-serien | Azure Private Link | Microsoft Genomics |
-> | Virtual Machines: DSv2-serien | Azure Red Hat OpenShift | Remote Rendering |
-> | Virtual Machines: DSv3-serien | Azure SignalR Service | Spatial Anchors |
-> | Virtual Machines: Dv2-serien | Azure Site Recovery | StorSimple |
-> | Virtual Machines: dv3-serien | Azure Stack Hub | Video Indexer |
-> | Virtual Machines: ESv3-serien | Azure Stream Analytics | Virtual Machines: DASv4-serien |
-> | Virtual Machines: Ev3-serien | Azure Synapse Analytics | Virtual Machines: DAv4-serien |
+> | Virtual Machines: Av2-Series | Azure Machine Learning | Azure Machine Learning Studio (klassisk)|
+> | Virtual Machines: Bs-Series | Azure Private Link | Microsoft Genomics |
+> | Virtual Machines: DSv2-Series | Azure Red Hat OpenShift | Remote Rendering |
+> | Virtual Machines: DSv3-Series | Azure SignalR Service | Spatial Anchors |
+> | Virtual Machines: Dv2-Series | Azure Site Recovery | StorSimple |
+> | Virtual Machines: Dv3-Series | Azure Stack Hub | Video Indexer |
+> | Virtual Machines: ESv3-Series | Azure Stream Analytics | Virtual Machines: DASv4-Series |
+> | Virtual Machines: Ev3-Series | Azure Synapse Analytics | Virtual Machines: DAv4-Series |
 > | Virtual Machines: F-serien | Batch | Virtual Machines: DCsv2-serien |
-> | Virtual Machines: FS-serien | Cloud Services: M-serien | Virtual Machines: EASv4-serien |
-> | Virtual Machines: IP-adresser på instans nivå | Cognitive Services | Virtual Machines: EAv4-serien |
+> | Virtual Machines: FS-Series | Cloud Services: M-serien | Virtual Machines: EASv4-Series |
+> | Virtual Machines: IP-adresser på instans nivå | Cognitive Services | Virtual Machines: EAv4-Series |
 > | Virtual Machines: Reserverad IP | Cognitive Services: Visuellt innehåll | Virtual Machines: G-serien |
-> | Virtual Network | Cognitive Services: Content Moderator | Virtual Machines: GS-serien |
-> | VPN Gateway | Cognitive Services: ansikte | Virtual Machines: HBv1-serien |
-> |  | Cognitive Services: formulär igenkänning | Virtual Machines: HBv2-serien |
-> |  | Cognitive Services: Language Understanding | Virtual Machines: HCv1-serien |
+> | Virtual Network | Cognitive Services: Content Moderator | Virtual Machines: GS-Series |
+> | VPN Gateway | Cognitive Services: ansikte | Virtual Machines: HBv1-Series |
+> |  | Cognitive Services: formulär igenkänning | Virtual Machines: HBv2-Series |
+> |  | Cognitive Services: Language Understanding | Virtual Machines: HCv1-Series |
 > |  | Cognitive Services: QnA Maker | Virtual Machines: H-serien |
-> |  | Cognitive Services: tal tjänster | Virtual Machines: LS-serien |
-> |  | Container Instances | Virtual Machines: LSv2-serien |
-> |  | Container Registry | Virtual Machines: Mv2-serien |
-> |  | Data Factory | Virtual Machines: NC-serien |
-> |  | Event Grid | Virtual Machines: NCv2-serien |
-> |  | HDInsight | Virtual Machines: NCv3-serien |
-> |  | Logic Apps | Virtual Machines: NDs-serien |
-> |  | Media Services | Virtual Machines: NDv2-serien |
-> |  | Network Watcher | Virtual Machines: NV-serien |
-> |  | Notification Hubs | Virtual Machines: NVv3-serien |
-> |  | Power BI Embedded | Virtual Machines: NVv4-serien |
+> |  | Cognitive Services: tal tjänster | Virtual Machines: LS-Series |
+> |  | Container Instances | Virtual Machines: LSv2-Series |
+> |  | Container Registry | Virtual Machines: Mv2-Series |
+> |  | Data Factory | Virtual Machines: NC-Series |
+> |  | Event Grid | Virtual Machines: NCv2-Series |
+> |  | HDInsight | Virtual Machines: NCv3-Series |
+> |  | Logic Apps | Virtual Machines: NDs-Series |
+> |  | Media Services | Virtual Machines: NDv2-Series |
+> |  | Network Watcher | Virtual Machines: NV-Series |
+> |  | Notification Hubs | Virtual Machines: NVv3-Series |
+> |  | Power BI Embedded | Virtual Machines: NVv4-Series |
 > |  | Premium-Blob Storage | Virtual Machines: SAP HANA på stora Azure-instanser |
 > |  | Premium Files-lagring | Visual Studio App Center |
 > |  | Lagring: Arkivlagring |  |
 > |  | Ultra Disklagring |  |
-> |  | Virtual Machines: Ddsv4-serien |  |
-> |  | Virtual Machines: Ddv4-serien |  |
-> |  | Virtual Machines: Dsv4-serien |  |
-> |  | Virtual Machines: DV4-serien |  |
-> |  | Virtual Machines: Edsv4-serien |  |
-> |  | Virtual Machines: Edv4-serien |  |
-> |  | Virtual Machines: Esv4-serien |  |
-> |  | Virtual Machines: Ev4-serien |  |
-> |  | Virtual Machines: Fsv2-serien |  |
+> |  | Virtual Machines: Ddsv4-Series |  |
+> |  | Virtual Machines: Ddv4-Series |  |
+> |  | Virtual Machines: Dsv4-Series |  |
+> |  | Virtual Machines: Dv4-Series |  |
+> |  | Virtual Machines: Edsv4-Series |  |
+> |  | Virtual Machines: Edv4-Series |  |
+> |  | Virtual Machines: Esv4-Series |  |
+> |  | Virtual Machines: Ev4-Series |  |
+> |  | Virtual Machines: Fsv2-Series |  |
 > |  | Virtual Machines: M-serien |  |
 > |  | Virtual WAN |  |
 

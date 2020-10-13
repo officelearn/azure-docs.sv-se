@@ -8,17 +8,17 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
 ms.openlocfilehash: b5ac53c44429e23e2d22a934a9dc71bd485ec4cd
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761914"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-powershell"></a>Snabb start: skapa och ändra en ExpressRoute-krets med Azure PowerShell
 
 Den här snabb starten visar hur du skapar en ExpressRoute-krets med PowerShell-cmdletar och Azure Resource Manager distributions modell. Du kan också kontrol lera status, uppdatera, ta bort eller avetablera en krets.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Granska [nödvändiga komponenter](expressroute-prerequisites.md) och [arbets flöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

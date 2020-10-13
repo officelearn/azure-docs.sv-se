@@ -11,10 +11,10 @@ manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 26e1852058383ef1e4cc4b3b604e1bdc79d60e14
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91612191"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Hantera lagrings konto nycklar med Key Vault och Azure CLI
@@ -53,7 +53,7 @@ Key Vault är ett Microsoft-program som är förregistrerat i alla Azure AD-klie
 För att slutföra den här guiden måste du först göra följande:
 
 - [Installera Azure CLI](/cli/azure/install-azure-cli).
-- [Skapa ett nyckelvalv](quick-create-cli.md)
+- [Skapa ett nyckel valv](quick-create-cli.md)
 - [Skapa ett Azure Storage-konto](../../storage/common/storage-account-create.md?tabs=azure-cli). Lagrings konto namnet får bara innehålla gemena bokstäver och siffror. Namnet måste innehålla mellan 3 och 24 tecken.
       
 ## <a name="manage-storage-account-keys"></a>Hantera lagrings konto nycklar

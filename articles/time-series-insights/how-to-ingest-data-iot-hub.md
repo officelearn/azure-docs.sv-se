@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: 28a1990155e1406bf9b79572b3e5307cadfb8076
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665930"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Lägg till en händelse källa för IoT Hub i din Azure Time Series Insight-miljö
@@ -25,7 +25,7 @@ Den här artikeln beskriver hur du använder Azure Portal för att lägga till e
 > [!NOTE]
 > Anvisningarna i den här artikeln gäller både för Azure Time Series Insights gen 1-och Azure Time Series Insight gen 2-miljöer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa en [Azure Time Series Insightss miljö](time-series-insights-update-create-environment.md).
 * Skapa en [IoT-hubb med hjälp av Azure Portal](../iot-hub/iot-hub-create-through-portal.md).

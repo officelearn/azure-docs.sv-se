@@ -4,10 +4,10 @@ description: Lär dig hur du konfigurerar haveri beredskap till Azure för Azure
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: a7e58f5b24786169c9d0c989b79a14c4115acca8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448977"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikera virtuella Azure Stack-datorer till Azure
@@ -56,7 +56,7 @@ Replikeringen fungerar på följande sätt:
 7. Replikerade datorer kommunicerar med konfigurations servern (port HTTPS 443 inkommande, för hantering av replikering. Datorer skickar replikeringsdata till processervern (port HTTPS 9443 inkommande – kan ändras).
 8. Trafik replikeras till offentliga Azure Storage-slutpunkter, över Internet. Du kan även använda Azure ExpressRoute offentlig peering. Replikering av trafik via en plats-till-plats-VPN från en lokal plats till Azure stöds inte.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det här är vad du behöver för att konfigurera det här scenariot.
 
@@ -97,9 +97,9 @@ Du måste ha mobilitets tjänsten installerad för varje virtuell dator som du v
     - Du anger det här kontot när du konfigurerar Site Recovery. Sedan använder processervern det här kontot för att installera mobilitets tjänsten när replikering är aktive rad.
     - Det här kontot används endast av Site Recovery för push-installationen och för att uppdatera mobilitets tjänsten.
     - Om du inte använder ett domän konto måste du inaktivera åtkomst kontroll för fjärranslutna användare på den virtuella datorn:
-        - I registret skapar du DWORD-värdet **LocalAccountTokenFilterPolicy** under HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\policies\system.
+        - I registret skapar du DWORD-värdet **LocalAccountTokenFilterPolicy** under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System.
         - Ange värdet 1.
-        - Gör detta genom att skriva följande i kommando tolken: **REG ADD HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\policies\system/V LocalAccountTokenFilterPolicy/t REG_DWORD/d 1**.
+        - Gör detta genom att skriva följande i kommando tolken: **REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System/V LocalAccountTokenFilterPolicy/t REG_DWORD/d 1**.
 - I Windows-brandväggen på den virtuella datorn som du vill replikera, Tillåt fil-och skrivar delning och WMI.
     - Det gör du genom att köra **WF. msc** för att öppna konsolen Windows-brandväggen. Högerklicka på **regler för inkommande**  >  **trafik ny regel**. Välj **fördefinierad**och välj **fil-och skrivar delning** i listan. Slutför guiden och välj att tillåta anslutningen > **slutföras**.
     - För domän datorer kan du använda ett grup princip objekt för att göra detta.

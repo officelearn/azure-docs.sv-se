@@ -4,10 +4,10 @@ description: I den här självstudien använder du Azure Portal för att skapa e
 ms.topic: tutorial
 ms.date: 10/07/2020
 ms.openlocfilehash: 9a07e490525ce532f8f843b30b3b83715e65ce3c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826590"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Självstudie: skapa en princip tilldelning för att identifiera icke-kompatibla resurser
@@ -16,7 +16,7 @@ Det första steget mot att förstå kompatibilitet i Azure är att identifiera d
 
 I slutet av den här processen kommer du att kunna identifiera datorer som inte har Log Analytics agent för Windows eller Linux installerat. De är _inkompatibla_ med principtilldelningen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 

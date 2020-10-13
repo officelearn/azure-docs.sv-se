@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: 81a65c088fd83ce179f67edd1ecdb96149dd1614
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91840259"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure cache för Redis
@@ -386,7 +386,7 @@ Nya Azure cache för Redis-instanser konfigureras med följande standard konfigu
 >
 >
 
-| Inställningen | Standardvärde | Beskrivning |
+| Inställning | Standardvärde | Beskrivning |
 | --- | --- | --- |
 | `databases` |16 |Standard antalet databaser är 16 men du kan konfigurera ett annat nummer baserat på pris nivån. <sup>1</sup> standard databasen är dB 0, du kan välja en annan per-anslutnings-basis med `connection.GetDatabase(dbid)` där `dbid` är ett tal mellan `0` och `databases - 1` . |
 | `maxclients` |Är beroende av pris nivå<sup>2</sup> |Det här värdet är det maximala antalet anslutna klienter som tillåts på samma gång. När gränsen har nåtts stänger Redis alla nya anslutningar och returnerar ett "maximalt antal klienter har nåtts"-felet. |

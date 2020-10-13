@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
 ms.openlocfilehash: 6f089a67262c78f31092780bb8b4d7d803d47e0d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91369101"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Självstudie: läsa in data till Azure Synapse Analytics SQL-pool
@@ -135,7 +135,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
     | Servernamn | Fullständigt kvalificerat servernamn | Till exempel är **sqlpoolservername.Database.Windows.net** ett fullständigt kvalificerat Server namn. |
     | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
     | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
-    | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
+    | lösenordsinställning | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 
     ![Anslut till server](./media/load-data-wideworldimportersdw/connect-to-server.png)
 
@@ -536,7 +536,7 @@ I det här avsnittet används de externa tabeller som du har definierat för att
 
 Skriptet använder T-SQL-instruktionen [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att läsa in data från Azure Storage Blob till nya tabeller i informationslagret. CTAS skapar en ny tabell baserat på resultatet av en SELECT-instruktion. Den nya tabellen har samma kolumner och datatyper som resultatet av select-instruktionen. När SELECT-instruktionen väljer från en extern tabell, importeras data till en Relations tabell i data lagret.
 
-Det här skriptet läser inte in data i tabellerna WWI. dimension_Date och WWI. fact_Sale. Tabellerna genereras i ett senare steg för att tabellerna ska innehålla ett radantal med justerbar storlek.
+Det här skriptet läser inte in data i wwi.dimension_Date och wwi.fact_Sale tabeller. Tabellerna genereras i ett senare steg för att tabellerna ska innehålla ett radantal med justerbar storlek.
 
 1. Kör följande skript för att läsa in data till nya tabeller i informationslagret.
 
@@ -732,7 +732,7 @@ Det här skriptet läser inte in data i tabellerna WWI. dimension_Date och WWI. 
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Skapa tabeller och procedurer för att generera datum- och säljtabellerna
 
-I det här avsnittet skapas tabellerna WWI. dimension_Date och WWI. fact_Sale. Det skapar också lagrade procedurer som kan generera miljon tals rader i tabellerna WWI. dimension_Date och WWI. fact_Sale.
+I det här avsnittet skapas wwi.dimension_Date-och wwi.fact_Sales tabeller. Det skapar också lagrade procedurer som kan generera miljon tals rader i wwi.dimension_Date-och wwi.fact_Sale tabeller.
 
 1. Skapa tabellerna dimension_Date och fact_Sale.  
 
@@ -876,7 +876,7 @@ I det här avsnittet skapas tabellerna WWI. dimension_Date och WWI. fact_Sale. D
     END;
     ```
 
-4. Skapa den här proceduren som fyller tabellerna WWI. dimension_Date och WWI. fact_Sale. Den anropar [wwi].[PopulateDateDimensionForYear] för att fylla i wwi.dimension_Date.
+4. Skapa den här proceduren som fyller i wwi.dimension_Date och wwi.fact_Sale tabeller. Den anropar [wwi].[PopulateDateDimensionForYear] för att fylla i wwi.dimension_Date.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -933,7 +933,7 @@ I det här avsnittet skapas tabellerna WWI. dimension_Date och WWI. fact_Sale. D
 
 ## <a name="generate-millions-of-rows"></a>Generera miljontals rader
 
-Använd de lagrade procedurer som du skapade för att generera miljon tals rader i tabellen WWI. fact_Sale och motsvarande data i tabellen WWI. dimension_Date.
+Använd de lagrade procedurer som du skapade för att generera miljon tals rader i wwi.fact_Sale tabellen och motsvarande data i wwi.dimension_Dates tabellen.
 
 1. Kör den här proceduren om du vill lägga till flera rader i [wwi]. [seed_Sale].
 
@@ -941,7 +941,7 @@ Använd de lagrade procedurer som du skapade för att generera miljon tals rader
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Kör den här proceduren för att fylla i WWI. fact_Sale med 100 000 rader per dag för varje dag under året 2000.
+2. Kör den här proceduren för att fylla i wwi.fact_Sale med 100 000 rader per dag för varje dag under året 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000

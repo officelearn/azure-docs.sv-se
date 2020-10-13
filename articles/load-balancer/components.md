@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: ccc6611f14903e47a76de938994552378bb3bc24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dbbd3443ec6c455ba9bcb88ff90dd4960aff5d2
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589715"
+ms.locfileid: "91930959"
 ---
 # <a name="azure-load-balancer-components"></a>Azure Load Balancer-komponenter
 
@@ -127,6 +127,13 @@ En utgående regel konfigurerar utgående NAT (Network Address Translation) för
 Läs mer om [utgående anslutningar och regler](load-balancer-outbound-connections.md).
 
 Den grundläggande belastningsutjämnaren stöder inte utgående regler.
+
+## <a name="limitations"></a>Begränsningar
+
+- Load Balancer tillhandahåller belastnings utjämning och port vidarebefordring för vissa TCP-eller UDP-protokoll. Regler för belastnings utjämning och inkommande NAT-regler stöder TCP och UDP, men inte andra IP-protokoll, inklusive ICMP.
+- Utgående flöden från en VM-VM till en klient del för en intern Load Balancer Miss kommer att Miss förfaller.
+- En belastnings Utjämnings regel kan inte omfatta två virtuella nätverk.  Frontend-enheter och deras server dels instanser måste finnas i samma virtuella nätverk.  
+- Vidarebefordring av IP-fragment stöds inte för regler för belastnings utjämning. IP-fragmentering av UDP-och TCP-paket stöds inte i regler för belastnings utjämning. Belastnings Utjämnings regler för HA portar kan användas för att vidarebefordra befintliga IP-fragment. Mer information finns i [Översikt över portar med hög tillgänglighet](load-balancer-ha-ports-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

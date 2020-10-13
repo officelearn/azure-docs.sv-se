@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1298a1676d7a7ac0321ae768c3e596f481e80a8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617884"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973317"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Skillnader i T-SQL mellan SQL Server & Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -353,7 +353,11 @@ Inte dokumenterade DBCC-instruktioner som är aktiverade i SQL Server stöds int
 
 ### <a name="distributed-transactions"></a>Distribuerade transaktioner
 
-MSDTC-och [elastiska transaktioner](../database/elastic-transactions-overview.md) stöds för närvarande inte i SQL-hanterad instans.
+Delvis stöd för [distribuerade transaktioner](../database/elastic-transactions-overview.md) är för närvarande en offentlig för hands version. Scenarier som stöds är:
+* Transaktioner där deltagare bara är Azure SQL-hanterade instanser som ingår i [gruppen för Server förtroende](https://aka.ms/mitrusted-groups).
+* Transaktioner som initierats från .NET (TransactionScope-klassen) och Transact-SQL.
+
+Azure SQL Managed instance stöder för närvarande inte andra scenarier som regelbundet stöds av MSDTC lokalt eller i Azure Virtual Machines.
 
 ### <a name="extended-events"></a>Extended Events
 

@@ -10,7 +10,7 @@ ms.openlocfilehash: 8d0ffb008258c586a5965b0741b848f1cef319f7
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91857065"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Skapa HDInsight-kluster med Azure Data Lake Storage Gen1 med hjälp av Azure Portal
@@ -25,7 +25,7 @@ ms.locfileid: "91857065"
 
 Lär dig hur du använder Azure Portal för att skapa ett HDInsight-kluster med Azure Data Lake Storage Gen1 som standard lagring eller ytterligare lagrings utrymme. Även om ytterligare lagring är valfritt för ett HDInsight-kluster rekommenderar vi att du lagrar dina affärs data i de ytterligare lagrings kontona.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du kontrol lera att du uppfyller följande krav:
 

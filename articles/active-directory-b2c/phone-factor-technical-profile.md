@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/31/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 10d5fda526c41704381bb544bdfd0589063c1d15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 322e4b78fbfb38f1822fb7a7cdcdbfcc0738b303
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203868"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950405"
 ---
 # <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för telefon faktor i en Azure Active Directory B2C anpassad princip
 
@@ -32,7 +32,7 @@ Azure Active Directory B2C (Azure AD B2C) ger stöd för registrering och verifi
 
 ## <a name="protocol"></a>Protokoll
 
-Namnattributet **för** **protokoll** elementet måste anges till `Proprietary` . Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på den protokoll hanterings sammansättning som används av Azure AD B2C för telefon faktor:`Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+Namnattributet **för** **protokoll** elementet måste anges till `Proprietary` . Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på den protokoll hanterings sammansättning som används av Azure AD B2C för telefon faktor: `Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
 I följande exempel visas en teknisk profil för telefon faktorer för registrering och validering:
 
@@ -78,7 +78,7 @@ OutputClaims-elementet innehåller en lista över anspråk som returneras av den
 
 |  Datatyp| Krävs | Beskrivning |
 |  -------- | ----------- |----------- |
-| boolean | Ja | Anger om det nya telefonnumret har angetts av användaren. Anspråks namnet eller PartnerClaimType måste anges till`newPhoneNumberEntered`|
+| boolean | Ja | Anger om det nya telefonnumret har angetts av användaren. Anspråks namnet eller PartnerClaimType måste anges till `newPhoneNumberEntered`|
 | sträng| Ja | Det verifierade telefonnumret. Anspråks namnet eller PartnerClaimType måste anges till `Verified.OfficePhone` .|
 
 OutputClaimsTransformations-elementet kan innehålla en samling av OutputClaimsTransformation-element som används för att ändra de utgående anspråken eller skapa nya.
@@ -93,13 +93,13 @@ OutputClaimsTransformations-elementet kan innehålla en samling av OutputClaimsT
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | ContentDefinitionReferenceId | Ja | Identifieraren för den [innehålls definition](contentdefinitions.md) som är associerad med den här tekniska profilen. |
-| ManualPhoneNumberEntryAllowed| No | Ange om en användare får ange ett telefonnummer manuellt. Möjliga värden: `true` , eller `false` (standard).|
-| anger. authenticationMode | No | Metoden för att verifiera telefonnumret. Möjliga värden: `sms` , `phone` eller `mixed` (standard).|
-| anger. AutoDial| No| Ange om den tekniska profilen ska Ring upp automatiskt eller automatiskt skicka ett SMS. Möjliga värden: `true` , eller `false` (standard). Automatisk uppringning kräver att `setting.authenticationMode` metadata anges till `sms` eller `phone` . Insamlings anspråket måste ha ett enda telefonnummer. |
+| ManualPhoneNumberEntryAllowed| Nej | Ange om en användare får ange ett telefonnummer manuellt. Möjliga värden: `true` , eller `false` (standard).|
+| anger. authenticationMode | Nej | Metoden för att verifiera telefonnumret. Möjliga värden: `sms` , `phone` eller `mixed` (standard).|
+| anger. AutoDial| Nej| Ange om den tekniska profilen ska Ring upp automatiskt eller automatiskt skicka ett SMS. Möjliga värden: `true` , eller `false` (standard). Automatisk uppringning kräver att `setting.authenticationMode` metadata anges till `sms` eller `phone` . Insamlings anspråket måste ha ett enda telefonnummer. |
 
 ### <a name="ui-elements"></a>Element för användargränssnitt
 
-Användar gränssnitts elementen på sidan med telefon faktorns autentisering kan [lokaliseras](localization-string-ids.md#azure-mfa-error-messages).
+Användar gränssnitts elementen på sidan med telefon faktorns autentisering kan [lokaliseras](localization-string-ids.md#phone-factor-authentication-page-user-interface-elements).
 
 ## <a name="next-steps"></a>Nästa steg
 

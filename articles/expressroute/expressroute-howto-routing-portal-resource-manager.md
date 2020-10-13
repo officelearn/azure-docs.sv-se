@@ -11,7 +11,7 @@ ms.openlocfilehash: cad098ed2dedc7abba57394ef1e26b9b7c87cd9c
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91855479"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-the-azure-portal"></a>Självstudie: skapa och ändra peering för en ExpressRoute-krets med hjälp av Azure Portal
@@ -35,7 +35,7 @@ I den här guiden får du lära dig att:
 > - Konfigurera, uppdatera och ta bort Microsoft-peering för en krets
 > - Konfigurera, uppdatera och ta bort Azures privata peering för en krets
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Kontrol lera att du har granskat följande sidor innan du påbörjar konfigurationen:
     * [Förutsättningar](expressroute-prerequisites.md) 

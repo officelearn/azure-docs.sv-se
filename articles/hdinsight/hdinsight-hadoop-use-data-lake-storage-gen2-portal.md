@@ -12,7 +12,7 @@ ms.openlocfilehash: 104424c1e3bd1df69106db7da45b744755b51e82
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91858812"
 ---
 # <a name="create-a-cluster-with-data-lake-storage-gen2-using-the-azure-portal"></a>Skapa ett kluster med Data Lake Storage Gen2 med hjälp av Azure Portal

@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 68ddbe73bcf4c0e934a5a8be0246214086a7618c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 98e4a5097f1ebd26c54d1e0de9bda7ca2055c320
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302051"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950745"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Utforska och hantera dina resurser med till gångs inventering och hanterings verktyg
 
@@ -33,7 +33,7 @@ Använd den här vyn och dess filter för att åtgärda sådana frågor som:
 Till gångs hanterings möjligheterna för det här verktyget är väsentliga och fortsätter att växa. 
 
 > [!TIP]
-> Säkerhets rekommendationerna är desamma som på sidan **rekommendationer** , men här är de filtrerade till den resurs typ som du har valt. Mer information om hur du löser rekommendationer finns [i implementera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md).
+> Säkerhets rekommendationerna på sidan till gångs inventering är samma som på sidan **rekommendationer** , men de visas i enlighet med den berörda resursen. Information om hur du löser rekommendationer finns [i implementera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md).
 
 
 ## <a name="availability"></a>Tillgänglighet
@@ -43,7 +43,7 @@ Till gångs hanterings möjligheterna för det här verktyget är väsentliga oc
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|Kostnadsfri|
 |Nödvändiga roller och behörigheter:|Alla användare|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Nej](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
@@ -59,7 +59,7 @@ Inventerings sidan innehåller följande verktyg:
 
 - **Filter** – flera filter överst på sidan ger ett sätt att snabbt förfina listan över resurser enligt den fråga som du försöker besvara. Om du till exempel vill svara på frågan *vilka av mina datorer med taggen "produktion" saknas Log Analytics agenten?* du kan kombinera **agent övervaknings** filtret med **tagg** filtret som du ser i följande klipp:
 
-    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Filtrering av produktions resurser som inte övervakas":::
+    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Filtrering av produktions resurser som inte övervakas&quot;:::
 
     När du har tillämpat filter uppdateras sammanfattnings värdena så att de relaterar till frågeresultaten. 
 
@@ -68,7 +68,7 @@ Inventerings sidan innehåller följande verktyg:
     ![Lager export alternativ](./media/asset-inventory/inventory-export-options.png)
 
     > [!TIP]
-    > KQL-dokumentationen innehåller en databas med några exempel data tillsammans med några enkla frågor för att få "känsla" för språket. [Läs mer i den här självstudien om KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
+    > KQL-dokumentationen innehåller en databas med några exempel data tillsammans med några enkla frågor för att få &quot;känsla" för språket. [Läs mer i den här självstudien om KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
 - Med **alternativ för till gångs hantering** – med lager kan du utföra komplexa identifierings frågor. När du har hittat de resurser som matchar dina frågor tillhandahåller inventeringen genvägar för åtgärder som:
 
@@ -94,7 +94,16 @@ Med hjälp av [KQL (Kusto Query Language)](https://docs.microsoft.com/azure/data
 
 1. Välj de relevanta alternativen i filtren för att skapa en speciell fråga som du vill utföra.
 
-    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Lager filtrerings alternativ" lightbox="./media/asset-inventory/inventory-filters.png":::
+    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Filtrering av produktions resurser som inte övervakas&quot;:::
+
+    När du har tillämpat filter uppdateras sammanfattnings värdena så att de relaterar till frågeresultaten. 
+
+- **Export alternativ** – inventering ger möjlighet att exportera resultaten av de valda filter alternativen till en CSV-fil. Dessutom kan du exportera själva frågan till Azure Resource Graph Explorer för att ytterligare förfina, Spara eller ändra KQL-frågan.
+
+    ![Lager export alternativ](./media/asset-inventory/inventory-export-options.png)
+
+    > [!TIP]
+    > KQL-dokumentationen innehåller en databas med några exempel data tillsammans med några enkla frågor för att få &quot;känsla" lightbox="./media/asset-inventory/inventory-filters.png":::
 
     Som standard sorteras resurserna efter antalet aktiva säkerhets rekommendationer.
 
@@ -114,12 +123,30 @@ Med hjälp av [KQL (Kusto Query Language)](https://docs.microsoft.com/azure/data
 
     - **Av** -resurser som inte skyddas av en Azure Defender-plan. Du kan högerklicka på någon av dessa och uppgradera dem:
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Uppgradera en resurs till Azure Defender från höger klick" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Filtrering av produktions resurser som inte övervakas&quot;:::
+
+    När du har tillämpat filter uppdateras sammanfattnings värdena så att de relaterar till frågeresultaten. 
+
+- **Export alternativ** – inventering ger möjlighet att exportera resultaten av de valda filter alternativen till en CSV-fil. Dessutom kan du exportera själva frågan till Azure Resource Graph Explorer för att ytterligare förfina, Spara eller ändra KQL-frågan.
+
+    ![Lager export alternativ](./media/asset-inventory/inventory-export-options.png)
+
+    > [!TIP]
+    > KQL-dokumentationen innehåller en databas med några exempel data tillsammans med några enkla frågor för att få &quot;känsla" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
     - **On** Resurser som skyddas av en Azure Defender-plan
     - **Delvis** – detta gäller **prenumerationer** som har vissa men inte alla Azure Defender-planer inaktiverade. Följande prenumeration har till exempel fem Azure Defender-planer inaktiverade. 
 
-        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Prenumeration delvis i Azure Defender":::
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Filtrering av produktions resurser som inte övervakas&quot;:::
+
+    När du har tillämpat filter uppdateras sammanfattnings värdena så att de relaterar till frågeresultaten. 
+
+- **Export alternativ** – inventering ger möjlighet att exportera resultaten av de valda filter alternativen till en CSV-fil. Dessutom kan du exportera själva frågan till Azure Resource Graph Explorer för att ytterligare förfina, Spara eller ändra KQL-frågan.
+
+    ![Lager export alternativ](./media/asset-inventory/inventory-export-options.png)
+
+    > [!TIP]
+    > KQL-dokumentationen innehåller en databas med några exempel data tillsammans med några enkla frågor för att få &quot;känsla":::
 
 1. Om du vill undersöka resultatet av din fråga ytterligare väljer du de resurser som intresserar dig.
 
@@ -140,7 +167,16 @@ I vyn lager visas dina Security Center anslutna resurser från ett CSPM-perspekt
 
 Följande skärm bild visar till exempel en användare med åtkomst till 38-prenumerationer, men endast 10 har för närvarande rekommendationer. Så när de filtrerar efter **resurs typ = prenumerationer**visas endast de 10 prenumerationer med aktiva rekommendationer i inventeringen:
 
-:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Inget retur resultat returnerades när det inte finns några aktiva rekommendationer":::
+:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Filtrering av produktions resurser som inte övervakas&quot;:::
+
+    När du har tillämpat filter uppdateras sammanfattnings värdena så att de relaterar till frågeresultaten. 
+
+- **Export alternativ** – inventering ger möjlighet att exportera resultaten av de valda filter alternativen till en CSV-fil. Dessutom kan du exportera själva frågan till Azure Resource Graph Explorer för att ytterligare förfina, Spara eller ändra KQL-frågan.
+
+    ![Lager export alternativ](./media/asset-inventory/inventory-export-options.png)
+
+    > [!TIP]
+    > KQL-dokumentationen innehåller en databas med några exempel data tillsammans med några enkla frågor för att få &quot;känsla":::
 
 ### <a name="why-do-some-of-my-resources-show-blank-values-in-the-azure-defender-or-agent-monitoring-columns"></a>Varför visar några av mina resurser tomma värden i kolumnerna för Azure Defender eller agent övervakning?
 
@@ -148,7 +184,16 @@ Alla Security Center övervakade resurser har inte agenter. Till exempel Azure S
 
 När priser eller agent övervakning inte är relevanta för en resurs, visas inget i dessa kolumner i inventeringen.
 
-:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Vissa resurser visar tom information i agent övervakning eller Azure Defender-kolumner":::
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Filtrering av produktions resurser som inte övervakas&quot;:::
+
+    När du har tillämpat filter uppdateras sammanfattnings värdena så att de relaterar till frågeresultaten. 
+
+- **Export alternativ** – inventering ger möjlighet att exportera resultaten av de valda filter alternativen till en CSV-fil. Dessutom kan du exportera själva frågan till Azure Resource Graph Explorer för att ytterligare förfina, Spara eller ändra KQL-frågan.
+
+    ![Lager export alternativ](./media/asset-inventory/inventory-export-options.png)
+
+    > [!TIP]
+    > KQL-dokumentationen innehåller en databas med några exempel data tillsammans med några enkla frågor för att få &quot;känsla":::
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -106,6 +106,8 @@
       items:
         - name: Utvecklarguide för Azure Key Vault
           href: developers-guide.md
+        - name: Använda Azure Resource Manager för att distribuera Key Vault
+          href: vault-create-template.md
         - name: Spara hemligheter för webbappar
           href: vs-secure-secret-appsettings.md
         - name: Tjänst-till-tjänst-autentisering med .NET

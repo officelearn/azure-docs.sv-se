@@ -3,16 +3,16 @@ title: Publicera ett hanterat tjänst erbjudande på Azure Marketplace
 description: Lär dig hur du publicerar ett hanterat tjänst erbjudande som integrerar kunder i Azure Lighthouse.
 ms.date: 08/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 11fb0073bcc3ba4437f78de8b263d165f0069db8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 033003d7e782ca0e99b1fc908c5261b6e31bf613
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589732"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974370"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicera ett hanterat tjänst erbjudande på Azure Marketplace
 
-I den här artikeln får du lära dig hur du publicerar ett offentligt eller privat hanterat tjänst erbjudande på [Azure Marketplace](https://azuremarketplace.microsoft.com) med programmet för [kommersiella marknads platser](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) i Partner Center. Kunder som köper erbjudandet delegerar sedan prenumerationer eller resurs grupper, så att du kan hantera dem via [Azure Lighthouse](../overview.md).
+I den här artikeln får du lära dig hur du publicerar ett offentligt eller privat hanterat tjänst erbjudande på [Azure Marketplace](https://azuremarketplace.microsoft.com) med programmet för [kommersiella marknads platser](../../marketplace/overview.md) i Partner Center. Kunder som köper erbjudandet delegerar sedan prenumerationer eller resurs grupper, så att du kan hantera dem via [Azure Lighthouse](../overview.md).
 
 ## <a name="publishing-requirements"></a>Publicerings krav
 
@@ -28,19 +28,19 @@ Följande tabell kan hjälpa dig att avgöra om du ska publicera kunder genom at
 
 |**Övervägande**  |**Erbjudande för hanterad tjänst**  |**ARM-mallar**  |
 |---------|---------|---------|
-|Kräver [partner Center-konto](../../marketplace/partner-center-portal/create-account.md)   |Ja         |Inga        |
-|Kräver [plattforms-eller guld plattforms kompetens nivå](/partner-center/learn-about-competencies) eller [Azure expert MSP](https://partner.microsoft.com/membership/azure-expert-msp)      |Ja         |Inga         |
-|Tillgängligt för nya kunder via Azure Marketplace     |Ja     |Inga       |
+|Kräver [partner Center-konto](../../marketplace/partner-center-portal/create-account.md)   |Ja         |Nej        |
+|Kräver [plattforms-eller guld plattforms kompetens nivå](/partner-center/learn-about-competencies) eller [Azure expert MSP](https://partner.microsoft.com/membership/azure-expert-msp)      |Ja         |Nej         |
+|Tillgängligt för nya kunder via Azure Marketplace     |Ja     |Nej       |
 |Kan begränsa erbjudandet till vissa kunder     |Ja (endast med privata erbjudanden som inte kan användas med prenumerationer som upprättats via en åter försäljare av leverantören av moln lösningar (CSP))         |Ja         |
-|Kräver kund godkännande i Azure Portal     |Ja     |Inga   |
-|Kan använda Automation för att publicera flera prenumerationer, resurs grupper eller kunder |Inga     |Ja    |
+|Kräver kund godkännande i Azure Portal     |Ja     |Nej   |
+|Kan använda Automation för att publicera flera prenumerationer, resurs grupper eller kunder |Nej     |Ja    |
 |Omedelbar åtkomst till nya inbyggda roller och funktioner i Azure Lighthouse     |Inte alltid (allmänt tillgänglig efter en fördröjning)         |Ja         |
 
 ## <a name="create-your-offer"></a>Skapa ditt erbjudande
 
 Detaljerade anvisningar om hur du skapar ett erbjudande, inklusive all information och till gångar som du behöver ange, finns i [skapa ett hanterat tjänst erbjudande](../../marketplace/partner-center-portal/create-new-managed-service-offer.md).
 
-Mer information om den allmänna publicerings processen finns i [publicerings guiden för Azure Marketplace och AppSource](../../marketplace/marketplace-publishers-guide.md). Du bör också gå igenom de [kommersiella Marketplace-certifierings principerna](/legal/marketplace/certification-policies), särskilt avsnittet [hanterade tjänster](/legal/marketplace/certification-policies#700-managed-services) .
+Mer information om den allmänna publicerings processen finns i [publicerings guiden för Azure Marketplace och AppSource](../../marketplace/overview.md). Du bör också gå igenom de [kommersiella Marketplace-certifierings principerna](/legal/marketplace/certification-policies), särskilt avsnittet [hanterade tjänster](/legal/marketplace/certification-policies#700-managed-services) .
 
 När en kund lägger till erbjudandet kan han eller hon delegera en eller flera prenumerationer eller resurs grupper, som sedan kommer att publiceras [i Azure-Lighthouse](#the-customer-onboarding-process).
 
@@ -64,6 +64,6 @@ När kunden delegerar en prenumeration (eller en eller flera resurs grupper inom
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om den [kommersiella marknads platsen](../../marketplace/partner-center-portal/commercial-marketplace-overview.md).
+- Lär dig mer om den [kommersiella marknads platsen](../../marketplace/overview.md).
 - Lär dig mer om [hanterings upplevelser mellan flera innehavare](../concepts/cross-tenant-management-experience.md).
 - [Visa och hantera kunder](view-manage-customers.md) genom att gå till **mina kunder** i Azure Portal.

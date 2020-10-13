@@ -8,10 +8,10 @@ ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: da60d6a2146385e1dfd0717afb1172b378e52533
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91716001"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Felsöka Azure Files problem i Linux (SMB)
@@ -100,7 +100,7 @@ Om du vill visa öppna referenser för en fil resurs, katalog eller fil använde
 Om du vill stänga öppna referenser för en fil resurs, katalog eller fil använder du PowerShell-cmdleten [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) .
 
 > [!Note]  
-> Cmdletarna get-AzStorageFileHandle och Close-AzStorageFileHandle ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> De Get-AzStorageFileHandle-och Close-AzStorageFileHandle-cmdletarna ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Långsam fil kopiering till och från Azure Files i Linux
@@ -167,7 +167,7 @@ Om SMB-klienterna har stängt alla öppna referenser och problemet fortsätter a
 - Använd PowerShell [-cmdleten Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) för att stänga öppna referenser. 
 
 > [!Note]  
-> Cmdletarna get-AzStorageFileHandle och Close-AzStorageFileHandle ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> De Get-AzStorageFileHandle-och Close-AzStorageFileHandle-cmdletarna ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Dåliga prestanda för en Azure-filresurs monterad i en virtuell Linux-dator

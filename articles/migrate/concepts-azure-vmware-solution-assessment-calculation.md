@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
 ms.openlocfilehash: 400c2d91383b5f21fcd40fdbbe279bd83fcef51a
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91576548"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Översikt över Server utvärdering (migrera till Azure VMware-lösning)
@@ -172,7 +172,7 @@ När en dator har marker ATS som klar för AVS, gör AVS-utvärderingen i Server
 
 ### <a name="ftt-sizing-parameters"></a>Parametrar för FTT storlek
 
-Den lagrings motor som används i AVS är virtuellt San. Virtuellt San lagrings principer definierar lagrings krav för dina virtuella datorer. Med dessa principer garanteras den tjänstnivå som krävs för dina virtuella datorer eftersom de fastställer hur lagringen allokeras till den virtuella datorn. De tillgängliga FTT-RAID-kombinationerna är: 
+Den lagrings motor som används i AVS är virtuellt San. Virtuellt San lagrings principer definierar lagrings krav för dina virtuella datorer. Med dessa principer garanteras den tjänstnivå som krävs för dina virtuella datorer eftersom de fastställer hur lagringen allokeras till den virtuella datorn. De tillgängliga FTT-Raid kombinationerna är: 
 
 **Fel som ska kunna hanteras (FTT)** | **RAID-konfiguration** | **Lägsta antal värdar som krävs** | **Storleksövervägande**
 --- | --- | --- | --- 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 12b0dd957cb89fc7114c752312b08f1e490499da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f8f5d7ddf25b2df6b2e07818e1b2ed7e90fb867
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89280034"
+ms.locfileid: "91932130"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurera en digital Azure-instans och autentisering (portal)
 
@@ -123,12 +123,13 @@ Välj *API-behörigheter* på menyn på Portal sidan för din app-registrering. 
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-permission.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
 
-På sidan *begär API-behörigheter* som följer växlar du till fliken *API: er som min organisation använder* och söker efter *Azure Digital-dubbla*. Välj *Azure Digitals flätar* från Sök resultaten om du vill fortsätta med att tilldela behörigheter för Azures digitala dubbla API: er.
+På sidan *begär API-behörigheter* som följer växlar du till fliken *API: er som min organisation använder* och söker efter *Azure Digital-dubbla*. Välj _**Azure Digitals flätar**_ från Sök resultaten om du vill fortsätta med att tilldela behörigheter för Azures digitala dubbla API: er.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
 
 >[!NOTE]
-> Om du har en befintlig Azure Digital-instansen från den tidigare offentliga för hands versionen av tjänsten (före 2020) som fortfarande finns i din prenumeration måste du leta efter *Azure Smart Spaces-tjänst* i stället. Det här är ett äldre namn för samma uppsättning API: er och kommer inte att ändra din erfarenhet utanför det här steget.
+> Om prenumerationen fortfarande har en befintlig Azure Digital-instans från den tidigare offentliga för hands versionen av tjänsten (före den 2020 juli) måste du söka efter och välja _**Azure Smart Spaces-tjänst**_ i stället. Detta är ett äldre namn för samma uppsättning API: er (Observera att *program-ID: t (klient) ID* är detsamma som i skärm bilden ovan) och att din upplevelse inte ändras utanför det här steget.
+> :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1-smart-spaces.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
 
 Sedan väljer du vilka behörigheter som ska beviljas för dessa API: er. Expandera **Läs-(1)-** behörigheten och markera kryss rutan med texten *Read. Write* för att ge appen registrerings läsare och skrivar behörigheter.
 
@@ -163,7 +164,7 @@ Anteckna *program* -ID och *katalog (klient)-ID: t* som **visas på sidan** . De
 ## <a name="next-steps"></a>Nästa steg
 
 Testa enskilda REST API-anrop på din instans med hjälp av Azure Digitals flätat CLI-kommandon: 
-* [AZ DT-referens](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [AZ DT-referens](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
 * [*Anvisningar: använda Azure Digitals flätat CLI*](how-to-use-cli.md)
 
 Du kan också se hur du ansluter klient programmet till din instans genom att skriva klient appens autentiseringsnyckel:

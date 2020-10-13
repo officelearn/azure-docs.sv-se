@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: mvc
 ms.openlocfilehash: 6619d7c9f7d2b0cd78f3941ce431e80342b6f563
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91576446"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Självstudie: Uppdatera ett program i Azure Kubernetes Service (AKS)
@@ -85,7 +85,7 @@ docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azur
 Använd nu [docker push][docker-push] för att ladda upp avbildningen till registret. Ersätt `<acrLoginServer>` med namnet på din ACR-inloggningsserver.
 
 > [!NOTE]
-> Om du får problem med att skicka till ACR-registret kontrollerar du att du fortfarande är inloggad. Kör kommandot [AZ ACR login][az-acr-login] med namnet på din Azure Container Registry som du skapade i steget [skapa ett Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) . Till exempel `az acr login --name <azure container registry name>`.
+> Om du får problem med att skicka till ACR-registret kontrollerar du att du fortfarande är inloggad. Kör kommandot [AZ ACR login][az-acr-login] med namnet på din Azure Container Registry som du skapade i steget [skapa ett Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) . Exempelvis `az acr login --name <azure container registry name>`.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2

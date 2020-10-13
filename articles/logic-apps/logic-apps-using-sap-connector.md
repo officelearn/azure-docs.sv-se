@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
 ms.openlocfilehash: 4afd6f0cc3b4b5e135d80b420d8260c50d9ca46c
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89488855"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ansluta till SAP-system från Azure Logic Apps
@@ -39,7 +39,7 @@ Den här artikeln visar hur du skapar exempel på Logic Apps som integreras med 
 
 <a name="pre-reqs"></a>
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa med i den här artikeln behöver du följande objekt:
 
@@ -1160,7 +1160,7 @@ Om det uppstår ett problem med att duplicera IDocs skickas till SAP från din L
 
 1. I Logic Apps designer lägger du till den åtgärd som **initierar variabeln** i din Logic app. 
 1. Konfigurera följande inställningar i redigerings programmet för **variabeln åtgärd initiera**. Spara sedan ändringarna.
-    1. I **namn**anger du ett namn för din variabel. Till exempel `IDOCtransferID`.
+    1. I **namn**anger du ett namn för din variabel. Exempelvis `IDOCtransferID`.
     2. I **typ**väljer du **sträng** som variabel typ.
     3. För **värde**väljer du text rutan **Ange start värde** för att öppna menyn för dynamiskt innehåll. Välj fliken **uttryck** . I listan med funktioner anger du funktionen `guid()` . Välj **OK** för att spara ändringarna. Fältet **värde** är nu inställt på `guid()` funktionen, vilket genererar ett GUID.
 1. Efter åtgärden **initiera variabel** lägger du till åtgärden **Skicka iDOC**.
@@ -1169,11 +1169,11 @@ Om det uppstår ett problem med att duplicera IDocs skickas till SAP från din L
     1. För **SAP-version**väljer du din SAP-konfigurations värden.
     1. För **post typer version**väljer du din SAP-konfigurations värden.
     1. För **Bekräfta tid**väljer du **Nej**.
-    1. Välj **Lägg till ny parameter lista**  >  **transaktions-ID GUID**. Välj text rutan för att öppna menyn med dynamiskt innehåll. Under fliken **variabler** väljer du namnet på variabeln som du skapade. Till exempel `IDOCtransferID`.
+    1. Välj **Lägg till ny parameter lista**  >  **transaktions-ID GUID**. Välj text rutan för att öppna menyn med dynamiskt innehåll. Under fliken **variabler** väljer du namnet på variabeln som du skapade. Exempelvis `IDOCtransferID`.
 1. I namn listen för åtgärden **Skicka iDOC**väljer du **...**  >  **Inställningar**. För **principen för återförsök**väljer du **ingen**  >  **görs**.
 1. När åtgärden har **skickat iDOC**lägger du till åtgärden **Bekräfta transaktions-ID**.
 1. Konfigurera följande inställningar i redigerings programmet för åtgärd **Bekräfta transaktions-ID**. Spara sedan ändringarna.
-    1. För **transaktions-ID**anger du namnet på variabeln igen. Till exempel `IDOCtransferID`.
+    1. För **transaktions-ID**anger du namnet på variabeln igen. Exempelvis `IDOCtransferID`.
 
 ## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
 

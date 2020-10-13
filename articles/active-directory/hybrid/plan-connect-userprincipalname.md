@@ -11,10 +11,10 @@ ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58b4bbcac110398ee4ff132b76ce8c4868ee17f8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317599"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Ifyllnad av UserPrincipalName för Azure AD
@@ -25,7 +25,7 @@ Attributvärdet UserPrincipalName är Azure AD-användarnamnet för användar ko
 ## <a name="upn-terminology"></a>UPN-terminologi
 Följande terminologi används i den här artikeln:
 
-|Term|Beskrivning|
+|Period|Beskrivning|
 |-----|-----|
 |Första domän|Standard domänen (onmicrosoft.com) i Azure AD-klienten. Till exempel contoso.onmicrosoft.com.|
 |Microsoft Online E-mail routing-adress (MOERA)|Azure AD beräknar MOERA från Azure AD-smek namn-attributet och den första Azure AD-domänen som ett &lt; smek namn för &gt;&#64;&lt; inledande domän &gt; .|
@@ -177,6 +177,6 @@ Användar objekt för Azure AD-klient organisation:
 - Smek namn: US4     
 - UserPrincipalName us5@verified.contoso.com
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 - [Integrerar dina lokala kataloger med Azure Active Directory](whatis-hybrid-identity.md)
 - [Anpassad installation av Azure AD Connect](how-to-connect-install-custom.md)

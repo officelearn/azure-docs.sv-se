@@ -3,18 +3,19 @@ title: Webhooks som händelse hanterare för Azure Event Grid händelser
 description: Beskriver hur du kan använda Webhooks som händelse hanterare för Azure Event Grid händelser. Azure Automation runbooks och Logic Apps stöds som händelse hanterare via Webhooks.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 3dc75b15c55c82b6164e77f0ac93a87bced94a64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa20c75789a18b93f787134dffe165e60ff1ab6f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105616"
+ms.locfileid: "91875809"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>Webhooks, Automation-runbooks Logic Apps som händelse hanterare för Azure Event Grid händelser
 En händelse hanterare är den plats där händelsen skickas. Hanteraren vidtar ytterligare åtgärder för att bearbeta händelsen. Flera Azure-tjänster konfigureras automatiskt för att hantera händelser. Du kan också använda en webhook för att hantera händelser. Webhooken behöver inte vara värd för Azure för att hantera händelser. Event Grid stöder endast HTTPS webhook-slutpunkter.
 
 > [!NOTE]
-> Azure Automation runbooks och Logic Apps stöds som händelse hanterare via Webhooks. 
+> - Azure Automation runbooks och Logic Apps stöds som händelse hanterare via Webhooks. 
+> - Även om du kan använda **webhook** som en **slut punkts typ** för att konfigurera en Azure-funktion som händelse hanterare, använder du **Azure Function** som typ av slut punkt. Mer information finns i [Azure Function som händelse hanterare](handler-functions.md).
 
 ## <a name="webhooks"></a>Webhooks
 I följande artiklar finns en översikt och exempel på hur du använder Webhooks som händelse hanterare. 

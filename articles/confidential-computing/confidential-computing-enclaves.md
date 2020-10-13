@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 9/3/2020
 ms.author: JenCook
 ms.openlocfilehash: a7e3ade66aa4ebf7584e03b75f85c48b44537d97
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997845"
 ---
 # <a name="azure-confidential-computing-virtual-machines-vms-overview"></a>Översikt över Azure konfidentiella datorer för virtuella datorer (VM)
@@ -46,7 +46,7 @@ Varje enklaven har en uppsättning storlek på en krypterad Page cache (EPC) som
 ### <a name="developing-applications-to-run-inside-enclaves"></a>Utveckla program som ska köras i enclaves
 När du utvecklar program kan du använda- [program verktyg](application-development.md) för att avskärma delar av koden och data i enklaven. Dessa verktyg ser till att din kod och dina data inte kan visas eller ändras av någon utanför den betrodda miljön. 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 - [Läs metod tips](virtual-machine-solutions.md) för att distribuera lösningar på virtuella Azure-datorer med konfidentiella data behandling.
-- [Distribuera en virtuell dator med DCsv2-serien](quick-create-portal.md)
+- [Distribuera en DCsv2-Series virtuell dator](quick-create-portal.md)
 - [Utveckla ett enklaven-medvetet program](application-development.md) med hjälp av OE SDK

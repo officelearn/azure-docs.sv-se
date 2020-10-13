@@ -10,10 +10,10 @@ ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: f069f711ccf5672041ea6f3b15a52fa2b3ba2022
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90900036"
 ---
 # <a name="tutorial-connect-to-azure-stack-edge-pro-with-gpu"></a>Självstudie: Anslut till Azure Stack Edge Pro med GPU
@@ -26,11 +26,11 @@ I den här självstudien lär du dig:
 
 > [!div class="checklist"]
 >
-> * Förutsättningar
+> * Krav
 > * Ansluta till en fysisk enhet
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du konfigurerar och konfigurerar din Azure Stack Edge Pro-enhet med GPU måste du kontrol lera att:
 
@@ -73,7 +73,7 @@ Du är nu på sidan **Översikt** på enheten. Nästa steg är att konfigurera n
 I den här självstudien lärde du dig att:
 
 > [!div class="checklist"]
-> * Förutsättningar
+> * Krav
 > * Ansluta till en fysisk enhet
 
 

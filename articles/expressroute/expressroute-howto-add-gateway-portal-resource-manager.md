@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761840"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Självstudie: Konfigurera en virtuell nätverksgateway för ExpressRoute med hjälp av Azure Portal
@@ -71,7 +71,7 @@ Du kan visa en [video](https://azure.microsoft.com/documentation/videos/azure-ex
     | --------| ----- |
     | Prenumeration | Kontrol lera att rätt prenumeration har valts. |
     | Resursgrupp | Resurs gruppen väljs automatiskt när du har valt det virtuella nätverket. | 
-    | Namn | Namnge din gateway. Detta är inte samma sak som att namnge ett Gateway-undernät. Det är namnet på det Gateway-objekt som du skapar.|
+    | Name | Namnge din gateway. Detta är inte samma sak som att namnge ett Gateway-undernät. Det är namnet på det Gateway-objekt som du skapar.|
     | Region | Ändra fältet **region** så att det pekar på den plats där det virtuella nätverket finns. Om platsen inte pekar på den region där det virtuella nätverket finns visas inte det virtuella nätverket i list rutan "Välj ett virtuellt nätverk". |
     | Gateway-typ | Välj **ExpressRoute**|
     | SKU | Välj Gateway-SKU: n i list rutan. |

@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: 081c07be49178be2415edccbfc2026336eb8a8a5
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604418"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Använd arbets ytan bakom en brand vägg för Azure Machine Learning
@@ -95,8 +95,8 @@ URL: er som krävs för Azure Government regionerna.
 
 | **Värdnamn** | **Syfte** |
 | ---- | ---- |
-| **usgovarizona.api.ml.azure.us** | Regionen USA – Arizona |
-| **usgovvirginia.api.ml.azure.us** | Regionen USA – Virginia |
+| **usgovarizona.api.ml.azure.us** | US-Arizona region |
+| **usgovvirginia.api.ml.azure.us** | US-Virginia region |
 
 ## <a name="next-steps"></a>Nästa steg
 

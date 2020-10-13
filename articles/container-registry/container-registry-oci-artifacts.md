@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/12/2020
 ms.author: stevelas
 ms.openlocfilehash: 7c95766cc12b281521fa52ab113fadd4321d0815
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89485011"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Push-överför och hämta en OCI-artefakt med ett Azure Container Registry
@@ -19,7 +19,7 @@ Du kan använda ett Azure Container Registry för att lagra och hantera [OCI-art
 
 Den här artikeln visar hur du kan använda verktyget [OCI Registry as Storage (ORAS)](https://github.com/deislabs/oras) för att visa den här funktionen för att skicka ett exempel på en artefakt – en textfil till ett Azure Container Registry. Hämta sedan artefakten från registret. Du kan hantera en mängd OCI-artefakter i ett Azure Container Registry med olika kommando rads verktyg som är lämpliga för varje artefakt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-containerregister** – Skapa ett containerregister i din Azure-prenumeration. Använd till exempel [Azure Portal](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md).
 * **Verktyget ORAS** – hämta och installera en aktuell ORAS-version för operativ systemet från [GitHub-lagrings platsen](https://github.com/deislabs/oras/releases). Verktyget släpps som en komprimerad tarball ( `.tar.gz` fil). Extrahera och installera filen med standard procedurer för ditt operativ system.

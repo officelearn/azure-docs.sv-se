@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: e6d811e19bb19c8c8bf96764cfcca2b1294f4a85
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91440059"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Skapa och installera konfigurationsfiler för VPN-klienten för P2S RADIUS-autentisering
@@ -43,7 +43,7 @@ Om du vill använda avsnitten i den här artikeln bestämmer du först vilken ty
 
 Du kan konfigurera autentisering av användar namn/lösen ord för att antingen använda Active Directory eller inte använda Active Directory. I båda fallen ser du till att alla anslutna användare har användar namn/lösen ord som kan autentiseras via RADIUS.
 
-När du konfigurerar autentisering av användar namn/lösen ord kan du bara skapa en konfiguration för autentiseringsprotokollet EAP-MSCHAPv2 username/Password. I-kommandona `-AuthenticationMethod` är `EapMSChapv2` .
+När du konfigurerar autentisering av användar namn/lösen ord kan du bara skapa en konfiguration för autentiseringsprotokollet EAP-MSCHAPv2 användar namn/lösen ord. I-kommandona `-AuthenticationMethod` är `EapMSChapv2` .
 
 ### <a name="1-generate-vpn-client-configuration-files"></a><a name="usernamefiles"></a> 1. generera konfigurationsfiler för VPN-klienten
 
@@ -265,7 +265,7 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på en Mac
 
 ## <a name="working-with-other-authentication-types-or-protocols"></a><a name="otherauth"></a>Arbeta med andra autentiseringstyper eller protokoll
 
-Om du vill använda en annan autentiseringstyp (till exempel eng ång slö sen ord) eller om du vill använda ett annat autentiseringsprotokoll (till exempel PEAP-MSCHAPv2 i stället för EAP-MSCHAPv2) måste du skapa en egen konfigurations profil för VPN-klienten. Om du vill skapa profilen behöver du information, till exempel IP-adress, tunnel typ och delade tunnel vägar för virtuell nätverks-Gateway. Du kan hämta den här informationen med hjälp av följande steg:
+Om du vill använda en annan autentiseringstyp (till exempel eng ång slö sen ord), eller om du vill använda ett annat autentiseringsprotokoll (t. ex. PEAP-MSCHAPv2 i stället för EAP-MSCHAPv2), måste du skapa en egen konfigurations profil för VPN-klienten. Om du vill skapa profilen behöver du information, till exempel IP-adress, tunnel typ och delade tunnel vägar för virtuell nätverks-Gateway. Du kan hämta den här informationen med hjälp av följande steg:
 
 1. Använd `Get-AzVpnClientConfiguration` cmdleten för att generera VPN-klientkonfiguration för EapMSChapv2.
 

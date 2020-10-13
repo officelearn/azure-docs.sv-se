@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: baa03499cc11bda24ead986dd64621572484cbb1
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279660"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: utforma begrepp
@@ -119,7 +119,7 @@ När du installerar Azure AD Connect med anpassat läge tillhandahåller guiden 
 
 ![Anpassad installation – konfiguration av sourceAnchor](./media/plan-connect-design-concepts/consistencyGuid-02.png)
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 | --- | --- |
 | Låt Azure hantera källfästpunkten | Välj det här alternativet om du vill att Azure AD ska hämta attributet. Om du väljer det här alternativet använder Azure AD Connect guiden samma [logik för val av sourceAnchor som används under snabb installationen](#express-installation). Precis som Express installation informerar guiden om vilket attribut som har plockats som käll-Anchor-attribut efter att den anpassade installationen har slutförts. |
 | Ett specifikt attribut | Välj det här alternativet om du vill ange ett befintligt AD-attribut som sourceAnchor-attribut. |

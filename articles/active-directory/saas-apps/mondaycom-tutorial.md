@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 2128559d8074281c1019d99e1316da34c7ec6797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed3d5de27a2d9ce5060ff4bfe71c595512658e58
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554616"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940624"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mondaycom"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med monday.com
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar monday.com med Azur
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -88,14 +88,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     c. När metadatafilen har laddats upp, fylls **ID** och **svars-URL** -värden automatiskt i avsnittet grundläggande SAML-konfiguration.
 
-    ![image](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     > [!Note]
     > Om **ID** -och **svars-URL** -värdena inte fylls i automatiskt fyller du i värdena manuellt. **Identifieraren** och **SVARs-URL** : en är samma och värdet är i följande mönster:`https://<your-domain>.monday.com/saml/saml_callback`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![image](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<YOUR_DOMAIN>.monday.com`
 
@@ -104,11 +104,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. monday.com-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
-    ![image](common/default-attributes.png)
+    ![Skärm bild som visar användarattribut & anspråk med standardvärden som givenName User. givenName och EmailAddress User. mail.](common/default-attributes.png)
 
 1. Utöver ovan förväntar sig monday.com-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Name | Källattribut |
+    | Namn | Källattribut |
     |--|--|
     | E-post | user.mail |
     | FirstName | user.givenname |
@@ -166,15 +166,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Gå till **profilen** i det övre högra hörnet av sidan och klicka på **administratör**.
 
-    ![monday.com-konfiguration](./media/mondaycom-tutorial/configuration01.png)
+    ![Skärm bild som visar den valda administratörs profilen.](./media/mondaycom-tutorial/configuration01.png)
 
 1. Välj **säkerhet** och se till att klicka på **Öppna** bredvid SAML.
 
-    ![monday.com-konfiguration](./media/mondaycom-tutorial/configuration02.png)
+    ![Skärm bild som visar fliken säkerhet med alternativet att öppna bredvid SAML.](./media/mondaycom-tutorial/configuration02.png)
 
 1. Fyll i informationen nedan från din IDP.
 
-    ![monday.com-konfiguration](./media/mondaycom-tutorial/configuration03.png)
+    ![Skärm bild visar SAML-providern där du kan ange information från I D P.](./media/mondaycom-tutorial/configuration03.png)
 
     > [!NOTE]
     > Mer information finns i [den här](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642) artikeln

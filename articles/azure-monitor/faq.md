@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/15/2020
-ms.openlocfilehash: b524b0d8f24f011065772495bc2bb283a3c90d4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/08/2020
+ms.openlocfilehash: 06b92d982b42d97849994b4a21696b72461efe1f
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760261"
+ms.locfileid: "91893772"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -322,7 +322,6 @@ Vi letar upp IP-adressen (IPv4 eller IPv6) för webb klienten med hjälp av [Geo
 * Server telemetri: Application Insights-modulen samlar in klientens IP-adress. Den samlas inte in om `X-Forwarded-For` har angetts.
 * Mer information om hur IP-adress och data för geolokalisering samlas in i Application Insights finns i den här [artikeln](./app/ip-collection.md).
 
-
 Du kan konfigurera `ClientIpHeaderTelemetryInitializer` att ta med IP-adressen från en annan rubrik. I vissa system flyttas den till exempel av en proxy, belastningsutjämnare eller CDN till `X-Originating-IP` . [Läs mer](https://apmtips.com/posts/2016-07-05-client-ip-address/).
 
 Du kan [använda Power BI](app/export-power-bi.md ) för att visa din begär ande telemetri på en karta.
@@ -398,6 +397,29 @@ Varje objekt som överförs har en `itemCount` egenskap som visar hur många urs
     requests | summarize original_events = sum(itemCount), transmitted_events = count()
 ```
 
+### <a name="how-do-i-move-an-application-insights-resource-to-a-new-region"></a>Hur gör jag för att flyttar du en Application Insights resurs till en ny region?
+
+Det finns **för närvarande inte stöd för**att flytta befintliga Application Insights-resurser från en region till en annan. Historiska data som du har samlat in **kan inte migreras** till en ny region. Den enda delvis lösningen är att:
+
+1. Skapa en helt ny Application Insights resurs ([klassisk](app/create-new-resource.md) eller [arbets yta baserad](/app/create-workspace-resource.md)) i den nya regionen.
+2. Återskapa alla unika anpassningar som är specifika för den ursprungliga resursen i den nya resursen.
+3. Ändra ditt program till att använda den nya region resursens [instrument nyckel](app/create-new-resource.md#copy-the-instrumentation-key) eller [anslutnings sträng](app/sdk-connection-string.md).  
+4. Test för att bekräfta att allt fortsätter att fungera som förväntat med din nya Application Insights-resurs. 
+5. Nu kan du antingen ta bort den ursprungliga resursen som leder till att **alla historiska data förloras**. Eller Behåll den ursprungliga resursen för historiska rapporterings syften under varaktigheten för dess inställningar för datakvarhållning.
+
+Unika anpassningar som ofta behöver återskapas manuellt eller uppdateras för resursen i den nya regionen är, men är inte begränsade till:
+
+- Återskapa anpassade instrument paneler och arbets böcker. 
+- Återskapa eller uppdatera omfånget för eventuella anpassade logg-/mått varningar. 
+- Återskapa tillgänglighets aviseringar.
+- Återskapa eventuella anpassade inställningar för Role-Based Access Control (RBAC) som krävs för att användarna ska kunna komma åt den nya resursen. 
+- Replikera inställningar som omfattar provtagning, data kvarhållning, dagligt tak och anpassad mått aktivering. De här inställningarna styrs via fönstret **användning och uppskattade kostnader** .
+- All integrering som förlitar sig på API-nycklar som [versions anteckningar](/app/annotations.md), [real tids mått skydda kontroll kanal](app/live-stream.md#secure-the-control-channel) osv. Du måste generera nya API-nycklar och uppdatera associerad integrering. 
+- Kontinuerlig export i klassiska resurser måste konfigureras igen.
+- Diagnostikinställningar i arbets ytans baserade resurser måste konfigureras igen.
+
+> [!NOTE]
+> Om den resurs som du skapar i en ny region ersätter en klassisk resurs rekommenderar vi att du utforskar fördelarna med att [skapa en ny arbets yta baserad resurs](app/create-workspace-resource.md) eller [att migrera din befintliga resurs till arbets ytans baserade](app/convert-classic-resource.md). 
 
 ### <a name="automation"></a>Automation
 

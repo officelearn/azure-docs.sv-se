@@ -4,12 +4,12 @@ description: Lär dig mer om Azure Kubernetes service (AKS) support principer, d
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: 188416d9ef6f8e7568b10e8ccbb405be0bff315d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86b1c0bba30b41a2ee17cfbdf05286c4d2b3fb8a
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888977"
+ms.locfileid: "91892718"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Support principer för Azure Kubernetes-tjänsten
 
@@ -130,8 +130,7 @@ Du kan bara anpassa NSG: er på anpassade undernät. Du kan inte anpassa NSG: er
 
 ## <a name="stopped-or-de-allocated-clusters"></a>Stoppade eller förallokerade kluster
 
-Enligt ovan manuellt avallokerade alla klusternoder via IaaS-API: er/CLI/Portal återges klustret av support.
-Det enda sätt som stöds för att stoppa/ta bort alla noder är att [stoppa AKS-klustret, vilket kommer att bevara kluster statusen i upp till 12 månader.
+Som tidigare nämnts förallokerar manuellt alla klusternoder via IaaS-API: erna/CLI/portalen. Det enda stödda sättet att stoppa/ta bort alla noder är att [stoppa AKS-klustret](start-stop-cluster.md#stop-an-aks-cluster), vilket bevarar kluster tillstånd i upp till 12 månader.
 
 Kluster som har stoppats under mer än 12 månader kommer inte längre att behålla sitt tillstånd. 
 

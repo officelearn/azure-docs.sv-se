@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
 ms.openlocfilehash: f3e965b1141bb7cf49b191c828b7dd0f3ed3fba8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91278370"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Exempel på Resource Manager-mallar för logg aviserings regler i Azure Monitor
@@ -21,7 +21,7 @@ Den här artikeln innehåller exempel på [Azure Resource Manager mallar](../../
 ## <a name="number-of-results-template-up-to-version-2018-04-16"></a>Antal resultat mal len (upp till version 2018-04-16)
 I följande exempel skapas en [rad resultat varnings regel](../platform/alerts-unified-log.md#count-of-the-results-table-rows).
 
-### <a name="notes"></a>Kommentarer
+### <a name="notes"></a>Obs!
 
 - I det här exemplet ingår en [webhook-nyttolast](../platform/alerts-log-webhook.md). Om varnings regeln inte ska utlösa en webhook tar du bort **customWebhookPayload** -elementet.
 

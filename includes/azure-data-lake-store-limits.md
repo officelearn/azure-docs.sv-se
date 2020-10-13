@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: 358de5761f3535b5f1e75d82539ee8e3ecdbd289
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665635"
 ---
 **Azure Data Lake Storage Gen2** är inte en dedikerad tjänst eller en typ av lagrings konto. Det är den senaste versionen av funktioner som är avsedda för stor data analys.  Dessa funktioner är tillgängliga i ett General-Purpose v2-eller BlockBlobStorage-lagrings konto och du kan hämta dem genom att aktivera funktionen **hierarkiskt namn område** för kontot. För skalnings mål, se de här artiklarna. 

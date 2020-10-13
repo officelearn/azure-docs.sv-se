@@ -11,10 +11,10 @@ ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
 ms.openlocfilehash: 3be0695c20eafb71564211d1168bc59813f8800a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617765"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Användarinitierade manuell redundans på SQL-hanterad instans
@@ -125,7 +125,7 @@ API-svar är något av följande två:
 
 ## <a name="monitor-the-failover"></a>Övervaka redundansväxlingen
 
-Om du vill övervaka förloppet för manuell redundansväxling kör du följande T-SQL-fråga i din favorit klient (t. ex. SSMS) på SQL-hanterad instans. Den läser system View sys. dm_hadr_fabric_replica_states och rapport repliker som är tillgängliga på instansen. Uppdatera samma fråga när du har initierat den manuella redundansväxlingen.
+Om du vill övervaka förloppet för manuell redundansväxling kör du följande T-SQL-fråga i din favorit klient (t. ex. SSMS) på SQL-hanterad instans. Den läser system visning sys.dm_hadr_fabric_replica_states och rapport repliker som är tillgängliga på instansen. Uppdatera samma fråga när du har initierat den manuella redundansväxlingen.
 
 ```T-SQL
 SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_hadr_fabric_replica_states

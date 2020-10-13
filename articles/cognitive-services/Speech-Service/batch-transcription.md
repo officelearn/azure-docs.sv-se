@@ -12,10 +12,10 @@ ms.date: 08/28/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fe864212eaccb67335586ef8b25049529ab36b81
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360760"
 ---
 # <a name="how-to-use-batch-transcription"></a>Använda batch-avskriftering
@@ -27,12 +27,12 @@ Du kan använda REST-API: er för batch-avskrift för att anropa följande metod
 |    Batch-avskrifts åtgärd                                             |    Metod    |    REST API-anrop                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
 |    Skapar en ny avskrift.                                              |    POST      |    speechtotext/v 3.0/avskrifter            |
-|    Hämtar en lista över avskrifter för den autentiserade prenumerationen.    |    HÄMTA       |    speechtotext/v 3.0/avskrifter            |
-|    Hämtar en lista över språk som stöds för offline-avskrifter.              |    HÄMTA       |    speechtotext/v 3.0/avskrifter/språk    |
+|    Hämtar en lista över avskrifter för den autentiserade prenumerationen.    |    GET       |    speechtotext/v 3.0/avskrifter            |
+|    Hämtar en lista över språk som stöds för offline-avskrifter.              |    GET       |    speechtotext/v 3.0/avskrifter/språk    |
 |    Uppdaterar föränderligt-informationen för avskriften som identifieras av dess ID.    |    9.0a     |    speechtotext/v 3.0/avskrifter/{ID}       |
 |    Tar bort den angivna avskrifts uppgiften.                                 |    DELETE    |    speechtotext/v 3.0/avskrifter/{ID}       |
-|    Hämtar avskriften som identifieras av det angivna ID: t.                        |    HÄMTA       |    speechtotext/v 3.0/avskrifter/{ID}       |
-|    Hämtar resultat filen för avskriften som identifieras av det angivna ID: t.    |    HÄMTA       |    speechtotext/v 3.0/avskrifter/{ID}/filer |
+|    Hämtar avskriften som identifieras av det angivna ID: t.                        |    GET       |    speechtotext/v 3.0/avskrifter/{ID}       |
+|    Hämtar resultat filen för avskriften som identifieras av det angivna ID: t.    |    GET       |    speechtotext/v 3.0/avskrifter/{ID}/filer |
 
 Du kan granska och testa det detaljerade API: et, som är tillgängligt som ett [Swagger-dokument](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
 

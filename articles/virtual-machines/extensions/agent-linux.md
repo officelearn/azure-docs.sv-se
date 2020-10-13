@@ -9,10 +9,10 @@ ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2237b0b0d0c1f6e95e100743b377f9c04f57210f
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279711"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Förstå och använda Azure Linux-agenten
@@ -101,7 +101,7 @@ Installation med hjälp av ett RPM-eller DEB-paket från distributionens paket l
 
 Läs dokumentationen i [Azure Linux-agentens lagrings platsen på GitHub](https://github.com/Azure/WALinuxAgent) för avancerade installations alternativ, till exempel att installera från källan eller till anpassade platser eller prefix.
 
-## <a name="command-line-options"></a>Kommando rads alternativ
+## <a name="command-line-options"></a>Command-Line alternativ
 ### <a name="flags"></a>Flagg
 * Verbose: öka utförligheten för angivet kommando
 * tvinga: hoppa över interaktiv bekräftelse för vissa kommandon

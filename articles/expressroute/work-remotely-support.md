@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/22/2020
 ms.author: duau
 ms.openlocfilehash: d51f47b73fe572ce81d3e7b54f902f94fcd11b5b
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89567681"
 ---
 # <a name="using-azure-expressroute-to-create-hybrid-connectivity-to-support-remote-users"></a>Använda Azure-ExpressRoute för att skapa hybrid anslutningar som stöder fjärran vändare
@@ -42,7 +42,7 @@ Den här artikeln beskriver hur du kan utnyttja ExpressRoute, Azure, Microsoft N
 * [Återställa en misslyckad krets](reset-circuit.md)
 * [Felsöka nätverks prestanda](expressroute-troubleshooting-network-performance.md)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Lär dig mer om ExpressRoute anslutnings modeller](expressroute-connectivity-models.md)
 * Läs mer om ExpressRoute-anslutningar och routningsdomäner. Se [ExpressRoute-kretsar och routningsdomäner](expressroute-circuit-peerings.md)

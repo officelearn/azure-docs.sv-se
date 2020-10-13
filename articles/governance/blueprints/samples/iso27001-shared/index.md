@@ -3,12 +3,12 @@ title: Exempel på ISO 27001-skiss för delade tjänster – översikt
 description: Översikt och arkitektur för skissexemplet ISO 27001 Delade tjänster. Det här skissexemplet hjälper kunderna att utvärdera specifika ISO 27001-kontroller.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 09309fe05200cf8c7a958324f3412967296a8dc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4df5e35154a6cd762dd653d9004eb635f0feb021
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927359"
+ms.locfileid: "91930823"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Översikt över skissexemplet ISO 27001 Delade tjänster
 
@@ -27,12 +27,12 @@ Den här miljön består av flera Azure-tjänster ger en säker, fullständigt �
 
 - [Azure-roller](../../../../role-based-access-control/overview.md) som används för ansvarsfördelning ur ett kontrollplansperspektiv. Tre roller definieras före distributionen av all infrastruktur:
   - NetOps-rollen har behörigheter för att hantera nätverksmiljön, inklusive brandväggsinställningar, NSG-inställningar, routning och andra nätverksfunktioner
-  - SecOps-rollen har nödvändiga behörigheter för att distribuera och hantera [Azure Security Center](../../../../security-center/security-center-intro.md), definiera [Azure-principer](../../../policy/overview.md) och andra säkerhetsrelaterade behörigheter
-  - SysOps-rollen har nödvändiga behörigheter för att definiera [Azure-principer](../../../policy/overview.md) i prenumerationen, hantera [Log Analytics](../../../../azure-monitor/overview.md) för hela miljön och andra behörigheter
+  - SecOps-rollen har nödvändiga behörigheter för att distribuera och hantera [Azure Security Center](../../../../security-center/security-center-intro.md), definiera [Azure Policy](../../../policy/overview.md)-definitioner och andra säkerhetsrelaterade behörigheter
+  - SysOps-rollen har nödvändiga behörigheter för att definiera [Azure Policy](../../../policy/overview.md)-definitioner i prenumerationen, hantera [Log Analytics](../../../../azure-monitor/overview.md) för hela miljön och andra behörigheter
 - [Log Analytics](../../../../azure-monitor/overview.md) distribueras som första Azure-tjänsten för att se till att alla åtgärder och tjänster loggas till en central plats direkt när du påbörjar din säkra distribution
 - Ett virtuellt nätverk med stöd för undernät för anslutning tillbaka till ett lokalt datacenter, en inkommande och utgående stack för Internetanslutning och ett undernät för delad tjänst med NSG:er och ASG:er för fullständig mikrosegmentering som innehåller:
   - En jumpbox eller bastionvärd som används för hantering, som endast kan nås via en [Azure Firewall](../../../../firewall/overview.md) som är distribuerad i undernätet för den inkommande stacken
-  - Två virtuella datorer som kör Active Directory Domain Services (ADDS) och DNS som endast kan nås via jumpboxen, och som kan konfigureras för att endast replikera AD över en VPN- eller [ExpressRoute](../../../../expressroute/expressroute-introduction.md)-anslutning (distribueras inte av skissen)
+  - Två virtuella datorer som kör Azure Active Directory Domain Services (Azure AD DS) och DNS som endast kan nås via jumpboxen, och som kan konfigureras för att endast replikera AD över en VPN- eller [ExpressRoute](../../../../expressroute/expressroute-introduction.md)-anslutning (distribueras inte av skissen)
   - Användning av [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md) och DDoS-skydd (standard)
 - En [Azure Key Vault](../../../../key-vault/general/overview.md)-instans som används som värd för hemligheter används för de virtuella datorerna som är distribuerade i miljön för delade tjänster
 

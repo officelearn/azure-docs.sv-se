@@ -3,12 +3,12 @@ title: Exempel på CAF Foundation-skiss – översikt
 description: Översikt över och arkitektur för Cloud Adoption Framework (CAF) for Azure Foundation-skissexemplet.
 ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: cce5ea001b32ae92542f38f8f11427e85075cee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3e2a5bcbb68ef0b51cf02ebb7a7e34913e2a1e6
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531703"
+ms.locfileid: "91929616"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Översikt över Microsoft Cloud Adoption Framework for Azure Foundation-skissexemplet
 
@@ -27,17 +27,18 @@ Den här implementeringen omfattar flera Azure-tjänster som används för att t
 - En [Azure Key Vault](../../../../key-vault/general/overview.md)-instans som används som värd för hemligheter används för de virtuella datorerna som är distribuerade i miljön för delade tjänster
 - [Log Analytics](../../../../azure-monitor/overview.md) distribueras för att se till att alla åtgärder och tjänster loggas till en central plats direkt när du påbörjar din säkra distribution till [lagringskonton](../../../../storage/common/storage-introduction.md) för diagnostisk loggning
 - Distribution av [Azure Security Center](../../../../security-center/security-center-intro.md) (standardversionen) ger skydd mot hot för dina migrerade arbetsbelastningar
-- Skissen definierar och distribuerar även [Azure-principer](../../../policy/overview.md) för 
-  - Taggning (CostCenter) som tillämpas på resursgrupper
-  - Tillägg av resurser i resursgrupper med CostCenter-taggen
-  - Tillåten Azure-region för resurser och resursgrupper
-  - Tillåtna lagringskonto-SKU:er (välj vid distribution)
-  - Tillåtna SKU:er för virtuella Azure-datorer (välj vid distribution)
-  - Krav på att Network Watcher ska distribueras 
-  - Krav på säker överföringskryptering för Azure Storage-konto
-  - Nekande av resurstyper (välj vid distribution)  
-- Initiativ
-  - Aktivera övervakning i Azure Security Center (över 100 principdefinitioner)
+- Skissen definierar och distribuerar även [Azure Policy](../../../policy/overview.md)-definitioner:
+  - Principdefinitioner:
+    - Taggning (CostCenter) som tillämpas på resursgrupper
+    - Tillägg av resurser i resursgrupper med CostCenter-taggen
+    - Tillåten Azure-region för resurser och resursgrupper
+    - Tillåtna lagringskonto-SKU:er (välj vid distribution)
+    - Tillåtna SKU:er för virtuella Azure-datorer (välj vid distribution)
+    - Krav på att Network Watcher ska distribueras 
+    - Krav på säker överföringskryptering för Azure Storage-konto
+    - Nekande av resurstyper (välj vid distribution)  
+  - Principinitiativ:
+    - Aktivera övervakning i Azure Security Center (över 100 principdefinitioner)
 
 Alla dessa element följer beprövade metoder som finns publicerade i [Referensarkitekturer i Azure Architecture Center](/azure/architecture/reference-architectures/).
 

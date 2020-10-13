@@ -35,7 +35,11 @@
         - name: 0 – Distribuera program för objekt- och rörelseidentifiering
           href: tutorial-video-analytics-deploy.md
         - name: 1 – Skapa ett videoanalysprogram
-          href: tutorial-video-analytics-create-app.md
+          items:
+            - name: Objekt- och rörelseidentifiering (YOLO v3)
+              href: tutorial-video-analytics-create-app-yolo-v3.md
+            - name: Objekt- och rörelseidentifiering (OpenVINO)
+              href: tutorial-video-analytics-create-app-openvino.md
         - name: 2 – Konfigurera en IoT Edge-enhet
           items:
             - name: Skapa ett videoanalysprogram på gränsenheter (Linus VM)

@@ -3,12 +3,12 @@ title: Exempel på ISO 27001 ASE/SQL-arbetsbelastningsskiss – översikt
 description: Översikt och arkitektur för skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 76177efcac8b32907c60cecac41404a3834d0fb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f6cb50450e461d87fdbb3c71fe6273c43c3122e
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87926101"
+ms.locfileid: "91930415"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Översikt över skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning
 
@@ -29,7 +29,7 @@ Skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning distri
 Den här miljön består av flera Azure-tjänster ger en säker, fullständigt övervakad arbetsbelastningsinfrastruktur för företag baserat på ISO 27001-standarder. Den här miljön består av:
 
 - En [Azure-roll](../../../../role-based-access-control/overview.md) med namnet DevOps som har behörighet att distribuera och hantera resurser i [Azure App Service-miljöer](../../../../app-service/environment/intro.md) som distribuerats med skissexemplet
-- [Azure-principer](../../../policy/overview.md) för att låsa vilka tjänster som ska kunna distribueras till miljön och avvisa skapande av offentliga IP-adressresurser (PIP)
+- [Azure Policy](../../../policy/overview.md)-definitioner för att låsa vilka tjänster som ska kunna distribueras till miljön och avvisa skapande av offentliga IP-adressresurser (PIP)
 - Ett virtuellt nätverk som innehåller ett enskilt undernät som är peerkopplat tillbaka till en redan befintlig miljö för [delade tjänster](../iso27001-shared/index.md) och som tvingar all trafik att gå via brandväggen för [delade tjänster](../iso27001-shared/index.md). Det virtuella nätverket är värd för följande resurser:
   - En [Azure App Service-miljön](../../../../app-service/environment/intro.md) som kan användas som värd för en eller flera webbappar, webb-API:er eller funktioner
   - En [Azure Key Vault](../../../../key-vault/general/overview.md)-instans med en tjänstslutpunkt för virtuellt nätverk för att lagra hemligheter som används av appar som körs i arbetsbelastningsmiljön

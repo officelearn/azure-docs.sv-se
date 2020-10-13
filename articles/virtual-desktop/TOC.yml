@@ -36,6 +36,8 @@
           href: connect-ios.md
         - name: Ansluta med Microsoft Store-klienten
           href: connect-microsoft-store.md
+    - name: Konfigurera omdirigering av enheter
+      href: configure-device-redirections.md
     - name: Konfigurera PowerShell-modulen
       href: powershell-module.md
     - name: Skapa en värdpool och sessionsvärdar
@@ -102,6 +104,8 @@
       href: azure-advisor.md
     - name: Omvandla rekommendationer
       href: azure-advisor-recommendations.md
+    - name: Konfigurera en haveriberedskapsplan
+      href: disaster-recovery.md
 - name: Begrepp
   items:
     - name: Autentisering

@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: JnHs
   ms.author: jenhayes
-  ms.date: 09/29/2020
-  ms.openlocfilehash: 40c268ed31cf7360d74c5eb8bebf75756fd76563
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.date: 10/09/2020
+  ms.openlocfilehash: 2b2f1a9dbf8c5621ff83dee9e600575c54e9de28
+  ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91570482"
+  ms.locfileid: "91931741"
 landingContent:
 - title: Om Azure Batch
   linkLists:
@@ -40,8 +40,12 @@ landingContent:
       url: quick-run-python.md
   - linkListType: concept
     links:
-    - text: Arbetsflöde och funktionsöversikt för utvecklare
+    - text: Översikt av arbetsflöden och funktioner
       url: batch-service-workflow-features.md
+    - text: Jobb och uppgifter
+      url: jobs-and-tasks.md
+    - text: Noder och pooler
+      url: nodes-and-pools.md
 - title: Steg-för-steg-guider
   linkLists:
   - linkListType: tutorial
@@ -50,6 +54,8 @@ landingContent:
       url: tutorial-parallel-dotnet.md
     - text: Parallell filbearbetning – Python
       url: tutorial-parallel-python.md
+    - text: Python-skript med Data Factory
+      url: tutorial-run-python-batch-azure-data-factory.md
     - text: OCR med Batch och Functions
       url: tutorial-batch-functions.md
     - text: Scenrendering med Arnold
@@ -65,11 +71,13 @@ landingContent:
     - text: Skapa ett Batch-konto
       url: batch-account-create-portal.md
     - text: Skapa och hantera pooler
-      url: batch-custom-images.md
+      url: batch-sig-images.md
     - text: Köra uppgifter samtidigt
       url: batch-parallel-node-tasks.md
     - text: Använda programpaket
       url: batch-application-packages.md
+    - text: Köra containerprogram
+      url: batch-docker-container-workloads.md
   - linkListType: concept
     links:
     - text: VM-storlekar som stöds

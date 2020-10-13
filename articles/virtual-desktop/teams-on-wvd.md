@@ -7,10 +7,10 @@ ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 049b962740abc98a6ac7d029c1419d40aa722165
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88922573"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Använd Microsoft Teams på Windows Virtual Desktop
@@ -42,7 +42,7 @@ I det här avsnittet visas hur du installerar Teams Desktop-appen på en VM-avbi
 
 Om du vill aktivera medie optimering för team anger du följande register nyckel på värden:
 
-1. Från Start-menyn kör du **regedit** som administratör. Navigera till **HKEY_LOCAL_MACHINE \software\microsoft\teams**.
+1. Från Start-menyn kör du **regedit** som administratör. Navigera till **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**.
 2. Skapa följande värde för team nyckeln:
 
 | Namn             | Typ   | Data/värde  |
@@ -94,7 +94,7 @@ Du kan distribuera Skriv bords appen för team med en installation per dator ell
 
         Detta installerar Teams till mappen programfiler (x86) på ett 64-bitars operativ system och i mappen program på ett 32-bitars operativ system. I det här läget är installationen av gyllene bilder klar. Installation av team per dator krävs för icke-beständiga installationer.
 
-        Det finns två flaggor som kan anges när du installerar Team, **ALLUSER = 1** och **allusers = 1**. Det är viktigt att förstå skillnaden mellan dessa parametrar. Parametern **ALLUSER = 1** används endast i VDI-miljöer för att ange en installation per dator. Parametern **allusers = 1** kan användas i non-VDI-och VDI-miljöer. När du anger den här parametern visas alla Teams datorövergripande installations program i program och funktioner i kontroll panelen samt appar & funktioner i Windows-inställningar. Alla användare med administratörs behörighet på datorn kan avinstallera team.
+        Det finns två flaggor som kan anges när du installerar Team, **ALLUSER = 1** och **allusers = 1**. Det är viktigt att förstå skillnaden mellan dessa parametrar. Parametern **ALLUSER = 1** används endast i VDI-miljöer för att ange en installation per dator. Parametern **allusers = 1** kan användas i non-VDI-och VDI-miljöer. När du anger den här parametern visas Team Machine-Wide installations programmet i program och funktioner i kontroll panelen samt appar & funktioner i Windows-inställningar. Alla användare med administratörs behörighet på datorn kan avinstallera team.
 
         > [!NOTE]
         > Användare och administratörer kan inte inaktivera automatisk start för team under inloggningen just nu.

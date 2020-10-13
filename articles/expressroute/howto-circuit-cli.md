@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eebb2693d3bc0f65059c6c3c377f1afb7ae7eccd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d50c3f8f94fbfd7dbcb9b25e051b7f2951c518
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757613"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969100"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-cli"></a>Snabb start: skapa och ändra en ExpressRoute-krets med Azure CLI
 
@@ -347,7 +347,7 @@ För att avetablera och ta bort en ExpressRoute-krets, se till att du förstår 
 * Om etablerings statusen för ExpressRoute-kretsen **etableras** eller **etableras** måste du arbeta med tjänst leverantören för att avetablera kretsen på sin sida. Vi fortsätter att reservera resurser och fakturera dig tills tjänste leverantören har slutfört avetableringen av kretsen och meddelar oss oss.
 * Om tjänste leverantören har avetablerat kretsen som tjänst leverantörens etablerings status är inställt på **inte etablerad**, kan du ta bort kretsen. Faktureringen för kretsen avbryts sedan.
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Rensa resurser
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Du kan ta bort ExpressRoute-kretsen genom att köra följande kommando:
 

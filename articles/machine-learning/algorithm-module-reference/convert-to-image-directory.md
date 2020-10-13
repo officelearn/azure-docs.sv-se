@@ -8,56 +8,63 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/28/2020
-ms.openlocfilehash: 9f5f4b2b069ebc65430fba4bc31a9891ed61fedf
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/09/2020
+ms.openlocfilehash: 2e597299c9b157d79a5317c97550fc30820636d6
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450108"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940382"
 ---
 # <a name="convert-to-image-directory"></a>Konvertera till bildkatalog
 
-Den här artikeln beskriver hur du använder modulen konvertera till avbildnings katalog för att konvertera avbildnings data uppsättningen till data typen image Directory, som är ett standardiserat data format i bildrelaterade uppgifter som bild klassificering i Azure Machine Learning designer.
+Den här artikeln beskriver hur du använder modulen konvertera till avbildnings katalog för att konvertera avbildnings data uppsättning till data typen *image Directory* , som är standardiserat data format i bildrelaterade uppgifter som bild klassificering i Azure Machine Learning designer.
 
 ## <a name="how-to-use-convert-to-image-directory"></a>Så här använder du konvertera till avbildnings katalog  
 
-1.  Lägg till modulen **konvertera till avbildnings katalog** på arbets ytan. Du hittar den här modulen i kategorin "Visuellt innehåll/image data transformation" i listan modul. 
+1. Förbered din avbildnings data uppsättning först. 
 
-2.  Indata från **Convert to image Directory** -modulen måste vara en fil data uppsättning. [Registrera en avbildnings data uppsättning](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) och Anslut den till porten för modulens indataport. Kontrol lera att det finns en bild i indata-datauppsättningen. För närvarande har designern inte stöd för visualisering av bild data uppsättning.
- 
-    Följande data uppsättnings format stöds:
+    För övervakad inlärning måste du ange etiketten för träning-datauppsättningen. Avbildningens data uppsättnings fil bör vara i följande struktur:
+    
+    ```
+    Your_image_folder_name/Category_1/xxx.png
+    Your_image_folder_name/Category_1/xxy.jpg
+    Your_image_folder_name/Category_1/xxz.jpeg
+    
+    Your_image_folder_name/Category_2/123.png
+    Your_image_folder_name/Category_2/nsdf3.png
+    Your_image_folder_name/Category_2/asd932_.png
+    ```
+    
+    I mappen avbildnings data uppsättning finns det flera undermappar. Varje undermapp innehåller bilder av en kategori. Namnen på undermapparna betraktas som etiketter för uppgifter som bild klassificering. Mer information hittar du i [torchvision-datauppsättningar](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) .
 
-    - Komprimerad fil i dessa tillägg: '. zip ', '. tar ', '. gz ', '. bz2 '.
-    - Mapp som innehåller bilder. Vi **rekommenderar att du först komprimerar mappen och använder sedan den komprimerade filen som data uppsättning**.
+    > [!WARNING]
+    > Etiketterade data uppsättningar som exporteras från data etiketter stöds inte i designern.
+
+    Bilder med dessa fil namns tillägg (i gemener) stöds:. jpg,. jpeg,. png,. ppm,. bmp,. PGM,. tif,. TIFF,. webp. Du kan också ha flera olika typer av avbildningar i en mapp. Det är inte nödvändigt att innehålla samma antal avbildningar i varje Category-mapp.
+
+    Du kan antingen använda mappen eller den komprimerade filen med fil namns tillägget ". zip", ". tar", ". gz" och ". bz2". **Komprimerade filer rekommenderas för bättre prestanda.** 
+    
+    ![Exempel data uppsättning för bild](./media/module/image-sample-dataset.png)
+
+    För poängsättning behöver bild data uppsättnings mappen bara innehålla oklassificerade avbildningar.
+
+1. [Registrera avbildnings data uppsättningen som en fil data uppsättning](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) i din arbets yta, eftersom indata från Convert to image Directory-modulen måste vara en **fil data uppsättning**.
+
+1. Lägg till den registrerade avbildnings data uppsättningen på arbets ytan. Du kan hitta din registrerade data uppsättning i kategorin **data uppsättningar** i listan modul i rutan till vänster om arbets ytan. För närvarande har designern inte stöd för visualisering av bild data uppsättning.
 
     > [!WARNING]
     > Du **kan inte** använda modulen **Importera data** för att importera avbildnings data uppsättning eftersom utdatatypen för modulen **Importera data** är DataFrame Directory, som endast innehåller en sträng med fil Sök vägar.
-    
 
-    > [!NOTE]
-    > - Om Använd bild data uppsättning i övervakad inlärning måste du ange etiketten för träning-datauppsättningen.
-    > - För bild klassificerings aktivitet kan etiketter skapas som bild "kategori" i modulens utdata om den här avbildnings data uppsättningen är ordnad i torchvision ImageFolder-format. Annars sparas bara bilder utan etikett. Följande är ett exempel på hur du kan organisera bild data uppsättningen för att få etikett, använda bild kategori som undermapps namn. 
-    > - Du behöver inte ladda upp samma antal avbildningar i varje Category-mapp.
-    > - Bilder med dessa fil namns tillägg (i gemener) stöds:. jpg,. jpeg,. png,. ppm,. bmp,. PGM,. tif,. TIFF,. webp. Du kan också ha flera olika typer av avbildningar i en mapp.    
-    > - Mer information finns i [torchvision-datauppsättningar](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) .
-    >
-    > ```
-    > Your_image_folder_name/Category_1/xxx.png
-    > Your_image_folder_name/Category_1/xxy.jpg
-    > Your_image_folder_name/Category_1/xxz.jpeg
-    >
-    > Your_image_folder_name/Category_2/123.png
-    > Your_image_folder_name/Category_2/nsdf3.png
-    > Your_image_folder_name/Category_2/asd932_.png
-    > ```
-    > - Om Använd bild data uppsättning för poängsättning ska indatafilens data uppsättning innehålla icke-klassificerade avbildningar.
+1. Lägg till modulen **konvertera till avbildnings katalog** på arbets ytan. Du hittar den här modulen i kategorin "Visuellt innehåll/image data transformation" i listan modul. Anslut den till avbildnings data uppsättningen.
     
 3.  Skicka pipelinen. Den här modulen kan köras på antingen GPU eller CPU.
 
 ## <a name="results"></a>Resultat
 
-Utdata från **konvertering till avbildnings katalog** är i avbildnings katalog format och kan anslutas till andra bild relaterade moduler som Indataporten också är avbildnings katalog för.
+Utdata från **Convert to image Directory** -modulen är i **bild katalog** format och kan anslutas till andra bildrelaterade moduler där Indataporten också är en avbildnings katalog.
+
+![Konvertera till avbildnings katalogens utdata](./media/module/convert-to-image-directory-output.png)
 
 ## <a name="technical-notes"></a>Tekniska anteckningar 
 

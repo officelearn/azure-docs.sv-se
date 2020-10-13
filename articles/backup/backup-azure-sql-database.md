@@ -4,10 +4,10 @@ description: Den här artikeln beskriver hur du säkerhetskopierar SQL Server ti
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.openlocfilehash: 510d9637031928e31abaa5f82a5bf58c6ef44719
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316857"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Om SQL Server-säkerhetskopiering i virtuella Azure-datorer

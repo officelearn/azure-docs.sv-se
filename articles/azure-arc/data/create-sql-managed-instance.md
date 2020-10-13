@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 2a931b1a3c3f88af1abec4fd1810aae09c849c48
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90942168"
 ---
 # <a name="create-an-azure-sql-managed-instance-on-azure-arc"></a>Skapa en Azure SQL-hanterad instans på Azure-bågen
@@ -62,7 +62,7 @@ azdata arc sql mi create -n sqldemo --storage-class-data managed-premium --stora
 >
 >  När du anger minnesallokering och vCore-allokering använder du den här formeln för att se till att skapandet lyckas – för varje 1 vCore behöver du minst 4 GB RAM-minne med kapacitet som är tillgängligt på Kubernetes-noden där SQL-hanterad instans Pod ska köras.
 >
->  När du skapar en SQL-instans använder du inte versaler i namnet om du är etablerad i Azure
+>  När du skapar en SQL-instans kan du inte använda versaler i namnet om du etablerar i Azure
 >
 >  För att lista tillgängliga lagrings klasser i Kubernetes-klustret kör `kubectl get storageclass` 
 

@@ -12,10 +12,10 @@ ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
 ms.openlocfilehash: 00c96333e612c7f92d7c53630eaa006b060986ad
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536247"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Konfigurera Läs OCR Docker-behållare
@@ -31,7 +31,7 @@ Du konfigurerar Visuellt innehåll läsa OCR-behållarens körnings miljö med h
 
 Behållaren har också följande behållar konfigurations inställningar:
 
-|Obligatorisk|Inställning|Syfte|
+|Krävs|Inställning|Syfte|
 |--|--|--|
 |Inga|ReadEngineConfig:ResultExpirationPeriod| endast v 2.0-behållare. Resultat förfallo period i timmar. Standardvärdet är 48 timmar. Inställningen anger när systemet ska rensa igenkännings resultat. Om till exempel `resultExpirationPeriod=1` systemet rensar igenkännings resultatet 1 timme efter processen. Om `resultExpirationPeriod=0` rensas igenkännings resultatet i systemet när resultatet har hämtats.|
 |Inga|Cache: Redis| endast v 2.0-behållare. Aktiverar Redis-lagring för lagring av resultat. Det *krävs* ett cacheminne om flera Läs behållare placeras bakom en belastningsutjämnare.|
@@ -62,7 +62,7 @@ Du hittar den här inställningen på följande plats:
 
 Kom ihåg att lägga till `vision/v1.0` operationsföljden i slut punkts-URI: n enligt följande tabell. 
 
-|Obligatorisk| Name | Datatyp | Beskrivning |
+|Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Sträng | URI för fakturerings slut punkt<br><br>Exempel:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -90,7 +90,7 @@ Visuellt innehåll behållare använder inte indata eller utdata monteras för a
 
 Den exakta syntaxen för värd monterings platsen varierar beroende på värd operativ systemet. Dessutom kanske [värd datorns](computer-vision-how-to-install-containers.md#the-host-computer)monterings plats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värd monterings platsens behörigheter. 
 
-|Valfritt| Name | Datatyp | Beskrivning |
+|Valfritt| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
 |Inte tillåtet| `Input` | Sträng | Visuellt innehåll behållare använder inte detta.|
 |Valfritt| `Output` | Sträng | Målet för utmatnings monteringen. Standardvärdet är `/output`. Detta är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|

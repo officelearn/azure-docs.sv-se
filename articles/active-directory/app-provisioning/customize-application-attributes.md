@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: kenwith
 ms.openlocfilehash: 666c4e52ed521c169ff80b33e2ab0e83b13e4d03
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266708"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attribut för användar etablering för SaaS-program i Azure Active Directory
@@ -55,7 +55,7 @@ Det finns fyra olika mappnings typer som stöds:
 - **Direct** – målattributet är ifyllt med värdet för ett attribut för det länkade objektet i Azure AD.
 - **Konstant** – målattributet är ifyllt med en specifik sträng som du har angett.
 - **Uttryck** – målattributet är ifyllt baserat på resultatet av ett skript som liknar uttryck.
-  Mer information finns i [skriva uttryck för attribut-mappningar i Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
+  Mer information finns i [skriva uttryck för Attribute-Mappings i Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
 - **Inget** – målattributet lämnas oförändrat. Men om målattributet skulle vara tomt fylls det med det standardvärde som du anger.
 
 Tillsammans med de här fyra grundläggande typerna stöder anpassade attribut-mappningar konceptet med en valfri **Standardvärde** tilldelning. Standardvärdes tilldelningen säkerställer att ett målattribut fylls med ett värde om det inte finns ett värde i Azure AD eller på målobjektet. Den vanligaste konfigurationen är att lämna detta tomt.

@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: has-adal-ref, devx-track-csharp
 ms.openlocfilehash: a812704c42a4da5ddf89fe6c5ba0c9a684047f75
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919496"
 ---
 # <a name="get-started-with-the-azure-cdn-library-for-net"></a>Kom igång med Azure CDN-biblioteket för .NET
@@ -330,7 +330,7 @@ Nu kan vi kompilera och köra programmet genom att klicka på **Start** -knappen
 
 När programmet når ovanstående prompt ska du kunna återgå till resurs gruppen i Azure Portal och se att profilen har skapats.
 
-![Det lyckades!](./media/cdn-app-dev-net/cdn-success.png)
+![Lyckades!](./media/cdn-app-dev-net/cdn-success.png)
 
 Vi kan sedan bekräfta prompterna för att köra resten av programmet.
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 1c2ab3f0ef84007d8b9233c45d39fcfbacb5eaab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4efe5e07e2121eb74ba70017620d8b40c271e97f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87835314"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969321"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Snabb start: skapa en miniatyr med hjälp av Visuellt innehåll REST API och svängen
 
@@ -46,7 +46,7 @@ Så här skapar du och kör exemplet:
 1. Kör programmet genom att trycka på RETUR.
 
     ```bash
-    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westus.api.cognitive.microsoft.com/vision/v3.0/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
+    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westus.api.cognitive.microsoft.com/vision/v3.1/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
     ```
 
 ## <a name="examine-the-response"></a>Granska svaret
@@ -55,7 +55,7 @@ Ett lyckat svar skriver miniatyrbilden till filen som anges i `<thumbnailFile>`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska API för visuellt innehåll för att analysera en avbildning, identifiera kändisar och landmärken, skapa en miniatyr och extrahera skriven text. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f20c).
+Utforska API för visuellt innehåll för att analysera en avbildning, identifiera kändisar och landmärken, skapa en miniatyr och extrahera skriven text. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20c).
 
 > [!div class="nextstepaction"]
-> [Utforska API för visuellt innehåll](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f21b)
+> [Utforska API för visuellt innehåll](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b)

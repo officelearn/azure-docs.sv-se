@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 28a46ad9e53a90c25c239278ee57ea368af395a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01133ab5582e63c0e87d8a5cf8de12f5445394c5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88754981"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969712"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Säkerhets kopiering och haveri beredskap för Azure IaaS-diskar
 
@@ -48,7 +48,7 @@ På grund av den här arkitekturen har Azure ständigt levererat tålighet i fö
 
 Lokaliserade maskin varu fel på beräknings värden eller i lagrings plattformen kan ibland leda till att den virtuella datorn inte är tillgänglig som omfattas av [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) för VM-tillgänglighet. Azure tillhandahåller också ett branschledande service avtal för enskilda VM-instanser som använder Azure Premium-SSD.
 
-Kunder kan använda [tillgänglighets uppsättningar](windows/manage-availability.md)för att skydda program arbets belastningar från stillestånds tid på grund av att en disk eller virtuell dator är tillfälligt otillgänglig. Minst två virtuella datorer i en tillgänglighets uppsättning ger dig redundans för programmet. Azure skapar sedan de här virtuella datorerna och diskarna i separata fel domäner med olika strömförsörjnings-, nätverks-och Server komponenter.
+Kunder kan använda [tillgänglighets uppsättningar](./manage-availability.md)för att skydda program arbets belastningar från stillestånds tid på grund av att en disk eller virtuell dator är tillfälligt otillgänglig. Minst två virtuella datorer i en tillgänglighets uppsättning ger dig redundans för programmet. Azure skapar sedan de här virtuella datorerna och diskarna i separata fel domäner med olika strömförsörjnings-, nätverks-och Server komponenter.
 
 På grund av dessa separata fel domäner påverkar inte lokaliserade maskin varu fel flera virtuella datorer i uppsättningen samtidigt. Att ha separata fel domäner ger hög tillgänglighet för ditt program. Det anses vara en bra idé att använda tillgänglighets uppsättningar när hög tillgänglighet krävs. I nästa avsnitt beskrivs Disaster Recovery-aspekten.
 
@@ -77,7 +77,7 @@ Nu ska vi titta på några typiska exempel på program arbets belastnings scenar
 - Data måste vara skyddade och återställnings bara.
 - Servern måste vara tillgänglig för användning.
 
-Disaster Recovery-planen kan kräva att en replik av databasen befinner sig i en annan region som en säkerhets kopia. Beroende på kraven för Server tillgänglighet och data återställning kan lösningen variera från en aktiv-aktiv eller aktiv-passiv replik plats till periodisk offline-säkerhetskopiering av data. Relations databaser, till exempel SQL Server och Oracle, innehåller olika alternativ för replikering. För SQL Server använder du [SQL Server AlwaysOn-tillgänglighetsgrupper](https://msdn.microsoft.com/library/hh510230.aspx) för hög tillgänglighet.
+Disaster Recovery-planen kan kräva att en replik av databasen befinner sig i en annan region som en säkerhets kopia. Beroende på kraven för Server tillgänglighet och data återställning kan lösningen variera från en aktiv-aktiv eller aktiv-passiv replik plats till periodisk offline-säkerhetskopiering av data. Relations databaser, till exempel SQL Server och Oracle, innehåller olika alternativ för replikering. För SQL Server använder du [SQL Server AlwaysOn-tillgänglighetsgrupper](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) för hög tillgänglighet.
 
 NoSQL-databaser, som MongoDB, stöder även [repliker](https://docs.mongodb.com/manual/replication/) för redundans. Replikerna för hög tillgänglighet används.
 
@@ -201,7 +201,7 @@ Ett annat alternativ för att skapa konsekventa säkerhets kopieringar är att s
 
 1. Skapa en ögonblicks bild av varje virtuell hård disk-BLOB, vilket bara tar några sekunder.
 
-    Om du vill skapa en ögonblicks bild kan du använda [PowerShell](https://docs.microsoft.com/powershell/module/az.storage), [Azure Storage REST API](https://msdn.microsoft.com/library/azure/ee691971.aspx), [Azure CLI](/cli/azure/)eller något av Azure Storage-klient biblioteken, till exempel [lagrings klient biblioteket för .net](https://msdn.microsoft.com/library/azure/hh488361.aspx).
+    Om du vill skapa en ögonblicks bild kan du använda [PowerShell](/powershell/module/az.storage), [Azure Storage REST API](/rest/api/storageservices/Snapshot-Blob), [Azure CLI](/cli/azure/)eller något av Azure Storage-klient biblioteken, till exempel [lagrings klient biblioteket för .net](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 1. Starta den virtuella datorn, vilket avslutar stillestånds tiden. Normalt slutförs hela processen inom några minuter.
 
@@ -224,7 +224,7 @@ Om du vill kopiera dina stegvisa ögonblicks bilder så att de fungerar effektiv
 
 ### <a name="recovery-from-snapshots"></a>Återställning från ögonblicks bilder
 
-Om du vill hämta en ögonblicks bild kopierar du den för att skapa en ny blob. Om du kopierar ögonblicks bilden från det primära kontot kan du kopiera ögonblicks bilden till den grundläggande bloben för ögonblicks bilden. Den här processen återställer disken till ögonblicks bilden. Den här processen kallas för att befordra ögonblicks bilden. Om du kopierar ögonblicks bilds säkerhets kopian från ett sekundärt konto måste du kopiera det till ett primärt konto om du vill ha ett Geo-redundant lagrings konto med Läs behörighet. Du kan kopiera en ögonblicks bild med [hjälp av PowerShell](https://docs.microsoft.com/powershell/module/az.storage) eller med hjälp av AzCopy-verktyget. Mer information finns i [överföra data med kommando rads verktyget AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+Om du vill hämta en ögonblicks bild kopierar du den för att skapa en ny blob. Om du kopierar ögonblicks bilden från det primära kontot kan du kopiera ögonblicks bilden till den grundläggande bloben för ögonblicks bilden. Den här processen återställer disken till ögonblicks bilden. Den här processen kallas för att befordra ögonblicks bilden. Om du kopierar ögonblicks bilds säkerhets kopian från ett sekundärt konto måste du kopiera det till ett primärt konto om du vill ha ett Geo-redundant lagrings konto med Läs behörighet. Du kan kopiera en ögonblicks bild med [hjälp av PowerShell](/powershell/module/az.storage) eller med hjälp av AzCopy-verktyget. Mer information finns i [överföra data med kommando rads verktyget AzCopy](../storage/common/storage-use-azcopy-v10.md).
 
 För virtuella datorer med flera diskar måste du kopiera alla ögonblicks bilder som är en del av samma koordinerade återställnings punkt. När du har kopierat ögonblicks bilderna till skrivbara VHD-blobar kan du använda Blobbarna för att återskapa den virtuella datorn med hjälp av mallen för den virtuella datorn.
 
@@ -265,4 +265,3 @@ Se [säkerhetskopiera Azure-ohanterade virtuella dator diskar med stegvisa ögon
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png
-

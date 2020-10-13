@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 8d3326587d9c03e0a3960016b8ba3668c825ee6d
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89470093"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Active Directory-integrering för Azure Red Hat OpenShift
@@ -30,7 +30,7 @@ Skapa en ny Azure Active Directory ägarens användare för att logga in i ditt 
 1. Gå till bladet [användare – alla användare](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) .
 2. Klicka på **+ ny användare** för att öppna fönstret **användare** .
 3. Ange ett **namn** för den här användaren.
-4. Skapa ett **användar namn** baserat på namnet på den klient som du skapade, med  `.onmicrosoft.com` tillägg i slutet. Till exempel `yourUserName@yourTenantName.onmicrosoft.com`. Skriv ned det här användar namnet. Du behöver den för att logga in på klustret.
+4. Skapa ett **användar namn** baserat på namnet på den klient som du skapade, med  `.onmicrosoft.com` tillägg i slutet. Exempelvis `yourUserName@yourTenantName.onmicrosoft.com`. Skriv ned det här användar namnet. Du behöver den för att logga in på klustret.
 5. Klicka på **katalog roll** för att öppna fönstret katalog roll och välj **ägare** och klicka sedan på **OK** längst ned i fönstret.
 6. I fönstret **användare** klickar du på **Visa lösen ord** och registrerar det tillfälliga lösen ordet. När du har loggat in första gången uppmanas du att återställa den.
 7. Klicka på **skapa** längst ned i fönstret för att skapa användaren.

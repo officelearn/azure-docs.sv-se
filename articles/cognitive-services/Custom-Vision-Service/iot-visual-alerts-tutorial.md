@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.openlocfilehash: ebc6ca630ea3cabb519805ae8505abf336a2a9ea
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604299"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Självstudie: använda Custom Vision med en IoT-enhet för att rapportera visuella tillstånd
@@ -33,7 +33,7 @@ De här självstudierna visar hur du:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [!INCLUDE [create-resources](includes/create-resources.md)]
     > [!IMPORTANT]
@@ -56,7 +56,7 @@ Appen IoT Visual Alerts körs i en kontinuerlig slinga och växlar mellan fyra o
 
 Följande filer hanterar appens huvud funktioner.
 
-| Fil | Description |
+| Fil | Beskrivning |
 |-------------|-------------|
 | [MainPage. XAML](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml) | Den här filen definierar XAML-användargränssnittet. Den är värd för webb kamera kontrollen och innehåller etiketterna som används för status uppdateringar.|
 | [MainPage.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml.cs) | Den här koden styr beteendet för XAML-ANVÄNDARGRÄNSSNITTET. Den innehåller bearbetnings koden för tillstånds datorn.|

@@ -3,12 +3,12 @@ title: Analysera direktsänd video med real tids video analys på IoT Edge och A
 description: Lär dig hur du använder Custom Vision för att bygga en behållar modell som kan identifiera en leksaks Truck och använda AI-utöknings möjligheter för video analys på IoT Edge (LVA) för att distribuera modellen på gränsen för att identifiera leksaks truckar från en real tids video ström.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 5da3186e64dd369dc57a0d5d1b635fc082158765
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 7989b3636fe953b8110e356506a5867fefd2d8b6
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804171"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940182"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Självstudie: analysera direktsänd video med real tids video analys på IoT Edge och Azure Custom Vision
 
@@ -40,7 +40,7 @@ Vi rekommenderar att du läser igenom följande artiklar innan du börjar:
 * [Självstudie: utveckla en IoT Edge-modul](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
 * [Så här redigerar du Deployment. * .template.jspå](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Krav för den här självstudien är:
 
@@ -56,14 +56,14 @@ Krav för den här självstudien är:
 
 ## <a name="review-the-sample-video"></a>Granska exempel videon
 
-I den här självstudien används en video fil för [leksaks bilar](https://lvamedia.blob.core.windows.net/public/t2.mkv/) för att simulera en Live-dataström. Du kan granska videon via ett program, till exempel [VLC Media Player](https://www.videolan.org/vlc/). Välj CTRL + N och klistra sedan in en länk till [videon för leksaks bilen](https://lvamedia.blob.core.windows.net/public/t2.mkv) för att starta uppspelningen. När du tittar på video noten visas en leksaks Truck i videon vid den 36-andra markören. Den anpassade modellen har tränats för att identifiera denna speciella leksaks Truck. I den här självstudien använder du video analys på IoT Edge för att identifiera sådana leksaks truckar och publicera associerade härlednings händelser till IoT Edge Hub.
+I den här självstudien används en video fil för [leksaks bilar](https://lvamedia.blob.core.windows.net/public/t2.mkv) för att simulera en Live-dataström. Du kan granska videon via ett program, till exempel [VLC Media Player](https://www.videolan.org/vlc/). Välj CTRL + N och klistra sedan in en länk till [videon för leksaks bilen](https://lvamedia.blob.core.windows.net/public/t2.mkv) för att starta uppspelningen. När du tittar på video noten visas en leksaks Truck i videon vid den 36-andra markören. Den anpassade modellen har tränats för att identifiera denna speciella leksaks Truck. I den här självstudien använder du video analys på IoT Edge för att identifiera sådana leksaks truckar och publicera associerade härlednings händelser till IoT Edge Hub.
 
 ## <a name="overview"></a>Översikt
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/custom-vision-tutorial/topology-custom-vision.svg" alt-text="Översikt över Custom Vision":::
 
-Det här diagrammet visar hur signal flödet i den här självstudien. En [Edge-modul](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulerar en IP-kamera som är värd för en RTSP-server (Real Time Streaming Protocol). En [RTSP-källmapp](media-graph-concept.md#rtsp-source) hämtar videofeeden från den här servern och skickar video bild rutor till den [RAM hastighet filter processor](media-graph-concept.md#frame-rate-filter-processor) noden. Den här processorn begränsar bild hastigheten för video strömmen som når noden för [http-tilläggsbegäranden](media-graph-concept.md#http-extension-processor) .
+Det här diagrammet visar hur signal flödet i den här självstudien. En [Edge-modul](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulerar en IP-kamera som är värd för en RTSP-server (Real-Time Streaming Protocol). En [RTSP-källmapp](media-graph-concept.md#rtsp-source) hämtar videofeeden från den här servern och skickar video bild rutor till den [RAM hastighet filter processor](media-graph-concept.md#frame-rate-filter-processor) noden. Den här processorn begränsar bild hastigheten för video strömmen som når noden för [http-tilläggsbegäranden](media-graph-concept.md#http-extension-processor) .
 Noden HTTP-tillägg spelar rollen för en proxy. Den konverterar video bild rutorna till den angivna bild typen. Sedan vidarebefordrar avbildningen över REST till en annan Edge-modul som kör en AI-modell bakom en HTTP-slutpunkt. I det här exemplet är den Edge-modulen leksakens detektor modell som skapats med hjälp av Custom Vision. Noden för HTTP-tilläggsbegäranden samlar in identifierings resultaten och publicerar händelser till noden [IoT Hub mottagare](media-graph-concept.md#iot-hub-message-sink) . Noden skickar sedan händelserna till [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-glossary#iot-edge-hub).
 
 ## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Bygg och distribuera en identifierings modell för Custom Vision leksak 

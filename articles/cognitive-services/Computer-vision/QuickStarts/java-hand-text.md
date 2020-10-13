@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Visuellt innehåll 2,1 och 3,0 – extrahera utskrift och handskriven text – vila, Java'
+title: 'Snabb start: Visuellt innehåll 2,1 och 3,1 – extrahera utskrift och handskriven text – vila, Java'
 titleSuffix: Azure Cognitive Services
 description: I den här snabb starten extraherar du utskriven och handskriven text från en bild med hjälp av API för visuellt innehåll med Java.
 services: cognitive-services
@@ -11,22 +11,21 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: e9f31a16434c8b54e13f4d52a412afbc90fb5c6b
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 6a7cc5338a77ece59c625a9b72adcc45bf135f24
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760894"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969134"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Snabb start: extrahera utskrift och handskriven text med hjälp av Visuellt innehåll REST API och Java
 
-I den här snabb starten ska du extrahera utskriven och handskriven text från en bild med hjälp av Visuellt innehåll REST API. Med metoderna [läsa](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) och [Hämta Läs resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) kan du identifiera text i en bild och extrahera identifierade tecken till en maskin läsnings bar tecken ström.
+I den här snabb starten ska du extrahera utskriven och handskriven text från en bild med hjälp av Visuellt innehåll REST API. Med metoderna [läsa](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) och [Hämta Läs resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) kan du identifiera text i en bild och extrahera identifierade tecken till en maskin läsnings bar tecken ström.
 
-Metoden [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för `Operation-Location` fältet svars huvud. Du kan sedan anropa denna URI, som representerar API för att [få Read-resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) , för att både kontrol lera statusen och returnera resultatet av Read Method-anropet.
+Metoden [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för `Operation-Location` fältet svars huvud. Du kan sedan anropa denna URI, som representerar API för att [få Read-resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) , för att både kontrol lera statusen och returnera resultatet av Read Method-anropet.
 
----
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * [Java &trade; Plattform, Standard Edition Development Kit 7 eller 8](https://aka.ms/azure-jdks) (JDK 7 eller 8)
@@ -65,7 +64,7 @@ Så här skapar du och kör exemplet:
 1. Ersätt den `Main` offentliga klassen med följande kod.
 1. Du kan också ersätta värdet för `imageToAnalyze` med URL: en för en annan bild som du vill extrahera text från.
 1. Spara och kompilera sedan Java-projektet.
-1. Om du använder en IDE kör du `Main`. Annars öppnar du en kommandotolk och kör den kompilerade klassen med kommandot `java`. Till exempel `java Main`.
+1. Om du använder en IDE kör du `Main`. Annars öppnar du en kommandotolk och kör den kompilerade klassen med kommandot `java`. Exempelvis `java Main`.
 
 ```java
 
@@ -76,7 +75,7 @@ public class Main {
     private static String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
     private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
 
-    private static String uriBase = endpoint + "/vision/v3.0/read/analyze";
+    private static String uriBase = endpoint + "/vision/v3.1/read/analyze";
 
     private static String imageToAnalyze =
             "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg";
@@ -189,7 +188,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelprogrammet 
   "createdDateTime": "2020-05-28T05:13:21Z",
   "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
-    "version": "3.0.0",
+    "version": "3.1.0",
     "readResults": [
       {
         "page": 1,

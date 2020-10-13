@@ -1,5 +1,5 @@
 ---
-title: Användar sekretess och sömlös enkel inloggning i Azure AD | Microsoft Docs
+title: Användar sekretess och sömlös Azure AD-Sign-On | Microsoft Docs
 description: Den här artikeln behandlar Azure Active Directory (Azure AD) sömlös SSO-och GDPR-kompatibilitet.
 services: active-directory
 keywords: Vad är Azure AD Connect, GDPR, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2aa1a30c548ef60cd9b596031f4115297dd20844
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89278606"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Användarsekretess och sömlös enkel inloggning för Azure AD

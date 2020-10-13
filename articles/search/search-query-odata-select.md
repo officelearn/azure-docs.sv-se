@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 54b6ae227fc4b3b951717799660543c02874dda0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919666"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>OData $select-syntax i Azure Kognitiv sökning
@@ -32,7 +32,7 @@ ms.locfileid: "88919666"
 
 ## <a name="syntax"></a>Syntax
 
-Parametern **$Select** avgör vilka fält för varje dokument som returneras i frågeresultatet. Följande EBNF ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken för parametern **$Select** :
+Parametern **$Select** avgör vilka fält för varje dokument som returneras i frågeresultatet. Följande EBNF ([utökad Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken för **$Select** -parametern:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 

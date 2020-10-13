@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: dcabe4b1520c66b8d5bfa398dc1248972587cd32
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90942149"
 ---
 # <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Ta bort en Azure-båge som är aktive rad PostgreSQL skalnings Server grupp
@@ -49,7 +49,7 @@ azdata arc postgres server delete -n postgres01
 
 ## <a name="reclaim-the-kubernetes-persistent-volume-claims-pvcs"></a>Frigör Kubernetes permanent volym anspråk (PVC)
 
-Att ta bort en Server grupp tar inte bort tillhör ande [PVC](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). Det här är avsiktligt. Avsikten är att hjälpa användaren att komma åt databasfilerna om det skulle ta bort instansen av misstag. Det är inte obligatoriskt att ta bort PVC: er. Men det rekommenderas. Om du inte gör anspråk på dessa PVC: er så får du slut på fel eftersom Kubernetes-klustret kommer att tänka på att det tar slut på disk utrymme. Gör så här för att frigöra PVC: er:
+Att ta bort en Server grupp tar inte bort tillhör ande [PVC](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). Det här är avsiktligt. Avsikten är att hjälpa användaren att komma åt databasfilerna om instansen tas bort av misstag. Det är inte obligatoriskt att ta bort PVC:er. Men det rekommenderas. Om du inte frigör dessa PVC:er uppstår till slut fel eftersom Kubernetes-klustret tror att diskutrymmet håller på att ta slut. Gör så här för att frigöra PVC:er:
 
 ### <a name="1-list-the-pvcs-for-the-server-group-you-deleted"></a>1. lista PVC: er för den server grupp som du har tagit bort
 Kör följande kommando för att visa en lista över PVC: er:

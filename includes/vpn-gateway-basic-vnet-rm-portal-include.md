@@ -9,10 +9,10 @@ ms.date: 08/27/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 517acc5137d70c722d8defade1e218a3b2e78f86
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89052506"
 ---
 Du kan skapa en VNet i Resource Manager-distributionsmodellen och Azure-portalen genom att följa stegen nedan. Mer information om virtuella nätverk finns i [Översikt över virtuella nätverk](../articles/virtual-network/virtual-networks-overview.md).
@@ -38,7 +38,7 @@ Du kan skapa en VNet i Resource Manager-distributionsmodellen och Azure-portalen
    ![Fliken grunder](./media/vpn-gateway-basic-vnet-rm-portal-include/basics.png "Fliken Grundläggande") När du fyller i fälten visas en grön bock markering när tecknen du anger i fältet verifieras. Vissa värden är automatiskt ifyllda, och du kan ersätta med dina egna värden:
 
    - **Prenumeration**: Verifiera att prenumerationen som visas är korrekt. Du kan ändra prenumerationer i listrutan.
-   - **Resurs grupp**: Välj en befintlig resurs grupp eller klicka på **Skapa ny** för att skapa en ny. Mer information om resurs grupper finns i [Azure Resource Manager översikt](../articles/azure-resource-manager/management/overview.md#resource-groups).
+   - **Resurs grupp**: Välj en befintlig resurs grupp eller klicka på **Skapa ny** för att skapa en ny. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/azure-resource-manager/management/overview.md#resource-groups).
    - **Namn**: Ange namnet på det virtuella nätverket.
    - **Region**: Välj platsen för ditt VNet. Platsen avgör var resurserna som du distribuerar till detta VNet kommer att vara.
 

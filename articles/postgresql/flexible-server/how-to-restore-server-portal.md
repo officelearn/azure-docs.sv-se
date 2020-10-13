@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: e69bcb3d9e4dca4c45bf9a6fe8ed4d54e7f4a8cd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90941460"
 ---
 # <a name="point-in-time-restore-of-a-flexible-server"></a>Återställning av en flexibel Server vid en viss tidpunkt
@@ -40,7 +40,7 @@ Följ de här stegen för att återställa din flexibla server med en tidigare b
 
 4.  Välj **tidigaste återställnings punkt** och ange ett nytt Server namn i fältet **Återställ till ny server** . Den tidigaste tidsstämpeln som du kan återställa till visas. 
    
-   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Tidigaste återställnings tid":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Återställa översikt":::
 
 5.  Klicka på **OK**.
 
@@ -61,7 +61,7 @@ Följ de här stegen för att återställa din flexibla server med en tidigare b
 
 5.  Välj datum och tid och ange ett nytt Server namn i fältet **Återställ till ny server** . 
    
-:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Anpassad återställnings tid":::
+:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Återställa översikt":::
  
 6.  Klicka på **OK**.
 

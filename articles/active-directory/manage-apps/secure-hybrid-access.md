@@ -12,10 +12,10 @@ ms.date: 9/10/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d64f7423d537958b6d3c388cb12f23bd2e30e36
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087108"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>Säker hybrid åtkomst: säkra äldre appar med Azure Active Directory
@@ -26,7 +26,7 @@ Nu kan du skydda dina lokala och molnbaserade program för äldre autentisering 
 
 - [Dina befintliga program leverans styrenheter och nätverk](#sha-through-networking-and-delivery-controllers)
 
-- [Virtuella privata nätverk (VPN) och programvarubaserade perimeter-program (program varu definition)](#sha-through-vpn-and-sdp-applications)
+- [Program för virtuella privata nätverk (VPN) och Software-Defined perimeter (SDP)](#sha-through-vpn-and-sdp-applications)
 
 Du kan överbrygga luckan och förstärka din säkerhets position över alla program med Azure AD-funktioner som Azure AD- [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) och Azure AD [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection).
 

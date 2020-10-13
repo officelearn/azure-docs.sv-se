@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 63f1d1d40d8aff21641f3fa4ee10a289de40800d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dae9db6dd20ef4346050be73250c7a10f7a449ec
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552619"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940695"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>Självstudie: Azure Active Directory integrering med MiCloud Connect eller CloudLink Platform
 
@@ -29,7 +29,7 @@ Mer information om SaaS app integration med Azure AD finns i [Vad är program å
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar integrera Azure AD med MiCloud Connect eller CloudLink-plattformen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med MiCloud Connect behöver du följande objekt:
 
@@ -112,7 +112,7 @@ Om du vill konfigurera MiCloud ansluta med SSO för Azure AD är det enklast att
 
 4. I Azure Portal väljer du ikonen **Redigera** i avsnittet **grundläggande SAML-konfiguration** .
    
-    ![image](common/edit-urls.png)
+    ![Skärm bild som visar sidan Konfigurera enskilda Sign-On med SAML med redigerings ikonen vald.](common/edit-urls.png)
 
     Dialog rutan grundläggande SAML-konfiguration visas.
 
@@ -120,7 +120,7 @@ Om du vill konfigurera MiCloud ansluta med SSO för Azure AD är det enklast att
 
 6. Kopiera URL: en från fältet **svars-URL (intyg om mottagar tjänst)** i den säga konto portalen och klistra in den i fältet **svars-URL (intyg om mottagar tjänst-url)** i Azure Portal.
 
-   ![image](./media/mitel-connect-tutorial/mitel-azure-basic-configuration.png)
+   ![Skärm bild som visar en grundläggande SAML-konfiguration i avsnittet Azure Portal och fliken Konfigurera identitetsprovider på den säga konto portalen med linjer som indikerar förhållandet mellan dem.](./media/mitel-connect-tutorial/mitel-azure-basic-configuration.png)
 
 7. I text rutan **inloggnings-URL** skriver du en av följande URL: er:
 
@@ -134,11 +134,11 @@ Om du vill konfigurera MiCloud ansluta med SSO för Azure AD är det enklast att
 
 9. I avsnittet **SAML-signeringscertifikat** på sidan **SAML-baserad inloggning** i Azure Portal väljer du **Hämta** bredvid **certifikat (base64)** för att ladda ned **signerings certifikatet** och spara det på din dator.
 
-    ![image](./media/mitel-connect-tutorial/azure-signing-certificate.png)
+    ![Skärm bild som visar fönstret SAML signerings certifikat där du kan hämta ett certifikat.](./media/mitel-connect-tutorial/azure-signing-certificate.png)
 
 10. Öppna signerings certifikat filen i en text redigerare, kopiera alla data i filen och klistra sedan in data i fältet **signerings certifikat** på konto portalen. 
 
-      ![image](./media/mitel-connect-tutorial/mitel-connect-signing-certificate.png)
+      ![Skärm bild som visar fältet signerings certifikat.](./media/mitel-connect-tutorial/mitel-connect-signing-certificate.png)
 
 11. I avsnittet **installations avgränsning** på sidan för **SAML-baserad inloggning** i Azure Portal:
 
@@ -146,7 +146,7 @@ Om du vill konfigurera MiCloud ansluta med SSO för Azure AD är det enklast att
 
      1. Kopiera URL: en från fältet för **Azure AD-identifieraren** och klistra in den i fältet **entitets-ID** på mål portalen.
          
-         ![image](./media/mitel-connect-tutorial/mitel-azure-set-up-connect.png)
+         ![Skärm bild som visar relationen mellan den SAML-baserade inloggnings sidan i Azure Portal och på tusentals konto portalen.](./media/mitel-connect-tutorial/mitel-azure-set-up-connect.png)
 
 12. Välj **Spara** i dialog rutan **Anslut enskilda Sign-On inställningar** på den säga konto portalen.
 
@@ -241,7 +241,7 @@ Om du vill konfigurera CloudLink-plattformen med enkel inloggning för Azure AD 
     
        Den **SAML-baserade inloggnings** sidan öppnas och visar avsnittet **grundläggande SAML-konfiguration** .
 
-       ![image](./media/mitel-connect-tutorial/mitel-azure-saml-settings.png)
+       ![Skärm bild som visar den SAML-baserade inloggnings sidan med grundläggande SAML-konfiguration.](./media/mitel-connect-tutorial/mitel-azure-saml-settings.png)
 
 2. För att få åtkomst till konfigurations panelen för **enkel inloggning i Azure AD** i CloudLink-konto portalen:
 
@@ -251,33 +251,33 @@ Om du vill konfigurera CloudLink-plattformen med enkel inloggning för Azure AD 
 
     1. Välj fliken **tredje part** . En lista över program från tredje part som stöds visas. Välj knappen **Lägg till** som är kopplad till **enkel inloggning med Azure AD**och välj **slutförd**.
 
-       ![image](./media/mitel-connect-tutorial/mitel-cloudlink-integrations.png)
+       ![Skärm bild som visar sidan integrationer där du kan lägga till Azure A D enkel inloggning.](./media/mitel-connect-tutorial/mitel-cloudlink-integrations.png)
 
        **Enkel inloggning för Azure AD** har Aktiver ATS för kund kontot och läggs till i avsnittet **integreringar** på sidan **konto information** .   
 
    1. Välj **Slutför installationen**.
     
-      ![image](./media/mitel-connect-tutorial/mitel-cloudlink-complete-setup.png)
+      ![Skärm bild som visar det fullständiga installations alternativet för Azure A D enkel inloggning.](./media/mitel-connect-tutorial/mitel-cloudlink-complete-setup.png)
       
       Konfigurations panelen för **enkel inloggning i Azure AD** öppnas.
       
-       ![image](./media/mitel-connect-tutorial/mitel-cloudlink-sso-setup.png)
+       ![Skärm bild som visar Azure A D Single Sign-On-konfiguration.](./media/mitel-connect-tutorial/mitel-cloudlink-sso-setup.png)
        
        Man rekommenderar att kryss rutan **Aktivera avgränsnings information (valfritt)** i det valfria avsnittet om **autentiseringsuppgifter** inte är markerad. Markera bara den här kryss rutan om du vill att användaren ska logga in på CloudLink-programmet med hjälp av de specifika autentiseringsuppgifterna förutom alternativet för enkel inloggning.
 
 3. På sidan Azure Portal, på sidan **SAML-baserad inloggning** , väljer du ikonen **Redigera** i avsnittet **grundläggande SAML-konfiguration** . Den **grundläggande konfigurations** panelen för SAML öppnas.
 
-    ![image](./media/mitel-connect-tutorial/mitel-azure-saml-basic.png)
+    ![Skärm bild som visar fönstret grundläggande SAML-konfiguration med redigerings ikonen vald.](./media/mitel-connect-tutorial/mitel-azure-saml-basic.png)
  
  4. Kopiera URL: en från **avgränsnings identifieraren (enhets-ID)** i CloudLink-konto portalen och klistra in den i fältet **identifierare (enhets-id)** i Azure Portal.
 
  5. Kopiera URL: en från fältet **svars-URL (intyg om mottagar tjänst)** i CloudLink-konto portalen och klistra in den i fältet **svars-URL (intyg om mottagar tjänst-url)** i Azure Portal.  
     
-    ![image](./media/mitel-connect-tutorial/mitel-cloudlink-saml-mapping.png) 
+    ![Skärm bilden visar relationen mellan sidor i CloudLink Accounts-portalen och Azure Portal.](./media/mitel-connect-tutorial/mitel-cloudlink-saml-mapping.png) 
 
  6. I text rutan **inloggnings-URL** anger du URL: en `https://accounts.mitel.io` för att använda CloudLink-konto portalen som standard.
      
-     ![image](./media/mitel-connect-tutorial/mitel-cloudlink-sign-on-url.png)
+     ![Skärm bild som visar text rutan logga in U R L.](./media/mitel-connect-tutorial/mitel-cloudlink-sign-on-url.png)
   
      > [!NOTE]
      > Standard avgränsnings programmet är det program som öppnas när en användare väljer panel för att ansluta på åtkomst panelen. Detta är också det program som nås när användaren konfigurerar en test installation från Azure AD.
@@ -286,14 +286,14 @@ Om du vill konfigurera CloudLink-plattformen med enkel inloggning för Azure AD 
 
 8. I avsnittet **SAML-signeringscertifikat** på sidan **SAML-baserad inloggning** i Azure Portal väljer du **Hämta** bredvid **certifikat (base64)** för att ladda ned **signerings certifikatet**. Spara certifikatet på datorn.
   
-    ![image](./media/mitel-connect-tutorial/mitel-cloudlink-save-certificate.png)
+    ![Skärm bild som visar avsnittet SAML signerings certifikat där du kan ladda ned ett base64-certifikat.](./media/mitel-connect-tutorial/mitel-cloudlink-save-certificate.png)
 
 9. Öppna signerings certifikat filen i en text redigerare, kopiera alla data i filen och klistra in dem i fältet **signerings certifikat** i CloudLink-konto portalen.  
 
     > [!NOTE]
     > Om du har fler än ett certifikat rekommenderar vi att du klistrar in dem efter det andra. 
        
-    ![image](./media/mitel-connect-tutorial/mitel-cloudlink-enter-certificate.png)
+    ![Skärm bild som visar steg två i proceduren där du fyller i värden från din Azure A D-integration.](./media/mitel-connect-tutorial/mitel-cloudlink-enter-certificate.png)
 
 10. I avsnittet **Konfigurera avgränsnings anslutning** på sidan för **SAML-baserad inloggning** i Azure Portal:
 
@@ -301,7 +301,7 @@ Om du vill konfigurera CloudLink-plattformen med enkel inloggning för Azure AD 
 
      1. Kopiera URL: en från fältet för **Azure AD-identifieraren** och klistra in den i fältet **IDP-ID (enhets-ID)** i CloudLink-konto portalen.
      
-        ![image](./media/mitel-connect-tutorial/mitel-cloudlink-copy-settings.png)
+        ![Skärm bild som visar källan för de värden som beskrivs här i Mintel Connect.](./media/mitel-connect-tutorial/mitel-cloudlink-copy-settings.png)
 
 11. Välj **Spara** på panelen för **enkel inloggning i Azure AD på** CloudLink-konto portalen.
 

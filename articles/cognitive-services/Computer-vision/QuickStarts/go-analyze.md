@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6d7e9f37c794349e9f61b9c822e63a9b48984e91
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1f7e5b75f95bbb6475051402f541ced0897c4130
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87835280"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969270"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-go"></a>Snabb start: analysera en fjärravbildning med hjälp av Visuellt innehåll REST API med go
 
@@ -37,10 +37,10 @@ Så här skapar du och kör exemplet:
 
 1. Kopiera koden nedan till en text redigerare.
 1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild som du vill analysera.
-1. Spara koden som en fil med tillägget `.go`. Till exempel `analyze-image.go`.
+1. Spara koden som en fil med tillägget `.go`. Exempelvis `analyze-image.go`.
 1. Öppna ett kommandotolksfönster.
-1. Kompilera paketet från filen genom att köra kommandot `go build` i kommandotolken. Till exempel `go build analyze-image.go`.
-1. Kör det kompilerade paketet i kommandotolken. Till exempel `analyze-image`.
+1. Kompilera paketet från filen genom att köra kommandot `go build` i kommandotolken. Exempelvis `go build analyze-image.go`.
+1. Kör det kompilerade paketet i kommandotolken. Exempelvis `analyze-image`.
 
 ```go
 package main
@@ -60,7 +60,7 @@ func main() {
     subscriptionKey := os.Getenv("COMPUTER_VISION_SUBSCRIPTION_KEY")
     endpoint := os.Getenv("COMPUTER_VISION_ENDPOINT")
 
-    uriBase := endpoint + "vision/v3.0/analyze"
+    uriBase := endpoint + "vision/v3.1/analyze"
     const imageUrl =
         "https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg"
 

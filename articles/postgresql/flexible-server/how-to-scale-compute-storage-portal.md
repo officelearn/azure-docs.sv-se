@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 1542bba53b51ffdf2129953a81e5d13975ade434
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90941612"
 ---
 # <a name="scale-operations-in-flexible-server"></a>Skalnings åtgärder i flexibel Server
@@ -43,18 +43,18 @@ Följ dessa steg om du vill välja beräknings nivå.
  :::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="Compute + Storage-vy":::
 
 4.  Du kan välja beräknings klass mellan burst, generell användning och minnesoptimerade nivåer.
-   :::image type="content" source="./media/how-to-scale-compute-storage-portal/list-compute-tiers.png" alt-text="Visa lista med beräknings nivåer":::
+   :::image type="content" source="./media/how-to-scale-compute-storage-portal/list-compute-tiers.png" alt-text="Compute + Storage-vy":::
 
 
 5.  Om du är nöjd med standard virtuella kärnor och minnes storlekar kan du hoppa över nästa steg.
 
 6.  Om du vill ändra antalet virtuella kärnor kan du klicka på list rutan med **beräknings storlek** och klicka på det önskade antalet virtuella kärnor/minne i listan.
     
-    - Burst-beräknings nivå: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-burstable-dropdown.png" alt-text="burst-beräkning":::
+    - Burst-beräknings nivå: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-burstable-dropdown.png" alt-text="Compute + Storage-vy":::
 
-    - Generell beräknings nivå för syfte: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-general-purpose-dropdown.png" alt-text="allmän beräkning":::
+    - Generell beräknings nivå för syfte: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-general-purpose-dropdown.png" alt-text="Compute + Storage-vy":::
 
-    - Optimerad beräknings nivå för minne: minnesoptimerade data :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-memory-optimized-dropdown.png" alt-text="bearbetning":::
+    - Optimerad beräknings nivå för minne: minnesoptimerade data :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-memory-optimized-dropdown.png" alt-text="Compute + Storage-vy":::
 
 7.  Klicka på **Spara**. 
 8.  Ett bekräftelse meddelande visas. Klicka på **OK** om du vill fortsätta. 
@@ -70,12 +70,12 @@ Följ de här stegen för att öka lagrings storleken.
 
 3.  En sida med aktuella inställningar visas.
    
-:::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="Klicka på Compute + Storage":::
+:::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="Compute + Storage-vy":::
 4.  Fält **lagrings storleken i GIB** med ett bild fält visas med aktuell storlek.
 
 5.  Dra fältet till önskad storlek. Motsvarande IOPS-nummer visas. IOPS är beroende av beräknings nivån och storleken. Kostnads informationen visas också. 
 
- :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-scaleup.png" alt-text="lagrings skalning":::
+ :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-scaleup.png" alt-text="Compute + Storage-vy":::
 
 6.  Om du är nöjd med lagrings storleken klickar du på **Spara**. 
 7.  Ett bekräftelse meddelande visas. Klicka på **OK** om du vill fortsätta. 

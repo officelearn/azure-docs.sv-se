@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d2355b26fc6a946e47a3d2c135b7c23729b186c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f7ff20dbdd0dac5b56d0f746733b14dfe44803e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554678"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940655"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Självstudie: Azure Active Directory integrering med moconavi
 
@@ -30,7 +30,7 @@ Genom att integrera moconavi med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med moconavi behöver du följande objekt:
 
@@ -191,15 +191,15 @@ I det här avsnittet skapar du en användare som heter Britta Simon i moconavi. 
 
 3. Klicka på knappen **Anslut inställning** .
 
-    ![Testa enkel inloggning](./media/moconavi-tutorial/testing1.png)
+    ![Skärm bild som visar moconavi med knappen anslutnings inställningar.](./media/moconavi-tutorial/testing1.png)
 
 4. Ange `https://mcs-admin.moconavi.biz/gateway` i text rutan **Anslut till URL** och klicka sedan på knappen **Slutför** .
 
-    ![Testa enkel inloggning](./media/moconavi-tutorial/testing2.png)
+    ![Skärm bild som visar knappen Anslut till U R L och klar.](./media/moconavi-tutorial/testing2.png)
 
 5. Utför följande steg på följande skärm bild:
 
-    ![Testa enkel inloggning](./media/moconavi-tutorial/testing3.png)
+    ![Skärm bild som visar moconavi-sidan där du kan ange de värden som beskrivs.](./media/moconavi-tutorial/testing3.png)
 
     a. Ange **Indataporten nyckel**: `azureAD` i text rutan för **inmatad autentiseringsnyckel** .
 
@@ -209,11 +209,11 @@ I det här avsnittet skapar du en användare som heter Britta Simon i moconavi. 
 
 6. Mata **in lösen ords text rutan** för Azure AD-lösenord och klicka sedan på knappen **Logga in** .
 
-    ![Testa enkel inloggning](./media/moconavi-tutorial/testing4.png)
+    ![Skärm bild som visar var du anger ditt Azure A D-lösenord.](./media/moconavi-tutorial/testing4.png)
 
 7. Azure AD-autentiseringen lyckas när menyn visas.
 
-    ![Testa enkel inloggning](./media/moconavi-tutorial/testing5.png)
+    ![Skärm bild som visar telefon ikonen i moconavi.](./media/moconavi-tutorial/testing5.png)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

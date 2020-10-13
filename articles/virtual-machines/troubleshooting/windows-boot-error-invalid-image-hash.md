@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
-ms.openlocfilehash: f607ebb64b27c45ec696d7fcd431a0ba2342697f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e58e349d7b7385ec913986c39462c17deadcb61d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89447996"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969610"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Fel i Windows Boot Manager-0xC0000428 status ogiltigt bild-hash
 
@@ -28,7 +28,7 @@ Den här artikeln innehåller steg för att lösa problem där en förhands gran
 
 ## <a name="symptom"></a>Symptom
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar Windows Boot Manager med meddelandet:
+När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar Windows Boot Manager med meddelandet:
 
   `File: \windows\system32\boot\winload.exe`
 
@@ -66,7 +66,7 @@ Du kan inte förlänga utgångsdatumet för en förhandsversionsavbildning. När
 
 ## <a name="solution"></a>Lösning
 
-Om avbildningen är en förhands gransknings bild finns det inget sätt att förlänga förfallo datumet för den använda avbildningen. du måste [distribuera en ny virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) med en icke-förhands gransknings avbildning. Stegen nedan hjälper dig att identifiera om du har använt en förhands gransknings avbildning och ger resurser som hjälper dig att överföra data från den här virtuella datorn till en ny virtuell dator. Om du har identifierat avbildningen som en förhands gransknings bild går det inte att återställa bilden eftersom den nu har gått ut.
+Om avbildningen är en förhands gransknings bild finns det inget sätt att förlänga förfallo datumet för den använda avbildningen. du måste [distribuera en ny virtuell dator](../windows/quick-create-portal.md) med en icke-förhands gransknings avbildning. Stegen nedan hjälper dig att identifiera om du har använt en förhands gransknings avbildning och ger resurser som hjälper dig att överföra data från den här virtuella datorn till en ny virtuell dator. Om du har identifierat avbildningen som en förhands gransknings bild går det inte att återställa bilden eftersom den nu har gått ut.
 
 Beroende på din preferens kan du använda antingen Azure PowerShell eller Azure CLI för att fråga din avbildning för att avgöra om det är en förhands gransknings bild. Du kan använda dessa kommandon för att bekräfta att avbildningen är en förhands gransknings bild.
 
@@ -103,7 +103,7 @@ Beroende på din preferens kan du använda antingen Azure PowerShell eller Azure
 
 ### <a name="query-using-the-azure-cli"></a>Fråga med Azure CLI
 
-1. Om du inte redan har gjort det måste du [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+1. Om du inte redan har gjort det måste du [Installera Azure CLI](/cli/azure/install-azure-cli).
 1. När du har hämtat använder du antingen kommando tolken eller PowerShell för att ange `az login` kommandot och sedan loggar du in med autentiseringsuppgifterna för ditt konto.
 1. När du har loggat in anger du följande kommandon:
 

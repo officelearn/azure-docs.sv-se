@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6bfe0fee14ed463e265dc4e7e4177c702b051c81
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89050207"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuera Azure AD Privileged Identity Management (PIM)
@@ -78,7 +78,7 @@ I följande avsnitt får du hjälp att identifiera alla intressenter som ingår 
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Intressenter: Privileged Identity Management för Azure AD-roller
 
-| Name | Roll | Åtgärd |
+| Namn | Roll | Action |
 | --- | --- | --- |
 | Namn och e-postadress | **Identitets arkitekt eller Global Azure-administratör**<br/>En representant från identitets hanterings teamet som är ansvarig för att definiera hur den här ändringen ska justeras med infrastrukturen för kärn identitets hantering i din organisation. | SÅ/R/I |
 | Namn och e-postadress | **Tjänst ägare/rads hanterare**<br/>En representant från IT-ägare till en tjänst eller en grupp av tjänster. De är viktiga för att fatta beslut och hjälpa till att distribuera Privileged Identity Management för sitt team. | SÅ/R/I |
@@ -88,7 +88,7 @@ I följande avsnitt får du hjälp att identifiera alla intressenter som ingår 
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-roles"></a>Intressenter: Privileged Identity Management för Azure-roller
 
-| Name | Roll | Åtgärd |
+| Namn | Roll | Action |
 | --- | --- | --- |
 | Namn och e-postadress | **Prenumeration/resurs ägare**<br/>En representant från IT-ägarna till varje prenumeration eller resurs som du vill distribuera Privileged Identity Management för | SÅ/R/I |
 | Namn och e-postadress | **Säkerhets ägare**<br/>En representant från säkerhets teamet som kan signera att planen uppfyller organisationens säkerhets krav. | SÅ/R |
@@ -233,16 +233,16 @@ Innan du implementerar din Privileged Identity Management-lösning är det bra a
 | Roll | Krav på MFA | Meddelande | Incident biljett | Kräv godkännande | God kännare | Varaktighet för aktivering | Permanent administratör |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Global administratör | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andra globala administratörer | 1 timme | Konton för nöd åtkomst |
-| Exchange-administratör | :heavy_check_mark: | :heavy_check_mark: | röntgen | röntgen | Ingen | 2 timme | Ingen |
-| Support administratör | röntgen | röntgen | :heavy_check_mark: | röntgen | Ingen | 8 timmar | Ingen |
+| Exchange-administratör | :heavy_check_mark: | :heavy_check_mark: | röntgen | röntgen | Inget | 2 timme | Inget |
+| Support administratör | röntgen | röntgen | :heavy_check_mark: | röntgen | Inget | 8 timmar | Inget |
 
 #### <a name="privileged-identity-management-settings-for-azure-roles"></a>Privileged Identity Management inställningar för Azure-roller
 
 | Roll | Krav på MFA | Meddelande | Kräv godkännande | God kännare | Varaktighet för aktivering | Aktiv administratör | Aktiv utgång | Giltig förfallo datum |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Ägare till kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andra ägare till prenumerationen | 1 timme | Ingen | saknas | 3 månad |
-| Administratör för användar åtkomst för mindre kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | röntgen | Ingen | 1 timme | Ingen | saknas | 3 månad |
-| Virtuell datordeltagare | röntgen | :heavy_check_mark: | röntgen | Ingen | 3 timmar | Ingen | saknas | 6 månad |
+| Ägare till kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andra ägare till prenumerationen | 1 timme | Inget | Saknas | 3 månad |
+| Administratör för användar åtkomst för mindre kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | röntgen | Inget | 1 timme | Inget | Saknas | 3 månad |
+| Virtuell datordeltagare | röntgen | :heavy_check_mark: | röntgen | Inget | 3 timmar | Inget | Saknas | 6 månad |
 
 I följande tabell beskrivs var och en av inställningarna.
 

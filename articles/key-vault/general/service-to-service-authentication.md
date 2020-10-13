@@ -9,17 +9,17 @@ ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 00799f7c5239bfd744268f7353e1bac6cb038294
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: fccd838b47cbb565ffdbe5250a91cd293238bf9b
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483345"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940454"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Tjänst-till-tjänst-autentisering för Azure Key Vault med .NET
 
 > [!NOTE]
-> **Microsoft. Azure. Services. AppAuthentication** rekommenderas inte längre att använda med New Key Vault SDK. Den ersätts med nya Azure Identity Library- **DefaultAzureCredentials** som är tillgängliga för .net, Java, typescript och python och som ska användas för all ny utveckling. Mer information hittar du här: [autentisering och Azure SDK](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/).
+> **Microsoft. Azure. Services. AppAuthentication** rekommenderas inte längre att använda med New Key Vault SDK. Den ersätts med ett nytt **klient bibliotek för Azure Identity** tillgängligt för .net, Java, typescript och python och bör användas för all ny utveckling. Mer information hittar du här: [autentisering till Key Vault i kod](https://docs.microsoft.com/azure/key-vault/general/developers-guide#azure-identity-client-libraries).
 
 För att kunna autentisera till Azure Key Vault behöver du en Azure Active Directory (Azure AD)-autentiseringsuppgift, antingen en delad hemlighet eller ett certifikat.
 
@@ -27,7 +27,7 @@ Det kan vara svårt att hantera sådana autentiseringsuppgifter. Det är frestan
 
 `Microsoft.Azure.Services.AppAuthentication`Biblioteket hanterar autentisering automatiskt, vilket i sin tur gör att du kan fokusera på din lösning i stället för dina autentiseringsuppgifter. Den stöder lokal utveckling med Microsoft Visual Studio, Azure CLI eller Azure AD Integrated Authentication. När det distribueras till en Azure-resurs som har stöd för en hanterad identitet, använder biblioteket automatiskt [hanterade identiteter för Azure-resurser](../../active-directory/msi-overview.md). Inga kod-eller konfigurations ändringar krävs. Biblioteket stöder också direkt användning av autentiseringsuppgifter för Azure AD- [klient](../../azure-resource-manager/resource-group-authenticate-service-principal.md) när en hanterad identitet inte är tillgänglig, eller när utvecklarens säkerhets kontext inte kan fastställas under lokal utveckling.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Visual studio 2019](https://www.visualstudio.com/downloads/) eller [Visual Studio 2017 v 15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/).
 
@@ -170,7 +170,7 @@ Det finns tre primära metoder för att använda ett huvud namn för tjänsten f
 
     Ersätt *{AppId}*, *{TenantId}* och *{tumavtryck}* med värden som genereras i steg 1. Ersätt *{CertificateStore}* med antingen *LocalMachine*eller *CurrentUser*, baserat på din distributions plan.
 
-1. Kör programmet.
+1. Kör appen.
 
 ### <a name="use-a-shared-secret-credential-to-sign-into-azure-ad"></a>Använd delade hemliga autentiseringsuppgifter för att logga in på Azure AD
 
@@ -188,7 +188,7 @@ Det finns tre primära metoder för att använda ett huvud namn för tjänsten f
 
     Ersätt _{AppId}_, _{TenantId}_ och _{ClientSecret}_ med värden som genereras i steg 1.
 
-1. Kör programmet.
+1. Kör appen.
 
 När allt har kon figurer ATS korrekt behövs inga ytterligare kod ändringar. `AzureServiceTokenProvider` använder miljövariabeln och certifikatet för att autentisera till Azure AD.
 

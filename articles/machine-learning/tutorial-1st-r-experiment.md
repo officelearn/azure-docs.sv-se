@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: faf2257f944127748569466d314ff0a76faae4f0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fe9b0e9d2e2e46c7c4d04549777a5c27df6bdf18
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906730"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940114"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Självstudie: Använd R för att skapa en Machine Learning-modell (för hands version)
 
@@ -38,7 +38,7 @@ I den här självstudien utför du följande åtgärder:
 > * Distribuera en förutsägelse slut punkt
 > * Testa modellen från R
 
-Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
@@ -68,7 +68,7 @@ Använd RStudio på en beräknings instans i Azure ML för att köra den här sj
 
 ## <a name="clone-the-sample-vignettes"></a><a name="azure"></a>Klona exempel vignettes 
 
-Klona https://github.com/azure/azureml-sdk-for-r GitHub-lagringsplatsen för en kopia av de Vignette-filer som ska köras i den här självstudien.
+Klona https://github.com/Azure/azureml-sdk-for-r GitHub-lagringsplatsen för en kopia av de Vignette-filer som ska köras i den här självstudien.
 
 1. I RStudio navigerar du till fliken "Terminal" och CD: n till den katalog där du vill klona lagrings platsen.
 
@@ -80,7 +80,7 @@ Klona https://github.com/azure/azureml-sdk-for-r GitHub-lagringsplatsen för en 
 > Resten av den här artikeln innehåller samma innehåll som du ser i "  *träna-and-Deploy-First-Model". RMD* -fil. Om du har erfarenhet av RMarkdown kan du använda koden från filen.  Eller så kan du kopiera/klistra in kodfragment från där, eller från den här artikeln till ett R-skript eller kommando raden. 
 
 
-## <a name="set-up-your-development-environment"></a>Konfigurera utvecklingsmiljön
+## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
 Installations programmet för ditt utvecklings arbete i den här självstudien innehåller följande åtgärder:
 
 * Installera de paket som krävs

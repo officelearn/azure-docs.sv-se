@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e55968f94df820f4d1e2708c0b52283aed3cc903
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 49225fe535e8e4f05874444b285ced41a9085894
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87835195"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969202"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-with-go"></a>Snabb start: skapa en miniatyr med Visuellt innehåll REST API med go
 
@@ -38,10 +38,10 @@ Så här skapar du och kör exemplet:
 
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild från vilken du vill generera en miniatyrbild.
-1. Spara koden som en fil med tillägget `.go`. Till exempel `get-thumbnail.go`.
+1. Spara koden som en fil med tillägget `.go`. Exempelvis `get-thumbnail.go`.
 1. Öppna ett kommandotolksfönster.
-1. Kompilera paketet från filen genom att köra kommandot `go build` i kommandotolken. Till exempel `go build get-thumbnail.go`.
-1. Kör det kompilerade paketet i kommandotolken. Till exempel `get-thumbnail`.
+1. Kompilera paketet från filen genom att köra kommandot `go build` i kommandotolken. Exempelvis `go build get-thumbnail.go`.
+1. Kör det kompilerade paketet i kommandotolken. Exempelvis `get-thumbnail`.
 
 ```go
 package main
@@ -63,7 +63,7 @@ func main() {
     subscriptionKey := os.Getenv("COMPUTER_VISION_SUBSCRIPTION_KEY")
     endpoint := os.Getenv("COMPUTER_VISION_ENDPOINT")
 
-    uriBase := endpoint + "vision/v3.0/generateThumbnail"
+    uriBase := endpoint + "vision/v3.1/generateThumbnail"
     const imageUrl = "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg"
 
     const params = "?width=100&height=100&smartCropping=true"

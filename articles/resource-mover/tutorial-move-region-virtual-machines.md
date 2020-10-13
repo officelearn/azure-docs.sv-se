@@ -9,10 +9,10 @@ ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 3a5489241aa15ce105dbe4d89086aff00373ca55
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90603976"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Självstudie: flytta virtuella Azure-datorer över regioner
@@ -39,7 +39,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar. Logga sedan in på [Azure Portal](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 -  Kontrol lera att du har *ägar* åtkomst till prenumerationen som innehåller de resurser som du vill flytta.
     - Första gången du lägger till en resurs för ett visst käll-och mål par i en Azure-prenumeration skapar resurs förflyttningen en [systemtilldelad hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (tidigare känd som hanterad tjänst identifiering (MSI)) som är betrodd av prenumerationen.

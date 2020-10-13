@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e62da791e8c60f884855fba16315a03fe22cecb5
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 6d03f0057e657933f4b0f38c48f2a2cdbe1ba2a4
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450747"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940335"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Azures säkerhets bas linje för Azure Load Balancer
 
@@ -98,7 +98,7 @@ Security Center (standard-nivån) tillhandahåller just-in-Time-åtkomst till vi
 Använd Security Center anpassade nätverks härdnings funktionen för att rekommendera konfigurationer för nätverks säkerhets grupper som begränsar portar och käll-IP-adresser baserat på faktisk trafik och hot information.
  
 
-- [Hantera Azure DDoS Protection standard med hjälp av Azure Portal](https://docs.microsoft.com/azure/virtual-network/manage-ddos`protection)
+- [Hantera Azure DDoS Protection standard med hjälp av Azure Portal](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
 
 - [Azure Firewall Threat Intelligence-baserad filtrering](https://docs.microsoft.com/azure/firewall/threat-intel)
 

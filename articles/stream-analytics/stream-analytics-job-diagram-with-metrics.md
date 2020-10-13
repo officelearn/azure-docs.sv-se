@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/01/2017
 ms.openlocfilehash: fdb3c5c12af8e9022f5babc84126badda890dce5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86044489"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Datadriven felsökning med hjälp av jobbdiagrammet
@@ -75,7 +75,7 @@ Om föregående processteg är en ingångs processor använder du måtten för i
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>Faller vi bakom att läsa data?
 
-*   **Inloggade inloggade händelser (totalt)** visar hur många meddelanden som behöver läsas för Event Hubs och Azure IoT Hub indata. När det här värdet är större än 0 innebär det att jobbet inte kan bearbeta data så snabbt som det kommer i. I det här fallet kan du behöva öka antalet enheter för strömning och/eller se till att jobbet kan vara parallellt. Du kan se mer information på det här på [sidan Query parallellisering](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
+*   **Inloggade inloggade händelser (totalt)** visar hur många meddelanden som behöver läsas för Event Hubs och Azure IoT Hub indata. När det här värdet är större än 0 innebär det att jobbet inte kan bearbeta data så snabbt som det kommer i. I det här fallet kan du behöva öka antalet enheter för strömning och/eller se till att jobbet kan vara parallellt. Du kan se mer information på det här på  [sidan Query parallellisering](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
 
 
 ## <a name="get-help"></a>Få hjälp

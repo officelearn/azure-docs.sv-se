@@ -9,10 +9,10 @@ ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: f5028abadbe5600058c83a144d0095aee1278fe6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86042090"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>Simhopp djupare in i Cloud-Init
@@ -21,7 +21,7 @@ Om du vill veta mer om [Cloud-Init](https://cloudinit.readthedocs.io/en/latest/i
 När Cloud-Init ingår i en generaliserad avbildning och en virtuell dator skapas från avbildningen kommer den att bearbeta konfigurationer och köra genom 5 steg under den första starten. De här faserna, så som det visar dig vid vilken punkt Cloud-Init, kommer att tillämpa konfigurationer. 
 
 
-## <a name="understand-cloud-init-configuration"></a>Förstå Cloud-Init-konfiguration
+## <a name="understand-cloud-init-configuration"></a>Förstå Cloud-Init konfiguration
 Konfigurera en virtuell dator som ska köras på en plattform, innebär att Cloud-Init måste tillämpa flera konfigurationer, som en avbildnings konsument, de viktigaste konfigurationerna som du kommer att interagera med är `User data` (customData), som har stöd för flera format, dokumenteras [här](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats). Du kan också lägga till och köra skript (/var/lib/Cloud/scripts) för ytterligare konfiguration. nedan beskrivs mer information.
 
 Vissa konfigurationer är redan bakade i Azure Marketplace-avbildningar som medföljer Cloud-Init, till exempel:
@@ -71,9 +71,9 @@ Vid etablering med Cloud-Init finns det fem stadier av Start, som bearbetar konf
 5. [Slut skede för Cloud-Init](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#final): i det här slutliga skedet kommer modulerna i `cloud_final_modules` , som anges i/etc/Cloud/Cloud.cfg, att köras. Här är moduler som måste köras sent i Start processen, till exempel paket installationer och körning av skript osv. 
 
    -   Under det här steget kan du köra skript genom att placera dem i katalogerna under `/var/lib/cloud/scripts` :
-   - `per-boot`– skript i den här katalogen, körs vid varje omstart
-   - `per-instance`– skript i den här katalogen körs när en ny instans startas om första gången
-   - `per-once`– skript i den här katalogen körs bara en gång
+   - `per-boot` – skript i den här katalogen, körs vid varje omstart
+   - `per-instance` – skript i den här katalogen körs när en ny instans startas om första gången
+   - `per-once` – skript i den här katalogen körs bara en gång
 
 ## <a name="next-steps"></a>Nästa steg
 

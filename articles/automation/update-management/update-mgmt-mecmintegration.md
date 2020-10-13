@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.openlocfilehash: 09c8ef818428157c7de8c3a87bcce8a7b80e62ea
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88245918"
 ---
 # <a name="integrate-update-management-with-microsoft-endpoint-configuration-manager"></a>Integrera Uppdateringshantering med Microsoft Endpoint Configuration Manager
@@ -21,7 +21,7 @@ Du kan rapportera och uppdatera hanterade Windows-servrar genom att skapa och f�
 >[!NOTE]
 >Även om Uppdateringshantering stöder uppdaterings bedömning och uppdatering av Windows Server 2008 R2, stöder den inte klienter som hanteras av Microsoft Endpoint Configuration Manager som kör det här operativ systemet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Du måste ha [Azure Automation uppdateringshantering](update-mgmt-overview.md) lagts till i ditt Automation-konto.
 * Windows-servrar som för närvarande hanteras av din Microsoft Endpoint Configuration Manager-miljö måste också rapportera till Log Analytics-arbetsytan som också har Uppdateringshantering aktiverat.

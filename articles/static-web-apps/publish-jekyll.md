@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
 ms.openlocfilehash: bf1664a35562b888f9dd7aacd3b1112058bed664
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797708"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Självstudie: publicera en Jekyll-webbplats till Azures statiska Web Apps för hands version
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Installera [Jekyll](https://jekyllrb.com/docs/installation/)
   - Du kan använda Windows-undersystemet för Linux och följa Ubuntu-instruktioner om det behövs.
@@ -118,7 +118,7 @@ Följande steg visar hur du skapar en ny statisk plats-app och distribuerar den 
 
 1. För _grenen_ Välj **huvud**.
 
-    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Slutförd GitHub-information":::
+    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Information ifylld":::
 
 ### <a name="build"></a>Skapa
 
@@ -174,7 +174,7 @@ Sedan lägger du till de konfigurations inställningar som bygg processen använ
 
 1. I fönstret _Översikt över_ Azure Portal klickar du på _URL_ -länken för att öppna det distribuerade programmet.
 
-   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Distribuerat program":::
+   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Information ifylld":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

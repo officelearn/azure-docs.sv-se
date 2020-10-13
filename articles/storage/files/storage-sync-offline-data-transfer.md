@@ -8,10 +8,10 @@ ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ae9404d366b24c0cc1bcf01ecffc71a427f949d4
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88034353"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrera bulkdata till Azure File Sync med Azure DataBox
@@ -49,7 +49,7 @@ Så här konfigurerar du Azure File Sync på ett sätt som är kompatibelt med v
 
 ![Diagram som visar hur du konfigurerar Azure File Sync](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
-| Steg | Detalj |
+| Steg | Information |
 |---|---------------------------------------------------------------------------------------|
 | ![Steg 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Beställ dina data Box-enhet](../../databox/data-box-deploy-ordered.md). Data Box-enhets familjen erbjuder [flera produkter](https://azure.microsoft.com/services/storage/databox/data) som passar dina behov. När du får Data Box-enhet ska du följa [dokumentationen för att kopiera data](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) till den här UNC-sökvägen på Data Box-enhet: * \\<DeviceIPAddres \> \<StorageAccountName_AzFile\> \<ShareName\> *. Här är *resurs* namn namnet på den mellanlagrings resursen. Skicka Data Box-enhet tillbaka till Azure. |
 | ![Steg 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Vänta tills filerna visas i de Azure-filresurser som du valde som tillfälliga mellanlagrings resurser. *Aktivera inte synkronisering till dessa resurser.* |

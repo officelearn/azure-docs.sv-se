@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: ef95ca7b9f94690b607e37fbf5d9378c2f2bcfda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847275"
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Viktig information om StorSimple 8000-seriens uppdatering 4
@@ -66,10 +66,10 @@ Följande viktiga förbättringar och fel korrigeringar har gjorts i uppdatering
 
 Följande tabell innehåller en sammanfattning av problem som korrigerades i uppdatering 4.    
 
-| No | Funktion | Problem | Gäller fysisk enhet | Gäller för virtuell enhet |
+| Nej | Visning av aktuellt objekt | Problem | Gäller fysisk enhet | Gäller för virtuell enhet |
 | --- | --- | --- | --- | --- |
 | 1 |Redundans |I den tidigare versionen, efter redundansväxlingen, uppstod ett problem med rensningen som observerats på kund webbplatsen. Det här problemet åtgärdas i den här versionen. |Ja |Ja |
-| 2 |Lokalt fixerade volymer |I den tidigare versionen fick du ett problem med att skapa en relaterad volym för lokalt fästa volymer som skulle resultera i att volymen skapas fel. Det här problemet var rot-orsakade och korrigerade i den här versionen. |Ja |Nej |
+| 2 |Lokalt fixerade volymer |I den tidigare versionen fick du ett problem med att skapa en relaterad volym för lokalt fästa volymer som skulle resultera i att volymen skapas fel. Det här problemet var rot-orsakade och korrigerade i den här versionen. |Ja |Inga |
 | 3 |Support paket |I tidigare versioner fanns det problem som rör ett support paket som skulle resultera i ett system. OutOfMemory-undantag eller andra fel som resulterade i ett fel när ett support paket skapas. Dessa buggar åtgärdas i den här versionen. |Ja |Ja |
 | 4 |Övervakning |I tidigare versioner fick du ett problem som rör övervaknings diagram för lokalt fästa volymer där förbrukningen visades i EB. Den här buggen har lösts i den här versionen. |Ja |Ja |
 | 5 |Migrering |I tidigare versioner fanns det flera problem som rör tillförlitligheten vid migrering från 5000-7000-serien till 8000-seriens enheter. De här problemen har åtgärd ATS i den här versionen. |Ja |Ja |

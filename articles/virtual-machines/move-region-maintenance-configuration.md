@@ -8,10 +8,10 @@ ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants
 ms.openlocfilehash: 4cff7eb4a69005f2e74747b6e58447f100c69b60
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86501610"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>Flytta en konfiguration för underhålls kontroll till en annan region
@@ -24,7 +24,7 @@ Med underhålls kontroll, med anpassade underhålls konfigurationer, kan du styr
 - Om du vill flytta resurserna som är associerade med en underhålls konfiguration, men inte själva konfigurationen, följer du [dessa anvisningar](move-region-maintenance-configuration-resources.md).
 - Följ anvisningarna i den här artikeln om du vill flytta både underhålls konfigurationen och de resurser som är kopplade till den. Följ sedan [de här anvisningarna](move-region-maintenance-configuration-resources.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar flytta en konfiguration för underhålls kontroll:
 
@@ -47,9 +47,9 @@ Innan du börjar flytta en konfiguration för underhålls kontroll:
 
     **Namn** | **Plats** | **Resursgrupp**
     --- | --- | ---
-    Hoppa över underhåll | eastus2 | konfiguration – resurs grupp
-    IgniteDemoConfig | eastus2 | konfiguration – resurs grupp
-    defaultMaintenanceConfiguration – öst | USA, östra | test konfiguration
+    Hoppa över underhåll | usaöstra2 | konfiguration – resurs grupp
+    IgniteDemoConfig | usaöstra2 | konfiguration – resurs grupp
+    defaultMaintenanceConfiguration – öst | eastus | test konfiguration
     
 
 3. Spara listan för referens. När du flyttar konfigurationerna hjälper det dig att kontrol lera att allt har flyttats.

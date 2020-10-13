@@ -12,10 +12,10 @@ ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.openlocfilehash: 28bf7e631c8693434d686022891bb2e45152f0ce
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597914"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>Förstå SAML-baserad enkel inloggning
@@ -81,7 +81,7 @@ Azure AD använder ett certifikat för att signera de SAML-token som skickas til
 > [!IMPORTANT]
 > Många appar är redan förkonfigurerade och i app-galleriet och du behöver inte tänka på certifikat. [Snabb starts serien](add-application-portal.md) vägleder dig genom att lägga till och konfigurera appar.
 
-Från Azure AD kan du ladda ned det aktiva certifikatet i base64-eller RAW-format direkt från huvud sidan **Konfigurera enkel inloggning med SAML** . Du kan också hämta det aktiva certifikatet genom att ladda ned XML-filen med metadata för programmet eller genom att använda URL: en för app Federation-metadata. Följ dessa steg om du vill visa, skapa eller ladda ned dina certifikat (aktiva eller inaktiva).
+Från Azure AD kan du ladda ned det aktiva certifikatet i base64-eller RAW-format direkt från huvud **uppsättningen med enkla Sign-On med SAML** -sidan. Du kan också hämta det aktiva certifikatet genom att ladda ned XML-filen med metadata för programmet eller genom att använda URL: en för app Federation-metadata. Följ dessa steg om du vill visa, skapa eller ladda ned dina certifikat (aktiva eller inaktiva).
 
 Några vanliga saker att kontrol lera för att kontrol lera att ett certifikat är: 
    - *Rätt utgångs datum.* Du kan konfigurera utgångs datumet för upp till tre år i framtiden.
@@ -133,4 +133,4 @@ Mer information finns i [FELSÖKA SAML-baserad enkel inloggning till program i A
 - [Snabb starts serie för program hantering](view-applications-portal.md)
 - [Tilldela användare eller grupper till programmet](methods-for-assigning-users-and-groups.md)
 - [Konfigurera automatisk etablering av användar konto](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-- [SAML-protokoll för enkel inloggning](../develop/single-sign-on-saml-protocol.md)
+- [Single Sign-On SAML-protokoll](../develop/single-sign-on-saml-protocol.md)

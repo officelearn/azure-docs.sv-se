@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: 3323f73c137905fbe677c68d3830d7f609fa0172
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85611585"
 ---
 # <a name="deploy-a-security-partner-provider"></a>Distribuera en säkerhetspartnerprovider
@@ -39,10 +39,10 @@ Hoppa över det här avsnittet om du distribuerar en tredjeparts-Provider till e
    > Leverantörer av säkerhets partner ansluter till hubben med hjälp av VPN Gateway tunnlar. Om du tar bort VPN Gateway försvinner anslutningarna till dina leverantörer av säkerhets partner.
 9. Om du vill distribuera Azure-brandväggen för att filtrera privat trafik tillsammans med leverantör från tredje part för att filtrera Internet trafik, väljer du en princip för Azure-brandväggen. Se de [scenarier som stöds](trusted-security-partners.md#key-scenarios).
 10. Om du bara vill distribuera en säkerhetsprovider från tredje part i hubben väljer du **Azure Firewall: enabled/disabled** för att ange att den ska **inaktive ras**. 
-11. Välj **Nästa: providern för säkerhets partner**.
+11. Välj  **Nästa: providern för säkerhets partner**.
 12. Ange **providern för säkerhets partner** till **aktive rad**. 
 13. Välj en partner. 
-14. Välj **Nästa: granska + skapa**. 
+14. Välj **Nästa: Granska + skapa**. 
 15. Granska innehållet och välj sedan **skapa**.
 
 Distributionen av VPN gateway kan ta mer än 30 minuter.
@@ -101,7 +101,7 @@ Om du vill konfigurera tunnlar till den virtuella hubbens VPN Gateway behöver t
 5. Du måste välja **säkra anslutningar** och välja de anslutningar som vägarna ska ställas in på. Detta anger vilka virtuella nätverk/grenar som kan börja skicka Internet trafik till tredje parts-providern.
 6. Från **väg inställningar**väljer du **säkra anslutningar** under Internet trafik och väljer sedan det VNet eller de grenar (*platser* i virtuella WAN-nätverk) som ska skyddas. Välj **säker Internet trafik**.
    ![Säker Internet trafik](media/deploy-trusted-security-partner/secure-internet-traffic.png)
-7. Gå tillbaka till sidan hubbar. Hubbens **providerns säkerhets partner** status bör nu **skyddas**.
+7. Gå tillbaka till sidan hubbar. Hubbens **providerns säkerhets partner** status bör nu  **skyddas**.
 
 ## <a name="branch-or-vnet-internet-traffic-via-third-party-service"></a>Internet trafik för gren eller VNet via tjänst från tredje part
 

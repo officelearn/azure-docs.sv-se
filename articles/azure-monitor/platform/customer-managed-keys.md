@@ -1,16 +1,16 @@
 ---
 title: Kundhanterad nyckel i Azure Monitor
-description: Information och steg för att konfigurera kundhanterad nyckel (CMK) för att kryptera data i dina Log Analytics arbets ytor med hjälp av en Azure Key Vault nyckel.
+description: Information och steg för att konfigurera Customer-Managed nyckel (CMK) för att kryptera data i Log Analytics arbets ytor med hjälp av en Azure Key Vault nyckel.
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 09/09/2020
 ms.openlocfilehash: 5d44758ebf94c7487935ef47a17ad810dc5cf9f8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657297"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Kundhanterad nyckel i Azure Monitor 
@@ -240,7 +240,7 @@ Identiteten tilldelas till *kluster* resursen vid skapande tillfället.
 
 När den tar etablering av Log Analytics klustret a när du är klar kan du kontrol lera etablerings statusen på två sätt:
 
-1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
+1. Kopiera Azure-AsyncOperation URL-värdet från svaret och följ [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
 2. Skicka en GET-begäran på *kluster* resursen och titta på *provisioningState* -värdet. Den är *ProvisioningAccount* medan *etableringen har slutförts och* slutförts.
 
 ```rst
@@ -337,7 +337,7 @@ Content-type: application/json
 
 200 OK och rubrik.
 Det tar några minuter att slutföra spridningen av nyckel identifieraren. Du kan kontrol lera uppdaterings statusen på två sätt:
-1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
+1. Kopiera Azure-AsyncOperation URL-värdet från svaret och följ [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
 2. Skicka en GET-begäran på *kluster* resursen och titta på *KeyVaultProperties* -egenskaperna. Den senast uppdaterade informationen om nyckel identifieraren ska returneras i svaret.
 
 Ett svar på GET-begäran på *kluster* resursen bör se ut så här när nyckel identifierarens uppdatering är slutförd:
@@ -406,7 +406,7 @@ Content-type: application/json
 
 Inmatade data lagras krypterade med din hanterade nyckel efter Associations åtgärd, vilket kan ta upp till 90 minuter att slutföra. Du kan kontrol lera associerings tillstånd för arbets ytan på två sätt:
 
-1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
+1. Kopiera Azure-AsyncOperation URL-värdet från svaret och följ [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
 2. Skicka en [arbets yta – Hämta](/rest/api/loganalytics/workspaces/get) begäran och observera svaret, den associerade arbets ytan har en clusterResourceId under "funktioner".
 
 ```rest
@@ -664,7 +664,7 @@ Läs mer om [Customer lockbox för Microsoft Azure](https://docs.microsoft.com/a
 
   Inmatade data efter att den avassocierings åtgärd har lagrats i Log Analytics lagring, det kan ta 90 minuter att slutföra. Du kan kontrol lera status för arbets ytans associering på två sätt:
 
-  1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
+  1. Kopiera Azure-AsyncOperation URL-värdet från svaret och följ [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
   2. Skicka en [arbets yta – get](/rest/api/loganalytics/workspaces/get) -begäran och Observera att svaret, den Avassocierade arbets ytan inte har *clusterResourceId* under *funktioner*.
 
 - **Kontrol lera Association status för arbets ytan**
@@ -744,7 +744,7 @@ Läs mer om [Customer lockbox för Microsoft Azure](https://docs.microsoft.com/a
 - Om du uppdaterar din nyckel version i Key Vault och inte uppdaterar informationen om den nya nyckel identifieraren i *kluster* resursen, fortsätter Log Analytics klustret att använda din tidigare nyckel och dina data blir otillgängliga. Uppdatera informationen om den nya nyckel identifieraren i *kluster* resursen för att återuppta data inmatning och möjlighet att fråga data.
 
 - Vissa åtgärder är långa och kan ta en stund att slutföra – dessa är *kluster* skapa, *kluster* nyckel uppdatering och *kluster* borttagning. Du kan kontrol lera åtgärds statusen på två sätt:
-  1. När du använder REST kopierar du URL-värdet för Azure-AsyncOperation från svaret och följer [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
+  1. När du använder REST kopierar du Azure-AsyncOperation URL-värdet från svaret och följer [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
   2. Skicka GET-begäran till *kluster* eller arbets yta och observera svaret. Till exempel har inte den kopplade arbets ytan *clusterResourceId* under *funktioner*.
 
 - För support och hjälp som är relaterat till kund Managed Key använder du dina kontakter i Microsoft.

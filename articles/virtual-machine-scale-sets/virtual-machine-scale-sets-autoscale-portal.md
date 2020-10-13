@@ -10,10 +10,10 @@ ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: ac42fe3265163a5a967524fe11063803c9ca91d3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87080598"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Skala automatiskt en skalnings uppsättning för virtuella datorer i Azure Portal
@@ -43,9 +43,9 @@ Om dina programkrav ökar, ökar även belastningen på de virtuella datorinstan
     
     | Parameter              | Förklaring                                                                                                         | Värde          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Tids mängd*     | Definierar hur de insamlade mätvärdena ska aggregeras för analys.                                                | Medelvärde        |
+    | *Tids mängd*     | Definierar hur de insamlade mätvärdena ska aggregeras för analys.                                                | Genomsnitt        |
     | *Mått namn*          | Prestandamått för att övervaka och tillämpa åtgärder för skalningsuppsättningar på.                                                   | Processorprocentandel |
-    | *Tidsintervallstatistik* | Definierar hur insamlade mått i varje tids kornig het ska aggregeras för analys.                             | Medelvärde        |
+    | *Tidsintervallstatistik* | Definierar hur insamlade mått i varje tids kornig het ska aggregeras för analys.                             | Genomsnitt        |
     | *Operator*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än   |
     | *Tröskelvärde*            | Procent andelen som gör att den automatiska skalnings regeln utlöser en åtgärd.                                                 | 70             |
     | *Varaktighet*             | Tidsperioden som övervakas innan värdena för måttet och tröskelvärdet jämförs. Inkluderar inte kylnings period.                                   | 10 minuter     |
@@ -83,7 +83,7 @@ Profilen för autoskalning måste definiera ett lägsta, högsta och standard an
 
 1. Ange följande gränser för instans:
 
-    | Minimum | Maximal | Standard|
+    | Minimum | Maximal | Default|
     |---------|---------|--------|
     | 2       | 10      | 2      |
 

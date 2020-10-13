@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.reviewer: cynthn
 ms.openlocfilehash: 43f33093010aa6a70d02c58e9faa34f7f0e2dfee
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91307287"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>För hands version: skapa en Azure Image Builder-mall 
@@ -120,7 +120,7 @@ Mer information finns i [definiera resurs beroenden](../../azure-resource-manage
 
 ## <a name="identity"></a>Identitet
 
-Krävs – för att Image Builder ska ha behörighet att läsa/skriva bilder kan du läsa in skript från Azure Storage du måste skapa en Azure User-tilldelad identitet som har behörighet till de enskilda resurserna. Mer information om hur Image Builder-behörigheter fungerar och relevanta steg finns i [dokumentationen](image-builder-user-assigned-identity.md).
+Krävs – för att Image Builder ska ha behörighet att läsa/skriva bilder kan du läsa in skript från Azure Storage du måste skapa en Azure User-Assigned-identitet som har behörighet till de enskilda resurserna. Mer information om hur Image Builder-behörigheter fungerar och relevanta steg finns i [dokumentationen](image-builder-user-assigned-identity.md).
 
 
 ```json
@@ -133,7 +133,7 @@ Krävs – för att Image Builder ska ha behörighet att läsa/skriva bilder kan
 ```
 
 
-Avbildnings-Builder-stöd för en användardefinierad identitet:
+Stöd för avbildnings-Builder för en User-Assigned identitet:
 * Har endast stöd för en enda identitet
 * Stöder inte anpassade domän namn
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7e9ce523efd12ce372d7bfef6c653e95f6689415
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eae7a44d77d63641ba9ad062c504aaf624582668
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856967"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969236"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Windows-enhet
 
@@ -45,7 +45,7 @@ Lägg till Azure IoT-tillägget till Cloud Shell-instansen.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Molnresurser:
 
@@ -78,7 +78,7 @@ IoT Edge-enhet:
 >
 > Den här snabb starten använder en virtuell Windows Desktop-dator för enkelhetens skull. Information om vilka Windows-operativsystem som är allmänt tillgängliga för produktions scenarier finns i [Azure IoT Edge system som stöds](support.md).
 >
-> Om du är redo att konfigurera en egen Windows-enhet för IoT Edge, inklusive enheter som kör IoT Core, följer du stegen i [installera Azure IoT Edge runtime i Windows](how-to-install-iot-edge-windows.md).
+> Om du vill konfigurera en egen Windows-enhet för IoT Edge följer du stegen i [installera Azure IoT Edge runtime](how-to-install-iot-edge.md).
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
@@ -142,9 +142,7 @@ Stegen i det här avsnittet utförs på din IoT Edge-enhet, så du vill ansluta 
 
 Använd PowerShell för att ladda ned och installera IoT Edge-körningen. Använd den enhetsanslutningssträng som du hämtade från IoT Hub för att konfigurera din enhet.
 
-1. Om du inte redan har gjort det följer du stegen i [Registrera en ny Azure IoT Edge enhet](how-to-register-device.md) för att registrera enheten och hämta anslutnings strängen för enheten.
-
-2. Kör PowerShell som administratör på den virtuella datorn.
+1. Kör PowerShell som administratör på den virtuella datorn.
 
    >[!NOTE]
    >Använd en AMD64-session av PowerShell för att installera IoT Edge, inte PowerShell (x86). Om du inte är säker på vilken typ av session du använder kör du följande kommando:
@@ -153,25 +151,25 @@ Använd PowerShell för att ladda ned och installera IoT Edge-körningen. Använ
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    >```
 
-3. Kommandot **Deploy-IoTEdge** kontrollerar att Windows-datorn finns på en version som stöds, aktiverar funktionen behållare, laddar ned Moby Runtime och laddar sedan ned IoT Edge Runtime.
+2. Kommandot **Deploy-IoTEdge** kontrollerar att Windows-datorn finns på en version som stöds, aktiverar funktionen behållare, laddar ned Moby Runtime och laddar sedan ned IoT Edge Runtime.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge -ContainerOs Windows
    ```
 
-4. Datorn kan starta om automatiskt. Om du uppmanas att göra det Deploy-IoTEdge kommandot för att starta om, gör du det nu.
+3. Datorn kan starta om automatiskt. Om du uppmanas att göra det Deploy-IoTEdge kommandot för att starta om, gör du det nu.
 
-5. Kör PowerShell som administratör igen.
+4. Kör PowerShell som administratör igen.
 
-6. Kommandot **Initialize-IoTEdge** konfigurerar IoT Edge runtime på din dator. Kommandot är standardvärdet för manuell etablering med Windows-behållare.
+5. Kommandot **Initialize-IoTEdge** konfigurerar IoT Edge runtime på din dator. Kommandot är standardvärdet för manuell etablering med Windows-behållare.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -ContainerOs Windows
    ```
 
-7. När du tillfrågas om en **DeviceConnectionString** (enhetsanslutningssträng) anger den sträng som du kopierade i föregående avsnitt. Använd inte citattecknen runt anslutningssträngen.
+6. När du tillfrågas om en **DeviceConnectionString** (enhetsanslutningssträng) anger den sträng som du kopierade i föregående avsnitt. Använd inte citattecknen runt anslutningssträngen.
 
 ### <a name="view-the-iot-edge-runtime-status"></a>Visa status för IoT Edge-körningen
 

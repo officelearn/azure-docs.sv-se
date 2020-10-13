@@ -1,23 +1,23 @@
 ---
 title: Vad är Azure Reservations?
-description: Lär dig mer om Azure-reservationer och priser för att spara kostnader för dina virtuella datorer, SQL-databaser, Azure Cosmos DB och andra resurser.
+description: Lär dig mer om Azure-reservationer och priser för att spara kostnader för dina reserverade instanser för virtuella datorer, SQL-databaser, Azure Cosmos DB och andra resurser.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 08/04/2020
+ms.date: 10/01/2020
 ms.author: banders
-ms.openlocfilehash: a5ab489e995506deb806fe5f0cee4a147ae42ac2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d8c9f35ec7a8db3a777e48a629e4af1f15090a89
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682594"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652371"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
-Med Azure Reservations kan du spara pengar genom att registrera dig för en ett- eller tre-årsplan för flera produkter. Åtagande gör att du kan få rabatt på de resurser du använder. Reservationer kan betydlig minska dina resurskostnader med upp till 72 % på Betala per användning-priser. Reservation ger en rabatt och påverkar inte resursernas körningsstatus. När du har köpt en reservation tillämpas rabatten automatiskt på matchande resurser.
+Med Azure Reservations kan du spara pengar genom att registrera dig för en ett- eller tre-årsplan för flera produkter. Åtagande gör att du kan få rabatt på de resurser du använder. Reservationer kan avsevärt minska dina resurskostnader med upp till 72 procent jämfört med Betala per användning-priser. Reservation ger en rabatt och påverkar inte resursernas körningsstatus. När du har köpt en reservation tillämpas rabatten automatiskt på matchande resurser.
 
 Du kan betala för en reservation i förväg eller månadsvis. Totalbeloppet för reservationer är detsamma oavsett om du betalar i förväg eller per månad. Det tillkommer inte några extra avgifter när du väljer månadsbetalning. Månatlig betalning är tillgänglig för Azure-reservationer, inte produkter från tredje part.
 
@@ -50,9 +50,9 @@ Mer information finns i  [Välja rätt reservation](determine-reservation-purc
 
 Du kan köpa reservationer från Azure-portalen, API:er, PowerShell och CLI. 
 
-Gå till Azure-portalen för att köpa (https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) 
+Gå till [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) om du vill göra ett inköp.
 
-Mer information finns i  [Köpa en reservation](prepare-buy-reservation.md) 
+Mer information finns i [Köpa en reservation](prepare-buy-reservation.md).
 
 ## <a name="how-is-a-reservation-billed"></a>Hur faktureras en reservation? 
 
@@ -106,7 +106,7 @@ Programvaruplaner:
 
 - **SUSE Linux-** – En reservation täcker kostnaderna för programvaruplanen. Rabatterna gäller endast SUSE-mätare och inte användningen av virtuella datorer.
 - **Red Hat-planer** – En reservation täcker kostnaderna för programvaruplanen. Rabatterna gäller endast RedHat-mätare och inte användningen av virtuella datorer.
-- **Azure VMware Solution by CloudSimple** – En reservation täcker VMWare CloudSimple-noderna. Ytterligare programvarukostnader kan tillkomma.
+- **Azure VMware Solution by CloudSimple** – En reservation täcker VMware CloudSimple-noderna. Ytterligare programvarukostnader kan tillkomma.
 - **Azure Red Hat OpenShift** – En reservation gäller för OpenShift-kostnaderna, inte för Azure-infrastrukturkostnader.
 
 Reservationsrabatten gäller inte för programvarukostnaderna för virtuella Windows-datorer och SQL Database. Licensieringskostnaderna kan täckas av [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).

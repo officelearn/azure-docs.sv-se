@@ -8,13 +8,13 @@ author: palanis-MSFT
 ms.author: palanis
 ms.date: 08/27/2019
 ms.openlocfilehash: e8d952c76fa71cb57d2edd7c9aa361c7249e0622
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105140"
 ---
-# <a name="co-sell-country-and-region-codes"></a>Samförsäljnings land och region koder
+# <a name="co-sell-country-and-region-codes"></a>Lands- och regionkoder för säljsamarbete
 
 Använd de här lands-och region koderna med två bokstäver när [du anger kontakt information på ditt erbjudandes samarbets sida](commercial-marketplace-co-sell.md).
 
@@ -236,7 +236,7 @@ Om en kontakt omfattar mer än ett land/region, anger du var och en av de två b
 | Spanien                               | ES        |
 | Sri Lanka                           | LK        |
 | Saint Helena, Ascension, Tristan da Cunha | SH     |
-| Sudan                               | SD        |
+| Sudan                               | Standardavvikelse        |
 | Surinam                            | SR        |
 | Svalbard                            | SJ        |
 | Sverige                              | SE        |
@@ -269,7 +269,7 @@ Om en kontakt omfattar mer än ett land/region, anger du var och en av de två b
 | Vatikanstaten                        | VA        |
 | Venezuela                           | VE        |
 | Vietnam                             | VN        |
-| Wallis och Futuna                   | BRANDVÄGGEN        |
+| Wallis och Futuna                   | WF        |
 | Jemen                               | CHANSEN        |
 | Zambia                              | ZM        |
 | Zimbabwe                            | ZW        |

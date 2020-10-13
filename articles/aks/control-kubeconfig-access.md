@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 05/06/2020
 ms.openlocfilehash: c73c4a0ae46c3d2ac3a64543473bd6639d03b434
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009298"
 ---
 # <a name="use-azure-role-based-access-control-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Använd rollbaserad åtkomst kontroll i Azure för att definiera åtkomst till konfigurations filen Kubernetes i Azure Kubernetes service (AKS)
@@ -71,7 +71,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Om du vill tilldela behörigheter till en Azure AD-grupp uppdaterar du den `--assignee` parameter som visas i föregående exempel med objekt-ID för *gruppen* i stället för en *användare*. Om du vill hämta objekt-ID för en grupp använder du kommandot [AZ AD Group show][az-ad-group-show] . I följande exempel hämtas objekt-ID: t för Azure AD-gruppen med namnet *AppDev*:`az ad group show --group appdev --query objectId -o tsv`
+> Om du vill tilldela behörigheter till en Azure AD-grupp uppdaterar du den `--assignee` parameter som visas i föregående exempel med objekt-ID för *gruppen* i stället för en *användare*. Om du vill hämta objekt-ID för en grupp använder du kommandot [AZ AD Group show][az-ad-group-show] . I följande exempel hämtas objekt-ID: t för Azure AD-gruppen med namnet *AppDev*: `az ad group show --group appdev --query objectId -o tsv`
 
 Du kan ändra den tidigare tilldelningen till *kluster användar rollen* vid behov.
 

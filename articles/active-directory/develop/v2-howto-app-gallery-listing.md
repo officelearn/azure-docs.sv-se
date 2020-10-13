@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.openlocfilehash: dc271fa768bee66107e66a1b8d4f16c1188ce418
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89439752"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicera din app i Azure AD App-galleriet
@@ -61,7 +61,7 @@ Stegen för att publicera din app i Azure AD App-galleriet är:
 6. Delta i Microsoft Partner Network.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver ett permanent konto för testning med minst två användare registrerade.
 
@@ -72,7 +72,7 @@ Om du vill visa ett program i Azure AD App-galleriet måste du implementera mins
 
 I följande tabell jämförs huvud standarder: Open Authentication 2,0 (OAuth 2,0) med OpenID Connect (OIDC), Security Assertion Markup Language (SAML) och Web Services Federation (WS-utfodras).
 
-| Kapacitet| OAuth/OIDC| SAML/WS-utfodras |
+| Funktion| OAuth/OIDC| SAML/WS-Fed |
 | - |-|-|
 | Webbaserad enkel inloggning| √| √ |
 | Webbaserad enkel utloggning| √| √ |
@@ -96,7 +96,7 @@ OAuth 2,0 är ett [bransch standard](https://oauth.net/2/) protokoll för auktor
 **Några saker att tänka på**
 - Om du redan har implementerat SAML-baserad enkel inloggning för ditt program kanske du inte vill implementera en ny standard för att hämta din app i galleriet.
 
-### <a name="saml-20-or-ws-fed"></a>SAML 2,0 eller WS-utfodras
+### <a name="saml-20-or-ws-fed"></a>SAML 2,0 eller WS-Fed
 
 SAML är en vuxen, och ofta förekommande, [enkel inloggnings standard](https://www.oasis-open.org/standards#samlv2.0) för webb program. Mer information om hur Azure använder SAML finns i [hur Azure använder SAML-protokollet](active-directory-saml-protocol-reference.md). 
 
@@ -143,8 +143,8 @@ Om din app stöder SAML 2,0 kan du integrera den direkt med en Azure AD-klient. 
 
 Microsoft tillhandahåller inte eller rekommenderar bibliotek för SAML-implementeringar. Det finns många tillgängliga bibliotek med öppen källkod.
 
-### <a name="implement-ws-fed"></a>Implementera WS-utfodras
-Mer information om WS-utfodras i ASP.NET Core finns i [autentisera användare med WS-Federation i ASP.net Core](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation).
+### <a name="implement-ws-fed"></a>Implementera WS-Fed
+Mer information om WS-Fed i ASP.NET Core finns [i autentisera användare med WS-Federation i ASP.net Core](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation).
 
 ### <a name="implement-password-vaulting"></a>Implementera lösen ords valv
 
@@ -238,7 +238,7 @@ Om du vill lägga till programmet i listan i galleriet med hjälp av OpenID Conn
 
 Om du vill lägga till ditt program i listan i galleriet med **saml 2,0** eller **WS-utfodras**väljer du **SAML 2.0/WS-utfodras** som visas.
 
-![Visar ett SAML 2,0-eller WS-utfodras program i galleriet](./media/howto-app-gallery-listing/saml.png)
+![Lista ett SAML 2,0-eller WS-Fed-program i galleriet](./media/howto-app-gallery-listing/saml.png)
 
 Om du vill lägga till ditt program i listan i galleriet med hjälp av lösen ord för enkel inloggning väljer du **lösen ord för inloggning** som visas.
 
@@ -260,7 +260,7 @@ Du kan uppdatera eller ta bort en befintlig Galleri app i [Microsoft-programmets
 
 ### <a name="timelines"></a>Tidslinjer
 
-Tids linjen för processen med att lista ett SAML 2,0-eller WS-utfodras program i galleriet är 7 till 10 arbets dagar.
+Tids linjen för processen med att lista ett SAML 2,0-eller WS-Fed-program i galleriet är 7 till 10 arbets dagar.
 
 ![Tids linje för att visa ett SAML-program i galleriet](./media/howto-app-gallery-listing/timeline.png)
 

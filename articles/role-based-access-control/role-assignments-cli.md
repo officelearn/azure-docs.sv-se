@@ -11,13 +11,13 @@ ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1
 ms.openlocfilehash: 16ead03af14da70b5aaedc21118488c6dd3012c6
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597648"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Lägga till eller ta bort roll tilldelningar i Azure med Azure CLI
+# <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure CLI
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Den här artikeln beskriver hur du tilldelar roller med hjälp av Azure CLI.
 
@@ -28,7 +28,7 @@ Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 - `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
 - [Bash i Azure Cloud Shell](/azure/cloud-shell/overview) eller [Azure CLI](/cli/azure)
 
-## <a name="steps-to-add-a-role-assignment"></a>Steg för att lägga till en roll tilldelning
+## <a name="steps-to-add-a-role-assignment"></a>Steg för tillägg av en rolltilldelning
 
 I Azure RBAC för att bevilja åtkomst lägger du till en roll tilldelning. En rolltilldelning består av tre delar: säkerhetsobjekt, rolldefinition och omfång. Följ dessa steg om du vill lägga till en roll tilldelning.
 

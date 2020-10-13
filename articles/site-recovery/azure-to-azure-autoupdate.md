@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: sideeksh
 ms.openlocfilehash: 53c5dc4920b6c50ee3c900db9626f4d283f7b846
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89426426"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatisk uppdatering av mobilitets tjänsten i Azure till Azure-replikering
@@ -63,7 +63,7 @@ När du aktiverar replikering för en virtuell dator som antingen startar [från
 
 1. Välj **Spara**.
 
-:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Inställningar för tilläggs uppdatering":::
+:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Tilläggs inställningar":::
 
 > [!IMPORTANT]
 > När du väljer **tillåt Site Recovery att hantera**tillämpas inställningen på alla virtuella datorer i valvet.
@@ -460,12 +460,12 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 1. Om det finns nya uppdateringar för mobilitets tjänsten som är installerade på dina virtuella datorer visas följande meddelande: **ny Site Recovery uppdatering av replikeringskonfiguration är tillgänglig. Klicka för att installera.**
 
-   :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="Fönstret replikerade objekt":::
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="Tilläggs inställningar":::
 
 1. Välj meddelandet för att öppna sidan för val av virtuell dator.
 1. Välj de virtuella datorer som du vill uppgradera och välj sedan **OK**. Uppdaterings mobilitets tjänsten kommer att starta för varje vald virtuell dator.
 
-   :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="Lista över replikerade objekt för virtuella datorer":::
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="Tilläggs inställningar":::
 
 ## <a name="common-issues-and-troubleshooting"></a>Vanliga problem och fel sökning
 
@@ -479,7 +479,7 @@ Om du inte kan aktivera automatiska uppdateringar, se följande vanliga fel och 
 
   Välj **Reparera**om du vill åtgärda de flesta problem när du har aktiverat automatiska uppdateringar. Om reparations knappen inte är tillgänglig, se fel meddelandet som visas i fönstret inställningar för uppdaterings uppdatering.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Site Recovery tjänst reparations knapp i inställningar för tilläggs uppdatering":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Tilläggs inställningar":::
 
 - **Fel**: Kör som-kontot har inte åtkomst behörighet till Recovery Services-resursen.
 
@@ -495,7 +495,7 @@ Om du inte kan aktivera automatiska uppdateringar, se följande vanliga fel och 
 
   **Rekommenderad åtgärd**: Lös problemet genom att välja **Reparera** och **Förnya certifikat**.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="förnya – cert":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="Tilläggs inställningar":::
 
   > [!NOTE]
   > När du har förnyat certifikatet uppdaterar du sidan för att visa aktuell status.

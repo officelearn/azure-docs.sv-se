@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
 ms.openlocfilehash: c76cf939959d198d2c28181295a695a65ae46af9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86505711"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Parsa text data i Azure Monitor loggar
@@ -120,7 +120,7 @@ Avgränsade data separerar fält med ett gemensamt Character, till exempel ett k
 2018-03-10 01:31:34, 303,Error,Application lost connection to database
 ```
 
-Följande fråga tolkar dessa data och sammanfattar med två av de beräknade egenskaperna. Den första raden delar upp egenskapen _RawData_ i en sträng mat ris. Var och en av de följande raderna ger ett namn för enskilda egenskaper och lägger till dem i utdata med hjälp av funktioner för att konvertera dem till rätt datatyp.
+Följande fråga tolkar dessa data och sammanfattar med två av de beräknade egenskaperna. Den första raden delar upp egenskapen  _RawData_ i en sträng mat ris. Var och en av de följande raderna ger ett namn för enskilda egenskaper och lägger till dem i utdata med hjälp av funktioner för att konvertera dem till rätt datatyp.
 
 ```Kusto
 MyCustomCSVLog_CL

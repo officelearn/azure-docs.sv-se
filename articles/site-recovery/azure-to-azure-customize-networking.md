@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: sideeksh
 ms.openlocfilehash: 599ad76f38833e06cc458fd0687921e6975e190b
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89426375"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Anpassa nätverkskonfigurationer för den virtuella Azure-måldatorn
@@ -31,7 +31,7 @@ Du kan ange följande nyckel resurs konfiguration för den virtuella datorn som 
 - [Offentlig IP-adress](../virtual-network/public-ip-addresses.md)
 - [Nätverks säkerhets grupp](../virtual-network/manage-network-security-group.md) både för under nätet och för nätverkskortet
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Se till att du planerar konfigurationen för återställnings sidan i förväg.
 - Skapa nätverks resurserna i förväg. Ange den som inmatad så att Azure Site Recovery tjänst kan följa dessa inställningar och se till att den virtuella redundansväxlingen följer de här inställningarna.

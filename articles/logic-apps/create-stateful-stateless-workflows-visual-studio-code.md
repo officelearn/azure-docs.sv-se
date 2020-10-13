@@ -7,10 +7,10 @@ ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
 ms.date: 09/26/2020
 ms.openlocfilehash: cc52358af203bafc87c5f9ac3ae1f237c0c7ae6c
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597784"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Skapa tillstånds känsliga eller tillstånds lösa arbets flöden i Visual Studio Code med tillägget Azure Logic Apps (förhands granskning)
@@ -967,7 +967,7 @@ Den här tabellen anger beteendet för det underordnade arbets flödet baserat p
 | Tillståndslös | Tillståndslös | Utlös och vänta |
 ||||
 
-## <a name="limits"></a>Gränser
+## <a name="limits"></a>Begränsningar
 
 Även om många [befintliga gränser för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md) är desamma för den här resurs typen, är här skillnaderna i detta offentliga för hands versions tillägg:
 

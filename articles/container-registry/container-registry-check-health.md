@@ -4,10 +4,10 @@ description: Lär dig hur du kör ett Quick Diagnostic-kommando för att identif
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: f27a99818260553cbd7ba26158db0064c145a21f
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88245391"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Kontrol lera hälso tillståndet för ett Azure Container Registry
@@ -19,7 +19,7 @@ Som ett första diagnostiskt steg kör du kommandot [AZ ACR check-Health][az-acr
 Ytterligare fel söknings vägledning för registret finns i:
 * [Felsöka inloggning av registret](container-registry-troubleshoot-login.md)
 * [Felsöka nätverks problem med registret](container-registry-troubleshoot-access.md)
-* [Felsöka register prestanda](container-registry-troubleshoot-performance.md)
+* [Felsöka registerprestanda](container-registry-troubleshoot-performance.md)
 
 ## <a name="run-az-acr-check-health"></a>Kör AZ ACR-kontroll – hälsa
 
@@ -38,7 +38,7 @@ az acr check-health
 
 ### <a name="check-the-environment-and-a-target-registry"></a>Kontrol lera miljön och ett mål register
 
-Om du vill kontrol lera åtkomsten till ett register och utföra lokala miljö kontroller, måste du skicka namnet på ett mål register. Ett exempel:
+Om du vill kontrol lera åtkomsten till ett register och utföra lokala miljö kontroller, måste du skicka namnet på ett mål register. Exempel:
 
 ```azurecli
 az acr check-health --name myregistry

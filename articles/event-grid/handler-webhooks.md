@@ -4,10 +4,10 @@ description: Beskriver hur du kan använda Webhooks som händelse hanterare för
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 3dc75b15c55c82b6164e77f0ac93a87bced94a64
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105616"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>Webhooks, Automation-runbooks Logic Apps som händelse hanterare för Azure Event Grid händelser
@@ -19,7 +19,7 @@ En händelse hanterare är den plats där händelsen skickas. Hanteraren vidtar 
 ## <a name="webhooks"></a>Webhooks
 I följande artiklar finns en översikt och exempel på hur du använder Webhooks som händelse hanterare. 
 
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | Snabb start: skapa och dirigera anpassade händelser med- [Azure CLI](custom-event-quickstart.md), [PowerShell](custom-event-quickstart-powershell.md)och [Portal](custom-event-quickstart-portal.md). | Visar hur du skickar anpassade händelser till en webhook. |
 | Snabb start: dirigera Blob Storage-händelser till en anpassad webb slut punkt med- [Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json), [PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json)och [Portal](blob-event-quickstart-portal.md). | Visar hur du skickar Blob Storage-händelser till en webhook. |
@@ -30,7 +30,7 @@ I följande artiklar finns en översikt och exempel på hur du använder Webhook
 ## <a name="azure-automation"></a>Azure Automation
 Du kan bearbeta händelser med hjälp av Azure Automation runbooks. Bearbetning av händelser med hjälp av automatiska Runbooks stöds via Webhooks. Du skapar en webhook för runbooken och använder sedan webhook-hanteraren. Se följande självstudie för ett exempel: 
 
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 |[Självstudie: Azure Automation med Event Grid och Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Skapa en virtuell dator, som skickar en händelse. Händelsen utlöser en Automation-Runbook som Taggar den virtuella datorn och utlöser ett meddelande som skickas till en Microsoft Teams-kanal. |
 
@@ -38,7 +38,7 @@ Du kan bearbeta händelser med hjälp av Azure Automation runbooks. Bearbetning 
 ## <a name="logic-apps"></a>Logic Apps
 Använd **Logic Apps** för att implementera affärs processer för att bearbeta Event Grid händelser. Du behöver inte skapa en webhook uttryckligen i det här scenariot. Webhooken skapas automatiskt när du konfigurerar Logi Kap par för hantering av händelser från Event Grid. Se följande självstudier för exempel: 
 
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Självstudie: övervaka ändringar av virtuella datorer med Azure Event Grid och Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | En Logic app övervakar ändringar i en virtuell dator och skickar e-postmeddelanden om ändringarna. |
 | [Självstudie: skicka e-postaviseringar om Azure IoT Hub-händelser med hjälp av Logic Apps](publish-iot-hub-events-to-logic-apps.md) | En Logic App skickar ett e-postmeddelande varje gång en enhet läggs till i IoT Hub. |

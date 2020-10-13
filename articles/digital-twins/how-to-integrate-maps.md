@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
 ms.openlocfilehash: 8f739982ac9193c80cae23d91b77091f75c3fd13
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90564372"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Använd Azure Digitals flätas för att uppdatera en Azure Maps inomhus karta
@@ -152,7 +152,7 @@ Följ stegen nedan om du vill se färsk uppdaterings temperatur:
 
 Båda exemplen skickar temperatur i ett kompatibelt intervall, så du bör se färgen på Room 121-uppdateringen på kartan var 30: e sekund.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="En Office-karta som visar rum 121 färgad orange":::
+:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="En vy över Azure-tjänster i ett scenario från slut punkt till slut punkt som markerar integrerings delen för inomhus Maps":::
 
 ## <a name="store-your-maps-information-in-azure-digital-twins"></a>Lagra din Maps-information i Azure Digitals, dubbla
 

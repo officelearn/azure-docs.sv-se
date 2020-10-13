@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 09/11/2020
 ms.author: jushiman
 ms.openlocfilehash: 55cbc5db534dd1b05f91a24e0104b1f2dc110547
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532705"
 ---
 # <a name="preview-maintenance-control-for-azure-virtual-machine-scale-sets"></a>För hands version: underhålls kontroll för skalnings uppsättningar för virtuella Azure-datorer 
@@ -22,7 +22,7 @@ Med underhålls kontrollen kan du bestämma när du ska tillämpa uppdateringar 
 
 Underhålls konfigurationer fungerar mellan prenumerationer och resurs grupper.
 
-Hela arbets flödet följer de här stegen: 
+Hela arbetsflödet består av följande övergripande steg: 
 - Skapa en underhålls konfiguration.
 - Koppla en skalnings uppsättning för virtuell dator till en underhålls konfiguration.
 - Aktivera automatiska uppgraderingar av operativ systemet.

@@ -12,10 +12,10 @@ ms.date: 09/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6f2e0b9a797edb2d5529bb0645ed56c44df3121c
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440029"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Flytta data från en SQL Server databas till SQL Database med Azure Data Factory
@@ -47,7 +47,7 @@ Vi konfigurerar en ADF-pipeline som består av två data migrerings aktiviteter.
 >
 >
 
-## <a name="prerequisites"></a><a name="prereqs"></a>Krav
+## <a name="prerequisites"></a><a name="prereqs"></a>Förutsättningar
 Den här självstudien förutsätter att du har:
 
 * En **Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/pricing/free-trial/).

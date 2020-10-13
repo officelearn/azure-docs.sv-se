@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a0765f5279eb41324691c431c5973bb55a8b52d
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662491"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect synkronisering: Katalog tillägg
@@ -87,7 +87,7 @@ Ett av de mer användbara scenarierna är att använda attributen i dynamiska s�
 
    ![Skärm bild med nya attribut som visas i användar gränssnittet](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup3.png)
 
-   Fyll i uttrycket så att det passar dina behov. I vårt exempel är regeln inställd på **(User. extension_9d98ed114c4840d298fad781915f27e4_division-EQ "försäljning och marknadsföring")**.
+   Fyll i uttrycket så att det passar dina behov. I vårt exempel är regeln inställd på **(User.extension_9d98ed114c4840d298fad781915f27e4_division-EQ "försäljning och marknadsföring")**.
 
 4. När gruppen har skapats kan du ge Azure AD lite tid för att fylla medlemmarna och sedan granska medlemmarna.
 

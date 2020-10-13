@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
 ms.openlocfilehash: 7743a3a8d6e77affd6229b648ab79b5b2f07a0af
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90564108"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub-åtgärder för att distribuera till Kubernetes-tjänsten
@@ -21,10 +21,10 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 För ett arbets flöde som riktar sig till AKS har filen tre delar:
 
-|Avsnitt  |Aktiviteter  |
+|Section  |Aktiviteter  |
 |---------|---------|
 |**Autentisering** | Logga in på ett privat container Registry (ACR) |
-|**Skapa** | Bygg & push-överför behållar avbildningen  |
+|**Konstruktion** | Bygg & push-överför behållar avbildningen  |
 |**Distribuera** | 1. Ange mål AKS-klustret |
 | |2. skapa en allmän/Docker-register hemlighet i Kubernetes-kluster  |
 ||3. distribuera till Kubernetes-klustret|
@@ -58,7 +58,7 @@ Följ stegen för att konfigurera hemligheterna:
 
     ![Skärm bild som visar Lägg till en ny hemlig länk för en lagrings plats.](media/kubernetes-action/secrets.png)
 
-2. Klistra in innehållet i ovanstående `az cli` kommando som värde för den hemliga variabeln. Till exempel `AZURE_CREDENTIALS`.
+2. Klistra in innehållet i ovanstående `az cli` kommando som värde för den hemliga variabeln. Exempelvis `AZURE_CREDENTIALS`.
 
 3. På samma sätt definierar du följande ytterligare hemligheter för autentiseringsuppgifterna för behållar registret och anger dem i Docker login login-åtgärd. 
 

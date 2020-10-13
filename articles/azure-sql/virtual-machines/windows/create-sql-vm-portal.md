@@ -15,10 +15,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: a7cd15bab0b26a13f9ffb818aa29e8e262c0bd06
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332924"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Använda Azure Portal för att etablera en virtuell Windows-dator med SQL Server
@@ -144,7 +144,7 @@ Konfigurera vissa inställningar och optimeringar för SQL Server på fliken **S
 - [Machine Learning Services](#machine-learning-services)
 
 
-### <a name="connectivity"></a>Anslutningar
+### <a name="connectivity"></a>Anslutningsmöjlighet
 
 Under **SQL-anslutning** anger du vilken typ av åtkomst du vill ha till SQL Server-instansen på den här virtuella datorn. I den här genom gången väljer du **offentlig (Internet)** för att tillåta att anslutningar SQL Server från datorer eller tjänster på Internet. När det här alternativet är markerat konfigurerar Azure automatiskt brand väggen och nätverks säkerhets gruppen för att tillåta trafik på den valda porten.
 

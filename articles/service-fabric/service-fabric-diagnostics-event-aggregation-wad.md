@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
 ms.openlocfilehash: bcb9ca9e73c0898dc778202eca036a5ae92bebf8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076144"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Händelse agg regering och insamling med Windows Azure-diagnostik
@@ -193,7 +193,7 @@ När du har ändrat template.jspå filen enligt beskrivningen, publicerar du om 
 
 ### <a name="update-storage-quota"></a>Uppdatera lagrings kvot
 
-Eftersom de tabeller som är fyllda av tillägget växer tills kvoten har nåtts, kanske du vill överväga att minska kvot storleken. Standardvärdet är 50 GB och kan konfigureras i mallen under `overallQuotaInMB` fältet under`DiagnosticMonitorConfiguration`
+Eftersom de tabeller som är fyllda av tillägget växer tills kvoten har nåtts, kanske du vill överväga att minska kvot storleken. Standardvärdet är 50 GB och kan konfigureras i mallen under `overallQuotaInMB` fältet under `DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",
@@ -284,7 +284,7 @@ Om du vill uppdatera diagnostiken för att samla in loggar från nya EventSource
 
 Uppdatera `EtwEventSourceProviderConfiguration` avsnittet i template.jspå filen för att lägga till poster för de nya EventSource-kanalerna innan du installerar konfigurations uppdateringen med hjälp av `New-AzResourceGroupDeployment` PowerShell-kommandot. Namnet på händelse källan definieras som en del av koden i den Visual Studio-genererade ServiceEventSource.cs-filen.
 
-Om din händelse källa exempelvis kallas My-EventSource, lägger du till följande kod för att placera händelserna från EventSource i en tabell med namnet MyDestinationTableName.
+Om din händelse källa exempelvis kallas My-EventSource, lägger du till följande kod för att placera händelserna från My-Eventsource i en tabell med namnet MyDestinationTableName.
 
 ```json
         {

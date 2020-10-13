@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 06/15/2020
 ms.openlocfilehash: d9bc5e91d45b75c47cee31c45b937f7d3f0118b8
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836691"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Transparent data kryptering för SQL Database, SQL-hanterad instans och Azure Synapse Analytics
@@ -71,7 +71,7 @@ Det enda undantaget är när du exporterar en databas till och från SQL Databas
 
 ## <a name="manage-transparent-data-encryption"></a>Hantera transparent data kryptering
 
-# <a name="the-azure-portal"></a>[Azure Portal](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[Azure-portalen](#tab/azure-portal)
 
 Hantera TDE i Azure Portal.
 
@@ -123,8 +123,8 @@ Anslut till databasen med en inloggning som är en administratör eller medlem a
 | Kommando | Beskrivning |
 | --- | --- |
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) | Ange kryptering vid/från krypterar eller dekrypterar en databas |
-| [sys. dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Returnerar information om krypterings tillstånd för en databas och dess tillhör ande databas krypterings nycklar |
-| [sys. dm_pdw_nodes_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Returnerar information om krypterings status för varje Azure Synapse-nod och dess tillhör ande databas krypterings nycklar |
+| [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Returnerar information om krypterings tillstånd för en databas och dess tillhör ande databas krypterings nycklar |
+| [sys.dm_pdw_nodes_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Returnerar information om krypterings status för varje Azure Synapse-nod och dess tillhör ande databas krypterings nycklar |
 |  | |
 
 Du kan inte byta TDE-skydd till en nyckel från Key Vault med hjälp av Transact-SQL. Använd PowerShell eller Azure Portal.

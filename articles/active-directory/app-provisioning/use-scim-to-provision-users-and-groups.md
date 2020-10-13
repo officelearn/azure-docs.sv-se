@@ -12,10 +12,10 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 59c899d2450e9d439426239384945258e8df694a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266657"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure AD
@@ -98,7 +98,7 @@ Du kan sedan använda tabellen nedan för att förstå hur attributen som progra
 |avdelning|urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: avdelning|
 | displayName |displayName |
 |Anställnings|urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: employeeNumber|
-| Facsimile – TelephoneNumber |phoneNumbers [Type EQ "fax"]. värde |
+| Facsimile-TelephoneNumber |phoneNumbers [Type EQ "fax"]. värde |
 | förnamn |name.givenName |
 | Befattning |title |
 | e-post |emails[type eq "work"].value |
@@ -226,7 +226,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="create-user"></a>Skapa användare
 
-###### <a name="request"></a>Begäran
+###### <a name="request"></a>Förfrågan
 
 *POST-/users*
 ```json
@@ -284,7 +284,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="get-user"></a>Hämta användare
 
-###### <a name="request"></a><a name="request-1"></a>Begäran
+###### <a name="request"></a><a name="request-1"></a>Förfrågan
 *Hämta/Users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response-user-found"></a><a name="response-1"></a>Svar (användaren hittades)
@@ -314,7 +314,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-###### <a name="request"></a>Begäran
+###### <a name="request"></a>Förfrågan
 *Hämta/Users/5171a35d82074e068ce2* 
 
 ###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Svar (användaren hittades inte. Observera att detalj nivån inte är obligatorisk, endast status.)
@@ -331,7 +331,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="get-user-by-query"></a>Hämta användare efter fråga
 
-##### <a name="request"></a><a name="request-2"></a>Begäran
+##### <a name="request"></a><a name="request-2"></a>Förfrågan
 
 *Hämta/Users? filter = userName EQ "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
 
@@ -372,7 +372,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="get-user-by-query---zero-results"></a>Hämta användare från fråga – noll resultat
 
-##### <a name="request"></a><a name="request-3"></a>Begäran
+##### <a name="request"></a><a name="request-3"></a>Förfrågan
 
 *Hämta/Users? filter = userName EQ "obefintlig användare"*
 
@@ -392,7 +392,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="update-user-multi-valued-properties"></a>Uppdatera användare [Egenskaper för flera värden]
 
-##### <a name="request"></a><a name="request-4"></a>Begäran
+##### <a name="request"></a><a name="request-4"></a>Förfrågan
 
 *KORRIGERING/Users/6764549bef60420686bc HTTP/1.1*
 ```json
@@ -443,7 +443,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="update-user-single-valued-properties"></a>Uppdatera användare [Egenskaper för enstaka värde]
 
-##### <a name="request"></a><a name="request-5"></a>Begäran
+##### <a name="request"></a><a name="request-5"></a>Förfrågan
 
 *KORRIGERING/Users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -488,7 +488,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 ### <a name="disable-user"></a>Inaktivera användare
 
-##### <a name="request"></a><a name="request-14"></a>Begäran
+##### <a name="request"></a><a name="request-14"></a>Förfrågan
 
 *KORRIGERING/Users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -542,7 +542,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 ```
 #### <a name="delete-user"></a>Ta bort användare
 
-##### <a name="request"></a><a name="request-6"></a>Begäran
+##### <a name="request"></a><a name="request-6"></a>Förfrågan
 
 *TA bort/users/5171a35d82074e068ce2 HTTP/1.1*
 
@@ -559,7 +559,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="create-group"></a>Skapa grupp
 
-##### <a name="request"></a><a name="request-7"></a>Begäran
+##### <a name="request"></a><a name="request-7"></a>Förfrågan
 
 *PUBLICERA/Groups HTTP/1.1*
 ```json
@@ -594,7 +594,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="get-group"></a>Hämta grupp
 
-##### <a name="request"></a><a name="request-8"></a>Begäran
+##### <a name="request"></a><a name="request-8"></a>Förfrågan
 
 *Hämta/Groups/40734ae655284ad3abcc? excludedAttributes = medlemmar HTTP/1.1*
 
@@ -616,7 +616,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="get-group-by-displayname"></a>Hämta grupp efter displayName
 
-##### <a name="request"></a><a name="request-9"></a>Begäran
+##### <a name="request"></a><a name="request-9"></a>Förfrågan
 *Hämta/Groups? excludedAttributes = members&filter = displayName EQ "HTTP/1.1*
 
 ##### <a name="response"></a><a name="response-9"></a>Svarade
@@ -645,7 +645,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="update-group-non-member-attributes"></a>Uppdaterings grupp [attribut för icke-medlem]
 
-##### <a name="request"></a><a name="request-10"></a>Begäran
+##### <a name="request"></a><a name="request-10"></a>Förfrågan
 
 *KORRIGERING/Groups/fa2ce26709934589afc5 HTTP/1.1*
 ```json
@@ -665,7 +665,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 ### <a name="update-group-add-members"></a>Uppdatera grupp [Lägg till medlemmar]
 
-##### <a name="request"></a><a name="request-11"></a>Begäran
+##### <a name="request"></a><a name="request-11"></a>Förfrågan
 
 *KORRIGERING/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -688,7 +688,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="update-group-remove-members"></a>Uppdaterings grupp [ta bort medlemmar]
 
-##### <a name="request"></a><a name="request-12"></a>Begäran
+##### <a name="request"></a><a name="request-12"></a>Förfrågan
 
 *KORRIGERING/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -711,7 +711,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="delete-group"></a>Ta bort grupp
 
-##### <a name="request"></a><a name="request-13"></a>Begäran
+##### <a name="request"></a><a name="request-13"></a>Förfrågan
 
 *TA bort/Groups/cdb1ce18f65944079d37 HTTP/1.1*
 

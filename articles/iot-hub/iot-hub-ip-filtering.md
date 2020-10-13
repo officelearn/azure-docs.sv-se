@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/25/2020
 ms.author: robinsh
 ms.openlocfilehash: 1ba3c89ea4f964f9e6fd5f902aab29a83a058f25
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87074729"
 ---
 # <a name="use-ip-filters"></a>Använda IP-filter
@@ -47,11 +47,11 @@ Gå till sidan Inställningar för IP-filter genom att välja **nätverk**, **of
 
 Om du vill lägga till en regel för IP-filter väljer du **+ Lägg till IP-filterlista**.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="Lägga till en IP-filterlista till en IoT-hubb":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="IoT Hub inställningar för standard-IP-filter":::
 
 När du har valt **Lägg till IP-filterlista**fyller du i fälten.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="När du har valt Lägg till en filter regel för IP":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="IoT Hub inställningar för standard-IP-filter":::
 
 * Ange ett **namn** för IP-filterlistan. Detta måste vara en unik, SKIFT läges okänslig, alfanumerisk sträng på upp till 128 tecken. Endast ASCII 7-bitars alfanumeriska tecken plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` godkänns.
 
@@ -61,7 +61,7 @@ När du har valt **Lägg till IP-filterlista**fyller du i fälten.
 
 När du har fyllt i fälten väljer du **Spara** för att spara regeln. En avisering visas som meddelar dig att uppdateringen pågår.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="Meddelande om att spara en regel för IP-filter":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="IoT Hub inställningar för standard-IP-filter":::
 
 Alternativet **Lägg till** är inaktiverat när du når Max gränsen på 10 IP-filter.
 
@@ -71,7 +71,7 @@ Om du vill redigera en befintlig regel väljer du de data som du vill ändra, g�
 
 Om du vill ta bort en IP-filterlista väljer du pappers korgs ikonen på raden och väljer sedan **Spara**. Regeln tas bort och ändringen sparas.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="Ta bort en IoT Hub IP-filterlista":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="IoT Hub inställningar för standard-IP-filter":::
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Hämta och uppdatera IP-filter med Azure CLI
 
@@ -161,7 +161,7 @@ Du kan ändra ordningen på dina IP filter-regler i rutnätet genom att klicka p
 
 Klicka på **Spara**om du vill spara din nya regel ordning för IP-filter.
 
-:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-rule-order.png" alt-text="Ändra ordning på IP-filter reglerna för IoT HUb":::
+:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-rule-order.png" alt-text="IoT Hub inställningar för standard-IP-filter":::
 
 ## <a name="next-steps"></a>Nästa steg
 

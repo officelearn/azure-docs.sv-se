@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 9ab45495283f8751912d93e9799958a8effc887a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323748"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Snabb start: hantera blobbar med Java V8 SDK
@@ -22,7 +22,7 @@ I den här snabb starten lär du dig att hantera blobbar med hjälp av Java. Blo
 > [!NOTE]
 > I den här snabb starten används en äldre version av klient biblioteket för Azure Blob Storage. Information om hur du kommer igång med den senaste versionen finns i [snabb start: hantera blobbar med Java V12 SDK](storage-quickstart-blobs-java.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett Azure Storage-konto. [Skapa ett lagrings konto](../common/storage-account-create.md).
@@ -149,7 +149,7 @@ Det finns flera metoder för `upload`, exempelvis [upload](/java/api/com.microso
 
 Blockblobbar kan vara valfri texttyp eller binär fil. Sidblobar används främst för VHD-filer som används för att säkerhetskopiera virtuella IaaS-datorer. Använd tilläggsblobar för loggning, till exempel när du vill skriva till en fil och sedan fortsätta att lägga till mer information. De flesta objekt som lagras i Blob Storage är blockblobar.
 
-### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
+### <a name="list-the-blobs-in-a-container"></a>Visa blobar i en container
 
 Du kan hämta en lista över filer i behållaren med hjälp av [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobs). Följande kod hämtar listan över blobbar och går sedan igenom dem och visar URI för de blobbar som har påträffats. Du kan kopiera URI från kommandofönstret och klistra in den i en webbläsare om du vill visa filen.
 

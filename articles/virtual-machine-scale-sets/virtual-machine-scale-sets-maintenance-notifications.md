@@ -10,10 +10,10 @@ ms.date: 08/20/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 5521e49c767a2510bf7c8c53cf6ac5e86b73b466
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87837184"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Meddelanden för planerat underhåll för VM-skalningsuppsättningar
@@ -84,7 +84,7 @@ Kolumnen för självbetjänings **Underhåll** visas nu i listan över skalnings
 | Värde | Beskrivning |
 |-------|-------------|
 | Ja | Minst en virtuell dator i skalnings uppsättningen för den virtuella datorn är i ett självbetjänings fönster. Du kan starta underhåll när som helst under den här självbetjänings perioden. | 
-| Nej | Inga virtuella datorer är i ett självbetjänings fönster i den berörda skalnings uppsättningen för virtuella datorer. | 
+| Inga | Inga virtuella datorer är i ett självbetjänings fönster i den berörda skalnings uppsättningen för virtuella datorer. | 
 | - | Skalnings uppsättningar för virtuella datorer ingår inte i en planerad underhålls våg.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Aviseringar och aviseringar i portalen
@@ -106,7 +106,7 @@ Mer information om hur du konfigurerar aktivitets logg aviseringar finns i [skap
 
 Du kan se mer underhålls relaterad information i översikten över skalnings uppsättningar för virtuella datorer. Om minst en virtuell dator i den virtuella datorns skalnings uppsättning ingår i den planerade underhålls vågen läggs ett nytt meddelande band till längst upp på sidan. Välj menyfliksområdet avisering för att gå till **underhålls** sidan. 
 
-På sidan **Underhåll** kan du se vilken virtuell dator instans som påverkas av planerat underhåll. Starta underhållet genom att markera kryss rutan som motsvarar den berörda virtuella datorn. Välj sedan **Starta underhåll**.
+På sidan **Underhåll** kan du se vilken virtuell dator instans som påverkas av planerat underhåll. Starta underhållet genom att markera kryss rutan som motsvarar den berörda virtuella datorn. Välj sedan  **Starta underhåll**.
 
 När du har startat underhåll genomgår de virtuella datorerna i den virtuella datorns skalnings uppsättning underhåll och är tillfälligt otillgängliga. Om du missade fönstret för självbetjäning kan du fortfarande se tidsfönstret när din skalnings uppsättning för den virtuella datorn kommer att behållas av Azure.
  

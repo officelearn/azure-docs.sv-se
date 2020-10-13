@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: b0c23955248a3468ee6bd624ebf7281bc6c3c961
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab4b4e0ab7d0474dc4fe7692cfe3c46835095f45
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319613"
+ms.locfileid: "91873752"
 ---
-# <a name="migrate-from-bing-maps-to-azure-maps"></a>Migrera från Bing Maps till Azure Maps
+# <a name="tutorial---migrate-from-bing-maps-to-azure-maps"></a>Självstudie – migrera från Bing Maps till Azure Maps
 
 Den här guiden innehåller information om hur du migrerar webb-, mobil-och serverbaserade program från Bing Maps till Azure Maps-plattformen. Den här guiden innehåller jämför ande kod exempel, förslag på migrering och metod tips för migrering till Azure Maps.
 
@@ -122,7 +122,7 @@ Följande är en lista över vanliga Bing Maps-termer och som är kända med en 
 | Mark överlägg                    | Bild skikt                                                    |
 | Hybrid (i referens till mappnings typ) | Satellit med vägar                                           |
 | Inforuta                           | Popup                                                          |
-| Location                          | Position                                                       |
+| Plats                          | Position                                                       |
 | `LocationRect`                    | Avgränsnings ruta                                                   |
 | Map Type                          | Kart stil                                                      |
 | Navigeringsfält                    | Kartans stil väljare, zoomnings kontroll, bredd kontroll, kompass kontroll |

@@ -4,10 +4,10 @@ description: Beskriver hur du aktiverar säkerhets kopiering när du skapar en v
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: ad81300545686d61f42cdd8684e502c937b4fd43
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89377343"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
@@ -79,7 +79,7 @@ När den virtuella datorn har skapats gör du följande:
 1. I VM-egenskaperna väljer du **säkerhets kopiering**. VM-statusen är den första säkerhets kopieringen väntar tills den första säkerhets kopieringen körs.
 2. Välj **Säkerhetskopiera nu** för att köra en säkerhets kopiering på begäran.
 
-    ![Köra en säkerhets kopiering på begäran](./media/backup-during-vm-creation/run-backup.png)
+    ![Köra en säkerhetskopiering på begäran](./media/backup-during-vm-creation/run-backup.png)
 
 ## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Använd en Resource Manager-mall för att distribuera en skyddad virtuell dator
 

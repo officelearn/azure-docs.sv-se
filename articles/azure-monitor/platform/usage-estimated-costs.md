@@ -9,10 +9,10 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
 ms.openlocfilehash: eb96537f67c61fb31759da020068f784d0e89993
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323408"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Övervakning av användning och uppskattade kostnader i Azure Monitor
@@ -74,7 +74,7 @@ Du kan få mer information om din användning genom [att ladda ned din användni
 
 Ett annat alternativ för att visa din Azure Monitor användning är sidan **användning och uppskattade kostnader** i Monitor Hub. Detta visar användningen av grundläggande övervakningsfunktioner, till exempel [aviseringar, statistik, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), Azure- [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/)och [Azure Application insikter](https://azure.microsoft.com/pricing/details/application-insights/). För kunder med pris avtalen som är tillgängliga före 2018 april inkluderar detta även Log Analytics användning som köpts via insikter och analys erbjudandet.
 
-På den här sidan kan användare se sin resursanvändning för de senaste 31 dagarna, sammanställt per prenumeration. `Drill-ins`Visa användnings trender under den 31-dagars perioden. En stor mängd data måste kombineras för den här uppskattningen, så du måste vara patient som sid inläsningar.
+På den här sidan kan användare se sin resursanvändning för de senaste 31 dagarna, sammanställt per prenumeration. `Drill-ins` Visa användnings trender under den 31-dagars perioden. En stor mängd data måste kombineras för den här uppskattningen, så du måste vara patient som sid inläsningar.
 
 I det här exemplet visas övervaknings användningen och en uppskattning av de resulterande kostnaderna:
 

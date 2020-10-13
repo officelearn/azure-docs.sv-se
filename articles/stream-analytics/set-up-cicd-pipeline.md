@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.openlocfilehash: d9b6dfc977aab7d8907b5d3c3851a22f96227d78
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91757766"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Använd Azure-DevOps för att skapa en CI/CD-pipeline för ett Stream Analytics jobb
@@ -64,7 +64,7 @@ I det här avsnittet får du lära dig hur du skapar en pipeline för bygge. Du 
    |Variabelnamn|Värde|
    |-|-|
    |projectRootPath|YourProjectName|
-   |outputPath|Resultat|
+   |outputPath|Utdata|
    |deployPath|Distribuera|
 
 2. På sidan **aktiviteter** väljer du plus tecknet bredvid **Agent jobb 1**. Sök efter **kommando rad**.
@@ -166,9 +166,9 @@ I det här avsnittet får du lära dig hur du skapar en versions pipeline. Du ka
    |-|-|
    |Visningsnamn| *Distribuera myASAProject*|
    |Azure-prenumeration| Välj din prenumeration.|
-   |Åtgärd| *Skapa eller uppdatera resursgrupp*|
+   |Action| *Skapa eller uppdatera resursgrupp*|
    |Resursgrupp| Välj ett namn för den test resurs grupp som ska innehålla ditt Stream Analytics jobb.|
-   |Location|Välj platsen för test resurs gruppen.|
+   |Plats|Välj platsen för test resurs gruppen.|
    |Mallens plats| Länkad artefakt|
    |Mall| $ (System. DefaultWorkingDirectory)/_azure-streamanalytics-cicd-demo-CI-Deploy/Drop/myASAProject.JobTemplate.jspå |
    |Mallparametrar|$ (System. DefaultWorkingDirectory)/_azure-streamanalytics-cicd-demo-CI-Deploy/Drop/myASAProject.JobTemplate.parameters.jspå |
@@ -183,9 +183,9 @@ I det här avsnittet får du lära dig hur du skapar en versions pipeline. Du ka
    |-|-|
    |Visningsnamn| *Distribuera myASAProject*|
    |Azure-prenumeration| Välj din prenumeration.|
-   |Åtgärd| *Skapa eller uppdatera resursgrupp*|
+   |Action| *Skapa eller uppdatera resursgrupp*|
    |Resursgrupp| Välj ett namn för den produktions resurs grupp som ska innehålla ditt Stream Analytics jobb.|
-   |Location|Välj platsen för produktions resurs gruppen.|
+   |Plats|Välj platsen för produktions resurs gruppen.|
    |Mallens plats| *Länkad artefakt*|
    |Mall| $ (System. DefaultWorkingDirectory)/_azure-streamanalytics-cicd-demo-CI-Deploy/Drop/myASAProject.JobTemplate.jspå |
    |Mallparametrar|$ (System. DefaultWorkingDirectory)/_azure-streamanalytics-cicd-demo-CI-Deploy/Drop/myASAProject.JobTemplate.parameters.jspå |

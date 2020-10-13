@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
 ms.openlocfilehash: 1a8064c3ff89c0bc8b0ceb5249492b912c219ce8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91535839"
 ---
 # <a name="caching-with-azure-front-door"></a>Cachelagring med Azures front dörr
@@ -82,7 +82,7 @@ Om en begäran stöder gzip och Brotli komprimering prioriteras Brotli-komprimer
 När en begäran för en till gång anger komprimering och begäran resulterar i ett cache-missar, sker komprimering av till gången direkt på POP-servern. Efteråt hanteras den komprimerade filen från cachen. Det resulterande objektet returneras med en överförings kodning: segment.
 
 ## <a name="query-string-behavior"></a>Fråga om sträng beteende
-Med front dörren kan du styra hur filer cachelagras för en webbegäran som innehåller en frågesträng. I en webbegäran med en frågesträng är frågesträngen den del av begäran som inträffar efter ett frågetecken (?). En frågesträng kan innehålla ett eller flera nyckel/värde-par, där fält namnet och dess värde skiljs åt av ett likhets tecken (=). Varje nyckel/värde-par avgränsas med ett et-tecken (&). Till exempel `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Om det finns fler än ett nyckel/värde-par i en frågesträng i en begäran spelar deras ordning ingen roll.
+Med front dörren kan du styra hur filer cachelagras för en webbegäran som innehåller en frågesträng. I en webbegäran med en frågesträng är frågesträngen den del av begäran som inträffar efter ett frågetecken (?). En frågesträng kan innehålla ett eller flera nyckel/värde-par, där fält namnet och dess värde skiljs åt av ett likhets tecken (=). Varje nyckel/värde-par avgränsas med ett et-tecken (&). Exempelvis `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Om det finns fler än ett nyckel/värde-par i en frågesträng i en begäran spelar deras ordning ingen roll.
 - **Ignorera frågesträngar**: i det här läget skickar front dörren frågesträngarna från begär anden till Server delen på den första begäran och cachelagrar till gången. Alla begär Anden om till gången som hanteras från Front dörrens miljö ignorerar frågesträngarna tills den cachelagrade till gången upphör att gälla.
 
 - **Cachelagra varje unik URL**: i det här läget behandlas varje begäran med en unik URL, inklusive frågesträngen, som en unik till gång med sin egen cache. Till exempel är svaret från Server delen för en begäran om `www.example.ashx?q=test1` cachelagrad i front dörrens miljö och returneras för att följa cacheminnen med samma frågesträng. En begäran om `www.example.ashx?q=test2` cachelagras som en separat till gång med en egen tids-till-Live-inställning.
@@ -113,13 +113,13 @@ Följande ordning på rubriker används för att avgöra hur länge ett objekt s
 2. Cache-kontroll: max-ålder =\<seconds>
 3. Upphör att gälla \<http-date>
 
-Cache-Control Response-huvuden som indikerar att svaret inte cachelagras, t. ex. Cache-Control: Private, Cache-Control: no-cache och Cache-Control: No-Store har besvarats.  Om det inte finns någon cache-kontroll är standard beteendet att frontend-platsen kommer att cachelagra resursen i X-tid där X blir slumpmässigt plockad mellan 1 och tre dagar.
+Cache-Control svarshuvuden som indikerar att svaret inte cachelagras, t. ex. Cache-Control: Private, Cache-Control: no-cache och Cache-Control: No-Store.  Om det inte finns någon Cache-Control är standard beteendet att frontend-platsen kommer att cachelagra resursen i X-tid där X blir slumpmässigt plockad mellan 1 och tre dagar.
 
 ## <a name="request-headers"></a>Begärandehuvuden
 
 Följande begärandehuvuden vidarebefordras inte till en server del när du använder cachelagring.
 - Innehålls längd
-- Överförings kodning
+- Transfer-Encoding
 
 ## <a name="cache-duration"></a>Varaktighet för cache
 

@@ -9,10 +9,10 @@ ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: a79a030c4f57c3dabdd14c01aa2062cab7026cd3
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91611528"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Tillfälliga OS-diskar för virtuella Azure-datorer
@@ -40,7 +40,7 @@ Viktiga skillnader mellan beständiga och tillfälliga OS-diskar:
 | **Stöd för regioner**              | Alla regioner                                                                                  | Alla regioner                              |
 | **Data persistens**            | Operativ system disk data som skrivs till OS-disken lagras i Azure Storage                                  | Data som skrivs till OS-disken lagras på den lokala VM-lagringen och är inte kvar att Azure Storage. |
 | **Stopp-frigjord tillstånd**      | De virtuella datorerna och skalnings uppsättnings instanserna kan stoppas och startas om från det stoppade avallokerade läget | Virtuella datorer och skalnings uppsättnings instanser kan inte stoppas eller avallokeras                                  |
-| **Stöd för specialiserade OS-diskar** | Ja                                                                                          | Nej                                                                                 |
+| **Stöd för specialiserade OS-diskar** | Ja                                                                                          | Inga                                                                                 |
 | **Storleks ändring av OS-disk**              | Stöds under skapande av virtuell dator och när den virtuella datorn har stoppats                                | Stöds endast när en virtuell dator skapas                                                  |
 | **Ändra storlek till en ny VM-storlek**   | OS-disk data bevaras                                                                    | Data på OS-disken tas bort, OS har allokerats på nytt                                      |
 

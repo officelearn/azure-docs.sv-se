@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/11/2020
 ms.author: Zhchia
 ms.openlocfilehash: d5de8b8089f97696af8d05fd88989cbd1858193e
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91611410"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Cofense för automatisk användar etablering

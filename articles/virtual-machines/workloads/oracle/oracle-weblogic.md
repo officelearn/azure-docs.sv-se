@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: rezar
 ms.openlocfilehash: e8f1b115f8a52b4352478f91dd5849c45bfebdc1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274375"
 ---
-# <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Vad är lösningar för att köra Oracle WebLogic-Server på Azure Virtual Machines?
+# <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Vilka lösningar finns för att köra Oracle WebLogic Server på Azure Virtual Machines?
 
 Den här sidan beskriver lösningar för att köra Oracle WebLogic Server (WLS) på virtuella Azure-datorer. Dessa lösningar har utvecklats gemensamt av Oracle och Microsoft.
 
@@ -56,7 +56,7 @@ Det här erbjudandet skapar ett hög tillgängligt och skalbart dynamiskt kluste
 
 Lösningarna gör det möjligt att använda en rad olika produktions klara distributions arkitekturer med relativt enkelt. Du kan möta majoriteten av migreringsprocessen på det mest produktiva sättet genom att göra det möjligt att fokusera på affärs program utveckling.
 
-:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Komplexa WebLogic-Server distributioner är aktiverade på Azure":::
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Du kan använda Azure Portal för att distribuera WebLogic-Server på Azure":::
 
 Utöver vad som automatiskt tillhandahålls av lösningarna har kunderna fullständig flexibilitet att anpassa sina distributioner ytterligare. Det är sannolikt ovanpå att distribuera program kunder att integrera ytterligare Azure-resurser med sina distributioner. Kunderna uppmanas att ge feedback om ytterligare förbättringar av lösningarna.
 

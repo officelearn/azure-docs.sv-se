@@ -16,10 +16,10 @@ ms.date: 08/31/2020
 ms.author: willzhan
 ms.reviewer: juliako
 ms.openlocfilehash: 1bf01e98e418edfe8f15043d16a199b276b71020
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266909"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Hybrid design av DRM-undersystem
@@ -97,7 +97,7 @@ Genom att konfigurera en till gångs leverans princip kan du kontrol lera följa
 
 Baserat på förklaringarna i föregående avsnitt, använder följande fem hybrid scenarier respektive konfigurations kombinationer för **innehålls nyckel** - **till gångs** -och konfigurations principer (de exempel som anges i den sista kolumnen följer tabellen):
 
-|**Innehåll som är värd för & ursprung**|**DRM-kryptering**|**DRM-licensleverans**|**Konfigurera innehålls nyckel**|**Konfigurera till gångs leverans princip**|**Exempel**|
+|**Innehåll som är värd för & ursprung**|**DRM-kryptering**|**DRM-licensleverans**|**Konfigurera innehålls nyckel**|**Konfigurera till gångs leverans princip**|**Urvalsundersökningar**|
 |---|---|---|---|---|---|
 |AMS|AMS|AMS|Ja|Ja|Exempel 1|
 |AMS|AMS|Tredje part|Ja|Ja|Exempel 2|

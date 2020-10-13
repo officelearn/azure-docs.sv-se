@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9b616b03698e83d256a7b81e4548edbf21dba058
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264648"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Så här skapar du ett Smooth Streaming Windows Store-program
@@ -69,11 +69,11 @@ Mer information om hur du utvecklar Windows Store-program finns i [utveckla fant
 1. Från menyn **Arkiv** klickar du på **nytt**och sedan på **projekt**.
 1. I dialog rutan nytt projekt skriver eller väljer du följande värden:
 
-    | Name | Värde |
+    | Namn | Värde |
     | --- | --- |
     | Mallgrupp |Installerat/templates/Visual C#/Windows Store |
     | Mall |Tom app (XAML) |
-    | Name |SSPlayer |
+    | Namn |SSPlayer |
     | Plats |C:\SSTutorials |
     | Namn på lösning |SSPlayer |
     | Skapa katalog för lösning |välja |
@@ -85,7 +85,7 @@ Mer information om hur du utvecklar Windows Store-program finns i [utveckla fant
 1. Från Solution Explorer högerklickar du på **SSPlayer**och klickar sedan på **Lägg till referens**.
 1. Ange eller välj följande värden:
 
-    | Name | Värde |
+    | Namn | Värde |
     | --- | --- |
     | Referens grupp |Windows/tillägg |
     | Referens |Välj Microsoft Smooth Streaming client SDK för Windows 8 och Microsoft Visual C++ runtime-paketet |

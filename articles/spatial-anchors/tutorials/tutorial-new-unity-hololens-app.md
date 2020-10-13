@@ -8,24 +8,24 @@ ms.author: crtreasu
 ms.date: 08/17/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8c9e6462beb48e3326de3c2348b73053f717e032
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: ee7a0ca1abedd2f80cd8f5fe66e603315a10966f
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441267"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939536"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Självstudie: steg-för-steg-anvisningar för att skapa en ny HoloLens Unity-app med hjälp av Azure spatiala ankare
 
 I den här självstudien visas hur du skapar en ny HoloLens Unity-app med Azure spatiala ankare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa den här självstudien måste du ha:
 
 1. En Windows-dator med <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 +</a> installerad med arbets belastningen **universell Windows-plattform utveckling** och **Windows 10 SDK-komponenten (10.0.18362.0 eller senare)** och <a href="https://git-scm.com/download/win" target="_blank">git för Windows</a>.
 2. [C++/WinRT Visual Studio-tillägget (VSIX)](https://aka.ms/cppwinrt/vsix) för Visual Studio bör installeras från [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
-3. En HoloLens-enhet med [utvecklarläge](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) aktiverat. Den här artikeln kräver en HoloLens-enhet med [Windows-uppdateringen från 10 oktober 2018](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018 ) (kallas även RS5). Uppdatera till den senaste versionen på HoloLens genom att öppna appen **Inställningar**, gå till **Uppdatering och säkerhet** och välja **Sök efter uppdateringar**.
+3. En HoloLens-enhet med [utvecklarläge](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) aktiverat. Den här artikeln kräver en HoloLens-enhet med [Windows 10 maj 2020 Update](https://docs.microsoft.com/windows/mixed-reality/whats-new/release-notes-may-2020 ). Uppdatera till den senaste versionen på HoloLens genom att öppna appen **Inställningar**, gå till **Uppdatering och säkerhet** och välja **Sök efter uppdateringar**.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -236,6 +236,6 @@ Nu kan du lägga till kod som skapar & att placera en grön sfär när CloudSpat
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=234-271)]
 
-Klart! Kör din app från **Visual Studio** en sista gången för att testa hela scenariot från början till slut. Flytta runt enheten och placera din vita sfär. Fortsätt sedan att flytta ditt huvud till att avbilda miljö data tills klotet blir gult. Ditt lokala ankare laddas upp och sfären blir blå. Till sist trycker du på skärmen en gång till för att ta bort din lokala fäst punkt och påbörja en fråga för dess moln motsvarighet. Fortsätt att flytta enheten tills molnets spatiala ankare är belägen. En grön sfär bör visas på rätt plats och du kan upprepa hela scenariot igen.
+Det är allt. Kör din app från **Visual Studio** en sista gången för att testa hela scenariot från början till slut. Flytta runt enheten och placera din vita sfär. Fortsätt sedan att flytta ditt huvud till att avbilda miljö data tills klotet blir gult. Ditt lokala ankare laddas upp och sfären blir blå. Till sist trycker du på skärmen en gång till för att ta bort din lokala fäst punkt och påbörja en fråga för dess moln motsvarighet. Fortsätt att flytta enheten tills molnets spatiala ankare är belägen. En grön sfär bör visas på rätt plats och du kan upprepa hela scenariot igen.
 
 [!INCLUDE [AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md)]

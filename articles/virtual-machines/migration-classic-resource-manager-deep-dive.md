@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: da75e1d6208db5adf5f0f63d2a5525fc651513b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 233ba17e1ae1b554eff092151ad9f05fd660beb3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855921"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970018"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager
 
@@ -135,7 +135,7 @@ Detta är ett valfritt steg om du vill återställa ändringarna till den klassi
 När verifieringen är klar kan du checka in migreringen. Resurser visas inte längre i den klassiska distributions modellen och är bara tillgängliga i distributions modellen för Resource Manager. De migrerade resurserna kan bara hanteras i den nya portalen.
 
 > [!NOTE]
-> Det här är en idempotent åtgärd. Försök igen om det Miss lyckas. Om det fortfarande inte fungerar kan du skapa ett support ärende eller skapa ett forum på [Microsoft Q&a](https://docs.microsoft.com/answers/index.html)
+> Det här är en idempotent åtgärd. Försök igen om det Miss lyckas. Om det fortfarande inte fungerar kan du skapa ett support ärende eller skapa ett forum på [Microsoft Q&a](/answers/index.html)
 >
 >
 
@@ -150,7 +150,7 @@ Här är ett flödes schema som visar hur du fortsätter med migreringen:
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>Översättning av den klassiska distributions modellen till Resource Manager-resurser
 Du hittar den klassiska distributions modellen och resurs hanterarens representationer av resurserna i följande tabell. Andra funktioner och resurser stöds för närvarande inte.
 
-| Klassiskt läge | Resource Manager-läge | Obs! |
+| Klassiskt läge | Resource Manager-läge | Anteckningar |
 | --- | --- | --- |
 | Molntjänstens namn |DNS-namn |Under migreringen skapas en ny resursgrupp för varje molntjänst med namngivningsmönstret `<cloudservicename>-migrated`. Den här resursgruppen innehåller alla dina resurser. Namnet på molntjänsten blir ett DNS-namn som kopplas till den offentliga ip-adressen. |
 | Virtuell dator |Virtuell dator |Egenskaper för virtuella datorer migreras oförändrade. Vissa osProfile-uppgifter, t. ex. dator namn, lagras inte i den klassiska distributions modellen och förblir tomma efter migreringen. |

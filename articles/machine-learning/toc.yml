@@ -15,7 +15,7 @@
 - name: Självstudier
   expanded: true
   items:
-    - name: Komma igång med Python på dag 1
+    - name: Kom igång med Python (dag 1)
       expanded: true
       items:
         - name: 1. Konfigurera lokal dator
@@ -188,6 +188,8 @@
             - name: Använda Private Link
               displayName: private endpoint
               href: how-to-configure-private-link.md
+            - name: Använda anpassad DNS
+              href: how-to-custom-dns.md
             - name: Konfigurera säkra webbtjänster
               displayName: 'ssl, tls'
               href: how-to-secure-web-service.md

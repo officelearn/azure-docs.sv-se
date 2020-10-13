@@ -1,22 +1,22 @@
 ---
-title: Migrera webb tjänster från Google Maps | Microsoft Azure Maps
-description: Så här migrerar du webb tjänster från Google Maps till Microsoft Azure Maps
+title: Självstudie – migrera webb tjänster från Google Maps | Microsoft Azure Maps
+description: Självstudie om hur du migrerar webb tjänster från Google Maps till Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/19/2020
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 57d71d517cb953a2a2c84b7e003fd08541416539
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5da42ebd31e4b09eb8bc223560aec976584c47e9
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319579"
+ms.locfileid: "91874466"
 ---
-# <a name="migrate-web-service-from-google-maps"></a>Migrera webb tjänsten från Google Maps
+# <a name="tutorial---migrate-web-service-from-google-maps"></a>Självstudie – migrera webb tjänsten från Google Maps
 
 Både Azure och Google Maps ger till gång till spatiala API: er via REST-webbtjänster. API-gränssnitten för dessa plattformar utför liknande funktioner. Men de använder olika namngivnings konventioner och svars objekt.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
-ms.openlocfilehash: eecd7281c925fa26ade3aa140df310e69f3385c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 123b85905a5c56949a0c1d35bb1e37215ed8097c
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554745"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940726"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Självstudie: Azure Active Directory integrering med Mixpanel
 
@@ -30,7 +30,7 @@ Genom att integrera Mixpanel med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Mixpanel behöver du följande objekt:
 
@@ -130,15 +130,15 @@ Utför följande steg för att konfigurera enkel inloggning med Mixpanel i Azure
 
 3. Klicka på fliken **åtkomst säkerhet** och klicka sedan på **ändra inställningar**.
    
-    ![Mixpanel-inställningar](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
+    ![Skärm bild som visar fliken åtkomst säkerhet där du kan ändra inställningarna.](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
 
 4. I dialog rutan **ändra ditt certifikat** klickar du på **Välj fil** för att ladda upp ditt hämtade certifikat och klickar sedan på **Nästa**.
    
-    ![Mixpanel-inställningar](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
+    ![Skärm bild som visar dialog rutan Ändra ditt certifikat där du kan välja en certifikat fil.](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
 
 5.  I text rutan för autentiserings-URL i dialog rutan **ändra din URL för autentisering** klistrar du in värdet för **inloggnings-URL: en** som du har kopierat från Azure Portal och klickar sedan på **Nästa**.
    
-    ![Mixpanel-inställningar](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
+    ![Skärm bild som visar fönstret ändra din autentisering U R L där du kan kopiera din inloggning U R L.](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
 
 6. Klicka på **Klar**.
 
@@ -205,7 +205,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 4. Skriv Britta e-postadress i Azure i text rutan **grupp medlem** .
    
-    ![Mixpanel-inställningar](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
+    ![Skärm bild som visar fliken team där du lägger till en adress att bjuda in.](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
 
 5. Klicka på **Bjud in**. 
 

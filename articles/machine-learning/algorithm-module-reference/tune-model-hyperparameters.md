@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/17/2020
-ms.openlocfilehash: b88a9477c9d63becb32bc95ca78b4a8117168a47
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/10/2020
+ms.openlocfilehash: 2ec1726056c7ab223f7d3de70a715a8254e95db4
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907769"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940217"
 ---
 # <a name="tune-model-hyperparameters"></a>Finjustera hyperparametrar för modell
 
@@ -77,9 +77,9 @@ I det här avsnittet beskrivs hur du utför en grundläggande parameter rensning
 
 När inlärningen är klar:
 
-+ Om du vill visa svep resultaten högerklickar du på modulen och väljer **visualisera**.
++ Om du vill visa resultaten för rensningen kan du antingen högerklicka på modulen och sedan välja **visualisera**, eller högerklicka på den vänstra utdataporten för modulen för att visualisera.
 
-    I utdata ingår alla parametrar för parameter rensning och precision som gäller för modell typen, men måttet som du har valt för rangordning avgör vilken modell som betraktas som "bästa".
+    **Rensnings resultatet** innehåller alla parameter rensnings-och precisions mått som gäller för modell typen, och det mått som du har valt för rangordning avgör vilken modell som betraktas som "bästa".
 
 + Om du vill spara en ögonblicks bild av den tränade modellen väljer du fliken **utdata + loggar** i den högra panelen i modulen **träna modell** . Välj ikonen **registrera data uppsättning** för att spara modellen som en återanvändbar modul.
 

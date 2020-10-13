@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.openlocfilehash: cf138248e878b21531df2035dfeda1b90162ea99
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536111"
 ---
 # <a name="intents-in-your-luis-app"></a>Avsikter i din LUIS-app
@@ -25,7 +25,7 @@ Definiera en uppsättning syften som motsvarar åtgärder som användare vill vi
 Rese programs avsikter   |   Exempel på yttranden   |
 ------|------|
  BookFlight (Boka flyg)     |   "Boka mig en flygning till Rio nästa vecka" <br/> "Lägg till Rio på 24" <br/> "Jag behöver en plan biljett nästa söndag för att Rio de Janeiro"    |
- Hälsning     |   HD <br/>Hello <br/>"Lämplig morgon"  |
+ Hälsning     |   ”Hallå” <br/>”Hej” <br/>”God morgon”  |
  CheckWeather | "Vad är väder som i Boston?" <br/> "Visa en prognos för den här helgen" |
  Inget         | "Hämta en cookie-recept"<br>"Gjorde The The Lakers Win?" |
 
@@ -63,7 +63,7 @@ Skapa en avsikt när användarens _avsikt_ skulle utlösa en åtgärd i klient p
 
 ## <a name="none-intent"></a>Avsikten Ingen
 
-**None** -avsikten skapas men lämnas tomt i syfte. **Ingen** avsikt är en obligatorisk avsikt och kan inte tas bort eller byta namn. Fyll i med yttranden som ligger utanför din domän.
+**None** -avsikten skapas men lämnas tomt i syfte. **Ingen** avsikt är en obligatorisk avsikt och kan inte tas bort eller byta namn. Fyll i med talindata som ligger utanför din domän.
 
 **Ingen** avsikt är till gång till återställnings avsikten, viktigt i varje app och bör ha 10% av den totala yttranden. Den används för att lära LUIS-yttranden som inte är viktiga i app-domänen (ämnes område). Om du inte lägger till några yttranden för **none** -LUIS tvingar en uttryck som ligger utanför domänen i en av domän syftena. Detta kommer att skeva förutsägelse poängen genom att lära LUIS fel avsikt för uttryck.
 

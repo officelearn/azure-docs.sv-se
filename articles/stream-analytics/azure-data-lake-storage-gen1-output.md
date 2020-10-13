@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.openlocfilehash: 59b4a04231df3b93b093750cc6c9d70982a418a9
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665352"
 ---
 # <a name="azure-data-lake-storage-gen-1-output-from-azure-stream-analytics"></a>Azure Data Lake Storage gen 1-utdata från Azure Stream Analytics
@@ -24,7 +24,7 @@ Azure Data Lake Storage utdata från Stream Analytics är inte tillgängliga i r
 
 I följande tabell visas egenskaps namn och beskrivningar för att konfigurera Data Lake Storage gen 1-utdata.
 
-| Egenskapsnamn | Description |
+| Egenskapsnamn | Beskrivning |
 | --- | --- |
 | Utdataalias | Ett eget namn som används i frågor för att dirigera utdata från frågan till Data Lake Store. |
 | Prenumeration | Den prenumeration som innehåller ditt Azure Data Lake Storage-konto. |

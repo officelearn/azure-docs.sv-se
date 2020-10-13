@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
 ms.openlocfilehash: 0138715e4c9df8ae05c9a3eade64d539eb7cdeda
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91756559"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Funktionalisering i Automatisk maskin inlärning
@@ -29,7 +29,7 @@ I den här guiden får du lära dig:
 
 *Funktions teknik* är en process där du använder domän information om data för att skapa funktioner som hjälper Machine Learning-algoritmer (ml) att lära sig bättre. I Azure Machine Learning tillämpas teknikerna för data skalning och normalisering för att göra det enklare att använda funktionen. Tillsammans kallas dessa tekniker och den här typen av teknik för *funktionalisering* i automatiserad maskin inlärning eller *AutoML*, experiment.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du redan vet hur du konfigurerar ett AutoML experiment. Information om konfiguration finns i följande artiklar:
 
@@ -182,7 +182,7 @@ Den här listan innehåller alla bevarade funktions namn.
   fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
   ```
 
-Resultat
+Utdata
 
   ```
   [{'RawFeatureName': 'A',
@@ -207,7 +207,7 @@ Resultat
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
 
-   |Resultat|Definition|
+   |Utdata|Definition|
    |----|--------|
    |RawFeatureName|Inmatad funktion/kolumn namn från den angivna data uppsättningen.|
    |TypeDetected|Identifierad datatyp för indata-funktionen.|

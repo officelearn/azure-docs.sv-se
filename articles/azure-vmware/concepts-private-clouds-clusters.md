@@ -4,10 +4,10 @@ description: Lär dig mer om de viktigaste funktionerna i Azure VMware-programde
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 715293d9951876ff0f794f8f6b580093f89571b3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316876"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware-lösning, privata moln och kluster koncept
@@ -38,7 +38,7 @@ Hyper-konvergerade infrastruktur-noder utan operativ system används i Azure VMw
 
 | Värdtyp              |             Processor             |   RAM (GB)   |  Virtuellt San NVMe cache-nivå (TB, RAW)  |  kapacitets nivå för virtuellt San SSD (TB, RAW)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
-| Avancerad (HE)          |  dubbla Intel 18 kärnor 2,3 GHz  |     576      |                3.2               |                15,20               |
+| High-End (HE)          |  dubbla Intel 18 kärnor 2,3 GHz  |     576      |                3.2               |                15,20               |
 
 Värdar som används för att bygga eller skala kluster förvärvas från en isolerad pool av värdar. De här värdarna har passerat maskin varu test och har haft alla data säkert borttagna från Flash-diskarna. När du tar bort en värd från ett kluster rensas de interna diskarna på ett säkert sätt och värdarna placeras i den isolerade poolen med värdar. När du lägger till en värd i ett kluster används en sanerad värd från den isolerade poolen.
 
@@ -61,7 +61,7 @@ De allmänna uppgraderings principerna och processerna för Azure VMware Solutio
 
 Värd underhåll och livs cykel hantering görs utan påverkan på kapaciteten eller prestandan för privata moln kluster. Exempel på automatiserat värd underhåll är uppgraderingar av inbyggd program vara och reparation eller ersättning av maskin vara.
 
-Microsoft ansvarar för livs cykel hantering av NSX-T-apparater som NSX-T Manager och NSX-T-Edge. Microsoft ansvarar också för start av nätverks konfiguration, till exempel att skapa nivå 0-gateway och aktivera Nord-syd-routning. Som administratör för ditt privata moln i Azure VMware-lösningen är du ansvarig för NSX-T SDN-konfigurationen. Till exempel nätverks segment, distribuerade brand Väggs regler, nivå 1-gatewayer och belastningsutjämnare.
+Microsoft ansvarar för livs cykel hantering av NSX-T-apparater som NSX-T Manager och NSX-T-Edge. Microsoft ansvarar också för start av nätverks konfiguration, till exempel att skapa nivå 0-gatewayen och aktivera North-South routning. Som administratör för ditt privata moln i Azure VMware-lösningen är du ansvarig för NSX-T SDN-konfigurationen. Till exempel nätverks segment, distribuerade brand Väggs regler, nivå 1-gatewayer och belastningsutjämnare.
 
 > [!IMPORTANT]
 > En Azure VMware-lösning för VMware-lösningar får inte ändra konfigurationen för NSX-T Edge eller nivå 0-Gateway. Detta kan leda till förlust av tjänst.

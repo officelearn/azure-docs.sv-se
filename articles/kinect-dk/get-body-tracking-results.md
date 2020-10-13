@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, Azure, sensor, SDK, brödtext, spårning, gemensamt
 ms.openlocfilehash: 1b62022242144d5db51455a32ac04b67c3e5dd7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277713"
 ---
 # <a name="get-body-tracking-results"></a>Hämta kroppsspårningsresultat
@@ -50,7 +50,7 @@ if (K4A_RESULT_SUCCEEDED != k4abt_tracker_create(&sensor_calibration, tracker_co
 Bild avbildning med hjälp av Azure Kinect DK beskrivs på sidan [Hämta avbildningar](retrieve-images.md) .
 
 >[!NOTE]
-> `K4A_DEPTH_MODE_NFOV_UNBINNED`eller `K4A_DEPTH_MODE_WFOV_2X2BINNED` lägen rekommenderas för bästa prestanda och exakthet. Använd inte `K4A_DEPTH_MODE_OFF` `K4A_DEPTH_MODE_PASSIVE_IR` lägena eller.
+> `K4A_DEPTH_MODE_NFOV_UNBINNED` eller `K4A_DEPTH_MODE_WFOV_2X2BINNED` lägen rekommenderas för bästa prestanda och exakthet. Använd inte `K4A_DEPTH_MODE_OFF` `K4A_DEPTH_MODE_PASSIVE_IR` lägena eller.
 
 De Azure Kinect DK-lägen som stöds beskrivs i [maskin varu specifikationen](hardware-specification.md) för Azure Kinect DK och [k4a_depth_mode_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___enumerations_ga3507ee60c1ffe1909096e2080dd2a05d.html#ga3507ee60c1ffe1909096e2080dd2a05d) uppräkningar.
 

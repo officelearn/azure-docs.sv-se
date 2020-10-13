@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
 ms.openlocfilehash: 80f0d29de6b3013ad02ed1a5d34bebdf81a8766b
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91628221"
 ---
 # <a name="spatial-analysis-operations"></a>Åtgärder för rums analys
 
-Med rums analys kan du analysera real tids strömnings video från kamera enheter. För varje kamera enhet som du konfigurerar genererar åtgärder för rums analys en utdataström av JSON-meddelanden som skickas till din instans av Azure IoT Hub. 
+Med rumslig analys kan du analysera strömningsvideo i realtid från kameraenheter. För varje kameraenhet som du konfigurerar genererar åtgärder för rumslig analys en utdataström med JSON-meddelanden som skickas till din instans av Azure IoT Hub. 
 
 Behållaren för rums analys implementerar följande åtgärder:
 

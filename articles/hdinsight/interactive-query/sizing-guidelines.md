@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: a81eff1dcf48996c319933aa4dd46170043b943b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83664937"
 ---
 # <a name="interactive-query-cluster-sizing-guide-in-azure-hdinsight"></a>Kluster storleks guide för interaktiv fråga i Azure HDInsight
@@ -75,13 +75,13 @@ Standard-HDInsight-kluster har fyra LLAP-daemonar som körs på fyra arbetsnoder
 
 ### <a name="tezamresourcememorymb-hivetezcontainersize"></a>Tez. am. Resource. Memory. MB, Hive. Tez. container. size
 
-`tez.am.resource.memory.mb`definierar Tez program huvud storlek.  
+`tez.am.resource.memory.mb` definierar Tez program huvud storlek.  
 Det rekommenderade värdet är **4096 MB**.
 
-`hive.tez.container.size`definierar mängden minne som anges för Tez-behållaren. Det här värdet måste anges mellan den minsta storleken för garn behållare ( `yarn.scheduler.minimum-allocation-mb` ) och den största garn storleken ( `yarn.scheduler.maximum-allocation-mb` ).  
+`hive.tez.container.size` definierar mängden minne som anges för Tez-behållaren. Det här värdet måste anges mellan den minsta storleken för garn behållare ( `yarn.scheduler.minimum-allocation-mb` ) och den största garn storleken ( `yarn.scheduler.maximum-allocation-mb` ).  
 Vi rekommenderar att du är inställd på **4096 MB**.  
 
-En allmän regel är att hålla den mindre än mängden minne per processor som överväger en processor per behållare. `Rreserve`minne för antalet Tez-AMs på en nod innan du ger minnet för LLAP daemon. Om du till exempel använder två Tez-AMs (4 GB varje) per nod, ger du 82 GB av 90 GB för LLAP daemon reserverar 8 GB för två Tez AMs.
+En allmän regel är att hålla den mindre än mängden minne per processor som överväger en processor per behållare. `Rreserve` minne för antalet Tez-AMs på en nod innan du ger minnet för LLAP daemon. Om du till exempel använder två Tez-AMs (4 GB varje) per nod, ger du 82 GB av 90 GB för LLAP daemon reserverar 8 GB för två Tez AMs.
 
 ### <a name="yarnschedulercapacityrootllapcapacity"></a>garn. Scheduler. Capacity. root. LLAP. Capacity
 

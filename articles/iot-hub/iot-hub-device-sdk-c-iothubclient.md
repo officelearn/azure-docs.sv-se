@@ -10,10 +10,10 @@ ms.date: 08/29/2017
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: 91527b5f2159a336e8339c6a128e8d61965292a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81732607"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Azure IoT-enhetens SDK för C – mer om IoTHubClient
@@ -256,7 +256,7 @@ Det kan förefalla självklart att du vill använda **IoTHubClient \_ CreateFrom
 
 ## <a name="configuration-options"></a>Konfigurationsalternativ
 
-Hittills beskrivet allt om hur **IoTHubClient** -biblioteket fungerar reflekterar dess standard beteende. Det finns dock några alternativ som du kan ange för att ändra hur biblioteket fungerar. Detta åstadkommer du genom att använda **IoTHubClient \_ lla \_ SetOption** -API: et. Tänk på det här exemplet:
+Hittills beskrivet allt om hur **IoTHubClient** -biblioteket fungerar reflekterar dess standard beteende. Det finns dock några alternativ som du kan ange för att ändra hur biblioteket fungerar. Detta åstadkommer du genom att använda **IoTHubClient \_ lla \_ SetOption** -API: et. Ta det här exemplet:
 
 ```C
 unsigned int timeout = 30000;

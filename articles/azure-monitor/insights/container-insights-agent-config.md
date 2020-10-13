@@ -4,13 +4,13 @@ description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor f
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: 039c6355bef638aae0b2ef074f006aabc04185c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84299289"
 ---
-# <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Konfigurera agent data insamling för Azure Monitor för behållare
+# <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Konfigurera agentdatainsamling för Azure Monitor för containrar
 
 Azure Monitor för behållare samlar in STDOUT-, stderr-och miljövariabler från behållar arbets belastningar som distribueras till hanterade Kubernetes-kluster från behållarens agent. Du kan konfigurera inställningar för data insamling för agenter genom att skapa en anpassad Kubernetes-ConfigMaps för att styra den här upplevelsen. 
 
@@ -38,8 +38,8 @@ Följande är de inställningar som kan konfigureras för att styra data insamli
 | `[log_collection_settings.stdout] enabled =` | Boolesk | sant eller falskt | Kontrollerar om STDOUT container logg samling är aktive rad. När det är inställt på `true` och inga namn områden utesluts för STDOUT logg insamling<br> ( `log_collection_settings.stdout.exclude_namespaces` inställningen nedan) kommer STDOUT-loggar att samlas in från alla behållare över alla poddar/noder i klustret. Om detta inte anges i ConfigMaps<br> Standardvärdet är `enabled = true` . |
 | `[log_collection_settings.stdout] exclude_namespaces =` | Sträng | Kommaavgränsad matris | Matris med Kubernetes-namnområden som StdOut-loggar inte ska samlas in för. Den här inställningen gäller endast om<br> `log_collection_settings.stdout.enabled`<br> är inställt på `true` .<br> Om inget värde anges i ConfigMap är standardvärdet<br> `exclude_namespaces = ["kube-system"]`. |
 | `[log_collection_settings.stderr] enabled =` | Boolesk | sant eller falskt | Anger om stderr container logg samling är aktive rad.<br> När det är inställt på `true` och inga namn områden utesluts för STDOUT logg insamling<br> ( `log_collection_settings.stderr.exclude_namespaces` inställning) kommer stderr-loggar att samlas in från alla behållare över alla poddar/noder i klustret.<br> Om inget värde anges i ConfigMaps är standardvärdet<br> `enabled = true`. |
-| `[log_collection_settings.stderr] exclude_namespaces =` | Sträng | Kommaavgränsad matris | Matris med Kubernetes-namnområden som stderr-loggar inte ska samlas in för.<br> Den här inställningen gäller endast om<br> `log_collection_settings.stdout.enabled`är inställt på `true` .<br> Om inget värde anges i ConfigMap är standardvärdet<br> `exclude_namespaces = ["kube-system"]`. |
-| `[log_collection_settings.env_var] enabled =` | Boolesk | sant eller falskt | Den här inställningen styr miljö variabel samlingen<br> över alla poddar/noder i klustret<br> och standardvärdet `enabled = true` när inget anges<br> i ConfigMaps.<br> Om samlingen av miljövariabler är globalt aktive rad kan du inaktivera den för en speciell behållare<br> genom att ställa in miljövariabeln<br> `AZMON_COLLECT_ENV`Om du vill ange **falskt** antingen med en Dockerfile-inställning eller i [konfigurations filen för Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) under avsnittet **kuvert:** .<br> Om insamlingen av miljövariabler är globalt inaktive rad kan du inte aktivera samling för en speciell behållare (det vill säga den enda åsidosättning som kan tillämpas på behållar nivån är att inaktivera samlingen när den redan är aktive rad globalt.). |
+| `[log_collection_settings.stderr] exclude_namespaces =` | Sträng | Kommaavgränsad matris | Matris med Kubernetes-namnområden som stderr-loggar inte ska samlas in för.<br> Den här inställningen gäller endast om<br> `log_collection_settings.stdout.enabled` är inställt på `true` .<br> Om inget värde anges i ConfigMap är standardvärdet<br> `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.env_var] enabled =` | Boolesk | sant eller falskt | Den här inställningen styr miljö variabel samlingen<br> över alla poddar/noder i klustret<br> och standardvärdet `enabled = true` när inget anges<br> i ConfigMaps.<br> Om samlingen av miljövariabler är globalt aktive rad kan du inaktivera den för en speciell behållare<br> genom att ställa in miljövariabeln<br> `AZMON_COLLECT_ENV` Om du vill ange **falskt** antingen med en Dockerfile-inställning eller i [konfigurations filen för Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) under avsnittet **kuvert:** .<br> Om insamlingen av miljövariabler är globalt inaktive rad kan du inte aktivera samling för en speciell behållare (det vill säga den enda åsidosättning som kan tillämpas på behållar nivån är att inaktivera samlingen när den redan är aktive rad globalt.). |
 | `[log_collection_settings.enrich_container_logs] enabled =` | Boolesk | sant eller falskt | Den här inställningen styr anrikningen av behållar loggen till att fylla i värdena för namn och bild egenskaper<br> för varje logg post skrivs till tabellen ContainerLog för alla behållar loggar i klustret.<br> Det används som standard `enabled = false` när det inte anges i ConfigMap. |
 | `[log_collection_settings.collect_all_kube_events]` | Boolesk | sant eller falskt | Den här inställningen tillåter insamling av Kube-händelser av alla typer.<br> Som standard samlas inte Kube-händelser av typen *Normal* in. När den här inställningen är inställd på `true` filtreras inte de *normala* händelserna längre och alla händelser samlas in.<br> Som standard är detta inställt på `false` . |
 
@@ -115,7 +115,7 @@ Konfigurations ändringen kan ta några minuter innan den börjar gälla, och al
 
 ## <a name="verifying-schema-version"></a>Verifierar schema version
 
-Konfigurations schema versioner som stöds är tillgängliga som Pod-anteckning (schema versioner) på omsagent-pod. Du kan se dem med följande kubectl-kommando:`kubectl describe pod omsagent-fdf58 -n=kube-system`
+Konfigurations schema versioner som stöds är tillgängliga som Pod-anteckning (schema versioner) på omsagent-pod. Du kan se dem med följande kubectl-kommando: `kubectl describe pod omsagent-fdf58 -n=kube-system`
 
 Utdata ser ut ungefär så här med antecknings schema versioner:
 

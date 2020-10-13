@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: a7ae1a0f77d0d19fc48695ddc5cc3d3a14d65ab9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82195136"
 ---
 # <a name="azure-data-lake-storage-gen2-overview-in-hdinsight"></a>Översikt över Azure Data Lake Storage Gen2 i HDInsight
@@ -57,11 +57,11 @@ Azure Data Lake Storage Gen2 använder ett nytt URI-schema för att komma åt fi
 
 URI-schemat ger SSL-krypterad åtkomst.
 
-`<FILE_SYSTEM_NAME>`identifierar sökvägen till fil systemet Data Lake Storage Gen2.
+`<FILE_SYSTEM_NAME>` identifierar sökvägen till fil systemet Data Lake Storage Gen2.
 
-`<ACCOUNT_NAME>`identifierar Azure Storage kontots namn. Ett fullständigt kvalificerat domännamn (FQDN) krävs.
+`<ACCOUNT_NAME>` identifierar Azure Storage kontots namn. Ett fullständigt kvalificerat domännamn (FQDN) krävs.
 
-`<PATH>`är sökvägen till filen eller katalogen HDFS.
+`<PATH>` är sökvägen till filen eller katalogen HDFS.
 
 Om värden för `<FILE_SYSTEM_NAME>` och `<ACCOUNT_NAME>` inte anges används standard fil systemet. För filerna i standard fil systemet använder du en relativ sökväg eller en absolut sökväg. Till exempel `hadoop-mapreduce-examples.jar` kan filen som medföljer HDInsight-kluster refereras till genom att använda någon av följande sökvägar:
 

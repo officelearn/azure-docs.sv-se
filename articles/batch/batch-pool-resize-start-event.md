@@ -4,10 +4,10 @@ description: Referens för start händelse för storleks ändring i batch-pool. 
 ms.topic: reference
 ms.date: 04/20/2017
 ms.openlocfilehash: 63576b04b06aad024211d0a50225907c88c138ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83723739"
 ---
 # <a name="pool-resize-start-event"></a>Starthändelse för storleksändring av pool

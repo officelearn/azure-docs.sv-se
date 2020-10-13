@@ -10,10 +10,10 @@ ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 711da24b3edf08f4867109d0d70165955236c39a
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743428"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>Självstudie: Konfigurera Compute på Azure Stack Edge Pro GPU-enhet
@@ -25,14 +25,14 @@ I den här självstudien beskrivs hur du konfigurerar en beräknings roll och sk
 Den här proceduren kan ta cirka 20 till 30 minuter att slutföra.
 
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera beräkning
 > * Hämta Kubernetes-slutpunkter
 
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du ställer in en beräknings roll på din Azure Stack Edge Pro-enhet ser du till att:
 
@@ -56,10 +56,10 @@ Om du vill konfigurera Compute på Azure Stack Edge Pro skapar du en IoT Hub res
 3. Ange följande på bladet **Konfigurera Edge Compute** :
 
    
-    |Fält  |Värde  |
+    |Field  |Värde  |
     |---------|---------|
     |IoT Hub     | Välj från **ny** eller **befintlig**. <br> Som standard används nivån Standard (S1) till att skapa en IoT-resurs. Om du vill använda en IoT-resurs på kostnadsfri nivå skapar du en sådan och väljer sedan den befintliga resursen. <br> I varje fall använder IoT Hub resursen samma prenumeration och resurs grupp som används av Azure Stack Edge-resursen.     |
-    |Namn     |Ange ett namn för din IoT Hub-resurs.         |
+    |Name     |Ange ett namn för din IoT Hub-resurs.         |
 
     ![Kom igång med Compute 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 

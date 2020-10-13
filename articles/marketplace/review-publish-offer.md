@@ -8,18 +8,18 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 08/12/2020
-ms.openlocfilehash: eff1db3aca2cab77d18698634b84e8e1b1c99f7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47d82982bbb7546b53dd4754c49bd22fe958d5ef
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375896"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976494"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Granska och publicera ett erbjudande på den kommersiella Marketplace
 
 Den här artikeln visar hur du använder Partner Center för att skicka in ditt erbjudande för publicering, för hands version av ditt erbjudande och sedan publicera det på den kommersiella Marketplace. Vi tar också upp hur du kontrollerar publicerings statusen när den går igenom publicerings stegen. Du måste redan ha skapat ett erbjudande som du vill publicera.
 
-## <a name="offer-status"></a>Erbjudande status
+## <a name="offer-status"></a>Erbjudandestatus
 
 Du kan granska din erbjudande status på fliken **Översikt** på instrument panelen för extern Marketplace i [partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). En av följande status indikatorer visas i kolumnen **status** för varje erbjudande.
 
@@ -170,6 +170,84 @@ Nu när du har valt att sätta igång med ditt erbjudande, vilket gör det tillg
     Vi garanterar att erbjudandet blir offentligt tillgängligt på Marketplace.
 
 När dessa verifierings kontroller har slutförts är ditt erbjudande Live på Marketplace.
+
+## <a name="publishing-history"></a>Publicerings historik
+
+Sidan **Historik** i Partner Center visar publicerings händelser för dina kommersiella Marketplace-erbjudanden. För varje händelse visar sidan den användare som initierade åtgärden, händelse typ och datum och tid för händelsen. [Validerings-och publicerings stegen](#validation-and-publishing-steps) visas med datum och tid för slut för ande.
+
+Så här visar du historiken för ditt erbjudande:
+
+1.    Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
+2.    I navigerings menyn till vänster väljer du **kommersiell Marketplace**-  >  **Översikt**.
+3.    Välj ditt erbjudande.
+4.    Välj fliken **Historik** i navigerings menyn till vänster. Sidan innehåller information om följande händelser, efter vad som är tillämpligt för ditt erbjudande:
+
+|Händelse    |Beskrivning    |
+|---------|---------------|
+|Skapat erbjudande    |Erbjudandet skapades i Partner Center. En användare har valt erbjudande typ, erbjudande-ID och erbjudande-alias i den **kommersiella Marketplace**-  >  **översikten**.    |
+|Skapad plan: *plan namn*    |En användare skapade en ny plan genom att ange plan-ID och plan namn på fliken **plan översikt** .</br>*Den här händelsen gäller endast för de typer av erbjudanden som har stöd för planer*.    |
+|Borttagen plan    |En användare tog bort en utkast plan som inte har publicerats genom att välja **ta bort utkast** från sidan **plan översikt** .</br>*Den här händelsen gäller endast för de typer av erbjudanden som har stöd för planer*.    |
+|Initierad plan slutar sälja: *planerat namn*    |En användare initierade en plan-Stop-säljning genom att välja **sluta sälja** från sidan **plan översikt** .</br>*Den här händelsen gäller endast för de typer av erbjudanden som har stöd för planer*.    |
+|Ångra plan stoppa Sälj: *plan namn*    |En användare avbröt en plans topp-försäljning genom att välja **Ångra sluta sälja** från sidan **plan översikt** .</br>*Den här händelsen gäller endast för de typer av erbjudanden som har stöd för planer*.    |
+|Skickat erbjudande till för hands version    |En användare skickade erbjudandet till för hands versionen genom att välja **publicera** på sidan **Granska och publicera** .    |
+|Initierad sändning för att avbryta för hands version    |En användare begärde att avbryta publiceringen av erbjudandet till för hands versionen genom att välja **Avbryt publicering** på sidan **erbjudande översikt** efter att du har skickat in den för hands version.</br>*Den här händelsen visas när begäran om annullering bearbetas*.    |
+|Överföringen avbröts för för hands versionen    |En användare avbröt erbjudande publikationen till för hands versionen genom att välja **Avbryt publicering** på sidan **erbjudande översikt** efter att du har skickat in den för hands version.</br>*Den här händelsen visas när begäran om annullering har bearbetats*.    |
+|Logga ut för att gå live    |En användare publicerade erbjudandet till den kommersiella marknads platsen genom att välja **Go Live** på sidan **erbjudande översikt** .    |
+|Startade annullering av publicera på Marketplace    |En användare begärde att avbryta publiceringen av erbjudandet genom att välja **Avbryt publicering** på sidan **erbjudande översikt** efter att du är inloggad.</br>*Den här händelsen visas när begäran om annullering bearbetas*.    |
+|Avbruten publicering till den kommersiella marknads platsen    |En användare avbröt erbjudandet genom att välja **Avbryt publicering** på sidan **erbjudande översikt** efter att du är inloggad.</br>*Den här händelsen visas när begäran om annullering har bearbetats*.    |
+|Synkronisera privat mål grupp    |En användare uppdaterade och synkroniserade den privata mål gruppen genom att välja **Synkronisera privat publik** på sidan **plan översikt** eller på sidan **prenumerations pris & tillgänglighet** .</br>*Den här händelsen gäller endast för typer av erbjudanden som stöder privata planer*.    |
+|Stoppa Sälj erbjudandet    |En användare slutade sälja erbjudandet genom att välja **sluta sälja** från sidan **erbjudande översikt** .    |
+
+> [!NOTE]
+> Sidan historik säger inte när ett erbjudande utkast har sparats.
+
+### <a name="filter-options"></a>Filtrera alternativ
+
+Du kan använda filter för att begränsa den fullständiga historiken för ditt erbjudande till specifika publicerings händelser:
+
+1.    Välj filter knappen i det övre högra hörnet på sidan.
+2.    Välj ett filter och välj sedan **tillämpa** för att se vilka historik händelser motsvarar de kriterier som du har valt.
+3.    Välj **Rensa filter** om du vill återgå till den fullständiga historiken för ditt erbjudande.
+
+Det finns fyra filter:
+* Händelser
+* Användare
+* Datum
+* Sidor
+
+När du väljer filtret **sidor** kan du välja någon av de partner Center-sidor som gäller för din erbjudande typ. När detta används visar filtret **Pages** alla **skickade erbjudanden för för hands versions** händelser med ändringar på sidan som du har valt.
+
+* För alla erbjudanden ingår sidan **erbjudande konfiguration** som standard för varje överförings händelse.
+* För erbjudanden som stöder avtal ingår **plan översikts** sidan för varje överförings händelse.
+* För erbjudanden som stöder Test Drive tas sidan **test enhet** med för varje överförings händelse.
+
+### <a name="users"></a>Användare
+
+Om en händelse initierades av en användare visar historik sidan användaren enligt följande scenarier:
+
+#### <a name="the-event-was-initiated-by-the-publisher"></a>Händelsen initierades av utgivaren
+
+Användare med publicerings behörigheter för ett erbjudande får sitt namn för de publicerings händelser som de initierar.
+
+[![Sidan historik visar namnet på användare med publicerings behörigheter.](./media/review-publish-offer/event-initiated-by-publisher.png)](./media/review-publish-offer/event-initiated-by-publisher.png#lightbox)
+
+#### <a name="the-event-was-initiated-by-microsoft"></a>Händelsen initierades av Microsoft
+
+Du kan ge Microsoft-administratörer behörighet att initiera åtgärder för din räkning eller vidta korrigerande åtgärder efter ett oväntat systemfel. Microsofts namn och logo typ visas för publicering av händelser som initierats av Microsoft på uppdrag av ditt konto.
+
+[![Exempel på hur historik sidan visar händelser som initierats av Microsoft.](./media/review-publish-offer/event-initiated-by-microsoft.png)](./media/review-publish-offer/event-initiated-by-microsoft.png#lightbox)
+
+#### <a name="the-event-was-initiated-by-an-unidentified-user"></a>Händelsen initierades av en oidentifierad användare
+
+Användare som inte längre är kopplade till ett konto får sitt namn bort från kolumnen **initierad av** efter att publicerings behörigheterna har återkallats.
+
+[![Exempel på hur historik sidan visar händelser som initieras av oidentifierade användare.](./media/review-publish-offer/event-initiated-by-unidentified-user.png)](./media/review-publish-offer/event-initiated-by-unidentified-user.png#lightbox)
+
+#### <a name="validation-and-publishing-steps"></a>Validerings-och publicerings steg
+
+Ingen användare visas för system processer som motsvarar [validerings-och publicerings steg](#validation-and-publishing-steps). Dessa händelser färgkodas enligt händelsens slut för ande status.
+
+[![Exempel på hur historik sidan visar validerings-och publicerings steg.](./media/review-publish-offer/validation-and-publishing-event.png)](./media/review-publish-offer/validation-and-publishing-event.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 

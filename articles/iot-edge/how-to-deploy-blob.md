@@ -7,21 +7,24 @@ ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b5b7b45cc52d900e5ecde59e6a5ae203533286b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80804630"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978874"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Distribuera Azure Blob Storage i IoT Edge-modulen till din enhet
 
 Det finns flera sätt att distribuera moduler till en IoT Edge enhet och alla fungerar för Azure Blob Storage i IoT Edge-moduler. De två enklaste metoderna är att använda mallarna Azure Portal eller Visual Studio-kod.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) i din Azure-prenumeration.
-- En [IoT Edge-enhet](how-to-register-device.md) med IoT Edge runtime installerad.
+- En IoT Edge enhet.
+
+  Om du inte har konfigurerat en IoT Edge enhet kan du skapa en på en virtuell Azure-dator. Följ stegen i en av snabb starts artiklarna för att [skapa en virtuell Linux-enhet](quickstart-linux.md) eller [skapa en virtuell Windows-enhet](quickstart.md).
+
 - [Visual Studio Code](https://code.visualstudio.com/) och [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) om du distribuerar från Visual Studio Code.
 
 ## <a name="deploy-from-the-azure-portal"></a>Distribuera från Azure Portal
@@ -88,10 +91,10 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
 
    - Ersätt `<storage mount>` enligt behållar operativ systemet. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en befintlig katalog på din IoT Edge enhet där BLOB-modulen kommer att lagra data. Lagrings monteringen mappar en plats på enheten som du anger till en angiven plats i modulen.
 
-     - För Linux-behållare är formatet ** \<your storage path or volume> :/blobroot**. Exempel:
+     - För Linux-behållare är formatet ** \<your storage path or volume> :/blobroot**. Till exempel:
          - Använd [volym montering](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
          - Använd [BIND-montering](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Se till att följa stegen för att [bevilja katalog åtkomst till behållar användaren](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - För Windows-behållare är formatet ** \<your storage path or volume> : C:/BlobRoot**. Exempel:
+     - För Windows-behållare är formatet ** \<your storage path or volume> : C:/BlobRoot**. Till exempel:
          - Använd [volym montering](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .
          - Använd [BIND-montering](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot` .
          - I stället för att använda din lokala enhet kan du mappa din SMB-nätverks plats, mer information finns i [använda SMB-resurs som lokal lagring](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
@@ -200,13 +203,13 @@ Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att 
 
 1. Ersätt `<storage mount>` enligt behållar operativ systemet. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en katalog på din IoT Edge enhet där du vill att BLOB-modulen ska lagra data. Lagrings monteringen mappar en plats på enheten som du anger till en angiven plats i modulen.  
 
-     - För Linux-behållare är formatet ** \<your storage path or volume> :/blobroot**. Exempel:
+     - För Linux-behållare är formatet ** \<your storage path or volume> :/blobroot**. Till exempel:
          - Använd [volym montering](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
          - Använd [BIND-montering](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Se till att följa stegen för att [bevilja katalog åtkomst till behållar användaren](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - För Windows-behållare är formatet ** \<your storage path or volume> : C:/BlobRoot**. Till exempel
+     - För Windows-behållare är formatet ** \<your storage path or volume> : C:/BlobRoot**. Till exempel:
          - Använd [volym montering](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .
          - Använd [BIND-montering](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot` .
-         - I stället för att använda din lokala enhet kan du mappa din SMB-nätverks plats. mer information finns i [använda SMB-resurs som lokal lagring](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
+         - I stället för att använda din lokala enhet kan du mappa din SMB-nätverks plats. Mer information finns i [använda SMB-resurs som lokal lagring](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
 
      > [!IMPORTANT]
      > Ändra inte den andra halvan av lagrings montering svärdet, som pekar på en angiven plats i Blob Storage i modulen IoT Edge. Lagrings monteringen måste alltid avslutas med **:/blobroot** för Linux-behållare och **: C:/blobroot** för Windows-behållare.
@@ -271,7 +274,7 @@ Den här processen beskrivs i [Konfigurera en IoT Edge-enhet för att kommunicer
 
 Dessutom kräver en Blob Storage-modul också HTTPS_PROXY inställningen i manifest distributions filen. Du kan redigera distributions manifest filen direkt eller använda Azure Portal.
 
-1. Navigera till din IoT-hubb i Azure Portal och välj **IoT Edge** från menyn i den vänstra rutan.
+1. Navigera till din IoT Hub i Azure Portal och välj **IoT Edge** från menyn i den vänstra rutan.
 
 1. Välj den enhet som ska konfigureras av modulen.
 

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d68e5335fff0341d8808e581061519977e1bb517
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 905ca5fd92a09b209bf099bfac0862132ec679a4
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543286"
+ms.locfileid: "91875623"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Självstudie: Azure Active Directory integration med Sectigo Certificate Manager
 
-I den här självstudien får du lära dig att integrera Sectigo Certificate Manager med Azure Active Directory (Azure AD).
+I den här självstudien får du lära dig att integrera Sectigo Certificate Manager (även kallat SCM) med Azure Active Directory (Azure AD).
 
 Genom att integrera Sectigo Certificate Manager med Azure AD får du följande fördelar:
 
@@ -30,12 +30,15 @@ Genom att integrera Sectigo Certificate Manager med Azure AD får du följande f
 
 Mer information om program vara som en tjänst (SaaS) för att integrera appar med Azure AD finns i [enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Sectigo Certificate Manager behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har en Azure AD-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* Sectigo Certificate Manager-prenumeration med enkel inloggning aktive rad.
+* Sectigo Certificate Manager-konto.
+
+> [!NOTE]
+> Sectigo kör flera instanser av Sectigo Certificate Manager. Huvud instansen av Sectigo Certificate Manager är  **https: \/ /cert-Manager.com**, och denna URL används i den här självstudien.  Om ditt konto finns på en annan instans måste du justera webb adresserna efter behov.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -99,47 +102,45 @@ I det här avsnittet konfigurerar du enkel inloggning med Azure AD med Sectigo C
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I fönstret **grundläggande SAML-konfiguration** konfigurerar du *IDP-initierat läge*genom att utföra följande steg:
+1. I avsnittet **grundläggande SAML-konfiguration** slutför du följande steg:
 
-    1. I rutan **identifierare** anger du en av följande URL: er:
-       * https: \/ /cert-Manager.com/Shibboleth
-       * https: \/ /Hard.cert-Manager.com/Shibboleth
+    1. I rutan **identifierare (enhets-ID)** för den huvudsakliga Sectigo Certificate Manager-instansen anger du **https: \/ /cert-Manager.com/Shibboleth**.
 
-    1. I rutan **svars-URL** anger du en av följande URL: er:
-        * https: \/ /cert-Manager.com/Shibboleth.SSO/SAML2/post
-        * https: \/ /Hard.cert-Manager.com/Shibboleth.SSO/SAML2/post
+    1. Skriv **https: \/ /cert-Manager.com/Shibboleth.SSO/SAML2/post**i rutan **svars-URL** för den huvudsakliga Sectigo Certificate Manager-instansen.
+        
+    > [!NOTE]
+    > Även om **inloggnings-URL: en** är i allmänhet obligatorisk för *SP-initierat läge*behöver du inte logga in från Sectigo Certificate Manager.        
+
+1. Du kan också i avsnittet **grundläggande SAML-konfiguration** konfigurera *IDP-initierat läge* och för att tillåta att **testet** fungerar, genom att utföra följande steg:
 
     1. Välj **Ange ytterligare URL: er**.
 
-    1. I rutan **relä tillstånd** anger du en av följande URL: er:
-       * https: \/ /cert-Manager.com/Customer/SSLSupport/IDP
-       * https: \/ /Hard.cert-Manager.com/Customer/SSLSupport/IDP
+    1. I rutan **vidarebefordra tillstånd** anger du en kundspecifik URL för Sectigo Certificate Manager. För main Sectigo Certificate Manager-instans anger du **https: \/ /cert-Manager.com/Customer/ \<customerURI\> /IDP**.
 
     ![Information om enkel inloggning för Sectigo Certificate Manager-domän och URL: er](common/idp-relay.png)
 
-1.  Slutför följande steg för att konfigurera programmet i *SP-initierat läge*:
+1. Utför följande steg i avsnittet **användarattribut &-anspråk** :
 
-    * I rutan **inloggnings-URL** anger du en av följande URL: er:
-      * https: \/ /cert-Manager.com/Shibboleth.SSO/login
-      * https: \/ /Hard.cert-Manager.com/Shibboleth.SSO/login
+    1. Ta bort alla **Ytterligare anspråk**.
+    
+    1. Välj **Lägg till nytt anspråk** och Lägg till följande fyra anspråk:
+    
+        | Name | Namnområde | Källa | Källattribut | Beskrivning |
+        | --- | --- | --- | --- | --- |
+        | eduPersonPrincipalName | tomt | Attribut | user.userprincipalname | Måste matcha fältet **IDP person-ID** i Sectigo Certificate Manager för administratörer. |
+        | e-post | tomt | Attribut | user.mail | Krävs |
+        | förnamn | tomt | Attribut | user.givenname | Valfritt |
+        | sn | tomt | Attribut | user.surname | Valfritt |
 
-      ![Information om enkel inloggning för Sectigo Certificate Manager-domän och URL: er](common/both-signonurl.png)
+       ![Sectigo Certificate Manager – Lägg till fyra nya anspråk](media/sectigo-certificate-manager-tutorial/additional-claims.png)
 
-1. I avsnittet **Konfigurera enskilda Sign-On med SAML** , i avsnittet SAML- **signeringscertifikat** , väljer du **Hämta** bredvid **certifikat (base64)**. Välj ett nedladdnings alternativ baserat på dina krav. Spara certifikatet på datorn.
+1. I avsnittet **SAML-signerings certifikat** väljer du **Hämta** bredvid **XML för federationsmetadata**. Spara XML-filen på din dator.
 
-    ![Hämtnings alternativet för certifikat (base64)](common/certificatebase64.png)
-
-1. I avsnittet **Konfigurera Sectigo Certificate Manager** kopierar du följande webb adresser utifrån dina krav:
-
-    * Inloggnings-URL
-    * Azure AD-identifierare
-    * Utloggnings-URL
-
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+    ![Hämtnings alternativ för XML-metadata för federationsmetadata](common/metadataxml.png)
 
 ### <a name="configure-sectigo-certificate-manager-single-sign-on"></a>Konfigurera enkel inloggning för Sectigo Certificate Manager
 
-Om du vill konfigurera enkel inloggning på sidan Sectigo Certificate Manager skickar du den hämtade certifikat filen (base64) och relevanta URL: er som du kopierade från Azure Portal till [support teamet för Sectigo Certificate Manager](https://sectigo.com/support). Support teamet för Sectigo Certificate Manager använder den information som du skickar dem för att se till att den enkel inloggnings anslutningen för SAML är korrekt inställd på båda sidor.
+Om du vill konfigurera enkel inloggning på sidan Sectigo Certificate Manager skickar du den hämtade XML-filen med federationsmetadata till [support teamet för Sectigo Certificate Manager](https://sectigo.com/support). Support teamet för Sectigo Certificate Manager använder den information som du skickar dem för att se till att den enkel inloggnings anslutningen för SAML är korrekt inställd på båda sidor.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -159,7 +160,7 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
   
     1. I rutan **användar namn** anger du **brittasimon \@ \<your-company-domain> . \<extension\> **. Till exempel **brittasimon \@ contoso.com**.
 
-    1. Markera kryss rutan **Visa lösen ord** . Skriv ned värdet som visas i rutan **lösen ord** .
+    1. Markera kryss rutan **Visa lösen ord** . Registrera värdet som visas i rutan **lösen ord** .
 
     1. Välj **Skapa**.
 
@@ -167,7 +168,7 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet beviljar du Britta Simon-åtkomst till Sectigo Certificate Manager så att hon kan använda enkel inloggning i Azure.
+I det här avsnittet beviljar du Britta Simon-åtkomst till Sectigo Certificate Manager så att användaren kan använda enkel inloggning i Azure.
 
 1. I Azure Portal väljer du **företags program**  >  **alla program**  >  **Sectigo Certificate Manager**.
 
@@ -197,9 +198,19 @@ I det här avsnittet skapar du en användare med namnet Britta Simon i Sectigo C
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet testar du konfigurationen av enkel inloggning med Azure AD med hjälp av portalen Mina appar.
+I det här avsnittet ska du testa konfigurationen för enkel inloggning i Azure AD.
 
-När du har konfigurerat enkel inloggning när du väljer **Sectigo Certificate Manager** i portalen Mina appar, loggas du automatiskt in på Sectigo Certificate Manager. Mer information om My Apps-portalen finns i [komma åt och använda appar i portalen Mina appar](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="test-from-sectigo-certificate-manager-sp-initiated-single-sign-on"></a>Testa från Sectigo Certificate Manager (SP-initierad enkel inloggning)
+
+Bläddra till din kundspecifika URL (för den huvudsakliga Sectigo Certificate Manager-instansen, https: \/ /cert-Manager.com/Customer/ \<customerURI\> /och välj knappen nedan **eller logga in med**.  Om den är korrekt konfigurerad loggas du in automatiskt på Sectigo Certificate Manager.
+
+#### <a name="test-from-azure-single-sign-on-configuration-idp-initiated-single-sign-on"></a>Testa från Azures konfiguration för enkel inloggning (IDP enkel inloggning)
+
+I fönstret **Sectigo Certificate Manager** Application Integration väljer du **enkel inloggning** och klickar på knappen **testa** .  Om den är korrekt konfigurerad loggas du in automatiskt på Sectigo Certificate Manager.
+
+#### <a name="test-by-using-the-my-apps-portal-idp-initiated-single-sign-on"></a>Testa med hjälp av mina apps-portalen (IDP enkel inloggning)
+
+Välj **Sectigo Certificate Manager** i portalen Mina appar.  Om den är korrekt konfigurerad loggas du in automatiskt i Sectigo Certificate Manager. Mer information om My Apps-portalen finns i [komma åt och använda appar i portalen Mina appar](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

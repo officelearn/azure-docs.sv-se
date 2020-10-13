@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 842513536bf4dbfc0a3e3bd82905b397da9fa6c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbf436f501ef2d21dcd3394e61a40d354376efb9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439080"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979095"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrera virtuella Hyper-V-datorer till Azure 
 
@@ -22,10 +22,10 @@ Den här självstudien är den tredje i en serie som visar hur du bedömer och m
 > [!NOTE]
 > Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudierna använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. 
 
- I den här guiden får du lära dig att:
+ I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
-> * Lägg till Azure-migrering: Migreringsverktyg för Server.
+> * Lägg till verktyget Azure Migrate: Migreringsverktyg för Server.
 > * Identifiera virtuella datorer som du vill migrera.
 > * Starta replikering av virtuella datorer.
 > * Kör en testmigrering för att se till att allt fungerar som förväntat.
@@ -34,7 +34,7 @@ Den här självstudien är den tredje i en serie som visar hur du bedömer och m
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 
 Innan du börjar de här självstudierna bör du:

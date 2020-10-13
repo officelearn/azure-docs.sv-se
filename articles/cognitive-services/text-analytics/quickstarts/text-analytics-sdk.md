@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 09/09/2020
+ms.date: 10/07/2020
 ms.author: aahi
 keywords: text utvinning, sentiment-analys, text analys
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 0fbd8b92846f6436128f64680a1fa9b77763a2c8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6d69c47c4833247ac259f9dcc166d7ab2696c117
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91710789"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977827"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Snabb start: Använd Textanalys klient bibliotek
 
@@ -30,6 +30,7 @@ Använd Textanalys klient bibliotek för att utföra:
 * Språkidentifiering
 * Igenkänning av enhet
 * Extrahering av nyckelfraser
+* Åsikts utvinning
 
 ::: zone pivot="programming-language-csharp"
 
@@ -103,7 +104,7 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 > [Utforska en lösning](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
 
 * [Översikt över Textanalys](../overview.md)
-* [Sentiment-analys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Enhets igenkänning](../how-tos/text-analytics-how-to-entity-linking.md)
+* [Sentimentanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Igenkänning av enhet](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Identifiera språk](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Språk igenkänning](../how-tos/text-analytics-how-to-language-detection.md)

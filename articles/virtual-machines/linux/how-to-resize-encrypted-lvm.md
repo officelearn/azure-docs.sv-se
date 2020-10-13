@@ -6,12 +6,12 @@ ms.service: security
 ms.topic: article
 ms.author: jofrance
 ms.date: 09/21/2020
-ms.openlocfilehash: 3a3e9b7406e11261aff12d77d9fbeed5debbe938
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e32e4960776084669c8f2f7743b66b9d0f9a6ae
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744278"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978483"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>Ändra storlek på logiska enheter för volym hantering som använder Azure Disk Encryption
 
@@ -37,7 +37,7 @@ Den här artikeln förutsätter att du har:
 
 - Användning av Linux och LVM.
 
-- Användning av */dev/disk/SCSI1/* sökvägar för data diskar i Azure. Mer information finns i [Felsöka problem med enhets namn för Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-device-names-problems). 
+- Användning av */dev/disk/SCSI1/* sökvägar för data diskar i Azure. Mer information finns i [Felsöka problem med enhets namn för Linux-datorer](../troubleshooting/troubleshoot-device-names-problems.md). 
 
 ## <a name="scenarios"></a>Scenarier
 

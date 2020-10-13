@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8265d328a23e871dc25692f22138a7bb648a8323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9fc34a85f8a858adea2161e1734ead589180ea4
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653604"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978245"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>SAP-arbetsbelastningskonfigurationer med Azure-tillgänglighetszoner
 [Azure-tillgänglighetszoner](../../../availability-zones/az-overview.md) är en av de funktioner för hög tillgänglighet som Azure tillhandahåller. Med Tillgänglighetszoner förbättras övergripande tillgänglighet för SAP-arbetsbelastningar på Azure. Den här funktionen är redan tillgänglig i vissa [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/). I framtiden kommer det att vara tillgängligt i fler regioner.
@@ -30,7 +30,7 @@ Den här bilden visar den grundläggande arkitekturen i SAP hög tillgänglighet
 
 ![Standard konfiguration för hög tillgänglighet](./media/sap-ha-availability-zones/standard-ha-config.png)
 
-SAP-Programskiktet distribueras över en Azures [tillgänglighets uppsättning](../../windows/manage-availability.md). För hög tillgänglighet för SAP Central Services kan du distribuera två virtuella datorer i en separat tillgänglighets uppsättning. Använd Windows Server-redundanskluster eller pacemaker (Linux) som ett ramverk med hög tillgänglighet med automatisk redundans vid en infrastruktur eller program varu problem. Mer information om de här distributionerna finns i:
+SAP-Programskiktet distribueras över en Azures [tillgänglighets uppsättning](../../manage-availability.md). För hög tillgänglighet för SAP Central Services kan du distribuera två virtuella datorer i en separat tillgänglighets uppsättning. Använd Windows Server-redundanskluster eller pacemaker (Linux) som ett ramverk med hög tillgänglighet med automatisk redundans vid en infrastruktur eller program varu problem. Mer information om de här distributionerna finns i:
 
 - [Klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av en klusterdelad disk](./sap-high-availability-guide-wsfc-shared-disk.md)
 - [Klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av fil resurs](./sap-high-availability-guide-wsfc-file-share.md)

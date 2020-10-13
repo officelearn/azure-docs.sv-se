@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: c09c5b33f7960ffebfdfc8005537e75a249b8d99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b0ff0abe438b2be3602b10d1c449901ef916901
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89661093"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948093"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Välj en pris nivå för Azure Kognitiv sökning
 
@@ -130,7 +130,7 @@ Följande förslag kan hjälpa dig att sänka kostnaderna eller hantera kostnade
 
 + Skala upp för resurs krävande åtgärder som indexering och justera sedan nedåt för vanliga frågor och arbets belastningar. Börja med den lägsta konfigurationen för Azure Kognitiv sökning (en SU som består av en partition och en replik) och övervaka sedan användar aktivitet för att identifiera användnings mönster som indikerar ett behov av mer kapacitet. Om det finns ett förutsägbart mönster kanske du kan synkronisera skalning med aktivitet (du måste skriva kod för att automatisera detta).
 
-Du kan också besöka [fakturerings-och kostnads hantering](../cost-management-billing/manage/getting-started.md) för inbyggda verktyg och funktioner som är relaterade till utgifter.
+Du kan också besöka [fakturerings-och kostnads hantering](../cost-management-billing/cost-management-billing-overview.md) för inbyggda verktyg och funktioner som är relaterade till utgifter.
 
 Det går inte att stänga av en Sök tjänst temporärt. Dedikerade resurser är alltid operativa, allokeras för exklusiv användning för din tjänsts livs längd. Att ta bort en tjänst är permanent och tar också bort tillhör ande data.
 

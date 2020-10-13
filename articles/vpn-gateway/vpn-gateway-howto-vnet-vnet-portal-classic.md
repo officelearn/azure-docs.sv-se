@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: bdd27645045195016b7a563787470bf6f2187115
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ca190ae9e5679ce7622f89b39507d69d87f5b88
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84985461"
+ms.locfileid: "91875588"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Konfigurera en VNet-till-VNet-anslutning (klassisk)
 
@@ -80,16 +80,7 @@ I följande tabell visas ett exempel på hur du definierar din virtuella nätver
 
 ## <a name="step-2---create-the-virtual-networks"></a><a name="vnetvalues"></a>Steg 2 – skapa de virtuella nätverken
 
-Skapa två virtuella nätverk i [Azure Portal](https://portal.azure.com). Anvisningar för hur du skapar klassiska virtuella nätverk finns i [skapa ett klassiskt virtuellt nätverk](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). 
-
-När du använder portalen för att skapa ett klassiskt virtuellt nätverk måste du gå till sidan virtuellt nätverk med hjälp av följande steg, annars är alternativet för att skapa ett klassiskt virtuellt nätverk inte:
-
-1. Klicka på "+" för att öppna sidan "nytt".
-2. I fältet Sök i Marketplace skriver du Virtual Network. Om du i stället väljer nätverk-> Virtual Network, får du inte alternativet att skapa ett klassiskt VNet.
-3. Leta upp Virtual Network från den returnerade listan och klicka på den för att öppna sidan Virtual Network. 
-4. På sidan virtuellt nätverk väljer du klassisk för att skapa ett klassiskt VNet. 
-
-Om du använder den här artikeln som en övning kan du använda följande exempel värden:
+I det här steget skapar du två klassiska virtuella nätverk. Om du använder den här artikeln som en övning kan du använda följande exempel värden:
 
 **Värden för TestVNet1**
 
@@ -125,7 +116,11 @@ GatewaySubnet: 10.41.1.0/27
 
 * **DNS-servrar** – ange DNS-serverns namn och IP-adress. Du skapar inte en DNS-server med den här inställningen. Den låter dig ange vilken DNS-server du vill använda för namnmatchning för det här virtuella nätverket.
 
-I det här avsnittet konfigurerar du anslutnings typen, den lokala platsen och skapar gatewayen.
+### <a name="to-create-a-classic-virtual-network"></a>Så här skapar du ett klassiskt virtuellt nätverk
+
+[!INCLUDE [basic classic vnet](../../includes/vpn-gateway-vnet-classic.md)]
+
+[!INCLUDE [basic classic DNS](../../includes/vpn-gateway-dns-classic.md)]
 
 ## <a name="step-3---configure-the-local-site"></a><a name="localsite"></a>Steg 3 – Konfigurera den lokala platsen
 
@@ -205,38 +200,7 @@ När dina virtuella nätverks-gatewayer har skapats för båda virtuella nätver
 
 ## <a name="step-7---retrieve-values-from-the-network-configuration-file"></a><a name="getvalues"></a>Steg 7 – hämta värden från nätverks konfigurations filen
 
-När du skapar en klassisk virtuella nätverk i Azure Portal, är det namn som du visar inte det fullständiga namnet som du använder för PowerShell. Ett VNet som verkar ha namnet **TestVNet1** i portalen kan till exempel ha ett mycket längre namn i nätverks konfigurations filen. Namnet kan se ut ungefär så här: **Group ClassicRG TestVNet1**. När du skapar dina anslutningar är det viktigt att använda de värden som visas i nätverks konfigurations filen.
-
-I följande steg ska du ansluta till ditt Azure-konto och hämta och Visa nätverks konfigurations filen för att hämta de värden som krävs för dina anslutningar.
-
-1. Hämta och installera den senaste versionen av PowerShell-cmdletarna för Azure Service Management (SM). Mer information finns i [arbeta med Azure PowerShell](#powershell).
-
-2. Öppna PowerShell-konsolen med utökade rättigheter. Använd följande exempel för att ansluta. Du måste köra dessa kommandon lokalt med PowerShell Service Management-modulen. Använd följande kommando för att växla till Service Management:
-
-   ```powershell
-   azure config mode asm
-   ```
-3. Anslut till ditt konto. Använd följande exempel för att ansluta:
-
-   ```powershell
-   Add-AzureAccount
-   ```
-4. Kontrollera prenumerationerna för kontot.
-
-   ```powershell
-   Get-AzureSubscription
-   ```
-5. Om du har mer än en prenumeration väljer du den du vill använda.
-
-   ```powershell
-   Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
-   ```
-6. Exportera och Visa nätverks konfigurations filen. Skapa en katalog på datorn och exportera sedan nätverkskonfigurationsfilen till katalogen. I det här exemplet exporteras nätverks konfigurations filen till **C:\AzureNet**.
-
-   ```powershell
-   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-   ```
-7. Öppna filen med en text redigerare och visa namnen på dina virtuella nätverk och platser. Namnen är de namn som du använder när du skapar dina anslutningar.<br>VNet-namn visas som **VirtualNetworkSite namn =**<br>Plats namn anges som **LocalNetworkSiteRef namn =**
+[!INCLUDE [retrieve values](../../includes/vpn-gateway-values-classic.md)]
 
 ## <a name="step-8---create-the-vpn-gateway-connections"></a><a name="createconnections"></a>Steg 8 – skapa VPN gateway-anslutningar
 

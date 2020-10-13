@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: danis
-ms.openlocfilehash: 7ddbb48f3598780988feb25a11729a5086d31fde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a87c2b571027e0304909e69b252c9e080c4da9c1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88869277"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978636"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-Init-stöd för virtuella datorer i Azure
 Den här artikeln beskriver det stöd som finns för [Cloud-Init](https://cloudinit.readthedocs.io) för att konfigurera en virtuell dator (VM) eller skalnings uppsättningar för virtuella datorer vid etablerings tiden i Azure. Dessa Cloud-Init-konfigurationer körs vid första start när resurserna har etablerats av Azure.  
@@ -46,7 +46,7 @@ Det finns två steg för att göra Cloud-Init tillgängligt för de påtecknade 
 | Utgivare/version | Erbjudande | SKU | Version | avbildnings moln – init Ready | stöd för Cloud-Init-paket i Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |ja | Ja-support från paket version: *18.2-1.el7_6.2*|
-|RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 | Ja (Obs! det här är en förhands gransknings bild och **får** inte användas längre. Detta kommer att tas bort 1 september 2020) | E.t. |
+|RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 | Ja (Obs! det här är en förhands gransknings bild och **får** inte användas längre. Detta kommer att tas bort 1 september 2020) | Saknas |
 |RedHat 7,7 (gen1)|RHEL |7,7 | 7.7.2020051912 | ja | Ja-support från paket version: *18.5 -6. el7*|
 |RedHat 7,7 (Gen2)|RHEL | 77 – Gen2 | 7.7.2020051913 | ja | Ja-support från paket version: *18.5 -6. el7*|
 |RedHat 7,7 (gen1)|RHEL |7-LVM | 7.7.2020051921 | ja | Ja-support från paket version: *18.5 -6. el7*|
@@ -61,7 +61,7 @@ Det finns två steg för att göra Cloud-Init tillgängligt för de påtecknade 
 
 | Utgivare/version | Erbjudande | SKU | Version | avbildnings moln – init Ready | stöd för Cloud-Init-paket i Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |Ja (Obs! det här är en förhands gransknings bild och **får** inte användas längre. Detta kommer att tas bort 1 september 2020) | E.t. |
+|OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |Ja (Obs! det här är en förhands gransknings bild och **får** inte användas längre. Detta kommer att tas bort 1 september 2020) | Saknas |
 |OpenLogic 7,7 |CentOS | 7,7 |7.7.2020062400 |ja | Ja-support från paket version: `18.5-6.el7.centos.5`|
 |OpenLogic 7,7 (Gen2) |CentOS | 7_7 – Gen2 |7.7.2020062401 |ja | Ja-support från paket version: `18.5-6.el7.centos.5`|
 |OpenLogic 7,7 |CentOS – HPC | 7,7 |7.6.2020062600 |ja | Ja-support från paket version: `18.5-6.el7.centos.5`|
@@ -152,7 +152,7 @@ az vm create \
 
 När den virtuella datorn har skapats visar Azure CLI information som är unik för din distribution. Anteckna `publicIpAddress`. Den här adressen används för att få åtkomst till den virtuella datorn.  Det tar lite tid för den virtuella datorn att skapas, paketen som ska installeras och appen att starta. Det finns bakgrundsaktiviteter som fortsätter att köras när Azure CLI återgår till kommandotolken. Du kan använda SSH i den virtuella datorn och använda stegen som beskrivs i avsnittet fel sökning för att Visa Cloud-Init-loggarna. 
 
-Du kan också distribuera en moln-init-aktiverad virtuell dator genom att skicka [parametrarna i arm-mallen](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli#inline-parameters).
+Du kan också distribuera en moln-init-aktiverad virtuell dator genom att skicka [parametrarna i arm-mallen](../../azure-resource-manager/templates/deploy-cli.md#inline-parameters).
 
 ## <a name="troubleshooting-cloud-init"></a>Felsöka Cloud-Init
 När den virtuella datorn har etablerats kommer Cloud-Init att köras genom alla moduler och skript som definierats i för `--custom-data` att konfigurera den virtuella datorn.  Om du behöver felsöka fel eller utelämnanden från konfigurationen måste du söka efter modulnamnet ( `disk_setup` eller `runcmd` till exempel) i den Cloud-Init-logg som finns i **/var/log/Cloud-init.log**.
@@ -173,4 +173,3 @@ För Cloud-Init-exempel på konfigurations ändringar, se följande dokument:
 - [Köra en paket hanterare för att uppdatera befintliga paket vid första starten](cloudinit-update-vm.md)
 - [Ändra lokalt värdnamn för virtuell dator](cloudinit-update-vm-hostname.md) 
 - [Installera ett programpaket, uppdatera konfigurationsfiler och mata in nycklar](tutorial-automate-vm-deployment.md)
- 

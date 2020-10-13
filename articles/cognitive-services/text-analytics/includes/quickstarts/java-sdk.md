@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 09/21/2020
+ms.date: 10/07/2020
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: 2788b22d2b262cfef4b214d75813a203067462cb
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 7adfafbb0b0b11057a21dfbbe6dffcf6d2564606
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779149"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977841"
 ---
 <a name="HOLTop"></a>
 
@@ -33,7 +33,7 @@ Den här artikeln beskriver endast version 3. x av API: et.
 
 ---
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) med version 8 eller senare
@@ -150,10 +150,11 @@ Textanalys-klienten är ett `TextAnalyticsClient` objekt som autentiserar till A
 
 * [Autentisera klienten](#authenticate-the-client)
 * [Attitydanalys](#sentiment-analysis) 
-* [Språk identifiering](#language-detection)
+* [Åsikts utvinning](#opinion-mining)
+* [Språkidentifiering](#language-detection)
 * [Igenkänning av namngiven entitet](#named-entity-recognition-ner)
 * [Länkning av entitet](#entity-linking)
-* [Extrahering av nyckel fraser](#key-phrase-extraction)
+* [Extrahering av nyckelfraser](#key-phrase-extraction)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
@@ -171,7 +172,7 @@ static TextAnalyticsClient authenticateClient(String key, String endpoint) {
 
 Anropa autentiseringsmetoden i program `main()` metoden för att instansiera klienten.
 
-## <a name="sentiment-analysis"></a>Attitydanalys
+## <a name="sentiment-analysis"></a>Sentimentanalys
 
 # <a name="version-31-preview"></a>[Version 3,1 Preview](#tab/version-3-1)
 
@@ -208,7 +209,7 @@ static void sentimentAnalysisExample(TextAnalyticsClient client)
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Recognized document sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
@@ -253,7 +254,7 @@ static void sentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Text = Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.
@@ -300,7 +301,7 @@ static void sentimentAnalysisExample(TextAnalyticsClient client)
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Recognized document sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
@@ -335,7 +336,7 @@ static void detectLanguageExample(TextAnalyticsClient client)
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Detected primary language: French, ISO 6391 name: fr, score: 1.00.
@@ -371,7 +372,7 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Recognized entity: trip, entity category: Event, entity sub-category: null, score: 0.61, offset: 8, length: 4.
@@ -413,7 +414,7 @@ static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Linked Entities:
@@ -458,7 +459,7 @@ static void recognizePiiEntitiesExample(TextAnalyticsClient client)
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Redacted Text: My SSN is ***********
@@ -491,7 +492,7 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Recognized entity: trip, entity category: Event, entity sub-category: null, score: 0.61.
@@ -530,7 +531,7 @@ static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Linked Entities:
@@ -579,7 +580,7 @@ static void extractKeyPhrasesExample(TextAnalyticsClient client)
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Recognized phrases: 

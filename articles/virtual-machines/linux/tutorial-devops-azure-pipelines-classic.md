@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 6cc4fdb82e98c30ca33eec58675f2175dfcc2607
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f77cc85bd62deb2cb2cb74c42cf245a409904b3a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89612791"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978313"
 ---
 # <a name="tutorial---configure-the-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>Självstudie – konfigurera strategin för rullande distribution för virtuella Azure Linux-datorer
 
@@ -29,7 +29,7 @@ Azure DevOps är en inbyggd Azure-tjänst som automatiserar varje del av DevOps-
 
 Azure-pipeliner ger en helt aktuell uppsättning CI/CD Automation-verktyg för distribution till virtuella datorer. Du kan konfigurera en pipeline för kontinuerlig leverans för en virtuell Azure-dator från Azure Portal.
 
-Den här artikeln visar hur du konfigurerar en CI/CD-pipeline för rullande MultiMachine-distributioner från Azure Portal. Azure Portal stöder också andra strategier som [Kanarie](https://aka.ms/AA7jdrz) och [blå – grönt](https://aka.ms/AA83fwu).
+Den här artikeln visar hur du konfigurerar en CI/CD-pipeline för rullande MultiMachine-distributioner från Azure Portal. Azure Portal stöder också andra strategier som [Kanarie](./tutorial-azure-devops-canary-strategy.md) och [blå – grönt](./tutorial-azure-devops-blue-green-strategy.md).
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Konfigurera CI/CD på virtuella datorer
 
@@ -78,8 +78,8 @@ Med alternativet för kontinuerlig leverans kan du konfigurera rullande uppdater
 
 ## <a name="other-deployment-strategies"></a>Andra distributions strategier
 
-- [Konfigurera strategin för Kanarie-distribution](https://aka.ms/AA7jdrz)
-- [Konfigurera den blå gröna distributions strategin](https://aka.ms/AA83fwu)
+- [Konfigurera strategin för Kanarie-distribution](./tutorial-azure-devops-canary-strategy.md)
+- [Konfigurera den blå gröna distributions strategin](./tutorial-azure-devops-blue-green-strategy.md)
 
 ## <a name="azure-devops-projects"></a>Azure DevOps Projects
 

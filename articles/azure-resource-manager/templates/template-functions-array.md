@@ -2,13 +2,13 @@
 title: Mall-funktioner-matriser
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med matriser.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 4d4ee96888aee5421d88b5371ac25a69c0af4fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: a5cf73203cf59a0b9f2b5f49c923d0a077c065fc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84677856"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979146"
 ---
 # <a name="array-functions-for-arm-templates"></a>Mat ris funktioner för ARM-mallar
 
@@ -24,7 +24,7 @@ Resource Manager innehåller flera funktioner för att arbeta med matriser i din
 * [pågå](#last)
 * [length](#length)
 * [bekräftat](#max)
-* [min](#min)
+* [minimum](#min)
 * [intervall](#range)
 * [Ignorera](#skip)
 * [take](#take)
@@ -108,7 +108,7 @@ Kombinerar flera matriser och returnerar den sammanfogade matrisen, eller kombin
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |matris eller sträng |Den första matrisen eller strängen för sammanfogning. |
-| ytterligare argument |Inga |matris eller sträng |Ytterligare matriser eller strängar i sekventiell ordning för sammanfogning. |
+| ytterligare argument |Nej |matris eller sträng |Ytterligare matriser eller strängar i sekventiell ordning för sammanfogning. |
 
 Den här funktionen kan ta valfritt antal argument och kan acceptera antingen strängar eller matriser för parametrarna. Du kan dock inte ange både matriser och strängar för parametrar. Matriser sammanfogas endast med andra matriser.
 
@@ -278,12 +278,11 @@ Skapar en matris från parametrarna.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |Sträng, heltal, matris eller objekt |Det första värdet i matrisen. |
-| ytterligare argument |Inga |Sträng, heltal, matris eller objekt |Ytterligare värden i matrisen. |
+| args |Nej |Sträng, heltal, matris eller objekt |Värdena i matrisen. |
 
 ### <a name="return-value"></a>Returvärde
 
-En matris.
+En matris. När inga parametrar anges returneras en tom matris.
 
 ### <a name="example"></a>Exempel
 
@@ -321,6 +320,10 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
         "arrayArray": {
             "type": "array",
             "value": "[createArray(parameters('arrayToTest'))]"
+        },
+        "emptyArray": {
+            "type": "array",
+            "value": "[createArray()]"
         }
     }
 }
@@ -334,6 +337,7 @@ Utdata från föregående exempel med standardvärdena är:
 | intArray | Matris | [1, 2, 3] |
 | objectArray | Matris | [{"One": "a", "två": "b", "tre": "c"}] |
 | arrayArray | Matris | [["One", "två", "tre"]] |
+| emptyArray | Matris | [] |
 
 ## <a name="empty"></a>tomt
 
@@ -464,7 +468,7 @@ Returnerar en enskild matris eller ett objekt med de gemensamma elementen från 
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att hitta vanliga element. |
 | arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att hitta vanliga element. |
-| ytterligare argument |Inga |matris eller objekt |Ytterligare värden som ska användas för att hitta vanliga element. |
+| ytterligare argument |Nej |matris eller objekt |Ytterligare värden som ska användas för att hitta vanliga element. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -958,7 +962,7 @@ Returnerar en enskild matris eller ett objekt med alla element från parametrarn
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att koppla ihop element. |
 | arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att koppla ihop element. |
-| ytterligare argument |Inga |matris eller objekt |Ytterligare värden som ska användas för att koppla ihop element. |
+| ytterligare argument |Nej |matris eller objekt |Ytterligare värden som ska användas för att koppla ihop element. |
 
 ### <a name="return-value"></a>Returvärde
 

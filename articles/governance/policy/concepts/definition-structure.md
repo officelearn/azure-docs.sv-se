@@ -3,12 +3,12 @@ title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2db91bd1968f816eb2a9320ee81019aeec5d2449
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: bb5eb3de1723ab75b2585c2fe62c395231455f37
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874007"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949385"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -114,7 +114,7 @@ Följande resurs leverantörs lägen stöds för närvarande som en för **hands
 - `Microsoft.KeyVault.Data` för hantering av valv och certifikat i [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
-> Resurs leverantörs lägen stöder bara inbyggda princip definitioner.
+> Resurs leverantörs lägen stöder bara inbyggda princip definitioner och stöder inte [undantag](./exemption-structure.md).
 
 ## <a name="metadata"></a>Metadata
 
@@ -435,7 +435,7 @@ Använd i stället funktionen [IF ()](../../../azure-resource-manager/templates/
 
 Med den reviderade princip regeln `if()` kontrollerar **namnet på namnet** innan det försöker hämta ett `substring()` värde med färre än tre tecken. Om **namnet** är för kort returneras värdet "inte börjar med ABC" i stället och jämförs med **ABC**. En resurs med ett kort namn som inte börjar med **ABC** kan fortfarande inte utföra princip regeln, men inte längre orsaka ett fel under utvärderingen.
 
-### <a name="count"></a>Antal
+### <a name="count"></a>Count
 
 Villkor som räknar hur många medlemmar i en matris i resurs nytto lasten uppfyller ett villkors uttryck kan skapas med hjälp av **Count** -uttryck. Vanliga scenarier kontrollerar om "minst en av", ",", "alla" eller "ingen av" mat ris medlemmarna uppfyller villkoret. **Count** utvärderar varje [ \[ \* \] alias](#understanding-the--alias) mat ris medlem för ett villkors uttryck och summerar de _sanna_ resultaten, som sedan jämförs med uttrycks operatorn. **Count** -uttryck kan läggas till upp till tre gånger i en enda **policyRule** -definition.
 
@@ -696,7 +696,7 @@ Listan över alias växer alltid. Använd någon av följande metoder för att t
 
 ### <a name="understanding-the--alias"></a>Förstå aliaset [*]
 
-Flera av de tillgängliga aliasen har en version som visas som ett normalt namn och en annan som är **\[\*\]** kopplad till den. Exempel:
+Flera av de tillgängliga aliasen har en version som visas som ett normalt namn och en annan som är **\[\*\]** kopplad till den. Till exempel:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/07/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b333c02c3db3e07ad10dc4e4365eb50aced694d
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: b3ad9c5d19d5d24154a8a63bfc412d6bbfdc1d8b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945200"
+ms.locfileid: "91949232"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för en JWT-token-utfärdare i en Azure Active Directory B2C anpassad princip
 
@@ -26,7 +26,7 @@ Azure Active Directory B2C (Azure AD B2C) genererar flera typer av säkerhetstok
 
 ## <a name="protocol"></a>Protokoll
 
-Namnattributet **för** **protokoll** elementet måste anges till `None` . Ange **OutputTokenFormat** -elementet till `JWT` .
+Namnattributet **för** **protokoll** elementet måste anges till `OpenIdConnect` . Ange **OutputTokenFormat** -elementet till `JWT` .
 
 I följande exempel visas en teknisk profil för `JwtIssuer` :
 

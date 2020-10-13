@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4afc5e554e72fc2ab78173368930b2e5317bce7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71900bc3741c25299402e31057ea2237cd0a4637
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88718925"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965156"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Kombinerad säkerhets informations registrering för Azure Active Directory översikt
 
@@ -53,15 +53,15 @@ Kombinerad registrering stöder följande autentiseringsmetoder och åtgärder:
 
 | Metod | Registrera dig | Ändra | Ta bort |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Ja (högst 5) | Inga | Ja |
-| Annan Authenticator-app | Ja (högst 5) | Inga | Ja |
-| Maskinvaru-token | Inga | Inga | Ja |
+| Microsoft Authenticator | Ja (högst 5) | Nej | Ja |
+| Annan Authenticator-app | Ja (högst 5) | Nej | Ja |
+| Maskinvaru-token | Nej | Nej | Ja |
 | Telefon | Ja | Ja | Ja |
 | Alternativ telefon | Ja | Ja | Ja |
-| Arbetstelefon | Inga | Inga | Inga |
+| Arbetstelefon | Nej | Nej | Nej |
 | E-post | Ja | Ja | Ja |
-| Säkerhetsfrågor | Ja | Inga | Ja |
-| Applösenord | Ja | Inga | Ja |
+| Säkerhetsfrågor | Ja | Nej | Ja |
+| Applösenord | Ja | Nej | Ja |
 | FIDO2 säkerhets nycklar<br />*Endast hanterat läge från sidan [säkerhets information](https://mysignins.microsoft.com/security-info)*| Ja | Ja | Ja |
 
 > [!NOTE]

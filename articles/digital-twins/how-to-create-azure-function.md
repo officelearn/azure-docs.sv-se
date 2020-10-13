@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a0f5a921ad9eba82f27b3a8945643737b6d76030
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11034a585db6ef3a3e1e445bbed8a1e51f83948d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89614079"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949794"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Anslut Azure Functions appar för bearbetning av data
 
@@ -236,7 +236,7 @@ Välj knappen för _Azure-roll tilldelningar_ som öppnar sidan för roll tillde
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
 
-I fönstret _Lägg till roll tilldelning (för hands version)_ som öppnas väljer du
+I fönstret _Lägg till roll tilldelning (för hands version)_ som öppnas väljer du:
 
 * _Omfång_: Resursgrupp
 * _Prenumeration_: Välj din Azure-prenumeration

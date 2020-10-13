@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/02/2020
 ms.author: radeltch
-ms.openlocfilehash: edca4b44bd9e7aa9f100db3cea0bc69880a4c533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 658470a3c19f8484ac56f6a1d88d23c3d7b4147e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744854"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978113"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA skalbart system på Red Hat Enterprise Linux 
 
@@ -100,7 +100,7 @@ Den uppvisade konfigurationen visar tre HANA-noder på varje plats, plus majorit
 Det delade fil systemet HANA `/hana/shared` i den presenterade arkitekturen tillhandahålls av [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md). Den monteras via NFSv 4.1 på varje HANA-nod på samma HANA-plats för system replikering. Fil system `/hana/data` och `/hana/log` är lokala fil system och delas inte mellan Hana DB-noderna. SAP HANA kommer att installeras i icke-delat läge. 
 
 > [!TIP]
-> Rekommenderade SAP HANA Storage-konfigurationer finns i [SAP HANA Azure VM Storage-konfigurationer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).   
+> Rekommenderade SAP HANA Storage-konfigurationer finns i [SAP HANA Azure VM Storage-konfigurationer](./hana-vm-operations-storage.md).   
 
 [![SAP HANA skala ut med HSR och pacemaker-kluster](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel.png)](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel-detail.png#lightbox)
 
@@ -128,7 +128,7 @@ För konfigurationen som presenteras i det här dokumentet distribuerar du sju v
   
    För majoritetsnoduppsättning-noden kan du distribuera en liten virtuell dator eftersom den virtuella datorn inte kör någon av SAP HANA resurserna. Majoriteten av den virtuella datorn i klustret används i kluster konfigurationen för att uppnå ett udda antal klusternoder i ett scenario med delad hjärna. Majoriteten av den virtuella datorn behöver bara ett virtuellt nätverks gränssnitt i `client` under nätet i det här exemplet.        
 
-   Distribuera lokala hanterade diskar för `/hana/data` och `/hana/log` . Den minsta rekommenderade lagrings konfigurationen för `/hana/data` och `/hana/log` beskrivs i [SAP HANA Storage-konfigurationer för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
+   Distribuera lokala hanterade diskar för `/hana/data` och `/hana/log` . Den minsta rekommenderade lagrings konfigurationen för `/hana/data` och `/hana/log` beskrivs i [SAP HANA Storage-konfigurationer för virtuella Azure-datorer](./hana-vm-operations-storage.md).
 
    Distribuera det primära nätverks gränssnittet för varje virtuell dator i det `client` virtuella nätverkets undernät.  
    När den virtuella datorn distribueras via Azure Portal genereras nätverks gränssnittets namn automatiskt. I dessa anvisningar för enkelhetens skull kommer vi att referera till de automatiskt genererade primära nätverks gränssnitten, som är kopplade till det `client` virtuella nätverkets undernät i Azure som **Hana-S1-DB1-client**, **Hana-S1-DB2-client**, **Hana-S1-DB3-client**och så vidare.  
@@ -229,7 +229,7 @@ För konfigurationen som presenteras i det här dokumentet distribuerar du sju v
 
 ### <a name="deploy-the-azure-netapp-files-infrastructure"></a>Distribuera Azure NetApp Files-infrastrukturen 
 
-Distribuera ANF-volymerna för `/hana/shared` fil systemet. Du behöver en separat `/hana/shared` volym för varje Hana-plats för system replikering. Mer information finns i [konfigurera Azure NetApp Files-infrastrukturen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel#set-up-the-azure-netapp-files-infrastructure).
+Distribuera ANF-volymerna för `/hana/shared` fil systemet. Du behöver en separat `/hana/shared` volym för varje Hana-plats för system replikering. Mer information finns i [konfigurera Azure NetApp Files-infrastrukturen](./sap-hana-scale-out-standby-netapp-files-rhel.md#set-up-the-azure-netapp-files-infrastructure).
 
 I det här exemplet användes följande Azure NetApp Files volymer: 
 
@@ -1160,7 +1160,7 @@ Ta med alla virtuella datorer, inklusive majoriteten i klustret.
       ```
 
 
-Vi rekommenderar att du testar SAP HANA kluster konfigurationen noggrant, genom att även utföra testerna som dokumenterats i [ha för SAP HANA på virtuella Azure-datorer på RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#test-the-cluster-setup).
+Vi rekommenderar att du testar SAP HANA kluster konfigurationen noggrant, genom att även utföra testerna som dokumenterats i [ha för SAP HANA på virtuella Azure-datorer på RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 07/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 611d676f5f588ff32f981692456160e269642a43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1b3e12bcf744ad0d762f686a908a01239fc4323
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87428120"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949249"
 ---
 # <a name="localization-string-ids"></a>Sträng-ID för lokalisering
 
@@ -25,7 +25,7 @@ ms.locfileid: "87428120"
 
 ## <a name="sign-up-or-sign-in-page-elements"></a>Sid element för registrering eller inloggning
 
-Följande ID: n används för en innehålls definition med ID `api.signuporsignin` .
+Följande ID: n används för en innehålls definition med ID `api.signuporsignin` och [självkontrollerad teknisk profil](self-asserted-technical-profile.md).
 
 | ID | Standardvärde |
 | -- | ------------- |
@@ -93,18 +93,18 @@ I följande exempel lokaliserar Facebook Identity Provider till arabiska:
 
 ## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>Användar gränssnitts element för registrering och självkontrollerade sidor
 
-Följande är ID: n för en innehålls definition med ID eller en `api.localaccountsignup` innehålls definition som börjar med `api.selfasserted` , till exempel `api.selfasserted.profileupdate` och `api.localaccountpasswordreset` .
+Följande är ID: n för en innehålls definition med ID för `api.localaccountsignup` eller en innehålls definition som börjar med `api.selfasserted` , till exempel och och `api.selfasserted.profileupdate` `api.localaccountpasswordreset` [självkontrollerad teknisk profil](self-asserted-technical-profile.md).
 
 | ID | Standardvärde |
 | -- | ------------- |
 | **ver_sent** | Verifierings koden har skickats till: |
-| **ver_but_default** | Default |
+| **ver_but_default** | Standard |
 | **cancel_message** | Användaren har avbrutit registrering av självkontrollerad information |
 | **preloader_alt** | Vänta |
 | **ver_but_send** | Skicka verifierings kod |
 | **alert_yes** | Ja |
 | **error_fieldIncorrect** | Ett eller flera fält har fyllts i felaktigt. Kontrol lera dina poster och försök igen. |
-| **år** | Year |
+| **år** | År |
 | **verifying_blurb** | Vänta medan vi bearbetar din information. |
 | **button_cancel** | Avbryt |
 | **ver_fail_no_retry** | Du har gjort för många felaktiga försök. Försök igen senare. |
@@ -120,7 +120,7 @@ Följande är ID: n för en innehålls definition med ID eller en `api.localacco
 | **ver_incorrect_format** | Felaktigt format. |
 | **ver_but_edit** | Ändra e-post |
 | **ver_but_verify** | Verifiera koden |
-| **alert_no** | Inga |
+| **alert_no** | Nej |
 | **ver_info_msg** | Verifierings koden har skickats till din inkorg. Kopiera den till inmatade rutan nedan. |
 | **dagen** | Dag |
 | **ver_fail_throttled** | Det finns för många begär Anden att verifiera den här e-postadressen. Vänta en stund och försök sedan igen. |
@@ -155,7 +155,7 @@ I följande exempel visas användningen av några av användar gränssnitts elem
 
 ## <a name="phone-factor-authentication-page-user-interface-elements"></a>Användar gränssnitts element för sidan med telefon faktorns autentisering
 
-Följande är ID: n för en innehålls definition med ID för `api.phonefactor` .
+Följande är ID: n för en innehålls definition med ID `api.phonefactor` och [teknisk profil för telefon faktorn](phone-factor-technical-profile.md).
 
 | ID | Standardvärde |
 | -- | ------------- |
@@ -197,11 +197,11 @@ Följande är ID: n för en innehålls definition med ID för `api.phonefactor` 
 
 I följande exempel visas användningen av några av användar gränssnitts elementen på sidan MFA-registrering:
 
-![Registrerings sidan för e-postverifiering av sidan UX-element](./media/localization-string-ids/localization-mfa1.png)
+![Registrerings GRÄNSSNITTs element för telefon faktor](./media/localization-string-ids/localization-mfa1.png)
 
 I följande exempel visas användningen av vissa användar gränssnitts element på sidan MFA-verifiering:
 
-![Registrerings sidan för e-postverifiering av sidan UX-element](./media/localization-string-ids/localization-mfa2.png)
+![GRÄNSSNITT för verifiering av telefon faktor](./media/localization-string-ids/localization-mfa2.png)
 
 ## <a name="verification-display-control-user-interface-elements"></a>Verifiering Visa kontroll element för användar gränssnitt
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0dfcf74ef07ff2bde7921860c6e13a59b0ccf023
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5fa5ae54c7aea520a2346cba8feca294585b0d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962544"
+ms.locfileid: "91875741"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Nätverksöverväganden för en App Service-miljö #
 
@@ -161,7 +161,7 @@ De obligatoriska posterna i en NSG, för att en ASE ska fungera, är att tillåt
 * UDP till alla IP-adresser på port 53
 * UDP till alla IP-adresser på port 123
 * TCP till alla IP-adresser på portarna 80, 443
-* TCP till IP-AzureSQL på portarna 1433
+* TCP till IP-taggen `Sql` på portarna 1433
 * TCP till alla IP-adresser på port 12000
 * till ASE-undernätet på alla portar
 

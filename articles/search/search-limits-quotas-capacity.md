@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 7e3a5fcdcead402d59e680fcba270e80b4eda8bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c422b9a70f679279d1310444aafb1f9131ff944
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843438"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949858"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Tjänstbegränsningar i Azure Cognitive Search
 
@@ -78,15 +78,15 @@ Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som
 
 | Resurs | Kostnads fri &nbsp; <sup>1</sup> | Basic &nbsp; <sup>2</sup>| S1 | S2 | S3 | S3 &nbsp; HD &nbsp; <sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
-| Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |E.t. |10 |10 |
-| Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |E.t. |10 |10 |
-| Maximalt färdighetsuppsättningar <sup>4</sup> |3 |5 eller 15 |50 |200 |200 |E.t. |10 |10 |
-| Maximal indexerings belastning per anrop |10 000 dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |E.t. |Obegränsad |Obegränsad |
+| Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Saknas |10 |10 |
+| Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Saknas |10 |10 |
+| Maximalt färdighetsuppsättningar <sup>4</sup> |3 |5 eller 15 |50 |200 |200 |Saknas |10 |10 |
+| Maximal indexerings belastning per anrop |10 000 dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Saknas |Obegränsad |Obegränsad |
 | Lägsta schema | 5 minuter |5 minuter |5 minuter |5 minuter |5 minuter |5 minuter |5 minuter | 5 minuter |
-| Maximal kör tid| 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |E.t.  |24 timmar |24 timmar |
-| Maximal kör tid för indexerare med en färdigheter <sup>5</sup> | 3-10 minuter |2 timmar |2 timmar |2 timmar |2 timmar |E.t.  |2 timmar |2 timmar |
-| BLOB-indexerare: maximal BLOB-storlek, MB |16 |16 |128 |256 |256 |E.t.  |256 |256 |
-| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32 000 |64 000 |4 &nbsp; miljoner |8 &nbsp; miljoner |16 &nbsp; miljoner |E.t. |4 &nbsp; miljoner |4 &nbsp; miljoner |
+| Maximal kör tid| 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Saknas  |24 timmar |24 timmar |
+| Maximal kör tid för indexerare med en färdigheter <sup>5</sup> | 3-10 minuter |2 timmar |2 timmar |2 timmar |2 timmar |Saknas  |2 timmar |2 timmar |
+| BLOB-indexerare: maximal BLOB-storlek, MB |16 |16 |128 |256 |256 |Saknas  |256 |256 |
+| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32 000 |64 000 |4 &nbsp; miljoner |8 &nbsp; miljoner |16 &nbsp; miljoner |Saknas |4 &nbsp; miljoner |4 &nbsp; miljoner |
 
 <sup>1</sup> kostnads fria tjänster har indexeraren maximal körnings tid på 3 minuter för BLOB-källor och 1 minut för alla andra data källor. För AI-indexering som anropar Cognitive Services är kostnads fria tjänster begränsade till 20 kostnads fria transaktioner per dag, där en transaktion definieras som ett dokument som passerar genom anriknings pipelinen.
 
@@ -104,13 +104,13 @@ Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som
 ### <a name="shared-private-link-resource-limits"></a>Resurs gränser för delade privata länkar
 
 > [!NOTE]
-> Indexerare kan komma åt resurser på ett säkert sätt över privata slut punkter som hanteras via den [delade privata länk resurs-API: et](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) enligt beskrivningen i [den här instruktions guiden](search-indexer-howto-access-private.md)
+> Indexerare kan komma åt resurser på ett säkert sätt över privata slut punkter som hanteras via den [delade privata länk resurs-API: et](/rest/api/searchmanagement/sharedprivatelinkresources) enligt beskrivningen i [den här instruktions guiden](search-indexer-howto-access-private.md)
 
 | Resurs | Kostnadsfri | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Stöd för privat slut punkt indexerare | Inga | Ja | Ja | Ja | Ja | Inga | Ja | Ja |
-| Stöd för privat slut punkt för indexerare med en färdigheter<sup>1</sup> | Inga | Inga | Inga | Ja | Ja | Inga | Ja | Ja |
-| Maximalt antal privata slut punkter | E.t. | 10 eller 30 | 100 | 400 | 400 | E.t. | 20 | 20 |
+| Stöd för privat slut punkt indexerare | Nej | Ja | Ja | Ja | Ja | Nej | Ja | Ja |
+| Stöd för privat slut punkt för indexerare med en färdigheter<sup>1</sup> | Nej | Nej | Nej | Ja | Ja | Nej | Ja | Ja |
+| Maximalt antal privata slut punkter | Saknas | 10 eller 30 | 100 | 400 | 400 | Saknas | 20 | 20 |
 | Maximalt antal distinkta resurs typer<sup>2</sup> | Saknas | 4 | 7 | 15 | 15 | Saknas | 4 | 4 |
 
 <sup>1</sup> AI-anrikning och bild analys är i beräknings intensiva och använder oproportionerliga mängder tillgängliga processor kraft, och därför kan de lägre Sök tjänst nivåerna som de kan köra i den privata miljön påverka prestanda och stabilitet för Sök tjänsten.

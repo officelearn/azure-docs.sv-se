@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5c49a46dfcd97f5feb43b0b910476ef3ad6f402a
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91742255"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Säkerhetskopiera resurser eller volymer på din virtuella StorSimple-matris
@@ -108,7 +108,7 @@ Om du vill visa befintliga säkerhets kopior utför du följande steg i Azure Po
    
      ![Filtrera säkerhets kopior](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
-3. Klicka på **Godkänn**. Den filtrerade listan med säkerhets kopior visas på bladet **säkerhets kopierings katalog** . Observera att endast 100 säkerhets kopierings element kan visas vid en specifik tidpunkt.
+3. Klicka på **Applicera**. Den filtrerade listan med säkerhets kopior visas på bladet **säkerhets kopierings katalog** . Observera att endast 100 säkerhets kopierings element kan visas vid en specifik tidpunkt.
    
     ![Uppdaterad säkerhets kopierings katalog](./media/storsimple-virtual-array-backup/viewbackups3.png)
 

@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e8824f534f573d97353cc86d2a1b112b1acdb211
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ace58bd3bb89f9e8545bf125f272e62c3a134061
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494510"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949838"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Självstudie: skapa ett hanterat program med anpassade åtgärder och resurser
 
@@ -27,7 +27,7 @@ Den här självstudien innehåller följande steg:
 > * Distribuera en instans av ett hanterat program
 > * Utföra anpassade åtgärder och skapa anpassade resurser
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien måste du känna till följande:
 
@@ -353,6 +353,6 @@ Om du har frågor om Azure Managed Applications, kan du försöka med att fråga
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du publicerar ditt hanterade program till Azure Marketplace finns i [Azure-hanterade program på Marketplace](publish-marketplace-app.md).
+Information om hur du publicerar ditt hanterade program till Azure Marketplace finns i [Azure-hanterade program på Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
 
 Läs mer om [Azure-anpassade leverantörer](../custom-providers/overview.md).

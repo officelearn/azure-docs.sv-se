@@ -4,12 +4,12 @@ description: Konfigurera autentiseringsuppgifter för lagrings plats för att la
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47a3fb39693bf6143d4033eed437f65b7e63eabb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421432"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978687"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Konfigurera autentiseringsuppgifter för databasen för ditt program för att ladda ned behållar avbildningar
 
@@ -96,6 +96,9 @@ Service Fabric stöder token som autentiseringsuppgifter för att ladda ned bild
 1. Se till att *systemtilldelad hanterad identitet* är aktive rad för den virtuella datorn.
 
     ![Azure Portal: skapa identitets alternativ för skal uppsättning för virtuell dator](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
+
+> [!NOTE]
+> Hoppa över det här steget för användare som tilldelats hanterad identitet. De återstående stegen nedan fungerar på samma sätt, så länge skalnings uppsättningen bara är associerad med en enda användardefinierad hanterad identitet.
 
 2. Ge behörigheter till skalnings uppsättningen för den virtuella datorn för att hämta/läsa avbildningar från registret. Lägg till en *roll tilldelning* för din virtuella dator från bladet Access Control (IAM) i Azure Container Registry i Azure Portal:
 

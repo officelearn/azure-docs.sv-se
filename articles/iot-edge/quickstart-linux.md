@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3540add3020c45e5664f96f5c47dec10a551ed4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee267bda44cde77cf5d3434cd75eecaf34bd5264
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91857069"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978857"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Linux-enhet
 
@@ -45,7 +45,7 @@ Lägg till Azure IoT-tillägget till Cloud Shell-instansen.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Molnresurser:
 
@@ -109,7 +109,7 @@ Under körningskonfigurationen anger du en enhetsanslutningssträng. Detta är d
 
 ### <a name="deploy-the-iot-edge-device"></a>Distribuera IoT Edge-enheten
 
-I det här avsnittet används en Azure Resource Manager-mall för att skapa en ny virtuell dator och installera IoT Edge runtime på den. Om du vill använda en egen Linux-enhet i stället kan du följa installations stegen i [installera Azure IoT Edge runtime på Linux](how-to-install-iot-edge-linux.md)och sedan återgå till den här snabb starten.
+I det här avsnittet används en Azure Resource Manager-mall för att skapa en ny virtuell dator och installera IoT Edge runtime på den. Om du vill använda en egen Linux-enhet i stället kan du följa installations stegen i [installera Azure IoT Edge runtime](how-to-install-iot-edge.md)och sedan återgå till den här snabb starten.
 
 Använd följande CLI-kommando för att skapa din IoT Edge-enhet baserat på mallen för inbyggd [iotedge-VM-Deploy](https://github.com/Azure/iotedge-vm-deploy) .
 

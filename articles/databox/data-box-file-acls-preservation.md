@@ -6,18 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 74b8bfcd8cfedaa7c5e24b6c29d9229a4db5828a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8df77356b6b5b1b40e2abd772e13c2e811413ae
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450757"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950320"
 ---
 # <a name="preserving-file-acls-attributes-and-timestamps-with-azure-data-box"></a>Bevara fil-ACL: er, attribut och tidsstämplar med Azure Data Box
 
-Med Azure Data Box kan du bevara åtkomst kontrol listor (ACL: er), tidsstämplar och filattribut när du skickar data till Azure. I den här artikeln beskrivs de metadata som du kan överföra när du kopierar data till Data Box-enhet via SMB (Server Message Block) för att ladda upp det till Azure Files. Vissa steg finns för att kopiera metadata med Windows-och Linux-verktyg för data kopiering.
+Med Azure Data Box kan du bevara åtkomst kontrol listor (ACL: er), tidsstämplar och filattribut när du skickar data till Azure. I den här artikeln beskrivs de metadata som du kan överföra när du kopierar data till Data Box-enhet via SMB (Server Message Block) för att ladda upp det till Azure Files. 
+
+Vissa steg finns för att kopiera metadata med Windows-och Linux-verktyg för data kopiering. Metadata bevaras inte vid överföring av data till Blob Storage.
 
 I den här artikeln kallas ACL: er, tidsstämplar och filattribut som överförs gemensamt som *metadata*.
 

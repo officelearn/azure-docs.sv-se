@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: guybo
-ms.openlocfilehash: 1417635c0e510badd191e99786f49dfb509c8206
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 0236644930af699180cf26b4baee7bb591d8bbaa
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893415"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978942"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Signerade Linux-distributioner på Azure
 
@@ -39,7 +39,7 @@ Azure Linux-agenten är redan förinstallerad på Azure Marketplace-avbildningar
 | Debian av credativ |8.x, 9.x |I kernel |Paket: i lagrings platsen under "waagent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 |Flatcar container Linux av Kinvolk| Pro, stabil, beta| I kernel | WA – Linux-agenten har redan installerats i/usr/share/OEM/bin/waagent |
 | Oracle Linux av Oracle |6.x, 7.x, 8.x |I kernel |Paket: i lagrings platsen under "WALinuxAgent" <br/>Källkod: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| [Red Hat Enterprise Linux av Red Hat](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/overview) |6.x, 7.x, 8.x |I kernel |Paket: i lagrings platsen under "WALinuxAgent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| [Red Hat Enterprise Linux av Red Hat](../workloads/redhat/overview.md) |6.x, 7.x, 8.x |I kernel |Paket: i lagrings platsen under "WALinuxAgent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise med SUSE |SLES/SLES för SAP 11. x, 12. x, 15. x <br/> [Bild livs cykel för SUSE offentlig moln bild](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |I kernel |Paketfilerna<p> för 11 i [molnet: verktyg](https://build.opensuse.org/project/show/Cloud:Tools) lagrings platsen<br>för 12 som ingår i modulen "offentligt moln" under "python-Azure-agent"<br/>Källkod: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE av SUSE |openSUSE Leap 15.x |I kernel |Paket: i [molnet: tools](https://build.opensuse.org/project/show/Cloud:Tools) lagrings platsen under "python-Azure-agent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu efter kanoniskt |Ubuntu Server och Pro. 16. x, 18. x, 20. x<p>Information om utökat stöd för Ubuntu 12,04 och 14,04 hittar du här: [Ubuntu Extended Security Maintenance](https://www.ubuntu.com/esm). |I kernel |Paket: i lagrings platsen under "walinuxagent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |

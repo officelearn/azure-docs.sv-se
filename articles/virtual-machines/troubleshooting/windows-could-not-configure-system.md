@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/09/2020
 ms.author: v-miegge
-ms.openlocfilehash: 9c170607d6300c4921285e85ac78db5a8a18ad9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bde091b4a4559c3574ee122d74574d1f9477f3fd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90078826"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977056"
 ---
 # <a name="troubleshoot-windows-could-not-finish-configuring-the-system"></a>Felsökning av Windows kunde inte slutföra konfigurationen av systemet
 
@@ -28,7 +28,7 @@ Den här artikeln innehåller steg för att lösa problem där Sysprep-processen
 
 ## <a name="symptom"></a>Symptom
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar ett installations Windows-fel medan Windows installations programmet startar tjänster. Felet visar meddelandet:
+När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar ett installations Windows-fel medan Windows installations programmet startar tjänster. Felet visar meddelandet:
 
 `Windows could not finish configuring the system. To attempt to resume configuration, restart the computer. Setup is starting services`
 
@@ -36,8 +36,8 @@ När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-mac
 
 ## <a name="cause"></a>Orsak
 
-Det här felet beror på att operativ systemet (OS) inte kan slutföra Sysprep- [processen](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-process-overview). Felet uppstår när du försöker utföra en första start av en generaliserad virtuell dator. Om det här problemet uppstår återskapar du den generaliserade avbildningen eftersom avbildningen är i ett tillstånd som inte kan distribueras och inte kan återställas.
+Det här felet beror på att operativ systemet (OS) inte kan slutföra Sysprep- [processen](/windows-hardware/manufacture/desktop/sysprep-process-overview). Felet uppstår när du försöker utföra en första start av en generaliserad virtuell dator. Om det här problemet uppstår återskapar du den generaliserade avbildningen eftersom avbildningen är i ett tillstånd som inte kan distribueras och inte kan återställas.
 
 ## <a name="solution"></a>Lösning
 
-Åtgärda problemet genom att följa Azure- [vägledningen om hur du förbereder/fångar en avbildning](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed) och förbereder en ny generaliserad avbildning.
+Åtgärda problemet genom att följa Azure- [vägledningen om hur du förbereder/fångar en avbildning](../windows/upload-generalized-managed.md) och förbereder en ny generaliserad avbildning.

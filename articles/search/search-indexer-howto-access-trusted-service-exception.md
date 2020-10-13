@@ -8,16 +8,16 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 30fc71e6f59766a759cdb8e4e503123623f48bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fbffaa7bc68bb32bd07b657f4b769e5af4302bf
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320480"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950032"
 ---
 # <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>Åtkomst till data i lagrings konton på ett säkert sätt via ett betrott tjänst undantag
 
-Indexerare som har åtkomst till data i lagrings konton kan använda funktionen för [betrott tjänst undantag](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) för säker åtkomst till data. Den här mekanismen ger kunder som inte kan bevilja [indexerare åtkomst via IP-brandvägg-regler](search-indexer-howto-access-ip-restricted.md) ett enkelt, säkert och kostnads fritt alternativ för åtkomst till data i lagrings konton.
+Indexerare som har åtkomst till data i lagrings konton kan använda funktionen för [betrott tjänst undantag](../storage/common/storage-network-security.md#exceptions) för säker åtkomst till data. Den här mekanismen ger kunder som inte kan bevilja [indexerare åtkomst via IP-brandvägg-regler](search-indexer-howto-access-ip-restricted.md) ett enkelt, säkert och kostnads fritt alternativ för åtkomst till data i lagrings konton.
 
 > [!NOTE]
 > Stöd för åtkomst till data i lagrings konton via ett betrott tjänst undantag är begränsat till Azure Blob Storage och Azure Data Lake Gen2-lagring. Azure Table Storage stöds inte.

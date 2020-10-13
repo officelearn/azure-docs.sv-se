@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 1105d2818d6410ffbbc08e0522adca212efe35b1
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91741728"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Självstudie: Azure Active Directory integrering med Benefitsolver
@@ -30,7 +30,7 @@ Integreringen av Benefitsolver med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Benefitsolver behöver du följande:
 
@@ -116,7 +116,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Be
 
 6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
 
-    | Namn |  Källattribut|
+    | Name |  Källattribut|
     |---------------|----------------|
     | ClientID | Du behöver hämta det här värdet från [kundsupporten för Benefitsolver](https://www.businessolver.com/contact).|
     | ClientKey | Du behöver hämta det här värdet från [kundsupporten för Benefitsolver](https://www.businessolver.com/contact).|

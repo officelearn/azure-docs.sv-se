@@ -2,23 +2,25 @@
 title: Mall funktioner – objekt
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med objekt.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: fede4d6c71e45b119e500d4c9c6f91765d052036
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 632e92bb798a5e8469079ef4693b7f321617f88c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84676802"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977892"
 ---
 # <a name="object-functions-for-arm-templates"></a>Objekt funktioner för ARM-mallar
 
 Resource Manager innehåller flera funktioner för att arbeta med objekt i din Azure Resource Manager-mall (ARM).
 
 * [ingår](#contains)
+* [createObject](#createobject)
 * [tomt](#empty)
 * [överlappning](#intersection)
 * [utgör](#json)
 * [length](#length)
+* [ha](#null)
 * [Union](#union)
 
 ## <a name="contains"></a>contains
@@ -102,6 +104,58 @@ Utdata från föregående exempel med standardvärdena är:
 | arrayTrue | Bool | Sant |
 | arrayFalse | Bool | Falskt |
 
+## <a name="createobject"></a>createObject
+
+`createObject(key1, value1, key2, value2, ...)`
+
+Skapar ett objekt från nycklar och värden.
+
+### <a name="parameters"></a>Parametrar
+
+| Parameter | Krävs | Typ | Beskrivning |
+|:--- |:--- |:--- |:--- |
+| key1 |Nej |sträng |Namnet på nyckeln. |
+| value1 |Nej |int, boolesk, sträng, objekt eller matris |Värdet för nyckeln. |
+| ytterligare nycklar |Nej |sträng |Ytterligare namn på nycklarna. |
+| ytterligare värden |Nej |int, boolesk, sträng, objekt eller matris |Ytterligare värden för nycklarna. |
+
+Funktionen accepterar bara ett jämnt antal parametrar. Varje nyckel måste ha ett matchande värde.
+
+### <a name="return-value"></a>Returvärde
+
+Ett objekt med varje nyckel och värde-par.
+
+### <a name="example"></a>Exempel
+
+I följande exempel skapas ett objekt av olika typer av värden.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+    ],
+    "outputs": {
+        "newObject": {
+            "type": "object",
+            "value": "[createObject('intProp', 1, 'stringProp', 'abc', 'boolProp', true(), 'arrayProp', createArray('a', 'b', 'c'), 'objectProp', createObject('key1', 'value1'))]"
+        }
+    }
+}
+```
+
+Utdata från föregående exempel med standardvärdena är ett objekt med namnet `newObject` med följande värde:
+
+```json
+{
+  "intProp": 1,
+  "stringProp": "abc",
+  "boolProp": true,
+  "arrayProp": ["a", "b", "c"],
+  "objectProp": {"key1": "value1"}
+}
+```
+
 ## <a name="empty"></a>tomt
 
 `empty(itemToTest)`
@@ -179,7 +233,7 @@ Returnerar en enskild matris eller ett objekt med de gemensamma elementen från 
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att hitta vanliga element. |
 | arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att hitta vanliga element. |
-| ytterligare argument |Inga |matris eller objekt |Ytterligare värden som ska användas för att hitta vanliga element. |
+| ytterligare argument |Nej |matris eller objekt |Ytterligare värden som ska användas för att hitta vanliga element. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -237,40 +291,58 @@ Utdata från föregående exempel med standardvärdena är:
 
 `json(arg1)`
 
-Returnerar ett JSON-objekt.
+Konverterar en giltig JSON-sträng till en JSON-datatyp.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |sträng |Värdet som ska konverteras till JSON. |
+| arg1 |Ja |sträng |Värdet som ska konverteras till JSON. Strängen måste vara en korrekt formaterad JSON-sträng. |
 
 ### <a name="return-value"></a>Returvärde
 
-JSON-objektet från den angivna strängen, eller ett tomt objekt när **Null** har angetts.
+Data typen JSON från den angivna strängen, eller ett tomt värde när **Null** har angetts.
 
 ### <a name="remarks"></a>Kommentarer
 
 Om du behöver inkludera ett parameter värde eller en variabel i JSON-objektet använder du funktionen [concat](template-functions-string.md#concat) för att skapa den sträng som du skickar till funktionen.
 
+Du kan också använda [Null ()](#null) för att få ett null-värde.
+
 ### <a name="example"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) visas hur du använder JSON-funktionen. Observera att du kan antingen skicka i en sträng som representerar objektet eller använda **Null** när inget värde krävs.
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) visas hur du använder JSON-funktionen. Observera att du kan skicka in **Null** för ett tomt objekt.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "jsonObject1": {
+        "jsonEmptyObject": {
             "type": "string",
             "defaultValue": "null"
         },
-        "jsonObject2": {
+        "jsonObject": {
             "type": "string",
             "defaultValue": "{\"a\": \"b\"}"
         },
-        "testValue": {
+        "jsonString": {
+            "type": "string",
+            "defaultValue": "\"test\""
+        },
+        "jsonBoolean": {
+            "type": "string",
+            "defaultValue": "true"
+        },
+        "jsonInt": {
+            "type": "string",
+            "defaultValue": "3"
+        },
+        "jsonArray": {
+            "type": "string",
+            "defaultValue": "[[1,2,3 ]"
+        },
+        "concatValue": {
             "type": "string",
             "defaultValue": "demo value"
         }
@@ -278,17 +350,33 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
     "resources": [
     ],
     "outputs": {
-        "jsonOutput1": {
+        "emptyObjectOutput": {
             "type": "bool",
-            "value": "[empty(json(parameters('jsonObject1')))]"
+            "value": "[empty(json(parameters('jsonEmptyObject')))]"
         },
-        "jsonOutput2": {
+        "objectOutput": {
             "type": "object",
-            "value": "[json(parameters('jsonObject2'))]"
+            "value": "[json(parameters('jsonObject'))]"
         },
-        "paramOutput": {
+        "stringOutput": {
+            "type": "string",
+            "value": "[json(parameters('jsonString'))]"
+        },
+        "booleanOutput": {
+            "type": "bool",
+            "value": "[json(parameters('jsonBoolean'))]"
+        },
+        "intOutput": {
+            "type": "int",
+            "value": "[json(parameters('jsonInt'))]"
+        },
+        "arrayOutput": {
+            "type": "array",
+            "value": "[json(parameters('jsonArray'))]"
+        },
+        "concatObjectOutput": {
             "type": "object",
-            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
+            "value": "[json(concat('{\"a\": \"', parameters('concatValue'), '\"}'))]"
         }
     }
 }
@@ -298,9 +386,13 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| jsonOutput1 | Boolesk | Sant |
-| jsonOutput2 | Objekt | {"a": "b"} |
-| paramOutput | Objekt | {"a": "demo värde"}
+| emptyObjectOutput | Boolesk | Sant |
+| objectOutput | Objekt | {"a": "b"} |
+| stringOutput | Sträng | test |
+| booleanOutput | Boolesk | Sant |
+| intOutput | Heltal | 3 |
+| arrayOutput | Matris | [1, 2, 3] |
+| concatObjectOutput | Objekt | {"a": "demo värde"} |
 
 ## <a name="length"></a>length
 
@@ -378,6 +470,44 @@ Utdata från föregående exempel med standardvärdena är:
 | stringLength | Int | 13 |
 | objectLength | Int | 4 |
 
+## <a name="null"></a>null
+
+`null()`
+
+Returnerar null.
+
+### <a name="parameters"></a>Parametrar
+
+Funktionen null accepterar inte några parametrar.
+
+### <a name="return-value"></a>Returvärde
+
+Ett värde som alltid är null.
+
+### <a name="example"></a>Exempel
+
+I följande exempel används funktionen null.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "emptyOutput": {
+            "type": "bool",
+            "value": "[empty(null())]"
+        },
+    }
+}
+```
+
+Utdata från föregående exempel är:
+
+| Namn | Typ | Värde |
+| ---- | ---- | ----- |
+| emptyOutput | Bool | Sant |
+
 ## <a name="union"></a>Union
 
 `union(arg1, arg2, arg3, ...)`
@@ -390,7 +520,7 @@ Returnerar en enskild matris eller ett objekt med alla element från parametrarn
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att koppla ihop element. |
 | arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att koppla ihop element. |
-| ytterligare argument |Inga |matris eller objekt |Ytterligare värden som ska användas för att koppla ihop element. |
+| ytterligare argument |Nej |matris eller objekt |Ytterligare värden som ska användas för att koppla ihop element. |
 
 ### <a name="return-value"></a>Returvärde
 

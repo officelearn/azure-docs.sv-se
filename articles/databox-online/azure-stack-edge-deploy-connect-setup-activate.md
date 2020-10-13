@@ -10,10 +10,10 @@ ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: 8a143dadffb3f89ef67dc20a2038bb3c9bf5a0e4
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743343"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-stack-edge-pro"></a>Självstudie: ansluta, konfigurera och aktivera Azure Stack Edge Pro 
@@ -22,14 +22,14 @@ I den här självstudien beskrivs hur du kan ansluta till, konfigurera och aktiv
 
 Installations-och aktiverings processen kan ta ungefär 20 minuter att slutföra.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
 > * Ansluta till en fysisk enhet
 > * Konfigurera och aktivera den fysiska enheten
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du konfigurerar och konfigurerar din Azure Stack Edge Pro-enhet ser du till att:
 
@@ -134,7 +134,7 @@ På instrument panelen visas de olika inställningar som krävs för att konfigu
 6. I det vänstra fönstret väljer du **moln inställningar**och aktiverar sedan enheten med Azure Stack Edge-tjänsten i Azure Portal.
     
     1. I rutan **aktiverings nyckel** anger du aktiverings nyckeln som du fick i [Hämta aktiverings nyckeln](azure-stack-edge-deploy-prep.md#get-the-activation-key) för Azure Stack Edge Pro.
-    2. Välj **Tillämpa**.
+    2. Välj **Använd**.
        
         ![Sidan Cloud Settings för lokalt webb gränssnitt](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-6.png)
 

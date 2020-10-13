@@ -8,18 +8,18 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 3274e45738c079c89560f546fe58163f695e12df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 390cda604b71404735b7c14382d30067e154ef70
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851109"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976195"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en VHD eller VHDX i Windows för överföring till Azure
 
 Innan du laddar upp en virtuell Windows-dator (VM) från en lokal plats till Azure måste du förbereda den virtuella hård disken (VHD eller VHDX). Azure stöder virtuella datorer i generation 1 och generation 2 som är i VHD-filformat och har en disk med fast storlek. Den maximala storlek som tillåts för OS-VHD: n på en virtuell dator i generation 1 är 2 TB.
 
-Du kan konvertera en VHDX-fil till en virtuell hård disk, konvertera en dynamiskt expanderande disk till en disk med fast storlek, men du kan inte ändra den virtuella datorns generation. Mer information finns i [ska jag skapa en virtuell dator i generation 1 eller 2 i Hyper-V?](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V) och [stöd för virtuella datorer i generation 2 på Azure](generation-2.md).
+Du kan konvertera en VHDX-fil till en virtuell hård disk, konvertera en dynamiskt expanderande disk till en disk med fast storlek, men du kan inte ändra den virtuella datorns generation. Mer information finns i [ska jag skapa en virtuell dator i generation 1 eller 2 i Hyper-V?](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V) och [stöd för virtuella datorer i generation 2 på Azure](../generation-2.md).
 
 Information om support policyn för virtuella Azure-datorer finns i [Microsoft Server Software support för virtuella Azure-datorer](https://support.microsoft.com/help/2721672/).
 
@@ -71,7 +71,7 @@ När SFC-genomsökningen är klar installerar du Windows-uppdateringar och start
    netsh.exe winhttp reset proxy
    ```
 
-    Om den virtuella datorn behöver arbeta med en speciell proxy lägger du till ett proxy-undantag för Azure IP-adressen ([168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16)) så att den virtuella datorn kan ansluta till Azure:
+    Om den virtuella datorn behöver arbeta med en speciell proxy lägger du till ett proxy-undantag för Azure IP-adressen ([168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)) så att den virtuella datorn kan ansluta till Azure:
 
     ```
     $proxyAddress='<your proxy server>'
@@ -356,7 +356,7 @@ Vi rekommenderar att du behåller datorn uppdaterad till *korrigerings nivån*, 
 
 |        Komponent        |     Binär     | Windows 7 SP1, Windows Server 2008 R2 SP1 |       Windows 8, Windows Server 2012        | Windows 8,1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 |      Windows 10-v1703      | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 | ----------------------- | -------------- | ----------------------------------------- | ------------------------------------------- | ----------------------------------- | ------------------------------------------- | -------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Storage                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061          | -                                           | -                          | -                                           | -                                           |
+| Lagring                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061          | -                                           | -                          | -                                           | -                                           |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726          | 10.0.14393.1358 - KB4022715                 | 10.0.15063.332             | -                                           | -                                           |
 |                         | ntfs.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726          | 10.0.14393.1198 - KB4022715                 | 10.0.15063.447             | -                                           | -                                           |
 |                         | Iologmsg.dll   | 6.1.7601.23403 - KB3125574                | 6.2.9200.16384 - KB2995387                  | -                                   | -                                           | -                          | -                                           | -                                           |
@@ -405,7 +405,7 @@ Du kör vanligt vis `sysprep.exe` för att skapa en mall som du kan använda fö
 Om du bara vill skapa en virtuell dator från en disk behöver du inte använda Sysprep. I stället kan du skapa den virtuella datorn från en *specialiserad avbildning*. Information om hur du skapar en virtuell dator från en specialiserad disk finns i:
 
 - [Skapa en virtuell dator från en särskild disk](create-vm-specialized.md)
-- [Skapa en virtuell dator från en specialiserad virtuell hård disk](/azure/virtual-machines/windows/create-vm-specialized-portal)
+- [Skapa en virtuell dator från en specialiserad virtuell hård disk](./create-vm-specialized-portal.md)
 
 Om du vill skapa en generaliserad avbildning måste du köra Sysprep. Mer information finns i [så här använder du Sysprep: en introduktion](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)).
 
@@ -430,7 +430,7 @@ I synnerhet kräver Sysprep att enheterna måste dekrypteras fullständigt innan
 1. Välj **OK**.
 1. När Sysprep är klar stänger du den virtuella datorn. Använd inte **omstart** för att stänga av den virtuella datorn.
 
-Nu kan den virtuella hård disken laddas upp. Mer information om hur du skapar en virtuell dator från en generaliserad disk finns i [överföra en generaliserad virtuell hård disk och använda den för att skapa en ny virtuell dator i Azure](sa-upload-generalized.md).
+Nu kan den virtuella hård disken laddas upp. Mer information om hur du skapar en virtuell dator från en generaliserad disk finns i [överföra en generaliserad virtuell hård disk och använda den för att skapa en ny virtuell dator i Azure](/previous-versions/azure/virtual-machines/windows/sa-upload-generalized).
 
 >[!NOTE]
 > Det finns inte stöd för en anpassad *unattend.xml* -fil. Även om vi har stöd för egenskapen **additionalUnattendContent** , som endast ger begränsat stöd för att lägga till [Microsoft-Windows-Shell-Setup-](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) alternativ i *unattend.xml* -filen som Azure Provisioning-agenten använder. Du kan till exempel använda [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet&preserve-view=true) för att lägga till FirstLogonCommands och LogonCommands. Mer information finns i [AdditionalUnattendContent FirstLogonCommands-exempel](https://github.com/Azure/azure-quickstart-templates/issues/1407).
@@ -468,7 +468,7 @@ Använd någon av metoderna i det här avsnittet för att konvertera och ändra 
 
 ### <a name="use-powershell-to-convert-the-disk"></a>Använd PowerShell för att konvertera disken
 
-Du kan konvertera en virtuell disk med cmdleten [Convert-VHD](/powershell/module/hyper-v/convert-vhd) i PowerShell. Om du behöver information om hur du installerar denna cmdlet, se [Installera Hyper-V-rollen](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+Du kan konvertera en virtuell disk med cmdleten [Convert-VHD](/powershell/module/hyper-v/convert-vhd) i PowerShell. Om du behöver information om hur du installerar denna cmdlet, se [Installera Hyper-V-rollen](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 I följande exempel konverteras disken från VHDX till VHD. Den konverterar också disken från en dynamiskt expanderande disk till en disk med fast storlek.
 
@@ -488,7 +488,7 @@ I det här exemplet ersätter du värdet för **sökväg** med sökvägen till d
 
 ### <a name="use-powershell-to-resize-the-disk"></a>Använd PowerShell för att ändra storlek på disken
 
-Du kan ändra storlek på en virtuell disk med hjälp av [ändra storlek-VHD-](/powershell/module/hyper-v/resize-vhd) cmdlet i PowerShell. Om du behöver information om hur du installerar denna cmdlet, se [Installera Hyper-V-rollen](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+Du kan ändra storlek på en virtuell disk med hjälp av [ändra storlek-VHD-](/powershell/module/hyper-v/resize-vhd) cmdlet i PowerShell. Om du behöver information om hur du installerar denna cmdlet, se [Installera Hyper-V-rollen](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 I följande exempel ändras storleken på disken från 100,5 MiB till 101 MiB för att uppfylla kraven för Azures justering.
 
@@ -500,7 +500,7 @@ I det här exemplet ersätter du värdet för **sökväg** med sökvägen till d
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>Konvertera från VMware VMDK disk format
 
-Om du har en avbildning av en virtuell Windows-dator i [formatet VMDK](https://en.wikipedia.org/wiki/VMDK)kan du använda [Azure Migrate](https://docs.microsoft.com/azure/migrate/server-migrate-overview) för att konvertera VMDK och ladda upp den till Azure.
+Om du har en avbildning av en virtuell Windows-dator i [formatet VMDK](https://en.wikipedia.org/wiki/VMDK)kan du använda [Azure Migrate](../../migrate/server-migrate-overview.md) för att konvertera VMDK och ladda upp den till Azure.
 
 ## <a name="complete-the-recommended-configurations"></a>Slutför de rekommenderade konfigurationerna
 
@@ -520,4 +520,4 @@ Följande inställningar påverkar inte VHD-uppladdning. Vi rekommenderar dock s
 ## <a name="next-steps"></a>Nästa steg
 
 - [Ladda upp en Windows VM-avbildning till Azure för Resource Manager-distributioner](upload-generalized-managed.md)
-- [Felsök problem med aktivering av virtuella Azure Windows-datorer](troubleshoot-activation-problems.md)
+- [Felsök problem med aktivering av virtuella Azure Windows-datorer](../troubleshooting/troubleshoot-activation-problems.md)

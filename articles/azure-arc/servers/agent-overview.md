@@ -3,12 +3,12 @@ title: Översikt över den anslutna datorns Windows-agent
 description: Den här artikeln innehåller en detaljerad översikt över Azure Arc-aktiverade Server Agent som har stöd för övervakning av virtuella datorer i hybrid miljöer.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 20f56745127a5182a5dfa057a4496b127d78eac7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 248604884cf1b7592b382a3490aab60102e12faf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822197"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979163"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Översikt över Azure Arc-aktiverade Server Agent
 
@@ -85,6 +85,7 @@ Service märken:
 
 * AzureActiveDirectory
 * AzureTrafficManager
+* AzureResourceManager
 * AzureArcInfrastructure
 
 Er
@@ -94,10 +95,15 @@ Er
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
-|`agentserviceapi.azure-automation.net`|Gästkonfiguration|
-|`*-agentservice-prod-1.azure-automation.net`|Gästkonfiguration|
 |`*.guestconfiguration.azure.com` |Gästkonfiguration|
 |`*.his.arc.azure.com`|Hybrid identitets tjänst|
+
+För hands versioner (version 0,11 och lägre) kräver också åtkomst till följande URL: er:
+
+| Agentresurs | Beskrivning |
+|---------|---------|
+|`agentserviceapi.azure-automation.net`|Gästkonfiguration|
+|`*-agentservice-prod-1.azure-automation.net`|Gästkonfiguration|
 
 En lista över IP-adresser för varje service tag/region finns i JSON-filen – [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publicerar veckovis uppdateringar som innehåller varje Azure-tjänst och de IP-intervall som används. Mer information finns i [service tag](../../virtual-network/security-overview.md#service-tags).
 

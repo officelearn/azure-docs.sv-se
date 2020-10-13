@@ -12,12 +12,12 @@ ms.date: 09/24/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84f488863a39307ac7b55d5238fab786084a3614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4566e3d40a67a9cd9d61f78884df11536c0809bc
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259551"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949300"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Anpassa användar gränssnittet i Azure Active Directory B2C
 
@@ -178,7 +178,6 @@ Tänk på följande när du konfigurerar företags anpassning i Azure AD B2C:
 
 * Företags anpassning i Azure AD B2C är för närvarande begränsad till **bakgrunds bild**, **banderoll-logotyp**och **bakgrunds färg** anpassning. De andra egenskaperna i rutan företags anpassning, till exempel de i **Avancerade inställningar**, *stöds inte*.
 * Bakgrunds färgen visas i dina användar flödes sidor innan bakgrunds bilden läses in. Vi rekommenderar att du väljer en bakgrunds färg som nära matchar färgerna i bakgrunds bilden för en smidig inläsnings upplevelse.
-* Banderoll-logotypen visas i bekräftelse-e-postmeddelanden som skickas till användarna när de initierar ett registrerings användar flöde.
 
 ### <a name="enable-branding-in-user-flow-pages"></a>Aktivera anpassning på användar flödes sidor
 

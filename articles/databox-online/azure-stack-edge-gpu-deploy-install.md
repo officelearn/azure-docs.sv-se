@@ -10,10 +10,10 @@ ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
 ms.openlocfilehash: ba903793844e44b26931a70183860c983adaf18a
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743411"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Självstudie: installera Azure Stack Edge Pro med GPU
@@ -22,14 +22,14 @@ I den här självstudien beskrivs hur du installerar en fysisk enhet för Azure 
 
 Det kan ta cirka två timmar att slutföra installationen.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Packa upp enheten
 > * Rackmontera enheten
 > * Kabelansluta enheten
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 De nödvändiga komponenterna för att installera en fysisk enhet är följande:
 
@@ -86,7 +86,7 @@ Enheten måste installeras i ett 19-tums standardrack. Använd följande procedu
 > Azure Stack Edge Pro-enheter måste vara rack montering för att fungera korrekt.
 
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 - Innan du börjar läser du säkerhets anvisningarna i broschyren om säkerhet, miljö och information. Broschyren levererades med enheten.
 - Börja installera räler på det tilldelade utrymmet som är närmast botten av rack inne slutningen.

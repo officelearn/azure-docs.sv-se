@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 072e885ec1c618229141dea477cd598d8db34ce7
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e66d5c4dd4fc1c6c641da975b0ac2254f459642a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756776"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976937"
 ---
 # <a name="quickstart-handle-sms-events"></a>Snabb start: Hantera SMS-händelser
 
@@ -26,7 +26,7 @@ Kom igång med Azure Communication Services genom att använda Azure Event Grid 
 
 [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) är en molnbaserad händelse tjänst. I den här artikeln får du lära dig hur du prenumererar på händelser för [kommunikations tjänst händelser](../../concepts/event-handling.md)och utlöser en händelse för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. I den här artikeln ska vi skicka händelserna till en webbapp som samlar in och visar meddelandena.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - En Azure Communication service-resurs. Mer information finns i snabb starten för att [skapa en Azure Communication-resurs](../create-communication-resource.md) .
 - Ett SMS-aktiverat telefonnummer. [Hämta ett telefonnummer](./get-phone-number.md).
@@ -86,19 +86,19 @@ Välj sedan **Bekräfta markering**.
 Om du vill visa händelse utlösare måste vi generera händelser på den första platsen.
 
 - `SMS Received` händelser skapas när telefon numret för kommunikations tjänster får ett SMS. Om du vill utlösa en händelse skickar du bara ett meddelande från din telefon till telefonnumret som är kopplat till kommunikations tjänst resursen.
-- `SMS Delivery Report Received` händelser skapas när du skickar ett SMS till en användare med hjälp av ett telefonnummer för kommunikations tjänster. För att utlösa och händelse måste du aktivera `Delivery Report` i alternativen för det [skickade SMS](../telephony-sms/send.md). Försök att skicka ett meddelande till din telefon med `Delivery Report` . Att slutföra den här åtgärden innebär en låg kostnad av några USD cent eller mindre i ditt Azure-konto.
+- `SMS Delivery Report Received` händelser skapas när du skickar ett SMS till en användare med hjälp av ett telefonnummer för kommunikations tjänster. Om du vill utlösa en händelse måste du aktivera `Delivery Report` i alternativen för den [skickade SMS](../telephony-sms/send.md)-filen. Försök att skicka ett meddelande till din telefon med `Delivery Report` . Att slutföra den här åtgärden innebär en låg kostnad av några USD cent eller mindre i ditt Azure-konto.
 
 Ta en titt på den fullständiga listan med [händelser som stöds av Azure Communication Services](../../concepts/event-handling.md).
 
 ### <a name="receiving-sms-events"></a>Ta emot SMS-händelser
 
-När du har slutfört ovanstående åtgärd kommer du att märka att  `SMS Received` och `SMS Delivery Report Received` händelser skickas till din slut punkt. Dessa händelser visas i [Azure Event Grid Viewer-exemplet](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) som vi har konfigurerat i början. Du kan trycka på ögon ikonen bredvid händelsen om du vill se hela nytto lasten. Händelserna kommer att se ut så här:
+När du har slutfört ovanstående åtgärd kommer du att märka att `SMS Received` och `SMS Delivery Report Received` händelser skickas till din slut punkt. Dessa händelser visas i [Azure Event Grid Viewer-exemplet](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) som vi har konfigurerat i början. Du kan trycka på ögon ikonen bredvid händelsen om du vill se hela nytto lasten. Händelser kommer att se ut så här:
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Skärm bild som visar knappen händelse prenumeration på sidan händelser på en resurs.":::
 
 :::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Skärm bild som visar knappen händelse prenumeration på sidan händelser på en resurs.":::
 
-Läs mer om [händelse scheman och andra händelse koncept](../../concepts/event-handling.md)
+Lär dig mer om [händelse scheman och andra begrepp för händelser](../../concepts/event-handling.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -9,12 +9,12 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: 3393cb66735ffb881520a11bf9d1680c35d3d374
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c5e19a948298dead5ab3fc1183fb11b09acf455
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89424811"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976138"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Kör PowerShell-skript i din virtuella Windows-dator med hjälp av kommandot kör
 
@@ -43,7 +43,7 @@ Följande begränsningar gäller när du använder Kör kommando:
 * Vi rekommenderar inte att du kör ett skript som gör att VM-agenten stoppas eller uppdateras. Detta kan ge tillägget i ett över gångs tillstånd, vilket leder till en tids gräns.
 
 > [!NOTE]
-> För att funktionen ska fungera korrekt måste körnings kommandot ansluta (port 443) till offentliga Azure-IP-adresser. Om tillägget inte har åtkomst till dessa slut punkter kan skripten köras utan problem, men inga resultat returneras. Om du blockerar trafik på den virtuella datorn kan du använda [service märken](../../virtual-network/security-overview.md#service-tags) för att tillåta trafik till offentliga Azure-IP-adresser med hjälp av `AzureCloud` taggen.
+> För att funktionen ska fungera korrekt måste körnings kommandot ansluta (port 443) till offentliga Azure-IP-adresser. Om tillägget inte har åtkomst till dessa slut punkter kan skripten köras utan problem, men inga resultat returneras. Om du blockerar trafik på den virtuella datorn kan du använda [service märken](../../virtual-network/network-security-groups-overview.md#service-tags) för att tillåta trafik till offentliga Azure-IP-adresser med hjälp av `AzureCloud` taggen.
 
 ## <a name="available-commands"></a>Tillgängliga kommandon
 

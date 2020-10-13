@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7d19d782e9cb29cfc917293f084b78830db89bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aba28e867f5fdb7bfaa917547f60565c39e382dd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797623"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977773"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Azure Disk Encryption-scenarier på virtuella Linux-datorer
 
@@ -408,7 +408,7 @@ Azure Disk Encryption fungerar inte för följande scenarier, funktioner och tek
 - Skapa en avbildning eller ögonblicks bild av en krypterad virtuell dator och använda den för att distribuera ytterligare virtuella datorer.
 - Kernel-krasch dump (kdump).
 - Oracle-ACFS (ASM Cluster File System).
-- Virtuella Gen2-datorer (se: [stöd för virtuella datorer i generation 2 på Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
+- Virtuella Gen2-datorer (se: [stöd för virtuella datorer i generation 2 på Azure](../generation-2.md#generation-1-vs-generation-2-capabilities)).
 - NVMe-diskarna för virtuella datorer i Lsv2-serien (se: [Lsv2-serien](../lsv2-series.md)).
 - En virtuell dator med "kapslade monterings punkter"; det vill säga flera monterings punkter i en enda sökväg (till exempel "/1stmountpoint/data/2stmountpoint").
 - En virtuell dator med en data enhet som är monterad ovanpå en OS-mapp.

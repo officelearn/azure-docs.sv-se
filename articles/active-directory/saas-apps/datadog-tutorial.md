@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: jeedes
-ms.openlocfilehash: d3bb0ad5305ccba412a403352405711be8f183a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75f2574a656f659dfed12b59d52c9f147527c65d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88555951"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950095"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datadog"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Datadog
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Datadog med Azure A
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -141,6 +141,22 @@ I det här avsnittet skapar du en användare som heter B. Simon i Datadog. Arbet
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
 När du klickar på panelen Datadog på åtkomst panelen, bör du loggas in automatiskt på den Datadog som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+### <a name="enable-all-users-from-your-tenant-to-authenticate-with-the-app"></a>Gör det möjligt för alla användare från din klient att autentisera med appen
+
+I det här avsnittet aktiverar du alla i din klient organisation för att få åtkomst till Datadog om en användare har ett konto på Datadog-sidan.
+
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **Datadog**.
+1. På sidan Översikt för appen under **Hantera**väljer du **Egenskaper**.
+
+    ![Länken "egenskaper"](common/properties.png)
+
+1. **Behöver du använda användar tilldelning?** väljer du **Nej**.
+
+    ![Användar tilldelning krävs inte](common/user-assignment-not-required.png)
+
+1. Välj **Spara**.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

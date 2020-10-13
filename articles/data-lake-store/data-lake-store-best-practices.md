@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: 291a5850540ea7d7d24a4a544c1eb65183df8ffb
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667749"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Metod tips för att använda Azure Data Lake Storage Gen1
@@ -27,7 +27,7 @@ I den här artikeln får du lära dig mer om bästa praxis och överväganden f�
 
 Azure Data Lake Storage Gen1 erbjuder POSIX-åtkomst kontroller och detaljerad granskning för Azure Active Directory (Azure AD) användare, grupper och tjänstens huvud namn. Dessa åtkomst kontroller kan ställas in på befintliga filer och mappar. Åtkomst kontrollerna kan också användas för att skapa standardvärden som kan tillämpas på nya filer eller mappar. När behörigheter har angetts till befintliga mappar och underordnade objekt, måste behörigheterna spridas rekursivt på varje objekt. Om det finns många filer kan det ta lång tid att sprida behörigheterna. Åtgången tid kan vara mellan 30-50 objekt som bearbetas per sekund. Planera därför mappstrukturen och användar grupperna på lämpligt sätt. Annars kan det orsaka oväntade fördröjningar och problem när du arbetar med dina data.
 
-Anta att du har en mapp med 100 000 underordnade objekt. Om du tar den nedre gränserna av 30 objekt som bearbetas per sekund, kan det ta en timme att uppdatera behörigheten för hela mappen. Mer information om Data Lake Storage Gen1 ACL: er finns på [åtkomst kontroll i Azure Data Lake Storage gen1](data-lake-store-access-control.md). För bättre prestanda vid tilldelning av ACL: er rekursivt kan du använda kommando rads verktyget Azure Data Lake. Verktyget skapar flera trådar och rekursiv navigerings logik för att snabbt tillämpa ACL: er för miljon tals filer. Verktyget är tillgängligt för Linux och Windows, och [dokumentationen](https://github.com/Azure/data-lake-adlstool) och [nedladdningarna](https://aka.ms/adlstool-download) för verktyget finns på GitHub. Samma prestanda förbättringar kan aktive ras med egna verktyg som skrivs med Data Lake Storage Gen1 [.net](data-lake-store-data-operations-net-sdk.md) -och [Java](data-lake-store-get-started-java-sdk.md) -SDK: er.
+Anta att du har en mapp med 100 000 underordnade objekt. Om du tar den nedre gränserna av 30 objekt som bearbetas per sekund, kan det ta en timme att uppdatera behörigheten för hela mappen. Mer information om Data Lake Storage Gen1 ACL: er finns på [åtkomst kontroll i Azure Data Lake Storage gen1](data-lake-store-access-control.md). För bättre prestanda vid tilldelning av ACL: er rekursivt kan du använda verktyget Azure Data Lake Command-Line. Verktyget skapar flera trådar och rekursiv navigerings logik för att snabbt tillämpa ACL: er för miljon tals filer. Verktyget är tillgängligt för Linux och Windows, och [dokumentationen](https://github.com/Azure/data-lake-adlstool) och [nedladdningarna](https://aka.ms/adlstool-download) för verktyget finns på GitHub. Samma prestanda förbättringar kan aktive ras med egna verktyg som skrivs med Data Lake Storage Gen1 [.net](data-lake-store-data-operations-net-sdk.md) -och [Java](data-lake-store-get-started-java-sdk.md) -SDK: er.
 
 ### <a name="use-security-groups-versus-individual-users"></a>Använd säkerhets grupper jämfört med enskilda användare
 
@@ -101,7 +101,7 @@ Nedan visas de tre vanligaste alternativen för att dirigera replikering mellan 
 |  |Distcp  |Azure Data Factory  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Skalnings gränser**     | Begränsas av arbetsnoder        | Begränsas av max enheter för data förflyttning i molnet        | Begränsas av Analytics-enheter        |
-|**Stöder kopiering av delta**     |   Ja      | Nej         | Nej         |
+|**Stöder kopiering av delta**     |   Ja      | Inga         | Inga         |
 |**Inbyggd dirigering**     |  Nej (Använd Oozie-flöde eller cron-jobb)       | Ja        | Nej (Använd Azure Automation-eller Windows-Schemaläggaren)         |
 |**Fil system som stöds**     | ADL, HDFS, WASB, S3, GS, CFS        |Flera, se [kopplingar](../data-factory/connector-azure-blob-storage.md).         | ADL till ADL, WASB till ADL (endast samma region)        |
 |**OS-stöd**     |Alla operativ system som kör Hadoop         | E.t.          | Windows 10         |

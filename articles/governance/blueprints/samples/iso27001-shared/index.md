@@ -3,12 +3,12 @@ title: Exempel på ISO 27001-skiss för delade tjänster – översikt
 description: Översikt och arkitektur för skissexemplet ISO 27001 Delade tjänster. Det här skissexemplet hjälper kunderna att utvärdera specifika ISO 27001-kontroller.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 4df5e35154a6cd762dd653d9004eb635f0feb021
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e02f34c424e3f68e67f2d0dc2f4541c57ce3882f
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930823"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950558"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Översikt över skissexemplet ISO 27001 Delade tjänster
 
@@ -27,7 +27,7 @@ Den här miljön består av flera Azure-tjänster ger en säker, fullständigt �
 
 - [Azure-roller](../../../../role-based-access-control/overview.md) som används för ansvarsfördelning ur ett kontrollplansperspektiv. Tre roller definieras före distributionen av all infrastruktur:
   - NetOps-rollen har behörigheter för att hantera nätverksmiljön, inklusive brandväggsinställningar, NSG-inställningar, routning och andra nätverksfunktioner
-  - SecOps-rollen har nödvändiga behörigheter för att distribuera och hantera [Azure Security Center](../../../../security-center/security-center-intro.md), definiera [Azure Policy](../../../policy/overview.md)-definitioner och andra säkerhetsrelaterade behörigheter
+  - SecOps-rollen har nödvändiga behörigheter för att distribuera och hantera [Azure Security Center](../../../../security-center/security-center-introduction.md), definiera [Azure Policy](../../../policy/overview.md)-definitioner och andra säkerhetsrelaterade behörigheter
   - SysOps-rollen har nödvändiga behörigheter för att definiera [Azure Policy](../../../policy/overview.md)-definitioner i prenumerationen, hantera [Log Analytics](../../../../azure-monitor/overview.md) för hela miljön och andra behörigheter
 - [Log Analytics](../../../../azure-monitor/overview.md) distribueras som första Azure-tjänsten för att se till att alla åtgärder och tjänster loggas till en central plats direkt när du påbörjar din säkra distribution
 - Ett virtuellt nätverk med stöd för undernät för anslutning tillbaka till ett lokalt datacenter, en inkommande och utgående stack för Internetanslutning och ett undernät för delad tjänst med NSG:er och ASG:er för fullständig mikrosegmentering som innehåller:

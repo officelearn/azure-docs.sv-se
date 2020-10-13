@@ -61,7 +61,7 @@
     - name: Distribuera haveriberedskap för virtuella datorer
       href: disaster-recovery-for-virtual-machines.md
     - name: Distribuera virtuell dator via innehållsbibliotek
-      href: tutorial-deploy-vm-content-library.md
+      href: ./deploy-vm-content-library.md
     - name: Konfigurera GitHub Enterprise-server
       href: github-enterprise-server.md
     - name: Skapa en IPSec-tunnel

@@ -3,12 +3,12 @@ title: Exempel på CAF Foundation-skiss – översikt
 description: Översikt över och arkitektur för Cloud Adoption Framework (CAF) for Azure Foundation-skissexemplet.
 ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: a3e2a5bcbb68ef0b51cf02ebb7a7e34913e2a1e6
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 77e8b79ec7cf217161099808cee4364e31c6d6dd
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929616"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950286"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Översikt över Microsoft Cloud Adoption Framework for Azure Foundation-skissexemplet
 
@@ -26,7 +26,7 @@ Den här implementeringen omfattar flera Azure-tjänster som används för att t
 
 - En [Azure Key Vault](../../../../key-vault/general/overview.md)-instans som används som värd för hemligheter används för de virtuella datorerna som är distribuerade i miljön för delade tjänster
 - [Log Analytics](../../../../azure-monitor/overview.md) distribueras för att se till att alla åtgärder och tjänster loggas till en central plats direkt när du påbörjar din säkra distribution till [lagringskonton](../../../../storage/common/storage-introduction.md) för diagnostisk loggning
-- Distribution av [Azure Security Center](../../../../security-center/security-center-intro.md) (standardversionen) ger skydd mot hot för dina migrerade arbetsbelastningar
+- Distribution av [Azure Security Center](../../../../security-center/security-center-introduction.md) (standardversionen) ger skydd mot hot för dina migrerade arbetsbelastningar
 - Skissen definierar och distribuerar även [Azure Policy](../../../policy/overview.md)-definitioner:
   - Principdefinitioner:
     - Taggning (CostCenter) som tillämpas på resursgrupper

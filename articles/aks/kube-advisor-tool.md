@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
 ms.openlocfilehash: 2b0078f1aff3ef81ee270f67de0fffddec3abab9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86255259"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Söka efter Kubernetes metodtips i ditt kluster
@@ -57,7 +57,7 @@ Kubernetes stöder definiering [av resurs begär Anden och begränsningar för P
 
 Som standard anges inga förfrågningar eller gränser för Pod-specifikationer. Detta kan leda till att noder blir överschemade och att behållare är har. Kube-Advisor visar poddar utan begär Anden och begränsningar.
 
-## <a name="cleaning-up"></a>Rensa
+## <a name="cleaning-up"></a>Rensning
 
 Om klustret har RBAC aktiverat kan du rensa `ClusterRoleBinding` efter att du har kört verktyget med följande kommando:
 

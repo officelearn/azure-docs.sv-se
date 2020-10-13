@@ -7,10 +7,10 @@ ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: 2f47ded22209a9d53510c7d0a2f8270096161354
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86244146"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Installera och använda konsulär i Azure Kubernetes service (AKS)
@@ -67,10 +67,10 @@ Använd Helm och det nedladdade `consul-helm` diagrammet för att installera kon
 > **Installationsalternativ**
 > 
 > Vi använder följande alternativ som en del av installationen:
-> - `connectInject.enabled=true`-Aktivera att proxyservrar matas in i poddar
-> - `client.enabled=true`– gör det möjligt för konsulära kunder att köras på varje nod
-> - `client.grpc=true`-Aktivera gRPC-lyssnare för connectInject
-> - `syncCatalog.enabled=true`-Sync-Kubernetes och konsulära tjänster
+> - `connectInject.enabled=true` -Aktivera att proxyservrar matas in i poddar
+> - `client.enabled=true` – gör det möjligt för konsulära kunder att köras på varje nod
+> - `client.grpc=true` -Aktivera gRPC-lyssnare för connectInject
+> - `syncCatalog.enabled=true` -Sync-Kubernetes och konsulära tjänster
 >
 > **Node-väljare**
 >

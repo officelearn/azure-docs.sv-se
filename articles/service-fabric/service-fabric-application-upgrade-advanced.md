@@ -4,10 +4,10 @@ description: I den här artikeln beskrivs några avancerade ämnen som rör uppg
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: cc2fdc8f99b74078bd8d5274cbe52265ab8455ae
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86248092"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric program uppgradering: avancerade ämnen
@@ -100,7 +100,7 @@ Den åsidosatta fördröjnings tiden gäller bara för den anropade uppgradering
 >
 
 > [!NOTE]
-> Den här funktionen kan konfigureras i befintliga tjänster med Update-ServiceFabricService-cmdlet eller ARM-mallen som nämnts ovan, när kluster kod versionen är 7.1.XXX eller högre.
+> Den här funktionen kan konfigureras i befintliga tjänster med hjälp av Update-ServiceFabricService-cmdlet eller ARM-mallen som nämnts ovan, när kluster kod versionen är 7.1.XXX eller högre.
 >
 >
 

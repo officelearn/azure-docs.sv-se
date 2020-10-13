@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: 405ebbbfa4a662dd9ee3c8d10dde8f28e5ce9c66
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87830452"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption för virtuella Linux-datorer 
@@ -68,7 +68,7 @@ Linux Server-distributioner som inte har godkänts av Azure stöder inte Azure D
 | Redhat | RHEL 7,7 | 7-LVM | RedHat: RHEL: 7-LVM: senaste | Operativ system och data disk (se OBS! nedan) |
 | Redhat | RHEL 7,6 | 7,6 | RedHat: RHEL: 7.6: senaste | Operativ system och data disk (se OBS! nedan) |
 | Redhat | RHEL 7.5 | 7.5 | RedHat: RHEL: 7.5: senaste | Operativ system och data disk (se OBS! nedan) |
-| Redhat | RHEL 7,4 | 7.4 | RedHat: RHEL: 7.4: senaste | Operativ system och data disk (se OBS! nedan) |
+| Redhat | RHEL 7,4 | 7,4 | RedHat: RHEL: 7.4: senaste | Operativ system och data disk (se OBS! nedan) |
 | Redhat | RHEL 7,3 | 7.3 | RedHat: RHEL: 7.3: senaste | Operativ system och data disk (se OBS! nedan) |
 | Redhat | RHEL 7,2 | 7.2 | RedHat: RHEL: 7.2: senaste | Operativ system och data disk (se OBS! nedan) |
 | Redhat | RHEL 6,8 | 6.8 | RedHat: RHEL: 6,8: senaste | Data disk (se OBS! nedan) |
@@ -77,7 +77,7 @@ Linux Server-distributioner som inte har godkänts av Azure stöder inte Azure D
 | OpenLogic | CentOS 7,7 | 7-LVM | OpenLogic: CentOS: 7-LVM: senaste | Operativ system och data disk |
 | OpenLogic | CentOS 7,6 | 7,6 | OpenLogic: CentOS: 7.6: senaste | Operativ system och data disk |
 | OpenLogic | CentOS 7.5 | 7.5 | OpenLogic: CentOS: 7.5: senaste | Operativ system och data disk |
-| OpenLogic | CentOS 7.4 | 7.4 | OpenLogic: CentOS: 7.4: senaste | Operativ system och data disk |
+| OpenLogic | CentOS 7.4 | 7,4 | OpenLogic: CentOS: 7.4: senaste | Operativ system och data disk |
 | OpenLogic | CentOS 7,3 | 7.3 | OpenLogic: CentOS: 7.3: senaste | Operativ system och data disk |
 | OpenLogic | CentOS 7,2 n | 7,2 n | OpenLogic: CentOS: 7,2 n: senaste | Operativ system och data disk |
 | OpenLogic | CentOS 7,1 | 7.1 | OpenLogic: CentOS: 7.1: senaste | Endast datadisk |
@@ -144,7 +144,7 @@ I följande tabell definieras några vanliga termer som används i dokumentation
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Snabb start – skapa och kryptera en virtuell Linux-dator med Azure CLI](disk-encryption-cli-quickstart.md)
+- [Snabb start – skapa och kryptera en virtuell Linux-dator med Azure CLI ](disk-encryption-cli-quickstart.md)
 - [Snabb start – skapa och kryptera en virtuell Linux-dator med Azure PowerShell](disk-encryption-powershell-quickstart.md)
 - [Azure Disk Encryption-scenarier på virtuella Linux-datorer](disk-encryption-linux.md)
 - [Azure Disk Encryption nödvändiga CLI-skript](https://github.com/ejarvi/ade-cli-getting-started)

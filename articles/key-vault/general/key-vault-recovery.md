@@ -9,10 +9,10 @@ ms.author: sudbalas
 manager: ravijan
 ms.date: 09/30/2020
 ms.openlocfilehash: bea4a5d92309710645dd63e611cd0a5e3b742c34
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91604354"
 ---
 # <a name="azure-key-vault-recovery-overview"></a>Översikt över Azure Key Vault återställning
@@ -34,7 +34,7 @@ Det är viktigt att Observera att **nyckel valvs namn är globalt unika**, så d
 > [!NOTE]
 > Rensnings skyddet har utformats så att ingen administratörs roll eller-behörighet kan åsidosätta, inaktivera eller kringgå rensnings skyddet. **När rensnings skyddet har Aktiver ATS kan det inte inaktive ras eller åsidosättas av någon som inkluderar Microsoft.** Det innebär att du måste återställa ett borttaget nyckel valv eller vänta tills kvarhållningsperioden har gått ut innan du återanvänder nyckel valvets namn.
 
-# <a name="azure-portal"></a>[Azure-portalen](#tab/azure-portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
 ## <a name="verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete"></a>Kontrol lera om mjuk borttagning är aktiverat på ett nyckel valv och aktivera mjuk borttagning
 

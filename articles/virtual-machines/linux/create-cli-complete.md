@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 4348d3d71259b5bdf63b1c52af53bff59c650086
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87829024"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Skapa en komplett virtuell Linux-dator med Azure CLI
@@ -103,7 +103,7 @@ az network public-ip create \
     --dns-name mypublicdns
 ```
 
-Resultat:
+Utdata:
 
 ```json
 {
@@ -173,7 +173,7 @@ Granska nätverks säkerhets gruppen och reglerna med [AZ Network NSG show](/cli
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
 ```
 
-Resultat:
+Utdata:
 
 ```json
 {
@@ -336,7 +336,7 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Resultat:
+Utdata:
 
 ```json
 {
@@ -506,7 +506,7 @@ SSH till den virtuella datorn med DNS-posten du angav när du skapade den offent
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 The authenticity of host 'mypublicdns.eastus.cloudapp.azure.com (13.90.94.252)' can't be established.

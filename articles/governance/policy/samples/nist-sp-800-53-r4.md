@@ -5,10 +5,10 @@ ms.date: 10/07/2020
 ms.topic: sample
 ms.custom: generated
 ms.openlocfilehash: 196522101cbc09a8c6a3ee12593a273e6565da88
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91823969"
 ---
 # <a name="details-of-the-nist-sp-800-53-r4-regulatory-compliance-built-in-initiative"></a>Information om det inbyggda initiativet NIST SP 800-53 R4-regelefterlevnad
@@ -99,7 +99,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |---|---|---|---|
 |[Microsoft-hanterad kontroll 1017- \| Logga inaktivitet för konto hantering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0fc3db37-e59a-48c1-84e9-1780cedb409e) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1017.json) |
 
-### <a name="account-management--role-based-schemes"></a>Konto hantering | Rollbaserade scheman
+### <a name="account-management--role-based-schemes"></a>Konto hantering | Role-Baseds scheman
 
 **ID**: NIST SP 800-53 R4 AC-2 (7) **ägarskap**: delad
 
@@ -107,9 +107,9 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |---|---|---|---|
 |[En Azure Active Directory administratör bör tillhandahållas för SQL-servrar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f314764-cb73-4fc9-b863-8eca98ac36e9) |Granska etablering av en Azure Active Directory administratör för SQL Server för att aktivera Azure AD-autentisering. Azure AD-autentisering möjliggör förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SQL_DB_AuditServerADAdmins_Audit.json) |
 |[Granska användningen av anpassade RBAC-regler](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5) |Granska inbyggda roller som "ägare, Contribute", läsare "i stället för anpassade RBAC-roller som är fel känsliga. Användning av anpassade roller behandlas som ett undantag och kräver en rigorös gransknings-och hot modellering |Granskning, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/Subscription_AuditCustomRBACRoles_Audit.json) |
-|[Microsoft-hanterad kontroll 1018- \| rollbaserade scheman för konto hantering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9121abf-e698-4ee9-b1cf-71ee528ff07f) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1018.json) |
-|[Microsoft-hanterad kontroll 1019- \| rollbaserade scheman för konto hantering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6a3ee9b2-3977-459c-b8ce-2db583abd9f7) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1019.json) |
-|[Microsoft-hanterad kontroll 1020- \| rollbaserade scheman för konto hantering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b291ee8-3140-4cad-beb7-568c077c78ce) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1020.json) |
+|[Microsoft-hanterad kontroll 1018-konto hantering \| Role-Baseds scheman](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9121abf-e698-4ee9-b1cf-71ee528ff07f) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1018.json) |
+|[Microsoft-hanterad kontroll 1019-konto hantering \| Role-Baseds scheman](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6a3ee9b2-3977-459c-b8ce-2db583abd9f7) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1019.json) |
+|[Microsoft-hanterad kontroll 1020-konto hantering \| Role-Baseds scheman](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b291ee8-3140-4cad-beb7-568c077c78ce) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1020.json) |
 |[Service Fabric kluster bör endast använda Azure Active Directory för klientautentisering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb54ed75b-3e1a-44ac-a333-05ba39b99ff0) |Granska användningen av klientautentisering endast via Azure Active Directory i Service Fabric |Granska, neka, inaktive rad |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Fabric/ServiceFabric_AuditADAuth_Audit.json) |
 
 ### <a name="account-management--restrictions-on-use-of-shared--group-accounts"></a>Konto hantering | Begränsningar för användningen av delade/grupp-konton
@@ -146,13 +146,13 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |[Microsoft Managed Control 1024 – konto hantering \| konto övervakning/ovanlig användning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F84914fb4-12da-4c53-a341-a9fd463bed10) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1024.json) |
 |[Microsoft Managed Control 1025 – konto hantering \| konto övervakning/ovanlig användning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fadfe020d-0a97-45f4-a39c-696ef99f3a95) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1025.json) |
 
-### <a name="account-management--disable-accounts-for-high-risk-individuals"></a>Konto hantering | Inaktivera konton för personer med hög risk
+### <a name="account-management--disable-accounts-for-high-risk-individuals"></a>Konto hantering | Inaktivera konton för High-Risk individer
 
 **ID**: NIST SP 800-53 R4 AC-2 (13) **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1026-konto hantering \| inaktivera konton för högrisk individer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55419419-c597-4cd4-b51e-009fd2266783) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1026.json) |
+|[Microsoft-hanterad kontroll 1026-konto hantering \| inaktivera konton för High-Risk individer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55419419-c597-4cd4-b51e-009fd2266783) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1026.json) |
 
 ### <a name="access-enforcement"></a>Åtkomst tvång
 
@@ -322,13 +322,13 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |[Microsoft Managed Control 1051-session lock](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7cac6ee9-b58b-40c8-a5ce-f0efc3d9b339) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1051.json) |
 |[Microsoft Managed Control 1052-session lock](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F027cae1c-ec3e-4492-9036-4168d540c42a) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1052.json) |
 
-### <a name="session-lock--pattern-hiding-displays"></a>Sessions-lås | Mönster – dölja visning
+### <a name="session-lock--pattern-hiding-displays"></a>Sessions-lås | Pattern-Hiding visar
 
 **ID**: NIST SP 800-53 R4 AC-11 (1) **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1053 – mönster för att låsa sessioner \| – dölja visning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7582b19c-9dba-438e-aed8-ede59ac35ba3) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1053.json) |
+|[Microsoft-hanterad kontroll 1053-session lock- \| Pattern-Hiding visar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7582b19c-9dba-438e-aed8-ede59ac35ba3) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1053.json) |
 
 ### <a name="session-termination"></a>Avslutning av session
 
@@ -338,14 +338,14 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |---|---|---|---|
 |[Microsoft-hanterad kontroll 1054-avsluta sessionen](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5807e1b4-ba5e-4718-8689-a0ca05a191b2) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1054.json) |
 
-### <a name="session-termination--user-initiated-logouts--message-displays"></a>Avsluta sessionen | Användarinitierad utloggning/meddelande visning
+### <a name="session-termination--user-initiated-logouts--message-displays"></a>Avsluta sessionen | User-Initiated utloggning/meddelande visas
 
 **ID**: NIST SP 800-53 R4 AC-12 (1) **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1055 – \| avvisning av användare som initierats av användare-initierade utloggning/meddelande visas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F769efd9b-3587-4e22-90ce-65ddcd5bd969) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1055.json) |
-|[Microsoft-hanterad kontroll 1056 – \| avvisning av användare som initierats av användare-initierade utloggning/meddelande visas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac43352f-df83-4694-8738-cfce549fd08d) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1056.json) |
+|[Microsoft-hanterad kontroll 1055-avsluta \| User-Initiated utloggning/meddelande visas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F769efd9b-3587-4e22-90ce-65ddcd5bd969) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1055.json) |
+|[Microsoft-hanterad kontroll 1056-avsluta \| User-Initiated utloggning/meddelande visas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac43352f-df83-4694-8738-cfce549fd08d) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1056.json) |
 
 ### <a name="permitted-actions-without-identification-or-authentication"></a>Tillåtna åtgärder utan identifiering eller autentisering
 
@@ -474,13 +474,13 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |[Microsoft-hanterad kontroll 1073-Access Control för mobila enheter](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fab55cdb0-c7dd-4bd8-ae22-a7cea7594e9c) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1073.json) |
 |[Microsoft-hanterad kontroll 1074-Access Control för mobila enheter](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F27a69937-af92-4198-9b86-08d355c7e59a) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1074.json) |
 
-### <a name="access-control-for-mobile-devices--full-device--container-based--encryption"></a>Access Control för mobila enheter | Fullständig kryptering med enhet/container
+### <a name="access-control-for-mobile-devices--full-device--container-based--encryption"></a>Access Control för mobila enheter | Fullständig kryptering av enhet/Container-Based
 
 **ID**: NIST SP 800-53 R4 AC-19 (5) **ägarskap**: Microsoft
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1075-Access Control för mobil enheter \| fullständig enhet/container-baserad kryptering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc933d22-04df-48ed-8f87-22a3773d4309) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1075.json) |
+|[Microsoft-hanterad kontroll 1075-Access Control för mobil enheter \| fullständig enhets-/Container-Based kryptering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc933d22-04df-48ed-8f87-22a3773d4309) |Microsoft implementerar den här Access Control kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1075.json) |
 
 ### <a name="use-of-external-information-systems"></a>Användning av externa informations system
 
@@ -557,31 +557,31 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |---|---|---|---|
 |[Microsoft Managed Control 1092 – Security medvetenhet Trainer \| Insider Threat](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8a29d47b-8604-4667-84ef-90d203fcb305) |Microsoft implementerar denna medvetenhets-och utbildnings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1092.json) |
 
-### <a name="role-based-security-training"></a>Rollbaserad säkerhetsutbildning
+### <a name="role-based-security-training"></a>Role-Based säkerhetsutbildning
 
 **ID**: NIST SP 800-53 R4 med-3 **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1093 – rollbaserad säkerhetsutbildning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7a0bdeeb-15f4-47e8-a1da-9f769f845fdf) |Microsoft implementerar denna medvetenhets-och utbildnings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1093.json) |
-|[Microsoft-hanterad kontroll 1094 – rollbaserad säkerhetsutbildning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4b1853e0-8973-446b-b567-09d901d31a09) |Microsoft implementerar denna medvetenhets-och utbildnings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1094.json) |
-|[Microsoft-hanterad kontroll 1095 – rollbaserad säkerhetsutbildning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbc3f6f7a-057b-433e-9834-e8c97b0194f6) |Microsoft implementerar denna medvetenhets-och utbildnings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1095.json) |
+|[Microsoft Managed Control 1093 – Role-Based säkerhetsutbildning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7a0bdeeb-15f4-47e8-a1da-9f769f845fdf) |Microsoft implementerar denna medvetenhets-och utbildnings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1093.json) |
+|[Microsoft Managed Control 1094 – Role-Based säkerhetsutbildning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4b1853e0-8973-446b-b567-09d901d31a09) |Microsoft implementerar denna medvetenhets-och utbildnings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1094.json) |
+|[Microsoft Managed Control 1095 – Role-Based säkerhetsutbildning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbc3f6f7a-057b-433e-9834-e8c97b0194f6) |Microsoft implementerar denna medvetenhets-och utbildnings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1095.json) |
 
-### <a name="role-based-security-training--practical-exercises"></a>Rollbaserad säkerhets träning | Praktiska övningar
+### <a name="role-based-security-training--practical-exercises"></a>Role-Based säkerhetsutbildning | Praktiska övningar
 
 **ID**: NIST SP 800-53 R4-3 (3) **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1096 – rollbaserad säkerhetsutbildning – \| praktiska övningar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F420c1477-aa43-49d0-bd7e-c4abdd9addff) |Microsoft implementerar denna medvetenhets-och utbildnings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1096.json) |
+|[Microsoft Managed Control 1096 – Role-Based säkerhetsutbildning – \| praktiska övningar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F420c1477-aa43-49d0-bd7e-c4abdd9addff) |Microsoft implementerar denna medvetenhets-och utbildnings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1096.json) |
 
-### <a name="role-based-security-training--suspicious-communications-and-anomalous-system-behavior"></a>Rollbaserad säkerhets träning | Beteende för misstänkt kommunikation och avvikande system
+### <a name="role-based-security-training--suspicious-communications-and-anomalous-system-behavior"></a>Role-Based säkerhetsutbildning | Beteende för misstänkt kommunikation och avvikande system
 
 **ID**: NIST SP 800-53 R4-3 (4) **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1097-rollbaserad säkerhetsutbildning, \| misstänkt kommunikation och avvikande system beteende](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf3e4836-f19e-47eb-a8cd-c3ca150452c0) |Microsoft implementerar denna medvetenhets-och utbildnings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1097.json) |
+|[Microsoft-hanterad kontroll 1097-Role-Based säkerhetsutbildning \| , misstänkt kommunikation och avvikande system beteende](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf3e4836-f19e-47eb-a8cd-c3ca150452c0) |Microsoft implementerar denna medvetenhets-och utbildnings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1097.json) |
 
 ### <a name="security-training-records"></a>Säkerhets tränings poster
 
@@ -678,13 +678,13 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |---|---|---|---|
 |[Microsoft-hanterad kontroll 1113-svar på gransknings bearbetnings problem \| Granska lagrings kapacitet](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F562afd61-56be-4313-8fe4-b9564aa4ba7d) |Microsoft implementerar denna kontroll för granskning och ansvar |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1113.json) |
 
-### <a name="response-to-audit-processing-failures--real-time-alerts"></a>Svar på gransknings bearbetnings problem | Aviseringar i real tid
+### <a name="response-to-audit-processing-failures--real-time-alerts"></a>Svar på gransknings bearbetnings problem | Real-Time aviseringar
 
 **ID**: NIST SP 800-53 R4 au-5 (2) **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1114-svar på varningar om gransknings bearbetning i \| real tid](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4c090801-59bc-4454-bb33-e0455133486a) |Microsoft implementerar denna kontroll för granskning och ansvar |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1114.json) |
+|[Microsoft-hanterad kontroll 1114-svar på gransknings bearbetnings problem \| Real-Time aviseringar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4c090801-59bc-4454-bb33-e0455133486a) |Microsoft implementerar denna kontroll för granskning och ansvar |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1114.json) |
 
 ### <a name="audit-review-analysis-and-reporting"></a>Granska granskning, analys och rapportering
 
@@ -854,13 +854,13 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |[Microsoft-hanterad kontroll 1138-gransknings generation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9c284fc0-268a-4f29-af44-3c126674edb4) |Microsoft implementerar denna kontroll för granskning och ansvar |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1138.json) |
 |[Microsoft-hanterad kontroll 1139-gransknings generation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4ed62522-de00-4dda-9810-5205733d2f34) |Microsoft implementerar denna kontroll för granskning och ansvar |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1139.json) |
 
-### <a name="audit-generation--system-wide--time-correlated-audit-trail"></a>Gransknings generation | Systemomfattande/tidskorrelerade gransknings spårning
+### <a name="audit-generation--system-wide--time-correlated-audit-trail"></a>Gransknings generation | Gransknings historik för System-Wide/Time-Correlated
 
 **ID**: NIST SP 800-53 R4 au-12 (1) **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1140-granska generationens \| systemomfattande/Tidskorrelerade Gransknings logg](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F90d8b8ad-8ee3-4db7-913f-2a53fcff5316) |Microsoft implementerar denna kontroll för granskning och ansvar |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1140.json) |
+|[Microsoft Managed Control 1140 – granskning generation \| System-Wide/Time-Correlated Gransknings logg](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F90d8b8ad-8ee3-4db7-913f-2a53fcff5316) |Microsoft implementerar denna kontroll för granskning och ansvar |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1140.json) |
 
 ### <a name="audit-generation--changes-by-authorized-individuals"></a>Gransknings generation | Ändringar av behöriga individer
 
@@ -1061,14 +1061,14 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |---|---|---|---|
 |[Microsoft-hanterad kontroll 1181-bas linje konfigurations \| kvarhållning av tidigare konfigurationer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F21839937-d241-4fa5-95c6-b669253d9ab9) |Microsoft implementerar denna konfigurations hanterings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1181.json) |
 
-### <a name="baseline-configuration--configure-systems-components-or-devices-for-high-risk-areas"></a>Bas linje konfiguration | Konfigurera system, komponenter eller enheter för högrisk områden
+### <a name="baseline-configuration--configure-systems-components-or-devices-for-high-risk-areas"></a>Bas linje konfiguration | Konfigurera system, komponenter eller enheter för High-Risk områden
 
 **ID**: NIST SP 800-53 R4 cm-2 (7) **ägarskap**: Microsoft
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1182 – bas linje konfiguration \| Konfigurera system, komponenter eller enheter för högrisk områden](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f34f554-da4b-4786-8d66-7915c90893da) |Microsoft implementerar denna konfigurations hanterings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1182.json) |
-|[Microsoft-hanterad kontroll 1183 – bas linje konfiguration \| Konfigurera system, komponenter eller enheter för högrisk områden](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5352e3e0-e63a-452e-9e5f-9c1d181cff9c) |Microsoft implementerar denna konfigurations hanterings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1183.json) |
+|[Microsoft-hanterad kontroll 1182 – bas linje konfiguration \| Konfigurera system, komponenter eller enheter för High-Risk områden](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f34f554-da4b-4786-8d66-7915c90893da) |Microsoft implementerar denna konfigurations hanterings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1182.json) |
+|[Microsoft-hanterad kontroll 1183 – bas linje konfiguration \| Konfigurera system, komponenter eller enheter för High-Risk områden](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5352e3e0-e63a-452e-9e5f-9c1d181cff9c) |Microsoft implementerar denna konfigurations hanterings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1183.json) |
 
 ### <a name="configuration-change-control"></a>Konfigurations ändrings kontroll
 
@@ -1322,24 +1322,24 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |---|---|---|---|
 |[Microsoft-hanterad kontroll 1237-program användnings begränsningar program vara med \| öppen källkod](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe80b6812-0bfa-4383-8223-cdd86a46a890) |Microsoft implementerar denna konfigurations hanterings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1237.json) |
 
-### <a name="user-installed-software"></a>Användarens installerade program
+### <a name="user-installed-software"></a>User-Installed program vara
 
 **ID**: NIST SP 800-53 R4 cm-11 **ägande**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Anpassningsbara program kontroller för att definiera säkra program ska aktive ras på dina datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a6b606-51aa-4496-8bb7-64b11cf66adc) |Aktivera program kontroller för att definiera listan över kända säkra program som körs på dina datorer och varna dig när andra program körs. På så sätt kan du förstärka dina datorer mot skadlig kod. För att förenkla processen med att konfigurera och underhålla dina regler, Security Center använda Machine Learning för att analysera programmen som körs på varje dator och föreslå listan över kända säkra program. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveApplicationControls_Audit.json) |
-|[Microsoft-hanterad kontroll 1238-användare-installerad program vara](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa36cedd4-3ffd-4b1f-8b18-aa71d8d87ce1) |Microsoft implementerar denna konfigurations hanterings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1238.json) |
-|[Microsoft-hanterad kontroll 1239-användare-installerad program vara](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0be51298-f643-4556-88af-d7db90794879) |Microsoft implementerar denna konfigurations hanterings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1239.json) |
-|[Microsoft-hanterad kontroll 1240-användare-installerad program vara](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F129eb39f-d79a-4503-84cd-92f036b5e429) |Microsoft implementerar denna konfigurations hanterings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1240.json) |
+|[Microsoft-hanterad kontroll 1238 – User-Installed-programvara](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa36cedd4-3ffd-4b1f-8b18-aa71d8d87ce1) |Microsoft implementerar denna konfigurations hanterings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1238.json) |
+|[Microsoft-hanterad kontroll 1239 – User-Installed-programvara](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0be51298-f643-4556-88af-d7db90794879) |Microsoft implementerar denna konfigurations hanterings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1239.json) |
+|[Microsoft-hanterad kontroll 1240 – User-Installed-programvara](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F129eb39f-d79a-4503-84cd-92f036b5e429) |Microsoft implementerar denna konfigurations hanterings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1240.json) |
 
-### <a name="user-installed-software--alerts-for-unauthorized-installations"></a>Installerad program vara för användare | Aviseringar för obehöriga installationer
+### <a name="user-installed-software--alerts-for-unauthorized-installations"></a>User-Installed program vara | Aviseringar för obehöriga installationer
 
 **ID**: NIST SP 800-53 R4 cm-11 (1) **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1241-användare-installerade program varu \| aviseringar för obehöriga installationer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feca4d7b2-65e2-4e04-95d4-c68606b063c3) |Microsoft implementerar denna konfigurations hanterings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1241.json) |
+|[Microsoft-hanterad kontroll 1241-User-Installed program varu \| aviseringar för obehöriga installationer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feca4d7b2-65e2-4e04-95d4-c68606b063c3) |Microsoft implementerar denna konfigurations hanterings kontroll |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1241.json) |
 
 ## <a name="contingency-planning"></a>Planering för oförutsedda händelser
 
@@ -1791,7 +1791,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |[Microsoft-hanterad kontroll 1325-verifierings hantering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1845796a-7581-49b2-ae20-443121538e19) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1325.json) |
 |[Microsoft-hanterad kontroll 1326-verifierings hantering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8605fc00-1bf5-4fb3-984e-c95cec4f231d) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1326.json) |
 
-### <a name="authenticator-management--password-based-authentication"></a>Autentiserare hantering | Lösenordsbaserad autentisering
+### <a name="authenticator-management--password-based-authentication"></a>Autentiserare hantering | Password-Based autentisering
 
 **ID**: NIST SP 800-53 R4 IA-5 (1) **ägarskap**: delad
 
@@ -1807,23 +1807,23 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |[Granska Windows-datorer som inte lagrar lösen ord med omvänd kryptering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fda0f98fe-a24b-4ad5-af69-bd0400233661) |Kräver att nödvändiga komponenter distribueras till princip tilldelnings omfånget. Mer information finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . Datorer är icke-kompatibla om Windows-datorer som inte lagrar lösen ord med omvänd kryptering |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsPasswordEncryption_AINE.json) |
 |[Distribuera Linux-gästens konfigurations tillägg för att aktivera gäst konfigurations tilldelningar på virtuella Linux-datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F331e8ea8-378a-410f-a2e5-ae22f38bb0da) |Den här principen distribuerar Linux-gästens konfigurations tillägg till virtuella Linux-datorer som finns i Azure och som stöds av gäst konfigurationen. Linux-gästens konfigurations tillägg är ett krav för alla konfigurations tilldelningar för Linux-gäst och måste distribueras till datorer innan du använder en princip definition för Linux-gästs konfiguration. Mer information om gäst konfiguration finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_DeployExtensionLinux_Prerequisite.json) |
 |[Distribuera Windows gäst konfigurations tillägget för att aktivera gäst konfigurations tilldelningar på virtuella Windows-datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F385f5831-96d4-41db-9a3c-cd3af78aaae6) |Den här principen distribuerar Windows gäst konfigurations tillägg till virtuella Windows-datorer som finns i Azure och som stöds av gäst konfigurationen. Windows gäst konfigurations tillägget är ett krav för alla Windows gäst konfigurations tilldelningar och måste distribueras till datorer innan du använder en princip definition för Windows-gästens konfiguration. Mer information om gäst konfiguration finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_DeployExtensionWindows_Prerequisite.json) |
-|[Microsoft-hanterad kontroll 1327-autentisering baserad på autentiserad hantering \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F03188d8f-1ae5-4fe1-974d-2d7d32ef937d) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1327.json) |
-|[Microsoft-hanterad kontroll 1328-autentisering baserad på autentiserad hantering \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff5c66fdc-3d02-4034-9db5-ba57802609de) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1328.json) |
-|[Microsoft-hanterad kontroll 1329-autentisering baserad på autentiserad hantering \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F498f6234-3e20-4b6a-a880-cbd646d973bd) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1329.json) |
-|[Microsoft-hanterad kontroll 1330-autentisering baserad på autentiserad hantering \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff75cedb2-5def-4b31-973e-b69e8c7bd031) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1330.json) |
-|[Microsoft-hanterad kontroll 1331-autentisering baserad på autentiserad hantering \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F05460fe2-301f-4ed1-8174-d62c8bb92ff4) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1331.json) |
-|[Microsoft-hanterad kontroll 1332-autentisering baserad på autentiserad hantering \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F068260be-a5e6-4b0a-a430-cd27071c226a) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1332.json) |
+|[Microsoft-hanterad kontroll 1327- \| autentisering för autentisering Password-Based](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F03188d8f-1ae5-4fe1-974d-2d7d32ef937d) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1327.json) |
+|[Microsoft-hanterad kontroll 1328- \| autentisering för autentisering Password-Based](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff5c66fdc-3d02-4034-9db5-ba57802609de) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1328.json) |
+|[Microsoft-hanterad kontroll 1329- \| autentisering för autentisering Password-Based](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F498f6234-3e20-4b6a-a880-cbd646d973bd) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1329.json) |
+|[Microsoft-hanterad kontroll 1330- \| autentisering för autentisering Password-Based](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff75cedb2-5def-4b31-973e-b69e8c7bd031) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1330.json) |
+|[Microsoft-hanterad kontroll 1331- \| autentisering för autentisering Password-Based](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F05460fe2-301f-4ed1-8174-d62c8bb92ff4) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1331.json) |
+|[Microsoft-hanterad kontroll 1332- \| autentisering för autentisering Password-Based](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F068260be-a5e6-4b0a-a430-cd27071c226a) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1332.json) |
 
-### <a name="authenticator-management--pki-based-authentication"></a>Autentiserare hantering | PKI-baserad autentisering
+### <a name="authenticator-management--pki-based-authentication"></a>Autentiserare hantering | Pki-Based autentisering
 
 **ID**: NIST SP 800-53 R4 IA-5 (2) **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1333-autentiserad \| PKI-baserad autentisering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3298d6bf-4bc6-4278-a95d-f7ef3ac6e594) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1333.json) |
-|[Microsoft-hanterad kontroll 1334-autentiserad \| PKI-baserad autentisering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F44bfdadc-8c2e-4c30-9c99-f005986fabcd) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1334.json) |
-|[Microsoft-hanterad kontroll 1335-autentiserad \| PKI-baserad autentisering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F382016f3-d4ba-4e15-9716-55077ec4dc2a) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1335.json) |
-|[Microsoft-hanterad kontroll 1336-autentiserad \| PKI-baserad autentisering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77f56280-e367-432a-a3b9-8ca2aa636a26) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1336.json) |
+|[Microsoft-hanterad kontroll 1333- \| autentisering för autentisering Pki-Based](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3298d6bf-4bc6-4278-a95d-f7ef3ac6e594) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1333.json) |
+|[Microsoft-hanterad kontroll 1334- \| autentisering för autentisering Pki-Based](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F44bfdadc-8c2e-4c30-9c99-f005986fabcd) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1334.json) |
+|[Microsoft-hanterad kontroll 1335- \| autentisering för autentisering Pki-Based](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F382016f3-d4ba-4e15-9716-55077ec4dc2a) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1335.json) |
+|[Microsoft-hanterad kontroll 1336- \| autentisering för autentisering Pki-Based](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77f56280-e367-432a-a3b9-8ca2aa636a26) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1336.json) |
 
 ### <a name="authenticator-management--in-person-or-trusted-third-party-registration"></a>Autentiserare hantering | Registrering från tredje part eller betrodd person
 
@@ -1831,7 +1831,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1337-autentiserare hantering \| i person eller betrodd registrering från tredje part](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F463e5220-3f79-4e24-a63f-343e4096cd22) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1337.json) |
+|[Microsoft-hanterad kontroll 1337-verifierings hantering \| In-Person eller betrodd registrering från tredje part](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F463e5220-3f79-4e24-a63f-343e4096cd22) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1337.json) |
 
 ### <a name="authenticator-management--automated-support--for-password-strength-determination"></a>Autentiserare hantering | Automatiskt stöd för bestämning av lösen ords styrka
 
@@ -1865,13 +1865,13 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |---|---|---|---|
 |[Microsoft-hanterad kontroll 1341-autentiserare hantering av \| flera informations system konton](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34cb7e92-fe4c-4826-b51e-8cd203fa5d35) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1341.json) |
 
-### <a name="authenticator-management--hardware-token-based-authentication"></a>Autentiserare hantering | Maskinvaru-token-baserad autentisering
+### <a name="authenticator-management--hardware-token-based-authentication"></a>Autentiserare hantering | Autentisering av maskin vara Token-Based
 
 **ID**: NIST SP 800-53 R4 IA-5 (11) **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1342- \| autentisering av maskinvarubaserad token-baserad autentisering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F283a4e29-69d5-4c94-b99e-29acf003c899) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1342.json) |
+|[Microsoft-hanterad kontroll 1342-autentiserare för \| maskin vara Token-Based autentisering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F283a4e29-69d5-4c94-b99e-29acf003c899) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1342.json) |
 
 ### <a name="authenticator-management--expiration-of-cached-authenticators"></a>Autentiserare hantering | Förfallo datum för cachelagrade autentiserare
 
@@ -1921,21 +1921,21 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |---|---|---|---|
 |[Microsoft Managed Control 1348 – identifiering och autentisering (icke-org. Användare) \| godkännande av autentiseringsuppgifter från tredje part](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F855ced56-417b-4d74-9d5f-dd1bc81e22d6) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1348.json) |
 
-### <a name="identification-and-authentication-non-organizational-users--use-of-ficam-approved-products"></a>Identifiering och autentisering (icke-organisatoriska användare) | Användning av Ficam-godkända produkter
+### <a name="identification-and-authentication-non-organizational-users--use-of-ficam-approved-products"></a>Identifiering och autentisering (icke-organisatoriska användare) | Användning av Ficam-Approved produkter
 
 **ID**: NIST SP 800-53 R4 IA-8 (3) **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1349 – identifiering och autentisering (icke-org. Användare) \| användning av FICAM-godkända produkter](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17641f70-94cd-4a5d-a613-3d1143e20e34) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1349.json) |
+|[Microsoft Managed Control 1349 – identifiering och autentisering (icke-org. Användare) \| användning av FICAM-Approved produkter](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17641f70-94cd-4a5d-a613-3d1143e20e34) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1349.json) |
 
-### <a name="identification-and-authentication-non-organizational-users--use-of-ficam-issued-profiles"></a>Identifiering och autentisering (icke-organisatoriska användare) | Användning av Ficam-utfärdade profiler
+### <a name="identification-and-authentication-non-organizational-users--use-of-ficam-issued-profiles"></a>Identifiering och autentisering (icke-organisatoriska användare) | Användning av Ficam-Issued profiler
 
 **ID**: NIST SP 800-53 R4 IA-8 (4) **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1350 – identifiering och autentisering (icke-org. Användare) \| användning av FICAM-utfärdade profiler](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd77fd943-6ba6-4a21-ba07-22b03e347cc4) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1350.json) |
+|[Microsoft Managed Control 1350 – identifiering och autentisering (icke-org. Användare) \| användning av FICAM-Issued profiler](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd77fd943-6ba6-4a21-ba07-22b03e347cc4) |Microsoft implementerar den här identifierings-och verifierings kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1350.json) |
 
 ## <a name="incident-response"></a>Incidenthantering
 
@@ -2530,13 +2530,13 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |---|---|---|---|
 |[Microsoft-hanterad kontroll 1473 – nöd kraft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd7047705-d719-46a7-8bb0-76ad233eba71) |Microsoft implementerar den här fysiska kontrollen och miljö skydds kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1473.json) |
 
-### <a name="emergency-power--long-term-alternate-power-supply---minimal-operational-capability"></a>Nöd kraft | Långsiktig alternativ energi försörjning – minimal drift kapacitet
+### <a name="emergency-power--long-term-alternate-power-supply---minimal-operational-capability"></a>Nöd kraft | Long-Term alternativ energi försörjning – minimal drift kapacitet
 
 **ID**: NIST SP 800-53 R4 PE-11 (1) **ägarskap**: Microsoft
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1474-låg energi \| lång alternativ energi försörjning – minimal drift kapacitet](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F03ad326e-d7a1-44b1-9a76-e17492efc9e4) |Microsoft implementerar den här fysiska kontrollen och miljö skydds kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1474.json) |
+|[Microsoft-hanterad kontroll 1474-nöd kraft \| Long-Term alternativ strömförsörjning – minimal drift kapacitet](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F03ad326e-d7a1-44b1-9a76-e17492efc9e4) |Microsoft implementerar den här fysiska kontrollen och miljö skydds kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1474.json) |
 
 ### <a name="emergency-lighting"></a>Nöd belysning
 
@@ -3136,13 +3136,13 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |[Microsoft-hanterad kontroll 1609-utvecklings process, standarder och verktyg](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9e93fa71-42ac-41a7-b177-efbfdc53c69f) |Microsoft implementerar den här förvärvs kontrollen för system och tjänster |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1609.json) |
 |[Microsoft-hanterad kontroll 1610-utvecklings process, standarder och verktyg](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb9f3fb54-4222-46a1-a308-4874061f8491) |Microsoft implementerar den här förvärvs kontrollen för system och tjänster |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1610.json) |
 
-### <a name="developer-provided-training"></a>Utbildning om utvecklare
+### <a name="developer-provided-training"></a>Developer-Provided utbildning
 
 **ID**: NIST SP 800-53 R4 sa-16 **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1611 – utbildning för utvecklare](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffdda8a0c-ac32-43f6-b2f4-7dc1df03f43f) |Microsoft implementerar den här förvärvs kontrollen för system och tjänster |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1611.json) |
+|[Microsoft-hanterad kontroll 1611 – Developer-Provided utbildning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffdda8a0c-ac32-43f6-b2f4-7dc1df03f43f) |Microsoft implementerar den här förvärvs kontrollen för system och tjänster |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1611.json) |
 
 ### <a name="developer-security-architecture-and-design"></a>Säkerhets arkitektur och design för utvecklare
 
@@ -3273,13 +3273,13 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |---|---|---|---|
 |[Microsoft-hanterad kontroll 1634-begränsande skydd \| förhindra obehörig exfiltrering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F292a7c44-37fa-4c68-af7c-9d836955ded2) |Microsoft implementerar denna kontroll för system-och kommunikations skydd |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1634.json) |
 
-### <a name="boundary-protection--host-based-protection"></a>Skydds gränser | Värdbaserade skydd
+### <a name="boundary-protection--host-based-protection"></a>Skydds gränser | Host-Based skydd
 
 **ID**: NIST SP 800-53 R4 SC-7 (12) **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1635-skydd \| värdbaserade skydd](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F87551b5d-1deb-4d0f-86cc-9dc14cb4bf7e) |Microsoft implementerar denna kontroll för system-och kommunikations skydd |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1635.json) |
+|[Microsoft-hanterad kontroll 1635-gränser skydd \| Host-Based skydd](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F87551b5d-1deb-4d0f-86cc-9dc14cb4bf7e) |Microsoft implementerar denna kontroll för system-och kommunikations skydd |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1635.json) |
 
 ### <a name="boundary-protection--isolation-of-security-tools--mechanisms--support-components"></a>Skydds gränser | Isolering av säkerhets verktyg/mekanismer/support-komponenter
 
@@ -3580,13 +3580,13 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |---|---|---|---|
 |[Microsoft Managed Control 1681 – automatiska uppdateringar av skadlig kod \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12623e7e-4736-4b2e-b776-c1600f35f93a) |Microsoft implementerar den här system-och informations integritets kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1681.json) |
 
-### <a name="malicious-code-protection--nonsignature-based-detection"></a>Skadlig kod skydd | Insignatur-baserad identifiering
+### <a name="malicious-code-protection--nonsignature-based-detection"></a>Skadlig kod skydd | Nonsignature-Based identifiering
 
 **ID**: NIST SP 800-53 R4 si-3 (7) **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1682-skadlig kod skydd \| ej signerad identifiering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F62b638c5-29d7-404b-8d93-f21e4b1ce198) |Microsoft implementerar den här system-och informations integritets kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1682.json) |
+|[Microsoft-hanterad kontroll 1682 – identifiering av skadlig kod \| Nonsignature-Based](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F62b638c5-29d7-404b-8d93-f21e4b1ce198) |Microsoft implementerar den här system-och informations integritets kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1682.json) |
 
 ### <a name="information-system-monitoring"></a>Information system övervakning
 
@@ -3607,7 +3607,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |[Microsoft-hanterad kontroll 1688-information system övervakning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F063c3f09-e0f0-4587-8fd5-f4276fae675f) |Microsoft implementerar den här system-och informations integritets kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1688.json) |
 |[Microsoft-hanterad kontroll 1689-information system övervakning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fde901f2f-a01a-4456-97f0-33cda7966172) |Microsoft implementerar den här system-och informations integritets kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1689.json) |
 
-### <a name="information-system-monitoring--system-wide-intrusion-detection-system"></a>Information system övervakning | System-Wide intrångs identifierings system
+### <a name="information-system-monitoring--system-wide-intrusion-detection-system"></a>Information system övervakning | System-Wide system för intrångs identifiering
 
 **ID**: NIST SP 800-53 R4 si-4 (1) **ägarskap**: delad
 
@@ -3615,13 +3615,13 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |---|---|---|---|
 |[Microsoft-hanterad kontroll 1690-information system övervakning \| System-Wide intrångs identifiering system](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2567a23-d1c3-4783-99f3-d471302a4d6b) |Microsoft implementerar den här system-och informations integritets kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1690.json) |
 
-### <a name="information-system-monitoring--automated-tools-for-real-time-analysis"></a>Information system övervakning | Automatiserade verktyg för analys i real tid
+### <a name="information-system-monitoring--automated-tools-for-real-time-analysis"></a>Information system övervakning | Automatiserade verktyg för Real-Time analys
 
 **ID**: NIST SP 800-53 R4 si-4 (2) **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1691-information system övervakning \| automatiserade verktyg för analys i real tid](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F71475fb4-49bd-450b-a1a5-f63894c24725) |Microsoft implementerar den här system-och informations integritets kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1691.json) |
+|[Microsoft-hanterad kontroll 1691-information system övervakning \| automatiserade verktyg för Real-Time analys](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F71475fb4-49bd-450b-a1a5-f63894c24725) |Microsoft implementerar den här system-och informations integritets kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1691.json) |
 
 ### <a name="information-system-monitoring--inbound-and-outbound-communications-traffic"></a>Information system övervakning | Inkommande och utgående kommunikations trafik
 
@@ -3631,13 +3631,13 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |---|---|---|---|
 |[Microsoft-hanterad kontroll 1692-informations system övervakning av \| inkommande och utgående kommunikations trafik](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ecda928-9df4-4dd7-8f44-641a91e470e8) |Microsoft implementerar den här system-och informations integritets kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1692.json) |
 
-### <a name="information-system-monitoring--system-generated-alerts"></a>Information system övervakning | Systemgenererade aviseringar
+### <a name="information-system-monitoring--system-generated-alerts"></a>Information system övervakning | System-Generated aviseringar
 
 **ID**: NIST SP 800-53 R4 si-4 (5) **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1693-information system övervakning \| systemgenererade aviseringar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa450eba6-2efc-4a00-846a-5804a93c6b77) |Microsoft implementerar den här system-och informations integritets kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1693.json) |
+|[Microsoft-hanterad kontroll 1693-information system övervakning \| System-Generated aviseringar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa450eba6-2efc-4a00-846a-5804a93c6b77) |Microsoft implementerar den här system-och informations integritets kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1693.json) |
 
 ### <a name="information-system-monitoring--analyze-communications-traffic-anomalies"></a>Information system övervakning | Analysera kommunikations trafik avvikelser
 
@@ -3695,13 +3695,13 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet NIST SP
 |---|---|---|---|
 |[Microsoft-hanterad kontroll 1700-informations system övervakning av \| obehöriga Network Services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7831b4ba-c3f4-4cb1-8c11-ef8d59438cd5) |Microsoft implementerar den här system-och informations integritets kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1700.json) |
 
-### <a name="information-system-monitoring--host-based-devices"></a>Information system övervakning | Värdbaserade enheter
+### <a name="information-system-monitoring--host-based-devices"></a>Information system övervakning | Host-Based enheter
 
 **ID**: NIST SP 800-53 R4 si-4 (23) **ägarskap**: delad
 
 |Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft-hanterad kontroll 1701-information system övervakning \| värdbaserade enheter](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff25bc08f-27cb-43b6-9a23-014d00700426) |Microsoft implementerar den här system-och informations integritets kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1701.json) |
+|[Microsoft-hanterad kontroll 1701-information system övervakning \| Host-Based enheter](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff25bc08f-27cb-43b6-9a23-014d00700426) |Microsoft implementerar den här system-och informations integritets kontrollen |händelse |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1701.json) |
 
 ### <a name="information-system-monitoring--indicators-of-compromise"></a>Information system övervakning | Indikatorer för komprometterande
 

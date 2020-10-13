@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: a3870ae192955df11107f0ebb5c618b90a0cc799
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87833257"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Säkerhetskopiera och återställa en Azure Database for MariaDB-server med hjälp av PowerShell
@@ -121,7 +121,7 @@ Parameter **uppsättningen för den här** `Restore-AzMariaDbServer` cmdleten m�
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | Namnet på den resurs grupp som den nya servern tillhör.|
 |Namn | mydemoserver – omåterställd | Namnet på den nya servern. |
-|Plats | USA, östra | Platsen för den nya servern. |
+|Plats | eastus | Platsen för den nya servern. |
 |UseGeoRestore | `<SwitchParameter>` | Använd geo-läge för att återställa. |
 
 När du skapar en ny server med geo Restore ärver den samma lagrings storlek och pris nivå som käll servern om inte parametern **SKU** anges.

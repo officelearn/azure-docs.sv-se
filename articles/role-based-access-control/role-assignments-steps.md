@@ -10,13 +10,13 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.openlocfilehash: badf10da8af0ed3829deb2498b51b5d5c8ce6a93
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91604414"
 ---
-# <a name="steps-to-add-a-role-assignment"></a>Steg för att lägga till en roll tilldelning
+# <a name="steps-to-add-a-role-assignment"></a>Steg för tillägg av en rolltilldelning
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Den här artikeln beskriver de övergripande stegen för att lägga till en roll tilldelning med hjälp av [Azure Portal](role-assignments-portal.md), [Azure POWERSHELL](role-assignments-powershell.md), [Azure CLI](role-assignments-cli.md)eller [REST API](role-assignments-rest.md).
 
@@ -86,9 +86,9 @@ När du känner till säkerhets objekt, roll och omfattning kan du tilldela roll
 Se följande artiklar för detaljerade anvisningar om hur du lägger till roll tilldelningar.
 
 - [Lägga till eller ta bort rolltilldelningar för Azure med hjälp av Azure-portalen](role-assignments-portal.md)
-- [Lägga till eller ta bort Azure Role-tilldelningar med Azure PowerShell](role-assignments-powershell.md)
-- [Lägga till eller ta bort roll tilldelningar i Azure med Azure CLI](role-assignments-cli.md)
-- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av REST API](role-assignments-rest.md)
+- [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure PowerShell](role-assignments-powershell.md)
+- [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure CLI](role-assignments-cli.md)
+- [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av REST API](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

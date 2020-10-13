@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653221"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Gör så här: planera din Azure AD Join-implementering
@@ -24,7 +24,7 @@ Med Azure AD Join kan du ansluta enheter direkt till Azure AD utan att behöva a
 
 Den här artikeln innehåller den information du behöver för att planera din Azure AD Join-implementering.
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du är bekant med [introduktionen till enhets hantering i Azure Active Directory](./overview.md).
 
@@ -64,12 +64,12 @@ De här scenarierna kräver inte att du konfigurerar en Federations Server för 
 
 ### <a name="federated-environment"></a>Federerad miljö
 
-En federerad miljö bör ha en identitets leverantör som stöder både WS-Trust och WS-utfodras protokoll:
+En federerad miljö bör ha en identitets leverantör som stöder både WS-Trust-och WS-Fed-protokoll:
 
 - **WS-utfodras:** Det här protokollet krävs för att ansluta en enhet till Azure AD.
 - **WS-förtroende:** Det här protokollet krävs för att logga in på en Azure AD-ansluten enhet.
 
-När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter: `/adfs/services/trust/2005/usernamemixed`
+När du använder AD FS måste du aktivera följande WS-Trust slut punkter: `/adfs/services/trust/2005/usernamemixed`
  `/adfs/services/trust/13/usernamemixed`
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
@@ -199,11 +199,11 @@ Här är en jämförelse av dessa tre metoder
  
 | Element | Installation av självbetjäning | Windows Autopilot | Massregistrering |
 | --- | --- | --- | --- |
-| Kräv användar interaktion för att konfigurera | Ja | Ja | Nej |
-| Kräv IT-ansträngning | Nej | Ja | Ja |
+| Kräv användar interaktion för att konfigurera | Ja | Ja | Inga |
+| Kräv IT-ansträngning | Inga | Ja | Ja |
 | Tillämpliga flöden | Inställningar för OOBE-& | Endast OOBE | Endast OOBE |
 | Lokal administratörsbehörighet till primär användare | Ja, som standard | Konfigurerbar | Nej |
-| Kräv enhets-OEM-support | Nej | Ja | Nej |
+| Kräv enhets-OEM-support | Inga | Ja | Inga |
 | Versioner som stöds | 1511 + | 1709 + | 1703 + |
  
 Välj distributions metod eller-metoder genom att granska tabellen ovan och granska följande överväganden för att införa någon av metoderna:  

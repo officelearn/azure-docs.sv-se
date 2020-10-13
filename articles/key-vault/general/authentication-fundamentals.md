@@ -8,13 +8,13 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.openlocfilehash: c8d2304017a8fccd83c9c64559b8c5edf48481b7
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91604447"
 ---
-# <a name="key-vault-authentication-fundamentals"></a>Key Vault grundläggande autentisering
+# <a name="key-vault-authentication-fundamentals"></a>Grundläggande om Key Vault-autentisering
 
 Med Azure Key Vault kan du lagra och hantera autentiseringsuppgifter på ett säkert sätt, till exempel hemligheter, nycklar och certifikat i en central och säker moln lagrings plats. Key Vault eliminerar behovet av att lagra autentiseringsuppgifter i dina program. Dina program kan autentiseras för Key Vault vid körning för att hämta autentiseringsuppgifter.
 
@@ -194,6 +194,6 @@ if __name__ == "__main__":
     main()
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om Key Vault-autentisering finns i följande dokument. [Autentisering av Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, seo-javascript-september2018, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: b6c24be8f1fc0b1d9ee40337df40c64e89a1c11f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 53c358c3a74af7a4be51b3f44b9d942fdc167eed
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91262572"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972772"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-nodejs"></a>Snabb start: analysera en fjärravbildning med hjälp av Visuellt innehåll REST API med Node.js
 
@@ -49,9 +49,9 @@ Så här skapar du och kör exemplet:
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild som du vill analysera.
 1. Du kan också ersätta värdet för frågeparametern `language` med ett annat språk.
-1. Spara koden som en fil med tillägget `.js`. Till exempel `analyze-image.js`.
+1. Spara koden som en fil med tillägget `.js`. Exempelvis `analyze-image.js`.
 1. Öppna ett kommandotolksfönster.
-1. Kör filen i kommandotolken med kommandot `node`. Till exempel `node analyze-image.js`.
+1. Kör filen i kommandotolken med kommandot `node`. Exempelvis `node analyze-image.js`.
 
 ```javascript
 'use strict';
@@ -62,7 +62,7 @@ let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
 let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
 if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
 
-var uriBase = endpoint + 'vision/v3.0/analyze';
+var uriBase = endpoint + 'vision/v3.1/analyze';
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';

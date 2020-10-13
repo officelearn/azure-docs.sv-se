@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b4792e73f6326bb9ac67ce3aabe10b8314bb826
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 053a489993c31344b96e83253c88eed93b27b145
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568222"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964833"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Aktivera lösen ords utan lösen ord med Microsoft Authenticator-appen (förhands granskning)
 
@@ -26,7 +26,7 @@ Microsoft Authenticator-appen kan användas för att logga in på ett Azure AD-k
 
 I stället för att se en uppmaning om att ange ett lösen ord när du har angett ett användar namn, ser en person som har aktiverat telefon inloggning från Microsoft Authenticator-appen ett meddelande som uppmanar dem att trycka ett nummer i appen. För att slutföra inloggnings processen i appen måste användaren matcha numret, välja **Godkänn**och sedan ange PIN-koden eller bio metriskt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda lösen ords lös inloggning med Microsoft Authenticator-appen måste följande krav vara uppfyllda:
 

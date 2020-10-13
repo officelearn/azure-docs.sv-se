@@ -3,16 +3,16 @@ title: SKU är inte tillgängliga, fel
 description: Beskriver hur du felsöker fel meddelandet SKU är inte tillgängligt när du distribuerar resurser med Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 02/18/2020
-ms.openlocfilehash: 37ad70093cce4cea6689fecbc3b6ccb91db5017b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15df8c5ff45994a03e12731cf3798f7f4c2a295b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333247"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948637"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Åtgärda fel med otillgänglig SKU
 
-Den här artikeln beskriver hur du löser **SkuNotAvailable** -felet. Om du inte kan hitta en lämplig SKU i regionen/zonen eller en alternativ region/zon som uppfyller dina affärs behov skickar du en SKU- [begäran](https://aka.ms/skurestriction) till Azure-supporten.
+Den här artikeln beskriver hur du löser **SkuNotAvailable** -felet. Om du inte kan hitta en lämplig SKU i regionen/zonen eller en alternativ region/zon som uppfyller dina affärs behov skickar du en SKU- [begäran](../../azure-portal/supportability/sku-series-unavailable.md) till Azure-supporten.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -124,4 +124,3 @@ Den returnerar tillgängliga SKU: er och regioner i följande format:
   ]
 }
 ```
-

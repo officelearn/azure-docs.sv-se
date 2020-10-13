@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: kegorman
-ms.openlocfilehash: 352c8c887899a2e15eed9736e8885c1b2cffec2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d82db48690f8cfa48ebf3a6fdc81cb4e467c159d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331377"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977688"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>VIRTUELLA Oracle-avbildningar och deras distribution på Microsoft Azure
 
@@ -132,7 +132,7 @@ Med Oracle data Guard kan hög tillgänglighet uppnås med en primär databas p�
 
 I själv studie kursen [implementeras Oracle GoldenGate i Azure](configure-oracle-golden-gate.md) med hjälp av den grundläggande installations proceduren i Azure.
 
-Förutom att ha en HA-och DR-lösning som är konstruerad i Azure bör du ha en säkerhets kopierings strategi på plats för att återställa databasen. I självstudien om [säkerhets kopiering och återställning av en Oracle Database](oracle-backup-recovery.md) går vi igenom den grundläggande proceduren för att upprätta en konsekvent säkerhets kopia.
+Förutom att ha en HA-och DR-lösning som är konstruerad i Azure bör du ha en säkerhets kopierings strategi på plats för att återställa databasen. I självstudien om [säkerhets kopiering och återställning av en Oracle Database](./oracle-overview.md) går vi igenom den grundläggande proceduren för att upprätta en konsekvent säkerhets kopia.
 
 ## <a name="support-for-jd-edwards"></a>Stöd för JD-Edwards
 

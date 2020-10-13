@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: caad78bf61c9ad470464d69c7320aa1d08dcee09
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4afb6844512bd59a5c377d826267a748837ed855
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435379"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952003"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database och Azure Synapse Analytics Network Access Controls
 
@@ -42,7 +42,7 @@ Se videon nedan för en övergripande förklaring av dessa åtkomst kontroller o
 
 ## <a name="allow-azure-services"></a>Tillåt Azure-tjänster
 
-När du skapar en ny logisk SQL-Server [från Azure Portal](single-database-create-quickstart.md)lämnas den här inställningen omarkerad.
+Som standard när en ny logisk SQL-Server skapas [från Azure Portal](single-database-create-quickstart.md)anges den här inställningen till **av**. Den här inställningen visas när anslutningen tillåts med hjälp av den offentliga tjänst slut punkten.
 
 Du kan också ändra den här inställningen via brand Väggs fönstret när den logiska SQL-servern har skapats på följande sätt.
   
@@ -80,9 +80,9 @@ PS C:\> $sql.Properties.AddressPrefixes
 ```
 
 > [!TIP]
-> Get-AzNetworkServiceTag returnerar det globala intervallet för SQL Service-taggen trots att du anger plats parametern. Se till att du filtrerar den till den region som är värd för NAV databasen som används av din Sync-grupp
+> Get-AzNetworkServiceTag returnerar det globala intervallet för SQL Service-taggen trots att ange plats parametern. Se till att du filtrerar den till den region som är värd för NAV databasen som används av din Sync-grupp
 
-Observera att utdata från PowerShell-skriptet är i CIDR-notation (Classless Inter-Domain routing). Detta måste konverteras till ett format av en start-och slut-IP-adress med hjälp av [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) så här:
+Observera att resultatet av PowerShell-skriptet är i CIDR-notation (Classless Inter-Domain routing). Detta måste konverteras till ett format av en start-och slut-IP-adress med hjälp av [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) så här:
 
 ```powershell
 PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: f6d8929c8fd59836ff297f226851890892c10acc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71eb49c84b8ab92c9ba2ad8e05e8d74054bd4ee7
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445126"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938839"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Key Vault Analytics-lösning i Azure Monitor
 
@@ -75,7 +75,7 @@ I följande tabell visas metoder för data insamling och annan information om hu
 | Azure |  |  |&#8226; |  |  | vid ankomsten |
 
 ## <a name="use-azure-key-vault"></a>Använda Azure Key Vault
-När du har [installerat lösningen](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)kan du Visa Key Vault data genom att klicka på panelen **Key Vault-analys** på sidan Azure Monitor **Översikt** . Öppna den här sidan från **Azure Monitor** -menyn genom att klicka på **mer** under avsnittet om **insikter** . 
+När du har [installerat lösningen](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?source=intercept.nl&tab=Overview)kan du Visa Key Vault data genom att klicka på panelen **Key Vault-analys** på sidan Azure Monitor **Översikt** . Öppna den här sidan från **Azure Monitor** -menyn genom att klicka på **mer** under avsnittet om **insikter** . 
 
 ![Skärm bild av panelen Key Vault-analys på översikts sidan för Azure Monitor som visar ett diagram över Operations volym för nyckel valvet över tid.](media/azure-key-vault/log-analytics-keyvault-tile.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
-ms.openlocfilehash: fa5524525aa76279cdcceaf0f5fd2a74753786ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a992e432a6111b5da02187bcf6592587c4d31bf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300607"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977518"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>Installera Uppdatering 0,5 på din virtuella StorSimple-matris
 
@@ -92,26 +92,26 @@ Använd den här metoden för att installera uppdateringar på en enhet som kör
 
 1. I det lokala webb gränssnittet går du till **Underhåll**  >  **program uppdatering**.
    
-    ![uppdatera enhet](./media/storsimple-virtual-array-install-update-05/update1m.png)
+    ![uppdatera enhet 1](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
 2. I **Uppdatera fil Sök väg**anger du fil namnet för uppdateringen eller snabb korrigeringen. Du kan också bläddra till installations filen för uppdateringen eller hotfixen om den placeras på en nätverks resurs. Klicka på **Applicera**.
    
-    ![uppdatera enhet](./media/storsimple-virtual-array-install-update-05/update2m.png)
+    ![uppdatera enhet 2](./media/storsimple-virtual-array-install-update-05/update2m.png)
 
 3. En varning visas. Eftersom det här är en enskild nod-enhet, när uppdateringen har tillämpats, startar enheten om och det finns avbrott. Klicka på kryss ikonen.
    
-   ![uppdatera enhet](./media/storsimple-virtual-array-install-update-05/update3m.png)
+   ![uppdatera enhet 3](./media/storsimple-virtual-array-install-update-05/update3m.png)
 
 4. Uppdateringen startar. När enheten har uppdaterats startas den om. Det lokala användar gränssnittet är inte tillgängligt under denna varaktighet.
    
-    ![uppdatera enhet](./media/storsimple-virtual-array-install-update-05/update5m.png)
+    ![uppdatera enhet 4](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
 5. När omstarten är klar tas du till **inloggnings** sidan. Kontrol lera att enhetens program vara har uppdaterats genom att gå till **Underhåll**  >  **program uppdatering**i det lokala webb gränssnittet. Den program varu version som visas ska vara **10.0.0.0.0.10290.0** för uppdatering 0,5.
    
    > [!NOTE]
    > Vi rapporterar program versioner på ett något annorlunda sätt i det lokala webb gränssnittet och Azure Portal. Till exempel kan de lokala Web UI-rapporterna **10.0.0.0.0.10290** och Azure Portal rapporterar **10.0.10290.0** för samma version.
    
-    ![uppdatera enhet](./media/storsimple-virtual-array-install-update-05/update6m.png)
+    ![uppdatera enhet 5](./media/storsimple-virtual-array-install-update-05/update6m.png)
 
 6. Nästa steg är att uppdatera MDS-agenten. På sidan **program uppdatering** går du till sökvägen för **uppdaterings filen** och bläddrar till `GenevaMonitoringAgentPackageInstaller.msi` filen. Upprepa steg 2-4. När den virtuella matrisen har startats om loggar du in på det lokala webb gränssnittet.
 

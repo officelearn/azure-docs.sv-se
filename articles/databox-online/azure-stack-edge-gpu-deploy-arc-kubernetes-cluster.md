@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 423345739ca5c078fbff4f267e1e8a118abf107c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c38b0b1d3a2e71502ac86bf46771ecfb637ba15d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903197"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952224"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Aktivera Azure Arc på Kubernetes-kluster på din Azure Stack Edge Pro GPU-enhet
 
@@ -68,11 +68,11 @@ Innan du aktiverar Azure Arc i Kubernetes-klustret måste du aktivera och regist
 
 1. Välj en resurs leverantör och överst i kommando fältet väljer du **Registrera**. Registreringen tar flera minuter. 
 
-    ![Registrera Kubernetes-resurs leverantörer](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-2.png)
+    ![Registrera Kubernetes Resource providers 2](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-2.png)
 
 1. Uppdatera användar gränssnittet tills du ser att resurs leverantören är registrerad. Upprepa processen för båda resurs leverantörerna.
     
-    ![Registrera Kubernetes-resurs leverantörer](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
+    ![Registrera Kubernetes Resource providers 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
 Du kan också registrera resurs leverantörer via `az cli` . Mer information finns i [registrera två providers för Azure Arc-aktiverade Kubernetes](../azure-arc/kubernetes/connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes)
 

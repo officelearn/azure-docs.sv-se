@@ -3,16 +3,16 @@ title: Information om princip undantags strukturen
 description: Beskriver den princip undantags definition som används av Azure Policy för att undanta resurser från utvärdering av initiativ eller definitioner.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1fd14d31824dc86dcd3788607030f28f978f5801
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6ced56c1dc65ca68998c5c58d3e985b63873e0b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968041"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950184"
 ---
 # <a name="azure-policy-exemption-structure"></a>Azure Policy undantags struktur
 
-Funktionen Azure Policy undantag (för hands version) används för att _undanta_ en resurspool eller en enskild resurs från utvärdering av initiativ eller definitioner. Resurser som är _undantagna_ till övergripande efterlevnad, men inte kan utvärderas eller ha ett tillfälligt undantag. Mer information finns i [förstå omfattning i Azure policy](./scope.md). Azure Policy undantag fungerar bara med [Resource Manager-lägen](./definition-structure.md#resource-manager-modes) och fungerar inte med **resurs leverantörs lägen**.
+Funktionen Azure Policy undantag (för hands version) används för att _undanta_ en resurspool eller en enskild resurs från utvärdering av initiativ eller definitioner. Resurser som är _undantagna_ till övergripande efterlevnad, men inte kan utvärderas eller ha ett tillfälligt undantag. Mer information finns i [förstå omfattning i Azure policy](./scope.md). Azure Policy undantag fungerar bara med [Resource Manager-lägen](./definition-structure.md#resource-manager-modes) och fungerar inte med [resurs leverantörs lägen](./definition-structure.md#resource-provider-modes).
 
 > [!IMPORTANT]
 > Den här funktionen är kostnads fri under för **hands versionen**. Pris information finns i [Azure policy prissättning](https://azure.microsoft.com/pricing/details/azure-policy/). Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.

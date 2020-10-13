@@ -4,12 +4,12 @@ description: Läs om hanteringsgrupperna, hur behörigheterna fungerar och hur d
 ms.date: 09/22/2020
 ms.topic: overview
 ms.custom: contperfq1
-ms.openlocfilehash: e3bc3ee34227fd23ea9f56070f8ea7776a10a134
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: be3369369f28930fd1ecad295a4dad4d14e75cd3
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91533815"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951884"
 ---
 # <a name="what-are-azure-management-groups"></a>Vad är hanteringsgrupper i Azure?
 
@@ -90,7 +90,7 @@ Dessa behörigheter ärvs av underordnade resurser som finns i hierarkin. Alla A
 
 Följande diagram visar listan över roller och åtgärder som stöds för hanteringsgrupper.
 
-| Namn på Azure-roll             | Skapa | Byt namn | Fart\*\* | Ta bort | Tilldela åtkomst | Tilldela princip | Läsa  |
+| Namn på Azure-roll             | Skapa | Byt namn | Fart\*\* | Ta bort | Tilldela åtkomst | Tilldela princip | Läs  |
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Ägare                       | X      | X      | X        | X      | X             | X             | X     |
 |Deltagare                 | X      | X      | X        | X      |               |               | X     |
@@ -202,6 +202,6 @@ När du vill fråga hanteringsgrupper utanför Microsoft Azure-portalen är mål
 
 Läs mer om hanteringslösningar här:
 
-- [Skapa hanteringsgrupper för att organisera Azure-resurser](./create.md)
+- [Skapa hanteringsgrupper för att organisera Azure-resurser](./create-management-group-portal.md)
 - [Så här ändrar, raderar och hanterar du dina hanteringsgrupper](./manage.md)
 - Se alternativ för [att skydda din resurs-hierarki](./how-to/protect-resource-hierarchy.md)

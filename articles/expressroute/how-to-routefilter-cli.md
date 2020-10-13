@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2a72e22b600f7dd7737a877e2fdf5d34c4dd4b4c
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: ac7fc5af21f11699331d41a074e88ae757170664
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876115"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976002"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-azure-cli"></a>Självstudie: Konfigurera väg filter för Microsoft-peering: Azure CLI
 
@@ -33,7 +33,7 @@ Anslutning till alla Azure-och Microsoft 365-tjänster gör att ett stort antal 
 
 * Definiera väg filter och Använd dem i ExpressRoute-kretsen. Ett flödes filter är en ny resurs där du kan välja listan över tjänster som du planerar att använda via Microsoft-peering. ExpressRoute-routrar skickar bara listan över prefix som hör till de tjänster som identifieras i flödes filtret.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > - Hämta värden för BGP-communityn.
 > - Skapa flödes filter och filter regel.
@@ -51,7 +51,7 @@ Om du vill bifoga väg filter med Microsoft 365 tjänster måste du ha behörigh
 > Microsoft-peering av ExpressRoute-kretsar som har kon figurer ATS före den 1 augusti 2017 kommer att ha alla tjänste prefix som annonseras via Microsoft-peering, även om det inte finns några väg filter definierade. Microsoft-peering av ExpressRoute-kretsar som är konfigurerade på eller efter den 1 augusti 2017 har inga prefix som annonseras förrän ett flödes filter är kopplat till kretsen.
 > 
 
-## <a name="prerequisites"></a><a name="workflow"></a>Förutsättningar
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna ansluta till tjänster via Microsoft-peering måste du utföra följande konfigurations steg:
 
@@ -143,7 +143,7 @@ När ett flödes filter kopplas från ExpressRoute-kretsen annonseras inga prefi
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --remove routeFilter
 ```
 
-## <a name="clean-up-resources"></a><a name="delete"></a>Rensa resurser
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Du kan bara ta bort ett flödes filter om det inte är kopplat till någon krets. Se till att flödes filtret inte är kopplat till någon krets innan du försöker ta bort det. Du kan ta bort ett flödes filter med följande kommando:
 
@@ -151,7 +151,7 @@ Du kan bara ta bort ett flödes filter om det inte är kopplat till någon krets
 az network route-filter delete -n MyRouteFilter -g MyResourceGroup
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Information om konfigurations exempel för routern finns i:
 

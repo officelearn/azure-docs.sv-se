@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b6e15ef1b9bf488ac18e41dc09eb71e6ea3da39
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 7b48e4223e4e5fc5100de250d85441fcb96d50a3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569790"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977246"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program
 SAP-program som baseras på SAP NetWeaver-eller SAP S/4HANA-arkitekturen är känsliga för nätverks fördröjning mellan SAP-programnivån och SAP-databasnivå. Den här känsligheten är resultatet av det mesta av affärs logiken som körs i program skiktet. Eftersom SAP-programlagret kör affärs logiken, utfärdar den frågor till databas nivån med hög frekvens, med en hastighet av tusentals eller flera tusen tusen per sekund. I de flesta fall är arten av frågorna enkel. De kan ofta köras på databas nivå i 500 mikrosekunder eller mindre.
@@ -33,7 +33,7 @@ För att ge dig möjlighet att optimera nätverks fördröjningen erbjuder Azure
 
 - Du kan inte anta att alla typer av virtuella Azure-datorer är tillgängliga i alla och alla Azure-datacenter. Det innebär att kombinationen av olika typer av virtuella datorer inom en närhets placerings grupp kan begränsas. De här begränsningarna beror på att värd maskin varan som behövs för att köra en viss VM-typ kanske inte finns i data centret som placerings gruppen har distribuerats till
 - När du ändrar storlek på delar av de virtuella datorerna som finns inom en närhets placerings grupp, kan du inte automatiskt anta att den nya VM-typen är tillgänglig i samma data Center som de andra virtuella datorerna som ingår i närhets placerings gruppen
-- När Azure inaktiverar maskin varan kan den tvinga vissa virtuella datorer av en närhets placerings grupp till ett annat Azure-datacenter. Mer information om det här fallet finns i dokumentet [samplacera resurser för förbättrad svars tid](https://docs.microsoft.com/azure/virtual-machines/linux/co-location#planned-maintenance-and-proximity-placement-groups)  
+- När Azure inaktiverar maskin varan kan den tvinga vissa virtuella datorer av en närhets placerings grupp till ett annat Azure-datacenter. Mer information om det här fallet finns i dokumentet [samplacera resurser för förbättrad svars tid](../../linux/co-location.md#planned-maintenance-and-proximity-placement-groups)  
 
 > [!IMPORTANT]
 > Som ett resultat av de potentiella begränsningarna bör närhets placerings grupper användas:

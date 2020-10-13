@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ad0111f9be8c0b981093618be7296d0ec7f90e30
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a0ab8f8ff3f2134c205338dfe8e6f2e887a5a053
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326549"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949623"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Hantera en graf med digitala dubbla med relationer
 
@@ -74,7 +74,7 @@ Du kan till och med skapa flera instanser av samma typ av relation mellan samma 
 
 ## <a name="list-relationships"></a>List relationer
 
-Om du vill få åtkomst till listan över relationer för en specifik i grafen kan du använda:
+Om du vill få åtkomst till listan över **utgående** relationer från en specifik kontakt i grafen kan du använda:
 
 ```csharp
 await client.GetRelationshipsAsync(id);
@@ -110,11 +110,11 @@ public async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(string
 
 Du kan använda de hämtade relationerna för att navigera till andra dubbla i grafen. Det gör du genom att läsa `target` fältet från relationen som returneras och använda det som ID för nästa anrop till `GetDigitalTwin` . 
 
-### <a name="find-relationships-to-a-digital-twin"></a>Hitta relationer till en digital, dubbel
+### <a name="find-incoming-relationships-to-a-digital-twin"></a>Hitta inkommande relationer till en digital, dubbel
 
-Azure Digitals dubbla är också ett API för att hitta alla inkommande relationer till en specifik kontakt. Detta är ofta användbart för omvänd navigering, eller när du tar bort en dubbel.
+Azure Digitals dubbla är också ett API för att hitta alla **inkommande** relationer till en specifik kontakt. Detta är ofta användbart för omvänd navigering, eller när du tar bort en dubbel.
 
-Föregående kod exempel fokuserar på att hitta utgående relationer. Följande exempel är liknande, men hittar inkommande relationer i stället. Det tar också bort dem när de har hittats.
+Föregående kod exempel fokuserar på att söka efter utgående relationer från en dubbel. Följande exempel är strukturerat på samma sätt, men hittar *inkommande* relationer till den dubbla i stället.
 
 Observera att `IncomingRelationship` anropen inte returnerar hela bröd texten i relationen.
 

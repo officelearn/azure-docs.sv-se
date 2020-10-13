@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 814167425fcd39e90edccd952e1a3e4fbd570988
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91818027"
 ---
 # <a name="managed-hsm-role-management"></a>Hantering av Managed HSM-roller
@@ -28,7 +28,7 @@ Om du vill tillåta ett säkerhets objekt (till exempel en användare, ett huvud
 
 En lista över alla inbyggda roller för hanterad HSM och de åtgärder som de tillåter finns i [hanterade HSM-inbyggda roller](built-in-roles.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda Azure CLI-kommandona i den här artikeln måste du ha följande objekt:
 

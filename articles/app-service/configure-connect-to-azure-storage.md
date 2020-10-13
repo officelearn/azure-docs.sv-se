@@ -6,14 +6,14 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: c240399f1368862a969561409371e075a010e8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18e3f29a90ae2c6c66858e14ee91fb447a4a0045
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89435617"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968658"
 ---
-# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Åtkomst Azure Storage som en nätverks resurs från en behållare i App Service
+# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Använda Azure Storage som en nätverksresurs från en container i App Service
 
 ::: zone pivot="container-windows"
 
@@ -65,7 +65,6 @@ Den här guiden visar hur du kopplar Azure Storage till en Linux-behållare App 
 
 - Azure Storage i App Service är **i för hands version** för App Service på Linux och Web App for containers. Det finns **inte stöd** för **produktions scenarier**.
 - Azure Storage i App Service stöder montering av **Azure Files behållare** (Läs/skriv) och **Azure Blob-behållare** (skrivskyddat)
-- Azure Storage i App Service **stöder inte** användning av konfigurationen av **lagrings brand väggen** på grund av infrastruktur begränsningar.
 - Azure Storage i App Service kan du ange **upp till fem** monterings punkter per app.
 - Azure Storage som är monterade till en app kan inte nås via App Service FTP/FTPs-slutpunkter. Använd [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 

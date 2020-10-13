@@ -7,23 +7,23 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 9d5add1349650663b226023b9f46868f242ac4f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94db8ce46fc240a6c48c0919b6d2c2cd148522ac
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87265219"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976058"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Ladda upp en generaliserad virtuell hårddisk och använda den för att skapa nya virtuella datorer i Azure
 
-Den här artikeln vägleder dig igenom hur du använder PowerShell för att ladda upp en virtuell hård disk för en generaliserad virtuell dator till Azure, skapa en avbildning från den virtuella hård disken och skapa en ny virtuell dator från avbildningen. Du kan ladda upp en virtuell hård disk som exporter ATS från ett lokalt Virtualization-verktyg eller från ett annat moln. Att använda [Managed disks](managed-disks-overview.md) för den nya virtuella datorn FÖREN klar VM-hanteringen och ger bättre tillgänglighet när den virtuella datorn placeras i en tillgänglighets uppsättning. 
+Den här artikeln vägleder dig igenom hur du använder PowerShell för att ladda upp en virtuell hård disk för en generaliserad virtuell dator till Azure, skapa en avbildning från den virtuella hård disken och skapa en ny virtuell dator från avbildningen. Du kan ladda upp en virtuell hård disk som exporter ATS från ett lokalt Virtualization-verktyg eller från ett annat moln. Att använda [Managed disks](../managed-disks-overview.md) för den nya virtuella datorn FÖREN klar VM-hanteringen och ger bättre tillgänglighet när den virtuella datorn placeras i en tillgänglighets uppsättning. 
 
 Ett exempel skript finns i [exempel skript för att ladda upp en virtuell hård disk till Azure och skapa en ny virtuell dator](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 - Innan du laddar upp en virtuell hård disk till Azure bör du följa [förbereda en virtuell Windows-VHD eller VHDX för uppladdning till Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Granska [planen för migreringen till Managed disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) innan du påbörjar migreringen till [Managed disks](managed-disks-overview.md).
+- Granska [planen för migreringen till Managed disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) innan du påbörjar migreringen till [Managed disks](../managed-disks-overview.md).
 
  
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalisera den virtuella käll datorn med hjälp av Sysprep
@@ -112,4 +112,4 @@ New-AzVm `
 
 ## <a name="next-steps"></a>Nästa steg
 
-Logga in på den nya virtuella datorn. Mer information finns i [så här ansluter du och loggar in på en virtuell Azure-dator som kör Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Logga in på den nya virtuella datorn. Mer information finns i [så här ansluter du och loggar in på en virtuell Azure-dator som kör Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

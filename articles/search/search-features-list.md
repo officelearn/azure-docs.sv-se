@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 21f5a9f58acbaf3d0444d7da10ad489ade99cd76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 286d826f61a6c99396ef04af0a0855567bc4d1e4
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604197"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951391"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Funktioner i Azure Kognitiv sökning
 
@@ -64,11 +64,11 @@ Azure Kognitiv sökning tillhandahåller en full texts öknings motor, beständi
 
 | Kategori&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Funktioner |
 |-------------------|----------|
-| REST | [**Tjänst REST API**](https://docs.microsoft.com/rest/api/searchservice/) är för data Plans åtgärder, inklusive alla åtgärder relaterade till indexering, frågor och AI-anrikning. Du kan också använda det här klient biblioteket för att hämta system information och statistik. <br/><br/>[**Hanterings REST API**](https://docs.microsoft.com/rest/api/searchmanagement/) för att skapa och rensa tjänster genom Azure Resource Manager. Du kan också använda det här API: et för att hantera nycklar och tillhandahålla en tjänst.|
-| Azure SDK för .NET | [**Azure.Search.Documents**](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme) är för data Plans åtgärder, inklusive alla åtgärder relaterade till indexering, frågor och AI-anrikning. Du kan också använda det här klient biblioteket för att hämta system information och statistik. <br/><br/>[**Microsoft. Azure. Management. search**](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search) för att skapa och rensa tjänster genom att Azure Resource Manager. Du kan också använda det här API: et för att hantera nycklar och tillhandahålla en tjänst.|
-| Azure SDK för Java | [**com.azure.search.documents**](https://docs.microsoft.com/java/api/com.azure.search.documents) är för data Plans åtgärder, inklusive alla åtgärder relaterade till indexering, frågor och AI-anrikning. Du kan också använda det här klient biblioteket för att hämta system information och statistik. <br/><br/>[**com. Microsoft. Azure. Management. search**](https://docs.microsoft.com/java/api/overview/azure/search/management) används för att skapa och rensa tjänster genom att Azure Resource Manager. Du kan också använda det här API: et för att hantera nycklar och tillhandahålla en tjänst.|
-| Azure SDK för Python | [**Azure-Search-dokument**](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme) är för data Plans åtgärder, inklusive alla åtgärder relaterade till indexering, frågor och AI-anrikning. Du kan också använda det här klient biblioteket för att hämta system information och statistik. <br/><br/>[**Azure-MGMT – Sök**](https://docs.microsoft.com/python/api/overview/azure/search/management) är till för att skapa och rensa tjänster genom att Azure Resource Manager. Du kan också använda det här API: et för att hantera nycklar och tillhandahålla en tjänst. |
-| Azure SDK för Java Script/TypeScript | [**Azure/Search-dokument**](https://docs.microsoft.com/javascript/api/@azure/search-documents/) är för data Plans åtgärder, inklusive alla åtgärder relaterade till indexering, frågor och AI-anrikning. Du kan också använda det här klient biblioteket för att hämta system information och statistik. <br/><br/>[**Azure/arm – Sök**](https://docs.microsoft.com/javascript/api/@azure/arm-search/) tjänsten är till för att skapa och rensa genom att Azure Resource Manager. Du kan också använda det här API: et för att hantera nycklar och tillhandahålla en tjänst. |
+| REST | [**Tjänst REST API**](/rest/api/searchservice/) är för data Plans åtgärder, inklusive alla åtgärder relaterade till indexering, frågor och AI-anrikning. Du kan också använda det här klient biblioteket för att hämta system information och statistik. <br/><br/>[**Hanterings REST API**](/rest/api/searchmanagement/) för att skapa och rensa tjänster genom Azure Resource Manager. Du kan också använda det här API: et för att hantera nycklar och tillhandahålla en tjänst.|
+| Azure SDK för .NET | [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) är för data Plans åtgärder, inklusive alla åtgärder relaterade till indexering, frågor och AI-anrikning. Du kan också använda det här klient biblioteket för att hämta system information och statistik. <br/><br/>[**Microsoft. Azure. Management. search**](/dotnet/api/microsoft.azure.management.search) för att skapa och rensa tjänster genom att Azure Resource Manager. Du kan också använda det här API: et för att hantera nycklar och tillhandahålla en tjänst.|
+| Azure SDK för Java | [**com.azure.search.documents**](/java/api/com.azure.search.documents) är för data Plans åtgärder, inklusive alla åtgärder relaterade till indexering, frågor och AI-anrikning. Du kan också använda det här klient biblioteket för att hämta system information och statistik. <br/><br/>[**com. Microsoft. Azure. Management. search**](/java/api/overview/azure/search/management) används för att skapa och rensa tjänster genom att Azure Resource Manager. Du kan också använda det här API: et för att hantera nycklar och tillhandahålla en tjänst.|
+| Azure SDK för Python | [**Azure-Search-dokument**](/python/api/overview/azure/search-documents-readme) är för data Plans åtgärder, inklusive alla åtgärder relaterade till indexering, frågor och AI-anrikning. Du kan också använda det här klient biblioteket för att hämta system information och statistik. <br/><br/>[**Azure-MGMT – Sök**](/python/api/overview/azure/search/management) är till för att skapa och rensa tjänster genom att Azure Resource Manager. Du kan också använda det här API: et för att hantera nycklar och tillhandahålla en tjänst. |
+| Azure SDK för Java Script/TypeScript | [**Azure/Search-dokument**](/javascript/api/@azure/search-documents/) är för data Plans åtgärder, inklusive alla åtgärder relaterade till indexering, frågor och AI-anrikning. Du kan också använda det här klient biblioteket för att hämta system information och statistik. <br/><br/>[**Azure/arm – Sök**](/javascript/api/@azure/arm-search/) tjänsten är till för att skapa och rensa genom att Azure Resource Manager. Du kan också använda det här API: et för att hantera nycklar och tillhandahålla en tjänst. |
 
 ## <a name="see-also"></a>Se även
 

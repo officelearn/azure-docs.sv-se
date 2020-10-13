@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 554a7504e4e72eb2b2921c56e535343398cfa8b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 835ee926de776b7a25295485d18ce25f883a2c5f
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333655"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951170"
 ---
 # <a name="deploy-server-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Distribuera Server-renderade Next.js webbplatser på Azures statiska Web Apps för hands version
 
 I den här självstudien lär du dig att distribuera en [Next.js](https://nextjs.org) genererad statisk webbplats till [Azure static Web Apps](overview.md). För att börja, lär du dig att konfigurera, konfigurera och distribuera en Next.js app. Under den här processen lär du dig också att hantera vanliga utmaningar ofta när du genererar statiska sidor med Next.js
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/).
 - Ett GitHub-konto. [Skapa ett konto kostnads fritt](https://github.com/join).
@@ -73,7 +73,7 @@ När du skapar en Next.js-webbplats med hjälp av skapas `npm run build` appen s
 
     ```javascript
     module.exports = {
-      exportTrailingSlash: true,
+      trailingSlash: true,
       exportPathMap: function() {
         return {
           '/': { page: '/' }
@@ -207,7 +207,7 @@ Orsaken till felet är att Next.js bara skapade start sidan baserat på program 
    const data = require('./utils/projectsData');
 
    module.exports = {
-     exportTrailingSlash: true,
+     trailingSlash: true,
      exportPathMap: async function () {
        const { projects } = data;
        const paths = {

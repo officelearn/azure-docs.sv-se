@@ -2,7 +2,7 @@
 title: Lösa aviseringar om tjänstens huvud namn i Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur du felsöker tjänstens huvud konfigurations aviseringar för Azure Active Directory Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: fc665503413d2f022b10ae043aac3315597c6ba4
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.author: joflore
+ms.openlocfilehash: fc980d18a05b18706bb7eeecd907769b80e1b18f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221399"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962725"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Kända problem: aviseringar för tjänstens huvud namn i Azure Active Directory Domain Services
 
@@ -40,7 +40,7 @@ Följ stegen nedan om du vill kontrol lera vilket tjänst huvud namn som saknas 
 1. Välj **företags program**. Välj *alla program* på list menyn **program typ** och välj sedan **Använd**.
 1. Sök efter vart och ett av följande program-ID: n. Om det inte finns något befintligt program följer du *lösnings* stegen för att skapa tjänstens huvud namn eller registrera namn området igen.
 
-    | Program-ID:t | Lösning |
+    | Program-ID | Lösning |
     | :--- | :--- |
     | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Återskapa ett tjänst huvud namn som saknas](#recreate-a-missing-service-principal) |
     | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Registrera Microsoft. AAD-namnrymden igen](#re-register-the-microsoft-aad-namespace) |

@@ -10,12 +10,12 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 0b6d4ebd199e1db9e5b325df5ea08eaede8e581b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 736d80c4bcfe31a499b84bb24c1c377e69e84218
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311894"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976019"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Konfigurera en Java-app för Azure App Service
 
@@ -29,8 +29,6 @@ Du kan använda [Azure Web App-plugin-programmet för maven för](/java/api/over
 
 Annars beror distributions metoden på din Arkiv typ:
 
-::: zone pivot="platform-windows"  
-
 ### <a name="java-se"></a>Java SE
 
 Om du vill distribuera. jar-filer till Java SE använder du `/api/zipdeploy/` slut punkten för kudu-webbplatsen. Mer information om det här API: et finns i [den här dokumentationen](./deploy-zip.md#rest).
@@ -39,7 +37,6 @@ Om du vill distribuera. jar-filer till Java SE använder du `/api/zipdeploy/` sl
 
 Om du vill distribuera. War-filer till Tomcat använder du `/api/wardeploy/` slut punkten för att publicera Arkiv filen. Mer information om det här API: et finns i [den här dokumentationen](./deploy-zip.md#deploy-war-file).
 
-::: zone-end
 ::: zone pivot="platform-linux"
 
 ### <a name="jboss-eap"></a>JBoss-EAP

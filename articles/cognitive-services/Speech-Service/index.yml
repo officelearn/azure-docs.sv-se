@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 2d1d1057d522d082b3a5a3c757d1fe988bc24ba1
-  ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+  ms.openlocfilehash: 2d00466672318ef05218fce392797df215b6bb5f
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/02/2020
-  ms.locfileid: "91667460"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "91857001"
 highlightedContent:
   items:
   - title: Vad är Speech Service?
@@ -88,34 +88,6 @@ conceptualContent:
     footerLink:
       text: Mer
       url: index-intent-recognition.yml
-  - title: Konversationsscenarier
-    links:
-    - itemType: overview
-      text: Om samtalstranskription (möten)
-      url: conversation-transcription.md
-    - itemType: overview
-      text: Om konversationer med flera enheter (möten)
-      url: multi-device-conversation.md
-    - itemType: how-to-guide
-      text: Avskrifter av kundtjänst
-      url: call-center-transcription.md
-    footerLink:
-      text: Mer
-      url: index-conversation-scenarios.yml
-  - title: Röstassistenter
-    links:
-    - itemType: overview
-      text: Om röstassistenter
-      url: voice-assistants.md
-    - itemType: quickstart
-      text: Skapa en röstassistent med Anpassade kommandon
-      url: custom-commands.md
-    - itemType: get-started
-      text: Skapa en röstassistent med Bot Framework
-      url: direct-line-speech.md
-    footerLink:
-      text: Mer
-      url: index-voice-assistants.yml
   - title: Talarigenkänning
     links:
     - itemType: overview
@@ -135,6 +107,26 @@ conceptualContent:
     - itemType: quickstart
       text: Komma igång med Anpassat nyckelord
       url: custom-keyword-basics.md
+  - title: Djupdykningsscenarier
+    links:
+    - itemType: overview
+      text: Om samtalstranskription (möten)
+      url: conversation-transcription.md
+    - itemType: overview
+      text: Om konversationer med flera enheter (möten)
+      url: multi-device-conversation.md
+    - itemType: overview
+      text: Om röstassistenter
+      url: voice-assistants.md
+    - itemType: quickstart
+      text: Skapa en röstassistent med Anpassade kommandon
+      url: custom-commands.md
+    - itemType: quickstart
+      text: Skapa en röstassistent med Bot Framework
+      url: direct-line-speech.md
+    - itemType: how-to-guide
+      text: Aktivera kundtjänsttranskription
+      url: call-center-transcription.md
   - title: Verktyg
     links:
     - itemType: overview

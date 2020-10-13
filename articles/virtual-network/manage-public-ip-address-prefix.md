@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
 ms.openlocfilehash: 90fc35249daea51a08cb83143c6be024e78964a7
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804018"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Skapa, ändra eller ta bort ett prefix för offentlig IP-adress
@@ -46,7 +46,7 @@ Prefix för offentliga IP-adresser har en avgift. Mer information finns i [priss
 3. Under **offentlig IP**-adressprefix väljer du **skapa**.
 4. Ange eller välj värden för följande inställningar under **skapa offentlig IP-adressprefix**och välj sedan **skapa**:
 
-   |Inställningen|Obligatoriskt?|Information|
+   |Inställning|Obligatoriskt?|Information|
    |---|---|---|
    |Prenumeration|Ja|Måste finnas i samma [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) som den resurs som du vill associera den offentliga IP-adressen med.|
    |Resursgrupp|Ja|Kan finnas i samma eller olika [resurs grupp](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) som den resurs som du vill associera den offentliga IP-adressen med.|
@@ -69,7 +69,7 @@ När du har skapat ett prefix måste du skapa statiska IP-adresser från prefixe
 3. När det visas i Sök resultaten markerar du det och klickar på **+ Lägg till IP-adress** i översikts avsnittet.
 4. Ange eller välj värden för följande inställningar under **skapa offentlig IP-adress**. Eftersom ett prefix är för standard-SKU, IPv4 och statisk, behöver du bara ange följande information:
 
-   |Inställningen|Obligatoriskt?|Information|
+   |Inställning|Obligatoriskt?|Information|
    |---|---|---|
    |Namn|Ja|Namnet på den offentliga IP-adressen måste vara unikt inom den resurs grupp du väljer.|
    |Tids gräns för inaktivitet (minuter)|Inga|Hur många minuter som en TCP-eller HTTP-anslutning är öppen utan att lita på klienter för att skicka Keep-Alive-meddelanden. |
@@ -101,7 +101,7 @@ Alternativt kan du använda CLI-och PS-kommandona nedan med parametrarna--Public
 
 För att utföra åtgärder på offentliga IP-adressprefix måste ditt konto tilldelas rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller en [anpassad](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som har tilldelats lämpliga åtgärder i följande tabell:
 
-| Åtgärd                                                            | Namn                                                           |
+| Action                                                            | Namn                                                           |
 | ---------                                                         | -------------                                                  |
 | Microsoft. Network/publicIPPrefixes/Read                           | Läs ett offentligt IP-adressprefix                                |
 | Microsoft. Network/publicIPPrefixes/Write                          | Skapa eller uppdatera ett offentligt IP-adressprefix                    |

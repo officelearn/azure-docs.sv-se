@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 004685a50e2413c29528ad3aca08a0150843a8aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 65542ca88d055af2c537907d7ae801250943ed0b
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631399"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930381"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Snabb start: övervaka ditt första mått med hjälp av webb portalen
 
@@ -41,7 +41,7 @@ I det här dokumentet används ett SQL Database som exempel för att skapa din f
 
 ## <a name="sign-in-to-your-workspace"></a>Logga in på din arbets yta
 
-När din resurs har distribuerats loggar du in på [Metrics Advisor-portalen](https://go.microsoft.com/fwlink/?linkid=2143774). Välj din arbets yta för att börja övervaka dina mått. 
+När du har skapat din resurs loggar du in på [Metrics Advisor-portalen](https://go.microsoft.com/fwlink/?linkid=2143774). Välj din arbets yta för att börja övervaka dina mått. 
  
 För närvarande kan du skapa en Metrics Advisor-resurs i varje tillgänglig region. Du kan när som helst byta arbets ytor i mått Advisor-portalen.
 
@@ -89,7 +89,7 @@ När anslutnings strängen och frågesträngen har skapats väljer du **Verifier
 När data schemat har lästs in och visas som nedan väljer du lämpliga fält.
 
 
-|Urval  |Beskrivning  |Kommentarer  |
+|Urval  |Beskrivning  |Obs!  |
 |---------|---------|---------|
 |**Timestamp**     | Tidsstämpeln för en data punkt. Om detta utelämnas använder Metric Advisor tidsstämpeln när data punkten matas in i stället. För varje datafeed kan du ange högst en kolumn som tidstämpel.        | Valfritt. Ska anges med högst en kolumn.       |
 |**Mått**     |  De numeriska värdena i datafeeden. För varje datafeed kan du ange flera mått, men minst en kolumn ska vara markerad som mått.        | Måste anges med minst en kolumn.        |

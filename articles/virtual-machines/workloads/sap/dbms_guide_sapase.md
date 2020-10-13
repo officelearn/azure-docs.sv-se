@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce13c3bce7cdeb0f3e6dcf1f731be22d93a65587
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e90c78e8e7cb474756c1a5ea03fd90c33e14300
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654607"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963592"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>DBMS-distribution för SAP-arbetsbelastning för SAP ASE på Azure Virtual Machines
 
@@ -71,7 +71,7 @@ SAP ASE skriver data sekventiellt till disk lagrings enheter om inget annat konf
 Vi rekommenderar att du konfigurerar automatisk databas expansion enligt beskrivningen i artikeln [Konfigurera automatisk expansion av databas utrymme i SAP anpassningsbar Server Enterprise](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/)  och [sap support NOTE #1815695](https://launchpad.support.sap.com/#/notes/1815695). 
 
 ### <a name="sample-sap-ase-on-azure-virtual-machine-disk-and-file-system-configurations"></a>Exempel på SAP-ASE på virtuella Azure-datorer, disk-och fil system konfigurationer 
-I mallarna nedan visas exempel konfigurationer för både Linux och Windows. Innan du bekräftar den virtuella datorn och disk konfigurationen kontrollerar du att kvoterna för nätverks-och lagrings bandbredden för den enskilda virtuella datorn är tillräckliga för att uppfylla affärs kraven. Tänk också på att olika typer av virtuella Azure-datorer har olika högsta antal diskar som kan anslutas till den virtuella datorn. Till exempel har en E4s_v3 VM en gräns på 48 MB/s Storage IO-dataflöde. Om lagrings data flödet som krävs av säkerhets kopierings aktiviteten för databasen kräver mer än 48 MB/SEK kan en större VM-typ med mer data flöde för lagrings bandbredd undvikas. När du konfigurerar Azure Storage måste du också vara medveten om att i synnerhet med [Azure Premium Storage](../../windows/premium-storage-performance.md) kan data flödet och IOPS per GB-kapacitet ändras. Mer information finns i artikeln [vilka disk typer är tillgängliga i Azure?](../../disks-types.md). Kvoterna för vissa typer av virtuella Azure-datorer dokumenteras i artikel [minnet optimerade storlekar för virtuella datorer](../../sizes-memory.md) och artiklar som är länkade till den. 
+I mallarna nedan visas exempel konfigurationer för både Linux och Windows. Innan du bekräftar den virtuella datorn och disk konfigurationen kontrollerar du att kvoterna för nätverks-och lagrings bandbredden för den enskilda virtuella datorn är tillräckliga för att uppfylla affärs kraven. Tänk också på att olika typer av virtuella Azure-datorer har olika högsta antal diskar som kan anslutas till den virtuella datorn. Till exempel har en E4s_v3 VM en gräns på 48 MB/s Storage IO-dataflöde. Om lagrings data flödet som krävs av säkerhets kopierings aktiviteten för databasen kräver mer än 48 MB/SEK kan en större VM-typ med mer data flöde för lagrings bandbredd undvikas. När du konfigurerar Azure Storage måste du också vara medveten om att i synnerhet med [Azure Premium Storage](../../premium-storage-performance.md) kan data flödet och IOPS per GB-kapacitet ändras. Mer information finns i artikeln [vilka disk typer är tillgängliga i Azure?](../../disks-types.md). Kvoterna för vissa typer av virtuella Azure-datorer dokumenteras i artikel [minnet optimerade storlekar för virtuella datorer](../../sizes-memory.md) och artiklar som är länkade till den. 
 
 > [!NOTE]
 >  Om ett DBMS-system flyttas från lokal plats till Azure, rekommenderar vi att du övervakar den virtuella datorn och bedömer data flödet CPU, minne, IOPS och lagring. Jämför de högsta värdena som observeras med de kvot gränser för virtuella datorer som beskrivs i artiklarna ovan

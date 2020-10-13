@@ -9,10 +9,10 @@ ms.date: 07/01/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 468c7a0113a4603f4f47bb529145261ff50d96d4
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91650552"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Konfigurera väg filter för Microsoft-peering: Azure Portal
@@ -148,7 +148,7 @@ Du kan ta bort ett flödes filter genom att klicka på knappen Ta bort.
 
 ![Skapa ett flödes filter](./media/how-to-routefilter-portal/DeleteRouteFilter.png) 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * Mer information om ExpressRoute finns i [vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
 

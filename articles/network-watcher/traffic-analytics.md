@@ -12,12 +12,13 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: f978343bd47c4b8c86653024e651b56c782f768c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: c0d0e1c5f096a45c08265927a288b4ff56876d94
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967499"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951595"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -58,62 +59,106 @@ Trafik analys undersöker rå NSG flödes loggar och avbildar färre loggar geno
 ## <a name="supported-regions-nsg"></a>Regioner som stöds: NSG 
 
 Du kan använda Traffic Analytics för NSG: er i någon av följande regioner:
-
-* Kanada, centrala
-* USA, västra centrala
-* East US
-* USA, östra 2
-* USA, norra centrala
-* USA, södra centrala
-* Central US
-* USA, västra
-* USA, västra 2
-* Frankrike, centrala
-* Europa, västra
-* Norra Europa
-* Brasilien, södra
-* Storbritannien, västra
-* Storbritannien, södra
-* Australien, östra
-* Australien, sydöstra
-* Asien, östra
-* Sydostasien
-* Sydkorea, centrala
-* Indien, centrala
-* Indien, södra
-* Japan, östra 
-* Japan, västra
-* US Gov, Virginia
-* Kina, östra 2
+:::row:::
+   :::column span="":::
+      Australien, centrala  
+      Australien, östra  
+      Australien, sydöstra  
+      Brasilien, södra  
+      Kanada, centrala  
+      Kanada, östra  
+      Indien, centrala  
+      Central US  
+      Kina, östra 2  
+      Kina, norra 2  
+   :::column-end:::
+   :::column span="":::
+      Asien, östra  
+      East US  
+      USA, östra 2  
+      USA, östra 2 EUAP  
+      Frankrike, centrala  
+      Japan, östra  
+      Japan, västra  
+      Sydkorea, centrala  
+      Sydkorea, södra  
+      USA, norra centrala  
+   :::column-end:::
+   :::column span="":::
+      Norra Europa  
+      Sydafrika, norra  
+      USA, södra centrala  
+      Indien, södra  
+      Sydostasien  
+      Schweiz, norra  
+      Schweiz, västra  
+      Storbritannien, södra  
+      Storbritannien, västra  
+      USGov Arizona  
+   :::column-end:::
+   :::column span="":::
+      USGov Texas  
+      USGov Virginia  
+      USNat, öst  
+      USNat väst  
+      USSec, öst  
+      USSec väst  
+      USA, västra centrala  
+      Europa, västra  
+      USA, västra  
+      USA, västra 2  
+   :::column-end:::
+:::row-end:::
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Regioner som stöds: Log Analytics arbets ytor
 
 Arbets ytan Log Analytics måste finnas i följande regioner:
-* Kanada, centrala
-* USA, västra centrala
-* East US
-* USA, östra 2
-* USA, norra centrala
-* USA, södra centrala
-* Central US
-* USA, västra
-* USA, västra 2
-* Central US
-* Frankrike, centrala
-* Europa, västra
-* Norra Europa
-* Brasilien, södra
-* Storbritannien, västra
-* Storbritannien, södra
-* Australien, östra
-* Australien, sydöstra
-* Asien, östra
-* Sydostasien
-* Sydkorea, centrala
-* Indien, centrala
-* Japan, östra
-* US Gov, Virginia
-* Kina, östra 2
+:::row:::
+   :::column span="":::
+      Australien, centrala  
+      Australien, östra  
+      Australien, sydöstra  
+      Brasilien, södra  
+      Kanada, centrala  
+      Indien, centrala  
+      Central US  
+      Kina, östra 2  
+      Asien, östra  
+      East US  
+   :::column-end:::
+   :::column span="":::
+      USA, östra 2  
+      USA, östra 2 EUAP  
+      Frankrike, centrala  
+      Tyskland, västra centrala  
+      Japan, östra  
+      Sydkorea, centrala  
+      USA, norra centrala  
+      Norra Europa  
+      Sydafrika, norra  
+      USA, södra centrala  
+   :::column-end:::
+   :::column span="":::
+      Sydostasien  
+      Schweiz, norra  
+      Schweiz, västra  
+      Förenade Arabemiraten Central  
+      Storbritannien, södra  
+      Storbritannien, västra  
+      USGov Arizona  
+      USGov Virginia  
+      USNat, öst  
+      USNat väst  
+   :::column-end:::
+   :::column span="":::
+      USSec, öst  
+      USSec väst  
+      USA, västra centrala  
+      Europa, västra  
+      USA, västra  
+      USA, västra 2  
+   :::column-end:::
+:::row-end:::
 
 ## <a name="prerequisites"></a>Förutsättningar
 

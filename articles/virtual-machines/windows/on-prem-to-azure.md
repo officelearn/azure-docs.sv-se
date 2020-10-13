@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f363b8fc2fec659ee1b101c13d1ba6ac629f29d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32cbfbcc8feeff66101ab5e2c95f476a4a4215e9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835500"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973911"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrera från Amazon Web Services (AWS) och andra plattformar som ska Managed Disks i Azure
 
@@ -41,7 +41,7 @@ Du kan ladda upp antingen generaliserade och specialiserade virtuella hård disk
 ## <a name="overview-of-managed-disks"></a>Översikt över Managed Disks
 
 Azure Managed Disks fören klar VM-hanteringen genom att ta bort behovet av att hantera lagrings konton. Managed Disks också dra nytta av bättre tillförlitlighet för virtuella datorer i en tillgänglighets uppsättning. Det garanterar att diskarna för olika virtuella datorer i en tillgänglighets uppsättning är tillräckligt isolerade från varandra för att undvika en enskild felpunkt. Den placerar automatiskt diskar med olika virtuella datorer i en tillgänglighets uppsättning i olika lagrings skalnings enheter (stämplar) som begränsar konsekvenserna av enskilda lagrings enhets enhets problem som orsakas av maskin-och program varu problem.
-Utifrån dina behov kan du välja mellan fyra olika typer av lagrings alternativ. Information om tillgängliga disk typer finns i vår artikel [Välj en disktyp](disks-types.md).
+Utifrån dina behov kan du välja mellan fyra olika typer av lagrings alternativ. Information om tillgängliga disk typer finns i vår artikel [Välj en disktyp](../disks-types.md).
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Planera för migreringen till Managed Disks
 
@@ -91,6 +91,6 @@ Som standard är diskcachelagring *-principen skrivskyddad* för alla Premium-da
 Läs [om prissättningen för Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/). Priset för Premium-Managed Disks är detsamma som de Premium-ohanterade diskarna. Priser för standard Managed Disks skiljer sig dock från vanliga ohanterade diskar.
 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Innan du laddar upp en virtuell hård disk till Azure bör du följa [förbereda en Windows-VHD eller VHDX för uppladdning till Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

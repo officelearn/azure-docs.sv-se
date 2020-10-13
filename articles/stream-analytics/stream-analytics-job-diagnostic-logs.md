@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: contperfq1
 ms.date: 06/18/2020
 ms.openlocfilehash: ed5c7eee1e8261c65decba4748e1d9c6a4d7212b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91459820"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Felsöka Azure Stream Analytics med hjälp av resurs loggar
@@ -95,7 +95,7 @@ Azure Stream Analytics fångar två kategorier av resurs loggar:
 
 Alla loggar lagras i JSON-format. Varje post har följande gemensamma sträng fält:
 
-Name | Beskrivning
+Namn | Beskrivning
 ------- | -------
 time | Tidsstämpel (i UTC) för loggen.
 resourceId | ID för den resurs som åtgärden ägde rum i, i versaler. Den innehåller prenumerations-ID, resurs grupp och jobb namn. Till exempel **/Subscriptions/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/My-Resource-Group/providers/Microsoft. STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
@@ -113,7 +113,7 @@ Körnings loggarna innehåller information om händelser som har inträffat unde
 
 Eventuella fel som inträffar när jobbet bearbetar data finns i den här kategorin av loggar. Loggarna skapas oftast när data läses, serialiseras och skrivs. Dessa loggar innehåller inte anslutnings fel. Anslutnings fel behandlas som allmänna händelser. Du kan lära dig mer om orsaken till olika [fel i indata och utdata](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
-Name | Beskrivning
+Namn | Beskrivning
 ------- | -------
 Källa | Namnet på det indata eller utdata där felet uppstod.
 Meddelande | Meddelande som är kopplat till felet.
@@ -134,7 +134,7 @@ I väntan på värdet **operationName** har data fel följande schema:
 
 Allmänna händelser behandlar allt annat.
 
-Name | Beskrivning
+Namn | Beskrivning
 -------- | --------
 Fel | valfritt Fel information. Detta är vanligt vis undantags information om det är tillgängligt.
 Meddelande| Logg meddelande.

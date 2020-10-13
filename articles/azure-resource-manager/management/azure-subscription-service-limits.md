@@ -3,18 +3,18 @@ title: Begränsningar och kvoter för Azure-prenumeration
 description: Innehåller en lista över vanliga gränser, kvoter och begränsningar för Azure-prenumerationer och tjänster. Den här artikeln innehåller information om hur du ökar gränserna tillsammans med högsta värden.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 3b4185fb90aec68eda600b67c95529e6b80b09e4
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: f18bd4589ea995696175fa23300432793f0f5974
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91665640"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950252"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 
 Det här dokumentet innehåller några av de vanligaste Microsoft Azures gränserna, som ibland kallas kvoter.
 
-Mer information om priser för Azure finns i [Översikt över Azure-priser](https://azure.microsoft.com/pricing/). Där kan du beräkna dina kostnader med hjälp av [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/). Du kan också gå till sidan med pris information för en viss tjänst, till exempel [virtuella Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Tips som hjälper dig att hantera dina kostnader finns i [förebygga oväntade kostnader med fakturering och kostnads hantering i Azure](../../cost-management-billing/manage/getting-started.md).
+Mer information om priser för Azure finns i [Översikt över Azure-priser](https://azure.microsoft.com/pricing/). Där kan du beräkna dina kostnader med hjälp av [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/). Du kan också gå till sidan med pris information för en viss tjänst, till exempel [virtuella Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Tips som hjälper dig att hantera dina kostnader finns i [förebygga oväntade kostnader med fakturering och kostnads hantering i Azure](../../cost-management-billing/cost-management-billing-overview.md).
 
 ## <a name="managing-limits"></a>Hantera gränser
 

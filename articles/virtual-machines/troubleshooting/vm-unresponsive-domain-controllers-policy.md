@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: v-miegge
-ms.openlocfilehash: 53e1daca47a2917a19cbc30db5348e4fcc06b325
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f181a6dee7ed182150bd0cad2b51690b6c77d7a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90039155"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963133"
 ---
 # <a name="vm-is-unresponsive-while-applying-default-domain-controllers-policy"></a>Den virtuella datorn svarar inte när standardpolicyn för domänkontrollanter tillämpas
 
@@ -28,7 +28,7 @@ Den här artikeln innehåller steg för att lösa problem där standard principe
 
 ## <a name="symptom"></a>Symptom
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar att operativ systemet slutar svara vid start med **standard principen för domänkontrollanter**.
+När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar att operativ systemet slutar svara vid start med **standard principen för domänkontrollanter**.
 
   ![Bild 1 visar det operativ system som fastnat med meddelandet standard princip för domänkontrollanter](./media/vm-unresponsive-domain-controllers-policy/1-default-domain-controllers-policy.png)
 
@@ -46,7 +46,7 @@ För att lösa det här problemet bör du först samla in minnesdumpen för kras
 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Koppla OS-disken till en ny virtuell reparations dator
 
-1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en reparations-VM.
+1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) för att förbereda en reparations-VM.
 
 1. Använda Anslutning till fjärrskrivbord ansluta till den virtuella reparations datorn.
 
@@ -56,4 +56,4 @@ För att lösa det här problemet bör du först samla in minnesdumpen för kras
 
 1. Leta upp filen Memory. dmp och skicka sedan [ett support ärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med minnesdumpen.
 
-1. Om du har problem med att hitta Memory. dmp-filen kanske du vill använda [icke-maskbart avbrott (NMI) i serie konsolen i](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls) stället. Följ guiden för att [Generera en kraschdump-fil med NMI-anrop](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump).
+1. Om du har problem med att hitta Memory. dmp-filen kanske du vill använda [icke-maskbart avbrott (NMI) i serie konsolen i](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) stället. Följ guiden för att [Generera en kraschdump-fil med NMI-anrop](/windows/client-management/generate-kernel-or-complete-crash-dump).

@@ -4,16 +4,16 @@ description: Lär dig hur ett distributions manifest deklarerar vilka moduler so
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/26/2020
+ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7a9f4f165f457dfb902a4c0ecce3f4a9b13e2ec8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f6c12b892e01aafd5beecdff14751481cf7fc96
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611545"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963405"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Lär dig hur du distribuerar moduler och etablerar vägar i IoT Edge
 
@@ -46,32 +46,31 @@ Distributions manifest följer den här strukturen:
 
 ```json
 {
-    "modulesContent": {
-        "$edgeAgent": { // required
-            "properties.desired": {
-                // desired properties of the Edge agent
-                // includes the image URIs of all modules
-                // includes container registry credentials
-            }
-        },
-        "$edgeHub": { //required
-            "properties.desired": {
-                // desired properties of the Edge hub
-                // includes the routing information between modules, and to IoT Hub
-            }
-        },
-        "module1": {  // optional
-            "properties.desired": {
-                // desired properties of module1
-            }
-        },
-        "module2": {  // optional
-            "properties.desired": {
-                // desired properties of module2
-            }
-        },
-        ...
+  "modulesContent": {
+    "$edgeAgent": { // required
+      "properties.desired": {
+        // desired properties of the IoT Edge agent
+        // includes the image URIs of all deployed modules
+        // includes container registry credentials
+      }
+    },
+    "$edgeHub": { //required
+      "properties.desired": {
+        // desired properties of the IoT Edge hub
+        // includes the routing information between modules, and to IoT Hub
+      }
+    },
+    "module1": {  // optional
+      "properties.desired": {
+        // desired properties of module1
+      }
+    },
+    "module2": {  // optional
+      "properties.desired": {
+        // desired properties of module2
+      }
     }
+  }
 }
 ```
 
@@ -79,40 +78,101 @@ Distributions manifest följer den här strukturen:
 
 Definiera hur IoT Edge runtime installerar modulerna i distributionen. IoT Edge agent är körnings komponenten som hanterar installation, uppdateringar och status rapportering för en IoT Edge enhet. Därför innehåller $edgeAgent modul dubbla konfigurations-och hanterings information för alla moduler. Den här informationen inkluderar konfigurations parametrar för själva IoT Edge agenten.
 
-En fullständig lista över egenskaper som kan eller måste inkluderas finns i [Egenskaper för IoT Edge agent och IoT Edge Hub](module-edgeagent-edgehub.md).
-
 $EdgeAgent egenskaperna följer den här strukturen:
 
 ```json
-"$edgeAgent": {
-    "properties.desired": {
-        "schemaVersion": "1.0",
+{
+  "modulesContent": {
+    "$edgeAgent": {
+      "properties.desired": {
+        "schemaVersion": "1.1",
         "runtime": {
-            "settings":{
-                "registryCredentials":{ // give the edge agent access to container images that aren't public
-                    }
-                }
+          "settings":{
+            "registryCredentials":{
+              // give the IoT Edge agent access to container images that aren't public
             }
+          }
         },
         "systemModules": {
-            "edgeAgent": {
-                // configuration and management details
-            },
-            "edgeHub": {
-                // configuration and management details
-            }
+          "edgeAgent": {
+            // configuration and management details
+          },
+          "edgeHub": {
+            // configuration and management details
+          }
         },
         "modules": {
-            "module1": { // optional
-                // configuration and management details
-            },
-            "module2": { // optional
-                // configuration and management details
-            }
+          "module1": {
+            // configuration and management details
+          },
+          "module2": {
+            // configuration and management details
+          }
         }
-    }
-},
+      }
+    },
+    "$edgeHub": { ... },
+    "module1": { ... },
+    "module2": { ... }
+  }
+}
 ```
+
+IoT Edge agent schema version 1,1 släpptes tillsammans med IoT Edge version 1.0.10 och aktiverar startordning för modulen. Schema version 1,1 rekommenderas för alla IoT Edge-distributioner som kör version 1.0.10 eller senare.
+
+### <a name="module-configuration-and-management"></a>Konfiguration och hantering av moduler
+
+I listan med önskade egenskaper för IoT Edge agent kan du definiera vilka moduler som distribueras till en IoT Edge-enhet och hur de ska konfigureras och hanteras.
+
+En fullständig lista över önskade egenskaper som kan eller måste inkluderas finns i [Egenskaper för IoT Edge agent och IoT Edge Hub](module-edgeagent-edgehub.md).
+
+Till exempel:
+
+```json
+{
+  "modulesContent": {
+    "$edgeAgent": {
+      "properties.desired": {
+        "schemaVersion": "1.1",
+        "runtime": { ... },
+        "systemModules": {
+          "edgeAgent": { ... },
+          "edgeHub": { ... }
+        },
+        "modules": {
+          "module1": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "startupOrder": 2,
+            "settings": {
+              "image": "myacr.azurecr.io/module1:latest",
+              "createOptions": "{}"
+            }
+          },
+          "module2": { ... }
+        }
+      }
+    },
+    "$edgeHub": { ... },
+    "module1": { ... },
+    "module2": { ... }
+  }
+}
+```
+
+Varje modul har en **inställnings** egenskap som innehåller modulens **avbildning**, en adress för behållar avbildningen i ett behållar register och eventuella **createOptions** för att konfigurera avbildningen vid start. Mer information finns i [så här konfigurerar du behållare skapa alternativ för IoT Edge moduler](how-to-use-create-options.md).
+
+EdgeHub-modulen och de anpassade modulerna har också tre egenskaper som talar om för IoT Edge-agenten hur de ska hanteras:
+
+* **Status**: anger om modulen ska köras eller stoppas när den först distribueras. Krävs.
+* **RestartPolicy**: när och om den IoT Edge agenten ska starta om modulen om den stoppas. Krävs.
+* **StartupOrder**: *introducerades i IoT Edge version 1.0.10.* Vilken ordning som IoT Edge agenten ska starta modulerna vid första distributionen. Ordningen deklareras med heltal, där en modul med ett start värde på 0 startas först och sedan följer högre tal. EdgeAgent-modulen har inget start värde eftersom den alltid startar först. Valfritt.
+
+  Den IoT Edge agenten initierar modulerna i början av startvärdet, men väntar inte på att varje modul ska avslutas innan den skickas till nästa.
+
+  Start ordningen är användbar om vissa moduler är beroende av andra. Du kanske till exempel vill att edgeHub-modulen ska starta först så att den är redo att skicka meddelanden när de andra modulerna startar. Eller så kanske du vill starta en lagrings modul innan modulerna som skickar data till den. Du bör dock alltid utforma dina moduler för att hantera problem med andra moduler. Det är den typ av behållare som de kan stoppa och starta om när som helst, och hur många gånger som helst.
 
 ## <a name="declare-routes"></a>Deklarera vägar
 
@@ -121,17 +181,36 @@ IoT Edge Hub hanterar kommunikation mellan moduler, IoT Hub och eventuella löv 
 Vägar deklareras i **$edgeHub** önskade egenskaper med följande syntax:
 
 ```json
-"$edgeHub": {
-    "properties.desired": {
+{
+  "modulesContent": {
+    "$edgeAgent": { ... },
+    "$edgeHub": {
+      "properties.desired": {
+        "schemaVersion": "1.1",
         "routes": {
-            "route1": "FROM <source> WHERE <condition> INTO <sink>",
-            "route2": "FROM <source> WHERE <condition> INTO <sink>"
+          "route1": "FROM <source> WHERE <condition> INTO <sink>",
+          "route2": {
+            "route": "FROM <source> WHERE <condition> INTO <sink>",
+            "priority": 0,
+            "timeToLiveSecs": 86400
+          }
         },
-    }
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 10
+        }
+      }
+    },
+    "module1": { ... },
+    "module2": { ... }
+  }
 }
 ```
 
-Varje väg behöver en källa och en mottagare, men villkoret är en valfri del som du kan använda för att filtrera meddelanden.
+IoT Edge Hub-schemat version 1,1 släpptes tillsammans med IoT Edge version 1.0.10 och gör det möjligt att använda väg prioritering och Time to Live. Schema version 1,1 rekommenderas för alla IoT Edge-distributioner som kör version 1.0.10 eller senare.
+
+Varje väg behöver en *källa* där meddelandena kommer från och en *mottagare* där meddelandena går. *Villkoret* är en valfri del som du kan använda för att filtrera meddelanden.
+
+Du kan tilldela *prioritet* till vägar som du vill se till att bearbeta sina meddelanden först. Den här funktionen är användbar i scenarier där den överordnade anslutningen är svag eller begränsad och du har viktiga data som ska prioriteras över standardtelemetri-meddelanden.
 
 ### <a name="source"></a>Källa
 
@@ -186,6 +265,32 @@ IoT Edge ger minst en garanti. IoT Edge Hub lagrar meddelanden lokalt om en väg
 
 IoT Edge Hub lagrar meddelandena upp till den tid som anges i `storeAndForwardConfiguration.timeToLiveSecs` egenskapen för [önskade egenskaper för IoT Edge Hub](module-edgeagent-edgehub.md).
 
+### <a name="priority-and-time-to-live"></a>Prioritet och Time-to-Live
+
+Vägar kan deklareras antingen med bara en sträng som definierar vägen eller som ett objekt som tar en väg sträng, ett prioritets-heltal och ett Time to Live-heltal.
+
+Alternativ 1:
+
+   ```json
+   "route1": "FROM <source> WHERE <condition> INTO <sink>",
+   ```
+
+Alternativ 2, som introducerades i IoT Edge version 1.0.10 med IoT Edge Hub schema version 1,1:
+
+   ```json
+   "route2": {
+     "route": "FROM <source> WHERE <condition> INTO <sink>",
+     "priority": 0,
+     "timeToLiveSecs": 86400
+   }
+   ```
+
+**Prioritets** värden kan vara 0-9, inklusive, där 0 är den högsta prioriteten. Meddelandena köas baserat på deras slut punkter. Alla prioriteter på 0-meddelanden som är riktade mot en speciell slut punkt bearbetas innan prioritet 1-meddelanden riktade till samma slut punkt bearbetas och nedåt i raden. Om flera vägar för samma slut punkt har samma prioritet, bearbetas deras meddelanden i en första-först-hanterad bas. Om ingen prioritet har angetts tilldelas vägen lägst prioritet.
+
+Egenskapen **timeToLiveSecs** ärver värdet från IoT Edge hubbens **storeAndForwardConfiguration** om det inte uttryckligen anges. Värdet kan vara valfritt positivt heltal.
+
+För detaljerad information om hur prioritets köer hanteras, se referens sidan för [väg prioritet och Time-to-Live](https://github.com/Azure/iotedge/blob/master/doc/Route_priority_and_TTL.md).
+
 ## <a name="define-or-update-desired-properties"></a>Definiera eller uppdatera önskade egenskaper
 
 Distributions manifestet anger önskade egenskaper för varje modul som distribueras till den IoT Edge enheten. Önskade egenskaper i distributions manifestet skriver över alla önskade egenskaper för närvarande i modulen.
@@ -203,7 +308,7 @@ I följande exempel visas hur ett giltigt distributions manifest dokument kan se
   "modulesContent": {
     "$edgeAgent": {
       "properties.desired": {
-        "schemaVersion": "1.0",
+        "schemaVersion": "1.1",
         "runtime": {
           "type": "docker",
           "settings": {
@@ -230,6 +335,7 @@ I följande exempel visas hur ett giltigt distributions manifest dokument kan se
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
+            "startupOrder": 0,
             "settings": {
               "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
@@ -242,6 +348,7 @@ I följande exempel visas hur ett giltigt distributions manifest dokument kan se
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
+            "startupOrder": 2,
             "settings": {
               "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
               "createOptions": "{}"
@@ -252,6 +359,7 @@ I följande exempel visas hur ett giltigt distributions manifest dokument kan se
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
+            "startupOrder": 1,
             "env": {
               "tempLimit": {"value": "100"}
             },
@@ -265,13 +373,21 @@ I följande exempel visas hur ett giltigt distributions manifest dokument kan se
     },
     "$edgeHub": {
       "properties.desired": {
-        "schemaVersion": "1.0",
+        "schemaVersion": "1.1",
         "routes": {
-          "sensorToFilter": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
-          "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
+          "sensorToFilter": {
+            "route": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+            "priority": 0,
+            "timeToLiveSecs": 1800
+          },
+          "filterToIoTHub": {
+            "route": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream",
+            "priority": 1,
+            "timeToLiveSecs": 1800
+          }
         },
         "storeAndForwardConfiguration": {
-          "timeToLiveSecs": 10
+          "timeToLiveSecs": 100
         }
       }
     }

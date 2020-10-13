@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4c57ec2edf43bf0a710f3c15f30836f751c4d52b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a96c0f7c6fb767b96be273a615149143043e8bc1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500171"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975135"
 ---
 # <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Öppna portar och slut punkter till en virtuell dator med Azure CLI
 
@@ -89,4 +89,4 @@ För webb program med hög tillgänglighet bör du placera de virtuella datorern
 I det här exemplet har du skapat en enkel regel för att tillåta HTTP-trafik. Du hittar information om att skapa mer detaljerade miljöer i följande artiklar:
 
 * [Översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-* [Vad är en nätverkssäkerhetsgrupp (NSG)?](../../virtual-network/security-overview.md)
+* [Vad är en nätverkssäkerhetsgrupp (NSG)?](../../virtual-network/network-security-groups-overview.md)

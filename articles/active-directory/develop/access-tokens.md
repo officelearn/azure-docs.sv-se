@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 ms.openlocfilehash: c59dbe9464e70c1a071b64fabf91ce56f409d8d7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91258529"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Åtkomsttoken för Microsoft Identity Platform
@@ -71,7 +71,7 @@ Anspråk finns bara om det finns ett värde för att fylla det. Därför bör ap
 
 ### <a name="header-claims"></a>Huvud anspråk
 
-|Begär | Format | Description |
+|Begär | Format | Beskrivning |
 |--------|--------|-------------|
 | `typ` | Sträng-Always-JWT | Anger att token är en JWT.|
 | `nonce` | Sträng | En unik identifierare som används för att skydda mot repetitions attacker med token. Din resurs kan registrera det här värdet för att skydda mot uppspelningar. |
@@ -81,7 +81,7 @@ Anspråk finns bara om det finns ett värde för att fylla det. Därför bör ap
 
 ### <a name="payload-claims"></a>Nytto Last anspråk
 
-| Begär | Format | Description |
+| Begär | Format | Beskrivning |
 |-----|--------|-------------|
 | `aud` | Sträng, en app-ID-URI | Identifierar den avsedda mottagaren för token. I ID-token är mål gruppen appens program-ID som tilldelats din app i Azure Portal. Din app bör validera det här värdet och avvisa token om värdet inte matchar. |
 | `iss` | Sträng, en STS-URI | Identifierar säkerhetstokentjänst som konstruerar och returnerar token och Azure AD-klienten där användaren autentiserades. Om token som utfärdas är en v 2.0-token (se `ver` anspråket) avslutas URI: n `/v2.0` . GUID som anger att användaren är en konsument användare från en Microsoft-konto `9188040d-6c67-4c5b-b112-36a304b66dad` . Din app ska använda en GUID-del av anspråket för att begränsa den uppsättning innehavare som kan logga in på appen, om tillämpligt. |
@@ -139,7 +139,7 @@ Du kan använda den `BulkCreateGroups.ps1` som finns i mappen skript för att [S
 
 Följande anspråk kommer att ingå i v 1.0-token om det är tillämpligt, men inte ingår i v 2.0-token som standard. Om du använder v 2.0 och behöver någon av dessa anspråk kan du begära dem med [valfria anspråk](active-directory-optional-claims.md).
 
-| Begär | Format | Description |
+| Begär | Format | Beskrivning |
 |-----|--------|-------------|
 | `ipaddr`| Sträng | IP-adressen som användaren autentiseras från. |
 | `onprem_sid`| Sträng, i [sid-format](/windows/desktop/SecAuthZ/sid-components) | I de fall där användaren har en lokal autentisering, ger detta anspråk sitt SID. Du kan använda `onprem_sid` för auktorisering i äldre program.|

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/10/2020
 ms.openlocfilehash: 4fd16e9dcf9f0b75b48311adf3e9282adbce2a25
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708721"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Övervaka och finjustera Azure Database for PostgreSQL-enskild server
@@ -22,7 +22,7 @@ Azure Database for PostgreSQL tillhandahåller olika mått som ger inblick i fun
 ### <a name="list-of-metrics"></a>Lista över mått
 De här måtten är tillgängliga för Azure Database for PostgreSQL:
 
-|Mått|Mått visnings namn|Enhet|Description|
+|Mått|Mått visnings namn|Enhet|Beskrivning|
 |---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Procent andelen CPU som används.|
 |memory_percent|Minnes procent|Procent|Procent andelen minne som används.|
@@ -33,8 +33,8 @@ De här måtten är tillgängliga för Azure Database for PostgreSQL:
 |serverlog_storage_percent|Server logg lagrings procent|Procent|Procent andelen Server logg lagring som används av serverns maximala Server logg lagring.|
 |serverlog_storage_usage|Server logg lagring används|Byte|Mängden Server logg lagring som används.|
 |serverlog_storage_limit|Server logg lagrings gräns|Byte|Den maximala Server logg lagringen för den här servern.|
-|active_connections|Aktiva anslutningar|Count|Antalet aktiva anslutningar till servern.|
-|connections_failed|Misslyckade anslutningar|Count|Antalet etablerade anslutningar som misslyckades.|
+|active_connections|Aktiva anslutningar|Antal|Antalet aktiva anslutningar till servern.|
+|connections_failed|Misslyckade anslutningar|Antal|Antalet etablerade anslutningar som misslyckades.|
 |network_bytes_egress|Nätverk – utgående|Byte|Nätverk ut över aktiva anslutningar.|
 |network_bytes_ingress|Nätverk – inkommande|Byte|Nätverk i över aktiva anslutningar.|
 |backup_storage_used|Lagring av säkerhets kopior som används|Byte|Mängden lagring av säkerhets kopior som används. Det här måttet representerar summan av lagrings utrymme som förbrukas av alla fullständiga säkerhets kopior av databasen, differentiella säkerhets kopior och logg säkerhets kopior som bevaras baserat på den kvarhållna säkerhets kopie perioden som angetts för servern. Säkerhets kopierings frekvensen är service som hanteras och beskrivs i [artikeln begrepp](concepts-backup.md). För Geo-redundant lagring är lagrings utrymmet för säkerhets kopiering två gånger för det lokalt redundanta lagrings utrymmet.|

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
 ms.openlocfilehash: 40f8c36b197b0c68b9f04a02dc7731877b27ddd2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541670"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Självstudie: Konfigurera Apache Ambari-e-postmeddelanden i Azure HDInsight
@@ -24,7 +24,7 @@ I den här guiden får du lära dig att:
 > * Hämta SendGrid användar namn
 > * Konfigurera Apache Ambari-e-postmeddelanden
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett SendGrid e-postkonto. Instruktioner finns i [skicka e-post med hjälp av SendGrid med Azure](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email) .
 
@@ -71,7 +71,7 @@ I den här guiden får du lära dig att:
     |E-post från|Ange en e-postadress. Adressen behöver inte vara äkta.|
     |Använd autentisering|Markera den här kryss rutan.|
     |Användarnamn|Ange SendGrid användar namn.|
-    |Lösenord|Ange det lösen ord som du använde när du skapade SendGrid-resursen i Azure.|
+    |lösenordsinställning|Ange det lösen ord som du använde när du skapade SendGrid-resursen i Azure.|
     |Bekräfta lösen ord|Ange lösenordet igen.|
     |Starta TLS|Markera den här kryss rutan|
 

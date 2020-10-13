@@ -12,10 +12,10 @@ ms.date: 03/05/2019
 ms.author: aahi
 ms.custom: devx-track-js
 ms.openlocfilehash: 9a5749d115a4d5d9ce1e0ac454609c7b639c2f8e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309780"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Självstudie: Hämta Sök förslag på en webb sida
@@ -28,7 +28,7 @@ I den här självstudiekursen lär du dig att:
 > - Skicka en enkel fråga till API:et Automatiska förslag i Bing
 > - Visa frågeresultatet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API:et Automatiska förslag i Bing. Om du inte har ett kan du [skapa en automatiska förslag i Bing resurs](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7) i Azure Portal.
 

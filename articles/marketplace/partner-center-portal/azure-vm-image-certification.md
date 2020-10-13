@@ -8,10 +8,10 @@ author: github-2407
 ms.author: krsh
 ms.date: 08/14/2020
 ms.openlocfilehash: 83fc141a658fb3f5f639d56794c77fe7a3ff28bf
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91821333"
 ---
 # <a name="test-a-virtual-machine-image-for-azure-marketplace"></a>Testa en avbildning av en virtuell dator för Azure Marketplace
@@ -253,7 +253,7 @@ I det här avsnittet beskrivs hur du skapar och distribuerar en användardefinie
     | userStorageAccountName | Namn på lagringskontot. |
     | dnsNameForPublicIP | DNS-namn för den offentliga IP-adressen; måste vara gemener. |
     | subscriptionId | Prenumerations-ID för Azure. |
-    | Location | Standard Azure-geografisk plats för resurs gruppen. |
+    | Plats | Standard Azure-geografisk plats för resurs gruppen. |
     | vmName | Namn på den virtuella datorn. |
     | vhdUrl | Webb adressen för den virtuella hård disken. |
     | vmSize | Storlek på den virtuella dator instansen. |
@@ -1000,7 +1000,7 @@ Välj slutligen skapa rapport för att ladda ned test resultaten och loggfilerna
 > [!Note]
 > Några utgivare har scenarier där virtuella datorer måste låsas eftersom de har program vara, till exempel brand väggar som är installerade på den virtuella datorn. I det här fallet kan utgivare Ladda ned det [certifierade testverktyget](https://aka.ms/AzureCertificationTestTool) här och tillhandahålla rapporten på [Marketplace Publisher-support](https://aka.ms/marketplacepublishersupport)
 
-## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>Hur du använder PowerShell för att använda API: et för självtest
+## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>Hur du använder PowerShell för att använda Self-Test API
 
 ### <a name="on-linux-os"></a>På Linux OS
 
@@ -1735,7 +1735,7 @@ For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
 
 ![Test resultat i ett online-JSON-visningsprogram.](media/vm/test-results-json-viewer-2.png)
 
-## <a name="how-to-use-curl-to-consume-the-self-test-api-on-linux-os"></a>Så här använder du en sväng för att använda API: et för självtest på Linux OS
+## <a name="how-to-use-curl-to-consume-the-self-test-api-on-linux-os"></a>Så här använder du en sväng för att använda Self-Test API i Linux OS
 
 Anropa API: t i sväng:
 

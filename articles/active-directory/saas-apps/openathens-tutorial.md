@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: fc60552fadf10dde88c0e6d8c6f46bd25c68cf2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da8ae35ce85ca9ffb031511e81270afd8529681d
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543949"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994194"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-openathens"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med openaten
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar openaten med Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -134,15 +134,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Välj **Anslutningar** i listan på fliken **Hantering**.
 
-    ![Konfigurera enkel inloggning](./media/openathens-tutorial/tutorial_openathens_application1.png)
+    ![Skärm bild som visar sidan "openaten"-företags webbplats med "anslutningar" valt från fliken "hantering".](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
 1. Välj **SAML 1.1/2.0**, och klicka sedan på knappen **Konfigurera**.
 
-    ![Konfigurera enkel inloggning](./media/openathens-tutorial/tutorial_openathens_application2.png)
+    ![Skärm bild som visar system typen "Välj lokal autentisering". dialog rutan med "S A M L 1.1/2.0" och knappen "Konfigurera" är markerad.](./media/openathens-tutorial/tutorial_openathens_application2.png)
 
 1. Om du vill lägga till konfigurationen väljer du knappen **Bläddra** för att överföra .xml-metadatafilen som du laddade ned från Azure-portalen, och väljer sedan **Lägg till**.
 
-    ![Konfigurera enkel inloggning](./media/openathens-tutorial/tutorial_openathens_application3.png)
+    ![Skärm bild som visar Authentication-systemet "Lägg till en M L-autentisering". i dialog rutan med åtgärden "Bläddra" och knappen Lägg till markerad.](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
 1. Utför följande steg under fliken **Information**.
 
@@ -164,7 +164,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     h. Från fliken **</> Förlitande part** ska du nu kopiera **Metadata-URL:en** och öppna den i webbläsaren för att ladda ned **XML-filen för SP-metadata**. Ladda upp SP-metadatafilen på avsnittet **Grundläggande SAML-konfiguration** i Azure AD.
 
-    ![Konfigurera enkel inloggning](./media/openathens-tutorial/tutorial_openathens_application5.png)
+    ![Skärm bild som visar fliken "förlitande part" markerad och "metadata U R L" markerat.](./media/openathens-tutorial/tutorial_openathens_application5.png)
 
 ### <a name="create-openathens-test-user"></a>Skapa OpenAthens-testanvändare
 

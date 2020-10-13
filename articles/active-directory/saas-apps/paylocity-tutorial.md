@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 53a224f53f0270166ce75e718e670780730a10c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e772dc39374b178743a6c8b93e6b48e62b1e2ed
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543660"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995951"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Paylocity
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Paylocity med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -106,7 +106,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signerings certifikat** , klickar du på **Redigera ikon**.
 
-    ![Redigera certifikat för SAML-signering](./media/paylocity-tutorial/edit-samlassertion.png)
+    ![Skärm bild som visar "S A M L signerings certifikat" med åtgärden "Ladda ned" för "Federation Metadata X M L" valt.](./media/paylocity-tutorial/edit-samlassertion.png)
 
 1. Välj **signerings alternativ** som **signera SAML-svar och kontroll** och klicka på **Spara**.
 

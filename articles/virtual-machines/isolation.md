@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/18/2019
 ms.author: sttsinar
-ms.openlocfilehash: d6a77cac049ef32949eeba4cbd6fe9217100a360
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: ayshak
+ms.openlocfilehash: 7b1956d704bbdf9475f04efcbdc4b6ee75bb50b2
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666848"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996302"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Isolering av virtuella datorer i Azure
 
@@ -45,7 +46,7 @@ Eftersom isolerade VM-storlekar är maskin varans bindnings storlekar ger Azure 
 <sup>1</sup>  mer information om Standard_DS15_v2 och Standard_D15_v2 isolerings program för isolering finns i vanliga frågor och svar
 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 ### <a name="q-is-the-size-going-to-get-retired-or-only-isolation-feature-is"></a>F: är storleken på att få en inaktive rad eller enda isolerings funktion?
 **A**: om den virtuella datorns storlek inte har under skriptet "i", kommer bara funktionen isoleras att dras tillbaka. Om isolering inte behövs, finns det ingen åtgärd som kan vidtas och den virtuella datorn fortsätter att fungera som förväntat. Exempel på detta är Standard_DS15_v2, Standard_D15_v2, Standard_M128ms osv. Om den virtuella datorns storlek innehåller "i"-under skript, kommer storleken att bli tillbakadragen.
 
@@ -64,7 +65,7 @@ S **: vi**kommer att tillhandahålla påminnelser 12 månader före den officiel
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>F: vilka är mil stolparna för D15_v2 eller DS15_v2 isoleringen? 
 **A**: 
  
-| Date | Action |
+| Datum | Åtgärd |
 |---|---| 
 | Den 18 november 2019 | Tillgänglighet för D/DS15i_v2 (PAYG, 1 – år, RI) | 
 | 14 maj, 2020 | Senaste dagen för att köpa D/DS15i_v2 1 års RI | 

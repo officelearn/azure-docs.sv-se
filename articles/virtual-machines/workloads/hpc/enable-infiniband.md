@@ -1,24 +1,18 @@
 ---
 title: Aktivera InifinBand på virtuella HPC-datorer – Azure Virtual Machines | Microsoft Docs
 description: Lär dig hur du aktiverar InfiniBand på virtuella Azure HPC-datorer.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 0cbfed307cea1bd98bf864046a8c08edb849226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5f4cbd2fc09b2c42c232eafd63edb1217e4dacb
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797993"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996311"
 ---
 # <a name="enable-infiniband"></a>Aktivera InfiniBand
 

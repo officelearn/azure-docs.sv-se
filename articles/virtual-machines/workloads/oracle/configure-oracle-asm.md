@@ -1,25 +1,18 @@
 ---
 title: Konfigurera Oracle ASM på en virtuell Azure Linux-dator | Microsoft Docs
 description: Få snabbt till gång till Oracle ASM i Azure-miljön.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: e82b458487dd4c865013c806447473d25c75017f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: cynthn
+ms.openlocfilehash: 2d112db720d8ad5a1cba1ec2f35fbb59670e1e92
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328096"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996731"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Konfigurera Oracle ASM på en virtuell Azure Linux-dator  
 

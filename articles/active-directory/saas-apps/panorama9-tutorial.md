@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 7bf3afef81c70355326ed9341f2dd8a39d542b54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e2cb00f4b8228b3587930fc5b237d308c532c8c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554115"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996080"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Självstudie: Azure Active Directory integrering med Panorama9
 
@@ -30,7 +30,7 @@ Genom att integrera Panorama9 med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Panorama9 behöver du följande objekt:
 
@@ -210,7 +210,7 @@ När det gäller Panorama9 är etableringen en manuell uppgift.
 
 2. I menyn högst upp klickar du på **Hantera**och sedan på **användare**.
    
-    ![Användare](./media/panorama9-tutorial/ic790027.png "Användare")
+    ![Skärm bild som visar flikarna hantera och användare markerade.](./media/panorama9-tutorial/ic790027.png "Användare")
 
 3. I avsnittet användare klickar du på **+** för att lägga till en ny användare.
 

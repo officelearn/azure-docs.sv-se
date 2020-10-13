@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/24/2020
-ms.openlocfilehash: 5f076f477c36f96d1807ce7071720225a6df8e03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d0e8c4806784cf9b00712ad1bf45bca958a7eb1
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803814"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995362"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor för nätverk (för hands version)
-Azure Monitor för nätverk ger en omfattande vy över [hälsa](https://docs.microsoft.com/azure/service-health/resource-health-checks-resource-types) och [mått](../platform/metrics-supported.md) för alla distribuerade nätverks resurser utan någon konfiguration.  Den ger också till gång till [alla funktioner för](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) nätverks övervakning, till exempel [anslutnings övervakaren](../../network-watcher/connection-monitor-preview.md), [flödes loggning för nätverks säkerhets grupper (NSG: er)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), [trafikanalys](../../network-watcher/traffic-analytics.md)och andra funktioner för nätverksdiagnostik.
+Azure Monitor för nätverk ger en omfattande vy över [hälsa](../../service-health/resource-health-checks-resource-types.md) och [mått](../platform/metrics-supported.md) för alla distribuerade nätverks resurser utan någon konfiguration.  Den ger också till gång till [alla funktioner för](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) nätverks övervakning, till exempel [anslutnings övervakaren](../../network-watcher/connection-monitor-preview.md), [flödes loggning för nätverks säkerhets grupper (NSG: er)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), [trafikanalys](../../network-watcher/traffic-analytics.md)och andra funktioner för nätverksdiagnostik.
 
 Azure Monitor för nätverk är strukturerad runt följande viktiga komponenter i övervakningen:
 - [Nätverks hälsa och-mått](#networkhealth)
@@ -71,7 +71,7 @@ Olika filter ger hjälp att begränsa till en specifik sökväg och tillstånd. 
 
 Klicka på **vyn detaljerat mått** om du vill starta en förkonfigurerad arbets bok med detaljerade mått för Application Gateway, alla resurser för Server dels poolen och klient delens IP-adresser. 
 
-## <a name="connectivity"></a><a name="connectivity"></a>Anslutningsmöjlighet
+## <a name="connectivity"></a><a name="connectivity"></a>Anslutning
 
 Fliken **anslutning** är ett smidigt sätt att visualisera alla tester som kon figurer ATS med anslutnings övervakaren och [anslutnings övervakaren (för hands version)](../../network-watcher/connection-monitor-preview.md) för den valda uppsättningen prenumerationer.
 
@@ -121,7 +121,7 @@ Information om hur du felsöker problem med nätverks problem som du identifiera
 * Application Gateway
 * VPN Gateway
 * ExpressRoute 
-* Lastbalanserare 
+* Load Balancer 
 
 ### <a name="why-dont-i-see-the-resources-from-all-the-subscriptions-i-have-selected"></a>Varför visas inte resurserna från alla prenumerationer jag har valt
 

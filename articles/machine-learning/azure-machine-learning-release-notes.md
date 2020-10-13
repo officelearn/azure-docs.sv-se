@@ -9,18 +9,61 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 189d6a57a17172f181e7375265960fe4f25f8ed1
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 9f1b8435f7d51ad586484ddb7e9bbabf9d067926
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940250"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996753"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
 I den här artikeln får du lära dig mer om Azure Machine Learning-versioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) -referens.
 
 Se [listan över kända problem](resource-known-issues.md) för att lära dig om kända buggar och lösningar.
+
+## <a name="2020-10-12"></a>2020-10-12
+
+### <a name="azure-machine-learning-sdk-for-python-v1160"></a>Azure Machine Learning SDK för python v-1.16.0
++ **Fel korrigeringar och förbättringar**
+  + **Azure-CLI-ml**
+    + AKSWebservice och AKSEndpoints har nu stöd för processor-och minnes resurs gränser på pod-nivå. Dessa valfria gränser kan definieras via 1. Inställning `cpu_cores_limit` och `memory_gb_limit` parametrar i `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` metod 2 och. Inställning `--cpu-cores-limit` och `--memory-gb-limit` flaggor i tillämpliga CLI-anrop 3. Inställningen `cpuLimit` och `memoryInGBLimit` i avsnittet `containerResourceRequirements` om distributions konfiguration. JSON/. yml-filer mer information om Kubernetes-resurser och gränser finns på https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-contrib-tolka**
+    + korrigera paket beskrivningar som orsakar överförings fel till pypi för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolkning och AzureML-tensorboard
+  + **azureml-contrib-K8s**
+    + Stöd har lagts till för att bifoga ArcKubernetes-beräkning
+  + **azureml-contrib-Mir**
+    + AKSWebservice och AKSEndpoints har nu stöd för processor-och minnes resurs gränser på pod-nivå. Dessa valfria gränser kan definieras via 1. Inställning `cpu_cores_limit` och `memory_gb_limit` parametrar i `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` metod 2 och. Inställning `--cpu-cores-limit` och `--memory-gb-limit` flaggor i tillämpliga CLI-anrop 3. Inställningen `cpuLimit` och `memoryInGBLimit` i avsnittet `containerResourceRequirements` om distributions konfiguration. JSON/. yml-filer mer information om Kubernetes-resurser och gränser finns på https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-contrib-Server**
+    + AKSWebservice och AKSEndpoints har nu stöd för processor-och minnes resurs gränser på pod-nivå. Dessa valfria gränser kan definieras via 1. Inställning `cpu_cores_limit` och `memory_gb_limit` parametrar i `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` metod 2 och. Inställning `--cpu-cores-limit` och `--memory-gb-limit` flaggor i tillämpliga CLI-anrop 3. Inställningen `cpuLimit` och `memoryInGBLimit` i avsnittet `containerResourceRequirements` om distributions konfiguration. JSON/. yml-filer mer information om Kubernetes-resurser och gränser finns på https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-core**
+    + Fästa huvud versioner av direkta beroenden för azureml-Core
+    + AKSWebservice och AKSEndpoints har nu stöd för processor-och minnes resurs gränser på pod-nivå. Mer information om Kubernetes-resurser och begränsningar finns på https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + Uppdaterade run.log_table för att tillåta att enskilda rader loggas.
+    + Statisk metod har lagts `Run.get(workspace, run_id)` till för att hämta en körning med hjälp av en arbets yta-tillagd instans metod `Workspace.get_run(run_id)` för att hämta en körning inom arbets ytan
+    + Introduktion av kommando egenskap i kör konfiguration som gör att användarna kan skicka kommandon i stället för skript & argument.
+  + **azureml-nu-Native**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officiellt stöd för python 3,8.
+  + **azureml – förklara-modell**
+    + korrigera paket beskrivningar som orsakar överförings fel till pypi för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolkning och AzureML-tensorboard
+  + **azureml-interpret**
+    + fast förklaring klient is_raw flagga beteende i azureml-tolka
+    + korrigera paket beskrivningar som orsakar överförings fel till pypi för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolkning och AzureML-tensorboard
+  + **azureml-pipeline-core**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officiellt stöd för python 3,8.
+  + **azureml – SDK**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officiellt stöd för python 3,8.
+  + **azureml-tensorboard**
+    + korrigera paket beskrivningar som orsakar överförings fel till pypi för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolkning och AzureML-tensorboard
+  + **azureml-träna**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officiellt stöd för python 3,8.
+  + **azureml-train-core**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officiellt stöd för python 3,8.
+    + Lägger till TensorFlow 2,3-granskad miljö
+    + Introduktion av kommando egenskap i kör konfiguration som gör att användarna kan skicka kommandon i stället för skript & argument.
+  + **azureml-widgets**
+    + Omdesignat gränssnitt för widgeten körning av skript.
+
 
 ## <a name="2020-09-28"></a>2020-09-28
 

@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar funktioner med Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 1dd98ede537321403053e2e7c8a5f4f7272665d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 346dbb962e05519153537e3edb90763f5fd8da03
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89144931"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996506"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java Developer Guide
 
@@ -151,7 +151,7 @@ Om du inte anger en Java-version för distributionen kommer maven archetype att 
 
 ### <a name="specify-the-deployment-version"></a>Ange distributions version
 
-Du kan kontrol lera vilken version av Java som är mål för maven-archetype med hjälp av `-DjavaVersion` parametern. Värdet för den här parametern kan vara eter `8` eller `11` . Java 11-stöd är för närvarande en för hands version. 
+Du kan kontrol lera vilken version av Java som är mål för maven-archetype med hjälp av `-DjavaVersion` parametern. Värdet för den här parametern kan vara antingen `8` eller `11` . Java 11-stöd är för närvarande en för hands version. 
 
 Maven-archetype genererar en pom.xml som är riktad mot den angivna Java-versionen. Följande element i pom.xml visar vilken Java-version som ska användas:
 
@@ -276,8 +276,8 @@ public class Function {
     @FunctionName("echo")
     public static String echo(
         @HttpTrigger(name = "req", methods = { HttpMethod.PUT }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String inputReq,
-        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") TestInputData inputData
-        @TableOutput(name = "myOutputTable", tableName = "Person", connection = "AzureWebJobsStorage") OutputBinding<Person> testOutputData,
+        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") TestInputData inputData,
+        @TableOutput(name = "myOutputTable", tableName = "Person", connection = "AzureWebJobsStorage") OutputBinding<Person> testOutputData
     ) {
         testOutputData.setValue(new Person(httpbody + "Partition", httpbody + "Row", httpbody + "Name"));
         return "Hello, " + inputReq + " and " + inputData.getKey() + ".";

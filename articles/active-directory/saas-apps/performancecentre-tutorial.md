@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d0a19a95a0a0d2353070068b2113e11efe471ccc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c7fb3841958ac80431f7cb3d97ddb01bd3661a7
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553998"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995247"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Självstudie: Azure Active Directory integrering med PerformanceCentre
 
@@ -30,7 +30,7 @@ Genom att integrera PerformanceCentre med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med PerformanceCentre behöver du följande objekt:
 
@@ -128,19 +128,19 @@ Utför följande steg för att konfigurera enkel inloggning med PerformanceCentr
 
 2. På fliken till vänster klickar du på **Konfigurera**.
    
-    ![Azure AD Single Sign-On][10]
+    ![Skärm bild som visar "PerformanceCenter"-menyn med alternativet "Konfigurera" valt.][10]
 
 3. Klicka på **Diverse**på fliken till vänster och klicka sedan på **enkel inloggning**.
    
-    ![Azure AD Single Sign-On][11]
+    ![Skärm bild som visar fliken "Konfigurera" med "enkel inloggning" vald från menyn "Diverse".][11]
 
 4. Som **protokoll**väljer du **SAML**.
    
-    ![Azure AD Single Sign-On][12]
+    ![Skärm bild som visar avsnittet "enkel Sign-On konfiguration" med "S A M L" valt från "protokoll"-menyn.][12]
 
 5. Öppna den hämtade metadatafilen i anteckningar, kopiera innehållet, klistra in det i text rutan för **identitetsprovider** och klicka sedan på **Spara**.
    
-    ![Azure AD Single Sign-On][13]
+    ![Skärm bild som visar text rutan "Identity Provider metadata".][13]
 
 6. Kontrol lera att värdena för **entitetens bas-URL** och **entitets-ID: t** är korrekta.
     
@@ -207,7 +207,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 2. Klicka på **relaterad**på menyn till vänster och klicka sedan på **skapa deltagare**.
    
-    ![Skapa användare][400]
+    ![Skärm bild som visar sidan "PerformanceCenter" företags webbplats "relaterad till deltagare" med knappen "skapa deltagare" vald.][400]
 
 3. I dialog rutan **interrelatera – skapa deltagare** utför du följande steg:
    

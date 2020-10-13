@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: e542480db4ed82cf84c6ce04c62e2a07b6193f4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d835507a17417f8b500c0fc13d0a662e606a37ff
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320735"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996413"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>System krav för Azure Stack Edge Pro med GPU 
 
@@ -32,21 +32,29 @@ System kraven för Azure Stack Edge Pro är:
 
 [!INCLUDE [Supported protocols for clients accessing device](../../includes/azure-stack-edge-gateway-supported-client-protocols.md)]
 
-## <a name="supported-storage-accounts"></a>Lagringskonton som stöds
+## <a name="supported-azure-storage-accounts"></a>Azure Storage konton som stöds
 
 [!INCLUDE [Supported storage accounts](../../includes/azure-stack-edge-gateway-supported-storage-accounts.md)]
 
-## <a name="supported-tiered-storage-accounts"></a>Lagrings konton som stöds
+## <a name="supported-edge-storage-accounts"></a>Gräns lagrings konton som stöds
 
-Vid hantering från Azure Stack stöds följande skiktade lagrings konton med SMB/NFS/REST-gränssnitt.
+Följande gräns lagrings konton stöds med REST-gränssnittet på enheten. Gräns lagrings kontona skapas på enheten. Mer information finns i [Edge Storage-konton](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts).
 
 |Typ  |Lagringskonto  |Kommentarer  |
 |---------|---------|---------|
 |Standard     |GPv1: Block-Blob         |         |
-|    |  Blob Storage: Block-Blob       | Stöds endast för NAS     |
 
-* Page blobbar och Azure Files stöds för närvarande inte i Azure Stack.
-* * Frekvent och kall nivå finns inte i Azure Stack. Använd Azure PowerShell för att flytta data till Arkiv nivån när data har överförts. Stegvisa instruktioner finns i [använda Azure PowerShell för att ställa in BLOB-nivån]()
+* Page blobbar och Azure Files stöds inte för närvarande.
+
+## <a name="supported-local-azure-resource-manager-storage-accounts"></a>Lokala Azure Resource Manager lagrings konton som stöds
+
+Dessa lagrings konton skapas via enhetens lokala API: er när du ansluter till den lokala Azure Resource Manager. Följande lagrings konton stöds:
+
+|Typ  |Lagringskonto  |Kommentarer  |
+|---------|---------|---------|
+|Standard     |GPv1: Block Blob, Page BLOB        | SKU-typen är Standard_LRS       |
+|Premium     |GPv1: Block Blob, Page BLOB        | SKU-typen är Premium_LRS        |
+
 
 ## <a name="supported-storage-types"></a>Lagringstyper som stöds
 
@@ -71,7 +79,7 @@ Azure IoT Edge tillåter utgående kommunikation från en lokal Edge-enhet till 
 
 Använd följande tabell för port konfiguration för servrar som är värdar för Azure IoT Edge Runtime:
 
-| Port nr. | In eller ut | Port omfång | Krävs | Vägledning |
+| Port nr. | In eller ut | Port omfång | Obligatorisk | Vägledning |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Ut       | WAN        | Ja      | Utgående öppen för IoT Edge etablering. Den här konfigurationen krävs när du använder manuella skript eller DPS (Azure IoT Device Provisioning service).|
 

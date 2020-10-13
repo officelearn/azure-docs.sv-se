@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 4564019f540d0dd08c8e0b2827b4a6b7df9c2cf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b963e0b4797af8269b87f704edca231f000c9372
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544000"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996687"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Självstudie: Azure Active Directory integrering med optimalt
 
@@ -30,7 +30,7 @@ Att integrera i optimering med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att kunna konfigurera Azure AD-integrering med optimal:
 
@@ -110,7 +110,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med opt
 
 5. Ditt optimala program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan **användarattribut** .
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar dialog rutan "användarattribut" med ikonen "redigera" överst till höger.](common/edit-attribute.png)
 
 6. Utöver ovan förväntar sig programmet optimerat fler attribut för att skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
@@ -120,7 +120,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med opt
     
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](common/new-save-attribute.png)
+    ![Skärm bild som visar dialog rutan "användar anspråk" med åtgärderna "Lägg till nytt anspråk" och "Spara" markerade.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 
@@ -164,7 +164,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med opt
 
 4. Klicka på konto namnet i det övre högra hörnet och sedan på **konto inställningar**.
 
-    ![Azure AD Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_09.png)
+    ![Skärm bild som visar det konto namn som valts i det övre högra hörnet, med "konto inställningar" valt på menyn.](./media/optimizely-tutorial/tutorial_optimizely_09.png)
 
 5. På fliken konto markerar du kryss rutan **Aktivera SSO** under enkel inloggning i **översikts** avsnittet.
   
@@ -231,7 +231,7 @@ I det här avsnittet skapar du en användare som kallas Britta Simon i ett optim
 
 2. Om du vill lägga till en ny medarbetare till projektet klickar du på **Ny medarbetare**.
    
-    ![Skapa en testanvändare för Azure AD](./media/optimizely-tutorial/create_aaduser_10.png)
+    ![Skärm bild som visar start sidan för optimeringen med fliken "medarbetare" och knappen "ny medarbetare" vald.](./media/optimizely-tutorial/create_aaduser_10.png)
 
 3. Fyll i e-postadressen och tilldela dem en roll. Klicka på **Bjud in**.
 

@@ -1,22 +1,22 @@
 ---
 title: Förstå hur Azure IoT Hub enheten är dubbla | Microsoft Docs
 description: Utvecklings guide – Använd enheten för att synkronisera tillstånds-och konfigurations data mellan IoT Hub och dina enheter
-author: ash2017
+author: nehsin
 manager: philmea
-ms.author: asrastog
+ms.author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/01/2020
+ms.date: 09/29/2020
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: 4887315ddef3f15ee3f6ef5ad80cf8df8b1dcd34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef1d6787ab3d4083ee6418694d1965ea0f90f730
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327777"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996121"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Förstå och Använd enheten dubbla i IoT Hub
 
@@ -122,7 +122,7 @@ I föregående exempel innehåller enheten dubbla en `batteryLevel` egenskap som
 
 ### <a name="desired-property-example"></a>Exempel på önskad egenskap
 
-I föregående exempel `telemetryConfig` används enhetens dubbla önskade och rapporterade egenskaper av lösningens Server del och Device-appen för att synkronisera telemetri-konfigurationen för den här enheten. Exempel:
+I föregående exempel `telemetryConfig` används enhetens dubbla önskade och rapporterade egenskaper av lösningens Server del och Device-appen för att synkronisera telemetri-konfigurationen för den här enheten. Till exempel:
 
 1. Server delen för lösningen anger önskad egenskap med det önskade konfiguration svärdet. Här är den del av dokumentet med önskad egenskaps uppsättning:
 
@@ -185,7 +185,7 @@ Lösningens Server del fungerar på enheten med dubbla med hjälp av följande a
 
   - Egenskaper
 
-    | Namn | Värde |
+    | Name | Värde |
     | --- | --- |
     $content-typ | application/json |
     $iothub-enqueuedtime |  Tid när meddelandet skickades |
@@ -250,7 +250,7 @@ Taggar, önskade egenskaper och rapporterade egenskaper är JSON-objekt med föl
 
 * **Nycklar**: alla nycklar i JSON-objekt är UTF-8-kodade, SKIFT läges känsliga och upp till 1 KB. Tillåtna tecken utesluter UNICODE-kontrolltecken (segment C0 och C1) och `.` , `$` , och SP.
 
-* **Värden**: alla värden i JSON-objekt kan vara av följande JSON-typer: Boolean, Number, String, Object. Matriser är inte tillåtna.
+* **Värden**: alla värden i JSON-objekt kan vara av följande JSON-typer: Boolean, Number, String, Object. Matriser stöds också.
 
     * Heltal kan ha ett lägsta värde på-4503599627370496 och ett högsta värde på 4503599627370495.
 
@@ -310,7 +310,7 @@ IoT Hub avvisar alla åtgärder som skulle öka storleken på `tags` , `properti
 
 IoT Hub behåller tidsstämpeln för den senaste uppdateringen för varje JSON-objekt i enhetens dubbla önskade och rapporterade egenskaper. Tidsstämplar anges i UTC och kodas i [iso8601](https://en.wikipedia.org/wiki/ISO_8601) -format `YYYY-MM-DDTHH:MM:SS.mmmZ` .
 
-Exempel:
+Till exempel:
 
 ```json
 {

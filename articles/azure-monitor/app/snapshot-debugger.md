@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: ab142b4e0a2d5486727ffc71fc94ae4944513052
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b439dcfc755f0113ffabf792850a2bd0fbcf322e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935814"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996522"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Ögonblicksbilder för felsökning av undantag i .NET-appar
 När ett undantag inträffar kan du automatiskt samla in en fel söknings ögonblicks bild från Live-webbappen. I ögonblicks bilden visas statusen för käll koden och variablerna vid det tillfälle då undantaget uppstod. Snapshot Debugger i [Azure Application Insights](./app-insights-overview.md) övervakar undantags telemetri från din webbapp. Den samlar in ögonblicks bilder i de övergivna undantagen så att du har den information du behöver för att diagnostisera problem i produktionen. Ta med [Snapshot Collector NuGet-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) i ditt program och konfigurera sedan samlings parametrar i [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Ögonblicks bilder visas på [undantag](./asp-net-exceptions.md) i Application Insights portalen.
 
-Du kan visa de här ögonblicksbilderna i portalen, se anropsstacken och inspektera variablerna på varje nivå av stacken. För att få en mer kraftfull fel söknings upplevelse med källkod öppnar du ögonblicks bilder med Visual Studio 2019 Enterprise. I Visual Studio kan du också [ställa in Snappoints så att interaktivt tar ögonblicks bilder](https://aka.ms/snappoint) utan att vänta på ett undantag.
+Du kan visa de här ögonblicksbilderna i portalen, se anropsstacken och inspektera variablerna på varje nivå av stacken. För att få en mer kraftfull fel söknings upplevelse med källkod öppnar du ögonblicks bilder med Visual Studio 2019 Enterprise. I Visual Studio kan du också [ställa in Snappoints så att interaktivt tar ögonblicks bilder](/visualstudio/debugger/debug-live-azure-applications) utan att vänta på ett undantag.
 
 Fel söknings ögonblicks bilder lagras i 15 dagar. Den här bevarande principen anges per tillämpning. Om du behöver öka det här värdet kan du begära en ökning genom att öppna ett support ärende i Azure Portal.
 
@@ -142,4 +142,3 @@ Utöver Application Insights Snapshot Debugger:
 * [Ange snappoints i din kod](/visualstudio/debugger/debug-live-azure-applications) för att hämta ögonblicks bilder utan att vänta på ett undantag.
 * [Diagnostisera undantag i dina webbappar](./asp-net-exceptions.md) förklarar hur du gör fler undantag synliga för Application Insights.
 * [Smart identifiering](./proactive-diagnostics.md) identifierar automatiskt prestanda avvikelser.
-

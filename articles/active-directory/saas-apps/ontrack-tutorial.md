@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 14cb0d70e1c5ce2be0cf810e8a24d9bc596eeb6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2d244fa6ea42a85483b3067cf58fc9384a86dee
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544068"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996582"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Självstudie: Azure Active Directory integrering med OnTrack
 
@@ -30,7 +30,7 @@ Genom att integrera OnTrack med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med OnTrack behöver du följande objekt:
 
@@ -118,7 +118,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med On
 
 5. OnTrack-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade attribut mappningar i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan **användarattribut** .
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar dialog rutan "användarattribut" med ikonen "redigera" markerad i det övre högra hörnet.](common/edit-attribute.png)
 
 6. Förutom ovan förväntar sig OnTrack-program att fler attribut skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
@@ -132,7 +132,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med On
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](common/new-save-attribute.png)
+    ![Skärm bild som visar dialog rutan "användar anspråk" med åtgärderna "Lägg till nytt anspråk" och "Spara" markerade.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 

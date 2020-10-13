@@ -165,6 +165,8 @@
               href: azure-stack-edge-gpu-troubleshoot.md
             - name: Beställningsproblem
               href: azure-stack-edge-troubleshoot-ordering.md
+            - name: Problem med aktivering
+              href: azure-stack-edge-gpu-troubleshoot-activation.md
             - name: Kontakta Microsoft Support
               href: azure-stack-edge-contact-microsoft-support.md
     - name: Viktig information

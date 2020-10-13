@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 6d6754594a321d297d983f9bd7e90ce074857919
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c030c1548a931bc749ad799a5aa88813c35d19cd
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961983"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997030"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Övervaka lagrings tjänsten med Azure Monitor för lagring
 
@@ -31,7 +31,7 @@ Kombinerat IT ger:
 
 * **Anpassningsbara** där du kan ändra vilka mått du vill se, ändra eller ange tröskelvärden som överensstämmer med dina gränser och Spara som en egen arbets bok. Diagram i arbets boken kan fästas på Azure-instrumentpanelen.  
 
-Den här funktionen kräver inte att du aktiverar eller konfigurerar något, lagrings måtten från dina lagrings konton samlas in som standard. Om du inte känner till mått som är tillgängliga på Azure Storage kan du Visa beskrivningen och definitionen i Azure Storage mått genom att granska [Azure Storage-mått](../../storage/common/monitor-storage.md).
+Den här funktionen kräver inte att du aktiverar eller konfigurerar något, lagrings måtten från dina lagrings konton samlas in som standard. Om du inte känner till mått som är tillgängliga på Azure Storage kan du Visa beskrivningen och definitionen i Azure Storage mått genom att granska [Azure Storage-mått](../../storage/blobs/monitor-blob-storage.md).
 
 >[!NOTE]
 >Det kostar inget att få åtkomst till den här funktionen och du debiteras bara för Azure Monitor viktiga funktioner som du konfigurerar eller aktiverar, enligt beskrivningen på sidan [pris information för Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) .
@@ -67,7 +67,7 @@ Panelen räknare under List rutorna slår upp det totala antalet lagrings konton
 Välj ett värde i kolumn **tillgänglighet**, **E2E-latens**, **Server svars tid**och **transaktions fel typ/fel** för att dirigera dig till en rapport som är anpassad till den angivna typen av lagrings mått som matchar den valda kolumnen för det lagrings kontot. Mer information om arbets böckerna för varje kategori finns i avsnittet [detaljerade lagrings arbets böcker](#detailed-storage-workbooks) nedan. 
 
 >[!NOTE]
->Information om vilka fel som kan visas i rapporten finns i schema för [svars typ](../../storage/common/monitor-storage-reference.md#metrics-dimensions) och Sök efter svars typer som **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Beroende på vilka lagrings konton som valts, om det finns fler än tre typer av fel som rapporter ATS, visas **alla andra fel i kategorin.**
+>Information om vilka fel som kan visas i rapporten finns i schema för [svars typ](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) och Sök efter svars typer som **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Beroende på vilka lagrings konton som valts, om det finns fler än tre typer av fel som rapporter ATS, visas **alla andra fel i kategorin.**
 
 Standard tröskelvärdet för **tillgänglighet** är:
 
@@ -274,4 +274,3 @@ Varje arbets bok sparas i det lagrings konto som du sparade det i. Försök att 
 * Lär dig mer om arbets böckerna i scenarier är utformade för att stödja, hur du skapar nya och anpassar befintliga rapporter och mer genom att granska [skapa interaktiva rapporter med Azure Monitor arbets böcker](../platform/workbooks-overview.md).
 
 * En djupgående guide om hur du använder Lagringsanalys och andra verktyg för att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem finns i [övervaka, diagnostisera och felsöka Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
-

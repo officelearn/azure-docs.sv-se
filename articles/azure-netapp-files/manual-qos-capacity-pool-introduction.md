@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 10/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 14b905c69f0dab933159b414028db3e985d314a3
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 239b985bf45942afbff8ca49d7e15ead24456304
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91935840"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993983"
 ---
-# <a name="manual-qos-capacity-pool"></a>Manuell pool för QoS-kapacitet
+# <a name="manual-qos-capacity-pool"></a>Manuell QoS-kapacitetspool
 
 Den här artikeln innehåller en introduktion till funktionerna för manuell QoS-kapacitet (Quality of Service).
 
@@ -34,6 +34,10 @@ I en *manuell* pool för QoS-kapacitet kan du tilldela kapaciteten och data flö
 I en pool med *Automatisk* QoS-kapacitet tilldelas data flöde automatiskt till volymerna i poolen, proportionella mot storleks kvoten som tilldelats volymerna.  
 
 Se [Storage-hierarkin för Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md) och [prestanda överväganden för Azure NetApp Files](azure-netapp-files-performance-considerations.md) för överväganden om QoS-typer.
+
+## <a name="example-of-using-manual-qos"></a>Exempel på användning av manuell QoS
+
+När du använder en manuell pool för QoS-kapacitet med, till exempel ett SAP HANA system, en Oracle-databas eller andra arbets belastningar som kräver flera volymer, kan kapacitets gruppen användas för att skapa dessa program volymer.  Varje volym kan ge en individuell storlek och genom strömning för att uppfylla program kraven.  Se [exempel på data flödes gränser för volymer i en manuell pool för QoS-kapacitet](azure-netapp-files-service-levels.md#throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool) för mer information om fördelarna.  
 
 ## <a name="how-to-specify-the-manual-qos-type"></a>Ange den manuella QoS-typen
 

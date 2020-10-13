@@ -1,23 +1,18 @@
 ---
 title: Red Hat Enterprise Linux avbildningar som är tillgängliga i Azure
 description: Lär dig mer om Red Hat Enterprise Linux avbildningar i Microsoft Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: BorisB2015
-editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: f4ebf433237193c0db7859b029bb224c72c92eae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: cynthn
+ms.openlocfilehash: 628e9098eefa311f3ee5603b9eaf633d67d60c5f
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291013"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994335"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Red Hat Enterprise Linux-avbildningar (RHEL) som är tillgängliga i Azure
 Azure erbjuder en rad olika RHEL-avbildningar för olika användnings fall.
@@ -31,7 +26,7 @@ Det här är en lista över RHEL-avbildningar som är tillgängliga i Azure. Om 
 > [!NOTE]
 > RAW-avbildningar skapas inte längre i förmån för LVM-partitionerade avbildningar. LVM ger flera fördelar jämfört med den äldre RAW-partitionen (icke-LVM), inklusive avsevärt mer flexibla alternativ för att ändra storlek på partitioner.
 
-Erbjudande| SKU | Partitionering | Etablering | Obs!
+Erbjudande| SKU | Partitionering | Etablering | Kommentarer
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 6.7      | OUTSPÄDD    | Linux-agent |
 |             | 6.8      | OUTSPÄDD    | Linux-agent |

@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 tags: connectors
-ms.openlocfilehash: 2993fc718462d1ac2a9cfd02be5642fb21f86702
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5834a1927fda71faa924e14265fb7f82034887de
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526535"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996348"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Exchange-meddelanden i molnet med hjälp av Azure Logic Apps och Azure Service Bus
 
@@ -79,7 +79,7 @@ Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnry
    Vissa utlösare, till exempel **när ett eller flera meddelanden tas emot i en kö (automatisk komplettering)** , kan returnera ett eller flera meddelanden. När utlösarna utlöses, returnerar de mellan ett och antalet meddelanden som anges av utlösarens egenskap för **maximalt antal meddelanden** .
 
     > [!NOTE]
-    > Utlösaren för automatisk komplettering Slutför automatiskt ett meddelande, men slut för ande sker bara vid nästa Utlös ande körning. Det här beteendet kan påverka din Logic Apps design. Undvik till exempel att ändra samtidigheten i utlösaren för automatisk komplettering eftersom den här ändringen kan resultera i dubbla meddelanden om din Logic-app går in i ett begränsat tillstånd. Om du ändrar samtidighets kontrollen skapas dessa villkor: begränsade utlösare hoppas över med `WorkflowRunInProgress` koden, slut för ande åtgärden inträffar inte och nästa Utlös ande körning sker efter avsöknings intervallet. Du måste ange varaktigheten för Service Bus-låset till ett värde som är längre än avsöknings intervallet. Men trots den här inställningen kanske inte meddelandet kan slutföras om din Logic-app är i ett begränsat tillstånd vid nästa avsöknings intervall.
+    > Utlösaren för automatisk komplettering Slutför automatiskt ett meddelande, men slut för ande sker bara vid nästa anrop till Service Bus. Det här beteendet kan påverka din Logic Apps design. Undvik till exempel att ändra samtidigheten i utlösaren för automatisk komplettering eftersom den här ändringen kan resultera i dubbla meddelanden om din Logic-app går in i ett begränsat tillstånd. Om du ändrar samtidighets kontrollen skapas dessa villkor: begränsade utlösare hoppas över med `WorkflowRunInProgress` koden, slut för ande åtgärden inträffar inte och nästa Utlös ande körning sker efter avsöknings intervallet. Du måste ange varaktigheten för Service Bus-låset till ett värde som är längre än avsöknings intervallet. Men trots den här inställningen kanske inte meddelandet kan slutföras om din Logic-app är i ett begränsat tillstånd vid nästa avsöknings intervall.
 
 1. Om utlösaren ansluter till Service Bus namn området för första gången följer du de här stegen när du uppmanas att ange anslutnings information i Logic Apps designer.
 
@@ -162,6 +162,10 @@ Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnry
 När du behöver skicka relaterade meddelanden i en viss ordning kan du använda det [ *sekventiella konvojmönster* -mönstret](/azure/architecture/patterns/sequential-convoy) med hjälp av [Azure Service Bus Connector](../connectors/connectors-create-api-servicebus.md). Korrelerade meddelanden har en egenskap som definierar relationen mellan dessa meddelanden, till exempel ID för [sessionen](../service-bus-messaging/message-sessions.md) i Service Bus.
 
 När du skapar en Logic app kan du välja den **korrelerade leveransen med hjälp av Service Bus-sessioner** , som implementerar det sekventiella konvojmönster-mönstret. Mer information finns i [skicka relaterade meddelanden i ordning](../logic-apps/send-related-messages-sequential-convoy.md).
+
+## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>Fördröjningar i uppdateringar av din Logic app börjar fungera
+
+Om avsöknings intervallet för en Service Bus-utlösare är litet, till exempel 10 sekunder, kan det hända att uppdateringar av din Logi Kap par inte börjar gälla i upp till 10 minuter. För att undvika det här problemet kan du tillfälligt öka avsöknings intervallet till ett större värde, till exempel 30 sekunder eller 1 minut, innan du uppdaterar din Logic app. När du har gjort uppdateringen kan du återställa avsöknings intervallet till det ursprungliga värdet. 
 
 <a name="connector-reference"></a>
 

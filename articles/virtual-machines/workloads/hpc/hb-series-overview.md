@@ -1,24 +1,18 @@
 ---
 title: Översikt över virtuella datorer i HB-serien – Azure Virtual Machines | Microsoft Docs
 description: Läs mer om för hands versionen av storleken på virtuella datorer i HB-serien i Azure.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 7c66af5184c4a943fd4b3185a87623112fe0d954
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d11ec99d10d74956c43c24145abbd291d9e2d2a9
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88691249"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996239"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Översikt över virtuella datorer i HB-serien
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 0ebcb746e10ae910c695e52fb053fc5d0b316e70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8958e16ef4b1b7033fa0757e2a70eb053896b143
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543915"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996562"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opsgenie"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med OpsGenie
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar OpsGenie med Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -133,15 +133,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 3. Om du vill aktivera SSO väljer du **aktive rad**.
    
-    ![OpsGenie-inställningar](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
+    ![Skärm bild som visar kryss rutan "aktive rad" markerad.](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
 
 4. I avsnittet **Provider** klickar du på fliken **Azure Active Directory** .
    
-    ![OpsGenie-inställningar](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
+    ![Skärm bild som visar avsnittet "Provider" med fliken "Azure Active Directory" vald.](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
 
 5. Utför följande steg på dialog sidan Azure Active Directory:
    
-    ![OpsGenie-inställningar](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
+    ![Skärm bild som visar avsnittet "enkel inloggning" med växlingen "aktivera enkel inloggning", "S A M L 2,0-slutpunkt" och "metadata U R L".](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
     
     a. Kopiera **app-ID-URI** -värdet och klistra in det i ID-rutan för **identifierare (enhets-ID)** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
@@ -169,7 +169,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
 
 4. I dialogrutan **Lägg till användare** utför du följande steg:
    
-    ![OpsGenie-inställningar](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
+    ![Skärm bild som visar dialog rutorna "Lägg till användare" med text rutorna "e-post" och "fullständigt namn" markerade och knappen "Spara" markerad.](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
    
     a. I text rutan **e-post** skriver du e-postadressen för B. Simon-adresserad i Azure Active Directory.
    

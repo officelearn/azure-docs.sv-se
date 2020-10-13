@@ -6,19 +6,19 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: e6d464b415c956a0a8486f7c0d41c6e6a32b7c03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16f4cfd70cf4dbeaeb1376368787b3fa0e4b9a52
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761608"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994040"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Använda micrometer med Azure Application Insights Java SDK
 
 > [!NOTE]
 > Application Insights Java SDK stöder inte våren-webbflöde. 
 >
-> Både webflödes-och micrometer stöds i [Application Insights Java 3,0-agenten](https://docs.microsoft.com/azure/azure-monitor/app/java-on-premises) som inte kräver Instrumentation. 
+> Både webflödes-och micrometer stöds i [Application Insights Java 3,0-agenten](./java-on-premises.md) som inte kräver Instrumentation. 
 
 Micrometer program övervakning mäter mått för JVM program kod och låter dig exportera data till dina favorit övervaknings system. I den här artikeln får du lära dig hur du använder micrometer med Application Insights för både våren boot-och non-våren Boot-program.
 
@@ -279,4 +279,3 @@ Lägg till följande bindnings kod i konfigurations filen:
 
 * Mer information om micrometer finns i den officiella [micrometer-dokumentationen](https://micrometer.io/docs).
 * Mer information om våren på Azure finns i den officiella [vår dokumentation om Azure](/java/azure/spring-framework/?view=azure-java-stable).
-

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: a7e385b40911e1adf4e5142de4fb627334baee4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08d9c2f1676c0a04e9cd191b64c41af276521b3d
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543760"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996092"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Självstudie: Azure Active Directory integrering med Peakon
 
@@ -30,7 +30,7 @@ Genom att integrera Peakon med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Peakon behöver du följande objekt:
 
@@ -110,7 +110,7 @@ Utför följande steg för att konfigurera enkel inloggning med Peakon i Azure A
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning för Peakon-domän och URL: er](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar "Ange ytterligare U R LS" som marker ATS med text rutan "enkel på U R L" markerad.](common/metadata-upload-additional-signon.png)
 
     Skriv en URL i text rutan **inloggnings-URL** :  `https://app.peakon.com/login`
 

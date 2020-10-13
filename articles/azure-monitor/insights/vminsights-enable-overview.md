@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/27/2020
-ms.openlocfilehash: 449979443577d22f8cc2ec35ec770dd1e107bb76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4041b824d099edbefcc45c68163257ca69ddf7de
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998415"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995690"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Aktivera Azure Monitor for VMs översikt
 
@@ -69,8 +69,8 @@ Azure Monitor for VMs stöder en Log Analytics arbets yta i följande regioner:
 Om du inte har en Log Analytics arbets yta kan du skapa en med hjälp av en av resurserna:
 * [Azure CLI](../learn/quick-create-workspace-cli.md)
 * [PowerShell](../platform/powershell-workspace-configuration.md)
-* [Azure Portal](../learn/quick-create-workspace.md)
-* [Azure Resource Manager](../platform/template-workspace-configuration.md)
+* [Azure-portalen](../learn/quick-create-workspace.md)
+* [Azure Resource Manager](../samples/resource-manager-workspace.md)
 
 - Virtuell Azure-dator
 - Skalnings uppsättning för virtuella Azure-datorer
@@ -113,7 +113,7 @@ Följande är flera metoder för att distribuera dessa agenter.
 
 | Metod | Beskrivning |
 |:---|:---|
-| [Azure Portal](./vminsights-enable-portal.md) | Installera båda agenterna på en enskild virtuell dator, skalnings uppsättning för virtuella datorer eller hybrid virtuella datorer som är anslutna till Azure-bågen. |
+| [Azure-portalen](./vminsights-enable-portal.md) | Installera båda agenterna på en enskild virtuell dator, skalnings uppsättning för virtuella datorer eller hybrid virtuella datorer som är anslutna till Azure-bågen. |
 | [Mallar för Resurshanteraren](vminsights-enable-powershell.md) | Installera båda agenterna med någon av de metoder som stöds för att distribuera en Resource Manager-mall, inklusive CLI och PowerShell. |
 | [Azure Policy](./vminsights-enable-policy.md) | Tilldela Azure Policy initiativ för att automatiskt installera agenterna när en virtuell dator eller skalnings uppsättning för virtuell dator skapas. |
 | [Manuell installation](./vminsights-enable-hybrid.md) | Installera agenterna i gäst operativ systemet på datorer som ligger utanför Azure, inklusive i ditt data Center eller i andra moln miljöer. |

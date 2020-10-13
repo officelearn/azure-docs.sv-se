@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 4ef4515b7ecee3ea814d9a34d3bf3c217d551934
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31e05e45713100c321440d63fe51586204d07231
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543768"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>Självstudie: Azure Active Directory integrering med Pavaso Digital Close
 
@@ -30,7 +30,7 @@ Genom att integrera Pavaso Digital Close med Azure AD får du följande fördela
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Pavaso Digital Close behöver du följande:
 
@@ -99,7 +99,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Pavaso Digital Close-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
+    ![Skärm bild som visar "Basic S A M L-konfiguration" med text rutorna "identifierare" och "svara U R L" och "Spara"-åtgärden markerat.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://<SUBDOMAIN>.pavaso.com/AuthServices`
 

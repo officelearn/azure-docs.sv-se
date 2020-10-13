@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 2c840f123d74222770f1d044e085cf131f5ab708
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf2ac8cda9df18bf02b93446605ed2283562cf6b
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88547978"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996198"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Självstudie: Azure Active Directory integration med OneTrust-program för sekretess hantering
 
@@ -30,7 +30,7 @@ Integrering av OneTrust Privacy Management-programvara med Azure AD ger följand
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med OneTrust-program för sekretess hantering behöver du följande objekt:
 
@@ -101,7 +101,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med On
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![OneTrust Privacy Management-programvara och information om enkel inloggning för URL: er](common/idp-intiated.png)
+    ![Skärm bild som visar avsnittet "Basic S A M L-konfiguration" med text rutorna "identifierare" och "svara U R L" och "Spara"-knappen markerat.](common/idp-intiated.png)
 
     a. Skriv en URL i text rutan **identifierare** : `https://www.onetrust.com/saml2`
 

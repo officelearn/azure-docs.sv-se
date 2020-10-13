@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 714a43ec197ac150488d4443c1eb6fe1be1da232
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 845336385fe7490d4c62df41af873c237ae34871
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575528"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996327"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor loggar dedicerade kluster
 
@@ -49,7 +49,7 @@ Det finns två fakturerings lägen för användning i ett kluster. Dessa kan ang
 
 1. **Kluster**: i det här fallet (som är standard) görs faktureringen för inmatade data på kluster nivå. De inmatade data mängderna från varje arbets yta som är kopplad till ett kluster sammanställs för att beräkna den dagliga fakturan för klustret. 
 
-2. **Arbets ytor**: kostnaderna för kapacitets reservationen för klustret anges i proportion till arbets ytorna i klustret (efter redovisningen av tilldelningar per nod från [Azure Security Center](https://docs.microsoft.com/azure/security-center/) för varje arbets yta.)
+2. **Arbets ytor**: kostnaderna för kapacitets reservationen för klustret anges i proportion till arbets ytorna i klustret (efter redovisningen av tilldelningar per nod från [Azure Security Center](../../security-center/index.yml) för varje arbets yta.)
 
 Observera att om din arbets yta använder pris nivån bakåtkompatibelt per nod, kommer den att faktureras baserat på data som matas in mot klustrets kapacitets reservation och inte längre per nod. Data tilldelningar per nod från Azure Security Center fortsätter att gälla.
 
@@ -182,7 +182,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Cl
 > [!NOTE]
 > Du kan uppdatera *kluster* resursen *SKU*, *keyVaultProperties* eller *billingType* med hjälp av patch.
 
-Exempel: 
+Till exempel: 
 
 *Anropa*
 
@@ -321,7 +321,7 @@ Du kan kontrol lera associerings tillstånd för arbets ytan på två sätt:
 
 - Kopiera Azure-AsyncOperation URL-värdet från svaret och följ status kontrollen asynkrona åtgärder.
 
-- Skicka en [arbets yta – Hämta](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) begäran och observera svaret. Den associerade arbets ytan har en clusterResourceId under "Features".
+- Skicka en [arbets yta – Hämta](/rest/api/loganalytics/workspaces/get) begäran och observera svaret. Den associerade arbets ytan har en clusterResourceId under "Features".
 
 En sändnings förfrågan ser ut så här:
 

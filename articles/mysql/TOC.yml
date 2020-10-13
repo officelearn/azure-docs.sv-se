@@ -245,6 +245,9 @@
             - name: Azure PowerShell
               href: howto-restore-server-powershell.md
               displayName: 'restore server, backup, geo-restore powershell'
+            - name: Återställa en borttagen server
+              href: howto-restore-dropped-server.md
+              displayName: 'restore server,dropped, recover'
         - name: Anslut program
           items:
             - name: Konfigurera SSL
@@ -323,20 +326,26 @@
             - name: Skapa läsrepliker – Azure PowerShell
               href: howto-read-replicas-powershell.md
               displayName: 'data-in replication, replica, failover'
-            - name: Felsöka
-              items:
-                - name: Felsöka anslutningsfel
-                  href: howto-troubleshoot-common-connection-issues.md
-                  displayName: 'debug, connection issues, connectivity, cannot connect'
-                - name: Felsöka frågeprestanda
-                  href: howto-troubleshoot-query-performance.md
-                  displayName: 'debug, performance issues, query performance'
-                - name: Använda vyer i sys-schema
-                  href: howto-troubleshoot-sys-schema.md
-                  displayName: 'sys schema, views'
-                - name: Felsöka datakryptering
-                  href: howto-data-encryption-troubleshoot.md
-                  displayName: 'encryption, security'
+        - name: Felsöka
+          items:
+            - name: Felsöka anslutningsfel
+              href: howto-troubleshoot-common-connection-issues.md
+              displayName: 'debug, connection issues, connectivity, cannot connect'
+            - name: Felsöka vanliga fel
+              href: howto-troubleshoot-common-errors.md
+              displayName: 'SUPER privilege, DBA role, Access is denied'
+            - name: Felsöka frågeprestanda
+              href: howto-troubleshoot-query-performance.md
+              displayName: 'debug, performance issues, query performance'
+            - name: Använda vyer i sys-schema
+              href: howto-troubleshoot-sys-schema.md
+              displayName: 'sys schema, views'
+            - name: Felsöka datakryptering
+              href: howto-data-encryption-troubleshoot.md
+              displayName: 'encryption, security'
+            - name: Felsöka svarstid för replikering
+              href: howto-troubleshoot-replication-latency.md
+              displayName: 'replication, latency, monitor'
         - name: Advanced Threat Protection
           items:
             - name: Azure Portal

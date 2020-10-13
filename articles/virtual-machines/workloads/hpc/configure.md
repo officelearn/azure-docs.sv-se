@@ -1,24 +1,18 @@
 ---
 title: Konfiguration och optimering av InfiniBand-aktiverade H-och N-seriens Azure-Virtual Machines
 description: Lär dig mer om att konfigurera och optimera InfiniBand-aktiverade virtuella datorer i H-serien och N-serien för HPC.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 08/07/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d4661c0819d214a2c750eb1582559f8d8a5959ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ecfe1df273834ae38bd6bb94980444f5e34f786
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88006612"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994817"
 ---
 # <a name="configure-and-optimize-vms"></a>Konfigurera och optimera virtuella datorer
 

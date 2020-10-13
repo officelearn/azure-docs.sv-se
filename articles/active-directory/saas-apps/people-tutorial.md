@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 93b418a2bc4e1b03370b1bb86bd7da95255db0b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb8374802e7ec2596dc5f65a2acaf739b12dc164
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552398"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995971"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med personer
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar personer med Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -142,11 +142,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
    
 4. I menyn på vänster sida klickar du på **Inställningar**.
 
-    ![Konfigurera enkel inloggning](./media/people-tutorial/tutorial_people_001.png)
+    ![Skärm bild som visar menyn på vänster sida med "Inställningar" valt.](./media/people-tutorial/tutorial_people_001.png)
 
 5. Klicka på **Företag**.
 
-    ![Konfigurera enkel inloggning](./media/people-tutorial/tutorial_people_002.png)
+    ![Skärm bild som visar "företag" valt från menyn "Inställningar".](./media/people-tutorial/tutorial_people_002.png)
 
 6. Klicka på **Bläddra** för att ladda upp den hämtade metadata-filen på **SAML-datafilen med SAML-datafilen i uppladdningen "enkel inloggning**".
 

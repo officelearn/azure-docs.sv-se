@@ -3,12 +3,12 @@ title: Logg aviseringar från Azure Monitor för behållare | Microsoft Docs
 description: Den här artikeln beskriver hur du skapar anpassade logg aviseringar för minnes-och processor användning från Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 8c02442fef9b174075065e7852b7a25233899c48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddf898978bdaf51cb81a95c3209855c51212280f
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294554"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995266"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Så här skapar du logg aviseringar från Azure Monitor för behållare
 
@@ -307,4 +307,4 @@ Det här avsnittet beskriver hur du skapar en mått mätnings aviserings regel m
 
 - Visa [exempel på logg frågor](container-insights-log-search.md#search-logs-to-analyze-data) för att se fördefinierade frågor och exempel för att utvärdera eller anpassa för aviseringar, visualisering eller analys av klustren.
 
-- Mer information om Azure Monitor och hur du övervakar andra aspekter av ditt Kubernetes-kluster finns i [Visa Kubernetes kluster prestanda](container-insights-analyze.md) och [Visa Kubernetes kluster hälsa](container-insights-health.md).
+- Mer information om Azure Monitor och hur du övervakar andra aspekter av ditt Kubernetes-kluster finns i [Visa Kubernetes kluster prestanda](container-insights-analyze.md) och [Visa Kubernetes kluster hälsa](./container-insights-overview.md).

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 0173d324da4f6cf2a24b825fe44fc07b7fe50b84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e41fa9f9918f4f17bd89e80610ae608e83eb3402
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318138"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996401"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Kontinuerlig övervakning med Azure Monitor
 
@@ -43,7 +43,7 @@ Program är bara tillförlitliga som den underliggande infrastrukturen. Om du ha
 
 [Infrastruktur som kod](/azure/devops/learn/what-is-infrastructure-as-code) är hanteringen av infrastrukturen i en beskrivande modell med samma versions hantering som DevOps-team används för käll koden. Det ger bättre tillförlitlighet och skalbarhet för din miljö och gör att du kan utnyttja liknande processer som används för att hantera dina program.
 
--  Använd [Resource Manager-mallar](platform/template-workspace-configuration.md) för att aktivera övervakning och konfiguration av aviseringar över en stor uppsättning resurser.
+-  Använd [Resource Manager-mallar](./samples/resource-manager-workspace.md) för att aktivera övervakning och konfiguration av aviseringar över en stor uppsättning resurser.
 - Använd [Azure policy](../governance/policy/overview.md) för att genomdriva olika regler för dina resurser. Detta säkerställer att resurserna är kompatibla med företagets standarder och service nivå avtal. 
 
 
@@ -87,4 +87,3 @@ Att se till att din utveckling och verksamhet har åtkomst till samma telemetri 
 
 - Lär dig mer om skillnads komponenterna i [Azure Monitor](overview.md).
 - [Lägg till kontinuerlig övervakning](./app/continuous-monitoring.md) i din versions pipeline.
-

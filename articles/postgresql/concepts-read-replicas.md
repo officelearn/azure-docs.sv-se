@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 2d0ee0e4c5cf3f7c2f4b623f0270ecf5eb01fc36
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 124034fc6c999c37c6e79547b062508c957d1bac
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710523"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939842"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Läsa repliker i Azure Database for PostgreSQL-enskild server
 
@@ -126,7 +126,7 @@ Lär dig hur du [stoppar replikering till en replik](howto-read-replicas-portal.
 ## <a name="failover"></a>Redundans
 Det finns ingen automatisk redundans mellan primära servrar och replik servrar. 
 
-Eftersom replikeringen är asynkron finns det en fördröjning mellan den primära servern och repliken. Mängden fördröjning kan påverkas av ett antal faktorer, t. ex. hur mycket hög arbets belastningen som körs på den primära servern och fördröjningen mellan data Center. I de flesta fall varierar replikfördröjning mellan några sekunder och några minuter. Du kan spåra den faktiska replikeringens fördröjning med hjälp av mått *replik fördröjningen*, som är tillgänglig för varje replik. Det här måttet visar tiden sedan den senaste återspelade transaktionen. Vi rekommenderar att du identifierar den genomsnittliga fördröjningen genom att iaktta din replik fördröjning under en viss tids period. Du kan ställa in en avisering på replik fördröjningen, så att om den går utanför det förväntade intervallet kan du vidta åtgärder.
+Eftersom replikeringen är asynkron finns det en fördröjning mellan den primära servern och repliken. Mängden fördröjning kan påverkas av ett antal faktorer, t. ex. hur mycket hög arbets belastningen som körs på den primära servern och fördröjningen mellan data Center. I vanliga fall är replik fördröjningen mellan några sekunder till några minuter. Men i de fall där den primära körningen är mycket tung arbets belastning och repliken inte blir tillräckligt snabb, kan fördröjningen vara högre. Du kan spåra den faktiska replikeringens fördröjning med hjälp av mått *replik fördröjningen*, som är tillgänglig för varje replik. Det här måttet visar tiden sedan den senaste återspelade transaktionen. Vi rekommenderar att du identifierar den genomsnittliga fördröjningen genom att iaktta din replik fördröjning under en viss tids period. Du kan ställa in en avisering på replik fördröjningen, så att om den går utanför det förväntade intervallet kan du vidta åtgärder.
 
 > [!Tip]
 > Om du redundansväxlas till repliken kommer fördröjningen vid den tidpunkt då du tar bort repliken från den primära informationen att visa hur mycket data som förloras.
@@ -149,7 +149,7 @@ Om det finns en viktig katastrof händelse, till exempel tillgänglighets zon el
 
 I det här avsnittet sammanfattas överväganden om funktionen Läs replik.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Läsning av repliker och [logisk avkodning](concepts-logical.md) är beroende av postgres Write Ahead-loggen (Wal) för information. De här två funktionerna behöver olika loggnings nivåer från postgres. Logisk avkodning kräver en högre loggnings nivå än Läs repliker.
 
 Om du vill konfigurera rätt loggnings nivå använder du parametern Azure Replication support. Support för Azure-replikering har tre inställnings alternativ:

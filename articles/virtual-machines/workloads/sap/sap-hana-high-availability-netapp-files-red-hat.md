@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/30/2020
 ms.author: radeltch
 ms.openlocfilehash: 3a5238ec9e9bc30da330be206eb559acc3c2ec07
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91598074"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA skala upp med Azure NetApp Files på Red Hat Enterprise Linux
@@ -80,13 +80,13 @@ Läs följande SAP-anteckningar och dokument först:
 - [Azure Virtual Machines DBMS-distribution för SAP på Linux][dbms-guide]
 - [SAP HANA system replikering i pacemaker-kluster.](https://access.redhat.com/articles/3004101)
 - Allmän dokumentation om RHEL
-    - [Översikt över hög tillgänglighets tillägg](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-    - [Administrations tillägg med hög tillgänglighet.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-    - [Referens för hög tillgänglighets tillägg.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
-    - [Konfigurera SAP HANA systemreplikering i skala upp i ett pacemaker-kluster när HANA-filsystem är på NFS-resurser](https://access.redhat.com/solutions/5156571)
+    - [Översikt över Add-On med hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+    - [Add-On administration med hög tillgänglighet.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+    - [Add-On referens för hög tillgänglighet.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+    - [Konfigurera SAP HANA systemreplikering i Scale-Up i ett pacemaker-kluster när HANA-filsystem är på NFS-resurser](https://access.redhat.com/solutions/5156571)
 - Azure-speciell RHEL-dokumentation:
     - [Support principer för RHEL-kluster med hög tillgänglighet – Microsoft Azure Virtual Machines som kluster medlemmar.](https://access.redhat.com/articles/3131341)
-    - [Installera och konfigurera ett kluster med hög tillgänglighet för Red Hat Enterprise Linux 7,4 (och senare) på Microsoft Azure.](https://access.redhat.com/articles/3252491)
+    - [Installera och konfigurera en Red Hat Enterprise Linux 7,4 (och senare) High-Availability kluster på Microsoft Azure.](https://access.redhat.com/articles/3252491)
     - [Installera SAP HANA på Red Hat Enterprise Linux för användning i Microsoft Azure.](https://access.redhat.com/solutions/3193782)
     - [Konfigurera SAP HANA pacemaker kluster när HANA-filsystemet finns på NFS-resurser](https://access.redhat.com/solutions/5156571)
 - [NetApp SAP-program på Microsoft Azure med Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
@@ -165,7 +165,7 @@ Följande instruktioner förutsätter att du redan har distribuerat ditt [virtue
     - Volym hanadb2-log-mnt00001 (nfs://10.32.2.4:/hanadb2-log-mnt00001)
     - Volym hanadb2 – delad – mnt00001 (nfs://10.32.2.4:/hanadb2-shared-mnt00001)
 
-### <a name="important-considerations"></a>Viktiga överväganden
+### <a name="important-considerations"></a>Att tänka på
 
 Tänk på följande när du skapar din Azure NetApp Files för SAP HANA skala upp system:
 
@@ -308,7 +308,7 @@ Först måste du skapa Azure NetApp Files volymerna. Utför sedan följande steg
 Om du vill ha mer information om de portar som krävs för SAP HANA kan du läsa kapitel [anslutningarna till klient databaserna](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) i guiden för [SAP HANA klient databaser](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) eller SAP NOTE [2388694](https://launchpad.support.sap.com/#/notes/2388694).
 
 > [!IMPORTANT]
-> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net. IPv4. tcp_timestamps** till **0**. Mer information finns i [Load Balancer hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview). Se även SAP anmärkning [2382421](https://launchpad.support.sap.com/#/notes/2382421).
+> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net.IPv4.tcp_timestamps** till **0**. Mer information finns i [Load Balancer hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview). Se även SAP anmärkning [2382421](https://launchpad.support.sap.com/#/notes/2382421).
 
 ## <a name="mount-the-azure-netapp-files-volume"></a>Montera Azure NetApp Files volym
 
@@ -536,7 +536,7 @@ I det här exemplet har varje klusternod sina egna HANA NFS-filsystem/Hana/Share
     ```
 
    > [!TIP]
-   > Om konfigurationen omfattar fil system, utanför gruppen `hanadb1_nfs` eller `hanadb2_nfs` , inkludera `sequential=false` alternativet, så att det inte finns några ordnings beroenden mellan fil systemen. Alla fil system måste starta innan `hana_nfs1_active` , men de behöver inte börja i någon ordning i förhållande till varandra. Mer information finns i [Hur gör jag för att konfigurera SAP HANA systemreplikering i skala upp i ett pacemaker-kluster när Hana-fil system finns på NFS-resurser](https://access.redhat.com/solutions/5156571)
+   > Om konfigurationen omfattar fil system, utanför gruppen `hanadb1_nfs` eller `hanadb2_nfs` , inkludera `sequential=false` alternativet, så att det inte finns några ordnings beroenden mellan fil systemen. Alla fil system måste starta innan `hana_nfs1_active` , men de behöver inte börja i någon ordning i förhållande till varandra. Mer information finns i [Hur gör jag för att konfigurera SAP HANA systemreplikering i Scale-Up i ett pacemaker-kluster när Hana-filsystem är på NFS-resurser](https://access.redhat.com/solutions/5156571)
 
 ### <a name="configure-sap-hana-cluster-resources"></a>Konfigurera SAP HANA kluster resurser
 

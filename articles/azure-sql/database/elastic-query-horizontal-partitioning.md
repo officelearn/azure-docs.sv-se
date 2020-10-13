@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
 ms.openlocfilehash: ced546f8f4375433d9fcd59f7ce46f9604f72921
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443123"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Rapportering i utskalade moln databaser (för hands version)
@@ -29,7 +29,7 @@ För en snabb start, se [rapportering i utskalade moln databaser](elastic-query-
 
 För icke-shardade databaser, se [fråga över moln databaser med olika scheman](elastic-query-vertical-partitioning.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa en Shard-karta med klient biblioteket för Elastic Database. Se [Shard Map Management](elastic-scale-shard-map-management.md). Eller Använd exempel appen i [Kom igång med elastiska databas verktyg](elastic-scale-get-started.md).
 * Du kan också se [migrera befintliga databaser för att skala ut databaser](elastic-convert-to-use-elastic-tools.md).

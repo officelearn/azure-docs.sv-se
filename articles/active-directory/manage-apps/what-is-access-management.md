@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
 ms.openlocfilehash: d9dd03ec349daf2312b7d803e16e3c5fb41ecf0c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604112"
 ---
 # <a name="managing-access-to-apps"></a>Hantera åtkomst till appar
 
-Pågående åtkomst hantering, användnings utvärdering och rapportering fortsätter att vara en utmaning när en app har integrerats i din organisations identitets system. I många fall måste IT-administratörer eller supportavdelningen ta en pågående aktiv roll vid hantering av åtkomst till dina appar. Ibland utförs tilldelningen av ett allmänt eller divisions IT-team. Ofta är tilldelnings beslutet avsett att delegeras till affärs besluts fattaren, vilket kräver godkännande innan tilldelningen görs.  Andra organisationer investerar i integrering med ett befintligt automatiserat identitets-och åtkomst hanterings system, som rollbaserad Access Control (RBAC) eller Attribute-based Access Control (ABAC). Både integrerings-och regel utvecklingen tenderar att vara specialiserade och dyra. Övervakning eller rapportering av antingen hanterings metoden är en egen separat, kostsam och komplex investering.
+Pågående åtkomst hantering, användnings utvärdering och rapportering fortsätter att vara en utmaning när en app har integrerats i din organisations identitets system. I många fall måste IT-administratörer eller supportavdelningen ta en pågående aktiv roll vid hantering av åtkomst till dina appar. Ibland utförs tilldelningen av ett allmänt eller divisions IT-team. Ofta är tilldelnings beslutet avsett att delegeras till affärs besluts fattaren, vilket kräver godkännande innan tilldelningen görs.  Andra organisationer investerar i integrering med ett befintligt automatiserat identitets-och åtkomst hanterings system, t. ex. Role-Based Access Control (RBAC) eller Attribute-Based Access Control (ABAC). Både integrerings-och regel utvecklingen tenderar att vara specialiserade och dyra. Övervakning eller rapportering av antingen hanterings metoden är en egen separat, kostsam och komplex investering.
 
 ## <a name="how-does-azure-active-directory-help"></a>Hur hjälper Azure Active Directory?
 

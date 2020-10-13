@@ -8,20 +8,22 @@ ms.topic: conceptual
 description: Använd en anpassad NuGet-feed för att få åtkomst till och använda NuGet-paket i ett Azure dev-utrymme.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
 manager: gwallace
-ms.openlocfilehash: 77c7b733b12d9b352f9a806cadc0f900b9283ef3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d60d7142d9b9979be76eebb3d324a448bd76638f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86229285"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960226"
 ---
 # <a name="use-a-custom-nuget-feed-with-azure-dev-spaces"></a>Använda en anpassad NuGet-feed med Azure dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 En NuGet-feed är ett bekvämt sätt att inkludera paket källor i ett projekt. Azure dev Spaces måste ha åtkomst till denna feed för att beroenden ska kunna installeras korrekt i Docker-behållaren.
 
 ## <a name="set-up-a-nuget-feed"></a>Konfigurera en NuGet-feed
 
-Lägg till en [paket referens](/nuget/consume-packages/package-references-in-project-files) för ditt beroende i `*.csproj` filen under `PackageReference` noden. Exempel:
+Lägg till en [paket referens](/nuget/consume-packages/package-references-in-project-files) för ditt beroende i `*.csproj` filen under `PackageReference` noden. Till exempel:
 
 ```xml
 <ItemGroup>
@@ -31,7 +33,7 @@ Lägg till en [paket referens](/nuget/consume-packages/package-references-in-pro
 </ItemGroup>
 ```
 
-Skapa en [NuGet.Config](/nuget/reference/nuget-config-file) -fil i projektmappen och ange `packageSources` `packageSourceCredentials` avsnitten och för din NuGet-feed. `packageSources`Avsnittet innehåller din feed-URL, som måste vara tillgänglig från ditt AKS-kluster. `packageSourceCredentials`Är autentiseringsuppgifterna för att komma åt feeden. Exempel:
+Skapa en [NuGet.Config](/nuget/reference/nuget-config-file) -fil i projektmappen och ange `packageSources` `packageSourceCredentials` avsnitten och för din NuGet-feed. `packageSources`Avsnittet innehåller din feed-URL, som måste vara tillgänglig från ditt AKS-kluster. `packageSourceCredentials`Är autentiseringsuppgifterna för att komma åt feeden. Till exempel:
 
 ```xml
 <packageSources>
@@ -46,7 +48,7 @@ Skapa en [NuGet.Config](/nuget/reference/nuget-config-file) -fil i projektmappen
 </packageSourceCredentials>
 ```
 
-Uppdatera Dockerfiles för att kopiera `NuGet.Config` filen till avbildningen. Exempel:
+Uppdatera Dockerfiles för att kopiera `NuGet.Config` filen till avbildningen. Till exempel:
 
 ```console
 COPY ["<project folder>/NuGet.Config", "./NuGet.Config"]

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f4d9d1a2a4c88601e7dd7e0d6f56025b79aaac1
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90705375"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Svara säkra identiteter snabbt med Azure AD
@@ -50,7 +50,7 @@ Det finns ett antal rekommendationer som Azure AD Free, Office 365 eller Microso
 - Microsoft 365 (Business Basic, Apps for Business, Business Standard, Business Premium, a1)
 - Azure AD Free (ingår i Azure, Dynamics 365, Intune och Power Platform)
 
-| Rekommenderad åtgärd | Detalj |
+| Rekommenderad åtgärd | Information |
 | --- | --- |
 | [Aktivera säkerhets inställningar](concept-fundamentals-security-defaults.md) | Skydda alla användar identiteter och program genom att aktivera MFA och blockera äldre autentisering |
 | [Aktivera hash-synkronisering av lösen ord](../hybrid/how-to-connect-password-hash-synchronization.md) (om Hybrid identiteter används) | Ge redundans för autentisering och förbättra säkerheten (inklusive Smart utelåsning, IP-utelåsning och möjligheten att identifiera läckta autentiseringsuppgifter.) |
@@ -73,7 +73,7 @@ Följande tabell är avsedd att markera viktiga åtgärder för följande licens
 - Enterprise Mobility + Security (EMS E3)
 - Microsoft 365 (M365 E3, A3, F1, F3)
 
-| Rekommenderad åtgärd | Detalj |
+| Rekommenderad åtgärd | Information |
 | --- | --- |
 | [Aktivera kombinerad registrerings upplevelse för Azure MFA och SSPR för att förenkla användar registrerings upplevelsen](../authentication/howto-registration-mfa-sspr-combined.md) | Tillåt att användarna registrerar sig från en vanlig upplevelse för både Azure-Multi-Factor Authentication och lösen ords återställning via självbetjäning. |
 | [Konfigurera MFA-inställningar för din organisation](../authentication/howto-mfa-getstarted.md) | Se till att konton skyddas från att bli komprometterade med Multi-Factor Authentication |
@@ -103,7 +103,7 @@ Följande tabell är avsedd att markera viktiga åtgärder för följande licens
 - Enterprise Mobility + Security (EMS E5)
 - Microsoft 365 (M365 E5, A5)
 
-| Rekommenderad åtgärd | Detalj |
+| Rekommenderad åtgärd | Information |
 | --- | --- |
 | [Aktivera kombinerad registrerings upplevelse för Azure MFA och SSPR för att förenkla användar registrerings upplevelsen](../authentication/howto-registration-mfa-sspr-combined.md) | Tillåt att användarna registrerar sig från en vanlig upplevelse för både Azure-Multi-Factor Authentication och lösen ords återställning via självbetjäning. |
 | [Konfigurera MFA-inställningar för din organisation](../authentication/howto-mfa-getstarted.md) | Se till att konton skyddas från att bli komprometterade med Multi-Factor Authentication |

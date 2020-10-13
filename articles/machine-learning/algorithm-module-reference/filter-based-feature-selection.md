@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90893788"
 ---
 # <a name="filter-based-feature-selection"></a>Filterbaserat funktionsval
@@ -36,7 +36,7 @@ Du använder vanligt vis bara kolumnerna med de bästa poängen för att bygga e
 
 ## <a name="how-to-choose-a-feature-selection-metric"></a>Hur man väljer mått för funktions val
 
-Den Filterbaserade modulen för funktions val innehåller en mängd olika mått för att utvärdera information svärdet i varje kolumn. Det här avsnittet innehåller en allmän beskrivning av varje mått och hur det används. Du hittar ytterligare krav för att använda varje mått i [tekniska anteckningar](#technical-notes) och i [anvisningarna](#how-to-configure-filter-based-feature-selection) för att konfigurera varje modul.
+Modulen Filter-Based funktion val innehåller en mängd olika mått för att utvärdera värdet i varje kolumn. Det här avsnittet innehåller en allmän beskrivning av varje mått och hur det används. Du hittar ytterligare krav för att använda varje mått i [tekniska anteckningar](#technical-notes) och i [anvisningarna](#how-to-configure-filter-based-feature-selection) för att konfigurera varje modul.
 
 -   **Pearson-korrelation**  
 
@@ -52,11 +52,11 @@ Den Filterbaserade modulen för funktions val innehåller en mängd olika mått 
 > [!TIP]
 > Om du behöver ett annat alternativ för den anpassade funktions urvals metoden använder du modulen [Kör R-skript](execute-r-script.md) . 
 
-## <a name="how-to-configure-filter-based-feature-selection"></a>Konfigurera filtrering baserat funktions val
+## <a name="how-to-configure-filter-based-feature-selection"></a>Så här konfigurerar du Filter-Based funktions val
 
 Du väljer ett standard statistik mått. Modulen beräknar korrelationen mellan ett kolumn par: kolumnen etikett och en funktions kolumn.
 
-1.  Lägg till den Filterbaserade modulen för funktions val i din pipeline. Du hittar den i kategorin **funktions val** i designern.
+1.  Lägg till modulen Filter-Based funktions val i din pipeline. Du hittar den i kategorin **funktions val** i designern.
 
 2. Anslut en indatamängd som innehåller minst två kolumner som är potentiella funktioner.  
 

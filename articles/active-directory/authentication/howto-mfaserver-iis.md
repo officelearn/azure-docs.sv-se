@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c072298bf5cce4e22fe50d2474c7abe6b915f74
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919513"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Konfigurera Azure Multi-Factor Authentication Server för IIS-webbappar
@@ -40,7 +40,7 @@ Om du ska skydda en IIS-webbapp som använder formulärbaserad autentisering ins
 1. Klicka på ikonen för IIS-autentisering på den vänstra menyn i Azure Multi-Factor Authentication Server.
 2. Klicka på fliken **Formulärbaserad**.
 3. Klicka på **Lägg till**.
-4. Ange inloggnings-URL (t. ex. `https://localhost/contoso/auth/login.aspx` ) i dialog rutan konfigurera formulärbaserad webbplats automatiskt och klicka på **OK**för att identifiera användar namn, lösen ord och domän variabler automatiskt.
+4. Ange inloggnings-URL (t. ex. `https://localhost/contoso/auth/login.aspx` ) i dialog rutan konfigurera Form-Based webbplats automatiskt och klicka på **OK**för att identifiera användar namn, lösen ord och domän variabler automatiskt.
 5. Markera rutan om att **Multi-Factor Authentication-användarmatchning krävs** om alla användare har importerats eller ska importeras till servern och om multifaktorautentisering används. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från multifaktorautentisering, lämnar du rutan avmarkerad.
 6. Om sidvariablerna inte kan identifieras automatiskt klickar du på **Ange manuellt** i dialogrutan Konfigurera formulärbaserad webbplats automatiskt.
 7. I dialogrutan Lägg till formulärbaserad webbplats anger du URL:en till inloggningssidan i fältet Skicka URL och anger ett programnamn (valfritt). Programnamnet visas i Azure Multi-Factor Authentication-rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.

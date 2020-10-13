@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
 ms.openlocfilehash: 797ba00820e7ff9d96868acdfc1dddfff3d21623
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91598286"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamisk paketering i Media Services v3
@@ -58,7 +58,7 @@ Den strömmande klienten kan ange följande HLS-format:
 |HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`||
 
 > [!NOTE]
-> Tidigare rikt linjer från Apple rekommenderar att återställningen för nätverk med liten bandbredd var att tillhandahålla en ljud ström.  Vid tillfället genererar Media Services-kodaren automatiskt ett ljud spår.  Apple-rikt linjer ger nu dig tillstånd att ljud spåret *inte* ska tas med, särskilt för Apples TV-distribution.  Vi rekommenderar att du använder taggen "endast ljudonly = false" i URL: en för att förhindra uppspelning av ljudrendering i HLS eller bara använda HLS-v3. Till exempel `http://host/locator/asset.ism/manifest(format=m3u8-aapl,audio-only=false)`.
+> Tidigare rikt linjer från Apple rekommenderar att återställningen för nätverk med liten bandbredd var att tillhandahålla en ljud ström.  Vid tillfället genererar Media Services-kodaren automatiskt ett ljud spår.  Apple-rikt linjer ger nu dig tillstånd att ljud spåret *inte* ska tas med, särskilt för Apples TV-distribution.  Vi rekommenderar att du använder taggen "endast ljudonly = false" i URL: en för att förhindra uppspelning av ljudrendering i HLS eller bara använda HLS-v3. Exempelvis `http://host/locator/asset.ism/manifest(format=m3u8-aapl,audio-only=false)`.
 
 ### <a name="mpeg-dash-protocol"></a>MPEG-streck-protokoll
 

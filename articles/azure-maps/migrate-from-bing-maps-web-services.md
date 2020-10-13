@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: Migrera webb tjänster från Bing Maps | Microsoft Azure Maps'
-description: Så här migrerar du webb tjänster från Bing Maps till Microsoft Azure Maps.
+description: Själv studie kurs om hur du migrerar webb tjänster från Bing Maps till Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 9/10/2020
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 14e0998b75e0e5bd3ae996f5f5010ecc50180f14
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 462befd505333902bd4560f8f1dafeecceffd27f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91741677"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873786"
 ---
-# <a name="migrate-web-service-from-bing-maps"></a>Migrera webb tjänsten från Bing Maps
+# <a name="tutorial---migrate-web-service-from-bing-maps"></a>Självstudie – migrera webb tjänsten från Bing Maps
 
 Både Azure-och Bing Maps ger till gång till spatiala API: er via REST-webbtjänster. API-gränssnitten för dessa plattformar utför liknande funktioner men använder olika namngivnings konventioner och svars objekt.
 
@@ -221,12 +221,12 @@ API för Azure Maps routning stöder också Truck-routning inom samma API. I fö
 | `vehicleLength` (`vl`)                   | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)               | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                 | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                 | **E.t.**                                    |
+| `vehicleTrailers` (`vt`)                 | **EJ TILLÄMPLIGT**                                    |
 | `vehicleSemi` (`semi`)                   | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)             | **E.t.**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)          | **E.t.**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)         | **E.t.**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)     | **E.t.**                                    |
+| `vehicleMaxGradient` (`vmg`)             | **EJ TILLÄMPLIGT**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)          | **EJ TILLÄMPLIGT**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)         | **EJ TILLÄMPLIGT**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)     | **EJ TILLÄMPLIGT**                                    |
 | `vehicleHazardousMaterials` (`vhm`)      | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)        | `vehicleLoadType`                          |
 
@@ -287,12 +287,12 @@ API: et för Azure Maps routning stöder också en väg för Truck i samma API f
 | `vehicleLength` (`vl`)                  | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)              | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                | **E.t.**                                    |
+| `vehicleTrailers` (`vt`)                | **EJ TILLÄMPLIGT**                                    |
 | `vehicleSemi` (`semi`)                  | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)            | **E.t.**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)         | **E.t.**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)        | **E.t.**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)    | **E.t.**                                    |
+| `vehicleMaxGradient` (`vmg`)            | **EJ TILLÄMPLIGT**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)         | **EJ TILLÄMPLIGT**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)        | **EJ TILLÄMPLIGT**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)    | **EJ TILLÄMPLIGT**                                    |
 | `vehicleHazardousMaterials` (`vhm`)     | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)       | `vehicleLoadType`                          |
 

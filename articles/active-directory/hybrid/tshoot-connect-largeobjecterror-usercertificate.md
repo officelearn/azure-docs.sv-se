@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2eb656e46ce5e26fca5ae5c094f9b8bb85819caa
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89275784"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect synkronisering: hantera LargeObject-fel som orsakas av userCertificate-attribut
@@ -117,7 +117,7 @@ Den nya synkroniseringsregeln måste ha samma **omfattnings filter** och **högr
 
     | Attribut | Värde | Information |
     | --- | --- | --- |
-    | Name | *Ange ett namn* | T. ex. *"ut till AAD – anpassad åsidosättning för userCertificate"* |
+    | Namn | *Ange ett namn* | T. ex. *"ut till AAD – anpassad åsidosättning för userCertificate"* |
     | Beskrivning | *Ange en beskrivning* | T. ex. *"If userCertificate-attribut har fler än 15 värden, exportera null".* |
     | Anslutet system | *Välj Azure AD-anslutning* |
     | Ansluten system objekt typ | **användarvänlig** | |

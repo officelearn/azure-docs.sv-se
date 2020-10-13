@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.author: a-sakand
 author: skandil
 ms.openlocfilehash: 22f5ab332c52a3b567b37089def6e4a494a15d29
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309480"
 ---
 # <a name="sign-in-to-luis-portal"></a>Logga in på LUIS-portalen
@@ -36,7 +36,7 @@ Ett konto som inte är associerat med en Azure-prenumeration har Azure-ikonen i 
 
 Med ett konto som är associerat med en Azure-prenumeration kan du välja vilken prenumeration och resurs som ska användas.
 
-:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Delvis skärm bild av LUIS-portalen med list Rute markerings rutorna för resurs val.":::
+:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Partiell skärm bild som visar LUIS navigerings fält med Azure-ikonen.":::
 
 ## <a name="sign-in-with-account-associated-with-an-azure-subscription"></a>Logga in med ett konto som är associerat med en Azure-prenumeration
 
@@ -50,11 +50,11 @@ Med ett konto som är associerat med en Azure-prenumeration kan du välja vilken
 
     [Lär dig mer om redigerings-och start nycklar](luis-how-to-azure-subscription.md#luis-resources). Båda resurserna ger dig 1 000 000 kostnads fria redigerings transaktioner och 1000 kostnads fria förutsägelse slut transaktioner.
 
-    :::image type="content" source="media/sign-in/signup-landing-page.png" alt-text="Partiell skärm bild för att välja en typ av Language Understanding du redigerar resurs.":::
+    :::image type="content" source="media/sign-in/signup-landing-page.png" alt-text="Partiell skärm bild som visar LUIS navigerings fält med Azure-ikonen.":::
 
 1. Använd en befintlig redigerings resurs
 
-    :::image type="content" source="media/sign-in/signup-choose-resource.png" alt-text="Välj redigerings resurs":::
+    :::image type="content" source="media/sign-in/signup-choose-resource.png" alt-text="Partiell skärm bild som visar LUIS navigerings fält med Azure-ikonen.":::
 
     Om du redan har LUIS att skriva resurser i din prenumeration och associera ett med ditt LUIS-konto under inloggningen, väljer du alternativet **Använd befintlig redigerings resurs** och anger följande information:
 
@@ -67,18 +67,9 @@ Med ett konto som är associerat med en Azure-prenumeration kan du välja vilken
 
 1. Skapa en ny redigerings resurs
 
-    :::image type="content" source="media/sign-in/signup-create-resource.png" alt-text="Skapa en redigerings resurs":::
+    :::image type="content" source="media/sign-in/signup-create-resource.png" alt-text="Partiell skärm bild som visar LUIS navigerings fält med Azure-ikonen." visas. Slutför genom att välja **Fortsätt**.
 
-    När du **skapar en ny redigerings resurs**anger du följande information:
-
-    * **Klient** organisation – klienten som din Azure-prenumeration är associerad med. Du kommer inte att kunna växla klienter från det befintliga fönstret. Du kan byta innehavare genom att välja den högra avataren, som innehåller dina initialer i det översta fältet.
-    * **Resurs namn** – ett anpassat namn som du väljer, används som en del av URL: en för dina redigerings transaktioner. Resurs namnet får bara innehålla alfanumeriska tecken,-och får inte börja eller sluta med-. Om något annat kortnamn ingår i namnet kommer det inte att gå att skapa en resurs.
-    * **Prenumerations namn** – den prenumeration som ska associeras med resursen. Om du har mer än en prenumeration som tillhör din klient väljer du den som du vill använda i list rutan.
-    * **Resurs grupp** – ett namn på en anpassad resurs grupp som du väljer i din prenumeration. Med resurs grupper kan du gruppera Azure-resurser för åtkomst och hantering. Om du för närvarande inte har en resurs grupp i din prenumeration kommer du inte att kunna skapa en i LUIS-portalen. Gå till [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) för att skapa en och gå sedan till Luis för att fortsätta inloggnings processen.
-
-1. När du har valt din sökväg kan det ta några sekunder innan tecknet "ditt konto har migrerats" visas. Slutför genom att välja **Fortsätt**.
-
-    :::image type="content" source="media/sign-in/signup-confirm-2.png" alt-text="Bekräfta redigering av resurs":::
+    :::image type="content" source="media/sign-in/signup-confirm-2.png" alt-text="Partiell skärm bild som visar LUIS navigerings fält med Azure-ikonen.":::
 
     > [!Note]
     > Om du har en prenumeration och minst en redigerings resurs i den region som du registrerar dig på i portalen, kan du logga in automatiskt till LUIS som migrerats och associeras med en resurs utan att du behöver välja vilken sökväg som ska användas.
@@ -90,7 +81,7 @@ Med ett konto som är associerat med en Azure-prenumeration kan du välja vilken
 
 1. Slutför genom att välja **Fortsätt**. Du loggas in automatiskt med en utvärderings-/start nyckel. Det innebär att du kommer att behöva [migrera ditt konto](luis-migration-authoring.md#migration-steps) och länka dina program till en redigerings resurs. För att genomgå migreringsprocessen måste du logga in för en [kostnads fri utvärderings version av Azure](https://azure.microsoft.com/free/).
 
-    :::image type="content" source="media/sign-in/signup-no-subscription.png" alt-text="Inget prenumerations scenario":::
+    :::image type="content" source="media/sign-in/signup-no-subscription.png" alt-text="Partiell skärm bild som visar LUIS navigerings fält med Azure-ikonen.":::
 
 ## <a name="troubleshooting"></a>Felsökning
 

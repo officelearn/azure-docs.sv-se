@@ -11,23 +11,22 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1414859d0735e75e2139dd79aab7dbba5b1e2f13
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 909ea33ed96225c75a2d093f5bf2f4878ea51d2e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710207"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939192"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics Business Intelligence partners
 
 Om du vill skapa din data lager lösning kan du välja mellan olika typer av branschledande verktyg. I den här artikeln beskrivs Microsoft-partner med Business Intelligence-lösningar (BI) som officiellt stöder Azure Synapse Analytics.
 
 ## <a name="our-business-intelligence-partners"></a>Våra Business Intelligence-partner
-| Partner | Description | Länk till webbplats/produkt |
+| Partner | Beskrivning | Länk till webbplats/produkt |
 | ------- | ----------- | -------------------- |
 | ![AtScale](./media/sql-data-warehouse-partner-business-intelligence/atscale-logo.png) |**AtScale**<br>AtScale tillhandahåller en enda, säker och styrd arbets yta för distribuerade data. AtScale för moln-OLAP, autonom data teknik™ och universellt semantiskt lager™s Business Intelligence resultat för snabbare och mer exakta affärs beslut. |[Produkt sida](https://www.atscale.com/partners/microsoft/)<br> |
 | ![Birst](./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png) |**Birst**<br>Birst ansluter hela organisationen genom ett nätverk av vävs virtualiserade BI-instanser ovanpå en delad gemensam analys infrastruktur|[Produkt sida](https://www.birst.com/)<br> |
-| ![ClearStory-data](./media/sql-data-warehouse-partner-business-intelligence/clearstory_data_logo.png) |**ClearStory data (kontinuerliga affärs insikter)**<br>ClearStory-data möjliggör snabb cykel analys över olika data som lagras i Synapse SQL-poolen. ClearStory är en integrerad Spark-baserad plattform och analys av data åtkomst och harmonisering av olika data uppsättningar. De möjliggör snabba, samverkande utforskningar som har stöd för affärs användare för att få snabba insikter. |[Produkt sida](https://www.clearstorydata.com/product/continuous-insights/)<br> |
 | ![Dremio](./media/sql-data-warehouse-partner-business-intelligence/dremio-logo.png) |**Dremio**<br> Analytiker och data experter kan upptäcka, utforska och granska data med hjälp av Dremios intuitiva användar gränssnitt, samtidigt som styrning och säkerhet hanteras. Dremio gör det enkelt att ansluta ADLS med Blob Storage, Azure SQL Database, Azure Synapse SQL, HDInsight med mera. Med Dremio kan Power BI analytiker söka efter nya data uppsättningar som lagras på ADLS, omedelbart komma åt dessa data i Power BI utan förberedelser, Skapa visualiseringar och förfina rapporter i real tid. Och analytiker kan skapa nya rapporter som kombinerar data mellan ADLS och andra databaser. |[Produkt sida](https://www.dremio.com/azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dremiocorporation.dremio_ce)<br> |
 | ![Dundas](./media/sql-data-warehouse-partner-business-intelligence/dundas_software_logo.png) |**Dundas BI**<br>Dundas data visualisering är en ledande, global leverantör av program vara för Business Intelligence och data visualisering.  Dundas-instrumentpaneler, rapporter och visuella data analyser ger sömlös integrering i företags program, vilket möjliggör bättre beslut och snabbare insikter.|[Produkt sida](https://www.dundas.com/dundas-bi)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dundas.dundas-bi)<br> |
 | ![IBM-Cognos](./media/sql-data-warehouse-partner-business-intelligence/cognos_analytics_logo.png) |**IBM Cognos-analys**<br>Cognos Analytics innehåller självbetjänings funktioner som gör det enkelt, tydligt och enkelt att använda, oavsett om du är en erfaren affärsanalytiker som undersöker en omfattande leverans kedja eller en marknad som optimerar en kampanj. Cognos Analytics använder AI och andra funktioner som hjälper dig att utforska data. Det gör det enklare för användarna att få de svar de behöver|[Produkt sida](https://www.ibm.com/products/cognos-analytics)<br>|
@@ -45,7 +44,7 @@ Om du vill skapa din data lager lösning kan du välja mellan olika typer av bra
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Om du vill lära dig mer om våra andra partners, se [data integrations partner](sql-data-warehouse-partner-data-integration.md), [Datahantering partner](sql-data-warehouse-partner-data-management.md)och [Machine Learning och AI-partner](sql-data-warehouse-partner-machine-learning-ai.md).
 
  

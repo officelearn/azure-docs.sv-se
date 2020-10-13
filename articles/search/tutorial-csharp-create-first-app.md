@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2414570a1d483cd7630e628b13c92dbdc331370d
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: ec98762ac5918437e8fdb8426b54b79b1fb5b222
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759143"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939730"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Självstudie: skapa din första Sökapp med hjälp av .NET SDK
 
@@ -57,7 +57,7 @@ En färdig version av koden i den här självstudien finns i följande projekt:
 
 Den här självstudien har uppdaterats med Azure.Search.Documents-paketet (version 11). En tidigare version av .NET SDK finns i [kod exemplet Microsoft. Azure. search (version 10)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Eftersom du använder ett offentligt exempel söknings index som Microsoft är värd för, behöver du inte någon Sök tjänst eller ett Azure-konto för den här självstudien.
 
@@ -69,7 +69,7 @@ Eftersom du använder ett offentligt exempel söknings index som Microsoft är v
 
 Om du vill gå vidare till en fungerande app följer du stegen nedan för att ladda ned och köra den färdiga koden.
 
-1. Leta upp exemplet på GitHub: [skapa första app](https://github.com/Azure-Samples/azure-search-dotnet-samples/v11).
+1. Leta upp exemplet på GitHub: [skapa första app](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11).
 
 1. I [rotmappen](https://github.com/Azure-Samples/azure-search-dotnet-samples)väljer du **kod**följt av **kloning** eller **Ladda ned ZIP** för att göra din privata lokala kopia av projektet.
 

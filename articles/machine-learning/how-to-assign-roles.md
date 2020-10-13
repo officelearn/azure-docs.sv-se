@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: d36c0ab78f9f96a051e6cb0a53b756c7409ca142
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ab94af9ec172a3e88d523024c1e00d3a0d944798
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893402"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873089"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 
@@ -141,7 +141,7 @@ Följande tabell är en sammanfattning av Azure Machine Learning aktiviteter och
 | Publicera en pipeline-slutpunkt | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Distribuera en registrerad modell på en AKS/ACI-resurs | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Poäng till en distribuerad AKS-slutpunkt | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (när du inte använder Azure Active Directory auth) eller `"/workspaces/read"` (när du använder token auth) |
-| Åtkomst till lagring med interaktiva antecknings böcker | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
+| Åtkomst till lagring med interaktiva antecknings böcker | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
 | Skapa ny anpassad roll | Ägare, deltagare eller anpassad roll som tillåter `Microsoft.Authorization/roleDefinitions/write` | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `/workspaces/computes/write` |
 
 > [!TIP]

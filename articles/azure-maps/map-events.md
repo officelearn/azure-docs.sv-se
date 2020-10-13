@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 0621e0ecfbb91d151e3cc78d3b345ab92133695c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310381"
 ---
 # <a name="interact-with-the-map"></a>Interagera med kartan
@@ -49,7 +49,7 @@ Följande kod lägger till Java Script Map-händelser till en HTML-markör. Den 
 
 I följande tabell visas alla de mappnings klass händelser som stöds.
 
-| Händelse               | Description |
+| Händelse               | Beskrivning |
 |---------------------|-------------|
 | `boxzoomend`        | Utlöses när interaktionen "box zoom" upphör.|
 | `boxzoomstart`      | Utlöses när en "box zoom"-interaktion startar.|

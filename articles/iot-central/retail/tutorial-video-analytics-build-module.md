@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Ändra IoT Edge Live Video Analytics-moduler
+title: Självstudie – Ändra Azure IoT Edge Live Video Analytics-moduler
 description: I den här självstudien får du se hur du ändrar och bygger de Live Video Analytics Gateway-moduler som används av program mal len video analys – objekt och rörelse identifiering.
 services: iot-central
 ms.service: iot-central
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: d21eb8d8d79ec04f0f7e766b4eeb370811553e64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bbc25f98f494660fc4997af1c3a248172ef08d2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88038417"
+ms.locfileid: "91873480"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Självstudie: ändra och bygga Live Video Analytics Gateway-moduler
 
@@ -21,7 +21,7 @@ I den här självstudien får du se hur du ändrar koden för IoT Edge-modulen f
 
 De tidigare självstudierna använder färdiga avbildningar av modulerna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra stegen i den här självstudien behöver du:
 
@@ -50,7 +50,7 @@ git clone https://github.com/Azure/live-video-analytics
 1. Redigera `LvaEdgeGatewayModule` modul-avsnittet om du vill lägga till namnet på din avbildning och ditt AMS-kontonamn i `env:amsAccountName:value` .
 1. Redigera `lvaYolov3` avsnittet modul och Lägg till namnet på din bild.
 1. Redigera `lvaEdge` avsnittet modul och Lägg till namnet på din bild.
-1. I avsnittet [skapa ett video analys program i Azure IoT Central](tutorial-video-analytics-create-app.md) finns mer information om hur du slutför konfigurationen.
+1. I avsnittet [skapa ett video analys program i Azure IoT Central](tutorial-video-analytics-create-app-yolo-v3.md) finns mer information om hur du slutför konfigurationen.
 
 ## <a name="build-the-code"></a>Skapa koden
 

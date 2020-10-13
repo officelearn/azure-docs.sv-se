@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
 ms.openlocfilehash: 10be0fc28b53d114a8ff87f01980513ce1759dec
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443304"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Rapport över utskalade moln databaser (förhands granskning)
@@ -27,7 +27,7 @@ Om du har en befintlig databas, se [migrera befintliga databaser för att skala 
 
 Information om vilka SQL-objekt som krävs för att fråga finns i [fråga över vågrätt partitionerade databaser](elastic-query-horizontal-partitioning.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Hämta och kör [exemplet komma igång med Elastic Database verktyg](elastic-scale-get-started.md).
 
@@ -133,7 +133,7 @@ Alla rader från tabellen **kunder** , lagrade i olika Shards, fyller i Excel-bl
 
 Nu kan du använda Excels kraftfulla funktioner för data visualisering. Du kan använda anslutnings strängen med Server namnet, databas namnet och autentiseringsuppgifterna för att ansluta dina BI-och data integrerings verktyg till Elastic Query-databasen. Kontrol lera att SQL Server stöds som data källa för ditt verktyg. Du kan referera till Elastic Query-databasen och externa tabeller precis som andra SQL Server databas-och SQL Server tabeller som du ansluter till med ditt verktyg.
 
-### <a name="cost"></a>Cost
+### <a name="cost"></a>Kostnad
 Det kostar inget extra att använda funktionen Elastic Database fråga.
 
 Pris information finns [SQL Database pris information](https://azure.microsoft.com/pricing/details/sql-database/).

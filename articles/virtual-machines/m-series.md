@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
 ms.openlocfilehash: fe63f9d5a9d215a31a56d7214170d86f46a4e4a2
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653663"
 ---
 # <a name="m-series"></a>M-serien
 
 M-serien erbjuder ett högt antal vCPU (upp till 128 virtuella processorer) och en stor mängd minne (upp till 3,8 TiB). Det är också idealiskt för extremt stora databaser eller andra program som drar nytta av höga vCPU-räkningar och stora mängder minne. Storleken på M-serien stöds både på Intel &reg; Xeon &reg; CPU E7-8890 v3 @ 2,50 GHz och på Intel &reg; Xeon &reg; platina-8280M (överlappande sjö).
 
-Virtuella datorer i M-serien har Intel &reg; Hyper-Threading-teknik.
+Virtuella datorer i M-serien Intel &reg; Hyper-Threading-teknik.
 
 [ACU](acu.md): 160-180<br>
 [Premium Storage](premium-storage-performance.md): stöds<br>

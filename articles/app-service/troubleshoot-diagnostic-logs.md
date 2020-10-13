@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 6dffe2c6145e1596d92335defdc764c3c7bc3fa0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91264379"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för appar i Azure App Service
@@ -23,7 +23,7 @@ I den här artikeln används [Azure Portal](https://portal.azure.com) och Azure 
 >
 >
 
-|Typ|Plattform|Plats|Description|
+|Typ|Plattform|Plats|Beskrivning|
 |-|-|-|-|
 | Programloggning | Windows, Linux | App Service fil system och/eller Azure Storage blobbar | Loggar meddelanden som genereras av din program kod. Meddelandena kan genereras av det webb ramverk du väljer eller från din program kod direkt med hjälp av standard loggnings mönstret för ditt språk. Varje meddelande tilldelas en av följande kategorier: **kritisk**, **fel**, **Varning**, **information**, **fel sökning**och **spårning**. Du kan välja hur utförlig loggning ska ske genom att ange allvarlighets grad när du aktiverar program loggning.|
 | Webb Server loggning| Windows | App Service fil system eller Azure Storage blobbar| Rå data för HTTP-begäran i [utökat logg fils format för W3C](/windows/desktop/Http/w3c-logging). Varje logg meddelande innehåller data, till exempel HTTP-metoden, resurs-URI, klient-IP, klient port, användar agent, svars kod och så vidare. |
@@ -65,7 +65,7 @@ Välj **nivå**eller den informations nivå som ska loggas. Följande tabell vis
 |**Inaktiverad** | Inget |
 |**Fel** | Fel, kritiskt |
 |**Varning** | Varning, fel, kritiskt|
-|**Information** | Information, varning, fel, kritiskt|
+|**Mer** | Information, varning, fel, kritiskt|
 |**Verbose** | Spåra, felsöka, info, varning, fel, kritiskt (alla kategorier) |
 
 När du är färdig väljer du **Spara**.
@@ -166,7 +166,7 @@ För Linux/container-appar innehåller ZIP-filen konsolens utgående loggar för
 
 För Windows-appar innehåller ZIP-filen innehållet i *D:\Home\LogFiles* -katalogen i App Service fil system. Den har följande struktur:
 
-| Loggtyp | Katalog | Description |
+| Loggtyp | Katalog | Beskrivning |
 |-|-|-|
 | **Program loggar** |*/LogFiles/Application/* | Innehåller en eller flera textfiler. Formatet på logg meddelandena beror på vilken loggnings leverantör du använder. |
 | **Spårning av misslyckade begär Anden** | */LogFiles/W3SVC#########/* | Innehåller XML-filer och en XSL-fil. Du kan visa de formaterade XML-filerna i webbläsaren. |
@@ -185,15 +185,15 @@ Med den nya [Azure Monitor-integreringen](https://aka.ms/appsvcblog-azmon)kan du
 
 I följande tabell visas de logg typer och beskrivningar som stöds: 
 
-| Loggtyp | Windows | Windows-behållare | Linux | Linux-behållare | Description |
+| Loggtyp | Windows | Windows-behållare | Linux | Linux-behållare | Beskrivning |
 |-|-|-|-|-|-|
 | AppServiceConsoleLogs | TBA | TBA | Ja | Ja | Standardutdata och standard fel |
-| AppServiceHTTPLogs | Yes | TBA | Ja | Ja | Webb server loggar |
-| AppServiceEnvironmentPlatformLogs | Yes | Saknas | Ja | Ja | App Service-miljön: skalning, konfigurations ändringar och status loggar|
-| AppServiceAuditLogs | Yes | TBA | Ja | Ja | Inloggnings aktivitet via FTP och kudu |
-| AppServiceFileAuditLogs | Yes | TBA | TBA | TBA | Fil ändringar som har gjorts i webbplatsens innehåll. endast tillgängligt för Premium-nivån och över |
+| AppServiceHTTPLogs | Ja | TBA | Ja | Ja | Webb server loggar |
+| AppServiceEnvironmentPlatformLogs | Ja | E.t. | Ja | Ja | App Service-miljön: skalning, konfigurations ändringar och status loggar|
+| AppServiceAuditLogs | Ja | TBA | Ja | Ja | Inloggnings aktivitet via FTP och kudu |
+| AppServiceFileAuditLogs | Ja | TBA | TBA | TBA | Fil ändringar som har gjorts i webbplatsens innehåll. endast tillgängligt för Premium-nivån och över |
 | AppServiceAppLogs | ASP .NET | TBA | Java SE & Tomcat | Java SE & Tomcat | Program loggar |
-| AppServiceIPSecAuditLogs  | Yes | TBA | Ja | Ja | Begär Anden från IP-regler |
+| AppServiceIPSecAuditLogs  | Ja | TBA | Ja | Ja | Begär Anden från IP-regler |
 | AppServicePlatformLogs  | TBA | TBA | Ja | Ja | Åtgärds loggar för behållare |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Nästa steg

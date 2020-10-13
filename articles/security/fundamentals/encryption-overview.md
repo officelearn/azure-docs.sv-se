@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.openlocfilehash: d839ea042dec2224885f9ba4a0cb6adef5108568
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89458628"
 ---
 # <a name="azure-encryption-overview"></a>Översikt över Azure-kryptering
@@ -30,7 +30,7 @@ En mer detaljerad beskrivning av hur data i vila krypteras i Azure finns i [Azur
 
 ## <a name="azure-encryption-models"></a>Azure Encryption-modeller
 
-Azure har stöd för olika krypterings modeller, inklusive kryptering på Server sidan som använder tjänst hanterade nycklar, Kundhanterade nycklar i Key Vault eller Kundhanterade nycklar på kundkontrollerad maskin vara. Med kryptering på klient sidan kan du hantera och lagra nycklar lokalt eller på en annan säker plats.
+Azure har stöd för olika krypterings modeller, inklusive kryptering på Server sidan som använder tjänst hanterade nycklar, Kundhanterade nycklar i Key Vault eller Kundhanterade nycklar på kundkontrollerad maskin vara. Med kryptering på klientsidan kan du hantera och lagra nycklar lokalt eller på en annan säker plats.
 
 ### <a name="client-side-encryption"></a>Kryptering av klientsidan
 
@@ -155,7 +155,7 @@ För fjärrhantering kan du använda SSH ( [Secure Shell](../../virtual-machines
 
 Du kan ansluta till Azure via ett virtuellt privat nätverk som skapar en säker tunnel för att skydda sekretessen för data som skickas över nätverket.
 
-### <a name="azure-vpn-gateways"></a>Azure VPN Gateway
+### <a name="azure-vpn-gateways"></a>Azure VPN-gatewayer
 
 Du kan använda en [Azure VPN-gateway](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md) för att skicka krypterad trafik mellan det virtuella nätverket och den lokala platsen via en offentlig anslutning, eller för att skicka trafik mellan virtuella nätverk.
 
@@ -197,7 +197,7 @@ Mer information om kryptering av data i överföring i Data Lake finns i [krypte
 
 Krypteringen blir oanvändbar om du inte har rätt skydd och hantering av nycklarna. Key Vault är den Microsoft-rekommenderade lösningen för att hantera och kontrol lera åtkomst till krypterings nycklar som används av moln tjänster. Behörigheter för åtkomst till nycklar kan tilldelas till tjänster eller till användare via Azure Active Directory-konton.
 
-Key Vault delar organisationer av behovet av att konfigurera, korrigera och underhålla HSM: er (Hardware Security modules) och program vara för nyckel hantering. När du använder Key Vault behåller du kontrollen. Microsoft ser aldrig dina nycklar och program har inte direkt åtkomst till dem. Du kan också importera eller generera nycklar i HSM: er.
+Med Key Vault slipper organisationer konfigurera, korrigera och underhålla maskinvarumoduler för säkerhet (HSM, Hardware Security Modules) och programvara för nyckelhantering. När du använder Key Vault behåller du kontrollen. Microsoft ser aldrig dina nycklar och program har inte direkt åtkomst till dem. Du kan också importera eller generera nycklar i HSM: er.
 
 ## <a name="next-steps"></a>Nästa steg
 

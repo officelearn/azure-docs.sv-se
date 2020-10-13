@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 5b96ac9cf43782764e88039d736ba61454d65911
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67b855beae4ea36bf4ef7e6bb396c6b7ae1d89e3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539222"
+ms.locfileid: "91874347"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
 Med virtuella Azure-nätverk (VNET) kan du placera valfria Azure-resurser i ett dirigerbart icke-Internetbaserat nätverk som du kontrollerar åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om virtuella Azure-nätverk börjar du med informationen här: [Azure Virtual Network-översikt](../virtual-network/virtual-networks-overview.md).
@@ -223,6 +223,7 @@ IP-adresserna delas av **Azure-miljön**. När du tillåter inkommande begär An
 | Azure, offentlig| Kanada, östra| 52.139.80.117|
 | Azure, offentlig| Förenade Arabemiraten, norra| 20.46.144.85|
 | Azure, offentlig| Brasilien, södra| 191.233.24.179|
+| Azure, offentlig| Brasilien, sydöstra| 191.232.18.181|
 | Azure, offentlig| Sydostasien| 40.90.185.46|
 | Azure, offentlig| Sydafrika, norra| 102.133.130.197|
 | Azure, offentlig| Kanada, centrala| 52.139.20.34|

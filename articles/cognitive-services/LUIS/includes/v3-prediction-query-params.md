@@ -5,15 +5,15 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/30/2020
 ms.openlocfilehash: 14380dd781fc1eebfe7edb0a816ff8af0f2f17b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309444"
 ---
 V3 API-frågeparametrar innehåller:
 
-|Frågeparameter|LUIS-portalens namn|Typ|Version|Standardvärde|Syfte|
+|Frågeparameter|LUIS-portalens namn|Typ|Version|Default|Syfte|
 |--|--|--|--|--|--|
 |`log`|Spara loggar|boolean|V2 & V3|falskt|Lagra fråga i logg filen. Standardvärdet är false.|
 |`query`|-|sträng|Endast v3|Ingen standard – det krävs i GET-begäran|**I v2**är uttryck som ska förutsägas i `q` parametern. <br><br>**I v3**skickas funktionerna i- `query` parametern.|

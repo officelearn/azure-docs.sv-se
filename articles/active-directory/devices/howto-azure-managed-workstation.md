@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 841bc3ae4fbddb376ea4da8141bf4df3f895c4dc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89269564"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Distribuera en säker, Azure-hanterad arbets Station
@@ -35,7 +35,7 @@ Välj en profil innan du distribuerar lösningen. Du kan använda flera profiler
 | Intune-hanterad | Ja | Ja | Ja | Ja | Ja | Ja |
 | Enhet – Azure AD har registrerats | Ja |  |  |  |  | |   |
 | Enhet – Azure AD-ansluten |   | Ja | Ja | Ja | Ja | Ja |
-| Säkerhets bas linje för Intune tillämpad |   | Ja <br> Förbättring | Ja <br> (HighSecurity) | Ja <br> (NCSC) | Ja <br> Ordentligt | NA |
+| Säkerhets bas linje för Intune tillämpad |   | Ja <br> Förbättring | Ja <br> (HighSecurity) | Ja <br> (NCSC) | Ja <br> Ordentligt | Ej tillämpligt |
 | Maskin vara uppfyller säkra Windows 10-standarder |   | Ja | Ja | Ja | Ja | Ja |
 | Microsoft Defender ATP aktiverat |   | Ja  | Ja | Ja | Ja | Ja |
 | Borttagning av administratörs behörighet |   |   | Ja  | Ja | Ja | Ja |
@@ -129,7 +129,7 @@ Från Azure Portal:
 
 Med de här stegen kan du hantera alla enheter med Intune. Mer information finns i [Intune snabb start: Konfigurera automatisk registrering för Windows 10-enheter](/Intune/quickstart-setup-auto-enrollment). Du skapar Intune-konfiguration och efterlevnadsprinciper i ett kommande steg.
 
-#### <a name="azure-ad-conditional-access"></a>Villkorlig åtkomst för Azure AD
+#### <a name="azure-ad-conditional-access"></a>Villkorsstyrd åtkomst i Azure AD
 
 Villkorlig åtkomst i Azure AD kan hjälpa till att begränsa privilegierade administrativa uppgifter till kompatibla enheter. Fördefinierade medlemmar i gruppen **säker arbets Station användare** krävs för att utföra Multi-Factor Authentication vid inloggning till moln program. Ett bra tips är att undanta åtkomst konton för nöd situationer från principen. Mer information finns i [Hantera åtkomst konton för nöd situationer i Azure AD](../users-groups-roles/directory-emergency-access.md).
 

@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 6bcb1ea6c16fd387dfb7f15f909d1908c20a44d7
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 4189aadb6e37fc70bcaeecca2110d6fcc3959dd3
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710914"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939876"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Översikt över affärs kontinuitet med Azure Database for PostgreSQL-enskild server
 
@@ -29,10 +29,9 @@ I följande tabell jämförs RTO och återställnings punkt i ett typiskt scenar
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Återställning till tidpunkt från säkerhetskopia | Alla återställnings punkter inom kvarhållningsperioden | Alla återställnings punkter inom kvarhållningsperioden | Alla återställnings punkter inom kvarhållningsperioden |
 | Geo-återställning från geo-replikerade säkerhets kopieringar | Stöds inte | RTO – varierar <br/>Återställnings < 1 h | RTO – varierar <br/>Återställnings < 1 h |
-| Skrivskyddade repliker | RTO – minuter <br/>Återställnings < 5 min | RTO – minuter <br/>Återställnings < 5 min| RTO – minuter <br/>Återställnings < 5 min|
+| Skrivskyddade repliker | RTO – minuter <br/>Återställnings < 5 min * | RTO – minuter <br/>Återställnings < 5 min *| RTO – minuter <br/>Återställnings < 5 min *|
 
-> [!IMPORTANT]
-> Den förväntade RTO och den som anges här är endast i referens syfte. Inga service avtal erbjuds för dessa mått.
+\* Återställningen kan vara högre i vissa fall, beroende på olika faktorer, inklusive primär databasens arbets belastning och svars tid mellan regioner. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Återställa en server efter ett användar-eller program fel
 

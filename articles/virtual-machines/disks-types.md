@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 7f274827e646ea0a7c0fd103983cfc566d699228
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91596783"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Vilka disktyper är tillgängliga i Azure?
@@ -23,7 +23,7 @@ Azure Managed disks erbjuder för närvarande fyra disk typer, och varje typ är
 
 Följande tabell innehåller en jämförelse av Ultra disks, Premium solid-state-hårddiskar (SSD), standard SSD och standard hård diskar (HDD) för hanterade diskar för att hjälpa dig att avgöra vad som ska användas.
 
-| Detalj | Ultradisk | Premium SSD | Standard SSD | Standard HDD |
+| Information | Ultradisk | Premium SSD | Standard SSD | Standard HDD |
 | ------ | ---------- | ----------- | ------------ | ------------ |
 |Disktyp   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |I/o-intensiva arbets belastningar, till exempel [SAP HANA](workloads/sap/hana-vm-operations-storage.md), toppnivå databaser (till exempel SQL, Oracle) och andra transaktions krävande arbets belastningar.   |Produktion och prestandakänsliga arbetsbelastningar   |Webbservrar, företagsprogram med lätt användning och Dev/Test   |Säkerhetskopiering, icke-kritisk, lågfrekvent åtkomst   |

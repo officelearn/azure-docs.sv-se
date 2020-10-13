@@ -9,21 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 7227813f607ca18ee50f503a30b290414f333e21
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310177"
 ---
 # <a name="supported-data-format-details"></a>Information om dataformat som stöds
 
-Den här artikeln innehåller information om Läs-och skriv stöd för alla XML-taggar och välkända text geometri typer. Den innehåller också information om hur avgränsade spatialdata tolkas i den spatiala IO-modulen.
+Den här artikeln innehåller information om Läs-och skriv stöd för alla XML-taggar och Well-Known text geometri typer. Den innehåller också information om hur avgränsade spatialdata tolkas i den spatiala IO-modulen.
 
 ## <a name="supported-xml-namespaces"></a>XML-namnområden som stöds
 
 Den spatiala IO-modulen stöder XML-taggar från följande namn rymder.
 
-| Namnområdesprefix | Namnområdes-URI   | Kommentarer                                                                    |
+| Namnområdesprefix | Namnområdes-URI   | Obs!                                                                    |
 |:------------------|:-----------------|:----------------------------------------|
 | `atom`           | `http://www.w3.org/2005/Atom`   |                                         |
 | `geo`            | `http://www.w3.org/2003/01/geo/wgs84_pos#`  | Skrivskyddad support i GeoRSS-filer.           |
@@ -45,7 +45,7 @@ Den spatiala IO-modulen har stöd för följande XML-element. Alla XML-taggar so
 
 Den spatiala IO-modulen har stöd för följande KML-element.
 
-| Elementnamn         | Läsa    | Skriva   | Kommentarer                                                                                                                      |
+| Elementnamn         | Läsa    | Skriva   | Obs!                                                                                                                      |
 |----------------------|---------|---------|----------------------------------------------------------------------------------------------------------------------------|
 | `address`            | signatur | ja     | Objektet är parsat men används inte för placering av form.                                                                    |
 | `AddressDetails`     | signatur | nej      | Objektet är parsat men används inte för placering av form.                                                                    |
@@ -131,7 +131,7 @@ Den spatiala IO-modulen har stöd för följande KML-element.
 
 Den spatiala IO-modulen har stöd för följande GeoRSS-element.
 
-| Elementnamn             | Läsa    | Skriva | Kommentarer                                                                                          |
+| Elementnamn             | Läsa    | Skriva | Obs!                                                                                          |
 |--------------------------|---------|-------|------------------------------------------------------------------------------------------------|
 | `atom:author`            | ja     | ja   |                                                                                                |
 | `atom:category`          | ja     | ja   |                                                                                                |
@@ -203,7 +203,7 @@ Den spatiala IO-modulen har stöd för följande GeoRSS-element.
 
 Den spatiala IO-modulen har stöd för följande GML-element. 
 
-| Elementnamn            | Läsa | Skriva | Kommentarer                                                                                  |
+| Elementnamn            | Läsa | Skriva | Obs!                                                                                  |
 |-------------------------|------|-------|----------------------------------------------------------------------------------------|
 | `gml:coordinates`       | ja  | nej    | Skrivs som `gml:posList` .                                                              |
 | `gml:curveMember`       | ja  | nej    |                                                                                        |
@@ -254,7 +254,7 @@ Den spatiala IO-modulen har stöd för följande GML-element.
 
 Den spatiala IO-modulen har stöd för följande GPX-element.
 
-| Elementnamn             | Läsa    | Skriva   | Kommentarer                                                                                       |
+| Elementnamn             | Läsa    | Skriva   | Obs!                                                                                       |
 |--------------------------|---------|---------|---------------------------------------------------------------------------------------------|
 | `gpx:ageofdgpsdata`      | ja     | ja     |                                                                                             |
 | `gpx:author`             | ja     | ja     |                                                                                             |
@@ -304,7 +304,7 @@ Vid skrivning,
 - Multipoäng delas upp i enskilda waypoints.
 - Polygoner och multipolygoner skrivs som spår. 
   
-## <a name="supported-well-known-text-geometry-types"></a>Välkända text geometri typer som stöds
+## <a name="supported-well-known-text-geometry-types"></a>Well-Known text geometri typer som stöds
 
 | Geometri typ | Läsa | Skriva |
 |--------------|:----:|:-----:|
@@ -343,7 +343,7 @@ Vid skrivning,
 
 ## <a name="delimited-spatial-data-support"></a>Stöd för avgränsad spatial data
 
-Avgränsade spatialdata, till exempel CSV-filer (kommaavgränsade filer) har ofta kolumner som innehåller spatialdata. Det kan till exempel finnas kolumner som innehåller information om latitud och longitud. I välkända text format kan det finnas en kolumn som innehåller data för spatial geometri.
+Avgränsade spatialdata, till exempel CSV-filer (kommaavgränsade filer) har ofta kolumner som innehåller spatialdata. Det kan till exempel finnas kolumner som innehåller information om latitud och longitud. I Well-Known text format kan det finnas en kolumn som innehåller data för spatial geometri.
 
 ### <a name="spatial-data-column-detection"></a>Identifiering av kolumn för avstånds data
 
@@ -385,7 +385,7 @@ När du läser en avgränsad fil som innehåller spatialdata kommer rubriken att
 
 #### <a name="geography"></a>Geografi
 
-Den första raden med data söks igenom efter strängar med välkända text format. 
+Den första raden med data söks igenom efter strängar som har Well-Known text format. 
 
 ### <a name="delimited-data-column-types"></a>Avgränsade data kolumn typer
 
@@ -410,7 +410,7 @@ När du skannar rubrik raden kommer all typ information som finns i kolumn namne
 #### <a name="dates"></a>Datum
 
 - EDM. DateTime
-- datum
+- date
 - datetime
 
 #### <a name="geography"></a>Geografi

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 037598212773ca75abbdd086fe0577e0660f2218
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91398586"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Använd arbets flöden för att integrera ditt Azure IoT Central-program med andra moln tjänster
@@ -75,7 +75,7 @@ Så här lägger du till **Azure IoT Central v3 – för hands versions** koppli
 1. I listan med åtgärder väljer du den IoT Central åtgärd som du vill använda.
 1. I åtgärds steget Slutför du konfigurationen för den åtgärd som du har valt. Välj sedan **Spara**.
 
-:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Hitta Azure IoT Central v3-anslutningen och välj en åtgärd":::
+:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Hitta Azure IoT Central – för hands versions koppling och välj utlösaren":::
 
 ## <a name="list-of-actions"></a>Lista med åtgärder
 
@@ -85,7 +85,7 @@ I följande lista visas alla tillgängliga IoT Central åtgärder i **Azure IoT 
 
 Använd den här åtgärden för att skapa eller uppdatera en enhet i IoT Central programmet.
 
-| Fält | Beskrivning |
+| Field | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för enheten som ska skapas eller uppdateras. |
@@ -99,7 +99,7 @@ Använd den här åtgärden för att skapa eller uppdatera en enhet i IoT Centra
 
 Använd den här åtgärden för att ta bort en enhet från IoT Central-programmet.
 
-| Fält | Beskrivning |
+| Field | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för den enhet som ska tas bort. |
@@ -108,7 +108,7 @@ Använd den här åtgärden för att ta bort en enhet från IoT Central-programm
 
 Använd den här åtgärden för att köra ett kommando som definierats i en av enhetens gränssnitt.
 
-| Fält | Beskrivning |
+| Field | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för den enhet som ska tas bort. |
@@ -124,7 +124,7 @@ Använd den här åtgärden för att köra ett kommando som definierats i en av 
 
 Använd den här åtgärden för att hämta enhetens information.
 
-| Fält | Beskrivning |
+| Field | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för den enhet som ska tas bort. |
@@ -135,7 +135,7 @@ Du kan använda den returnerade informationen i de dynamiska uttrycken i andra �
 
 Använd den här åtgärden för att hämta moln egenskaps värden för en enskild enhet.
 
-| Fält | Beskrivning |
+| Field | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för den enhet som ska tas bort. |
@@ -147,7 +147,7 @@ Du kan använda de returnerade moln egenskaps värdena i de dynamiska uttrycken 
 
 Använd den här åtgärden för att hämta egenskaps värden för en enskild enhet.
 
-| Fält | Beskrivning |
+| Field | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för den enhet som ska tas bort. |
@@ -159,7 +159,7 @@ Du kan använda de returnerade egenskapsvärdena i de dynamiska uttrycken i andr
 
 Använd den här åtgärden för att hämta telemetri-värden för en speciell enhet.
 
-| Fält | Beskrivning |
+| Field | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för den enhet som ska tas bort. |
@@ -171,7 +171,7 @@ Du kan använda de värden för telemetri som returnerades i de dynamiska uttryc
 
 Använd den här åtgärden för att uppdatera moln egenskaps värden för en enskild enhet.
 
-| Fält | Beskrivning |
+| Field | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för den enhet som ska tas bort. |
@@ -182,7 +182,7 @@ Använd den här åtgärden för att uppdatera moln egenskaps värden för en en
 
 Använd den här åtgärden för att uppdatera skrivbara egenskaps värden för en enskild enhet.
 
-| Fält | Beskrivning |
+| Field | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för den enhet som ska tas bort. |

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
 ms.openlocfilehash: 52df2ad0dc4c60c24e341a9765e31bcf9776bf5e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91277299"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installera och kör behållaren för rums analys (förhands granskning)
@@ -65,7 +65,7 @@ I den här artikeln ska du hämta och installera följande program varu paket. V
 
 | Krav | Beskrivning |
 |--|--|
-| Kamera | Behållaren för rums analys är inte knuten till ett speciellt kamera märke. Kamera enheten behöver: stöd för att använda RTSP-protokollet (Real-Time Streaming Protocol) och H. 264-kodning, vara tillgängligt för värddatorn och kunna strömmas vid 15FPS och 1080p-upplösning. |
+| Kamera | Behållaren för rums analys är inte knuten till ett speciellt kamera märke. Kamera enheten behöver: stöd för Real-Time Streaming Protocol (RTSP) och H. 264-kodning, är tillgänglig för värddatorn och kan strömmas vid 15FPS och 1080p-upplösning. |
 | Linux-operativsystem | [Ubuntu Desktop 18,04-LTS](http://releases.ubuntu.com/18.04/) måste vara installerat på värddatorn.  |
 
 

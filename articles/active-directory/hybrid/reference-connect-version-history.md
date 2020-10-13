@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fccbb84647ae9e47afc7bb36eeca97bb41a0d1d8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604078"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Versionshistorik för Azure AD Connect
@@ -142,10 +142,10 @@ Den här snabb korrigeringen åtgärdar ett problem i build-1.5.20.0 om du har k
 - Attributet mS-DS-ConsistencyGuid anges automatiskt för alla synkroniserade grupper och du behöver inte göra något för att aktivera den här funktionen. 
 - Get-ADSyncRunProfile har tagits bort eftersom den inte längre används. 
 - Ändrade varningen som visas när du försöker att använda ett företags administratörs konto eller ett domän administratörs konto för AD DS-anslutningsprogrammet för att tillhandahålla mer kontext. 
-- En ny cmdlet har lagts till för att ta bort objekt från anslutnings området det gamla CSDelete.exe verktyget tas bort och ersätts med den nya cmdleten Remove-ADSyncCSObject. Cmdlet: en Remove-ADSyncCSObject använder en CsObject som indatamängd. Det här objektet kan hämtas med hjälp av cmdleten Get-ADSyncCSObject.
+- En ny cmdlet har lagts till för att ta bort objekt från anslutnings området det gamla CSDelete.exe verktyget tas bort och ersätts med den nya Remove-ADSyncCSObject-cmdleten. Remove-ADSyncCSObject-cmdleten tar en CsObject som inmatad. Det här objektet kan hämtas med hjälp av Get-ADSyncCSObject-cmdleten.
 
 >[!NOTE]
->Det gamla CSDelete.exes verktyget har tagits bort och ersatts med den nya cmdleten Remove-ADSyncCSObject 
+>Det gamla CSDelete.exes verktyget har tagits bort och ersatts med den nya Remove-ADSyncCSObject-cmdleten 
 
 ### <a name="fixed-issues"></a>Åtgärdade problem
 

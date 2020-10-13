@@ -4,19 +4,22 @@ description: Anslut privat till en webbapp med hjälp av privat Azure-slutpunkt
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 10/07/2020
+ms.date: 10/09/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 855cbe3d2926a04af773aa32ea0ab63bde89491c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c4b6377d28339b0b4953cd908f4964b64dab4fe
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91857273"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873106"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Använda privata slut punkter för Azure Web App
+
+> [!IMPORTANT]
+> Privat slut punkt är tillgänglig för Windows-och Linux-webbappar, som är behållare eller inte, som finns på dessa App Service planer: **isolerade**, **PremiumV2**, **PremiumV3**, **Functions Premium** (kallas ibland elastisk Premium-plan). 
 
 Du kan använda privat slut punkt för din Azure-webbapp för att tillåta klienter som finns i ditt privata nätverk att säkert komma åt appen via privat länk. Den privata slut punkten använder en IP-adress från ditt Azure VNet-adressutrymme. Nätverks trafik mellan en klient i ditt privata nätverk och webbappen går igenom VNet och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet.
 
@@ -91,7 +94,7 @@ Namn matchningen är till exempel:
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|< – du hanterar den här posten i ditt DNS-system för att peka på din privata slut punkts IP-adress|
 
-Efter den här DNS-konfigurationen kan du komma åt din webbapp privat med standard namnet mywebappname.azurewebsites.net.
+Efter den här DNS-konfigurationen kan du komma åt din webbapp privat med standard namnet mywebappname.azurewebsites.net. Du måste använda det här namnet eftersom standard certifikatet utfärdas för *. azurewebsites.net.
 
 
 Om du behöver använda ett anpassat DNS-namn måste du lägga till det anpassade namnet i din webbapp. Det anpassade namnet måste verifieras som valfritt anpassat namn med hjälp av offentlig DNS-matchning. Mer information finns i [anpassad DNS-validering][dnsvalidation].
@@ -115,9 +118,9 @@ När du använder Azure Function i elastisk Premium-plan med privat slut punkt, 
 
 Du kan ansluta upp till 100 privat slut punkt till en viss webbapp.
 
-Fjärr fel söknings funktionen är inte tillgänglig när privat slut punkt har Aktiver ATS för webb programmet. Rekommendationen är att distribuera koden till en plats och fjärran sluten fel sökning där.
+Platser kan inte använda privat slut punkt.
 
-Privat slut punkt är tillgänglig för PremiumV2, PremiumV3, Windows-och Linux-webbappar, containerd eller inte och Azure Functions Premium-plan (kallas även för elastisk Premium-plan). 
+Fjärr fel söknings funktionen är inte tillgänglig när privat slut punkt har Aktiver ATS för webb programmet. Rekommendationen är att distribuera koden till en plats och fjärran sluten fel sökning där.
 
 Vi förbättrar den privata länk funktionen och den privata slut punkten regelbundet. Läs [den här artikeln][pllimitations] för uppdaterad information om begränsningar.
 

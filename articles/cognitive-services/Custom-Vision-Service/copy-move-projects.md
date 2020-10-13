@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
 ms.openlocfilehash: 78ae0fc94e74755b481f80724ca26b34da99122c
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91758582"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Kopiera och flytta dina Custom Vision-projekt
@@ -26,7 +26,7 @@ När du har skapat och tränat ett Custom Vision projekt kanske du vill kopiera 
 
 Om din app eller ditt företag är beroende av att ett Custom Vision-projekt används, rekommenderar vi att du kopierar din modell till ett annat Custom Vision konto i en annan region. Om ett regionalt avbrott inträffar kan du komma åt projektet i den region där det kopierades.
 
-##  <a name="prerequisites"></a>Krav
+##  <a name="prerequisites"></a>Förutsättningar
 
 - Två Azure Custom Vision-resurser. Om du inte har dem går du till Azure Portal och [skapar en ny Custom vision resurs](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
 - Utbildnings nycklar och slut punkts-URL: er för dina Custom Vision resurser. Du hittar dessa värden på resurs-fliken **Översikt** på Azure Portal.

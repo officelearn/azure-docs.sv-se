@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 995cd8470d4fbbf3dc340139a86275593a3d5d28
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88815266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tigerconnect-secure-messenger"></a>Självstudie: Azure Active Directory integrering med TigerConnect Secure Messenger
@@ -30,7 +30,7 @@ Att integrera TigerConnect Secure Messenger med Azure AD ger följande fördelar
 
 Mer information om program vara som en tjänst (SaaS) för program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med TigerConnect Secure Messenger behöver du följande objekt:
 
@@ -93,7 +93,7 @@ Utför följande steg för att konfigurera enkel inloggning med TigerConnect Sec
     > [!NOTE]
     > Värdet för **identifieraren (enhets-ID)** är inte verkligt. Uppdatera det här värdet med den faktiska identifieraren. Kontakta [support teamet för TigerConnect Secure Messenger](mailto:prosupport@tigertext.com)för att få värdet. Du kan också se de mönster som visas i fönstret **grundläggande konfiguration av SAML** i Azure Portal.
 
-1. I avsnittet **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **Hämta** för att ladda ned **XML-metadata för federationsmetadata** från de angivna alternativen och sparar den på din dator.
+1. I avsnittet **Konfigurera enskilda Sign-On med SAML** i avsnittet **SAML-signeringscertifikat** väljer du **Ladda ned** för att ladda ned **XML-metadata för federationsmetadata** från de angivna alternativen och sparar dem på din dator.
 
     ![Hämtnings alternativ för XML-metadata för federationsmetadata](common/metadataxml.png)
 
@@ -110,7 +110,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -150,7 +150,7 @@ När du väljer **TigerConnect Secure Messenger** i portalen Mina appar, bör du
 
 - [Lista över självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

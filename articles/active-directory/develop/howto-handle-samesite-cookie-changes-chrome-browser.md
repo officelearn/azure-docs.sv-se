@@ -14,17 +14,17 @@ ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
 ms.openlocfilehash: 5742ddf9553c3ac9187dbef93fc7927564cbc095
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116979"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Hantera SameSite-cookieändringar i webbläsaren Chrome
 
 ## <a name="what-is-samesite"></a>Vad är SameSite?
 
-`SameSite`är en egenskap som kan anges i HTTP-cookies för att förhindra förfalskning av CSRF-attacker (Cross Site Request) i webb program:
+`SameSite` är en egenskap som kan anges i HTTP-cookies för att förhindra förfalskning av CSRF-attacker (Cross Site Request) i webb program:
 
 - När `SameSite` är inställt på **lax**skickas cookien i begär Anden inom samma plats och i Hämta förfrågningar från andra platser. Den skickas inte i GET-begäranden som är mellan domäner.
 - Värdet **strict** garanterar att cookien skickas i begär Anden endast inom samma plats.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/31/2019
 ms.author: jeedes
-ms.openlocfilehash: daef8a91c2f31379ebf50d1e8ec66d0b33ebb2cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 081c61610c4134917ffa90cf45fb096f3df4bcbe
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88534855"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939315"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-administrator-console"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Netskope Administratörskonsol
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera Netskope-Administratör
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -97,7 +97,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig Netskope-Administratörskonsol program att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     | ---------| --------- |
     | admin-roll | user.assignedroles |
 
@@ -148,19 +148,19 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på fliken **Inställningar** i det vänstra navigerings fönstret.
 
-    ![Netskope Administratörskonsol konfiguration](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![Skärm bild som visar den valda inställningen i navigerings fönstret.](./media/netskope-cloud-security-tutorial/config-settings.png)
 
 1. Klicka på fliken **Administration** .
 
-    ![Netskope Administratörskonsol konfiguration](./media/netskope-cloud-security-tutorial/config-administration.png)
+    ![Skärm bild som visar administration som valts från inställningar.](./media/netskope-cloud-security-tutorial/config-administration.png)
 
 1. Klicka på **SSO** -fliken.
 
-    ![Netskope Administratörskonsol konfiguration](./media/netskope-cloud-security-tutorial/config-sso.png)
+    ![Skärm bild som visar S O valt i administration.](./media/netskope-cloud-security-tutorial/config-sso.png)
 
 1. I avsnittet **nätverks inställningar** utför du följande steg:
     
-    ![Netskope Administratörskonsol konfiguration](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
+    ![Skärm bild som visar nätverks inställningar där du kan ange de värden som beskrivs.](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
 
     a. Kopiera **intygets URL-** värde och klistra in det i text rutan **svars-URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
@@ -168,11 +168,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **Redigera inställningarna** under Inställningar för **SSO/service nivå** .
 
-    ![Netskope Administratörskonsol konfiguration](./media/netskope-cloud-security-tutorial/config-editsettings.png)
+    ![Skärm bild som visar S O/S L O-inställningar där du kan välja Redigera inställningar.](./media/netskope-cloud-security-tutorial/config-editsettings.png)
 
 1. I popup-fönstret **Inställningar** utför du följande steg:
 
-    ![Netskope Administratörskonsol konfiguration](./media/netskope-cloud-security-tutorial/configuration.png)
+    ![Skärm bild som visar dialog rutan inställningar där du kan ange de värden som beskrivs.](./media/netskope-cloud-security-tutorial/configuration.png)
 
     a. Välj **Aktivera SSO**.
 
@@ -194,23 +194,23 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på fliken **Inställningar** i det vänstra navigerings fönstret.
 
-    ![Netskope Administratörskonsol skapande av användare](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![Skärm bilden visar valda inställningar.](./media/netskope-cloud-security-tutorial/config-settings.png)
 
 1. Klicka på fliken **Active Platform** .
 
-    ![Netskope Administratörskonsol skapande av användare](./media/netskope-cloud-security-tutorial/user1.png)
+    ![Skärm bild som visar aktiv plattform som valts från inställningar.](./media/netskope-cloud-security-tutorial/user1.png)
 
 1. Klicka på fliken **användare** .
 
-    ![Netskope Administratörskonsol skapande av användare](./media/netskope-cloud-security-tutorial/add-user.png)
+    ![Skärm bild som visar användare som valts från aktiv plattform.](./media/netskope-cloud-security-tutorial/add-user.png)
 
 1. Klicka på **Lägg till användare**.
 
-    ![Netskope Administratörskonsol skapande av användare](./media/netskope-cloud-security-tutorial/user-add.png)
+    ![Skärm bild som visar dialog rutan användare där du kan välja Lägg till användare.](./media/netskope-cloud-security-tutorial/user-add.png)
 
 1. Ange e-postadressen för den användare som du vill lägga till och klicka på **Lägg till**.
 
-    ![Netskope Administratörskonsol skapande av användare](./media/netskope-cloud-security-tutorial/add-user-popup.png)
+    ![Skärm bild som visar Lägg till användare där du kan ange en lista över användare.](./media/netskope-cloud-security-tutorial/add-user-popup.png)
 
 ## <a name="test-sso"></a>Testa SSO
 

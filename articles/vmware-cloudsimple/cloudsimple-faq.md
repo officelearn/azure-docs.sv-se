@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 0db8c13a7467ed864c0845319b37f958f60fa4d9
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88140895"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Vanliga frågor om VMware-lösning av CloudSimple
@@ -50,7 +50,7 @@ CloudSimple tillhandahåller ett meddelande flera dagar före ett schemalagt und
 * **CloudSimple-infrastruktur**.  CloudSimple-infrastrukturen är utformad för att vara hög tillgänglig.  Vid den här typen av underhålls intervall uppdateras redundanta komponenter en i taget för att undvika avbrott i tjänsten. Du upprätthåller åtkomst till ditt privata moln vCenter, alla virtuella datorer, Internet anslutningen från ditt privata moln och anslutningar till lokalt eller Azure.
 * **CloudSimple-portalen**. Under den här typen av underhålls intervall kan vissa funktioner på CloudSimple-portalen vara inaktiverade eller otillgängliga.  Meddelandet före underhålls intervallet innehåller information om funktions begränsningar medan underhåll sker.
 
-## <a name="connectivity"></a>Anslutning
+## <a name="connectivity"></a>Anslutningsmöjlighet
 
 **Vilka är mina anslutnings alternativ till CloudSimple regions nätverk?**
 

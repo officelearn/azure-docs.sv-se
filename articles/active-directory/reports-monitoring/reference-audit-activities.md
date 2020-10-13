@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 56f9976faf2a803e747bce8b851a3555e6d746b0
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231154"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referens över granskningsaktiviteter i Azure AD
@@ -256,17 +256,17 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Kataloghantering|Hämta klientinfo|
 |Kataloghantering|Hämta klienttillåtna funktioner|
 |Kataloghantering|Hämta tenantDomains|
-|Nyckel|Hämtar typ av klient|
-|Nyckel|Kontrollera om B2C-funktionen är aktiverad|
-|Nyckel|Verifiera om funktionen är aktive rad|
-|Nyckel|Lägg till partner till företag|
-|Nyckel|Lägg till overifierad domän|
-|Nyckel|Lägg till verifierad domän|
-|Nyckel|Skapa företag|
-|Nyckel|Skapa företagsinställningar|
-|Nyckel|Ta bort företagsinställningar|
-|Nyckel|Flytta ned partner|
-|Nyckel|Katalog borttagen|
+|Tangent|Hämtar typ av klient|
+|Tangent|Kontrollera om B2C-funktionen är aktiverad|
+|Tangent|Verifiera om funktionen är aktive rad|
+|Tangent|Lägg till partner till företag|
+|Tangent|Lägg till overifierad domän|
+|Tangent|Lägg till verifierad domän|
+|Tangent|Skapa företag|
+|Tangent|Skapa företagsinställningar|
+|Tangent|Ta bort företagsinställningar|
+|Tangent|Flytta ned partner|
+|Tangent|Katalog borttagen|
 |Övrigt|Katalog borttagen permanent|
 |Övrigt|Katalog schemalagd för borttagning|
 |Resurs|Flytta upp företag till partner|

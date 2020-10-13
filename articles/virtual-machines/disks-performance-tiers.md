@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: efbe8bc24b430716da46601ed073300e4c79cca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b7d670f5e38968fa6592e323ede075abf687435
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743734"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939025"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Prestanda nivåer för Managed disks (för hands version)
 
@@ -58,7 +58,7 @@ Information om fakturering finns i [priser för Managed disks](https://azure.mic
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Möjligheten att justera prestanda nivån för en hanterad disk är för närvarande endast tillgänglig på Premium-SSD i regionen västra centrala USA. 
+Möjligheten att justera prestanda nivån för en hanterad disk är för närvarande endast tillgänglig på Premium-SSD i USA, östra 2, södra centrala USA, västra centrala USA, östra Australien, östra regioner.
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Skapa en tom datadisk med en högre nivå än bas linje nivån
 

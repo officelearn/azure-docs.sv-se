@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e6cfbef3751a7b4256f689af0e5b3524ae6fa878
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88037464"
 ---
 # <a name="extended-geojson-geometries"></a>Utökat interjson-Geometries
@@ -47,7 +47,7 @@ En `Circle` geometri som representeras med hjälp av `GeoJSON Feature` objektet 
 
     Cirkelns `radius` Egenskaper representeras med hjälp av `GeoJSON Feature` egenskaperna. RADIUS-värdet är i _meter_ och måste vara av typen `double` .
 
-- Undertyp
+- SubType
 
     Cirkel geometrin måste också innehålla `subType` egenskapen. Den här egenskapen måste vara en del av `GeoJSON Feature` egenskaperna och dess värde måste vara en _cirkel_
 
@@ -79,7 +79,7 @@ En `Rectangle` geometri som representeras med hjälp av `GeoJSON Polygon Feature
 
     Rektangelns hörn visas med koordinaterna för ett `GeoJSON Polygon` objekt. Det måste finnas fem koordinater, en för varje hörn. Och en femte koordinat som är samma som den första koordinaten för att stänga polygonen. Det förutsätts att dessa koordinater stämmer och att utvecklaren kan rotera dem som de vill.
 
-- Undertyp
+- SubType
 
     Rektangelns geometri måste också innehålla `subType` egenskapen. Den här egenskapen måste vara en del av `GeoJSON Feature` egenskaperna och dess värde ska vara en _rektangel_
 

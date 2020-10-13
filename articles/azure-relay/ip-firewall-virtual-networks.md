@@ -3,12 +3,12 @@ title: Konfigurera IP-brandvägg för Azure Relay namnrymd
 description: Den här artikeln beskriver hur du använder brand Väggs regler för att tillåta anslutningar från vissa IP-adresser till Azure Relay namn områden.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 250158aff2ceb89e2823b711717f1d3a1cad438c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad8feed5df49dcc4503226a5fae50195bb9d48aa
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976016"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999497"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Konfigurera IP-brandvägg för ett Azure Relay-namnområde
 Som standard är relä namn rymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i [CIDR-notation (classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
@@ -76,7 +76,7 @@ Mallen tar en parameter: **ipMask**, som är en enskild IPv4-adress eller ett bl
       }
     },
     "variables": {
-      "namespaceNetworkRuleSetName": "[concat(parameters('relayNamespaceName'), concat('/', 'default'))]",
+      "namespaceNetworkRuleSetName": "[concat(parameters('relayNamespaceName'), concat('/', 'default'))]"
     },
     "resources": [
       {
@@ -93,7 +93,7 @@ Mallen tar en parameter: **ipMask**, som är en enskild IPv4-adress eller ett bl
       {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.Relay/namespaces/networkruleset",
+        "type": "Microsoft.Relay/namespaces/networkrulesets",
         "dependsOn": [
           "[concat('Microsoft.Relay/namespaces/', parameters('relayNamespaceName'))]"
         ],
@@ -109,6 +109,7 @@ Mallen tar en parameter: **ipMask**, som är en enskild IPv4-adress eller ett bl
                 "action":"Allow"
             }
           ],
+          "virtualNetworkRules": [],
           "trustedServiceAccessEnabled": false,
           "defaultAction": "Deny"
         }

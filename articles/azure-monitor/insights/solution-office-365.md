@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 14f7b5546d30d98adf4a14408882c972687a2d71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb20bf4164cb2153f6786dbec04f79453554fa25
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498805"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999744"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-hanterings lösning i Azure (för hands version)
 
@@ -104,9 +104,9 @@ ms.locfileid: "86498805"
 > 
 > ###    <a name="q-what-will-happen-on-october-31-do-i-need-to-offboard-beforehand"></a>F: Vad kommer att ske den 31 oktober? Måste jag avpublicera i förväg?
 > 
-> - Du kommer inte att kunna ta emot data från **Office365** -lösningen. Lösningen är inte längre tillgänglig i Marketplace
+> - Du kommer inte att kunna ta emot data från **Office365** -lösningen. Lösningen tas bort från arbets ytan och kommer inte längre att vara tillgänglig i Marketplace.
 > - För Azure Sentinel-kunder kommer den Log Analytics arbets ytans lösning **Office365** ingå i Azure Sentinel **SecurityInsights** -lösningen.
-> - Om du inte avpublicera din lösning manuellt kommer dina data att kopplas från automatiskt den 31 oktober.
+> - Om du inte avpublicera din lösning manuellt den 31 oktober kommer dina data att kopplas från automatiskt och **OfficeActivity** -tabellen tas bort. Dessutom kan du fortfarande återställa tabellen när du aktiverar Office 365-anslutaren i Azure Sentinel, enligt beskrivningen nedan.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>F: överförs data till den nya lösningen?
 > Ja. När du tar bort **Office 365** -lösningen från arbets ytan blir dess data tillfälligt otillgängliga eftersom schemat tas bort. När du aktiverar den nya **Office 365** -anslutningen i Sentinel återställs schemat till arbets ytan och alla data som redan har samlats in blir tillgängliga. 
@@ -245,7 +245,7 @@ Instrumentpanelen innehåller kolumnerna i följande tabell. Varje kolumn listar
 
 | Kolumn | Beskrivning |
 |:--|:--|
-| Åtgärder | Innehåller information om aktiva användare från alla övervakade Office 365-prenumerationer. Du kommer också att kunna se antalet aktiviteter som sker över tid.
+| Operations | Innehåller information om aktiva användare från alla övervakade Office 365-prenumerationer. Du kommer också att kunna se antalet aktiviteter som sker över tid.
 | Exchange | Visar en uppdelning av Exchange Server-aktiviteter som Add-Mailbox behörighet eller ange post låda. |
 | SharePoint | Visar de viktigaste aktiviteterna som användare utför i SharePoint-dokument. När du ökar detalj nivån från den här panelen visar Sök sidan information om dessa aktiviteter, till exempel mål dokumentet och platsen för aktiviteten. För en fil som används, kan du till exempel se det dokument som har åtkomst till, dess associerade konto namn och IP-adress. |
 | Azure Active Directory | Omfattar de vanligaste användar aktiviteterna, till exempel återställning av användar lösen ord och inloggnings försök. När du ökar detalj nivån kommer du att kunna se information om dessa aktiviteter, till exempel resultat status. Detta är mest användbart om du vill övervaka misstänkta aktiviteter på din Azure Active Directory. |

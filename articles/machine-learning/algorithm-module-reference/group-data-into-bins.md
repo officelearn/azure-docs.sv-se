@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/19/2020
-ms.openlocfilehash: de9f4517d134b4a42603291110c6b19f69403412
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: 392cb9b4c2ded1b98b79ce8dcd780ac59e96b78a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907030"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998479"
 ---
 # <a name="group-data-into-bins-module"></a>Gruppera data i modulen lager
 
@@ -44,7 +44,8 @@ Grupp data till modulen lager platser stöder flera alternativ för diskretiseri
 
 Följande diagram visar distributionen av numeriska värden före och efter diskretisering med *quantiles* -metoden. Observera att data har diskretiseras och omvandlats till en enhets normal skala jämfört med rå data till vänster.  
 
-Du kan hitta ett [exempel från resultatet av denna pipeline-körning](https://ml.azure.com/visualinterface/authoring/Normal/87270db9-4651-448e-bd28-8ef7428084dc?wsid=%2Fsubscriptions%2Fe9b2ec51-5c94-4fa8-809a-dc1e695e4896%2Fresourcegroups%2Fmodule-ws-rg%2Fworkspaces%2Fmodule-prerelease-119&flight=cm&tid=72f988bf-86f1-41af-91ab-2d7cd011db47&smtendpoint=https%3A%2F%2Fsmt-test1.azureml-test.net).
+> [!div class="mx-imgBorder"]
+> ![Resultat visualisering](media/module/group-data-into-bins-result-example.png)
 
 Eftersom det finns många sätt att gruppera data på, rekommenderar vi att du experimenterar med olika metoder och värden. 
 
@@ -65,6 +66,9 @@ Eftersom det finns många sätt att gruppera data på, rekommenderar vi att du e
     - **Anpassade kanter**: du kan ange de värden som börjar varje lager plats. Värdet Edge är alltid den nedre gränsen för lager platsen. 
     
       Anta till exempel att du vill gruppera värden i två lager platser. En har värden som är större än 0 och en har värden som är mindre än eller lika med 0. I det här fallet anger du **0** i en **kommaavgränsad lista över lager plats kanter**för plats kanter. Utdata från modulen är 1 och 2, vilket anger lager plats indexet för varje rad värde. Observera att listan med kommaavgränsade värden måste vara i stigande ordning, till exempel 1, 3, 5, 7.
+    
+    > [!Note]
+    > *Entropi mdl* -läge definieras i Studio (klassisk) och det finns inget motsvarande paket med öppen källkod som kan utnyttjas för att stödja i designern ännu.        
 
 4. Om du använder diskretisering-lägena **Quantiles** och **samma bredd** använder du alternativet **antal lager platser** för att ange hur många lager platser eller *Quantiles*som du vill skapa.
 

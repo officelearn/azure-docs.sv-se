@@ -6,12 +6,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: 90becfb79973ba45851b0e30384b0f05a7b887e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a427fbc6fad1566ae10e11b61de981aded32e64a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962255"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000240"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Självstudie: Distribuera en ASP.NET-app till Azure med Azure SQL Database
 
@@ -19,7 +19,7 @@ ms.locfileid: "88962255"
 
 ![Publicerat ASP.NET-program i Azure App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -65,20 +65,18 @@ I **Solution Explorer**: Högerklicka på projektet **DotNetAppSqlDb** och välj
 
 ![Publicera från Solution Explorer](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-Se till att **Microsoft Azure App Service** är markerat och klicka på **Publicera**.
+Välj **Azure** som mål, klicka på Nästa och kontrol lera att **Azure App Service (Windows)** är markerat och klicka på Nästa igen.
 
 ![Publicera från projektöversiktssidan](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-to-app-service.png)
 
-I dialogrutan **Skapa App Service** som öppnas efter publicering får du hjälp att skapa alla Azure-resurser som behövs för att köra ASP.NET-appen i Azure.
-
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
-I dialogrutan **Skapa App Service** klickar du på **Lägg till ett konto** och logga sedan in på din Azure-prenumeration. Om du redan är inloggad på ett Microsoft-konto kontrollerar du att kontot tillhör din Azure-prenumeration. Om kontot inte tillhör din Azure-prenumeration klickar du på den för att lägga till rätt konto.
+I dialog rutan **publicera** klickar du på **Lägg till ett konto** från List rutan konto hanteraren och loggar sedan in på din Azure-prenumeration. Om du redan är inloggad på ett Microsoft-konto kontrollerar du att kontot tillhör din Azure-prenumeration. Om kontot inte tillhör din Azure-prenumeration klickar du på den för att lägga till rätt konto.
+
+![Logga in på Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 > [!NOTE]
 > Välj inte **Skapa** ännu om du redan är inloggad.
-
-![Logga in på Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 ### <a name="configure-the-web-app-name"></a>Konfigurera webbappnamnet
 
@@ -112,15 +110,20 @@ Du kan behålla det genererade webbappnamnet eller ändra det till ett annat uni
    |**Plats**| Europa, västra | [Azure-regioner](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
    |**Storlek**| Kostnadsfri | [Prisnivåer](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
+3. Dialog rutan **publicera** visar de resurser som du har konfigurerat. Klicka på **Finish**.
+
+   ![de resurser du har skapat](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
+
+
 ### <a name="create-a-server"></a>Skapa en server
 
 Innan du skapar en databas behöver du en [logisk SQL-Server](../azure-sql/database/logical-servers.md). En logisk SQL-Server är en logisk konstruktion som innehåller en grupp databaser som hanteras som en grupp.
 
-1. Klicka på **Skapa en SQL Database**.
+1. Klicka på **Konfigurera** bredvid SQL Server databas under **anslutna tjänster**.
 
    ![Skapa en SQL Database](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
-2. Dialogrutan **Configure SQL Database** (Konfigurera SQL-databas) öppnas. Klicka på **New** (Nytt) bredvid **SQL Server**.
+2. I dialog rutan **Azure SQL Database** klickar du på **ny** bredvid **databas server**.
 
    Ett unikt servernamn genereras. Det här namnet används som en del av standard-URL: en för servern `<server_name>.database.windows.net` . Det måste vara unikt för alla servrar i Azure SQL. Du kan byta namn på servern, men behåll det genererade värdet för den här självstudiekursen.
 
@@ -128,28 +131,31 @@ Innan du skapar en databas behöver du en [logisk SQL-Server](../azure-sql/datab
 
    Kom ihåg det här användarnamnet och lösenordet. Du behöver dem för att kunna hantera servern senare.
 
+   ![Skapa server](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
+
    > [!IMPORTANT]
    > Även om ditt lösenord maskeras i anslutningssträngar (i Visual Studio och i App Service) så ökar din apps riskexponering eftersom lösenordet är sparat någonstans. App Service kan använda [hanterade tjänstidentiteter](overview-managed-identity.md) till att eliminera den här risken, eftersom du inte behöver ha med några hemligheter alls i koden eller appkonfigurationen. Mer information finns under [Nästa steg](#next-steps).
-
-   ![Skapa server](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
 4. Klicka på **OK**. Stäng inte dialogrutan **Configure SQL Database** (Konfigurera SQL Database) ännu.
 
 ### <a name="create-a-database-in-azure-sql-database"></a>Skapa en databas i Azure SQL Database
 
-1. I dialogrutan **Configure SQL Database** (Konfigurera SQL Database):
+1. I dialog rutan **Azure SQL Database** :
 
    * Behåll det systemgenererade **Database Name** (Databasnamn).
-   * För **Namn på anslutningssträng** ska du ange *MyDbConnection*. Det här namnet måste överensstämma med den anslutningssträng som refereras till i *Models/MyDatabaseContext.cs*.
-   * Välj **OK**.
+   * Välj **Skapa**.
 
     ![Konfigurera databas](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-2. I dialogrutan **Create App Service** (Skapa App Service) visas de resurser du har skapat. Klicka på **Skapa**.
+2. I **databas anslutnings strängens namn**skriver du _MyDbConnection_. Det här namnet måste överensstämma med den anslutningssträng som refereras till i _Models/MyDatabaseContext.cs_.
 
-   ![de resurser du har skapat](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
+3. Ange administratörens användar namn och lösen ord som du använde i [skapa en server](#create-a-server) steg 3 i databasens användar namn och lösen ord.
 
-När guiden för att skapa Azure-resurser har slutförts publiceras ASP.NET-appen i Azure. Din standardwebbläsare startas med URL:en till den distribuerade appen.
+    ![Konfigurera databas anslutnings sträng](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-connection.png)
+
+4. Välj **Slutför**.
+
+När guiden är klar med att skapa Azure-resurser klickar du på **publicera** för att distribuera ASP.net-appen till Azure. Din standardwebbläsare startas med URL:en till den distribuerade appen.
 
 Lägg till några att-göra-uppgifter.
 

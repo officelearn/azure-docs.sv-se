@@ -12,12 +12,12 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2df2cf2a9d0a89f72078cd0da36272781e89e338
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 18afa6b2e974c605b18d4e38b82061234619e9ff
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961331"
+ms.locfileid: "91998113"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrera ett SAML-program i Azure AD B2C
 
@@ -442,7 +442,7 @@ Följande scenarier för SAML-förlitande part (RP) stöds inte för närvarande
 
 En SAML-token är en säkerhetstoken som utfärdas av Azure AD B2C efter en lyckad inloggning. Den innehåller information om användaren, tjänst leverantören som token är avsedd för, signatur och giltighets tid. I följande tabell visas de anspråk och egenskaper som du kan förväntar dig i en SAML-token som utfärdats av Azure AD B2C.
 
-|Element  |Egenskap  |Anteckningar  |
+|Element  |Egenskap  |Kommentarer  |
 |---------|---------|---------|
 |`<Response>`| `ID` | En automatiskt genererad unik identifierare för svaret. | 
 |`<Response>`| `InResponseTo` | ID: t för SAML-begäran som detta meddelande är svar på. | 
@@ -454,7 +454,7 @@ En SAML-token är en säkerhetstoken som utfärdas av Azure AD B2C efter en lyck
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |Tiden då token börjar gälla. Time-värdet är kodat i UTC. Programmet bör använda detta anspråk för att kontrol lera giltigheten för token för token. Om du vill ändra inställningarna för dina livs längder för token anger du `TokenNotBeforeSkewInSeconds` [metadata](saml-issuer-technical-profile.md#metadata) för den tekniska profilen för SAML-token. |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | Tiden då token blir ogiltig. Programmet bör använda detta anspråk för att kontrol lera giltigheten för token för token. Värdet är 15 minuter efter `NotBefore` och kan inte ändras.|
 |`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |En URI-referens som identifierar en avsedd mål grupp. Den identifierar den avsedda mottagaren av token. Värdet är identiskt med SAML-begäran `AssertionConsumerServiceURL` .|
-|`<Response>``<Assertion>` `<saml:AttributeStatement>` samling av`<Attribute>` | | Intygs insamling (anspråk), enligt konfigurationen i den [förlitande partens tekniska profil](relyingparty.md#technicalprofile) utgående anspråk. Du kan konfigurera namnet på kontrollen genom att ange `PartnerClaimType` för det utgående anspråket. |
+|`<Response>``<Assertion>` `<AttributeStatement>` samling av`<Attribute>` | | Intygs insamling (anspråk), enligt konfigurationen i den [förlitande partens tekniska profil](relyingparty.md#technicalprofile) utgående anspråk. Du kan konfigurera namnet på kontrollen genom att ange `PartnerClaimType` för det utgående anspråket. |
 
 ## <a name="next-steps"></a>Nästa steg
 

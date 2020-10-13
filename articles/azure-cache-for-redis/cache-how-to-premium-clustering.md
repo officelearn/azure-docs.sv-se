@@ -5,13 +5,13 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 06/13/2018
-ms.openlocfilehash: d37aa275a07586738bf7416cee6611bdc8284df3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: 9545dd1480b9d16285d936787cf37fc087e882e1
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88004766"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000043"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du Redis-klustring för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Den här artikeln beskriver hur du konfigurerar kluster i en Premium Azure-cache för Redis-instansen.
@@ -31,19 +31,51 @@ I Azure erbjuds Redis-kluster som en primär modell där varje Shard har ett pri
 ## <a name="clustering"></a>Klustring
 Klustring är aktiverat på bladet **ny Azure-cache för Redis** under skapandet av cache. 
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
+1. Om du vill skapa en Premium-cache loggar du in på [Azure Portal](https://portal.azure.com) och väljer **skapa en resurs**. Förutom att skapa cacheminnen i Azure Portal, kan du också skapa dem med hjälp av Resource Manager-mallar, PowerShell eller Azure CLI. Mer information om hur du skapar en Azure-cache för Redis finns i [skapa en cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Klustring har kon figurer ATS på bladet **Redis kluster** .
+    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Skapa resurs.":::
+   
+2. Välj **databaser** på sidan **nytt** och välj sedan **Azure cache för Redis**.
 
-![Klustring][redis-cache-clustering]
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Skapa resurs.":::
 
-Du kan ha upp till 10 Shards i klustret. Klicka på **aktive rad** och dra skjutreglaget eller Skriv ett tal mellan 1 och 10 för **Shard antal** och klicka på **OK**.
+3. På sidan **ny Redis cache** konfigurerar du inställningarna för din nya Premium-cache.
+   
+   | Inställning      | Föreslaget värde  | Beskrivning |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **DNS-namn** | Ange ett globalt unikt namn. | Cache-namnet måste vara en sträng mellan 1 och 63 tecken som bara innehåller siffror, bokstäver eller bindestreck. Namnet måste börja och sluta med en siffra eller en bokstav och får inte innehålla flera bindestreck i rad. Din cacheposts *värdnamn* är * \<DNS name> . Redis.cache.Windows.net*. | 
+   | **Prenumeration** | List rutan och välj din prenumeration. | Den prenumeration som du vill skapa den här nya Azure-cache för Redis-instansen för. | 
+   | **Resursgrupp** | List rutan och välj en resurs grupp, eller Välj **Skapa ny** och ange ett nytt resurs grupp namn. | Namnet på resurs gruppen där du vill skapa cachen och andra resurser. Genom att lägga till alla dina app-resurser i en resurs grupp kan du enkelt hantera eller ta bort dem tillsammans. | 
+   | **Plats** | List rutan och välj en plats. | Välj en [region](https://azure.microsoft.com/regions/) nära andra tjänster som ska använda din cache. |
+   | **Cachestorlek** | Klicka på list rutan och välj en Premium-cache för att konfigurera Premium-funktioner. Mer information finns i [Azure cache för Redis-priser](https://azure.microsoft.com/pricing/details/cache/). |  Prisnivån avgör storlek, prestanda och funktioner som är tillgängliga för cacheminnet. Mer information finns i [Översikt över Azure Cache for Redis](cache-overview.md). |
 
-Varje Shard är ett primärt/replik-cache-par som hanteras av Azure och den totala storleken på cachen beräknas genom att antalet Shards multipliceras med den cachestorlek som valts på pris nivån. 
+4. Välj fliken **nätverk** eller klicka på knappen **nätverk** längst ned på sidan.
 
-![Klustring][redis-cache-clustering-selected]
+5. På fliken **nätverk** väljer du anslutnings metod. För Premium-cache-instanser kan du ansluta antingen offentligt, via offentliga IP-adresser eller tjänst slut punkter eller privat, med hjälp av en privat slut punkt.
 
-När cachen har skapats ansluter du till den och använder den precis som en icke-klustrad cache, och Redis distribuerar data i cache-Shards. Om diagnostik är [aktiverat](cache-how-to-monitor.md#enable-cache-diagnostics)samlas måtten separat för varje Shard och kan [visas](cache-how-to-monitor.md) i bladet Azure cache för Redis. 
+6. Välj **Nästa: fliken Avancerat** eller klicka på **Nästa: Avancerat** längst ned på sidan.
+
+7. På fliken **Avancerat** för en Premium-cache-instans konfigurerar du inställningarna för icke-TLS-port, klustring och data beständighet. Klicka på **Aktivera**om du vill aktivera klustring.
+
+    :::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering.png" alt-text="Skapa resurs.":::
+
+    Du kan ha upp till 10 Shards i klustret. När du har klickat på **Aktivera**drar du skjutreglaget eller anger ett tal mellan 1 och 10 för **antalet Shard** och klickar på **OK**.
+
+    Varje Shard är ett primärt/replik-cache-par som hanteras av Azure och den totala storleken på cachen beräknas genom att antalet Shards multipliceras med den cachestorlek som valts på pris nivån.
+
+    :::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png" alt-text="Skapa resurs.":::
+
+    När cachen har skapats ansluter du till den och använder den precis som en icke-klustrad cache, och Redis distribuerar data i cache-Shards. Om diagnostik är [aktiverat](cache-how-to-monitor.md#enable-cache-diagnostics)samlas måtten separat för varje Shard och kan [visas](cache-how-to-monitor.md) i bladet Azure cache för Redis. 
+
+8. Välj fliken **Nästa: Taggar** eller klicka på knappen **Nästa: Taggar** längst ned på sidan.
+
+9. Alternativt går du till fliken **taggar** och anger namn och värde om du vill kategorisera resursen. 
+
+10. Välj **Granska + skapa**. Du kommer till fliken Granska + skapa där Azure verifierar konfigurationen.
+
+11. När meddelandet grön verifiering har skickats visas väljer du **skapa**.
+
+Det tar en stund innan cacheminnet skulle skapas. Du kan övervaka förloppet på **översikts**sidan för Azure-cache för Redis   . När **statusen**   är **igång**är cacheminnet redo att användas. 
 
 > [!NOTE]
 > 

@@ -3,12 +3,12 @@ title: Felsöka vanliga fel
 description: 'Lär dig hur du felsöker problem med att skapa princip definitioner, de olika SDK: n och tillägget för Kubernetes.'
 ms.date: 10/05/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 6026dc75187c8a70203a2484380eed70d519599d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98b5f1658a7d3fc7c4a7db7145b92bb6065befc5
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743445"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999890"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Felsöka fel med hjälp av Azure Policy
 
@@ -68,7 +68,7 @@ Följ de här stegen för att felsöka princip definitionen:
 
 1. Börja med att vänta på rätt tids period för att en utvärdering ska slutföras och efterföljande resultat ska bli tillgängliga i Azure Portal eller SDK. Om du vill starta en ny utvärderings sökning med Azure PowerShell eller REST API, se [utvärderings genomsökning på begäran](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 1. Kontrol lera att tilldelnings parametrarna och tilldelnings omfånget har angetts korrekt.
-1. Kontrol lera [princip definitions läget](../concepts/definition-structure.md#mode):
+1. Kontrollera [principdefinitionsläget](../concepts/definition-structure.md#mode):
    - Mode all för alla resurs typer.
    - Läget Indexerad om princip definitionen söker efter taggar eller plats.
 1. Kontrol lera att resursens omfattning inte är [Exkluderad](../concepts/assignment-structure.md#excluded-scopes) eller [undantagen](../concepts/exemption-structure.md).
@@ -96,11 +96,11 @@ Följ de här stegen för att felsöka din princip tilldelnings genomförande:
 
 1. Börja med att vänta på rätt tids period för att en utvärdering ska slutföras och efterföljande resultat ska bli tillgängliga i Azure Portal eller SDK. Om du vill starta en ny utvärderings sökning med Azure PowerShell eller REST API, se [utvärderings genomsökning på begäran](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 1. Kontrol lera att tilldelnings parametrarna och tilldelnings omfånget är rätt inställda och att **enforcementMode** har _Aktiver ATS_. 
-1. Kontrol lera [princip definitions läget](../concepts/definition-structure.md#mode):
+1. Kontrollera [principdefinitionsläget](../concepts/definition-structure.md#mode):
    - Mode all för alla resurs typer.
    - Läget Indexerad om princip definitionen söker efter taggar eller plats.
 1. Kontrol lera att resursens omfattning inte är [Exkluderad](../concepts/assignment-structure.md#excluded-scopes) eller [undantagen](../concepts/exemption-structure.md).
-1. Kontrol lera att resurs nytto lasten matchar princip logiken. Detta kan göras genom att [fånga in en spårning](../../../azure-portal/capture-browser-trace.md) eller granska arm-mallens egenskaper.
+1. Kontrollera att resursnyttolasten matchar principlogiken. Detta kan göras genom att [fånga in en spårning](../../../azure-portal/capture-browser-trace.md) eller granska arm-mallens egenskaper.
 1. Kontrol lera [fel sökning: kompatibiliteten är inte lika förväntat](#scenario-compliance-not-as-expected) för andra vanliga problem och lösningar.
 
 Om du fortfarande har problem med en duplicerad och anpassad inbyggd princip definition eller anpassad definition, skapar du ett support ärende under redigering av **en princip** för att dirigera problemet korrekt.
@@ -169,6 +169,24 @@ Helm-diagrammet med namnet `azure-policy-addon` har redan installerats eller är
 #### <a name="resolution"></a>Lösning
 
 Följ anvisningarna för att [ta bort Azure policy för Kubernetes-tillägget](../concepts/policy-for-kubernetes.md#remove-the-add-on)och kör sedan kommandot igen `helm install azure-policy-addon` .
+
+### <a name="scenario-azure-virtual-machine-user-assigned-identities-are-replaced-by-system-assigned-managed-identities"></a>Scenario: användar tilldelningar för virtuella Azure-datorer ersätts av systemtilldelade hanterade identiteter
+
+#### <a name="issue"></a>Problem
+
+När du har tilldelat initiativen för gäst konfigurations principer till gransknings inställningar i datorer, tilldelas inte längre tilldelade hanterade identiteter som har tilldelats datorn. Endast en tilldelad hanterad identitet har tilldelats.
+
+#### <a name="cause"></a>Orsak
+
+De princip definitioner som tidigare användes i DeployIfNotExists-definitioner för gäst konfiguration säkerställer att en tilldelad identitet tilldelas till datorn men även borttagna tilldelade identitets tilldelningar.
+
+#### <a name="resolution"></a>Lösning
+
+Definitionerna som tidigare orsakade det här problemet visas som \[ föråldrade \] och ersätts av princip definitioner som hanterar krav utan att användarens tilldelade hanterade identitet tas bort. En manuell åtgärd krävs. Ta bort eventuella befintliga princip tilldelningar som är markerade som \[ föråldrade \] och ersätt dem med det uppdaterade nödvändiga princip-initiativ och princip definitioner som har samma namn som originalet.
+
+En detaljerad beskrivning finns i följande blogg inlägg:
+
+[Viktig ändring har släppts för gransknings principer för gäst konfiguration](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 ## <a name="next-steps"></a>Nästa steg
 

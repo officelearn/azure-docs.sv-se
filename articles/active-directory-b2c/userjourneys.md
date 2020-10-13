@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2020
+ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 296f396f3c2aacdfe32ea2ee800190d0a91d353f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fda57ae152efbb04a793c6acf63465fe8d406a1a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602174"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998650"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -64,7 +64,7 @@ Om du vill ange den sorterade listan över Orchestration-steg läggs ett **Orche
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | `Order` | Ja | Ordningen för Orchestration-stegen. |
-| `Type` | Ja | Typ av Orchestration-steg. Möjliga värden: <ul><li>**ClaimsProviderSelection** – anger att Orchestration-steget presenterar olika anspråks leverantörer för användaren att välja ett.</li><li>**CombinedSignInAndSignUp** – anger att Orchestration-steget presenterar en kombinerad registrering av sociala leverantörs inloggnings sidor och lokalt konto.</li><li>**ClaimsExchange** – anger att Orchestration-steget utbyter anspråk med en anspråks leverantör.</li><li>**GetClaims** – anger att Orchestration-steget ska bearbeta anspråks data som skickas till Azure AD B2C från den förlitande parten via dess `InputClaims` konfiguration.</li><li>**InvokeSubJourney** – anger att Orchestration-steget utbyter anspråk med en under resa (i offentlig för hands version).</li><li>**SendClaims** – anger att Orchestration-steget skickar anspråk till den förlitande parten med en token som utfärdats av en anspråks utfärdare.</li></ul> |
+| `Type` | Ja | Typ av Orchestration-steg. Möjliga värden: <ul><li>**ClaimsProviderSelection** – anger att Orchestration-steget presenterar olika anspråks leverantörer för användaren att välja ett.</li><li>**CombinedSignInAndSignUp** – anger att Orchestration-steget presenterar en kombinerad registrering av sociala leverantörs inloggnings sidor och lokalt konto.</li><li>**ClaimsExchange** – anger att Orchestration-steget utbyter anspråk med en anspråks leverantör.</li><li>**GetClaims** – anger att Orchestration-steget ska bearbeta anspråks data som skickas till Azure AD B2C från den förlitande parten via dess `InputClaims` konfiguration.</li><li>**InvokeSubJourney** – anger att Orchestration-steget utbyter anspråk med en [under resa](subjourneys.md) (i offentlig för hands version).</li><li>**SendClaims** – anger att Orchestration-steget skickar anspråk till den förlitande parten med en token som utfärdats av en anspråks utfärdare.</li></ul> |
 | ContentDefinitionReferenceId | Inga | Identifieraren för den [innehålls definition](contentdefinitions.md) som är associerad med det här Orchestration-steget. Vanligt vis definieras referens identifieraren för innehålls definitionen i den självkontrollerade tekniska profilen. Men det finns vissa fall då Azure AD B2C behöver visa något utan en teknisk profil. Det finns två exempel – om typen av Orchestration-steg är något av följande: eller så `ClaimsProviderSelection`  `CombinedSignInAndSignUp` måste Azure AD B2C Visa valet av identitetsprovider utan att ha en teknisk profil. |
 | CpimIssuerTechnicalProfileReferenceId | Inga | Typen av Orchestration-steg är `SendClaims` . Den här egenskapen definierar den tekniska profil identifieraren för den anspråks leverantör som utfärdar token för den förlitande parten.  Om inget används skapas ingen förlitande parts-token. |
 
@@ -100,7 +100,7 @@ Elementet **villkor** innehåller följande element:
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
 | Värde | 1: n | En ClaimTypeReferenceId som ska frågas efter. Ett annat värde element innehåller det värde som ska kontrol leras.</li></ul>|
-| Action | 1:1 | Den åtgärd som ska utföras om villkors kontrollen i ett Orchestration-steg är sann. Om värdet för `Action` är inställt på `SkipThisOrchestrationStep` , ska den associerade `OrchestrationStep` inte utföras. |
+| Åtgärd | 1:1 | Den åtgärd som ska utföras om villkors kontrollen i ett Orchestration-steg är sann. Om värdet för `Action` är inställt på `SkipThisOrchestrationStep` , ska den associerade `OrchestrationStep` inte utföras. |
 
 #### <a name="preconditions-examples"></a>Exempel på villkor
 
@@ -247,4 +247,4 @@ I följande Orchestration-steg kan användaren välja att logga in med Facebook,
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| SubJourneyReferenceId | Ja | Identifieraren för den under resa som ska köras. |
+| SubJourneyReferenceId | Ja | Identifieraren för den [under resa](subjourneys.md) som ska köras. |

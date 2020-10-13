@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: lokal, Docker, behållare, Kubernetes
-ms.openlocfilehash: ed61760312ad8bada0241b0338c36ab3557e2caa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf0ea6339de1ba6aca93a1a71990515d296f2e3a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665420"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999691"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services-behållare
 
@@ -72,7 +72,7 @@ Azure Cognitive Services-behållare innehåller följande uppsättning Docker-be
 | [Textanalys][ta-containers-language] | F0, S | **Språkidentifiering** ([bild](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | För upp till 120 språk identifierar det språk som indatamängden är skrivet i och rapporterar en enda språkkod för varje dokument som skickas på begäran. Språkkoden paras med poäng som anger styrkan hos poängen. |
 | [Textanalys][ta-containers-sentiment] | F0, S | **Attitydanalys v3** ([bild](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyserar rå text för LED trådar om positiv eller negativ sentiment. Den här versionen av sentiment-analys returnerar sentiment etiketter (till exempel *positivt* eller *negativt*) för varje dokument och mening i det. |
 | [Textanalys][ta-containers-health] | F0, S | **Textanalys för hälsa** | Extrahera och märk medicinsk information från ostrukturerad klinisk text. |
-| [Rums analys][spa-containers] | S0 | **Rums analys** | Extrahera och märk medicinsk information från ostrukturerad klinisk text. |
+| [Rumslig analys][spa-containers] | S0 | **Rums analys** | Analyserar direktuppspelad video i real tid för att förstå spatiala relationer mellan människor, deras rörelse och interaktioner med objekt i fysiska miljöer. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|

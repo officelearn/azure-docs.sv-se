@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 81a65c088fd83ce179f67edd1ecdb96149dd1614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed371cf230df3070ce1a545895831ae56d320d99
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840259"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000163"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure cache för Redis
 I det här avsnittet beskrivs de konfigurationer som är tillgängliga för Azure-cachen för Redis-instanser. Det här avsnittet beskriver också standard konfigurationen för Redis-servern för Azure cache för Redis-instanser.
@@ -31,9 +31,9 @@ Azure cache för Redis-inställningar visas och konfigureras på bladet **Azure 
 Du kan visa och konfigurera följande inställningar med **resurs-menyn**.
 
 * [Översikt](#overview)
-* [Aktivitetslogg](#activity-log)
+* [Aktivitets logg](#activity-log)
 * [Åtkomstkontroll (IAM)](#access-control-iam)
-* [Taggen](#tags)
+* [Taggar](#tags)
 * [Diagnostisera och lösa problem](#diagnose-and-solve-problems)
 * [Inställningar](#settings)
     * [Åtkomstnycklar](#access-keys)
@@ -214,7 +214,7 @@ Om du vill ändra kluster storleken använder du skjutreglaget eller skriver ett
 
 
 ### <a name="redis-data-persistence"></a>Redis-datapersistens
-Klicka på **data persistence** om du vill aktivera, inaktivera eller konfigurera data beständighet för din Premium-cache. Azure cache för Redis erbjuder Redis beständighet med antingen [RDB persistence](cache-how-to-premium-persistence.md#configure-rdb-persistence) eller [AOF persistence](cache-how-to-premium-persistence.md#configure-aof-persistence).
+Klicka på **data persistence** om du vill aktivera, inaktivera eller konfigurera data beständighet för din Premium-cache. Azure cache för Redis erbjuder Redis beständighet med antingen RDB persistence eller AOF persistence.
 
 Mer information finns i [så här konfigurerar du persistence för en Premium Azure-cache för Redis](cache-how-to-premium-persistence.md).
 
@@ -386,7 +386,7 @@ Nya Azure cache för Redis-instanser konfigureras med följande standard konfigu
 >
 >
 
-| Inställning | Standardvärde | Beskrivning |
+| Inställningen | Standardvärde | Beskrivning |
 | --- | --- | --- |
 | `databases` |16 |Standard antalet databaser är 16 men du kan konfigurera ett annat nummer baserat på pris nivån. <sup>1</sup> standard databasen är dB 0, du kan välja en annan per-anslutnings-basis med `connection.GetDatabase(dbid)` där `dbid` är ett tal mellan `0` och `databases - 1` . |
 | `maxclients` |Är beroende av pris nivå<sup>2</sup> |Det här värdet är det maximala antalet anslutna klienter som tillåts på samma gång. När gränsen har nåtts stänger Redis alla nya anslutningar och returnerar ett "maximalt antal klienter har nåtts"-felet. |

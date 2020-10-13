@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 8a387adde6c74b8eb1ff950c5e6b5183e43d1f4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 500131121640026fd3fda5be9eecb376d2db8f0e
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448664"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999324"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Skydda dina Kubernetes-arbetsbelastningar
 
@@ -31,14 +31,14 @@ Security Center innehåller fler säkerhets funktioner för behållare om du akt
 
 
 
-## <a name="availability"></a>Tillgänglighet
+## <a name="availability"></a>Tillgängligt
 
 |Aspekt|Information|
 |----|:----|
 |Versions tillstånd:|Förhandsgranskning|
 |Priset|Kostnadsfri|
 |Nödvändiga roller och behörigheter:|**Ägare** eller **säkerhets administratör** för att redigera en tilldelning<br>**Läsare** för att Visa rekommendationerna|
-|Kluster som stöds|Kubernetes v-1.14 (eller högre) krävs<br>Ingen PodSecurityPolicy-resurs (gammal PSP-modell) i klustren<br>Windows-noder stöds inte|
+|Kluster som stöds:|Kubernetes v-1.14 (eller högre) krävs<br>Ingen PodSecurityPolicy-resurs (gammal PSP-modell) i klustren<br>Windows-noder stöds inte|
 |Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 

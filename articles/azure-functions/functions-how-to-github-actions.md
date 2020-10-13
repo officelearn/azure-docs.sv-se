@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: 48482658fdabc3e826b6855c500829a16c166749
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f35a8130c834112961f4542883704c2b8dbd08f
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851126"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999243"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Kontinuerlig leverans med hjälp av GitHub-åtgärd
 
@@ -32,6 +32,18 @@ För ett Azure Functions-arbetsflöde har filen tre delar:
 > [!NOTE]
 > Du behöver inte skapa ett huvud namn för tjänsten om du bestämmer dig för att använda publicerings profilen för autentisering.
 
+## <a name="downloading-and-using-a-publish-profile-as-deployment-credential-recommended"></a>Laddar ned och använder en publicerings profil som autentiseringsuppgifter för distributionen (rekommenderas)
+
+Så här hämtar du publicerings profilen för din Function-app:
+
+1. Välj sidan **Översikt** för Function-appen och välj sedan **Hämta publicerings profil**.
+
+   :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Ladda ned publicerings profil":::
+
+1. Spara och kopiera innehållet i filen med publicerings inställningar.
+
+## <a name="create-a-service-principal-deprecated"></a>Skapa ett huvud namn för tjänsten (inaktuellt)
+=======
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -44,7 +56,8 @@ För ett Azure Functions-arbetsflöde har filen tre delar:
 
 Det rekommenderade sättet att autentisera med Azure Functions för GitHub-åtgärder är med en publicerings profil. Du kan också autentisera med ett huvud namn för tjänsten, men processen kräver fler steg. 
 
-Spara dina autentiseringsuppgifter för din publicerings profil eller tjänstens huvud namn som [GitHub-hemlighet](https://docs.github.com/en/actions/reference/encrypted-secrets) för att autentisera med Azure. Du kommer att få åtkomst till hemligheten i ditt arbets flöde. 
+## <a name="configure-the-github-secret"></a>Konfigurera GitHub-hemligheten
+= = = = = = = Spara din publicerings profils autentiseringsuppgifter eller tjänstens huvud namn som en [GitHub hemlighet](https://docs.github.com/en/actions/reference/encrypted-secrets) för att autentisera med Azure. Du kommer att få åtkomst till hemligheten i ditt arbets flöde. 
 
 # <a name="publish-profile"></a>[Publicera profil](#tab/publish-profile)
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 8f0a40e30cc58a01a66ba808076fe1d42c31c326
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 17c9797935612c8697d30455e28cc91321b84772
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978891"
+ms.locfileid: "91999678"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Vad är nytt i API:et för textanalys?
 
@@ -23,7 +23,7 @@ API för textanalys uppdateras regelbundet. Den här artikeln innehåller inform
 
 ## <a name="october-2020"></a>Oktober 2020
 
-* Stöd för hindi för Attitydanalys, från och med modell version `2020-04-01` . 
+* Stöd för hindi för Attitydanalys v3. x, från och med modell version `2020-04-01` . 
 
 ## <a name="september-2020"></a>September 2020
 
@@ -169,7 +169,7 @@ Ytterligare entitetstyper är nu tillgängliga i den namngivna enhets igenkänni
 
 * Igenkänning av följande allmänna entitetstyper (endast engelska):
     * PersonType
-    * Product
+    * Produkt
     * Händelse
     * GPE (politisk entitet) som en undertyp under plats
     * Kvalifikation
@@ -221,7 +221,7 @@ Det stöder engelska ( `en` ), japanska ( `ja` ), kinesiska (förenklad) `zh-Han
 
 * [Vad är API för textanalys?](overview.md)  
 * [Exempel på användarscenarier](text-analytics-user-scenarios.md)
-* [Sentimentanalys](how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Språkidentifiering](how-tos/text-analytics-how-to-language-detection.md)
+* [Sentiment-analys](how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Språk identifiering](how-tos/text-analytics-how-to-language-detection.md)
 * [Igenkänning av enhet](how-tos/text-analytics-how-to-entity-linking.md)
-* [Extrahering av nyckelfraser](how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Extrahering av nyckel fraser](how-tos/text-analytics-how-to-keyword-extraction.md)

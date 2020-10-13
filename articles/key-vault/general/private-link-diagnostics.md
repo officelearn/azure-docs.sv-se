@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 52ac5b89a0c7173b9b2585f84b5f34361b4b136c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 156edbeda225b5457d6f5e7d29482e393b510736
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744227"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998396"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnostisera konfigurations problem för privata länkar på Azure Key Vault
 
@@ -34,7 +34,7 @@ Om du inte har använt den här funktionen kan du läsa [integrera Key Vault med
 ### <a name="problems-not-covered-by-this-article"></a>Problem som inte omfattas av den här artikeln
 
 - Det finns ett tillfälligt anslutnings problem. I en viss klient visas vissa begär Anden som fungerar och vissa fungerar inte. *Tillfälliga problem orsakas vanligt vis inte av ett problem i konfigurationen av privata länkar. de är ett tecken på nätverks-eller klient överbelastning.*
-- Du använder en Azure-produkt som stöder BYOK (Bring Your Own Key) eller CMK (kundens hanterade nycklar) och den produkten kan inte komma åt ditt nyckel valv. *Titta närmare på den andra produkt dokumentationen. Kontrol lera att det uttryckligen tillstånd har stöd för nyckel valv med brand väggen aktive rad. Kontakta produkt supporten för den aktuella produkten om det behövs.*
+- Du använder en Azure-produkt som stöder BYOK (Bring Your Own Key), CMK (kundens hanterade nycklar) eller åtkomst till hemligheter som lagras i Key Vault. När du aktiverar brand väggen i Key Vault-inställningarna kan den produkten inte komma åt ditt nyckel valv. *Titta på produktspecifik dokumentation. Kontrol lera att det uttryckligen tillstånd har stöd för nyckel valv med brand väggen aktive rad. Kontakta supporten för den aktuella produkten om det behövs.*
 
 ### <a name="how-to-read-this-article"></a>Läsa den här artikeln
 
@@ -46,9 +46,11 @@ Nu sätter vi igång!
 
 ### <a name="confirm-that-your-client-runs-at-the-virtual-network"></a>Bekräfta att klienten körs i det virtuella nätverket
 
-Den här guiden är avsedd att hjälpa dig att åtgärda anslutningar till nyckel valv som kommer från program koden. Exempel är program och skript som körs i Azure Virtual Machines, Azure Service Fabric-kluster, Azure App Service, Azure Kubernetes service (AKS) och liknande andra.
+Den här guiden är avsedd att hjälpa dig att åtgärda anslutningar till nyckel valv som kommer från program koden. Exempel är program och skript som körs i Azure Virtual Machines, Azure Service Fabric-kluster, Azure App Service, Azure Kubernetes service (AKS) och liknande andra. Den här guiden gäller även för åtkomst som utförs i Azure Portal web-Base-användargränssnittet, där webbläsaren har åtkomst till nyckel valvet direkt.
 
-Genom definition av privata länkar måste programmet eller skriptet köras på datorn, klustret eller miljön som är anslutna till den Virtual Network där den [privata slut punkts resursen](../../private-link/private-endpoint-overview.md) distribuerades. Om programmet körs på ett godtyckligt Internet-anslutet nätverk, är den här guiden inte tillämplig och det går troligen inte att använda privata länkar.
+Genom att definiera privata länkar måste programmet, skriptet eller portalen köras på datorn, klustret eller miljön som är anslutna till den Virtual Network där den [privata slut punkts resursen](../../private-link/private-endpoint-overview.md) distribuerades.
+
+Om programmet, skriptet eller portalen körs på ett godtyckligt Internet-anslutet nätverk, är den här guiden inte tillämplig och det går troligen inte att använda privata länkar. Den här begränsningen gäller också för kommandon som körs i Azure Cloud Shell eftersom de körs på en fjärran sluten Azure-dator som finns på begäran i stället för i användarens webbläsare.
 
 ### <a name="if-you-use-a-managed-solution-refer-to-specific-documentation"></a>Om du använder en hanterad lösning kan du läsa mer i en speciell dokumentation
 
@@ -74,7 +76,7 @@ Det är en bra idé att ta bort inaktiva anslutningar för att hålla rent saker
 >[!IMPORTANT]
 > Om du ändrar brand Väggs inställningarna kan du ta bort åtkomst från legitima klienter som fortfarande inte använder privata länkar. Se till att du är medveten om konsekvenserna av varje ändring i brand Väggs konfigurationen.
 
-Ett viktigt begrepp är att privata länkar bara *ger* åtkomst till ditt nyckel valv. Ingen befintlig åtkomst *tas bort* . För att effektivt blockera åtkomst från det offentliga Internet måste du aktivera nyckel valvs brand väggen explicit:
+Ett viktigt begrepp är att funktionen privata länkar bara *ger* åtkomst till ditt nyckel valv i en Virtual Network som är stängd för att förhindra data exfiltrering. Ingen befintlig åtkomst *tas bort* . För att effektivt blockera åtkomst från det offentliga Internet måste du aktivera nyckel valvs brand väggen explicit:
 
 1. Öppna Azure Portal och öppna Key Vault-resursen.
 2. På den vänstra menyn väljer du **nätverk**.
@@ -229,11 +231,11 @@ Din Azure-prenumeration måste ha en [privat DNS zon](../../dns/private-dns-priv
 
 Du kan söka efter den här resursens förekomst genom att gå till prenumerations sidan i portalen och välja resurser på den vänstra menyn. Resurs namnet måste vara `privatelink.vaultcore.azure.net` och resurs typen måste vara **privat DNS zon**.
 
-Normalt skapas den här resursen automatiskt när du skapar en privat slut punkt med en typisk metod. Men det finns fall där den här resursen inte skapas automatiskt och du måste göra det manuellt. Den här resursen kan också ha tagits bort av misstag.
+Normalt skapas den här resursen automatiskt när du skapar en privat slut punkt med en vanlig procedur. Men det finns fall där den här resursen inte skapas automatiskt och du måste göra det manuellt. Den här resursen kan också ha tagits bort av misstag.
 
 Om du inte har den här resursen skapar du en ny Privat DNS zon resurs i din prenumeration. Kom ihåg att namnet måste vara exakt `privatelink.vaultcore.azure.net` , utan blank steg eller ytterligare punkter. Om du anger fel namn kommer namn matchningen som beskrivs i den här artikeln inte att fungera. Mer information om hur du skapar den här resursen finns i [skapa en privat Azure-DNS-zon med hjälp av Azure Portal](../../dns/private-dns-getstarted-portal.md). Om du följer den sidan kan du hoppa över Virtual Network skapa eftersom du redan borde ha en. Du kan även hoppa över validerings procedurer med Virtual Machines.
 
-### <a name="confirm-that-the-private-dns-zone-must-be-linked-to-the-virtual-network"></a>Bekräfta att Privat DNS zonen måste vara länkad till Virtual Network
+### <a name="confirm-that-the-private-dns-zone-is-linked-to-the-virtual-network"></a>Bekräfta att Privat DNS zon är länkad till Virtual Network
 
 Det finns inte tillräckligt med Privat DNS zon. Den måste också vara länkad till Virtual Network som innehåller den privata slut punkten. Om Privat DNS zon inte är länkad till rätt Virtual Network, kommer alla DNS-matchningar från den Virtual Network att ignorera Privat DNS zon.
 
@@ -259,9 +261,9 @@ Dessutom måste värdet för `A` posten (IP-adressen) vara [den privata IP-adres
 
 Om det finns flera virtuella nätverk och var och en har sin egen privata slut punkts resurs som refererar till samma nyckel valv, måste nyckel valvets värdnamn matcha till en annan privat IP-adress beroende på nätverket. Det innebär att flera Privat DNS zoner också behövs, var och en länkad till en annan Virtual Network och använder en annan IP-adress i `A` posten.
 
-I mer avancerade scenarier finns det flera virtuella nätverk med peering aktiverat. I det här fallet behöver bara en Virtual Network en privat slut punkts resurs, men båda kan behöva länkas till Privat DNS zon resursen. Detta är ett scenario som inte omfattas direkt av det här dokumentet.
+I mer avancerade scenarier kan de virtuella nätverken ha peering aktive rad. I det här fallet behöver bara en Virtual Network en privat slut punkts resurs, men båda kan behöva länkas till Privat DNS zon resursen. Detta är ett scenario som inte omfattas direkt av det här dokumentet.
 
-### <a name="fact-you-have-control-over-dns-resolution"></a>Faktum: du har kontroll över DNS-matchning
+### <a name="understand-that-you-have-control-over-dns-resolution"></a>Förstå att du har kontroll över DNS-matchning
 
 Som förklaras i [föregående avsnitt](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine)har ett nyckel valv med privata länkar alias `{vaultname}.privatelink.vaultcore.azure.net` i sin *offentliga* registrering. Den DNS-server som används av Virtual Network använder den offentliga registreringen, men den kontrollerar varje alias för en *privat* registrering, och om en sådan finns, stoppas följande alias som definieras vid offentlig registrering.
 
@@ -324,9 +326,9 @@ Svaret måste innehålla sidhuvud `x-ms-keyvault-network-info` :
 ### <a name="query-the-key-vault-ip-address-directly"></a>Fråga nyckel valvets IP-adress direkt
 
 >[!IMPORTANT]
-> Åtkomst till nyckel valvet utan HTTPS-certifikat validering är farligt och kan bara användas i inlärnings syfte. Produktions koden får aldrig komma åt nyckel valvet utan den här verifieringen på klient sidan. Även om du bara diagnostiserar problem kan du eventuellt prova ett pågående Manipulerings försök som inte visas om du alltid inaktiverar HTTPS-certifikat verifiering i dina förfrågningar till Key Vault.
+> Åtkomst till nyckel valvet utan HTTPS-certifikat validering är farligt och kan bara användas i inlärnings syfte. Produktions koden får aldrig komma åt nyckel valvet utan den här verifieringen på klient sidan. Även om du bara diagnostiserar problem kan du bli underkastad manipulering av försök som inte kommer att visas om du ofta inaktiverar HTTPS-certifikat verifiering i dina begär anden till Key Vault.
 
-Om du har installerat en senare version av PowerShell kan du använda `-SkipCertificateCheck` för att hoppa över https-certifikats kontroller, och sedan kan du rikta [nyckel valvets IP-adress](#find-the-key-vault-private-ip-address-in-the-virtual-network) direkt:
+Om du har installerat en ny version av PowerShell kan du använda `-SkipCertificateCheck` för att hoppa över https-certifikats kontroller, och sedan kan du rikta [nyckel valvets IP-adress](#find-the-key-vault-private-ip-address-in-the-virtual-network) direkt:
 
     PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
 
@@ -334,7 +336,7 @@ Om du använder `curl` kan du göra det med följande `-k` argument:
 
     joe@MyUbuntu:~$ curl -i -k https://10.1.2.3/healthstatus
 
-Svaren ska vara samma som i föregående avsnitt, vilket innebär att det måste innehålla `x-ms-keyvault-network-info` rubriken med samma värde. `/healthstatus`Slut punkten är inte försiktig om du använder Key Vault-värdnamnet eller IP-adressen.
+Svaren måste vara samma som i föregående avsnitt, vilket innebär att det måste innehålla `x-ms-keyvault-network-info` rubriken med samma värde. `/healthstatus`Slut punkten är inte försiktig om du använder Key Vault-värdnamnet eller IP-adressen.
 
 Om du ser `x-ms-keyvault-network-info` returnera ett värde för begäran med Key Vault-värdnamnet och ett annat värde för begäran som använder IP-adressen, är varje begäran en annan slut punkt. Se förklaring av `addr` fältet från `x-ms-keyvault-network-info` i föregående avsnitt för att avgöra vilket fall som är fel och måste åtgärdas.
 
@@ -354,7 +356,7 @@ I många operativ system kan du ange en explicit fast IP-adress per värdnamn, v
 
 ### <a name="promiscuous-proxies-fiddler-etc"></a>Filtrerad (Fiddler)-proxyservrar
 
-Förutom vad som uttryckligen anges fungerar inte alternativen i den här artikeln om det inte finns någon icke-filtrerad proxy i miljön. Även om dessa proxyservrar ofta installeras exklusivt på den dator som diagnostiseras (Fiddler är det vanligaste exemplet) kan erfarna administratörer skriva över rot certifikat utfärdare och installera en icke-filtrerad proxy i gateway-enheter som hanterar flera datorer i nätverket. Dessa proxyservrar kan påverka både säkerhet och pålitlighet i huvudsak. Microsoft stöder inte konfigurationer som använder sådana produkter.
+Med undantag för vad som uttryckligen anges fungerar bara diagnostikinställningar i den här artikeln om det inte finns någon icke-filtrerad proxy i miljön. Även om dessa proxyservrar ofta installeras exklusivt på den dator som diagnostiseras (Fiddler är det vanligaste exemplet) kan erfarna administratörer skriva över rot certifikat utfärdare och installera en icke-filtrerad proxy i gateway-enheter som hanterar flera datorer i nätverket. Dessa proxyservrar kan påverka både säkerhet och pålitlighet i huvudsak. Microsoft stöder inte konfigurationer som använder sådana produkter.
 
 ### <a name="other-things-that-may-affect-connectivity"></a>Andra saker som kan påverka anslutningen
 

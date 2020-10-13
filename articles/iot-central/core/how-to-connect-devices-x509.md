@@ -1,18 +1,18 @@
 ---
 title: Ansluta enheter med X. 509-certifikat i ett Azure IoT Central-program
 description: Så här ansluter du enheter med X. 509-certifikat med hjälp av Node.js Device SDK för IoT Central program
-author: v-krghan
-ms.author: v-krghan
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 22d86b96b7d9493ecc2f734be3f677a270a2739a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a93602327b5c5294d6c17c1804c04c6603dcf37
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714279"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999882"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>Så här ansluter du enheter med X. 509-certifikat med hjälp av Node.js Device SDK för IoT Central program
 

@@ -6,13 +6,13 @@ ms.author: yegu
 ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.date: 05/15/2017
-ms.openlocfilehash: 82003ef84571c8e07982826124b33763c0e53194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: 34e4781d1437b34607a6d9e4f99ec5bd2ef9b46d
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88205566"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999983"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du Virtual Network stöd för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Ett VNet är ett privat nätverk i molnet. När en Azure-cache för Redis-instans har kon figurer ATS med ett VNet, är den inte offentligt adresserad och kan endast nås från virtuella datorer och program i VNet. Den här artikeln beskriver hur du konfigurerar stöd för virtuella nätverk för en Premium Azure-cache för Redis-instansen.
@@ -28,22 +28,38 @@ Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i va
 ## <a name="virtual-network-support"></a>Stöd för virtuellt nätverk
 Stöd för Virtual Network (VNet) konfigureras på bladet **ny Azure-cache för Redis** under skapandet av cache. 
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
+1. Om du vill skapa en Premium-cache loggar du in på [Azure Portal](https://portal.azure.com) och väljer **skapa en resurs**. Observera, förutom att skapa cacheminnen i Azure Portal, kan du också skapa dem med hjälp av Resource Manager-mallar, PowerShell eller Azure CLI. Mer information om hur du skapar en Azure-cache för Redis finns i [skapa en cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-När du har valt pris nivån Premium kan du konfigurera Redis VNet-integrering genom att välja ett VNet som finns i samma prenumeration och plats som din cache. Om du vill använda ett nytt VNet skapar du det först genom att följa stegen i [skapa ett virtuellt nätverk med hjälp av Azure Portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) eller [skapa ett virtuellt nätverk (klassisk) med hjälp av Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) och återgå sedan till bladet **ny Azure-cache för Redis** för att skapa och konfigurera din Premium-cache.
+    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Skapa resurs.":::
+   
+2. Välj **databaser** på sidan **nytt** och välj sedan **Azure cache för Redis**.
 
-Konfigurera VNet för din nya cache genom att klicka på **Virtual Network** på bladet **ny Azure-cache för Redis** och välj önskat VNet i list rutan.
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Skapa resurs.":::
 
-![Virtuellt nätverk][redis-cache-vnet]
+3. På sidan **ny Redis cache** konfigurerar du inställningarna för din nya Premium-cache.
+   
+   | Inställning      | Föreslaget värde  | Beskrivning |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **DNS-namn** | Ange ett globalt unikt namn. | Cache-namnet måste vara en sträng mellan 1 och 63 tecken som bara innehåller siffror, bokstäver eller bindestreck. Namnet måste börja och sluta med en siffra eller en bokstav och får inte innehålla flera bindestreck i rad. Din cacheposts *värdnamn* är * \<DNS name> . Redis.cache.Windows.net*. | 
+   | **Prenumeration** | List rutan och välj din prenumeration. | Den prenumeration som du vill skapa den här nya Azure-cache för Redis-instansen för. | 
+   | **Resursgrupp** | List rutan och välj en resurs grupp, eller Välj **Skapa ny** och ange ett nytt resurs grupp namn. | Namnet på resurs gruppen där du vill skapa cachen och andra resurser. Genom att lägga till alla dina app-resurser i en resurs grupp kan du enkelt hantera eller ta bort dem tillsammans. | 
+   | **Plats** | List rutan och välj en plats. | Välj en [region](https://azure.microsoft.com/regions/) nära andra tjänster som ska använda din cache. |
+   | **Cachestorlek** | Klicka på list rutan och välj en Premium-cache för att konfigurera Premium-funktioner. Mer information finns i [Azure cache för Redis-priser](https://azure.microsoft.com/pricing/details/cache/). |  Prisnivån avgör storlek, prestanda och funktioner som är tillgängliga för cacheminnet. Mer information finns i [Översikt över Azure Cache for Redis](cache-overview.md). |
 
-Välj önskat undernät i list rutan **undernät** .  Om du vill kan du ange en **statisk IP-adress**. Fältet **statisk IP-adress** är valfritt, och om inget anges väljs ett alternativ från det valda under nätet.
+4. Välj fliken **nätverk** eller klicka på knappen **nätverk** längst ned på sidan.
+
+5. På fliken **nätverk** väljer du **virtuella nätverk** som anslutnings metod. Om du vill använda ett nytt virtuellt nätverk skapar du det först genom att följa stegen i [skapa ett virtuellt nätverk med hjälp av Azure Portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) eller [skapa ett virtuellt nätverk (klassisk) med hjälp av Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) och återgå sedan till bladet **ny Azure-cache för Redis** för att skapa och konfigurera din Premium-cache.
 
 > [!IMPORTANT]
 > När du distribuerar en Azure-cache för Redis till ett virtuellt resurs hanterings nätverk måste cachen finnas i ett dedikerat undernät som inte innehåller några andra resurser förutom Azure cache för Redis-instanser. Om ett försök görs att distribuera en Azure-cache för Redis till ett virtuellt nätverk till ett undernät som innehåller andra resurser, Miss lyckas distributionen.
 > 
 > 
 
-![Virtuellt nätverk][redis-cache-vnet-ip]
+   | Inställning      | Föreslaget värde  | Beskrivning |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Virtual Network** | List rutan och välj ditt virtuella nätverk. | Välj ett virtuellt nätverk som finns i samma prenumeration och plats som din cache. | 
+   | **Undernät** | List rutan och välj ditt undernät. | Under nätets adress intervall ska vara i CIDR-notation (t. ex. 192.168.1.0/24). Det måste finnas i det virtuella nätverkets adress utrymme. | 
+   | **Statisk IP-adress** | Valfritt Ange en statisk IP-adress. | Om du inte anger en statisk IP-adress väljs en IP-adress automatiskt. | 
 
 > [!IMPORTANT]
 > Azure reserverar vissa IP-adresser i varje undernät och de här adresserna kan inte användas. De första och sista IP-adresserna i under näten är reserverade för protokoll överensstämmelse, tillsammans med tre fler adresser som används för Azure-tjänster. Mer information finns i finns [det några begränsningar för att använda IP-adresser i dessa undernät?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
@@ -52,7 +68,19 @@ Välj önskat undernät i list rutan **undernät** .  Om du vill kan du ange en 
 > 
 > 
 
-När cachen har skapats kan du Visa konfigurationen för VNet genom att klicka på **Virtual Network** på **resurs-menyn**.
+6. Välj **Nästa: fliken Avancerat** eller klicka på **Nästa: Avancerat** längst ned på sidan.
+
+7. På fliken **Avancerat** för en Premium-cache-instans konfigurerar du inställningarna för icke-TLS-port, klustring och data beständighet. 
+
+8. Välj fliken **Nästa: Taggar** eller klicka på knappen **Nästa: Taggar** längst ned på sidan.
+
+9. Alternativt går du till fliken **taggar** och anger namn och värde om du vill kategorisera resursen. 
+
+10. Välj **Granska + skapa**. Du kommer till fliken Granska + skapa där Azure verifierar konfigurationen.
+
+11. När meddelandet grön verifiering har skickats visas väljer du **skapa**.
+
+Det tar en stund innan cacheminnet skulle skapas. Du kan övervaka förloppet på **översikts**sidan för Azure-cache för Redis   . När **statusen**   är **igång**är cacheminnet redo att användas. När cachen har skapats kan du Visa konfigurationen för VNet genom att klicka på **Virtual Network** på **resurs-menyn**.
 
 ![Virtuellt nätverk][redis-cache-vnet-info]
 
@@ -159,7 +187,7 @@ När port kraven har kon figurer ATS enligt beskrivningen i föregående avsnitt
 
 - [Starta om](cache-administration.md#reboot) alla cache-noder. Om alla nödvändiga cache-beroenden inte kan nås (enligt beskrivningen i krav för [inkommande port](cache-how-to-premium-vnet.md#inbound-port-requirements) och [krav för utgående port](cache-how-to-premium-vnet.md#outbound-port-requirements)), kommer cacheminnet inte att kunna starta om.
 - När cache-noderna har startats om (som rapporter ATS av cache-statusen i Azure Portal) kan du utföra följande tester:
-  - pinga cache-slutpunkten (med port 6380) från en dator som är inom samma VNET som cachen med hjälp av [TCPing](https://www.elifulkerson.com/projects/tcping.php). Exempel:
+  - pinga cache-slutpunkten (med port 6380) från en dator som är inom samma VNET som cachen med hjälp av [TCPing](https://www.elifulkerson.com/projects/tcping.php). Till exempel:
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -182,7 +210,7 @@ Undvik att använda IP-adressen som liknar följande anslutnings sträng:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-Om du inte kan matcha DNS-namnet innehåller vissa klient bibliotek konfigurations alternativ som `sslHost` tillhandahålls av stackexchange. Redis-klienten. På så sätt kan du åsidosätta det värdnamn som används för certifikat verifiering. Exempel:
+Om du inte kan matcha DNS-namnet innehåller vissa klient bibliotek konfigurations alternativ som `sslHost` tillhandahålls av stackexchange. Redis-klienten. På så sätt kan du åsidosätta det värdnamn som används för certifikat verifiering. Till exempel:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 

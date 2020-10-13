@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 6e3d87d613db63e05ddee47d43aead779eca75c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e71325246b69f501ec8af91c59cb4f042180542c
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628017"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999651"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>DNS-konfiguration för privat slutpunkt i Azure
 
@@ -117,7 +117,7 @@ Den här modellen kan utökas till flera peer-kopplade virtuella nätverk som ä
 > En enda privat DNS-zon krävs för den här konfigurationen. Att skapa flera zoner med samma namn för olika virtuella nätverk kräver manuella åtgärder för att slå samman DNS-posterna.
 
 > [!IMPORTANT]
-> Om du använder med en privat slut punkt i en nav-och-eker-modell från en annan prenumeration återanvänder du samma privata DNS-zon på hubben.
+> Om du använder en privat slut punkt i en nav-och-eker-modell från en annan prenumeration återanvänder du samma privata DNS-zon på hubben.
 
 I det här scenariot finns en topologi för [nav och ekrar](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) med ekrar som delar en gemensam privat slut punkt och alla eker-virtuella nätverk är länkade till samma privata DNS-zon. 
 

@@ -5,16 +5,16 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/24/2017
-ms.openlocfilehash: aaee1c07f0fc8d5b0bba03550986291aea814fcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: fbfd384787d35317a4e45c4f91cf8a3ad4ba5a61
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88004801"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000016"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du data persistence för en Premium Azure-cache för Redis
-Azure cache för Redis har olika cache-erbjudanden som ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Den här artikeln beskriver hur du konfigurerar persistence i en Premium Azure-cache för Redis-instansen.
+I den här artikeln får du lära dig hur du konfigurerar persistence i en Premium Azure-cache för Redis-instansen via Azure Portal. Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. 
 
 ## <a name="what-is-data-persistence"></a>Vad är data beständighet?
 Med [Redis beständighet](https://redis.io/topics/persistence) kan du spara data som lagras i Redis. Du kan också ta ögonblicks bilder och säkerhetskopiera data som du kan läsa in i händelse av maskin varu problem. Detta är en enorm fördel jämfört med Basic-eller standard-nivån där alla data lagras i minnet och det kan finnas potentiell data förlust vid ett haveri där cache-noderna är nere. 
@@ -32,54 +32,62 @@ Persistence skriver Redis-data till ett Azure Storage-konto som du äger och han
 > 
 > 
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
+1. Om du vill skapa en Premium-cache loggar du in på [Azure Portal](https://portal.azure.com) och väljer **skapa en resurs**. Förutom att skapa cacheminnen i Azure Portal, kan du också skapa dem med hjälp av Resource Manager-mallar, PowerShell eller Azure CLI. Mer information om hur du skapar en Azure-cache för Redis finns i [skapa en cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-När en Premium pris nivå har valts klickar du på **Redis persistence**.
+    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Skapa resurs.":::
+   
+2. Välj **databaser** på sidan **nytt** och välj sedan **Azure cache för Redis**.
 
-![Redis persistence][redis-cache-persistence]
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Skapa resurs.":::
 
-Stegen i nästa avsnitt beskriver hur du konfigurerar Redis persistence i din nya Premium-cache. När Redis persistence har kon figurer ATS klickar du på **skapa** för att skapa din nya Premium-cache med Redis persistence.
+3. På sidan **ny Redis cache** konfigurerar du inställningarna för din nya Premium-cache.
+   
+   | Inställning      | Föreslaget värde  | Beskrivning |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **DNS-namn** | Ange ett globalt unikt namn. | Cache-namnet måste vara en sträng mellan 1 och 63 tecken som bara innehåller siffror, bokstäver eller bindestreck. Namnet måste börja och sluta med en siffra eller en bokstav och får inte innehålla flera bindestreck i rad. Din cacheposts *värdnamn* är * \<DNS name> . Redis.cache.Windows.net*. | 
+   | **Prenumeration** | List rutan och välj din prenumeration. | Den prenumeration som du vill skapa den här nya Azure-cache för Redis-instansen för. | 
+   | **Resursgrupp** | List rutan och välj en resurs grupp, eller Välj **Skapa ny** och ange ett nytt resurs grupp namn. | Namnet på resurs gruppen där du vill skapa cachen och andra resurser. Genom att lägga till alla dina app-resurser i en resurs grupp kan du enkelt hantera eller ta bort dem tillsammans. | 
+   | **Plats** | List rutan och välj en plats. | Välj en [region](https://azure.microsoft.com/regions/) nära andra tjänster som ska använda din cache. |
+   | **Cachestorlek** | Klicka på list rutan och välj en Premium-cache för att konfigurera Premium-funktioner. Mer information finns i [Azure cache för Redis-priser](https://azure.microsoft.com/pricing/details/cache/). |  Prisnivån avgör storlek, prestanda och funktioner som är tillgängliga för cacheminnet. Mer information finns i [Översikt över Azure Cache for Redis](cache-overview.md). |
 
-## <a name="enable-redis-persistence"></a>Aktivera Redis persistence
+4. Välj fliken **nätverk** eller klicka på knappen **nätverk** längst ned på sidan.
 
-Redis persistence har Aktiver ATS på bladet **data persisten** genom att välja antingen **RDB** eller **AOF** persistence. För nya cacheminnen nås det här bladet under skapandet av cacheminnet, enligt beskrivningen i föregående avsnitt. För befintliga cacheminnen öppnas bladet **data persistes** från **resurs menyn** för cacheminnet.
+5. På fliken **nätverk** väljer du anslutnings metod. För Premium-cache-instanser kan du ansluta antingen offentligt, via offentliga IP-adresser eller tjänst slut punkter eller privat, med hjälp av en privat slut punkt.
 
-![Redis-inställningar][redis-cache-settings]
+6. Välj **Nästa: fliken Avancerat** eller klicka på **Nästa: Avancerat** längst ned på sidan.
 
+7. På fliken **Avancerat** för en Premium-cache-instans konfigurerar du inställningarna för icke-TLS-port, klustring och data beständighet. För data persistens kan du välja antingen **RDB** eller **AOF** persistence. 
 
-## <a name="configure-rdb-persistence"></a>Konfigurera RDB persistence
+8. Om du vill aktivera RDB beständighet klickar du på **RDB** och konfigurerar inställningarna. 
+   
+   | Inställning      | Föreslaget värde  | Beskrivning |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Säkerhets kopierings frekvens** | List rutan och välj ett intervall för säkerhets kopieringar, alternativ omfattar **15 minuter**, **30 minuter**, **60 minuter**, **6 timmar**, **12 timmar**och **24 timmar**. | Intervallet börjar räkna upp när den tidigare säkerhets kopieringen har slutförts och när en ny säkerhets kopia har initierats. | 
+   | **Lagringskonto** | List rutan och välj ditt lagrings konto. | Du måste välja ett lagrings konto i samma region som cachen och ett **Premium Storage** konto rekommenderas eftersom Premium Storage har högre genomflöde.  | 
+   | **Lagrings nyckel** | List rutan och välj antingen den **primära nyckeln** eller **sekundära nyckeln** som ska användas. | Om lagrings nyckeln för ditt beständiga konto återskapas måste du konfigurera om önskad nyckel i list rutan **lagrings nyckel** . | 
 
-Klicka på **RDB**om du vill aktivera RDB beständighet. Klicka på **inaktive rad**om du vill inaktivera RDB persistence på en tidigare aktive rad Premium-cache.
+    Den första säkerhets kopieringen initieras när intervallet för säkerhets kopierings frekvensen förflutit.
 
-![Redis RDB-persistence][redis-cache-rdb-persistence]
+9. Om du vill aktivera AOF beständighet klickar du på **AOF** och konfigurerar inställningarna. 
+   
+   | Inställning      | Föreslaget värde  | Beskrivning |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Första lagrings konto** | List rutan och välj ditt lagrings konto. | Det här lagrings kontot måste finnas i samma region som cachen och ett **Premium Storage** konto rekommenderas eftersom Premium Storage har högre genomflöde. | 
+   | **Första lagrings nyckel** | List rutan och välj antingen den **primära nyckeln** eller **sekundära nyckeln** som ska användas. | Om lagrings nyckeln för ditt beständiga konto återskapas måste du konfigurera om önskad nyckel i list rutan **lagrings nyckel** . | 
+   | **Andra lagrings konto** | Valfritt List rutan och välj antingen den **primära nyckeln** eller **sekundära nyckeln** som ska användas. | Du kan också konfigurera ett ytterligare lagrings konto. Om ett andra lagrings konto har kon figurer ATS skrivs skrivningar till replik-cachen till det andra lagrings kontot. | 
+   | **Sekundär lagrings nyckel** | Valfritt List rutan och välj antingen den **primära nyckeln** eller **sekundära nyckeln** som ska användas. | Om lagrings nyckeln för ditt beständiga konto återskapas måste du konfigurera om önskad nyckel i list rutan **lagrings nyckel** . | 
 
-Om du vill konfigurera säkerhets kopierings intervallet väljer du en **säkerhets kopierings frekvens** i list rutan. Alternativen omfattar **15 minuter**, **30 minuter**, **60 minuter**, **6 timmar**, **12 timmar**och **24 timmar**. Intervallet börjar räkna upp när den tidigare säkerhets kopieringen har slutförts och när en ny säkerhets kopia har initierats.
+    När AOF persistence har Aktiver ATS, sparas Skriv åtgärder till cacheminnet på det angivna lagrings kontot (eller kontona om du har konfigurerat ett andra lagrings konto). I händelse av ett oåterkalleligt haveri som tar ner både den primära cachen och repliken, används den lagrade AOF-loggen för att återskapa cacheminnet.
 
-Klicka på **lagrings konto** för att välja det lagrings konto som ska användas och välj antingen **primär nyckel** eller **sekundär nyckel** som ska användas från List rutan **lagrings nyckel** . Du måste välja ett lagrings konto i samma region som cachen och ett **Premium Storage** konto rekommenderas eftersom Premium Storage har högre genomflöde. 
+10. Välj fliken **Nästa: Taggar** eller klicka på knappen **Nästa: Taggar** längst ned på sidan.
 
-> [!IMPORTANT]
-> Om lagrings nyckeln för ditt beständiga konto återskapas måste du konfigurera om önskad nyckel i list rutan **lagrings nyckel** .
-> 
-> 
+11. Alternativt går du till fliken **taggar** och anger namn och värde om du vill kategorisera resursen. 
 
-Spara den beständiga konfigurationen genom att klicka på **OK** .
+12. Välj **Granska + skapa**. Du kommer till fliken Granska + skapa där Azure verifierar konfigurationen.
 
-Nästa säkerhets kopiering (eller första säkerhets kopieringen för nya cacheminnen) initieras när intervallet för säkerhets kopierings frekvensen förflutit.
+13. När meddelandet grön verifiering har skickats visas väljer du **skapa**.
 
-## <a name="configure-aof-persistence"></a>Konfigurera AOF persistence
-
-Klicka på **AOF**om du vill aktivera AOF beständighet. Klicka på **inaktive rad**om du vill inaktivera AOF persistence på en tidigare aktive rad Premium-cache.
-
-![Redis AOF-persistence][redis-cache-aof-persistence]
-
-Ange ett **första lagrings konto**för att konfigurera AOF persistence. Det här lagrings kontot måste finnas i samma region som cachen och ett **Premium Storage** konto rekommenderas eftersom Premium Storage har högre genomflöde. Du kan också konfigurera ytterligare ett lagrings konto med namnet **andra lagrings konto**. Om ett andra lagrings konto har kon figurer ATS skrivs skrivningar till replik-cachen till det andra lagrings kontot. För varje konfigurerat lagrings konto väljer du antingen **primär nyckel** eller **sekundär nyckel** som ska användas från List rutan **lagrings nyckel** . 
-
-> [!IMPORTANT]
-> Om lagrings nyckeln för ditt beständiga konto återskapas måste du konfigurera om önskad nyckel i list rutan **lagrings nyckel** .
-> 
-> 
-
-När AOF persistence har Aktiver ATS, sparas Skriv åtgärder till cacheminnet på det angivna lagrings kontot (eller kontona om du har konfigurerat ett andra lagrings konto). I händelse av ett oåterkalleligt haveri som tar ner både den primära cachen och repliken, används den lagrade AOF-loggen för att återskapa cacheminnet.
+Det tar en stund innan cacheminnet skulle skapas. Du kan övervaka förloppet på **översikts**sidan för Azure-cache för Redis   . När **statusen**   är **igång**är cacheminnet redo att användas. 
 
 ## <a name="persistence-faq"></a>Beständiga vanliga frågor och svar
 Följande lista innehåller svar på vanliga frågor om Azure cache för Redis persistence.
@@ -148,7 +156,7 @@ AOF persistence påverkar data flödet genom cirka 15% – 20% när cachen är u
 
 ### <a name="how-can-i-remove-the-second-storage-account"></a>Hur kan jag ta bort det andra lagrings kontot?
 
-Du kan ta bort det sekundära lagrings kontot AOF persistence genom att ange att det andra lagrings kontot ska vara samma som det första lagrings kontot. Instruktioner finns i [Konfigurera AOF persistence](#configure-aof-persistence).
+Du kan ta bort det sekundära lagrings kontot AOF persistence genom att ange att det andra lagrings kontot ska vara samma som det första lagrings kontot. För befintliga cacheminnen öppnas bladet **data persistes** från **resurs menyn** för cacheminnet. Klicka på **inaktive rad**om du vill inaktivera AOF persistence.
 
 ### <a name="what-is-a-rewrite-and-how-does-it-affect-my-cache"></a>Vad är en omskrivning och hur påverkar den min cache?
 

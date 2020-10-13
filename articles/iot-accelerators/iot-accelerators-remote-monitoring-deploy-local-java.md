@@ -1,20 +1,19 @@
 ---
 title: Distribuera fjärr styrnings lösningen lokalt – IntelliJ IDE – Azure | Microsoft Docs
 description: Den här instruktions guiden visar hur du distribuerar lösnings acceleratorn för fjärrövervakning till din lokala dator med hjälp av IntelliJ för testning och utveckling.
-author: v-krghan
-manager: dominicbetts
+author: dominicbetts
 ms.custom: devx-track-java
-ms.author: v-krghan
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: f7554843db247ade1cddff78902430a5d84debe1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78573cfe00d8e2e7ddcbf705dffdd5530f82c4e0
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319175"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998604"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuera lösnings acceleratorn för fjärr styrning lokalt – IntelliJ
 

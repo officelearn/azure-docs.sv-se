@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 43d7b3ae906909312a9e9ec4517061a788267a0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d90b18094a26830ee6909251d46837eff95a812a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612786"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998581"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Stöd för Azure IoT Hub Device Provisioning Service (DPS) för virtuella nätverk
 
@@ -36,7 +36,7 @@ Av flera skäl kan kunderna vilja begränsa anslutningarna till Azure-resurser, 
 
 * Följande etablerade Azure-wide-anslutnings mönster använder [privata slut punkter](../private-link/private-endpoint-overview.md).
 
-Vanliga metoder för att begränsa anslutningen är [IP-filter för DPS](./iot-dps-ip-filtering.md) och virtuella nätverk (VNet) med [privata slut punkter](../private-link/private-endpoint-overview.md). Syftet med den här artikeln är att beskriva VNET-metoden för DPS med hjälp av privata slut punkter. 
+Vanliga metoder för att begränsa anslutningen är [IP-filter för DPS](./iot-dps-ip-filtering.md) och virtuella nätverk (VNet) med [privata slut punkter](../private-link/private-endpoint-overview.md). Målet med den här artikeln är att beskriva VNET-metoden för DPS med hjälp av privata slut punkter. 
 
 Enheter som arbetar i lokala nätverk kan använda [virtuella privata nätverk (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) eller [ExpressRoute](https://azure.microsoft.com/services/expressroute/) privata peering för att ansluta till ett VNet i Azure och få åtkomst till DPS-resurser via privata slut punkter. 
 
@@ -77,7 +77,7 @@ Följ dessa steg om du vill konfigurera en privat slut punkt:
 
     ![Grunderna om att skapa privata slut punkter](./media/virtual-network-support/create-private-endpoint-basics.png)
 
-    | Field | Värde |
+    | Fält | Värde |
     | :---- | :-----|
     | **Prenumeration** | Välj önskad Azure-prenumeration som ska innehålla den privata slut punkten.  |
     | **Resursgrupp** | Välj eller skapa en resurs grupp som innehåller den privata slut punkten |
@@ -90,7 +90,7 @@ Följ dessa steg om du vill konfigurera en privat slut punkt:
 
     ![Skapa privat slut punkts resurs](./media/virtual-network-support/create-private-endpoint-resource.png)
 
-    | Field | Värde |
+    | Fält | Värde |
     | :---- | :-----|
     | **Prenumeration**        | Välj den Azure-prenumeration som innehåller den DPS-resurs som din privata slut punkt ska peka på.  |
     | **Resurstyp**       | Välj **Microsoft. Devices/ProvisioningServices**. |
@@ -125,7 +125,7 @@ Du kan begära en privat slut punkt till en DPS-resurs per resurs-ID. För att k
 
 2. När du har resurs-ID följer du stegen ovan i [Konfigurera en privat slut punkt](#set-up-a-private-endpoint) till steg 3 på resurs sidan _skapa en privat slut punkt_ . Klicka på **Anslut till en Azure-resurs efter resurs-ID eller alias** och ange informationen i följande tabell. 
 
-    | Field | Värde |
+    | Fält | Värde |
     | :---- | :-----|
     | **Resurs-ID eller alias** | Ange resurs-ID för DPS-resursen. |
     | **Målunderresurs** | Ange **iotDps** |

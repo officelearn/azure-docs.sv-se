@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 3f74c593cd44470efd231578fddcf53715a3979a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 984977d7cef1a923bf7f17de0c503bddeeebcd82
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91575103"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998389"
 ---
 # <a name="what-is-iot-plug-and-play"></a>Vad är IoT Plug and Play?
 
@@ -67,10 +67,6 @@ Som enhets byggare kan du utveckla en IoT-maskinvara som stöder IoT Plug and Pl
 ## <a name="device-certification"></a>Enhetscertifiering
 
 [Iot plug and Play enhets certifierings programmet](howto-certify-device.md) verifierar att en enhet uppfyller IoT-plug and Play certifierings krav. Du kan lägga till en certifierad enhet i [katalogen för offentlig certifierad för Azure IoT-enheter](https://aka.ms/devicecatalog).
-
-## <a name="regional-availability"></a>Regional tillgänglighet
-
-Den här IoT Plug and Play-uppdateringen är tillgänglig på IoT-hubbar som skapats i de centrala regionerna USA, norra Europa och Östra Japan.
 
 ## <a name="next-steps"></a>Nästa steg
 

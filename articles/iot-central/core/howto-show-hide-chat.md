@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Central Visa/Dölj chatt | Microsoft Docs
 description: Den här artikeln beskriver hur du visar och döljer chatten i IoT Central-programmet. Du kan använda Live Chat för att få åtkomst till teknisk support.
-author: v-krghan
-ms.author: v-krghan
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a8e93ea12f176a4b28f14f5878cc580873d3c7c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f290395f4bd7afccace5067a97e63dda553f183c
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80157712"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999733"
 ---
 # <a name="toggle-live-chat"></a>Växla livechatt
 

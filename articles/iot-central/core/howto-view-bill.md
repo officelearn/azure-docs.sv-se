@@ -1,25 +1,25 @@
 ---
 title: Hantera din faktura och konvertera från den kostnads fria pris planen i Azure IoT Central-programmet | Microsoft Docs
 description: Som administratör kan du lära dig hur du hanterar din faktura och flyttar från den kostnads fria pris Planen till en standard pris plan i Azure IoT Central-programmet
-author: v-krghan
-ms.author: v-krghan
+author: dominicbetts
+ms.author: dobett
 ms.date: 12/09/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 888b9f31b8082ac124a773cc489293b335d7d255
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 515f5f665e947ff9594cce6dbbaea9b5e0c50ebf
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80157539"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999703"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Hantera din faktura i ett IoT Central program
 
-Den här artikeln beskriver hur du, som administratör, kan hantera din faktura i Azure IoT Central-programmet i avsnittet Administration. Du får lära dig hur du kan flytta ditt program från den kostnads fria pris Planen till en standard pris plan och även uppgradera eller nedgradera pris planen.
+Den här artikeln beskriver hur du, som administratör, kan hantera Azure IoT Central fakturering. Du kan flytta ditt program från den kostnads fria pris Planen till en standard pris plan och även uppgradera eller nedgradera pris planen.
 
-För att få åtkomst till och använda avsnittet **Administration** , måste du vara i *Administratörs* rollen eller ha en *anpassad användar roll* som gör att du kan visa fakturering för ett Azure IoT Central-program. Om du skapar ett Azure IoT Central-program tilldelas du automatiskt rollen som **administratör** för programmet.
+För att få åtkomst till avsnittet **Administration** måste du vara i *Administratörs* rollen eller ha en *anpassad användar roll* som gör att du kan visa fakturering. Om du skapar ett Azure IoT Central-program tilldelas du automatiskt rollen **administratör** .
 
 ## <a name="move-from-free-to-standard-pricing-plan"></a>Flytta från kostnads fri till standard pris plan
 
@@ -55,9 +55,9 @@ I avsnittet prissättning kan du när som helst uppgradera eller nedgradera din 
 
 1. Gå till sidan med **priser** i avsnittet **Administration** .
 
-    ![Utvärderings tillstånd](media/howto-view-bill/pricing.png)
+    ![Uppgradera prcing-plan](media/howto-view-bill/pricing.png)
 
-1. Välj **planen** och klicka på **Spara** för att uppgradera eller nedgradera.
+1. Välj **planen** och välj sedan **Spara** för att uppgradera eller nedgradera.
 
 ## <a name="view-your-bill"></a>Visa din faktura
 

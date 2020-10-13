@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: bf1664a35562b888f9dd7aacd3b1112058bed664
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3bad12362358620d0f2dc105bb2820dfb691d00
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797708"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000216"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Självstudie: publicera en Jekyll-webbplats till Azures statiska Web Apps för hands version
 
 Den här artikeln visar hur du skapar och distribuerar ett [Jekyll](https://jekyllrb.com/) -webbprogram till [azures statiska Web Apps](overview.md).
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Installera [Jekyll](https://jekyllrb.com/docs/installation/)
   - Du kan använda Windows-undersystemet för Linux och följa Ubuntu-instruktioner om det behövs.
@@ -146,12 +146,9 @@ Sedan lägger du till de konfigurations inställningar som bygg processen använ
 
 1. Öppna appen Jekyll i en text redigerare och öppna filen _. GitHub/arbets flöden/Azure-Pages-<WORKFLOW_NAME>. yml_ .
 
-1. Lägg till rader efter blocket `- uses: actions/checkout@v2` till följande konfigurations block.
+1. Efter raden `- uses: actions/checkout@v2` lägger du till följande konfigurations block.
 
     ```yml
-    - uses: actions/checkout@v2
-      with:
-        submodules: true
     - name: Set up Ruby
       uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
       with:

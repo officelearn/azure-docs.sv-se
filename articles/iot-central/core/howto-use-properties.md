@@ -1,18 +1,18 @@
 ---
 title: Använd egenskaper i en Azure IoT Central-lösning
 description: Lär dig hur du använder skrivskyddade och skrivbara egenskaper i en Azure IoT Central-lösning.
-author: v-krghan
-ms.author: v-krghan
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: eb949f6f0895743250ead0276692497432bfeed5
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a750a98c27fd62288993b2203acc2032ccf39d71
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940573"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999765"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Använd egenskaper i en Azure IoT Central-lösning
 
@@ -32,10 +32,10 @@ Följande skärm bild visar en egenskaps definition i ett Azure IoT Central-prog
 
 I följande tabell visas konfigurations inställningarna för en egenskaps funktion.
 
-| Field           | Beskrivning                                                                                                                                                                                                                        |
+| Fält           | Beskrivning                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Visningsnamn    | Visnings namnet för egenskap svärdet som används på instrument paneler och formulär.                                                                                                                                                              |
-| Namn            | Egenskapens namn. Azure IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. Det här fältet måste vara alfanumeriskt.                                                 |
+| Name            | Egenskapens namn. Azure IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. Det här fältet måste vara alfanumeriskt.                                                 |
 | Funktions typ | Immaterialrätt.                                                                                                                                                                                                                          |
 | Semantiktyp   | Den semantiska typen för egenskapen, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga.                                                                       |
 | Schema          | Egenskaps data typen, t. ex. Double, String eller Vector. De tillgängliga alternativen bestäms av semantisk typ. Schemat är inte tillgängligt för semantiska typer av händelse och tillstånd.                                               |
@@ -244,7 +244,7 @@ Svars meddelandet ska innehålla `ac` fälten och `av` . Fältet `ad` är valfri
 
 | Värde | Etikett | Beskrivning |
 | ----- | ----- | ----------- |
-| `'ac': 200` | Slutfört | Egenskaps ändrings åtgärden har slutförts. |
+| `'ac': 200` | Slutförd | Egenskaps ändrings åtgärden har slutförts. |
 | `'ac': 202` eller `'ac': 201` | Väntar | Egenskaps ändrings åtgärden väntar eller pågår. |
 | `'ac': 4xx` | Fel | Den begärda egenskaps ändringen var inte giltig eller innehöll ett fel. |
 | `'ac': 5xx` | Fel | Ett oväntat fel uppstod i enheten vid bearbetning av den begärda ändringen. |

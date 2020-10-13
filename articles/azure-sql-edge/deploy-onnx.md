@@ -8,15 +8,15 @@ ms.technology: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
-ms.date: 07/14/2020
-ms.openlocfilehash: 5a1e0b12179070dc11e838004c4b27cf04b5396b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: 510e9e2a9e90d62996ed6dcfebdd96f77b034f3d
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298913"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000148"
 ---
-# <a name="deploy-and-make-predictions-with-an-onnx-model"></a>Distribuera och göra förutsägelser med en ONNX-modell
+# <a name="deploy-and-make-predictions-with-an-onnx-model-and-sql-machine-learning"></a>Distribuera och göra förutsägelser med en ONNX-modell och SQL Machine Learning
 
 I den här snabb starten får du lära dig hur du tränar en modell, konverterar den till ONNX, distribuerar den till [Azure SQL Edge](onnx-overview.md) eller [Azure SQL-hanterad instans (för hands version)](../azure-sql/managed-instance/machine-learning-services-overview.md)och sedan kör inbyggt förutsägelser på data med den överförda ONNX-modellen.
 
@@ -395,7 +395,7 @@ SELECT predict_input.id
 FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1 FLOAT) AS p;
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * [Machine Learning och AI med ONNX i SQL Edge](onnx-overview.md)
 * [Machine Learning Services i Azure SQL-hanterad instans (för hands version)](../azure-sql/managed-instance/machine-learning-services-overview.md)

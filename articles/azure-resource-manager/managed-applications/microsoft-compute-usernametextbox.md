@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 82478f322e1df22bde50769b90f0424140920e9a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87063590"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>GRÄNSSNITTs element för Microsoft. Compute. UserNameTextBox
@@ -39,7 +39,7 @@ En text Rute kontroll med inbyggd verifiering för Windows-och Linux-användarna
 }
 ```
 
-## <a name="sample-output"></a>Exempel på utdata
+## <a name="sample-output"></a>Exempelutdata
 
 ```json
 "Example name"
@@ -48,9 +48,9 @@ En text Rute kontroll med inbyggd verifiering för Windows-och Linux-användarna
 ## <a name="remarks"></a>Kommentarer
 
 - Om `constraints.required` är inställt på **Sant**måste text rutan ha ett värde för att kunna verifiera. Standardvärdet är **True**.
-- `osPlatform`måste anges och kan vara antingen **Windows** eller **Linux**.
-- `constraints.regex`är ett mönster för reguljära JavaScript-uttryck. Om det här alternativet anges måste text rutans värde matcha mönstret för att kunna verifieras. Standardvärdet är **Null**.
-- `constraints.validationMessage`är en sträng som ska visas när text rutans värde inte klarar den verifiering som anges av `constraints.regex` . Om inget värde anges används text rutans inbyggda verifierings meddelanden. Standardvärdet är **Null**.
+- `osPlatform` måste anges och kan vara antingen **Windows** eller **Linux**.
+- `constraints.regex` är ett mönster för reguljära JavaScript-uttryck. Om det här alternativet anges måste text rutans värde matcha mönstret för att kunna verifieras. Standardvärdet är **Null**.
+- `constraints.validationMessage` är en sträng som ska visas när text rutans värde inte klarar den verifiering som anges av `constraints.regex` . Om inget värde anges används text rutans inbyggda verifierings meddelanden. Standardvärdet är **Null**.
 - Det här elementet har en inbyggd verifiering som baseras på det värde som har angetts för `osPlatform` . Den inbyggda verifieringen kan användas tillsammans med ett anpassat reguljärt uttryck. Om ett värde för `constraints.regex` anges utlöses båda de inbyggda och anpassade valideringarna.
 
 ## <a name="next-steps"></a>Nästa steg

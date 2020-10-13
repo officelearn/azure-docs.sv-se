@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
 ms.openlocfilehash: a052364b06ac1b9b30cef76db10a79e8ed85b9a3
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89470161"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funktioner & verktyg för Azure Cloud Shell
@@ -61,7 +61,7 @@ PowerShell i Cloud Shell innehåller en privat version av Exchange Online-module
 > [!NOTE]
 > Modulnamnet ska börja med `tmp_` , om du har installerat moduler med samma prefix, kommer deras cmdlets också att placeras på skärmen. 
 
-![Skärm bild av en Azure Cloud Shell som kör kommandot Get-Command-Module tmp_ *.](media/features-powershell/exchangeonlinecmdlets.png)
+![Skärm bild av en Azure Cloud Shell som kör kommandot Get-Command-modul tmp_ *.](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>Djupgående integrering med verktyg med öppen källkod
 
@@ -69,7 +69,7 @@ Cloud Shell innehåller förkonfigurerad autentisering för verktyg med öppen k
 
 ## <a name="tools"></a>Verktyg
 
-|Kategori   |Name   |
+|Kategori   |Namn   |
 |---|---|
 |Linux-verktyg            |bash<br> zsh<br> f<br> tmux<br> fram<br>               |
 |Azure-verktyg            |[Azure CLI](https://github.com/Azure/azure-cli) och [Azure klassisk CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](../storage/common/storage-use-azcopy-v10.md)<br> [Azure Functions CLI](https://github.com/Azure/azure-functions-core-tools)<br> [Service Fabric CLI](../service-fabric/service-fabric-cli.md)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|

@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89d6379f3fa41036836288ed5c75fbdaad0031da
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88783831"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Arkivera loggar och rapportera om hantering av Azure AD-berättigande i Azure Monitor
@@ -35,7 +35,7 @@ Att arkivera Azure AD audit-loggar kräver att du har Azure Monitor i en Azure-p
 
 **Nödvändig roll**: global administratör
 
-1. Logga in på Azure Portal som en användare som är global administratör. Kontrol lera att du har åtkomst till den resurs grupp som innehåller Azure Monitor arbets ytan.
+1. Logga in på Azure Portal som en användare som är global administratör. kontrol lera att du har åtkomst till den resurs grupp som innehåller arbets ytan Azure Monitor.
  
 1. Välj **Azure Active Directory** klicka sedan på **diagnostikinställningar** under övervakning i den vänstra navigerings menyn. Kontrol lera om det redan finns en inställning för att skicka gransknings loggarna till den arbets ytan.
 

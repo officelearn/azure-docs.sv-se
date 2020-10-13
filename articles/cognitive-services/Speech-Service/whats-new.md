@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: erhopf
 ms.openlocfilehash: c2b96193204c6938338594054bc3cd4715008313
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89055319"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Speech service: Nyheter i dokument
@@ -57,7 +57,7 @@ De här problemen har öppnats i maj. Den här tabellen innehåller en lista öv
 
 Den här tabellen uppdateras varje månad och visar bara problem som har öppnats i maj.  
 
-|ID|Användare|Beskrivning|Inleddes|Status|Typ|
+|ID|Användare|Beskrivning|Inleddes|Tillstånd|Typ|
 | :--- | :--- | :--- | :--- | :--- | :--- |
 |[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|Aktiviteten släpptes eftersom robotens slut punkt saknas|2020-05-31|Stängda|Problem|
 |[56038](https://github.com/MicrosoftDocs/azure-docs/issues/56038)|rhalaly|Fel när du publicerar bot-steg|2020-05-31|Öppna|Problem|

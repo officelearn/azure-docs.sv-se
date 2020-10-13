@@ -15,17 +15,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a5a4659671f8d4ded64a4f04f84abf1f67d8825
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265263"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect-msExchUserHoldPolicies och cloudMsExchUserHoldPolicies
 I följande referens dokument beskrivs de attribut som används av Exchange och det korrekta sättet att redigera standard reglerna för synkronisering.
 
 ## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Vad är msExchUserHoldPolicies och cloudMsExchUserHoldPolicies?
-Det finns två typer av [undantag](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) som är tillgängliga för en Exchange-Server: kvarhållning av undantag och på plats. När tvister har Aktiver ATS spärras alla objekt i post lådan.  En på-plats-plats används endast för att bevara de objekt som uppfyller villkoren i en Sök fråga som du har definierat med hjälp av eDiscovery-verktyget på plats.
+Det finns två typer av [undantag](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) som är tillgängliga för en Exchange-Server: tvister och In-Place undantag. När tvister har Aktiver ATS spärras alla objekt i post lådan.  En In-Place-spärr används endast för att bevara de objekt som uppfyller villkoren i en Sök fråga som du har definierat med hjälp av verktyget In-Place eDiscovery.
 
 Attributen MsExchUserHoldPolcies och cloudMsExchUserHoldPolicies tillåter lokala AD och Azure AD för att avgöra vilka användare som är under ett undantag beroende på om de använder lokalt Exchange eller Exchange Online.
 

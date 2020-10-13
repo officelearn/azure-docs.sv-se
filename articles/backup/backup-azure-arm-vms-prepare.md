@@ -4,10 +4,10 @@ description: Beskriver hur du säkerhetskopierar virtuella Azure-datorer i ett R
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.openlocfilehash: 28cc995afc131e747314032c1363f73531e6915c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90986505"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
@@ -149,10 +149,10 @@ Jobbets status kan variera beroende på följande scenarier:
 
 **Ögonblicksbild** | **Överför data till valv** | **Jobb status**
 --- | --- | ---
-Slutförd | Pågår | Pågår
-Slutförd | Överhoppad | Slutförd
-Slutförd | Slutförd | Slutförd
-Slutförd | Misslyckades | Slutfört med varning
+Slutfört | Pågår | Pågår
+Slutfört | Överhoppad | Slutfört
+Slutfört | Slutfört | Slutfört
+Slutfört | Misslyckades | Slutfört med varning
 Misslyckades | Misslyckades | Misslyckades
 
 Med den här funktionen kan två säkerhets kopior för samma virtuella dator köras parallellt, men i båda skedet (ögonblicks bilder, överför data till valv) kan endast en under aktivitet köras. I scenarier där en pågående säkerhets kopiering resulterade i att säkerhets kopieringen av nästa dag Miss Miss kan det undvikas med den här kopplings funktionen. De efterföljande dagarnas säkerhets kopieringar kan göra att ögonblicks bilden slutförs, medan **överföring av data till valvet** hoppas över om en tidigare daglig säkerhets kopierings jobb pågår.

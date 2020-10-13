@@ -12,10 +12,10 @@ ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
 ms.openlocfilehash: 5892100140c6022763453a4141d87e6a7ba4ed75
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266572"
 ---
 # <a name="workday-attribute-reference"></a>Workday-attributreferens
@@ -226,7 +226,7 @@ Om du vill lägga till fler attribut till XPATH-tabellen för fördelen med kund
 ## <a name="supported-xpath-functions"></a>XPATH-funktioner som stöds
 Nedan visas en lista över de XPATH-funktioner som stöds av [Microsoft .net XPath-bibliotek](/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100)) som du kan använda när du skapar ditt XPath API-uttryck. 
 
-* namn
+* name
 * pågå
 * position
 * sträng

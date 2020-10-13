@@ -7,10 +7,10 @@ ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
 ms.openlocfilehash: 6318f426e42612f21da7a43c9857894ae610f68e
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88871196"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Felsöka replikeringsfel i VM-migrering utan agent
@@ -58,7 +58,7 @@ När portalen skapar nyckel valvet lägger det också till en princip för anvä
 
 $userPrincipalId = $ (Get-AzureRmADUser-UserPrincipalName "user2_email_address"). Identitet
 
-Set-AzureRmKeyVaultAccessPolicy-VaultName "keyvaultname"-ObjectId $userPrincipalId-PermissionsToStorage Hämta, lista, ta bort, ange, uppdatera, regeneratekey, hämtas, listor, rader, rader, uppsättningar, återställning, säkerhets kopiering, återställning, rensa
+Set-AzureRmKeyVaultAccessPolicy-VaultName "keyvaultname"-ObjectId $userPrincipalId-PermissionsToStorage get, list, DELETE, set, Update, regeneratekey, Gets, lists, Deletes, Sets, Restore, backup, Restore
 
 
 ## <a name="disposeartefactstimedout"></a>DisposeArtefactsTimedOut

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 53be638c46685dd46a5afb5ed56f9a76ed7b5fd6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055868"
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>Viktig information om StorSimple 8000-serien uppdatering 2
@@ -83,7 +83,7 @@ Följande tabell innehåller en sammanfattning av kända problem i den här vers
 | 6 |Webbproxy |Om webbproxy-konfigurationen har HTTPS som det angivna protokollet, kommer din enhets-till-tjänst-kommunikation att påverkas och enheten kopplas från. Support paketen skapas också i processen, vilket förbrukar betydande resurser på din enhet. |Kontrol lera att webbproxy-URL: en har HTTP som det angivna protokollet. Mer information finns i [Konfigurera en webbproxy för din enhet](storsimple-configure-web-proxy.md). |Ja |Inga |
 | 7 |Webbproxy |Om du konfigurerar och aktiverar webbproxy på en registrerad enhet måste du starta om den aktiva styrenheten på enheten. | |Ja |Inga |
 | 8 |Hög moln svars tid och hög I/O-arbetsbelastning |När din StorSimple-enhet påträffar en kombination av mycket hög moln fördröjning (antal sekunder) och hög I/O-arbetsbelastning, försätts enhets volymerna i ett degraderat tillstånd och i/O-systemet kan Miss lyckas med fel meddelandet "enheten är inte klar". |Du måste manuellt starta om enhets styrenheterna eller utföra en enhets växling för att återställa från den här situationen. |Ja |Inga |
-| 9 |Azure PowerShell |När du använder StorSimple-cmdleten **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object-First 1 – vänta** med att välja det första objektet så att du kan skapa ett nytt **VolumeContainer** -objekt, returnerar cmdleten alla objekt. |Bryt upp cmdleten inom parentes enligt följande: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object-First 1-wait** |Ja |Ja |
+| 9 |Azure PowerShell |När du använder StorSimple-cmdleten **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object – första 1 – vänta tills** du väljer det första objektet så att du kan skapa ett nytt **VolumeContainer** -objekt, så returnerar cmdleten alla objekt. |Bryt upp cmdleten inom parentes enligt följande: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object – första 1 – vänta** |Ja |Ja |
 | 10 |Migrering |När flera volym behållare skickas för migreringen är ETA for den senaste säkerhets kopieringen bara korrekt för den första volym containern. Dessutom startar parallell migrering efter att de första fyra säkerhets kopieringarna i den första volym containern har migrerats. |Vi rekommenderar att du migrerar en volym behållare i taget. |Ja |Inga |
 | 11 |Migrering |Efter återställningen läggs volymerna inte till i säkerhets kopierings principen eller den virtuella disk gruppen. |Du måste lägga till dessa volymer i en säkerhets kopierings princip för att kunna skapa säkerhets kopior. |Ja |Ja |
 | 12 |Migrering |När migreringen är klar får enheten 5000/7000-serien inte komma åt de migrerade data behållarna. |Vi rekommenderar att du tar bort de migrerade data behållarna när migreringen är slutförd och bekräftad. |Ja |Inga |

@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d6dfc95820e911781ffa88e2207601703f165839
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87070599"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Distribuera StorSimple virtuell matris – etablera i Hyper-V
@@ -121,7 +121,7 @@ Utför följande steg för att etablera en enhet i ditt hypervisor-program.
 11. För att uppfylla minimikraven behöver du 4 kärnor. Om du vill lägga till 4 virtuella processorer väljer du ditt värdsystem i **Hyper-V Manager**-fönstret. I den högra fönsterrutan går du till listan över **virtuella datorer** och letar upp den virtuella dator som du nyss skapade. Markera och högerklicka på datornamnet och välj **Inställningar**.
 
     ![Skärm bild av Hyper-V Manager-fönstret. En dator väljs i listan och inställningsobjektet är markerat på den datorns snabb meny.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image10.png)
-12. På sidan **Inställningar** går du till den vänstra fönsterruta och klickar på **Processor**. I den högra fönsterrutan ställer du in **antal virtuella processorer** på 4 (eller fler). Klicka på **Använd**.
+12. På sidan **Inställningar** går du till den vänstra fönsterruta och klickar på **Processor**. I den högra fönsterrutan ställer du in **antal virtuella processorer** på 4 (eller fler). Klicka på **Applicera**.
 
     ![Skärm bild av sidan inställningar med processor objekt markerat, antalet virtuella processorer som är inställt på fyra och knappen Använd har marker ATS.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image11.png)
 13. För att uppfylla minimi kraven måste du också lägga till en virtuell data disk på 500 GB. På sidan **Inställningar**:
@@ -168,11 +168,11 @@ Utför följande steg för att starta den virtuella matrisen och ansluta till de
    ![Skärm bild av fliken vSphere klient konsol som visar obestämda tecken i inloggnings rutan.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image23.png)
 4. Av säkerhetsskäl upphör enhetens administratörslösenord vid första inloggningen. Du uppmanas att ändra lösenordet.
 
-   ![Skärm bild av vSphere-klientens konsol flik. texten på sidan anger att lösen ordet måste ändras.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image24.png)
+   ![Skärm bild av vSphere-klientens konsol flik. Texten på sidan anger att lösen ordet måste ändras.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image24.png)
 
    Ange ett lösenord som innehåller minst 8 tecken. Lösenordet måste uppfylla minst 3 av följande 4 krav: versaler, gemener, siffror och specialtecken. Ange lösenordet igen för att bekräfta det. Du meddelas om att lösenordet har ändrats.
 
-   ![Skärm bild av vSphere-klientens konsol flik. texten på sidan anger att lösen ordet har ändrats.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
+   ![Skärm bild av vSphere-klientens konsol flik. Texten på sidan anger att lösen ordet har ändrats.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
 5. När lösen ordet har ändrats kan den virtuella matrisen starta om. Vänta tills enheten har startat.
 
    ![Skärm bild av huvud StorSimpleAdmin-sidan. Texten på sidan ber användaren att vänta på tjänsten system Event Notification.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image26.png)
@@ -192,7 +192,7 @@ Utför följande steg för att starta den virtuella matrisen och ansluta till de
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
-    ![Skärm bild som visar ett konsol fönster med utdata från kommandot Get-Help set-HcsIpAddress och korrekt användning av kommandot Set-HcsIpAddress.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image30.png)
+    ![Skärm bild som visar ett konsol fönster med utdata från kommandot Get-Help Set-HcsIpAddress och rätt användning av Set-HcsIpAddress kommandot.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image30.png)
 9. När den inledande installationen är klar och enheten har startats visas enhetens banderollstext. Anteckna den IP-adress och den URL som visas i banderollstexten för att hantera enheten. Använd den här IP-adressen för att ansluta till webb gränssnittet för den virtuella matrisen och slutföra den lokala installationen och registreringen.
 
    ![Skärm bild som visar ett konsol fönster med enhets informations text. Den texten omfattar enhetens IP-adress och URL.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image31m.png)

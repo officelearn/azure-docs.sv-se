@@ -12,10 +12,10 @@ ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: eca75ac4fefcf7164c247c4da4b58ccf7c03334c
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90564906"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för ID-token i en Azure Active Directory B2C anpassad princip
@@ -34,7 +34,7 @@ Med id_token_hint skapar token utfärdaren (en förlitande part eller en identit
 
 Id_token_hint måste vara en giltig JWT-token. I följande tabell visas de anspråk som är obligatoriska. Ytterligare anspråk är valfria.
 
-| Name | Begär | Exempelvärde | Description |
+| Namn | Begär | Exempelvärde | Beskrivning |
 | ---- | ----- | ------------- | ----------- |
 | Målgrupp | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifierar den avsedda mottagaren för token. Detta är en godtycklig sträng som definieras av token Issuer. Azure AD B2C validerar det här värdet och avvisar token om det inte matchar.  |
 | Utfärdare | `iss` |`https://localhost` | Identifierar Security Token Service (token Issuer). Detta är en godtycklig URI som definieras av token Issuer. Azure AD B2C validerar det här värdet och avvisar token om det inte matchar.  |
@@ -84,16 +84,16 @@ Följande metadata är relevanta när du använder symmetrisk nyckel.
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| utfärdare | Yes | Identifierar Security Token Service (token Issuer). Värdet måste vara identiskt med `iss` anspråket i JWT-token-anspråket. | 
-| IdTokenAudience | Yes | Identifierar den avsedda mottagaren för token. Måste vara identiskt `aud` med anspråket med JWT-token-anspråket. | 
+| utfärdare | Ja | Identifierar Security Token Service (token Issuer). Värdet måste vara identiskt med `iss` anspråket i JWT-token-anspråket. | 
+| IdTokenAudience | Ja | Identifierar den avsedda mottagaren för token. Måste vara identiskt `aud` med anspråket med JWT-token-anspråket. | 
 
 Följande metadata är relevanta när du använder en symmetrisk nyckel. 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| METADATATJÄNST| Yes | En URL som pekar på ett konfigurations dokument för token, som även kallas en OpenID-känd konfigurations slut punkt.   |
-| utfärdare | No | Identifierar Security Token Service (token Issuer). Det här värdet kan användas för att skriva över värdet som kon figurer ATS i metadata och måste vara identiskt med `iss` anspråket i JWT-token-anspråket. |  
-| IdTokenAudience | No | Identifierar den avsedda mottagaren för token. Det här värdet kan användas för att skriva över värdet som kon figurer ATS i metadata och måste vara identiskt med `aud` anspråket i JWT-token-anspråket. |  
+| METADATATJÄNST| Ja | En URL som pekar på ett konfigurations dokument för token, som även kallas en OpenID-känd konfigurations slut punkt.   |
+| utfärdare | Inga | Identifierar Security Token Service (token Issuer). Det här värdet kan användas för att skriva över värdet som kon figurer ATS i metadata och måste vara identiskt med `iss` anspråket i JWT-token-anspråket. |  
+| IdTokenAudience | Inga | Identifierar den avsedda mottagaren för token. Det här värdet kan användas för att skriva över värdet som kon figurer ATS i metadata och måste vara identiskt med `aud` anspråket i JWT-token-anspråket. |  
 
 ## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 
@@ -101,7 +101,7 @@ När du använder en symmetrisk nyckel innehåller **CryptographicKeys** -elemen
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| client_secret | Yes | Den kryptografiska nyckel som används för att validera JWT-tokens signatur.|
+| client_secret | Ja | Den kryptografiska nyckel som används för att validera JWT-tokens signatur.|
 
 
 ## <a name="how-to-guide"></a>Instruktionsguide

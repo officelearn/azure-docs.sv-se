@@ -7,10 +7,10 @@ ms.date: 11/27/2017
 ms.custom: devx-track-java
 ms.author: rapatchi
 ms.openlocfilehash: 24ee4a3d8109626bf93e01fbd10c00140762c9c6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324632"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>API: er för Azure Service Fabric Java-klient
@@ -40,7 +40,7 @@ Följ stegen nedan för att generera Service Fabric Java-klient kod med hjälp a
     npm install -g autorest
     ```
 
-3. Förgrena och klona [Azure-REST-API-specs-](https://github.com/Azure/azure-rest-api-specs) lagringsplatsen på din lokala dator och gå till den klonade platsen från terminalen på datorn.
+3. Förgrena och klona [Azure-REST-API-specs-](https://github.com/Azure/azure-rest-api-specs)  lagringsplatsen på din lokala dator och gå till den klonade platsen från terminalen på datorn.
 
 
 4. Gå till den plats som anges nedan i din klonade lagrings platsen.
@@ -63,7 +63,7 @@ Följ stegen nedan för att generera Service Fabric Java-klient kod med hjälp a
     autorest --input-file=servicefabric.json --java --output-folder=java-rest-api-code --namespace=servicefabricrest
     ```
    
-   Följande kommando använder ``servicefabric.json`` filen som indata och genererar Java-klientens kod i ``java-rest-api-     code`` mappen och omsluter koden i ``servicefabricrest`` namn området. Efter det här steget hittar du två mappar ``models`` ``implementation`` och två filer ``ServiceFabricClientAPIs.java`` och ``package-info.java`` genererade i ``java-rest-api-code`` mappen.
+   Följande kommando använder ``servicefabric.json`` filen som indata och genererar Java-klientens kod i ``java-rest-api-     code`` mappen och omsluter koden i  ``servicefabricrest`` namn området. Efter det här steget hittar du två mappar ``models`` ``implementation`` och två filer ``ServiceFabricClientAPIs.java`` och ``package-info.java`` genererade i ``java-rest-api-code`` mappen.
 
 
 ## <a name="include-and-use-the-generated-client-in-your-project"></a>Ta med och Använd den genererade klienten i projektet

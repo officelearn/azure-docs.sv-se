@@ -14,10 +14,10 @@ ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: 66a3ecd82ab61f25c99fd1268d9ce7567b057d66
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86050309"
 ---
 ## <a name="prepare-for-akv-integration"></a>Förbered för AKV-integrering
@@ -31,10 +31,10 @@ I följande avsnitt beskrivs dessa krav och den information som du behöver saml
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
-### <a name="install-azure-powershell"></a><a id="install"></a>Installera Azure PowerShell
+### <a name="install-azure-powershell"></a><a id="install"></a> Installera Azure PowerShell
 Kontrol lera att du har installerat den senaste Azure PowerShell-modulen. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
 
-### <a name="register-an-application-in-your-azure-active-directory"></a><a id="register"></a>Registrera ett program i Azure Active Directory
+### <a name="register-an-application-in-your-azure-active-directory"></a><a id="register"></a> Registrera ett program i Azure Active Directory
 
 Först måste du ha en [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) i din prenumeration. På så sätt kan du med många fördelar ge dig behörighet till ditt nyckel valv för vissa användare och program.
 
@@ -53,7 +53,7 @@ Registrera sedan ett program med AAD. Detta ger dig ett tjänst huvud konto som 
 
 * Du måste godkänna att det här nya program-ID: t (eller klient-ID: t) har följande åtkomst behörigheter: **Get**, **wrapKey**, **unwrapKey**. Detta görs med cmdleten [set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) . Mer information finns i [Azure Key Vault översikt](../articles/key-vault/key-vault-overview.md).
 
-### <a name="create-a-key-vault"></a><a id="createkeyvault"></a>Skapa ett nyckel valv
+### <a name="create-a-key-vault"></a><a id="createkeyvault"></a> Skapa ett nyckel valv
 För att kunna använda Azure Key Vault för att lagra de nycklar som ska användas för kryptering i din virtuella dator måste du ha åtkomst till ett nyckel valv. Om du inte redan har konfigurerat nyckel valvet skapar du ett genom att följa stegen i artikeln [komma igång med Azure Key Vault](../articles/key-vault/key-vault-overview.md) . Innan du utför de här stegen finns det information som du behöver samla in under den här konfigurationen som behövs senare när du aktiverar Azure Key Vault-integrering på den virtuella SQL-datorn.
 
 ```azurepowershell

@@ -1,13 +1,13 @@
 ---
-title: Knappen Distribuera till Azure
+title: Distribuera till Azure (knapp)
 description: Använd knappen för att distribuera Azure Resource Manager mallar från en GitHub-lagringsplats.
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87079451"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Använd en distributions knapp för att distribuera mallar från GitHub-lagringsplatsen
@@ -24,7 +24,7 @@ Om du vill lägga till knappen på din webb sida eller lagrings plats använder 
 
 Bilden visas som:
 
-![Knappen Distribuera till Azure](https://aka.ms/deploytoazurebutton)
+![Distribuera till Azure (knapp)](https://aka.ms/deploytoazurebutton)
 
 ## <a name="create-url-for-deploying-template"></a>Skapa URL för distribution av mall
 

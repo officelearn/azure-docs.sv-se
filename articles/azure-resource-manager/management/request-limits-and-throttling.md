@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/24/2020
 ms.custom: seodec18
 ms.openlocfilehash: 4d387749261747eb9ea1ea26629ade4fe8729856
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80239366"
 ---
 # <a name="throttling-resource-manager-requests"></a>Begränsning av Resource Manager-förfrågningar
@@ -30,8 +30,8 @@ Standard begränsningarna för begränsning per timme visas i följande tabell.
 | Prenumeration | databasläsningar | 12000 |
 | Prenumeration | text | 15 000 |
 | Prenumeration | skriver | 1200 |
-| Klientorganisation | databasläsningar | 12000 |
-| Klientorganisation | skriver | 1200 |
+| Klient | databasläsningar | 12000 |
+| Klient | skriver | 1200 |
 
 De här gränserna gäller det säkerhetsobjekt (användare eller program) som skickar förfrågningarna och prenumerationens eller klientorganisationens ID. Om dina förfrågningar kommer från fler än ett säkerhetsobjekt är begränsningen för prenumerationen eller klientorganisationen högre än 12 000 respektive 1 200 per timme.
 
@@ -103,7 +103,7 @@ I **C#** kan du till exempel hämta huvudet från ett **HttpWebResponse** -objek
 response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
 ```
 
-I **PowerShell**hämtar du huvud värde från en Invoke-webbegäran-åtgärd.
+I **PowerShell**hämtar du huvud-värdet från en Invoke-WebRequest-åtgärd.
 
 ```powershell
 $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders

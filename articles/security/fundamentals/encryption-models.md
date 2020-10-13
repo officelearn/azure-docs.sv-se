@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 836e01d3cd8fb25dda1616803d8b6f3e9ff4e06f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89645742"
 ---
 # <a name="data-encryption-models"></a>Datakrypteringsmodeller
@@ -27,7 +27,7 @@ Det är viktigt att förstå de olika krypterings modellerna och deras-och nack 
 
 Det finns tre scenarier för kryptering på Server sidan:
 
-- Kryptering på Server sidan med tjänst-hanterade nycklar
+- Kryptering på Server sidan med hjälp av Service-Managed nycklar
   - Azure-resurs-providers utför krypterings-och dekrypterings åtgärder
   - Microsoft hanterar nycklarna
   - Fullständig moln funktion
@@ -143,7 +143,7 @@ När kryptering på Server sidan med tjänst hanterade nycklar i kundkontrollera
 ## <a name="supporting-services"></a>Stöd tjänster
 De Azure-tjänster som har stöd för varje krypterings modell:
 
-| Produkt, funktion eller tjänst | Server sidan med tjänst hanterad nyckel   | Server sidan med kundhanterad nyckel | Klient sidan med hjälp av klient hanterad nyckel  |
+| Produkt, funktion eller tjänst | Server-Side att använda Service-Managed nyckel   | Server-Side att använda Customer-Managed nyckel | Client-Side att använda Client-Managed nyckel  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 | **AI och maskininlärning**      |                    |                    |                    |
 | Azure Cognitive Search           | Ja                | Ja                | -                  |
@@ -175,7 +175,7 @@ De Azure-tjänster som har stöd för varje krypterings modell:
 | Container Instances              | Ja                | Ja                | -                  |
 | Container Registry               | Ja                | Ja                | -                  |
 | **Beräkning**                      |                    |                    |                    |
-| Virtuella datorer                 | Ja                | Ja                | -                  |
+| Virtual Machines                 | Ja                | Ja                | -                  |
 | Skalnings uppsättning för virtuell dator        | Ja                | Ja                | -                  |
 | SAP HANA                         | Ja                | Ja                | -                  |
 | App Service                      | Ja                | Ja\*\*            | -                  |
@@ -187,7 +187,7 @@ De Azure-tjänster som har stöd för varje krypterings modell:
 | Service Bus                      | Ja                | Ja                | -                  |
 | Site Recovery                    | Ja                | Ja                | -                  |
 | **Databaser**                    |                    |                    |                    |
-| SQL Server på virtuella datorer   | Ja                | Ja                | Ja                |
+| SQL Server på Virtual Machines   | Ja                | Ja                | Ja                |
 | Azure SQL Database               | Ja                | Ja, RSA 3072-bitars  | Ja                |
 | Azure SQL Database för MariaDB   | Ja                | -                  | -                  |
 | Azure SQL Database för MySQL     | Ja                | Ja                | -                  |
@@ -240,7 +240,7 @@ De Azure-tjänster som har stöd för varje krypterings modell:
 
 \* Den här tjänsten bevarar inte data. Tillfälliga cacheminnen, om det finns, krypteras med en Microsoft-nyckel.
 
-\*\* Den här tjänsten stöder lagring av data i din egen Key Vault, lagrings konto eller annan data tjänst som redan stöder kryptering på Server sidan med kundhanterad nyckel.
+\*\* Den här tjänsten har stöd för att lagra data i din egen Key Vault, lagrings konto eller annan data tjänst som redan stöder Server-Side kryptering med Customer-Managed nyckel.
 
 ## <a name="next-steps"></a>Nästa steg
 

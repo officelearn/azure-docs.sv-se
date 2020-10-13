@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
 ms.openlocfilehash: 03ea1b0cdfef30935b38078d0811d1408a78c41e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937983"
 ---
 # <a name="use-power-bi-and-synapse-sql-serverless-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Använd Power BI och Synapse SQL Server för att analysera Azure Cosmos DB-data med Synapse-länk (för hands version)
@@ -46,7 +46,7 @@ Från arbets ytan Synapse går du till fliken **utveckla** , väljer på **+** i
 
 Varje arbets yta levereras med en Synapse SQL Server-slutpunkt. När du har skapat ett SQL-skript från verktygsfältet längst upp ansluter du till **SQL på begäran**.
 
-:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Aktivera SQL-skriptet för att använda Synapse-slutpunkten för SQL Server i arbets ytan":::
+:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Lägga till ett SQL-skript i Synapse Analytics-arbetsytan":::
 
 Skapa en ny databas med namnet **RetailCosmosDB**och en SQL-vy över Synapse-länkens aktiverade behållare. Följande kommando visar hur du skapar en databas:
 
@@ -106,7 +106,7 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 
 Välj **körning** som ger följande tabell resultat:
 
-:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="Fråga efter resultat när du har anslutit till vyerna StoreDemographics och RetailSales":::
+:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="Lägga till ett SQL-skript i Synapse Analytics-arbetsytan":::
 
 ## <a name="model-views-over-containers-with-power-bi"></a>Modellera vyer över behållare med Power BI
 
@@ -141,7 +141,7 @@ Gå nu till **rapport** fönstret och skapa en rapport för att jämföra den re
 1. Dra och släpp **ProductCode** från **RetailSales** -vyn i förklaringen för att välja en speciell produkt linje.
 När du har valt dessa alternativ bör du se ett diagram som följande skärm bild:
 
-:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Rapport som jämför den relativa vikten av hushålls storlek med den genomsnittliga intäkten per butik":::
+:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Lägga till ett SQL-skript i Synapse Analytics-arbetsytan":::
 
 ## <a name="next-steps"></a>Nästa steg
 

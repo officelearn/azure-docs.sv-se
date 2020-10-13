@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 781406a1bfd253f0ab3eb333f23917be4aeb3ba9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83771748"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Anropa ett webb-API från en mobilapp
@@ -29,17 +29,17 @@ I den här artikeln tittar vi först på MSAL-resultatet. Sedan ska vi titta på
 ## <a name="msal-result"></a>MSAL resultat
 MSAL innehåller följande värden: 
 
-- `AccessToken`anropar skyddade webb-API: er i en HTTP Bearer-begäran.
-- `IdToken`innehåller användbar information om den inloggade användaren. Den här informationen omfattar användarens namn, hem klienten och en unik identifierare för lagring.
-- `ExpiresOn`är giltighets tiden för token. MSAL hanterar en Apps automatiska uppdatering.
-- `TenantId`är identifieraren för den klient där användaren är inloggad. För gäst användare i Azure Active Directory (Azure AD) B2B identifierar det här värdet innehavaren där användaren är inloggad. Värdet identifierar inte användarens hem klient.  
-- `Scopes`anger de omfattningar som har beviljats med din token. De beviljade omfattningarna kan vara en delmängd av de omfattningar som du har begärt.
+- `AccessToken` anropar skyddade webb-API: er i en HTTP Bearer-begäran.
+- `IdToken` innehåller användbar information om den inloggade användaren. Den här informationen omfattar användarens namn, hem klienten och en unik identifierare för lagring.
+- `ExpiresOn` är giltighets tiden för token. MSAL hanterar en Apps automatiska uppdatering.
+- `TenantId` är identifieraren för den klient där användaren är inloggad. För gäst användare i Azure Active Directory (Azure AD) B2B identifierar det här värdet innehavaren där användaren är inloggad. Värdet identifierar inte användarens hem klient.  
+- `Scopes` anger de omfattningar som har beviljats med din token. De beviljade omfattningarna kan vara en delmängd av de omfattningar som du har begärt.
 
 MSAL tillhandahåller också en abstraktion av ett `Account` värde. Ett `Account` värde representerar den aktuella användarens inloggade konto:
 
-- `HomeAccountIdentifier`identifierar användarens hem klient.
-- `UserName`är användarens önskade användar namn. Det här värdet kan vara tomt för Azure AD B2C användare.
-- `AccountIdentifier`identifierar den inloggade användaren. I de flesta fall är det här värdet detsamma som `HomeAccountIdentifier` värdet om inte användaren är en gäst i en annan klient.
+- `HomeAccountIdentifier` identifierar användarens hem klient.
+- `UserName` är användarens önskade användar namn. Det här värdet kan vara tomt för Azure AD B2C användare.
+- `AccountIdentifier` identifierar den inloggade användaren. I de flesta fall är det här värdet detsamma som `HomeAccountIdentifier` värdet om inte användaren är en gäst i en annan klient.
 
 ## <a name="call-an-api"></a>Anropa ett API
 
@@ -87,7 +87,7 @@ När du har åtkomst-token kan du anropa ett webb-API. Din app kommer att använ
 
 ### <a name="msal-for-ios-and-macos"></a>MSAL för iOS och macOS
 
-Metoderna för att hämta tokens returnerar ett `MSALResult` objekt. `MSALResult`exponerar en `accessToken` egenskap. Du kan använda `accessToken` för att anropa ett webb-API. Lägg till den här egenskapen i HTTP Authorization-huvudet innan du anropar åtkomst till det skyddade webb-API: et.
+Metoderna för att hämta tokens returnerar ett `MSALResult` objekt. `MSALResult` exponerar en `accessToken` egenskap. Du kan använda `accessToken` för att anropa ett webb-API. Lägg till den här egenskapen i HTTP Authorization-huvudet innan du anropar åtkomst till det skyddade webb-API: et.
 
 ```objc
 NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];

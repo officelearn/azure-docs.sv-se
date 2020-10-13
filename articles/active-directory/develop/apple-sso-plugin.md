@@ -14,10 +14,10 @@ ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530705"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Microsoft Enterprise SSO-plugin-program för Apple-enheter (för hands version)
@@ -35,7 +35,7 @@ I den här offentliga för hands versionen är Enterprise SSO-plugin-programmet 
 
 Microsoft Enterprise SSO-plugin-programmet för Apple-enheter ger följande fördelar:
 
-- Ger enkel inloggning för Azure AD-konton i alla program som har stöd för enkel inloggnings funktion i Apple.
+- Ger enkel inloggning för Azure AD-konton i alla program som har stöd för Apples Enterprise Single Sign-On-funktion.
 - Levereras automatiskt i Microsoft Authenticator och kan aktive ras av en lösning för hantering av mobila enheter (MDM).
 
 ## <a name="requirements"></a>Krav
@@ -125,7 +125,7 @@ Om du skapar ett program för Frontline Worker-scenarier, se [delad enhets läge
 
 ## <a name="how-the-sso-plug-in-works"></a>Så här fungerar SSO-plugin-programmet
 
-Microsoft Enterprise SSO-plugin-programmet är beroende av [Apples Enterprise-ramverk för enkel inloggning](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc). Identitets leverantörer som är inbyggda i ramverket kan fånga nätverks trafik för sina domäner och förbättra eller ändra hur dessa begär Anden hanteras. SSO-plugin-programmet kan till exempel Visa ytterligare gränssnitt för att samla in autentiseringsuppgifter för slutanvändare på ett säkert sätt, kräva MFA eller tyst tillhandahålla token till programmet.
+Microsoft Enterprise SSO-plugin-programmet är beroende av [Apples Enterprise Single Sign-On Framework](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc). Identitets leverantörer som är inbyggda i ramverket kan fånga nätverks trafik för sina domäner och förbättra eller ändra hur dessa begär Anden hanteras. SSO-plugin-programmet kan till exempel Visa ytterligare gränssnitt för att samla in autentiseringsuppgifter för slutanvändare på ett säkert sätt, kräva MFA eller tyst tillhandahålla token till programmet.
 
 Inbyggda program kan också implementera anpassade åtgärder och prata direkt med SSO-plugin-programmet.
 Du kan lära dig mer om Single Sign-in-ramverket i den här [2019 WWDC-videon från Apple](https://developer.apple.com/videos/play/tech-talks/301/)

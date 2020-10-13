@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
 ms.openlocfilehash: 500d5242d5185a8014283918c1f3a22c5c22cf48
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87325601"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Genom gång av Azure Monitoring REST API
@@ -464,7 +464,7 @@ När de tillgängliga mått definitionerna är kända är det möjligt att hämt
 
 **Metod**: Hämta
 
-**Begärande-URI**:`https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
+**Begärande-URI**: `https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
 
 För att till exempel hämta RunsSucceeded Mät data punkter för det aktuella tidsintervallet och för en tids kornig het på 1 timme så skulle begäran vara följande:
 
@@ -626,7 +626,7 @@ Resurs-ID: t kan också hämtas från Azure Portal. Det gör du genom att navige
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Resurs-ID: t kan hämtas med hjälp av Azure PowerShell-cmdletar också. Om du till exempel vill hämta resurs-ID för en Azure Logic-app kör du cmdleten Get-AzureLogicApp, som i följande exempel:
+Resurs-ID: t kan hämtas med hjälp av Azure PowerShell-cmdletar också. Om du till exempel vill hämta resurs-ID för en Azure Logic-app kör du Get-AzureLogicApp-cmdleten, som i följande exempel:
 
 ```powershell
 Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets

@@ -11,10 +11,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 0c9edaf3356ea4c1a521a89f2ec60a4b6ba1a5ef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87481503"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Konfigurera lösen ords återställning via självbetjäning för dina kunder
@@ -31,7 +31,7 @@ Som standard har din katalog ingen självbetjäning för återställning av lös
 1. Logga in på [Azure Portal](https://portal.azure.com/) som prenumerations administratör. Detta är samma arbets-eller skol konto eller samma Microsoft-konto som du använde för att skapa din katalog.
 2. Öppna **Azure Active Directory** (i navigerings fältet på vänster sida).
 3. Rulla ned på bladet alternativ och välj **lösen ords återställning**.
-4. Ange **återställning av lösen ord** för självbetjäning aktiverat för **alla**.
+4. Ange **återställning av lösen ord**  för självbetjäning aktiverat för **alla**.
 5. Klicka på **Spara** längst upp på sidan. Du är klar!
 
 Testa genom att använda funktionen "kör nu" på alla inloggnings användar flöden som har lokala konton som identitets leverantör. På inloggnings sidan för lokalt konto (där du anger en e-postadress och ett lösen ord eller ett användar namn och lösen ord) klickar du på **det går inte att komma åt ditt konto?** för att verifiera kund upplevelsen.

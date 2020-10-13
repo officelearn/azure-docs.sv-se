@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
 ms.openlocfilehash: e3dc7ce36e773b5a615b1abf4f50406fcb07826b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84744314"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Ansluta till en skalnings uppsättning för virtuella datorer med hjälp av Azure skydds
@@ -24,7 +24,7 @@ Kontrol lera att du har konfigurerat en Azure skydds-värd för det virtuella n�
 
 ## <a name="connect-using-rdp"></a><a name="rdp"></a>Anslut via RDP
 
-1. Öppna [Azure Portal](https://portal.azure.com). Navigera till den skalnings uppsättning för virtuella datorer som du vill ansluta till.
+1. Öppna [Azure-portalen](https://portal.azure.com). Navigera till den skalnings uppsättning för virtuella datorer som du vill ansluta till.
 
    ![navigate](./media/bastion-connect-vm-scale-set/1.png)
 2. Gå till den instans av skalnings uppsättningen för virtuell dator som du vill ansluta till och välj sedan **Anslut**. När du använder en RDP-anslutning bör skalnings uppsättningen för den virtuella datorn vara en skalnings uppsättning för virtuella Windows-datorer.

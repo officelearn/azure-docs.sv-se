@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6bf5d40262c5991504d3dc62490fb50f6a20592
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87910025"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B-samarbete för inbjudan
@@ -42,8 +42,8 @@ Som ett alternativ till e-postinbjudan kan du ge en gäst en direkt länk till d
 
 > [!IMPORTANT]
 > Den direkta länken måste vara klient-/regionsspecifika. Med andra ord måste det innehålla ett klient-ID eller verifierad domän så att gästen kan autentiseras i din klient, där den delade appen finns. En vanlig URL som https://myapps.microsoft.com inte fungerar för en gäst, eftersom den kommer att omdirigeras till sin hem klient för autentisering. Här följer några exempel på direkta länkar med klient kontext:
- > - Åtkomst panel för appar:`https://myapps.microsoft.com/?tenantid=<tenant id>`
- > - Åtkomst panel för appar för en verifierad domän:`https://myapps.microsoft.com/<;verified domain>`
+ > - Åtkomst panel för appar: `https://myapps.microsoft.com/?tenantid=<tenant id>`
+ > - Åtkomst panel för appar för en verifierad domän: `https://myapps.microsoft.com/<;verified domain>`
  > - Azure-portalen: `https://portal.azure.com/<tenant id>`
  > - Enskild app: se så här använder du en [direkt inloggnings länk](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
@@ -113,4 +113,4 @@ I din katalog har gästens **inbjudan godkänt** värde ändrats till **Ja**. Om
 - [Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal](add-users-administrator.md)
 - [Hur kan informations arbetare lägga till B2B-samarbets användare för att Azure Active Directory?](add-users-information-worker.md)
 - [Lägga till Azure Active Directory B2B-samarbets användare med hjälp av PowerShell](customize-invitation-api.md#powershell)
-- [Lämna en organisation som gäst användare](leave-the-organization.md)
+- [Lämna en organisation som en gästanvändare](leave-the-organization.md)

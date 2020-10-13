@@ -10,10 +10,10 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 57b9d46918414cef9e8cbcffb941b98c98f985ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80240353"
 ---
 # <a name="communicate-with-edgeagent-using-built-in-direct-methods"></a>Kommunicera med edgeAgent med hjälp av inbyggda direkta metoder
@@ -28,7 +28,7 @@ Namnen på dessa direkta metoder hanteras Skift läges okänsliga.
 
 **Ping** -metoden är användbar för att kontrol lera om IoT Edge körs på en enhet eller om enheten har en öppen anslutning till IoT Hub. Använd den här direkta metoden för att pinga IoT Edge-agenten och hämta dess status. En lyckad ping returnerar en tom nytto last och **"status": 200**.
 
-Till exempel:
+Exempel:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'ping' -n <hub name> -d <device name> -m '$edgeAgent'
@@ -46,7 +46,7 @@ Metoden RestartModule finns i IoT Edge version 1.0.9 och senare.
 
 Du kan använda metoden RestartModule Direct i alla moduler som körs på en IoT Edge enhet, inklusive själva edgeAgent-modulen. Men om du använder den här direkta metoden för att stänga av edgeAgent får du inte ett lyckat resultat eftersom anslutningen avbryts medan modulen startas om.
 
-Till exempel:
+Exempel:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'RestartModule' -n <hub name> -d <device name> -m '$edgeAgent' --method-payload \

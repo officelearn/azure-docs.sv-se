@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
 ms.openlocfilehash: b3c8f6015b4627d86a0665865fba2f3fdd39589d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88080719"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Översikt över Azure App Service lokal cache
@@ -48,13 +48,13 @@ Den Azure App Service Local cache-funktionen tillhandahåller en webbrolls visni
 ## <a name="enable-local-cache-in-app-service"></a>Aktivera lokal cache i App Service
 Du konfigurerar lokal cache genom att använda en kombination av reserverade appinställningar. Du kan konfigurera dessa inställningar för appar med hjälp av följande metoder:
 
-* [Azure-portalen](#Configure-Local-Cache-Portal)
+* [Azure Portal](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Konfigurera lokal cache med hjälp av Azure Portal
 <a name="Configure-Local-Cache-Portal"></a>
 
-Du aktiverar lokal cache per webb-app genom att använda den här inställningen för appen:`WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
+Du aktiverar lokal cache per webb-app genom att använda den här inställningen för appen: `WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
 
 ![Azure Portal app-inställningar: lokalt cacheminne](media/app-service-local-cache-overview/app-service-local-cache-configure-portal.png)
 

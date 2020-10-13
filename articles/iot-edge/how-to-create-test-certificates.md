@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84430673"
 ---
-# <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Skapa demonstrations certifikat för att testa IoT Edge enhets funktioner
+# <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Skapa democertifikat för att testa funktioner på IoT Edge-enheter
 
 IoT Edge enheter kräver certifikat för säker kommunikation mellan körningen, modulerna och eventuella efterföljande enheter.
 Om du inte har någon certifikat utfärdare för att skapa de certifikat som krävs kan du använda demonstrations certifikat för att testa IoT Edge funktioner i test miljön.
@@ -293,7 +293,7 @@ Din IoT-enhet behöver också en kopia av sina enhets certifikat så att den kan
 
 1. Navigera till arbets katalogen som har skript för att skapa certifikat och rot certifikat utfärdare.
 
-2. Skapa två certifikat (primära och sekundära) för den underordnade enheten. En enkel namngivnings konvention att använda är att skapa certifikaten med namnet på IoT-enheten och sedan den primära eller sekundära etiketten. Ett exempel:
+2. Skapa två certifikat (primära och sekundära) för den underordnade enheten. En enkel namngivnings konvention att använda är att skapa certifikaten med namnet på IoT-enheten och sedan den primära eller sekundära etiketten. Exempel:
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -323,7 +323,7 @@ Din IoT-enhet behöver också en kopia av sina enhets certifikat så att den kan
 
 1. Navigera till arbets katalogen som har skript för att skapa certifikat och rot certifikat utfärdare.
 
-2. Skapa två certifikat (primära och sekundära) för den underordnade enheten. En enkel namngivnings konvention att använda är att skapa certifikaten med namnet på IoT-enheten och sedan den primära eller sekundära etiketten. Ett exempel:
+2. Skapa två certifikat (primära och sekundära) för den underordnade enheten. En enkel namngivnings konvention att använda är att skapa certifikaten med namnet på IoT-enheten och sedan den primära eller sekundära etiketten. Exempel:
 
    ```bash
    ./certGen.sh create_device_certificate "<device name>-primary"

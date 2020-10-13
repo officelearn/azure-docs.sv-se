@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
 ms.openlocfilehash: 370ac9528b023f01aaff5e5a7ec62785a02bb4bd
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085352"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Använd Azure Toolkit for IntelliJ för att skapa Apache Spark-program för HDInsight-kluster
@@ -31,7 +31,7 @@ I den här artikeln kan du se hur du:
 > * Utveckla Apache Spark program
 > * Skicka ett program till Azure HDInsight-kluster
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -92,7 +92,7 @@ Steg för att installera Scala-plugin-programmet:
 
    b. I fönstret **projekt struktur** väljer du **artefakter**.  
 
-   c. Välj **Avbryt** när du har visat artefakten.
+   c. Välj **Avbryt**  när du har visat artefakten.
 
       ![Artefakt information i dialog rutan](./media/apache-spark-intellij-tool-plugin/default-artifact-dialog.png)
 

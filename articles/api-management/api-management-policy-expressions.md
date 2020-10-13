@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 7117ffcbaf4eba8d83a6e968f4fed7422673610b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87844248"
 ---
 # <a name="api-management-policy-expressions"></a>API Management princip uttryck
@@ -33,12 +33,12 @@ Mer information:
 - Information om hur du hämtar princip instruktionerna finns i [API-Management-samples/policys](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub lagrings platsen.
 
 
-## <a name="syntax"></a><a name="Syntax"></a>Uttryck
+## <a name="syntax"></a><a name="Syntax"></a> Uttryck
 Uttryck för enstaka uttryck är inneslutna i `@(expression)` , där `expression` är en välformulerad C#-uttrycks instruktion.
 
 Uttryck för flera instruktioner är inneslutna i `@{expression}` . Alla kod Sök vägar i uttryck med flera uttryck måste sluta med en `return` instruktion.
 
-## <a name="examples"></a><a name="PolicyExpressionsExamples"></a>Fler
+## <a name="examples"></a><a name="PolicyExpressionsExamples"></a> Fler
 
 ```
 @(true)
@@ -71,7 +71,7 @@ Uttryck kan användas som attributvärden eller text värden i API Management [p
 > [!IMPORTANT]
 > När du använder princip uttryck finns det bara en begränsad verifiering av princip uttrycken när principen definieras. Uttrycken körs av gatewayen vid körningen. eventuella undantag som genereras av princip uttryck resulterar i ett körnings fel.
 
-## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a>.NET Framework typer som tillåts i princip uttryck
+## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> .NET Framework typer som tillåts i princip uttryck
 I följande tabell visas de .NET Framework typer och medlemmar som tillåts i princip uttryck.
 
 |Typ|Medlemmar som stöds|
@@ -205,7 +205,7 @@ I följande tabell visas de .NET Framework typer och medlemmar som tillåts i pr
 |System.Xml. LINQ. XText|Alla|
 |System.Xml.XmlNodeType|Alla|
 
-## <a name="context-variable"></a><a name="ContextVariables"></a>Sammanhangs variabel
+## <a name="context-variable"></a><a name="ContextVariables"></a> Sammanhangs variabel
 En variabel med namnet `context` är implicit tillgänglig i varje princip [uttryck](api-management-policy-expressions.md#Syntax). Dess medlemmar tillhandahåller information som är relevant för `\request` . Alla `context` medlemmar är skrivskyddade.
 
 |Sammanhangs variabel|Tillåtna metoder, egenskaper och parameter värden|

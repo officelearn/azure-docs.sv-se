@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7587ed6d414a69cff67aca9446aebf6260c99fcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83736508"
 ---
 # <a name="identity-protection-policies"></a>Principer om identitetsskydd
@@ -30,7 +30,7 @@ Identitets skydd kan hjälpa organisationer att distribuera Azure-Multi-Factor A
 
 Mer information om Azure Multi-Factor Authentication finns i artikeln [så här fungerar det: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md).
 
-## <a name="sign-in-risk-policy"></a>Princip för inloggnings risk
+## <a name="sign-in-risk-policy"></a>Princip för inloggningsrisk
 
 Identitets skydd analyserar signaler från varje inloggning, både i real tid och offline, och beräknar risk poängen baserat på sannolikheten att inloggningen inte utfördes av användaren. Administratörer kan fatta ett beslut baserat på den här risk Poäng signalen för att upprätthålla organisationens krav. Administratörer kan välja att blockera åtkomst, tillåta åtkomst eller tillåta åtkomst men kräver Multi-Factor Authentication.
 
@@ -45,7 +45,7 @@ Administratörer kan också välja att skapa en anpassad princip för villkorlig
 
 ![Anpassad princip för inloggnings risk för anpassad villkorlig åtkomst](./media/concept-identity-protection-policies/identity-protection-custom-sign-in-policy.png)
 
-## <a name="user-risk-policy"></a>Användar risk princip
+## <a name="user-risk-policy"></a>Princip för användarrisk
 
 Identitets skydd kan beräkna vad det anser vara normalt för en användares beteende och använda det för att basera besluten på deras risk. Användar risken är en beräkning av sannolikheten att en identitet har komprometterats. Administratörer kan fatta ett beslut baserat på den här risk Poäng signalen för att upprätthålla organisationens krav. Administratörer kan välja att blockera åtkomst, tillåta åtkomst eller tillåta åtkomst, men kräver en lösen ords ändring med lösen ords [återställning i Azure AD via självbetjäning](../authentication/howto-sspr-deployment.md).
 

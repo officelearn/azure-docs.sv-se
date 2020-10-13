@@ -1,7 +1,7 @@
 ---
 title: SAML-protokoll för enkel inloggning i Azure
 titleSuffix: Microsoft identity platform
-description: I den här artikeln beskrivs SAML-protokollet enkel inloggning (SSO) i Azure Active Directory
+description: I den här artikeln beskrivs SAML-protokollet Single Sign-On (SSO) i Azure Active Directory
 services: active-directory
 documentationcenter: .net
 author: kenwith
@@ -15,19 +15,19 @@ ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
 ms.openlocfilehash: 4990b81d929019b3d201f004176234fa0ea78339
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88118458"
 ---
-# <a name="single-sign-on-saml-protocol"></a>SAML-protokoll för enkel inloggning
+# <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML-protokoll
 
-Den här artikeln beskriver SAML 2,0-autentiseringsbegäranden och svar som Azure Active Directory (Azure AD) stöder enkel inloggning (SSO).
+Den här artikeln beskriver SAML 2,0-autentiseringsbegäranden och svar som Azure Active Directory (Azure AD) stöder för enskilda Sign-On (SSO).
 
 I protokoll diagrammet nedan beskrivs en sekvens med enkel inloggning. Moln tjänsten (tjänst leverantören) använder en HTTP-omdirigerings-bindning för att skicka ett `AuthnRequest` (Authentication Request)-element till Azure AD (identitets leverantören). Azure AD använder sedan en HTTP post-bindning för att publicera ett `Response` element i moln tjänsten.
 
-![Arbets flöde för enkel inloggning (SSO)](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
+![Single Sign-On-arbetsflöde (SSO)](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
 
 > [!NOTE]
 > I den här artikeln beskrivs hur du använder SAML för enkel inloggning. Mer information om andra sätt att hantera enkel inloggning (till exempel genom att använda OpenID Connect eller integrerad Windows-autentisering) finns i [enkel inloggning till program i Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
@@ -48,9 +48,9 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parameter | Typ | Beskrivning |
 | --- | --- | --- |
-| ID | Obligatorisk | Azure AD använder det här attributet för att fylla `InResponseTo` attributet för det returnerade svaret. ID får inte börja med en siffra, så en gemensam strategi är att lägga en sträng som "ID" till sträng representationen av ett GUID. Till exempel `id6c1c178c166d486687be4aaf5e482730` är ett giltigt ID. |
-| Version | Obligatorisk | Den här parametern ska vara inställd på **2,0**. |
-| IssueInstant | Obligatorisk | Detta är en DateTime-sträng med ett UTC-värde och [tur och retur-format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD förväntar sig ett DateTime-värde av den här typen, men utvärderar eller använder inte värdet. |
+| ID | Krävs | Azure AD använder det här attributet för att fylla `InResponseTo` attributet för det returnerade svaret. ID får inte börja med en siffra, så en gemensam strategi är att lägga en sträng som "ID" till sträng representationen av ett GUID. Till exempel `id6c1c178c166d486687be4aaf5e482730` är ett giltigt ID. |
+| Version | Krävs | Den här parametern ska vara inställd på **2,0**. |
+| IssueInstant | Krävs | Detta är en DateTime-sträng med ett UTC-värde och [tur och retur-format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD förväntar sig ett DateTime-värde av den här typen, men utvärderar eller använder inte värdet. |
 | AssertionConsumerServiceUrl | Valfritt | Om den här parametern anges måste den matcha `RedirectUri` moln tjänsten i Azure AD. |
 | ForceAuthn | Valfritt | Detta är ett booleskt värde. Om värdet är true innebär det att användaren tvingas att autentiseras på nytt, även om de har en giltig session med Azure AD. |
 | IsPassive | Valfritt | Detta är ett booleskt värde som anger om Azure AD ska autentisera användaren tyst, utan användar interaktion, med hjälp av sessionens cookie om en sådan finns. Om detta är sant försöker Azure AD autentisera användaren med hjälp av sessions-cookien. |
@@ -104,7 +104,7 @@ Ett `Signature` element i `AuthnRequest` element är valfritt. Azure AD validera
 ### <a name="subject"></a>Ämne
 Ta inte med ett- `Subject` element. Azure AD har inte stöd för att ange ett ämne för en begäran och returnerar ett fel om ett sådant anges.
 
-## <a name="response"></a>Svar
+## <a name="response"></a>Svarsåtgärder
 När en begärd inloggning har slutförts skickar Azure AD ett svar till moln tjänsten. Ett svar på ett lyckat inloggnings försök ser ut som i följande exempel:
 
 ```
@@ -150,7 +150,7 @@ När en begärd inloggning har slutförts skickar Azure AD ett svar till moln tj
 </samlp:Response>
 ```
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 `Response`Elementet innehåller resultatet av auktoriseringsbegäran. Azure AD anger `ID` - `Version` och- `IssueInstant` värden i- `Response` elementet. Dessutom anges följande attribut:
 
@@ -273,7 +273,7 @@ Detta innehåller anspråk om ämnet eller användaren. Följande utdrag innehå
 ```        
 
 * **Namn anspråk** – värdet för `Name` attributet ( `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` ) är User Principal Name av den autentiserade användaren, t `testuser@managedtenant.com` . ex..
-* **ObjectIdentifier-anspråk** – värdet för `ObjectIdentifier` attributet ( `http://schemas.microsoft.com/identity/claims/objectidentifier` ) är det `ObjectId` katalog objekt som representerar den autentiserade användaren i Azure AD. `ObjectId`är en oföränderlig, globalt unik och åter användnings säker identifierare för den autentiserade användaren.
+* **ObjectIdentifier-anspråk** – värdet för `ObjectIdentifier` attributet ( `http://schemas.microsoft.com/identity/claims/objectidentifier` ) är det `ObjectId` katalog objekt som representerar den autentiserade användaren i Azure AD. `ObjectId` är en oföränderlig, globalt unik och åter användnings säker identifierare för den autentiserade användaren.
 
 #### <a name="authnstatement"></a>AuthnStatement
 

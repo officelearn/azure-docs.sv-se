@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
 ms.openlocfilehash: f560a01c4ec00649157a9c43aedf0ed6cfc2e050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83871920"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Kopiera data från SharePoint Online-listan med Azure Data Factory
@@ -55,8 +55,8 @@ SharePoint-listans Online Connector använder tjänstens huvud namns autentiseri
     1. Öppna SharePoint Online-webbplatsens länk, t. ex. `https://[your_site_url]/_layouts/15/appinv.aspx` (Ersätt webbplats-URL: en).
     2. Sök efter det program-ID som du har registrerat, Fyll i de tomma fälten och klicka på "skapa".
 
-        - App-domän:`localhost.com`
-        - Omdirigerings-URL:`https://www.localhost.com`
+        - App-domän: `localhost.com`
+        - Omdirigerings-URL: `https://www.localhost.com`
         - Begäran-XML för behörighet:
 
         ```xml
@@ -86,7 +86,7 @@ Följande egenskaper stöds för en länkad SharePoint Online-lista:
 | servicePrincipalId  | Program-ID för programmet som är registrerat i Azure Active Directory. | Ja          |
 | servicePrincipalKey | Programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja          |
 | tenantId            | Det klient-ID som ditt program finns under.          | Ja          |
-| connectVia          | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från [nödvändiga komponenter](#prerequisites)tidigare i den här artikeln. Om inget värde anges används standard Azure Integration Runtime. | No           |
+| connectVia          | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från [nödvändiga komponenter](#prerequisites)tidigare i den här artikeln. Om inget värde anges används standard Azure Integration Runtime. | Inga           |
 
 **Exempel:**
 
@@ -112,7 +112,7 @@ Följande egenskaper stöds för en länkad SharePoint Online-lista:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [data uppsättningar och länkade tjänster](concepts-datasets-linked-services.md). Följande avsnitt innehåller en lista över de egenskaper som stöds av SAP Table-datauppsättningen.
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens **typ** -egenskap måste anges till **SharePointOnlineLResource**. | Ja |
 | listName | Namnet på SharePoint Online-listan. | Ja |
@@ -145,11 +145,11 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från SharePoint Online-listan stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **SharePointOnlineListSource**. | Ja |
-| DocumentDB | Anpassade alternativ för OData-frågor för att filtrera data. Exempel: `"$top=10&$select=Title,Number"`. | No |
-| httpRequestTimeout | Tids gränsen (i sekund) för HTTP-begäran för att få ett svar. Standardvärdet är 300 (5 minuter). | No |
+| DocumentDB | Anpassade alternativ för OData-frågor för att filtrera data. Exempel: `"$top=10&$select=Title,Number"`. | Inga |
+| httpRequestTimeout | Tids gränsen (i sekund) för HTTP-begäran för att få ett svar. Standardvärdet är 300 (5 minuter). | Inga |
 
 **Exempel**
 
@@ -219,7 +219,7 @@ Du kan kopiera filen från SharePoint Online genom att använda **webb aktivitet
     - **Metod**: post
     - **Rubriker**:
         - Innehålls typ: Application/x-www-form-urlencoded
-    - **Brödtext**: `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]` . Ersätt klient-ID, klient hemlighet, klient-ID och klient namn.
+    - **Brödtext**:  `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]` . Ersätt klient-ID, klient hemlighet, klient-ID och klient namn.
 
     > [!CAUTION]
     > Ange alternativet för säkra utdata till sant i webb aktivitet för att förhindra att token-värdet loggas som oformaterad text. Alla ytterligare aktiviteter som använder det här värdet ska ha sina säkra indatatyps-alternativ inställt på sant.

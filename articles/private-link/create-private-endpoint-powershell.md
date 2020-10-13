@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 0c6fc36be101679cea3a770f311005f63c3f0d66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84737384"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Skapa en privat slut punkt med hjälp av Azure PowerShell
@@ -100,7 +100,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 ## <a name="create-a-logical-sql-server"></a>Skapa en logisk SQL-Server 
 
-Skapa en logisk SQL-Server med kommandot New-AzSqlServer. Kom ihåg att namnet på servern måste vara unikt i Azure, så Ersätt plats hållarens värde inom hakparenteser med ditt eget unika värde:
+Skapa en logisk SQL-Server med hjälp av kommandot New-AzSqlServer. Kom ihåg att namnet på servern måste vara unikt i Azure, så Ersätt plats hållarens värde inom hakparenteser med ditt eget unika värde:
 
 ```azurepowershell-interactive
 $adminSqlLogin = "SqlAdmin"
@@ -189,7 +189,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="access-sql-database-privately-from-the-vm"></a>Åtkomst SQL Database privat från den virtuella datorn
 
-1. Öppna PowerShell i fjärr skrivbordet för myVM.
+1. Öppna PowerShell på fjärrskrivbordet på myVM.
 2. Ange `nslookup myserver.database.windows.net`. Kom ihåg att ersätta `myserver` med ditt SQL Server-namn.
 
     Du får ett meddelande som liknar detta:

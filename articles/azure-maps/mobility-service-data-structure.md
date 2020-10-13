@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 02d89226bd2df4bfe5d11897199c50c702e7bc1c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88033231"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Data strukturer i Azure Maps Mobility Service
@@ -25,7 +25,7 @@ Mobilitets tjänstens data grupperas efter stödda Metro-områden. Metro-område
 
 `metroID`Är ett Metro-områdens ID som kan användas för att anropa API: t för att [Hämta information om Metro-ytan](https://aka.ms/AzureMapsMobilityMetroAreaInfo). Använd Azure Maps "Get Metro"-API för att begära överförings typer, transit myndigheter, aktiva aviseringar och ytterligare information för den valda tunnelbane linje. Du kan också begära de tunnelbane områden och metroIDs som stöds. Metro-områdes-ID: n kan komma att ändras.
 
-**metroID:** 522 **Namn:** Seattle-Tacoma-Bellevue
+**metroID:** 522   **Namn:** Seattle-Tacoma-Bellevue
 
 ![Seattle-tunnelbane-Area](./media/mobility-service-data-structure/seattle-metro.png)
 

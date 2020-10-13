@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
 ms.openlocfilehash: efd6e6a93cd4ca79e6c4b6de69f8514e2d71b252
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84323322"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Azure CDN från Verizon Premium-regel motor matchnings villkor
@@ -30,8 +30,8 @@ Du kan till exempel använda ett matchnings villkor för att:
 
 * [Alltid](#always)
 * [Enhet](#device)
-* [Position](#location)
-* [Ursprung](#origin)
+* [Plats](#location)
+* [Kommer](#origin)
 * [Förfrågan](#request)
 * [URL](#url)
 
@@ -82,10 +82,10 @@ Dessa matchnings villkor är utformade för att identifiera begär Anden utifrå
 | [SOM nummer](https://docs.vdms.com/cdn/Content/HRE/M/AS-Number.htm) | Identifierar begär Anden som kommer från ett visst nätverk. |
 | Orts namn | Identifierar begär Anden efter om de härstammar från en stad vars namn matchar en: <br> **-** Angivet värde ([Orts namn literal](https://docs.vdms.com/cdn/Content/HRE/M/City-Name-Literal.htm)) <br> **-** Reguljärt uttryck ([Orts namn regex](https://docs.vdms.com/cdn/Content/HRE/M/City-Name-Regex.htm)) |
 | [Kontinent](https://docs.vdms.com/cdn/Content/HRE/M/Continent.htm) | Identifierar begär Anden som kommer från de angivna kontinenterna. |
-| [Land](https://docs.vdms.com/cdn/Content/HRE/M/Country.htm) | Identifierar begär Anden som kommer från de angivna länderna. |
+| [Ursprungslandet](https://docs.vdms.com/cdn/Content/HRE/M/Country.htm) | Identifierar begär Anden som kommer från de angivna länderna. |
 | [DMA-kod](https://docs.vdms.com/cdn/Content/HRE/M/DMA-Code.htm) | Identifierar begär Anden som kommer från angiven Metros (utsedda marknads områden). |
 | [Latitud](https://docs.vdms.com/cdn/Content/HRE/M/Latitude.htm) | Identifierar begär Anden som kommer från angivna latituder. |
-| [Longitud](https://docs.vdms.com/cdn/Content/HRE/M/Longitude.htm) | Identifierar begär Anden som kommer från angivna longituder. |
+| [Long](https://docs.vdms.com/cdn/Content/HRE/M/Longitude.htm) | Identifierar begär Anden som kommer från angivna longituder. |
 | [Tunnelbane kod](https://docs.vdms.com/cdn/Content/HRE/M/Metro-Code.htm) | Identifierar begär Anden som kommer från angiven Metros (utsedda marknads områden). |
 | [Post nummer](https://docs.vdms.com/cdn/Content/HRE/M/Postal-Code.htm) | Identifierar begär Anden som kommer från angivna post nummer. |
 | [Regions kod](https://docs.vdms.com/cdn/Content/HRE/M/Region-Code.htm) | Identifierar begär Anden som kommer från de angivna regionerna. |
@@ -96,7 +96,7 @@ Båda dessa matchnings villkor ger samma funktion. Vi rekommenderar dock att du 
 
 **[Tillbaka till början](#top)**
 
-### <a name="origin"></a><a name="origin"></a>Ursprung
+### <a name="origin"></a><a name="origin"></a>Kommer
 
 Dessa matchnings villkor är utformade för att identifiera begär Anden som pekar på CDN-lagring eller kund ursprungs Server.
 

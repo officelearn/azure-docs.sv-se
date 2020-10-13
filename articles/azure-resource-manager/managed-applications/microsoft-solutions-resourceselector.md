@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
 ms.openlocfilehash: d4b21f092733f6ebb3c2bf5aa06c1d2782323730
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87100220"
 ---
 # <a name="microsoftsolutionsresourceselector-ui-element"></a>GRÄNSSNITTs element för Microsoft. Solutions. ResourceSelector
@@ -37,7 +37,7 @@ Med ResourceSelector kan användarna välja en befintlig resurs från en prenume
 }
 ```
 
-## <a name="sample-output"></a>Exempel på utdata
+## <a name="sample-output"></a>Exempelutdata
 
 ```json
 "name": "{resource-name}",

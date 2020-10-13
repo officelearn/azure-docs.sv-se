@@ -7,10 +7,10 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 95ea8b61b01b17512d99d0316073835326e6d7bd
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927172"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Hantera Site Recovery åtkomst med rollbaserad åtkomst kontroll (RBAC)
@@ -41,7 +41,7 @@ En användare behöver följande behörigheter för att slutföra replikeringen 
 > [!NOTE]
 > Om du aktiverar replikering för en virtuell Azure-dator och vill tillåta att Site Recovery hanterar uppdateringar och samtidigt aktiverar replikering, kan du även skapa ett nytt Automation-konto, vilket innebär att du måste ha behörighet att skapa ett Automation-konto i samma prenumeration som valvet.
 
-| **Resurstyp** | **Distributions modell** | **Behörighet** |
+| **Resurstyp** | **Distributionsmodell** | **Behörighet** |
 | --- | --- | --- |
 | Compute | Resource Manager | Microsoft. Compute/availabilitySets/Read |
 |  |  | Microsoft. Compute/virtualMachines/Read |

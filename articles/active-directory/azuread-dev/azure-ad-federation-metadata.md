@@ -14,10 +14,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: bcc44f61ccb7b4a19e7df39ab979669c5aa37da1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80154907"
 ---
 # <a name="federation-metadata"></a>Federationsmetadata
@@ -91,7 +91,7 @@ MIIDPjCCAiqgAwIBAgIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291
 
 `KeyDescriptor`Elementet visas på två platser i dokumentet för federationsmetadata; i avsnittet WS-Federation-Specific och avsnittet SAML-Specific. De certifikat som publiceras i båda avsnitten blir desamma.
 
-I WS-Federation-Specific-avsnittet läser en WS-Federation Metadata-läsare certifikaten från ett- `RoleDescriptor` element med `SecurityTokenServiceType` typen.
+I avsnittet WS-Federation-Specific skulle en WS-Federation metadata-läsare läsa certifikaten från ett- `RoleDescriptor` element med `SecurityTokenServiceType` typen.
 
 Följande metadata visar ett exempel `RoleDescriptor` element.
 
@@ -99,7 +99,7 @@ Följande metadata visar ett exempel `RoleDescriptor` element.
 <RoleDescriptor xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:fed="https://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="https://docs.oasis-open.org/wsfed/federation/200706">
 ```
 
-I det SAML-specificerade avsnittet läser en WS-Federation Metadata Reader certifikaten från ett- `IDPSSODescriptor` element.
+I det SAML-specificerade avsnittet skulle en WS-Federation metadata-läsare läsa certifikaten från ett- `IDPSSODescriptor` element.
 
 Följande metadata visar ett exempel `IDPSSODescriptor` element.
 
@@ -108,8 +108,8 @@ Följande metadata visar ett exempel `IDPSSODescriptor` element.
 ```
 Det finns inga skillnader i formatet för klient-och klient oberoende certifikat.
 
-### <a name="ws-federation-endpoint-url"></a>Slut punkts-URL för WS-Federation
-Federationsmetadata omfattar den URL som används i Azure AD för enkel inloggning och enkel utloggning i WS-Federation-protokollet. Den här slut punkten visas i- `PassiveRequestorEndpoint` elementet.
+### <a name="ws-federation-endpoint-url"></a>WS-Federation slut punkts-URL
+Federationsmetadata omfattar den URL som används i Azure AD för enkel inloggning och enkel utloggning i WS-Federation protokollet. Den här slut punkten visas i- `PassiveRequestorEndpoint` elementet.
 
 Följande metadata visar ett exempel `PassiveRequestorEndpoint` element för en klient-Specific-slutpunkt.
 
@@ -122,7 +122,7 @@ https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db45/wsfed
 </EndpointReference>
 </fed:PassiveRequestorEndpoint>
 ```
-WS-Federation-URL: en för klient oberoende slut punkt visas i WS-Federation-slutpunkten, som du ser i följande exempel.
+För den klient oberoende slut punkten visas WS-Federation URL: en i WS-Federation slut punkten, som du ser i följande exempel.
 
 ```
 <fed:PassiveRequestorEndpoint>

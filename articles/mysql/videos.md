@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 2c2fbb3352b159ce9f5231c56399638a1d393366
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513867"
 ---
 # <a name="azure-database-for-mysql-videos"></a>Azure Database for MySQL videor
@@ -43,4 +43,4 @@ Azure Database for PostgreSQL och Azure Database for MySQL samla ihop Community 
 >[!VIDEO https://channel9.msdn.com/Events/Build/2017/B8045/player]
 [Öppna i kanal 9](https://channel9.msdn.com/events/Build/2017/B8045)
 
-I den här videon från den 2017 Microsoft build-konferensen kan du läsa mer om Microsofts hanterade MySQL-erbjudande i Azure. Videon går igenom Microsofts strategi för att stödja databas system med öppen källkod i Azure. Videon diskuterar vad det innebär för dig som utvecklare att utveckla och distribuera program som använder MySQL i Azure. Den här videon visar en översikt över tjänstens arkitektur och visar Azure Database for MySQL är integrerat med andra Azure-tjänster som Web Apps.
+I den här videon från den 2017 Microsoft build-konferensen kan du läsa mer om Microsofts hanterade MySQL-erbjudande i Azure. Videon går igenom Microsofts strategi för att stödja Open-Source databas system i Azure. Videon diskuterar vad det innebär för dig som utvecklare att utveckla och distribuera program som använder MySQL i Azure. Den här videon visar en översikt över tjänstens arkitektur och visar Azure Database for MySQL är integrerat med andra Azure-tjänster som Web Apps.

@@ -4,10 +4,10 @@ description: Lär dig hur du använder Azure Policy-tillägget för Visual Studi
 ms.date: 06/16/2020
 ms.topic: how-to
 ms.openlocfilehash: 9b3f27492bee5301e22e83ebf9734afa3de43897
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89648339"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Använd Azure Policy-tillägg för Visual Studio Code
@@ -21,7 +21,7 @@ Azure Policy-tillägget för Visual Studio Code kan installeras på alla plattfo
 > [!NOTE]
 > Ändringar som görs lokalt i principer som visas i Azure Policy-tillägget för Visual Studio Code synkroniseras inte med Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande objekt krävs för att slutföra stegen i den här artikeln:
 
@@ -64,13 +64,13 @@ Om du vill utvärdera resurser och uppslags-alias måste du ansluta till ditt Az
 
      Från Azure Policy-tillägget väljer **du logga in på Azure**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Skärm bild av Visual Studio Code och ikonen för Azure Policy-tillägget." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Skärm bild av valet av netazure Cloud-inloggning för Visual Studio Code." border="false":::
 
    - Kommando palett
 
      I meny raden går du till **Visa**  >  **kommando-palett**och anger **Azure: Logga**in.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Skärm bild av Azure Clouds inloggnings alternativ för Visual Studio Code från paletten Command." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Skärm bild av valet av netazure Cloud-inloggning för Visual Studio Code." border="false":::
 
 1. Följ anvisningarna för inloggning för att logga in på Azure. När du är ansluten visas namnet på ditt Azure-konto i statusfältet längst ned i Visual Studio Code-fönstret.
 
@@ -125,7 +125,7 @@ När en resurs väljs, oavsett om Sök gränssnittet eller genom att markera det
 
 När en resurs är öppen visas Azure Policy alias om ett sådant finns under hovring över resurs hanterarens egenskaps namn eller värde. I det här exemplet är resursen en `Microsoft.Compute/virtualMachines` resurs typ och egenskapen **Properties. StorageProfile. imageReference. erbjudande** hovras över. Vid hovring visas matchande alias.
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Skärm bild av Azure Policy-tillägget för Visual Studio-kod som hovrar på en egenskap för att visa namnen på alias." border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Skärm bild av valet av netazure Cloud-inloggning för Visual Studio Code." border="false":::
 
 > [!NOTE]
 > VS Code-tillägget visar endast Resource Manager-läges egenskaper och visar inga egenskaper för [resurs leverantörs läge](../concepts/definition-structure.md#mode) .

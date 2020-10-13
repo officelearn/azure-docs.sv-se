@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
 ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082774"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Felsök problem med NAS-konfiguration och NFS-lagring
@@ -96,7 +96,7 @@ För att undvika den här möjliga filkollisionen för filer i flera exporter mo
 
 NAS: en måste ange sin export när Azure HPC-cachen efterfrågar den.
 
-På de flesta NFS-lagrings system kan du testa detta genom att skicka följande fråga från en Linux-klient:``showmount -e <storage IP address>``
+På de flesta NFS-lagrings system kan du testa detta genom att skicka följande fråga från en Linux-klient: ``showmount -e <storage IP address>``
 
 Använd en Linux-klient från samma virtuella nätverk som din cache, om möjligt.
 
@@ -120,9 +120,9 @@ Det finns inget enkelt sätt att avgöra om systemet har det här problemet om d
 
   Detta är alternativen i kommandot:
 
-  * ``-M do``-Fragmentera inte
-  * ``-c 1``-Skicka bara ett paket
-  * ``-s 1472``– Ange storleken på nytto lasten till 1472 byte. Detta är den maximala nytto lasten för ett 1500 byte-paket efter det att Ethernet-belastningen har ändrats.
+  * ``-M do`` -Fragmentera inte
+  * ``-c 1`` -Skicka bara ett paket
+  * ``-s 1472`` – Ange storleken på nytto lasten till 1472 byte. Detta är den maximala nytto lasten för ett 1500 byte-paket efter det att Ethernet-belastningen har ändrats.
 
   Ett lyckat svar ut så här:
 

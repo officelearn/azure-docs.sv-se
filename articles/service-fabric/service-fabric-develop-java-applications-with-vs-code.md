@@ -7,10 +7,10 @@ ms.date: 06/29/2018
 ms.custom: devx-track-java
 ms.author: pepogors
 ms.openlocfilehash: cc65deb924a9f3367c2ea1d7c71544743ccf2697
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327369"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Utveckla Java Service Fabric-program med Visual Studio Code
@@ -22,7 +22,7 @@ Den här artikeln visar hur du skapar, distribuerar och felsöker ett Java-Servi
 > [!IMPORTANT]
 > Service Fabric Java-program kan utvecklas på Windows-datorer, men kan bara distribueras till Azure Linux-kluster. Fel sökning av Java-program stöds inte i Windows.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du redan har installerat VS Code, Service Fabric Reliable Services tillägget för VS Code och eventuella beroenden som krävs för utvecklings miljön. Läs mer i [komma igång](./service-fabric-get-started-vs-code.md#prerequisites).
 
@@ -37,7 +37,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 ## <a name="open-the-application-in-vs-code"></a>Öppna programmet i VS Code
 
-Öppna VS Code.  Klicka på Explorer-ikonen i **aktivitets fältet** och klicka på **Öppna mapp**, eller klicka på **Arkiv-> Öppna mapp**. Navigera till *./Service-Fabric-Java-QuickStart/Voting* -katalogen i den mapp där du klonade lagrings platsen och klicka sedan på **OK**. Arbets ytan bör innehålla samma filer som visas i skärm bilden nedan.
+Öppna VS Code.  Klicka på Explorer-ikonen i **aktivitets fältet** och klicka på **Öppna mapp**, eller klicka på  **Arkiv-> Öppna mapp**. Navigera till *./Service-Fabric-Java-QuickStart/Voting* -katalogen i den mapp där du klonade lagrings platsen och klicka sedan på **OK**. Arbets ytan bör innehålla samma filer som visas i skärm bilden nedan.
 
 ![Java röstnings program på arbets ytan](./media/service-fabric-develop-java-applications-with-vs-code/java-voting-application.png)
 
@@ -83,7 +83,7 @@ Kommentera ut kommandot på rad 6 (Använd ' # ') och Lägg till följande komma
    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingDataService.jar
    ```
 
-2. Uppdatera *röstnings-VotingApplication/ApplicationManifest.xml-* filen. Ange attributen **MinReplicaSetSize** och **TargetReplicaSetSize** till "1" i elementet **StatefulService** :
+2. Uppdatera *röstnings-VotingApplication/ApplicationManifest.xml- * filen. Ange attributen **MinReplicaSetSize** och **TargetReplicaSetSize** till "1" i elementet **StatefulService** :
    
    ```xml
          <StatefulService MinReplicaSetSize="1" ServiceTypeName="VotingDataServiceType" TargetReplicaSetSize="1">

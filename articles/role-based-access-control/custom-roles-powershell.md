@@ -15,10 +15,10 @@ ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 540da4103c3f7800521407441d645070e1e3e7ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790219"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Skapa eller uppdatera Azure-anpassade roller med hjälp av Azure PowerShell
@@ -402,5 +402,5 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 ## <a name="next-steps"></a>Nästa steg
 
 - [Självstudie: skapa en anpassad Azure-roll med hjälp av Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Anpassade Azure-roller](custom-roles.md)
-- [Åtgärder för Azure Resource Manager Resource Provider](resource-provider-operations.md)
+- [Anpassade roller i Azure](custom-roles.md)
+- [Åtgärder för resursprovidern Azure Resource Manager](resource-provider-operations.md)

@@ -1,6 +1,6 @@
 ---
-title: Dela Azure Portal-instrumentpaneler med hjälp av rollbaserad Access Control
-description: Den här artikeln förklarar hur du delar en instrument panel i Azure Portal med hjälp av rollbaserad Access Control.
+title: Dela Azure Portal instrument paneler med Role-Based Access Control
+description: I den här artikeln förklaras hur du delar en instrument panel i Azure Portal med Role-Based Access Control.
 services: azure-portal
 documentationcenter: ''
 author: mgblythe
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
 ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87923891"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Dela Azure-instrumentpaneler med hjälp av rollbaserad åtkomstkontroll
@@ -33,7 +33,7 @@ Alla publicerade instrument paneler implementeras som Azure-resurser. De finns s
 
 ## <a name="understanding-access-control-for-dashboards"></a>Förstå åtkomst kontroll för instrument paneler
 
-Med rollbaserad Access Control (RBAC) kan du tilldela användare till roller på tre olika nivåer:
+Med Role-Based Access Control (RBAC) kan du tilldela användare till roller på tre olika nivåer:
 
 * prenumeration
 * Resursgrupp

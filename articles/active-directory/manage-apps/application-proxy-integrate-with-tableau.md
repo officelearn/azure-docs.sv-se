@@ -14,10 +14,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6df0a0bf21f4be824738d86ac6bdb3c75c9c3564
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764510"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory-programproxy och Tableau 
@@ -42,7 +42,7 @@ Application Proxy stöder OAuth 2,0-tilldelnings flödet, vilket krävs för att
 
 Om du vill publicera Tableau måste du publicera ett program i Azure-portalen.
 
-Söker
+Så här blir det för följande:
 
 - Detaljerade anvisningar om steg 1-8 finns i [Publicera program med hjälp av Azure AD-programproxy](application-proxy-add-on-premises-application.md). 
 - Information om hur du hittar Tableau-värden för App proxy-fälten finns i Tableau-dokumentationen.  
@@ -60,7 +60,7 @@ Söker
 
 5. Fyll i de obligatoriska fälten med information om din nya app. Använd följande vägledning för inställningarna: 
 
-    - **Intern URL**: det här programmet bör ha en intern URL som är själva TABLEAU-URL: en. Till exempel `https://adventure-works.tableau.com`. 
+    - **Intern URL**: det här programmet bör ha en intern URL som är själva TABLEAU-URL: en. Exempelvis `https://adventure-works.tableau.com`. 
 
     - **Metod för förautentisering**: Azure Active Directory (rekommenderas men krävs inte). 
 

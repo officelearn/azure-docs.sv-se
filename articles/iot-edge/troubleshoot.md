@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 0e4ec7127df288ec1818df307da1ea9824141309
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87902464"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Felsöka IoT Edge-enheten
@@ -71,7 +71,7 @@ iotedge support-bundle --since 6h
 
 ## <a name="check-your-iot-edge-version"></a>Kontrol lera din IoT Edge version
 
-Om du kör en äldre version av IoT Edge kan uppgraderingen lösa problemet. `iotedge check`Verktyget kontrollerar att IoT Edge Security daemon är den senaste versionen, men kontrollerar inte versionerna av IoT Edge Hub och agent-moduler. Om du vill kontrol lera versionen av Runtime-modulerna på enheten använder du kommandona `iotedge logs edgeAgent` och `iotedge logs edgeHub` . Versions numret deklareras i loggarna när modulen startas.
+Om du kör en äldre version av IoT Edge kan du eventuellt lösa problemet genom att uppgradera. `iotedge check`Verktyget kontrollerar att IoT Edge Security daemon är den senaste versionen, men kontrollerar inte versionerna av IoT Edge Hub och agent-moduler. Om du vill kontrol lera versionen av Runtime-modulerna på enheten använder du kommandona `iotedge logs edgeAgent` och `iotedge logs edgeHub` . Versionsnumret skrivs ut i loggarna när modulen startas.
 
 Anvisningar om hur du uppdaterar din enhet finns i [uppdatera IoT Edge Security daemon och runtime](how-to-update-iot-edge.md).
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
 ms.openlocfilehash: 3a294368e82bcd00f98c26504b3141e8f39fe0c4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91261608"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>Vad är anslutet IoT Solution Accelerator för fabriks anslutning?
@@ -58,7 +58,7 @@ Ansluten fabrik innehåller följande funktioner:
 
 ## <a name="end-to-end-security"></a>Säkerhet från slut punkt till slut punkt
 
-- Konfigurera säkerhets behörigheter för användare som använder rollbaserad Access Control (RBAC).
+- Konfigurera säkerhets behörigheter för användare som använder Role-Based Access Control (RBAC).
 - Kryptering från slut punkt till slut punkt implementeras med hjälp av OPC UA-autentisering (med X. 509-certifikat) samt säkerhetstoken.
 
 ## <a name="customizability"></a>Anpassningsbarhet

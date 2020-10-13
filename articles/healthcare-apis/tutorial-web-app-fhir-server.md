@@ -10,12 +10,12 @@ ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 9b1dc7d7eee263b781d39c4beccf9388efbaa3d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb183b5c8aff018d4dc73819b938b24ad0daa934
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334145"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975798"
 ---
 # <a name="deploy-javascript-app-to-read-data-from-fhir-service"></a>Distribuera JavaScript-appen för att läsa data från FHIR-tjänsten
 I den här självstudien kommer du att distribuera en liten JavaScript-app som läser data från en FHIR-tjänst. Stegen i den här självstudien är:
@@ -24,7 +24,7 @@ I den här självstudien kommer du att distribuera en liten JavaScript-app som l
 1. Testa åtkomst till programmet
 1. Skapa ett webb program som läser dessa FHIR-data
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du startar den här uppsättningen med självstudier behöver du följande objekt:
 1. En Azure-prenumeration
 1. En Azure Active Directory-klientorganisation
@@ -36,14 +36,14 @@ Innan du startar den här uppsättningen med självstudier behöver du följande
 ## <a name="deploy-azure-api-for-fhir"></a>Distribuera Azure API för FHIR
 Det första steget i självstudien är att hämta Azure API för FHIR-installationen korrekt.
 
-1. Distribuera [Azure API för FHIR](fhir-paas-portal-quickstart.md)
+1. Om du inte redan har gjort det distribuerar du [Azure API för FHIR](fhir-paas-portal-quickstart.md).
 1. När du har konfigurerat Azure-API: t för FHIR kan du konfigurera [CORS](configure-cross-origin-resource-sharing.md) -inställningarna genom att gå till ditt Azure-API för FHIR och välja CORS. 
     1. Ange **ursprung** till *
     1. Ange **sidhuvuden** till *
     1. Under **metoder**väljer du **Markera alla**
     1. Ställ in **Maximal ålder** på **600**
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Nu när du har ett Azure-API för FHIR distribuerat, är du redo att registrera ett offentligt klient program.
 
 >[!div class="nextstepaction"]

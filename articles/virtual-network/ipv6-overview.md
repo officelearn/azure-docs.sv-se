@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: c0d4c72bd60f35088773ec6dc5df80709c5ae98c
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666831"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Vad är IPv6 för Azure Virtual Network?
@@ -50,7 +50,7 @@ IPv6 för Azure VNet innehåller följande funktioner:
     > Undernät för IPv6 måste vara exakt/64 i storlek.  Detta säkerställer framtida kompatibilitet om du väljer att aktivera routning av under nätet till ett lokalt nätverk eftersom vissa routrar bara kan acceptera/64 IPv6-vägar.  
 - Skydda dina resurser med IPv6-regler för nätverks säkerhets grupper.
     - Och Azure Platforms DDoS-skydd (distributed denial of Service) har utökats till Internet-riktade offentliga IP-adresser
-- Anpassa routningen av IPv6-trafik i det virtuella nätverket med användardefinierade vägar – särskilt när du använder virtuella nätverks installationer för att förstärka ditt program.
+- Anpassa routningen av IPv6-trafik i ditt virtuella nätverk med User-Defined vägar – särskilt när du använder virtuella nätverks installationer för att utöka ditt program.
 - Linux och Virtuella Windows-datorer kan alla använda IPv6 för Azure VNET
 - [Standard IPv6 offentlig Load Balancer](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) stöd för att skapa elastiska, skalbara program, bland annat:
     - Valfri IPv6-hälso avsökning för att avgöra vilka instanser av backend-poolen som är hälso tillstånd och kan därmed ta emot nya flöden.

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 18c8cd675470d1f1f93baf5ab2a8f811d546ffac
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826871"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Självstudie: Azure Active Directory integration med information CloudSuite
@@ -30,7 +30,7 @@ Att integrera information i CloudSuite med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med information CloudSuite behöver du följande objekt:
 
@@ -74,7 +74,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning med Azure AD med information CloudSuite måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera information CloudSuite Single Sign-on](#configure-infor-cloudsuite-single-sign-on)** -för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera information CloudSuite Single Sign-on](#configure-infor-cloudsuite-single-sign-on)** -för att konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[CloudSuite för att skapa infor-test](#create-infor-cloudsuite-test-user)** – för att få en motsvarighet till Britta Simon i infor CloudSuite som är länkad till Azure AD-representation av användare.
@@ -150,7 +150,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med inf
 
     c. Utloggnings-URL
 
-### <a name="configure-infor-cloudsuite-single-sign-on"></a>Konfigurera information om CloudSuite för enkel inloggning
+### <a name="configure-infor-cloudsuite-single-sign-on"></a>Konfigurera information CloudSuite Single Sign-On
 
 Om du vill konfigurera enkel inloggning på **infor CloudSuite** -sidan måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för information CloudSuite](mailto:support@infor.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 

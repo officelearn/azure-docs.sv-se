@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 3c5486e31dd3227cfcc8bd3b433602ce58cfa4fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e92fab392dc73d8de0b7b2547e38b3f345562930
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852998"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975866"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Registrera ett resurs program i Azure Active Directory
 
@@ -107,7 +107,7 @@ Azure API för FHIR och OSS FHIR-servern för Azure använder [Azure Active Dire
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du registrerar ett resurs program i Azure Active Directory. Distribuera sedan Azure-API: et för FHIR.
+I den här artikeln har du lärt dig hur du registrerar ett resurs program i Azure Active Directory. Registrera sedan ditt konfidentiella klient program.
  
 >[!div class="nextstepaction"]
->[Distribuera Azure API för FHIR](fhir-paas-powershell-quickstart.md)
+>[Registrera konfidentiellt klient program](register-confidential-azure-ad-client-app.md)

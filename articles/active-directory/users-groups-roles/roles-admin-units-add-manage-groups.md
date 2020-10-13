@@ -15,10 +15,10 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 133ea21bf7a7c1df0fccaeacce7d7a29199c033d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91827705"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Lägg till och hantera grupper i administrativa enheter i Azure Active Directory
@@ -53,7 +53,7 @@ $GroupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
 Add-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId -RefObjectId $GroupObj.ObjectId
 ```
 
-I det här exemplet används cmdlet Add-AzureADMSAdministrativeUnitMember för att lägga till gruppen i den administrativa enheten. Objekt-ID: t för den administrativa enheten och objekt-ID: t för den grupp som ska läggas till tas som argument. Det markerade avsnittet kan ändras efter behov för den aktuella miljön.
+I det här exemplet används cmdleten Add-AzureADMSAdministrativeUnitMember för att lägga till gruppen i den administrativa enheten. Objekt-ID: t för den administrativa enheten och objekt-ID: t för den grupp som ska läggas till tas som argument. Det markerade avsnittet kan ändras efter behov för den aktuella miljön.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 

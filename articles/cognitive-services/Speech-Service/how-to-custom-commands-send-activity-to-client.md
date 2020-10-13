@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: fc62c87fd12457c60d3eb26cba6814aa1df76f87
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91839222"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Skicka anpassade kommandon-aktivitet till klient program
@@ -26,7 +26,7 @@ Du utför följande aktiviteter:
 - Definiera och skicka en anpassad JSON-nyttolast från programmet för anpassade kommandon
 - Ta emot och visualisera det anpassade JSON-nyttolasten från ett C# UWP-program för tal-SDK
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) eller senare. Den här guiden använder Visual Studio 2019
 > * En Azure-prenumerationsnyckel för Speech-tjänsten: [Hämta en kostnadsfritt](overview.md#try-the-speech-service-for-free) eller skapa den i [Azure-portalen](https://portal.azure.com)

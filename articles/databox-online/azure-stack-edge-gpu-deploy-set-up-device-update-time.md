@@ -1,5 +1,5 @@
 ---
-title: Självstudie för att ansluta till, konfigurera, aktivera Azure Stack Edge Pro-enhet med GPU i Azure Portal | Microsoft Docs
+title: Självstudie för att ansluta, konfigurera, aktivera Azure Stack Edge Pro-enhet med GPU i Azure Portal | Microsoft Docs
 description: Självstudie för att distribuera Azure Stack Edge Pro GPU instruerar dig att ansluta, konfigurera och aktivera den fysiska enheten.
 services: databox
 author: alkohli
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1f86b0fc847ade3153c8eaddb0d82bd968913b46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd4078d414048d858c46f6757daa0a87a698eaab
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899651"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976087"
 ---
-# <a name="tutorial-configure-device-settings-for-azure-stack-edge-pro-with-gpu"></a>Självstudie: Konfigurera enhets inställningar för Azure Stack Edge Pro med GPU
+# <a name="tutorial-configure-the-device-settings-for-azure-stack-edge-pro-with-gpu"></a>Självstudie: Konfigurera enhets inställningarna för Azure Stack Edge Pro med GPU
 
 I den här självstudien beskrivs hur du konfigurerar enhets relaterade inställningar för din Azure Stack Edge Pro-enhet med en inbyggd GPU. Du kan ställa in enhets namn, uppdaterings Server och tids server via det lokala webb gränssnittet.
 
@@ -26,12 +26,12 @@ I den här självstudien lär du dig:
 
 > [!div class="checklist"]
 >
-> * Krav
+> * Förutsättningar
 > * Konfigurera enhetsinställningar
 > * Konfigurera uppdatering 
 > * Konfigurera tid
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du konfigurerar enhets relaterade inställningar på din Azure Stack Edge Pro-enhet med GPU måste du kontrol lera att:
 
@@ -67,7 +67,7 @@ Följ dessa steg om du vill konfigurera inställningar för enheten:
 
     5. När inställningarna har tillämpats väljer du **Nästa: uppdatera Server**.
 
-        ![Sidan enhet för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
+        ![Lokalt webb gränssnitt "enhet", sida 3](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
 
 ## <a name="configure-update"></a>Konfigurera uppdatering
 
@@ -79,12 +79,12 @@ Följ dessa steg om du vill konfigurera inställningar för enheten:
 
         Du kan också välja att distribuera uppdateringar från WSUS ( **Windows Server Update Services** ). Ange sökvägen till WSUS-servern.
         
-        ![Sidan uppdatera Server på det lokala webb gränssnittet](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
+        ![Lokalt webb gränssnitt "uppdaterings Server" på sidan 2](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
 
         > [!NOTE] 
         > Om en separat Windows Update Server har kon figurer ATS och du väljer att ansluta över *https* (i stället för *http*) behövs signerings kedjan som krävs för att ansluta till uppdaterings servern. Information om hur du skapar och laddar upp certifikat finns i [Hantera certifikat](azure-stack-edge-j-series-manage-certificates.md). 
 
-2. Välj **Använd**.
+2. Välj **Tillämpa**.
 3. När uppdaterings servern har kon figurer ATS väljer du **Nästa: tid**.
     
 
@@ -120,7 +120,7 @@ I den här självstudien lär du dig:
 
 > [!div class="checklist"]
 >
-> * Krav
+> * Förutsättningar
 > * Konfigurera enhetsinställningar
 > * Konfigurera uppdatering 
 > * Konfigurera tid

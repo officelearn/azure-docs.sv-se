@@ -3,12 +3,12 @@ title: Så här skapar du princip definitioner för gäst konfiguration från gr
 description: Lär dig hur du konverterar grupprincip från säkerhets bas linjen för Windows Server 2019 till en princip definition.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 58fe4fa3e5056192fa5febe4883a1457d130871b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dce22885981ab01fe37fac8588899d12a5afb87d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88547776"
+ms.locfileid: "91893381"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Så här skapar du princip definitioner för gäst konfiguration från grupprincip bas linje för Windows
 
@@ -87,7 +87,7 @@ Sedan konverterar vi den hämtade Server 2019-bas linjen till ett gäst konfigur
 
 ## <a name="create-azure-policy-guest-configuration"></a>Skapa Azure Policy gäst konfiguration
 
-Nästa steg är att publicera filen till Blob Storage. 
+Nästa steg är att publicera filen till Azure Blob Storage. 
 
 1. Skriptet nedan innehåller en funktion som du kan använda för att automatisera den här uppgiften. Observera att de kommandon som används i `publish` funktionen kräver `Az.Storage` modulen.
 
@@ -145,7 +145,7 @@ Nästa steg är att publicera filen till Blob Storage.
     $blob = 'Server2019Baseline.zip' 
     ```
 
-1. Använd funktionen Publish med de tilldelade parametrarna för att publicera gäst konfigurations paketet till den offentliga blob-lagringen.
+1. Använd funktionen Publish med de tilldelade parametrarna för att publicera gäst konfigurations paketet till offentliga Blob Storage.
 
 
    ```azurepowershell-interactive

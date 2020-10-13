@@ -4,10 +4,10 @@ description: Beskriver hur du skapar en resurs grupp i en Azure Resource Manager
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.openlocfilehash: 0673ea5260c7312395acde8a62b5d457657b9793
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91729125"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resurs grupper och resurser på prenumerations nivå
@@ -56,7 +56,7 @@ Använd följande för att hantera din prenumeration:
 * [budget](/azure/templates/microsoft.consumption/budgets)
 * [Ändra analys profil](/azure/templates/microsoft.changeanalysis/profile)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
-* [taggen](/azure/templates/microsoft.resources/tags)
+* [tags](/azure/templates/microsoft.resources/tags)
 
 Andra typer som stöds är:
 

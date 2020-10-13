@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
 ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91370887"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
@@ -80,7 +80,7 @@ Det dynamiska intervallet använder Spark-dynamiska intervall baserat på de kol
 
 Bygg ett uttryck som ger ett fast intervall för värden i dina partitionerade data kolumner. För att undvika separering av partitionen bör du ha en god förståelse för dina data innan du använder det här alternativet. De värden som du anger för uttrycket används som en del av en partitions funktion. Du kan ange antalet fysiska partitioner.
 
-### <a name="key"></a>Nyckel
+### <a name="key"></a>Tangent
 
 Om du har en god förståelse för data kardinalitet kan nyckel partitionering vara en god strategi. Med nyckel partitionering skapas partitioner för varje unikt värde i kolumnen. Du kan inte ange antalet partitioner eftersom antalet baseras på unika värden i data.
 
@@ -109,7 +109,7 @@ Data flöden distribuerar data bearbetningen över olika noder i ett Spark-klust
 
 Standard kluster storleken är fyra driv rutins noder och fyra arbetsnoder.  När du bearbetar mer data rekommenderas större kluster. Nedan visas möjliga alternativ för storleks ändring:
 
-| Arbets kärnor | Driv rutins kärnor | Totalt antal kärnor | Kommentarer |
+| Arbets kärnor | Driv rutins kärnor | Totalt antal kärnor | Obs! |
 | ------------ | ------------ | ----------- | ----- |
 | 4 | 4 | 8 | Inte tillgängligt för beräknings optimering |
 | 8 | 8 | 16 | |
@@ -173,7 +173,7 @@ Medan data flöden stöder en mängd olika filtyper rekommenderar Azure Data Fac
 
 Om du kör samma data flöde på en uppsättning filer rekommenderar vi att du läser från en mapp med sökvägar till jokertecken eller läser från en lista med filer. En enda körning av data flödes aktivitet kan bearbeta alla filer i batch. Mer information om hur du anger dessa inställningar finns i anslutnings dokumentationen, till exempel [Azure Blob Storage](connector-azure-blob-storage.md#source-transformation).
 
-Undvik om möjligt att använda for-each-aktiviteten för att köra data flöden över en uppsättning filer. Detta medför varje iteration av for-each för att skapa ett eget Spark-kluster, vilket ofta inte är nödvändigt och kan vara dyrt. 
+Undvik om möjligt att använda For-Each-aktivitet för att köra data flöden över en uppsättning filer. Detta medför varje iteration av for-each för att skapa ett eget Spark-kluster, vilket ofta inte är nödvändigt och kan vara dyrt. 
 
 ## <a name="optimizing-sinks"></a>Optimera Sinks
 

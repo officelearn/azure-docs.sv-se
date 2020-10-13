@@ -2,7 +2,7 @@
 title: Anslut en virtuell RHEL-dator till Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur du konfigurerar och ansluter till en Red Hat Enterprise Linux virtuell dator till en Azure AD Domain Services hanterad domän.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: iainfou
-ms.openlocfilehash: f2a6cb422c1133f0ed53d2c1061501a47d9c92f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: ffde2317ea66a15936df75c4fe2455f627ea6e98
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005097"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962130"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Ansluta en Red Hat Enterprise Linux virtuell dator till en Azure Active Directory Domain Services hanterad domän
 
@@ -24,7 +24,7 @@ För att användarna ska kunna logga in på virtuella datorer i Azure med en end
 
 Den här artikeln visar hur du ansluter en Red Hat Enterprise Linux (RHEL) virtuell dator till en hanterad domän.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -42,7 +42,7 @@ Om du har en befintlig virtuell RHEL Linux-dator i Azure ansluter du till den me
 
 Om du behöver skapa en virtuell RHEL Linux-dator, eller om du vill skapa en virtuell test dator för användning med den här artikeln kan du använda någon av följande metoder:
 
-* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure-portalen](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 

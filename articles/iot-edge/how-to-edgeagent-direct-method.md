@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 57b9d46918414cef9e8cbcffb941b98c98f985ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42c79526288fb7e05959ac60cddc6f468656ffd4
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80240353"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972551"
 ---
 # <a name="communicate-with-edgeagent-using-built-in-direct-methods"></a>Kommunicera med edgeAgent med hjälp av inbyggda direkta metoder
 
@@ -28,7 +28,7 @@ Namnen på dessa direkta metoder hanteras Skift läges okänsliga.
 
 **Ping** -metoden är användbar för att kontrol lera om IoT Edge körs på en enhet eller om enheten har en öppen anslutning till IoT Hub. Använd den här direkta metoden för att pinga IoT Edge-agenten och hämta dess status. En lyckad ping returnerar en tom nytto last och **"status": 200**.
 
-Exempel:
+Till exempel:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'ping' -n <hub name> -d <device name> -m '$edgeAgent'
@@ -46,7 +46,7 @@ Metoden RestartModule finns i IoT Edge version 1.0.9 och senare.
 
 Du kan använda metoden RestartModule Direct i alla moduler som körs på en IoT Edge enhet, inklusive själva edgeAgent-modulen. Men om du använder den här direkta metoden för att stänga av edgeAgent får du inte ett lyckat resultat eftersom anslutningen avbryts medan modulen startas om.
 
-Exempel:
+Till exempel:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'RestartModule' -n <hub name> -d <device name> -m '$edgeAgent' --method-payload \
@@ -69,13 +69,14 @@ Anropa metoden med metod namnet `RestartModule` och följande JSON-nyttolast i A
 
 ![Anropa Direct-metoden ' RestartModule ' i Azure Portal](./media/how-to-edgeagent-direct-method/restartmodule-direct-method.png)
 
-## <a name="experimental-methods"></a>Experimentella metoder
+## <a name="diagnostic-direct-methods"></a>Diagnostiska direkta metoder
 
-Nya alternativ för direkt metod är tillgängliga som experimentella funktioner att testa, inklusive:
+* [GetModuleLogs](how-to-retrieve-iot-edge-logs.md#retrieve-module-logs): Hämta modul loggar infogat i svaret på den direkta metoden.
+* [UploadModuleLogs](how-to-retrieve-iot-edge-logs.md#upload-module-logs): Hämta modul loggar och ladda upp dem till Azure Blob Storage.
+* [UploadSupportBundle](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics): Hämta modul loggar med hjälp av ett support paket och ladda upp en zip-fil till Azure Blob Storage.
+* [GetTaskStatus](how-to-retrieve-iot-edge-logs.md#get-upload-request-status): kontrol lera statusen för en uppladdnings logg eller begäran om support paket.
 
-* [UploadLogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md): Hämta modul loggar och ladda upp dem till Azure Blob Storage.
-* [GetTaskStatus](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#gettaskstatus): kontrol lera statusen för en begäran om uppladdning av loggar.
-* [GetLogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#getlogs): Hämta modul loggar infogat i svaret på den direkta metoden.
+Dessa diagnostiska direkta metoder är tillgängliga från och med 1.0.10-versionen.
 
 ## <a name="next-steps"></a>Nästa steg
 

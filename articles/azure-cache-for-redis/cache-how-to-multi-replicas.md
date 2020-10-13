@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.openlocfilehash: 87b5ec5eb13f2bc53bdf993547ce3da1c74404bf
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91566796"
 ---
 # <a name="add-replicas-to-azure-cache-for-redis-preview"></a>Lägga till repliker i Azure cache för Redis (för hands version)
@@ -22,7 +22,7 @@ Azure cache för Redis standard-och Premium-nivåer erbjuder redundans genom att
 > Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i kompletterande användnings [villkor för Microsoft Azure för hands versionerna.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
 > [!NOTE]
@@ -66,7 +66,7 @@ Följ dessa steg om du vill skapa en cache:
     > Antalet repliker i en cache kan inte ändras efter att det har skapats.
     >
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Läs mer om Azure cache för Redis-funktioner.
 
 > [!div class="nextstepaction"]

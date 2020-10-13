@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9033caf903967432b713afa00a509bd2d966d8b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86527837"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972024"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Återställa en StorSimple-volym från en säkerhetskopia
 
@@ -115,7 +115,7 @@ Du kan använda bladet **säkerhets kopierings katalog** för att återställa d
    
 4. Gå tillbaka till fliken **säkerhets kopierings katalog** och välj en säkerhets kopierings uppsättning. Högerklicka på och välj sedan **Återställ**på snabb menyn.
 
-    ![Lista över säkerhets kopie uppsättningar](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
+    ![Lista över säkerhets kopiering 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
 
 5. Du uppmanas att bekräfta. Granska återställnings informationen och markera sedan kryss rutan Bekräfta.
    
@@ -123,7 +123,7 @@ Du kan använda bladet **säkerhets kopierings katalog** för att återställa d
 
 7. Klicka på **Återställ**. Detta initierar ett återställnings jobb som du kan visa genom att öppna sidan **jobb** .
 
-   ![Bekräftelsesida](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![Bekräftelse sida 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. När återställningen är klar kontrollerar du att volymens innehåll ersätts av volymer från säkerhets kopian.
 

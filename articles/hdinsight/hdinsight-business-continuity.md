@@ -8,12 +8,12 @@ keywords: Hadoop hög tillgänglighet
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 49f1f475ba4169ea6943dec161577a15e76657f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: beb3c54a0ab7f6f063232a1ad49744d99746c589
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91857783"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893653"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Affärs kontinuitet i Azure HDInsight
 
@@ -84,7 +84,7 @@ Det tar inte alltid en oåterkallelig händelse att påverka affärs funktionern
 
 ### <a name="hdinsight-metastore"></a>HDInsight-metaarkiv
 
-HDInsight använder [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/) som en metaarkiv, som tillhandahåller ett service avtal på 99,99%. Tre repliker av data finns kvar i ett Data Center med asynkron replikering. Om det finns en replik förlust, hanteras en alternativ replik sömlöst. [Aktiv geo-replikering](../azure-sql/database/active-geo-replication-overview.md) stöds i rutan med högst fyra Data Center. När det finns en växling vid fel, antingen manuellt eller i Data Center, blir den första repliken i hierarkin automatiskt av Läs-och skriv kapacitet. Mer information finns i [Azure SQL Database affärs kontinuitet](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md).
+HDInsight använder [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/) som en metaarkiv, som tillhandahåller ett service avtal på 99,99%. Tre repliker av data finns kvar i ett Data Center med synkron replikering. Om det finns en replik förlust, hanteras en alternativ replik sömlöst. [Aktiv geo-replikering](../azure-sql/database/active-geo-replication-overview.md) stöds i rutan med högst fyra Data Center. När det finns en växling vid fel, antingen manuellt eller i Data Center, blir den första repliken i hierarkin automatiskt av Läs-och skriv kapacitet. Mer information finns i [Azure SQL Database affärs kontinuitet](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
 ### <a name="hdinsight-storage"></a>HDInsight Storage
 
@@ -112,7 +112,7 @@ Att förbättra affärs kontinuiteten med hjälp av haveri beredskap för hög t
 |----|------------------------|-----------------------|
 |Datalagring|Duplicera primära data/tabeller i en sekundär region|Replikera endast granskade data|
 |Utgående data|Utgående data överföringar i flera regioner kommer till ett pris. Läs rikt linjerna för bandbredds prissättning|Replikera endast granskade data för att minska det utgående utrymmet för regionen|
-|Kluster beräkning|Ytterligare HDInsight-kluster/s i sekundär region|Använd automatiserade skript för att distribuera sekundär beräkning efter primärt fel. < \br>< \br>använda autoskalning för att hålla den sekundära kluster storleken minst. < \br>< \br>Använd billigare VM-SKU: er. < \br>< \br> skapa sekundära platser i regioner där VM-SKU: er kan rabatteras.|
+|Kluster beräkning|Ytterligare HDInsight-kluster/s i sekundär region|Använd automatiserade skript för att distribuera sekundär beräkning efter primärt haveri. Använd autoskalning för att hålla den sekundära kluster storleken minst. Använd billigare VM-SKU: er. Skapa sekundära zoner i regioner där VM-SKU: er kan rabatteras.|
 |Autentisering |Nätverks scenarier i den sekundära regionen kommer att ådra sig ytterligare Azure AD DS-installationer|Undvik inställningar för flera användare i den sekundära regionen.|
 
 ### <a name="complexity-optimizations"></a>Optimering av komplexitet

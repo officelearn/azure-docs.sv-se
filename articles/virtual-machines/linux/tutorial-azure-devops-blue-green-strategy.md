@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 0d001144f1a2703db118261e5cae5417b1d8c17a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f349ff62fe211f0610341864a4c7528ee6bfe9c5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87080139"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961537"
 ---
 # <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Självstudie – konfigurera den blå gröna distributions strategin för virtuella Azure Linux-datorer
 
@@ -25,7 +25,7 @@ ms.locfileid: "87080139"
 
 Azure-pipeliner ger en helt aktuell uppsättning CI/CD Automation-verktyg för distribution till virtuella datorer. Du kan konfigurera en pipeline för kontinuerlig leverans för en virtuell Azure-dator från Azure Portal.
 
-Den här artikeln visar hur du konfigurerar en CI/CD-pipeline som använder den blå gröna strategin för MultiMachine-distributioner. Azure Portal stöder också andra strategier som [rullande](https://aka.ms/AA7jlh8) och [Kanarie](https://aka.ms/AA7jdrz).
+Den här artikeln visar hur du konfigurerar en CI/CD-pipeline som använder den blå gröna strategin för MultiMachine-distributioner. Azure Portal stöder också andra strategier som [rullande](./tutorial-devops-azure-pipelines-classic.md) och [Kanarie](./tutorial-azure-devops-canary-strategy.md).
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Konfigurera CI/CD på virtuella datorer
 
@@ -73,8 +73,8 @@ Med alternativet för kontinuerlig leverans kan du konfigurera blå-grönt-distr
 
 ## <a name="other-deployment-strategies"></a>Andra distributions strategier
 
-- [Konfigurera strategin för löpande distribution](https://aka.ms/AA7jlh8)
-- [Konfigurera strategin för Kanarie-distribution](https://aka.ms/AA7jdrz)
+- [Konfigurera strategin för löpande distribution](./tutorial-devops-azure-pipelines-classic.md)
+- [Konfigurera strategin för Kanarie-distribution](./tutorial-azure-devops-canary-strategy.md)
 
 ## <a name="azure-devops-projects"></a>Azure DevOps Projects
 

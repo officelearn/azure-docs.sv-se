@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: e2d577261a1cea0bad9aab549b3669f8fdef5751
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715857"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Använd Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data
@@ -102,5 +102,5 @@ Du behöver bara tilldela rollen **läsare** för användare som behöver åtkom
 - Information om hur du tilldelar och hanterar roll tilldelningar i Azure med Azure PowerShell, Azure CLI eller REST API finns i följande artiklar:
     - [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av modulen Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
     - [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-    - [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av REST API](../../role-based-access-control/role-assignments-rest.md)
+    - [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av REST API](../../role-based-access-control/role-assignments-rest.md)
 - Information om hur du auktoriserar åtkomst till behållare och köer från dina lagrings program finns i [använda Azure AD med Azure Storage-program](storage-auth-aad-app.md).

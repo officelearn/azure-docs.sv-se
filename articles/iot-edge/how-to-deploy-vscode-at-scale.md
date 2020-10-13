@@ -9,12 +9,12 @@ ms.date: 1/8/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 92540c57179ae0198f78b588681167fe48097362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc059cae927c1aaa057080172313f5720f483bdb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82134369"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972585"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Distribuera IoT Edge moduler i skala med Visual Studio Code
 
@@ -24,10 +24,13 @@ Mer information finns i [förstå IoT Edge automatiska distributioner för enski
 
 I den här artikeln ställer du in Visual Studio Code och IoT-tillägget. Du lär dig sedan hur du distribuerar moduler till en uppsättning IoT Edge enheter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) i din Azure-prenumeration.
-* En [IoT Edge-enhet](how-to-register-device.md#register-with-visual-studio-code) med IoT Edge runtime installerad.
+* En eller flera IoT Edge enheter.
+
+  Om du inte har konfigurerat en IoT Edge enhet kan du skapa en på en virtuell Azure-dator. Följ stegen i en av snabb starts artiklarna för att [skapa en virtuell Linux-enhet](quickstart-linux.md) eller [skapa en virtuell Windows-enhet](quickstart.md).
+
 * [Visual Studio Code](https://code.visualstudio.com/).
 * [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) för Visual Studio Code.
 

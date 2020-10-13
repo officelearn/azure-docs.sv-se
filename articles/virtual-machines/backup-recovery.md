@@ -6,12 +6,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 8/03/2020
 ms.author: cynthn
-ms.openlocfilehash: bb1abb5b94653893e131c09af6de1625b0bc7998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c56adc852b504d3a0663a9607b3472cb3348e7a5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87554884"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972364"
 ---
 # <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Alternativ för säkerhets kopiering och återställning av virtuella Linux-datorer i Azure
 
@@ -32,7 +32,7 @@ Azure Site Recovery skyddar dina virtuella datorer från ett större katastrof s
 
 Du kan köra granskningar av haveri beredskap med redundanstest på begäran, utan att påverka produktions arbets belastningarna eller pågående replikering. Skapa återställnings planer för att dirigera redundans och återställning efter fel för hela programmet som körs på flera virtuella datorer. Återställnings plan funktionen är integrerad med Azure Automation-runbooks.
 
-Du kan komma igång genom att [Replikera dina virtuella datorer](https://aka.ms/a2a-getting-started). 
+Du kan komma igång genom att [Replikera dina virtuella datorer](../site-recovery/azure-to-azure-quickstart.md). 
 
 ## <a name="managed-snapshots"></a>Hanterade ögonblicks bilder 
 

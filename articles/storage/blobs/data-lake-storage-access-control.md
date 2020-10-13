@@ -9,10 +9,10 @@ ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: 31d67daebf2e15fb11b5ebe30c4f7741a09eed2d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91716104"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomstkontroll i Azure Data Lake Storage Gen2
@@ -112,7 +112,7 @@ Behörigheterna för ett behållar objekt är **läsa**, **skriva**och **köra**
 |--------------|------------|------------------------|
 | 7            | `RWX`        | Läsa + skriva + köra |
 | 5            | `R-X`        | Läsa + köra         |
-| 4            | `R--`        | Läsa                   |
+| 4            | `R--`        | Läs                   |
 | 0            | `---`        | Inga behörigheter         |
 
 #### <a name="permissions-inheritance"></a>Arv av behörigheter

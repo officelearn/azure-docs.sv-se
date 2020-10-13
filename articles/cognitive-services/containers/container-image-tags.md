@@ -10,10 +10,10 @@ ms.topic: reference
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: 2a24433389e738bf5d0ecb7ecac6bf369c8ba183
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91369492"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Avbildnings taggar för Azure Cognitive Services container
@@ -29,7 +29,7 @@ Behållar avbildningen för [avvikelse detektor][ad-containers] finns i `mcr.mic
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Obs! |
 |-------------------------------|:------|
 | `latest`                      |       |
 
@@ -39,7 +39,7 @@ Du kan hitta avbildningen [visuellt innehåll][cv-containers] Read OCR-behållar
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Obs! |
 |-------------------------------|:------|
 | `latest ( (2.0.013250001-amd64-preview)` | • Öka minnes användningen ytterligare för containern. |
 |                                          | • Extern cache krävs för installation av multi-poddar. Du kan till exempel konfigurera Redis för cachelagring. |
@@ -68,7 +68,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Obs! |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -86,7 +86,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Obs! |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -99,7 +99,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Obs! |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.010330004-amd64-preview` |       |
@@ -117,7 +117,7 @@ Behållar avbildningen [Custom Speech till text][sp-cstt] finns i `containerprev
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar            | Kommentarer |
+| Bildtaggar            | Obs! |
 |-----------------------|:------|
 | `latest`              |       |
 | `2.5.0-amd64`         |       |
@@ -136,7 +136,7 @@ Du hittar den [anpassade text till tal-][sp-ctts] behållar avbildningen i `cont
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar            | Kommentarer |
+| Bildtaggar            | Obs! |
 |-----------------------|:------|
 | `latest`              |       |
 | `1.7.0-amd64`         |       |
@@ -153,7 +153,7 @@ Tal-till-text v 2.5.0-avbildningar stöds i *USA, myndigheter*. Använd den *ame
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                  | Kommentarer                                    |
+| Bildtaggar                  | Obs!                                    |
 |-----------------------------|:-----------------------------------------|
 | `latest`                    | Behållar avbildning med `en-US` språkvarianten. |
 | `2.5.0-amd64-ar-ae`         | Behållar avbildning med `ar-AE` språkvarianten. |
@@ -631,7 +631,7 @@ Du hittar [text till tal-][sp-tts] behållar avbildningen i `containerpreview.az
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                                  | Kommentarer                                                                      |
+| Bildtaggar                                  | Obs!                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Behållar avbildning med `en-US` språket och `en-US-AriaRUS` rösten.         |
 | `1.7.0-amd64-ar-eg-hoda`                    | Behållar avbildning med `ar-EG` språket och `ar-EG-Hoda` rösten.            |
@@ -1128,7 +1128,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                                  | Kommentarer                                                                      |
+| Bildtaggar                                  | Obs!                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Behållar avbildning med `en-US` språket och `en-US-AriaNeural` rösten.      |
 | `1.2.0-amd64-de-de-katjaneural-preview`     | Behållar avbildning med `de-DE` språket och `de-DE-KatjaNeural` rösten.     |
@@ -1154,7 +1154,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Obs! |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -1169,7 +1169,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Obs! |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -1184,7 +1184,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar | Kommentarer                                         |
+| Bildtaggar | Obs!                                         |
 |------------|:----------------------------------------------|
 | `latest`   |                                               |
 | `3.0-en`   | Attitydanalys v3 (engelska)               |

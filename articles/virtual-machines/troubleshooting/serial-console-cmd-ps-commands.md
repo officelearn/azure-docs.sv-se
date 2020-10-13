@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: ef533b3566ac557b57f1435a2a9b2dbe26896993
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306896"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows-kommandon – CMD och PowerShell
@@ -320,7 +320,7 @@ eller
 `test-netconnection`
 
 > [!NOTE]
-> Cmdleten Write-Progress kanske inte fungerar med det här kommandot. Som en minskning kan du köra `$ProgressPreference = "SilentlyContinue"` i PowerShell för att inaktivera förlopps indikatorn.
+> Write-Progress-cmdleten kanske inte fungerar med det här kommandot. Som en minskning kan du köra `$ProgressPreference = "SilentlyContinue"` i PowerShell för att inaktivera förlopps indikatorn.
 
 eller
 

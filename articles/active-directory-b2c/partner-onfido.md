@@ -12,10 +12,10 @@ ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 5d0835114844069d4ebdc992b872f9be1f0b3ca6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259228"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera Onfido med Azure Active Directory B2C
@@ -50,7 +50,7 @@ I följande arkitektur diagram visas implementeringen.
 
 ![skärm bild för onfido-Architecture-diagram](media/partner-onfido/onfido-architecture-diagram.png)
 
-|Steg | Description |
+|Steg | Beskrivning |
 |:-----| :-----------|
 | 1. | Användaren kommer till inloggnings sidan. Användaren registrerar sig för att skapa ett nytt konto och ange information på sidan. Azure AD B2C samlar in användarattribut. Onfido-klient som finns i Azure AD B2C söker preliminärt efter användar informationen.
 | 2. | Azure AD B2C anropar API: t för mellanlager och passerar användar-attributen.
@@ -84,7 +84,7 @@ Mer information om Onfido finns i [API-dokumentationen för Onfido](https://docu
 
 Program inställningar kan konfigureras i [App Service i Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). App Service gör det möjligt att konfigurera inställningar på ett säkert sätt utan att kontrol lera dem i en lagrings plats. REST-API: et behöver följande inställningar:
 
-| Namn på program inställning | Källa | Kommentarer |
+| Namn på program inställning | Källa | Obs! |
 |:-------------------------|:-------|:-------|
 |OnfidoSettings: AuthToken| Onfido-konto |
 

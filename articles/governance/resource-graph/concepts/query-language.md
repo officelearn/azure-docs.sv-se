@@ -4,10 +4,10 @@ description: Beskriver resurs diagram tabeller och tillgängliga Kusto data type
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: ef588bd3fd8afcf1f1139f97d5df2d48a14b4dd9
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578537"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Förstå frågespråket i Azure Resource Graph
@@ -119,7 +119,7 @@ Resurs diagram har stöd för en delmängd av KQL- [datatyper](/azure/kusto/quer
 
 Här är listan över KQL tabell operatörer som stöds av resurs diagram med vissa exempel:
 
-|KQL |Exempel fråga för resurs diagram |Kommentarer |
+|KQL |Exempel fråga för resurs diagram |Obs! |
 |---|---|---|
 |[reparationer](/azure/kusto/query/countoperator) |[Räkna nyckel valv](../samples/starter.md#count-keyvaults) | |
 |[kontrollstämpel](/azure/kusto/query/distinctoperator) |[Visa distinkta värden för ett visst alias](../samples/starter.md#distinct-alias-values) | |

@@ -12,10 +12,10 @@ ms.reviewer: ''
 ms.date: 07/16/2019
 ms.topic: how-to
 ms.openlocfilehash: b91b7175fa4c7b91fec63a817206fa540813bdb7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443798"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Exportera till en BACPAC-fil – Azure SQL Database och Azure SQL-hanterad instans
@@ -44,7 +44,7 @@ När du behöver exportera en databas för arkivering eller för att flytta till
 Det finns för närvarande inte stöd för att exportera en BACPAC av en databas från en [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) med hjälp av Azure Portal. Använd SQL Server Management Studio eller SQLPackage i stället.
 
 > [!NOTE]
-> Datorer som bearbetar import/export-begäranden som skickas via Azure Portal eller PowerShell måste lagra BACPAC-filen och temporära filer som genereras av DacFX (data-Tier Application Framework). Det disk utrymme som krävs varierar kraftigt mellan databaser med samma storlek och kan kräva disk utrymme upp till 3 gånger databasens storlek. Datorer som kör import/export-begäran har bara 450GB lokalt disk utrymme. Därför kan vissa begär Anden Miss lyckas med felet `There is not enough space on the disk` . I det här fallet är lösningen att köra sqlpackage.exe på en dator med tillräckligt lokalt disk utrymme. Vi rekommenderar att du använder [SqlPackage](#sqlpackage-utility) för att importera/exportera databaser som är större än 150 GB för att undvika det här problemet.
+> Datorer som bearbetar import-/export begär Anden som skickas via Azure Portal eller PowerShell måste lagra BACPAC-filen och temporära filer som genereras av Data-Tier Application Framework (DacFX). Det disk utrymme som krävs varierar kraftigt mellan databaser med samma storlek och kan kräva disk utrymme upp till 3 gånger databasens storlek. Datorer som kör import/export-begäran har bara 450GB lokalt disk utrymme. Därför kan vissa begär Anden Miss lyckas med felet `There is not enough space on the disk` . I det här fallet är lösningen att köra sqlpackage.exe på en dator med tillräckligt lokalt disk utrymme. Vi rekommenderar att du använder [SqlPackage](#sqlpackage-utility) för att importera/exportera databaser som är större än 150 GB för att undvika det här problemet.
 
 1. Om du vill exportera en databas med hjälp av [Azure Portal](https://portal.azure.com)öppnar du sidan för din databas och klickar på **Exportera** i verktygsfältet.
 

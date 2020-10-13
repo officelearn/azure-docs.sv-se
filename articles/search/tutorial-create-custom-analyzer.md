@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.openlocfilehash: ac7cee2c1d72b4102fb397aa8093c2d38686fc88
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397274"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Självstudie: skapa en anpassad analys för telefonnummer
@@ -29,7 +29,7 @@ Den här självstudien använder [REST-API: er](/rest/api/searchservice/) för P
 > * Testa hur den anpassade Analyzer-tokenizes text
 > * Skapa separata analyser för indexering och sökning för att ytterligare förbättra resultaten
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande tjänster och verktyg krävs för den här självstudien.
 
@@ -160,7 +160,7 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basi
 
 Vi är redo att börja söka med data i indexet.
 
-### <a name="search"></a>Sök
+### <a name="search"></a>Search
 
 För att göra sökningen intuitiv är det bäst att inte förvänta användarna att formatera frågor på ett särskilt sätt. En användare kan söka efter `(425) 555-0100` i alla format som vi visade ovan och kommer fortfarande att vänta på att resultaten returneras. I det här steget ska vi testa några exempel frågor för att se hur de fungerar.
 
@@ -239,11 +239,11 @@ Analyserare består av tre komponenter:
 
 I diagrammet nedan kan du se hur dessa tre komponenter fungerar tillsammans för att Tokenize en mening:
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Diagram över Analyzer-processen för att Tokenize en mening":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="URL och rubrik för Postman-begäran":::
 
 Dessa tokens lagras sedan i ett inverterat index, vilket möjliggör snabba, full texts ökningar.  Ett inverterat index möjliggör full texts ökning genom att mappa alla unika villkor som extraheras under lexikal analys till de dokument där de förekommer. Du kan se ett exempel i diagrammet nedan:
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Exempel på inverterat index":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="URL och rubrik för Postman-begäran":::
 
 All sökning är nedtryckt för att söka efter termer som lagras i det inverterade indexet. När en användare utfärdar en fråga:
 
@@ -251,7 +251,7 @@ All sökning är nedtryckt för att söka efter termer som lagras i det inverter
 1. Det inverterade indexet genomsöks sedan efter dokument med matchande villkor.
 1. Slutligen rangordnas de hämtade dokumenten av [algoritmen för likheter](index-ranking-similarity.md).
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Diagram över likhets sätt i Analyzer-processen":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="URL och rubrik för Postman-begäran":::
 
 Om villkoren i frågan inte matchar villkoren i det inverterade indexet returneras inte resultatet. Mer information om hur frågor fungerar finns i den här artikeln om [full texts ökning](search-lucene-query-architecture.md).
 

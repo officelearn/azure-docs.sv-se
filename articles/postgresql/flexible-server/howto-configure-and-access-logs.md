@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 0b7b09696cbbe12a57d066e452b4c8ea7a7b8f27
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90941452"
 ---
 # <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Konfigurera och få åtkomst till loggar i Azure Database for PostgreSQL-flexibel Server
@@ -36,7 +36,7 @@ Så här aktiverar du resurs loggar med hjälp av Azure Portal:
 4. Välj önskad slut punkt (lagrings konto, händelsehubben, Log Analytics). 
 
 5. Välj logg typen **PostgreSQLLogs**.
-   :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Välj PostgreSQL-loggar":::
+   :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Knappen Lägg till diagnostikinställningar":::
 
 7. Spara inställningen.
 

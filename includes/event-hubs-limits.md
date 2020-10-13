@@ -9,10 +9,10 @@ ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 31031462d9904e3554c19f47bc82f87746443693
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371769"
 ---
 Följande tabeller innehåller kvoter och begränsningar som är begränsade till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Information om Event Hubs priser finns i [Event Hubs prissättning](https://azure.microsoft.com/pricing/details/event-hubs/).
@@ -20,7 +20,7 @@ Följande tabeller innehåller kvoter och begränsningar som är begränsade til
 ### <a name="common-limits-for-all-tiers"></a>Vanliga gränser för alla nivåer
 Följande begränsningar är gemensamma för alla nivåer. 
 
-| Gräns |  Kommentarer | Värde |
+| Gräns |  Obs! | Värde |
 | --- |  --- | --- |
 | Antal Event Hubs namn rymder per prenumeration |- |100 |
 | Antal Event Hub per namnrymd | Efterföljande begär Anden om att skapa en ny händelsehubben avvisas. |10 |
@@ -36,7 +36,7 @@ Följande begränsningar är gemensamma för alla nivåer.
 ### <a name="basic-and-standard-tiers"></a>Basic-och standard-nivåer
 I följande tabell visas de gränser som kan vara olika för nivåerna Basic och standard. 
 
-| Gräns | Kommentarer | Basic | Standard |
+| Gräns | Obs! | Basic | Standard |
 | --- |  --- | -- | --- |
 | Maximal storlek för Event Hubs händelse| &nbsp; | 256 kB | 1 MB |
 | Antal konsument grupper per Event-hubb | &nbsp; |1 |20 |

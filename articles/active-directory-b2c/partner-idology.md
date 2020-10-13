@@ -12,10 +12,10 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cfce5b42d37908d0ba89cff9c4831cb25b968524
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259330"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera IDology med Azure Active Directory B2C 
@@ -75,7 +75,7 @@ Du behöver URL: en för den distribuerade tjänsten för att konfigurera Azure 
 
 Program inställningar kan [konfigureras i App Service i Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Med den här metoden kan du konfigurera inställningar på ett säkert sätt utan att kontrol lera dem i en lagrings plats. Du måste ange följande inställningar för REST-API: et:
 
-| Programinställningar | Källa | Kommentarer |
+| Programinställningar | Källa | Obs! |
 | :-------- | :------------| :-----------|
 |IdologySettings:ApiUsername | Konfiguration av IDology-konto |     |
 |IdologySettings:ApiPassword | Konfiguration av IDology-konto |     |

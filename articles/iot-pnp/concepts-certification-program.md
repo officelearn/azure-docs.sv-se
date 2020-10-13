@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 9580f1c7a29b19bb926a7079b95cb3ed0b314d05
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91580537"
 ---
 # <a name="what-is-the-azure-certified-device-program"></a>Vad är Azure Certified Device-programmet?
@@ -60,7 +60,7 @@ _Azure-certifierad enhets certifiering_ verifierar att en enhet kan ansluta till
 - Mer information finns i [certifierings kraven](https://aka.ms/acdrequirements).
 - Mer information om hur du använder DPS för att ansluta enheten till Azure IoT Hub finns i [Översikt över etablerings enheter](../iot-dps/about-iot-dps.md).
 
-### <a name="iot-plug-and-play"></a>IoT Plug and Play
+### <a name="iot-plug-and-play"></a>Plug and Play för IoT
 
 _IoT plug and Play-certifiering_, en stegvis certifiering till Azure-certifierad enhets certifiering, fören klar processen med att skapa enheter utan anpassad enhets kod. IoT Plug and Play gör det möjligt för maskin varu partner att bygga enheter som enkelt kan integreras med moln lösningar baserade på Azure IoT Central och lösningar från tredje part.
 

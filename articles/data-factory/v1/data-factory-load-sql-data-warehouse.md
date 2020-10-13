@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a5bf53597c0706a5ef435d6ab8cc06e14726db8a
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89442487"
 ---
 # <a name="load-1-tb-into-azure-synapse-analytics-under-15-minutes-with-data-factory"></a>Läs in 1 TB i Azure Synapse Analytics under 15 minuter med Data Factory
@@ -44,7 +44,7 @@ Den här artikeln innehåller steg-för-steg-instruktioner för att flytta data 
 >
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Azure Blob Storage: med det här experimentet används Azure Blob Storage (GRS) för att lagra data uppsättningen TPC-H-test.  Om du inte har ett Azure Storage-konto kan du läsa om [hur du skapar ett lagrings konto](../../storage/common/storage-account-create.md).
 * [TPC-h-](http://www.tpc.org/tpch/) data: vi ska använda TPC-h som test data uppsättning.  Om du vill göra det måste du använda `dbgen` från TPC-H Toolkit, som hjälper dig att skapa data uppsättningen.  Du kan antingen ladda ned käll koden för `dbgen` från [TPC-verktyg](http://www.tpc.org/tpc_documents_current_versions/current_specifications5.asp) och kompilera den själv eller ladda ned den kompilerade binärfilen från [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Kör dbgen.exe med följande kommandon för att generera 1 TB platt fil för `lineitem` tabell uppslag över 10 filer:
 

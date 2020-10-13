@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ms.openlocfilehash: 0231fc8919444558abcbc965ad127f7372eceb66
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91823602"
 ---
 # <a name="window-transformation-in-mapping-data-flow"></a>Fönster omvandling i data flöde för mappning
@@ -28,7 +28,7 @@ Ange partitionering för kolumn data för fönster omvandlingen. SQL-motsvarighe
 
 ![Fönster alternativ](media/data-flow/windows4.png "Windows 4")
 
-## <a name="sort"></a>Sortera
+## <a name="sort"></a>Sortering
 En annan del av över-satsen är att ange ```Order By``` . Detta anger sorterings ordningen för data. Du kan också skapa ett uttryck för att beräkna värdet i det här kolumn fältet för sortering.
 
 ![Fönster alternativ](media/data-flow/windows5.png "Windows 5")

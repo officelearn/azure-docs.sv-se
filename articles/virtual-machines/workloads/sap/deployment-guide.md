@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
 ms.openlocfilehash: 4494af89ac35a391f7dc6097b14d135a911d99dd
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359621"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
@@ -506,7 +506,7 @@ Ange följande parametrar för mallen i Azure Portal:
    * **Administratörens användar namn** och **Administratörs lösen ord**: användar namn och lösen ord.
      En ny användare skapas för att logga in på den virtuella datorn.
    * **Nytt eller befintligt undernät**: avgör om ett nytt virtuellt nätverk och undernät skapas eller om ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är anslutet till ditt lokala nätverk väljer du **befintligt**.
-   * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:/Subscriptions/ &lt; prenumerations-id>/ResourceGroups/ &lt; resurs grupp namn>/providers/Microsoft.Network/virtualnetworks/ &lt; virtuellt nätverks namn>/subnets/ &lt; under nät namn>
+   * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:/Subscriptions/ &lt; prenumerations-id>/resourceGroups/ &lt; resurs grupp namn>/providers/Microsoft.Network/virtualNetworks/ &lt; virtuellt nätverks namn>/subnets/ &lt; under nät namn>
 
 1. **Allmänna**villkor:  
     Granska och godkänn de juridiska villkoren.
@@ -646,7 +646,7 @@ Ange följande parametrar för mallen i Azure Portal:
 
      En ny användare skapas för att logga in på den virtuella datorn.
    * **Nytt eller befintligt undernät**: avgör om ett nytt virtuellt nätverk och undernät skapas eller om ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är anslutet till ditt lokala nätverk väljer du **befintligt**.
-   * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:/Subscriptions/ &lt; prenumerations-id>/ResourceGroups/ &lt; resurs grupp namn>/providers/Microsoft.Network/virtualnetworks/ &lt; virtuellt nätverks namn>/subnets/ &lt; under nät namn>
+   * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:/Subscriptions/ &lt; prenumerations-id>/resourceGroups/ &lt; resurs grupp namn>/providers/Microsoft.Network/virtualNetworks/ &lt; virtuellt nätverks namn>/subnets/ &lt; under nät namn>
 
 1. **Allmänna**villkor:  
     Granska och godkänn de juridiska villkoren.
@@ -734,7 +734,7 @@ Ange följande parametrar för mallen i Azure Portal:
    * **VHD-URI för OS-disk** (endast hanterad disk mall): URI för den privata OS-disken, till exempel https:// &lt; accountname>. blob.Core.Windows.net/VHDs/OSDisk.VHD.
    * **Hanterat disk-ID för operativ system disk** (endast mall för hanterad disk): ID för den hanterade DISKens OS-disk,/Subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/Group/providers/Microsoft.Compute/disks/Win
    * **Nytt eller befintligt undernät**: avgör om ett nytt virtuellt nätverk och undernät skapas, eller om ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är anslutet till ditt lokala nätverk väljer du **befintligt**.
-   * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:/Subscriptions/ &lt; prenumerations-id>/ResourceGroups/ &lt; resurs grupp namn>/providers/Microsoft.Network/virtualnetworks/ &lt; virtuellt nätverks namn>/subnets/ &lt; under nät namn>
+   * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:/Subscriptions/ &lt; prenumerations-id>/resourceGroups/ &lt; resurs grupp namn>/providers/Microsoft.Network/virtualNetworks/ &lt; virtuellt nätverks namn>/subnets/ &lt; under nät namn>
 
 1. **Allmänna**villkor:  
     Granska och godkänn de juridiska villkoren.
@@ -1057,7 +1057,7 @@ Det nya VM-tillägget för SAP använder en hanterad identitet som tilldelats de
    az login
    ```
 
-1. Följ stegen i artikeln [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med Azure CLI][qs-configure-cli-windows-vm] -artikel om du vill aktivera en systemtilldelad hanterad identitet till den virtuella datorn. Användare tilldelade hanterade identiteter stöds inte av VM-tillägget för SAP. Du kan dock aktivera både en systemtilldelad och en tilldelad identitet.
+1. Följ stegen i artikeln [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med Azure CLI][qs-configure-cli-windows-vm] -artikel om du vill aktivera en System-Assigned hanterad identitet till den virtuella datorn. User-Assigned hanterade identiteter stöds inte av VM-tillägget för SAP. Du kan dock aktivera både en systemtilldelad och en tilldelad identitet.
 
    Exempel:
    ```azurecli
@@ -1370,11 +1370,11 @@ Katalogen \\ var \\ lib- \\ waagent saknar \\ under katalog för Azure-tillägge
 
 Tillägget är inte installerat. Ta reda på om detta är ett proxy-problem (som beskrivits tidigare). Du kan behöva starta om datorn och/eller köra `Set-AzVMAEMExtension` konfigurations skriptet igen.
 
-##### <a name="the-execution-of-set-azvmaemextension-and-test-azvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>Körningen av Set-AzVMAEMExtension och test-AzVMAEMExtension visar varnings meddelanden som talar om att standard Managed Disks inte stöds
+##### <a name="the-execution-of-set-azvmaemextension-and-test-azvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>Körningen av Set-AzVMAEMExtension och Test-AzVMAEMExtension visar varnings meddelanden som talar om att standard Managed Disks inte stöds
 
 ###### <a name="issue"></a>Problem
 
-När du kör Set-AzVMAEMExtension-eller test-AzVMAEMExtension-meddelanden som visas:
+När du kör Set-AzVMAEMExtension eller Test-AzVMAEMExtension meddelanden som visas:
 
 <pre><code>
 WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.

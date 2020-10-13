@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/04/2018
 ms.openlocfilehash: 52fba5064d656158a53ba71fec194cfa4f360df5
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360301"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory-using-the-azure-portal"></a>Transformera data i Azure Virtual Network att använda Hive-aktivitet i Azure Data Factory med hjälp av Azure Portal
@@ -34,7 +34,7 @@ I den här självstudien använder du Azure Portal för att skapa en Data Factor
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -228,7 +228,7 @@ Observera följande punkter:
         ![Skriptinställningar](./media/tutorial-transform-data-using-hive-in-vnet-portal/confirm-hive-script-settings.png)
     5. Visa avsnittet **Avancerat** på fliken **Skript**. 
     6. Klicka på **Auto-fill from script** (Fyll i automatiskt från skript) för **Parametrar**. 
-    7. Ange värdet för parametern **Utdata** i följande format: `wasbs://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`. Till exempel: `wasbs://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`.
+    7. Ange värdet för parametern **Utdata** i följande format: `wasbs://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`. Exempel: `wasbs://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`.
  
         ![Skriptargument](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. Om du vill publicera artefakter till Data Factory klickar du på **Publicera**.

@@ -4,10 +4,10 @@ description: I den här artikeln beskrivs hur du aktiverar och konfigurerar Azur
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 1cb393faded714593ce635669f585d5979ee69b8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87320314"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Aktivera Azure Monitor för behållare
@@ -32,7 +32,7 @@ Du kan aktivera Azure Monitor för behållare för en ny distribution eller för
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar kontrollerar du att du uppfyller följande krav:
 
@@ -45,7 +45,7 @@ Innan du börjar kontrollerar du att du uppfyller följande krav:
    Om du väljer att skapa arbets ytan själv kan du skapa den genom att: 
    - [Azure Resource Manager](../platform/template-workspace-configuration.md)
    - [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
-   - [Azure Portal](../learn/quick-create-workspace.md) 
+   - [Azure-portalen](../learn/quick-create-workspace.md) 
    
    En lista över de mappnings par som stöds och som ska användas för standard arbets ytan finns i [regions mappning för Azure Monitor för behållare](container-insights-region-mapping.md).
 

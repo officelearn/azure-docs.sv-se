@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
 ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397971"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Felsöka problem med replikering av virtuella datorer i Azure till Azure-scenarier
@@ -281,14 +281,14 @@ Om du vill göra replikeringsstatus för den virtuella datorn felfritt igen kan 
 1. Gå till **replikerade objekt**  >  _namn diskar för virtuella datorer_  >  **Disks**.
 1. Välj den oskyddade disken och välj sedan **Aktivera replikering**:
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="Aktivera replikering på VM-diskar.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="com-fel.":::
 
 #### <a name="to-dismiss-the-warning"></a>Ignorera varningen
 
 1. Gå till **replikerade objekt**  >  _namn på virtuell dator_.
 1. Välj varningen i avsnittet **Översikt** och välj sedan **OK**.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="Ignorera varning om ny disk.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="com-fel.":::
 
 ## <a name="vm-removed-from-vault-completed-with-information-error-code-150225"></a>Den virtuella datorn har tagits bort från valvet med information (felkod 150225)
 
@@ -309,7 +309,7 @@ Du kan ignorera den här varningen om du aldrig planerar att skydda den här vir
 
 1. Ta bort låset från den virtuella datorn eller resurs gruppen för den virtuella datorn. I följande bild måste resurs låset på den virtuella datorn med namnet `MoveDemo` tas bort:
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Ta bort låset från den virtuella datorn.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-fel.":::
 
 1. Hämta skriptet för att [ta bort en föråldrad Site Recovery-konfiguration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Kör skriptet _Cleanup-stale-asr-config-Azure-VM.ps1_. Ange **prenumerations-ID**, **resurs grupp för virtuell dator**och **VM-namn** som parametrar.
@@ -334,7 +334,7 @@ En föråldrad konfiguration kan ske på en virtuell Azure-dator om du har aktiv
 
 1. Ta bort låset från den virtuella datorn eller resurs gruppen för den virtuella datorn. I följande bild måste resurs låset på den virtuella datorn med namnet `MoveDemo` tas bort:
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Ta bort låset från den virtuella datorn.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-fel.":::
 
 1. Hämta skriptet för att [ta bort en föråldrad Site Recovery-konfiguration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Kör skriptet _Cleanup-stale-asr-config-Azure-VM.ps1_. Ange **prenumerations-ID**, **resurs grupp för virtuell dator**och **VM-namn** som parametrar.
@@ -367,7 +367,7 @@ Du kanske inte ser den virtuella datorn som du vill aktivera för replikering om
 
 1. Ta bort låset, om det finns, från den virtuella datorn eller resurs gruppen för den virtuella datorn. I följande bild måste resurs låset på den virtuella datorn med namnet `MoveDemo` tas bort:
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Ta bort låset från den virtuella datorn.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-fel.":::
 
 1. Hämta skriptet för att [ta bort en föråldrad Site Recovery-konfiguration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Kör skriptet _Cleanup-stale-asr-config-Azure-VM.ps1_. Ange **prenumerations-ID**, **resurs grupp för virtuell dator**och **VM-namn** som parametrar.
@@ -404,17 +404,17 @@ Om du vill aktivera replikering på den virtuella datorn måste etablerings stat
 
 Om den virtuella käll datorn är en del av ett virtuellt nätverk och en annan virtuell dator i samma virtuella nätverk redan har mappats till ett nätverk i mål resurs gruppen, är List rutan nätverks val inte tillgänglig (visas nedtonad) som standard under konfigurationen för haveri beredskap.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="Listan över nätverks val är inte tillgänglig.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="com-fel.":::
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>Problem 2: du har tidigare skyddat den virtuella datorn och sedan inaktiverade replikeringen
 
 Om du inaktiverar replikering av en virtuell dator tas inte nätverks mappningen bort. Mappningen måste tas bort från det Recovery Services valv där den virtuella datorn skyddades. Välj **Recovery Services valvet** och gå till **Hantera**  >  **Site Recovery-infrastruktur**  >  **för nätverks mappning av virtuella Azure-datorer**  >  **Network Mapping**.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="Ta bort nätverks mappning.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="com-fel.":::
 
 Mål nätverket som konfigurerades under installationen av haveri beredskap kan ändras efter den inledande installationen och när den virtuella datorn är skyddad. **Ändra nätverks mappningen** genom att välja nätverks namn:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="Ändra nätverks mappning.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="com-fel.":::
 
 
 ## <a name="com-or-vss-error-code-151025"></a>COM+ eller VSS (felkod 151025)
@@ -437,7 +437,7 @@ Ange COM+-systemprogram och tjänsten Volume Shadow Copy till automatiskt eller 
 1. Öppna konsolen tjänster i Windows.
 1. Kontrol lera att COM+-systemprogrammet och tjänsten Volume Shadow Copy inte är inställt på **inaktive rad** som **Start metod**.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="Kontrol lera starttyp för COM plus system program och tjänsten Volume Shadow Copy.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="com-fel.":::
 
 ## <a name="unsupported-managed-disk-size-error-code-150172"></a>Hanterad disk storlek stöds inte (felkod 150172)
 

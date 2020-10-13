@@ -12,10 +12,10 @@ ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: a88894bb7462e9ac3afd16d69ae820dd98543a5f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259381"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera Experian: med Azure Active Directory B2C
@@ -58,7 +58,7 @@ I följande arkitektur diagram visas implementeringen.
 
 ![skärm bild för Experian:-Architecture-diagram](media/partner-experian/experian-architecture-diagram.png)
 
-|Steg | Description |
+|Steg | Beskrivning |
 |:-----| :-----------|
 | 1. | Användaren kommer till inloggnings sidan. Användaren väljer att registrera sig för att skapa ett nytt konto och ange information på sidan. Azure AD B2C samlar in användarattribut.
 | 2. | Azure AD B2C anropar API: t för mellanlager och passerar användar-attributen.
@@ -94,7 +94,7 @@ Experian:-API-anropet skyddas av ett klient certifikat. Det här klient certifik
 
 Program inställningar kan [konfigureras i App Service i Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Med den här metoden kan du konfigurera inställningar på ett säkert sätt utan att kontrol lera dem i en lagrings plats. Du måste ange följande inställningar för REST-API: et:
 
-| Programinställningar | Källa | Kommentarer |
+| Programinställningar | Källa | Obs! |
 | :-------- | :------------| :-----------|
 |CrossCoreConfig: TenantId | Konfiguration av Experian:-konto |     |
 |CrossCoreConfig:OrgCode | Konfiguration av Experian:-konto |     |

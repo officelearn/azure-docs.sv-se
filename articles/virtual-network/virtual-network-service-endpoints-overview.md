@@ -14,10 +14,10 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89434477"
 ---
 # <a name="virtual-network-service-endpoints"></a>Tjänstslutpunkter för virtuellt nätverk
@@ -62,7 +62,7 @@ Tjänstslutpunkter har följande fördelar:
 
 - Funktionen är bara tillgänglig för virtuella nätverk som distribuerats med Azure Resource Manager-distributionsmodellen.
 - Slutpunkter aktiveras i undernät som konfigurerats i virtuella Azure-nätverk. Slut punkter kan inte användas för trafik från dina lokaler till Azure-tjänster. Mer information finns i [Skydda åtkomsten till Azure-tjänsten från lokala platser](#secure-azure-services-to-virtual-networks)
-- För Azure SQL gäller en tjänstslutpunkt bara för Azure-tjänsttrafik i regionen för det virtuella nätverket. För Azure Storage utökas slut punkterna till att inkludera kopplade regioner där du distribuerar det virtuella nätverket för att stödja Read-Access Geo-redundant lagring (RA-GRS) och GRS-trafik (Geo-redundant lagring). Mer information finns i [Azure-kopplade regioner](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- För Azure SQL gäller en tjänstslutpunkt bara för Azure-tjänsttrafik i regionen för det virtuella nätverket. För Azure Storage utökas slut punkterna till att inkludera kopplade regioner där du distribuerar det virtuella nätverket så att det stöder Read-Access Geo-Redundant Storage (RA-GRS) och Geo-Redundant lagrings trafik (GRS). Mer information finns i [Azure-kopplade regioner](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
 - För Azure Data Lake Storage (ADLS) gen 1 är funktionerna för VNet-integrering endast tillgängliga för virtuella nätverk inom samma region. Observera också att integrering av virtuella nätverk för ADLS Gen1 använder den virtuella nätverks tjänstens slut punkt säkerhet mellan ditt virtuella nätverk och Azure Active Directory (Azure AD) för att generera ytterligare säkerhets anspråk i åtkomsttoken. Dessa anspråk används sedan för att autentisera ditt virtuella nätverk till ditt Data Lake Storage Gen1-konto och tillåta åtkomst. *Microsoft. AzureActiveDirectory* -taggen som anges under tjänster som stöder tjänst slut punkter används endast för stöd av tjänst slut punkter till ADLS gen 1. Azure AD har inte stöd för tjänst slut punkter internt. Mer information om Azure Data Lake Store generation 1 VNet-integrering finns [i nätverks säkerhet i Azure Data Lake Storage gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="secure-azure-services-to-virtual-networks"></a>Skydda Azure-tjänster på virtuella nätverk
@@ -152,4 +152,4 @@ Vanliga frågor och svar [Virtual Network finns i vanliga frågor och svar om se
 - [Skydda en Azure Synapse-analys till ett virtuellt nätverk](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Azure Service integration i virtuella nätverk](virtual-network-for-azure-services.md)
 - [Virtual Network tjänst slut punkts principer](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
-- [Azure Resource Manager mall](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
+- [Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)

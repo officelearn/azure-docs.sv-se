@@ -4,10 +4,10 @@ description: Beskriver egenskaper som exporteras från löpande export i JSON oc
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 29ad999c307d1c11e7a584b61d85ed73b9448cb4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324394"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights exportera data modell
@@ -17,9 +17,9 @@ De visas också i egenskaps filter i [Metric Explorer](../platform/metrics-chart
 
 Poäng till Anmärkning:
 
-* `[0]`i dessa tabeller anger du en punkt i sökvägen där du måste infoga ett index. men det är inte alltid 0.
+* `[0]` i dessa tabeller anger du en punkt i sökvägen där du måste infoga ett index. men det är inte alltid 0.
 * Tids längden är i tiondelar av en mikrosekund, så 10000000 = = 1 sekund.
-* Datum och tid är UTC och anges i ISO-format`yyyy-MM-DDThh:mm:ss.sssZ`
+* Datum och tid är UTC och anges i ISO-format `yyyy-MM-DDThh:mm:ss.sssZ`
 
 ## <a name="example"></a>Exempel
 
@@ -138,7 +138,7 @@ Alla typer av telemetri åtföljs av ett kontext avsnitt. Alla dessa fält över
 | context.operation.id |sträng |Objekt som har samma `operation id` visas som relaterade objekt i portalen. Vanligt vis `request id` . |
 | context.operation.name |sträng |URL eller namn på begäran |
 | Context. operation. |sträng |Tillåter kapslade relaterade objekt. |
-| context.session.id |sträng |`Id`för en grupp med åtgärder från samma källa. En period på 30 minuter utan en åtgärd signalerar slutet av en session. |
+| context.session.id |sträng |`Id` för en grupp med åtgärder från samma källa. En period på 30 minuter utan en åtgärd signalerar slutet av en session. |
 | Context. session. isFirst |boolean | |
 | Context. user. accountAcquisitionDate |sträng | |
 | Context. user. accountId |sträng | |
@@ -149,7 +149,7 @@ Alla typer av telemetri åtföljs av ett kontext avsnitt. Alla dessa fält över
 | Context. user. isAuthenticated |boolean | |
 | Context. user. storeRegion |sträng | |
 | internal.data.documentVersion |sträng | |
-| internal.data.id |sträng | `Unique id`som tilldelas när ett objekt matas in till Application Insights |
+| internal.data.id |sträng | `Unique id` som tilldelas när ett objekt matas in till Application Insights |
 
 ## <a name="events"></a>Händelser
 Anpassade händelser som genererats av [TrackEvent ()](./api-custom-events-metrics.md#trackevent).
@@ -175,7 +175,7 @@ Rapporterar [undantag](./asp-net-exceptions.md) på servern och i webbläsaren.
 | basicException [0] failedUserCodeAssembly |sträng | |
 | basicException [0] handledAt |sträng | |
 | basicException [0] hasFullStack |boolean | |
-| basicException [0]`id` |sträng | |
+| basicException [0] `id` |sträng | |
 | metoden basicException [0] |sträng | |
 | basicException [0] meddelande |sträng |Undantags meddelande. Max längd 10 000. |
 | basicException [0] outerExceptionMessage |sträng | |
@@ -212,7 +212,7 @@ Skickat av TrackDependency. Används för att rapportera prestanda och användni
 | antal remoteDependency [0] |heltal |100/([samplings](./sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
 | remoteDependency [0] dependencyTypeName |sträng |HTTP, SQL,... |
 | remoteDependency [0] durationMetric. Value |nummer |Tid från anrop till slut för ande av svar genom beroende |
-| remoteDependency [0]`id` |sträng | |
+| remoteDependency [0] `id` |sträng | |
 | remoteDependency [0] namn |sträng |Adresser. Maxlängd 250. |
 | remoteDependency [0] resultCode |sträng |från HTTP-beroende |
 | remoteDependency [0] lyckades |boolean | |
@@ -229,7 +229,7 @@ Skickat av [TrackRequest](./api-custom-events-metrics.md#trackrequest). Standard
 | --- | --- | --- |
 | antal begär Anden [0] |heltal |100/([samplings](./sampling.md) frekvens). Till exempel: 4 = &gt; 25%. |
 | begäran [0] durationMetric. Value |nummer |Tid från begäran som kommer till svar. 1e7 = = 1s |
-| begäran [0]`id` |sträng |`Operation id` |
+| begäran [0] `id` |sträng |`Operation id` |
 | begär ande [0] namn |sträng |Hämta/publicera + URL-bas.  Maxlängd 250 |
 | begäran [0] responseCode |heltal |HTTP-svar som skickats till klienten |
 | begäran [0] lyckades |boolean |Standard = = (responseCode &lt; 400) |
@@ -294,7 +294,7 @@ Genererad av TrackMetric ().
 
 Metric-värdet finns i context. Custom. Metrics [0]
 
-Till exempel:
+Exempel:
 
 ```json
 {
@@ -324,7 +324,7 @@ Till exempel:
 ```
 
 ## <a name="about-metric-values"></a>Om mått värden
-Metriska värden, både i mått rapporter och andra, rapporteras med en standard objekt struktur. Till exempel:
+Metriska värden, både i mått rapporter och andra, rapporteras med en standard objekt struktur. Exempel:
 
 ```json
 "durationMetric": {

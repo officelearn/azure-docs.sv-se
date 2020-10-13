@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
 ms.openlocfilehash: 42efc2bee88f073f2a628b1d2041afcc310cb871
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91822967"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Skapa, ändra eller ta bort en nätverkssäkerhetsgrupp
@@ -52,7 +52,7 @@ Det finns en gräns för hur många nätverks säkerhets grupper du kan skapa f�
 
 3. På sidan **skapa nätverks säkerhets grupp** går du till fliken **grundläggande** och anger värden för följande inställningar:
 
-    | Inställningen | Action |
+    | Inställning | Action |
     | --- | --- |
     | **Prenumeration** | Välj din prenumeration. |
     | **Resursgrupp** | Välj en befintlig resurs grupp eller skapa en ny resurs grupp genom att välja **Skapa ny** . |
@@ -160,7 +160,7 @@ Det finns en gräns för hur många regler per nätverks säkerhets grupp som du
 
 4. <a name="security-rule-settings"></a>Välj **Lägg till**. Välj eller Lägg till värden för följande inställningar och välj sedan **OK**:
 
-    | Inställningen | Värde | Information |
+    | Inställning | Värde | Information |
     | ------- | ----- | ------- |
     | **Källa** | En av:<ul><li>**Alla**</li><li>**IP-adresser**</li><li>**Service tag** (inkommande säkerhets regel) eller **VirtualNetwork** (utgående säkerhets regel)</li><li>**Program &nbsp; säkerhets &nbsp; grupp**</li></ul> | <p>Om du väljer **IP-adresser**måste du även ange **Källans IP-adresser/CIDR-intervall**.</p><p>Om du väljer **service tag**kan du också välja en **source service-tagg**.</p><p>Om du väljer **program säkerhets grupp**måste du också välja en befintlig program säkerhets grupp. Om du väljer **program säkerhets grupp** för både **källa** och **mål**måste nätverks gränssnitten i båda program säkerhets grupperna finnas i samma virtuella nätverk.</p> |
     | **Käll-IP-adresser/CIDR-intervall** | En kommaavgränsad lista över IP-adresser och CIDR-intervall (Classless Interdomain Routing) | <p>Den här inställningen visas om du ändrar **källa** till **IP-adresser**. Du måste ange ett enskilt värde eller en kommaavgränsad lista med flera värden. Ett exempel på flera värden är `10.0.0.0/16, 192.188.1.1` . Det finns gränser för antalet värden som du kan ange. Mer information finns i [Azure-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).</p><p>Om den IP-adress du anger är tilldelad till en virtuell Azure-dator anger du dess privata IP-adress, inte dess offentliga IP-adress. Azure bearbetar säkerhets regler efter att den översätter den offentliga IP-adressen till en privat IP-adress för inkommande säkerhets regler, men innan den översätter en privat IP-adress till en offentlig IP-adress för utgående regler. Mer information om offentliga och privata IP-adresser i Azure finns i [IP-diagramtyper](virtual-network-ip-addresses-overview-arm.md).</p> |
@@ -270,7 +270,7 @@ En program säkerhets grupp innehåller noll eller flera nätverks gränssnitt. 
 
 4. På sidan **skapa en program säkerhets grupp** går du till fliken **grundläggande** och anger värden för följande inställningar:
 
-    | Inställningen | Action |
+    | Inställning | Action |
     | --- | --- |
     | **Prenumeration** | Välj din prenumeration. |
     | **Resursgrupp** | Välj en befintlig resurs grupp eller skapa en ny resurs grupp genom att välja **Skapa ny** . |
@@ -355,7 +355,7 @@ Om du vill utföra uppgifter i nätverks säkerhets grupper, säkerhets regler o
 
 ### <a name="network-security-group"></a>Nätverkssäkerhetsgrupp
 
-| Action                                                        |   Name                                                                |
+| Action                                                        |   Namn                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft. Network/networkSecurityGroups/Read                  |   Hämta nätverks säkerhets grupp                                          |
 | Microsoft. Network/networkSecurityGroups/Write                 |   Skapa eller uppdatera nätverks säkerhets grupp                             |
@@ -364,7 +364,7 @@ Om du vill utföra uppgifter i nätverks säkerhets grupper, säkerhets regler o
 
 ### <a name="network-security-group-rule"></a>Regel för nätverks säkerhets grupp
 
-| Action                                                        |   Name                                                                |
+| Action                                                        |   Namn                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft. Network/networkSecurityGroups/securityRules/Read            |   Hämta regel                                                            |
 | Microsoft. Network/networkSecurityGroups/securityRules/Write           |   Skapa eller uppdatera regel                                               |
@@ -372,7 +372,7 @@ Om du vill utföra uppgifter i nätverks säkerhets grupper, säkerhets regler o
 
 ### <a name="application-security-group"></a>Programsäkerhetsgrupp
 
-| Action                                                                     | Name                                                     |
+| Action                                                                     | Namn                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft. Network/applicationSecurityGroups/joinIpConfiguration/Action     | Koppla en IP-konfiguration till en program säkerhets grupp|
 | Microsoft. Network/applicationSecurityGroups/joinNetworkSecurityRule/Action | Koppla en säkerhets regel till en program säkerhets grupp    |

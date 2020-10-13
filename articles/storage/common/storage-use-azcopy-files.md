@@ -8,10 +8,10 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: 793f3869a9534c71d860cc8dea7a1995f5ee278d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88871249"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Överföra data med AzCopy och fillagring 
@@ -34,7 +34,7 @@ Du kan använda kommandot [AzCopy make](storage-ref-azcopy-make.md) för att ska
 
 För detaljerade referens dokument, se [AzCopy-fabrikat](storage-ref-azcopy-make.md).
 
-## <a name="upload-files"></a>Överföra filer
+## <a name="upload-files"></a>Ladda upp filer
 
 Du kan använda kommandot [AzCopy Copy](storage-ref-azcopy-copy.md) för att ladda upp filer och kataloger från den lokala datorn.
 
@@ -140,7 +140,7 @@ Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-afte
 
 Mer detaljerad information finns i referens dokument för [AzCopy-kopiering](storage-ref-azcopy-copy.md) .
 
-## <a name="download-files"></a>Hämta filer
+## <a name="download-files"></a>Ladda ned filer
 
 Du kan använda kommandot [AzCopy Copy](storage-ref-azcopy-copy.md) för att ladda ned filer, kataloger och fil resurser till den lokala datorn.
 

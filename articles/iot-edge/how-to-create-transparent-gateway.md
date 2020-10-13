@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: cf7147ca1295c9f2cef5d89c232f2c266075e362
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88167410"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurera en IoT Edge-enhet till att fungera som en transparent gateway
@@ -73,14 +73,14 @@ För produktions scenarier bör du generera dessa filer med din egen certifikat 
       * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
 
    2. [Skapa IoT Edge enhetens CA-certifikat](how-to-create-test-certificates.md#create-iot-edge-device-ca-certificates). I slutet av dessa instruktioner har du två filer, ett certifikat för enhets certifikat och dess privata nyckel:
-      * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem`särskilt
+      * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` särskilt
       * `<path>/private/iot-edge-device-<cert name>.key.pem`
 
 2. Om du har skapat dessa filer på en annan dator kopierar du dem till din IoT Edge-enhet.
 
 3. Öppna konfigurations filen för daemon på din IoT Edge-enhet.
-   * Aktivitets`C:\ProgramData\iotedge\config.yaml`
-   * Linux`/etc/iotedge/config.yaml`
+   * Aktivitets `C:\ProgramData\iotedge\config.yaml`
+   * Linux `/etc/iotedge/config.yaml`
 
 4. Hitta avsnittet **certifikat** i filen och ange fil-URI: er till dina tre filer som värden för följande egenskaper:
    * **device_ca_cert**: ENHETens CA-certifikat
@@ -90,8 +90,8 @@ För produktions scenarier bör du generera dessa filer med din egen certifikat 
 5. Spara och stäng filen.
 
 6. Starta om IoT Edge.
-   * Aktivitets`Restart-Service iotedge`
-   * Linux`sudo systemctl restart iotedge`
+   * Aktivitets `Restart-Service iotedge`
+   * Linux `sudo systemctl restart iotedge`
 
 ## <a name="deploy-edgehub-and-route-messages"></a>Distribuera edgeHub och dirigera meddelanden
 
@@ -117,15 +117,15 @@ Följ dessa steg om du vill distribuera modulen IoT Edge Hub och konfigurera den
 
 5. Välj **Nästa: vägar**.
 
-6. På sidan **vägar** ser du till att det finns en väg för att hantera meddelanden från underordnade enheter. Till exempel:
+6. På sidan **vägar** ser du till att det finns en väg för att hantera meddelanden från underordnade enheter. Exempel:
 
    * En väg som skickar alla meddelanden, antingen från en modul eller från en underordnad enhet, till IoT Hub:
-       * **Namn**:`allMessagesToHub`
-       * **Värde**:`FROM /messages/* INTO $upstream`
+       * **Namn**: `allMessagesToHub`
+       * **Värde**: `FROM /messages/* INTO $upstream`
 
    * En väg som skickar alla meddelanden från alla underordnade enheter till IoT Hub:
-      * **Namn**:`allDownstreamToHub`
-      * **Värde**:`FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
+      * **Namn**: `allDownstreamToHub`
+      * **Värde**: `FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
 
       Den här vägen fungerar på grund av IoT Edge att meddelanden från underordnade enheter inte har något associerat ID för meddelanden från efterföljande enheter. Med hjälp av vägens **WHERE** -sats kan vi filtrera bort alla meddelanden med den system egenskapen.
 

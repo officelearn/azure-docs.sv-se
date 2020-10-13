@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sharrai
 ms.openlocfilehash: 3217c30737a133c1c1092fc4a8a8caaa0338e980
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89425882"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Lägga till ett VMM-skript i en återställnings plan
@@ -20,7 +20,7 @@ Den här artikeln beskriver hur du skapar ett System Center Virtual Machine Mana
 
 Publicera eventuella kommentarer eller frågor längst ned i den här artikeln eller på [sidan Microsoft Q&en fråga för Azure Recovery Services](/answers/topics/azure-site-recovery.html).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du kan använda PowerShell-skript i dina återställnings planer. För att kunna nås från återställnings planen måste du skriva skriptet och placera skriptet i VMM-biblioteket. Tänk på följande när du skriver skriptet:
 
@@ -43,7 +43,7 @@ Du kan använda PowerShell-skript i dina återställnings planer. För att kunna
 
   Om din biblioteks resurs Sök väg är fjärran sluten (eller om den är lokal men inte delas med MSCVMMLibrary) konfigurerar du resursen på följande sätt med hjälp av \\ libserver2. contoso. com\share\ som exempel:
   
-  1. Öppna Registereditorn och gå sedan till **HKEY_LOCAL_MACHINE \Software\microsoft\azure site Recovery\Registration**.
+  1. Öppna Registereditorn och gå sedan till **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
   1. Ändra värdet för **ScriptLibraryPath** till ** \\ \libserver2.contoso.com\share \\ **. Ange fullständigt fullständigt domän namn. Ange behörigheter till resursens plats. Detta är rot-noden för resursen. Om du vill kontrol lera rotnoden i VMM går du till rotnoden i biblioteket. Sökvägen som öppnas är roten till sökvägen. Det här är den sökväg som du måste använda i variabeln.
 
@@ -51,7 +51,7 @@ Du kan använda PowerShell-skript i dina återställnings planer. För att kunna
 
      a. Öppna **Windows PowerShell-konsolen 64-bitars** som administratör.
      
-     b. Ange **set-ExecutionPolicy bypass**. Mer information finns i [använda cmdleten Set-ExecutionPolicy](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176961(v=technet.10)).
+     b. Ange **set-ExecutionPolicy bypass**. Mer information finns i [använda Set-ExecutionPolicy-cmdlet](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176961(v=technet.10)).
 
      > [!IMPORTANT]
      > Ange **set-ExecutionPolicy kringgå** endast i 64-bitars PowerShell-konsolen. Om du ställer in den för 32-bitars PowerShell-konsolen körs inte skripten.

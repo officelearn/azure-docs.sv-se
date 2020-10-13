@@ -4,10 +4,10 @@ description: Konfigurera Azure Application Gateway för att på ett säkert sät
 ms.topic: how-to
 ms.date: 07/31/2020
 ms.openlocfilehash: ad7cd36d77da41d75ea9dcc18a51d0ffc5540d2a
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91580568"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Använd Azure Application Gateway för att skydda dina webbappar på Azure VMware-lösningen
@@ -30,7 +30,7 @@ Följande diagram visar test scenariot som används för att verifiera Applicati
 
 Application Gateway-instansen distribueras på hubben i ett dedikerat undernät. Den har en offentlig Azure-IP-adress; Det rekommenderas att du aktiverar standard DDoS-skydd för det virtuella nätverket. Webb servern finns i ett privat moln i Azure VMware-lösningen bakom NSX t0 och T1-routrar. Azure VMware-lösningen använder [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) för att aktivera kommunikationen med hubben och de lokala systemen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration.
 - Ett privat moln för VMware-lösningar i Azure distribueras och körs.
@@ -144,6 +144,6 @@ Du kan använda Azure Application Gateway för att konfigurera URL-sökvägar ba
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-10.png" alt-text="Skapa Application Gateway":::
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Läs [dokumentationen om Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) för fler konfigurations exempel.

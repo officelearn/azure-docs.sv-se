@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotga
 ms.openlocfilehash: 52c0dcf4bd9f7b2ca8928eab5272a6500cbb379d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90533096"
 ---
 # <a name="roles-and-operations"></a>Roller och åtgärder
@@ -23,7 +23,7 @@ Etablering innebär också krav på enhets tillverkaren, som är speciell för a
 
 En serie snabb starter finns i innehålls förteckningen till vänster för att hjälpa till att förklara automatisk etablering genom praktisk erfarenhet. För att under lätta/förenkla inlärnings processen används program vara för att simulera en fysisk enhet för registrering och registrering. För vissa snabb starter måste du utföra åtgärder för flera roller, inklusive åtgärder för obefintliga roller, på grund av den simulerade typen av snabb starter.
 
-| Roll | Åtgärd | Description |
+| Roll | Åtgärd | Beskrivning |
 |------| --------- | ------------|
 | Tillverkare | Koda identitet och registrerings-URL | Baserat på den mekanism för attestering som används ansvarar tillverkaren för att koda enhetens identitets information och registrerings-URL: en för enhets etablerings tjänsten.<br><br>**Snabb starter**: eftersom enheten simuleras finns det ingen tillverkares roll. Se rollen utvecklare för information om hur du hämtar den här informationen, som används för att koda ett exempel registrerings program. |
 | | Ange enhets identitet | Som upphovs man till enhetens identitets information ansvarar tillverkaren för att kommunicera med operatören (eller en utsedd agent) eller direkt registrera den till Device Provisioning-tjänsten via API: er.<br><br>**Snabb starter**: eftersom enheten simuleras finns det ingen tillverkares roll. Se operatörs rollen för information om hur du hämtar enhets identiteten, som används för att registrera en simulerad enhet i din enhets etablerings tjänst instans. |

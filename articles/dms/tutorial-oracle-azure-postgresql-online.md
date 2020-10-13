@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/24/2020
 ms.openlocfilehash: 407183837f7be01f5182ff0890426170da223161
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91363179"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Självstudie: Migrera Oracle till Azure Database for PostgreSQL online med DMS (för hands version)
@@ -43,7 +43,7 @@ I den här guiden får du lära dig att:
 
 I den här artikeln beskrivs hur du utför en online-migrering från Oracle till Azure Database for PostgreSQL.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -243,8 +243,8 @@ Så här kommer du igång:
 
     | Käll-Oracle-schema | Mål PostgreSQL Database. schema | DMS skapade schema. tabell. Column |
     | ------------- | ------------- | ------------- |
-    | HR | targetHR. public | Public. länder. country_id |
-    | HR | targetHR.trgthr | trgthr. länder. country_id |
+    | HR | targetHR. public | public.countries.country_id |
+    | HR | targetHR.trgthr | trgthr.countries.country_id |
     | HR | targetHR.TARGETHR | "TARGETHR"." LÄNDER "." COUNTRY_ID " |
     | HR | targetHR.HR | "HR". LÄNDER "." COUNTRY_ID " |
     | HR | targetHR.Hr | * Det går inte att mappa blandade fall |

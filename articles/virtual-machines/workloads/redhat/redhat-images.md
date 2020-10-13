@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 9aa0ca41f63da94e2dedaffe65ea518b8adff0dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07444e32d1808f928de418dd898aa1fa30703c90
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87439475"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977637"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Översikt över Red Hat Enterprise Linux avbildningar
 
@@ -108,7 +108,7 @@ Information om typer av RHEL 8-avbildningar finns nedan.
 |Publisher | Erbjudande | SKU-värde | Version | Information
 |----------|-------|------------|---------|--------
 |Redhat | RHEL | 8 | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (till exempel 8.0.20191023) | De här avbildningarna är RHEL 8 LVM-partitionerade avbildningar anslutna till Red Hat-standarddatabaser.
-|Redhat | RHEL | 8-Gen2 | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (till exempel 8.0.20191024) | De här avbildningarna är Hyper-V generation 2 RHEL 8 LVM-partitionerade avbildningar anslutna till Red Hat-standarddatabaser. Mer information om virtuella datorer i generation 2 i Azure finns i [stöd för virtuella datorer i generation 2 i Azure](../../linux/generation-2.md).
+|Redhat | RHEL | 8-Gen2 | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (till exempel 8.0.20191024) | De här avbildningarna är Hyper-V generation 2 RHEL 8 LVM-partitionerade avbildningar anslutna till Red Hat-standarddatabaser. Mer information om virtuella datorer i generation 2 i Azure finns i [stöd för virtuella datorer i generation 2 i Azure](../../generation-2.md).
 
 ## <a name="rhel-longer-support-add-ons"></a>RHEL har längre stöd för tillägg
 
@@ -116,7 +116,7 @@ Information om typer av RHEL 8-avbildningar finns nedan.
 
 Från och med april 2019 är RHEL-avbildningar tillgängliga som är kopplade till EUS-databaserna som standard. Mer information om RHEL-EUS finns i [Red Hat-dokumentationen](https://access.redhat.com/articles/rhel-eus).
 
-Det går att växla till EUS-databaser och stöds. Instruktioner för hur du byter virtuell dator till EUS och mer information om EUS support livs längd finns i [RHEL EUs och versions låsning RHEL VM](https://aka.ms/rhui-update#rhel-eus-and-version-locking-rhel-vms).
+Det går att växla till EUS-databaser och stöds. Instruktioner för hur du byter virtuell dator till EUS och mer information om EUS support livs längd finns i [RHEL EUs och versions låsning RHEL VM](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms).
 
 >[!NOTE]
 > EUS stöds inte på RHEL extra. Det innebär att om du installerar ett paket som vanligt vis är tillgängligt från RHEL tilläggs kanal kan du inte göra det på EUS. Mer information om den Red Hat extra produkt livs cykeln finns i [Red Hat Enterprise Linux extra livs cykel](https://access.redhat.com/support/policy/updates/extras/).
@@ -150,7 +150,7 @@ Delversion |Exempel på EUS-avbildning              |Status för EUS            
 RHEL 7,4      |RedHat: RHEL: 7.4:7.4.2019041718 | Avbildningar som publicerats april 2019 och senare är EUS som standard.|
 RHEL 7.5      |RedHat: RHEL: 7.5:7.5.2019060305 | Avbildningar som publicerats i juni 2019 och senare är EUS som standard. |
 RHEL 7,6      |RedHat: RHEL: 7.6:7.6.2019052206 | Publicerade avbildningar maj 2019 och senare är EUS som standard. |
-RHEL 8,0      |E.t.                            | Ingen EUS är tillgänglig från Red Hat.                               |
+RHEL 8,0      |Saknas                            | Ingen EUS är tillgänglig från Red Hat.                               |
 
 ### <a name="update-services-for-sap"></a>Uppdatera tjänster för SAP
 
@@ -183,6 +183,6 @@ Aktuell princip är att behålla alla tidigare publicerade avbildningar. Vi för
 ## <a name="next-steps"></a>Nästa steg
 
 * Om du vill visa en fullständig lista över RHEL-avbildningar i Azure, se [Red Hat Enterprise Linux (RHEL)-avbildningar som är tillgängliga i Azure](./redhat-imagelist.md).
-* Mer information om Azure Red Hat-uppdateringen finns i [Red Hat-uppdaterings infrastruktur för virtuella datorer på begäran RHEL i Azure](https://aka.ms/rhui-update).
+* Mer information om Azure Red Hat-uppdateringen finns i [Red Hat-uppdaterings infrastruktur för virtuella datorer på begäran RHEL i Azure](./redhat-rhui.md).
 * Om du vill veta mer om erbjudandet om RHEL BYOS kan du Red Hat Enterprise Linux läsa mer [i få guld avbildningar för prenumerationer i Azure](./byos.md).
 * Information om Red Hat support-principer för alla versioner av RHEL finns i [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata).

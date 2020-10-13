@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 4f2b338b8629209363acb7bbe0533831a089fe6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d1233c97ec80d5a2efa8b53c68e9e07a823165d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447321"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977039"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Windows Stop-fel-0x00000074 felaktig system konfigurations information
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller steg för att lösa problem där Windows inte kan 
 
 ## <a name="symptom"></a>Symptom
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar Windows Stop-koden **#0x00000074** eller **BAD_SYSTEM_CONFIG_INFO**.
+När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar Windows Stop-koden **#0x00000074** eller **BAD_SYSTEM_CONFIG_INFO**.
 
 *Datorn stötte på ett problem och måste startas om. Du kan starta om.* 
  *Mer information om det här problemet och eventuella korrigeringar finns http://windows.com/stopcode i* 
@@ -58,7 +58,7 @@ När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-mac
 
 ### <a name="create-and-access-a-repair-vm"></a>Skapa och få åtkomst till en virtuell reparations dator
 
-1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en reparations-VM.
+1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) för att förbereda en reparations-VM.
 1. Kontrol lera om Hive är skadat.
 1. Använd Anslutning till fjärrskrivbord för att ansluta till den virtuella reparations datorn.
 1. Kopiera `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` mappen och spara den antingen på din felfria diskpartition eller på en annan säker plats. Säkerhetskopiera den här mappen som en försiktighets åtgärd eftersom du kommer att redigera viktiga registerfiler. 
@@ -133,4 +133,4 @@ Anvisningarna nedan hjälper dig att avgöra om orsaken berodde på en skadad Hi
    
 ### <a name="rebuild-the-vm"></a>Återskapa den virtuella datorn
 
-Använd [steg 5 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att återskapa den virtuella datorn.
+Använd [steg 5 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) för att återskapa den virtuella datorn.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: d75f13f6a0621158bdb9a2f1682d0c85eaacb59d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836113"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Felsöka Azure Virtual Network NAT-anslutning
@@ -195,14 +195,6 @@ _**Lösa**_
 Du behöver inte starta om en virtuell dator som konfigurerar ett undernät för en NAT gateway-resurs.  Men om en virtuell dator startas om, töms anslutnings läget.  När anslutnings statusen har tömts kommer alla anslutningar att börja använda NAT-gatewayens IP-adress (er).  Detta är dock en sido effekt på den virtuella datorn som startas om och inte en indikator som kräver en omstart.
 
 Om du fortfarande har problem kan du öppna ett support ärende för ytterligare fel sökning.
-
-### <a name="connection-setup-time"></a>Konfigurations tid för anslutning
-
-Eftersom Load Balancer utgående regler statiskt tilldelar pooler för SNAT-portar till vissa virtuella datorer går det snabbare att skapa nya utgående flöden än att använda Virtual Network NAT. När du växlar från Load Balancer utgående regler kan du därför se ökad fördröjning när du skapar en ny utgående anslutning. Som förklaras tidigare, för att maximera programmets prestanda bör du använda långvariga flöden (till exempel återanvända TCP-anslutningar).
-
-_**Lösa**_
-
-Använd Load Balancer utgående regler om du främst är intresse rad av minimal konfigurations fördröjning för anslutnings.
 
 ## <a name="next-steps"></a>Nästa steg
 

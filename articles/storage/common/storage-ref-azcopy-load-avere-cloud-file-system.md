@@ -10,10 +10,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 8f0a8903f90b134c35d9adb35a493d989d414b56
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87294576"
 ---
 # <a name="azcopy-load-clfs"></a>azcopy load clfs
@@ -61,7 +61,7 @@ azcopy load clfs "/path/to/dir" "https://[account].blob.core.windows.net/[contai
 
 **– komprimerings typ** sträng ange vilken komprimerings typ som ska användas för överföringarna. Tillgängliga värden är: `DISABLED` , `LZ4` . (standard `LZ4` )
 
-**--Hjälp** för `azcopy load clfs` kommandot.
+**--Hjälp**    för `azcopy load clfs` kommandot.
 
 **--sträng för loggnings nivå** definiera loggens utförlighet för logg filen, tillgängliga nivåer: `DEBUG` , `INFO` , `WARNING` , `ERROR` . (standard `INFO` )
 

@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f49ae5139dc92ec1448e5dea05be8c8c216ef91e
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361355"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Så här använder du PerfInsights i Azure
@@ -118,12 +118,12 @@ Information om virtuella Windows-datorer, diskar eller lagringspooler konfigurat
 | SQL Server-konfiguration          | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Spårning av prestanda diagnoser *  | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Spårning av prestanda räknare * *      |                            |                                    | Ja                      |                      | Ja                  |
-| Spårning av SMB-räknare * *              |                            |                                    |                          | Yes                  |                      |
+| Spårning av SMB-räknare * *              |                            |                                    |                          | Ja                  |                      |
 | Spårning av SQL Server räknare * *       |                            |                                    | Ja                      |                      | Ja                  |
-| XPerf-spårning                       |                            |                                    |                          |                      | Yes                  |
-| StorPort-spårning                    |                            |                                    |                          |                      | Yes                  |
+| XPerf-spårning                       |                            |                                    |                          |                      | Ja                  |
+| StorPort-spårning                    |                            |                                    |                          |                      | Ja                  |
 | Nätverks spårning                     |                            |                                    |                          | Ja                  | Ja                  |
-| Diskspd benchmark-spårning * * *       |                            | Yes                                |                          |                      |                      |
+| Diskspd benchmark-spårning * * *       |                            | Ja                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>Spårning av prestanda diagnostik (*)

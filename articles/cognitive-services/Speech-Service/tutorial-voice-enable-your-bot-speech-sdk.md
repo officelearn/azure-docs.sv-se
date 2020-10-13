@@ -12,10 +12,10 @@ ms.date: 02/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3b0c85f2c9ba04ac999911e534b906c634d457b8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360964"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Självstudie: röst – aktivera din robot med tal-SDK
@@ -109,7 +109,7 @@ I det här läget kontrollerar du att resurs gruppen (**SpeechEchoBotTutorial-Re
 
 | Namn | Typ  | Plats |
 |------|-------|----------|
-| SpeechEchoBotTutorial-tal | Cognitive Services | USA, västra |
+| SpeechEchoBotTutorial-Speech | Cognitive Services | USA, västra |
 
 ### <a name="create-an-azure-app-service-plan"></a>Skapa en Azure App Service-plan
 
@@ -131,7 +131,7 @@ I det här läget kontrollerar du att resurs gruppen (**SpeechEchoBotTutorial-Re
 | Namn | Typ  | Plats |
 |------|-------|----------|
 | SpeechEchoBotTutorial-AppServicePlan | App Service-plan | USA, västra |
-| SpeechEchoBotTutorial-tal | Cognitive Services | USA, västra |
+| SpeechEchoBotTutorial-Speech | Cognitive Services | USA, västra |
 
 ## <a name="build-an-echo-bot"></a>Bygg en eko-robot
 
@@ -217,7 +217,7 @@ Nästa steg är att distribuera eko-roboten till Azure. Det finns några sätt a
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | USA, västra |
 | SpeechEchoBotTutorial-AppServicePlan | App Service-plan | USA, västra |
-| SpeechEchoBotTutorial-tal | Cognitive Services | USA, västra |
+| SpeechEchoBotTutorial-Speech | Cognitive Services | USA, västra |
 
 ## <a name="enable-web-sockets"></a>Aktivera webb-socketar
 
@@ -255,7 +255,7 @@ I det här läget kontrollerar du resurs gruppen **SpeechEchoBotTutorial-Resourc
 | EchoBot20190805125647 | App Service | USA, västra |
 | SpeechEchoBotTutorial-AppServicePlan | App Service-plan | USA, västra |
 | SpeechEchoBotTutorial-BotRegistration-8726 | Registrering av robot kanaler | Global |
-| SpeechEchoBotTutorial-tal | Cognitive Services | USA, västra |
+| SpeechEchoBotTutorial-Speech | Cognitive Services | USA, västra |
 
 > [!IMPORTANT]
 > Registrerings resursen för robot kanaler visar den globala regionen även om du valde västra USA. Detta är förväntat.
@@ -478,7 +478,7 @@ Om du inte kommer att fortsätta använda eko-roboten som distribuerats i den h�
 * Distribuera till en [Azure-region som stöder NEURALA TTS-röster med hög kvalitet](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)
 * Priser som är kopplade till kanal för direkt linje tal:
   * [Priser för bot service](https://azure.microsoft.com/pricing/details/bot-service/)
-  * [Tal tjänst](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
+  * [Tjänst för taligenkänning](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Skapa och distribuera din egen röst aktive rad bot:
   * Bygg en bot [Framework-robot](https://dev.botframework.com/). Registrera dig med [direkt kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) och [Anpassa din robot för röst](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
   * Utforska befintliga [bot Framework-lösningar](https://microsoft.github.io/botframework-solutions/index): bygga en [virtuell assistent](https://microsoft.github.io/botframework-solutions/overview/virtual-assistant-solution/) och [utöka den till direkt linje tal](https://microsoft.github.io/botframework-solutions/clients-and-channels/tutorials/enable-speech/1-intro/)

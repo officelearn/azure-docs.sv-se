@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
 ms.openlocfilehash: aeeca38afb82e2dcd86e111d1ae5dcb2e7499f42
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362273"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Prestandajustering med cachelagring av resultatuppsättningar
@@ -70,7 +70,7 @@ Den cachelagrade resultat uppsättningen återanvänds för en fråga om alla f�
 - Det finns en exakt matchning mellan den nya frågan och den föregående frågan som genererade resultat uppsättningens cacheminne.
 - Det finns inga data eller schema ändringar i tabellerna där den cachelagrade resultat uppsättningen genererades.
 
-Kör det här kommandot för att kontrol lera om en fråga kördes med en resultat-cacheträffar eller missar. I kolumnen result_cache_hit returneras 1 för cacheträff, 0 för cache-missar och negativa värden av skäl varför cachelagring av resultat uppsättningar inte användes. Mer information finns i [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
+Kör det här kommandot för att kontrol lera om en fråga kördes med en resultat-cacheträffar eller missar. I kolumnen result_cache_hit returneras 1 för cacheträff, 0 för cache-missar och negativa värden av skäl varför cachelagring av resultat uppsättningar inte användes. Mer information finns i [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
 
 ```sql
 SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests

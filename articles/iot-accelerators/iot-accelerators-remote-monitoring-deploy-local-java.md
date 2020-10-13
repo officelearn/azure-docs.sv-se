@@ -10,10 +10,10 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: f7554843db247ade1cddff78902430a5d84debe1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319175"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuera lösnings acceleratorn för fjärr styrning lokalt – IntelliJ
@@ -24,7 +24,7 @@ Den här artikeln visar hur du distribuerar lösnings acceleratorn för fjärrö
 
 Om du vill köra lösnings acceleratorn för fjärrövervakning i Docker på den lokala datorn läser [du distribuera lösnings Accelerator för fjärrövervakning lokalt Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill distribuera de Azure-tjänster som används av lösningen för fjärrövervakning, behöver du en aktiv Azure-prenumeration.
 
@@ -191,16 +191,16 @@ Varje webb tjänst öppnar ett kommando tolks fönster och webbläsarfönster. I
 
 Gå till följande URL: er för att få åtkomst till tjänsternas status:
 
-* IoT-Hub Manager:`http://localhost:9002/v1/status`
-* Telemetri för enhet:`http://localhost:9004/v1/status`
-* konfigurationsfil`http://localhost:9005/v1/status`
-* lagrings kort:`http://localhost:9022/v1/status`
+* IoT-Hub Manager: `http://localhost:9002/v1/status`
+* Telemetri för enhet: `http://localhost:9004/v1/status`
+* konfigurationsfil `http://localhost:9005/v1/status`
+* lagrings kort: `http://localhost:9022/v1/status`
 
 ### <a name="start-the-stream-analytics-job"></a>Starta Stream Analytics jobbet
 
 Följ de här stegen för att starta Stream Analytics jobbet:
 
-1. Öppna [Azure-portalen](https://portal.azure.com).
+1. Gå till [Azure-portalen](https://portal.azure.com).
 1. Gå till **resurs gruppen** som har skapats för din lösning. Namnet på resurs gruppen är det namn som du valde för lösningen när du körde skriptet **Start. cmd** .
 1. Välj **Stream Analytics jobb** i listan över resurser.
 1. På sidan Stream Analytics jobb **Översikt** väljer du knappen **Start** och sedan **Starta** för att starta jobbet.

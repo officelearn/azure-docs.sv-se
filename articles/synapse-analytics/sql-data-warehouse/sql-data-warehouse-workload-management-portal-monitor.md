@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 13b0dc3af524b16430408f8a920c7477c412414d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362737"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring"></a>Azure Synapse Analytics – övervakning av arbets belastnings Hanteringsportal
@@ -26,7 +26,7 @@ Det finns två olika kategorier av mått för arbets belastnings grupper som til
 
 ## <a name="workload-management-metric-definitions"></a>Mått definitioner för arbets belastnings hantering
 
-|Måttnamn                    |Description  |Sammansättningstyp |
+|Måttnamn                    |Beskrivning  |Sammansättningstyp |
 |-------------------------------|-------------|-----------------|
 |Effektiv tak resurs procent | Effektiv slut för ande *resurs procent* är en hård gräns för den procent andel av resurser som kan nås av arbets belastnings gruppen, med hänsyn till den *lägsta resurs procent* som allokerats för andra arbets belastnings grupper. Det effektiva måttet för *Cap-resursen procent* konfigureras med hjälp av `CAP_PERCENTAGE_RESOURCE` parametern i SYNTAXEN [create arbets belastnings grupp](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Det effektiva värdet beskrivs här.<br><br>Exempel: om en arbets belastnings grupp `DataLoads` har skapats med `CAP_PERCENTAGE_RESOURCE` = 100 och en annan arbets belastnings grupp skapas med en effektiv minsta resurs procent på 25%, är den *effektiva Kap resurs procenten* för `DataLoads` arbets belastnings gruppen 75%.<br><br>Den *effektiva Kap resurs procenten* avgör den övre gränsen för samtidighet (och därmed möjligt data flöde) som en arbets belastnings grupp kan uppnå.  Om ytterligare data flöde behövs utöver vad som för närvarande rapporteras av det effektiva måttet för *kap. Resource procent* , ökar `CAP_PERCENTAGE_RESOURCE` , minskar du `MIN_PERCENTAGE_RESOURCE` antalet andra arbets belastnings grupper eller skalar upp instansen för att lägga till fler resurser.  Minskning av `REQUEST_MIN_RESOURCE_GRANT_PERCENT` kan öka samtidigheten, men kanske inte ökar det totala data flödet.| Min, medel, max |
 |Effektiv minsta resurs procent |*Effektiv minsta resurs procent* är den lägsta procent andelen av resurser som är reserverade och isolerade för arbets belastnings gruppen, med hänsyn till den lägsta tjänste nivån.  Det effektiva måttet för lägsta resurs procent konfigureras med hjälp av `MIN_PERCENTAGE_RESOURCE` parametern i syntaxen [create arbets belastnings grupp](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Det effektiva värdet beskrivs [här](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#effective-values).<br><br>Använd agg regerings typen sum när måttet är ofiltrerat och unsplit för att övervaka den totala arbets belastnings isolering som kon figurer ATS i systemet.<br><br>Den *effektiva lägsta resurs procenten* avgör den lägre gränserna för den garanterade samtidigheten (och därmed garanterad genom strömning) att en arbets belastnings grupp kan uppnå.  Om ytterligare garanterade resurser behövs utöver vad som för närvarande rapporteras av måttet *effektiv minsta resurs procent* , ökar du den `MIN_PERCENTAGE_RESOURCE` parameter som kon figurer ATS för arbets belastnings gruppen.  Minskning av `REQUEST_MIN_RESOURCE_GRANT_PERCENT` kan öka samtidigheten, men kanske inte ökar det totala data flödet. |Min, medel, max|

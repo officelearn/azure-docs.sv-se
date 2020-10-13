@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 1c2156975eb8d8dcb3580603dfbe1f5d1390b79a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06d71713075b401c876edd87f0ec884bcb252589
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88852487"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977756"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Skydda och använda principer på virtuella datorer i Azure
 
@@ -25,7 +25,7 @@ Modern Threat landskap för moln miljöer är dynamisk, vilket ökar trycket fö
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](../security-center/security-center-intro.md) hjälper dig att förhindra, identifiera och svara på hot mot dina virtuella datorer. Security Center tillhandahåller integrerad säkerhetsövervakning och princip hantering i dina Azure-prenumerationer, hjälper till att identifiera hot som annars kan gå vidare och fungerar med ett brett eko system med säkerhetslösningar.
+[Azure Security Center](../security-center/security-center-introduction.md) hjälper dig att förhindra, identifiera och svara på hot mot dina virtuella datorer. Security Center tillhandahåller integrerad säkerhetsövervakning och princip hantering i dina Azure-prenumerationer, hjälper till att identifiera hot som annars kan gå vidare och fungerar med ett brett eko system med säkerhetslösningar.
 
 Security Centers just-in-Time-åtkomst kan användas över din VM-distribution för att låsa inkommande trafik till dina virtuella Azure-datorer, vilket minskar exponeringen för attacker och ger enkel åtkomst till att ansluta till virtuella datorer när det behövs. När just-in-Time är aktiverat och en användare begär åtkomst till en virtuell dator, kontrollerar Security Center vilka behörigheter användaren har för den virtuella datorn. Om de har rätt behörigheter godkänns begäran och Security Center automatiskt konfigurerar nätverks säkerhets grupper (NSG: er) för att tillåta inkommande trafik till de valda portarna under en begränsad tid. När tiden har gått ut Security Center återställer NSG: er till sina tidigare tillstånd. 
 
@@ -69,9 +69,8 @@ Funktionen Hanterade identiteter för Azure-resurser i Azure Active Directory (A
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-Med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md)kan du åtskilja uppgifter i teamet och bara ge åtkomst till användare på den virtuella datorn som de behöver för att utföra sina jobb. I stället för att ge alla obegränsade behörigheter på den virtuella datorn kan du bara tillåta vissa åtgärder. Du kan konfigurera åtkomst kontroll för den virtuella datorn i [Azure Portal](../role-based-access-control/role-assignments-portal.md), med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/role)eller[Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+Med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md)kan du åtskilja uppgifter i teamet och bara ge åtkomst till användare på den virtuella datorn som de behöver för att utföra sina jobb. I stället för att ge alla obegränsade behörigheter på den virtuella datorn kan du bara tillåta vissa åtgärder. Du kan konfigurera åtkomst kontroll för den virtuella datorn i [Azure Portal](../role-based-access-control/role-assignments-portal.md), med hjälp av [Azure CLI](/cli/azure/role)eller[Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 - Gå igenom stegen för att övervaka säkerheten för virtuella datorer med hjälp av Azure Security Center för [Linux](../security/fundamentals/overview.md) eller [Windows](windows/tutorial-azure-security.md).
-

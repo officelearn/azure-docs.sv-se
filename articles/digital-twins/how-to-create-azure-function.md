@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 11034a585db6ef3a3e1e445bbed8a1e51f83948d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bf2894cc30873e3cbf7f379e22078dbb863ac179
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949794"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970443"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Anslut Azure Functions appar för bearbetning av data
 
@@ -232,18 +232,18 @@ Observera också det **objekt-ID** som visas på sidan _identitet_ , eftersom de
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Tilldela åtkomst roller med Azure Portal
 
-Välj knappen för _Azure-roll tilldelningar_ som öppnar sidan för roll tilldelningar i Azure. Välj sedan _+ Lägg till roll tilldelning (för hands version)_.
+Välj knappen _Azure Role-tilldelningar_ som öppnar sidan *roll tilldelningar för Azure* . Välj sedan _+ Lägg till roll tilldelning (för hands version)_.
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
 
-I fönstret _Lägg till roll tilldelning (för hands version)_ som öppnas väljer du:
+På sidan _Lägg till roll tilldelning (förhands granskning)_ som öppnas väljer du:
 
 * _Omfång_: Resursgrupp
 * _Prenumeration_: Välj din Azure-prenumeration
 * _Resurs grupp_: Välj din resurs grupp i list rutan
 * _Roll_: Välj _Azure Digitals flätade ägare (för hands version)_ i list rutan
 
-Spara informationen genom att välja knappen _Spara_ .
+Spara sedan informationen genom att trycka på knappen _Spara_ .
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
 

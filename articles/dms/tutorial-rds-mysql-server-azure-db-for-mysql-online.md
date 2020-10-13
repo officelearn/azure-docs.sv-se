@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 06/09/2020
-ms.openlocfilehash: 916d5ee49838c1e8564b24432b9d5876ed619ab5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8948bdeb2f8b82fbabacdbbb73c7b43741c75df
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291409"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938448"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Självstudier: Migrera RDS MySQL till Azure Database for MySQL online med DMS
 
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 
 Den här artikeln beskriver hur du utför en online-migrering från en instans av RDS MySQL för att Azure Database for MySQL.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -72,6 +72,10 @@ För att slutföra den här kursen behöver du:
     * binlog_checksum = ingen
 3. Spara den nya parameter gruppen.
 4. Koppla den nya parameter gruppen till RDS MySQL-instansen. En omstart kan krävas.
+5. När parameter gruppen är på plats ansluter du till MySQL-instansen och [anger BinLog kvarhållning](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql_rds_set_configuration.html#mysql_rds_set_configuration-usage-notes.binlog-retention-hours) till minst 5 dagar.
+```
+call mysql.rds_set_configuration('binlog retention hours', 120);
+```
 
 ## <a name="migrate-the-schema"></a>Migrera schemat
 

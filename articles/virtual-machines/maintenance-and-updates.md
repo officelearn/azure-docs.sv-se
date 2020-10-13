@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 5dcf4ad7acb3becd2ca04407bc8e5b3ac45701f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cf126caaaa0c518574418aca194ebd82cc4d6b9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86501712"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972075"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Underhåll för virtuella datorer i Azure
 
@@ -23,7 +23,7 @@ Uppdateringar påverkar sällan de värdar som är värdar för virtuella datore
 - Om uppdateringen inte kräver en omstart pausas den virtuella datorn medan värden uppdateras, eller så är den virtuella datorn Live-migrerad till en redan uppdaterad värd. 
 - Om underhåll kräver en omstart får du ett meddelande om planerat underhåll. Azure tillhandahåller också ett tids fönster där du kan starta underhållet själv, vid en tidpunkt som passar dig. Fönstret för själv underhåll är vanligt vis 35 dagar om inte underhållet är brådskande. Azure investerar i teknikerna för att minska antalet fall där det planerade plattforms underhållet kräver att de virtuella datorerna startas om. Anvisningar om hur du hanterar planerat underhåll finns i hantera planerade underhålls aviseringar med hjälp av Azure [CLI](maintenance-notifications-cli.md), [PowerShell](maintenance-notifications-powershell.md) eller [Portal](maintenance-notifications-portal.md).
 
-Den här sidan beskriver hur Azure utför båda typerna av underhåll. Mer information om oplanerade händelser (avbrott) finns i [Hantera tillgängligheten för virtuella datorer för Windows](./windows/manage-availability.md) eller motsvarande artikel för [Linux](./linux/manage-availability.md).
+Den här sidan beskriver hur Azure utför båda typerna av underhåll. Mer information om oplanerade händelser (avbrott) finns i [Hantera tillgängligheten för virtuella datorer för Windows](./manage-availability.md) eller motsvarande artikel för [Linux](./manage-availability.md).
 
 I en virtuell dator kan du få aviseringar om kommande underhåll genom [att använda schemalagda händelser för Windows](./windows/scheduled-events.md) eller [Linux](./linux/scheduled-events.md).
 
@@ -41,7 +41,7 @@ De underhålls åtgärder som inte kräver en omstart tillämpas en fel domän i
 
 De här typerna av uppdateringar kan påverka vissa program. När den virtuella datorn är Live-migrerad till en annan värd kan vissa känsliga arbets belastningar Visa en försämrad prestanda försämring under några minuter, vilket leder till att den virtuella datorn pausas. Om du vill förbereda för underhåll av virtuella datorer och minska påverkan under Azure-underhållet kan du försöka [använda schemalagda händelser för Windows](./windows/scheduled-events.md) eller [Linux](./linux/scheduled-events.md) för sådana program. 
 
-För bättre kontroll av alla underhålls aktiviteter, inklusive noll effekter och omstarter av uppdateringar, kan du använda funktionen underhålls kontroll. Du måste använda antingen [Azure-dedikerade värdar](./linux/dedicated-hosts.md) eller en [isolerad virtuell dator](../security/fundamentals/isolation-choices.md). Med underhålls kontrollen får du möjlighet att hoppa över alla plattforms uppdateringar och tillämpa uppdateringarna vid ditt val av tid inom en rullande 35-dagars period. Mer information finns i [styra uppdateringar med underhålls kontroll och Azure CLI](maintenance-control.md).
+För bättre kontroll av alla underhålls aktiviteter, inklusive noll effekter och omstarter av uppdateringar, kan du använda funktionen underhålls kontroll. Du måste använda antingen [Azure-dedikerade värdar](./dedicated-hosts.md) eller en [isolerad virtuell dator](../security/fundamentals/isolation-choices.md). Med underhålls kontrollen får du möjlighet att hoppa över alla plattforms uppdateringar och tillämpa uppdateringarna vid ditt val av tid inom en rullande 35-dagars period. Mer information finns i [styra uppdateringar med underhålls kontroll och Azure CLI](maintenance-control.md).
 
 
 ### <a name="live-migration"></a>Direktmigrering
@@ -87,7 +87,7 @@ I en tillgänglighets uppsättning sprids enskilda virtuella datorer över upp t
 
 *Skalnings uppsättningar* för virtuella datorer är en Azure Compute-resurs som du kan använda för att distribuera och hantera en uppsättning identiska virtuella datorer som en enda resurs. Skalnings uppsättningen distribueras automatiskt över UDs, t. ex. virtuella datorer i en tillgänglighets uppsättning. Precis som med tillgänglighets uppsättningar, när du använder skalnings uppsättningar, uppdateras bara en UD vid en bestämd tidpunkt under det schemalagda underhållet.
 
-Mer information om hur du konfigurerar virtuella datorer för hög tillgänglighet finns i [Hantera tillgängligheten för dina virtuella datorer för Windows](./windows/manage-availability.md) eller motsvarande artikel för [Linux](./linux/manage-availability.md).
+Mer information om hur du konfigurerar virtuella datorer för hög tillgänglighet finns i [Hantera tillgängligheten för dina virtuella datorer för Windows](./manage-availability.md) eller motsvarande artikel för [Linux](./manage-availability.md).
 
 #### <a name="availability-zones"></a>Tillgänglighetszoner
 
@@ -99,4 +99,4 @@ Varje infrastruktur uppdatering slår ut zon efter zon, inom en enda region. Men
 
 ## <a name="next-steps"></a>Nästa steg 
 
-Du kan använda [Azure CLI](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) eller [portalen](maintenance-notifications-portal.md) för att hantera planerat underhåll. 
+Du kan använda [Azure CLI](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) eller [portalen](maintenance-notifications-portal.md) för att hantera planerat underhåll.

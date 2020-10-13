@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: ac915aa3baba910895e10d21148b899347e8ae4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 884a9e82dacb2a0dfc6763809a2ccfd2b886df1a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370495"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974183"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure PowerShell
 
-Den här artikeln vägleder dig genom hur du skapar en dedikerad Azure- [värd](dedicated-hosts.md) som värd för dina virtuella datorer. 
+Den här artikeln vägleder dig genom hur du skapar en dedikerad Azure- [värd](../dedicated-hosts.md) som värd för dina virtuella datorer. 
 
 Kontrol lera att du har installerat Azure PowerShell version 2.8.0 eller senare och att du är inloggad på ett Azure-konto i med `Connect-AzAccount` . 
 
@@ -278,4 +278,4 @@ Remove-AzResourceGroup -Name $rgName
 
 - Det finns en exempel mall som du hittar [här](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), som använder både zoner och fel domäner för maximal återhämtning i en region.
 
-- Du kan också distribuera dedikerade värdar med hjälp av [Azure Portal](dedicated-hosts-portal.md).
+- Du kan också distribuera dedikerade värdar med hjälp av [Azure Portal](../dedicated-hosts-portal.md).

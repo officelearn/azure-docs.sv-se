@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: c9c4cef07bf1de64bcb14bc4487e0f56d2a40dfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdeec23b6b0a0ef2884fa35bd0a576ef57bb7853
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88518652"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938512"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Självstudie: Azure Active Directory integrering med Mozy Enterprise
 
@@ -30,7 +30,7 @@ Genom att integrera Mozy Enterprise med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Mozy Enterprise behöver du följande objekt:
 
@@ -126,11 +126,11 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Mo
 
 2. Klicka på **autentiseringsprincip**i avsnittet **konfiguration** .
    
-    ![Autentiseringsprincip](./media/mozy-enterprise-tutorial/ic777314.png "Autentiseringsprincip")
+    ![Skärm bild som visar en autentiseringsprincip som valts från konfigurationen.](./media/mozy-enterprise-tutorial/ic777314.png "Autentiseringsprincip")
 
 3. Utför följande steg i avsnittet **autentiseringsprincip** :
    
-    ![Autentiseringsprincip](./media/mozy-enterprise-tutorial/ic777315.png "Autentiseringsprincip")
+    ![Skärm bild som visar avsnittet autentiseringsprincip där du kan ange de värden som beskrivs.](./media/mozy-enterprise-tutorial/ic777315.png "Autentiseringsprincip")
    
     a. Välj **katalog tjänst** som **Provider**.
    

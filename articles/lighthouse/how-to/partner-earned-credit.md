@@ -3,12 +3,12 @@ title: Länka ditt partner-ID för att aktivera intjänad partner kredit på del
 description: Lär dig hur du associerar ditt partner-ID för att få partner intjänad kredit (PEC) för kund resurser som du hanterar via Azure Lighthouse.
 ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 5caa205ce74152c7ec047952f66c1bf9188ddf02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9d80a94e52f6f6a8aef5f5284659750084b0b5e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776178"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974455"
 ---
 # <a name="link-your-partner-id-to-enable-partner-earned-credit-on-delegated-resources"></a>Länka ditt partner-ID för att aktivera intjänad partner kredit på delegerade resurser
 
@@ -20,19 +20,19 @@ Om du registrerar [kunder med hjälp av Azure Resource Management-mallar](onboar
 
 ## <a name="associate-your-partner-id-when-you-onboard-new-customers"></a>Associera ditt partner-ID när du har publicerat nya kunder
 
-När du registrerar kunder genom Azure Resource Manager mallar (ARM-mallar) använder du följande process för att länka ditt partner-ID och aktivera partner intjänad kredit. Du måste känna till ditt [MPN-partner-ID](/partner-center/partner-center-account-setup#locate-your-mpn-id) för att kunna utföra dessa steg. Se till att använda det **associerade MPN-ID: t** som visas i din partner profil.
+När du registrerar kunder genom Azure Resource Manager mallar (ARM-mallar) använder du följande process för att länka ditt partner-ID och aktivera partner intjänad kredit. Du måste känna till ditt [MPN-partner-ID](/partner-center/partner-center-account-setup#locate-your-mpn-id) för att kunna utföra dessa steg. Se till att använda **associerat MPN-ID** som visas i din partnerprofil.
 
-För enkelhetens skull rekommenderar vi att du skapar ett tjänst huvud namns konto i din klient organisation, länkar det till ditt **associerade MPN-ID**och sedan beviljar åtkomst till varje kund som du har registrerat med en [inbyggd Azure-roll som är berättigad till PEC](https://docs.microsoft.com/partner-center/azure-roles-perms-pec).
+För enkelhetens skull rekommenderar vi att du skapar ett tjänst huvud namns konto i din klient organisation, länkar det till ditt **associerade MPN-ID**och sedan beviljar åtkomst till varje kund som du har registrerat med en [inbyggd Azure-roll som är berättigad till PEC](/partner-center/azure-roles-perms-pec).
 
 1. [Skapa ett tjänst huvud konto](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) i hanterings klienten. I det här exemplet ska vi namnge det här tjänstens huvud konto för PEC-Automation.
 1. Med hjälp av kontot för tjänstens huvud namn [länkar du till ditt associerade MPN-ID](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) i hanterings klienten. Du behöver bara göra detta en gången.
-1. När du registrerar [en kund med ARM-mallar](onboard-customer.md)måste du ta med en auktorisering som innehåller PEC Automation-kontot som en användare med en [inbyggd Azure-roll som är berättigad till PEC](https://docs.microsoft.com/partner-center/azure-roles-perms-pec).
+1. När du registrerar [en kund med ARM-mallar](onboard-customer.md)måste du ta med en auktorisering som innehåller PEC Automation-kontot som en användare med en [inbyggd Azure-roll som är berättigad till PEC](/partner-center/azure-roles-perms-pec).
 
 Genom att följa dessa steg associeras alla kund innehavare som du hanterar med ditt partner-ID, så att du kan få PEC för dessa kunder. PEC Automation-kontot behöver inte autentisera eller utföra några åtgärder i kundens klient organisation.
 
 ## <a name="add-your-partner-id-to-previously-onboarded-customers"></a>Lägg till ditt partner-ID till tidigare registrerade kunder
 
-Om du redan har registrerat en kund kanske du inte vill utföra en annan distribution för att lägga till tjänstens huvud namn för PEC Automation-kontot. I stället kan du länka ditt **associerade MPN-ID** till ett användar konto som redan har åtkomst till arbete i den kundens klient organisation. Se till att kontot har fått en [inbyggd Azure-roll som är berättigad till PEC](https://docs.microsoft.com/partner-center/azure-roles-perms-pec).
+Om du redan har registrerat en kund kanske du inte vill utföra en annan distribution för att lägga till tjänstens huvud namn för PEC Automation-kontot. I stället kan du länka ditt **associerade MPN-ID** till ett användar konto som redan har åtkomst till arbete i den kundens klient organisation. Se till att kontot har fått en [inbyggd Azure-roll som är berättigad till PEC](/partner-center/azure-roles-perms-pec).
 
 När kontot har [länkats till ditt associerade MPN-ID](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) i hanterings klienten kan du få PEC för kunden.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 10/12/2020
 ms.author: aahi
-ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11b75bcadc6292c17ef7e1e0f482d0c53bd9f8f5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324475"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971956"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Lägg till datafeeds från olika data källor i mått Advisor
 
@@ -43,7 +43,7 @@ Använd den här artikeln för att hitta inställningar och krav för att anslut
 |[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>ManagedIdentity|
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>Tjänstens huvudnamn<br>Tjänstens huvud namn från Key Vault<br> |
 |[**Azure SQL Database/SQL Server**](#sql) | Basic<br>ManagedIdentity<br>Tjänstens huvudnamn<br>Tjänstens huvud namn från Key Vault<br>AzureSQLConnectionString
-|[**Azure Table Storage**](#table) | Basic | 
+|[**Azure-Table Storage**](#table) | Basic | 
 |[**ElasticSearch**](#es) | Basic |
 |[**Http-begäran**](#http) | Basic | 
 |[**InfluxDB (InfluxQL)**](#influxdb) | Basic |
@@ -93,7 +93,7 @@ Skapa en **entitet för autentiseringsuppgifter** och Använd den för autentise
   
   * v1 (standardvärde)
 
-      Endast måtten *Name* och *Value* accepteras. Exempel:
+      Endast måtten *Name* och *Value* accepteras. Till exempel:
     
       ``` JSON
       {"count":11, "revenue":1.23}
@@ -101,7 +101,7 @@ Skapa en **entitet för autentiseringsuppgifter** och Använd den för autentise
 
   * v2
 
-      *Mått och* *tidsstämpel* godkänns också. Exempel:
+      *Mått och* *tidsstämpel* godkänns också. Till exempel:
       
       ``` JSON
       [
@@ -133,7 +133,7 @@ Endast en tidstämpel tillåts per JSON-fil.
 
 ## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure Data Explorer (Kusto)</span>
 
-* **Anslutnings sträng**: se [Visa och kopiera en anslutnings sträng](https://docs.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) för information om hur du hämtar anslutnings strängen från Azure datautforskaren (Kusto).
+* **Anslutnings sträng**: mått översikten har stöd för åtkomst till Azure datautforskaren (Kusto) med hjälp av Azure AD Application Authentication. Du måste skapa och registrera ett Azure AD-program och sedan auktorisera det för att få åtkomst till en Azure Datautforskaren-databas. Information om hur du hämtar anslutnings strängen finns i [Azure datautforskaren](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) -dokumentationen.
 
 * **Fråga**: se [Kusto frågespråk](https://docs.microsoft.com/azure/data-explorer/kusto/query) för att hämta och formulera data till flerdimensionella Time Series-data. Du kan använda `@StartTime` `@EndTime` variablerna och i din fråga. De ska formateras: `yyyy-MM-dd HH:mm:ss` .
 
@@ -159,7 +159,7 @@ Endast en tidstämpel tillåts per JSON-fil.
   * `%h` är timmen formaterad som `HH`
   * `%M` är minuten formaterad som `mm`
 
-För närvarande stöder Metric Advisor data schemat i JSON-filerna enligt följande. Exempel:
+För närvarande stöder Metric Advisor data schemat i JSON-filerna enligt följande. Till exempel:
 
 ``` JSON
 [
@@ -210,7 +210,7 @@ The timestamp field must match one of these two formats:
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = '2019-12-12 00:00:00'
     ```
 
-## <a name="span-idtableazure-table-storagespan"></a><span id="table">Azure Table Storage</span>
+## <a name="span-idtableazure-table-storagespan"></a><span id="table">Azure-Table Storage</span>
 
 * **Anslutnings sträng**: Mer information om hur du hämtar anslutnings strängen från Azure Table Storage finns i [Visa och kopiera en anslutnings sträng](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=azure-portal#view-account-access-keys) .
 

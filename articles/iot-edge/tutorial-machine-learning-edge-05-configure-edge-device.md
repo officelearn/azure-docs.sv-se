@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: 1e92da6f99ccb32580d7f0286b5bcbf77d694262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2245bd970e93595358e95465bcc815ddaf2ef821
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855658"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974557"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Självstudie: Konfigurera en IoT Edge enhet
 
@@ -96,7 +96,7 @@ För att lagra våra certifikat säkert och för att göra dem tillgängliga fr�
 
 För att ansluta en Azure IoT Edge-enhet till en IoT-hubb skapar vi först en identitet för enheten i hubben. Vi tar anslutnings strängen från enhetens identitet i molnet och använder den för att konfigurera körningen på vår IoT Edge-enhet. När en konfigurerad enhet ansluter till hubben kan vi distribuera moduler och skicka meddelanden. Vi kan också ändra konfigurationen för den fysiska IoT Edge enheten genom att ändra motsvarande enhets identitet i IoT Hub.
 
-I den här självstudien skapar vi den nya enhets identiteten med hjälp av Visual Studio Code. Du kan också utföra dessa steg med hjälp av [Azure Portal](how-to-register-device.md#register-in-the-azure-portal)eller [Azure CLI](how-to-register-device.md#register-with-the-azure-cli).
+I den här självstudien skapar vi den nya enhets identiteten med hjälp av Visual Studio Code. Du kan också utföra dessa steg med hjälp av Azure Portal eller Azure CLI.
 
 1. Öppna Visual Studio Code på utvecklings datorn.
 

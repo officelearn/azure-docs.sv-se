@@ -9,12 +9,12 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ee00425da89391e5228f2d48b49ca85426066f1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e16e7fa5ecc2fb947f9f82c1cdd27af6758d6bda
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85299015"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971757"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Uppdatera IoT Edge-säkerhetsdaemon och runtime
 
@@ -108,7 +108,7 @@ På Windows-enheter använder du PowerShell-skriptet för att uppdatera Security
 
 Att köra kommandot Update-IoTEdge tar bort och uppdaterar säkerhets daemonen från enheten, tillsammans med de två behållar avbildningarna. Config. yaml-filen sparas på enheten, samt data från Moby container Engine (om du använder Windows-behållare). Att behålla konfigurations informationen innebär att du inte behöver ange anslutnings strängen eller enhets etablerings tjänstens information för enheten igen under uppdaterings processen.
 
-Om du vill uppdatera till en speciell version av Security daemon, letar du upp den version som du vill använda för [IoT Edge-versioner](https://github.com/Azure/azure-iotedge/releases). I den versionen hämtar du **Microsoft-Azure-IoTEdge.cab** -filen. Använd sedan `-OfflineInstallationPath` parametern för att peka på den lokala fil platsen. Exempel:
+Om du vill uppdatera till en speciell version av Security daemon, letar du upp den version som du vill använda för [IoT Edge-versioner](https://github.com/Azure/azure-iotedge/releases). I den versionen hämtar du **Microsoft-Azure-IoTEdge.cab** -filen. Använd sedan `-OfflineInstallationPath` parametern för att peka på den lokala fil platsen. Till exempel:
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux> -OfflineInstallationPath <absolute path to directory>
@@ -117,7 +117,7 @@ Om du vill uppdatera till en speciell version av Security daemon, letar du upp d
 >[!NOTE]
 >`-OfflineInstallationPath`Parametern söker efter en fil med namnet **Microsoft-Azure-IoTEdge.cab** i den angivna katalogen. Från och med IoT Edge version 1.0.9-RC4 finns det två CAB-filer som är tillgängliga för användning, en för AMD64-enheter och en för ARM32. Hämta rätt fil för enheten och byt sedan namn på filen för att ta bort det.
 
-Om du vill ha mer information om uppdaterings alternativ använder du kommandot `Get-Help Update-IoTEdge -full` eller läser [alla installations parametrar](how-to-install-iot-edge-windows.md#all-installation-parameters).
+Om du vill ha mer information om uppdaterings alternativ använder du kommandot `Get-Help Update-IoTEdge -full` eller läser [PowerShell-skript för IoT Edge i Windows](reference-windows-scripts.md).
 
 ## <a name="update-the-runtime-containers"></a>Uppdatera runtime-behållare
 
@@ -160,7 +160,7 @@ Om du använder vissa taggar i din distribution (t. ex. mcr.microsoft.com/azurei
 
    ![Konfigurera körnings inställningar](./media/how-to-update-iot-edge/configure-runtime.png)
 
-1. Uppdatera **avbildning** svärdet för **Edge Hub** med önskad version i **körnings inställningarna**. Välj inte **Spara** bara än.
+1. Uppdatera **avbildning** svärdet för **Edge Hub** med önskad version i **körnings inställningarna**. Välj inte **Spara** ännu.
 
    ![Uppdatera bild version för Edge Hub](./media/how-to-update-iot-edge/runtime-settings-edgehub.png)
 
@@ -213,10 +213,7 @@ Som för hands versioner ingår inte versions kandidat versioner som den senaste
 
 Använd avsnitten i den här artikeln för att lära dig hur du uppdaterar en IoT Edge-enhet till en viss version av daemon-eller körnings moduler.
 
-Om du installerar IoT Edge på en ny dator kan du använda följande länkar för att lära dig hur du installerar en speciell version beroende på enhetens operativ system:
-
-* [Linux](how-to-install-iot-edge-linux.md#install-runtime-using-release-assets)
-* [Windows](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation)
+Om du installerar IoT Edge, i stället för att uppgradera en befintlig installation, använder du stegen i [offline eller en speciell versions installation](how-to-install-iot-edge.md#offline-or-specific-version-installation).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 771c2a6ea89f3bda4c671a053d505ba995f0d1db
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 27c117786ca7f0004ed3be6b28ed06cb1c7942de
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87853100"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960449"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Snabbstart: Använd en domänmodell med hjälp av REST API:et och Python i Visuellt innehåll
 
@@ -41,9 +41,9 @@ Så här skapar du och kör exemplet med landmärken:
 
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill identifiera landmärken i.
-1. Spara koden som en fil med tillägget `.py`. Till exempel `get-landmarks.py`.
+1. Spara koden som en fil med tillägget `.py`. Exempelvis `get-landmarks.py`.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python get-landmarks.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python get-landmarks.py`.
 
 ```python
 import os
@@ -65,7 +65,7 @@ else:
 if 'COMPUTER_VISION_ENDPOINT' in os.environ:
     endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-landmark_analyze_url = endpoint + "vision/v3.0/models/landmarks/analyze"
+landmark_analyze_url = endpoint + "vision/v3.1/models/landmarks/analyze"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/f/f6/" + \
@@ -125,9 +125,9 @@ Så här skapar du och kör exemplet med landmärken:
     1. Ersätt värdet för `subscription_key` med din prenumerationsnyckel.
     1. Ersätt värdet för `vision_base_url` med slutpunktens URL för resursen för Visuellt innehåll i den Azure-region där du fick dina prenumerationsnycklar, om så behövs.
     1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill identifiera kändisar i.
-1. Spara koden som en fil med tillägget `.py`. Till exempel `get-celebrities.py`.
+1. Spara koden som en fil med tillägget `.py`. Exempelvis `get-celebrities.py`.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python get-celebrities.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python get-celebrities.py`.
 
 ```python
 import requests

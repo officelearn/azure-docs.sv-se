@@ -3,12 +3,12 @@ title: Så här skyddar du din resurs-hierarki – Azure-styrning
 description: Lär dig hur du skyddar din resurs-hierarki med hierarkiska inställningar som inkluderar inställning av standard hanterings gruppen.
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8630562786da922a36baa3bec4863acbb21b197d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfaf7a732b3233536006009613cecd5aa1649dee
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533987"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951901"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Så här skyddar du din resurs-hierarki
 
@@ -115,5 +115,5 @@ Du inaktiverar inställningen genom att använda samma slut punkt och ange **req
 
 Läs mer om hanteringslösningar här:
 
-- [Skapa hanteringsgrupper för att organisera Azure-resurser](../create.md)
+- [Skapa hanteringsgrupper för att organisera Azure-resurser](../create-management-group-portal.md)
 - [Så här ändrar, raderar och hanterar du dina hanteringsgrupper](../manage.md)

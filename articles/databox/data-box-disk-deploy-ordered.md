@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: de481abd82b4fc7dd2eae3763f82b8dd96cc14a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b24d3aa9b5071a69e3e3fb866dc5ba2ac3e57b19
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84266533"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950949"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Självstudie: Beställ en Azure Data Box Disk
 
@@ -63,7 +63,7 @@ Utför följande steg för att beställa Data Box Disk.
 
     ![Välj Data Box Disk-alternativ](media/data-box-disk-deploy-ordered/select-data-box-sku-1.png)
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |---|---|
     |Prenumeration|Välj den prenumeration för vilken Data Box-tjänsten är aktiverad.<br> Prenumerationen är kopplad till ditt faktureringskonto. |
     |Överföringstyp| Importera till Azure|
@@ -72,11 +72,11 @@ Utför följande steg för att beställa Data Box Disk.
   
 4. Välj **Data Box Disk**. Maximal kapacitet för en enskild beställning på 5 diskar är 35 TB. Du kan skapa flera beställningar om du har större datamängder.
 
-     ![Välj Data Box Disk-alternativ](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
+     ![Välj Data Box Disk alternativ 2](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
 5. I **Order** (Beställa) anger du **Order details** (Beställningsinformation). Ange eller välj följande information.
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |---|---|
     |Namn|Välj ett smeknamn så att du kan spåra beställningen.<br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra. |
     |Resursgrupp| Använd ett befintligt eller skapa ett nytt. <br> En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. |
@@ -91,7 +91,7 @@ Utför följande steg för att beställa Data Box Disk.
 
     Om du använder Data Box Disk för att skapa hanterade diskar från lokala virtuella hård diskar måste du också ange följande information:
 
-    |Inställningen  |Värde  |
+    |Inställning  |Värde  |
     |---------|---------|
     |Resursgrupp     | Skapa en ny resurs grupp om du tänker skapa hanterade diskar från lokala virtuella hård diskar. Använd bara en befintlig resurs grupp om den skapades för Data Box Disk ordning för hanterad disk av Data Box-enhet-tjänsten. <br> Endast en resurs grupp stöds.|
 

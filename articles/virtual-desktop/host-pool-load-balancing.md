@@ -3,15 +3,15 @@ title: Belastnings utjämning för Windows-adresspoolen för virtuella skriv bor
 description: Lär dig mer om belastnings Utjämnings metoder för värdar för en Windows Virtual Desktop-miljö.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2b977d64dea1cef3b8142758e57d91e92e5bcc02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd8f9e4a3ef63cd97f96af3d4f96a2bb65c3cd09
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461127"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951867"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Belastningsutjämningsmetoder för värdpool
 
@@ -41,3 +41,6 @@ Metoden vidd-First frågar först efter de sessioner som tillåter nya anslutnin
 Med den första belastnings Utjämnings metoden kan du fylla en session-värd i taget för att optimera för det här scenariot. Den här metoden är idealisk för kostnadsmedvetna organisationer som vill ha mer detaljerad kontroll över antalet virtuella datorer som de har allokerat för en värd pool.
 
 Den första metoden frågar efter de sessioner som är värdar som tillåter nya anslutningar och som inte har varit över gränsen för den högsta tillåtna sessionen. Metoden väljer sedan Session Host med det högsta antalet sessioner. Om det finns en förbindelse väljer metoden den första sessionens värd i frågan.
+
+>[!IMPORTANT]
+>Den djupbaserade algoritmen för belastnings utjämning distribuerar sessioner till sessionsbaserade värdar baserat på gränsen för högsta antal sessioner. Den här parametern krävs när du använder algoritmen för djup-första belastnings utjämning. För bästa möjliga användar upplevelse måste du ändra den maximala begränsnings parametern för Session Host till ett tal som passar din miljö bäst.

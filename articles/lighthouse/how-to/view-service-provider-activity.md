@@ -1,21 +1,21 @@
 ---
 title: Visa tjänstleverantörsaktivitet
 description: Kunder kan visa loggad aktivitet för att se åtgärder som utförs av tjänst leverantörer via Azure-delegerad resurs hantering.
-ms.date: 07/07/2020
+ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: 0c92fc9b45d17e37fb3721d9cf087c5e7a62f6d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ec9d49de953a0fed3a5afc669e9297148aadf32
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86131458"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974319"
 ---
 # <a name="view-service-provider-activity"></a>Visa tjänstleverantörsaktivitet
 
 Kunder som har delegerade prenumerationer för [Azure Lighthouse](../overview.md) kan [Visa Azures aktivitets logg](../../azure-monitor/platform/platform-logs-overview.md) data för att se alla åtgärder som vidtagits. Detta ger kunderna full insyn i åtgärder som tjänst leverantörer utför via [Azures delegerade resurs hantering](../concepts/azure-delegated-resource-management.md), tillsammans med åtgärder som utförs av användare i kundens egna Azure Active Directory (Azure AD)-klient.
 
 > [!TIP]
-> Vi tillhandahåller också en Azure Policy inbyggd princip definition för att granska delegering av omfattningar till en hanterings klient. Mer information finns i [Granska delegeringar i din miljö](view-manage-service-providers.md#audit-delegations-in-your-environment).
+> Vi tillhandahåller också Azure Policy inbyggda princip definitioner för att [begränsa delegering till vissa hantera klienter](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json) och för att [Granska delegering av omfattningar till en hanterings klient](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Mer information finns i [Granska delegeringar i din miljö](view-manage-service-providers.md#audit-delegations-in-your-environment).
 
 ## <a name="view-activity-log-data"></a>Visa aktivitetsloggdata
 

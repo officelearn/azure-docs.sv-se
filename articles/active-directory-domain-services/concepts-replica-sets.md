@@ -2,20 +2,20 @@
 title: Repliker anger koncept för Azure AD Domain Services | Microsoft Docs
 description: Lär dig vad replik uppsättningar är i Azure Active Directory Domain Services och hur de ger redundans till program som kräver identitets tjänster.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.author: iainfou
-ms.openlocfilehash: 698009ee8a57ed5d30e01376b4f2c63b0a27ead8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 499f4df303993d97ebb4eb38de98828b085aff00
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87505736"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961076"
 ---
 # <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services-preview"></a>Replik anger koncept och funktioner för Azure Active Directory Domain Services (för hands version)
 

@@ -5,14 +5,16 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Beskriver hur du förbereder ditt projekt med Azure dev Spaces
 keywords: azds. yaml, Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: 61351072494b51d02a1d6c31399208b9e9b54fce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2da69dd8a8c2683ff584dfd0ffc61cb023f2ece
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213421"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968165"
 ---
 # <a name="how-preparing-a-project-for-azure-dev-spaces-works"></a>Så här förbereder du ett projekt för Azure dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Med Azure dev Spaces får du flera sätt att snabbt iterera och felsöka Kubernetes-program och samar beta med ditt team i ett Azure Kubernetes service-kluster (AKS). Dev Spaces kan generera Dockerfiles-och Helm-diagram för ditt projekt. Dev Spaces skapar och använder också en konfigurations fil för att distribuera, köra och felsöka dina Kubernetes-program i AKS. Alla dessa filer finns i program koden och kan läggas till i versions kontroll systemet.
 

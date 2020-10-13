@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/24/2020
+ms.date: 10/12/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 784a0acf139aa05179fd92afb4eab299c2669590
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 806505e5ac9c9b3dcf53624a1151961b0db45ef9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630856"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972517"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Skydda en Azure Machine Learning inferencing-miljö med virtuella nätverk
 
@@ -81,11 +81,17 @@ Använd följande steg för att lägga till AKS i ett virtuellt nätverk till di
 
    ![Azure Machine Learning: Machine Learning-beräkning inställningar för virtuellt nätverk](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
-1. Kontrol lera att NSG-gruppen som styr det virtuella nätverket har en inkommande säkerhets regel aktive rad för poäng slut punkten så att den kan anropas utanför det virtuella nätverket.
+1. När du distribuerar en modell som en webb tjänst till AKS skapas en poäng slut punkt för att hantera inferencing-begäranden. Kontrol lera att NSG-gruppen som styr det virtuella nätverket har en inkommande säkerhets regel aktive rad för beräknings slut punktens IP-adress om du vill anropa den utanför det virtuella nätverket.
+
+    Du hittar IP-adressen för bedömnings slut punkten genom att titta på bedömnings-URI: n för den distribuerade tjänsten. Information om hur du visar bedömnings-URI: n finns i [använda en modell som distribueras som en webb tjänst](how-to-consume-web-service.md#connection-information).
+
    > [!IMPORTANT]
    > Behåll de utgående standard reglerna för NSG. Mer information finns i standard säkerhets regler i [säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 
    [![En inkommande säkerhets regel](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
+
+    > [!IMPORTANT]
+    > IP-adressen som visas i avbildningen för bedömnings slut punkten kommer att vara en annan för dina distributioner. Samma IP-adress delas av alla distributioner till ett AKS-kluster, men varje AKS-kluster har en annan IP-adress.
 
 Du kan också använda Azure Machine Learning SDK för att lägga till Azure Kubernetes-tjänsten i ett virtuellt nätverk. Om du redan har ett AKS-kluster i ett virtuellt nätverk ansluter du det till arbets ytan enligt beskrivningen i [så här distribuerar du till AKS](how-to-deploy-and-where.md). Följande kod skapar en ny AKS-instans i `default` under nätet för ett virtuellt nätverk med namnet `mynetwork` :
 

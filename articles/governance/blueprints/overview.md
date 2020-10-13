@@ -3,12 +3,12 @@ title: Översikt över Azure Blueprint
 description: Förstå hur tjänsten Azure-ritningar ger dig möjlighet att skapa, definiera och distribuera artefakter i din Azure-miljö.
 ms.date: 09/30/2020
 ms.topic: overview
-ms.openlocfilehash: f2e3c23c9cb83d2cb58b1e8f69a2a470a6f36f6d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0dbf5ab54b694399c9d15cce84e8eca34a5d924e
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91614265"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91892735"
 ---
 # <a name="what-is-azure-blueprints"></a>Vad är Azure Blueprint?
 
@@ -25,7 +25,7 @@ Azure Blueprints-tjänsten backas av det globalt distribuerade [Azure Cosmos DB]
 
 ## <a name="how-its-different-from-arm-templates"></a>Så här skiljer den sig från ARM-mallar
 
-Tjänsten är utformad för att hjälpa till med att _konfigurera miljön_. Den här konfigurationen består ofta av en uppsättning resurs grupper, principer, roll tilldelningar och distributioner av ARM-mallar. En skiss är ett paket för att ta med var och en av dessa _artefakt_ typer och låter dig skapa och version av paketet, inklusive via en CI/CD-pipeline. Slutligen tilldelas varje skiss till en prenumeration i en enda åtgärd som kan granskas och spåras.
+Tjänsten är utformad för att hjälpa till med att _konfigurera miljön_. Den här konfigurationen består ofta av en uppsättning resurs grupper, principer, roll tilldelningar och distributioner av ARM-mallar. En skiss är ett paket för att ta med var och en av dessa _artefakt_ typer och låter dig skapa och version av paketet, inklusive genom en pipeline för kontinuerlig integrering och kontinuerlig leverans (CI/CD). Slutligen tilldelas varje skiss till en prenumeration i en enda åtgärd som kan granskas och spåras.
 
 Nästan allt som du vill inkludera för distribution i Azure-ritningar kan utföras med en ARM-mall. En ARM-mall är dock ett dokument som inte finns internt i Azure – varje lagras antingen lokalt eller i käll kontrollen. Mallen används för distribution av en eller flera Azure-resurser, men när resurserna har distribuerats finns det ingen aktiv anslutning eller relation till mallen.
 
@@ -124,7 +124,7 @@ Om dessa inbyggda roller inte motsvarar dina behov kan du skapa en [anpassad rol
 
 Följande begränsningar finns för vissa fält:
 
-|Objekt|Fält|Tillåtna tecken|Max. Längd|
+|Objekt|Field|Tillåtna tecken|Max. Längd|
 |-|-|-|-|
 |Skiss|Namn|bokstäver, siffror, bindestreck och punkter|48|
 |Skiss|Version|bokstäver, siffror, bindestreck och punkter|20|

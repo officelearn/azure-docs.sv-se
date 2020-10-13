@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0eca3f2fea3cf72b05b301ae307c1179f9bca0be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a417c271c16aabe91836f425f26c0a55e7103557
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072374"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973945"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Så här öppnar du portar och slut punkter till en virtuell dator i Azure med hjälp av PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -91,5 +91,5 @@ För webb program med hög tillgänglighet bör du placera de virtuella datorern
 I det här exemplet har du skapat en enkel regel för att tillåta HTTP-trafik. Du hittar information om att skapa mer detaljerade miljöer i följande artiklar:
 
 * [Översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-* [Vad är en nätverkssäkerhetsgrupp?](../../virtual-network/security-overview.md)
+* [Vad är en nätverkssäkerhetsgrupp?](../../virtual-network/network-security-groups-overview.md)
 * [Översikt över Azure Load Balancer](../../load-balancer/load-balancer-overview.md)

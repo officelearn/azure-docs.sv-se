@@ -8,19 +8,19 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/08/2020
 ms.author: cynthn
-ms.openlocfilehash: 02192850dd9103b6c1783baf42c184ee16fe299f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 361ed04a6448bec18fac94ad90a33fe01a49e595
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86500692"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974166"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Så här kopplar du bort en datadisk från en virtuell Windows-dator
 
 När du inte längre behöver en datadisk som är ansluten till en virtuell dator kan du enkelt koppla bort den. Disken tas bort från den virtuella datorn, men den tas inte bort från lagrings platsen.
 
 > [!WARNING]
-> Om du kopplar från en disk tas den inte bort automatiskt. Om du prenumererar på Premium Storage kommer du att fortsätta att betala lagrings avgifter för disken. Mer information finns i [priser och fakturering när du använder Premium Storage](disks-types.md#billing).
+> Om du kopplar från en disk tas den inte bort automatiskt. Om du prenumererar på Premium Storage kommer du att fortsätta att betala lagrings avgifter för disken. Mer information finns i [priser och fakturering när du använder Premium Storage](../disks-types.md#billing).
 
 Om du vill använda befintliga data på disken igen kan du ansluta den igen till samma virtuella dator, eller till en annan.
 

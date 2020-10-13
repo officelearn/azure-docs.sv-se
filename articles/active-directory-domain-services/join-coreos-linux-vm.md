@@ -2,7 +2,7 @@
 title: Koppla en Core-VM till Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur du konfigurerar och ansluter till en virtuell dator med en kärna till en Azure AD Domain Services hanterad domän.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: iainfou
-ms.openlocfilehash: 93f16629b74ab76d7b46603d84d52cff4bf1ca13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: c3a88f96f7391fedd973b7965a7c469ce1805d76
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005114"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962419"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Anslut till en virtuell dator med en kärna till en Azure Active Directory Domain Services hanterad domän
 
@@ -24,7 +24,7 @@ För att användarna ska kunna logga in på virtuella datorer i Azure med en end
 
 Den här artikeln visar hur du ansluter en Core-VM till en hanterad domän.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -42,7 +42,7 @@ Om du har en befintlig Core virtuella Linux-dator i Azure ansluter du till den m
 
 Om du behöver skapa en Core-virtuell Linux-dator, eller om du vill skapa en virtuell test dator för användning med den här artikeln, kan du använda någon av följande metoder:
 
-* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure-portalen](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 

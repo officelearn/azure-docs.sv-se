@@ -3,12 +3,12 @@ title: Exportera mall i Azure Portal
 description: Använd Azure Portal för att exportera en Azure Resource Manager mall från resurser i din prenumeration.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 0262517df11f0d91920fd7e44f96ff532ffbe63f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d0c9adb121372047336d2753df047f54f1e0fa2
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87423243"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951765"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportera en och flera resurser till en mall i Azure Portal
 
@@ -49,11 +49,13 @@ Exportera mallen före distribution eller från historiken när:
 
 När du exporterar från en resurs grupp eller resurs, genereras den exporterade mallen från de [publicerade scheman](https://github.com/Azure/azure-resource-manager-schemas/tree/master/schemas) för varje resurs typ. Ibland har schemat inte den senaste versionen för en resurs typ. Kontrol lera att den exporterade mallen innehåller de egenskaper du behöver. Om det behövs redigerar du den exporterade mallen så att den använder den API-version du behöver.
 
-Funktionen Exportera mall stöder inte export av Azure Data Factory-resurser. Information om hur du kan exportera Data Factory-resurser finns i [Kopiera eller klona en data fabrik i Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
+Funktionen Exportera mall stöder inte export av Azure Data Factory-resurser. Information om hur du kan exportera Data Factory-resurser finns i [Kopiera eller klona en data fabrik i Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 
-Om du vill exportera resurser som skapats via den klassiska distributions modellen måste du [migrera dem till distributions modellen för Resource Manager](https://aka.ms/migrateclassicresourcetoarm).
+Om du vill exportera resurser som skapats via den klassiska distributions modellen måste du [migrera dem till distributions modellen för Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 Om du får en varning när du exporterar en mall som anger att ingen resurs typ exporterades, kan du fortfarande identifiera egenskaperna för resursen. Läs mer om de olika alternativen för att Visa resurs egenskaper i [identifiera resurs egenskaper](view-resources.md). Du kan också titta på [Azure-REST API](/rest/api/azure/) för resurs typen.
+
+Det finns en gräns på 200 resurser i resurs gruppen som du skapar den exporterade mallen för. Om du försöker exportera en resurs grupp som har fler än 200 resurser visas fel meddelandet `Export template is not supported for resource groups more than 200 resources` .
 
 ## <a name="export-template-from-a-resource-group"></a>Exportera en mall från en resursgrupp
 

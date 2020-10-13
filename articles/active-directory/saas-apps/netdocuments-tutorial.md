@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 245818b60647539c7fff7c45dcecdc6840153fb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 536fcab8cdfea4846cc1122fa56c939f525388f4
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549049"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938482"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med NetDocuments
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar NetDocuments med Az
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -136,7 +136,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 3. Välj **Security Center**.
    
-    ![Lagringsplats](./media/netdocuments-tutorial/security-center.png "Security Center")
+    ![Skärm bild som visar Security Center som valts från juridiska dokument.](./media/netdocuments-tutorial/security-center.png "Security Center")
 
 4. Välj **Avancerad autentisering**.
     
@@ -166,7 +166,7 @@ Om du vill att Azure AD-användare ska kunna logga in på NetDocuments måste de
 
 3. Välj **Användare och grupper**.
    
-    ![Lagringsplats](./media/netdocuments-tutorial/users-groups.png "Lagringsplats")
+    ![Skärm bild som visar användare & grupper som valts från juridiska dokument.](./media/netdocuments-tutorial/users-groups.png "Lagringsplats")
 
 4. I text rutan **e-postadress** skriver du in e-postadressen för ett giltigt Azure Active Directory konto som du vill etablera och klickar sedan på **Lägg till användare**.
    

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d5e867849d17a489fad37d09215905d23fb0ed6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: daf54b64e33b83b909fe91455cee2f5c1ec27d3d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514253"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960328"
 ---
 # <a name="contact-microsoft-support"></a>Kontakta Microsoft Support
 
@@ -39,7 +39,7 @@ Beroende på ditt [support](https://azure.microsoft.com/support/plans/)avtal kan
    3. Välj en **Support plan** i list rutan om du har flera planer som är kopplade till din prenumeration. Du behöver ett betalt support avtal för att aktivera teknisk support.
    4. Klicka på **Nästa**.
 
-       ![Kontakta MS support via ny portal](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
+       ![Kontakta MS support via ny Portal 2](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
 3. På bladet **ny support ärende** väljer du **steg 2 problem**. Utför följande steg på bladet **problem** :
     
@@ -51,7 +51,7 @@ Beroende på ditt [support](https://azure.microsoft.com/support/plans/)avtal kan
     6. Kontrol lera **delning av diagnostikinformation**.
     7. Klicka på **Nästa**.
 
-       ![Kontakta MS support via ny portal](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
+       ![Kontakta MS support via ny portal 3](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
 4. Klicka på **steg 3 kontakt information**i bladet **nytt support ärende** . Utför följande steg på bladet **kontakt information** :
 
@@ -59,7 +59,7 @@ Beroende på ditt [support](https://azure.microsoft.com/support/plans/)avtal kan
    2. I kontakt uppgifterna anger du ditt namn, din e-postadress, valfri kontakt, land/region. Markera kryss rutan **Spara kontakt ändringar för framtida support begär Anden** .
    3. Klicka på **Skapa**.
    
-       ![Kontakta MS support via ny portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
+       ![Kontakta MS support via ny portal 4](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
       Microsoft Support kommer att använda den här informationen för att kontakta dig för ytterligare information, diagnos och lösning.
       När du har skickat in din begäran kontaktar en support tekniker så snart som möjligt för att fortsätta med din begäran.
@@ -76,11 +76,11 @@ När du har skapat ett supportärende kan du hantera ärendets livscykel på por
 
 2. En lista över alla support förfrågningar visas i bladet **Hjälp + Support** .
 
-    ![Hantera support förfrågningar](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
+    ![Hantera support förfrågningar 2](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
 
 3. Välj och klicka på en support förfrågan. Du kan visa status och information för den här begäran. Klicka på **+ nytt meddelande** om du vill följa upp den här begäran.
 
-    ![Hantera support förfrågningar](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
+    ![Hantera support förfrågningar 3](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
 
 ## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>Starta en support-session i Windows PowerShell för StorSimple
 

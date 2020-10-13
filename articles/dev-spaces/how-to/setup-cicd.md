@@ -8,14 +8,16 @@ ms.topic: conceptual
 manager: gwallace
 description: Lär dig hur du konfigurerar kontinuerlig integrering/kontinuerlig distribution med Azure DevOps med Azure dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
-ms.openlocfilehash: c7b3eba0bea85082dbb4e39d108af9471d5dc45e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de409aa060034c9ba0faaaa56ce21f904b02cdac
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080274"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960396"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Använda CI/CD med Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 Den här artikeln vägleder dig genom att konfigurera kontinuerlig integrering/kontinuerlig distribution (CI/CD) till Azure Kubernetes service (AKS) med dev-utrymmen aktiverade. Med CI/CD till AKS distribueras uppdateringar automatiskt när allokerad kod skickas till käll lagrings platsen. Att använda CI/CD tillsammans med ett dev Spaces-kluster är användbart eftersom det kan hålla en bas linje i programmet uppdaterat för att teamet ska arbeta med.
 

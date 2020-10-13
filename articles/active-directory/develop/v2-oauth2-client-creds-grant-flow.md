@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/27/2020
+ms.date: 10/2/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e5fe8e751077bc04850879d27827c197767a81c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89a4c62044e3be849650de703d2daa9ca3e2a975
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87759078"
+ms.locfileid: "91932591"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft Identity Platform och OAuth 2,0-klientens autentiseringsuppgifter flödet
 
@@ -52,8 +52,11 @@ Ett vanligt användnings fall är att använda en ACL för att köra tester för
 
 Den här typen av auktorisering är vanlig för daemon-och tjänst konton som behöver åtkomst till data som ägs av konsument användare som har personliga Microsoft-konton. För data som ägs av organisationer rekommenderar vi att du får nödvändig behörighet genom program behörigheter.
 
-> [!NOTE]
-> För att kunna aktivera detta ACL-baserat auktoriseringsarkiv kräver Azure AD inte att program har behörighet att hämta token för ett annat program – så att app-only-token kan utfärdas utan `roles` anspråk. Program som exponerar API: er måste implementera behörighets kontroller för att kunna godkänna tokens.
+#### <a name="controlling-tokens-without-the-roles-claim"></a>Kontrol lera token utan `roles` anspråket
+
+För att aktivera detta ACL-baserade auktoriseringsarkiv kräver Azure AD inte att program har behörighet att hämta token för ett annat program. Därför kan endast app-token utfärdas utan `roles` anspråk. Program som exponerar API: er måste implementera behörighets kontroller för att kunna godkänna tokens.
+
+Om du vill förhindra att program hämtar roller som inte har några roller, [så se till att krav för användar tilldelning har Aktiver ATS för din app](../manage-apps/assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment). Detta blockerar användare och program utan tilldelade roller från att kunna hämta en token för det här programmet. 
 
 ### <a name="application-permissions"></a>Program behörigheter
 

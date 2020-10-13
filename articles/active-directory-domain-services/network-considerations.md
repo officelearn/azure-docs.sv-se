@@ -2,20 +2,20 @@
 title: Nätverks planering och anslutningar för Azure AD Domain Services | Microsoft Docs
 description: Läs om några av de utformningar och resurser för utformning av virtuella nätverk som används för anslutning när du kör Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 6e2b3badcda872db3ddb1d237b813615a1332ad0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 4ced7331daa116e237d9628d12d16a67687db5b9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396339"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968097"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Design överväganden för virtuellt nätverk och konfigurations alternativ för Azure Active Directory Domain Services
 
@@ -108,7 +108,7 @@ En [nätverks säkerhets grupp (NSG)](../virtual-network/security-overview.md) i
 
 Följande regler för nätverks säkerhets grupper krävs för att den hanterade domänen ska kunna tillhandahålla autentiserings-och hanterings tjänster. Redigera inte eller ta bort dessa regler för nätverks säkerhets grupper för det virtuella nätverkets undernät som din hanterade domän distribueras till.
 
-| Portnummer | Protokoll | Källa                             | Mål | Action | Krävs | Syfte |
+| Portnummer | Protokoll | Källa                             | Mål | Åtgärd | Krävs | Syfte |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Ja      | Synkronisering med din Azure AD-klient. |
 | 3389        | TCP      | CorpNetSaw                         | Alla         | Tillåt  | Ja      | Hantering av din domän. |

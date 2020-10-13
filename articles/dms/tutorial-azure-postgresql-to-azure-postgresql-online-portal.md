@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 3f7b45e88eeb1e391ec86fa230a87e9f5194cd60
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: ef840abdfdb51e2472615ffabf0b49545b6fef3f
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893806"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938431"
 ---
 # <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Självstudie: Migrera Azure DB för PostgreSQL – en server till Azure DB för PostgreSQL – en server online med DMS via Azure Portal
 
-Du kan använda Azure Database Migration Service för att migrera databaserna från en [Azure Database for PostgreSQL-enskild server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) instans till en annan [Azure Database for PostgreSQL-enskild server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) instans med minimal stillestånds tid. I den här självstudien migrerar du exempel databasen för **DVD-hyra** från en Azure Database for PostgreSQL v10 till Azure Database for PostgreSQL-en server med hjälp av aktiviteten online-migrering i Azure Database migration service.
+Du kan använda Azure Database Migration Service för att migrera databaserna från en [Azure Database for PostgreSQL-enskild server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) instans till samma eller en annan version av Azure Database for PostgreSQL-enskild Server instans eller Azure Database for PostgreSQL-flexibel server med minimal stillestånds tid. I den här självstudien migrerar du exempel databasen för **DVD-hyra** från en Azure Database for PostgreSQL v10 till Azure Database for PostgreSQL-en server med hjälp av aktiviteten online-migrering i Azure Database migration service.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -100,7 +100,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
     psql -h hostname -U db_username -d db_name < your_schema.sql
     ```
 
-    Exempel:
+    Till exempel:
 
     ```
     psql -h mypgserver-source.postgres.database.azure.com  -U pguser@mypgserver-source -d dvdrental citus < dvdrentalSchema.sql
@@ -286,6 +286,9 @@ När den fullständiga inläsningen är klar är databaserna märkta med **Klar 
     ![Slutför start punkt-skärmen](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover.png)
 
 3. När status för migreringen av **databasen visas,** [återskapar du sekvenser](https://wiki.postgresql.org/wiki/Fixing_Sequences) (om tillämpligt) och ansluter dina program till den nya mål instansen av Azure Database for PostgreSQL.
+ 
+> [!NOTE]
+> Azure Database Migration Service kan användas för att utföra större versions uppgraderingar med minskad stillestånds tid i Azure Database for PostgreSQL-enskild server. Först konfigurerar du en mål databas med önskad högre PostgreSQL-version, nätverks inställningar och-parametrar. Sedan kan du starta migreringen till mål databaserna med hjälp av proceduren som beskrivs ovan. När du har start punkt till mål databas servern kan du uppdatera din program anslutnings sträng så att den pekar mot mål databas servern. 
 
 ## <a name="next-steps"></a>Nästa steg
 

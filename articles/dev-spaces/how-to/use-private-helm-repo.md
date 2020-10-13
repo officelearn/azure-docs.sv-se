@@ -8,14 +8,16 @@ ms.topic: conceptual
 description: Använd en privat Helm-lagringsplats i ett Azure dev-utrymme.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare, Helm
 manager: gwallace
-ms.openlocfilehash: c8f0e463bc78d278d8162f8389664dbb46a83301
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5f28595df2e552fd48033b44e4e1f0ea4ec306
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80240474"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960345"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Använda en privat Helm-lagringsplats i Azure dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 [Helm][helm] är en paket hanterare för Kubernetes. Helm använder ett [diagram][helm-chart] format för att paketera beroenden. Helm-diagram lagras i en lagrings plats, som kan vara offentliga eller privata. Azure dev Spaces hämtar bara Helm-diagram från offentliga databaser när programmet körs. I de fall där Helm-lagringsplatsen är privat eller om Azure dev Spaces inte kan komma åt den, kan du lägga till ett diagram från lagrings platsen direkt i ditt program. Genom att lägga till diagrammet direkt kan Azure dev-Spaces köra ditt program utan att behöva komma åt den privata Helm-lagringsplatsen.
 

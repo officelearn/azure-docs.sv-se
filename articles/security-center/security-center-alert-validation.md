@@ -1,6 +1,6 @@
 ---
-title: Aviserings verifiering (EICAR Test fil) i Azure Security Center | Microsoft Docs
-description: I det här dokumentet får du hjälp med att verifiera säkerhetsaviseringar i Azure Security Center.
+title: Aviserings validering i Azure Security Center | Microsoft Docs
+description: Lär dig hur du verifierar att dina säkerhets aviseringar är korrekt konfigurerade i Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 0c777c2461047f21e8fb413faec6d5f1140fc75f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 764a2263587a477eb506edec1e0f661d0ca7ae31
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91438803"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971616"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Aviserings validering i Azure Security Center
 I det här dokumentet får du hjälp med att verifiera systemet är rätt konfigurerat för aviseringar från Azure Security Center.
@@ -26,12 +26,6 @@ I det här dokumentet får du hjälp med att verifiera systemet är rätt konfig
 ## <a name="what-are-security-alerts"></a>Vad är säkerhetsaviseringar?
 Aviseringar är de meddelanden som Security Center genererar när ett hot mot dina resurser har identifierats. Den prioriterar och listar aviseringarna tillsammans med den information som behövs för att snabbt undersöka problemet. Security Center ger även rekommendationer för hur du kan åtgärda ett angrepp.
 Mer information finns i [säkerhets aviseringar i Security Center](security-center-alerts-overview.md) och [Hantera och svara på säkerhets aviseringar](security-center-managing-and-responding-alerts.md)
-
-## <a name="alert-validation"></a>Aviseringsverifiering
-
-* [Windows](#validate-windows)
-* [Linux](#validate-linux)
-* [Kubernetes](#validate-kubernetes)
 
 ## <a name="validate-alerts-on-windows-vms"></a>Verifiera aviseringar på virtuella Windows-datorer <a name="validate-windows"></a>
 

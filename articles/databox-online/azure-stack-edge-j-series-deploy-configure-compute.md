@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 3281642134e7a6a2531f43ad4b3f80cff34d03b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bea4ee4452675a50ef9144da300c3e15652a81f
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890922"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952173"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Självstudie: transformera data med Azure Stack Edge Pro
 
@@ -25,7 +25,7 @@ I den här självstudien beskrivs hur du konfigurerar en beräknings roll på di
 Den här proceduren kan ta cirka 10 till 15 minuter att slutföra.
 
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Konfigurera beräkning
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 > * Verifiera datatransformering och överföring
 
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du ställer in en beräknings roll på din Azure Stack Edge Pro-enhet ser du till att:
 
@@ -59,17 +59,17 @@ Om du vill konfigurera Compute på Azure Stack Edge Pro skapar du en IoT Hub res
     |Field  |Värde  |
     |---------|---------|
     |IoT Hub     | Välj från **ny** eller **befintlig**. <br> Som standard används nivån Standard (S1) till att skapa en IoT-resurs. Om du vill använda en IoT-resurs på kostnadsfri nivå skapar du en sådan och väljer sedan den befintliga resursen. <br> I varje fall använder IoT Hub resursen samma prenumeration och resurs grupp som används av Azure Stack Edge-resursen.     |
-    |Name     |Ange ett namn för din IoT Hub-resurs.         |
+    |Namn     |Ange ett namn för din IoT Hub-resurs.         |
 
-    ![Kom igång med Compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
+    ![Kom igång med Compute 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
 4. Välj **Skapa**. Det tar flera minuter att skapa en IoT Hub-resurs. När IoT Hub resursen har skapats kan du **Konfigurera** Compute-panelen för att Visa beräknings konfigurationen. 
 
-    ![Kom igång med Compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
+    ![Kom igång med Compute 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
 5. Bekräfta att Edge Compute-rollen har kon figurer ATS genom att välja **Visa beräkning** på panelen **Konfigurera beräkning** .
     
-    ![Kom igång med Compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+    ![Kom igång med Compute 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
     > [!NOTE]
     > Om dialog rutan **Konfigurera beräkning** stängs innan IoT Hub är kopplad till Azure Stack Edge Pro-enheten, skapas IoT Hub men visas inte i beräknings konfigurationen. 

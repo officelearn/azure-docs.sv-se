@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e375ce88b8e5bd96e19dc4f5da2143c3f9de53a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a762cfd1ecb4e290417b5d24b0ae75f6e10baf1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575868"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973708"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -136,7 +136,7 @@ Du kan inte byta namn på hanterade diskar. Men du kan byta namn på en ohantera
 
 Generation 1-avbildningar kan bara använda GPT-partitionering på data diskar, inte på OS-diskar. OS-diskar måste ha partitionstypen MBR-partition.
 
-[Generation 2-avbildningar](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) kan använda GPT-partitionering på OS-disken och data diskarna.
+[Generation 2-avbildningar](./generation-2.md) kan använda GPT-partitionering på OS-disken och data diskarna.
 
 **Vilka disk typer stöder ögonblicks bilder?**
 
@@ -241,7 +241,7 @@ Nej, uppladdning kan bara användas när en ny tom disk skapas med **ReadyToUplo
 
 **Hur gör jag för att ladda upp till en hanterad disk?**
 
-Skapa en hanterad disk med egenskapen [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) för [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) inställt på "Ladda upp". sedan kan du ladda upp data till den.
+Skapa en hanterad disk med egenskapen [createOption](/rest/api/compute/disks/createorupdate#diskcreateoption) för [creationData](/rest/api/compute/disks/createorupdate#creationdata) inställt på "Ladda upp". sedan kan du ladda upp data till den.
 
 **Kan jag ansluta en disk till en virtuell dator när den är i ett överförings tillstånd?**
 
@@ -427,7 +427,7 @@ Du behöver inte uppgradera dina befintliga Azure-verktyg för att skapa, bifoga
 
 **Stöds P4-och P6-disk storlekar för ohanterade diskar eller sid-blobar?**
 
-Disk storlekarna P4 (32 GiB) och P6 (64 GiB) stöds inte som standard disk nivåer för ohanterade diskar och sid-blobar. Du måste uttryckligen [Ange BLOB-nivån](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) till P4 och P6 för att disken ska mappas till dessa nivåer. Om du distribuerar en ohanterad disk eller sid-BLOB med disk storlek eller innehålls längd som är mindre än 32 GiB eller mellan 32 GiB och 64 GiB utan att ange BLOB-nivån, kommer du att fortsätta att använda P10 med 500 IOPS och 100 MiB/s och den mappade pris nivån.
+Disk storlekarna P4 (32 GiB) och P6 (64 GiB) stöds inte som standard disk nivåer för ohanterade diskar och sid-blobar. Du måste uttryckligen [Ange BLOB-nivån](/rest/api/storageservices/set-blob-tier) till P4 och P6 för att disken ska mappas till dessa nivåer. Om du distribuerar en ohanterad disk eller sid-BLOB med disk storlek eller innehålls längd som är mindre än 32 GiB eller mellan 32 GiB och 64 GiB utan att ange BLOB-nivån, kommer du att fortsätta att använda P10 med 500 IOPS och 100 MiB/s och den mappade pris nivån.
 
 **Om min befintliga Premium-hanterade disk som är mindre än 64 GiB skapades innan den lilla disken var aktive rad (cirka 15 juni 2017), hur faktureras den?**
 
@@ -497,6 +497,6 @@ Nej.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Vad händer om min fråga inte besvaras här?
 
-Om din fråga inte visas här kan vi hjälpa oss och vi hjälper dig att hitta ett svar. Du kan skicka en fråga i slutet av den här artikeln i kommentarerna. Om du vill delta i Azure Storage-teamet och andra community-medlemmar om den här artikeln använder du [sidan Microsoft Q&en fråga för Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
+Om din fråga inte visas här kan vi hjälpa oss och vi hjälper dig att hitta ett svar. Du kan skicka en fråga i slutet av den här artikeln i kommentarerna. Om du vill delta i Azure Storage-teamet och andra community-medlemmar om den här artikeln använder du [sidan Microsoft Q&en fråga för Azure Storage](/answers/products/azure?product=storage).
 
 Om du vill begära funktioner skickar du dina förfrågningar och idéer till [Azure Storage feedback-forumet](https://feedback.azure.com/forums/217298-storage).

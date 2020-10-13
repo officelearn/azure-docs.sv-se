@@ -1,18 +1,18 @@
 ---
 title: 'Snabb start: skapa och ändra en krets med ExpressRoute-Azure PowerShell'
-description: Skapa, etablera, verifiera, uppdatera, ta bort och avetablera en ExpressRoute-krets.
+description: Den här snabb starten visar hur du skapar, etablerar, verifierar, uppdaterar, tar bort och avetablerar en ExpressRoute-krets.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: quickstart
-ms.date: 10/05/2020
+ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: b5ac53c44429e23e2d22a934a9dc71bd485ec4cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5397dd2745a0d4e61804cf631014846ae15ec4e1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761914"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971548"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-powershell"></a>Snabb start: skapa och ändra en ExpressRoute-krets med Azure PowerShell
 
@@ -371,7 +371,7 @@ Notera följande information:
 * Om etablerings statusen för ExpressRoute-kretsen **etableras** eller **etableras** måste du arbeta med tjänst leverantören för att avetablera kretsen på sin sida. Vi fortsätter att reservera resurser och fakturera dig tills tjänste leverantören har slutfört avetableringen av kretsen och meddelar oss oss.
 * Om tjänste leverantören har avetablerat kretsen som tjänst leverantörens etablerings status är inställt på **inte etablerad**, kan du ta bort kretsen. Faktureringen för kretsen avbryts sedan.
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Rensa resurser
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Du kan ta bort ExpressRoute-kretsen genom att köra följande kommando:
 

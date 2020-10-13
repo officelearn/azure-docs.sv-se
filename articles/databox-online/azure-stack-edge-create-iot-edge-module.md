@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8acbc7eec7581adcf0d73ffcd4bb2aa7ab2dd572
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96a6692524eca3a2845d648ab3df2932d00ce823
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883488"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951153"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Utveckla en C# IoT Edge-modul för att flytta filer på Azure Stack Edge Pro
+# <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro"></a>Utveckla en C# IoT Edge-modul för att flytta filer med Azure Stack Edge Pro
 
 Den här artikeln beskriver hur du skapar en IoT Edge-modul för distribution med din Azure Stack Edge Pro-enhet. Azure Stack Edge Pro är en lagrings lösning som gör att du kan bearbeta data och skicka dem över nätverket till Azure.
 
@@ -259,7 +259,7 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i FileC
  
 3. När du har angett autentiseringsuppgifterna kan du skicka modulens avbildning till Azure Container Registry. I VS Code-Utforskaren högerklickar du på **module.jspå** filen och väljer **Build och push IoT Edge-lösning**.
 
-    ![Lösning för att bygga och push IoT Edge](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
+    ![Build och push IoT Edge lösning 2](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  
     När du anger Visual Studio Code för att bygga lösningen, körs två kommandon i den integrerade terminalen: Docker-build och Docker push. Dessa två kommandon skapar din kod, bäddar in CSharpModule.dll i en container och skickar sedan koden till det containerregister som du angav när du initierade lösningen.
 

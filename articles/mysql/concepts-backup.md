@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 4a6f6a052269bbfef6cafb359626031692a7d9c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f64b5a186c026bf752d7975ac4337535ca64458e
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89418593"
+ms.locfileid: "91876540"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Säkerhets kopiering och återställning i Azure Database for MySQL
 
@@ -71,7 +71,7 @@ Det finns två typer av återställning:
 Den uppskattade återställnings tiden beror på flera faktorer, till exempel databasens storlek, transaktions loggens storlek, nätverks bandbredden och det totala antalet databaser som återställs i samma region på samma tid. Återställnings tiden är vanligt vis mindre än 12 timmar.
 
 > [!IMPORTANT]
-> **Det går inte** att återställa borttagna servrar. Om du tar bort servern tas även alla databaser som tillhör servern bort och kan inte återställas. För att skydda server resurser, efter distribution, från oavsiktlig borttagning eller oväntade ändringar, kan administratörer utnyttja [hanterings lås](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> Borttagna servrar kan bara återställas inom **fem dagar** från borttagningen efter vilken säkerhets kopian tas bort. Säkerhets kopian av databasen kan bara nås och återställas från Azure-prenumerationen som är värd för-servern. Om du vill återställa en släppt Server, se [dokumenterade steg](howto-restore-dropped-server.md). För att skydda server resurser, efter distribution, från oavsiktlig borttagning eller oväntade ändringar, kan administratörer utnyttja [hanterings lås](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### <a name="point-in-time-restore"></a>Återställning från tidpunkt
 

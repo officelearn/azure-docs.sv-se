@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: aae05c89cd56ffa16994cb5696054457f1d32bc3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 7680c7ad4b2c5c8b8c1c13fb2344575659eda140
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876149"
+ms.locfileid: "91892829"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Skapa en plats-till-plats-anslutning med hjälp av Azure-portalen (klassisk)
 
@@ -109,11 +109,11 @@ Plats-till-plats-anslutningar till ett lokalt nätverk kräver en VPN-enhet. I d
 
 ## <a name="create-the-connection"></a><a name="CreateConnection"></a>Skapa anslutningen
 
-I det här steget, med hjälp av värdena från föregående steg, ställer du in den delade nyckeln och skapar anslutningen. Nyckeln som du anger måste vara samma nyckel som används i konfigurationen för VPN-enheten.
-
 > [!NOTE]
 > För den klassiska distributions modellen är det här steget inte tillgängligt i Azure Portal eller via Azure Cloud Shell. Du måste använda SM-versionen (Service Management) av Azure PowerShell-cmdlets lokalt från Skriv bordet.
 >
+
+I det här steget, med hjälp av värdena från föregående steg, ställer du in den delade nyckeln och skapar anslutningen. Nyckeln som du anger måste vara samma nyckel som används i konfigurationen för VPN-enheten.
 
 1. Ange den delade nyckeln och skapa anslutningen.
 

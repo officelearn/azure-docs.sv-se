@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
 ms.openlocfilehash: a01f5d2d000ef6e177000828500ef2ab0e26c4ca
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448183"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använda Linux-diagnostiktillägget för att övervaka mått och loggar
@@ -65,7 +65,7 @@ Distributioner och versioner som stöds:
 - Debian 9, 8, 7
 - RHEL 7, 6,7 +
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * **Azure Linux-agentens version 2.2.0 eller senare**. De flesta Azure VM Linux-avbildningar innehåller version 2.2.7 eller senare. Kör `/usr/sbin/waagent -version` för att bekräfta versionen som är installerad på den virtuella datorn. Om den virtuella datorn kör en äldre version av gäst agenten följer du [de här anvisningarna](./update-linux-agent.md) för att uppdatera den.
 * **Azure CLI**. [Konfigurera Azure CLI](/cli/azure/install-azure-cli) -miljön på din dator.
@@ -202,7 +202,7 @@ Den här uppsättningen konfigurations information innehåller känslig informat
 }
 ```
 
-Name | Värde
+Namn | Värde
 ---- | -----
 storageAccountName | Namnet på det lagrings konto där data skrivs av tillägget.
 storageAccountEndPoint | valfritt Slut punkten som identifierar molnet där lagrings kontot finns. Om den här inställningen saknas, LAD standardvärdet för det offentliga Azure-molnet `https://core.windows.net` . Om du vill använda ett lagrings konto i Azure Germany, Azure Government eller Azure Kina anger du detta värde i enlighet med detta.
@@ -242,7 +242,7 @@ Det här valfria avsnittet definierar ytterligare destinationer dit tillägget s
 
 Element | Värde
 ------- | -----
-namn | En sträng som används för att referera till denna mottagare någon annan stans i tilläggs konfigurationen.
+name | En sträng som används för att referera till denna mottagare någon annan stans i tilläggs konfigurationen.
 typ | Typ av mottagare som definieras. Bestämmer de andra värdena (om sådana finns) i instanser av den här typen.
 
 Version 3,0 av Linux Diagnostic-tillägget har stöd för två typer av mottagare: EventHub och JsonBlob.

@@ -12,10 +12,10 @@ ms.date: 06/23/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3e6fcf956639d827a8654c5ee80e7cab8cadf930
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383605"
 ---
 # <a name="define-an-azure-ad-sspr-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en Azure AD SSPR-teknisk profil i en Azure AD B2C anpassad princip
@@ -49,7 +49,7 @@ I följande exempel visas en teknisk profil för Azure AD SSPR:
     ...
 ```
 
-## <a name="send-email"></a>Skicka e-post
+## <a name="send-email"></a>Skicka e-postmeddelande
 
 Det första läget i den här tekniska profilen är att generera en kod och skicka den. Följande alternativ kan konfigureras för det här läget.
 
@@ -82,8 +82,8 @@ Följande metadata kan användas för att konfigurera fel meddelanden som visas 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| UserMessageIfInternalError | No | Användar fel meddelande om ett internt fel inträffar på servern. |
-| UserMessageIfThrottled| No | Användar fel meddelande om en begäran har begränsats.|
+| UserMessageIfInternalError | Inga | Användar fel meddelande om ett internt fel inträffar på servern. |
+| UserMessageIfThrottled| Inga | Användar fel meddelande om en begäran har begränsats.|
 
 
 ### <a name="example-send-an-email"></a>Exempel: Skicka ett e-postmeddelande
@@ -103,7 +103,7 @@ I följande exempel visas en Azure AD SSPR-teknisk profil som används för att 
 </TechnicalProfile>
 ```
 
-## <a name="verify-code"></a>Verifiera kod
+## <a name="verify-code"></a>Verifiera koden
 
 Det andra läget i den här tekniska profilen är att verifiera en kod. Följande alternativ kan konfigureras för det här läget.
 

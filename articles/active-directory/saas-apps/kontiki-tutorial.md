@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: cb652cfdae0ce785d6a076b8b1592d9f700b3383
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88549985"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Självstudie: Azure Active Directory integrering med Kontiki
@@ -30,7 +30,7 @@ Genom att integrera Kontiki med Azure AD får du följande fördelar:
 
 Mer information om program vara som en tjänst (SaaS) för att integrera appar med Azure AD finns i [enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Kontiki behöver du följande objekt:
 
@@ -95,7 +95,7 @@ I det här avsnittet konfigurerar du enkel inloggning med Azure AD med Kontiki i
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-1. I fönstret **Konfigurera enkel inloggning med SAML** väljer du **Redigera** (Penn ikonen) för att öppna fönstret **grundläggande SAML-konfiguration** .
+1. I fönstret **Konfigurera enkla Sign-On med SAML** väljer du **Redigera** (Penn ikonen) för att öppna fönstret **grundläggande SAML-konfiguration** .
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -106,7 +106,7 @@ I det här avsnittet konfigurerar du enkel inloggning med Azure AD med Kontiki i
     > [!NOTE]
     > Kontakta [Kontiki-klientens support team](https://customersupport.kontiki.com/enterprise/contactsupport.html) för att få rätt värde att använda. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. I avsnittet **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signerings certifikat** , väljer du **Hämta** bredvid **XML för federationsmetadata**. Välj ett nedladdnings alternativ baserat på dina krav. Spara certifikatet på datorn.
+1. I avsnittet **Konfigurera enskilda Sign-On med SAML** , i avsnittet SAML- **signeringscertifikat** , väljer du **Hämta** bredvid **XML för federationsmetadata**. Välj ett nedladdnings alternativ baserat på dina krav. Spara certifikatet på datorn.
 
     ![Hämtnings alternativet för XML-certifikat för federationsmetadata](common/metadataxml.png)
 

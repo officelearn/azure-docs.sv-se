@@ -11,10 +11,10 @@ ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 11/21/2019
 ms.openlocfilehash: 9d6592ccfb3ba5236a660d689d8b5d2cd1600c48
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91283198"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Självstudie: Konfigurera Transaktionsreplikering mellan Azure SQL-hanterad instans och SQL Server
@@ -40,7 +40,7 @@ Den här självstudien är avsedd för en erfaren mål grupp och förutsätter a
 > [!NOTE]
 > I den här artikeln beskrivs användningen av [transaktionell replikering](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) i Azure SQL-hanterad instans. Den är inte relaterad till [redundansväxlingen](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), en funktion för Azure SQL-hanterad instans som gör att du kan skapa kompletta läsbara repliker av enskilda instanser. Det finns ytterligare överväganden när du konfigurerar [transaktionell replikering med grupper för växling vid fel](replication-transactional-overview.md#with-failover-groups).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -146,7 +146,7 @@ En privat DNS-zon tillåter DNS-routning mellan de hanterade instanserna och SQL
 
 ### <a name="create-a-private-dns-zone"></a>Skapa en privat DNS-zon
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **skapa en resurs** för att skapa en ny Azure-resurs.
 1. Sök `private dns zone` på Azure Marketplace.
 1. Välj den **privat DNS zon** resurs som publicerats av Microsoft och välj sedan **skapa** för att skapa DNS-zonen.

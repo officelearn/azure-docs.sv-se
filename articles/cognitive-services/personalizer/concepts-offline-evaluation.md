@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 627f511bb12c16c8f54935d1f782cb7c2c962163
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132763"
 ---
 # <a name="offline-evaluation"></a>Offlineutvärdering
@@ -53,7 +53,7 @@ Aktuella principer som ingår i utvärderingen:
 | Utbildnings inställningar | Syfte|
 |--|--|
 |**Online-princip**| Den aktuella inlärnings principen som används i personanpassa |
-|**Planen**|Programmets standard (som fastställs av den första åtgärden som skickas i rang anrop)|
+|**Baslinje**|Programmets standard (som fastställs av den första åtgärden som skickas i rang anrop)|
 |**Slumpmässig princip**|Ett tänkt rangordnings beteende som alltid returnerar slumpmässiga val av åtgärder från de angivna.|
 |**Anpassade principer**|Ytterligare inlärnings principer laddades upp när utvärderingen startades.|
 |**Optimerad princip**|Om utvärderingen startades med alternativet för att identifiera en optimerad princip, kommer den också att jämföras och du kommer att kunna ladda ned den eller göra den till en online Learning-princip som ersätter den aktuella.|

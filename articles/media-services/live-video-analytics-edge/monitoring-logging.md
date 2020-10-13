@@ -4,10 +4,10 @@ description: Den här artikeln innehåller en översikt över video analys på I
 ms.topic: reference
 ms.date: 04/27/2020
 ms.openlocfilehash: ef00517fc61ac532bdd99c1e887dfd93d56a8c4f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89567562"
 ---
 # <a name="monitoring-and-logging"></a>Övervakning och loggning
@@ -21,7 +21,7 @@ Du får också lära dig hur du kan kontrol lera vilka loggar som genereras av m
 Real tids analys på IoT Edge avger händelser eller telemetridata enligt följande taxonomi.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Händelsetaxonomi":::
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Händelsetaxonomi&quot;:::
 
 * Drift: händelser som genereras som en del av åtgärder som utförs av en användare eller under körningen av ett [medie diagram](media-graph-concept.md).
    
@@ -32,16 +32,16 @@ Real tids analys på IoT Edge avger händelser eller telemetridata enligt följa
       
       ```
       {
-        "body": {
-          "outputType": "assetName",
-          "outputLocation": "sampleAssetFromEVR-LVAEdge-20200512T233309Z"
+        &quot;body&quot;: {
+          &quot;outputType&quot;: &quot;assetName&quot;,
+          &quot;outputLocation&quot;: &quot;sampleAssetFromEVR-LVAEdge-20200512T233309Z&quot;
         },
-        "applicationProperties": {
-          "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>",
-          "subject": "/graphInstances/Sample-Graph-2/sinks/assetSink",
-          "eventType": "Microsoft.Media.Graph.Operational.RecordingStarted",
-          "eventTime": "2020-05-12T23:33:10.392Z",
-          "dataVersion": "1.0"
+        &quot;applicationProperties&quot;: {
+          &quot;topic&quot;: &quot;/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>&quot;,
+          &quot;subject&quot;: &quot;/graphInstances/Sample-Graph-2/sinks/assetSink&quot;,
+          &quot;eventType&quot;: &quot;Microsoft.Media.Graph.Operational.RecordingStarted&quot;,
+          &quot;eventTime&quot;: &quot;2020-05-12T23:33:10.392Z&quot;,
+          &quot;dataVersion&quot;: &quot;1.0"
         }
       }
       ```
@@ -207,7 +207,7 @@ Händelse typer tilldelas en namnrymd enligt följande schema:
 
 |Klassnamn|Beskrivning|
 |---|---|
-|Analys  |Händelser som genereras som en del av innehålls analysen.|
+|Analytics  |Händelser som genereras som en del av innehålls analysen.|
 |Diagnostik    |Händelser som är till hjälp vid diagnostik av problem och prestanda.|
 |Operativ    |Händelser som genererats som en del av resurs åtgärden.|
 

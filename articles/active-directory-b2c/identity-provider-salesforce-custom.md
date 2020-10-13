@@ -12,10 +12,10 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 668bc645edd1be611fe71b8fc1fa81288572e843
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85388076"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med en Salesforce-SAML-provider genom att använda anpassade principer i Azure Active Directory B2C
@@ -185,7 +185,7 @@ Nu har identitets leverantören kon figurer ATS, men den är inte tillgänglig p
 2. Sök efter och kopiera hela innehållet i **UserJourney** -elementet som innehåller `Id="SignUpOrSignIn"` .
 3. Öppna *TrustFrameworkExtensions.xml* och hitta **UserJourneys** -elementet. Om elementet inte finns lägger du till ett.
 4. Klistra in hela innehållet i **UserJourney** -elementet som du kopierade som ett underordnat objekt till **UserJourneys** -elementet.
-5. Byt namn på användar resans ID. Till exempel `SignUpSignInSalesforce`.
+5. Byt namn på användar resans ID. Exempelvis `SignUpSignInSalesforce`.
 
 ### <a name="display-the-button"></a>Visa knappen
 
@@ -224,7 +224,7 @@ Kommunikation med Azure AD B2C sker via ett program som du registrerar i B2C-kli
 Uppdatera den förlitande part filen (RP) som initierar användar resan som du nyss skapade:
 
 1. Gör en kopia av *SignUpOrSignIn.xml* i din arbets katalog och Byt namn på den. Du kan till exempel byta namn på den till *SignUpSignInSalesforce.xml*.
-2. Öppna den nya filen och uppdatera värdet för attributet **PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInSalesforce`.
+2. Öppna den nya filen och uppdatera värdet för attributet **PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Exempelvis `SignUpSignInSalesforce`.
 3. Uppdatera värdet för **PublicPolicyUri** med URI: n för principen. Till exempel`http://contoso.com/B2C_1A_signup_signin_salesforce`
 4. Uppdatera värdet för attributet **ReferenceId** i **DefaultUserJourney** för att matcha ID för den nya användar resan som du skapade (SignUpSignInSalesforce).
 5. Spara ändringarna, ladda upp filen och välj sedan den nya principen i listan.

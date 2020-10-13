@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: daa1bbbace55281f81e04c4639b083b3e934b9f8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443084"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Fråga över moln databaser med olika scheman (förhands granskning)
@@ -25,7 +25,7 @@ ms.locfileid: "91443084"
 
 Lodrätt partitionerade databaser använder olika uppsättningar tabeller i olika databaser. Det innebär att schemat är olika i olika databaser. Till exempel är alla tabeller för inventering i en databas medan alla redovisnings tabeller finns på en andra databas.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Användaren måste ha ÄNDRINGs behörighet för en extern DATA källa. Den här behörigheten ingår i ALTER DATABASE-behörigheten.
 * ÄNDRA behörigheter för en extern DATA källa krävs för att referera till den underliggande data källan.

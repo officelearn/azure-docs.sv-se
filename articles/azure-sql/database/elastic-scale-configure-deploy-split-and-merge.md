@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 02ec24677519902c299babb72e089f75dcf8b34b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443040"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuera en tjänst för delad sammanslagning för att flytta data mellan shardade-databaser
@@ -23,21 +23,21 @@ ms.locfileid: "91443040"
 
 Med verktyget Dela-sammanslagning kan du flytta data mellan shardade-databaser. Se [Flytta data mellan utskalade moln databaser](elastic-scale-overview-split-and-merge.md)
 
-## <a name="download-the-split-merge-packages"></a>Hämta de delade sammanfognings paketen
+## <a name="download-the-split-merge-packages"></a>Ladda ned Split-Merge-paket
 
 1. Hämta den senaste versionen av NuGet från [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 
 1. Öppna en kommando tolk och navigera till den katalog där du laddade ned nuget.exe. Hämtningen innehåller PowerShell-kommandon.
 
-1. Hämta det senaste delade sammanslagnings paketet till den aktuella katalogen med kommandot nedan:
+1. Hämta det senaste Split-Merge-paketet till den aktuella katalogen med kommandot nedan:
 
    ```cmd
    nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge
    ```  
 
-Filerna placeras i en katalog med namnet **Microsoft. Azure. SqlDatabase. ElasticScale. service. SplitMerge. x. x. xxx. x** där *x. x. xxx. x* visar versions numret. Hitta filerna för delade sammanslagna tjänster i **content\splitmerge\service** under katalog och PowerShell-skripten för delad sammanslagning (och obligatoriska klient-dll: er) i under katalogen för **content\splitmerge\powershell** .
+Filerna placeras i en katalog med namnet **Microsoft. Azure. SqlDatabase. ElasticScale. service. SplitMerge. x. x. xxx. x** där *x. x. xxx. x* visar versions numret. Hitta filerna för delade sammanfognings tjänsten i **content\splitmerge\service** under katalog och Split-Merge PowerShell-skript (och obligatoriska klient-dll: er) i under katalogen för **content\splitmerge\powershell** .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Skapa en Azure SQL Database-databas som ska användas som databas för delad sammanslagnings status. Gå till [Azure-portalen](https://portal.azure.com). Skapa en ny **SQL Database**. Ge databasen ett namn och skapa en ny administratör och ett nytt lösen ord. Se till att du registrerar namnet och lösen ordet för senare användning.
 
@@ -45,17 +45,17 @@ Filerna placeras i en katalog med namnet **Microsoft. Azure. SqlDatabase. Elasti
 
 1. Skapa ett Azure Storage-konto för diagnostiska utdata.
 
-1. Skapa en Azure-molnbaserad tjänst för tjänsten för delad sammanslagning.
+1. Skapa en Azure-molnbaserad tjänst för din Split-Merge-tjänst.
 
-## <a name="configure-your-split-merge-service"></a>Konfigurera tjänsten för delad sammanslagning
+## <a name="configure-your-split-merge-service"></a>Konfigurera din Split-Merge-tjänst
 
-### <a name="split-merge-service-configuration"></a>Konfiguration av tjänsten för delad sammanslagning
+### <a name="split-merge-service-configuration"></a>Split-Merge tjänst konfiguration
 
-1. I mappen där du laddade ned de delade sammanfognings sammansättningarna skapar du en kopia av filen *ServiceConfiguration. template. cscfg* som levererades tillsammans med *SplitMergeService. cspkg* och byter namn på den *ServiceConfiguration. cscfg*.
+1. I den mapp där du laddade ned Split-Merge sammansättningarna skapar du en kopia av filen *ServiceConfiguration. template. cscfg* som levererades tillsammans med *SplitMergeService. cspkg* och byter namn på den *ServiceConfiguration. cscfg*.
 
 1. Öppna *ServiceConfiguration. cscfg* i en text redigerare, till exempel Visual Studio som validerar indata, till exempel formatet på certifikat tumavtrycken.
 
-1. Skapa en ny databas eller Välj en befintlig databas som ska fungera som status databas för delnings sammanslagnings åtgärder och hämta anslutnings strängen för databasen.
+1. Skapa en ny databas eller Välj en befintlig databas som ska fungera som status databas för Split-Merge åtgärder och hämta anslutnings strängen för databasen.
 
    > [!IMPORTANT]
    > För tillfället måste status databasen använda den latinska sorteringen (SQL \_ Latin1 \_ General \_ CP1 \_ CI \_ as). Mer information finns i [Windows sorterings namn (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
@@ -168,7 +168,7 @@ Om din arbets roll inte kan anslutas, men din webb roll lyckas, är det förmodl
 
 ### <a name="connect-with-a-web-browser"></a>Ansluta till en webbläsare
 
-Bestäm webb slut punkten för din tjänst för delad sammanslagning. Du hittar detta i portalen genom att gå till **översikten** över moln tjänsten och titta under webbplats- **URL** till höger. Ersätt **http://** med **https://** eftersom standard säkerhets inställningarna inaktiverar http-slutpunkten. Läs in sidan för denna URL i webbläsaren.
+Fastställ Split-Merge tjänstens webb slut punkt. Du hittar detta i portalen genom att gå till **översikten** över moln tjänsten och titta under webbplats- **URL** till höger. Ersätt **http://** med **https://** eftersom standard säkerhets inställningarna inaktiverar http-slutpunkten. Läs in sidan för denna URL i webbläsaren.
 
 ### <a name="test-with-powershell-scripts"></a>Testa med PowerShell-skript
 
@@ -214,13 +214,13 @@ De skript filer som ingår är:
      </tr>
    <tr>
        <th rowspan="4">ExecuteSampleSplitMerge.ps1 </th>
-       <td>1. Skickar en delad begäran till webb klient delen för den delade sammanslagnings tjänsten, som delar upp hälften av data från den första Shard till den andra Shard.</td>
+       <td>1. Skickar en delnings förfrågan till Split-Merge tjänstens webb klient del, som delar upp hälften av data från den första Shard till den andra Shard.</td>
      </tr>
      <tr>
        <td>2. Avsöker webb klient delen för status för delad begäran och väntar tills begäran har slutförts.</td>
      </tr>
      <tr>
-       <td>3. Skickar en merge-begäran till webb klient delen för den delade sammanslagnings tjänsten, som flyttar data från den andra Shard tillbaka till den första Shard.</td>
+       <td>3. Skickar en merge-begäran till den Split-Merge tjänst webb-frontend, som flyttar data från den andra Shard tillbaka till den första Shard.</td>
      </tr>
      <tr>
        <td>4. Avsöker webb klient delen för status för sammanslagnings begäran och väntar tills begäran har slutförts.</td>
@@ -229,14 +229,14 @@ De skript filer som ingår är:
 
 ## <a name="use-powershell-to-verify-your-deployment"></a>Använd PowerShell för att verifiera distributionen
 
-1. Öppna ett nytt PowerShell-fönster och navigera till den katalog där du laddade ned det delade paketet och navigera sedan till katalogen "PowerShell".
+1. Öppna ett nytt PowerShell-fönster och navigera till den katalog där du laddade ned Split-Merge-paketet och navigera sedan till katalogen "PowerShell".
 
 2. Skapa en server (eller Välj en befintlig server) där Shard Map Manager och Shards ska skapas.
 
    > [!NOTE]
-   > *SetupSampleSplitMergeEnvironment.ps1* -skriptet skapar alla dessa databaser på samma server som standard för att hålla skriptet enkelt. Detta är inte en begränsning för själva tjänsten för delad sammanslagning.
+   > *SetupSampleSplitMergeEnvironment.ps1* -skriptet skapar alla dessa databaser på samma server som standard för att hålla skriptet enkelt. Detta är inte en begränsning av själva tjänsten för Split-Merge.
 
-   En SQL-autentisering med Läs-och Skriv behörighet till databaser krävs för att tjänsten för delad sammanslagning ska flytta data och uppdatera Shard-kartan. Eftersom tjänsten för delad sammanslagning körs i molnet stöder den inte integrerad autentisering.
+   En SQL-autentisering för inloggning med Läs-/Skriv behörighet till databaser krävs för att Split-Merge tjänsten ska kunna flytta data och uppdatera Shard-kartan. Eftersom Split-Merge tjänsten körs i molnet har den för närvarande inte stöd för integrerad autentisering.
 
    Kontrol lera att servern har kon figurer ATS för att tillåta åtkomst från IP-adressen för den dator som kör dessa skript. Du hittar den här inställningen under SQL Server/brand väggar och virtuella nätverk/klient-IP-adresser.
 
@@ -329,7 +329,7 @@ För att kunna utföra en delnings sammanslagning måste du deklarera de shardad
 
 Ett exempel på detta kan visas i SetupSampleSplitMergeEnvironment.ps1-skriptet.
 
-Tjänsten för delad sammanslagning skapar inte mål databasen (eller schemat för tabeller i databasen) åt dig. De måste skapas i förväg innan en begäran skickas till tjänsten.
+Split-Merge tjänsten skapar inte mål databasen (eller schemat för några tabeller i databasen) åt dig. De måste skapas i förväg innan en begäran skickas till tjänsten.
 
 ## <a name="troubleshooting"></a>Felsökning
 

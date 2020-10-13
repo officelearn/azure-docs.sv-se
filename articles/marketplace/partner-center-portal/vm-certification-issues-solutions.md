@@ -8,10 +8,10 @@ author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
 ms.openlocfilehash: d724ef463d7c7ad237b5fd023e9c15f50de96f04
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91803474"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Vanliga problem vid certifiering av avbildningar av virtuella datorer för Azure Marketplace
@@ -189,7 +189,7 @@ Avbildnings fil versionen kan verifieras från `C:\windows\system32\drivers\srv.
 |Windows Server 2012|6.2.9200.22099|
 |Windows Server 2012 R2|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
-|Windows Server 2019|NA|
+|Windows Server 2019|Ej tillämpligt|
 
 ## <a name="sack-vulnerability-patch-verification"></a>Bekräftelse av sårbarhets sårbarhets korrigering
 
@@ -338,7 +338,7 @@ Steg 3. När du har kört kommandot startar du om den virtuella datorn.
 
 Steg 4. Generalisera den virtuella datorn, ta avbildningen av den virtuella hård disken och stoppa den virtuella datorn.
 
-Steg 5.     Skicka den generaliserade avbildningen igen.
+Steg 5.     Re-Submit den generaliserade avbildningen.
 
 ## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Begär undantag (anpassade mallar) på VM-avbildningar för selektiva tester
 

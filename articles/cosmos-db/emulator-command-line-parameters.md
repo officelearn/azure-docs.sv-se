@@ -8,10 +8,10 @@ ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperfq1
 ms.openlocfilehash: f8bcadf25ac8e001657f2be012f99ddb507e672d
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445187"
 ---
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Kommando rads-och PowerShell-referens för Azure Cosmos DB emulator
@@ -53,7 +53,7 @@ Om du vill visa en lista över alternativ skriver du `Microsoft.Azure.Cosmos.Emu
 |FailOnSslCertificateNameMismatch | Som standard återskapar emulatorn sitt självsignerade TLS/SSL-certifikat om certifikatets SAN inte innehåller emulatorns domän namn, lokal IPv4-adress, localhost och 127.0.0.1. Med det här alternativet går det inte att starta emulatorn vid start i stället. Du bör sedan använda alternativet/GenCert för att skapa och installera ett nytt självsignerat TLS/SSL-certifikat. | Microsoft.Azure.Cosmos.Emulator.exe/FailOnSslCertificateNameMismatch  | |
 | GenCert | Skapa och installera ett nytt självsignerat TLS/SSL-certifikat. Du kan också inkludera en kommaavgränsad lista över ytterligare DNS-namn för att få åtkomst till emulatorn över nätverket. | Microsoft.Azure.Cosmos.Emulator.exe/GenCert =\<dns-names\> |\<dns-names\>: Valfri kommaavgränsad lista över ytterligare DNS-namn  |
 | DirectPorts |Anger portarna som ska användas för direktanslutning. Standardvärdena är 10251, 10252, 10253, 10254. | Microsoft.Azure.Cosmos.Emulator.exe/DirectPorts:\<directports\> | \<directports\>: Kommaavgränsad lista över 4 portar |
-| Nyckel |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | Microsoft.Azure.Cosmos.Emulator.exe/Key:\<key\> | \<key\>: Nyckeln måste vara bas-64-kodningen för en 64-byte-Vector|
+| Tangent |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | Microsoft.Azure.Cosmos.Emulator.exe/Key:\<key\> | \<key\>: Nyckeln måste vara bas-64-kodningen för en 64-byte-Vector|
 | EnableRateLimiting | Anger att begränsande beteende för förfrågningsfrekvens är aktiverat. |Microsoft.Azure.Cosmos.Emulator.exe/EnableRateLimiting | |
 | DisableRateLimiting |Anger att begränsande beteende för förfrågningsfrekvens är inaktiverat. |Microsoft.Azure.Cosmos.Emulator.exe/DisableRateLimiting | |
 | NoUI | Visa inte emulatorns användargränssnitt. | Microsoft.Azure.Cosmos.Emulator.exe/NoUI | |
@@ -143,7 +143,7 @@ Kör följande steg för att ändra antalet behållare som är tillgängliga i A
 
 1. Installera den senaste versionen av [Azure Cosmos-emulatorn](https://aka.ms/cosmosdb-emulator).
 
-1. Starta emulatorn med PartitionCount-flaggan genom att ställa in ett värde <= 250. Till exempel: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
+1. Starta emulatorn med PartitionCount-flaggan genom att ställa in ett värde <= 250. Exempel: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
  
 ## <a name="next-steps"></a>Nästa steg
 

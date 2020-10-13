@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
 ms.openlocfilehash: d1d3ad94957e791b2178b6c60d4c7debdec2b391
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91283436"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuera Ethereum proof-of-Authority – Solution Template på Azure
@@ -95,8 +95,8 @@ Parameter | Beskrivning | Exempelvärde
 Skapa ett nytt nätverk eller Anslut till ett befintligt nätverk | Du kan skapa ett nytt konsortiums nätverk eller ansluta till ett befintligt konsortiums nätverk. För att kunna ansluta till ett befintligt nätverk krävs ytterligare parametrar. | Skapa ny
 E-postadress | Du får ett e-postmeddelande när distributionen är klar med information om distributionen. | En giltig e-postadress
 Användar namn för virtuell dator | Administratörs användar namn för varje distribuerad virtuell dator | 1-64 alfanumeriska tecken
-Autentiseringstyp | Metoden för att autentisera till den virtuella datorn. | Lösenord
-Lösenord | Lösen ordet för administratörs kontot för var och en av de virtuella datorerna som distribueras. Alla virtuella datorer har till början samma lösen ord. Du kan ändra lösen ordet efter etableringen. | 12-72 tecken 
+Autentiseringstyp | Metoden för att autentisera till den virtuella datorn. | lösenordsinställning
+lösenordsinställning | Lösen ordet för administratörs kontot för var och en av de virtuella datorerna som distribueras. Alla virtuella datorer har till början samma lösen ord. Du kan ändra lösen ordet efter etableringen. | 12-72 tecken 
 Prenumeration | Den prenumeration som används för att distribuera konsortiets nätverk |
 Resursgrupp| Den resurs grupp som används för att distribuera konsortial nätverket. | myResourceGroup
 Plats | Azure-regionen för resurs gruppen. | USA, västra 2
@@ -169,8 +169,8 @@ Parameter | Beskrivning | Exempelvärde
 Övervakning | Alternativ för att aktivera övervakning | Aktivera
 Ansluta till befintliga Azure Monitor loggar | Alternativ för att skapa en ny Azure Monitor loggar instans eller ansluta till en befintlig instans | Skapa ny
 Plats | Den region där den nya instansen distribueras | East US
-Befintligt logganalys-arbetsyte-ID (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Arbetsyte-ID för den befintliga Azure Monitor loggar instansen||NA
-Befintlig Log Analytics primär nyckel (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Den primära nyckel som används för att ansluta till den befintliga Azure Monitor loggar instansen||NA
+Befintligt logganalys-arbetsyte-ID (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Arbetsyte-ID för den befintliga Azure Monitor loggar instansen||Ej tillämpligt
+Befintlig Log Analytics primär nyckel (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Den primära nyckel som används för att ansluta till den befintliga Azure Monitor loggar instansen||Ej tillämpligt
 
 Välj **OK**.
 
@@ -685,9 +685,9 @@ Nu när ditt smarta kontrakt har distribuerats kan du skicka en transaktion för
 
 ## <a name="webassembly-wasm-support"></a>WASM-stöd (WebAssembly)
 
-WebAssembly support har redan Aktiver ATS för dig i nyligen distribuerade PoA-nätverk. Det gör det möjligt att utveckla Smart-kontrakt på alla språk som instaplar på webb sammansättning (Rust, C, C++). Mer information finns i: [paritets översikt över WebAssembly](https://wiki.parity.io/WebAssembly-Home) och [självstudie från paritets teknik](https://github.com/paritytech/pwasm-tutorial)
+WebAssembly support har redan Aktiver ATS för dig i nyligen distribuerade PoA-nätverk. Det gör det möjligt att utveckla Smart-kontrakt på alla språk som instaplar i Web-Assembly (Rust, C, C++). Mer information finns i: [paritets översikt över WebAssembly](https://wiki.parity.io/WebAssembly-Home) och [självstudie från paritets teknik](https://github.com/paritytech/pwasm-tutorial)
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 ### <a name="i-notice-there-are-many-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>Jag märker att det finns många transaktioner i nätverket som jag inte har skickat. Var kommer de att komma från?
 

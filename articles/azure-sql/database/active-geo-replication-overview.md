@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
 ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445057"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Skapa och använda aktiv geo-replikering – Azure SQL Database
@@ -54,7 +54,7 @@ Aktiv geo-replikering utnyttjar [Always on-tillgänglighetsgrupper](https://docs
 > Om det uppstår ett nätverks fel mellan två regioner försöker vi igen var 10: e sekund för att återupprätta anslutningarna.
 
 > [!IMPORTANT]
-> För att garantera att en kritisk ändring av den primära databasen replikeras till en sekundär innan du redundansväxlas, kan du framtvinga synkronisering för att säkerställa replikering av kritiska ändringar (till exempel lösen ords uppdateringar). Tvingad synkronisering påverkar prestanda eftersom den blockerar anrops tråden tills alla allokerade transaktioner har repliker ATS. Mer information finns i [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Information om hur du övervakar replikeringsfördröjning mellan den primära databasen och geo-Secondary finns i [sys. dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
+> För att garantera att en kritisk ändring av den primära databasen replikeras till en sekundär innan du redundansväxlas, kan du framtvinga synkronisering för att säkerställa replikering av kritiska ändringar (till exempel lösen ords uppdateringar). Tvingad synkronisering påverkar prestanda eftersom den blockerar anrops tråden tills alla allokerade transaktioner har repliker ATS. Mer information finns i [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Information om hur du övervakar replikeringsfördröjning mellan den primära databasen och geo-Secondary finns [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
 
 Följande bild visar ett exempel på aktiv geo-replikering som kon figurer ATS med en primär i regionen Norra centrala USA och sekundär i regionen Södra centrala USA.
 
@@ -122,9 +122,9 @@ Både primära och sekundära databaser måste ha samma tjänst nivå. Vi rekomm
 
 En annan följd av en obalanserad sekundär konfiguration är att efter redundansväxlingen kan program prestanda försämras på grund av otillräcklig beräknings kapacitet för den nya primära. I så fall är det nödvändigt att skala databas tjänst målet till den nödvändiga nivån, vilket kan ta lång tid och beräkna resurser och kräver en redundansväxling med [hög tillgänglighet](high-availability-sla.md) i slutet av processen.
 
-Om du väljer att skapa den sekundära med lägre beräknings storlek, är loggen i/o procent i Azure Portal ett bra sätt att uppskatta den minimala beräknings storleken för den sekundära som krävs för att upprätthålla belastningen på replikeringen. Om din primära databas till exempel är P6 (1000 DTU) och dess logg skrivnings procent är 50%, måste den sekundära P4 vara minst (500 DTU). Om du vill hämta tidigare logg data i/o använder du vyn [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) . Använd [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) vyn om du vill hämta de senaste logg skrivnings data med högre granularitet som bättre visar kortsiktiga toppar i logg takt.
+Om du väljer att skapa den sekundära med lägre beräknings storlek, är loggen i/o procent i Azure Portal ett bra sätt att uppskatta den minimala beräknings storleken för den sekundära som krävs för att upprätthålla belastningen på replikeringen. Om din primära databas till exempel är P6 (1000 DTU) och dess logg skrivnings procent är 50%, måste den sekundära P4 vara minst (500 DTU). Om du vill hämta tidigare logg-IO-data använder du vyn [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) . Använd [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) vyn om du vill hämta de senaste logg skrivnings data med högre granularitet som bättre visar kortsiktiga toppar i logg takt.
 
-Begränsning av transaktions logg frekvensen på den primära på grund av lägre beräknings storlek på en sekundär rapporteras med hjälp av HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO vänte typ, som visas i [sys. dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) -och [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) databasvyer.
+Begränsning av transaktions logg frekvensen på den primära på grund av lägre beräknings storlek på en sekundär rapporteras med hjälp av HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO vänte typ, synlig i [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) och [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) databasvyer.
 
 Som standard är den sekundära lagringen för säkerhets kopieringen densamma som den primära databasen. Du kan välja att konfigurera den sekundära med en annan redundans för lagring av säkerhets kopior. Säkerhets kopieringar görs alltid på den primära databasen. Om den sekundära har kon figurer ATS med en annan redundans för säkerhets kopiering, efter redundansväxlingen när den sekundära platsen höjs till den primära, faktureras säkerhets kopior enligt den lagrings redundans som valts på den nya primära (tidigare sekundära). 
 
@@ -235,7 +235,7 @@ På grund av den höga svars tiden för Wide Area Networks använder kontinuerli
 
 ## <a name="monitoring-geo-replication-lag"></a>Övervakning av geo-replikering – fördröjning
 
-Om du vill övervaka fördröjningen med avseende på återställnings punkt använder du *replication_lag_sec* kolumn i [sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) på den primära databasen. Det visar fördröjning i sekunder mellan de transaktioner som har allokerats på den primära och behålls på den sekundära. T.ex. Om värdet för fördröjningen är 1 sekund, innebär det att om den primära påverkas av ett avbrott vid detta tillfälle och redundansväxlingen initieras, kommer 1 sekund av de senaste över gångarna inte att sparas.
+Om du vill övervaka fördröjningen med avseende på återställnings punkt använder du *replication_lag_sec* kolumn för [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) på den primära databasen. Det visar fördröjning i sekunder mellan de transaktioner som har allokerats på den primära och behålls på den sekundära. T.ex. Om värdet för fördröjningen är 1 sekund, innebär det att om den primära påverkas av ett avbrott vid detta tillfälle och redundansväxlingen initieras, kommer 1 sekund av de senaste över gångarna inte att sparas.
 
 För att mäta en fördröjning med avseende på ändringar på den primära databasen som har tillämpats på den sekundära, som är tillgänglig att läsa från den sekundära, jämför *last_commit* tid på den sekundära databasen med samma värde i den primära databasen.
 
@@ -256,9 +256,9 @@ Som tidigare nämnts kan aktiv geo-replikering även hanteras via programmering 
 | [ÄNDRA DATABAS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Använd Lägg till SEKUNDÄRt på SERVER argument för att skapa en sekundär databas för en befintlig databas och starta datareplikering |
 | [ÄNDRA DATABAS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Använd REDUNDANS eller FORCE_FAILOVER_ALLOW_DATA_LOSS för att växla en sekundär databas till att vara primär för att initiera redundans |
 | [ÄNDRA DATABAS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Använd ta bort sekundär på servern om du vill avsluta en datareplikering mellan en SQL Database och den angivna sekundära databasen. |
-| [sys. geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Returnerar information om alla befintliga länkar för replikering för varje databas på en server. |
-| [sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Hämtar den senaste replikerings tiden, den senaste replikeringsfördröjning och annan information om replikeringslänken för en specifik databas. |
-| [sys. dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Visar status för alla databas åtgärder inklusive status för replikeringslänken. |
+| [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Returnerar information om alla befintliga länkar för replikering för varje databas på en server. |
+| [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Hämtar den senaste replikerings tiden, den senaste replikeringsfördröjning och annan information om replikeringslänken för en specifik databas. |
+| [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Visar status för alla databas åtgärder inklusive status för replikeringslänken. |
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |gör att programmet väntar tills alla genomförda transaktioner replikeras och bekräftas av den aktiva sekundära databasen. |
 |  | |
 
@@ -288,8 +288,8 @@ Som tidigare nämnts kan aktiv geo-replikering även hanteras via programmering 
 | [Hämta databas status för att skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Returnerar status under en åtgärd för att skapa. |
 | [Ange sekundär databas som primär (planerad redundansväxling)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Anger vilken sekundär databas som är primär genom att redundansväxla från den aktuella primära databasen. **Det här alternativet stöds inte för SQL-hanterad instans.**|
 | [Ange sekundär databas som primär (oplanerad redundansväxling)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Anger vilken sekundär databas som är primär genom att redundansväxla från den aktuella primära databasen. Den här åtgärden kan leda till data förlust. **Det här alternativet stöds inte för SQL-hanterad instans.**|
-| [Hämta replikeringslänk](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Hämtar en specifik replikeringslänk för en angiven databas i en partnerskap för geo-replikering. Den hämtar informationen som visas i vyn sys. geo_replication_links Catalog. **Det här alternativet stöds inte för SQL-hanterad instans.**|
-| [Länkar för replikering – lista efter databas](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Hämtar alla länkar för replikering för en specifik databas i en partnerskap med geo-replikering. Den hämtar informationen som visas i vyn sys. geo_replication_links Catalog. |
+| [Hämta replikeringslänk](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Hämtar en specifik replikeringslänk för en angiven databas i en partnerskap för geo-replikering. Den hämtar informationen som visas i vyn sys.geo_replication_links katalog. **Det här alternativet stöds inte för SQL-hanterad instans.**|
+| [Länkar för replikering – lista efter databas](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Hämtar alla länkar för replikering för en specifik databas i en partnerskap med geo-replikering. Den hämtar informationen som visas i vyn sys.geo_replication_links katalog. |
 | [Ta bort replikeringslänk](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Tar bort en länk till databasreplikering. Kan inte utföras under redundansväxling. |
 |  | |
 

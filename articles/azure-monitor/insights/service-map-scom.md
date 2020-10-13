@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
 ms.openlocfilehash: 489b4bfee1eaa2c381b16e88dbcc0bcb7fd8555f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91441502"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrera System Center Operations Manager med Azure Monitor for VMs kart funktion
@@ -20,7 +20,7 @@ I Azure Monitor for VMs kan du Visa identifierade program komponenter på virtue
 >[!NOTE]
 >Om du redan har distribuerat Tjänstkarta kan du Visa dina kartor i Azure Monitor for VMs, som innehåller ytterligare funktioner för att övervaka hälso tillstånd och prestanda för virtuella datorer. Kart funktionen i Azure Monitor for VMs är avsedd att ersätta den fristående Tjänstkarta-lösningen. Läs mer i [Azure Monitor for VMS översikt](vminsights-overview.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En System Center Operations Manager hanterings grupp (2012 R2 eller senare).
 * En Log Analytics arbets yta som har kon figurer ATS för att stödja Azure Monitor for VMs.

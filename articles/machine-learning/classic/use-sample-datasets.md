@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
 ms.openlocfilehash: 6b252164027f07e4f26ab84ac12e2425e1da05f5
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91357309"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Använd exempel data uppsättningarna i Azure Machine Learning Studio (klassisk)
@@ -92,7 +92,7 @@ Koden för att konvertera avbildningen finns på informations sidan om <strong>f
 <tr>
   <td>Blod donations data</td>
   <td>
-En delmängd av data från blod donator databasen för blod transfusions tjänst Center för Hsin-chu City, Taiwan.
+En delmängd av data från blod donator databasen för blod transfusions tjänst Center för Hsin-Chu City, Taiwan.
 <p></p>
 Donator data inkluderar de månader sedan senaste donationen) och frekvens, eller det totala antalet donationer, tid sedan senaste donation och mängden blod som donerats.
 <p></p>
@@ -158,7 +158,7 @@ Etiketter från KDD-bägaren 2009-förfrågan om kund Relations förutsägelse (
 </tr>
 
 <tr>
-  <td>Regressions data för energi effektivitet</td>
+  <td>Energy-Efficiency Regressions data</td>
   <td>
 En samling simulerade energi profiler, baserat på 12 olika byggnads former. Byggnaderna skiljs åt av åtta funktioner. Detta omfattar glas rutor, distribution av glas områden och orientering.
 <p></p>
@@ -172,7 +172,7 @@ En samling simulerade energi profiler, baserat på 12 olika byggnads former. Byg
   <td>
 Prestanda data för passagerar flygning i tid som tagits från TranStats-datainsamlingen för USA: s transport (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">i tid</a>).
 <p></p>
-Data uppsättningen täcker den tids period som april – oktober 2013. Innan du överför till Azure Machine Learning Studio (klassisk) bearbetades data uppsättningen på följande sätt:
+Data uppsättningen täcker tids perioden April-October 2013. Innan du överför till Azure Machine Learning Studio (klassisk) bearbetades data uppsättningen på följande sätt:
 <ul>
   <li>Data uppsättningen har filtrerats för att endast avse 70 vanligaste-flyg platserna i kontinental USA</li>
   <li>Annullerade flygningar har märkts som fördröjda med mer än 15 minuter</li>
@@ -332,7 +332,7 @@ Observera också att antalet bakgrunds händelser (h, för hadronic duschar) är
   <td>
 Varje timmes markbaserade väderleks observationer från NOAA (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">sammanfogade data från 201304 till 201310</a>).
 <p></p>
-Väder data täcker observationer som gjorts från flyg platsens väderleks stationer, som omfattar den period som april – 2013 oktober. Innan du överför till Azure Machine Learning Studio (klassisk) bearbetades data uppsättningen på följande sätt:
+Väder data täcker observationer som gjorts från flyg platsens väder stationer, som omfattar tids perioden April-October 2013. Innan du överför till Azure Machine Learning Studio (klassisk) bearbetades data uppsättningen på följande sätt:
 <ul>
   <li>Väder Stations-ID: n mappades till motsvarande flyg plats-ID</li>
   <li>Väder stationer som inte är kopplade till 70 vanligaste-flyg platserna filtrerades bort</li>

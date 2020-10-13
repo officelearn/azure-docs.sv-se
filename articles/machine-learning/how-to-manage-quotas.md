@@ -12,10 +12,10 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
 ms.openlocfilehash: 4e5634633aacb56e7c7744b3afdb3aec0fe2b70f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629598"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Hantera & öka kvoter för resurser med Azure Machine Learning
@@ -69,11 +69,11 @@ Tillgängliga resurser:
 | Högsta antal GPU MPI-processer per nod | 1-4 |
 | Maximalt antal GPU-arbetare per nod | 1-4 |
 | Maximal jobb livs längd | 21 dagar<sup>1</sup> |
-| Maximal jobb livs längd för en nod med låg prioritet | 7 dagar<sup>2</sup> |
+| Maximal jobb livs längd på en Low-Priority nod | 7 dagar<sup>2</sup> |
 | Maximalt antal parameter servrar per nod | 1 |
 
 <sup>1</sup> den högsta livstiden avser den tid som en körning startar och när den har slutförts. Slutförda körningar sparas oändligt. data för körningar som inte slutförts inom den maximala livs längden är inte tillgängliga.
-<sup>2</sup> jobb på en nod med låg prioritet kan åsidosättas när som helst i en kapacitets begränsning. Vi rekommenderar att du implementerar kontroll punkter i jobbet.
+<sup>2</sup> jobb på en Low-Priority-nod kan när som helst vänta på att det finns en kapacitets begränsning. Vi rekommenderar att du implementerar kontroll punkter i jobbet.
 
 ### <a name="azure-machine-learning-pipelines"></a>Azure Machine Learning pipelines
 För [Azure Machine Learning pipeliner](concept-ml-pipelines.md)finns en kvot gräns för antalet steg i en pipeline och antalet schemabaserade körningar av publicerade pipelines per region i en prenumeration.
@@ -149,7 +149,7 @@ Använd följande steg för att begära en ersättning för dessa scenarier:
 
 1. [Skapa en support förfrågan för Azure](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) och välj följande alternativ i avsnittet __grundläggande__ information:
 
-    | Fält | Urval |
+    | Field | Urval |
     | ----- | ----- |
     | Typ av problem | Teknik |
     | Tjänst | Mina tjänster. Välj __Machine Learning__ i list rutan. |

@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 46eee878ba8cf1d12edf262241d5df8ef8ccc82f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442941"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Kom igång med Elastic Database verktyg
@@ -25,7 +25,7 @@ I det här dokumentet får du en introduktion till utvecklaren för [klient bibl
 
 ## <a name="elastic-database-tools-for-java"></a>Elastic Database verktyg för Java
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * Java Developer Kit (JDK), version 1,8 eller senare
 * [Maven](https://maven.apache.org/download.cgi)
@@ -72,7 +72,7 @@ Om du vill lägga till klient biblioteket i ditt eget Maven-projekt lägger du t
 
 ## <a name="elastic-database-tools-for-net"></a>Elastic Database verktyg för .NET
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * Visual Studio 2012 eller senare med C#. Ladda ned en kostnads fri version vid [hämtning av Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2,7 eller senare. För att hämta den senaste versionen, se [Installera NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
@@ -116,7 +116,7 @@ Grattis! Du har skapat och kört ditt första shardade-program genom att använd
 
 * **Sammanfogar befintliga Shards**: Shard-sammanslagningar utförs också med hjälp av verktyget för att dela och slå samman. Mer information finns i [Flytta data mellan utskalade moln databaser](elastic-scale-overview-split-and-merge.md).
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Kostnad
 
 Elastic Database tools-biblioteket är kostnads fritt. När du använder Elastic Database verktyg debiteras du inga ytterligare avgifter utöver kostnaden för din Azure-användning.
 

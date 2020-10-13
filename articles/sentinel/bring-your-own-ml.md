@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
 ms.openlocfilehash: 17c0ba7306ab4cc51fe8bbe3709d5b6bc85fa487
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347510"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Ta med din egen Machine Learning (ML) till Azure Sentinel
@@ -79,7 +79,7 @@ Om du redan har Databricks eller någon annan Spark-miljö, och föredrar att an
 
 BYOD ML-paketet innehåller bästa praxis och forskning från Microsoft i den första delen av ML för säkerhet. I det här paketet innehåller vi följande lista över verktyg, mallar för bärbara datorer och algoritmer för säkerhets problem.
 
-| Filnamn | Description |
+| Filnamn | Beskrivning |
 | --------- | ----------- |
 | azure_sentinel_utilities. WHL | Innehåller verktyg för att läsa blobbar från Azure och skriva till Log Analytics. |
 | AnomalousRASampleData | Antecknings boken demonstrerar användningen av avvikande resurs åtkomst modell i Sentinel med genererad utbildning och testning av exempel data. |
@@ -159,13 +159,13 @@ När du har fått den schemalagda poängen kan du använda modulen i antecknings
 
 Gå tillbaka till Azure Sentinel-portalen för att se resultatet av dina resultat tillsammans med relaterad logg information. I **loggar** > anpassade loggar visas resultaten i **AnomalousResourceAccessResult_CLs** tabellen (eller ditt eget anpassade tabell namn). Du kan använda dessa resultat för att förbättra dina undersökningar och jakt upplevelser.
 
-:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="avvikande resurs åtkomst loggar":::
+:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="ramverk för Machine Learning":::
 
 ### <a name="build-custom-analytics-rule-with-ml-results"></a>Bygg en anpassad analys regel med ML-resultat
 
 När du har bekräftat att ML-resultaten finns i tabellen anpassade loggar och du är nöjd med resultatet av poängen kan du skapa en identifiering baserat på resultaten. Gå till **analyser** från Azure Sentinel-portalen och [skapa en ny identifierings regel](tutorial-detect-threats-custom.md). Nedan visas ett exempel som visar frågan som används för att skapa identifieringen.
 
-:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="Skapa anpassad analys regel för B Y O M L-identifieringar":::
+:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="ramverk för Machine Learning":::
 
 ### <a name="view-and-respond-to-incidents"></a>Visa och svara på incidenter
 När du har konfigurerat analys regeln baserat på ML-resultatet, om det finns resultat ovanför tröskelvärdet som du ställer in i frågan, genereras en incident som visas på sidan **incidenter** på Azure Sentinel. 

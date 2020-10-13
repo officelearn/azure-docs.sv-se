@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 4fc25edb873a2dfe84f6ca716a71cf028c74cb2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383945"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C gransknings loggar
@@ -51,7 +51,7 @@ I den här exempel bilden från Azure Portal visas de data som registrerats när
 
 Panelen aktivitets information innehåller följande relevanta information:
 
-|Avsnitt|Fält|Beskrivning|
+|Section|Field|Beskrivning|
 |-------|-----|-----------|
 | Aktivitet | Name | Vilken aktivitet som ägde rum. Du kan till exempel *utfärda en id_token till programmet*, vilket avslutar den faktiska användar inloggningen. |
 | Initierad av (aktör) | ObjectId | **Objekt-ID** för det B2C-program som användaren loggar in på. Den här identifieraren visas inte i Azure Portal, men är tillgänglig via Microsoft Graph API. |
@@ -65,7 +65,7 @@ Panelen aktivitets information innehåller följande relevanta information:
 
 Azure Portal ger till gång till Gransknings logg händelser i Azure AD B2C klienten.
 
-1. Logga in på [Azure Portal](https://portal.azure.com)
+1. Logga in på [Azure-portalen](https://portal.azure.com)
 1. Växla till den katalog som innehåller Azure AD B2C klienten och bläddra sedan till **Azure AD B2C**.
 1. Under **aktiviteter** i den vänstra menyn väljer du **gransknings loggar**.
 
@@ -98,7 +98,7 @@ Följ stegen i följande artikel för att registrera ett program med de behörig
 
 När du har registrerat ett program med rätt behörigheter, se avsnittet PowerShell-skript senare i den här artikeln för ett exempel på hur du kan hämta aktivitets händelser med ett skript.
 
-### <a name="access-the-api"></a>Åtkomst till API: et
+### <a name="access-the-api"></a>Åtkomst till API:et
 
 Du kan hämta Azure AD B2C Gransknings logg händelser via API: et genom att filtrera loggarna på `B2C` kategorin. Om du vill filtrera efter kategori använder `filter` du frågesträngparametern när du anropar slut punkten för Azure AD repor ting API.
 

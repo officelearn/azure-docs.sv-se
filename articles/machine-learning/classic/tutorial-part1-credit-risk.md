@@ -10,10 +10,10 @@ ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
 ms.openlocfilehash: 6947c567ee2ffd70fdb3a1dfc17a641f63124ffb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91348816"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Självstudie 1: förutsägelse kredit risk-Azure Machine Learning Studio (klassisk)
@@ -40,7 +40,7 @@ I den här delen av självstudien ska du:
 
 Du kan sedan använda det här experimentet till att [träna modeller i del 2](tutorial-part2-credit-risk-train.md) och sedan [distribuera dem i del 3](tutorial-part3-credit-risk-deploy.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I den här självstudien förutsätter vi att du har använt Machine Learning Studio (klassisk) minst en gång innan och att du har kunskaper om Machine Learning-koncept. Men vi förväntar oss inte att du är en expert.
 

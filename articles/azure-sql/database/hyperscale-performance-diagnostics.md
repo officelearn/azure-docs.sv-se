@@ -11,10 +11,10 @@ ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
 ms.openlocfilehash: 7bd2b404627e21a80fc41a4561300d7252d1519c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84324408"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL-storskalig prestanda vid fel sökning av diagnostik
@@ -26,7 +26,7 @@ För att felsöka prestanda problem i en storskalig databas är [allmänna prest
 
 Varje Azure SQL Database Service nivå har gränser för logg skapande hastighet som tillämpas via [styrning av logg hastighet](resource-limits-logical-server.md#transaction-log-rate-governance). I hög skala är gränsen för logg skapande inställd på 100 MB/SEK, oavsett tjänst nivå. Det finns dock tillfällen då logg skapande frekvensen för den primära beräknings repliken måste begränsas för att upprätthålla återställnings service avtal. Den här begränsningen inträffar när en [sid Server eller en annan beräknings replik](service-tier-hyperscale.md#distributed-functions-architecture) är betydligt bakom att använda nya logg poster från logg tjänsten.
 
-Följande vänte typer (i [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) beskriver orsakerna till varför logg frekvensen kan begränsas på den primära beräknings repliken:
+Följande vänte typer (i [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) beskriver orsakerna till varför logg takten kan begränsas på den primära beräknings repliken:
 
 |Wait-typ    |Beskrivning                         |
 |-------------          |------------------------------------|
@@ -45,11 +45,11 @@ Flera dynamiska vyer (DMV: er) och utökade händelser har kolumner och fält so
 
 - Kolumner för att rapportera sid Server läsningar är tillgängliga i DMV: er och katalogvyer, till exempel:
 
-  - [sys. dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
-  - [sys. dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
-  - [sys. dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
-  - [sys. dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
-  - [sys. query_store_runtime_stats](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql/)
+  - [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
+  - [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
+  - [sys.dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
+  - [sys.dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
+  - [sys.query_store_runtime_stats](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql/)
 - Sid Server läsningar läggs till i följande utökade händelser:
   - sql_statement_completed
   - sp_statement_completed
@@ -58,7 +58,7 @@ Flera dynamiska vyer (DMV: er) och utökade händelser har kolumner och fält so
   - scan_stopped
   - query_store_begin_persist_runtime_stat
   - fråga – store_execution_runtime_info
-- ActualPageServerReads/ActualPageServerReadAheads läggs till i Query plan-XML för faktiska planer. Ett exempel:
+- ActualPageServerReads/ActualPageServerReadAheads läggs till i Query plan-XML för faktiska planer. Exempel:
 
 `<RunTimeCountersPerThread Thread="8" ActualRows="90466461" ActualRowsRead="90466461" Batches="0" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row" ActualElapsedms="133645" ActualCPUms="85105" ActualScans="1" ActualLogicalReads="6032256" ActualPhysicalReads="0" ActualPageServerReads="0" ActualReadAheads="6027814" ActualPageServerReadAheads="5687297" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobPageServerReads="0" ActualLobReadAheads="0" ActualLobPageServerReadAheads="0" />`
 
@@ -67,11 +67,11 @@ Flera dynamiska vyer (DMV: er) och utökade händelser har kolumner och fält so
 
 ## <a name="virtual-file-stats-and-io-accounting"></a>Virtuell fil statistik och IO-redovisning
 
-I Azure SQL Database är [sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF det främsta sättet att övervaka SQL Database IO. I/o-egenskaper i storskaliga är olika på grund av dess [distribuerade arkitektur](service-tier-hyperscale.md#distributed-functions-architecture). I det här avsnittet fokuserar vi på IO (läsningar och skrivningar) till datafiler som visas i den här DMF-filen. I stor skala motsvarar varje datafil som visas i den här DMF en fjärrwebbserver. RBPEX-cachen som nämns här är en lokal SSD-baserad cache, som är en icke-handelscache på beräknings repliken.
+I Azure SQL Database är [sys.dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF det främsta sättet att övervaka SQL Database IO. I/o-egenskaper i storskaliga är olika på grund av dess [distribuerade arkitektur](service-tier-hyperscale.md#distributed-functions-architecture). I det här avsnittet fokuserar vi på IO (läsningar och skrivningar) till datafiler som visas i den här DMF-filen. I stor skala motsvarar varje datafil som visas i den här DMF en fjärrwebbserver. RBPEX-cachen som nämns här är en lokal SSD-baserad cache, som är en icke-handelscache på beräknings repliken.
 
 ### <a name="local-rbpex-cache-usage"></a>Lokal RBPEX-cache-användning
 
-Den lokala RBPEX-cachen finns på beräknings repliken på lokal SSD-lagring. Därför är i/o för denna cache snabbare än i/o mot fjärrservrar. För närvarande har [sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) i en storskalig databas en särskild rad som rapporterar IO mot den lokala RBPEX-cachen på beräknings repliken. Den här raden har värdet 0 för båda `database_id` `file_id` kolumnerna och. Frågan nedan returnerar t. ex. RBPEX användnings statistik sedan databasen startades.
+Den lokala RBPEX-cachen finns på beräknings repliken på lokal SSD-lagring. Därför är i/o för denna cache snabbare än i/o mot fjärrservrar. För närvarande har [sys.dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) i en storskalig databas en särskild rad som rapporterar IO mot den lokala RBPEX-cachen på beräknings repliken. Den här raden har värdet 0 för båda `database_id` `file_id` kolumnerna och. Frågan nedan returnerar t. ex. RBPEX användnings statistik sedan databasen startades.
 
 `select * from sys.dm_io_virtual_file_stats(0,NULL);`
 
@@ -92,16 +92,16 @@ Förhållandet mellan läsningar som gjorts på RBPEX till sammanställda läsni
 
 ### <a name="log-writes"></a>Logg skrivningar
 
-- Vid den primära beräkningen redovisas logg skrivningen för i file_id 2 av sys. dm_io_virtual_file_stats. En logg skrivning vid primär beräkning är en skrivning till loggens landnings zon.
+- Vid den primära beräkningen redovisas logg skrivningen för i file_id 2 av sys.dm_io_virtual_file_stats. En logg skrivning vid primär beräkning är en skrivning till loggens landnings zon.
 - Logg poster skärps inte på den sekundära repliken vid genomförande. I den storskaliga loggen tillämpas logg tjänsten på de sekundära replikerna asynkront. Eftersom logg skrivningar inte inträffar på sekundära repliker, är all redovisning av logg-IOs på de sekundära replikerna endast i spårnings syfte.
 
 ## <a name="data-io-in-resource-utilization-statistics"></a>Data-i/o i statistik över resursutnyttjande
 
-I en icke-storskalig databas rapporteras kombinerade Läs-och skriv-IOPS mot datafiler, i förhållande till antalet [resurs styrnings](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) data IOPS, i [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) och [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) vyer i `avg_data_io_percent` kolumnen. Samma värde rapporteras i procent av Azure Portal som _data-IO_.
+I en icke-storskalig databas rapporteras kombinerad läsning och skrivning av IOPS mot datafiler, i förhållande till den [resurs styrningens](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) IOPS-gräns, i [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) och [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) vyer i `avg_data_io_percent` kolumnen. Samma värde rapporteras i procent av Azure Portal som _data-IO_.
 
 I en storskalig databas rapporterar den här kolumnen om data-IOPS-användning i förhållande till gränsen för lokal lagring på beräknings replik, särskilt i/o mot RBPEX och `tempdb` . Ett värde på 100% i den här kolumnen visar att resurs styrning begränsar lokal lagrings-IOPS. Om detta korreleras med ett prestanda problem kan du justera arbets belastningen för att generera mindre IO eller öka databas tjänst målet för att öka resurs styrningens _maximala IOPS_ - [gräns](resource-limits-vcore-single-databases.md). För resurs styrning av RBPEX-läsningar och skrivningar räknar systemet enskilda 8 KB-IOs i stället för större IOs som kan utfärdas av den SQL Server databas motorn.
 
-Data-i/o mot fjärrservrar har inte rapporter ATS i vyer för resursanvändning eller i portalen, men rapporteras i [sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF, som tidigare nämnts.
+Data-IO mot fjärrservrar rapporteras inte i vyer för resursanvändning eller i portalen, men rapporteras i [sys.dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF, som tidigare nämnts.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

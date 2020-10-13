@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: cae29954211e62601debb35d76f938fb6a92779e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284616"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Använd D:-enheten som en data enhet på en virtuell Windows-dator
@@ -35,7 +35,7 @@ Först måste du koppla data disken till den virtuella datorn. Information om hu
 6. I avsnittet **virtuellt minne** väljer du **ändra**.
 7. Välj enhet **C** och klicka sedan på **Systemhanterad storlek** och klicka sedan på **Ange**.
 8. Välj enheten **D** och klicka sedan på **ingen växlings fil** och klicka sedan på **Ange**.
-9. Klicka på Använd. Du får en varning om att datorn måste startas om för att ändringarna ska börja gälla.
+9. Klicka på Applicera. Du får en varning om att datorn måste startas om för att ändringarna ska börja gälla.
 10. Starta om den virtuella datorn.
 
 ## <a name="change-the-drive-letters"></a>Ändra enhets beteckningar
@@ -54,7 +54,7 @@ Först måste du koppla data disken till den virtuella datorn. Information om hu
 5. I avsnittet **virtuellt minne** väljer du **ändra**.
 6. Välj OS-enhet **C** och klicka på **ingen växlings fil** och klicka sedan på **Ange**.
 7. Välj den tillfälliga lagrings enheten **T** och klicka sedan på **Systemhanterad storlek** och klicka sedan på **Ange**.
-8. Klicka på **Använd**. Du får en varning om att datorn måste startas om för att ändringarna ska börja gälla.
+8. Klicka på **Applicera**. Du får en varning om att datorn måste startas om för att ändringarna ska börja gälla.
 9. Starta om den virtuella datorn.
 
 ## <a name="next-steps"></a>Nästa steg

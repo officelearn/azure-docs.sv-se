@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 07/14/2020
 ms.author: apimpm
 ms.openlocfilehash: 99784e43130b70554c05ff79a10993f2b6eebbde
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499621"
 ---
 # <a name="api-management-cross-domain-policies"></a>Korsdomänprinciper för API Management
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a>Kors domän principer
+## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a> Kors domän principer
 
 - [Tillåt kors domän anrop](api-management-cross-domain-policies.md#AllowCrossDomainCalls) – gör API: et tillgängligt från webbläsarbaserade Adobe Flash-och Microsoft Silverlight-baserade klienter.
 - [CORS](api-management-cross-domain-policies.md#CORS) – lägger till CORS-stöd (Cross-Origin Resource Sharing) till en åtgärd eller ett API för att tillåta kors domän anrop från webbläsarbaserade klienter.
 - [JSONP](api-management-cross-domain-policies.md#JSONP) – lägger till JSON med JSONP-stöd (JSON with utfyllnad) till en åtgärd eller ett API för att tillåta kors domän anrop från Java Script browser-baserade klienter.
 
-## <a name="allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a>Tillåt anrop mellan domäner
+## <a name="allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a> Tillåt anrop mellan domäner
 Använd `cross-domain` principen för att göra API: et tillgängligt från webbläsarbaserade klienter i Adobe Flash och Microsoft Silverlight.
 
 ### <a name="policy-statement"></a>Princip kommentar
@@ -63,7 +63,7 @@ Den här principen kan användas i följande princip [avsnitt](./api-management-
 - **Princip avsnitt:** inkommande
 - **Princip omfattningar:** alla omfattningar
 
-## <a name="cors"></a><a name="CORS"></a>CORS
+## <a name="cors"></a><a name="CORS"></a> CORS
 `cors`Principen lägger till CORS-stöd (Cross-Origin Resource Sharing) till en åtgärd eller ett API för att tillåta kors domän anrop från webbläsarbaserade klienter.
 
 CORS gör det möjligt för en webbläsare och en server att samverka och avgöra om det ska gå att tillåta vissa cross-origin-begäranden (d.v.s. XMLHttpRequests-anrop som görs från Java Script på en webb sida till andra domäner). Detta ger större flexibilitet än att bara tillåta begär Anden om samma ursprung, men det är säkrare än att tillåta alla cross-origin-begäranden.
@@ -124,23 +124,23 @@ I det här exemplet visas hur du stöder för-flygnings begär Anden, t. ex. de 
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Krävs|Default|
 |----------|-----------------|--------------|-------------|
 |CORS|Rot element.|Ja|E.t.|
-|tillåtna-ursprung|Innehåller `origin` element som beskriver tillåtna ursprung för frågor mellan domäner. `allowed-origins`kan innehålla antingen ett enda `origin` element som anger `*` att alla ursprung eller ett eller flera `origin` element som innehåller en URI ska tillåtas.|Ja|E.t.|
+|tillåtna-ursprung|Innehåller `origin` element som beskriver tillåtna ursprung för frågor mellan domäner. `allowed-origins` kan innehålla antingen ett enda `origin` element som anger `*` att alla ursprung eller ett eller flera `origin` element som innehåller en URI ska tillåtas.|Ja|E.t.|
 |ursprung|Värdet kan antingen vara `*` att tillåta alla ursprung eller en URI som anger ett enda ursprung. URI: n måste innehålla ett schema, en värd och en port.|Ja|Om porten utelämnas i en URI används port 80 för HTTP och port 443 för HTTPS.|
-|tillåtna metoder|Det här elementet krävs om andra metoder än GET eller POST tillåts. Innehåller `method` element som anger de HTTP-verb som stöds. Värdet `*` anger alla metoder.|Nej|Om det här avsnittet inte finns stöds GET och POST.|
+|tillåtna metoder|Det här elementet krävs om andra metoder än GET eller POST tillåts. Innehåller `method` element som anger de HTTP-verb som stöds. Värdet `*` anger alla metoder.|Inga|Om det här avsnittet inte finns stöds GET och POST.|
 |metod|Anger ett HTTP-verb.|Minst ett- `method` element krävs om `allowed-methods` avsnittet finns.|E.t.|
-|tillåtna – rubriker|Det här elementet innehåller `header` element som anger namn på de huvuden som kan tas med i begäran.|Nej|E.t.|
-|exponera – rubriker|Det här elementet innehåller `header` element som anger namn på de rubriker som ska vara tillgängliga för klienten.|Nej|Saknas|
+|tillåtna – rubriker|Det här elementet innehåller `header` element som anger namn på de huvuden som kan tas med i begäran.|Inga|E.t.|
+|exponera – rubriker|Det här elementet innehåller `header` element som anger namn på de rubriker som ska vara tillgängliga för klienten.|Inga|Saknas|
 |sidhuvud|Anger ett rubrik namn.|Minst ett `header` element krävs i `allowed-headers` eller `expose-headers` om avsnittet är tillgängligt.|E.t.|
 
 ### <a name="attributes"></a>Attribut
 
-|Name|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Krävs|Default|
 |----------|-----------------|--------------|-------------|
-|Tillåt-autentiseringsuppgifter|`Access-Control-Allow-Credentials`Rubriken i preflight-svaret anges till värdet för det här attributet och påverkar klientens möjlighet att skicka autentiseringsuppgifter i kors domän begär Anden.|Nej|falskt|
-|preflight-resultat-max-ålder|`Access-Control-Max-Age`Rubriken i preflight-svaret ställs in på värdet för det här attributet och påverkar användar agentens möjlighet att cachelagra svar före flygning.|Nej|0|
+|Tillåt-autentiseringsuppgifter|`Access-Control-Allow-Credentials`Rubriken i preflight-svaret anges till värdet för det här attributet och påverkar klientens möjlighet att skicka autentiseringsuppgifter i kors domän begär Anden.|Inga|falskt|
+|preflight-resultat-max-ålder|`Access-Control-Max-Age`Rubriken i preflight-svaret ställs in på värdet för det här attributet och påverkar användar agentens möjlighet att cachelagra svar före flygning.|Inga|0|
 
 ### <a name="usage"></a>Användning
 Den här principen kan användas i följande princip [avsnitt](./api-management-howto-policies.md#sections) och [områden](./api-management-howto-policies.md#scopes).
@@ -148,7 +148,7 @@ Den här principen kan användas i följande princip [avsnitt](./api-management-
 - **Princip avsnitt:** inkommande
 - **Princip omfattningar:** alla omfattningar
 
-## <a name="jsonp"></a><a name="JSONP"></a>JSONP
+## <a name="jsonp"></a><a name="JSONP"></a> JSONP
 `jsonp`Principen lägger till JSON med stöd för JSONP-stöd (JSON with utfyllnad) i en åtgärd eller ett API för att tillåta kors domän anrop från Java Script browser-baserade klienter. JSONP är en metod som används i JavaScript-program för att begära data från en server i en annan domän. JSONP kringgår begränsningen som tillämpas av de flesta webbläsare där åtkomst till webb sidor måste finnas i samma domän.
 
 ### <a name="policy-statement"></a>Princip kommentar
@@ -165,7 +165,7 @@ Den här principen kan användas i följande princip [avsnitt](./api-management-
 
 Om du anropar-metoden utan callback-parametern? CB = XXX kommer den att returnera vanlig JSON (utan ett funktions anrop).
 
-Om du lägger till en callback `?cb=XXX` -parameter returnerar den ett JSONP-resultat och omsluter de ursprungliga JSON-resultaten runt motringningsfunktionen som`XYZ('<json result goes here>');`
+Om du lägger till en callback `?cb=XXX` -parameter returnerar den ett JSONP-resultat och omsluter de ursprungliga JSON-resultaten runt motringningsfunktionen som `XYZ('<json result goes here>');`
 
 ### <a name="elements"></a>Element
 
@@ -175,7 +175,7 @@ Om du lägger till en callback `?cb=XXX` -parameter returnerar den ett JSONP-res
 
 ### <a name="attributes"></a>Attribut
 
-|Name|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Krävs|Default|
 |----------|-----------------|--------------|-------------|
 |motanrop-parameter-Name|JavaScript-funktionen för Cross-Domain anropas med det fullständigt kvalificerade domän namnet där funktionen finns.|Ja|E.t.|
 

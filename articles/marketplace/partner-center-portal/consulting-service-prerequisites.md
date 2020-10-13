@@ -8,10 +8,10 @@ author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 05/08/2020
 ms.openlocfilehash: ef840985053289858f5145bafa4e51ad84734b66
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86111447"
 ---
 # <a name="consulting-service-prerequisites"></a>Krav för konsult tjänster
@@ -20,7 +20,7 @@ Information om erbjudandet om konsult tjänster, inklusive krav för den här er
 
 | Avsnitt om konsult tjänster | Primär produkt att välja i Partner Center | Krav |
 |---------|---------|---------|
-| Azure-produkter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Azure | Erbjudandet måste innehålla minst en av följande fullständigt intjänade kompetenser: <ul><li>Apputveckling</li><li>Programintegrering</li><li>Hantering av program livs cykel</li><li>Moln plattform</li><li>Dataanalys</li><li>Datacenter</li><li>Data plattform</li><li>DevOps|
+| Azure-produkter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Azure | Erbjudandet måste innehålla minst en av följande fullständigt intjänade kompetenser: <ul><li>Apputveckling</li><li>Programintegrering</li><li>Hantering av programlivscykel</li><li>Moln plattform</li><li>Dataanalys</li><li>Datacenter</li><li>Data plattform</li><li>DevOps|
 | Dynamics 365-försäljning<br>Dynamics 365-marknadsföring<br>Dynamics 365-kundtjänster<br>Dynamics 365-fälttjänster<br>Dynamics 365 personal | Program för kund engagemang | Måste vara guld eller silver certifierat i [molnet Business Applications kompetens](https://partner.microsoft.com/membership/cloud-business-applications-competency) för kund engagemang eller ha ett erbjudande för samförsäljning för den primära produkt som tjänsten är relaterad till. |
 | Dynamics 365-ekonomi<br>Dynamics 365-hantering av leverans kedjan<br>Dynamics 365-handel<br>Dynamics 365 personal<br>Dynamics 365-automatisering av Project service | Finans-och drift program | Måste vara guld eller silver certifierat i [molnet Business Applications kompetens](https://partner.microsoft.com/membership/cloud-business-applications-competency) för enhetliga drifts alternativ, eller ha ett erbjudande för samförsäljning för den primära produkt som tjänsten är relaterad till. |
 | Dynamics 365 Customer Insights | Dynamics 365 Customer Insights | Måste ha minst en framgångs rik implementering av [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) med minst fem mått och fem segment, eller ha ett erbjudande för samförsäljning för den primära produkt som tjänsten är relaterad till. |

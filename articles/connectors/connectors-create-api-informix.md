@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
 ms.openlocfilehash: 4995a91783c2302f3bda5cc9409f017248ca29fa
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88761652"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Hantera IBM Informix Database-resurser med hjälp av Azure Logic Apps
@@ -60,7 +60,7 @@ Det här avsnittet visar hur du använder-anslutningen i en Logic app för att b
 
    | Åtgärd | Beskrivning | Egenskaper och beskrivningar |
    |--------|-------------|-----------------------------|
-   | **Hämta tabeller** | Lista databas tabeller genom att köra en Informix-ANROPs instruktion. | Ingen |
+   | **Hämta tabeller** | Lista databas tabeller genom att köra en Informix-ANROPs instruktion. | Inget |
    | **Hämta rader** | Hämta alla rader i den angivna tabellen genom att köra en Informix- `SELECT *` instruktion. | **Tabell namn**: namnet på den Informix-tabell som du vill använda <p><p>Om du vill lägga till andra egenskaper för den här åtgärden väljer du dem i listan **Lägg till ny parameter** . Mer information finns i [kopplingens referens ämne](/connectors/informix/). |
    | **Hämta rad** | Hämta en rad från den angivna tabellen genom att köra en Informix- `SELECT WHERE` instruktion. | - **Tabell namn**: namnet på den Informix-tabell som du vill använda <br>- **Rad-ID**: det unika ID: t för raden, till exempel `9999` |
    | **Infoga rad** | Lägg till en rad i den angivna Informix-tabellen genom att köra en Informix- `INSERT` instruktion. | - **Tabell namn**: namnet på den Informix-tabell som du vill använda <br>- **objekt**: raden med värdena som ska läggas till |
@@ -78,7 +78,7 @@ Det här avsnittet visar hur du använder-anslutningen i en Logic app för att b
 
 1. Ange den här anslutnings informationen och välj sedan **skapa**.
 
-   | Egenskap | JSON-egenskap | Obligatorisk | Exempelvärde | Beskrivning |
+   | Egenskap | JSON-egenskap | Krävs | Exempelvärde | Beskrivning |
    |----------|---------------|----------|---------------|-------------|
    | Anslutningsnamn | `name` | Ja | `informix-demo-connection` | Namnet som ska användas för anslutningen till din Informix-databas |
    | Server | `server` | Ja | Kunde `informixdemo.cloudapp.net:9089` <br>-Lokalt: `informixdemo:9089` | TCP/IP-adressen eller aliaset i antingen IPv4-eller IPv6-format, följt av ett kolon och ett TCP/IP-portnummer |
@@ -89,7 +89,7 @@ Det här avsnittet visar hur du använder-anslutningen i en Logic app för att b
    | Gateway | `gateway` | Endast lokalt | – <*Azure – prenumeration*> <br>-<*Azure-on-premises-data-gateway-resurs*> | Azure-prenumerationen och Azure-resursens namn för den lokala datagatewayen som du skapade i Azure Portal. **Gateway** -egenskapen och underordnade egenskaper visas bara när du väljer **Anslut via lokal datagateway**. |
    ||||||
 
-   Ett exempel:
+   Exempel:
 
    * **Moln databas**
 

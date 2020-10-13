@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 64884f07bc59e5ff2b29eac645ddb469ef3db465
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87325193"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Så här frågar du efter loggar från Azure Monitor for VMs
@@ -54,7 +54,7 @@ För att hantera kostnader och komplexitet representerar anslutnings posterna in
 |Process |Identitet för process eller grupper av processer, initierar/accepterar anslutningen |
 |SourceIp |Källans IP-adress |
 |DestinationIp |Målets IP-adress |
-|Destination port |Port nummer för målet |
+|DestinationPort |Port nummer för målet |
 |Protokoll |Protokoll som används för anslutningen.  Värdena är *TCP*. |
 
 För att kunna utnyttja gruppens påverkan finns information om antalet grupperade fysiska anslutningar i följande egenskaper för posten:
@@ -230,7 +230,7 @@ Poster med en typ av *VMProcess* har inventerings data för TCP-anslutna process
 |ExecutableName | Namnet på den körbara processen | 
 |DisplayName | Processens visnings namn |
 |Roll | Process roll: *webserver*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
-|Grupp | Namn på process grupp. Processer i samma grupp är logiskt relaterade, t. ex. en del av samma produkt-eller system komponent. |
+|Group | Namn på process grupp. Processer i samma grupp är logiskt relaterade, t. ex. en del av samma produkt-eller system komponent. |
 |StartTime | Start tid för process bassäng |
 |FirstPid | Det första PID i lagringspoolen |
 |Beskrivning | Beskrivning av processen |
@@ -443,7 +443,7 @@ Poster med en typ av *InsightsMetrics* har prestanda data från gäst operativ s
 |Ursprung | *vm.azm.ms* |
 |Namnområde | Prestanda räknarens kategori | 
 |Namn | Namn på prestanda räknaren |
-|Ang | Insamlat värde | 
+|Val | Insamlat värde | 
 |Taggar | Relaterad information om posten. Se tabellen nedan för taggar som används med olika post typer.  |
 |AgentId | Unik identifierare för varje dators agent |
 |Typ | *InsightsMetrics* |

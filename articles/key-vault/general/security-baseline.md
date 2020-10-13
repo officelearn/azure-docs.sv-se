@@ -8,10 +8,10 @@ ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 34036388ce9243c082cf79eb4be9251957eafc01
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400474"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Azures säkerhetsbaslinje för Key Vault
@@ -1093,13 +1093,13 @@ Förstå Microsoft Antimalware för Azure Cloud Services och Virtual Machines: h
 
 **Vägledning**: säkerställa vanliga automatiserade säkerhets kopieringar av Key Vault certifikat, nycklar, hanterade lagrings konton och hemligheter, med följande PowerShell-kommandon:
 
-- Säkerhetskopiera – AzKeyVaultCertificate
+- Backup-AzKeyVaultCertificate
 
-- Säkerhetskopiera – AzKeyVaultKey
+- Backup-AzKeyVaultKey
 
-- Säkerhetskopiera – AzKeyVaultManagedStorageAccount
+- Backup-AzKeyVaultManagedStorageAccount
 
-- Säkerhetskopiera – AzKeyVaultSecret
+- Backup-AzKeyVaultSecret
 
 Alternativt kan du lagra dina Key Vault säkerhets kopior inom Azure Backup.
 
@@ -1123,13 +1123,13 @@ Så här aktiverar du Azure Backup: https://docs.microsoft.com/azure/backup
 
 **Vägledning**: säkerhetskopiera Key Vault certifikat, nycklar, hanterade lagrings konton och hemligheter med följande PowerShell-kommandon:
 
-- Säkerhetskopiera – AzKeyVaultCertificate
+- Backup-AzKeyVaultCertificate
 
-- Säkerhetskopiera – AzKeyVaultKey
+- Backup-AzKeyVaultKey
 
-- Säkerhetskopiera – AzKeyVaultManagedStorageAccount
+- Backup-AzKeyVaultManagedStorageAccount
 
-- Säkerhetskopiera – AzKeyVaultSecret
+- Backup-AzKeyVaultSecret
 
 Alternativt kan du lagra dina Key Vault säkerhets kopior inom Azure Backup.
 

@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 04/09/2020
 ms.openlocfilehash: 46102305e99c94fc71ad0934a2c0063fdcbeec4e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87317798"
 ---
 # <a name="create-an-azure-container-offer"></a>Skapa ett erbjudande för Azure Container
@@ -43,7 +43,7 @@ Välj en eller båda av följande skript miljöer för att hantera din behållar
 
 Vi rekommenderar att du lägger till dessa verktyg i utvecklings miljön:
 
-- [Azure Lagringsutforskaren](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
+- [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Tillägg: [Azure Resource Manager verktyg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - Tillägg: [beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)

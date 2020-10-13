@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
 ms.openlocfilehash: 345b4950e25f48eb1a48c5e583908d0f771771ba
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86206235"
 ---
 # <a name="access-and-customize-developer-portal"></a>Komma åt och anpassa Developer-portalen
@@ -36,7 +36,7 @@ Du hittar mer information om Developer-portalen i [Översikt över Azure API Man
 
 ![API Management Developer-portalen-admin-läge](media/api-management-howto-developer-portal-customize/cover.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 - Importera och publicera en Azure API Management-instans. Mer information finns i [Importera och publicera](import-and-publish.md)

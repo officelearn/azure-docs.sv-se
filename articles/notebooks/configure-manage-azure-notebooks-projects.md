@@ -5,13 +5,13 @@ ms.topic: how-to
 ms.date: 02/28/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 7674c2151922d26e069b5cd285cb311d7a18fa98
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852811"
 ---
-# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Hantera och konfigurera projekt i Azure Notebooks för hands version
+# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Hantera och konfigurera projekt i Azure Notebooks för hands version
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
@@ -30,7 +30,7 @@ Med instrument panelen för projektet i Azure Notebooks kan du hantera filer och
 
 Azure Notebooks startar den underliggande virtuella datorn när du kör en antecknings bok eller annan fil. Servern sparar automatiskt filer och stängs ned efter 60 minuter av inaktivitet. Du kan också stoppa servern när som helst med kommandot **shutdown** (kortkommando: h).
 
-## <a name="compute-tier"></a>Beräknings nivå
+## <a name="compute-tier"></a>Beräkningsnivå
 
 Som standard körs projekt på den **kostnads fria beräknings** nivån, som är begränsad till 4 GB minne och 1 GB data för att förhindra missbruk. Du kan kringgå de här begränsningarna och öka beräknings kraften genom att använda en annan virtuell dator som du har etablerad i en Azure-prenumeration. Mer information finns i [så här använder du data vetenskap Virtual Machines](use-data-science-virtual-machine.md).
 
@@ -64,7 +64,7 @@ Kommandot **+ New** (kortkommando: n) skapar nya filer eller mappar. När du anv
 | **Tom fil** | En fil där du kan lagra innehåll, till exempel text, data osv. | Skapar ett redigerings fält i projektets fillista där du anger fil namnet. |
 | **Markdown** | En MARKDOWN-fil. | Skapar ett redigerings fält i projektets fillista där du anger fil namnet. |
 
-### <a name="upload-files"></a>Överföra filer
+### <a name="upload-files"></a>Ladda upp filer
 
 **Uppladdnings** kommandot innehåller två alternativ för att importera data från andra platser: **från URL** och **från dator**. Mer information finns i [arbeta med datafiler i Azure Notebook-projekt](work-with-project-data-files.md).
 
@@ -190,4 +190,4 @@ Du kan också använda kommandot från en kod cell i en python-anteckningsbok:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Gör så här: arbeta med projektfiler](work-with-project-data-files.md)
-- [Komma åt molndata i en notebook-fil](access-data-resources-jupyter-notebooks.md)
+- [Komma åt moln data i en bärbar dator](access-data-resources-jupyter-notebooks.md)

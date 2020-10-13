@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 5581a4c43f0b78dc8c14c44bfb1ded371a925fd0
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88706038"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
@@ -89,7 +89,7 @@ Utför följande åtgärder innan du slutför stegen i något avsnitt i den här
    - **Vanliga Azure-inställningar**: Mer information om vanliga Azure-inställningar finns i följande information:
      - [Aktivitetslogg](../azure-monitor/platform/platform-logs-overview.md)
      - [Åtkomstkontroll (IAM)](../role-based-access-control/overview.md)
-     - [Taggar](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+     - [Taggen](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Lås](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Automationsskript](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
@@ -170,7 +170,7 @@ Du kan bara ta bort ett virtuellt nätverk om det inte finns några resurser ans
 
 Om du vill utföra uppgifter i virtuella nätverk måste ditt konto tilldelas rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som har tilldelats lämpliga åtgärder i följande tabell:
 
-| Åtgärd                                  |   Namn                                |
+| Action                                  |   Namn                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft. Network/virtualNetworks/Read   |   Läs ett virtuellt nätverk              |
 |Microsoft. Network/virtualNetworks/Write  |   Skapa eller uppdatera ett virtuellt nätverk  |

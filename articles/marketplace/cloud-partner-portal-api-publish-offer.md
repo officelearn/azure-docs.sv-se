@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 60e75aff79913896bdf1dcdc8754b6ecf5620b06
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87272053"
 ---
 # <a name="publish-an-offer"></a>Publicera ett erbjudande
@@ -28,12 +28,12 @@ Startar publicerings processen för det angivna erbjudandet. Det här anropet ä
 
 |  **Namn**      |    **Beskrivning**                               |  **Datatyp** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Utgivar identifierare, till exempel`contoso`      |   Sträng       |
+|  publisherId   | Utgivar identifierare, till exempel `contoso`      |   Sträng       |
 |  offerId       | Erbjudande-ID                                 |   Sträng       |
-|  api-version   | Senaste versionen av API: et                        |   Datum         |
+|  api-version   | Senaste versionen av API: et                        |   Date         |
 |  |  |
 
-## <a name="header"></a>Huvud
+## <a name="header"></a>Sidhuvud
 ------
 
 |  **Namn**        |    **Värde**          |
@@ -78,15 +78,15 @@ Startar publicerings processen för det angivna erbjudandet. Det här anropet ä
 
 |  **Namn**             |    **Värde**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
-| Position    | Den relativa sökvägen för att hämta den här åtgärdens status     |
+| Location    | Den relativa sökvägen för att hämta den här åtgärdens status     |
 |  |  |
 
 ### <a name="response-status-codes"></a>Svars status koder
 
 | **Kod** |  **Beskrivning**                                                                                                                           |
 | ------   |  ----------------------------------------------------------------------------------------------------------------------------------------- |
-| 202   | `Accepted`-Begäran har godkänts. Svaret innehåller en plats som kan användas för att spåra den åtgärd som startas. |
-| 400   | `Bad/Malformed request`– Fel svars texten kan innehålla mer information.                                                               |
-| 422   | `Un-processable entity`-Anger att entiteten som ska publiceras misslyckades valideringen.                                                        |
-| 404   | `Not found`-Den entitet som anges av klienten finns inte.                                                                              |
+| 202   | `Accepted` -Begäran har godkänts. Svaret innehåller en plats som kan användas för att spåra den åtgärd som startas. |
+| 400   | `Bad/Malformed request` – Fel svars texten kan innehålla mer information.                                                               |
+| 422   | `Un-processable entity` -Anger att entiteten som ska publiceras misslyckades valideringen.                                                        |
+| 404   | `Not found` -Den entitet som anges av klienten finns inte.                                                                              |
 |  |  |

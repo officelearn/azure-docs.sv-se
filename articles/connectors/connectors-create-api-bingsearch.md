@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 52bf42434640dc965999895549b4fa12a139dcce
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284072"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Hitta resultat i Bing-sökning med Azure Logic Apps
@@ -23,7 +23,7 @@ Du kan till exempel hitta nyhets objekt baserat på Sök villkor och låta Twitt
 Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Information om anslutningsspecifika teknisk information finns i referens för [Bing-sökning Connector](/connectors/bingsearch/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett [Cognitive Services konto](../cognitive-services/cognitive-services-apis-create-account.md)
 
@@ -55,11 +55,11 @@ Eller, om anslutningen redan finns, anger du den information som krävs för utl
    | Sök fråga | Ja | <*Sök efter ord*> | Ange Sök nyckelorden som du vill använda. |
    | Telefonförsäljning | Ja | <*språk*> | Sök språket. Standardvärdet är "en-US", men du kan välja ett annat värde. |
    | Säker sökning | Ja | <*Sök nivå*> | Filter nivån för att utesluta vuxna innehåll. Standardvärdet är "måttlig", men du väljer en annan nivå. |
-   | Antal | Nej | <*resultat – antal*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
-   | Offset | Nej | <*hoppa över-värde*> | Antal resultat som ska hoppas över innan resultat returneras |
+   | Antal | Inga | <*resultat – antal*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
+   | Offset | Inga | <*hoppa över-värde*> | Antal resultat som ska hoppas över innan resultat returneras |
    |||||
 
-   Till exempel:
+   Exempel:
 
    ![Konfigurera utlösare](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
@@ -106,8 +106,8 @@ Välj den åtgärd du vill använda i listan åtgärder.
    | Sök fråga | Ja | <*Sök-uttryck*> | Ange ett uttryck för att skicka frågor till utlösnings resultaten. Du kan välja bland fälten i listan med dynamiskt innehåll eller skapa ett uttryck med uttrycks verktyget. |
    | Telefonförsäljning | Ja | <*språk*> | Sök språket. Standardvärdet är "en-US", men du kan välja ett annat värde. |
    | Säker sökning | Ja | <*Sök nivå*> | Filter nivån för att utesluta vuxna innehåll. Standardvärdet är "måttlig", men du väljer en annan nivå. |
-   | Antal | Nej | <*resultat – antal*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
-   | Offset | Nej | <*hoppa över-värde*> | Antal resultat som ska hoppas över innan resultat returneras |
+   | Antal | Inga | <*resultat – antal*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
+   | Offset | Inga | <*hoppa över-värde*> | Antal resultat som ska hoppas över innan resultat returneras |
    |||||
 
    Anta till exempel att du vill ha dessa resultat vars kategori namn innehåller ordet "Tech".
@@ -124,7 +124,7 @@ Välj den åtgärd du vill använda i listan åtgärder.
       ![Välj en funktion](./media/connectors-create-api-bing-search/expression-select-function.png)
 
    3. I listan fält väljer du **kategori**, som konverterar till en parameter. 
-   Lägg till ett kommatecken efter den första parametern och efter kommatecken lägger du till det här ordet:`'tech'` 
+   Lägg till ett kommatecken efter den första parametern och efter kommatecken lägger du till det här ordet: `'tech'` 
 
       ![Välj ett fält](./media/connectors-create-api-bing-search/expression-select-field.png)
 
@@ -155,7 +155,7 @@ Välj den åtgärd du vill använda i listan åtgärder.
    | API-nyckel | Ja | <*API-nyckel*> | Den Bing-sökning API-nyckel som du fick tidigare. Om du inte har någon nyckel kan du hämta din [API-nyckel nu](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
-   Till exempel:
+   Exempel:
 
    ![Skapa anslutning](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 

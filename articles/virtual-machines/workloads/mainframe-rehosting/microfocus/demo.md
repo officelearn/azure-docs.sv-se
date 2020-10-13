@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 7fb72b9a7d0d655f99d1e5cf194f7c6f26976a37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86508057"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Konfigurera Micro Focus CICS BankDemo för Micro Focus Enterprise Developer 4,0 på Azure
@@ -22,7 +22,7 @@ CICs står för system för kontroll av kund information, den transaktions platt
 > [!NOTE]
 > Kommer snart: anvisningar för att konfigurera [Micro Focus Enterprise Server 5,0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) på virtuella Azure-datorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En virtuell dator med [företags utvecklare](set-up-micro-focus-azure.md). Tänk på att företags utvecklaren har en fullständig instans av Enterprise Server i syfte att utveckla och testa. Den här instansen är den instans av företags servern som används för demonstrationen.
 
@@ -185,7 +185,7 @@ Frågan ska köras utan fel. När den är klar har du exempel databasen för Ban
 
      ![Definiera namn på region region: BANKDEMO](media/08-demo-cics.png)
 
-7. Klicka på **Slutför**.
+7. Klicka på **Finish**.
 
 ## <a name="create-xa-resource-definitions"></a>Skapa resurs definitioner för XA
 

@@ -11,10 +11,10 @@ ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85250722"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>SaaS-databas för flera klient organisationer
@@ -135,7 +135,7 @@ I allmänhet har flera klient databaser lägsta kostnad per klient.  Resurs kost
 
 Två varianter av en databas modell med flera klienter beskrivs i vad som följer, med shardade-modellen för flera klienter som är mest flexibel och skalbar.
 
-## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>B. App för flera klienter med en enda databas för flera innehavare
+## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. App för flera klienter med en enda databas för flera innehavare
 
 Det enklaste databas mönstret för flera klient organisationer använder en enda databas som värd för data för alla klienter.  När fler klienter läggs till, skalas databasen upp med mer lagrings-och beräknings resurser.  Den här skalan kan vara allt som behövs, även om det alltid finns en ultimat skalnings gräns.  Men långt innan gränsen nås blir databasen svårhanterligt för hantering.
 

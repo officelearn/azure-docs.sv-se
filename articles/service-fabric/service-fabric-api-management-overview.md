@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
 ms.openlocfilehash: bbde23dd888d179917f123d00745fb7d0099c2d2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259292"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric med Azure API Management-översikt
@@ -79,8 +79,8 @@ I det här exemplet skapas en ny tillstånds lös tjänst instans för varje anv
 
   Varje tjänst har ett unikt namn, men namnen är inte kända, eftersom tjänsterna skapas som svar på användarens eller administratörens indata och kan därför inte hårdkodas i APIM-principer eller regler för routning. I stället genereras namnet på den tjänst som en begäran ska skickas till i definition av backend-principen från det `name` värde som anges i sökvägen för URL-begäran. Exempel:
 
-  - En begäran till `/api/users/foo` dirigeras till tjänst instansen`fabric:/app/users/foo`
-  - En begäran till `/api/users/bar` dirigeras till tjänst instansen`fabric:/app/users/bar`
+  - En begäran till `/api/users/foo` dirigeras till tjänst instansen `fabric:/app/users/foo`
+  - En begäran till `/api/users/bar` dirigeras till tjänst instansen `fabric:/app/users/bar`
 
 ![Översikt över Service Fabric med Azure API Management-topologi][sf-apim-dynamic-stateless]
 
@@ -98,8 +98,8 @@ I det här exemplet skapas en ny tillstånds känslig tjänst instans för varje
 
   Varje tjänst har ett unikt namn, men namnen är inte kända, eftersom tjänsterna skapas som svar på användarens eller administratörens indata och kan därför inte hårdkodas i APIM-principer eller regler för routning. I stället genereras namnet på den tjänst som en begäran skickas till i definitionen av backend-principen från det `name` värde som tillhandahöll sökvägen till URL-begäran. Exempel:
 
-  - En begäran till `/api/users/foo` dirigeras till tjänst instansen`fabric:/app/users/foo`
-  - En begäran till `/api/users/bar` dirigeras till tjänst instansen`fabric:/app/users/bar`
+  - En begäran till `/api/users/foo` dirigeras till tjänst instansen `fabric:/app/users/foo`
+  - En begäran till `/api/users/bar` dirigeras till tjänst instansen `fabric:/app/users/bar`
 
 Varje tjänst instans partitioneras också med hjälp av ett Int64-partitionsschema med två partitioner och ett nyckel intervall som sträcker sig över `Int64.MinValue` till `Int64.MaxValue` . Backend-principen beräknar en partitionsnyckel inom intervallet genom att konvertera `id` värdet som anges i sökvägen för URL-begäran till ett 64-bitars heltal, även om alla algoritmer kan användas för att beräkna partitionsnyckel. 
 

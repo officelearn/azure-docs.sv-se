@@ -4,10 +4,10 @@ description: Lär dig hur du anger din egen artefakt lagring för ditt labb i Az
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 7553f6b1afa416a5428577a8313bdadb669e32c2
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88270996"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Lägga till en artefakt lagrings plats i labbet i DevTest Labs
@@ -19,7 +19,7 @@ Den här artikeln innehåller information om hur du lägger till din anpassade a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill lägga till en lagrings plats i labbet hämtar du först viktig information från din lagrings plats. I följande avsnitt beskrivs hur du hämtar den information som krävs för databaser som finns på **GitHub** eller **Azure DevOps**.
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Hämta URL för kloning av GitHub-lagringsplats och personlig åtkomst-token
@@ -180,7 +180,7 @@ New-AzResourceGroupDeployment `
     -TemplateParameterFile azuredeploy.parameters.json
 ```
 
-När New-AzResourceGroupDeployment-körningen är klar, skriver kommandot ut viktig information, till exempel etablerings status (bör utföras) och eventuella utdata för mallen.
+När New-AzResourceGroupDeployment har körts skriver kommandot ut viktig information, t. ex. etablerings status (bör utföras) och eventuella utdata för mallen.
 
 ## <a name="use-azure-powershell"></a>Använda Azure PowerShell
 Det här avsnittet innehåller ett exempel på ett PowerShell-skript som kan användas för att lägga till en artefakt lagrings plats i ett labb. Om du inte har Azure PowerShell kan du läsa mer i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/?view=azps-1.2.0) detaljerade anvisningar för att installera det.
@@ -360,7 +360,7 @@ if ($ArtifactRepositoryName -eq $null){
 
 ### <a name="powershell-commands-used-in-the-script"></a>PowerShell-kommandon som används i skriptet
 
-| PowerShell-kommando | Anteckningar |
+| PowerShell-kommando | Obs! |
 | ------------------ | ----- |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Det här kommandot används för att hämta information om labbet, till exempel dess plats. |
 | [New-AzResource](/powershell/module/az.resources/new-azresource) | Det finns inget speciellt kommando för att lägga till artefakt databaser. Den allmänna [New-AzResource-](/powershell/module/az.resources/new-azresource) cmdleten utför jobbet. Denna cmdlet kräver antingen **ResourceID** -eller **resourceName** -och **resourcetype** -paret för att veta vilken typ av resurs som ska skapas. Det här exempel skriptet använder paret resurs namn och resurs typ. <br/><br/>Observera att du skapar artefakt lager källan på samma plats och under samma resurs grupp som labbet.|

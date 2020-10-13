@@ -12,10 +12,10 @@ ms.date: 07/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b13a6944290f58f5ede239dee60610d67fff8b1c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88918476"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Vanliga frågor och svar om tjänsten för tal tjänst behållare
@@ -98,7 +98,7 @@ De underhålls kostnader som betalas ut till Microsoft beror på tjänst nivå o
 
 **Svar:** `speech_recognition_language=<YOUR_LANGUAGE>` Ska konfigureras explicit i begäran om de använder en kol-klient.
 
-Ett exempel:
+Exempel:
 
 ```python
 if not recognize_once(
@@ -367,7 +367,7 @@ Min nuvarande plan är att ta en befintlig ljudfil och dela upp den i 10 andra s
 
 Dokumentet säger att du vill exponera en annan port, vilket jag gör, men LUIS-behållaren lyssnar fortfarande på port 5000?
 
-**Svar:** Försök `-p <outside_unique_port>:5000` . Till exempel `-p 5001:5000`.
+**Svar:** Försök `-p <outside_unique_port>:5000` . Exempelvis `-p 5001:5000`.
 
 
 <br>

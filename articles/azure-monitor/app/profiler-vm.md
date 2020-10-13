@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 11/08/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: f514dd7b54ac091535aeab43a8a7d2a645b50a09
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87315843"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profilera webbappar som körs på en virtuell Azure-dator eller en virtuell dators skalnings uppsättning med hjälp av Application Insights Profiler
@@ -54,7 +54,7 @@ Den här artikeln visar hur du kan få Application Insights Profiler som körs p
 
    Att tillämpa ändringarna innebär vanligt vis en fullständig mall distribution eller en molnbaserad publicering via PowerShell-cmdletar eller Visual Studio.  
 
-   Följande PowerShell-kommandon är en alternativ metod för befintliga virtuella datorer som bara vidrör Azure-diagnostik-tillägget. Lägg till de tidigare nämnda ProfilerSink i konfigurationen som returneras av kommandot Get-AzVMDiagnosticsExtension. Skicka sedan den uppdaterade konfigurationen till kommandot Set-AzVMDiagnosticsExtension.
+   Följande PowerShell-kommandon är en alternativ metod för befintliga virtuella datorer som bara vidrör Azure-diagnostik-tillägget. Lägg till de tidigare nämnda ProfilerSink i konfigurationen som returneras av kommandot Get-AzVMDiagnosticsExtension. Sedan skickar du den uppdaterade konfigurationen till kommandot Set-AzVMDiagnosticsExtension.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()

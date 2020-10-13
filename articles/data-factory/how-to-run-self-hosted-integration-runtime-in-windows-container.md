@@ -1,6 +1,6 @@
 ---
-title: Så här kör du Integration Runtime med egen värd i Windows-behållare
-description: Läs om hur du kör egen värd Integration Runtime i Windows-behållare.
+title: Köra Self-Hosted Integration Runtime i Windows-behållare
+description: Lär dig mer om hur du kör Self-Hosted Integration Runtime i Windows-behållare.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -12,23 +12,23 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
 ms.openlocfilehash: d6f292ff89a70de90e6b86f19f73de26963d997f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927583"
 ---
-# <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Så här kör du Integration Runtime med egen värd i Windows-behållare
+# <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Köra Self-Hosted Integration Runtime i Windows-behållare
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Den här artikeln beskriver hur du kör Integration Runtime med egen värd i Windows-behållare.
-Azure Data Factory levererar det officiella Windows-behållarobjektet som stöder egen värd Integration Runtime. Du kan hämta Docker build-källkoden och kombinera processen för att skapa och köra den i din egen kontinuerliga leverans pipeline. 
+Den här artikeln beskriver hur du kör Self-Hosted Integration Runtime i Windows-behållare.
+Azure Data Factory levererar stöd för Self-Hosted Integration Runtime officiella Windows-behållare. Du kan hämta Docker build-källkoden och kombinera processen för att skapa och köra den i din egen kontinuerliga leverans pipeline. 
 
 ## <a name="prerequisites"></a>Förutsättningar 
 - [Krav för Windows-behållare](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/system-requirements)
 - Docker version 2,3 och senare 
-- Egen värd Integration Runtime version 4.11.7512.1 och senare 
+- Self-Hosted Integration Runtime version 4.11.7512.1 och senare 
 ## <a name="get-started"></a>Kom igång 
 1.  Installera Docker och aktivera Windows-behållare 
 2.  Ladda ned källkoden från https://github.com/Azure/Azure-Data-Factory-Integration-Runtime-in-Windows-Container
@@ -53,7 +53,7 @@ docker run -d -e NODE_NAME="irNodeName" -e AUTH_KEY="IR_AUTHENTICATI
 Efter 120 sekunders start period körs hälso kontrollen regelbundet var 30: e sekund. Den kommer att tillhandahålla IR-hälsostatus till container motor. 
 
 ## <a name="limitations"></a>Begränsningar
-För närvarande har vi inte stöd för följande funktioner när du kör egen värd Integration Runtime i Windows-behållaren:
+För närvarande stöder vi inte följande funktioner när du kör Self-Hosted Integration Runtime i Windows-behållaren:
 - HTTP-proxy 
 - Krypterad nod-Node-kommunikation med TLS/SSL-certifikat 
 - Skapa och importera säkerhets kopia 

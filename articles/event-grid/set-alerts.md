@@ -4,10 +4,10 @@ description: Den här artikeln beskriver hur du skapar aviseringar för Azure Ev
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 615ebef749be49822a09470eb0d47d8eb31b9a5a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119148"
 ---
 # <a name="set-alerts-on-azure-event-grid-metrics-and-activity-logs"></a>Ange aviseringar för Azure Event Grid mått och aktivitets loggar
@@ -21,23 +21,23 @@ Följande procedur visar hur du skapar en avisering om mått för **obeställbar
     :::image type="content" source="./media/monitor-event-delivery/new-alert-button.png" alt-text="Sidan aviseringar – knappen Ny varnings regel":::
 2. På sidan **skapa aviserings regel** kontrollerar du att ditt ämne är markerat för resursen. Klicka sedan på **Välj villkor**. 
 
-    :::image type="content" source="./media/monitor-event-delivery/alert-select-condition.png" alt-text="Sidan aviseringar – Välj villkor":::    
+    :::image type="content" source="./media/monitor-event-delivery/alert-select-condition.png" alt-text="Sidan aviseringar – knappen Ny varnings regel":::    
 3. Följ dessa steg på sidan **Konfigurera signal logik** :
     1. Välj ett mått eller en aktivitets logg post. I det här exemplet är inloggade **brevade händelser** markerade. 
 
-        :::image type="content" source="./media/monitor-event-delivery/select-dead-lettered-events.png" alt-text="Välj händelser för obeställbara meddelanden":::        
+        :::image type="content" source="./media/monitor-event-delivery/select-dead-lettered-events.png" alt-text="Sidan aviseringar – knappen Ny varnings regel":::        
     2. Välj dimensioner (valfritt). 
         
-        :::image type="content" source="./media/monitor-event-delivery/configure-signal-logic.png" alt-text="Konfigurera signallogiken":::        
+        :::image type="content" source="./media/monitor-event-delivery/configure-signal-logic.png" alt-text="Sidan aviseringar – knappen Ny varnings regel":::        
 
         > [!NOTE]
         > Du kan välja **+** knapp för **EventSubscriptionName** för att ange ett namn på en händelse prenumeration för att filtrera händelser. 
     3. Rulla nedåt. I avsnittet **aviserings logik** väljer du en **operator**, **sammansättnings typ**och anger ett **tröskelvärde**och väljer **klar**. I det här exemplet utlöses en avisering när det totala antalet död antalet förlorade händelser är större än 10. 
     
-        :::image type="content" source="./media/monitor-event-delivery/alert-logic.png" alt-text="Aviserings logik":::                
+        :::image type="content" source="./media/monitor-event-delivery/alert-logic.png" alt-text="Sidan aviseringar – knappen Ny varnings regel":::                
 4. Gå tillbaka till sidan **skapa aviserings regel** och klicka på **Välj åtgärds grupp**.
 
-    :::image type="content" source="./media/monitor-event-delivery/select-action-group-button.png" alt-text="Knappen Välj åtgärds grupp":::
+    :::image type="content" source="./media/monitor-event-delivery/select-action-group-button.png" alt-text="Sidan aviseringar – knappen Ny varnings regel":::
 5. Välj **skapa åtgärds grupp** i verktygsfältet för att skapa en ny åtgärds grupp. Du kan också välja en befintlig åtgärds grupp.        
 6. Följ dessa steg på sidan **Lägg till åtgärds grupp** :
     1. Ange ett **namn på åtgärds gruppen**.
@@ -48,26 +48,26 @@ Följande procedur visar hur du skapar en avisering om mått för **obeställbar
     1. Välj **Åtgärds typ**. I det här exemplet är **e-postAzure Resource Manager rollen** markerad, särskilt rollen **ägare** . 
     1. Välj **OK** för att stänga sidan. 
     
-        :::image type="content" source="./media/monitor-event-delivery/add-action-group-page.png" alt-text="Sidan Lägg till åtgärds grupp":::                   
+        :::image type="content" source="./media/monitor-event-delivery/add-action-group-page.png" alt-text="Sidan aviseringar – knappen Ny varnings regel":::                   
 7. Gå tillbaka till sidan **skapa aviserings regel** , ange ett namn för aviserings regeln och välj sedan **skapa aviserings regel**.
 
-    :::image type="content" source="./media/monitor-event-delivery/alert-rule-name.png" alt-text="Namn på aviseringsregel":::  
+    :::image type="content" source="./media/monitor-event-delivery/alert-rule-name.png" alt-text="Sidan aviseringar – knappen Ny varnings regel":::  
 8. På sidan **aviseringar** i avsnittet ser du nu en länk för att hantera aviserings regler om det inte finns några aviseringar än. Om det finns aviseringar väljer du **chefs aviserings regler** i verktygsfältet.  
 
-    :::image type="content" source="./media/monitor-event-delivery/manage-alert-rules.png" alt-text="Hantera aviseringar":::
+    :::image type="content" source="./media/monitor-event-delivery/manage-alert-rules.png" alt-text="Sidan aviseringar – knappen Ny varnings regel":::
 
 ## <a name="create-alerts-on-other-metrics-or-activity-log-operations"></a>Skapa aviseringar för andra mått eller aktivitets logg åtgärder
 I föregående avsnitt visar vi hur du skapar aviseringar om händelser som har dött. Stegen för att skapa aviseringar om andra mått eller aktivitets logg åtgärder liknar varandra. 
 
 Om du till exempel vill skapa en avisering för en leverans fel händelse väljer du **leverans misslyckade händelser** på sidan **Konfigurera signal logik** . 
 
-:::image type="content" source="./media/set-alerts/delivery-failed-events.png" alt-text="Välj leverans misslyckade händelser":::
+:::image type="content" source="./media/set-alerts/delivery-failed-events.png" alt-text="Sidan aviseringar – knappen Ny varnings regel":::
 
 
 ## <a name="create-alerts-using-the-metrics-page"></a>Skapa aviseringar med hjälp av sidan mått
 Du kan också skapa aviseringar med hjälp av sidan **mått** . Stegen är liknande. I system avsnitt kan du bara använda sidan **mått** för att skapa aviseringar eftersom sidan **aviseringar** inte är tillgänglig. 
 
-:::image type="content" source="./media/monitor-event-delivery/metric-page-create-alert-button.png" alt-text="Sidan mått – knappen Skapa avisering":::   
+:::image type="content" source="./media/monitor-event-delivery/metric-page-create-alert-button.png" alt-text="Sidan aviseringar – knappen Ny varnings regel":::   
     
 
 > [!NOTE]

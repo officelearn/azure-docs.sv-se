@@ -4,10 +4,10 @@ description: Service Fabric tillstånds känsliga tjänster tillhandahåller på
 ms.topic: conceptual
 ms.date: 3/10/2020
 ms.openlocfilehash: 6e0f39b994087fe44038e62e85326945589c719a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86245134"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introduktion till pålitliga samlingar i Azure Service Fabric tillstånds känsliga tjänster
@@ -35,7 +35,7 @@ För att uppnå svagare konsekvens kan program bekräftas tillbaka till klienten
 API: erna för Reliable Collections är en utveckling av API: er för samtidiga samlingar (som finns i **system. Collections. samtidig** namnrymd):
 
 * Asynkron: returnerar en aktivitet sedan, till skillnad från samtidiga samlingar, replikeras och sparas.
-* Inga out-parametrar: använder `ConditionalValue<T>` för att returnera ett `bool` och ett värde i stället för parametrar. `ConditionalValue<T>`är som `Nullable<T>` men kräver inte T att vara en STRUCT.
+* Inga out-parametrar: använder `ConditionalValue<T>` för att returnera ett `bool` och ett värde i stället för parametrar. `ConditionalValue<T>` är som `Nullable<T>` men kräver inte T att vara en STRUCT.
 * Transaktioner: använder ett transaktions objekt för att göra det möjligt för användaren att gruppera åtgärder på flera pålitliga samlingar i en transaktion.
 
 Idag innehåller **Microsoft. ServiceFabric. data. Collections** tre samlingar:

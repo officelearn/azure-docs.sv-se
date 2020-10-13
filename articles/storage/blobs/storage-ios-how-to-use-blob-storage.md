@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.openlocfilehash: 378c21a6904acad16847bb32955e4bc091e587df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84465498"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Använda Blob Storage från iOS
@@ -86,7 +86,7 @@ Om du använder Swift måste du skapa ett bryggnings huvud och importera \<AZSCl
 
 1. Skapa en rubrik fil `Bridging-Header.h` och Lägg till import instruktionen ovan.
 2. Gå till fliken *versions inställningar* och Sök efter *mål-C-bryggnings huvud*.
-3. Dubbelklicka på fältet för *mål-C-bryggnings rubriken* och Lägg till sökvägen till huvud filen:`ProjectName/Bridging-Header.h`
+3. Dubbelklicka på fältet för *mål-C-bryggnings rubriken* och Lägg till sökvägen till huvud filen: `ProjectName/Bridging-Header.h`
 4. Skapa projektet (⌘ + B) för att kontrol lera att bryggnings huvudet hämtades av Xcode.
 5. Börja använda biblioteket direkt i en SWIFT-fil, det finns inget behov av import-instruktioner.
 
@@ -216,7 +216,7 @@ https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblo
 
 Förutom att ladda upp en Block-Blob från en NSString, finns det liknande metoder för NSData, NSInputStream eller en lokal fil.
 
-## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
+## <a name="list-the-blobs-in-a-container"></a>Visa blobar i en container
 
 I följande exempel visas hur du visar en lista över alla blobbar i en behållare. När du utför den här åtgärden måste du vara mindful av följande parametrar:
 

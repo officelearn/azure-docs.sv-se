@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: bcbce3c60aa0b4613b1dd1840c335c800193e549
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328697"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Självstudie: Distribuera en webbapp från ett geo-replikerat Azure Container Registry
@@ -45,7 +45,7 @@ Om ”Distribuera till webbapp” är inaktiverat kan det bero på att du inte h
 
 Ange följande värden för varje inställning under **Web App for Containers**, som visas när du har valt ”Distribuera till webbapp”:
 
-| Inställning | Värde |
+| Inställningen | Värde |
 |---|---|
 | **Webbplatsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-westus` för att lätt kunna identifiera det register och den region som webbappen distribueras från. |
 | **Resursgrupp** | **Använd befintlig** > `myResourceGroup` |
@@ -78,7 +78,7 @@ När Docker-avbildningen har distribuerats från din geo-replikerade container, 
 
 Distribuera en andra webbapp till regionen *USA, östra* med den procedur som beskrivs i föregående avsnitt. Ange följande värden under **Web App for Containers**:
 
-| Inställning | Värde |
+| Inställningen | Värde |
 |---|---|
 | **Webbplatsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-eastus` för att lätt kunna identifiera det register och den region som webbappen distribueras från. |
 | **Resursgrupp** | **Använd befintlig** > `myResourceGroup` |
@@ -96,7 +96,7 @@ Liksom tidigare kan du visa programmet som körs genom att gå till URL:en i web
 
 Välj **App Services** i portalen, och sedan den webbapp som du etablerade i föregående steg. I det här exemplet får webbappen namnet *uniqueregistryname-eastus*.
 
-Välj den hyperlänkade URL: en för webbappen längst upp till höger i **App Service översikt** för att visa det program som körs i webbläsaren.
+Markera webbappens hyperlänks-URL högst upp till höger i **App Service**-översikten, så att du kan se programmet som körs i din webbläsare.
 
 ![Webbappen i Linux-konfiguration i Azure Portal][deploy-app-portal-07]
 

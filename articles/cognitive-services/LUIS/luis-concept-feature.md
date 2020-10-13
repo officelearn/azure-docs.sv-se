@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372032"
 ---
 # <a name="machine-learning-features"></a>Funktioner för maskin inlärning
@@ -226,7 +226,7 @@ När du har skapat enheten för maskin inlärning måste du lägga till exempel 
 
 I exempel på biljett boknings exempel kan du namnge exemplet yttranden i avsikt med `TicketBooking` entiteten och eventuella underentiteter i texten.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Etikett exempel yttranden":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Ticketbooking entitets schema":::
 
 ### <a name="example-pizza-ordering-app"></a>Exempel: pizza order app
 
@@ -234,13 +234,13 @@ I ett andra exempel bör du överväga en app för en pizza restaurang, som tar 
 
 Enheten för maskin inlärning i det här exemplet är mer komplex med kapslade underentiteter, fras listor, fördefinierade entiteter och anpassade entiteter.
 
-:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Pizza ordning för enhets schema":::
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Ticketbooking entitets schema":::
 
 I det här exemplet används funktioner på underenhets nivå och underordnad för underentitets nivå. Vilken nivå får vilken typ av fras lista eller modell som en funktion är en viktig del av din enhets design.
 
 Även om underentiteter kan ha många fras listor som funktioner som hjälper till att identifiera entiteten har varje underentitet bara en modell som funktion. I den här [pizza-appen](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json)är dessa modeller främst listor.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Pizza order avsikt med etiketterat exempel yttranden":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Ticketbooking entitets schema":::
 
 Det märkta exemplet yttranden visas på ett sätt för att visa hur entiteterna är kapslade. 
 

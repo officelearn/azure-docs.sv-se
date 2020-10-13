@@ -7,13 +7,13 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 10/08/2020
-ms.openlocfilehash: 4715d7173dd959d12350229e457717c908a83756
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.date: 01/13/2019
+ms.openlocfilehash: 65b6b1f783dbabc9ad2e1a4bf79008240d1b2726
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873242"
+ms.locfileid: "89659922"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ansluta till lokala filsystem med Azure Logic Apps
 
@@ -22,9 +22,6 @@ Med Azure Logic Apps och fil system anslutningen kan du skapa automatiserade upp
 - Skapa, Hämta, lägga till, uppdatera och ta bort filer.
 - Visa filer i mappar eller rotmappar.
 - Hämta fil innehåll och metadata.
-
-  > [!IMPORTANT]
-  > Fil system anslutningen har för närvarande endast stöd för Windows fil system på Windows-operativsystem.  
 
 Den här artikeln visar hur du kan ansluta till ett lokalt fil system enligt beskrivningen i det här exempel scenariot: kopiera en fil som laddas upp till Dropbox till en fil resurs och skicka sedan ett e-postmeddelande. För att på ett säkert sätt ansluta och komma åt lokala system använder Logic Apps den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md). Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md). Information om anslutningsspecifika teknisk information finns i referens för [fil system anslutning](/connectors/filesystem/).
 

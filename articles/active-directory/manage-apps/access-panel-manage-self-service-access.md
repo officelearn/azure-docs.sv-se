@@ -12,10 +12,10 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
 ms.openlocfilehash: 0cd20d7a11bcffe9937537e3681199757a52bee5
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89181722"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Använda självbetjäning för program åtkomst
@@ -37,7 +37,7 @@ Med den här funktionen kan du:
 
 ## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Aktivera självbetjäning för program åtkomst så att användarna kan hitta sina egna program
 
-Åtkomst till självbetjänings program är ett bra sätt att ge användare möjlighet att identifiera program, vilket gör det möjligt för företags gruppen att godkänna åtkomst till dessa program. Du kan tillåta att affärs gruppen hanterar de autentiseringsuppgifter som tilldelats dessa användare för lösen ord med enkel inloggnings program direkt från sina Mina appar-sidor.
+Åtkomst till självbetjänings program är ett bra sätt att ge användare möjlighet att identifiera program, vilket gör det möjligt för företags gruppen att godkänna åtkomst till dessa program. Du kan tillåta att affärs gruppen hanterar de autentiseringsuppgifter som tilldelats dessa användare för lösen ord Single-Sign på program direkt från sidan Mina appar.
 
 Följ stegen nedan om du vill aktivera självbetjänings program åtkomst till ett program:
 1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**

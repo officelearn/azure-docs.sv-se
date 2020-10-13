@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 2116b5be4c5d40076aae10ecc2e81d73e7806e6d
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89419511"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure Database for MySQL med Azure CLI
 
 Azure Database for MySQL servrar säkerhets kopie ras regelbundet för att aktivera återställnings funktioner. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare tidpunkt på en ny server.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här instruktions guiden behöver du:
 - En [Azure Database for MySQL-server och-databas](quickstart-create-mysql-server-database-using-azure-cli.md)
 
@@ -118,7 +118,7 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 |resource-group| myresourcegroup | Namnet på den resurs grupp som den nya servern ska tillhöra.|
 |name | mydemoserver – omåterställd | Namnet på den nya servern. |
 |source-server | mydemoserver | Namnet på den befintliga server vars geo-redundanta säkerhets kopieringar används. |
-|location | USA, östra | Platsen för den nya servern. |
+|location | eastus | Platsen för den nya servern. |
 |sku-name| GP_Gen5_8 | Den här parametern anger pris nivån, beräknings genereringen och antalet virtuella kärnor för den nya servern. GP_Gen5_8 mappar till en Generell användning, gen 5-Server med 8 virtuella kärnor.|
 
 När du skapar en ny server med en geo-återställning ärver den samma lagrings storlek och pris nivå som käll servern. Dessa värden kan inte ändras när de skapas. När den nya servern har skapats kan dess lagrings storlek skalas upp.

@@ -4,10 +4,10 @@ description: Skapa en behållar grupp i ett virtuellt nätverk och Använd en Az
 ms.topic: article
 ms.date: 03/16/2020
 ms.openlocfilehash: bc128da0f4c2e92af98781cef45f48f9e8aeab31
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260778"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Exponera en statisk IP-adress för en behållar grupp

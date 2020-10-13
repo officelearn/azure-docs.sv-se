@@ -1,5 +1,5 @@
 ---
-title: Så här använder du rollbaserad Access Control i Azure API Management | Microsoft Docs
+title: Använda Role-Based Access Control i Azure API Management | Microsoft Docs
 description: Lär dig hur du använder de inbyggda rollerna och skapa anpassade roller i Azure API Management
 services: api-management
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: faef2721b48ffab12264c585d2dec55ab9334016
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015297"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Så här använder du rollbaserad åtkomstkontroll i Azure API Management
@@ -44,7 +44,7 @@ Följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Du kan
 
 <sup>[2] skriv åtkomst till API Management tjänster och entiteter, förutom följande åtgärder: skapa, ta bort och skala för instanser. VPN-konfiguration; och anpassad domän konfiguration.</sup>
 
-<sup>\*Rollen tjänst redigerare är tillgänglig när vi har migrerat alla administratörs gränssnitt från den befintliga Publisher-portalen till Azure Portal. Rollen innehålls hanterare blir tillgänglig när utgivar portalen har omarbetats för att endast innehålla funktioner relaterade till hantering av Developer-portalen.</sup>  
+<sup>\* Rollen tjänst redigerare är tillgänglig när vi har migrerat alla administratörs gränssnitt från den befintliga Publisher-portalen till Azure Portal. Rollen innehålls hanterare blir tillgänglig när utgivar portalen har omarbetats för att endast innehålla funktioner relaterade till hantering av Developer-portalen.</sup>  
 
 ## <a name="custom-roles"></a>Anpassade roller
 
@@ -79,7 +79,7 @@ Artikeln [Azure Resource Manager Resource Provider Operations](../role-based-acc
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om rollbaserad Access Control i Azure finns i följande artiklar:
+Mer information om Role-Based Access Control i Azure finns i följande artiklar:
   * [Kom igång med åtkomsthantering i Azure-portalen](../role-based-access-control/overview.md)
   * [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](../role-based-access-control/role-assignments-portal.md)
   * [Anpassade roller i Azure RBAC](../role-based-access-control/custom-roles.md)

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
 ms.openlocfilehash: ee5aec2e483f41c73d57fc1d91427e5657bda3e7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318002"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planera kapaciteten för virtuella Hyper-V-datorer med Kapacitet och prestanda-lösningen (inaktuell)
@@ -42,11 +42,11 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | Ansluten källa | Support | Beskrivning |
 |---|---|---|
 | [Windows-agenter](../platform/agent-windows.md) | Ja | Lösningen samlar in information om kapacitet och prestanda data från Windows-agenter. |
-| [Linux-agenter](../learn/quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in information om kapacitet och prestanda data från Direct Linux-agenter.|
+| [Linux-agenter](../learn/quick-collect-linux-computer.md) | Inga | Lösningen samlar inte in information om kapacitet och prestanda data från Direct Linux-agenter.|
 | [SCOM-hanterings grupp](../platform/om-agents.md) | Ja |Lösningen samlar in kapacitets-och prestanda data från agenter i en ansluten SCOM-hanterings grupp. Det krävs ingen direkt anslutning från SCOM agent till Log Analytics.|
-| [Azure Storage-konto](../platform/resource-logs.md#send-to-log-analytics-workspace) | Nej | Azure Storage omfattar inte kapacitets-och prestanda data.|
+| [Azure Storage-konto](../platform/resource-logs.md#send-to-log-analytics-workspace) | Inga | Azure Storage omfattar inte kapacitets-och prestanda data.|
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Windows-eller Operations Manager-agenter måste installeras på Windows Server 2012 eller högre Hyper-V-värdar, inte virtuella datorer.
 
@@ -85,7 +85,7 @@ När du lägger till Kapacitet och prestanda-lösningen i din arbets yta läggs 
 
 Öppna instrument panelen Kapacitet och prestanda genom att klicka på panelen Kapacitet och prestanda. Instrumentpanelen innehåller kolumnerna i följande tabell. Varje kolumn listar upp till tio objekt som matchar denna kolumns kriterier för specificerat omfång och tidsintervall. Du kan köra en loggsökning som returnerar alla poster genom att klicka på **Se alla** längst ned i kolumnen eller genom att klicka på kolumnrubriken.
 
-- **Lagras**
+- **Värdar**
     - **Processor användning för värd** Visar en grafisk trend för processor användningen för värddatorer och en lista över värdar, baserat på den valda tids perioden. Hovra över linje diagrammet om du vill visa information om en viss tidpunkt. Klicka på diagrammet om du vill visa mer information i loggs ökningen. Klicka på valfritt värdnamn om du vill öppna loggs ökning och Visa information om processor räknare för virtuella datorer som är värdar.
     - **Minnes användning för värd** Visar en grafisk trend för minnes användningen av värddatorer och en lista över värdar, baserat på den valda tids perioden. Hovra över linje diagrammet om du vill visa information om en viss tidpunkt. Klicka på diagrammet om du vill visa mer information i loggs ökningen. Klicka på alla värdnamn för att öppna loggs ökning och Visa minnes räknar information för virtuella datorer som är värdar.
 - **Virtual Machines**

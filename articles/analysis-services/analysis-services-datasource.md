@@ -8,10 +8,10 @@ ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88749082"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
@@ -23,11 +23,11 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 |Datakälla  |Minnesintern  |DirectQuery  |Anteckningar |
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Ja      |    Ja      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
-|Azure Synapse Analytics (SQL DW)      |   Ja      |   Ja       |<sup>[2](#azprovider)</sup>|
+|Azure Synapse Analytics (SQL DW)      |   Ja      |   Ja       |<sup>[11.2](#azprovider)</sup>|
 |Azure Blob Storage      |   Ja       |    Inga      | <sup>[1](#tab1400a)</sup> |
 |Azure Table Storage     |   Ja       |    Inga      | <sup>[1](#tab1400a)</sup>|
 |Azure Cosmos DB     |  Ja        |  Inga        |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store gen1      |   Ja       |    Inga      |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen1      |   Ja       |    Inga      |<sup>[1](#tab1400a)</sup> |
 |Azure Data Lake Store Gen2       |   Ja       |    Inga      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
 |Azure HDInsight HDFS    |     Ja     |   Inga       |<sup>[1](#tab1400a)</sup> |
 |Azure HDInsight Spark     |   Ja       |   Inga       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
@@ -43,7 +43,7 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 
 ## <a name="other-data-sources"></a>Andra datakällor
 
-|Datakälla | Minnesintern | DirectQuery |Kommentarer   |
+|Datakälla | Minnesintern | DirectQuery |Obs!   |
 |  --- | --- | --- | --- |
 |Access-databas     |  Ja | Inga |  |
 |Active Directory     |  Ja | Inga | <sup>[3-6](#tab1400b)</sup>  |
@@ -61,7 +61,7 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 |OData-feed      |  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
 |ODBC-fråga     | Ja | Inga |  |
 |OLE DB     |   Ja | Inga |  |
-|Oracle  | Ja  |Ja  | <sup>[9](#oracle)</sup> |
+|Oracle  | Ja  |Ja  | <sup>[1.9](#oracle)</sup> |
 |PostgreSQL-databas   | Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
 |Salesforce-objekt|  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
 |Salesforce-rapporter |Ja | Inga | <sup>[3-6](#tab1400b)</sup> |

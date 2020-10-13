@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
 ms.openlocfilehash: 08354e212b8ca3cae642b599f25ed318e79f581c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86082258"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Utveckling av skript åtgärder med HDInsight
@@ -73,7 +73,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-### <a name="target-the-operating-system-version"></a><a name="bps10"></a>Rikta in dig på operativ systemets version
+### <a name="target-the-operating-system-version"></a><a name="bps10"></a> Rikta in dig på operativ systemets version
 
 HDInsight baseras på Ubuntu Linux distribution. Olika versioner av HDInsight förlitar sig på olika versioner av Ubuntu, vilket kan ändra hur skriptet beter sig. HDInsight 3,4 och tidigare baseras till exempel på Ubuntu-versioner som använder start. Version 3,5 och senare baseras på Ubuntu 16,04, som använder system. System-och uppstart förlitar sig på olika kommandon, så skriptet bör skrivas för att fungera med båda.
 
@@ -161,13 +161,13 @@ HDInsight loggar skript utdata som skrivs till STDOUT och STDERR. Du kan visa de
 > [!NOTE]  
 > Apache Ambari är endast tillgängligt om klustret har skapats. Om du använder en skript åtgärd när klustret skapas och det inte går att skapa, se [Felsöka skript åtgärder](./troubleshoot-script-action.md) för andra sätt att komma åt den loggade informationen.
 
-De flesta verktyg och installations paket har redan skrivit information till STDOUT och STDERR, men du kanske vill lägga till ytterligare loggning. Använd om du vill skicka text till STDOUT `echo` . Ett exempel:
+De flesta verktyg och installations paket har redan skrivit information till STDOUT och STDERR, men du kanske vill lägga till ytterligare loggning. Använd om du vill skicka text till STDOUT `echo` . Exempel:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Som standard `echo` skickar strängen till stdout. För att dirigera den till STDERR, Lägg till `>&2` före `echo` . Ett exempel:
+Som standard `echo` skickar strängen till stdout. För att dirigera den till STDERR, Lägg till `>&2` före `echo` . Exempel:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -177,7 +177,7 @@ Detta omdirigerar information som skrivs till STDOUT till STDERR (2) i stället.
 
 Mer information om hur du visar information som loggas av skript åtgärder finns i [Felsöka skript åtgärder](./troubleshoot-script-action.md).
 
-### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a>Spara filer som ASCII med LF-linje slut
+### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a> Spara filer som ASCII med LF-linje slut
 
 Bash-skript ska lagras som ASCII-format, med rader som avslut ATS av LF. Filer som lagras som UTF-8 eller som använder CRLF eftersom rad slutet kan Miss lyckas med följande fel:
 
@@ -186,7 +186,7 @@ $'\r': command not found
 line 1: #!/usr/bin/env: No such file or directory
 ```
 
-### <a name="use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a>Använd logik för återförsök för att återställa efter tillfälliga fel
+### <a name="use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a> Använd logik för återförsök för att återställa efter tillfälliga fel
 
 När du laddar ned filer, installerar paket med apt-get eller andra åtgärder som skickar data via Internet, kan åtgärden Miss lyckas på grund av tillfälliga nätverks fel. Den fjärranslutna resurs som du kommunicerar med kan till exempel vara i processen att redundansväxla till en säkerhets kopierings nod.
 
@@ -256,7 +256,7 @@ Det här avsnittet innehåller vägledning om hur du implementerar några vanlig
 
 I vissa fall kan skriptet kräva parametrar. Du kan till exempel behöva administratörs lösen ordet för klustret när du använder Ambari-REST API.
 
-Parametrar som skickas till skriptet kallas för *positions parametrar*och tilldelas `$1` för den första parametern, `$2` för den andra, och så vidare. `$0`innehåller namnet på själva skriptet.
+Parametrar som skickas till skriptet kallas för *positions parametrar*och tilldelas `$1` för den första parametern, `$2` för den andra, och så vidare. `$0` innehåller namnet på själva skriptet.
 
 Värden som skickas till skriptet som parametrar ska omges av enkla citat tecken ('). Detta säkerställer att det skickade värdet behandlas som en literal.
 
@@ -360,7 +360,7 @@ Det här problemet uppstår oftast när skriptet har skapats i en Windows-miljö
 awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 ```
 
-Ersätt `INFILE` med den fil som innehåller struktur listan. `OUTFILE`ska vara ett nytt fil namn som innehåller skriptet utan struktur.
+Ersätt `INFILE` med den fil som innehåller struktur listan. `OUTFILE` ska vara ett nytt fil namn som innehåller skriptet utan struktur.
 
 ## <a name="next-steps"></a><a name="seeAlso"></a>Nästa steg
 

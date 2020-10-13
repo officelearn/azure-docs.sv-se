@@ -4,10 +4,10 @@ description: Med Azure Backup kan du skicka data från nätverket med Azure impo
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88890101"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server (tidigare versioner)
@@ -99,7 +99,7 @@ Kontrol lera att följande krav är uppfyllda innan du startar arbets flödet of
 
 Följ dessa steg om du vill ladda upp offline backup-certifikatet manuellt till ett tidigare skapat Azure Active Directory program som är avsett för offline-säkerhetskopiering.
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 1. Gå till **Azure Active Directory**  >  **Appregistreringar**.
 1. På fliken **ägda program** letar du reda på ett program med formatet visnings namn `AzureOfflineBackup _<Azure User Id` .
 
@@ -115,7 +115,7 @@ Följ dessa steg om du vill ladda upp offline backup-certifikatet manuellt till 
     ![Ladda upp certifikatet](./media/offline-backup-dpm-mabs-previous-versions/upload-certificate.png)
 
 1. På-servern öppnar du registret genom att skriva in **regedit** i körnings fönstret.
-1. Gå till register posten *dator \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider*.
+1. Gå till register posten *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider*.
 1. Högerklicka på **CloudBackupProvider**och Lägg till ett nytt sträng värde med namnet `AzureADAppCertThumbprint_<Azure User Id>` .
 
     >[!NOTE]

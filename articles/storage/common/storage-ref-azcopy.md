@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 18972e991f08db7fa9548454a5c5cdc3ff0f552f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87285194"
 ---
 # <a name="azcopy"></a>azcopy
@@ -38,7 +38,7 @@ Information om hur du rapporterar problem eller Lär dig mer om verktyget finns 
 
 **--Hjälp** Hjälp för AzCopy
       
-**--** format (sträng) för kommandots utdata. Alternativen är: text, JSON. Standardvärdet är `text`. (standard `text` )
+**--**  format (sträng) för kommandots utdata. Alternativen är: text, JSON. Standardvärdet är `text`. (standard `text` )
 
 **--Trusted-Microsoft-suffix** (sträng) anger ytterligare domänsuffix där Azure Active Directory inloggnings-token kan skickas.  Standardvärdet är '*. Core.Windows.net;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. De som anges här läggs till i standardvärdet. För säkerhet ska du bara placeras Microsoft Azure domäner här. Avgränsa flera poster med semikolon.
 

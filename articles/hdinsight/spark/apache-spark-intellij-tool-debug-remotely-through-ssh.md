@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
 ms.openlocfilehash: 219b7c0586542ae371776d904d0206d52569ccd6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081833"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Felsöka Apache Spark program i ett HDInsight-kluster med Azure Toolkit for IntelliJ via SSH
 
 Den här artikeln innehåller steg-för-steg-anvisningar om hur du använder HDInsight-verktyg i [Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij) för att felsöka program via en fjärr anslutning i ett HDInsight-kluster. Om du vill felsöka ditt projekt kan du även visa [fel söknings programmet HDInsight Spark med Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) video.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Apache Spark-kluster i HDInsight. Se [skapa ett Apache Spark-kluster](../spark/apache-spark-jupyter-spark-sql-use-portal.md).
 
@@ -99,7 +99,7 @@ Den här artikeln innehåller steg-för-steg-anvisningar om hur du använder HDI
 
    ![IntelliJ Lägg till ny konfiguration](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
 
-1. Växla till **fjärran sluten på fliken kluster** . Ange information om **namn**, **Spark-kluster**och **huvud klass namn**. Klicka sedan på **Avancerad konfiguration (fjärrfelsökning)**. Våra verktyg stöder fel sökning med **körningar**. Standardvärdet är 5 i **numExectors**. Du är bättre på att inte ange högre än 3.
+1. Växla till **fjärran sluten på kluster** -fliken. Ange information om **namn**, **Spark-kluster**och **huvud klass namn**. Klicka sedan på **Avancerad konfiguration (fjärrfelsökning)**. Våra verktyg stöder fel sökning med **körningar**. Standardvärdet är 5 i **numExectors**. Du är bättre på att inte ange högre än 3.
 
    ![IntelliJ kör fel söknings konfiguration](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 

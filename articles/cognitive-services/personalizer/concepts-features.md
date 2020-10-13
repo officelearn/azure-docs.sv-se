@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.openlocfilehash: 590416f077fc1ff9430e42e27217548476c9032f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132780"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Funktioner är information om åtgärder och kontext
@@ -131,7 +131,7 @@ Det är möjligt att förbättra dina funktions uppsättningar genom att ändra 
 
 En tidsstämpel till den andra är till exempel en mycket sparse-funktion. Det kan göras mer kompakt (effektiv) genom att klassificera tiderna i "morgon", "kulminera", "eftermiddag" osv.
 
-Plats informationen ger även vanligt vis fördelar från att skapa bredare klassificeringar. Till exempel är en Latitude-longitud-koordinat, till exempel Lat: 47,67402 ° N, Long: 122,12154 ° W är för exakt och tvingar modellen att lära sig latitud och longitud som distinkta dimensioner. När du försöker anpassa baserat på plats information kan du gruppera plats information i större sektorer. Ett enkelt sätt att göra det är att välja en lämplig avrundnings precision för lat-long-talen och kombinera latitud och longitud i "områden" genom att göra dem till en sträng. Till exempel är ett bra sätt att representera 47,67402 ° N, långt: 122,12154 ° W i regionerna cirka några kilo meter breda skulle vara "plats": "34.3, 12,1".
+Plats informationen ger även vanligt vis fördelar från att skapa bredare klassificeringar. Exempel: en Latitude-Longitude koordinat som Lat: 47,67402 ° N, Long: 122,12154 ° W är för exakt och tvingar modellen att lära sig latitud och longitud som distinkta dimensioner. När du försöker anpassa baserat på plats information kan du gruppera plats information i större sektorer. Ett enkelt sätt att göra det är att välja en lämplig avrundnings precision för Lat-Long siffror och kombinera latitud och longitud i "områden" genom att göra dem till en sträng. Till exempel är ett bra sätt att representera 47,67402 ° N, långt: 122,12154 ° W i regionerna cirka några kilo meter breda skulle vara "plats": "34.3, 12,1".
 
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Expandera funktions uppsättningar med extrapolerad information
@@ -177,9 +177,9 @@ Skicka inte mer än 50 åtgärder vid rangordning av åtgärder. Detta kan vara 
 
 De åtgärder som du skickar till ranknings-API: et beror på vad du försöker anpassa.
 
-Här är några exempel:
+Här följer några exempel:
 
-|Syfte|Åtgärd|
+|Syfte|Action|
 |--|--|
 |Anpassa vilken artikel som är markerad på en nyhets webbplats.|Varje åtgärd är en potentiell nyhets artikel.|
 |Optimera AD-placering på en webbplats.|Varje åtgärd är en layout eller regler för att skapa en layout för annonserna (till exempel överst, till höger, små bilder, stora bilder).|

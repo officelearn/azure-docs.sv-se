@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: 55cc3049e437cc18eac6dc537de3ee1c0d894c23
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87070333"
 ---
 # <a name="storsimple-solution-support"></a>Support för StorSimple-lösningen
@@ -85,7 +85,7 @@ Support för problem med fakturering och prenumerations hantering finns på alla
 | B        | Måttlig inverkan på företaget: <ul><br> <li> Kundens verksamhet har begränsad förlust eller försämring av tjänster, men arbetet kan rimligen fortsätta i ett syn sätt. | Första svar: <sup>1</sup><ul><br> <li> 2 timmar eller mindre för Premium. <br> <li> 4 timmar eller mindre för standard.                                      | <ul><li> Tilldelning av lämpliga resurser för att bibehålla kontinuerlig ansträngning under kontors tid, om inte kunden begär att de ska välja ut dygnet runt. <br> <li> Korrekt kontakt information för ärendets ägare. |
 | C        | Minimal inverkan på företaget: <ul><br> <li> Kundens verksamhet fungerar avsevärt med smärre eller inga hinder för tjänster.                                 | Första svar: <sup>1</sup><ul> <br> <li> 4 timmar eller mindre för Premium. <br> <li> 8 timmar eller mindre för standard.                                      | <ul><li>Korrekt kontakt information för ärendets ägare                                                                                                                                    |
  
-<sup>1</sup> Microsoft kan nedgradera allvarlighets graden för en allvarlighets grad om kunden inte kan tillhandahålla tillräckliga resurser eller svar för att Microsoft ska kunna fortsätta med problemlösnings åtgärder.
+<sup>1 </sup> Microsoft kan nedgradera allvarlighets graden för en allvarlighets grad om kunden inte kan tillhandahålla tillräckliga resurser eller svar för att Microsoft ska kunna fortsätta med problemlösnings åtgärder.
 
 <sup>2</sup> förväntade svars tider baseras på dygnet runt support på engelska för allvarlighets grad A och lokala kontors tider för allvarlighets grad B och C, samt support för lokala kontors tider på de återstående lokala språken: japanska, Taiwan, traditionell kinesiska och koreanska.
 
@@ -111,7 +111,7 @@ Support för StorSimple 8000-seriens lagrings mat ris tillhandahålls baserat p�
 
 
 
-*<text>* Premium-täckning är inte tillgängligt på alla platser. Kontakta Microsoft på SSSupOps \@ Microsoft.com för geografisk täckning innan du köper StorSimple Premium-supporten.*
+*<text> * Premium-täckning är inte tillgängligt på alla platser. Kontakta Microsoft på SSSupOps \@ Microsoft.com för geografisk täckning innan du köper StorSimple Premium-supporten.*
 
 ***StorSimple-installationen måste distribueras i en region där kunden omfattas av Premier Support för att bli berättigad till en kostnads fri uppgradering till Premium StorSimple-support.*
 

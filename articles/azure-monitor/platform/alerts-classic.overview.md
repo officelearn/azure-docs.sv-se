@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: c7dfbd60b7a668b849c3150bb16e40285c345634
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87844121"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Vad är klassiska aviseringar i Microsoft Azure?
@@ -33,7 +33,7 @@ Användar upplevelsen för nya aviseringar har följande fördelar jämfört med
 - **Visa utlöst Log Analytics aviseringar i Azure Portal** – nu kan du även se aktiverade Log Analytics aviseringar i din prenumeration. Tidigare fanns dessa i en separat Portal.
 - **Separering av utlösta aviseringar och varnings regler** – varnings regler (definitionen av villkor som utlöser en avisering) och utlösta aviseringar (en instans av varnings regeln utlöses) särskiljs, så att vyerna för drift och konfiguration separeras.
 - **Bättre arbets flöde** – med den nya redigerings guiden för aviseringar kan användaren konfigurera en varnings regel, vilket gör det enklare att upptäcka de rätta sakerna för att få aviseringar.
-- **Smarta aviseringar konsoliderings** -och **inställnings aviserings tillstånd** – nya aviseringar inkluderar funktionen för automatisk gruppering som visar liknande varningar tillsammans för att minska överbelastningen i användar gränssnittet. 
+- **Smarta aviseringar konsoliderings** -och **inställnings aviserings tillstånd**  – nya aviseringar inkluderar funktionen för automatisk gruppering som visar liknande varningar tillsammans för att minska överbelastningen i användar gränssnittet. 
 
 De nyare mått aviseringarna har följande fördelar jämfört med de klassiska måtten:
 - **Förbättrad svars tid**: nya mått aviseringar kan köras så ofta som var som än en minut. Äldre mått varningar körs alltid med en frekvens på 5 minuter. Nyare aviseringar har ökat mindre fördröjning från ärende förekomst till meddelande eller åtgärd (3 till 5 minuter). Äldre aviseringar är 5 till 15 minuter beroende på typ.  Logg aviseringar har vanligt vis 10 till 15 minuters fördröjning på grund av den tid det tar att mata in loggarna, men nyare bearbetnings metoder minskar den tiden. 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
 ms.openlocfilehash: 407db727f521ea7731f0cbdbdd05c4338c9f452e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207729"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Kör MapReduce-jobb med Apache Hadoop på HDInsight med REST
@@ -22,7 +22,7 @@ Lär dig hur du använder Apache Hive WebHCat-REST API för att köra MapReduce-
 > [!NOTE]  
 > Om du redan är bekant med att använda Linux-baserade Hadoop-servrar, men du är nybörjare på HDInsight, kan du läsa [vad du behöver veta om Linux-baserade Apache Hadoop på HDInsight-](../hdinsight-hadoop-linux-information.md) dokument.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Apache Hadoop kluster i HDInsight. Se [skapa Apache Hadoop kluster med hjälp av Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -77,7 +77,7 @@ Antingen:
 
     Slutet av URI: n (/MapReduce/jar) anger WebHCat att den här begäran startar ett MapReduce-jobb från en klass i en jar-fil. De parametrar som används i det här kommandot är följande:
 
-   * **-d**: `-G` används inte, så standardvärdet för begäran till post-metoden. `-d`anger de data värden som skickas med begäran.
+   * **-d**: `-G` används inte, så standardvärdet för begäran till post-metoden. `-d` anger de data värden som skickas med begäran.
      * **User.name**: användaren som kör kommandot
      * **jar**: platsen för den jar-fil som innehåller klassen som ska köras
      * **klass**: klassen som innehåller MapReduce-logiken

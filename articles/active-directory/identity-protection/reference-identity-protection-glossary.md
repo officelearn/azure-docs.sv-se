@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a17f52e519a84c58c9ed5b75259cc0b96d0a175
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88949182"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection ord lista
@@ -62,7 +62,7 @@ En risk identifiering som utlöses när aktuella användarautentiseringsuppgifte
 ### <a name="mitigation"></a>Åtgärd
 En åtgärd för att begränsa eller eliminera möjligheten för en angripare att utnyttja en komprometterad identitet eller enhet utan att återställa identiteten eller enheten till ett säkert tillstånd. En minskning löser inte tidigare risk identifieringar som är associerade med identiteten eller enheten.
 
-### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+### <a name="multi-factor-authentication"></a>Multifaktorautentisering
 En autentiseringsmetod som kräver två eller fler autentiseringsmetoder, som kan innehålla något som användaren har, ett sådant certifikat. något som användaren känner till, t. ex. användar namn, lösen ord eller pass fraser; fysiska attribut, t. ex. ett tumavtryck, och personliga attribut, till exempel en personlig signatur.
 
 ### <a name="offline-detection"></a>Identifiering av offline
@@ -89,7 +89,7 @@ Identifiering av avvikelser och utvärdering av risken för en händelse som inl
 ### <a name="remediated-risk-detection"></a>Åtgärdad (identifiering av risker)
 En status för identifiering av risker anges automatiskt av identitets skydd, vilket indikerar att risk identifieringen reparerades med hjälp av standard åtgärds åtgärden för den här typen av risk identifiering. Till exempel, när användar lösen ordet återställs, åtgärdas många risk identifieringar som indikerar att det tidigare lösen ordet komprometteras automatiskt.
 
-### <a name="remediation"></a>Reparation
+### <a name="remediation"></a>Åtgärder
 En åtgärd för att skydda en identitet eller en enhet som tidigare misstänkts eller var känd för att komprometteras. En reparations åtgärd återställer identiteten eller enheten till ett säkert tillstånd och löser tidigare risk identifieringar som är associerade med identiteten eller enheten.
 
 ### <a name="resolved-risk-detection"></a>Löst (identifiering av risker)

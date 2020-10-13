@@ -10,13 +10,13 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: eb6c9fed42f263ca6cfaa1ea975d31cb8f4a75cf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86262161"
 ---
-# <a name="add-a-reference-layer"></a>Lägg till ett referens skikt
+# <a name="add-a-reference-layer"></a>Lägg till ett referenslager
 
 Med funktionen referens skikt kan en sekundär spatialdata laddas upp till det visuella objektet och överlappa kartan för att ge ytterligare kontext. Den här data uppsättningen är värd för Power BI och måste vara en [INTERjson-fil](https://wikipedia.org/wiki/GeoJSON) med `.json` `.geojson` fil namns tillägget eller.
 
@@ -64,4 +64,4 @@ Lägg till mer kontext till kartan:
 > [Lägga till ett panelskikt](power-bi-visual-add-tile-layer.md)
 
 > [!div class="nextstepaction"]
-> [Visa real tids trafik](power-bi-visual-show-real-time-traffic.md)
+> [Visa trafik i realtid](power-bi-visual-show-real-time-traffic.md)

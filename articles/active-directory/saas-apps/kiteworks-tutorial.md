@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ae504a7dcd6f598c13b5fabffaca4ec6ec067e4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cb6a9691e1b3186e6493b4ae0b62857fb03f38c
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549941"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944061"
 ---
 # <a name="tutorial-integrate-kiteworks-with-azure-active-directory"></a>Självstudie: integrera Kiteworks med Azure Active Directory
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Kiteworks med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -100,11 +100,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I verktygsfältet längst upp klickar du på **Inställningar**.
 
-    ![Konfigurera enkel inloggning](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
+    ![Skärm bild som visar ikonen "Inställningar" i verktygsfältet markerat.](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
 
 1. I avsnittet **autentisering och auktorisering** klickar du på **SSO-konfiguration**.
 
-    ![Konfigurera enkel inloggning](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
+    ![Skärm bild som visar "S O-konfiguration" som valts från avsnittet "autentisering och auktorisering".](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
 
 1. Utför följande steg på sidan SSO-konfiguration:
 

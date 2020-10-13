@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 45ad613fd250f905dd1cd5e14b5c8aeb42896a51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edfd14d979b84061690410f3da9e29ba07899654
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554670"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Självstudie: Azure Active Directory integrering med MobileIron
 
@@ -30,7 +30,7 @@ Genom att integrera MobileIron med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med MobileIron behöver du följande:
 
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med hj�
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg om du vill konfigurera programmet i **IDP**-initierat läge:
 
-    ![Information om enkel inloggning med MobileIron-domäner och URL:er](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://www.mobileiron.com/<key>`
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med hj�
 
     c. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning med MobileIron-domäner och URL:er](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<host>.mobileiron.com/user/login.html`
 
@@ -124,11 +124,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med hj�
 
 2. Gå till **Administratörs**  >  **identitet** och välj **AAD** -alternativ i fältet **information om Cloud IDP-inställningar** .
 
-    ![Konfigurera knapp för enkel administratörsinloggning](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
+    ![Skärm bild som visar fliken admin på MobileIron-platsen med den valda identiteten.](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
 3. Kopiera värdena för **nyckel** och **värd** och klistra in dem så att webbadresserna i avsnittet **Grundläggande SAML-konfiguration** på Azure-portalen blir kompletta.
 
-    ![Konfigurera knapp för enkel administratörsinloggning](./media/mobileiron-tutorial/key.png)
+    ![Skärm bild som visar alternativet Konfigurera SAML med en nyckel och ett värd värde.](./media/mobileiron-tutorial/key.png)
 
 4. I fältet **Exportera metadatafil från AAD och importera till MobileIron-moln** klickar du på **Välj fil** för att ladda upp hämtade metadata från Azure-portalen. Klicka på **Klar** när överföringen har slutförts.
 

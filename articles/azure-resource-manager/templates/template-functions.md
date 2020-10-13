@@ -2,13 +2,13 @@
 title: Mallfunktioner
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att hämta värden, arbeta med strängar och siffror och hämta distributions information.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: c78e9481e6f2ba1f17389992aab2712719fc4c3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: a479b81d0f0bc378f77885cbd644e70d7be1d857
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378414"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961178"
 ---
 # <a name="arm-template-functions"></a>ARM-mallens funktioner
 
@@ -104,9 +104,11 @@ Resource Manager innehåller följande funktioner för att arbeta med logiska vi
 
 * [and](template-functions-logical.md#and)
 * [boolesk](template-functions-logical.md#bool)
+* [!](template-functions-logical.md#false)
 * [eventuella](template-functions-logical.md#if)
 * [Ogiltigt](template-functions-logical.md#not)
 * [eller](template-functions-logical.md#or)
+* [värdet](template-functions-logical.md#true)
 
 <a id="add" aria-hidden="true"></a>
 <a id="copyindex" aria-hidden="true"></a>
@@ -141,10 +143,12 @@ Resource Manager innehåller följande funktioner för att arbeta med heltal:
 Resource Manager innehåller flera funktioner för att arbeta med objekt.
 
 * [ingår](template-functions-object.md#contains)
+* [createObject](template-functions-object.md#createobject)
 * [tomt](template-functions-object.md#empty)
 * [överlappning](template-functions-object.md#intersection)
 * [utgör](template-functions-object.md#json)
 * [length](template-functions-object.md#length)
+* [ha](template-functions-object.md#null)
 * [Union](template-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true"></a>

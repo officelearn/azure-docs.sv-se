@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d33f53ef3d6ea0ef6a3040a82ec17b3089075949
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: d964efd6d9923190a6fef92c91d357a8a650572d
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927121"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766838"
 ---
 ::: zone target="docs"
 
@@ -68,7 +68,7 @@ Ha följande i åtanke när du kopierar data till diskarna:
 
 Utför stegen nedan för att ansluta och kopiera data från din dator till Data Box-disken.
 
-1. Visa innehållet på den upplåsta enheten. Listan över de förskapade mapparna och undermapparna på enheten varierar beroende på vilka alternativ du valde när du beställde Data Box Disk.
+1. Visa innehållet på den upplåsta enheten. Listan över de förskapade mapparna och undermapparna på enheten varierar beroende på vilka alternativ du valde när du beställde Data Box Disk. Om en förskapad mapp inte finns ska du inte skapa den, detta eftersom kopiering till en användarskapad mapp misslyckas med uppladdning till Azure.
 
     |Valt lagringsmål  |Storage Account-typ|Typ av mellanlagringskonto |Mappar och undermappar  |
     |---------|---------|---------|------------------|
@@ -212,15 +212,15 @@ Den här valfria proceduren kan användas när du använder flera diskar och har
 3. Identifiera de källdata som ska kopieras. I det här fallet:
     - Följande blockblobdata har identifierats.
 
-         ![Dela upp och kopiera data](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+         ![Dela upp och kopiera data 2](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
 
     - Följande sidblobdata har identifierats.
 
-         ![Dela upp och kopiera data](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+         ![Dela upp och kopiera data 3](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
 4. Gå till den mapp där programvaran har extraherats. Leta upp filen `SampleConfig.json` i den mappen. Det här är en skrivskyddad fil som du kan ändra och spara.
 
-   ![Dela upp och kopiera data](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+   ![Dela upp och kopiera data 4](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
 5. Ändra filen `SampleConfig.json`.
  
@@ -229,11 +229,11 @@ Den här valfria proceduren kan användas när du använder flera diskar och har
    - Ange enhetsbokstäverna som motsvarar måldiskarna. Data tas från källsökvägen och kopieras över flera diskar.
    - Ange en sökväg för loggfilerna. Som standard skickas den till den aktuella katalogen där `.exe` finns.
 
-     ![Dela upp och kopiera data](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+     ![Dela upp och kopiera data 5](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
 6. Verifiera filformatet genom att gå till `JSONlint`. Spara filen som `ConfigFile.json`. 
 
-     ![Dela upp och kopiera data](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+     ![Dela upp och kopiera data 6](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Öppna ett kommandotolksfönster. 
 
@@ -241,24 +241,24 @@ Den här valfria proceduren kan användas när du använder flera diskar och har
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
-     ![Dela upp och kopiera data](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+     ![Dela upp och kopiera data 7](media/data-box-disk-deploy-copy-data/split-copy-7.png)
  
 9. Ange för att fortsätta skriptet.
 
-    ![Dela upp och kopiera data](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+    ![Dela upp och kopiera data 8](media/data-box-disk-deploy-copy-data/split-copy-8.png)
   
 10. När datamängden har delats upp och kopierats visas sammanfattningen för Split Copy-verktyget för kopieringssessionen. Ett exempel på utdata visas nedan.
 
-    ![Dela upp och kopiera data](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+    ![Dela upp och kopiera data 9](media/data-box-disk-deploy-copy-data/split-copy-9.png)
  
 11. Verifiera att data delas upp på måldiskarna. 
  
-    ![Dela upp och kopiera data](media/data-box-disk-deploy-copy-data/split-copy-10.png)
-    ![Dela upp och kopiera data](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+    ![Dela upp och kopiera data 10](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![Dela upp och kopiera data 11](media/data-box-disk-deploy-copy-data/split-copy-11.png)
      
     Om du undersöker innehållet på enhet `n:` vidare ser du att två undermappar har skapats som motsvarar blockblob- och sidblob-formatdata.
     
-     ![Dela upp och kopiera data](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+     ![Dela upp och kopiera data 12](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
 12. Om kopieringssessionen misslyckas använder du följande kommando för att återställa och återuppta:
 

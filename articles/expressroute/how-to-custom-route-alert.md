@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
 ms.openlocfilehash: 67591e9227ff32e81b973c181da2c1374f0ded47
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91766670"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Konfigurera anpassade aviseringar för att övervaka annonserade vägar
@@ -369,7 +369,7 @@ När JSON parsas lagrar åtgärden **parsa JSON-data åtgärder** innehållet i 
 
    :::image type="content" source="./media/custom-route-alert-portal/condition-control.png" alt-text="Lägg till Automation-konto":::
 
-5. I listan **åtgärder** väljer du **villkor-kontroll**. Villkors kontrollen är en kontroll struktur som jämför data i arbets flödet med vissa värden eller fält. Du kan sedan ange olika åtgärder som körs baserat på om, data uppfyller villkoret.
+5. I listan **åtgärder** väljer du **villkor-kontroll**. Condition-Control är en kontroll struktur som jämför data i arbets flödet med vissa värden eller fält. Du kan sedan ange olika åtgärder som körs baserat på om, data uppfyller villkoret.
 
    :::image type="content" source="./media/custom-route-alert-portal/condition.png" alt-text="Lägg till Automation-konto":::
 

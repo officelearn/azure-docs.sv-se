@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 9c635b01bcd04bd03191fca2590b0189bad0f544
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90982022"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Lägga till meddelanden i en Azure Storage-kö med Functions
@@ -38,7 +38,7 @@ I det här avsnittet använder du portalens användargränssnitt för att lägga
 
 1. Välj typ av **Azure Queue Storage** -bindning och Lägg till inställningarna som anges i tabellen som följer den här skärm bilden: 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Lägg till en Queue Storage-utdatabindning i en funktion på Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Skapa en utgående bindning för din funktion." border="true":::
     
     | Inställning      |  Föreslaget värde   | Beskrivning                              |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -94,7 +94,7 @@ I det här avsnittet lägger du till kod som skriver ett meddelande till utdatak
 1. När kod ändringarna har sparats väljer du **test**.
 1. Bekräfta att testet matchar bilden nedan och välj **Kör**. 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Testa bindningen för Queue Storage i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Skapa en utgående bindning för din funktion." border="true":::
 
     Observera att **Begärandetexten** innehåller värdet `name`*Azure*. Värdet visas i kömeddelandet som skapas när funktionen anropas.
     
@@ -111,11 +111,11 @@ En ny kö med namnet **outqueue** skapas i ditt lagringskonto av funktionskörni
 
 1. Under **program inställningar**väljer du **AzureWebJobsStorage**.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Skärm bild som visar konfigurations sidan med AzureWebJobsStorage valt." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Skapa en utgående bindning för din funktion." border="true":::
 
 1. Leta upp och anteckna konto namnet.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="Leta upp lagrings kontot som är anslutet till AzureWebJobsStorage." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="Skapa en utgående bindning för din funktion." border="true":::
 
 ### <a name="examine-the-output-queue"></a>Granska utdatakö
 

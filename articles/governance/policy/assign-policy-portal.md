@@ -1,14 +1,14 @@
 ---
 title: 'Snabb start: ny princip tilldelning med Portal'
 description: I den här snabb starten använder du Azure Portal för att skapa en Azure Policy tilldelning för att identifiera icke-kompatibla resurser.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: quickstart
-ms.openlocfilehash: 956ec05b5a7fac862eeea86cf96a2db37f1c0536
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 51ca2f9e5d3f3df9304804ba3da2c5c5ceb0c19b
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89651977"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875316"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser
 
@@ -58,7 +58,7 @@ I den här snabbstarten skapar du en principtilldelning och tilldelar policydefi
 1. **Tilldelningsnamn** fylls i automatiskt med namnet på principen som du valde, men du kan ändra det om du vill. I det här exemplet lämnar du _Granska virtuella datorer som inte använder hanterade diskar_. Du kan också lägga till en valfri **Beskrivning**. Beskrivningen innehåller information om den här principtilldelningen.
    **Assigned by** (Tilldelats av) anges automatiskt baserat på vem som är inloggad. Det här fältet är valfritt, så du kan ange anpassade värden.
 
-1. Lämna **Skapa en hanterad identitet** avmarkerat. Den här rutan _måste_ markeras när principen eller initiativet omfattar en princip med effekten [deployIfNotExists](./concepts/effects.md#deployifnotexists). Eftersom principen som används för den här snabbstarten inte gör det kan du lämna det tomt. Mer information finns i avsnitten om [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](./how-to/remediate-resources.md#how-remediation-security-works).
+1. Lämna **Skapa en hanterad identitet** avmarkerat. Den här rutan _måste_ kontrol leras när principen eller initiativet innehåller en princip med antingen [deployIfNotExists](./concepts/effects.md#deployifnotexists) eller [ändra](./concepts/effects.md#modify) -resultatet. Eftersom principen som används för den här snabbstarten inte gör det kan du lämna det tomt. Mer information finns i avsnitten om [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](./how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Välj **Tilldela**.
 
@@ -74,15 +74,15 @@ Om det finns befintliga resurser som inte är kompatibla med denna nya tilldelni
 
 När ett villkor utvärderas mot de befintliga resurserna och visas vara korrekt markeras dessa resurser som inkompatibla med principen. Följande tabell visar hur olika principåtgärder fungerar med villkorsutvärderingen för den efterlevnadsstatus som blir resultatet. Även om du inte ser utvärderings logiken i Azure Portal visas resultatet för kompatibilitetstillstånd. Resultatet för kompatibilitetstillståndet är antingen kompatibla eller icke-kompatibla resurser.
 
-| **Resurstillstånd** | **Effekt** | **Principutvärdering** | **Kompatibilitetstillstånd** |
+| Resurstillstånd | Effekt | Principutvärdering | Kompatibilitetsstatus |
 | --- | --- | --- | --- |
-| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Sant | Icke-kompatibel |
-| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Falskt | Kompatibel |
-| Ny | Audit, AuditIfNotExist\* | Sant | Icke-kompatibel |
-| Ny | Audit, AuditIfNotExist\* | Falskt | Kompatibel |
+| Ny eller uppdaterad? | Granska, ändra, AuditIfNotExist | Sant | Icke-kompatibel |
+| Ny eller uppdaterad? | Granska, ändra, AuditIfNotExist | Falskt | Kompatibel |
+| Finns | Neka, granska, lägga till, ändra, DeployIfNotExist, AuditIfNotExist | Sant | Icke-kompatibel |
+| Finns | Neka, granska, lägga till, ändra, DeployIfNotExist, AuditIfNotExist | Falskt | Kompatibel |
 
-\* För åtgärderna Append, DeployIfNotExist och AuditIfNotExist måste IF-instruktionen är TRUE.
-Åtgärderna kräver också att villkoret Finns är FALSE för att vara icke-kompatibla. När det är TRUE utlöser IF-villkoret utvärdering av villkoret Finns för de relaterade resurserna.
+> [!NOTE]
+> DeployIfNotExist-och AuditIfNotExist-effekterna kräver att IF-instruktionen är TRUE och förekomstens villkor är falskt för att vara icke-kompatibel. När det är TRUE utlöser IF-villkoret utvärdering av villkoret Finns för de relaterade resurserna.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

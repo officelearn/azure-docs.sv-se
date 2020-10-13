@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 595977635937ec5dcf4a45a1d57524c1d3f41a6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3be17c672eb918c715602c7576c7d682badd925
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554387"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Självstudie: Azure Active Directory integrering med NimbleX
 
@@ -30,7 +30,7 @@ Genom att integrera NimbleX med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med NimbleX behöver du följande objekt:
 
@@ -132,19 +132,19 @@ Utför följande steg för att konfigurera enkel inloggning med NimbleX i Azure 
 
 2. Klicka på **Inställningar** logo typ på den övre högra sidan av sidan.
 
-    ![NimbleX-inställningar](./media/nimblex-tutorial/tutorial_nimblex_settings.png)
+    ![Skärm bild som visar ikonen Inställningar.](./media/nimblex-tutorial/tutorial_nimblex_settings.png)
 
 3. På **kontroll panelen** går du till avsnittet **säkerhet** och klickar på **enkel inloggning**.
 
-    ![NimbleX-inställningar](./media/nimblex-tutorial/tutorial_nimblex_single.png)
+    ![Skärm bild som visar enkel inloggning markerad från menyn säkerhet.](./media/nimblex-tutorial/tutorial_nimblex_single.png)
 
 4. På sidan **hantera enkel inloggning** väljer du ditt instans namn och klickar på **Redigera**.
 
-    ![NimbleX SAML](./media/nimblex-tutorial/tutorial_nimblex_saml.png)
+    ![Skärm bild som visar hantera enkla Sign-On där du kan välja Redigera.](./media/nimblex-tutorial/tutorial_nimblex_saml.png)
 
 5. Utför följande steg på sidan **Redigera SSO-Provider** :
 
-    ![NimbleX SAML](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
+    ![Skärm bild som visar r S O-Provider där du kan ange de värden som beskrivs.](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
 
     a. I text rutan **Beskrivning** skriver du namnet på din instans.
 

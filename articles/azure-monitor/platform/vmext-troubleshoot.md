@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/06/2019
 ms.openlocfilehash: 2e96ac5052221475d9aec11d4ed96e8f9c308d70
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710115"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Felsöka Log Analytics-tillägget för virtuella datorer i Azure Monitor
@@ -18,7 +18,7 @@ Den här artikeln innehåller fel söknings fel som kan uppstå i Log Analytics 
 
 För att kontrol lera status för tillägget, utför följande steg från Azure Portal.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **virtuella datorer**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Virtuella datorer**.
 3. Leta upp och markera den i listan över virtuella datorer.
 3. Klicka på **tillägg**på den virtuella datorn.

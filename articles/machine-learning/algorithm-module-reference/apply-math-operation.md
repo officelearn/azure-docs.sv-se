@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 04ce45f428604275696d83938708bcee0c6c023f
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536774"
 ---
 # <a name="apply-math-operation"></a>Använda matematisk åtgärd
@@ -577,8 +577,8 @@ Anta att din data uppsättning har flera kolumner och att du lägger till data u
 |Num1|Num2|Num3|Lägg till (Num1_Num1)|Lägg till (Num2_Num2)|Lägg till (Num3_Num3)|
 |----|----|----|----|----|----|
 |1|5|2|2|10|4|
-|2|3|−1|4|6|−2|
-|0|1|−1|0|2|−2|
+|2|3|-1|4|6|-2|
+|0|1|-1|0|2|-2|
 
 Om du behöver utföra mer komplexa beräkningar kan du kedja flera instanser av **Använd matematik-åtgärd**. Du kan till exempel lägga till två kolumner genom att använda en instans av **Använd matematik-åtgärd**och sedan använda en annan instans av **Använd matematik-åtgärd** för att dividera summan med en konstant för att få medelvärdet.  
   

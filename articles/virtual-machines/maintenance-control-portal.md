@@ -8,17 +8,17 @@ ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
 ms.openlocfilehash: b174e2631131e6bf26d7b1cb62442c8a99102e2e
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397291"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Styra uppdateringar med underhålls kontroll och Azure Portal
 
 Med underhålls kontrollen kan du bestämma när du ska tillämpa uppdateringar på dina isolerade virtuella datorer och Azure-dedikerade värdar. I det här avsnittet beskrivs Azure Portal alternativ för underhålls kontroll. Mer information om fördelarna med att använda underhålls kontroll, dess begränsningar och andra hanterings alternativ finns i [Hantera plattforms uppdateringar med underhålls kontroll](maintenance-control.md).
 
-## <a name="create-a-maintenance-configuration"></a>Skapa en underhålls konfiguration
+## <a name="create-a-maintenance-configuration"></a>Skapa en underhållskonfiguration
 
 1. Logga in på Azure Portal.
 

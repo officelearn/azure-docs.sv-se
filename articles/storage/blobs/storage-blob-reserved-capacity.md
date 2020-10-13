@@ -1,19 +1,20 @@
 ---
-title: Optimera kostnader för Blob Storage med reserverad kapacitet – Azure Storage
+title: Optimera kostnader för blobblagring med reserverad kapacitet
+titleSuffix: Azure Storage
 description: Läs mer om att köpa Azure Storage reserverad kapacitet för att spara kostnader för Block-Blob och Azure Data Lake Storage Gen2 resurser.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 10/08/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c06bbc412a51fc919b862aeb3f62ec58feec89cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf96906b0dab9a94febe83468f813c7cae0675b0
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84259209"
+ms.locfileid: "91874823"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimera kostnader för blobblagring med reserverad kapacitet
 
@@ -29,7 +30,7 @@ I följande avsnitt beskrivs villkoren i en Azure Storage reservation.
 
 ### <a name="reservation-capacity"></a>Reservations kapacitet
 
-Du kan köpa Azure Storage reserverad kapacitet i enheter om 100 TB och 1 PB per månad för ett år eller tre års period.
+Du kan köpa Azure Storage reserverad kapacitet i enheter om 100 TiB och 1 PiB per månad för ett år eller tre års period.
 
 ### <a name="reservation-scope"></a>Reservations omfång
 
@@ -62,7 +63,7 @@ Så här köper du reserverad kapacitet:
 
 När du köper en Azure Storage reservation måste du välja region, åtkomst nivå och alternativ för redundans för reservationen. Din reservation är bara giltig för data som lagras i den regionen, åtkomst nivån och redundans nivån. Anta till exempel att du köper en reservation för data i västra USA för frekvent nivå med hjälp av Zone-redundant lagring (ZRS). Du kan inte använda samma reservation för data i östra USA, data på Arkiv nivå eller data i Geo-redundant lagring (GRS). Du kan dock köpa ytterligare en reservation för dina ytterligare behov.  
 
-Reservationer är tillgängliga i dag för 100 TB-block eller 1 PB-block, med en högre rabatt på 1 PB-block. När du köper en reservation i Azure Portal kan Microsoft ge dig rekommendationer baserat på din tidigare användning för att avgöra vilken reservation du bör köpa.
+Reservationer är tillgängliga idag för 100 TiB-eller 1 PiB-block, med högre rabatter för 1 PiB-block. När du köper en reservation i Azure Portal kan Microsoft ge dig rekommendationer baserat på din tidigare användning för att avgöra vilken reservation du bör köpa.
 
 ## <a name="purchase-azure-storage-reserved-capacity"></a>Köp Azure Storage reserverad kapacitet
 
@@ -86,7 +87,7 @@ Följ dessa steg för att köpa reserverad kapacitet:
    | **Åtkomstnivå** | Åtkomst nivån där reservationen gäller. Alternativen är *frekvent*, *låg frekvent*eller *Arkiv*lag ring. Mer information om åtkomst nivåer finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](storage-blob-storage-tiers.md)lag rings nivåer. |
    | **Redundans** | Alternativet redundans för reservationen. Alternativen inkluderar *LRS*, *ZRS*, *GRS*, *GZRS*, *RA-GRS*och *ra-GZRS*. Mer information om redundans alternativ finns [Azure Storage redundans](../common/storage-redundancy.md). |
    | **Fakturerings frekvens** | Anger hur ofta kontot debiteras för reservationen. Alternativen omfattar *varje månad* eller i *förskott*. |
-   | **Storlek** | Den region där reservationen gäller. |
+   | **Storlek** | Mängden kapacitet som ska reserveras. |
    |**Period**  | Ett år eller tre år.   |
 
 1. När du har valt parametrar för din reservation, visar Azure Portal kostnaden. Portalen visar också rabatt procenten för betalning per användning.

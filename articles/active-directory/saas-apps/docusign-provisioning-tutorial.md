@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.openlocfilehash: d56f9890396d0381d24676964dabc57e2020ec28
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317437"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Självstudie: Konfigurera DocuSign för automatisk användar etablering
@@ -51,7 +51,7 @@ Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vi
 Det här avsnittet vägleder dig genom att ansluta din Azure AD till DocuSign-API för användar konto och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i DocuSign baserat på användar-och grupp tilldelning i Azure AD.
 
 > [!Tip]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för DocuSign enligt anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
+> Du kan också välja att aktivera SAML-baserade enkla Sign-On för DocuSign, genom att följa anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
 
 ### <a name="to-configure-user-account-provisioning"></a>Konfigurera användar konto etablering:
 

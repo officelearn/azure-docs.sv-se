@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.openlocfilehash: a5760db2d6e453d631680d6154e6d9a03ce55cd6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541347"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Förutsägelse slut punkt ändringar för v3
@@ -103,7 +103,7 @@ Om du vill fråga efter version måste du först [publicera via API](https://wes
 }
 ```
 
-|Egenskap|Typ|Version|Standardvärde|Syfte|
+|Egenskap|Typ|Version|Default|Syfte|
 |--|--|--|--|--|
 |`dynamicLists`|matris|Endast v3|Krävs inte.|Med [dynamiska listor](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) kan du utöka en befintlig utbildad och publicerad List-entitet, redan i Luis-appen.|
 |`externalEntities`|matris|Endast v3|Krävs inte.|[Externa entiteter](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) ger din Luis-app möjlighet att identifiera och märka enheter under körning, som kan användas som funktioner till befintliga entiteter. |

@@ -4,12 +4,12 @@ description: Övervaka ASP.NET Core webb program för tillgänglighet, prestanda
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: cb192aa44e9e2ab8578881494852ddd41ae9094d
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 825cd451120f06597922c142dfc6bf8c10f5c700
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91839018"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875129"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core program
 
@@ -31,7 +31,7 @@ Exemplet som vi ska använda här är ett [MVC-program](/aspnet/core/tutorials/f
 > [!NOTE]
 > ASP.NET Core 3. X kräver [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) eller senare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett fungerande ASP.NET Core program. Om du behöver skapa ett ASP.NET Core program följer du den här [ASP.net Core själv studie kursen](/aspnet/core/getting-started/).
 - En giltig Application Insights Instrumentation-nyckel. Den här nyckeln krävs för att skicka telemetri till Application Insights. Om du behöver skapa en ny Application Insights resurs för att hämta en Instrumentation-nyckel, se [skapa en Application Insights resurs](./create-new-resource.md).
@@ -134,7 +134,7 @@ Kör programmet och gör begär anden till det. Telemetri ska nu flöda till App
 
 ### <a name="ilogger-logs"></a>ILogger-loggar
 
-Loggar som har spridits via `ILogger` allvarlighets grad `Warning` och högre samlas in automatiskt. Följ [ILogger-dokument](ilogger.md#control-logging-level) för att anpassa vilka logg nivåer som samlas in av Application Insights.
+Standard konfigurationen samlar in `ILogger` loggar med allvarlighets grad `Warning` och högre. Den här konfigurationen kan [anpassas](#how-do-i-customize-ilogger-logs-collection).
 
 ### <a name="dependencies"></a>Beroenden
 
@@ -209,7 +209,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Fullständig lista över inställningar i `ApplicationInsightsServiceOptions`
 
-|Inställningen | Beskrivning | Default
+|Inställning | Beskrivning | Default
 |---------------|-------|-------
 |EnablePerformanceCounterCollectionModule  | Aktivera/inaktivera `PerformanceCounterCollectionModule` | true
 |EnableRequestTrackingTelemetryModule   | Aktivera/inaktivera `RequestTrackingTelemetryModule` | true

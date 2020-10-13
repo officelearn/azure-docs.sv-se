@@ -12,10 +12,10 @@ ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-js
 ms.openlocfilehash: 225ab3a8ab03c507132bdfcb176aeeb706d6b115
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91304057"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Självstudie: skapa en webbapp med en sida
@@ -41,7 +41,7 @@ I den här självstudieappen visas hur du:
 Självstudiesidan är helt självständigt. Den använder inte några externa ramverk, formatmallar eller bildfiler. Den använder endast JavaScript-språkfunktioner som stöds och fungerar med aktuella versioner av alla större webbläsare.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill följa med i själv studie kursen behöver du prenumerations nycklar för Bing-sökning-API: et. Om du inte har dessa måste du skapa dem:
 
@@ -323,7 +323,7 @@ function renderResults(items) {
 ```
 API:et för nyhetssökning i Bing returnerar upp till fyra olika typer av relaterade resultat i sitt respektive toppnivåobjekt. De är:
 
-|Relation|Description|
+|Relation|Beskrivning|
 |-|-|
 |`pivotSuggestions`|Frågor som ersätter ett pivotord i den ursprungliga sökningen med ett annat. Om du till exempel söker efter ”röda blommor” kan ett pivotord vara ”röda”, och ett pivotförslag kan vara ”gula blommor”.|
 |`queryExpansions`|Frågor som begränsar den ursprungliga sökningen genom att lägga till fler termer. Om du exempelvis söker efter ”Microsoft Surface” kan en frågeexpansion vara ”Microsoft Surface Pro”.|

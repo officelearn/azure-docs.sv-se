@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: a0dc9f673abcac549fffc7291b8ac376c297da6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d3ecae17ae14effe48f5a7a0ee3f73d3054a220
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836130"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961484"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Offentlig slut punkts anslutning för Virtual Machines med Azure Standard Load Balancer i SAP-scenarier med hög tillgänglighet
 
@@ -67,12 +67,12 @@ Läs följande dokument först:
   * [Översikt över Azure Firewall](../../../firewall/overview.md)– översikt över Azure-brandväggen
   * [Självstudie: Distribuera och konfigurera Azure Firewall](../../../firewall/tutorial-firewall-deploy-portal.md) – instruktioner för hur du konfigurerar Azure firewall via Azure Portal
 * [Virtuella nätverk – användardefinierade regler](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) – Azure-routning – koncept och regler  
-* [Säkerhets grupper tjänst Taggar](../../../virtual-network/security-overview.md#service-tags) – hur du fören klar nätverks säkerhets grupperna och brand Väggs konfigurationen med service märken
+* [Säkerhets grupper tjänst Taggar](../../../virtual-network/network-security-groups-overview.md#service-tags) – hur du fören klar nätverks säkerhets grupperna och brand Väggs konfigurationen med service märken
 
 ## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Ytterligare extern Azure-Standard Load Balancer för utgående anslutningar till Internet
 
 Ett alternativ för att få en utgående anslutning till offentliga slut punkter, utan att tillåta inkommande anslutning till den virtuella datorn från den offentliga slut punkten, är att skapa en andra belastningsutjämnare med offentlig IP-adress, lägga till de virtuella datorerna i backend-poolen för den andra belastningsutjämnaren och definiera enbart [utgående regler](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules).  
-Använd [nätverks säkerhets grupper](../../../virtual-network/security-overview.md) för att kontrol lera de offentliga slut punkterna som är tillgängliga för utgående samtal från den virtuella datorn.  
+Använd [nätverks säkerhets grupper](../../../virtual-network/network-security-groups-overview.md) för att kontrol lera de offentliga slut punkterna som är tillgängliga för utgående samtal från den virtuella datorn.  
 Mer information finns i scenario 2 i dokument [utgående anslutningar](../../../load-balancer/load-balancer-outbound-connections.md#scenarios).  
 Konfigurationen skulle se ut så här:  
 
@@ -81,11 +81,11 @@ Konfigurationen skulle se ut så här:
 ### <a name="important-considerations"></a>Att tänka på
 
 - Du kan använda ytterligare en offentlig Load Balancer för flera virtuella datorer i samma undernät för att få en utgående anslutning till den offentliga slut punkten och optimera kostnaden  
-- Använd [nätverks säkerhets grupper](../../../virtual-network/security-overview.md) för att styra vilka offentliga slut punkter som är tillgängliga från de virtuella datorerna. Du kan tilldela nätverks säkerhets gruppen antingen till under nätet eller till varje virtuell dator. Använd om möjligt [service märken](../../../virtual-network/security-overview.md#service-tags) för att minska komplexiteten i säkerhets reglerna.  
+- Använd [nätverks säkerhets grupper](../../../virtual-network/network-security-groups-overview.md) för att styra vilka offentliga slut punkter som är tillgängliga från de virtuella datorerna. Du kan tilldela nätverks säkerhets gruppen antingen till under nätet eller till varje virtuell dator. Använd om möjligt [service märken](../../../virtual-network/network-security-groups-overview.md#service-tags) för att minska komplexiteten i säkerhets reglerna.  
 - Azure standard Load Balancer med offentlig IP-adress och utgående regler ger direkt åtkomst till den offentliga slut punkten. Om du har företags säkerhets krav för all utgående trafik överföring via centraliserad företags lösning för granskning och loggning, kanske du inte kan uppfylla kraven i det här scenariot.  
 
 >[!TIP]
->Använd om möjligt [service märken](../../../virtual-network/security-overview.md#service-tags) för att minska komplexiteten i nätverks säkerhets gruppen. 
+>Använd om möjligt [service märken](../../../virtual-network/network-security-groups-overview.md#service-tags) för att minska komplexiteten i nätverks säkerhets gruppen. 
 
 ### <a name="deployment-steps"></a>Distributionssteg
 
@@ -117,7 +117,7 @@ Konfigurationen skulle se ut så här:
 
    ![Utgående anslutning med andra Load Balancer med offentlig IP](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
 
-   Mer information om nätverks säkerhets grupper i Azure finns i [säkerhets grupper ](../../../virtual-network/security-overview.md). 
+   Mer information om nätverks säkerhets grupper i Azure finns i [säkerhets grupper ](../../../virtual-network/network-security-groups-overview.md). 
 
 ## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Azure-brandvägg för utgående anslutningar till Internet
 
@@ -137,7 +137,7 @@ Arkitekturen skulle se ut så här:
 - Om företags brand Väggs lösningen inte är Azure-brandvägg och du har säkerhets krav för all utgående trafik, även om den centraliserade företags lösningen, är den här lösningen kanske inte praktisk.  
 
 >[!TIP]
->Använd om möjligt [service märken](../../../virtual-network/security-overview.md#service-tags) för att minska komplexiteten i Azures brand Väggs regler.  
+>Använd om möjligt [service märken](../../../virtual-network/network-security-groups-overview.md#service-tags) för att minska komplexiteten i Azures brand Väggs regler.  
 
 ### <a name="deployment-steps"></a>Distributionssteg
 

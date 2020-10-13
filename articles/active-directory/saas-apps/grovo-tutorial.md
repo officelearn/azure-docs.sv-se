@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
-ms.openlocfilehash: c43a50dbbd2276573a80b866ee673e4391d9736b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a503f93895d0e1377f8037818b68ea42178363c2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551419"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944996"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grovo"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Grovo
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Grovo med Azure Act
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -137,11 +137,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Gå till **Administratörs**  >  **integreringar**.
  
-    ![Grovo-konfiguration](./media/grovo-tutorial/tutorial_grovo_admin.png) 
+    ![Skärm bild som visar "administratör"-menyn med "integrations" valda.](./media/grovo-tutorial/tutorial_grovo_admin.png) 
 
 3. Klicka på **Konfigurera** under **SP initiera SAML 2,0** -avsnittet.
 
-    ![Grovo-konfiguration](./media/grovo-tutorial/tutorial_grovo_setup.png)
+    ![Skärm bild som visar avsnittet "S P inlett S A M L 2,0" med knappen "Ställ in" valt.](./media/grovo-tutorial/tutorial_grovo_setup.png)
 
 4. Utför följande steg i popup-fönstret **SP-initierad SAML 2,0** :
 

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: c46d977b6ce4eaa62aefc6874ce2b855a4711670
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317520"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Felsöka Azure AD-anslutning
@@ -44,7 +44,7 @@ Proxyservern måste också ha de webb adresser som krävs öppna. Den officiella
 
 I dessa URL: er är följande tabell det absoluta minimala alternativet för att kunna ansluta till Azure AD. Den här listan innehåller inte några valfria funktioner, till exempel tillbakaskrivning av lösen ord eller Azure AD Connect Health. Den dokumenteras här för att hjälpa till med fel sökning av den inledande konfigurationen.
 
-| URL | Port | Description |
+| URL | Port | Beskrivning |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
 | \*. verisign.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |

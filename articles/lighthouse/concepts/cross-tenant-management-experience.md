@@ -1,14 +1,14 @@
 ---
 title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
-ms.date: 09/30/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 60eab197e38c7b6ef3b7f2d9442a0b7583f66d09
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 7b2476d58cdfe057a94c52b40af7694abc7b263f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91739739"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970647"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -35,10 +35,12 @@ Du kan utföra hanterings uppgifter för delegerade resurser antingen direkt i p
 
 [Cmdleten Azure PowerShell get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) visar `HomeTenantId` och `ManagedByTenantIds` attributen för varje prenumeration, så att du kan identifiera om en returnerad prenumeration tillhör en hanterad klient eller till din hanterings klient.
 
-På samma sätt visar Azure CLI-kommandon som [AZ Account List](/cli/azure/account#az-account-list) `homeTenantId` `managedByTenants` attributen och.
+På samma sätt visar Azure CLI-kommandon som [AZ Account List](/cli/azure/account#az-account-list) `homeTenantId` `managedByTenants` attributen och. Om du inte ser dessa värden när du använder Azure CLI kan du försöka rensa cacheminnet genom att köra `az account clear` följt av `az login --identity` .
 
-> [!TIP]
-> Om du inte ser dessa värden när du använder Azure CLI kan du försöka rensa cacheminnet genom att köra `az account clear` följt av `az login --identity` .
+I Azure-REST API innehåller kommandona [prenumerationer-get](/rest/api/resources/subscriptions/get) och [Subscription-List](/rest/api/resources/subscriptions/list) `ManagedByTenant` .
+
+> [!NOTE]
+> Utöver klient information som är relaterad till Azure-Lighthouse kan klienter som visas i dessa API: er även avspegla partner innehavare för Azure Databricks eller Azure-hanterade program.
 
 Vi tillhandahåller också API: er som är speciella för att utföra Azure Lighthouse-uppgifter. Mer information finns i avsnittet **referens** .
 

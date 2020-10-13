@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: c8f73c0789cd0211deeb66af5c7300a81d7b1be0
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619822"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Utökade händelser i Azure SQL Database 
@@ -75,13 +75,13 @@ Funktionen utökade händelser stöds av flera [katalogvyer](https://msdn.micros
 
 | Namn på<br/>katalogvy | Beskrivning |
 |:--- |:--- |
-| **sys. database_event_session_actions** |Returnerar en rad för varje åtgärd vid varje händelse i en användarsession. |
-| **sys. database_event_session_events** |Returnerar en rad för varje händelse i en användarsession. |
-| **sys. database_event_session_fields** |Returnerar en rad för varje anpassnings aktiv kolumn som uttryckligen angavs för händelser och mål. |
-| **sys. database_event_session_targets** |Returnerar en rad för varje händelse mål för en Event-session. |
-| **sys. database_event_sessions** |Returnerar en rad för varje händelsesessionen i databasen. |
+| **sys.database_event_session_actions** |Returnerar en rad för varje åtgärd vid varje händelse i en användarsession. |
+| **sys.database_event_session_events** |Returnerar en rad för varje händelse i en användarsession. |
+| **sys.database_event_session_fields** |Returnerar en rad för varje anpassnings aktiv kolumn som uttryckligen angavs för händelser och mål. |
+| **sys.database_event_session_targets** |Returnerar en rad för varje händelse mål för en Event-session. |
+| **sys.database_event_sessions** |Returnerar en rad för varje händelsesessionen i databasen. |
 
-I Microsoft SQL Server har liknande katalogvy-vyer namn som inkluderar *. Server \_ * i stället för *. \_ Database*. Namn mönstret liknar **sys. server_event_%**.
+I Microsoft SQL Server har liknande katalogvy-vyer namn som inkluderar *. Server \_ * i stället för *. \_ Database*. Namn mönstret liknar **sys.server_event_%**.
 
 ## <a name="new-dynamic-management-views-dmvs"></a>Nya vyer för dynamisk hantering [(DMV: er)](https://msdn.microsoft.com/library/ms188754.aspx)
 
@@ -89,24 +89,24 @@ Azure SQL Database har [dynamiska Management views (DMV: er)](https://msdn.micro
 
 | Namn på DMV | Beskrivning |
 |:--- |:--- |
-| **sys. dm_xe_database_session_event_actions** |Returnerar information om Event session-åtgärder. |
-| **sys. dm_xe_database_session_events** |Returnerar information om sessions händelser. |
-| **sys. dm_xe_database_session_object_columns** |Visar konfigurations värden för objekt som är kopplade till en session. |
-| **sys. dm_xe_database_session_targets** |Returnerar information om mål för sessioner. |
-| **sys. dm_xe_database_sessions** |Returnerar en rad för varje händelsesessionen som är begränsad till den aktuella databasen. |
+| **sys.dm_xe_database_session_event_actions** |Returnerar information om Event session-åtgärder. |
+| **sys.dm_xe_database_session_events** |Returnerar information om sessions händelser. |
+| **sys.dm_xe_database_session_object_columns** |Visar konfigurations värden för objekt som är kopplade till en session. |
+| **sys.dm_xe_database_session_targets** |Returnerar information om mål för sessioner. |
+| **sys.dm_xe_database_sessions** |Returnerar en rad för varje händelsesessionen som är begränsad till den aktuella databasen. |
 
 I Microsoft SQL Server får liknande katalogfiler namn utan * \_ databas* delen av namnet, t. ex.:
 
-- **sys. dm_xe_sessions**, i stället för namn<br/>**sys. dm_xe_database_sessions**.
+- **sys.dm_xe_sessions**, i stället för namn<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>DMV: er gemensamt för båda
 
 För utökade händelser finns det ytterligare DMV: er som är gemensamma för Azure SQL Database, Azure SQL-hanterad instans och Microsoft SQL Server:
 
-- **sys. dm_xe_map_values**
-- **sys. dm_xe_object_columns**
-- **sys. dm_xe_objects**
-- **sys. dm_xe_packages**
+- **sys.dm_xe_map_values**
+- **sys.dm_xe_object_columns**
+- **sys.dm_xe_objects**
+- **sys.dm_xe_packages**
 
 <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 

@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: 05ae359182ac3d9c3f4cc17d7675a3f2fefa0bff
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776841"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Testa din kunskaps bas i QnA Maker
@@ -77,7 +77,7 @@ Använd batch-testverktyget när du vill:
 * Fastställ bästa svar och Poäng för en uppsättning frågor
 * verifiera förväntat svar för uppsättning av frågor
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * [Skapa antingen en QNA Maker tjänst](../Quickstarts/create-publish-knowledge-base.md) eller Använd en befintlig tjänst som använder det engelska språket.
@@ -100,7 +100,7 @@ Använd batch-testverktyget när du vill:
 
 1. I **steg 4**konfigurerar du inställningarna med följande tabell:
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |--|--|
     |**Aktivera extrahering av flera adresser från URL: er, PDF-eller docx-filer.**|Markerad|
     |**Standard svars text**| `Batch test - default answer not found.`|
@@ -126,7 +126,7 @@ Använd batch-testverktyget när du vill:
 
 För att kunna använda batch-testverktyget skapar du en fil med namnet `batch-test-data-1.tsv` med en text redigerare. Filen ska vara i UTF-8-format och måste ha följande kolumner avgränsade med en flik.
 
-|Fält för TSV-indatafiler|Kommentarer|Exempel|
+|Fält för TSV-indatafiler|Obs!|Exempel|
 |--|--|--|
 |Kunskaps bas-ID|Ditt kunskaps bas-ID finns på publicerings sidan. Testa flera kunskaps banker i samma tjänst samtidigt i en enda fil med hjälp av olika kunskaps bas-ID: n i en enda fil.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (36 tecken sträng visas som en del av `POST` ) |
 |Fråga|Den frågetext som en användare skulle ange. 1 000-Character max.|`How do I sign out?`|

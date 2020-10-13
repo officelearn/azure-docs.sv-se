@@ -8,10 +8,10 @@ ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91252841"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Hantera slut punkter och vägar i Azure Digitals dubbla (portal)
@@ -37,7 +37,7 @@ Du hittar den här informationen i [Azure Portal](https://portal.azure.com) efte
 
 Välj din instans från resultaten om du vill visa informations sidan för din instans:
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Skärm bild av ADT instance-information." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Skärm bild av Azure Portal Sök fältet." border="false":::
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Skapa en slut punkt för Azure Digitals dubbla
 
@@ -62,11 +62,11 @@ På sidan *skapa en slut punkt* som öppnas, kan du skapa en slut punkt av typen
 
 Skapa sedan slut punkten genom att trycka på _Spara_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Skärm bild som visar hur du skapar en slut punkt av typen Event Grid.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Skärm bild av Azure Portal Sök fältet.":::
 
 Du kan kontrol lera att slut punkten har skapats genom att kontrol lera meddelande ikonen i översta Azure Portals fältet: 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Skärm bild av meddelande för att verifiera att slut punkten skapas." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Skärm bild av Azure Portal Sök fältet." border="false":::
 
 Du kan också Visa slut punkten som skapades på sidan *slut punkter* för din Azure Digital-instansen.
 
@@ -88,7 +88,7 @@ På sidan *skapa en slut punkt* som öppnas, kan du skapa en slut punkt av typen
 
 Skapa sedan slut punkten genom att trycka på _Spara_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Skärm bild som visar hur du skapar en slut punkt av typen Event Hubs.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Skärm bild av Azure Portal Sök fältet.":::
 
 Du kan kontrol lera att slut punkten har skapats genom att kontrol lera meddelande ikonen i det översta Azure Portal fältet. 
 
@@ -110,7 +110,7 @@ På sidan *skapa en slut punkt* som öppnas, kan du skapa en slut punkt av typen
 
 Skapa sedan slut punkten genom att trycka på _Spara_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Skärm bild som visar hur du skapar en slut punkt av typen Service Bus.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Skärm bild av Azure Portal Sök fältet.":::
 
 Du kan kontrol lera att slut punkten har skapats genom att kontrol lera meddelande ikonen i det översta Azure Portal fältet. 
 
@@ -149,7 +149,7 @@ På sidan *skapa en händelse väg* som öppnas väljer du minst:
 
 För att vägen ska aktive ras måste du också **lägga till ett händelse flödes filter** på minst `true` . (Om du lämnar standardvärdet för `false` skapas vägen, men inga händelser skickas till den.) Det gör du genom att växla växeln för _avancerad redigerare_ för att aktivera den och skriva `true` i *filter* rutan.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Skärm bild som visar hur du skapar en händelse väg för din instans." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Skärm bild av Azure Portal Sök fältet." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 När du är färdig trycker du på knappen _Spara_ för att skapa din händelse väg.
 
@@ -175,7 +175,7 @@ Om du vill använda de grundläggande filtren expanderar du alternativet _hände
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Skärm bild som visar hur du skapar en händelse väg med ett grundläggande filter. Markera kryss rutorna för händelserna.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Skärm bild av Azure Portal Sök fältet.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -185,7 +185,7 @@ Då fylls text rutan filter i automatiskt med texten i det filter du har valt:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Skärm bild som visar hur du skapar en händelse väg med ett grundläggande filter. Visar den automatiskt ifyllda filter texten när du har valt händelser.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Skärm bild av Azure Portal Sök fältet.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -199,7 +199,7 @@ Om du vill skapa en händelse väg med avancerade filter alternativ växlar du �
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Skärm bild som visar hur du skapar en händelse väg med ett avancerat filter.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Skärm bild av Azure Portal Sök fältet.":::
     :::column-end:::
     :::column:::
     :::column-end:::

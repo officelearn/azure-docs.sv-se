@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
 ms.openlocfilehash: 7c5e938f985296e0534ca6e2438cf3acedb0fb65
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91626487"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Självstudie: snabbt skala och skydda ett webb program med hjälp av Azures frontend och brand vägg för Azure Web Application (WAF)
@@ -56,9 +56,9 @@ I den här självstudien får du lära dig att:
 az network front-door create --backend-address <>  --accepted-protocols <> --name <> --resource-group <>
 ```
 
-`--backend-address`: Det fullständigt kvalificerade domän namnet (FQDN) för det program som du vill skydda. Till exempel `myapplication.contoso.com`.
+`--backend-address`: Det fullständigt kvalificerade domän namnet (FQDN) för det program som du vill skydda. Exempelvis `myapplication.contoso.com`.
 
-`--accepted-protocols`: Anger de protokoll som du vill att Azures frontend-dörr ska stödja för ditt webb program. Till exempel `--accepted-protocols Http Https`.
+`--accepted-protocols`: Anger de protokoll som du vill att Azures frontend-dörr ska stödja för ditt webb program. Exempelvis `--accepted-protocols Http Https`.
 
 `--name`: Namnet på din Azure-frontend-resurs.
 

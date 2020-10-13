@@ -6,12 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6509425f11b09a2fa5229f9dd68a508241391925
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852403"
+ms.locfileid: "91875928"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>Förstå migrerings alternativ för nya aviseringar
 
@@ -254,10 +254,12 @@ Som en del av migreringen skapas nya mått varningar och nya åtgärds grupper o
 
 ### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>Princip med "Neka"-inverkan som hindrar oss från att migrera dina regler
 
-Som en del av migreringen skapas nya mått varningar och nya åtgärds grupper och sedan tas de klassiska varnings reglerna bort. En princip kan dock hindra oss från att skapa resurser. Vissa eller alla regler kan inte migreras beroende på principen. De principer som blockerar processen visas i listan i [migreringsverktyget](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Lös det här problemet genom att antingen:
+Som en del av migreringen skapas nya mått varningar och nya åtgärds grupper och sedan tas de klassiska varnings reglerna bort. Men en [Azure policy](../../governance/policy/index.yml) tilldelning kan hindra oss från att skapa resurser. Vissa eller alla regler kunde inte migreras beroende på princip tilldelningen. Princip tilldelningarna som blockerar processen visas i listan i [migreringen](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Lös det här problemet genom att antingen:
 
-- Exklusive prenumerationer eller resurs grupper för varaktigheten för migreringsprocessen från princip tilldelningen. [Lär dig mer om att hantera undantags omfång för principer](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
-- Om du tar bort eller ändrar effekter till audit eller append (som till exempel kan lösa problem som är relaterade till taggar som saknas). [Lär dig mer om att hantera policys-effekter](../../governance/policy/concepts/definition-structure.md#policy-rule).
+- Exklusive prenumerationer, resurs grupper eller enskilda resurser under migreringen från princip tilldelningen. [Läs mer om hur du hanterar undantags omfattningar för principer](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion).
+- Ange tvingande läge till **inaktiverat** för princip tilldelningen. [Läs mer om princip tilldelningens enforcementMode-egenskap](../../governance/policy/concepts/assignment-structure.md#enforcement-mode).
+- Ange ett Azure Policy undantag (för hands version) för prenumerationer, resurs grupper eller enskilda resurser i princip tilldelningen. [Läs mer om strukturen för Azure policy undantag](../../governance/policy/concepts/exemption-structure.md).
+- Borttagning eller ändring av effekter till "inaktive rad", "audit", "append" eller "Modify" (som till exempel kan lösa problem som är relaterade till taggar som saknas). [Läs mer om hur du hanterar princip effekter](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>Nästa steg
 

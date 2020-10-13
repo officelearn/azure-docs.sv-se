@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 0cb7d1fa8dc9171c4baba09136d3a3c28d6c901c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c767edca46696bc7d04a1cf101e2bd183f5cf7f9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86510658"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970851"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrera till Premium Storage med Azure Site Recovery
 
-[Azure Premium-SSD](disks-types.md) ger hög prestanda, låg latens disk support för virtuella datorer som kör I/O-intensiva arbets belastningar. Den här guiden hjälper dig att migrera dina virtuella dator diskar från ett standard lagrings konto till ett Premium Storage-konto med hjälp av [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
+[Azure Premium-SSD](../disks-types.md) ger hög prestanda, låg latens disk support för virtuella datorer som kör I/O-intensiva arbets belastningar. Den här guiden hjälper dig att migrera dina virtuella dator diskar från ett standard lagrings konto till ett Premium Storage-konto med hjälp av [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 
 Site Recovery är en Azure-tjänst som bidrar till din strategi för affärs kontinuitet och haveri beredskap genom att dirigera replikeringen av lokala fysiska servrar och virtuella datorer till molnet (Azure) eller till ett sekundärt Data Center. När avbrott uppstår på den primära platsen växlar du över till den sekundära platsen för att hålla program och arbets belastningar tillgängliga. Du växlar tillbaka till den primära platsen när den återgår till normal drift. 
 
@@ -62,7 +62,7 @@ Detta är Azure-kraven för det här migrerings scenariot:
 * Ett virtuellt Azure-nätverk som de virtuella datorerna ska ansluta till när de skapas vid en redundansväxling. Det virtuella Azure-nätverket måste finnas i samma region som det som Site Recovery körs i.
 * Ett Azure standard Storage-konto för att lagra loggar för replikering. Detta kan vara samma lagrings konto för de virtuella dator diskar som migreras.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Förstå relevanta komponenter för migrerings scenario i föregående avsnitt.
 * Planera stillestånds tiden genom att lära dig om [redundans i Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -165,7 +165,7 @@ Om du vill kontrol lera att konfigurations servern har kopplats till den replike
 
    ![Aktivera fönstret replikering med vald källa][13]
 
-När du utformar din Azure Storage-miljö rekommenderar vi att du använder separata lagrings konton för varje virtuell dator i en tillgänglighets uppsättning. Vi rekommenderar att du följer bästa praxis i lagrings lagret för att [använda flera lagrings konton för varje tillgänglighets uppsättning](../linux/manage-availability.md). Distribution av virtuella dator diskar till flera lagrings konton hjälper till att förbättra lagrings tillgängligheten och distribuerar I/O i Azure Storage-infrastrukturen.
+När du utformar din Azure Storage-miljö rekommenderar vi att du använder separata lagrings konton för varje virtuell dator i en tillgänglighets uppsättning. Vi rekommenderar att du följer bästa praxis i lagrings lagret för att [använda flera lagrings konton för varje tillgänglighets uppsättning](../manage-availability.md). Distribution av virtuella dator diskar till flera lagrings konton hjälper till att förbättra lagrings tillgängligheten och distribuerar I/O i Azure Storage-infrastrukturen.
 
 Om dina virtuella datorer finns i en tillgänglighets uppsättning, i stället för att replikera diskar för alla virtuella datorer till ett lagrings konto, rekommenderar vi starkt att du migrerar flera virtuella datorer flera gånger. På så sätt delar inte de virtuella datorerna i samma tillgänglighets uppsättning ett enda lagrings konto. Använd fönstret **Aktivera replikering** för att ställa in ett mål lagrings konto för varje virtuell dator, en i taget.
  
@@ -217,7 +217,7 @@ Se även följande resurser för att lära dig mer om Azure Storage och Azure Vi
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Välja en disktyp för virtuella IaaS-datorer](disks-types.md)
+* [Välja en disktyp för virtuella IaaS-datorer](../disks-types.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

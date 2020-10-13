@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: e89189b22b144d9e92ee8315bc6fd9aabe699eec
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531657"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights-gen1"></a>Övervaka och minimera begränsningen för att minska svars tiden i Azure Time Series Insights gen1
@@ -69,7 +69,7 @@ Aviseringar kan hjälpa dig att diagnostisera och minimera latens problem som up
    |**Mottagnings tids fördröjning för inkommande meddelanden**   |  Skillnaden i sekunder mellan den tid som meddelandet står i kö i händelse källan och den tid det bearbetas i ingress.      |
    |**Antal inkommande mottagna meddelanden**   |  Skillnaden mellan sekvensnumret för det senaste köade meddelandet i en partition för händelse källan och sekvensnummer för det meddelande som bearbetas i ingress.      |
 
-   Välj **Klar**.
+   Välj **Done** (Klar).
 
 1. När du har konfigurerat den önskade signal logiken granskar du den valda aviserings regeln visuellt.
 

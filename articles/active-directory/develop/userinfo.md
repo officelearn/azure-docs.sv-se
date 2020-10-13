@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 8f3fd462a52b035cd5b5447560e5472b41f237fa
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653238"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Microsoft Identity Platform UserInfo-slutpunkt
@@ -89,7 +89,7 @@ Anspråken som anges här är alla anspråk som UserInfo-slutpunkten kan returne
 * Det går inte att anpassa svaret från UserInfo-slutpunkten.  Om du vill anpassa anspråk använder du [anspråks mappning]( active-directory-claims-mapping.md) för att redigera informationen som returneras i tokens.
 * Det går inte att lägga till svaret från UserInfo-slutpunkten i.  Om du vill få ytterligare anspråk om användaren, Använd [valfria anspråk]( active-directory-optional-claims.md) för att lägga till nya anspråk till tokens.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Granska innehållet i ID-token](id-tokens.md)
 * [Anpassa innehållet i en ID-token med valfria anspråk](active-directory-optional-claims.md)

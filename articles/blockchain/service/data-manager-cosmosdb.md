@@ -5,10 +5,10 @@ ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
 ms.openlocfilehash: 69790787bc888448f2f40178bd12ee7058cc5892
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91283469"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Självstudie: Använd blockchain Data Manager för att skicka data till Azure Cosmos DB
@@ -29,7 +29,7 @@ I den här kursen får du:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slutför [snabb start: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md) eller [snabb start: skapa en Azure blockchain service blockchain-medlem med Azure CLI](create-member-cli.md)
 * Slutför [snabb start: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk](connect-vscode.md). Snabb starten guidar dig när du installerar [Azure blockchain Development Kit för Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) och ställer in din blockchain Development-miljö.
@@ -49,7 +49,7 @@ En blockchain Data Manager-instans ansluter och övervakar en Azure blockchain s
 
     Ange följande uppgifter:
 
-    Inställning | Exempel | Beskrivning
+    Inställningen | Exempel | Beskrivning
     --------|---------|------------
     Name | Watcher | Ange ett unikt namn för en ansluten blockchain Data Manager.
     Transaction Node | myblockchainmember | Välj noden standard transaktion för den Azure blockchain service-medlem som du skapade i förutsättningen.
@@ -108,7 +108,7 @@ Blockchain Data Manager kräver att kontrakts ABI och bytekod-filerna kan nås a
 
     ![Skapa en lagrings konto behållare](./media/data-manager-cosmosdb/create-container.png)
 
-    | Inställning | Beskrivning |
+    | Inställningen | Beskrivning |
     |---------|-------------|
     | Name  | Ge containern ett namn. Till exempel *smartcontract* |
     | Offentlig åtkomstnivå | Välj *privat (ingen anonym åtkomst)* |
@@ -144,7 +144,7 @@ Generera en signatur för delad åtkomst för varje blob.
 
     Ange namnet på blockchain-programmet och URL: en för smart kontrakt ABI och bytekod.
 
-    Inställning | Beskrivning
+    Inställningen | Beskrivning
     --------|------------
     Name | Ange ett unikt namn för blockchain-programmet som ska spåras.
     Kontrakt ABI | URL-sökväg till kontraktets ABI-fil. Mer information finns i [skapa kontrakts ABI och BYTEKOD URL](#create-contract-abi-and-bytecode-url).
@@ -171,7 +171,7 @@ Du kan använda Datautforskaren i Azure Portal för att skapa en databas och beh
 
     ![Lägg till behållar inställningar](./media/data-manager-cosmosdb/add-container.png)
 
-    | Inställning | Beskrivning
+    | Inställningen | Beskrivning
     |---------|-------------|
     | Databas-id | Ange **blockchain-data** som namn på den nya databasen. |
     | Dataflöde | Lämna data flödet på **400** enheter för programbegäran per sekund (ru/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.|
@@ -202,7 +202,7 @@ Varje logikapp måste börja med en utlösare som utlöses när en specifik hän
 
     ![Inställningar för Event Grid-utlösare](./media/data-manager-cosmosdb/event-grid-trigger.png)
 
-    | Inställning | Beskrivning
+    | Inställningen | Beskrivning
     |---------|-------------|
     | Prenumeration | Välj den prenumeration som innehåller Event Grid ämnet. |
     | Resurstyp | Välj **Microsoft. EventGrid. ämnen**. |
@@ -219,7 +219,7 @@ Lägg till en åtgärd för att skapa ett dokument i Cosmos DB för varje transa
 
     ![Cosmos DB anslutnings inställningar](./media/data-manager-cosmosdb/cosmosdb-connection.png)
 
-    | Inställning | Beskrivning
+    | Inställningen | Beskrivning
     |---------|-------------|
     | Anslutningsnamn | Välj den prenumeration som innehåller Event Grid ämnet. |
     | DocumentDB-konto | Välj det DocumentDB-konto som du skapade i avsnittet [skapa Azure Cosmos DB konto](#create-azure-cosmos-db) . |

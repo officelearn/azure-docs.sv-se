@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ccd1192c7597b5a088b1c50b5367030a616b9d77
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919598"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Användarportal för Azure Multi-Factor Authentication-servern
@@ -158,7 +158,7 @@ De här inställningarna blir synliga för användaren när de är aktiverade oc
 
 ### <a name="self-service-user-enrollment"></a>Användarregistrering via självbetjäning
 
-Om du vill att användarna ska logga in och registrera måste du markera alternativen **Tillåt användare att logga in** och **Tillåt användar registrering** på fliken Inställningar. kom ihåg att de inställningar du väljer påverkar användarens inloggnings upplevelse.
+Om du vill att användarna ska logga in och registrera måste du markera alternativen **Tillåt användare att logga in** och **Tillåt användar registrering** på fliken Inställningar. Kom ihåg att de inställningar du väljer påverkar användarens inloggnings upplevelse.
 
 När en användare till exempel loggar in på användarportalen för första gången, tas de sedan till inställningssidan för Azure Multi-Factor Authentication. Beroende på hur du har konfigurerat Azure Multi-Factor Authentication kan användaren välja autentiseringsmetod.
 

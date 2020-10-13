@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.openlocfilehash: f501b9f4215b9eeb48aa8bc80d492d55cf940404
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397393"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Självstudie: indexera JSON-blobbar från Azure Storage med REST
@@ -29,7 +29,7 @@ I den här självstudien används Postman och [Sök REST-API: er](/rest/api/sear
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + [Azure Storage](../storage/common/storage-account-create.md)
 + [Skrivbordsappen Postman](https://www.getpostman.com/)
@@ -76,11 +76,11 @@ Skapa om möjligt både i samma region och resurs grupp för närhet och hanterb
 
 1. När behållaren har skapats öppnar du den och väljer **Ladda upp** i kommando fältet.
 
-   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="Ladda upp i kommando fältet" border="false":::
+   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="Skapa lagrings konto" border="false":::
 
 1. Navigera till mappen som innehåller exempelfilerna. Markera alla och klicka sedan på **överför**.
 
-   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="Ladda upp filer" border="false":::
+   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="Skapa lagrings konto" border="false":::
 
 När överföringen är klar ska filerna visas i en egen undermapp i datacontainern.
 
@@ -98,7 +98,7 @@ För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkoms
 
 1. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
-:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Hämta en HTTP-slutpunkt och åtkomst nyckel" border="false":::
+:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Skapa lagrings konto" border="false":::
 
 Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
@@ -110,7 +110,7 @@ Metoderna för begäran för varje anrop i den här självstudien är **post** o
 
 I sidhuvud anger du "Content-Type" till `application/json` och anger `api-key` admin-API-nyckeln för din Azure kognitiv sökning-tjänst. När du har angett rubrikerna kan du använda dem för varje begäran i den här övningen.
 
-  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="URL och rubrik för Postman-begäran" border="false":::
+  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Skapa lagrings konto" border="false":::
 
 URI: er måste ange en API-version och varje anrop ska returnera en **201 som skapats**. Den allmänt tillgängliga API-versionen för att använda JSON-matriser är `2020-06-30` .
 
@@ -315,11 +315,11 @@ Du kan börja söka så snart det första dokumentet har lästs in.
 
 1. Lägg till `$select` Frågeparametern för att begränsa resultatet till färre fält: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true` .  För den här frågan matchar 100 dokument, men som standard returnerar Azure Kognitiv sökning bara 50 i resultaten.
 
-   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Parametriserad fråga" border="false":::
+   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Skapa lagrings konto" border="false":::
 
 1. Ett exempel på en mer komplex fråga skulle innehålla `$filter=MinimumAge ge 30 and MaximumAge lt 75` , som endast returnerar resultat där parametrarna minimum är större än eller lika med 30 och Max värdet är mindre än 75. Ersätt `$select` uttrycket med `$filter` uttrycket.
 
-   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="Halvstrukturerad sökning" border="false":::
+   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="Skapa lagrings konto" border="false":::
 
 Du kan också använda logiska operatorer (och, eller, inte) och jämförelse operatorer (EQ, Ne, gt, lt, ge, Le). Strängjämförelser är skiftlägeskänsliga. Mer information och exempel finns i [skapa en enkel fråga](search-query-simple-examples.md).
 

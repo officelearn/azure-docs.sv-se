@@ -14,10 +14,10 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.openlocfilehash: e034149372ba061ec958e0c1e22187d33009080c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265841"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Gör så här: använda Azure PowerShell för att skapa ett huvud namn för tjänsten med ett certifikat
@@ -52,7 +52,7 @@ Du kan ange omfång på nivån för prenumerationen, resurs gruppen eller resurs
 Följande exempel visar ett enkelt scenario. Den använder [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) för att skapa ett huvud namn för tjänsten med ett självsignerat certifikat och använder [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) för att tilldela rollen [läsare](../../role-based-access-control/built-in-roles.md#reader) rollen som tjänstens huvud namn. Rolltilldelningen är begränsad till den valda Azure-prenumerationen. Om du vill välja en annan prenumeration använder du [set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
 
 > [!NOTE]
-> Cmdleten New-SelfSignedCertificate och PKI-modulen stöds för närvarande inte i PowerShell Core. 
+> New-SelfSignedCertificate-cmdlet och PKI-modulen stöds för närvarande inte i PowerShell Core. 
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `

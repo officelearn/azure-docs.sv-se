@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.openlocfilehash: 8bbd0b1979da69e5d4d18009100a7caee5a3d722
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397410"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Självstudie: diagnostisera, reparera och genomför ändringar i din färdigheter
@@ -78,13 +78,13 @@ I det här avsnittet används Postman och en angiven samling för att skapa Sök
 1. Ange storageConnectionString på sidan nycklar i ditt Azure Storage-konto.
 1. Ange containerName för den behållare som du skapade i lagrings kontot.
 
-> :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="redigera variabler i Postman":::
+> :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="Hämta en HTTP-slutpunkt och åtkomst nyckel":::
 
 Samlingen innehåller fyra olika REST-anrop som används för att slutföra det här avsnittet.
 
 Det första anropet skapar data källan. `clinical-trials-ds`. Det andra anropet skapar färdigheter `clinical-trials-ss` . Det tredje anropet skapar indexet `clinical-trials` . Det fjärde och sista anropet skapar indexeraren `clinical-trials-idxr` . När alla anrop i samlingen har slutförts stänger du Postman och återgår till Azure Portal.
 
-> :::image type="content" source="media/cognitive-search-debug/postman-create-data-source.png" alt-text="använda Postman för att skapa data Källa":::
+> :::image type="content" source="media/cognitive-search-debug/postman-create-data-source.png" alt-text="Hämta en HTTP-slutpunkt och åtkomst nyckel":::
 
 ## <a name="check-the-results"></a>Kontrol lera resultaten
 
@@ -107,7 +107,7 @@ Gå tillbaka till översikts fönstret för Search-tjänsten.
 
 ## <a name="start-your-debug-session"></a>Starta felsökningssessionen
 
-> :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="Starta en ny felsökningssession":::
+> :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="Hämta en HTTP-slutpunkt och åtkomst nyckel":::
 
 1. Klicka på fliken Felsök sessioner (för hands version).
 1. Välj + NewDebugSession
@@ -120,7 +120,7 @@ Gå tillbaka till översikts fönstret för Search-tjänsten.
 > [!Important]
 > En Felsök-session fungerar bara med ett enda dokument. Ett särskilt dokument i data uppsättningen kan > väljas eller så kommer sessionen att standardvärdet för det första dokumentet.
 
-> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="En ny felsökningssession har startats":::
+> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Hämta en HTTP-slutpunkt och åtkomst nyckel":::
 
 När felsökningssessionen har körts, använder sessionen standardvärdet för AI-anrikningen och markerar diagrammet färdighet.
 
@@ -140,7 +140,7 @@ På fliken fel/varningar finns det ett fel för en åtgärd med etiketten `Enric
 1. Välj **</>** symbolen i början av raden och öppna uttrycks utvärderaren.
 1. Klicka på knappen **utvärdera** för att bekräfta att uttrycket resulterar i ett fel. Det bekräftar att egenskapen "languageCode" inte är en giltig Indatatyp.
 
-> :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Uttrycks utvärderare":::
+> :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Hämta en HTTP-slutpunkt och åtkomst nyckel":::
 
 Det finns två sätt att undersöka det här felet i sessionen. Det första är att titta på var indatamängden kommer från – vilken kunskap i hierarkin som ska producera det här resultatet? På fliken körningar i fönstret kunskaps information visas källan för indata. Om det inte finns någon källa, indikerar detta ett fel vid fält mappning.
 
@@ -148,27 +148,13 @@ Det finns två sätt att undersöka det här felet i sessionen. Det första är 
 1. Titta på indata och hitta "languageCode". Det finns ingen källa för de här inmatade objekten. 
 1. Växla till den vänstra rutan för att visa den omfattande data strukturen. Det finns ingen mappad sökväg som motsvarar "languageCode".
 
-> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Omfattande data struktur":::
-
-Det finns en mappad sökväg för "språk". Därför finns det ett stavfel i färdighets inställningarna. För att åtgärda detta uttryck i #1-kunskaper med uttrycket '/Document/Language ' måste uppdateras.
-
-1. Öppna uttrycks utvärderaren **</>** för sökvägen "språk".
-1. Kopiera uttrycket. Stäng fönstret.
-1. Gå till kunskaps inställningarna för #1s kompetensen och öppna uttrycks utvärderaren **</>** för inmatade "languageCode".
-1. Klistra in det nya värdet "/Document/Language" i resultat rutan och klicka på **utvärdera**.
-1. Den ska visa rätt Indatatyp "sv". Klicka på Använd för att uppdatera uttrycket.
-1. Klicka på **Spara** i rutan till höger, kunskaps information.
-1. Klicka på **Kör** på sessionens fönster-meny. Detta startar en annan körning av färdigheter med hjälp av dokumentet. 
-
-När debug-sessionen har körts klart klickar du på fliken fel/varningar så visas att det fel som har etiketten "berikning. NerSkillV2. #1" är borta. Det finns dock fortfarande två varningar om att tjänsten inte kunde mappa utmatnings fält för organisationer och platser till Sök indexet. Det saknas värden: "/Document/merged_content/ORGANIZATIONS" och "/Document/merged_content/locations".
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Hämta en HTTP-slutpunkt och åtkomst nyckel" och "/Document/merged_content/locations".
 
 ## <a name="fix-missing-skill-output-values"></a>Åtgärda saknade värden för kunskaps utdata
 
-> :::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Fel och varningar":::
+> :::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Hämta en HTTP-slutpunkt och åtkomst nyckel" respektive "/Document/Content/locations".
 
-Det saknas värden för utdata från en färdighet. Om du vill identifiera kunskapen med felet går du till den fördefinierade data strukturen och letar reda på värde namnet och tittar på den ursprungliga källan. När det gäller de saknade organisationer och plats värden, är de utdata från färdighets #1. Om du öppnar uttrycks utvärderaren </> för varje sökväg visas uttrycken som anges som "/Document/Content/organizations" respektive "/Document/Content/locations".
-
-> :::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Organisations enhet för uttrycks utvärderare":::
+> :::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Hämta en HTTP-slutpunkt och åtkomst nyckel":::
 
 Utdata för dessa entiteter är tom och får inte vara tom. Vad är indata som producerar det här resultatet?
 
@@ -176,16 +162,14 @@ Utdata för dessa entiteter är tom och får inte vara tom. Vad är indata som p
 1. Välj fliken **körningar** i den högra kunskaps informations rutan.
 1. Öppna uttrycks utvärderaren **</>** för INmatad text.
 
-> :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Inmatade för text kunskaper":::
+> :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Hämta en HTTP-slutpunkt och åtkomst nyckel":::
 
 Det visade resultatet för den här indatamängden ser inte ut som ett text flöde. Det ser ut som en bild som är omgiven av nya rader. Bristen på text innebär att inga entiteter kan identifieras. När du tittar på hierarkin för färdigheter visas innehållet först när du bearbetas av #6 (OCR)-kompetensen och sedan skickas till #5 (slå samman) kunskap. 
 
 1. Välj #5 (slå samman) kompetensen i **färdighets diagrammet**.
 1. Välj fliken **körningar** i den högra kunskaps informations rutan och öppna uttrycks utvärderaren **</>** för utmatningarna "mergedText".
 
-> :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Utdata för kopplings kunskaper":::
-
-Här är texten länkad till bilden. Det går inte att titta på uttrycket "/Document/merged_content" i sökvägen "organisationer" och "platser" för #1-kunskapen. I stället för att använda '/Document/Content ' bör det använda/Document/merged_content för text inmatningar.
+> :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Hämta en HTTP-slutpunkt och åtkomst nyckel" för #1-kunskapen. I stället för att använda '/Document/Content ' bör det använda/Document/merged_content för text inmatningar.
 
 1. Kopiera uttrycket för "mergedText"-utdata och Stäng fönstret uttrycks utvärderare.
 1. Välj färdighets #1 i **färdighets diagrammet**.
@@ -203,18 +187,11 @@ När indexeraren har körts är felen fortfarande där. Gå tillbaka till färdi
 1. Navigera bland **kunskaps inställningarna** för att hitta "utdata".
 1. Öppna uttrycks utvärderaren **</>** för entiteten organisationer.
 
-> :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Utdata för organisationer-entitet":::
-
-Utvärdering av resultatet av uttrycket ger rätt resultat. Kunskapen fungerar för att identifiera rätt värde för entiteten, "organisationer". Men utdata-mappningen i entitetens sökväg ger fortfarande ett fel. I jämförelsen av sökvägen för utdata i kunskapen till utdatafilen i fel meddelandet är det den kunskap som översätter utmatningarna, organisationer och platser under/Document/Content-noden. Även om mappningen av utdatakolumner förväntar sig att resultaten ska överordnas under noden/Document/merged_content. I föregående steg ändrades indatatypen från '/Document/Content ' till '/Document/merged_content '. Du måste ändra sammanhanget i kunskaps inställningarna för att se till att utdata genereras med rätt kontext.
-
-1. Välj fliken **AI-anrikninger** .
-1. Välj **färdighets diagram** och klicka på kompetens #1.
-1. Navigera bland **kunskaps inställningarna** för att hitta "context".
-1. Dubbelklicka på inställningen för "context" och redigera den för att läsa "/Document/merged_content".
+> :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Hämta en HTTP-slutpunkt och åtkomst nyckel" och redigera den för att läsa "/Document/merged_content".
 1. Klicka på **Spara** i rutan till höger, kunskaps information.
 1. Klicka på **Kör** på menyn sessions-fönster. Detta startar en annan körning av färdigheter med hjälp av dokumentet.
 
-> :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Kontext korrigering i kompetens inställning":::
+> :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Hämta en HTTP-slutpunkt och åtkomst nyckel":::
 
 Alla fel har åtgärd ATS.
 

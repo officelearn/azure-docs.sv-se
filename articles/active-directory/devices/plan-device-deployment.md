@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563904"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planera distribution av Azure Active Directory enhet
@@ -34,7 +34,7 @@ Det finns flera metoder för att integrera dina enheter i Azure AD:
 
 * [Skapa en hybrid Azure AD-anslutning](concept-azure-ad-join-hybrid.md) mellan enheter i din lokala Active Directory och Azure AD. 
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Läs mer
 
 Innan du börjar ska du kontrol lera att du är bekant med [Översikt över enhets identitets hantering](overview.md).
 
@@ -109,7 +109,7 @@ iOS-och Android-enheter kanske bara är registrerade i Azure AD. I följande tab
 | Windows-enheter på äldre nivå (Windows 8,1 eller Windows 7)| | | ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
 |**Inloggnings alternativ**| | |  |
 | Lokala autentiseringsuppgifter för slutanvändare| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| |  |
-| Lösenord| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
+| lösenordsinställning| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
 | PIN-kod för enhet| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| |  |
 | Windows Hello| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| |  |
 | Windows Hello för företag| | ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |

@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
 ms.openlocfilehash: 3bd19f301b1afd7dd1c35f03f6f6131a26b00708
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91596838"
 ---
 # <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Felsök frågor med höga processorer för virtuella Azure Windows-datorer
@@ -35,7 +35,7 @@ Förutom i/O-och nätverks latens-problemen kräver processor-och minnes fel sö
 
 De flesta av dina befintliga prestanda fel söknings verktyg, till exempel perfmon eller Procmon, som används för lokala servrar fungerar på virtuella Azure-datorer i Windows. PerfInsights är dock uttryckligen utformad för virtuella Azure-datorer för att ge mer insikter, inklusive Azures bästa praxis, metod tips för hög upplöst I/O-latens, processor-och minnes-flikar och så vidare.
 
-Oavsett om det körs som användarläge eller kernelläge, kräver alla trådar i en aktiv process CPU-cykler för att köra koden som den bygger på. Många problem är direkt relaterade till arbets belastningen. Den typ av arbets belastning som finns på serverns resurs förbrukning, inklusive CPU.
+Oavsett om det körs som User-Mode eller kernelläge, kräver alla trådar i en aktiv process CPU-cykler för att köra koden som den bygger på. Många problem är direkt relaterade till arbets belastningen. Den typ av arbets belastning som finns på serverns resurs förbrukning, inklusive CPU.
 
 #### <a name="common-factors"></a>Vanliga faktorer
 
@@ -184,7 +184,7 @@ Om du expanderar **resultat** händelsen visas flera viktiga uppgifter. Fliken l
 
 Det finns en dedikerad underfliken under **CPU** som kan användas för detaljerad mönster analys, per kärna eller per process.
 
-Fliken för de **vanligaste processor förbrukarna** har två separata avsnitt av intresse och du kan visa processor statistik per processor här. Program designen är ofta en enkel tråds ATS eller PIN-modul till en enda processor. I det här scenariot körs ett eller flera kärnor vid 100 procent, medan andra kärnor körs på förväntade nivåer. De här scenarierna är mer komplexa eftersom den genomsnittliga CPU: n på servern verkar köras som förväntat, men de processer som är fästa på kärnor som har hög användning går långsammare än förväntat.
+Fliken för de **vanligaste processor förbrukarna** har två separata avsnitt av intresse och du kan visa processor statistik per processor här. Program designen är ofta antingen Single-Threaded eller PIN-filer till en enda processor. I det här scenariot körs ett eller flera kärnor vid 100 procent, medan andra kärnor körs på förväntade nivåer. De här scenarierna är mer komplexa eftersom den genomsnittliga CPU: n på servern verkar köras som förväntat, men de processer som är fästa på kärnor som har hög användning går långsammare än förväntat.
 
   ![hög CPU-användning](./media/troubleshoot-high-cpu-issues-azure-windows-vm/9-high-cpu-usage.png)
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e76c5f51486f7c1673fb5359eabc99ee41130472
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91278864"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Hantera enhetsidentiteter med hjälp av Azure-portalen
@@ -177,7 +177,7 @@ Du måste ha tilldelats någon av följande roller för att kunna visa eller han
 
 - [Företagsroaming](enterprise-state-roaming-overview.md)
 
-## <a name="audit-logs"></a>Spårningsloggar
+## <a name="audit-logs"></a>Granskningsloggar
 
 Enhets aktiviteter är tillgängliga via aktivitets loggarna. Dessa loggar innehåller aktiviteter som utlösts av registrerings tjänsten för enheter och användare:
 
@@ -194,11 +194,11 @@ Gransknings loggen har en Standardlistvy som visar:
 - Initieraren/aktören (som) för en aktivitet
 - Aktiviteten (vad)
 
-![Spårningsloggar](./media/device-management-azure-portal/63.png)
+![Granskningsloggar](./media/device-management-azure-portal/63.png)
 
 Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
-![Spårningsloggar](./media/device-management-azure-portal/64.png)
+![Granskningsloggar](./media/device-management-azure-portal/64.png)
 
 Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du filtrera granskningsdata med hjälp av följande fält:
 
@@ -211,7 +211,7 @@ Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du
 
 Förutom filtren kan du söka efter vissa poster.
 
-![Spårningsloggar](./media/device-management-azure-portal/65.png)
+![Granskningsloggar](./media/device-management-azure-portal/65.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

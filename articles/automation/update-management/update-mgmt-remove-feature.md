@@ -6,10 +6,10 @@ ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 4b4946da9f63299c7ba2b383d6c153673595a1ab
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87450389"
 ---
 # <a name="remove-update-management-from-automation-account"></a>Ta bort Uppdateringshantering från Automation-konto
@@ -65,7 +65,7 @@ När det försöker ta bort länken till Automation-kontot kan du följa förlop
 Om Uppdateringshantering har kon figurer ATS för att stödja tidigare versioner av Azure SQL-övervakning kan installationen av funktionen ha skapat Automation-resurser som du bör ta bort. För Uppdateringshantering kanske du vill ta bort följande objekt som inte längre behövs:
 
    * Uppdaterings scheman – varje har ett namn som matchar den uppdaterings distribution som du har skapat.
-   * Hybrid Worker-grupper som har skapats för Uppdateringshantering – var och en får samma namn som *machine1. contoso. com_9ceb8108-26c9-4051-b6b3-227600d715c8)*.
+   * Hybrid Worker-grupper som har skapats för Uppdateringshantering – varje namn namnges på samma sätt som *machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8)*.
 
 ## <a name="next-steps"></a>Nästa steg
 

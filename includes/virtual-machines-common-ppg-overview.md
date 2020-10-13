@@ -9,10 +9,10 @@ ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
 ms.openlocfilehash: b5827d60b5968eb9f5e9e0a2ca5ec884366aea3d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91376491"
 ---
 Att placera virtuella datorer i en enda region minskar det fysiska avståndet mellan instanserna. Att placera dem i en enda tillgänglighets zon kommer också att ta dem fysiskt närmare varandra. I takt med att Azure-utrymmet växer kan en enda tillgänglighets zon sträcka sig över flera fysiska data Center, vilket kan leda till en nätverks fördröjning som påverkar ditt program. 
@@ -58,7 +58,7 @@ Du kan göra följande för att kontrol lera justerings status för närhets gru
 
 - Status för närhets placeringen kan visas med hjälp av portalen, CLI och PowerShell.
 
-    -   När du använder PowerShell kan status för samplacering erhållas med cmdleten Get-AzProximityPlacementGroup genom att inkludera den valfria parametern-ColocationStatus.
+    -   När du använder PowerShell kan du hämta samplacerings status med hjälp av Get-AzProximityPlacementGroup cmdlet genom att inkludera den valfria parametern-ColocationStatus.
 
     -   När du använder CLI kan du hämta samplacerings status med hjälp `az ppg show` av genom att inkludera den valfria parametern--include-superlocation-status.
 

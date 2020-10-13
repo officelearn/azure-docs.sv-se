@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: e993e3086ac63a6e9d5b8372327e35016b36239f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285170"
 ---
 # <a name="change-the-style-of-the-map"></a>Ändra formatet för kartan
@@ -101,7 +101,7 @@ Bilden nedan visar den stil väljar kontroll som visas i `icon` layouten.
 
 Bilden nedan visar den stil väljar kontroll som visas i `list` layouten.
 
-:::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Layout för format väljare":::
+:::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Ikon layout för format väljare":::
 
 > [!IMPORTANT]
 > Som standard visar format väljar kontrollen alla formatmallar som är tillgängliga under S0 pris nivå för Azure Maps. Om du vill minska antalet formatmallar i den här listan skickar du en matris med de format som du vill ska visas i listan till `mapStyle` alternativet för format väljaren. Om du använder S1 och vill visa alla tillgängliga stilar väljer du `mapStyles` alternativet för format väljare till `"all"` .

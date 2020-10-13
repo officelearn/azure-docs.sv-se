@@ -6,10 +6,10 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 2f814c54aeca8a337f786beb8da1b98accbeef7e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319005"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Azure Monitor Application Insights Agent-API-referens
@@ -26,7 +26,7 @@ Den här artikeln beskriver en cmdlet som är medlem i [PowerShell-modulen AZ. A
 > - Instrumentation-motorn lägger till ytterligare kostnader och är inaktive rad som standard.
 
 
-## <a name="enable-instrumentationengine"></a>Aktivera – InstrumentationEngine
+## <a name="enable-instrumentationengine"></a>Enable-InstrumentationEngine
 
 Aktiverar Instrumentation-motorn genom att ange vissa register nycklar.
 Starta om IIS för att ändringarna ska börja gälla.
@@ -62,7 +62,7 @@ Configuring IIS Environment for instrumentation engine...
 Configuring registry for instrumentation engine...
 ```
 
-## <a name="enable-applicationinsightsmonitoring"></a>Aktivera – ApplicationInsightsMonitoring
+## <a name="enable-applicationinsightsmonitoring"></a>Enable-ApplicationInsightsMonitoring
 
 Möjliggör kod kopplings övervakning av IIS-appar på en måldator.
 
@@ -84,10 +84,10 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 
 #### <a name="example-with-an-instrumentation-key-map"></a>Exempel med en instrumentande nyckel karta
 I det här exemplet:
-- `MachineFilter`matchar den aktuella datorn med `'.*'` jokertecken.
-- `AppFilter='WebAppExclude'`tillhandahåller en `null` Instrumentation-nyckel. Den angivna appen instrumenteras inte.
-- `AppFilter='WebAppOne'`tilldelar den angivna appen en unik Instrumentation-nyckel.
-- `AppFilter='WebAppTwo'`tilldelar den angivna appen en unik Instrumentation-nyckel.
+- `MachineFilter` matchar den aktuella datorn med `'.*'` jokertecken.
+- `AppFilter='WebAppExclude'` tillhandahåller en `null` Instrumentation-nyckel. Den angivna appen instrumenteras inte.
+- `AppFilter='WebAppOne'` tilldelar den angivna appen en unik Instrumentation-nyckel.
+- `AppFilter='WebAppTwo'` tilldelar den angivna appen en unik Instrumentation-nyckel.
 - Slutligen `AppFilter` använder `'.*'` jokertecken jokertecken för att matcha alla webbappar som inte matchar de tidigare reglerna och tilldelar en standard Instrumentation-nyckel.
 - Blank steg har lagts till för läsbarhet.
 
@@ -476,10 +476,10 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 
 #### <a name="example-with-an-instrumentation-key-map"></a>Exempel med en instrumentande nyckel karta
 I det här exemplet:
-- `MachineFilter`matchar den aktuella datorn med `'.*'` jokertecken.
-- `AppFilter='WebAppExclude'`tillhandahåller en `null` Instrumentation-nyckel. Den angivna appen instrumenteras inte.
-- `AppFilter='WebAppOne'`tilldelar den angivna appen en unik Instrumentation-nyckel.
-- `AppFilter='WebAppTwo'`tilldelar den angivna appen en unik Instrumentation-nyckel.
+- `MachineFilter` matchar den aktuella datorn med `'.*'` jokertecken.
+- `AppFilter='WebAppExclude'` tillhandahåller en `null` Instrumentation-nyckel. Den angivna appen instrumenteras inte.
+- `AppFilter='WebAppOne'` tilldelar den angivna appen en unik Instrumentation-nyckel.
+- `AppFilter='WebAppTwo'` tilldelar den angivna appen en unik Instrumentation-nyckel.
 - Slutligen `AppFilter` använder `'.*'` jokertecken jokertecken för att matcha alla webbappar som inte matchar de tidigare reglerna och tilldelar en standard Instrumentation-nyckel.
 - Blank steg har lagts till för läsbarhet.
 

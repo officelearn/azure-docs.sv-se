@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: aahi
 ms.openlocfilehash: 22a1be7231b730c83ca97b0f128e43258ed24533
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937815"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>Så här gör du: hantera dina data matningar
@@ -106,7 +106,7 @@ Alternativen är:
 
 Mall för åtgärds länkar används för att fördefiniera http-URL: er som kan användas för att definiera, som består av plats hållare,,, `%datafeed` `%metric` `%timestamp` `%detect_config` och `%tagset` . Du kan använda mallen för att omdirigera från en avvikelse eller en incident till en viss URL för att öka detalj nivån.
 
-:::image type="content" source="../media/action-link-template.png" alt-text="Mall för åtgärds länk" lightbox="../media/action-link-template.png":::
+:::image type="content" source="../media/action-link-template.png" alt-text="Data flöde för bakfyllning" lightbox="../media/action-link-template.png":::
 
 När du har fyllt i åtgärds länken klickar **du på gå till åtgärds länk** i incident listans åtgärds alternativ och på snabb menyn i incident trädet. Ersätt plats hållarna i åtgärds länk mal len med motsvarande värden för avvikelsen eller incidenten.
 

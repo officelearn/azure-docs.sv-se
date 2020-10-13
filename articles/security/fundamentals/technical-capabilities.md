@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
 ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399541"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
@@ -78,7 +78,7 @@ Följande är grundläggande funktioner för Azure Identity Management:
 
 - Privileged Identity Management
 
-- Identitetsskydd
+- Identity Protection
 
 #### <a name="single-sign-on"></a>Enkel inloggning
 
@@ -140,7 +140,7 @@ Med Azure AD Privileged Identity Management kan du:
 
 - Få aviseringar om åtkomst till en privilegie rad roll
 
-#### <a name="identity-protection"></a>Identitetsskydd
+#### <a name="identity-protection"></a>Identity Protection
 
 [Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) är en säkerhets tjänst som tillhandahåller en samlad vy över risk identifieringar och potentiella sårbarheter som påverkar organisationens identiteter. Identitets skydd använder befintliga Azure Active Directorys avvikelse identifierings funktioner (tillgängliga via Azure ADs avvikande aktivitets rapporter) och introducerar nya risk identifierings typer som kan identifiera avvikelser i real tid.
 
@@ -150,7 +150,7 @@ Med Azure AD Privileged Identity Management kan du:
 
 ![Säker åtkomst till resurser i Azure](./media/technical-capabilities/azure-security-technical-capabilities-fig3.png)
 
-Prenumerationer har också en Association med en katalog. Katalogen definierar en uppsättning användare. Det kan vara användare från arbets plats eller skola som skapade katalogen, eller så kan de vara externa användare (dvs. Microsoft-konton). Prenumerationer är tillgängliga med en delmängd av de katalog användare som har tilldelats antingen tjänst administratör (SA) eller medadministratör (CA). Det enda undantaget är att Microsoft-konton (tidigare Windows Live ID) kan tilldelas som SA eller CA utan att finnas i katalogen, av äldre skäl.
+Prenumerationer har också en Association med en katalog. Katalogen definierar en uppsättning användare. Det kan vara användare från arbets plats eller skola som skapade katalogen, eller så kan de vara externa användare (dvs. Microsoft-konton). Prenumerationer är tillgängliga med en delmängd av de katalog användare som har tilldelats antingen tjänst administratör (SA) eller Co-Administrator (CA). Det enda undantaget är att Microsoft-konton (tidigare Windows Live ID) kan tilldelas som SA eller CA utan att finnas i katalogen, av äldre skäl.
 
 Säkerhetsorienterade företag bör fokuseras på att ge anställda de exakta behörigheter de behöver. För många behörigheter kan exponera ett konto för angripare. För få behörigheter innebär det att anställda inte kan få jobbet gjort effektivt. [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md) hjälper till att lösa det här problemet genom att erbjuda detaljerad åtkomst hantering för Azure.
 
@@ -444,6 +444,6 @@ Lär dig mer om säkerhet genom att läsa några av våra djupgående säkerhets
 
 - [Identitets- och åtkomsthantering](https://www.microsoft.com/en-us/trustcenter/security/identity)
 
-- [Nätverks säkerhet](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
+- [Nätverkssäkerhet](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
 
 - [Hothantering](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)

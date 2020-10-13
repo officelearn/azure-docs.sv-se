@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6714b2c5d87141fd94d0f96d9cf07913442d18d6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91267065"
 ---
 # <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Konfigurera ett privat moln som ett haveri beredskaps mål med VMware Site Recovery Manager
@@ -111,7 +111,7 @@ Installera vSphere Replication-installation (vRA) i din lokala miljö genom att 
 
 2. Distribuera vRA i din lokala miljö med hjälp av OVF i VR ISO från vmware.com. I vRA 6,5 har [den här VMware-bloggen](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) relevant information.
 
-3. Registrera din lokala vRA med vCenter enkel inloggning på den lokala platsen. Detaljerade anvisningar för vSphere-replikering 6,5 finns i VMware Document [VMware vSphere replication 6,5 Installation and Configuration](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf).
+3. Registrera din lokala vRA med vCenter Single Sign-On på den lokala platsen. Detaljerade anvisningar för vSphere-replikering 6,5 finns i VMware Document [VMware vSphere replication 6,5 Installation and Configuration](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf).
 
 ## <a name="install-vsphere-replication-appliance-in-your-private-cloud-environment"></a>Installera vSphere-replikering i din privata moln miljö
 
@@ -137,7 +137,7 @@ Installationen består av följande steg på hög nivå:
 3. Förbered din privata moln miljö för vRA-installation.
 4. Distribuera vRA i ditt privata moln med hjälp av OVF i VR ISO från vmware.com. I vRA 6,5 har [den här VMware-bloggen](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) relevant information.
 5. Konfigurera brand Väggs regler för vRA. Förklaras nedan i [CloudSimple-portalen: Konfigurera brand Väggs regler för vRA](#cloudsimple-portal-configure-firewall-rules-for-vra).
-6. Registrera privata moln vRA med vCenter enkel inloggning på den privata moln platsen.
+6. Registrera privata moln vRA med vCenter Single Sign-On på den privata moln platsen.
 7. Konfigurera vSphere för replikering mellan de två enheterna. Se till att de portar som krävs är öppna i brand väggarna. I [den här VMware Knowledge Base-artikeln](https://kb.vmware.com/s/article/2087769) finns en lista med port nummer som måste vara öppna för vSphere-replikering 6,5.
 
 Detaljerade installations anvisningar för vSphere-replikering 6,5 finns i VMware Document [VMware vSphere replication 6,5 Installation and Configuration](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf).
@@ -227,7 +227,7 @@ Du har fullständig kontroll över vSphere-replikering och SRM-programvara i din
 * [OVF-alternativ när du distribuerar vSphere-replikering 6,5](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices/)
 * [VMware vSphere replikering 6,5-installation och konfiguration](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf)
 * [Krav och bästa praxis för SRM 6,5](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)
-* [Site Recovery hanteraren i en topologi med två platser med en vCenter Server instans per plattforms tjänst styrenhet](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html)
+* [Site Recovery hanteraren i en Two-Site-topologi med en vCenter Server-instans per plattforms tjänst styrenhet](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html)
 * [Installations-och konfigurations guide för VMware Site Recovery Manager 6,5](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-437E1B65-A17B-4B4B-BA5B-C667C90FA418.html)
 * [VMware-blogg på SRM med array-baserad replikering eller vSphere-replikering](https://blogs.vmware.com/virtualblocks/2017/06/22/srm-array-based-replication-vs-vsphere-replication)
 * [VMware-blogg om SRM alternativ för flera platser](https://blogs.vmware.com/virtualblocks/2016/07/28/srm-multisite)

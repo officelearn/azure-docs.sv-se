@@ -4,10 +4,10 @@ description: Läs mer om lagrings kraven för Azure Functions och om kryptering 
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.openlocfilehash: aefd9a35235a09d94973f383603349f6862bbdd9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318189"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Lagrings överväganden för Azure Functions
@@ -59,7 +59,7 @@ Det är möjligt att flera Function-appar delar samma lagrings konto utan proble
 
 Du kan montera befintliga Azure Files resurser i dina Linux Function-appar. Genom att montera en resurs till din Linux Function-app kan du utnyttja befintliga maskin inlärnings modeller eller andra data i dina funktioner. Du kan använda [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) kommandot för att montera en befintlig resurs till din Linux Function-app. 
 
-I det här kommandot `share-name` är namnet på den befintliga Azure Files resursen och `custom-id` kan vara en sträng som unikt definierar resursen när den monteras i Function-appen. Är också `mount-path` sökvägen från vilken resursen nås i din Function-app. `mount-path`måste vara i formatet `/dir-name` och får inte börja med `/home` .
+I det här kommandot `share-name` är namnet på den befintliga Azure Files resursen och `custom-id` kan vara en sträng som unikt definierar resursen när den monteras i Function-appen. Är också `mount-path` sökvägen från vilken resursen nås i din Function-app. `mount-path` måste vara i formatet `/dir-name` och får inte börja med `/home` .
 
 Ett fullständigt exempel finns i skripten i [skapa en python Function-app och montera en Azure Files-resurs](scripts/functions-cli-mount-files-storage-linux.md). 
 

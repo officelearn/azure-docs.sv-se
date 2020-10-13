@@ -12,10 +12,10 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 37df1a052a58271c239b8b3bcaa4808ab7c355f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85204378"
 ---
 # <a name="json-claims-transformations"></a>JSON-anspråk omvandlingar
@@ -58,8 +58,8 @@ I följande exempel genereras en JSON-sträng baserat på anspråks värdet "ema
 Följande anspråks omvandling matar ut ett JSON-sträng anspråk som kommer att bli bröd texten i begäran som skickas till SendGrid (en tredjeparts e-postprovider). JSON-objektets struktur definieras av ID: n i punkt notation för indataparametrarna och TransformationClaimTypes för InputClaims. Siffror i punkt notation innebär att matriser. Värdena hämtas från InputClaims-värdena och värdet för indataparametrar.
 
 - Inmatade anspråk:
-  - **e-post**, typ **anpassningar av omvandlings anspråk. 0. till. 0. e-post**: " someone@example.com "
-  - **eng ång slö sen ord**, typ anpassningar av omvandlings anspråk **. 0. dynamic_template_data. eng ång slö 346349 sen ord**
+  - **e-post**, typ  **anpassningar av omvandlings anspråk. 0. till. 0. e-post**: " someone@example.com "
+  - **eng ång slö sen ord**, typ av omvandlings anspråk **personalizations.0.dynamic_template_data. eng ång slö 346349 sen ord**
 - Indataparameter:
   - **TEMPLATE_ID**: "d-4c56ffb40fa648b1aa6822283df94f60"
   - **från. e-post**: " service@contoso.com "
@@ -100,7 +100,7 @@ Hämta ett angivet element från en JSON-data.
 | InputParameter | claimToExtract | sträng | namnet på det JSON-element som ska extraheras. |
 | OutputClaim | extractedClaim | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats, det element värde som anges i indataparametern _claimToExtract_ . |
 
-I följande exempel extraherade anspråks omvandlingen `emailAddress` elementet från JSON-data:`{"emailAddress": "someone@example.com", "displayName": "Someone"}`
+I följande exempel extraherade anspråks omvandlingen `emailAddress` elementet från JSON-data: `{"emailAddress": "someone@example.com", "displayName": "Someone"}`
 
 ```xml
 <ClaimsTransformation Id="GetEmailClaimFromJson" TransformationMethod="GetClaimFromJson">
@@ -123,7 +123,7 @@ I följande exempel extraherade anspråks omvandlingen `emailAddress` elementet 
 - Indataparameter:
     - **claimToExtract**: EmailAddress
 - Utgående anspråk:
-  - **extractedClaim**:someone@example.com
+  - **extractedClaim**: someone@example.com
 
 
 ## <a name="getclaimsfromjsonarray"></a>GetClaimsFromJsonArray
@@ -265,7 +265,7 @@ Hämtar det första elementet från en JSON-datamatris.
 | InputClaim | inputJsonClaim | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta objektet från JSON-matrisen. |
 | OutputClaim | extractedClaim | sträng | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats, det första elementet i JSON-matrisen. |
 
-I följande exempel extraherar anspråks omvandlingen det första elementet (e-postadress) från JSON-matrisen `["someone@example.com", "Someone", 6353399]` .
+I följande exempel extraherar anspråks omvandlingen det första elementet (e-postadress) från JSON-matrisen  `["someone@example.com", "Someone", 6353399]` .
 
 ```xml
 <ClaimsTransformation Id="GetEmailFromJson" TransformationMethod="GetSingleValueFromJsonArray">
@@ -283,7 +283,7 @@ I följande exempel extraherar anspråks omvandlingen det första elementet (e-p
 - Inmatade anspråk:
   - **inputJsonClaim**: [" someone@example.com ", "någon", 6353399]
 - Utgående anspråk:
-  - **extractedClaim**:someone@example.com
+  - **extractedClaim**: someone@example.com
 
 ## <a name="xmlstringtojsonstring"></a>XmlStringToJsonString
 

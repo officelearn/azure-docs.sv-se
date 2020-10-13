@@ -11,10 +11,10 @@ ms.date: 09/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2d00942331b7e6c881803af366d1c08e173462b3
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90023796"
 ---
 # <a name="relyingparty"></a>RelyingParty
@@ -163,7 +163,7 @@ I följande exempel skickas en parameter `campaignId` med namnet med värdet `ha
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Name | Ja | Namnet på nyckel värdes paret. |
+| Namn | Ja | Namnet på nyckel värdes paret. |
 
 Mer information finns i [Konfigurera gränssnittet med dynamiskt innehåll med hjälp av anpassade principer](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)
 
@@ -190,7 +190,7 @@ Mer information finns i [Konfigurera gränssnittet med dynamiskt innehåll med h
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Name | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C som används som en del av den tekniska profilen. Möjliga värden: `OpenIdConnect` eller `SAML2` . `OpenIdConnect`Värdet representerar OpenID Connect 1,0-protokoll standard som per OpenID Foundation-specifikation. `SAML2`Representerar SAML 2,0-protokoll standarden enligt Oasis-specifikationen. |
+| Namn | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C som används som en del av den tekniska profilen. Möjliga värden: `OpenIdConnect` eller `SAML2` . `OpenIdConnect`Värdet representerar OpenID Connect 1,0-protokoll standard som per OpenID Foundation-specifikation. `SAML2`Representerar SAML 2,0-protokoll standarden enligt Oasis-specifikationen. |
 
 ### <a name="metadata"></a>Metadata
 

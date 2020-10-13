@@ -4,10 +4,10 @@ description: Den här artikeln innehåller en detaljerad översikt över Azure A
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: 20f56745127a5182a5dfa057a4496b127d78eac7
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91822197"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Översikt över Azure Arc-aktiverade Server Agent
@@ -23,7 +23,7 @@ Azure Connected Machine agent-paketet innehåller flera logiska komponenter, som
 
 * HIMDS (hybrid instance metadata service) hanterar anslutningen till Azure och den anslutna datorns Azure-identitet.
 
-* Konfigurations agenten för gäster tillhandahåller funktioner för gäst-och gäst konfiguration, till exempel att utvärdera om datorn uppfyller de nödvändiga principerna.
+* Konfigurations agenten för gäster tillhandahåller In-Guest princip-och gäst konfigurations funktioner, till exempel bedöma om datorn uppfyller de nödvändiga principerna.
 
     Observera följande beteende med Azure Policy [gäst konfiguration](../../governance/policy/concepts/guest-configuration.md) för en frånkopplad dator:
 
@@ -173,11 +173,11 @@ När du har installerat den anslutna dator agenten för Windows tillämpas följ
     |Tjänstnamn |Visningsnamn |Processnamn |Beskrivning |
     |-------------|-------------|-------------|------------|
     |himds |Azure Hybrid-Instance Metadata Service |himds.exe |Den här tjänsten implementerar IMDS (Azure instance metadata service) för att hantera anslutningen till Azure och den anslutna datorns Azure-identitet.|
-    |DscService |Gäst konfigurations tjänst |dsc_service.exe |Kodbasen för önskad tillstånds konfiguration (DSC v2) som används i Azure för att implementera principer för gäst.|
+    |DscService |Gäst konfigurations tjänst |dsc_service.exe |Kodbasen för önskad tillstånds konfiguration (DSC v2) som används i Azure för att implementera In-Guest principen.|
 
 * Följande miljövariabler skapas under Agent installationen.
 
-    |Name |Standardvärde |Beskrivning |
+    |Namn |Standardvärde |Beskrivning |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
@@ -224,7 +224,7 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
     |Tjänstnamn |Visningsnamn |Processnamn |Beskrivning |
     |-------------|-------------|-------------|------------|
     |himdsd. service |Azure Hybrid-Instance Metadata Service |/opt/azcmagent/bin/himds |Den här tjänsten implementerar IMDS (Azure instance metadata service) för att hantera anslutningen till Azure och den anslutna datorns Azure-identitet.|
-    |dscd. service |Gäst konfigurations tjänst |/opt/DSC/dsc_linux_service |Det här är den Desired State Configuration (DSC v2) kodbasen som används i Azure för att implementera principer för gäst.|
+    |dscd. service |Gäst konfigurations tjänst |/opt/DSC/dsc_linux_service |Det här är den Desired State Configuration (DSC v2) kodbasen som används i Azure för att implementera In-Guest principen.|
 
 * Det finns flera loggfiler tillgängliga för fel sökning. De beskrivs i följande tabell.
 
@@ -239,7 +239,7 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
 
 * Följande miljövariabler skapas under Agent installationen. Dessa variabler anges i `/lib/systemd/system.conf.d/azcmagent.conf` .
 
-    |Name |Standardvärde |Beskrivning |
+    |Namn |Standardvärde |Beskrivning |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||

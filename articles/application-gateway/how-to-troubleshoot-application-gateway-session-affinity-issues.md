@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
 ms.openlocfilehash: 02d1d78dae4f02ac53d535f6c404b15f8d98f008
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563768"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Felsöka fel vid tillhörighet mellan Azure Application Gateway-session
@@ -195,7 +195,7 @@ Använd den webb fel sökare som du väljer. I det här exemplet ska vi använda
    > [!NOTE]
    > Detta ARRAffinity-värde är cookie-ID: t, som Application Gateways uppsättningar för klienten som ska skickas till en viss backend-server.
 
-   ![Skärm bild som visar ett exempel på information om en loggpost med värdet set-cookie markerat.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
+   ![Skärm bild som visar ett exempel på information om en loggpost med värdet Set-Cookie markerat.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
 
 - **Exempel B:** Nästa sessionsinformation följt av föregående är klienten som svarar tillbaka till Application Gateway, som har angett ARRAAFFINITY. Om ARRAffinity cookie-ID matchar, ska paketet skickas till samma backend-server som användes tidigare. Kontrol lera de efterföljande raderna i http-kommunikationen för att se om klientens ARRAffinity-cookie ändras.
 

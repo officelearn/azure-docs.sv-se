@@ -15,10 +15,10 @@ ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4d335affa5a06bdb8e5c733c871654cf58947581
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91652966"
 ---
 # <a name="azure-media-services-release-notes"></a>Viktig information om Azure Media Services
@@ -307,7 +307,7 @@ Följande nya funktioner har annonser ATS:
 ## <a name="april-2015-release"></a><a id="april_changes_15"></a>Version från april 2015
 ### <a name="general-media-services-updates"></a>Allmänna Media Services uppdateringar
 * [Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/) annonserades.
-* Från och med Media Services REST 2,10 skapas kanaler som har kon figurer ATS för att mata in en RTMP (Real Time Messaging Protocol) med primära och sekundära inmatnings-URL: er. Mer information finns i kanal inmatning- [konfigurationer](media-services-live-streaming-with-onprem-encoders.md#channel_input).
+* Från och med Media Services REST 2,10 skapas kanaler som är konfigurerade för att mata in ett Real-Time meddelande protokoll (RTMP) med primära och sekundära inmatnings-URL: er. Mer information finns i kanal inmatning- [konfigurationer](media-services-live-streaming-with-onprem-encoders.md#channel_input).
 * Azure Media Indexer uppdaterades.
 * Stöd för spanska språk har lagts till.
 * En ny konfiguration för XML-formatet har lagts till.
@@ -386,7 +386,7 @@ Media Services REST-metadata är nu version 2,7. Mer information om de senaste R
 
 Media Services SDK för .NET är nu version 3.0.0.7
 
-### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Bryta ändringar
+### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Icke-bakåtkompatibla ändringar
 * Ursprungets namn ändrades till [StreamingEndpoint].
 * En ändring har gjorts i standard beteendet när du använder Azure Portal för att koda och sedan publicera MP4-filer.
 

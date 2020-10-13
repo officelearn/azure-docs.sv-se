@@ -1,16 +1,16 @@
 ---
 title: Konfigurera ASP.NET Core appar
-description: Lär dig hur du konfigurerar en ASP.NET Core-app i de interna Windows-instanserna eller i en fördefinierad Linux-behållare i Azure App Service. Den här artikeln visar de vanligaste konfigurations åtgärderna.
+description: Lär dig hur du konfigurerar en ASP.NET Core-app i de interna Windows-instanserna eller i en fördefinierad Linux-behållare i Azure App Service. I artikeln visas de vanligaste konfigurationsåtgärderna.
 ms.devlang: dotnet
 ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: 3456adc2b143f1f51115183fe4873938d067d267
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961677"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Konfigurera en ASP.NET Core app för Azure App Service
@@ -98,7 +98,7 @@ Mer information om hur App Service kör och skapar ASP.NET Core appar i Linux fi
 
 ## <a name="access-environment-variables"></a>Få åtkomst till miljövariabler
 
-I App Service kan du [Ange inställningar för appar](configure-common.md#configure-app-settings) utanför appens kod. Sedan kan du komma åt dem i valfri klass med hjälp av standard mönstret för ASP.NET Core beroende inmatning:
+I App Service kan du [ange appinställningar](configure-common.md#configure-app-settings) utanför din appkod. Sedan kan du komma åt dem i valfri klass med hjälp av standard mönstret för ASP.NET Core beroende inmatning:
 
 ```csharp
 using Microsoft.Extensions.Configuration;
@@ -212,7 +212,7 @@ Mer information finns i [konfigurera ASP.net Core att arbeta med proxyservrar oc
 
 ::: zone pivot="platform-linux"
 
-## <a name="open-ssh-session-in-browser"></a>Öppna SSH-session i webbläsare
+## <a name="open-ssh-session-in-browser"></a>Öppna en SSH-session i webbläsaren
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
@@ -228,6 +228,6 @@ Mer information finns i [konfigurera ASP.net Core att arbeta med proxyservrar oc
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [Vanliga frågor och svar om App Service Linux](faq-app-service-linux.md)
+> [Vanliga frågor och svar om App Service på Linux](faq-app-service-linux.md)
 
 ::: zone-end

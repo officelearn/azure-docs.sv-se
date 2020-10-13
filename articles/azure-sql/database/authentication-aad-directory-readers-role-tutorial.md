@@ -10,10 +10,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
 ms.openlocfilehash: d6c447deedbdcc4f2439fc069f368db88b3560b9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91278047"
 ---
 # <a name="tutorial-assign-directory-readers-role-to-an-azure-ad-group-and-manage-role-assignments"></a>Självstudie: tilldela katalog läsare rollen till en Azure AD-grupp och hantera roll tilldelningar
@@ -29,7 +29,7 @@ I den här självstudien används funktionen som introducerades i [använda moln
 
 Mer information om fördelarna med att tilldela katalog läsaren rollen till en Azure AD-grupp för Azure SQL finns i [rollen katalog läsare i Azure Active Directory för Azure SQL](authentication-aad-directory-readers-role.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure AD-instans. Mer information finns i [Konfigurera och hantera Azure AD-autentisering med Azure SQL](authentication-aad-configure.md).
 - En SQL Database, SQL-hanterad instans eller Azure-Synapse.
@@ -55,7 +55,7 @@ Mer information om fördelarna med att tilldela katalog läsaren rollen till en 
 
 Om du vill kontrol lera och hantera gruppen som skapades går du tillbaka till fönstret **grupper** i Azure Portal och söker efter ditt grupp namn. Du kan lägga till ytterligare ägare och medlemmar under menyn **ägare** och **medlemmar** i **hanterings** inställningen när du har valt gruppen. Du kan också granska de **tilldelade rollerna** för gruppen.
 
-:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="Skärm bild av ett grupp fönster med de länkar som öppnar inställningar-menyerna för medlemmar, ägare och tilldelade roller (förhands granskning) markerat.":::
+:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="AAD-ny-grupp":::
 
 ### <a name="add-azure-sql-managed-identity-to-the-group"></a>Lägg till Azure SQL-hanterad identitet i gruppen
 
@@ -68,17 +68,17 @@ För efterföljande steg behövs inte längre den globala administratören eller
 
 1. Hitta namnet på din **SQL-hanterade instans** resurs i Azure Portal.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="Skärm bild av skärmen SQL-hanterade instanser med SQL-instansnamnet ssomitest och under näts namnet ManagedInstance markerat.":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="AAD-ny-grupp":::
 
    När din SQL-hanterade instans skapas skapades en Azure-identitet för din instans. Den skapade identiteten har samma namn som prefixet för ditt SQL-hanterade instans namn. Du kan hitta tjänstens huvud namn för din SQL-hanterade instans identitet som skapats som ett Azure AD-program genom att följa dessa steg:
 
     - Gå till **Azure Active Directory** resursen. Under inställningen **Hantera** väljer du **företags program**. **Objekt-ID** är instansens identitet.
     
-    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="Skärm bild av sidan företags program för en Azure Active Directory-resurs med objekt-ID: t för den SQL-hanterade instans som marker ATS.":::
+    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="AAD-ny-grupp":::
 
 1. Gå till **Azure Active Directory** resursen. Gå till **grupper**under **hanterad**. Välj den grupp som du har skapat. Under den **hanterade** inställningen för gruppen väljer du **medlemmar**. Välj **Lägg till medlemmar** och Lägg till SQL Managed instance service-huvudobjektet som medlem i gruppen genom att söka efter namnet som finns ovan.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="Skärm bild av sidan medlemmar för en Azure Active Directory resurs med de alternativ som marker ATS för att lägga till en SQL-hanterad instans som ny medlem.":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="AAD-ny-grupp":::
 
 > [!NOTE]
 > Det kan ta några minuter att sprida behörigheter för tjänstens huvud namn via Azure-systemet och tillåta åtkomst till Azure AD-Graph API. Du kan behöva vänta några minuter innan du etablerar en Azure AD-administratör för SQL-hanterad instans.

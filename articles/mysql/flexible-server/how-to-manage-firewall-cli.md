@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 7fe0e91f30930b9aaf0fb484b3b1e74d707d8c21
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91307814"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Skapa och hantera Azure Database for MySQL flexibla Server brand Väggs regler med hjälp av Azure CLI
@@ -88,7 +88,7 @@ I [referens dokumentationen](/cli/azure/mysql/flexible-server) för Azure CLI hi
 ## <a name="create-and-manage-firewall-rule-after-server-create"></a>Skapa och hantera brand Väggs regler efter att servern har skapats
 Kommandot **AZ MySQL Flexible-Server Firewall-Rule** används från Azure CLI för att skapa, ta bort, Visa och uppdatera brand Väggs regler.
 
-Kommandon
+Kommandon:
 - **skapa**: skapa en flexibel Server brand Väggs regel.
 - **lista**: visar en lista över de flexibla reglerna för Server brand väggen.
 - **Uppdatera**: uppdatera en regel för en flexibel Server brand vägg.

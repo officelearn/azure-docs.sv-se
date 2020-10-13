@@ -14,10 +14,10 @@ ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: f4a71509c29555da2fdbc1e7eed2fd985237d6a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91268799"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>Självstudie: koda en fjärrfil baserat på URL och strömma videon – Azure CLI
@@ -48,7 +48,7 @@ az group create -n amsResourceGroup -l westus2
 
 ### <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
 
-I det här exemplet skapar vi ett allmänt standard LRS-konto.
+I det här exemplet skapar vi ett General-Purpose v2 standard LRS-konto.
 
 Om du vill experimentera med lagringskonton använder du `--sku Standard_LRS`. När du väljer en SKU för produktion kan du överväga att använda `--sku Standard_RAGRS` , som tillhandahåller geografisk replikering för affärs kontinuitet. Mer information finns i [lagringskonton](/cli/azure/storage/account).
 

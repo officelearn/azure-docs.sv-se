@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 90815d52e6884efe6cff9a7860c093b4b5c1bc94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85204549"
 ---
 # <a name="manage-compute-in-azure-synapse-analytics-data-warehouse"></a>Hantera beräkning i Azure Synapse Analytics data Warehouse
@@ -36,7 +36,7 @@ För att utföra en skalnings åtgärd omsorg SQL-poolen först alla inkommande 
 
 Följande tabell visar hur antalet distributioner per beräknings nod ändras när data lagrets enheter ändras.  DW30000c tillhandahåller 60 Compute-noder och ger mycket högre frågeresultat än DW100c.
 
-| Informationslagerenheter  | \#av Compute-noder | \#av distributioner per nod |
+| Informationslagerenheter  | \# av Compute-noder | \# av distributioner per nod |
 | -------- | ---------------- | -------------------------- |
 | DW100c   | 1                | 60                         |
 | DW200c   | 1                | 60                         |

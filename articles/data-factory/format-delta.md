@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: daperlov
 ms.openlocfilehash: 3e1c5f3b360960779dd58c8c05b25885df81d2e9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91276534"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Delta format i Azure Data Factory
@@ -33,7 +33,7 @@ Den här kopplingen är tillgänglig som en [infogad data uppsättning](data-flo
 
 I tabellen nedan visas de egenskaper som stöds av en delta källa. Du kan redigera dessa egenskaper på fliken **käll alternativ** .
 
-| Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
+| Namn | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Formatet måste vara `delta` | ja | `delta` | format |
 | Filsystem | Container/File-systemet för delta Lake | ja | Sträng | Fil Systems |
@@ -70,14 +70,14 @@ source(output(movieId as integer,
 
 I tabellen nedan visas de egenskaper som stöds av en delta mottagare. Du kan redigera dessa egenskaper på fliken **Inställningar** .
 
-| Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
+| Namn | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Formatet måste vara `delta` | ja | `delta` | format |
 | Filsystem | Container/File-systemet för delta Lake | ja | Sträng | Fil Systems |
 | Mappsökväg | Direct of delta sjö | ja | Sträng | folderPath |
 | Komprimerings typ | Den komprimerings typ som tillhör delta tabellen | nej | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | Komprimerings nivå | Välj om komprimeringen ska slutföras så fort som möjligt eller om den resulterande filen ska komprimeras optimalt. | krävs om `compressedType` har angetts. | `Optimal` eller `Fastest` | compressionLevel |
-| Vakuum | Ange tröskelvärde för kvarhållning i timmar för äldre versioner av tabell. Värdet 0 eller lägre är 30 dagar | ja | Heltal | Dammsug |
+| Vakuum | Ange tröskelvärde för kvarhållning i timmar för äldre versioner av tabell. Värdet 0 eller lägre är 30 dagar | ja | Integer | Dammsug |
 | Uppdaterings metod | Ange vilka uppdaterings åtgärder som tillåts på delta Lake. För metoder som inte infogas krävs en föregående Alter Row-omvandling för att markera rader. | ja | `true` eller `false` | bort <br> infognings bara <br> uppdaterings bara <br> upsertable |
 
 ### <a name="delta-sink-script-example"></a>Skript exempel för delta mottagare

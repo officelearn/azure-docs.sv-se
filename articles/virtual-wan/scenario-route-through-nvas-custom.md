@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: e1cf9faeab60264d491539256828151e496ade8f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91267507"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Scenario: dirigera trafik genom NVA – anpassad (för hands version)
@@ -65,14 +65,14 @@ Därför ger vår anslutnings mat ris tre distinkta anslutnings mönster, som ö
 
 Vi behöver dessa statiska vägar för att säkerställa att VNet-till-gren-och gren-till-VNet-trafik går genom NVA i tjänstens VNet (VNet 4):
 
-| Description | Routningstabell | Statisk väg              |
+| Beskrivning | Routningstabell | Statisk väg              |
 | ----------- | ----------- | ------------------------- |
 | Grenar    | RT_V2B      | 10.2.0.0/16-> vnet4conn  |
-| NVA pinnar  | Standardvärde     | 10.1.0.0/16-> vnet4conn  |
+| NVA pinnar  | Default     | 10.1.0.0/16-> vnet4conn  |
 
 Nu vet Virtual WAN vilken anslutning som ska skicka paketen till, men anslutningen måste veta vad du ska göra när du tar emot dessa paket: det är här som anslutnings väg tabellerna används.
 
-| Description | Anslutning | Statisk väg            |
+| Beskrivning | Anslutning | Statisk väg            |
 | ----------- | ---------- | ----------------------- |
 | VNet2Branch | vnet4conn  | 10.2.0.0/16-> 10.4.0.5 |
 | Branch2VNet | vnet4conn  | 10.1.0.0/16-> 10.4.0.5 |
@@ -129,7 +129,7 @@ Om du vill konfigurera routning via NVA följer du stegen nedan:
 
 **Bild 2**
 
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Bild 2" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Bild 1" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
 ## <a name="next-steps"></a>Nästa steg
 

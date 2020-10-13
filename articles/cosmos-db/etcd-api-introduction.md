@@ -8,10 +8,10 @@ ms.date: 05/21/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.openlocfilehash: 208f0d73b4c8bb11adc9c73796ebc6a622f5ed50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85118176"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-etcd-api-preview"></a>Introduktion till Azure Cosmos DB etcd-API (för hands version)
@@ -50,7 +50,7 @@ När Kubernetes-klustret växer skalar etcd API-kontot i Azure Cosmos DB elastis
 
 ### <a name="security--enterprise-readiness"></a>Säkerhet & Enterprise readiness
 
-När etcd-data lagras i Azure Cosmos DB får Kubernetes-utvecklare automatiskt den [inbyggda krypteringen i vila](database-encryption-at-rest.md), [certifieringar och efterlevnad](compliance.md), samt [säkerhets kopierings-och återställnings funktioner](online-backup-and-restore.md) som stöds av Azure Cosmos dB. 
+När etcd-data lagras i Azure Cosmos DB får Kubernetes-utvecklare automatiskt den [inbyggda krypteringen i vila](database-encryption-at-rest.md),  [certifieringar och efterlevnad](compliance.md), samt [säkerhets kopierings-och återställnings funktioner](online-backup-and-restore.md) som stöds av Azure Cosmos dB. 
 
 ## <a name="next-steps"></a>Nästa steg
 

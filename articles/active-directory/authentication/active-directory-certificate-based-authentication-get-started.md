@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 94955e27dcadb3acbea03926d6d1ed73e9c5c9ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96f1e3983f3c093cdf643e7674221b04631eeabd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87051349"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965632"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Komma igång med certifikatbaserad autentisering i Azure Active Directory
 
@@ -104,7 +104,7 @@ För-konfigurationen kan du använda [Azure Active Directory PowerShell version 
 
 Som ett första konfigurations steg måste du upprätta en anslutning till din klient organisation. Så snart en anslutning till din klient organisation finns kan du granska, lägga till, ta bort och ändra betrodda certifikat utfärdare som definieras i din katalog.
 
-### <a name="connect"></a>Ansluta
+### <a name="connect"></a>Anslut
 
 Använd cmdleten [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) för att upprätta en anslutning till klienten:
 

@@ -12,10 +12,10 @@ ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 0122fa43c9d99c01797e3523748e4f31b4b7469a
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91664859"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Felkoder: Azure Active Directory B2C
@@ -101,7 +101,7 @@ Följande fel kan returneras av tjänsten Azure Active Directory B2C.
 | `AADB2C90159` | En begäran om kontrollerad verifiering misslyckades med orsaken {0} . |
 | `AADB2C90161` | Ett självkontrollerat sändnings svar misslyckades med orsaken {0} . |
 | `AADB2C90165` | SAML-initierings meddelandet med ID: t {0} hittades inte i läget. |
-| `AADB2C90168` | Begäran om HTTP-omdirigering innehåller inte den nödvändiga parametern {0} för en signerad begäran. |
+| `AADB2C90168` | HTTP-Redirect begäran innehåller inte den nödvändiga parametern {0} för en signerad begäran. |
 | `AADB2C90178` | Signerings certifikatet {0} har ingen privat nyckel. |
 | `AADB2C90182` | Den angivna code_verifier överensstämmer inte med tillhör ande code_challenge |
 | `AADB2C90183` | Den angivna code_verifier är ogiltig |

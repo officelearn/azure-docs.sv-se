@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 530ef271091afc3e646d375ea471d8c48f0f8651
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d72e6c6a606a199bd8b0ada601479267e0d728d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544204"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945183"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Självstudie: Azure Active Directory integrering med HackerOne
 
@@ -30,7 +30,7 @@ När du integrerar HackerOne med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med HackerOne behöver du följande:
 
@@ -126,11 +126,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Hacke
 
 2. Klicka på menyn längst upp i **Inställningar**.
 
-    ![Konfigurera enkel inloggning](./media/hackerone-tutorial/tutorial_hackerone_001.png)
+    ![Skärm bild som visar "Inställningar" som valts i menyn.](./media/hackerone-tutorial/tutorial_hackerone_001.png)
 
 3. Gå till **Autentisering** och klicka på **Lägg till SAML-inställningar**.
 
-    ![Konfigurera enkel inloggning](./media/hackerone-tutorial/tutorial_hackerone_003.png)
+    ![Skärm bild som visar sidan "autentiseringsinställningar" med knappen "Lägg till en M L-inställningar" vald.](./media/hackerone-tutorial/tutorial_hackerone_003.png)
 
 4. Gör följande i dialogrutan **SAML-inställningar**:
 
@@ -146,7 +146,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Hacke
 
 5. Gör följande i dialogrutan Inställningar för autentisering:
 
-    ![Konfigurera enkel inloggning](./media/hackerone-tutorial/tutorial_hackerone_005.png)
+    ![Skärm bild som visar dialog rutan "autentiseringsinställningar" med knappen "Kör test" vald.](./media/hackerone-tutorial/tutorial_hackerone_005.png)
 
     a. Klicka på **Kör test**.
 

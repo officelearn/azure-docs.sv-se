@@ -4,10 +4,10 @@ description: Innehåller en sammanfattning av stödet för den Azure Migrate-enh
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450041"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
@@ -180,7 +180,7 @@ IPv6-adresser | datorn. Guest.Net
 Läs data flöde (MB per sekund) | net. Received. Average
 Skriv data flöde (MB per sekund) | net. överföring. genomsnitt
 **Information om lager Sök väg** | 
-Name | fönster. GetType (). Namn
+Namn | fönster. GetType (). Namn
 Typ av underordnat objekt | fönster. ChildType
 Referens information | fönster. MoRef
 Överordnad information | Container. parent
@@ -227,7 +227,7 @@ Här är de funktions data som installationen samlar in från varje virtuell dat
 
 **Data**  | **PowerShell-cmdlet** | **Egenskap**
 --- | --- | ---
-Name  | Get-WindowsFeature  | Name
+Namn  | Get-WindowsFeature  | Namn
 Funktions typ | Get-WindowsFeature  | FeatureType
 Överordnad  | Get-WindowsFeature  | Överordnad
 
@@ -237,7 +237,7 @@ Här är SQL Server-metadata som enheten samlar in från virtuella datorer som k
 
 **Data**  | **Registerplats**  | **Nyckel**
 --- | --- | ---
-Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
+Namn  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
 Utgåva  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Utgåva 
 Service Pack  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | SP
 Version  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Version 
@@ -248,7 +248,7 @@ Här är de operativ Systems data som installations programmet samlar in varje v
 
 Data  | WMI-klass  | Egenskap för WMI-klass
 --- | --- | ---
-Name  | Win32_operatingsystem  | Caption
+Namn  | Win32_operatingsystem  | Caption
 Version  | Win32_operatingsystem  | Version
 Arkitektur  | Win32_operatingsystem  | OSArchitecture
 
@@ -258,7 +258,7 @@ Här är de installerade program data som installationen samlar in från varje v
 
 Data  | Kommando
 --- | --- 
-Name | RPM, dpkg-fråga, fäst
+Namn | RPM, dpkg-fråga, fäst
 Version | RPM, dpkg-fråga, fäst
 Leverantör | RPM, dpkg-fråga, fäst
 
@@ -268,7 +268,7 @@ Här är de operativ Systems data som installations programmet samlar in varje v
 
 **Data**  | **Kommando** 
 --- | --- | ---
-Name <br/> version | Samlas in från en eller flera av följande filer:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Namn <br/> version | Samlas in från en eller flera av följande filer:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Arkitektur | uname
 
 
@@ -454,7 +454,7 @@ Installationen uppgraderas eftersom Azure Migrate agenter som körs på enheten 
 ### <a name="turn-off-auto-update"></a>Inaktivera automatisk uppdatering
 
 1. Öppna Registereditorn på den dator som kör-enheten.
-2. Navigera till **HKEY_LOCAL_MACHINE \software\microsoft\azureappliance**.
+2. Navigera till **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
 3. Om du vill inaktivera automatisk uppdatering skapar du en register nyckel för automatisk **uppdatering** med DWORD-värdet 0.
 
     ![Ange register nyckel](./media/migrate-appliance/registry-key.png)
@@ -464,13 +464,13 @@ Installationen uppgraderas eftersom Azure Migrate agenter som körs på enheten 
 
 Du kan aktivera automatisk uppdatering med någon av följande metoder:
 
-- Genom att ta bort register nyckeln AutoUpdate från HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureAppliance.
+- Genom att ta bort register nyckeln AutoUpdate från HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
 - Klicka på **Visa apparat-tjänster** från de senaste uppdaterings kontrollerna på panelen **Konfigurera krav** för att aktivera automatisk uppdatering.
 
 Ta bort register nyckeln:
 
 1. Öppna Registereditorn på den dator som kör-enheten.
-2. Navigera till **HKEY_LOCAL_MACHINE \software\microsoft\azureappliance**.
+2. Navigera till **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
 3. Ta bort den automatiska **uppdateringen**av register nyckeln som tidigare har skapats för att inaktivera automatisk uppdatering.
 
 Om du vill aktivera från installations Configuration Manager efter att identifieringen har slutförts:

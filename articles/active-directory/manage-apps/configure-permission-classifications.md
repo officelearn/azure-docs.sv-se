@@ -12,13 +12,13 @@ ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
 ms.openlocfilehash: 0add5001e2e62e26d448b06927210c14f17729f1
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804347"
 ---
-# <a name="configure-permission-classifications"></a>Konfigurera behörighets klassificeringar
+# <a name="configure-permission-classifications"></a>Konfigurera behörighetsklassificeringar
 
 Med behörighets klassificeringar kan du identifiera vilken inverkan olika behörigheter har enligt organisationens principer och riskbedömningar. Du kan till exempel använda behörighets klassificeringar i principer för medgivande för att identifiera den uppsättning behörigheter som användare tillåts att samtycka till.
 

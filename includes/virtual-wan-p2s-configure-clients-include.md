@@ -9,10 +9,10 @@ ms.date: 10/06/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9caf63fc90be7bae0461ddc24c94594a32199765
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812782"
 ---
 #### <a name="microsoft-windows"></a>Microsoft Windows
@@ -20,7 +20,7 @@ ms.locfileid: "91812782"
 ##### <a name="openvpn"></a>OpenVPN
 
 1. Ladda ned och installera OpenVPN-klienten från den officiella webbplatsen.
-1. Ladda ned VPN-profilen för gatewayen. Detta kan göras från fliken User VPN-konfigurationer i Azure Portal, eller New-AzureRmVpnClientConfiguration i PowerShell.
+1. Ladda ned VPN-profilen för gatewayen. Detta kan göras från fliken User VPN-konfigurationer i Azure Portal eller New-AzureRmVpnClientConfiguration i PowerShell.
 1. Packa upp profilen. Öppna konfigurationsfilen vpnconfig.ovpn från OpenVPN-mappen i Anteckningar.
 1. Fyll i avsnittet för P2S-klientcertifikatet med P2S-klientcertifikatets offentliga nyckel i base64. I ett PEM formaterat certifikat kan du öppna. CER-filen och kopiera över den base64-nyckeln mellan certifikat rubrikerna. Anvisningar finns i [så här exporterar du ett certifikat för att hämta den kodade offentliga nyckeln.](../articles/virtual-wan/certificates-point-to-site.md)
 1. Fyll i avsnittet för den privata nyckeln med P2S-klientcertifikatets privata nyckel i base64. Anvisningar finns i [extrahera privat nyckel.](../articles/virtual-wan/howto-openvpn-clients.md#windows).

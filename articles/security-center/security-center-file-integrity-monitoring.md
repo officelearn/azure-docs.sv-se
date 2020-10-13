@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b64ff51836f8d291acf57b1cd9ca100c4f87ebed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b6b27f4f71e9159c17ec2df68c6af5f1b98b177
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541177"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946101"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av fil integritet i Azure Security Center
 Lär dig hur du konfigurerar FIM (File Integrity Monitoring) i Azure Security Center att använda den här genom gången.
@@ -29,28 +29,32 @@ Lär dig hur du konfigurerar FIM (File Integrity Monitoring) i Azure Security Ce
 |Aspekt|Information|
 |----|:----|
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
-|Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md)|
+|Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md).<br>FIM överför data till Log Analytics-arbetsytan. Data avgifterna gäller baserat på mängden data som du överför. Mer information finns i [Log Analytics prissättning](https://azure.microsoft.com/pricing/details/log-analytics/) .|
 |Nödvändiga roller och behörigheter:|**Arbets ytans ägare** kan aktivera/inaktivera FIM (mer information finns i [Azure roles for Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>**Läsaren** kan visa resultat.|
-|Moln|![Ja ](./media/icons/yes-icon.png) kommersiella moln<br>![Ja ](./media/icons/yes-icon.png) US gov<br>![Ingen ](./media/icons/no-icon.png) Kina gov, andra gov<br>Stöds bara i regioner där Azure Automation lösning för ändrings spårning är tillgänglig.<br>Se [regioner som stöds för länkad Log Analytics-arbetsyta](../automation/how-to/region-mappings.md).<br>[Läs mer om ändrings spårning](../automation/change-tracking.md) |
+|Moln|![Ja ](./media/icons/yes-icon.png) kommersiella moln<br>![Ja ](./media/icons/yes-icon.png) US gov<br>![Ingen ](./media/icons/no-icon.png) Kina gov, andra gov<br>Stöds bara i regioner där Azure Automation lösning för ändrings spårning är tillgänglig.<br>Se [regioner som stöds för länkad Log Analytics-arbetsyta](../automation/how-to/region-mappings.md).<br>[Läs mer om ändrings spårning](../automation/change-tracking.md).|
 |||
 
-
-
-
-
 ## <a name="what-is-fim-in-security-center"></a>Vad är FIM i Security Center?
-File Integrity Monitoring (FIM), även kallat ändrings övervakning, undersöker filer och register över operativ system, program vara och andra för ändringar som kan tyda på ett angrepp. En jämförelse metod används för att avgöra om filens aktuella tillstånd skiljer sig från den senaste genomsökningen av filen. Du kan utnyttja den här jämförelsen för att avgöra om giltiga eller misstänkta ändringar har gjorts i dina filer.
+File Integrity Monitoring (FIM), även kallat ändrings övervakning, undersöker operativsystemfiler, Windows-register, program vara, Linux-systemfiler med mera, för ändringar som kan tyda på ett angrepp. 
 
-Security Centers övervakning av fil integriteten verifierar integriteten för Windows-filer, Windows-registret och Linux-filer. Du väljer de filer som du vill övervaka genom att aktivera FIM. Security Center övervakar filer med FIM aktiverat för aktivitet som:
+Security Center rekommenderar att entiteter övervakas med FIM, och du kan även definiera egna FIM-principer eller entiteter som ska övervakas. FIM aviserar dig om misstänkt aktivitet, till exempel:
 
-- Skapa och ta bort filer och register
+- Skapa eller ta bort fil-och register nyckel
 - Fil ändringar (ändringar i fil storlek, åtkomst kontrol listor och hash-värde för innehållet)
 - Register ändringar (ändringar i storlek, åtkomst kontrol listor, typ och innehåll)
 
-Security Center rekommenderar att entiteter övervakas, som du enkelt kan aktivera FIM på. Du kan också definiera egna FIM-principer eller entiteter som ska övervakas. Den här genom gången visar hur.
+I den här kursen får du lära du dig att:
 
-> [!NOTE]
-> FIM-funktionen (File Integrity Monitoring) fungerar för Windows-och Linux-datorer och virtuella datorer och är bara tillgänglig när **Azure Defender för-servrar** är aktiverat. Se [prissättning](security-center-pricing.md) för mer information. FIM överför data till Log Analytics-arbetsytan. Data avgifterna gäller baserat på mängden data som du överför. Mer information finns i [Log Analytics prissättning](https://azure.microsoft.com/pricing/details/log-analytics/) .
+> [!div class="checklist"]
+> * Granska listan över föreslagna entiteter som ska övervakas med FIM
+> * Definiera egna, anpassade FIM-regler
+> * Granska ändringar i dina övervakade entiteter
+> * Använd jokertecken för att förenkla spårning över kataloger
+
+
+## <a name="how-does-fim-work"></a>Hur fungerar FIM?
+
+Genom att jämföra det aktuella läget för dessa objekt med statusen under den föregående sökningen, varnar FIM dig om misstänkta ändringar har gjorts.
 
 FIM använder Azure Ändringsspårning-lösningen för att spåra och identifiera ändringar i din miljö. När fil integritets övervakning har Aktiver ATS har du en **ändringsspårning** resurs av typen **lösning**. Information om datainsamlingsfrekvens finns i [Information om insamling av ändringsspårningsdata](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) för Azure Ändringsspårning.
 
@@ -58,11 +62,11 @@ FIM använder Azure Ändringsspårning-lösningen för att spåra och identifier
 > Om du tar bort **ändringsspårning** resursen inaktiverar du även funktionen för övervakning av fil integritet i Security Center.
 
 ## <a name="which-files-should-i-monitor"></a>Vilka filer ska jag övervaka?
-Du bör tänka på vilka filer som är kritiska för ditt system och dina program när du väljer vilka filer som ska övervakas. Överväg att välja filer som du inte förväntar dig att ändra utan att planera. Om du väljer filer som ofta ändras av program eller operativ system (t. ex. loggfiler och textfiler) skapas många brus som gör det svårt att identifiera ett angrepp.
+När du väljer vilka filer som ska övervakas bör du överväga vilka filer som är kritiska för ditt system och dina program. Övervaka filer som du inte förväntar dig att ändra utan att planera. Om du väljer filer som ofta ändras av program eller operativ system (t. ex. loggfiler och textfiler), kommer den att skapa mycket brus, vilket gör det svårt att identifiera ett angrepp.
 
-Security Center innehåller följande lista över rekommenderade objekt som ska övervakas baserat på kända angrepps mönster. Detta inkluderar filer och Windows-registernycklar. Alla nycklar är under HKEY_LOCAL_MACHINE (HKLM) i tabellen.)
+Security Center innehåller följande lista över rekommenderade objekt som ska övervakas baserat på kända angrepps mönster.
 
-|**Linux-filer**|**Windows-filer**|**Windows-registernycklar**|
+|Linux-filer|Windows-filer|Windows-registernycklar (HKLM = HKEY_LOCAL_MACHINE)|
 |:----|:----|:----|
 |/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
 |/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ 603BCC1F-4B59-4E08-B724-D2C6297EF351}|
@@ -97,7 +101,9 @@ Security Center innehåller följande lista över rekommenderade objekt som ska 
 
 ## <a name="enable-file-integrity-monitoring"></a>Aktivera övervakning av fil integritet 
 
-1. I **Azure Defender** -instrument panelens **avancerade skydds** områden väljer du **fil integritets övervakning**.
+FIM är endast tillgängligt från Security Center sidor i Azure Portal. Det finns för närvarande inga REST API för att arbeta med FIM.
+
+1. Välj **fil integritets övervakning**från **Azure Defender** -instrument panelens **avancerade skydds** områden.
 
    :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="Startar FIM" lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
 

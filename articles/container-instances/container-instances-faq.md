@@ -6,10 +6,10 @@ ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
 ms.openlocfilehash: 1cedfb7464fd97249c5cd3fae73c9290365da6cd
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91818493"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Vanliga frågor och svar om Azure Container Instances
@@ -43,7 +43,7 @@ Mer [detaljerad](container-instances-troubleshooting.md#container-takes-a-long-t
 * [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`  `10.0.14393.3506` eller senare
 
 > [!NOTE]
-> Windows-avbildningar baserade på halvårs kanal version 1709 eller 1803 stöds inte.
+> Windows-avbildningar baserade på Semi-Annual Channel release 1709 eller 1803 stöds inte.
 
 #### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 och client Base images (för hands version)
 

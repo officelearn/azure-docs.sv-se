@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294876"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiera en strategi för införande av hybrid identitet
@@ -82,7 +82,7 @@ Den strategi du använder kommer att diktera användar inloggnings upplevelsen. 
 
 Om du har bestämt från uppgift 1 som du har en IdP från tredje part eller om du ska använda en för att tillhandahålla Federation med Azure AD måste du vara medveten om följande funktioner som stöds:
 
-* En SAML 2,0-provider som är kompatibel för profilen SP-lite kan stödja autentisering till Azure AD och associerade program
+* En SAML 2,0-provider som är kompatibel med SP-Lite profilen kan stödja autentisering till Azure AD och associerade program
 * Stöder passiv autentisering, vilket underlättar autentisering till OWA, SPO osv.
 * Exchange Online-klienter kan stödjas via en utökad klient profil i SAML 2,0 (ECP)
 

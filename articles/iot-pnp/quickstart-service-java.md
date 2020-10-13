@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 0f43b667b94e39548d81e6c6258d987f47074cb1
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e70586fc2000e90b00d06d16bf5ba8df0bf5442f
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761336"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944990"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-java"></a>Snabb start: interagera med en IoT Plug and Play-enhet som är ansluten till din lösning (Java)
 
@@ -21,7 +21,7 @@ ms.locfileid: "91761336"
 
 IoT Plug and Play fören klar IoT genom att göra det möjligt att interagera med enhetens funktioner utan att du behöver ha kunskap om den underliggande enhets implementeringen. Den här snabb starten visar hur du använder Java för att ansluta till och styra en IoT Plug and Play-enhet som är ansluten till din lösning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
@@ -76,7 +76,7 @@ I [Konfigurera din miljö för iot plug and Play snabb starter och självstudier
 I den här snabb starten använder du en exempel IoT-lösning som skrivits i Java för att interagera med den exempel enhet som du nyss konfigurerade.
 
 > [!NOTE]
-> I det här exemplet används namn området **com. Microsoft. Azure. SDK. IoT. service. *;** från **IoT Hub-tjänst klienten**. Mer information om hur du hämtar modell-ID finns i Guide för [utvecklare](concepts-developer-guide-service.md).
+> I det här exemplet används namn området **com. Microsoft. Azure. SDK. IoT. service** från **IoT Hub-tjänst klienten**. Mer information om API: er, inklusive digitala dubbla API: er, finns i [service Developer-guiden](concepts-developer-guide-service.md).
 
 1. Öppna ett annat terminalfönster som ska användas som **tjänstens** Terminal.
 
@@ -88,7 +88,7 @@ I den här snabb starten använder du en exempel IoT-lösning som skrivits i Jav
     mvm exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.service.Thermostat"
     ```
 
-### <a name="get-digital-twin"></a>Skaffa digital, dubbel
+### <a name="get-device-twin"></a>Hämta enhetens dubbla
 
 Följande kodfragment visar hur du hämtar enheten i tjänsten:
 
@@ -99,9 +99,9 @@ twinClient.getTwin(twin);
 System.out.println("Model Id of this Twin is: " + twin.getModelId());
 ```
 
-### <a name="update-a-digital-twin"></a>Uppdatera en digital delad
+### <a name="update-a-device-twin"></a>Uppdatera en enhet med dubbla
 
-Följande kodfragment visar hur du använder en *korrigering* för att uppdatera egenskaper via den digitala dubbla:
+Följande kodfragment visar hur du använder en *korrigering* för att uppdatera egenskaper via enheten:
 
 ```java
 String propertyName = "targetTemperature";

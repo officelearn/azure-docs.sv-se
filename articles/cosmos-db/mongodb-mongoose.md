@@ -10,10 +10,10 @@ author: timsander1
 ms.author: tisande
 ms.custom: seodec18, devx-track-js
 ms.openlocfilehash: 84d96344f20c56c9fab9eb5b3affcca3a437c096
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324560"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Ansluta ett Node.js Mongoose-program till Azure Cosmos DB
@@ -197,7 +197,7 @@ I det här avsnittet beskrivs hur du uppnår detta med Azure Cosmos DBs API för
 
 1. Nu ska du gå till den Azure Portal. du märker två samlingar som skapats i Cosmos DB.
 
-   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Node.js självstudie – skärm bild av Azure Portal som visar ett Azure Cosmos DB-konto med flera samlings namn markerade – nod databas":::
+   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Node.js självstudie – skärm bild av Azure Portal, som visar hur du skapar en databas i Datautforskaren för ett Azure Cosmos DB konto, för användning med Mongoose Node-modulen":::
 
 1. Slutligen ska vi läsa data från Cosmos DB. Eftersom vi använder standarddriftmodellen i Mongoose är läsningarna desamma som alla andra läsningar med Mongoose.
 
@@ -302,7 +302,7 @@ Här skapar vi en basobjektmodell med en särskiljande nyckel och lägger till �
 
 1. Om du nu går tillbaka till Azure-portalen lägger du märke till att du enda samling som heter ```alldata``` med både ”Familj”- och ”VacationDestinations”-data.
 
-   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Node.js självstudie – skärm bild av Azure Portal som visar ett Azure Cosmos DB-konto med samlings namnet markerat – Node Database":::
+   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Node.js självstudie – skärm bild av Azure Portal, som visar hur du skapar en databas i Datautforskaren för ett Azure Cosmos DB konto, för användning med Mongoose Node-modulen":::
 
 1. Lägg också märke till att varje objekt har ytterligare ett attribut som heter ```__type```, som hjälper till att skilja mellan de två olika objektmodellerna.
 

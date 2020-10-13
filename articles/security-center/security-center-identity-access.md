@@ -11,59 +11,83 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2020
+ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 042780c313c444062fd512ab0d9f38aaeb6cf170
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02e78969ce30f109f16309075b040b06c773b0dd
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894566"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946236"
 ---
 # <a name="monitor-identity-and-access"></a>Övervaka identitet och åtkomst
 
-> [!TIP]
-> Från mars 2020 ingår Azure Security Centers identitets-och åtkomst rekommendationer i alla prenumerationer på den kostnads fria pris nivån. Om du har prenumerationer på den kostnads fria nivån kommer deras säkra poäng att påverkas eftersom de inte tidigare har utvärderats för identitets-och åtkomst säkerhet. 
+Säkerhetsperimetern har utvecklats från en nätverks gräns till en identitets perimeter. Med den här utvecklingen är säkerheten mindre säker på ditt nätverk och mer om att hantera säkerheten för dina appar, data och användare.
 
-När Security Center identifierar potentiella säkerhets risker skapar den rekommendationer som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna för att skärp och skydda dina resurser.
+Genom att övervaka aktiviteternas och konfigurations inställningarna som är relaterade till identiteten, kan du vidta proaktiva åtgärder innan en incident inträffar, eller återaktiverade åtgärder för att stoppa försöks angrepp.
 
-Säkerhetsperimetern har utvecklats från en nätverks gräns till en identitets perimeter. Säkerheten blir mindre säker på skyddet av ditt nätverk och mer om att skydda dina data, samt att hantera säkerheten för dina appar och användare. Nuförtiden, då mer data och fler appar flyttas till molnet, blir identiteten den nya perimetern.
+## <a name="what-identity-and-access-safeguards-does-security-center-provide"></a>Vilka identitets-och åtkomst skydd ger Security Center? 
 
-Genom att övervaka identitets aktiviteter kan du vidta proaktiva åtgärder innan en incident inträffar eller åtgärder som aktive ras för att stoppa ett angrepps försök. Security Center kan till exempel flagga föråldrade konton (konton som inte längre behövs och som blockeras från att logga in med Azure Active Directory) för borttagning. 
+Azure Security Center har två dedikerade säkerhets kontroller för att se till att du uppfyller organisationens identitets-och säkerhets krav: 
 
-Exempel på rekommendationer som du kan se i avsnittet **identitets-och åtkomst** resurs säkerhet i Azure Security Center:
+ - **Hantera åtkomst och behörigheter** – vi rekommenderar att du använder den [lägsta behörighets modellen för åtkomst](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) och ser till att du endast beviljar användare den åtkomst som krävs för att utföra sina jobb. Den här kontrollen innehåller även rekommendationer för att implementera [rollbaserad åtkomst kontroll (RBAC)](../role-based-access-control/overview.md) för att kontrol lera åtkomsten till dina resurser.
+ 
+ - **Aktivera MFA** – med [MFA](https://www.microsoft.com/security/business/identity/mfa) aktiverat är dina konton säkrare och användare kan fortfarande autentisera till nästan alla program med enkel inloggning.
+
+### <a name="example-recommendations-for-identity-and-access"></a>Exempel rekommendationer för identitet och åtkomst
+
+Exempel på rekommendationer som du kan se i de här två kontrollerna på sidan med **rekommendationer** för Security Center:
 
 - MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
 - Högst 3 ägare bör anges för din prenumeration
 - Externa konton med Läs behörighet bör tas bort från din prenumeration
-- Föråldrade konton bör tas bort från din prenumeration
+- Föråldrade konton bör tas bort från din prenumeration (inaktuella konton är konton som inte längre behövs och som blockeras från att logga in med Azure Active Directory)
 
-Mer information om dessa rekommendationer och en fullständig lista över rekommendationer som du kan se här finns i [rekommendationer för identitet och åtkomst](recommendations-reference.md#recs-identity).
+> [!TIP]
+> Mer information om dessa rekommendationer och de andra som du kan se i dessa kontroller finns i [identitets-och åtkomst rekommendationer](recommendations-reference.md#recs-identity).
 
-> [!NOTE]
-> Om din prenumeration har fler än 600 konton kan Security Center inte köra identitets rekommendationerna mot din prenumeration. Rekommendationer som inte körs visas under "otillgängliga utvärderingar" nedan.
-Security Center kan inte köra identitets rekommendationer mot en CSP-partners (Cloud Solution Provider) administratörs agenter.
->
+### <a name="limitations"></a>Begränsningar
 
+Det finns vissa begränsningar i Security Center identitets-och åtkomst skydd:
 
-Alla rekommendationer för identitet och åtkomst finns i två säkerhets kontroller på sidan **rekommendationer** :
+- Identitets rekommendationer är inte tillgängliga för prenumerationer med fler än 600 konton. I sådana fall visas dessa rekommendationer under "ej tillgängliga utvärderingar".
+- Identitets rekommendationer är inte tillgängliga för CSP-partnerns administratörs agenter.
+- Identitets rekommendationer identifierar inte konton som hanteras med ett system med Privileged Identity Management (PIM). Om du använder ett PIM-verktyg kan du se felaktiga resultat i kontrollen **Hantera åtkomst och behörigheter** .
 
-- Hantera åtkomst och behörigheter 
-- Aktivera MFA
+## <a name="multi-factor-authentication-mfa-and-azure-active-directory"></a>Multi-Factor Authentication (MFA) och Azure Active Directory 
 
-![De två säkerhets kontrollerna med rekommendationerna för identitet och åtkomst](media/security-center-identity-access/two-security-controls-for-identity-and-access.png)
-
-
-## <a name="enable-multi-factor-authentication-mfa"></a>Aktivera Multi-Factor Authentication (MFA)
-
-För att aktivera MFA krävs [Azure Active Directory (AD) klient behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
+För att aktivera MFA krävs [Azure Active Directory (AD) klient behörighet](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 - Om du har en Premium-version av AD aktiverar du MFA med [villkorlig åtkomst](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
+- Om du använder en kostnads fri version av AD, aktiverar du **säkerhets inställningarna** enligt beskrivningen i [Azure Active Directory-dokumentationen](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
-- Om du använder en kostnads fri version av AD, aktiverar du **säkerhets inställningar** i Azure Active Directory enligt beskrivningen i [AD-dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
+## <a name="identify-accounts-without-multi-factor-authentication-mfa-enabled"></a>Identifiera konton utan Multi-Factor Authentication (MFA) aktiverat
+
+Använd följande Azure Resource Graph-fråga om du vill se vilka konton som inte har MFA aktiverat. Frågan returnerar alla resurser som inte är felfria – konton – i rekommendationen måste MFA vara aktiverat på konton med ägar behörigheter för din prenumeration. 
+
+1. Öppna **Azure Resource Graph Explorer**.
+
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Startar Azure Resource Graph Explorer * * rekommendations sida" :::
+
+1. Ange följande fråga och välj **Kör fråga**.
+
+    ```kusto
+    securityresources
+     | where type == "microsoft.security/assessments"
+     | where properties.displayName == "MFA should be enabled on accounts with owner permissions on your subscription"
+     | where properties.status.code == "Unhealthy"
+    ```
+
+1. `additionalData`Egenskapen visar en lista över konto objekt-ID: n för konton som inte har MFA-tvång. 
+
+    > [!NOTE]
+    > Kontona visas som objekt-ID i stället för konto namn för att skydda konto innehavarens sekretess.
+
+> [!TIP]
+> Du kan också använda Security Center REST API metod [bedömningar – Hämta](https://docs.microsoft.com/rest/api/securitycenter/assessments/get).
 
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om rekommendationer som gäller för andra typer av Azure-resurser finns i följande artiklar:
+Mer information om rekommendationer som gäller för andra typer av Azure-resurser finns i följande artikel:
 
 - [Skydda nätverket i Azure Security Center](security-center-network-recommendations.md)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: e9491757852b42faef40c107540e0ce3da3c7f99
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91650909"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Fråga efter data från Azure Time Series Insights Gen2
@@ -24,7 +24,7 @@ Azure Time Series Insights Gen2 möjliggör data frågor om händelser och metad
 Tre primära API-kategorier är tillgängliga i Azure Time Series Insights Gen2:
 
 * **Miljö-API**: er: dessa API: er aktiverar frågor i själva Azure Time Series Insights Gen2-miljön. Dessa kan användas för att samla in listan över miljöer som anroparen har åtkomst till och miljömetadata.
-* **Tids serie modell – fråga (TSM-Q) API: er**: aktiverar åtgärder för att skapa, läsa, uppdatera och ta bort (CRUD) i metadata som lagras i tids serie modellen i miljön. Dessa kan användas för att komma åt och redigera instanser, typer och hierarkier.
+* **Time series Model-Query-API: er (TSM-Q)**: gör att du kan skapa, läsa, uppdatera och ta bort CRUD-åtgärder på metadata som lagras i tids serie modellen i miljön. Dessa kan användas för att komma åt och redigera instanser, typer och hierarkier.
 * **TSQ-API: er (Time Series Query)**: aktiverar hämtning av telemetri-eller händelse data när de registreras från käll leverantören och möjliggör utföra beräkningar och agg regeringar för data med avancerade skalärfunktioner och mängd funktioner.
 
 Azure Time Series Insights Gen2 använder ett omfattande strängbaserade uttrycks språk, ett [Time Series-uttryck (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)för att uttrycka beräkningar i [Time Series-variabler](./concepts-variables.md).
@@ -41,7 +41,7 @@ Följande kärn-API: er stöds.
 * [Hämta tillgänglighets-API för miljöer](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/getavailability): returnerar fördelningen av antal händelser över händelsens tidsstämpel `$ts` . Det här API: et hjälper till att avgöra om det finns några händelser i miljön genom att returnera antalet händelser som är brutna i tidsintervall, om sådana finns.
 * [Hämta API för händelse schema](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/geteventschema): Returnerar metadata för händelse schema för ett angivet Sök omfång. Med detta API kan du hämta alla metadata och egenskaper som är tillgängliga i schemat för angivet Sök omfång.
 
-## <a name="time-series-model-query-tsm-q-apis"></a>Time Series-modell – fråga (TSM-Q) API: er
+## <a name="time-series-model-query-tsm-q-apis"></a>Time Series Model-Query-API: er (TSM-Q)
 
 De flesta av dessa API: er har stöd för batch-körning för att aktivera CRUD-åtgärder i flera tids serie modell enheter:
 

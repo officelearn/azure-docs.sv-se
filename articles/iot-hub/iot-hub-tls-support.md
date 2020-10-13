@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: jlian
 ms.openlocfilehash: 08ecb766a1a9bd7ff75bf97647be811577212eb5
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90006048"
 ---
 # <a name="tls-support-in-iot-hub"></a>TLS-stöd i IoT Hub
@@ -94,11 +94,11 @@ Använd länkarna nedan för att konfigurera TLS 1,2 och tillåtna chiffer i IoT
 
 | Språk | Versioner som stöder TLS 1,2 | Dokumentation |
 |----------|------------------------------------|---------------|
-| C        | Tag 2019-12-11 eller senare            | [Länk](https://aka.ms/Tls_C_SDK_IoT) |
-| Python   | Version 2.0.0 eller senare             | [Länk](https://aka.ms/Tls_Python_SDK_IoT) |
-| C#       | Version 1.21.4 eller senare            | [Länk](https://aka.ms/Tls_CSharp_SDK_IoT) |
-| Java     | Version 1.19.0 eller senare            | [Länk](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJS   | Version 1.12.2 eller senare            | [Länk](https://aka.ms/Tls_Node_SDK_IoT) |
+| C        | Tag 2019-12-11 eller senare            | [Operationsföljdslänkkod](https://aka.ms/Tls_C_SDK_IoT) |
+| Python   | Version 2.0.0 eller senare             | [Operationsföljdslänkkod](https://aka.ms/Tls_Python_SDK_IoT) |
+| C#       | Version 1.21.4 eller senare            | [Operationsföljdslänkkod](https://aka.ms/Tls_CSharp_SDK_IoT) |
+| Java     | Version 1.19.0 eller senare            | [Operationsföljdslänkkod](https://aka.ms/Tls_Java_SDK_IoT) |
+| NodeJS   | Version 1.12.2 eller senare            | [Operationsföljdslänkkod](https://aka.ms/Tls_Node_SDK_IoT) |
 
 
 ## <a name="use-tls-12-in-your-iot-edge-setup"></a>Använd TLS 1,2 i installations programmet för IoT Edge

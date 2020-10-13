@@ -14,10 +14,10 @@ ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
 ms.openlocfilehash: 05e966d3f4631e3c344bd97c0faec99cc3c6dd66
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819897"
 ---
 # <a name="microsoft-global-network"></a>Microsofts globala nätverk
@@ -36,7 +36,7 @@ Väljer för [bästa möjliga upplevelse](https://www.sdxcentral.com/articles/ne
  
 Oavsett om du ansluter från London till Tokyo eller från Washington DC till Los Angeles, kvantifieras nätverks prestanda och påverkas av saker som svars tid, Darr, paket förlust och data flöde.  På Microsoft föredrar vi och använder direkt sammankopplade anslutningar i stället för överförings länkar, och det håller svars trafiken symmetrisk och hjälper till att hålla hopp, peering-parter och sökvägar så kort och enkelt som möjligt. 
 
-Om en användare i London försöker få åtkomst till en tjänst i Tokyo, kommer Internet trafiken till en av våra gränser i London, gå över Microsoft WAN via Frankrike, våra sökvägar mellan Europa och Indien, och sedan till Japan där tjänsten är värdbaserad. Svars trafiken är symmetrisk. Detta kallas ibland för [routning av kall potatis](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) , vilket innebär att trafiken stannar på Microsoft-nätverket så länge som möjligt innan vi kan göra det.  
+Om en användare i London försöker få åtkomst till en tjänst i Tokyo, kommer Internet trafiken till en av våra gränser i London, gå över Microsoft WAN via Frankrike, våra Trans-Arabia sökvägar mellan Europa och Indien, och sedan till Japan där tjänsten finns. Svars trafiken är symmetrisk. Detta kallas ibland för [routning av kall potatis](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) , vilket innebär att trafiken stannar på Microsoft-nätverket så länge som möjligt innan vi kan göra det.  
   
 Det innebär alltså all trafik när du använder Microsoft-tjänster? Ja, all trafik mellan data Center, inom Microsoft Azure eller mellan Microsoft-tjänster som Virtual Machines, Microsoft 365, XBox, SQL-databaser, lagring och virtuella nätverk dirigeras i vårt globala nätverk och aldrig över det offentliga Internet, för att säkerställa optimala prestanda och integritet.  
  

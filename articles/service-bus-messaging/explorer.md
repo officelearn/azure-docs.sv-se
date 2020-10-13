@@ -4,10 +4,10 @@ description: Den här artikeln innehåller information om hur du använder den p
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: e5e97c6860c2cc01048f4f7caf9f40f9e07592d0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295608"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Använd Service Bus Explorer för att utföra data åtgärder på Service Bus (förhands granskning)
@@ -51,7 +51,7 @@ När du har valt **"köer"** eller **"ämnen"** väljer du den specifika kön el
 
 Välj **Service Bus Explorer (för hands version)** på den vänstra navigerings menyn
 
-:::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="Den vänstra navigerings menyn i SB Explorer":::
+:::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="Välj entitet":::
 
 ### <a name="sending-a-message-to-a-queue-or-topic"></a>Skicka ett meddelande till en kö eller ett ämne
 
@@ -66,17 +66,17 @@ Så här skapar du ett meddelande
 
 När meddelandet har sammanställts trycker du på Skicka.
 
-:::image type="content" source="./media/service-bus-explorer/send-experience.png" alt-text="Skriv meddelande":::
+:::image type="content" source="./media/service-bus-explorer/send-experience.png" alt-text="Välj entitet":::
 
 När sändnings åtgärden har slutförts korrekt 
 
 * Om du skickar till kön ökar måtten för **aktiva meddelanden** mått.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Välj entitet":::
 
 * Om du skickar till ämnet, kommer räknaren för **aktiva meddelanden** att öka i den prenumeration där meddelandet skickades.
 
-    :::image type="content" source="./media/service-bus-explorer/topic-after-send-metrics.png" alt-text="TopicAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/topic-after-send-metrics.png" alt-text="Välj entitet":::
 
 ### <a name="receiving-a-message-from-a-queue"></a>Ta emot ett meddelande från en kö
 
@@ -93,18 +93,18 @@ Ta emot ett meddelande från en kö (eller dess obeställbara meddelanden kön-u
 1. Klicka på fliken ***ta emot*** i Service Bus Explorer.
 2. Kontrol lera måtten för att se om det finns **aktiva meddelanden** eller **meddelanden om obeställbara** meddelanden som ska tas emot.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Välj entitet":::
 
 3. Välj mellan ***kön*** eller ***obeställbara meddelanden kön*** -underkön.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="Välj entitet":::
 
 4. Klicka på knappen ***ta emot*** följt av ***Ja*** för att bekräfta åtgärden ta emot och ta bort.
 
 
 När mottagnings åtgärden lyckas visas meddelande informationen i rutnätet enligt nedan. Du kan välja meddelandet från rutnätet för att visa dess information.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Skärm bild av fönstret köer i Azure Service Bus Explorer med meddelande information som visas för ett aktivt meddelande som väljs i kön.":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Välj entitet":::
 
 
 ### <a name="peeking-a-message-from-a-queue"></a>Granska ett meddelande från en kö
@@ -113,21 +113,21 @@ Med Peek-funktionen kan du använda Service Bus Explorer för att visa de övers
 
 1. Granska meddelandet i en kö genom att klicka på fliken ***Granska*** i Service Bus Explorer.
 
-    :::image type="content" source="./media/service-bus-explorer/peek-tab-selected.png" alt-text="PeekTab":::
+    :::image type="content" source="./media/service-bus-explorer/peek-tab-selected.png" alt-text="Välj entitet":::
 
 2. Kontrol lera måtten för att se om det finns **aktiva meddelanden** eller **meddelanden med obeställbara** meddelanden som ska granskas.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Välj entitet":::
 
 3. Välj sedan mellan ***kön*** eller ***obeställbara meddelanden kön*** -underkön.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="Välj entitet":::
 
 4. Klicka på knappen ***Granska*** . 
 
 När gransknings åtgärden har slutförts visas upp till 32 meddelanden i rutnätet enligt nedan. Om du vill visa information om ett visst meddelande väljer du det från rutnätet. 
 
-:::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-2.png" alt-text="PeekMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-2.png" alt-text="Välj entitet":::
 
 > [!NOTE]
 >
@@ -146,17 +146,17 @@ Precis som med en kö kan ***Receive*** -åtgärden utföras mot en prenumeratio
 
 1. Klicka på fliken ***ta emot*** och välj den aktuella ***prenumerationen*** i list rutan.
 
-    :::image type="content" source="./media/service-bus-explorer/receive-subscription-tab-selected.png" alt-text="ReceiveTabSelected":::
+    :::image type="content" source="./media/service-bus-explorer/receive-subscription-tab-selected.png" alt-text="Välj entitet":::
 
 2. Välj mellan ***prenumerationen*** eller underentiteten ***obeställbara meddelanden kön*** .
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="Välj entitet":::
 
 3. Klicka på knappen ***ta emot*** följt av ***Ja*** för att bekräfta åtgärden ta emot och ta bort.
 
 När Receive-åtgärden lyckas visas det mottagna meddelandet i rutnätet enligt nedan. Klicka på meddelandet för att visa information om meddelandet.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Skärm bild av fliken ta emot i Azure Service Bus Explorer med meddelande information som visas för ett aktivt meddelande som har tagits emot.":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Välj entitet":::
 
 ### <a name="peeking-a-message-from-a-subscription"></a>Granska ett meddelande från en prenumeration
 
@@ -164,24 +164,24 @@ Om du bara vill söka efter meddelanden på en prenumeration eller dess obestäl
 
 1. Klicka på fliken ***Granska*** och välj den aktuella ***prenumerationen*** i list rutan.
 
-    :::image type="content" source="./media/service-bus-explorer/peek-subscription-tab-selected.png" alt-text="PeekTabSelected":::
+    :::image type="content" source="./media/service-bus-explorer/peek-subscription-tab-selected.png" alt-text="Välj entitet":::
 
 2. Välj mellan ***prenumerationen*** eller underentiteten ***obeställbara meddelanden kön*** .
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="Välj entitet":::
 
 3. Klicka på knappen ***Granska*** .
 
 När gransknings åtgärden har slutförts visas upp till 32 meddelanden i rutnätet enligt nedan. Om du vill visa information om ett visst meddelande väljer du det från rutnätet. 
 
-:::image type="content" source="./media/service-bus-explorer/peek-message-from-subscription.png" alt-text="PeekMessageFromSubscription":::
+:::image type="content" source="./media/service-bus-explorer/peek-message-from-subscription.png" alt-text="Välj entitet":::
 
 > [!NOTE]
 >
 > Eftersom Peek inte är en destruktiv åtgärd tas **inte** meddelandet bort från kön.
 >
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
    * Läs mer om Service Bus [köer](service-bus-queues-topics-subscriptions.md#queues) och [ämnen](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)
    * Läs mer om hur [du skapar Service Bus köer via Azure Portal](service-bus-quickstart-portal.md)

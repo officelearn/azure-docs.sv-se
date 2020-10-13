@@ -2,13 +2,13 @@
 title: Skapa en ny Azure Monitor Application Insights arbets ytans baserade resurs | Microsoft Docs
 description: Lär dig mer om de steg som krävs för att aktivera de nya Azure Monitor Application Insights arbets ytans baserade resurser.
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.openlocfilehash: 29fa9f1dc401ac4132d9c6c0d8c054b3f4a154ac
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.date: 10/06/2020
+ms.openlocfilehash: 9b91e5065729bee6af3f8018c36930e132eb1a15
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932438"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945421"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Arbets yta-baserade Application Insights resurser
 
@@ -204,6 +204,10 @@ I fönstret Application Insights resurs väljer du **Egenskaper**  >  **ändra a
 ## <a name="export-telemetry"></a>Exportera telemetri
 
 Äldre funktioner för kontinuerlig export stöds inte för arbets ytans resurser. I stället väljer du **diagnostikinställningar**  >  **Lägg till diagnostisk inställning** inifrån din Application Insights-resurs. Du kan välja alla tabeller eller en delmängd av tabeller för att arkivera till ett lagrings konto eller strömma till en Azure Event Hub.
+
+> [!NOTE]
+> Det finns för närvarande inga ytterligare avgifter för exporten av telemetri. Pris information för den här funktionen kommer att finnas på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/).  Innan faktureringen kommer att skickas meddelanden. Om du väljer att fortsätta använda <feature name> efter meddelande perioden debiteras du enligt tillämplig taxa. 
+ 
 
 ## <a name="next-steps"></a>Nästa steg
 

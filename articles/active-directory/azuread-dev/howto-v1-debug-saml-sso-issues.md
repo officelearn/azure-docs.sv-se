@@ -14,10 +14,10 @@ ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
 ms.openlocfilehash: fcdb0a571a9d6b81e25d061c33d8a3a812da189f
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819313"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Felsöka SAML-baserad enkel inloggning för program i Azure Active Directory
@@ -77,7 +77,7 @@ Om det inte finns någon lösning för inloggnings felet föreslår vi att du an
 1. Gå tillbaka till Azure AD och hitta bladet för **enkel inloggning på test** .
 1. I text rutan ovan **Hämta lösnings vägledning**klistrar du in fel meddelandet.
 1. Klicka på **Hämta lösnings vägledning** för att visa steg för att lösa problemet. Rikt linjerna kan kräva information från SAML-begäran eller SAML-svar. Om du inte använder säker inloggnings tillägg för Mina appar kan du behöva ett verktyg som [Fiddler](https://www.telerik.com/fiddler) för att hämta SAML-begäran och-svar.
-1. Kontrol lera att målet i SAML-begäran motsvarar URL-adressen till SAML-tjänsten för enkel inloggning som hämtades från Azure AD.
+1. Kontrol lera att målet i SAML-begäran motsvarar den URL för tjänsten SAML Single Sign-On som hämtades från Azure AD.
 1. Kontrol lera att utfärdaren i SAML-begäran är samma identifierare som du har konfigurerat för programmet i Azure AD. Azure AD använder utfärdaren för att hitta ett program i din katalog.
 1. Kontrol lera att AssertionConsumerServiceURL är den plats där programmet förväntar sig att ta emot SAML-token från Azure AD. Du kan konfigurera det här värdet i Azure AD, men det är inte obligatoriskt om det är en del av SAML-begäran.
 

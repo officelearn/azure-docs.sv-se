@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: ff0582e3c4f654ed2a7f5efdc9ce8fd7a226595a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9d4356f5dc0b1eace586b741593b9c718c35caf
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906828"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945455"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Förbereda ett program för distribution i Azure våren Cloud
 
@@ -210,6 +210,8 @@ Inkludera följande dependenciy i pom.xml-filen om du använder våren boot 2,1.
         <version>2.1.2</version>
 </dependency>
 ```
+> [!WARNING]
+> Ange inte `server.port` i konfigurationen. Azure våren Cloud kommer att Overide den här inställningen till ett fast port nummer. Respektera även den här inställningen och ange inte Server porten i koden.
 
 ## <a name="other-recommended-dependencies-to-enable-azure-spring-cloud-features"></a>Andra rekommenderade beroenden för att aktivera moln funktioner i Azure våren
 
@@ -227,6 +229,7 @@ Om du vill använda den hanterade tjänsten för Azure-tjänsten ska du inkluder
 ```
 
 Slut punkten för tjänst registrerings servern matas automatiskt in som miljövariabler med din app. Program kan registrera sig själva med tjänstens register Server och identifiera andra beroende mikrotjänster.
+
 
 #### <a name="enablediscoveryclient-annotation"></a>EnableDiscoveryClient-anteckning
 

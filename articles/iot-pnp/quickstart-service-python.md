@@ -3,17 +3,17 @@ title: Interagera med en IoT Plug and Play-enhet som är ansluten till din Azure
 description: Använd python för att ansluta till och interagera med en IoT Plug and Play-enhet som är ansluten till din Azure IoT-lösning.
 author: elhorton
 ms.author: elhorton
-ms.date: 7/13/2020
+ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: be5ff3e863752dfc187bd91257425af5e8de85c4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d04a1eda7dc414233075f5d70e29c967c8bdfc35
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91574982"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946084"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>Snabb start: interagera med en IoT Plug and Play-enhet som är ansluten till din lösning (python)
 
@@ -73,13 +73,16 @@ I den här snabb starten använder du en exempel termostat-enhet som skrivits i 
 
 I den här snabb starten använder du en exempel IoT-lösning i python för att interagera med den exempel enhet som du nyss konfigurerade.
 
-1. Öppna ett annat terminalfönster som ska användas som **tjänstens** Terminal. 
+1. Öppna ett annat terminalfönster som ska användas som **tjänstens** Terminal.
 
 1. Navigera till mappen */Azure-IoT-SDK-python/Azure-IoT-Hub/samples* för den klonade python SDK-lagringsplatsen.
 
-1. I mappen exempel finns fyra exempelfiler som demonstrerar de åtgärder som har klassen Digital klassen Manager: *get_digital_twin_sample. py, update_digitial_twin_sample. py, invoke_command_sample. py och invoke_component_command_sample-. py*.  De här exemplen visar hur du använder varje API för att interagera med IoT Plug and Play-enheter:
+1. Öppna filen *registry_manager_pnp_sample. py* och granska koden. Det här exemplet visar hur du använder klassen **IoTHubRegistryManager** för att interagera med din IoT plug and Play-enhet.
 
-### <a name="get-digital-twin"></a>Skaffa digital, dubbel
+> [!NOTE]
+> Dessa tjänst exempel använder klassen **IoTHubRegistryManager** från den **IoT Hub tjänst klienten**. Mer information om API: er, inklusive digitala dubbla API: er, finns i [service Developer-guiden](concepts-developer-guide-service.md).
+
+### <a name="get-the-device-twin"></a>Hämta enheten med dubbla
 
 I [Konfigurera din miljö för iot plug and Play snabb starter och självstudier](set-up-environment.md) som du har skapat två miljövariabler för att konfigurera exemplet för att ansluta till din IoT-hubb och-enhet:
 
@@ -89,79 +92,77 @@ I [Konfigurera din miljö för iot plug and Play snabb starter och självstudier
 Använd följande kommando i **service-** terminalen för att köra det här exemplet:
 
 ```cmd/sh
-python get_digital_twin_sample.py
+set IOTHUB_METHOD_NAME="getMaxMinReport"
+set IOTHUB_METHOD_PAYLOAD="hello world"
+python registry_manager_pnp_sample.py
 ```
 
-Utdata visar enhetens digitala kontakt och skriver ut dess modell-ID:
+> [!NOTE]
+> Om du kör det här exemplet i Linux använder du `export` i stället för `set` .
+
+Resultatet visar att enheten är dubbel och skriver ut dess modell-ID:
 
 ```cmd/sh
-{'$dtId': 'mySimpleThermostat', '$metadata': {'$model': 'dtmi:com:example:Thermostat;1'}}
-Model Id: dtmi:com:example:Thermostat;1
+The Model ID for this device is:
+dtmi:com:example:Thermostat;1
 ```
 
-I följande kodfragment visas exempel koden från *get_digital_twin_sample. py*:
+I följande kodfragment visas exempel koden från *registry_manager_pnp_sample. py*:
 
 ```python
-    # Get digital twin and retrieve the modelId from it
-    digital_twin = iothub_digital_twin_manager.get_digital_twin(device_id)
-    if digital_twin:
-        print(digital_twin)
-        print("Model Id: " + digital_twin["$metadata"]["$model"])
-    else:
-        print("No digital_twin found")
+    # Create IoTHubRegistryManager
+    iothub_registry_manager = IoTHubRegistryManager(iothub_connection_str)
+
+    # Get device twin
+    twin = iothub_registry_manager.get_twin(device_id)
+    print("The device twin is: ")
+    print("")
+    print(twin)
+    print("")
+
+    # Print the device's model ID
+    additional_props = twin.additional_properties
+    if "modelId" in additional_props:
+        print("The Model ID for this device is:")
+        print(additional_props["modelId"])
+        print("")
 ```
 
-### <a name="update-a-digital-twin"></a>Uppdatera en digital delad
+### <a name="update-a-device-twin"></a>Uppdatera en enhet med dubbla
 
-Det här exemplet visar hur du använder en *korrigering* för att uppdatera egenskaper via enhetens digitala enhet. Följande kodfragment från *update_digital_twin_sample. py* visar hur du skapar korrigerings filen:
+Det här exemplet visar hur du uppdaterar den `targetTemperature` skrivbara egenskapen i enheten:
 
 ```python
-# If you already have a component thermostat1:
-# patch = [{"op": "replace", "path": "/thermostat1/targetTemperature", "value": 42}]
-patch = [{"op": "add", "path": "/targetTemperature", "value": 42}]
-iothub_digital_twin_manager.update_digital_twin(device_id, patch)
-print("Patch has been succesfully applied")
-```
-
-Använd följande kommando i **service-** terminalen för att köra det här exemplet:
-
-```cmd/sh
-python update_digital_twin_sample.py
+    # Update twin
+    twin_patch = Twin()
+    twin_patch.properties = TwinProperties(
+        desired={"targetTemperature": 42}
+    )  # this is relevant for the thermostat device sample
+    updated_twin = iothub_registry_manager.update_twin(device_id, twin_patch, twin.etag)
+    print("The twin patch has been successfully applied")
+    print("")
 ```
 
 Du kan kontrol lera att uppdateringen används i **enhetens** Terminal som visar följande utdata:
 
 ```cmd/sh
 the data in the desired properties patch was: {'targetTemperature': 42, '$version': 2}
-previous values
-42
 ```
 
 **Tjänsten** Terminal bekräftar att korrigeringen lyckades:
 
 ```cmd/sh
-Patch has been successfully applied
+The twin patch has been successfully applied
 ```
 
 ### <a name="invoke-a-command"></a>Anropa ett kommando
 
-Anropa ett kommando genom att köra exemplet *invoke_command_sample. py* . Det här exemplet visar hur du anropar ett kommando på en enkel termostat-enhet. Innan du kör det här exemplet ställer du `IOTHUB_COMMAND_NAME` in `IOTHUB_COMMAND_PAYLOAD` miljövariablerna och i **tjänsten** terminalen:
-
-```cmd/sh
-set IOTHUB_COMMAND_NAME="getMaxMinReport" # this is the relevant command for the thermostat sample
-set IOTHUB_COMMAND_PAYLOAD="hello world" # this payload doesn't matter for this sample
-```
-
-I **tjänsten** Terminal använder du följande kommando för att köra exemplet:
-  
-```cmd/sh
-python invoke_command_sample.py
-```
+Exemplet anropar sedan ett kommando:
 
 **Tjänsten** Terminal visar ett bekräftelse meddelande från enheten:
 
 ```cmd/sh
-{"tempReport": {"avgTemp": 34.5, "endTime": "13/07/2020 16:03:38", "maxTemp": 49, "minTemp": 11, "startTime": "13/07/2020 16:02:18"}}
+The device method has been successfully invoked
 ```
 
 I **enhetens** Terminal ser du att enheten tar emot kommandot:
@@ -172,7 +173,6 @@ hello world
 Will return the max, min and average temperature from the specified time hello to the current time
 Done generating
 {"tempReport": {"avgTemp": 34.2, "endTime": "09/07/2020 09:58:11", "maxTemp": 49, "minTemp": 10, "startTime": "09/07/2020 09:56:51"}}
-Sent message
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: ce5572c4c5aca6f48496250c942d50b90551f36f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6742253ad815ab8058a9c05d82200e77d9d18a43
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546957"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946028"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Självstudie: Azure Active Directory integrering med Kantega SSO för FishEye/degeln
 
@@ -30,7 +30,7 @@ Genom att integrera Kantega SSO för FishEye/filterdegeln med Azure AD får du f
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Kantega SSO för FishEye/degeln behöver du följande objekt:
 
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning med Kantega SSO för
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Kantega SSO för FishEye/degelns information om enkel inloggning](common/idp-intiated.png)
+    ![Skärm bild som visar avsnittet "Basic S A M L-konfiguration" med text rutan "identifierare" och "svara U R L" och knappen "Spara" markerad.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -134,43 +134,43 @@ Utför följande steg för att konfigurera enkel inloggning med Kantega SSO för
 
 1. Hovra över kugghjulet och klicka på **Tillägg**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforfisheyecrucible-tutorial/addon1.png)
+    ![Skärm bild som visar kugg hjuls-ikonen och valda tillägg.](./media/kantegassoforfisheyecrucible-tutorial/addon1.png)
 
 1. Under system inställningar klickar du på **hitta nya tillägg**. 
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforfisheyecrucible-tutorial/add-on2.png)
+    ![Skärm bild som visar avsnittet "system inställningar" med alternativet "hitta nya tillägg" markerat.](./media/kantegassoforfisheyecrucible-tutorial/add-on2.png)
 
 1. Sök **KANTEGA SSO for degeln** och klicka på knappen **Installera** för att installera det nya SAML-plugin-programmet.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforfisheyecrucible-tutorial/addon2.png)
+    ![Skärm bild som visar sidan "Attlasian Marketplace for FishEye" med "Kantega S S O for degeln" i sökrutan och knappen "installera" markerad.](./media/kantegassoforfisheyecrucible-tutorial/addon2.png)
 
 1. Plugin-installationen startar. 
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforfisheyecrucible-tutorial/addon33.png)
+    ![Skärm bild som visar dialog rutan "installera" för plugin-programmet.](./media/kantegassoforfisheyecrucible-tutorial/addon33.png)
 
 1. När installationen är klar. Klicka på **Stäng**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforfisheyecrucible-tutorial/addon34.png)
+    ![Skärm bild som visar dialog rutan "installerad och klar att gå till" och knappen "Stäng" markerad.](./media/kantegassoforfisheyecrucible-tutorial/addon34.png)
 
 1.  Klicka på **Hantera**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforfisheyecrucible-tutorial/addon35.png)
+    ![Skärm bild som visar "Kantega S S O för degeln S A M L & Kerberos" och knappen "hantera" markerad.](./media/kantegassoforfisheyecrucible-tutorial/addon35.png)
 
 1. Klicka på **Konfigurera** för att konfigurera det nya plugin-programmet. 
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforfisheyecrucible-tutorial/addon3.png)
+    ![Skärm bild som visar sidan "användare-installerade tillägg" och knappen "Konfigurera" vald.](./media/kantegassoforfisheyecrucible-tutorial/addon3.png)
 
 1. I **SAML** -avsnittet. Välj **Azure Active Directory (Azure AD)** i list rutan **Lägg till identitets leverantör** .
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforfisheyecrucible-tutorial/addon4.png)
+    ![Skärm bild som visar sidan "tillägg-Kantega-enkel inloggning" med list rutan "Lägg till identitetsprovider" och "Azure Active Directory (Azure AD)" vald. ](./media/kantegassoforfisheyecrucible-tutorial/addon4.png)
 
 1. Välj prenumerations nivå som **Basic**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforfisheyecrucible-tutorial/addon5.png)
+    ![Skärm bild som visar avsnittet "förbereda Azure A D" med Basic-valt.](./media/kantegassoforfisheyecrucible-tutorial/addon5.png)
 
 1. I avsnittet **app Properties** utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforfisheyecrucible-tutorial/addon6.png)
+    ![Skärm bild som visar avsnittet "app Properties" med text rutan "app I D U R I" och kopierings knappen vald.](./media/kantegassoforfisheyecrucible-tutorial/addon6.png)
 
     a. Kopiera **app-ID-URI** -värdet och Använd det som **identifierare, svars-URL och Sign-On URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
@@ -178,7 +178,7 @@ Utför följande steg för att konfigurera enkel inloggning med Kantega SSO för
 
 1. I avsnittet **metadata-import** utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
+    ![Skärm bild som visar avsnittet "metadata-import" med "metadatafil" på den här datorn "markerat.](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
 
     a. Välj **metadatafil på den här datorn**och ladda upp metadatafilen, som du har laddat ned från Azure Portal.
 
@@ -186,7 +186,7 @@ Utför följande steg för att konfigurera enkel inloggning med Kantega SSO för
 
 1. I avsnittet **namn och SSO-plats** utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforfisheyecrucible-tutorial/addon8.png)
+    ![Skärm bild som visar "namn och S O-plats" med text rutan "namn på identitetsprovider" och "Nästa"-knappen markerad.](./media/kantegassoforfisheyecrucible-tutorial/addon8.png)
 
     a. Lägg till namnet på identitets leverantören i text rutan för **identitets leverantörs namn** (t. ex. Azure AD).
 
@@ -194,11 +194,11 @@ Utför följande steg för att konfigurera enkel inloggning med Kantega SSO för
 
 1. Verifiera signerings certifikatet och klicka på **Nästa**.   
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforfisheyecrucible-tutorial/addon9.png)
+    ![Skärm bild som visar avsnittet "signaturverifiering" och knappen "Nästa" är markerad.](./media/kantegassoforfisheyecrucible-tutorial/addon9.png)
 
 1. Utför följande steg i avsnittet **FishEye User Accounts** :
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforfisheyecrucible-tutorial/addon10.png)
+    ![Skärm bild som visar avsnittet "FishEye User Accounts" med alternativet "skapa användare i FishEye: s interna katalog" om det behövs "och knappen" Nästa "är markerad.](./media/kantegassoforfisheyecrucible-tutorial/addon10.png)
 
     a. Välj **skapa användare i FishEye interna katalog om det behövs** och ange rätt namn på gruppen för användare (kan vara flera). av grupper åtskilda med kommatecken).
 
@@ -206,11 +206,11 @@ Utför följande steg för att konfigurera enkel inloggning med Kantega SSO för
 
 1. Klicka på **Finish**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforfisheyecrucible-tutorial/addon11.png)
+    ![Skärm bild som visar avsnittet "Sammanfattning" med knappen "Slutför" markerat.](./media/kantegassoforfisheyecrucible-tutorial/addon11.png)
 
 1. Utför följande steg på avsnittet **kända domäner för Azure AD** :  
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforfisheyecrucible-tutorial/addon12.png)
+    ![Skärm bild som visar avsnittet "kända domäner för Azure A D" med knappen "Spara" valt.](./media/kantegassoforfisheyecrucible-tutorial/addon12.png)
 
     a. Välj **kända domäner** i den vänstra panelen på sidan.
 
@@ -278,11 +278,11 @@ Om du vill att Azure AD-användare ska kunna logga in på FishEye/degeln måste 
 
 1. Hovra över kugg hjuls och klicka på **användarna**.
 
-    ![Lägga till medarbetare](./media/kantegassoforfisheyecrucible-tutorial/user1.png)
+    ![Skärm bild som visar ikonen "kugg hjuls" markerad och "användare" valda i list rutan.](./media/kantegassoforfisheyecrucible-tutorial/user1.png)
 
 1. Under fliken **användare** klickar du på **Lägg till användare**.
 
-    ![Lägga till medarbetare](./media/kantegassoforfisheyecrucible-tutorial/user2.png)
+    ![Skärm bild som visar avsnittet "användare" med knappen "Lägg till användare" valt.](./media/kantegassoforfisheyecrucible-tutorial/user2.png)
 
 1. Utför följande steg på dialog sidan **Lägg till ny användare** :
 

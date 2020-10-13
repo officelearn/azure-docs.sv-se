@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
 ms.openlocfilehash: f080f5011311101ed8f9faa2ee807c030a048409
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653051"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Prestandaöverväganden för Traffic Manager
@@ -74,7 +74,7 @@ Verktygen på dessa platser mäter DNS-fördröjning och visar de matchade IP-ad
 
     Den här platsen visar mer detaljerad DNS-information, inklusive CNAME-och A-poster. Se till att kontrol lera "färga utdata" och "stats" under alternativ och välj "alla" under namnservrar.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 [Om Traffic Manager Traffic routing-metoder](traffic-manager-routing-methods.md)
 

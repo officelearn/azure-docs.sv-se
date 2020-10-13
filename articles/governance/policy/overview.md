@@ -1,14 +1,14 @@
 ---
 title: Översikt över Azure Policy
 description: Azure Policy är en tjänst i Azure som används för att skapa, tilldela och hantera principdefinitioner i Azure-miljön.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: overview
-ms.openlocfilehash: 596e52cca2be2a347c26502434048053a8b4684c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 54dce519bfaa8c42afa967fc5c0579f31986aefb
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91538964"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873922"
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure Policy?
 
@@ -72,16 +72,16 @@ Azure Policy har flera behörigheter, som kallas åtgärder, i två olika resurs
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft. PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Många inbyggda roller beviljar behörighet till Azure Policy-resurser. Rollen som **deltagar resurs princip** omfattar de flesta Azure policy åtgärder. **Ägare** har fullständiga behörigheter. Både **deltagare** och **läsare** har åtkomst till alla _Läs_ Azure policy-åtgärder. **Deltagare** kan utlösa resurs reparation, men kan inte _skapa_ definitioner eller tilldelningar.
+Många inbyggda roller beviljar behörighet till Azure Policy-resurser. Rollen som **deltagar resurs princip** omfattar de flesta Azure policy åtgärder. **Ägare** har fullständiga behörigheter. Både **deltagare** och **läsare** har åtkomst till alla _Läs_ Azure policy-åtgärder. **Deltagare** kan utlösa resurs reparation, men kan inte _skapa_ definitioner eller tilldelningar. **Administratör för användar åtkomst** krävs för att ge den hanterade identiteten på **deployIfNotExists** eller **ändra** tilldelningar som krävs.
 
 Om ingen av de inbyggda rollerna har de behörigheter som krävs skapar du en [anpassad roll](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> Den hanterade identiteten för en **deployIfNotExists** princip tilldelning måste ha tillräcklig behörighet för att skapa eller uppdatera resurser som ingår i mallen. Mer information finns i [Konfigurera princip definitioner för reparation](./how-to/remediate-resources.md#configure-policy-definition).
+> Den hanterade identiteten för en **deployIfNotExists** eller **ändra** princip tilldelning måste ha tillräcklig behörighet för att skapa eller uppdatera mål-resurser. Mer information finns i [Konfigurera princip definitioner för reparation](./how-to/remediate-resources.md#configure-policy-definition).
 
 ### <a name="resources-covered-by-azure-policy"></a>Resurser som omfattas av Azure Policy
 
-Azure Policy utvärderar alla resurser i Azure. För vissa resurs leverantörer, till exempel [gäst konfiguration](./concepts/guest-configuration.md), [Azure Kubernetes service](../../aks/intro-kubernetes.md)och [Azure Key Vault](../../key-vault/general/overview.md), finns det en djupare integrering för hantering av inställningar och objekt. Mer information finns i [resurs leverantörs lägen](./concepts/definition-structure.md).
+Azure Policy utvärderar alla resurser i Azure och Arc-aktiverade resurser. För vissa resurs leverantörer, till exempel [gäst konfiguration](./concepts/guest-configuration.md), [Azure Kubernetes service](../../aks/intro-kubernetes.md)och [Azure Key Vault](../../key-vault/general/overview.md), finns det en djupare integrering för hantering av inställningar och objekt. Mer information finns i [resurs leverantörs lägen](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Rekommendationer för principhantering
 
@@ -94,7 +94,7 @@ Här följer några råd och tips att tänka på:
 - Vi rekommenderar att du skapar och tilldelar initiativdefinitioner även för en enskild principdefinition.
   Om du som exempel har principdefinitionen _policyDefA_, så skapar du den under initiativdefinitionen _initiativeDefC_. Om du skapar en annan principdefinition senare för _policyDefB_ med mål som liknar dem för _policyDefA_, kan du lägga till den under _initiativeDefC_ och spåra dem tillsammans.
 
-- När du har skapat en initiativtilldelning blir principdefinitioner som lagts till i initiativet också en del av de initiativtilldelningarna.
+- När du har skapat en initiativ tilldelning blir de princip definitioner som läggs till i initiativet också en del av initiativets tilldelningar.
 
 - När en initiativtilldelning utvärderas, utvärderas även alla principer inom initiativet.
   Om du behöver utvärdera en princip individuellt är det bättre att inte inkludera den i ett initiativ.
@@ -105,14 +105,13 @@ Här följer några råd och tips att tänka på:
 
 Resan med att skapa och implementera en princip i Azure Policy börjar med skapandet av en principdefinition. Varje principdefinition har villkor för när den ska tillämpas. Och den har en definierad effekt som träder ikraft om villkoren är uppfyllda.
 
-Vi erbjuder flera inbyggda principer som är tillgängliga för dig som standard i Azure Policy. Till exempel:
+Vi erbjuder flera inbyggda principer som är tillgängliga för dig som standard i Azure Policy. Exempel:
 
 - **Tillåtna lagrings konto SKU: er** (neka): avgör om ett lagrings konto som distribueras är inom en uppsättning SKU-storlekar. Effekten är att neka alla lagringskonton som inte överensstämmer med uppsättningen definierade SKU-storlekar.
 - **Tillåten resurs typ** (neka): definierar de resurs typer som du kan distribuera. Effekten är att neka alla resurser som inte finns på den definierade listan.
 - **Tillåtna platser** (neka): begränsar de tillgängliga platserna för nya resurser. Effekten används för att genomdriva kraven på geo-efterlevnad.
 - **Tillåtna virtuella dator-SKU** : er (neka): anger en uppsättning SKU: er för virtuella datorer som du kan distribuera.
 - **Lägg till en tagg till resurser** (ändra): använder en obligatorisk tagg och dess standardvärde om den inte anges i distributions förfrågan.
-- **Lägg till tagg och dess standardvärde** (append): tillämpar en obligatorisk tagg och dess värde för en resurs.
 - **Ej tillåtna resurs typer** (neka): förhindrar att en lista över resurs typer distribueras.
 
 För att implementera dessa principdefinitioner (både inbyggda och anpassade definitioner) måste du tilldela dem. Du kan tilldela de här principerna via Azure-portalen, PowerShell eller Azure CLI.
@@ -144,7 +143,7 @@ Precis som principparametrar underlättar initiativparametrar initiativhantering
 
 Ta till exempel scenariot där du har en initiativdefinition, **initiativeC**, med principdefinitionerna **policyA** och **policyB** som vardera förväntar sig olika typer av parametrar:
 
-| Princip | Parameternamn |Parametertyp  |Anteckning |
+| Princip | Parameternamn |Parametertyp  |Obs! |
 |---|---|---|---|
 | principA | allowedLocations | matris  |Den här parametern förväntar sig en lista med strängar för ett värde eftersom parametertypen har definierats som en matris |
 | principB | allowedSingleLocation |sträng |Den här parametern förväntar sig ett ord som värde eftersom parametertypen har definierats som en sträng |

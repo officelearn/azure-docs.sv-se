@@ -14,10 +14,10 @@ ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1ef7d587cd8bec636f42673941edb69647ee8cb
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449983"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Vill du arkivera vad som är nytt i Azure Active Directory?
@@ -143,7 +143,7 @@ Azure AD Provisioning-tjänsten innehåller en omfattande uppsättning konfigura
 ### <a name="sspr-self-service-password-reset-now-requires-two-gates-for-admins-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet"></a>SSPR (lösen ords återställning via självbetjäning) kräver nu två portar för administratörer i Microsoft Azure som drivs av 21Vianet (Azure Kina 21Vianet) 
 
 **Typ:** Ändrad funktion  
-**Tjänste kategori:** Lösen ords återställning via självbetjäning  
+**Tjänst kategori:** Self-Service återställning av lösen ord  
 **Produkt kapacitet:** & skydd för identitets säkerhet
  
 Tidigare i Microsoft Azure som drivs av 21Vianet (Azure Kina 21Vianet), administratörer som använder självbetjäning för återställning av lösen ord (SSPR) för att återställa sina egna lösen ord behövde bara en "grind" (Challenge) för att bevisa sin identitet. I offentliga och andra nationella moln måste administratörerna i allmänhet använda två portar för att bevisa sin identitet när de använder SSPR. Men eftersom vi inte har stöd för SMS eller telefonsamtal i Azure Kina 21Vianet, tillät vi ett-Gate lösen ords återställning av administratörer.
@@ -532,7 +532,7 @@ Mer information finns i [lägga till Google som en identitets leverantör för B
 **Tjänste kategori:** Villkorlig åtkomst  
 **Produkt kapacitet:** & skydd för identitets säkerhet
 
-Azure AD för Microsoft Edge på iOS och Android har nu stöd för enkel inloggning och villkorlig åtkomst i Azure AD:
+Azure AD för Microsoft Edge på iOS och Android har nu stöd för Azure AD Single Sign-On och villkorlig åtkomst:
 
 - **Enkel inloggning för Microsoft Edge (SSO):** Enkel inloggning är nu tillgängligt över interna klienter (till exempel Microsoft Outlook och Microsoft Edge) för alla Azure AD-anslutna appar.
 
@@ -1256,7 +1256,7 @@ Mer information finns i [Aktivera säkerhets granskningar för Azure AD Domain S
 
 **Typ:** Ny funktions **tjänst kategori:** B2B **produkt kapacitet:** B2B/B2C
 
-Direkt federationen hjälper till att göra det enklare för dig att arbeta med partner vars IT-hanterade identitets lösning inte är Azure AD, genom att arbeta med identitets system som stöder SAML-eller WS-utfodras-standarder. När du har konfigurerat en direkt Federations relation med en partner, kan alla nya gäst användare som du bjuder in från domänen samar beta med dig som använder sitt befintliga organisations konto, vilket gör användar upplevelsen mer sömlös.
+Direkt federationen hjälper till att göra det enklare för dig att arbeta med partner vars IT-hanterade identitets lösning inte är Azure AD, genom att arbeta med identitets system som har stöd för SAML-eller WS-Fed-standarder. När du har konfigurerat en direkt Federations relation med en partner, kan alla nya gäst användare som du bjuder in från domänen samar beta med dig som använder sitt befintliga organisations konto, vilket gör användar upplevelsen mer sömlös.
 
 Mer information finns i [direkt Federation med AD FS och tredje parts leverantörer för gäst användare (för hands version)](../external-identities/direct-federation.md).
 
@@ -1344,7 +1344,7 @@ Mer information finns i [referens dokumentationen för riskhanterings-API](/grap
 
 I juni 2019 har vi lagt till dessa 22 nya appar med stöd för federation i app-galleriet:
 
-[Azure AD SAML Toolkit](../saas-apps/saml-toolkit-tutorial.md), [Otsuka Shokai (大塚商会)](../saas-apps/otsuka-shokai-tutorial.md), [ANAQUA](../saas-apps/anaqua-tutorial.md), [Azure VPN-klient](https://portal.azure.com/), [utgifteri](../saas-apps/expensein-tutorial.md), [Hjälp](../saas-apps/helper-helper-tutorial.md)verktyg för hjälp [, Costpoint](../saas-apps/costpoint-tutorial.md), [GlobalOne](../saas-apps/globalone-tutorial.md), [Mercedes-Benz i bilen Office](https://me.secure.mercedes-benz.com/), [Skore](https://app.justskore.it/), [Oracle Cloud Infrastructure Console](../saas-apps/oracle-cloud-tutorial.md), [CyberArk SAML Authentication](../saas-apps/cyberark-saml-authentication-tutorial.md), [scrible edu](https://www.scrible.com/sign-in/#/create-account), [PandaDoc](../saas-apps/pandadoc-tutorial.md) [, Perceptyx,](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial) [Proptimise OS](https://proptimise.co.uk/software/), [vtiger CRM (SAML)](../saas-apps/vtiger-crm-saml-tutorial.md), Oracle Access Manager för Oracle-återförsäljare, Oracle Access Manager för Oracle E-Business Suite, Oracle IDCS för E-Business Suite, Oracle IDCS för IDCS, Oracle JD för Edwards
+[Azure AD SAML Toolkit](../saas-apps/saml-toolkit-tutorial.md), [Otsuka Shokai (大塚商会)](../saas-apps/otsuka-shokai-tutorial.md), [ANAQUA](../saas-apps/anaqua-tutorial.md), [Azure VPN-klient](https://portal.azure.com/), [utgifteri](../saas-apps/expensein-tutorial.md), [Hjälp](../saas-apps/helper-helper-tutorial.md)verktyg för hjälp, [Costpoint](../saas-apps/costpoint-tutorial.md), [GlobalOne](../saas-apps/globalone-tutorial.md), [Mercedes-Benz In-Car Office](https://me.secure.mercedes-benz.com/), [Skore](https://app.justskore.it/), [Oracle Cloud Infrastructure Console](../saas-apps/oracle-cloud-tutorial.md), [CyberArk SAML Authentication](../saas-apps/cyberark-saml-authentication-tutorial.md), [scrible edu](https://www.scrible.com/sign-in/#/create-account), [PandaDoc](../saas-apps/pandadoc-tutorial.md), [Perceptyx](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial), [Proptimise OS](https://proptimise.co.uk/software/), [vtiger CRM (SAML)](../saas-apps/vtiger-crm-saml-tutorial.md), Oracle Access Manager för Oracle återförsäljarversion, Oracle Access Manager för Oracle E-Business Suite, Oracle IDCS för E-Business Suite, Oracle IDCS för IDCS, Oracle JD för Edwards
 
 Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](https://aka.ms/appstutorial). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](https://aka.ms/azureadapprequest).
 
@@ -1504,7 +1504,7 @@ Mer information om apparna finns i [SaaS Application Integration with Azure Acti
 
 Vi har gjort förbättringar i de grupprelaterade upplevelserna i Azure AD-portalen. Dessa förbättringar gör det möjligt för administratörer att hantera grupper listor, medlems listor och ge ytterligare skapande alternativ.
 
-Förbättringarna är:
+Här är några av förbättringarna:
 
 - Grundläggande filtrering efter medlemskaps typ och grupptyp.
 
@@ -1942,7 +1942,7 @@ Mer information finns i [e-postautentisering med eng ång slö sen ord (för han
 
 Vi har introducerat tre nya cookie-inställningar som är tillgängliga för dina appar som publiceras via programproxy:
 
-- **Använd endast HTTP-cookie.** Ställer in flaggan **HTTPOnly** på din Application Proxy-åtkomst och sessionscookies. Att aktivera den här inställningen ger ytterligare säkerhets fördelar, till exempel att förhindra att cookies kopieras eller ändras via skript på klient sidan. Vi rekommenderar att du aktiverar den här flaggan (Välj **Ja**) för de extra fördelarna.
+- **Använd HTTP-Only cookie.** Ställer in flaggan **HTTPOnly** på din Application Proxy-åtkomst och sessionscookies. Att aktivera den här inställningen ger ytterligare säkerhets fördelar, till exempel att förhindra att cookies kopieras eller ändras via skript på klient sidan. Vi rekommenderar att du aktiverar den här flaggan (Välj **Ja**) för de extra fördelarna.
 
 - **Använd säker cookie.** Anger **säker** flagga för programproxyns åtkomst och sessionscookies. Att aktivera den här inställningen ger ytterligare säkerhets förmåner genom att se till att cookies bara överförs via säkra TLS-kanaler, t. ex. HTTPS. Vi rekommenderar att du aktiverar den här flaggan (Välj **Ja**) för de extra fördelarna.
 
@@ -2044,7 +2044,7 @@ Följande fält ändras i gransknings schemat:
 |Fältnamn|Vad som ändrats|Gamla värden|Nya värden|
 |----------|------------|----------|----------|
 |Kategori|Detta är **tjänstens namn** fält. Nu är fältet **gransknings kategorier** . **Tjänst namnet** har bytt namn till fältet **loggedByService** .|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Lösen ords återställning via självbetjäning</li></ul>|<ul><li>Användarhantering</li><li>Grupphantering</li><li>Hantering av appar</li></ul>|
-|targetResources|Innehåller **TargetResourceType** på den översta nivån.|&nbsp;|<ul><li>Policy</li><li>App</li><li>Användare</li><li>Group</li></ul>|
+|targetResources|Innehåller **TargetResourceType** på den översta nivån.|&nbsp;|<ul><li>Princip</li><li>App</li><li>Användare</li><li>Group</li></ul>|
 |loggedByService|Innehåller namnet på tjänsten som skapade gransknings loggen.|Null|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Återställning av lösenord för självbetjäning</li></ul>|
 |Resultat|Visar resultatet av gransknings loggarna. Tidigare räknades detta upp, men nu visar vi det faktiska värdet.|<ul><li>0</li><li>1</li></ul>|<ul><li>Klart</li><li>Fel</li></ul>|
 
@@ -2250,11 +2250,11 @@ Mer information finns i [skapa en dynamisk grupp och kontrol lera status](../use
 
 ---
 
-### <a name="simplified-single-sign-on-sso-configuration-settings-for-some-third-party-apps"></a>Förenklade konfigurations inställningar för enkel inloggning (SSO) för vissa appar från tredje part
+### <a name="simplified-single-sign-on-sso-configuration-settings-for-some-third-party-apps"></a>Konfigurations inställningar för förenklad enkel Sign-On (SSO) för vissa appar från tredje part
 
 **Typ:** Ny funktions **tjänst kategori:** **produkt kapacitet** för företags appar: SSO
 
-Vi inser att det är svårt att konfigurera enkel inloggning (SSO) för SaaS-appar (program vara som en tjänst) på grund av unika egenskaper för varje apps-konfiguration. Vi har skapat en förenklad konfigurations upplevelse för att automatiskt fylla i SSO-konfigurations inställningarna för följande SaaS-appar från tredje part:
+Vi inser att konfigurationen av en enda Sign-On (SSO) för SaaS-appar (program vara som en tjänst) kan vara utmanande på grund av den unika typen av varje apps-konfiguration. Vi har skapat en förenklad konfigurations upplevelse för att automatiskt fylla i SSO-konfigurations inställningarna för följande SaaS-appar från tredje part:
 
 - Zendesk
 
@@ -2323,7 +2323,7 @@ Mer information finns i:
 
 ---
 
-### <a name="new-support-for-self-service-password-reset-from-the-windows-7881-lock-screen"></a>Nytt stöd för lösen ords återställning via självbetjäning från Lås skärmen för Windows 7/8/8.1
+### <a name="new-support-for-self-service-password-reset-from-the-windows-7881-lock-screen"></a>Nytt stöd för Self-Service lösen ords återställning från Windows 7/8/8.1 Lås skärmen
 
 **Typ:** Ny funktions **tjänst kategori:** SSPR **produkt kapacitet:** användarautentisering
 
@@ -2361,7 +2361,7 @@ Mer information om apparna finns i [SaaS Application Integration with Azure Acti
 
 **Typ:** Ny funktions **tjänst kategori:** **produkt kapacitet** för företags appar: SSO
 
-Vi har introducerat nya omvandlings metoder för anspråk, ToLower () och ToUpper () som kan tillämpas på SAML-tokens från konfigurations sidan för SAML-baserad **enkel inloggning** .
+Vi har introducerat nya omvandlings metoder för anspråk, ToLower () och ToUpper () som kan tillämpas på SAML-tokens från den SAML-baserade **konfigurations sidan för en enda Sign-On** .
 
 Mer information finns i [så här anpassar du anspråk som utfärdats i SAML-token för företags program i Azure AD](../develop/active-directory-saml-claims-customization.md)
 
@@ -2431,7 +2431,7 @@ Det här är en valbar, offentlig för hands version. Administratörer kan aktiv
 
 ---
 
-### <a name="new-http-only-cookies-setting-in-azure-ad-application-proxy-apps"></a>Ny HTTP – endast cookies-inställning i Azure AD Application Proxy-appar
+### <a name="new-http-only-cookies-setting-in-azure-ad-application-proxy-apps"></a>Nya inställningar för HTTP-Only cookies i Azure AD Application Proxy-appar
 
 **Typ:** Ny funktions **tjänst kategori:** **produkt kapacitet** för App-proxy: Access Control
 
@@ -2439,7 +2439,7 @@ Det finns en ny inställning som kallas **http-Only cookies** i dina Application
 
 Den här inställningen är inte kompatibel med appar som använder ActiveX-kontroller, t. ex. fjärr skrivbord. Om du är i den här situationen rekommenderar vi att du inaktiverar den här inställningen.
 
-Mer information om inställningen HTTP-Only cookies finns i [Publicera program med hjälp av Azure AD-programproxy](../manage-apps/application-proxy-add-on-premises-application.md).
+Mer information om inställningen för att HTTP-Only cookies finns i [Publicera program med Azure AD-programproxy](../manage-apps/application-proxy-add-on-premises-application.md).
 
 ---
 
@@ -2607,7 +2607,7 @@ Den senaste versionen av Azure AD Connect innehåller:
 
 - Fel korrigeringar och support uppdateringar
 
-- Allmän tillgänglighet för ping-Federer-integrering
+- Allmän tillgänglighet för Ping-Federate-integrering
 
 - Uppdateringar till den senaste SQL 2012-klienten
 
@@ -3390,7 +3390,7 @@ De grupp-cmdletar som nu är tillgängliga för allmän tillgänglighet är:
 - Remove-AzureADMSGroupLifecyclePolicy
 - Add-AzureADMSLifecyclePolicyGroup
 - Remove-AzureADMSLifecyclePolicyGroup
-- Återställ-AzureADMSLifeCycleGroup
+- Reset-AzureADMSLifeCycleGroup
 - Get-AzureADMSLifecyclePolicyGroup
 
 ---
@@ -3428,7 +3428,7 @@ Den här versionen har följande uppdateringar och ändringar:
 
 - Tillagda konfigurations åtgärder för tillbakaskrivning av enheten och en förlopps indikator för sid initiering.
 
-- Förbättrad allmän diagnostik med HTML-rapport och fullständig data insamling i en ZIP-text/HTML-rapport.
+- Förbättrad allmän diagnostik med HTML-rapport och fullständig data insamling i en ZIP-Text/HTML-rapport.
 
 - Förbättrad tillförlitlighet för automatisk uppgradering och ytterligare telemetri har lagts till för att säkerställa att serverns hälso tillstånd kan fastställas.
 

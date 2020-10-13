@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
 ms.openlocfilehash: 7f1d8d34d6351fc344fdb101ac8e9a96678df9d5
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91651436"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montera Azure HPC Cache
@@ -115,7 +115,7 @@ För en robust klient montering ska du överföra dessa inställningar och argum
 
 > montering-o hård, proto = TCP, mountproto = TCP, retry = 30 $ {CACHE_IP_ADDRESS}:/$ {NAMESPACE_PATH} $ {LOCAL_FILESYSTEM_MOUNT_POINT}
 
-| Rekommenderade monterings kommando inställningar | Description |
+| Rekommenderade monterings kommando inställningar | Beskrivning |
 --- | ---
 ``hard`` | Mjuka monteringar till Azure HPC cache är kopplade till program haverier och eventuell data förlust.
 ``proto=tcp`` | Det här alternativet stöder lämplig hantering av NFS-nätverks fel.

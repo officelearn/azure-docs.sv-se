@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6f2c16730a9140fdbd1710a3aa0df0ee91795d6
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370887"
+ms.locfileid: "91874840"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
@@ -260,6 +260,10 @@ Om du använder litterala värden i dina kopplings villkor eller har flera match
 #### <a name="sorting-before-joins"></a>Sortera före kopplingar
 
 Till skillnad från sammanfognings koppling i verktyg som SSIS är Join-omvandlingen inte en obligatorisk sammanfognings kopplings åtgärd. Kopplings nycklarna kräver inte sortering före transformeringen. Azure Data Factory-teamet rekommenderar inte att du använder sorterings omvandlingar i mappnings data flöden.
+
+### <a name="window-transformation-performance"></a>Fönster omvandlings prestanda
+
+[Fönstrets transformering](data-flow-window.md) partitionerar dina data efter värde i kolumner som du väljer som en del av- ```over()``` satsen i omvandlings inställningarna. Det finns ett antal mycket populära mängd-och analys funktioner som exponeras i Windows-omvandlingen. Men om ditt användnings fall är att generera ett fönster över hela data uppsättningen för rangordning ```rank()``` eller rad nummer ```rowNumber()``` , rekommenderar vi att du i stället använder [rang omvandlingen](data-flow-rank.md) och [surrogat Key Transformation](data-flow-surrogate-key.md). Dessa omvandlingar utför bättre igen fullständig data uppsättnings åtgärder med hjälp av funktionerna.
 
 ### <a name="repartitioning-skewed-data"></a>Ompartitionering av skevade data
 

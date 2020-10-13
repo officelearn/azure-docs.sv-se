@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/10/2020
+ms.openlocfilehash: f4a7f5581703ae6932f3b40e62085fed76f5e6f2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893788"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945710"
 ---
 # <a name="filter-based-feature-selection"></a>Filterbaserat funktionsval
 
@@ -90,8 +90,14 @@ Du väljer ett standard statistik mått. Modulen beräknar korrelationen mellan 
 
     - Om du anger färre resultat kolumner än det finns funktions kolumner rangordnas funktionerna efter fallande poäng. Endast de översta funktionerna returneras. 
 
-7.  Skicka pipelinen eller Välj modulen filtrera baserat funktions val och välj sedan **Kör vald**.
+7.  Skicka pipelinen.
 
+> [!IMPORTANT]
+> Om du ska använda **filter baserat funktions val** i en härlednings funktion måste du använda funktionen [Välj kolumner](./select-columns-transform.md) för att lagra det valda resultatet och [tillämpa omvandlingen](./apply-transformation.md) för att tillämpa den valda omvandlingen på poängsättnings data uppsättningen.
+>
+> Se följande skärm bild för att bygga din pipeline för att se till att kolumn valen är desamma för bedömnings processen.
+> [!div class="mx-imgBorder"]
+> ![Exempel på pipeline](media/module/filter-based-feature-selection-score.png)
 
 ## <a name="results"></a>Resultat
 

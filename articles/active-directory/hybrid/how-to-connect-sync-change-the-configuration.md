@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07c1405482f107e370327ffbc049c77f483c29bd
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662570"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect synkronisering: ändra standard konfigurationen
@@ -181,7 +181,7 @@ De färdiga Sync-reglerna börjar med prioritet svärdet 100. Om du har många s
 
 Du kan instruera den Synkroniseringsmotorn som du vill att ytterligare regler ska infogas före de färdiga reglerna. Följ dessa steg för att få det här problemet:
 
-1. Markera den första synkroniseringsregeln (**i från AD-User Join**) i redigeraren för regler för synkronisering och välj **Exportera**. Kopiera värdet för SR-identifieraren.  
+1. Markera den första synkroniseringsregeln (**i från AD-User koppling**) i redigeraren för regler för synkronisering och välj **Exportera**. Kopiera värdet för SR-identifieraren.  
 ![PowerShell före ändring](./media/how-to-connect-sync-change-the-configuration/powershell1.png)  
 2. Skapa den nya synkroniseringsregeln. Du kan använda redigeraren för synkronisering av regler för att skapa den. Exportera regeln till ett PowerShell-skript.
 3. I egenskapen **PrecedenceBefore**infogar du ID-värdet från regeln som är inaktuell. Ange **prioriteten** till **0**. Kontrol lera att attributet Identifier är unikt och att du inte använder ett GUID från en annan regel. Kontrol lera också att egenskapen **ImmutableTag** inte har angetts. Den här egenskapen ska endast anges för en regel som inte är i regel.
@@ -264,7 +264,7 @@ Regeln för inkommande synkronisering tillåter att attributvärdet flödar frå
 
     | Attribut | Värde | Information |
     | --- | --- | --- |
-    | Name | *Ange ett namn* | Till exempel *i från AD – User UserType* |
+    | Namn | *Ange ett namn* | Till exempel *i från AD – User UserType* |
     | Beskrivning | *Ange en beskrivning* |  |
     | Anslutet system | *Välj lokal AD-anslutning* |  |
     | Ansluten system objekt typ | **Användare** |  |
@@ -306,7 +306,7 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
 
     | Attribut | Värde | Information |
     | ----- | ------ | --- |
-    | Name | *Ange ett namn* | Till exempel *till AAD – User UserType* |
+    | Namn | *Ange ett namn* | Till exempel *till AAD – User UserType* |
     | Beskrivning | *Ange en beskrivning* ||
     | Anslutet system | *Välj AAD-koppling* ||
     | Ansluten system objekt typ | **Användare** ||

@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.author: jingwang
 ms.openlocfilehash: 953dae3c264e76b1e40f0dc07ccea0c00a7464c8
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90024425"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Kopiera data säkert från Azure Blob Storage till en SQL-databas med hjälp av privata slut punkter

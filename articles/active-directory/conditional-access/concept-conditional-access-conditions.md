@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91818349"
 ---
 # <a name="conditional-access-conditions"></a>Villkorlig åtkomst: villkor
@@ -132,14 +132,14 @@ För Chrome-stöd i **Windows 10 Creators Update (version 1703)** eller senare i
 
 Skapa följande register nyckel för att automatiskt distribuera tillägget till Chrome-webbläsare:
 
-- Sökväg HKEY_LOCAL_MACHINE \Software\Policies\Google\Chrome\ExtensionInstallForcelist
+- Sökväg HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist
 - Namn 1
 - Typ REG_SZ (sträng)
 - Data ppnbnpeolgkicgegkbkbjmhlideopiji; https \: //clients2.Google.com/service/update2/CRX
 
 Skapa följande register nyckel för Chrome-stöd i **Windows 8,1 och 7**:
 
-- Sökväg HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls
+- Sökväg HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls
 - Namn 1
 - Typ REG_SZ (sträng)
 - Data {"mönster": " https://device.login.microsoftonline.com ", "filter": {"utfärdare": {"CN": "MS-Organization-Access"}}}

@@ -9,10 +9,10 @@ ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
 ms.openlocfilehash: 6649a8d470a75922aac423bf0b411163bdd79f71
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449085"
 ---
 # <a name="introduction-to-azure-defender-for-key-vault"></a>Introduktion till Azure Defender för Key Vault
@@ -27,7 +27,7 @@ Aktivera **Azure Defender för Key Vault** för Azure-internt Avancerat skydd mo
 |----|:----|
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|**Azure Defender för Key Vault** faktureras så som visas på [sidan med priser](security-center-pricing.md)|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Nej](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-key-vault"></a>Vilka är fördelarna med Azure Defender för Key Vault?

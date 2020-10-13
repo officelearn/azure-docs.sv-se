@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
 ms.openlocfilehash: 09485d3279e4ca4fff5b6492bab432d8034d7e42
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449413"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights-anslutningsprogram hanterings lösning (inaktuell)
@@ -49,7 +49,7 @@ Till skillnad från de flesta andra Log Analytics lösningar samlas data inte in
 | [SCOM-hanterings grupp](./om-agents.md) | Inga | Lösningen samlar inte in information från agenter i en ansluten SCOM Management Group. |
 | [Azure Storage-konto](./resource-logs.md#send-to-log-analytics-workspace) | Inga | Lösningen samlar inte in information från Azure Storage. |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha en Azure-prenumeration för att få åtkomst till Application Insights-anslutningsprogram information
 - Du måste ha minst en konfigurerad Application Insights-resurs.

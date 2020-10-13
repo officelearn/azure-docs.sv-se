@@ -9,10 +9,10 @@ ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 1e04ed8fe9087cb06b1533887da3c0fed61259ef
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019733"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Självstudie: Använd Azure IoT Hub meddelande-anrikning
@@ -279,7 +279,7 @@ I det här läget är resurserna alla konfigurerade och meddelande dirigeringen 
 ## <a name="create-and-configure-by-using-a-resource-manager-template"></a>Skapa och konfigurera med hjälp av en Resource Manager-mall
 Du kan använda en Resource Manager-mall för att skapa och konfigurera resurser, meddelanderoutning och meddelande anrikning.
 
-1. Logga in på Azure-portalen. Välj **+ skapa en resurs** för att öppna en sökruta. Ange *mall distribution*och Sök efter den. I resultat fönstret väljer du **malldistribution (distribuera med anpassad mall)**.
+1. Logga in på Azure Portal. Välj **+ skapa en resurs** för att öppna en sökruta. Ange *mall distribution*och Sök efter den. I resultat fönstret väljer du **malldistribution (distribuera med anpassad mall)**.
 
    ![Malldistribution i Azure Portal](./media/tutorial-message-enrichments/template-select-deployment.png)
 

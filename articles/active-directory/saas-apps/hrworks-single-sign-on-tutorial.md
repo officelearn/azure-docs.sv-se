@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory enkel inloggning (SSO) med enkel inloggning för HRworks | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory enkel inloggning (SSO) med HRworks Single Sign-On | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och HRworks enkel inloggning.
 services: active-directory
 author: jeevansd
@@ -12,38 +12,38 @@ ms.topic: tutorial
 ms.date: 01/02/2020
 ms.author: jeedes
 ms.openlocfilehash: 1a0fff21c85104498895c9de20de9961a77cffeb
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91820492"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hrworks-single-sign-on"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med enkel inloggning för HRworks
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hrworks-single-sign-on"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med HRworks Single Sign-On
 
-I den här självstudien får du lära dig hur du integrerar HRworks enkel inloggning med Azure Active Directory (Azure AD). När du integrerar HRworks enkel inloggning med Azure AD kan du:
+I den här självstudien får du lära dig att integrera HRworks Single Sign-On med Azure Active Directory (Azure AD). När du integrerar HRworks enstaka Sign-On med Azure AD kan du:
 
 * Kontroll i Azure AD som har åtkomst till HRworks-enkel inloggning.
-* Gör det möjligt för användarna att logga in automatiskt till HRworks enkel inloggning med sina Azure AD-konton.
+* Gör det möjligt för användarna att logga in automatiskt för att HRworks enskilda Sign-On med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* HRworks enkel inloggning (SSO) med enkel inloggning aktive rad (SSO).
+* HRworks Sign-On enkel inloggning (SSO) med en aktive rad prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* HRworks enkel inloggning stöder **SP** -INITIERAd SSO
+* HRworks Single Sign-On stöder **SP** -INITIERAd SSO
 
-## <a name="adding-hrworks-single-sign-on-from-the-gallery"></a>Lägga till HRworks enkel inloggning från galleriet
+## <a name="adding-hrworks-single-sign-on-from-the-gallery"></a>Lägga till HRworks enstaka Sign-On från galleriet
 
-Om du vill konfigurera integrering av HRworks enkel inloggning i Azure AD måste du lägga till HRworks enkel inloggning från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integrationen av HRworks Single Sign-On i Azure AD måste du lägga till HRworks Single Sign-On från galleriet i listan över hanterade SaaS-appar.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
@@ -52,17 +52,17 @@ Om du vill konfigurera integrering av HRworks enkel inloggning i Azure AD måste
 1. I avsnittet **Lägg till från galleriet** , Skriv **HRworks enkel inloggning** i sökrutan.
 1. Välj **HRworks enkel inloggning** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-hrworks-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD för HRworks enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on-for-hrworks-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD för HRworks Single Sign-On
 
-Konfigurera och testa Azure AD SSO med enkel inloggning med HRworks med hjälp av en test användare som kallas **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i HRworks enkel inloggning.
+Konfigurera och testa Azure AD SSO med HRworks Single Sign-On med hjälp av en test användare som kallas **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i HRworks enkel inloggning.
 
 Om du vill konfigurera och testa Azure AD SSO med HRworks enkel inloggning, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
     * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-1. **[Konfigurera HRworks enkel inloggning](#configure-hrworks-single-sign-on-sso)** för enkel inloggning – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    * **[Skapa HRworks-test för enkel inloggning](#create-hrworks-single-sign-on-test-user)** för att få en motsvarighet till B. Simon i HRworks enkel inloggning som är länkad till Azure AD-representation av användare.
+1. **[Konfigurera HRworks single Sign-On SSO](#configure-hrworks-single-sign-on-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    * **[Skapa HRworks single Sign-On test User](#create-hrworks-single-sign-on-test-user)** -för att få en motsvarighet till B. Simon i HRworks Single Sign-On som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
@@ -80,7 +80,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://login.hrworks.de/?companyId=<companyId>&directssologin=true`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [HRworks support team för enkel inloggning](mailto:nadja.sommerfeld@hrworks.de) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [HRworks för enskilda Sign-On klient](mailto:nadja.sommerfeld@hrworks.de) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
@@ -120,17 +120,17 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-## <a name="configure-hrworks-single-sign-on-sso"></a>Konfigurera HRworks enkel inloggning
+## <a name="configure-hrworks-single-sign-on-sso"></a>Konfigurera HRworks Single Sign-On SSO
 
 1. Om du vill automatisera konfigurationen i HRworks enkel inloggning måste du installera **Mina appar säker inloggnings webb läsar tillägg** genom att klicka på **installera tillägget**.
 
     ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
 
-1. När du har lagt till tillägg i webbläsaren, klickar du på **Konfigurera HRworks Single Sign-on** för att dirigera dig till HRworks-programmet för enkel inloggning. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på HRworks-enkel inloggning. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-4.
+1. När du har lagt till tillägg i webbläsaren, klickar du på **Konfigurera HRworks Single Sign-on** för att dirigera dig till HRworks Single Sign-On-programmet. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på HRworks-enkel inloggning. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-4.
 
     ![Konfigurera konfiguration](common/setup-sso.png)
 
-1. Om du vill konfigurera HRworks enkel inloggning manuellt öppnar du ett nytt webbläsarfönster och loggar in på företagets webbplats för HRworks-enkel inloggning som administratör och utför följande steg:
+1. Om du vill konfigurera HRworks enstaka Sign-On manuellt öppnar du ett nytt webbläsarfönster och loggar in på din Sign-On HRworks-företags webbplats som administratör och utför följande steg:
 
 1. Klicka på grunderna för **Administratörs**  >  **Basics**  >  **säkerhet**  >  **enkel inloggning på** den vänstra sidan av meny raden och utför följande steg:
 
@@ -146,13 +146,13 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     e. Klicka på **Spara**.
 
-### <a name="create-hrworks-single-sign-on-test-user"></a>Skapa test användare av HRworks-enkel inloggning
+### <a name="create-hrworks-single-sign-on-test-user"></a>Skapa HRworks Single Sign-On test User
 
 Om du vill aktivera Azure AD-användare loggar du in på HRworks enkel inloggning, de måste vara etablerade i HRworks enkel inloggning. I HRworks enkel inloggning är etableringen en manuell uppgift.
 
 **Gör följande för att etablera ett användarkonto:**
 
-1. Logga in på HRworks enkel inloggning som administratör.
+1. Logga in på HRworks Single Sign-On som administratör.
 
 1. Klicka på **administratör**  >  **personer**  >  **personer**  >  **ny person** från vänster sida av meny raden.
 
@@ -170,7 +170,7 @@ Om du vill aktivera Azure AD-användare loggar du in på HRworks enkel inloggnin
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen för enkel inloggning på HRworks i åtkomst panelen, bör du loggas in automatiskt på den HRworks enkel inloggning som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen HRworks Single Sign-On på åtkomst panelen, bör du loggas in automatiskt på den HRworks enskilda Sign-On som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -180,4 +180,4 @@ När du klickar på panelen för enkel inloggning på HRworks i åtkomst panelen
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Prova HRworks enkel inloggning med Azure AD](https://aad.portal.azure.com/)
+- [Prova HRworks Single Sign-On med Azure AD](https://aad.portal.azure.com/)

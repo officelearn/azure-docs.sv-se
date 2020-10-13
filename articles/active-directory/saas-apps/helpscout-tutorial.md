@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 1c6faf2bb1811f7b27a49f8029c833499273d8a1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91817116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Självstudie: Azure Active Directory integrering med Help Scout
@@ -30,7 +30,7 @@ Integreringen av Help Scout med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Help Scout behöver du följande:
 
@@ -191,7 +191,7 @@ I det här avsnittet aktiverar du B. Simon för att använda enkel inloggning me
 
 1. Då öppnas avsnittet SAML-inställningar. Utför följande steg:
 
-    ![Skärm bild som visar fliken enkel inloggning där du anger den angivna informationen.](./media/helpscout-tutorial/settings3.png)
+    ![Skärm bild som visar den enkla Sign-On-fliken där du anger den angivna informationen.](./media/helpscout-tutorial/settings3.png)
 
     a. Kopiera värdet för **Post-back URL (Assertion Consumer Service URL)** (Återskickande-URL (URL för Assertion Consumer Service)) och klistra in det i textrutan **Svars-URL** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
@@ -199,9 +199,9 @@ I det här avsnittet aktiverar du B. Simon för att använda enkel inloggning me
 
 1. Växla på **Aktivera SAML** och utför följande steg:
 
-    ![Skärm bild som visar fliken enkel inloggning där du aktiverar SAML och lägger till annan information.](./media/helpscout-tutorial/settings4.png)
+    ![Skärm bild som visar den enkla Sign-On-fliken där du aktiverar SAML och lägger till annan information.](./media/helpscout-tutorial/settings4.png)
 
-    a. I text rutan för **enkel inloggnings-URL** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
+    a. I text rutan för **en Sign-On URL** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
 
     b. Klicka på **Ladda upp certifikat** för att ladda upp det **certifikat (Base64)** som laddats ned från Azure-portalen.
 

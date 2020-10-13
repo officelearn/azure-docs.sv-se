@@ -4,12 +4,12 @@ description: Lär dig mer om säkerhets scenarier för ett Azure Service Fabric-
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 258a6dd141ccc31516e37dac9f265328f981bbf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d6f3e94a735a6a8880d726890f1eb7ac346c755
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261078"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946203"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric kluster säkerhets scenarier
 
@@ -134,7 +134,7 @@ Konceptet att skapa säkra kluster är detsamma, oavsett om de är Linux-eller W
 
 ### <a name="client-authentication-certificates-optional"></a>Certifikat för klientautentisering (valfritt)
 
-Valfritt antal ytterligare certifikat kan anges för administratörs-eller användar klient åtgärder. Klienten kan använda det här certifikatet när ömsesidig autentisering krävs. Klient certifikat utfärdas vanligt vis inte av en certifikat utfärdare från tredje part. I stället innehåller det personliga arkivet för den aktuella användar platsen vanligt vis klient certifikat som placeras där av en rot utfärdare. Certifikatet bör ha ett **avsett syfte** värde för **klientautentisering**.  
+Valfritt antal ytterligare certifikat kan anges för administratörs-eller användar klient åtgärder. Klienten kan använda dessa certifikat när ömsesidig autentisering krävs. Klient certifikat utfärdas vanligt vis inte av en certifikat utfärdare från tredje part. I stället innehåller det personliga arkivet för den aktuella användar platsen vanligt vis klient certifikat som placeras där av en rot utfärdare. Certifikatet bör ha ett **avsett syfte** värde för **klientautentisering**.  
 
 Som standard har kluster certifikatet administratörs behörighet för klienten. Dessa ytterligare klient certifikat bör inte installeras i klustret, men de anges som tillåtna i kluster konfigurationen.  Klient certifikaten måste dock installeras på klient datorerna för att ansluta till klustret och utföra alla åtgärder.
 

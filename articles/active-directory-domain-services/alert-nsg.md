@@ -2,7 +2,7 @@
 title: Lösa aviseringar om nätverks säkerhets grupper i Azure AD DS | Microsoft Docs
 description: Lär dig hur du felsöker och löser konfigurations aviseringar för nätverks säkerhets grupper för Azure Active Directory Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 584c03dc798bc21ddd5538e58d0f9047c55c5372
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: joflore
+ms.openlocfilehash: f8917d7bd8fc1a4091607b9a405cfefbb51bc188
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040460"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962793"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Kända problem: aviseringar om nätverks konfiguration i Azure Active Directory Domain Services
 
@@ -38,7 +38,7 @@ Följande standard säkerhets regler för inkommande och utgående trafik tillä
 
 ### <a name="inbound-security-rules"></a>Ingående säkerhetsregler
 
-| Prioritet | Name | Port | Protokoll | Källa | Mål | Åtgärd |
+| Prioritet | Namn | Port | Protokoll | Källa | Mål | Åtgärd |
 |----------|------|------|----------|--------|-------------|--------|
 | 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Alla | Tillåt |
 | 201      | AllowRD | 3389 | TCP | CorpNetSaw | Alla | Tillåt |
@@ -52,7 +52,7 @@ Följande standard säkerhets regler för inkommande och utgående trafik tillä
 
 ### <a name="outbound-security-rules"></a>Säkerhetsregler för utgående trafik
 
-| Prioritet | Name | Port | Protokoll | Källa | Mål | Åtgärd |
+| Prioritet | Namn | Port | Protokoll | Källa | Mål | Åtgärd |
 |----------|------|------|----------|--------|-------------|--------|
 | 65000    | AllVnetOutBound | Alla | Alla | VirtualNetwork | VirtualNetwork | Tillåt |
 | 65001    | AllowAzureLoadBalancerOutBound | Alla | Alla |  Alla | Internet | Tillåt |

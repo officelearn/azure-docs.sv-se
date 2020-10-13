@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89443032"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Flytta data från Amazon RedShift med Azure Data Factory
@@ -34,7 +34,7 @@ Data Factory stöder för närvarande endast flytt av data från Amazon-RedShift
 > [!TIP]
 > För att uppnå bästa möjliga prestanda vid kopiering av stora mängder data från Amazon RedShift bör du överväga att använda det inbyggda RedShift **Unload** -kommandot via Amazon Simple Storage Service (Amazon S3). Mer information finns i [använda Unload för att kopiera data från Amazon RedShift](#use-unload-to-copy-data-from-amazon-redshift).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Om du flyttar data till ett lokalt data lager installerar du [Data Management Gateway](data-factory-data-management-gateway.md) på en lokal dator. Bevilja åtkomst för en gateway till Amazon RedShift-klustret med hjälp av den lokala datorns IP-adress. Instruktioner finns i [bevilja åtkomst till klustret](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
 * Information om hur du flyttar data till ett Azure-datalager finns i [Compute IP-adress och SQL-intervall som används av Microsoft Azure Data Center](https://www.microsoft.com/download/details.aspx?id=41653).
 

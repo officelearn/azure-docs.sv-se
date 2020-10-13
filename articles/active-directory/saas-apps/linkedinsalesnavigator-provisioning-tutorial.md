@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.openlocfilehash: e908c8d19a4640995c536580b6584558212ada3e
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361587"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Självstudie: Konfigurera LinkedIn Sales Navigator för automatisk användar etablering
@@ -51,7 +51,7 @@ Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vi
 I det här avsnittet får du hjälp med att ansluta din Azure AD till LinkedIn-SCIM för användar konton och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i LinkedIn Sales Navigator, baserat på användar-och grupp tilldelning i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för LinkedIn Sales Navigator genom att följa anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra.
+> Du kan också välja att aktivera SAML-baserade enkla Sign-On för LinkedIn Sales Navigator genom att följa anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra.
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-sales-navigator-in-azure-ad"></a>Konfigurera automatisk användar konto etablering till LinkedIn Sales Navigator i Azure AD:
 

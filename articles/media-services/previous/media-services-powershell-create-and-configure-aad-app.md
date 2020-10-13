@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 7e54c89a609b39a88d2a34078aadd6bbe9308e39
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89268374"
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>Använd PowerShell för att skapa en Azure AD-app som ska användas med Azure Media Services-API: et
@@ -63,7 +63,7 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 Mer information finns i följande artiklar:
 
 - [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-- [Hantera rollbaserade Access Control med Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Hantera Role-Based Access Control med Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 - [Konfigurera daemon-appar manuellt med hjälp av certifikat](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2)
 
 ## <a name="next-steps"></a>Nästa steg

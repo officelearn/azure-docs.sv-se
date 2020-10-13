@@ -15,10 +15,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 93f5e4d659b94bd79345a5e687de14ab6a5e8ba6
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89267980"
 ---
 # <a name="create-a-media-services-account"></a>Skapa ett Media Services-konto
@@ -56,7 +56,7 @@ För alla andra hanterings uppgifter (t. ex. [transformationer och jobb](transfo
 1. Klicka på **+ skapa en resurs**  >  **medie**  >  **Media Services**.
 1. I avsnittet **skapa ett Media Services konto** anger du de värden som krävs.
 
-    | Name | Beskrivning |
+    | Namn | Beskrivning |
     | ---|---|
     |**Kontonamn**|Ange namnet på det nya Media Services kontot. Namnet på ett Media Services-konto består av gemena bokstäver eller siffror utan blanksteg och 3 till 24 tecken.|
     |**Prenumeration**|Om du har mer än en prenumeration väljer du en i listan med Azure-prenumerationer som du har åtkomst till.|

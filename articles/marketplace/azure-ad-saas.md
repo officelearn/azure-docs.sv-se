@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.openlocfilehash: 5a09105dac89f3dc241140f16f3d4be72cc97493
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89483634"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>Azure AD och transactable SaaS-erbjudanden på den kommersiella marknaden
@@ -45,29 +45,29 @@ I följande avsnitt finns information om kraven för varje process steg.
 
 Den här bilden visar de fyra process stegen för inköps hantering.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Illustrerar de fyra stegen i processen för inköps hantering.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Illustrerar stegen för hantering av inköps hantering, prenumerations hantering och valfria användar hantering.":::
 
 Den här tabellen innehåller information om stegen för inköps hanterings processen.
 
 | Process steg | Utgivar åtgärd | Rekommenderas eller krävs för utgivare |
 | ------------ | ------------- | ------------- |
 | 1. köparen loggar in på den kommersiella marknads platsen med sin Azure ID-identitet och väljer ett SaaS-erbjudande. | Ingen utgivar åtgärd krävs. | Inte tillämpligt |
-| 2. efter köpet väljer köparen **Konfigurera konto** i Azure Marketplace eller **konfigurerar nu** i AppSource, som dirigerar köparen till utgivarens landnings sida för det här erbjudandet. Köparen måste kunna logga in på utgivarens SaaS-program med Azure AD SSO och får bara tillfrågas om minimalt medgivande som inte kräver Azure AD-administratörs godkännande. | Utforma en [landnings sida](azure-ad-transactable-saas-landing-page.md) för erbjudandet så att den får en användare med sin Azure AD-eller Microsoft-konto-identitet (MSA) och underlättar eventuell ytterligare etablering eller konfiguration som krävs. | Obligatorisk |
-| 3. utgivaren begär köp information från API: et för SaaS-utförande. | Med hjälp [av en åtkomsttoken](./partner-center-portal/pc-saas-registration.md) som genererats från landnings sidans program-ID, [anropar du matchnings slut punkten](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) för att hämta information om köpet. | Obligatorisk |
-| 4. via Azure AD och Microsoft Graph API samlar utgivaren in företags-och användar information som krävs för att tillhandahålla köparen i utgivarens SaaS-program.  | Dela upp Azure AD-användartoken för att hitta namn och e-post eller [anropa Microsoft Graph-API: et](https://docs.microsoft.com/graph/use-the-api) och Använd delegerade behörigheter för att [Hämta information](https://docs.microsoft.com/graph/api/user-get) om den användare som är inloggad. | Obligatorisk |
+| 2. efter köpet väljer köparen **Konfigurera konto** i Azure Marketplace eller **konfigurerar nu** i AppSource, som dirigerar köparen till utgivarens landnings sida för det här erbjudandet. Köparen måste kunna logga in på utgivarens SaaS-program med Azure AD SSO och får bara tillfrågas om minimalt medgivande som inte kräver Azure AD-administratörs godkännande. | Utforma en [landnings sida](azure-ad-transactable-saas-landing-page.md) för erbjudandet så att den får en användare med sin Azure AD-eller Microsoft-konto-identitet (MSA) och underlättar eventuell ytterligare etablering eller konfiguration som krävs. | Krävs |
+| 3. utgivaren begär köp information från API: et för SaaS-utförande. | Med hjälp [av en åtkomsttoken](./partner-center-portal/pc-saas-registration.md) som genererats från landnings sidans program-ID, [anropar du matchnings slut punkten](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) för att hämta information om köpet. | Krävs |
+| 4. via Azure AD och Microsoft Graph API samlar utgivaren in företags-och användar information som krävs för att tillhandahålla köparen i utgivarens SaaS-program.  | Dela upp Azure AD-användartoken för att hitta namn och e-post eller [anropa Microsoft Graph-API: et](https://docs.microsoft.com/graph/use-the-api) och Använd delegerade behörigheter för att [Hämta information](https://docs.microsoft.com/graph/api/user-get) om den användare som är inloggad. | Krävs |
 ||||
 
 ## <a name="process-steps-for-subscription-management"></a>Process steg för prenumerations hantering
 
 Den här bilden visar de två stegen i processen för prenumerations hantering.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Visar de två stegen i processen för prenumerations hantering.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Illustrerar stegen för hantering av inköps hantering, prenumerations hantering och valfria användar hantering.":::
 
 Den här tabellen beskriver detaljerna om stegen för prenumerations hanterings processen.
 
 | Process steg | Utgivar åtgärd | Rekommenderas eller krävs för utgivare |
 | ------------ | ------------- | ------------- |
-| 5. utgivaren hanterar prenumerationen på SaaS-programmet via SaaS-uppfyllande API: et. | Hantera prenumerations ändringar och andra hanterings uppgifter via [API: er för SaaS-utförande](./partner-center-portal/pc-saas-fulfillment-api-v2.md).<br><br>Det här steget kräver en åtkomsttoken enligt beskrivningen i process steg 3. | Obligatorisk |
+| 5. utgivaren hanterar prenumerationen på SaaS-programmet via SaaS-uppfyllande API: et. | Hantera prenumerations ändringar och andra hanterings uppgifter via [API: er för SaaS-utförande](./partner-center-portal/pc-saas-fulfillment-api-v2.md).<br><br>Det här steget kräver en åtkomsttoken enligt beskrivningen i process steg 3. | Krävs |
 | 6. När du använder mätnings priser genererar utgivaren användnings händelser till API: et för mätnings tjänsten. | Om din SaaS-app har användnings fakturerings funktioner, kan du göra användnings meddelanden via [API: er för avläsning av tjänst](./partner-center-portal/marketplace-metering-service-apis.md).<br><br>Det här steget kräver en åtkomsttoken enligt beskrivningen i steg 3. | Krävs för mätning |
 ||||
 
@@ -75,7 +75,7 @@ Den här tabellen beskriver detaljerna om stegen för prenumerations hanterings 
 
 Den här bilden visar de tre process stegen för användar hantering.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Illustrerar de tre valfria process stegen för användar hantering.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Illustrerar stegen för hantering av inköps hantering, prenumerations hantering och valfria användar hantering.":::
 
 Process steg 7 till 9 är valfria steg för att hantera användar hantering. De ger ytterligare förmåner för utgivare som har stöd för enkel inloggning med Azure AD. I den här tabellen beskrivs information om stegen för användar hanterings processen.
 

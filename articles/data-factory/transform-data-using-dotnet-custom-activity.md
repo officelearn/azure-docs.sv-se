@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
 ms.openlocfilehash: 8b8114a6abf5579ed0750862d59a5d13178339f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91276514"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
@@ -102,16 +102,16 @@ I följande tabell beskrivs namn och beskrivningar av egenskaper som är unika f
 
 | Egenskap              | Beskrivning                              | Krävs |
 | :-------------------- | :--------------------------------------- | :------- |
-| namn                  | Namn på aktiviteten i pipelinen     | Yes      |
-| description           | Text som beskriver vad aktiviteten gör.  | No       |
-| typ                  | För anpassad aktivitet är aktivitets typen **anpassad**. | Yes      |
-| linkedServiceName     | Länkad tjänst till Azure Batch. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) .  | Yes      |
-| command               | Kommando för det anpassade program som ska köras. Om programmet redan är tillgängligt i noden Azure Batch pool kan resourceLinkedService och folderPath hoppas över. Du kan till exempel ange kommandot som `cmd /c dir` är inbyggt i Windows batch pool-noden. | Yes      |
+| name                  | Namn på aktiviteten i pipelinen     | Ja      |
+| description           | Text som beskriver vad aktiviteten gör.  | Inga       |
+| typ                  | För anpassad aktivitet är aktivitets typen **anpassad**. | Ja      |
+| linkedServiceName     | Länkad tjänst till Azure Batch. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) .  | Ja      |
+| command               | Kommando för det anpassade program som ska köras. Om programmet redan är tillgängligt i noden Azure Batch pool kan resourceLinkedService och folderPath hoppas över. Du kan till exempel ange kommandot som `cmd /c dir` är inbyggt i Windows batch pool-noden. | Ja      |
 | resourceLinkedService | Azure Storage länkad tjänst till lagrings kontot där det anpassade programmet lagras | Inga &#42;       |
 | folderPath            | Sökväg till mappen för det anpassade programmet och alla dess beroenden<br/><br/>Om du har beroenden lagrade i undermappar – det vill säga i en hierarkisk mappstruktur under *folderPath* , är mappstrukturen för närvarande utplattad när filerna kopieras till Azure Batch. Det innebär att alla filer kopieras till en enda mapp utan undermappar. Undvik problemet genom att komprimera filerna, kopiera den komprimerade filen och packa upp den med anpassad kod på önskad plats. | Inga &#42;       |
-| referenceObjects      | En matris med befintliga länkade tjänster och data uppsättningar. Refererade länkade tjänster och data uppsättningar skickas till det anpassade programmet i JSON-format så att din anpassade kod kan referera till resurser i Data Factory | No       |
-| extendedProperties    | Användardefinierade egenskaper som kan skickas till det anpassade programmet i JSON-format så att din anpassade kod kan referera till ytterligare egenskaper | No       |
-| retentionTimeInDays | Retentions tiden för de filer som skickas för den anpassade aktiviteten. Standardvärdet är 30 dagar. | No |
+| referenceObjects      | En matris med befintliga länkade tjänster och data uppsättningar. Refererade länkade tjänster och data uppsättningar skickas till det anpassade programmet i JSON-format så att din anpassade kod kan referera till resurser i Data Factory | Inga       |
+| extendedProperties    | Användardefinierade egenskaper som kan skickas till det anpassade programmet i JSON-format så att din anpassade kod kan referera till ytterligare egenskaper | Inga       |
+| retentionTimeInDays | Retentions tiden för de filer som skickas för den anpassade aktiviteten. Standardvärdet är 30 dagar. | Inga |
 
 &#42; egenskaperna `resourceLinkedService` och `folderPath` måste antingen anges eller båda utelämnas.
 
@@ -302,7 +302,7 @@ Om du vill använda innehållet i stdout.txt underordnade aktiviteter kan du hä
 
 > [!IMPORTANT]
 > - activity.jspå, linkedServices.jspå och datasets.jspå lagras i mappen körning i batch-aktiviteten. I det här exemplet lagras activity.jspå, linkedServices.jspå och datasets.jspå i `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` sökvägen. Om det behövs måste du rensa dem separat.
-> - För länkade tjänster som använder sig av den lokala Integration Runtime krypteras känslig information, t. ex. nycklar och lösen ord, av den lokala Integration Runtime för att säkerställa att autentiseringsuppgifterna finns kvar i kundens definierade privata nätverks miljö. Vissa känsliga fält kan saknas när din anpassade program kod refereras till på det här sättet. Använd SecureString i extendedProperties i stället för att använda den länkade tjänst referensen om det behövs.
+> - För länkade tjänster som använder Self-Hosted Integration Runtime krypteras känslig information, t. ex. nycklar och lösen ord, av Self-Hosted Integration Runtime för att säkerställa att autentiseringsuppgiften finns kvar i kundens definierade privata nätverks miljö. Vissa känsliga fält kan saknas när din anpassade program kod refereras till på det här sättet. Använd SecureString i extendedProperties i stället för att använda den länkade tjänst referensen om det behövs.
 
 ## <a name="pass-outputs-to-another-activity"></a>Skicka utdata till en annan aktivitet
 

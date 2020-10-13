@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0f1bde255355e7a4f47df6a3969837410692cef5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266067"
 ---
 # <a name="continuous-access-evaluation"></a>Utvärdering av kontinuerlig åtkomst
@@ -156,7 +156,7 @@ Om det här scenariot finns i din miljö för att undvika oändliga slingor, utf
 
 | Office Update-kanal | DisableADALatopWAMOverride | DisableAADWAM |
 | --- | --- | --- |
-| Halvårs årlig företags kanal | Om inställningen är aktive rad eller 1, stöds inte CAE. | Om inställningen är aktive rad eller 1, stöds inte CAE. |
+| Semi-Annual Enterprise-kanal | Om inställningen är aktive rad eller 1, stöds inte CAE. | Om inställningen är aktive rad eller 1, stöds inte CAE. |
 | Aktuell kanal <br> eller <br> Månatlig företags kanal | CAE stöds oavsett inställningen | CAE stöds oavsett inställningen |
 
 En förklaring av Office Update-kanaler finns i [Översikt över uppdaterings kanaler för Microsoft 365 appar](https://docs.microsoft.com/deployoffice/overview-update-channels). Vi rekommenderar att organisationer inte inaktiverar WAM (Web Account Manager).

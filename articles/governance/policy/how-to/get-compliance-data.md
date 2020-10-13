@@ -1,14 +1,14 @@
 ---
 title: Hämta information om efterlevnadsprinciper
 description: Azure Policy utvärderingar och effekter avgör efterlevnad. Lär dig hur du hämtar information om kompatibiliteten för dina Azure-resurser.
-ms.date: 10/05/2020
+ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 186312ae91c3545a7aac1a9c7a108e2197f3fa8a
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 2b4db7daf75f153cadb03e5dd028084e311bb874
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873633"
+ms.locfileid: "91596038"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Hämta efterlevnads data för Azure-resurser
 
@@ -161,15 +161,14 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 I en tilldelning är en resurs **icke-kompatibel** om den inte följer princip-eller initiativ reglerna och inte är _undantagen_. Följande tabell visar hur olika princip effekter fungerar med villkors utvärderingen för det resulterande kompatibilitetstillstånd:
 
-| Resurstillstånd | Effekt | Principutvärdering | Kompatibilitetsstatus |
+| Resurs tillstånd | Effekt | Princip utvärdering | Kompatibilitetstillstånd |
 | --- | --- | --- | --- |
-| Ny eller uppdaterad? | Granska, ändra, AuditIfNotExist | Sant | Icke-kompatibel |
-| Ny eller uppdaterad? | Granska, ändra, AuditIfNotExist | Falskt | Kompatibel |
-| Finns | Neka, granska, lägga till, ändra, DeployIfNotExist, AuditIfNotExist | Sant | Icke-kompatibel |
-| Finns | Neka, granska, lägga till, ändra, DeployIfNotExist, AuditIfNotExist | Falskt | Kompatibel |
+| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Sant | Icke-kompatibel |
+| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Falskt | Kompatibel |
+| Ny | Audit, AuditIfNotExist\* | Sant | Icke-kompatibel |
+| Ny | Audit, AuditIfNotExist\* | Falskt | Kompatibel |
 
-> [!NOTE]
-> DeployIfNotExist-och AuditIfNotExist-effekterna kräver att IF-instruktionen är TRUE och förekomstens villkor är falskt för att vara icke-kompatibel. När det är TRUE utlöser IF-villkoret utvärdering av villkoret Finns för de relaterade resurserna.
+\* Effekterna ändra, Lägg till, DeployIfNotExist och AuditIfNotExist kräver att IF-instruktionen är TRUE. Åtgärderna kräver också att villkoret Finns är FALSE för att vara icke-kompatibla. När det är TRUE utlöser IF-villkoret utvärdering av villkoret Finns för de relaterade resurserna.
 
 Anta till exempel att du har en resurs grupp – ContsoRG med vissa lagrings konton (markerade i rött) som exponeras för offentliga nätverk.
 
@@ -190,7 +189,7 @@ Utöver **kompatibla** och **icke-kompatibla**har principer och resurser fyra an
 - **Inte startat**: utvärderings cykeln har inte startat för principen eller resursen.
 - **Inte registrerad**: den Azure policy Resource providern har inte registrerats eller så har det inloggade kontot inte behörighet att läsa efterlevnadsprinciper.
 
-Azure Policy använder fälten **typ**, **namn**eller **typ** i definitionen för att avgöra om en resurs är en matchning. När resursen matchar, betraktas den som tillämplig och har statusen antingen **kompatibel**, **icke-kompatibel**eller **undantagen**. Om antingen **typ**, **namn**eller **typ** är den enda egenskapen i definitionen anses alla inkluderade och icke-undantagna resurser vara tillämpliga och utvärderas.
+Azure Policy använder fälten **typ** och **namn** i definitionen för att avgöra om en resurs är en matchning. När resursen matchar, betraktas den som tillämplig och har statusen antingen **kompatibel**, **icke-kompatibel**eller **undantagen**. Om antingen **typ** eller **namn** är den enda egenskapen i definitionen, anses alla inkluderade och icke-undantagna resurser vara tillämpliga och utvärderas.
 
 Procent andelen för efterlevnad bestäms genom att de **Exempt** resurser som **uppfyller** resurserna divideras med de _totala resurserna_. _Totalt antal resurser_ definieras som summan av de **kompatibla**, **icke-kompatibla**, **undantagna**och **motstridiga** resurserna. De övergripande kompatibilitets numren är summan av distinkta resurser som är **kompatibla** eller **undantagna** dividerade med summan av alla distinkta resurser. I bilden nedan finns det 20 distinkta resurser som är tillämpliga och endast en är **icke-kompatibel**.
 Den övergripande resursens kompatibilitet är 95% (19 av 20).
@@ -211,14 +210,14 @@ Eftersom en princip eller ett initiativ kan tilldelas till olika omfattningar, i
 :::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Diagram över lagrings konton som exponeras för offentliga nätverk i resurs gruppen contoso R G." border="false":::
 
 I listan över resurser på fliken **kompatibilitet** visas utvärderings status för befintliga resurser för den aktuella tilldelningen. Fliken är som standard **icke-kompatibel**, men kan filtreras.
-Händelser (tillägg, granskning, neka, distribuera, ändra) som utlöses av begäran om att skapa en resurs visas på fliken **händelser** .
+Händelser (tillägg, granskning, neka, distribution) som utlöses av begäran om att skapa en resurs visas på fliken **händelser** .
 
 > [!NOTE]
 > För en AKS Engine-princip är resursen som visas resurs gruppen.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Diagram över lagrings konton som exponeras för offentliga nätverk i resurs gruppen contoso R G." border="false":::
 
-<a name="component-compliance"></a> För resurser i [resurs leverantörs läge](../concepts/definition-structure.md#resource-provider-modes) går du till fliken **Resource Compliance (Resource Compliance** ) och markerar resursen eller högerklickar på raden och väljer **Visa kompatibilitetsinformation** öppnar komponenten Kompatibilitetsrapport. På den här sidan finns också flikar för att se de principer som har tilldelats den här resursen, händelser, komponent händelser och ändrings historik.
+För resurser i [resurs leverantörs läge](../concepts/definition-structure.md#resource-provider-modes) går du till fliken **Resource Compliance (Resource Compliance** ) och markerar resursen eller högerklickar på raden och väljer **Visa kompatibilitetsinformation** öppnar komponenten Kompatibilitetsrapport. På den här sidan finns också flikar för att se de principer som har tilldelats den här resursen, händelser, komponent händelser och ändrings historik.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Diagram över lagrings konton som exponeras för offentliga nätverk i resurs gruppen contoso R G." border="false":::
 

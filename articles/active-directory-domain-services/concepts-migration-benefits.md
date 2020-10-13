@@ -2,20 +2,20 @@
 title: Fördelar med klassisk distributions migrering i Azure AD Domain Services | Microsoft Docs
 description: Läs mer om fördelarna med att migrera en klassisk distribution av Azure Active Directory Domain Services till distributions modellen för Resource Manager
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: iainfou
-ms.openlocfilehash: 93dcc1202c08be905cf08513f38e79a8a7674e01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 35224e6c9a28b1555303c1ae11b6700c1bf419bf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650136"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962504"
 ---
 # <a name="benefits-of-migration-from-the-classic-to-resource-manager-deployment-model-in-azure-active-directory-domain-services"></a>Fördelar med migrering från den klassiska distributions modellen till Resource Manager i Azure Active Directory Domain Services
 

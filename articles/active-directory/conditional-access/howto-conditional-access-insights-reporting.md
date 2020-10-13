@@ -12,17 +12,17 @@ manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3c2364eae0d04da8f8e6fe38ae80db7adb8666ce
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89049425"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Villkorlig åtkomst insikter och rapportering
 
 Med arbets boken för villkorlig åtkomst i insikter och rapporter kan du förstå hur principer för villkorlig åtkomst fungerar i organisationen över tid. Under inloggningen kan en eller flera principer för villkorlig åtkomst tillämpas, bevilja åtkomst om vissa beviljande kontroller är uppfyllda eller nekar åtkomst i övrigt. Eftersom flera principer för villkorlig åtkomst kan utvärderas under varje inloggning kan du använda arbets boken insikter och rapportering för att undersöka effekten av en enskild princip eller en delmängd av alla principer.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill aktivera arbets boken insikter och rapportering måste klienten ha en Log Analytics arbets yta för att behålla inloggnings loggar data. Användare måste ha Azure AD Premium P1-eller P2-licenser för att kunna använda villkorlig åtkomst.
 

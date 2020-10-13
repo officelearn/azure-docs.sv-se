@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 7c429ad04a4c1e881c84c3af9dfa9ee553963917
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 5696bd167010ae81249eeac3134b79d3d5307288
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629802"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943874"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metod tips för Azure drift säkerhet
 Den här artikeln innehåller en uppsättning metod tips för att skydda dina data, program och andra till gångar i Azure.
@@ -116,7 +116,7 @@ De säkra poängen, som baseras på CIS-kontroller (Center for Internet Security
 **Information**: Följ [säkerhets rekommendationerna](../../security-center/security-center-recommendations.md) i Security Center som startar med högst prioritets objekt.
 
 **Bästa praxis**: integrera Security Center aviseringar i din lösning för säkerhets information och händelse hantering (Siem).   
-**Information**: de flesta organisationer med en Siem använder den som en central Clearinghouse för säkerhets aviseringar som kräver en analytikers svar. Bearbetade händelser som genereras av Security Center publiceras i Azure aktivitets loggen, en av loggarna som är tillgängliga via Azure Monitor. Azure Monitor erbjuder en konsol IDE rad pipeline för att vidarebefordra dina övervaknings data till ett SIEM-verktyg. Mer information finns i [Exportera säkerhets aviseringar och rekommendationer](../../security-center/continuous-export.md#configure-siem-integration-via-azure-event-hubs) . Om du använder Azure Sentinel, se [anslut Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Information**: de flesta organisationer med en Siem använder den som en central Clearinghouse för säkerhets aviseringar som kräver en analytikers svar. Bearbetade händelser som genereras av Security Center publiceras i Azure aktivitets loggen, en av loggarna som är tillgängliga via Azure Monitor. Azure Monitor erbjuder en konsol IDE rad pipeline för att vidarebefordra dina övervaknings data till ett SIEM-verktyg. Instruktioner finns i [Stream-aviseringar till en Siem, Soar eller IT Service Management-lösning](../../security-center/export-to-siem.md) . Om du använder Azure Sentinel, se [anslut Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Bästa praxis**: integrera Azure-loggar med din Siem.   
 **Information**: Använd [Azure Monitor för att samla in och exportera data](/azure/azure-monitor/overview#integrate-and-export-data). Den här metoden är viktig för att aktivera undersökningen av säkerhets incidenter och logg kvarhållning online är begränsad. Om du använder Azure Sentinel, se [Anslut data källor](../../sentinel/connect-data-sources.md).

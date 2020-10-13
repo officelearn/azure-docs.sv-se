@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 10/02/2020
 ms.openlocfilehash: 3f243a1a8d4f4b3ee4688ac3942debee5282a9a4
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761931"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Dela och ta emot data från Azure SQL Database och Azure Synapse Analytics
@@ -76,7 +76,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
     |---|---|---|
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som du vill använda för ditt data resurs konto.|
     | Resursgrupp | *test-resurs-grupp* | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
-    | Location | *USA, östra 2* | Välj en region för ditt data resurs konto.
+    | Plats | *USA, östra 2* | Välj en region för ditt data resurs konto.
     | Namn | *datashareaccount* | Ange ett namn för ditt data resurs konto. |
     | | |
 

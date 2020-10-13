@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/02/2019
 ms.author: jeedes
-ms.openlocfilehash: cfa81b52e8479851fc22b12cbc96a9507f0b2dc7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e49fc29f03269096bfc7d6bb6e905187bb8788ff
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551397"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944129"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med nät
 
@@ -102,7 +102,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -138,15 +138,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 4. Klicka på Inställningar för **kontinuerlig säkerhets**  >  **åtkomst hantering**på sidan längst upp till höger på sidan  >  **Authentication Settings**.
 
-    ![Konfiguration av nät](./media/harness-tutorial/configure01.png)
+    ![Skärm bild som visar menyn "kontinuerlig säkerhet" med "åtkomst hantering" och "autentiseringsinställningar" valda.](./media/harness-tutorial/configure01.png)
 
 5. I avsnittet **SSO-providers** klickar du på **+ Lägg till SSO-providers**  >  **SAML**.
 
-    ![Konfiguration av nät](./media/harness-tutorial/configure03.png)
+    ![Skärm bild som visar "S S O-providers" med "+ Add S S O providers-S A M L" vald.](./media/harness-tutorial/configure03.png)
 
 6. Utför följande steg på popup-sidan för **SAML-providern** :
 
-    ![Konfiguration av nät](./media/harness-tutorial/configure02.png)
+    ![Skärm bild som visar "S A M L-Provider" med fälten "U R L" och "visnings namn" markerade och knapparna "Välj fil" och "Skicka" är markerade.](./media/harness-tutorial/configure02.png)
 
     a. Kopiera **i SSO-providern, aktivera SAML-baserad inloggning och ange sedan följande URL-** instans och klistra in den i text rutan svars-URL i avsnittet **grundläggande SAML-konfiguration** på Azure Portal.
 
@@ -166,11 +166,11 @@ Om du vill att Azure AD-användare ska kunna logga in på ett nät, måste de ti
 
 1. Längst upp till höger på sidan klickar du på principer för **kontinuerlig säkerhets**  >  **åtkomst hantering**  >  **Users**.
 
-    ![Konfiguration av nät](./media/harness-tutorial/configure04.png)
+    ![Skärm bild som visar menyn "kontinuerlig säkerhet" med "åtkomst hantering" och "användare" valda.](./media/harness-tutorial/configure04.png)
 
 1. Klicka på **+ Lägg till användare**till höger på sidan.
 
-    ![Konfiguration av nät](./media/harness-tutorial/configure05.png)
+    ![Skärm bild som visar sidan "användare" med åtgärden "+ Lägg till användare" vald.](./media/harness-tutorial/configure05.png)
 
 1. Utför följande steg i popup-fönstret **Lägg till användare** :
 
@@ -192,7 +192,7 @@ När du klickar på panelen nät på åtkomst panelen, bör du loggas in automat
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

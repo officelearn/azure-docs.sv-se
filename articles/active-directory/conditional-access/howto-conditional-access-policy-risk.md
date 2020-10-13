@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a09c4513206bea3462577ecba49b5d77b655b0e0
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91628272"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Villkorlig åtkomst: inloggnings risk baserad villkorlig åtkomst
@@ -35,11 +35,11 @@ Det finns två platser där denna policy kan tilldelas. Organisationer bör väl
 1. Under **Tilldelningar** väljer du **Användare och grupper**.
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
-   1. Välj **Klar**.
+   1. Välj **Done** (Klar).
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **alla molnappar**.
 1. Under **villkor**  >  **inloggnings risk**anger du **Konfigurera** till **Ja**. Under **Välj den inloggnings risk nivå som den här principen ska tillämpas på** 
    1. Välj **hög** och **medel**.
-   1. Välj **Klar**.
+   1. Välj **Done** (Klar).
 1. Under **åtkomst kontroller**  >  **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och väljer **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa för att aktivera principen.
@@ -52,7 +52,7 @@ Det finns två platser där denna policy kan tilldelas. Organisationer bör väl
 1. Under **tilldelningar**väljer **du användare**.
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer du **Välj exkluderade användare**, väljer din organisations nödfalls åtkomst eller rast glass konton och väljer **Välj**.
-   1. Välj **Klar**.
+   1. Välj **Done** (Klar).
 1. Under **villkor**väljer du **inloggnings risk**och väljer sedan **medel och över**.
    1. Välj **Välj**och sedan **Slutför**.
 1. Under **kontroller**  >  **åtkomst**väljer du **Tillåt åtkomst**och väljer sedan **Kräv Multi-Factor Authentication**.

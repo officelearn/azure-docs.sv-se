@@ -4,10 +4,10 @@ description: Läs mer om stöd för utvärdering av virtuella VMware-datorer med
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: f672c90f6056cd735d5ddc8dd96de9e7007999ce
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667800"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Support mat ris för VMware-utvärdering 
@@ -23,7 +23,7 @@ Om du vill migrera virtuella VMware-datorer till Azure läser du [matrisen migra
 **Support** | **Information**
 --- | ---
 **Projekt gränser** | Du kan skapa flera projekt i en Azure-prenumeration.<br/><br/> Du kan identifiera och utvärdera upp till 35 000 virtuella VMware-datorer i ett enda [projekt](migrate-support-matrix.md#azure-migrate-projects). Ett projekt kan även innehålla fysiska servrar och virtuella Hyper-V-datorer, upp till utvärderings gränserna för var och en.
-**Identifikation** | Azure Migrates apparaten kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.
+**Identifiering** | Azure Migrates apparaten kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.
 **Utvärdering** | Du kan lägga till upp till 35 000 datorer i en enda grupp.<br/><br/> Du kan utvärdera upp till 35 000 virtuella datorer i en enda utvärdering.
 
 [Läs mer](concepts-assessment-calculation.md) om utvärderingar.
@@ -67,7 +67,7 @@ Förutom att identifiera datorer kan Server utvärderingen identifiera appar, ro
 **Support** | **Information**
 --- | ---
 **Datorer som stöds** | Identifiering av appar stöds för närvarande endast för virtuella VMware-datorer.
-**Identifikation** | Identifiering av appar är agenten. Den använder autentiseringsuppgifter för maskin-gäst och fjärråtkomst till datorer via WMI och SSH-samtal.
+**Identifiering** | Identifiering av appar är agenten. Den använder autentiseringsuppgifter för maskin-gäst och fjärråtkomst till datorer via WMI och SSH-samtal.
 **Stöd för virtuella datorer** | App-Discovery stöds för virtuella datorer som kör alla Windows-och Linux-versioner.
 **vCenter** | VCenter Server skrivskyddat konto som används för utvärdering måste ha behörighet som är aktiverat för **Virtual Machines**  >  **gäst åtgärder**för att kunna interagera med den virtuella datorn för program identifiering.
 **VM-åtkomst** | Identifiering av appar behöver ett lokalt användar konto på den virtuella datorn för program identifiering.<br/><br/> Azure Migrate har för närvarande stöd för att använda en autentiseringsuppgift för alla Windows-servrar och en autentiseringsuppgift för alla Linux-servrar.<br/><br/> Du skapar ett gäst användar konto för virtuella Windows-datorer och ett vanligt/vanligt användar konto (icke-sudo åtkomst) för alla virtuella Linux-datorer.

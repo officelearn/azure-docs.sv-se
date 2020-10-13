@@ -1,20 +1,20 @@
 ---
 title: Skapa en Azure AD Domain Services resurs skog med Azure PowerShell | Microsoft Docs
 description: I den här artikeln får du lära dig hur du skapar och konfigurerar en Azure Active Directory Domain Services resurs skog och en utgående skog till en lokal Active Directory Domain Services miljö med hjälp av Azure PowerShell.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.author: iainfou
-ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: e914c273adc632449ed31915127fe6d261a8d56c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723171"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960957"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Skapa en Azure Active Directory Domain Services resurs skog och utgående skogs förtroende till en lokal domän med hjälp av Azure PowerShell
 
@@ -105,8 +105,8 @@ Om du vill skapa en resurs skog för en hanterad domän använder du `New-AzureA
     | Namn                         | Skript parameter          | Beskrivning |
     |:-----------------------------|---------------------------|:------------|
     | Prenumeration                 | *– azureSubscriptionId*    | Prenumerations-ID som används för Azure AD DS-fakturering. Du kan hämta listan över prenumerationer med hjälp av cmdleten [Get-AzureRMSubscription][Get-AzureRMSubscription] . |
-    | Resursgrupp               | *-aaddsResourceGroupName* | Namnet på resurs gruppen för den hanterade domänen och de associerade resurserna. |
-    | Location                     | *-aaddsLocation*          | Azure-regionen som är värd för din hanterade domän. För tillgängliga regioner, se [regioner som stöds för Azure AD DS.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
+    | Resource Group               | *-aaddsResourceGroupName* | Namnet på resurs gruppen för den hanterade domänen och de associerade resurserna. |
+    | Plats                     | *-aaddsLocation*          | Azure-regionen som är värd för din hanterade domän. För tillgängliga regioner, se [regioner som stöds för Azure AD DS.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
     | Azure AD DS-administratör    | *-aaddsAdminUser*         | User Principal Name av den första hanterade domän administratören. Det här kontot måste vara ett befintligt moln användar konto i din Azure Active Directory. Användaren, och användaren som kör skriptet, läggs till i *Administratörs gruppen för AAD-domänkontrollanten* . |
     | Namn på Azure AD DS-domän      | *-aaddsDomainName*        | Det fullständiga domän namnet för den hanterade domänen, baserat på den tidigare vägledningen om hur du väljer ett skogs namn. |
 

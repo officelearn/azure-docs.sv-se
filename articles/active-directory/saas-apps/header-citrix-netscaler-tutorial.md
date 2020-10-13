@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 48fedf7f3a73ce7fde60a1df80d971a5d7f88dd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73eb6938f4b43c204ab8bc91217e4828454e222d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88540651"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944238"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>Självstudie: Azure Active Directory enkel inloggning med Citrix NetScaler (huvud-baserad autentisering)
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera Citrix NetScaler med Az
 
 Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -117,7 +117,7 @@ Slutför de här stegen för att aktivera Azure AD SSO med hjälp av Azure Porta
 
 1. Citrix NetScaler-programmet förväntar sig också några fler attribut som ska skickas tillbaka i SAML-svaret. I dialog rutan **användarattribut** under **användar anspråk**utför du följande steg för att lägga till SAML-token-attributen som visas i tabellen:
 
-    | Name | Källattribut|
+    | Namn | Källattribut|
     | ---------------| --------------- |
     | mySecretID  | user.userprincipalname |
     
@@ -392,7 +392,7 @@ Så här binder du en omskrivnings princip till en virtuell server med hjälp av
 
 1. I fönstret **belastnings utjämning virtuell server** under **Avancerade inställningar**väljer du **principer**. Alla principer som har kon figurer ATS för NetScaler-instansen visas i listan.
  
-    ![Citrix NetScaler-konfiguration – fönster för virtuell server med belastnings utjämning](./media/header-citrix-netscaler-tutorial/header05.png)
+    ![Skärm bild som visar fliken "konfiguration" med fälten "namn", "åtgärd" och "uttryck" markerade och knappen "skapa" markerat.](./media/header-citrix-netscaler-tutorial/header05.png)
 
     ![Citrix NetScaler-konfiguration – fönster för virtuell server med belastnings utjämning](./media/header-citrix-netscaler-tutorial/header06.png)
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 390a8a49e9a47ee5e6845d85fe4fe02f514708e8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362205"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Hur fungerar Hyper-V-replikering?
@@ -80,7 +80,7 @@ I
 Om du har reserv bandbredd för replikering och vill öka uppladdningar kan du öka antalet trådar som har allokerats för uppladdnings uppgiften enligt följande:
 
 1. Öppna registret med regedit.
-2. Navigera till Key HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
+2. Navigera till nyckel HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
 3. Öka värdet för antalet trådar som används för data uppladdning för varje replikerad virtuell dator. Standardvärdet är 4 och det högsta värdet är 32. 
 
 

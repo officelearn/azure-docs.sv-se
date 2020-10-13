@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.openlocfilehash: 2679d24a9e8c821dae73114f32adbeb3d22a1458
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708908"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Så här skapar du ett SaaS-erbjudande på den kommersiella Marketplace
@@ -49,8 +49,8 @@ På fliken **erbjudande konfiguration** , under **installations information**, v
 1. Om du vill sälja via Microsoft och få oss att förenkla transaktionerna väljer du **Ja**. Fortsätt att [Aktivera en testen het](#enable-a-test-drive-optional).
 
 1. Om du vill visa ditt erbjudande via de kommersiella marknads marknads platser och bearbeta transaktioner oberoende av varandra väljer du **Nej**och gör sedan något av följande:
-   + Om du vill tillhandahålla en kostnads fri prenumeration för ditt erbjudande väljer du **Hämta nu (kostnads fri)**. I rutan **erbjudande-URL** som visas anger du URL: en (från och med *http* eller *https*) där kunderna kan få en utvärderings version genom att [använda Azure Active Directory (Azure AD)](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). Till exempel `https://contoso.com/saas-app`.
-   + Om du vill tillhandahålla en 30-dagars kostnads fri utvärderings version väljer du den **kostnads fria utvärderings**versionen. i rutan **utvärderings-URL** som visas anger du URL (från och med *http* eller *https*) där kunder kan komma åt din kostnads fria utvärderings version genom att [använda Azure Active Directory (Azure AD)](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). Till exempel `https://contoso.com/trial/saas-app`.
+   + Om du vill tillhandahålla en kostnads fri prenumeration för ditt erbjudande väljer du **Hämta nu (kostnads fri)**. I rutan **erbjudande-URL** som visas anger du URL: en (från och med *http* eller *https*) där kunderna kan få en utvärderings version genom att [använda Azure Active Directory (Azure AD)](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). Exempelvis `https://contoso.com/saas-app`.
+   + Om du vill tillhandahålla en 30-dagars kostnads fri utvärderings version väljer du den **kostnads fria utvärderings**versionen. i rutan **utvärderings-URL** som visas anger du URL (från och med *http* eller *https*) där kunder kan komma åt din kostnads fria utvärderings version genom att [använda Azure Active Directory (Azure AD)](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). Exempelvis `https://contoso.com/trial/saas-app`.
    + Om du vill få potentiella kunder att kontakta dig för att köpa ditt erbjudande väljer du **kontakta mig**.
 
 ### <a name="enable-a-test-drive-optional"></a>Aktivera en testen het (valfritt)
@@ -64,7 +64,7 @@ En testen het är ett bra sätt att presentera ditt erbjudande för potentiella 
 1.  Under **test enhet**markerar du kryss rutan **Aktivera en testenhet** .
 1.  Välj typen av test enhet i listan som visas.
 
-### <a name="configure-lead-management"></a>Konfigurera hantering av lead
+### <a name="configure-lead-management"></a>Konfigurera hantering av leads
 
 Anslut ditt CRM-system (Customer Relations hip Management) till ditt kommersiella Marketplace-erbjudande så att du kan ta emot kund kontakt information när en kund uttrycker intresse eller distribuerar din produkt. Du kan när som helst ändra den här anslutningen under eller efter att du har skapat erbjudandet.
 

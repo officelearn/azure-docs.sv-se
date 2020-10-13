@@ -8,10 +8,10 @@ ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
 ms.openlocfilehash: 53ce3764d074388213a3a4be08502b09743e28cb
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91827614"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetri korrelation i Application Insights
@@ -62,7 +62,7 @@ Application Insights övergår till [W3C-spårnings kontext](https://w3c.github.
 - `traceparent`: Utför det globalt unika åtgärds-ID: t och den unika identifieraren för anropet.
 - `tracestate`: Utför systemdefinierad spårnings kontext.
 
-Den senaste versionen av Application Insights SDK stöder spårnings kontext protokollet, men du kan behöva välja att göra det. (Bakåtkompatibilitet med det tidigare korrelations protokoll som stöds av Application Insights SDK kommer att behållas.)
+Den senaste versionen av Application Insights SDK stöder Trace-Context-protokollet, men du kan behöva välja att göra det. (Bakåtkompatibilitet med det tidigare korrelations protokoll som stöds av Application Insights SDK kommer att behållas.)
 
 [Korrelations-http-protokollet, som även kallas Request-ID](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md), är inaktuellt. Det här protokollet definierar två huvuden:
 
@@ -84,7 +84,7 @@ Mer information finns i [Application Insights telemetri data Model](../../azure-
 
 ### <a name="enable-w3c-distributed-tracing-support-for-net-apps"></a>Aktivera stöd för distribuerad W3C-spårning för .NET-appar
 
-W3C spåra tracecontext-baserad distribuerad spårning är aktiverat som standard i alla senaste .NET Framework/. NET Core-SDK: er, tillsammans med bakåtkompatibilitet med äldre begärande-ID-protokoll.
+W3C spåra tracecontext-baserad distribuerad spårning är aktiverat som standard i alla senaste .NET Framework/. NET Core-SDK: er, tillsammans med bakåtkompatibilitet med äldre Request-Id protokoll.
 
 ### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Aktivera stöd för distribuerad W3C-spårning för Java-appar
 
@@ -170,7 +170,7 @@ Som referens kan du hitta data modellen openräkning [här](https://github.com/c
 
 ### <a name="incoming-request-correlation"></a>Inkommande begäran-korrelation
 
-Openräkning python korrelerar W3C spårnings kontext rubriker från inkommande begär anden till de intervall som genereras från själva begärandena. Openräkning sker automatiskt med integreringar för dessa populära ramverk för webb program: kolv, Django och Pyramid. Du behöver bara fylla i W3C trace-context-huvudena med [rätt format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) och skicka dem med begäran. Här är ett exempel på en vattenkolv som demonstrerar detta:
+Openräkning python korrelerar W3C Trace-Context huvuden från inkommande begär anden till de intervall som genereras från själva begärandena. Openräkning sker automatiskt med integreringar för dessa populära ramverk för webb program: kolv, Django och Pyramid. Du behöver bara fylla i W3C Trace-Context-huvudena med [rätt format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) och skicka dem med begäran. Här är ett exempel på en vattenkolv som demonstrerar detta:
 
 ```python
 from flask import Flask

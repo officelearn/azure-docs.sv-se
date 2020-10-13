@@ -14,10 +14,10 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 7cc28aef76158f039f1174fc76d0ed29e8f67aea
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565147"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automatisk säkerhets kopiering v2 för Azure Virtual Machines (Resource Manager)
@@ -31,7 +31,7 @@ Automatisk säkerhets kopiering v2 konfigurerar automatiskt [hanterad säkerhets
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill använda automatisk säkerhets kopiering v2 granskar du följande krav:
 
 **Operativ system**:
@@ -310,7 +310,7 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 Om du vill övervaka automatisk säkerhets kopiering på SQL Server 2016/2017 har du två huvud alternativ. Eftersom den automatiska säkerhets kopieringen använder funktionen SQL Server hanterad säkerhets kopiering, gäller samma övervaknings tekniker för båda.
 
-Först kan du söka efter statusen genom att anropa [msdb. managed_backup. sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Eller så frågar du tabell värdes funktionen [msdb. managed_backup. fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) .
+Först kan du söka efter statusen genom att anropa [msdb. managed_backup. sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Eller en fråga av tabell värdes funktionen [msdb. managed_backup. fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) .
 
 Ett annat alternativ är att dra nytta av den inbyggda Database Mail funktionen för meddelanden.
 

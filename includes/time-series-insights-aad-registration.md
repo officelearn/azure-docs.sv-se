@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 ms.topic: include
 ms.custom: include file
 services: time-series-insights
@@ -10,10 +10,10 @@ ms.author: dpalled
 manager: cshankar
 ms.date: 10/02/2020
 ms.openlocfilehash: 7de4dc21391f7dbd817c56ce51606a808cf9e3c4
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665827"
 ---
 1. I [Azure Portal](https://ms.portal.azure.com/)väljer du **Azure Active Directory**  >  **Appregistreringar**  >  **ny registrering**.
@@ -47,7 +47,7 @@ ms.locfileid: "91665827"
     1. **Omdirigerings-URI: er** måste matcha adressen som anges av autentiseringsbegäran:
 
         * För appar som finns i en lokal utvecklings miljö väljer du **offentlig klient (mobil & Desktop)**. Se till att ange en **offentlig klient** till **Ja**.
-        * För appar på en sida som finns på Azure App Service väljer du **webb**.
+        * För Single-Page appar som finns på Azure App Service väljer du **webb**.
 
     1. Avgör om en **utloggnings-URL** är lämplig.
 

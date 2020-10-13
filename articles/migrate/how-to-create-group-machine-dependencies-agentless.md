@@ -4,10 +4,10 @@ description: Konfigurera en agent lös beroende analys i Azure Migrate Server be
 ms.topic: how-to
 ms.date: 6/08/2020
 ms.openlocfilehash: 57e5add810cf4fac232bce08fc7ca96df0a7c3a0
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667477"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analysera datorberoenden (agentlösa)
@@ -144,7 +144,7 @@ Ladda ned PowerShell-modulen från [Azure PowerShell samples](https://github.com
 
 ### <a name="log-in-to-azure"></a>Logga in på Azure
 
-1. Logga in på Azure-prenumerationen med hjälp av cmdleten Connect-AzAccount.
+1. Logga in på Azure-prenumerationen med hjälp av Connect-AzAccount cmdlet.
 
     ```PowerShell
     Connect-AzAccount
@@ -197,7 +197,7 @@ Azure Migrate erbjuder en Power BI mall som du kan använda för att visualisera
 1. Ladda ned PowerShell-modulen och Power BI mal len från [Azure PowerShell samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) lagrings platsen på GitHub.
 
 2. Logga in på Azure med hjälp av anvisningarna nedan: 
-- Logga in på Azure-prenumerationen med hjälp av cmdleten Connect-AzAccount.
+- Logga in på Azure-prenumerationen med hjälp av Connect-AzAccount cmdlet.
 
     ```PowerShell
     Connect-AzAccount

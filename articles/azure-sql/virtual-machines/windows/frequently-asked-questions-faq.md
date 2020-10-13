@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.openlocfilehash: e1d1ffbf198a4e4c2574f93919ef98e36a90004a
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567000"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Vanliga frågor och svar om SQL Server på virtuella Azure-datorer
@@ -56,7 +56,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Hur gör jag för att generalisera SQL Server på den virtuella Azure-datorn och Använd den för att distribuera nya virtuella datorer?**
 
-   Du kan distribuera en virtuell Windows Server-dator (utan SQL Server installerad) och använda [SQL Sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep) -processen för att generalisera SQL Server på virtuell Azure-dator (Windows) med installations mediet för SQL Server. Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) kan hämta sina installations medier från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installations mediet från en Azure Marketplace SQL Server VM-avbildning som har önskad utgåva.
+   Du kan distribuera en virtuell Windows Server-dator (utan SQL Server installerad) och använda [SQL Sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep) -processen för att generalisera SQL Server på virtuell Azure-dator (Windows) med installations mediet för SQL Server. Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) kan hämta installationsmedia från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installations mediet från en Azure Marketplace SQL Server VM-avbildning som har önskad utgåva.
 
    Du kan också använda en av SQL Server-avbildningarna från Azure Marketplace för att generalisera SQL Server på virtuell Azure-dator. Observera att du måste ta bort följande register nyckel i käll avbildningen innan du skapar en egen avbildning. Om du inte gör det kan det leda till att bloating i installations programmet för SQL Server installationen och/eller SQL IaaS-tillägget är i felaktigt tillstånd.
 
@@ -202,7 +202,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Var kan jag få installationsmedia för att ändra utgåva eller version av SQL Server?**
 
-   Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) kan hämta sina installations medier från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installations mediet från en Azure Marketplace SQL Server VM-avbildning som har önskad utgåva.
+   Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) kan hämta installationsmedia från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installations mediet från en Azure Marketplace SQL Server VM-avbildning som har önskad utgåva.
    
 1. **Hur tillämpas uppdateringar och servicepack på en SQL Server VM?**
 

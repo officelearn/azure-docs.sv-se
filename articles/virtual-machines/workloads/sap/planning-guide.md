@@ -12,10 +12,10 @@ ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8884711bbb32054ca1d8e4d9f9e7dee753f0c629
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361933"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planera och implementera SAP-NetWeaver
@@ -620,7 +620,7 @@ Bilden ovan visar två Azure-prenumerationer som har reserverade IP-adresser fö
 
 Punkt-till-plats-VPN kräver att varje klient dator ansluter med sin egen VPN till Azure. För SAP-scenarier tittar vi på, punkt-till-plats-anslutning är inte praktiskt. Därför ges inga ytterligare referenser till punkt-till-plats-VPN-anslutning.
 
-Mer information hittar du här
+Mer information finns här
 * [Konfigurera en punkt-till-plats-anslutning till ett VNet med Azure Portal](../../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 * [Konfigurera en punkt-till-plats-anslutning till ett VNet med hjälp av PowerShell](../../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
@@ -963,7 +963,7 @@ Under hämtningen kan de virtuella hård diskarna eller Managed Disks inte vara 
   Save-AzVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.windows.net/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
   ```
 
-  Mer information om cmdlet: en Save-AzVhd finns här <https://docs.microsoft.com/powershell/module/az.compute/save-Azvhd> .
+  Om du vill ha mer information om Save-AzVhd-cmdleten markerar du här <https://docs.microsoft.com/powershell/module/az.compute/save-Azvhd> .
 
 #### <a name="azure-cli"></a>Azure CLI
 * Hämta en hanterad disk du först behöver för att få åtkomst till den underliggande blobben för den hanterade disken. Sedan kan du kopiera den underliggande blobben till ett nytt lagrings konto och ladda ned blobben från det här lagrings kontot.
@@ -1168,7 +1168,7 @@ Erfarenhet av SAP-distributioner under de senaste två åren är några lektione
 >
 
 ---
-* Premium Storage visar betydande bättre prestanda, särskilt för viktiga skrivningar i transaktions loggen. För SAP-scenarier som förväntas leverera produktion som prestanda rekommenderar vi starkt att du använder VM-serien som kan utnyttja Azure Premium Storage.
+* Premium Storage visar betydande bättre prestanda, särskilt för viktiga skrivningar i transaktions loggen. För SAP-scenarier som förväntas leverera produktion som prestanda rekommenderar vi starkt att du använder VM-Series som kan utnyttja Azure Premium Storage.
 
 Tänk på att disken som innehåller operativ systemet, och som vi rekommenderar, binärfilerna för SAP och databasen (bas-VM) också inte längre är begränsad till 127 GB. Det kan nu ha upp till 1 TB storlek. Detta bör vara tillräckligt med utrymme för att behålla all nödvändig fil, inklusive t. ex. SAP batch job-loggar.
 
@@ -1219,7 +1219,7 @@ Azure geo-replikering fungerar lokalt på varje virtuell hård disk i en virtuel
 >
 > Information om hur du ställer in den här monterings kontrollen finns i dokumentationen för den körbara kommando raden diskpart.exe här:
 >
-> * [Kommando rads alternativ för DiskPart](/previous-versions/windows/it-pro/windows-xp/bb490893(v=technet.10))
+> * [DiskPart Command-Line alternativ](/previous-versions/windows/it-pro/windows-xp/bb490893(v=technet.10))
 > * [Automount](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc753703(v=ws.11))
 >
 > Windows kommando rads fönster bör öppnas som administratör.
@@ -1738,7 +1738,7 @@ Den övergripande arkitekturen för Azure-tillägget för SAP ser ut så här:
 
 SAP-instanser som körs i Azure måste också vara tillgängliga från SAProuter.
 
-![SAP-router nätverks anslutning][planning-guide-figure-2600]
+![SAP-Router nätverks anslutning][planning-guide-figure-2600]
 
 En SAProuter aktiverar TCP/IP-kommunikationen mellan deltagande system om det inte finns någon direkt IP-anslutning. Detta ger fördelen att ingen anslutning från slut punkt till slut punkt mellan kommunikations partners är nödvändig på nätverks nivå. SAProuter lyssnar på port 3299 som standard.
 Om du vill ansluta SAP-instanser via en SAProuter måste du ge SAProuter-strängen och värd namnet med alla försök att ansluta.
@@ -1936,7 +1936,7 @@ Se ytterligare information om Autostart för SAP-instanser här:
 * [Så här aktiverar du automatisk start av HANA-databas](http://sapbasisinfo.com/blog/2016/08/15/enabling-autostart-of-sap-hana-database-on-server-boot-situation/)
 
 ### <a name="larger-3-tier-sap-systems"></a>Större SAP-system på 3 nivåer
-Hög tillgänglighets aspekter av SAP-konfigurationer på tre nivåer beskrivs redan i tidigare avsnitt. Men vad händer om system där DBMS-serverns krav är för stort för att det ska finnas i Azure, men SAP-programlagret kan distribueras till Azure?
+High-Availability aspekter av SAP-konfigurationer på tre nivåer beskrivs redan i tidigare avsnitt. Men vad händer om system där DBMS-serverns krav är för stort för att det ska finnas i Azure, men SAP-programlagret kan distribueras till Azure?
 
 #### <a name="location-of-3-tier-sap-configurations"></a>Plats för SAP-konfigurationer på 3 nivåer
 Det finns inte stöd för att dela upp själva program nivån eller program-och DBMS-nivån mellan lokalt och Azure. Ett SAP-system är antingen fullständigt distribuerat lokalt eller i Azure. Det finns inte heller stöd för att vissa program servrar ska köras lokalt och andra i Azure. Det är diskussionens start punkt. Vi stöder inte heller att DBMS-komponenterna i ett SAP-system och SAP-program Server-lagret distribueras i två olika Azure-regioner. Till exempel DBMS i västra USA och SAP-program skikt i Central USA. Anledningen till att inte stödja sådana konfigurationer är fördröjnings känsligheten för SAP NetWeaver-arkitekturen.

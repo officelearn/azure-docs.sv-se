@@ -14,10 +14,10 @@ ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: b83a44db98907f505c7bf0d8302470cf3031a967
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761268"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrera flera virtuella SQL-datorer i Azure med providern för SQL VM-resurs
@@ -35,7 +35,7 @@ Registrerings processen har ingen risk, har ingen stillestånds tid och kommer i
 
 Mer information om resurs leverantören finns i [SQL VM Resource Provider](sql-vm-resource-provider-register.md). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att kunna registrera SQL Server VM med resurs leverantören: 
 

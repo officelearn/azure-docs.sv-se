@@ -12,10 +12,10 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
 ms.openlocfilehash: b97d36a5773eeb82a60330d0398ea19232f72b1e
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613721"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklings miljö för Azure Machine Learning
@@ -122,7 +122,7 @@ När du kör en lokal Jupyter Notebook server rekommenderar vi att du skapar en 
 
 Se [Azure Machine Learning Notebooks-lagringsplatsen](https://github.com/Azure/MachineLearningNotebooks) för att komma igång med Azure Machine Learning-och Jupyter-anteckningsböcker.
 
-### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio-kod
+### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio-koden
 
 Så här använder du Visual Studio Code för utveckling:
 

@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5361931328ed107c7cc130b633a40b1582828aa1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ebed70a99e8e906db802099e052e69ab2575d737
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90024151"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875043"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Snabb start: skapa en Azure Notification Hub med Azure CLI
 
@@ -32,17 +32,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
-> Notification Hubs kräver version 2.0.67 eller senare av Azure CLI. Kör `az --version` för att se vilken version och vilka beroende bibliotek som är installerade. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
-
-## <a name="install-the-azure-cli-extension"></a>Installera Azure CLI-tillägget
-
-När du arbetar med tilläggsreferenser för Azure CLI måste du först installera tillägget. Azure CLI-tillägg ger dig till gång till experiment-och för hands versions kommandon som inte har levererats som en del av kärn-CLI. Läs mer om tillägg, bland annat hur du uppdaterar och avinstallerar dem, i [Använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
-
-Installera Azure CLI-tillägget för Notification Hubs.
-
-```azurecli
-az extension add --name notification-hub
-```
+> Notification Hubs kräver version 2.0.67 eller senare av Azure CLI. Kör [AZ-versionen](/cli/azure/reference-index?#az_version) för att hitta den version och beroende bibliotek som är installerade. Uppgradera till den senaste versionen genom att köra [AZ Upgrade](/cli/azure/reference-index?#az_upgrade).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

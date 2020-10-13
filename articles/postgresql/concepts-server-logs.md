@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.openlocfilehash: 8d249cdabcbfd82fc555c486f29bbdba200e1da1
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710506"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Loggar i Azure Database for PostgreSQL-enskild server
@@ -115,7 +115,7 @@ I följande tabell beskrivs fälten för **PostgreSQLLogs** -typen. Beroende på
 | Nivå | Loggnings nivå, exempel: logg, fel, meddelande |
 | Meddelande | Primärt logg meddelande | 
 | Domän | Server version, exempel: postgres-10 |
-| Detalj | Sekundärt logg meddelande (om tillämpligt) |
+| Information | Sekundärt logg meddelande (om tillämpligt) |
 | ColumnName | Namnet på kolumnen (om tillämpligt) |
 | SchemaName | Schemats namn (om tillämpligt) |
 | DatatypeName | Namnet på data typen (om tillämpligt) |

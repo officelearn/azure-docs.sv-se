@@ -8,26 +8,26 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 1ccbe6cb332f357eeef02dff22b8a4be328b8de0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 53887b7487c3f0bb70c9f8cc7cd61246fabc0b37
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324237"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970137"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Skapa anpassade SDK: er för Azure Digitals dubbla med AutoRest
 
 Just nu är de enda publicerade data Plans SDK: erna för att interagera med Azures digitala dubbla API: er för .NET (C#), Java Script och Java. Du kan läsa om dessa SDK: er och API: erna i allmänhet i [*How-to: använda Azure Digitals dubbla API: er och SDK: er*](how-to-use-apis-sdks.md). Om du arbetar på ett annat språk visar den här artikeln hur du skapar ett eget data plan SDK på det språk som du väljer med hjälp av AutoRest.
 
 >[!NOTE]
-> Du kan också använda AutoRest för att generera ett Control plan SDK om du vill. Det gör du genom att följa anvisningarna i den här artikeln med hjälp av [openapi-filen (Control plan Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) i stället för data planet en.
+> Du kan också använda AutoRest för att generera ett Control plan SDK om du vill. Det gör du genom att följa anvisningarna i den här artikeln med hjälp av den senaste **kontroll Plans Swagger** (openapi) från [Control plan Swagger Folder]] ( https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) i stället för data planet en.
 
 ## <a name="set-up-your-machine"></a>Konfigurera din dator
 
 Om du vill generera ett SDK behöver du:
 * [AutoRest](https://github.com/Azure/autorest), version 2.0.4413 (version 3 stöds inte för närvarande)
 * [Node.js](https://nodejs.org) som ett krav för AutoRest
-* Azure Digitals [Swagger-fil (data Plans-openapi)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2020-05-31-preview) som är berättigad *digitaltwins.jspå*, och dess tillhör ande mapp med exempel. Hämta Swagger-filen och dess mapp med exempel till den lokala datorn.
+* Den senaste Azure Digital- **dataplans Swagger** -filen (openapi) från [Dataplans Swagger-mappen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)och dess medföljande mapp med exempel.  Hämta filen Swagger *digitaltwins.jspå* och dess mapp med exempel till din lokala dator.
 
 När datorn är utrustad med allt från listan ovan är du redo att använda AutoRest för att skapa SDK: n.
 
@@ -57,7 +57,7 @@ Du kan inkludera de filer som genereras av AutoRest direkt i en .NET-lösning. D
 
 Det här avsnittet innehåller anvisningar om hur du skapar SDK som ett klass bibliotek, vilket är ett eget projekt och kan ingå i andra projekt. De här stegen är beroende av **Visual Studio** (du kan installera den senaste versionen [härifrån).](https://visualstudio.microsoft.com/downloads/)
 
-Här är stegen:
+Gör så här:
 
 1. Skapa en ny Visual Studio-lösning för ett klass bibliotek
 2. Använd *ADTApi* som projekt namn

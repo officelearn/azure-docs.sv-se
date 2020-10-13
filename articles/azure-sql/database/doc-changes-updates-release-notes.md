@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3950cc16cd8661ee4e509cf14d12f561cb29c4ea
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88236581"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940713"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Vad är nytt i Azure SQL Database & SQL-hanterad instans?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -72,7 +72,7 @@ Den här tabellen ger en snabb jämförelse mellan ändringen i terminologin:
 
 ---
 
-## <a name="sql-managed-instance-new-features-and-known-issues"></a>SQL-hanterad instans nya funktioner och kända problem
+## <a name="new-features"></a>Nya funktioner
 
 ### <a name="sql-managed-instance-h2-2019-updates"></a>SQL-hanterad instans H2 2019 uppdateringar
 
@@ -93,10 +93,11 @@ Följande funktioner är aktiverade i distributions modellen SQL-hanterad instan
   - Den nya inbyggda [rollen instans deltagar roll](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) möjliggör separering av tull (SOD) efterlevnad av säkerhets principer och efterlevnad av företags standarder.
   - SQL-hanterad instans finns i följande Azure Government regioner till GA (US Gov, Texas, US Gov, Arizona) och i Kina, norra 2 och Kina, östra 2. Den är också tillgänglig i följande offentliga regioner: Australien, centrala, Australien, centrala, södra Frankrike, södra Förenade Arabemiraten Central, Förenade Arabemiraten Nord, Sydafrika, norra, södra Afrika, västra.
 
-### <a name="known-issues"></a>Kända problem
+## <a name="known-issues"></a>Kända problem
 
 |Problem  |Datum identifierat  |Status  |Åtgärds datum  |
 |---------|---------|---------|---------|
+|[Bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) i Azure SQL och `BACKUP` / `RESTORE` instruktionen i en hanterad instans kan inte använda Azure AD-hantera identitet för att autentisera till Azure Storage|Sep 2020|Har en lösning||
 |[Tjänstens huvud namn kan inte komma åt Azure AD och AKV](#service-principal-cannot-access-azure-ad-and-akv)|Aug 2020|Har en lösning||
 |[Återställning av manuell säkerhets kopiering utan kontroll summa kan Miss kopie ras](#restoring-manual-backup-without-checksum-might-fail)|Maj 2020|Matchat|Juni 2020|
 |[Agenten slutar svara vid ändring, inaktive ring eller aktivering av befintliga jobb](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maj 2020|Matchat|Juni 2020|
@@ -124,6 +125,21 @@ Följande funktioner är aktiverade i distributions modellen SQL-hanterad instan
 |Det går inte att återställa punkt-i-tid från Affärskritisk nivå till Generell användning nivå om käll databasen innehåller minnesbaserade OLTP-objekt.||Matchat|Okt 2019|
 |Funktionen Database mail med externa (icke-Azure) e-postservrar som använder säker anslutning||Matchat|Okt 2019|
 |Inneslutna databaser stöds inte i SQL-hanterad instans||Matchat|Aug 2019|
+
+### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>BULK INSERT-och BACKUP/Restore-instruktioner kan inte använda hanterad identitet för att komma åt Azure Storage
+
+Bulk INSERT-instruktionen kan inte använda `DATABASE SCOPED CREDENTIAL` med hanterad identitet för att autentisera till Azure Storage. Som en lösning kan du växla till autentisering med delad åtkomst-signatur. Följande exempel fungerar inte på Azure SQL (både databasen och den hanterade instansen):
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
+GO
+CREATE EXTERNAL DATA SOURCE MyAzureBlobStorage
+  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/curriculum', CREDENTIAL= msi_cred );
+GO
+BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
+```
+
+**Lösning**: Använd [signaturen för delad åtkomst för att autentisera till lagring](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>Tjänstens huvud namn kan inte komma åt Azure AD och AKV
 

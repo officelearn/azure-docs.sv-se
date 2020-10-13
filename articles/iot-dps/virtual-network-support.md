@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
 ms.openlocfilehash: 43d7b3ae906909312a9e9ec4517061a788267a0c
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91612786"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Stöd för Azure IoT Hub Device Provisioning Service (DPS) för virtuella nätverk
@@ -77,7 +77,7 @@ Följ dessa steg om du vill konfigurera en privat slut punkt:
 
     ![Grunderna om att skapa privata slut punkter](./media/virtual-network-support/create-private-endpoint-basics.png)
 
-    | Fält | Värde |
+    | Field | Värde |
     | :---- | :-----|
     | **Prenumeration** | Välj önskad Azure-prenumeration som ska innehålla den privata slut punkten.  |
     | **Resursgrupp** | Välj eller skapa en resurs grupp som innehåller den privata slut punkten |
@@ -90,7 +90,7 @@ Följ dessa steg om du vill konfigurera en privat slut punkt:
 
     ![Skapa privat slut punkts resurs](./media/virtual-network-support/create-private-endpoint-resource.png)
 
-    | Fält | Värde |
+    | Field | Värde |
     | :---- | :-----|
     | **Prenumeration**        | Välj den Azure-prenumeration som innehåller den DPS-resurs som din privata slut punkt ska peka på.  |
     | **Resurstyp**       | Välj **Microsoft. Devices/ProvisioningServices**. |
@@ -125,7 +125,7 @@ Du kan begära en privat slut punkt till en DPS-resurs per resurs-ID. För att k
 
 2. När du har resurs-ID följer du stegen ovan i [Konfigurera en privat slut punkt](#set-up-a-private-endpoint) till steg 3 på resurs sidan _skapa en privat slut punkt_ . Klicka på **Anslut till en Azure-resurs efter resurs-ID eller alias** och ange informationen i följande tabell. 
 
-    | Fält | Värde |
+    | Field | Värde |
     | :---- | :-----|
     | **Resurs-ID eller alias** | Ange resurs-ID för DPS-resursen. |
     | **Målunderresurs** | Ange **iotDps** |

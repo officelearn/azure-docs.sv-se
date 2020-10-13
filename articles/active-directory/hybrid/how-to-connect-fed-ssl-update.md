@@ -17,10 +17,10 @@ ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 451b50e70b98849dfc4654566d09a5a961abe451
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279915"
 ---
 # <a name="update-the-tlsssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Uppdatera TLS/SSL-certifikatet för en Active Directory Federation Services (AD FS)-grupp (AD FS)
@@ -36,7 +36,7 @@ Du kan utföra hela driften av att uppdatera TLS/SSL-certifikat för AD FS serve
 >[!NOTE]
 >Om du vill veta mer om certifikat som används av AD FS, se [förstå certifikat som används av AD FS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730660(v=ws.11)).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **AD FS server grupp**: kontrol lera att AD FS server gruppen är Windows Server 2012 R2-baserad eller senare.
 * **Azure AD Connect**: kontrol lera att versionen av Azure AD Connect är 1.1.553.0 eller högre. Du använder aktiviteten **uppdatera AD FS SSL-certifikat**.

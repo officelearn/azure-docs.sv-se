@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
 ms.openlocfilehash: 46749015d5141053eaea3f2f251bbba7d9455481
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91709025"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
@@ -196,7 +196,7 @@ Ange en kort beskrivning av ditt erbjudande, som visas i Sök resultaten för Az
 
 Ange en längre Beskrivning av ditt erbjudande, som visas i Sök resultaten för Azure Marketplace. Det kan innehålla upp till 256 tecken.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -541,7 +541,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 4. Villkor
 5. Sekretess policy adress (länk)
 6. Erbjudandets namn
-7. Description
+7. Beskrivning
 8. Användbara länkar
 9. Skärm bilder/videor
 

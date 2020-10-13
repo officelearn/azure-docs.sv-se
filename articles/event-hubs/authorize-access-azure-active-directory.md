@@ -4,10 +4,10 @@ description: Den här artikeln innehåller information om hur du auktoriserar å
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 48d2bc1aa3389459077bb7b8df0ac63ce1e1a438
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91566269"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Ge åtkomst till Event Hubs resurser med Azure Active Directory

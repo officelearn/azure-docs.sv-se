@@ -6,17 +6,17 @@ ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 09/10/2020
 ms.openlocfilehash: 196be1caf91b6f1f1731d7c4afbfe72482c8f2ac
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90894541"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Arbets yta-baserade Application Insights resurser
 
 Arbets ytans resurser stöder fullständig integrering mellan Application Insights och Log Analytics. Nu kan du välja att skicka din Application Insights telemetri till en gemensam Log Analytics arbets yta, vilket ger dig fullständig åtkomst till alla funktioner i Log Analytics samtidigt som du behåller program-, infrastruktur-och plattforms loggar på en enda konsol IDE rad plats.
 
-Detta möjliggör även för vanliga rollbaserade Access Control (RBAC) i dina resurser och eliminerar behovet av frågor över flera appar/arbets ytor.
+Detta möjliggör även vanliga Role-Based Access Control (RBAC) i dina resurser och eliminerar behovet av frågor över flera appar/arbets ytor.
 
 > [!NOTE]
 > Data inmatning och kvarhållning för arbets ytans baserade Application Insights resurser faktureras via arbets ytan Log Analytics där data finns. [Läs mer]( ./pricing.md#workspace-based-application-insights) om fakturering för arbets ytans baserade Application Insights-resurser.

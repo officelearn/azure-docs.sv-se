@@ -4,7 +4,7 @@
   items:
     - name: Vad är ExpressRoute?
       href: expressroute-introduction.md
-- name: Snabbstart
+- name: Snabbstarter
   items:
     - name: Skapa en ExpressRoute-krets – portalen
       href: expressroute-howto-circuit-portal-resource-manager.md

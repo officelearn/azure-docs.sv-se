@@ -7,10 +7,10 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.openlocfilehash: 0a632e8c57ab57869e4454b0d6a4018de6bd5548
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613772"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg med anslutningsprogrammet för hantering av IT-tjänster (ITSM)
@@ -186,7 +186,7 @@ ServiceDeskWorkItemType_s = "incident"
 
 - ServiceDeskConnectionName
 - Service Desk-ID
-- Stat
+- Tillstånd
 - Angelägenhetsgrad
 - Påverkan
 - Prioritet
@@ -220,7 +220,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 - Rubrik
 - Typ
 - Kategori
-- Stat
+- Tillstånd
 - Eskalering
 - Konflikt status
 - Angelägenhetsgrad
@@ -243,8 +243,8 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 
 | Log Analytics fält | ServiceNow-fält |
 |:--- |:--- |
-| ServiceDeskId_s| Tal |
-| IncidentState_s | Stat |
+| ServiceDeskId_s| Antal |
+| IncidentState_s | Tillstånd |
 | Urgency_s |Angelägenhetsgrad |
 | Impact_s |Påverkan|
 | Priority_s | Prioritet |
@@ -255,7 +255,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 | AssignedTo_s | Tilldelad  |
 | Category_s | Kategori |
 | Title_s|  Kort beskrivning |
-| Description_s|  Kommentarer |
+| Description_s|  Obs! |
 | CreatedDate_t|  Inleddes |
 | ClosedDate_t| stängd|
 | ResolvedDate_t|Matchat|
@@ -265,14 +265,14 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 
 | Log Analytics | ServiceNow-fält |
 |:--- |:--- |
-| ServiceDeskId_s| Tal |
+| ServiceDeskId_s| Antal |
 | CreatedBy_s | Begärd av |
 | ClosedBy_s | Stängd av |
 | AssignedTo_s | Tilldelad  |
 | Title_s|  Kort beskrivning |
 | Type_s|  Typ |
 | Category_s|  Kategori |
-| CRState_s|  Stat|
+| CRState_s|  Tillstånd|
 | Urgency_s|  Angelägenhetsgrad |
 | Priority_s| Prioritet|
 | Risk_s| Risk|

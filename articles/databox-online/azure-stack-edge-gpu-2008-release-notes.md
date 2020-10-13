@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/07/2020
 ms.author: alkohli
 ms.openlocfilehash: d166b0a4c4b69f03d7dba9d997d7d07fbd81ef41
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90893988"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-preview-release-notes"></a>Viktig information om Azure Stack Edge Pro med GPU Preview
@@ -44,7 +44,7 @@ Följande tabell innehåller en sammanfattning av kända problem för Azure Stac
 |**3.**|Begränsning|Om nya skrivningar inte är tillåtna i enheten under begränsningen, kan skrivningar som görs av NFS-klienten nekas fel meddelandet "behörighet nekad".| Felet visas som nedan:<br>`hcsuser@ubuntu-vm:~/nfstest$ mkdir test`<br>mkdir: det går inte att skapa katalogen "test": behörighet nekad|
 |**4.**|Blob Storage inmatning|När du använder AzCopy version 10 för Blob Storage-inmatningen kör du AzCopy med följande argument: `Azcopy <other arguments> --cap-mbps 2000`| Om dessa begränsningar inte anges för AzCopy, kan det potentiellt skicka ett stort antal begär anden till enheten och leda till problem med tjänsten.|
 |**5.**|Lagrings konton på nivå|Följande gäller när du använder lagrings konton på nivå:<ul><li> Endast block-blobbar stöds. Page blobbar stöds inte.</li><li>Det finns inget stöd för ögonblicks bilder eller kopiering av API.</li><li> Hadoop-arbetsbelastningar `distcp` stöds inte eftersom kopierings åtgärden i stor utsträckning används.</li></ul>||
-|**3-6.**|Anslutning till NFS-resurs|Om flera processer kopieras till samma resurs, och `nolock` attributet inte används, kan det hända att du ser fel under kopieringen.|`nolock`Attributet måste skickas till Mount-kommandot för att filer ska kunna kopieras till NFS-resursen. Till exempel: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`.|
+|**3-6.**|Anslutning till NFS-resurs|Om flera processer kopieras till samma resurs, och `nolock` attributet inte används, kan det hända att du ser fel under kopieringen.|`nolock`Attributet måste skickas till Mount-kommandot för att filer ska kunna kopieras till NFS-resursen. Exempel: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`.|
 |**3,7.**|Kubernetes-kluster|När du tillämpar en uppdatering på enheten som kör ett Kubernetes-kluster startas de virtuella Kubernetes-datorerna om och startas om. I den här instansen återställs endast poddar som distribueras med repliker som anges automatiskt efter en uppdatering.  |Om du har skapat enskilda poddar utanför en replikeringsprovider utan att ange en replik uppsättning återställs inte dessa poddar automatiskt efter uppdateringen av enheten. Du måste återställa dessa poddar.<br>En replik uppsättning ersätter poddar som tas bort eller avslutas av någon anledning, t. ex. nodfel eller störningar på nod-uppgraderingen. Därför rekommenderar vi att du använder en replik uppsättning även om programmet bara kräver en enda pod.|
 |**7,8.**|Kubernetes-kluster|Kubernetes på Azure Stack Edge Pro stöds bara med Helm v3 eller senare. Mer information finns i [vanliga frågor och svar: borttagning av en till](https://v3.helm.sh/docs/faq/).|
 |**1.9.**|Azure-båge + Azure Stack Edge Pro|Azure Arc-distributioner stöds inte om webbproxy har kon figurer ATS på din Azure Stack Edge Pro-enhet.||

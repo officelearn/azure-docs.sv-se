@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: ea11e2f5f8d89381723011686de9e22639997c01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffa9502a42af9e927f82d7a135473ff702b76577
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974144"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970715"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Azure Instance Metadata Service (IMDS)
 
@@ -158,12 +158,12 @@ Följande tabell är en referens till andra API: er för data format som kan ha 
 
 API | Standard data format | Andra format
 --------|---------------------|--------------
-/attested | json | ingen
-/identity | json | ingen
+/attested | json | inget
+/identity | json | inget
 /instance | json | text
-/scheduledevents | json | ingen
+/scheduledevents | json | inget
 
-Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Exempel:
+Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Till exempel:
 
 ```bash
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -249,8 +249,8 @@ offer | Erbjudande information för den virtuella dator avbildningen och finns b
 osType | Linux eller Windows | 2017-04-02
 placementGroupId | [Placerings grupp](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) för den virtuella datorns skalnings uppsättning | 2017-08-01
 planera | [Planera](/rest/api/compute/virtualmachines/createorupdate#plan) som innehåller namn, produkt och utgivare för en virtuell dator om det är en Azure Marketplace-avbildning | 2018-04-02
-platformUpdateDomain |  [Uppdatera den domän](manage-availability.md) som den virtuella datorn körs i | 2017-04-02
-platformFaultDomain | [Feldomän](manage-availability.md) som den virtuella datorn körs i | 2017-04-02
+platformUpdateDomain |  [Uppdatera den domän](../manage-availability.md) som den virtuella datorn körs i | 2017-04-02
+platformFaultDomain | [Feldomän](../manage-availability.md) som den virtuella datorn körs i | 2017-04-02
 CSP | Provider för den virtuella datorn | 2018-10-01
 publicKeys | [Samling offentliga nycklar](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) som har tilldelats den virtuella datorn och sökvägar | 2018-04-02
 utgivare | Utgivare av VM-avbildningen | 2017-04-02
@@ -820,7 +820,7 @@ Ruby          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 
 ## <a name="error-and-debugging"></a>Fel och fel sökning
 
-Om det inte går att hitta ett data element eller en felaktig begäran, returnerar Instance Metadata Service vanliga HTTP-fel. Exempel:
+Om det inte går att hitta ett data element eller en felaktig begäran, returnerar Instance Metadata Service vanliga HTTP-fel. Till exempel:
 
 HTTP-statuskod | Orsak
 ----------------|-------
@@ -904,7 +904,7 @@ Använd problem typen `Management` och välj `Instance Metadata Service` som kat
 
 ![Stöd för instansen metadata](./media/instance-metadata-service/InstanceMetadata-support.png "Skärm bild: öppna ett support ärende när du har problem med Instance Metadata Service")
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Läs mer om:
 1. [Hämta en åtkomsttoken för den virtuella datorn](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).

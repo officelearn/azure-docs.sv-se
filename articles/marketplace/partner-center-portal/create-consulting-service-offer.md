@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.openlocfilehash: 464e75e55bc67ce619134be01ba00f2606a271a4
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91709078"
 ---
 # <a name="create-a-consulting-service-offer"></a>Skapa ett konsulttjänsterbjudande
@@ -141,7 +141,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 4. Branscher
 5. Erbjudandets namn
 6. Sammanfattning
-7. Description
+7. Beskrivning
 8. Skärm bilder/videor
 
 <br>Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSource (de priser som visas i listan är endast avsedda att avspegla faktiska kostnader):
@@ -156,7 +156,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 4. Branscher
 5. Erbjudandets namn
 6. Sammanfattning
-7. Description
+7. Beskrivning
 8. Skärm bilder/videor
 9. Dokument
 
@@ -174,7 +174,7 @@ Namnet:
 
 Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 

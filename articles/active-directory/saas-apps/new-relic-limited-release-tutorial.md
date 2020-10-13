@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
-ms.openlocfilehash: a1d74e79f2b375f481c6557c04deb80dcb929b99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62732f92d0739018863229da0a05646cfa817006
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554449"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941044"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-organization"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med nya Relic (av organisationen)
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera nya Relic (av organisat
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -82,15 +82,15 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. Klicka på **Ladda upp metadatafil**.
 
-    ![image](common/upload-metadata.png)
+    ![Skärm bild som visar en grundläggande SAML-konfiguration med fil länken Ladda upp metadata.](common/upload-metadata.png)
 
     b. Klicka på **mappikonen** för att välja metadatafilen och klicka på **Ladda upp**.
 
-    ![image](common/browse-upload-metadata.png)
+    ![Skärm bild som visar en dialog ruta där du kan välja och ladda upp en fil.](common/browse-upload-metadata.png)
 
     c. När metadatafilen har laddats upp, fylls **ID** och **svars-URL** -värden automatiskt i avsnittet grundläggande SAML-konfiguration:
 
-    ![image](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     > [!Note]
     > Om värdena **Identifierare** och **Svars-URL** inte fylls i automatiskt fyller du i värdena manuellt enligt dina krav.

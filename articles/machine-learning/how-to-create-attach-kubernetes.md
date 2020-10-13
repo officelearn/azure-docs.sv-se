@@ -12,17 +12,17 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
 ms.openlocfilehash: cade5a4329cdfc11c1b256ba01e9764f60a476a6
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667868"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Skapa och ansluta ett Azure Kubernetes service-kluster
 
 Azure Machine Learning kan distribuera utbildade maskin inlärnings modeller till Azure Kubernetes-tjänsten. Du måste dock först __skapa__ ett Azure Kubernetes service-kluster (AKS) från din Azure ml-arbetsyta eller __ansluta__ ett befintligt AKS-kluster. Den här artikeln innehåller information om hur du både skapar och bifogar ett kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 

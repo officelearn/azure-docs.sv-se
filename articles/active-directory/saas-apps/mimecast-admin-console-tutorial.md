@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: f3029acd791e7c45eb5943d298189430ac308e99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a9599c20905168b425675d0b028545143c7d19f
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88528479"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941083"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mimecast-admin-console"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med administrations konsolen för Mimecast
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Mimecast administra
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -155,23 +155,23 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Gå till **administrations**  >  **tjänst**  >  **program**.
 
-    ![Konfiguration av Mimecast-administratörs konsol](./media/mimecast-admin-console-tutorial/services.png)
+    ![Skärm bild som visar Mimecast-fönstret med program valt.](./media/mimecast-admin-console-tutorial/services.png)
 
 1. Klicka på fliken **autentiseringsinställningar** .
     
-    ![Konfiguration av Mimecast-administratörs konsol](./media/mimecast-admin-console-tutorial/authentication-profiles.png)
+    ![Skärm bild som visar fliken program med de valda autentiseringsinställningarna.](./media/mimecast-admin-console-tutorial/authentication-profiles.png)
 
 1. Klicka på fliken **ny autentiserings profil** .
 
-    ![Konfiguration av Mimecast-administratörs konsol](./media/mimecast-admin-console-tutorial/new-authenticatio-profile.png)
+    ![Skärm bild som visar ny Autentiseringsidentitet vald.](./media/mimecast-admin-console-tutorial/new-authenticatio-profile.png)
 
 1. Ange en giltig beskrivning i text rutan **Beskrivning** och markera kryss rutan **tvinga SAML-autentisering för administrations konsol** .
 
-    ![Konfiguration av Mimecast-administratörs konsol](./media/mimecast-admin-console-tutorial/selecting-admin-consle.png)
+    ![Skärm bild som visar var du väljer framtvinga SAML-autentisering för administrations konsolen.](./media/mimecast-admin-console-tutorial/selecting-admin-consle.png)
 
 1. Utför följande steg på sidan **SAML-konfiguration för administrations konsol** :
 
-    ![Konfiguration av Mimecast-administratörs konsol](./media/mimecast-admin-console-tutorial/sso-settings.png)
+    ![Skärm bild som visar sidan SAML-konfiguration för administrations konsolen där du kan ange de värden som beskrivs.](./media/mimecast-admin-console-tutorial/sso-settings.png)
 
     a. För **Provider**väljer du **Azure Active Directory** i list rutan.
 
@@ -189,19 +189,19 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Gå till **administrations**  >  **kataloger**  >  **interna kataloger**.
 
-    ![Konfiguration av Mimecast-administratörs konsol](./media/mimecast-admin-console-tutorial/internal-directories.png)
+    ![Skärm bild som visar Mimecast-fönster med interna kataloger valda.](./media/mimecast-admin-console-tutorial/internal-directories.png)
 
 1. Välj på din domän, om domänen nämns nedan, annars skapar du en ny domän genom att klicka på den **nya domänen**.
 
-    ![Konfiguration av Mimecast-administratörs konsol](./media/mimecast-admin-console-tutorial/domain-name.png)
+    ![Skärm bild som visar den valda domänen.](./media/mimecast-admin-console-tutorial/domain-name.png)
 
 1. Klicka på fliken **ny adress** .
 
-    ![Konfiguration av Mimecast-administratörs konsol](./media/mimecast-admin-console-tutorial/new-address.png)
+    ![Skärm bild som visar ny adress vald.](./media/mimecast-admin-console-tutorial/new-address.png)
 
 1. Ange nödvändig användar information på följande sida:
 
-    ![Konfiguration av Mimecast-administratörs konsol](./media/mimecast-admin-console-tutorial/user-information.png)
+    ![Skärm bild som visar sidan där du kan ange de värden som beskrivs.](./media/mimecast-admin-console-tutorial/user-information.png)
 
     a. I text rutan **e-postadress** anger du användarens e-postadress `B.Simon@yourdomainname.com` .
 
@@ -215,7 +215,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     f. Om du vill tilldela roller till användaren klickar du på **roll redigera** och tilldelar den nödvändiga rollen till användaren enligt organisationens krav.
 
-    ![Konfiguration av Mimecast-administratörs konsol](./media/mimecast-admin-console-tutorial/assign-role.png)
+    ![Skärm bild som visar adress inställningar där du kan välja roll redigering.](./media/mimecast-admin-console-tutorial/assign-role.png)
 
 ## <a name="test-sso"></a>Testa SSO 
 

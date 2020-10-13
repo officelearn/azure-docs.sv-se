@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91630159"
 ---
 # <a name="speech-service-for-telephony-data"></a>Tal tjänst för telefoni data
@@ -70,7 +70,7 @@ Vår svars tid från slut punkt till slut punkt är betydligt låg för de olika
 
 Våra nya röster är också särskiljbar från mänskliga röster. Du kan använda våra röster för att ge din robot sitt unika personlighet.
 
-### <a name="search"></a>Sök
+### <a name="search"></a>Search
 
 En annan häftklammer av analys är att identifiera interaktioner där en speciell händelse eller erfarenhet har inträffat. Detta görs vanligt vis med en av två metoder. antingen en ad hoc-sökning där användaren bara skriver en fras och systemet svarar eller en mer strukturerad fråga där en analytiker kan skapa en uppsättning logiska uttryck som identifierar ett scenario i ett anrop, och varje anrop kan indexeras mot den uppsättningen med frågor. Ett bra Sökexempel är allmänt förekommande Compliance "detta samtal skall registreras i kvalitets syfte... ". Många företag vill se till att deras agenter tillhandahåller denna fri skrivning till kunderna innan samtalet faktiskt registreras. De flesta analys system har möjlighet att kunna trenda beteenden som hittas av algoritmer för frågor/sökning, och den här rapporten över trender är i slut änden en av de viktigaste funktionerna i ett analys system. Med hjälp av [kognitiva tjänster-katalogen](https://azure.microsoft.com/services/cognitive-services/directory/search/) kan din end to end-lösning förbättras avsevärt med indexerings-och Sök funktioner.
 

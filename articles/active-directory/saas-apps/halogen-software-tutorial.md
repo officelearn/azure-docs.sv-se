@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 1743908652a70667a368dced18b2e808ce590a1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 746f60374a4e8f01af119d6e9c604b941e7c4950
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88550001"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944248"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-saba-talentspace"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Saba TalentSpace
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera Saba-TalentSpace med Az
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -131,15 +131,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Klicka på fliken **Alternativ**.
   
-    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial-halogen-12.png)
+    ![Skärm bild som visar start sidan "Saba TalentSpace" med fliken "alternativ" vald.](./media/halogen-software-tutorial/tutorial-halogen-12.png)
 
 3. I det vänstra navigeringsfönstret klickar du på **SAML-konfiguration**.
   
-    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial-halogen-13.png)
+    ![Skärm bild som visar det vänstra navigerings fönstret i "User Interface" med "S A M L Configuration" valt.](./media/halogen-software-tutorial/tutorial-halogen-13.png)
 
 4. I dialogrutan **SAML-konfiguration** utför du följande steg:
 
-    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial-halogen-14.png)
+    ![Skärm bild som visar sidan "S A M L-konfiguration" med alternativen "Inställningar" markerade.](./media/halogen-software-tutorial/tutorial-halogen-14.png)
 
     a. För **Unik identifierare** väljer du **NameID**.
 
@@ -166,7 +166,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 2. Klicka på fliken **User Center** (Användarcenter) och sedan på **Skapa användare**.
 
-    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
+    ![Skärm bild som visar fliken "User Center" och "skapa användare" vald.](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
 
 3. I dialogrutan **Ny användare** utför du följande steg:
 

@@ -11,10 +11,10 @@ ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.custom: sqldbrb=1
 ms.openlocfilehash: 1e0ab1d6c1266b37dfcba461fbbdc373fc526783
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362171"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>Självstudie: utforma en Relations databas i Azure SQL Database med SSMS
@@ -39,7 +39,7 @@ Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Mi
 > [!NOTE]
 > I den här självstudien använder vi Azure SQL Database. Du kan också använda en pool databas i en elastisk pool eller en SQL-hanterad instans. För anslutning till en SQL-hanterad instans, se följande snabb starter för SQL-hanterad instans: [snabb start: Konfigurera den virtuella Azure-datorn för att ansluta till en Azure SQL-hanterad instans](../managed-instance/connect-vm-instance-configure.md) och [snabb start: Konfigurera en punkt-till-plats-anslutning till en Azure SQL-hanterad instans](../managed-instance/point-to-site-p2s-configure.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa de här självstudierna ska du kontrollera att du har installerat:
 

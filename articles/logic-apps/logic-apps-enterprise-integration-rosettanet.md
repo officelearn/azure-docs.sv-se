@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: f02cbdc7ca8822c5fcc91b106856d7f8f547536b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565113"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Exchange RosettaNet-meddelanden för B2B Enterprise-integration i Azure Logic Apps
@@ -131,9 +131,9 @@ Följ dessa steg om du vill lägga till en PIP-process konfiguration till ditt i
 
       | Egenskap | Krävs | Beskrivning |
       |----------|----------|-------------|
-      | **Meddelandet ska vara signerat** | Nej | Signera inkommande meddelanden med det valda certifikatet. |
+      | **Meddelandet ska vara signerat** | Inga | Signera inkommande meddelanden med det valda certifikatet. |
       | **Certifikat** | Ja, om signering är aktiverat | Certifikatet som ska användas för signering |
-      | **Aktivera meddelande kryptering** | Nej | Kryptera inkommande meddelanden med det valda certifikatet. |
+      | **Aktivera meddelande kryptering** | Inga | Kryptera inkommande meddelanden med det valda certifikatet. |
       | **Certifikat** | Ja, om kryptering är aktiverat | Certifikatet som ska användas för kryptering |
       ||||
 
@@ -147,10 +147,10 @@ Följ dessa steg om du vill lägga till en PIP-process konfiguration till ditt i
 
       | Egenskap | Krävs | Beskrivning |
       |----------|----------|-------------|
-      | **Aktivera meddelande signering** | Nej | Signera utgående meddelanden med den valda signeringsalgoritmen och certifikat. |
+      | **Aktivera meddelande signering** | Inga | Signera utgående meddelanden med den valda signeringsalgoritmen och certifikat. |
       | **Signeringsalgoritm** | Ja, om signering är aktiverat | Signeringsalgoritmen som ska användas, baserat på det valda certifikatet |
       | **Certifikat** | Ja, om signering är aktiverat | Certifikatet som ska användas för signering |
-      | **Aktivera meddelande kryptering** | Nej | Kryptera utgående med den valda krypteringsalgoritmen och certifikatet. |
+      | **Aktivera meddelande kryptering** | Inga | Kryptera utgående med den valda krypteringsalgoritmen och certifikatet. |
       | **Krypteringsalgoritm** | Ja, om kryptering är aktiverat | Krypteringsalgoritmen som ska användas, baserat på det valda certifikatet |
       | **Certifikat** | Ja, om kryptering är aktiverat | Certifikatet som ska användas för kryptering |
       ||||
@@ -202,7 +202,7 @@ För att påskynda utvecklingen och rekommendera integrations mönster kan du an
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Meddelande** | Ja | RosettaNet-meddelandet att avkoda  |
-   | **Sidhuvuden** | Ja | HTTP-huvuden som innehåller värdena för-versionen, som är RNIF-versionen och svars typen, som anger kommunikations typen mellan partnerna och kan vara synkron eller asynkron |
+   | **Rubriker** | Ja | HTTP-huvuden som innehåller värdena för-versionen, som är RNIF-versionen och svars typen, som anger kommunikations typen mellan partnerna och kan vara synkron eller asynkron |
    | **Role** | Ja | Rollen som värd partner i PIP |
    ||||
 

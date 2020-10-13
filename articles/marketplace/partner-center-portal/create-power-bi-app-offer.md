@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.openlocfilehash: e0dcd5db36e41093bf1cd75779770b04df2fc26a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710659"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Skapa erbjudande om Power BI-app
@@ -143,7 +143,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 7. Sekretesspolicy
 8. Erbjudandets namn
 9. Sammanfattning
-10. Description
+10. Beskrivning
 11. Skärm bilder/videor
 
 ### <a name="name"></a>Namn
@@ -160,7 +160,7 @@ Namnet:
 
 Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 

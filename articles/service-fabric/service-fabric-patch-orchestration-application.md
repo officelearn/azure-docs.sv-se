@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
 ms.openlocfilehash: 8f92501bdb8261a67d3dc2b8aefbe1fb1498ef1e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445891"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Korrigera operativ systemet Windows i Service Fabric-klustret
@@ -63,7 +63,7 @@ POA består av följande del komponenter:
 > [!NOTE]
 > POA använder tjänsten Service Fabric Repair Manager för att inaktivera eller aktivera noden och utföra hälso kontroller. Den reparations uppgift som skapas av POA spårar Windows Update förloppet för varje nod.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!NOTE]
 > Den lägsta .NET Framework versionen som krävs är 4,6.
@@ -166,7 +166,7 @@ Du kan konfigurera POA-beteendet så att det passar dina behov. Åsidosätt stan
 | WURescheduleCount     | Int <br> (Standard: *5*)                  | Det maximala antalet gånger som tjänsten omplanerar Windows Update om en åtgärd Miss lyckas beständigt.          |
 | WURescheduleTimeInMinutes | Int <br>(Standard: *30*) | Intervallet då tjänsten omplanerar Windows-uppdateringar om ett problem kvarstår. |
 | WUFrequency           | Kommaavgränsad sträng (standard: *veckovis, onsdag, 7:00:00*)     | Frekvensen för att installera Windows-uppdateringar. Formatet och möjliga värden är: <br>– Varje månad, DD, HH: MM: SS (exempel: *Monthly, 5, 12:22:32*). Tillåtna värden för fältet _DD_ (dag) är tal från 1 till 28 och _sist_. <br>– Varje vecka, dag, HH: MM: SS (exempel: *Weekly, tisdag, 12:22:32*)  <br>– Dagligen, HH: MM: SS (exempel: *Daily, 12:22:32*)  <br>– Vecka, dag, HH: MM: SS (exempel: *2, fredag, 21:00:00* anger 9:00 pm UTC på fredag i den andra veckan varje månad) <br>- *Ingen* anger att Windows-uppdateringar inte ska göras.  <br><br> Tiden är i UTC-tid.|
-| AcceptWindowsUpdateEula | Boolesk <br>(Standard: *Sant*) | Genom att ange den här flaggan godkänner programmet slut användar avtalet för Windows Update för datorns ägare.              |
+| AcceptWindowsUpdateEula | Boolesk <br>(Standard: *Sant*) | Genom att ställa in den här flaggan godkänner programmet End-User licens avtal för Windows Update för ägare av datorn.              |
 
 > [!TIP]
 > Om du vill att Windows-uppdateringar ska ske direkt anger du `WUFrequency` i förhållande till programmets distributions tid. Anta till exempel att du har ett test kluster med fem noder och planerar att distribuera appen med cirka 5:00 PM UTC. Om du antar att program uppgraderingen eller distributionen tar 30 minuter högst, ställer du in WUFrequency som *dagligen, 17:30:00*.
@@ -235,7 +235,7 @@ POA exponerar REST-API: er för att visa historiska resultat för användare. H�
 
 JSON-fälten beskrivs i följande tabell:
 
-Fält | Värden | Information
+Field | Värden | Information
 -- | -- | --
 OperationResult under pågående | 0-lyckades<br> 1 – lyckades med fel<br> 2 – misslyckades<br> 3-avbruten<br> 4 – avbruten med timeout | Visar resultatet av den övergripande åtgärden, som normalt innebär installation av en eller flera uppdateringar.
 ResultCode | Samma som OperationResult under pågående | Det här fältet visar resultatet av installations åtgärden för en enskild uppdatering.
@@ -439,7 +439,7 @@ A: POA använder Service Fabric Repair Manager för att skapa reparations aktivi
 
 ## <a name="disclaimers"></a>Ansvarsfriskrivningar
 
-- POA accepterar slut användar licens avtalet för Windows Update för användarens räkning. Du kan också stänga av inställningen i programmets konfiguration.
+- POA accepterar End-User licens avtalet för Windows Update för användarens räkning. Du kan också stänga av inställningen i programmets konfiguration.
 
 - POA samlar in telemetri för att spåra användning och prestanda. Programmets telemetri följer inställningen för inställningen för Service Fabric körningens telemetri (som är aktiverat som standard).
 

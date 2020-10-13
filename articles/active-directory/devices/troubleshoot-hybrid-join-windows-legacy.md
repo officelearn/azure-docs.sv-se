@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 361b27ce84417b30fe58ac7651f70f8c72f8a16a
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627380"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Felsöka hybrid Azure Active Directory anslutna enheter med äldre versioner 
@@ -67,7 +67,7 @@ Om enheten inte var hybrid Azure AD-ansluten kan du försöka göra en hybrid Az
 
     ![Workplace Join för Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
-   - Autoworkplace.exe kan inte tyst autentisera med Azure AD eller AD FS. Detta kan orsakas av saknade eller felkonfigurerade AD FS (för federerade domäner) eller saknad eller felkonfigurerad Azure AD sömlös enkel inloggning (för hanterade domäner) eller nätverks problem. 
+   - Autoworkplace.exe kan inte tyst autentisera med Azure AD eller AD FS. Detta kan orsakas av saknade eller felkonfigurerade AD FS (för federerade domäner) eller saknade eller felkonfigurerade Azure AD sömlösa enskilda Sign-On (för hanterade domäner) eller nätverks problem. 
    - Det kan bero på att Multi-Factor Authentication (MFA) är aktiverat/konfigurerat för användaren och WIAORMULTIAUTHN inte har kon figurer ATS på den AD FS servern. 
    - En annan möjlighet är att sidan för identifiering av start sfär (HRD) väntar på användar interaktion, vilket förhindrar **autoworkplace.exe** från att tyst begära en token.
    - Det kan bero på att AD FS och Azure AD-URL: er saknas i Internet Explorers intranäts zon på klienten.

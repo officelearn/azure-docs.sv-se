@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: dea009d6d246d68f0686c3dc85f3518ccb13705c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 1c1ddeb8cafd8aa7584da48a715139c5d12eeb10
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575205"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874806"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Självstudie: övervaka och hantera ett video analys program för identifiering av objekt och motion
 
@@ -26,7 +26,7 @@ I den här guiden får du lära dig att:
 
 Innan du börjar bör du slutföra:
 
-* Självstudien [skapa ett live video analys program i Azure IoT Central](./tutorial-video-analytics-create-app.md) .
+* Ett tidigare program för att [skapa ett video analys program i azure IoT Central](./tutorial-video-analytics-create-app-yolo-v3.md) eller [skapa en video analys i Azure IoT Central- &trade; ](tutorial-video-analytics-create-app-openvino.md) självstudier.
 * En av de tidigare [Create a IoT Edge-instansen för Live Video Analytics (Linux VM)](tutorial-video-analytics-iot-edge-vm.md) eller [skapa en IoT Edge-instans för självstudierna för live video analys (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md) .
 
 Du bör ha [Docker](https://www.docker.com/products/docker-desktop) installerat på den lokala datorn för att köra video visnings programmet.
@@ -37,7 +37,7 @@ I ditt IoT Central program navigerar du till den **lva Gateway 001** -enhet som 
 
 Använd värdena i följande tabell som parameter värden för kommandot **Lägg till Camera-begäran** . Värdena som visas i tabellen förutsätter att du använder den simulerade kameran i den virtuella Azure-datorn, justera värdena efter behov om du använder en riktig kamera:
 
-| Fält| Beskrivning| Exempelvärde|
+| Field| Beskrivning| Exempelvärde|
 |---------|---------|---------|
 | Kamera-ID      | Enhets-ID för etablering | kamera-003 |
 | Kamera namn    | Eget namn           | Objekt identifierings kamera |

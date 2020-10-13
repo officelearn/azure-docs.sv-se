@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bf70d4381a7d128f7a2716540b1318b39cd729b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1e300f2e18d7103cde374c5eba6877602ac3721
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602140"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961229"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Webb inloggning med OpenID Connect i Azure Active Directory B2C
 
@@ -53,10 +53,10 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Nnär | Ja | Ett värde som ingår i begäran (genereras av programmet) som ingår i det resulterande ID-token som ett anspråk. Programmet kan sedan kontrol lera det här värdet för att minimera omuppspelning av token. Värdet är vanligt vis en slumpmässig, unik sträng som kan användas för att identifiera ursprunget för begäran. |
 | response_type | Ja | Måste innehålla en ID-token för OpenID Connect. Om ditt webb program också behöver tokens för att anropa ett webb-API kan du använda `code+id_token` . |
 | omfång | Ja | En blankstegsavgränsad lista över omfång. `openid`Omfånget anger en behörighet för att logga in användaren och hämta data om användaren i form av ID-token. `offline_access`Omfånget är valfritt för webb program. Det anger att programmet behöver en *uppdateringstoken* för utökad åtkomst till resurser. |
-| visas | Inga | Typ av användar interaktion som krävs. Det enda giltiga värdet för tillfället är `login` , vilket tvingar användaren att ange sina autentiseringsuppgifter för begäran. |
-| redirect_uri | Inga | `redirect_uri`Parametern för ditt program, där autentiserings svar kan skickas och tas emot av ditt program. Den måste exakt matcha en av `redirect_uri` parametrarna som du registrerade i Azure Portal, förutom att den måste vara URL-kodad. |
-| response_mode | Inga | Den metod som används för att skicka den resulterande auktoriseringskod tillbaka till ditt program. Det kan vara antingen `query` , `form_post` eller `fragment` .  `form_post`Svars läget rekommenderas för bästa säkerhet. |
-| state | Inga | Ett värde som ingår i begäran som också returneras i svaret från token. Det kan vara en sträng med valfritt innehåll som du vill ha. Ett slumpmässigt genererat unikt värde används vanligt vis för att förhindra förfalsknings attacker på begäran från en annan plats. Statusen används också för att koda information om användarens tillstånd i programmet innan autentiseringsbegäran inträffade, t. ex. sidan de var på. |
+| visas | Nej | Typ av användar interaktion som krävs. Det enda giltiga värdet för tillfället är `login` , vilket tvingar användaren att ange sina autentiseringsuppgifter för begäran. |
+| redirect_uri | Nej | `redirect_uri`Parametern för ditt program, där autentiserings svar kan skickas och tas emot av ditt program. Den måste exakt matcha en av `redirect_uri` parametrarna som du registrerade i Azure Portal, förutom att den måste vara URL-kodad. |
+| response_mode | Nej | Den metod som används för att skicka den resulterande auktoriseringskod tillbaka till ditt program. Det kan vara antingen `query` , `form_post` eller `fragment` .  `form_post`Svars läget rekommenderas för bästa säkerhet. |
+| state | Nej | Ett värde som ingår i begäran som också returneras i svaret från token. Det kan vara en sträng med valfritt innehåll som du vill ha. Ett slumpmässigt genererat unikt värde används vanligt vis för att förhindra förfalsknings attacker på begäran från en annan plats. Statusen används också för att koda information om användarens tillstånd i programmet innan autentiseringsbegäran inträffade, t. ex. sidan de var på. |
 
 Nu uppmanas användaren att slutföra arbets flödet. Användaren kan behöva ange sitt användar namn och lösen ord, logga in med en social identitet eller registrera dig för katalogen. Det kan finnas andra antal steg beroende på hur användar flödet har definierats.
 
@@ -153,7 +153,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | kod | Ja | Den auktoriseringskod som du hämtade i början av användar flödet. |
 | grant_type | Ja | Typ av beviljande, som måste vara `authorization_code` för flödet för auktoriseringskod. |
 | redirect_uri | Ja | `redirect_uri`Parametern för det program där du fick auktoriseringskod. |
-| omfång | Inga | En blankstegsavgränsad lista över omfång. `openid`Omfånget anger en behörighet för att logga in användaren och hämta data om användaren i form av id_token parametrar. Den kan användas för att hämta tokens till programmets egna Server dels webb-API, som representeras av samma program-ID som klienten. `offline_access`Omfånget anger att programmet behöver en uppdateringstoken för utökad åtkomst till resurser. |
+| omfång | Nej | En blankstegsavgränsad lista över omfång. `openid`Omfånget anger en behörighet för att logga in användaren och hämta data om användaren i form av id_token parametrar. Den kan användas för att hämta tokens till programmets egna Server dels webb-API, som representeras av samma program-ID som klienten. `offline_access`Omfånget anger att programmet behöver en uppdateringstoken för utökad åtkomst till resurser. |
 
 Ett lyckat token-svar ser ut så här:
 
@@ -221,8 +221,8 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | client_secret | Ja, i Web Apps | Den program hemlighet som genererades i [Azure Portal](https://portal.azure.com/). Klient hemligheter används i det här flödet för scenarier med webb program, där klienten kan lagra en klient hemlighet på ett säkert sätt. För interna app-scenarier (offentliga klienter) kan inte klient hemligheter lagras på ett säkert sätt, och därför används det inte i det här anropet. Om du använder en klient hemlighet måste du ändra den regelbundet. |
 | grant_type | Ja | Typ av beviljande, som måste vara `refresh_token` för den här delen av Authorization Code Flow. |
 | refresh_token | Ja | Den ursprungliga uppdateringstoken som hämtades i den andra delen av flödet. `offline_access`Omfånget måste användas både för auktoriserings-och Tokenbegäran för att kunna ta emot en uppdateringstoken. |
-| redirect_uri | Inga | `redirect_uri`Parametern för det program där du fick auktoriseringskod. |
-| omfång | Inga | En blankstegsavgränsad lista över omfång. `openid`Omfånget anger en behörighet för att logga in användaren och hämta data om användaren i form av ID-token. Den kan användas för att skicka tokens till programmets egna Server dels webb-API, som representeras av samma program-ID som klienten. `offline_access`Omfånget anger att programmet behöver en uppdateringstoken för utökad åtkomst till resurser. |
+| redirect_uri | Nej | `redirect_uri`Parametern för det program där du fick auktoriseringskod. |
+| omfång | Nej | En blankstegsavgränsad lista över omfång. `openid`Omfånget anger en behörighet för att logga in användaren och hämta data om användaren i form av ID-token. Den kan användas för att skicka tokens till programmets egna Server dels webb-API, som representeras av samma program-ID som klienten. `offline_access`Omfånget anger att programmet behöver en uppdateringstoken för utökad åtkomst till resurser. |
 
 Ett lyckat token-svar ser ut så här:
 
@@ -274,13 +274,17 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | --------- | -------- | ----------- |
 | innehav | Ja | Namnet på din Azure AD B2C-klient |
 | politik | Ja | Det användar flöde som du vill använda för att signera användaren från ditt program. |
-| id_token_hint| Inga | En tidigare utfärdad ID-token för att skicka till utloggnings slut punkten som ett tips om slutanvändarens aktuella autentiserade session med klienten. `id_token_hint`Säkerställer att `post_logout_redirect_uri` är en registrerad svars-URL i Azure AD B2C program inställningar. |
+| id_token_hint| Nej | En tidigare utfärdad ID-token för att skicka till utloggnings slut punkten som ett tips om slutanvändarens aktuella autentiserade session med klienten. `id_token_hint`Säkerställer att `post_logout_redirect_uri` är en registrerad svars-URL i Azure AD B2C program inställningar. Mer information finns i [skydda din omutloggning-omdirigering](#secure-your-logout-redirect). |
 | client_id | Varken | Det program-ID som [Azure Portal](https://portal.azure.com/) tilldelats till ditt program.<br><br>\**Detta krävs när du använder `Application` konfiguration av isolerad SSO och _kräver ID-token_ i en utloggnings förfrågan har angetts till `No` .* |
-| post_logout_redirect_uri | Inga | URL: en som användaren ska omdirigeras till efter en lyckad utloggning. Om den inte är inkluderad visar Azure AD B2C användaren ett allmänt meddelande. Om du inte anger något `id_token_hint` bör du inte registrera denna URL som en svars-URL i Azure AD B2C programmets inställningar. |
-| state | Inga | Om en `state` parameter ingår i begäran ska samma värde visas i svaret. Programmet bör kontrol lera att `state` värdena i begäran och svaret är identiska. |
+| post_logout_redirect_uri | Nej | URL: en som användaren ska omdirigeras till efter en lyckad utloggning. Om den inte är inkluderad visar Azure AD B2C användaren ett allmänt meddelande. Om du inte anger något `id_token_hint` bör du inte registrera denna URL som en svars-URL i Azure AD B2C programmets inställningar. |
+| state | Nej | Om en `state` parameter ingår i begäran ska samma värde visas i svaret. Programmet bör kontrol lera att `state` värdena i begäran och svaret är identiska. |
 
 ### <a name="secure-your-logout-redirect"></a>Skydda din utloggnings omdirigering
 
-Efter utloggning omdirigeras användaren till den URI som anges i `post_logout_redirect_uri` parametern, oavsett vilka svars-URL: er som har angetts för programmet. Om ett giltigt `id_token_hint` värde skickas, verifierar Azure AD B2C dock att värdet för `post_logout_redirect_uri` matchar ett av programmets konfigurerade omdirigerings-URI: er innan omdirigeringen utförs. Om ingen matchande svars-URL har kon figurer ATS för programmet visas ett fel meddelande och användaren omdirigeras inte.
+Efter utloggning omdirigeras användaren till den URI som anges i `post_logout_redirect_uri` parametern, oavsett vilka svars-URL: er som har angetts för programmet. Men om ett giltigt `id_token_hint` värde skickas och **Kräv ID-token i utloggnings begär Anden** aktive ras, verifierar Azure AD B2C att värdet för `post_logout_redirect_uri` matchar ett av programmets konfigurerade omdirigerings-URI: er innan omdirigeringen utförs. Om ingen matchande svars-URL har kon figurer ATS för programmet visas ett fel meddelande och användaren omdirigeras inte.
 
+Om du vill ange den obligatoriska ID-token i utloggnings begär Anden, se [Konfigurera sessionens beteende i Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect)och [Konfigurera sessionens beteende med anpassade principer i Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect).
 
+## <a name="next-steps"></a>Nästa steg
+
+- Läs mer om [Azure AD B2C-sessionen](session-overview.md).

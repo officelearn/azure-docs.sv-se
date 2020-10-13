@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5999ef8431ce1e128c3775450eedf13644505918
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94a5459ade634f6a1de029808aa6bad4d16b9a5d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91313543"
+ms.locfileid: "91874637"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Konfigurera framtvingad tunneling med den klassiska distributionsmodellen
 
@@ -57,12 +57,7 @@ Kontrollera att du har följande innan du påbörjar konfigurationen:
 
 ### <a name="to-sign-in"></a>Logga in
 
-1. Öppna PowerShell-konsolen med utökade rättigheter. Använd följande kommando för att växla till Service Management:
-
-   ```powershell
-   azure config mode asm
-   ```
-2. Anslut till ditt konto. Använd följande exempel för att ansluta:
+1. Öppna PowerShell-konsolen med utökade rättigheter. Anslut till ditt konto med hjälp av följande exempel:
 
    ```powershell
    Add-AzureAccount

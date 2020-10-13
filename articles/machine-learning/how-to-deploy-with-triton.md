@@ -10,10 +10,10 @@ author: gvashishtha
 ms.date: 09/23/2020
 ms.topic: conceptual
 ms.openlocfilehash: 17260c3890df0bd78b1503a046ff39ab173712be
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91622096"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Högpresterande tjänster med Triton-Härlednings Server (för hands version) 
@@ -45,7 +45,7 @@ Innan du försöker använda Triton för din egen modell är det viktigt att du 
 
 * Flera [Gunicorn](https://gunicorn.org/) -arbetskrafter börjar samtidigt hantera inkommande begär Anden.
 * Dessa arbetare hanterar för bearbetning, anropar modellen och efter bearbetning. 
-* Härlednings begär Anden använder __poängsättnings-URI__. Till exempel `https://myserevice.azureml.net/score`.
+* Härlednings begär Anden använder __poängsättnings-URI__. Exempelvis `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Normalt, icke-Triton, distributions arkitektur diagram":::
 
@@ -54,7 +54,7 @@ Innan du försöker använda Triton för din egen modell är det viktigt att du 
 * Flera [Gunicorn](https://gunicorn.org/) -arbetskrafter börjar samtidigt hantera inkommande begär Anden.
 * Begär Anden vidarebefordras till Triton- **servern**. 
 * Triton bearbetar förfrågningar i batchar för att maximera GPU-användningen.
-* Klienten använder bedömnings- __URI: n__ för att göra förfrågningar. Till exempel `https://myserevice.azureml.net/score`.
+* Klienten använder bedömnings- __URI: n__ för att göra förfrågningar. Exempelvis `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Normalt, icke-Triton, distributions arkitektur diagram":::
 

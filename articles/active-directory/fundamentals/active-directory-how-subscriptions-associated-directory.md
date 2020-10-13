@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 747edfdb2a2709a842f767d2ace09662d139c827
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666440"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associera eller lägga till en Azure-prenumeration till Azure Active Directory-klienten
@@ -46,11 +46,11 @@ Innan du kan koppla eller lägga till din prenumeration ska du utföra följande
 - Granska följande lista över ändringar som kommer att ske när du har associerat eller lagt till din prenumeration och hur du kan påverkas:
 
   - Användare som har tilldelats roller med Azure RBAC förlorar sin åtkomst
-  - Tjänst administratören och medadministratörer kommer att förlora åtkomst
+  - Tjänst administratör och Co-Administrators kommer att förlora åtkomst
   - Om du har nyckel valv kommer de inte att vara tillgängliga och du måste åtgärda dem efter kopplingen
   - Om du har några hanterade identiteter för resurser som Virtual Machines eller Logic Apps måste du återaktivera eller återskapa dem efter associationen
   - Om du har en registrerad Azure Stack måste du registrera den igen efter kopplingen
-  - Mer information finns i [överföra en Azure-prenumeration till en annan Azure AD-katalog](../../role-based-access-control/transfer-subscription.md).
+  - Mer information finns i [Överföra en Azure-prenumeration till en annan Azure AD-katalog](../../role-based-access-control/transfer-subscription.md).
 
 - Logga in med ett konto som:
 
@@ -93,7 +93,7 @@ När du har associerat en prenumeration till en annan katalog kan du behöva utf
 
 - Om du har registrerat en Azure Stack som använder den här prenumerationen måste du registrera dig igen. Mer information finns i [registrera Azure Stack med Azure](/azure-stack/operator/azure-stack-registration).
 
-- Mer information finns i [överföra en Azure-prenumeration till en annan Azure AD-katalog](../../role-based-access-control/transfer-subscription.md).
+- Mer information finns i [Överföra en Azure-prenumeration till en annan Azure AD-katalog](../../role-based-access-control/transfer-subscription.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

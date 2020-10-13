@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
 ms.openlocfilehash: caaf8e25cdf43602fda8fc72caf7d16b7b56c06a
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361899"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Hantera en webb tjänst med hjälp av webb tjänst portalen Azure Machine Learning Studio (klassisk)
@@ -73,8 +73,8 @@ Klicka på fliken **instrument panel** .
 På instrument panelen kan du Visa den övergripande användningen av din webb tjänst under en viss tids period. Du kan välja den period som du vill visa i list rutan period längst upp till höger i användnings diagrammen. Instrument panelen visar följande information:
 
 * **Begär anden över tid** visar ett steg diagram över antalet begär Anden under den valda tids perioden. Det kan hjälpa dig att identifiera om du får toppar i användning.
-* **Begäran-svars förfrågningar** visar det totala antalet anrop för begäran som tjänsten har tagit emot under den valda tids perioden och hur många av dem som misslyckades.
-* **Genomsnittlig beräknings tid för begäran-svar** visar ett genomsnitt av tiden som krävs för att köra mottagna begär Anden.
+* Begär **Anden om svars svar** visar det totala antalet Request-Response samtal tjänsten har tagit emot under den valda tids perioden och hur många av dem som misslyckades.
+* **Genomsnittlig Request-Response beräknings tid** visar ett genomsnitt av tiden som krävs för att köra mottagna begär Anden.
 * **Batch-begäranden** visar det totala antalet batch-begäranden som tjänsten har tagit emot under den valda tids perioden och hur många av dem som misslyckades.
 * **Genomsnittlig jobb svars** tid visar ett genomsnitt av tiden som krävs för att köra mottagna begär Anden.
 * **Fel** visar det sammanlagda antalet fel som har inträffat på anrop till webb tjänsten.
@@ -89,7 +89,7 @@ Du kan uppdatera följande egenskaper:
 * Med **rubrik** kan du ange en titel för webb tjänsten
 * Med **nycklar** kan du rotera dina primära och sekundära API-nycklar.
 * Med **lagrings konto nyckeln** kan du uppdatera nyckeln för lagrings kontot som är kopplat till webb tjänstens ändringar. 
-* Med **exempel data** kan du tillhandahålla exempel data som du kan använda för att testa tjänsten Request-Response. Om du har skapat webb tjänsten i Machine Learning Studio (klassisk) hämtas exempel data från de data som används för att träna din modell. Om du skapade tjänsten program mässigt hämtas data från de exempel data som du angav som en del av JSON-paketet.
+* **Aktivera exempel data** gör att du kan tillhandahålla exempel data som du kan använda för att testa Request-Response tjänsten. Om du har skapat webb tjänsten i Machine Learning Studio (klassisk) hämtas exempel data från de data som används för att träna din modell. Om du skapade tjänsten program mässigt hämtas data från de exempel data som du angav som en del av JSON-paketet.
 
 ### <a name="managing-billing-plans"></a>Hantera fakturerings planer
 Klicka på meny alternativet **planer** på snabb starts sidan för webb tjänster. Du kan också klicka på den plan som är kopplad till en speciell webb tjänst för att hantera planen.
@@ -140,8 +140,8 @@ Klicka på fliken **instrument panel** .
 På instrument panelen kan du Visa den övergripande användningen av din webb tjänst under en viss tids period. Du kan välja den period som du vill visa i list rutan period längst upp till höger i användnings diagrammen. Instrument panelen visar följande information:
 
 * **Begär anden över tid** visar ett steg diagram över antalet begär Anden under den valda tids perioden. Det kan hjälpa dig att identifiera om du får toppar i användning.
-* **Begäran-svars förfrågningar** visar det totala antalet anrop för begäran som tjänsten har tagit emot under den valda tids perioden och hur många av dem som misslyckades.
-* **Genomsnittlig beräknings tid för begäran-svar** visar ett genomsnitt av tiden som krävs för att köra mottagna begär Anden.
+* Begär **Anden om svars svar** visar det totala antalet Request-Response samtal tjänsten har tagit emot under den valda tids perioden och hur många av dem som misslyckades.
+* **Genomsnittlig Request-Response beräknings tid** visar ett genomsnitt av tiden som krävs för att köra mottagna begär Anden.
 * **Batch-begäranden** visar det totala antalet batch-begäranden som tjänsten har tagit emot under den valda tids perioden och hur många av dem som misslyckades.
 * **Genomsnittlig jobb svars** tid visar ett genomsnitt av tiden som krävs för att köra mottagna begär Anden.
 * **Fel** visar det sammanlagda antalet fel som har inträffat på anrop till webb tjänsten.
@@ -154,6 +154,6 @@ Du kan uppdatera följande egenskaper:
 
 * Med **Beskrivning** kan du ange en beskrivning av webb tjänsten. Beskrivning är ett obligatoriskt fält.
 * Med **loggning** kan du aktivera eller inaktivera fel loggning på slut punkten. Mer information om loggning finns i Aktivera [loggning för Machine Learning-webbtjänster](web-services-logging.md).
-* Med **exempel data** kan du tillhandahålla exempel data som du kan använda för att testa tjänsten Request-Response. Om du har skapat webb tjänsten i Machine Learning Studio (klassisk) hämtas exempel data från de data som används för att träna din modell. Om du skapade tjänsten program mässigt hämtas data från de exempel data som du angav som en del av JSON-paketet.
+* **Aktivera exempel data** gör att du kan tillhandahålla exempel data som du kan använda för att testa Request-Response tjänsten. Om du har skapat webb tjänsten i Machine Learning Studio (klassisk) hämtas exempel data från de data som används för att träna din modell. Om du skapade tjänsten program mässigt hämtas data från de exempel data som du angav som en del av JSON-paketet.
 
 

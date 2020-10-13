@@ -11,10 +11,10 @@ ms.workload: big-data
 ms.date: 10/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: 9bf857a66643b1e95ea2559601761a7217babad4
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665335"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Dela en anpassad vy med en parametriserad URL
@@ -69,7 +69,7 @@ Godkända värden motsvarar **snabb tids** menyn i Azure Time Series Insights Ex
 
 `timeSeriesDefinitions=<collection of term objects>`Parametern anger vilka predikat som ska visas i en Azure Time Series Insights vy:
 
-| Parameter | URL-objekt | Description |
+| Parameter | URL-objekt | Beskrivning |
 | --- | --- | --- |
 | **Namn** | `\<string>` | Namnet på *villkoret*. |
 | **splitBy** | `\<string>` | Kolumnnamnet att *dela med*. |
@@ -86,7 +86,7 @@ Godkända värden motsvarar **snabb tids** menyn i Azure Time Series Insights Ex
 * Med `timeBucketUnit=<Unit>&timeBucketSize=<integer>` kan du justera skjutreglaget intervall så att det ger en mer detaljerad eller smidigare, mer sammanslagen vy av diagrammet.  
 * `timezoneOffset=<integer>`Parametern låter dig ange tids zonen för diagrammet som ska visas som en förskjutning till UTC.
 
-| Par (er) | Description |
+| Par (er) | Beskrivning |
 | --- | --- |
 | `multiChartStack=false` | `true` är aktiverat som standard för att skicka `false` till stack. |
 | `multiChartStack=false&multiChartSameScale=true` | Stapling måste aktiveras att använda samma skala för y-axeln i villkoren.  Det är `false` som standard, så överföring `true` aktiverar den här funktionen. |

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4856b2578a007f72aeeec64588ac7f9c58158de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8116f3e00d13c0bd1e5f075a7fbe3264f337079
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88861298"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970409"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>SAP ASCS/SCS-instans multi-SID hög tillgänglighet med Windows Server-redundanskluster och Azure-delad disk
 
@@ -34,13 +34,13 @@ Den här artikeln fokuserar på hur du flyttar från en enda ASCS/SCS-installati
 
 För närvarande kan du använda Azure Premium SSD-diskar som en Azure-delad disk för SAP ASCS/SCS-instansen. Följande begränsningar är på plats:
 
--  [Azure Ultra disk](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk) stöds inte som Azure-delad disk för SAP-arbetsbelastningar. För närvarande går det inte att placera virtuella Azure-datorer med Azure Ultra disk i tillgänglighets uppsättning
--  [Azure Shared disk](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared) med Premium SSD-diskar stöds bara med virtuella datorer i tillgänglighets uppsättningen. Det stöds inte i Tillgänglighetszoner-distribution. 
--  Värdet för Azure-delad disk [maxShares](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable?tabs=azure-cli#disk-sizes) avgör hur många klusternoder som kan använda den delade disken. Normalt för SAP ASCS/SCS-instans konfigurerar du två noder i Windows-redundanskluster, och därför måste värdet för `maxShares` vara inställt på två.
--  Alla virtuella SAP ASCS/SCS-kluster måste distribueras i samma [placerings grupp för Azure närhet](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups).   
+-  [Azure Ultra disk](../../disks-types.md#ultra-disk) stöds inte som Azure-delad disk för SAP-arbetsbelastningar. För närvarande går det inte att placera virtuella Azure-datorer med Azure Ultra disk i tillgänglighets uppsättning
+-  [Azure Shared disk](../../windows/disks-shared.md) med Premium SSD-diskar stöds bara med virtuella datorer i tillgänglighets uppsättningen. Det stöds inte i Tillgänglighetszoner-distribution. 
+-  Värdet för Azure-delad disk [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) avgör hur många klusternoder som kan använda den delade disken. Normalt för SAP ASCS/SCS-instans konfigurerar du två noder i Windows-redundanskluster, och därför måste värdet för `maxShares` vara inställt på två.
+-  Alla virtuella SAP ASCS/SCS-kluster måste distribueras i samma [placerings grupp för Azure närhet](../../windows/proximity-placement-groups.md).   
    Även om du kan distribuera virtuella Windows-kluster i tillgänglighets uppsättning med Azure delad disk utan PPG, ser PPG till att det går nära fysiskt nära Azure-delade diskar och de virtuella datorerna i klustret, vilket ger kortare latens mellan de virtuella datorerna och lagrings skiktet.    
 
-Mer information om begränsningar för Azure Shared disk finns i avsnittet [begränsningar](https://docs.microsoft.com/azure/virtual-machines/linux/disks-shared#limitations) i dokumentationen för Azure Shared disk.  
+Mer information om begränsningar för Azure Shared disk finns i avsnittet [begränsningar](../../linux/disks-shared.md#limitations) i dokumentationen för Azure Shared disk.  
 
 > [!IMPORTANT]
 > När du distribuerar SAP ASCS/SCS Windows-redundanskluster med Azure Shared disk bör du vara medveten om att distributionen kommer att fungera med en enda delad disk i ett lagrings kluster. Din SAP ASCS/SCS-instans påverkas, i händelse av problem med lagrings klustret, där den Azure-delade disken distribueras.  
@@ -111,7 +111,7 @@ Vi installerar en ny SAP SID- **PR2**, förutom den **befintliga klustrade** SAP
 
 ### <a name="create-azure-internal-load-balancer"></a>Skapa intern Azure-belastningsutjämnare
 
-SAP ASCS, SAP SCS och den nya SAP-ERS2 använder du virtuella värdnamn och virtuella IP-adresser. I Azure krävs en [belastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) för att använda en virtuell IP-adress. Vi rekommenderar starkt att du använder [standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). 
+SAP ASCS, SAP SCS och den nya SAP-ERS2 använder du virtuella värdnamn och virtuella IP-adresser. I Azure krävs en [belastningsutjämnare](../../../load-balancer/load-balancer-overview.md) för att använda en virtuell IP-adress. Vi rekommenderar starkt att du använder [standard Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
 
 Du måste lägga till konfigurationen till den befintliga belastningsutjämnaren för den andra SAP SID-ASCS/SCS/ERS instance **PR2**. Konfigurationen för de första SAP-SID- **PR1** bör redan finnas på plats.  
 

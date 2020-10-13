@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
 ms.openlocfilehash: 052859e99ffd0082994d313508ebb6f0496d980b
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710353"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple som ett säkerhets kopierings mål med Veeam
@@ -308,7 +308,7 @@ Baserat på föregående antaganden skapar du en 26-TiB StorSimple-nivå volym f
 > [!IMPORTANT]
 > Data återställning från en säkerhets kopia som har flyttats till molnet sker i moln hastighet.
 
-Följande bild visar mappningen av en typisk volym till ett säkerhets kopierings jobb. I det här fallet mappas alla vecko Visa säkerhets kopior till den fullständiga lördag-disken och de stegvisa säkerhets kopiorna mappar till de stegvisa diskarna på måndag till fredag. Alla säkerhets kopior och återställningar är från en StorSimple-nivå volym.
+Följande bild visar mappningen av en typisk volym till ett säkerhets kopierings jobb. I det här fallet mappar alla vecko Visa säkerhets kopior till den fullständiga lördag-disken och de stegvisa säkerhets kopiorna mappar till Monday-Friday stegvisa diskar. Alla säkerhets kopior och återställningar är från en StorSimple-nivå volym.
 
 ![Logiskt diagram för konfiguration av primär säkerhets kopierings mål](./media/storsimple-configure-backup-target-using-veeam/primarybackuptargetdiagram.png)
 
@@ -318,7 +318,7 @@ Här är ett exempel på ett GFS rotations schema för fyra veckor, varje månad
 
 | Typ av frekvens/säkerhets kopiering | Fullständig | Stegvis (dagar 1-5)  |   
 |---|---|---|
-| Varje vecka (veckor 1-4) | Lördag | Måndag-fredag |
+| Varje vecka (veckor 1-4) | Lördag | Monday-Friday |
 | Varje månad  | Lördag  |   |
 | Varje år | Lördag  |   |
 
@@ -500,7 +500,7 @@ Med Veeam får du snabb, detaljerad återställning på filnivå via StorSimple 
 
 En katastrof kan orsakas av olika faktorer. I följande tabell visas vanliga scenarier för haveri beredskap.
 
-| Scenario | Påverkan | Återställa | Kommentarer |
+| Scenario | Påverkan | Återställa | Obs! |
 |---|---|---|---|
 | StorSimple enhets problem | Säkerhets kopierings-och återställnings åtgärder avbryts. | Ersätt den felande enheten och utför [StorSimple redundans och haveri beredskap](storsimple-device-failover-disaster-recovery.md). | Om du behöver utföra en återställning efter återställning av enheten hämtas fullständiga data arbets uppsättningar från molnet till den nya enheten. Alla åtgärder är i moln hastighet. Processen för att genomsöka index och genomsöka kataloger kan orsaka att alla säkerhets kopierings uppsättningar genomsöks och hämtas från moln nivån till den lokala enhets nivån, vilket kan vara en tids krävande process. |
 | Veeam Server-problem | Säkerhets kopierings-och återställnings åtgärder avbryts. | Återskapa säkerhets kopierings servern och utför databas återställningen enligt beskrivningen i [Veeam Help Center (teknisk dokumentation)](https://www.veeam.com/documentation-guides-datasheets.html).  | Du måste återskapa eller återställa Veeam-servern på återställnings platsen för haveri beredskap. Återställ databasen till den senaste punkten. Om den återställda Veeam-databasen inte är synkroniserad med dina senaste säkerhets kopierings jobb krävs indexering och katalogering. Den här processen för att indexera och genomsöka kataloger kan orsaka att alla säkerhets kopierings uppsättningar genomsöks och hämtas från moln nivån till den lokala enhets nivån. Detta gör det ytterligare tids krävande. |

@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-csharp
 - contperfq1
 ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91277707"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuera program till Compute-noder med batch-programpaket
@@ -77,7 +77,7 @@ Batch-tjänsten använder Azure Storage för att lagra dina programpaket som blo
 
 Om du vill visa programmen i batch-kontot väljer du **program** i den vänstra navigerings menyn.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Skärm bild av meny alternativet program i Azure Portal.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Diagram som visar en övergripande vy över program och programpaket.":::
 
 När du väljer det här meny alternativet öppnas fönstret **program** . I det här fönstret visas ID: t för varje program i ditt konto och följande egenskaper:
 
@@ -101,7 +101,7 @@ Om du vill skapa ett nytt program lägger du till ett programpaket och anger ett
 
 Välj **program** i batch-kontot och välj sedan **Lägg till**.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Skärm bild av den nya processen för att skapa program i Azure Portal.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Diagram som visar en övergripande vy över program och programpaket.":::
 
 Ange följande information:
 
@@ -128,7 +128,7 @@ Som du gjorde för det nya programmet anger du **versionen** för det nya pakete
 
 Om du vill uppdatera eller ta bort ett befintligt programpaket väljer du programmet i avsnittet **program** i batch-kontot. Välj ellipsen på raden i det programpaket som du vill ändra och välj sedan den åtgärd som du vill utföra.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Skärm bild som visar uppdaterings-och borttagnings alternativen för programpaket i Azure Portal.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Diagram som visar en övergripande vy över program och programpaket.":::
 
 Om du väljer **Uppdatera**kan du ladda upp en ny. zip-fil. Då ersätts den tidigare. zip-filen som du laddade upp för den versionen.
 
@@ -243,7 +243,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 
 ## <a name="update-a-pools-application-packages"></a>Uppdatera programpaket för en pool
 
-Om en befintlig pool redan har kon figurer ATS med ett programpaket kan du ange ett nytt paket för poolen. Detta innebär att:
+Om en befintlig pool redan har kon figurer ATS med ett programpaket kan du ange ett nytt paket för poolen. Det innebär att du måste:
 
 - Batch-tjänsten installerar det nyligen angivna paketet på alla nya noder som ansluter till poolen och på alla befintliga noder som startas om eller avbildningar.
 - Compute-noder som redan finns i poolen när du uppdaterar paket referenserna installerar inte automatiskt det nya programpaketet. De här Compute-noderna måste startas om eller avbildningas om för att det nya paketet ska kunna tas emot.

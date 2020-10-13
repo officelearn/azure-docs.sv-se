@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: 6037ece7f4cbe0edc9cf44bded3ee34815f76a48
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91620213"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Självstudie: skapa en Azure Time Series Insights gen1-miljö
@@ -34,7 +34,7 @@ Den här självstudien vägleder dig genom processen att skapa en Azure Time Ser
 > [!IMPORTANT]
 > Registrera dig för en [kostnads fri Azure-prenumeration](https://azure.microsoft.com/free/) om du inte redan har en.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ditt Azure-inloggningsnamn måste också vara medlem i prenumerationens **ägar** roll. Mer information finns i [Hantera åtkomst med hjälp av rollbaserad åtkomst kontroll och Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
@@ -141,7 +141,7 @@ Tillsammans med IoT Hub genererades ett Azure App Service-webbprogram för att s
    Parameter|Beskrivning
    ---|---
    **Mål-IoT Hub** | Välj **Använd företablerade IoT Hub**.
-   **Enhets modell** | Välj **Kylaggregat**.
+   **Enhetsmodell** | Välj **Kylaggregat**.
    **Antal enheter**  | Ange `10` under **belopp**.
    **Telemetrifrekvens** | Ange `10` sekunder.
    **Simulerings varaktighet** | Välj **sluta i:** och ange `5` minuter.

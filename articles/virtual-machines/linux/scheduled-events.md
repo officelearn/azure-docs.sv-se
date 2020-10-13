@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: fee57efb3517131049f986c743125f17573fdc34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 265b99fb985602604eefee27d722b4dc8d7593a8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816736"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970392"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Schemalagda händelser för virtuella Linux-datorer
 
@@ -135,7 +135,7 @@ Om det finns schemalagda händelser innehåller svaret en händelse mat ris.
 | EventId | Globalt unik identifierare för den här händelsen. <br><br> Exempel: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | Typ | Påverkar den här händelsen. <br><br> Värden: <br><ul><li> `Freeze`: Den virtuella datorn är schemalagd att pausas några sekunder. CPU-och nätverks anslutningen kan vara pausad, men det finns ingen inverkan på minnet eller öppna filer.<li>`Reboot`: Den virtuella datorn är schemalagd för omstart (icke-beständigt minne går förlorad). <li>`Redeploy`: Den virtuella datorn är schemalagd att flyttas till en annan nod (tillfälliga diskar går förlorade). <li>`Preempt`: Den virtuella datorn håller på att tas bort (tillfälliga diskar går förlorade). <li> `Terminate`: Den virtuella datorn är schemalagd att tas bort. |
 | ResourceType | Typ av resurs som den här händelsen påverkar. <br><br> Värden: <ul><li>`VirtualMachine`|
-| Resurser| Lista över resurser som den här händelsen påverkar. Listan är garanterat att innehålla datorer från högst en [uppdaterings domän](manage-availability.md), men den innehåller kanske inte alla datorer i UD. <br><br> Exempel: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Resurser| Lista över resurser som den här händelsen påverkar. Listan är garanterat att innehålla datorer från högst en [uppdaterings domän](../manage-availability.md), men den innehåller kanske inte alla datorer i UD. <br><br> Exempel: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status för den här händelsen. <br><br> Värden: <ul><li>`Scheduled`: Den här händelsen är schemalagd att starta efter den tid som anges i `NotBefore` egenskapen.<li>`Started`: Den här händelsen har startats.</ul> `Completed`Det finns aldrig någon eller liknande status. Händelsen returneras inte längre när händelsen är färdig.
 | NotBefore| Tid när den här händelsen kan starta. <br><br> Exempel: <br><ul><li> Mån, 19 Sep 2016 18:29:47 GMT  |
 | Beskrivning | Beskrivning av den här händelsen. <br><br> Exempel: <br><ul><li> Underhåll pågår för värd servern. |

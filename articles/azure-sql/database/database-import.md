@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
 ms.openlocfilehash: ec3da815a9ca3e55fd65f1f0a64a81b74c6d2979
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613755"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: importera en BACPAC-fil till en databas i Azure SQL Database eller Azure SQL-hanterad instans
@@ -40,7 +40,7 @@ Titta på den här videon för att se hur du importerar från en BACPAC-fil i Az
 Om du vill migrera en databas till en [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) från en BACPAC-fil, använder du SQL Server Management Studio eller SQLPackage med hjälp av Azure Portal eller Azure PowerShell stöds inte för närvarande.
 
 > [!NOTE]
-> Datorer som bearbetar import/export-begäranden som skickas via Azure Portal eller PowerShell måste lagra BACPAC-filen och temporära filer som genereras av DacFX (data-Tier Application Framework). Det disk utrymme som krävs varierar kraftigt mellan databaser med samma storlek och kan kräva disk utrymme upp till 3 gånger databasens storlek. Datorer som kör import/export-begäran har bara 450GB lokalt disk utrymme. Därför kan vissa begär Anden Miss lyckas med felet `There is not enough space on the disk` . I det här fallet är lösningen att köra sqlpackage.exe på en dator med tillräckligt lokalt disk utrymme. Vi rekommenderar att du använder SqlPackage för att importera/exportera databaser som är större än 150 GB för att undvika det här problemet.
+> Datorer som bearbetar import-/export begär Anden som skickas via Azure Portal eller PowerShell måste lagra BACPAC-filen och temporära filer som genereras av Data-Tier Application Framework (DacFX). Det disk utrymme som krävs varierar kraftigt mellan databaser med samma storlek och kan kräva disk utrymme upp till 3 gånger databasens storlek. Datorer som kör import/export-begäran har bara 450GB lokalt disk utrymme. Därför kan vissa begär Anden Miss lyckas med felet `There is not enough space on the disk` . I det här fallet är lösningen att köra sqlpackage.exe på en dator med tillräckligt lokalt disk utrymme. Vi rekommenderar att du använder SqlPackage för att importera/exportera databaser som är större än 150 GB för att undvika det här problemet.
 
 1. Om du vill importera från en BACPAC-fil till en ny databas med hjälp av Azure Portal öppnar du lämplig server sida och väljer sedan **Importera databas**i verktygsfältet.  
 
@@ -87,7 +87,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [En SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) stöder för närvarande inte migrering av en databas till en instans databas från en BACPAC-fil med hjälp av Azure PowerShell. Använd SQL Server Management Studio eller SQLPackage om du vill importera till en SQL-hanterad instans.
 
 > [!NOTE]
-> De datorer som bearbetar import/export-begäranden som skickas via portalen eller PowerShell måste lagra BACPAC-filen och temporära filer som genereras av DacFX (data Tier Application Framework). Det disk utrymme som krävs varierar kraftigt mellan databaser med samma storlek och kan ta upp till tre gånger från databasens storlek. Datorer som kör import/export-begäran har bara 450GB lokalt disk utrymme. Som ett resultat kan vissa förfrågningar Miss lyckas med fel meddelandet "det finns inte tillräckligt med disk utrymme på disken". I det här fallet är lösningen att köra sqlpackage.exe på en dator med tillräckligt lokalt disk utrymme. När du importerar/exporterar databaser som är större än 150 GB använder du SqlPackage för att undvika det här problemet.
+> De datorer som bearbetar import/export-begäranden som skickas via portalen eller PowerShell måste lagra BACPAC-filen och temporära filer som genereras av Data-Tier Application Framework (DacFX). Det disk utrymme som krävs varierar kraftigt mellan databaser med samma storlek och kan ta upp till tre gånger från databasens storlek. Datorer som kör import/export-begäran har bara 450GB lokalt disk utrymme. Som ett resultat kan vissa förfrågningar Miss lyckas med fel meddelandet "det finns inte tillräckligt med disk utrymme på disken". I det här fallet är lösningen att köra sqlpackage.exe på en dator med tillräckligt lokalt disk utrymme. När du importerar/exporterar databaser som är större än 150 GB använder du SqlPackage för att undvika det här problemet.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

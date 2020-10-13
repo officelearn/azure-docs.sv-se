@@ -3,12 +3,12 @@ title: Template Functions-String
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med strängar.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 42df0317658971b9e9bf3fb805c9a5ff44efaf45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0733ffc790854c60dca46da3f763738b7820215
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "85962075"
+ms.locfileid: "91874721"
 ---
 # <a name="string-functions-for-arm-templates"></a>Sträng funktioner för ARM-mallar
 
@@ -27,6 +27,7 @@ Resource Manager innehåller följande funktioner för att arbeta med strängar 
 * [formatering](#format)
 * [guid](#guid)
 * [indexOf](#indexof)
+* [utgör](#json)
 * [pågå](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
@@ -36,7 +37,7 @@ Resource Manager innehåller följande funktioner för att arbeta med strängar 
 * [Ignorera](#skip)
 * [del](#split)
 * [startsWith](#startswith)
-* [nollängd](#string)
+* [sträng](#string)
 * [under sträng](#substring)
 * [take](#take)
 * [toLower](#tolower)
@@ -894,6 +895,12 @@ Utdata från föregående exempel med standardvärdena är:
 | firstString | Int | 2 |
 | lastString | Int | 0 |
 | notFound | Int | -1 |
+
+## <a name="json"></a>json
+
+`json(arg1)`
+
+Konverterar en giltig JSON-sträng till en JSON-datatyp. Mer information finns i [JSON-funktion](template-functions-object.md#json).
 
 ## <a name="last"></a>pågå
 

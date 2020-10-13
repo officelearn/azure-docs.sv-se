@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
 ms.openlocfilehash: 1b10489ef74e681eab59694d24c4babc3ce69163
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91298719"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Skapa en FCI med en Premium-filresurs (SQL Server på virtuella Azure-datorer)
@@ -96,17 +96,7 @@ Verifiera klustret med hjälp av användar gränssnittet genom att göra följan
 1. Välj **Nästa**.
 1. Under **Val av test**väljer du alla tester förutom **lagring** och **Lagringsdirigering**, som du ser här:
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Välj kluster verifierings test":::
-
-1. Välj **Nästa**.
-1. Under **bekräftelse**väljer du **Nästa**.
-
-Verifierings testen körs i guiden **Verifiera en konfiguration** .
-
-Om du vill verifiera klustret med hjälp av PowerShell kör du följande skript från en administratör PowerShell-session på en av de virtuella datorerna:
-
-   ```powershell
-   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Kopiera båda PowerShell-kommandona från fil resursen Connect-portalen"
    ```
 
 När du har verifierat klustret skapar du klustret för växling vid fel.
@@ -151,7 +141,7 @@ Konfigurera den kvorumresurs som passar dina affärs behov bäst. Du kan konfigu
 
 Testa redundansväxlingen av klustret. I **Klusterhanteraren för växling vid fel**högerklickar du på klustret, väljer **fler åtgärder**  >  **Flytta kärn kluster resurs**  >  **Välj nod**och välj sedan den andra noden i klustret. Flytta kärn kluster resursen till varje nod i klustret och flytta tillbaka den till den primära noden. Om du kan flytta klustret till varje nod är du redo att installera SQL Server.  
 
-:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testa redundanskluster genom att flytta kärn resursen till de andra noderna":::
+:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Kopiera båda PowerShell-kommandona från fil resursen Connect-portalen":::
 
 
 ## <a name="create-sql-server-fci"></a>Skapa SQL Server FCI
@@ -172,7 +162,7 @@ När du har konfigurerat klustret för växling vid fel kan du skapa SQL Server 
 
    FCI data kataloger måste finnas på Premium-filresursen. Ange den fullständiga sökvägen till resursen i det här formatet: `\\storageaccountname.file.core.windows.net\filesharename\foldername` . En varning visas som talar om att du har angett en fil server som data katalog. Den här varningen förväntas. Se till att det användar konto du använde för att få åtkomst till den virtuella datorn via RDP när du sparade fil resursen är samma konto som den SQL Server tjänsten använder för att undvika eventuella problem.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Använd fil resurs som SQL data-kataloger":::
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Kopiera båda PowerShell-kommandona från fil resursen Connect-portalen":::
 
 1. När du har slutfört stegen i guiden kommer installations programmet att installera en SQL Server FCI på den första noden.
 

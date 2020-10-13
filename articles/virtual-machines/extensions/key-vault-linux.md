@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 720c5190bfc1b4b6a6c3e86052cfc329233c5ed2
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: bdab132d4d22dced97273e9d1d051f155f9d69b6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802488"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970732"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault tillägg för virtuell dator för Linux
 
@@ -32,6 +32,11 @@ Key Vault VM-tillägget stöder dessa Linux-distributioner:
 
 - PKCS-#12
 - PEM
+
+## <a name="prerequisities"></a>Prerequisities
+  - Key Vault instans med certifikat. Se [skapa en Key Vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+  - VM/VMSS måste ha tilldelats en [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+  - Åtkomst principen för Key Vault måste anges med hemligheter `get` och `list` behörighet för VM/VMSS-hanterad identitet för att hämta en hemlig del av certifikatet. Se [hur du autentiserar till Key Vault](/azure/key-vault/general/authentication) och [tilldelar en Key Vault åtkomst princip](/azure/key-vault/general/assign-access-policy-cli).
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
@@ -202,12 +207,10 @@ Azure CLI kan användas för att distribuera Key Vault VM-tillägget till en bef
         --vm-name "<vmName>" `
         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```
-
 Observera följande begränsningar/krav:
 - Key Vault begränsningar:
   - Det måste finnas vid tidpunkten för distributionen 
-  - Key Vault åtkomst princip måste anges för VM/VMSS-identitet med hjälp av en hanterad identitet. Se [hur du autentiserar till Key Vault](/azure/key-vault/general/authentication) och [tilldelar en Key Vault åtkomst princip](/azure/key-vault/general/assign-access-policy-cli).
-
+  - Key Vault åtkomst princip måste anges för VM/VMSS-identitet med hjälp av en hanterad identitet. Se [hur du autentiserar till Key Vault](../../key-vault/general/authentication.md) och [tilldelar en Key Vault åtkomst princip](../../key-vault/general/assign-access-policy-cli.md).
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 

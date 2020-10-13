@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om säkerhetskopiering av Azure Files
 description: I den här artikeln hittar du svar på vanliga frågor om hur du skyddar dina Azure-filresurser med Azure Backup-tjänsten.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 74d8cc9cdb1d9c01c8238f205ae485b61d665cd7
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: e2b6afb25e189ee2848f25c0ba59d843baf37090
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729074"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940843"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 
@@ -78,20 +78,20 @@ Alla ögonblicks bilder som tas av Azure Backup kan nås genom att Visa ögonbli
 
 ### <a name="what-happens-after-i-move-a-backed-up-file-share-to-a-different-subscription"></a>Vad händer när jag flyttar en säkerhetskopierad fil resurs till en annan prenumeration?
 
-När en fil resurs flyttas till en annan prenumeration betraktas den som en ny fil resurs genom att Azure Backup. Nedan följer rekommenderade steg:
+När en fil resurs flyttas till en annan prenumeration betraktas den som en ny fil resurs genom att Azure Backup. Detta är de rekommenderade stegen:
  
-Scenario: anta att du har en fil resurs FS1 i prenumeration S1 och att den skyddas med v1-valv. Nu vill du flytta din fil resurs till prenumeration S2.
+Scenario: anta att du har en fil resurs *FS1* i prenumeration *S1* och att den skyddas med *v1* -valvet. Nu vill du flytta din fil resurs till prenumeration *S2*.
  
 1.  Flytta det önskade lagrings kontot och fil resursen (FS1) till en annan prenumeration (S2).
-2.  I v1-valv utlöses stopp skyddet med åtgärden ta bort data för FS1.
+2.  I v1-valvet utlöses stopp skyddet med åtgärden ta bort data för FS1.
 3.  Avregistrera lagrings kontot som är värd för FS1 från v1-valvet.
 4.  Konfigurera om säkerhets kopieringen för FS1, som nu har flyttats till S2, med ett valv (v2) i S2-prenumerationen. 
  
-Observera att när du har konfigurerat om säkerhets kopieringen med v2 kommer ögonblicks bilderna som togs med v1 inte längre att hanteras av Azure Backup och därför måste du ta bort dessa ögonblicks bilder manuellt enligt behov.
+Observera att när du har konfigurerat om säkerhets kopieringen med v2 kommer ögonblicks bilderna som togs med v1 inte längre att hanteras av Azure Backup. Därför måste du ta bort dessa ögonblicks bilder manuellt enligt dina krav.
 
 ### <a name="can-i-move-my-backed-up-file-share-to-a-different-resource-group"></a>Kan jag flytta min säkerhetskopierade fil resurs till en annan resurs grupp?
  
-Ja, du kan flytta din säkerhetskopierade fil resurs till en annan resurs grupp. Du måste dock konfigurera om säkerhets kopieringen för fil resursen eftersom den kommer att behandlas som en ny resurs genom att Azure Backup. Ögonblicks bilderna som skapades innan resurs gruppen flyttades kommer inte längre att hanteras av Azure Backup. Därför måste du ta bort dessa ögonblicks bilder manuellt enligt ditt krav.
+Ja, du kan flytta din säkerhetskopierade fil resurs till en annan resurs grupp. Du måste dock konfigurera om säkerhets kopieringen för fil resursen eftersom den kommer att behandlas som en ny resurs genom att Azure Backup. Ögonblicks bilderna som skapades innan resurs grupps flyttningen kommer inte längre att hanteras av Azure Backup. Därför måste du ta bort dessa ögonblicks bilder manuellt enligt dina krav.
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Vad är den maximala kvarhållning som jag kan konfigurera för säkerhets kopieringar?
 

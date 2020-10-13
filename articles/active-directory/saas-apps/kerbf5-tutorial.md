@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 9db53e36dee318d39d34d26a548d1d32cbbec3b2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fe0f2b0efa3f089398493cf30012e34097e065ec
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266079"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944312"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med F5
 
@@ -72,15 +72,15 @@ För att komma igång behöver du följande objekt:
 
 2. På sidan **guidad konfiguration** klickar du på **Uppgradera guidad konfiguration** i det övre vänstra hörnet.
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure14.png) 
+    ![Skärm bild som visar sidan "guidad konfiguration" med åtgärden "uppgradera guidad konfiguration" vald.](./media/kerbf5-tutorial/configure14.png) 
 
 3. På popup-skärmen uppgraderings guide konfiguration väljer du **Välj fil** för att ladda upp det nedladdade användnings fallet och klickar på knappen **överför och installera** .
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure15.png) 
+    ![Skärm bild som visar popup-skärmen "uppgradera guidad konfiguration" med "Välj fil" och "Ladda upp och installera" markerat.](./media/kerbf5-tutorial/configure15.png) 
 
 4. När uppgraderingen är klar klickar du på knappen **Fortsätt** .
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure16.png)
+    ![Skärm bild som visar dialog rutan "guidad konfigurations uppdatering har slutförts" och knappen "Fortsätt" markerad.](./media/kerbf5-tutorial/configure16.png)
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -172,7 +172,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -213,60 +213,60 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Gå till **System > certifikat hantering > hantering av trafik certifikat > SSL-certifikat lista**. Välj **Importera** från det högra hörnet. Ange ett **certifikat namn** (kommer att refereras till senare i konfigurationen). I **certifikat källan**väljer du överför fil ange det certifikat som hämtats från Azure när du konfigurerar SAML enkel inloggning. Klicka på **Importera**.
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure01.png) 
+    ![Skärm bild som visar sidan "S L-certifikat/nyckel källa" med "certifikat namnet" markerad, "Ladda upp fil" och knappen "Importera" har marker ATS.](./media/kerbf5-tutorial/configure01.png) 
 
 1. Dessutom krävs **SSL-certifikat för program värd namnet. Gå till system > certifikat hantering > hantering av trafik certifikat > SSL-certifikat lista**. Välj **Importera** från det högra hörnet. **Import typen** är **PKCS 12 (IIS)**. Ange ett **nyckel namn** (kommer att refereras till senare i konfigurationen) och ange PFX-filen. Ange **lösen ordet** för PFX-filen. Klicka på **Importera**.
 
     >[!NOTE]
     >I exempel namnet på appen `Kerbapp.superdemo.live` använder vi ett jokertecken med vårt namn `WildCard-SuperDemo.live`
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure02.png) 
+    ![Skärm bild som visar sidan "S L-certifikat/nyckel källa" med de värden som har angetts och knappen Importera har valts.](./media/kerbf5-tutorial/configure02.png) 
  
 1. Vi kommer att använda den guidade upplevelsen för att konfigurera Azure AD Federation och program åtkomst. Gå till – F5 BIG-IP- **huvud** och välj **åtkomst > guidad konfiguration > Federation > SAML-tjänstprovider**. Klicka på **Nästa** och påbörja konfigurationen genom att klicka på **Nästa** .
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure03.png) 
+    ![Skärm bild som visar sidan "guidad konfiguration" med ikonen "federation" markerad och "S A M L Service Provider" vald.](./media/kerbf5-tutorial/configure03.png) 
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure04.png)
+    ![Skärm bild som visar sidan "guidad konfiguration-S A M L-tjänstprovider" med knappen "Nästa" vald.](./media/kerbf5-tutorial/configure04.png)
 
 1. Ange ett **konfigurations namn**. Ange **entitets-ID: t** (samma som det som du konfigurerade i Azure AD-programkonfigurationen). Ange **värd namnet**. Lägg till en **Beskrivning** av referensen. Godkänn återstående standard poster och välj och klicka sedan på **spara & nästa**.
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure05.png) 
+    ![Skärm bild som visar "egenskaper för tjänst leverantör" med text rutorna "värdnamn" och "Beskrivning" markerade och knappen "Spara & nästa" markerat.](./media/kerbf5-tutorial/configure05.png) 
 
 1. I det här exemplet skapar vi en ny virtuell server som 192.168.30.200 med port 443. Ange IP-adressen för den virtuella servern i **mål adressen**. Välj klienten **SSL-profil**, Välj Skapa ny. Ange tidigare överförda program certifikat (jokertecken i det här exemplet) och tillhör ande nyckel och klicka sedan på **spara & nästa**.
 
     >[!NOTE]
     >i det här exemplet körs vår interna webserver på port 80 och vi vill publicera den med 443.
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure06.png)
+    ![Skärm bild som visar sidan "egenskaper för virtuell server" med text rutan "mål adress" markerad och knappen "Spara & nästa" markerad.](./media/kerbf5-tutorial/configure06.png)
 
 1. Under **Välj metod för att konfigurera din IDP-anslutning**anger du metadata, klickar på Välj fil och överför metadata-XML-filen som hämtades tidigare från Azure AD. Ange ett unikt **namn** för SAML IDP Connector. Välj det **signerings certifikat för metadata** som överfördes tidigare. Klicka på **spara & nästa**.
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure07.png)  
+    ![Skärm bild som visar sidan "anslutnings inställningar för extern identitetsprovider" med text rutan "namn" markerad och knappen "Spara & nästa" markerat.](./media/kerbf5-tutorial/configure07.png)  
 
 1. Under **Välj en pool**anger du **Skapa ny** (du kan också välja en pool som den redan finns). Låt andra värde vara standard.    Under pooler anger du IP-adressen under **IP-adress/nodnamn**. Ange **porten**. Klicka på **spara & nästa**.
  
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure08.png)
+    ![Skärm bild som visar sidan "bassängs egenskaper" med text rutorna "IP-adress/nodnamn" och "Port" markerade och knappen "Spara & nästa" markerat.](./media/kerbf5-tutorial/configure08.png)
 
-1. På skärmen Inställningar för enkel inloggning väljer du **aktivera enkel inloggning**. Välj **Kerberos**under **vald typ av enkel inloggning** . Ersätt **session. SAML. senaste. identitet**  med **session. SAML. Last. attr. Name. identitet** under **användar namn källa** (den här variabeln anges med anspråks mappning i Azure AD). Välj **Visa avancerad inställning**. Under **Kerberos-sfär** skriver du domän namnet. Ange kontot och lösen ordet för APM-delegering under **konto namn/konto lösen ord** . Ange domänkontrollantens IP-adress i **KDC** -fältet. Klicka på **spara & nästa**.
+1. På skärmen Inställningar för enkel Sign-On väljer du **aktivera enkel inloggning**. Välj **Kerberos**under **Välj enskild Sign-On typ** . Ersätt **session. SAML. senaste. identitet**  med **session. SAML. Last. attr. Name. identitet** under **användar namn källa** (den här variabeln anges med anspråks mappning i Azure AD). Välj **Visa avancerad inställning**. Under **Kerberos-sfär** skriver du domän namnet. Ange kontot och lösen ordet för APM-delegering under **konto namn/konto lösen ord** . Ange domänkontrollantens IP-adress i **KDC** -fältet. Klicka på **spara & nästa**.
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure09.png)   
+    ![Skärm bild som visar "enkla Sign-On-inställningar" med text rutor markerade och knappen "Spara & nästa" markerat.](./media/kerbf5-tutorial/configure09.png)   
 
 1. I den här vägledningen kommer vi att hoppa över slut punkts kontroller.  Mer information finns i F5-dokumentationen.  På skärmen väljer du **spara & nästa**.
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure10.png) 
+    ![Skärm bild som visar sidan "egenskaper för slut punkts kontroll" och knappen "Spara & nästa" markerat.](./media/kerbf5-tutorial/configure10.png) 
 
 1. Acceptera standardinställningarna och klicka på **spara & nästa**. Se F5-dokumentationen för information om inställningar för hantering av SAML-sessioner.
 
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure11.png) 
+    ![Skärm bild som visar sidan "tids gräns inställningar" med knappen "Spara & nästa" markerat.](./media/kerbf5-tutorial/configure11.png) 
  
 1. Granska sammanfattnings skärmen och välj **distribuera** för att konfigurera Big-IP.
  
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure12.png)
+    ![Skärm bild som visar avsnittet "ditt program är redo att distribueras" med avsnittet "Sammanfattning" markerat och knappen "distribuera" är markerad.](./media/kerbf5-tutorial/configure12.png)
 
 1. När programmet har kon figurer ATS klickar du på **Slutför**.
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure13.png)
+    ![Skärm bild som visar sidan "ditt program har distribuerats" med knappen Slutför markerad.](./media/kerbf5-tutorial/configure13.png)
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 
@@ -317,27 +317,27 @@ Du konfigurerar en Active Directory AAA-server i Access Policy Manager (APM) fö
 
 15. Klicka på **klart**. Den nya servern visas på listan. Detta lägger till den nya Active Directory servern i listan Active Directory servrar.
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure17.png)
+    ![Skärm bild som visar avsnitten "allmänna egenskaper" och "konfiguration".](./media/kerbf5-tutorial/configure17.png)
 
 ### <a name="saml-configuration"></a>SAML-konfiguration
 
 1. Du måste importera certifikatet för metadata till F5 som kommer att användas senare i installations processen. Gå till **System > certifikat hantering > hantering av trafik certifikat > SSL-certifikat lista**. Välj **Importera** från det högra hörnet.
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure18.png)
+    ![Skärm bild som visar sidan "Importera S L-certifikat/nyckel-källa" med knappen "Importera" vald.](./media/kerbf5-tutorial/configure18.png)
 
 2. För att konfigurera SAML-IDP, **navigera till åtkomst > Federation > SAML: Service Provider > externa IDP-kopplingar**och klicka på **skapa > från metadata**.
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure19.png)
+    ![Skärm bild som visar sidan "S A M L-tjänstprovider" med "från metadata" vald från List rutan "skapa".](./media/kerbf5-tutorial/configure19.png)
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure20.png)
+    ![Skärm bild som visar dialog rutan "skapa nya S A M L I d P Connector".](./media/kerbf5-tutorial/configure20.png)
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure21.png)
+    ![Skärm bild som visar fönstret "redigera S A M L I d P Connector" med "allmänna inställningar" valt.](./media/kerbf5-tutorial/configure21.png)
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure22.png)
+    ![Skärm bild som visar fönstret "redigera S A M L I d P Connector" med inställningarna för enkel inloggnings tjänst har valts.](./media/kerbf5-tutorial/configure22.png)
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure23.png)
+    ![Skärm bild som visar fönstret "redigera S A M L I d P Connector" med "säkerhets inställningar" valt.](./media/kerbf5-tutorial/configure23.png)
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure24.png)
+    ![Skärm bild som visar fönstret "redigera S A M L I d P Connector" med inställningarna "S O service Settings" markerat.](./media/kerbf5-tutorial/configure24.png)
 
 1. Om du vill konfigurera SAML SP navigerar du till **åtkomst > Federation > SAML Service Provider > lokala SP-tjänster** och klickar på **skapa**. Slutför följande information och klicka på **OK**.
 
@@ -348,17 +348,17 @@ Du konfigurerar en Active Directory AAA-server i Access Policy Manager (APM) fö
     * Värd: kerbapp200. superdemo. Live
     * Beskrivning: kerbapp200. superdemo. Live
 
-     ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure25.png)
+     ![Skärm bild som visar fönstret "redigera S A M L S P service" med "allmänna inställningar" valt.](./media/kerbf5-tutorial/configure25.png)
 
      b. Välj SP-konfigurationen, KerbApp200SAML och klicka på **BIND/UnBind IDP-kopplingar**.
 
-     ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure26.png)
+     ![Skärm bild som visar sidan "S A M L Service Provider-Local S P" med "KerbAPP200 S A M L" vald.](./media/kerbf5-tutorial/configure26.png)
 
-     ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure27.png)
+     ![Skärm bild som visar knappen "bind/Unbind I d P connectors" markerad.](./media/kerbf5-tutorial/configure27.png)
 
      c. Klicka på **Lägg till ny rad** och välj den **externa IDP-anslutning** som skapades i föregående steg, klicka på **Uppdatera**och klicka sedan på **OK**.
 
-     ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure28.png)
+     ![Skärm bild som visar knappen "redigera S A M L I d PS som använder det här S P"-fönstret med knappen "Lägg till ny rad" markerad.](./media/kerbf5-tutorial/configure28.png)
 
 1. För att konfigurera Kerberos SSO navigerar du till **åtkomst > enkel inloggning > Kerberos**, fullständig information och klickar på **slutfört**.
 
@@ -369,7 +369,7 @@ Du konfigurerar en Active Directory AAA-server i Access Policy Manager (APM) fö
 
     * **Användar sfär källa**: session. logon. senaste. domän
 
-        ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure29.png)
+        ![Skärm bild som visar sidan "enkla Sign-On-egenskaper" med text rutorna "användar namn källa" och "användar sfär källa" markerade.](./media/kerbf5-tutorial/configure29.png)
 
 1. För att konfigurera åtkomst profilen, navigera till **åtkomst > profil/principer > åtkomst profil (per sessionstillstånd)**, klicka på **skapa**, Slutför följande information och klicka på **Slutför**.
 
@@ -378,38 +378,38 @@ Du konfigurerar en Active Directory AAA-server i Access Policy Manager (APM) fö
     * Profil omfattning: profil
     * Språk: engelska
 
-        ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure30.png)
+        ![Skärm bild som visar sidan "profiler/principer-egenskaper" med text rutorna "namn", "profil typ" och "langauges" markerade.](./media/kerbf5-tutorial/configure30.png)
 
 1. Klicka på namnet KerbApp200, Slutför följande information och klicka på **Uppdatera**.
 
     * Domän-cookie: superdemo. Live
     * SSO-konfiguration: KerAppSSO_sso
 
-        ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure31.png)
+        ![Skärm bild som visar sidan "S S D/auth-domäner" med list rutan "domän-cookie" och "S S O-konfiguration" markerat och knappen "uppdatera" är markerad.](./media/kerbf5-tutorial/configure31.png)
 
 1. Klicka på **åtkomst princip** och klicka sedan på **Redigera åtkomst princip** för profilen "KerbApp200".
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure32.png)
+    ![Skärm bild som visar sidan "åtkomst princip" med åtgärden "redigera åtkomst princip för profil KerbApp200" vald.](./media/kerbf5-tutorial/configure32.png)
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure33.png)
+    ![Skärm bild som visar sidan "åtkomst princip" och "S A M L-autentisering S P"-dialog ruta.](./media/kerbf5-tutorial/configure33.png)
 
-    ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure34.png)
+    ![Skärm bild som visar sidan "åtkomst princip" och dialog rutan "variabel tilldelning" med text rutorna tilldelningar markerade.](./media/kerbf5-tutorial/configure34.png)
 
     * **session. logon. senaste. usernameUPN uttryck {[mcget {session. SAML. Last. Identity}]}**
 
     * **session. AD. lastactualdomain TEXT superdemo. Live**
 
-        ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure35.png)
+        ![Skärm bild som visar sidan "åtkomst princip" och dialog rutan "Active Directory" med text rutan "SearchFilter" markerad.](./media/kerbf5-tutorial/configure35.png)
 
     * **(userPrincipalName =% {session. logon. senaste. usernameUPN})**
 
-        ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure36.png)
+        ![Skärm bild som visar sidan "åtkomst princip" med dialog rutan "A D Query-Branch Rules".](./media/kerbf5-tutorial/configure36.png)
 
-        ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure37.png)
+        ![Skärm bild som visar text rutorna "anpassad variabel" och "anpassat uttryck" markerade.](./media/kerbf5-tutorial/configure37.png)
 
     * **session. logon. senaste. username-uttryck {"[mcget {session. AD. Last. attr. sAMAccountName}]"}**
 
-        ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure38.png)
+        ![Skärm bild som visar text rutan "användar namn från inloggnings sida" markerad.](./media/kerbf5-tutorial/configure38.png)
 
     * **mcget {session. logo. senaste. username}**
     * **mcget {session. logo. senaste. password**
@@ -420,17 +420,17 @@ Du konfigurerar en Active Directory AAA-server i Access Policy Manager (APM) fö
     * Beskrivning: KerbApp200
     * Adress: 192.168.20.200
 
-        ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure39.png)
+        ![Skärm bild som visar sidan "ny nod" med text rutorna "namn", "Beskrivning" och "adress" markerade och knappen "slutfört" markerat.](./media/kerbf5-tutorial/configure39.png)
 
 1. För att skapa en ny pool, navigera till **lokal trafik > pooler > pool, klicka på Skapa**, Slutför följande information och klicka på **Slutför**.
 
-    * Namn: KerbApp200-pool
-    * Beskrivning: KerbApp200-pool
+    * Namn: KerbApp200-Pool
+    * Beskrivning: KerbApp200-Pool
     * Hälso Övervakare: http
     * Adress: 192.168.20.200
     * Tjänst port: 81
 
-        ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure40.png)
+        ![Skärm bild som visar sidan "ny pool" med angivna värden och knappen "slutfört" markerat.](./media/kerbf5-tutorial/configure40.png)
 
 1. För att skapa en virtuell server går du till **lokal trafik > virtuella servrar > Virtual Server List > +**, Slutför följande information och klickar på **slutförd**.
 
@@ -440,9 +440,9 @@ Du konfigurerar en Active Directory AAA-server i Access Policy Manager (APM) fö
     * Åtkomst profil: KerbApp200
     * Ange åtkomst profilen som skapades i föregående steg
 
-        ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure41.png)
+        ![Skärm bild som visar sidan "lista över virtuella servrar" med text rutorna "namn", "mål adress/mask" och "tjänst port" markerade.](./media/kerbf5-tutorial/configure41.png)
 
-        ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure42.png)
+        ![Skärm bild som visar sidan "lista över virtuella servrar" med list rutan "åtkomst profil" markerad.](./media/kerbf5-tutorial/configure42.png)
 
 ### <a name="setting-up-kerberos-delegation"></a>Konfigurera Kerberos-delegering 
 
@@ -456,7 +456,7 @@ Du konfigurerar en Active Directory AAA-server i Access Policy Manager (APM) fö
 
     * Sam-konto namn: **Big-ipuser**
 
-    * New-ADUser-Name "APM Delegerings konto"-UserPrincipalName host/big-ipuser.superdemo.live@superdemo.live -sAMAccountName "Big-ipuser"-PasswordNeverExpires $True-enabled $True-AccountPassword (Read-Host-AsSecureString "Password! 1234")
+    * New-ADUser namn "APM Delegerings konto"-UserPrincipalName host/big-ipuser.superdemo.live@superdemo.live -sAMAccountName "Big-ipuser"-PasswordNeverExpires $True-enabled $True-AccountPassword (Read-Host-AsSecureString "Password! 1234")
 
 * **Steg 2:** Ange SPN (på kontot för APM-delegering)
 

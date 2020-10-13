@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f9f68d3734cd7de83a2ddd376caefa410c619d61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90db861a4ef4fc951844d3ae82a51d20cf9dc8c5
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291117"
+ms.locfileid: "91875112"
 ---
 # <a name="safe-url-list"></a>Lista över säkra webbadresser
 
@@ -19,17 +19,19 @@ Du måste avblockera vissa URL: er så att distributionen av Windows virtuella d
 
 ## <a name="virtual-machines"></a>Virtuella datorer
 
-De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste ha åtkomst till följande URL: er:
+De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste ha åtkomst till följande URL: er i det kommersiella Azure-molnet:
 
 |Adress|Utgående TCP-port|Syfte|Service tag|
 |---|---|---|---|
 |*. wvd.microsoft.com|443|Tjänst trafik|WindowsVirtualDesktop|
-|mrsglobalsteus2prod.blob.core.windows.net|443|Uppdateringar av agent-och SXS-stack|AzureCloud|
-|*.core.windows.net|443|Agent trafik|AzureCloud|
-|*.servicebus.windows.net|443|Agent trafik|AzureCloud|
 |gcs.prod.monitoring.core.windows.net|443|Agent trafik|AzureCloud|
+|production.diagnostics.monitoring.core.windows.net|443|Agent trafik|AzureCloud|
+|* xt.blob.core.windows.net|443|Agent trafik|AzureCloud|
+|* eh.servicebus.windows.net|443|Agent trafik|AzureCloud|
+|* xt.table.core.windows.net|443|Agent trafik|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Windows-aktivering|Internet|
+|mrsglobalsteus2prod.blob.core.windows.net|443|Uppdateringar av agent-och SXS-stack|AzureCloud|
 |wvdportalstorageblob.blob.core.windows.net|443|Azure Portal support|AzureCloud|
 | 169.254.169.254 | 80 | [Azure instance metadata service-slutpunkt](../virtual-machines/windows/instance-metadata-service.md) | E.t. |
 | 168.63.129.16 | 80 | [Hälso övervakning av sessions värd](../virtual-network/security-overview.md#azure-platform-considerations) | E.t. |
@@ -39,16 +41,33 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 >
 >Vi rekommenderar att du använder FQDN-taggar eller tjänst Taggar i stället för URL: er för att förhindra tjänst problem. URL: er och taggar i listan motsvarar endast Windows virtuella Skriv bords webbplatser och resurser. De omfattar inte URL: er för andra tjänster som Azure Active Directory.
 
-I följande tabell visas valfria URL: er som dina virtuella Azure-datorer kan ha åtkomst till:
+De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste ha åtkomst till följande URL: er i Azure Government molnet:
 
 |Adress|Utgående TCP-port|Syfte|Service tag|
 |---|---|---|---|
-|*.microsoftonline.com|443|Autentisering till Microsoft Online Services|Inget|
+|*. wvd.microsoft.us|443|Tjänst trafik|WindowsVirtualDesktop|
+|gcs.monitoring.core.usgovcloudapi.net|443|Agent trafik|AzureCloud|
+|monitoring.core.usgovcloudapi.net|443|Agent trafik|AzureCloud|
+|fairfax.warmpath.usgovcloudapi.net|443|Agent trafik|AzureCloud|
+|* xt.blob.core.usgovcloudapi.net|443|Agent trafik|AzureCloud|
+|*. servicebus.usgovcloudapi.net|443|Agent trafik|AzureCloud|
+|* xt.table.core.usgovcloudapi.net|443|Agent trafik|AzureCloud|
+|Kms.core.usgovcloudapi.net|1688|Windows-aktivering|Internet|
+|mrsglobalstugviffx.core.usgovcloudapi.net|443|Uppdateringar av agent-och SXS-stack|AzureCloud|
+|wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Azure Portal support|AzureCloud|
+| 169.254.169.254 | 80 | [Azure instance metadata service-slutpunkt](../virtual-machines/windows/instance-metadata-service.md) | E.t. |
+| 168.63.129.16 | 80 | [Hälso övervakning av sessions värd](../virtual-network/security-overview.md#azure-platform-considerations) | E.t. |
+
+I följande tabell visas valfria URL: er som dina virtuella Azure-datorer kan ha åtkomst till:
+
+|Adress|Utgående TCP-port|Syfte|Azure-gov|
+|---|---|---|---|
+|*.microsoftonline.com|443|Autentisering till Microsoft Online Services|login.microsoftonline.us|
 |*. events.data.microsoft.com|443|Telemetri-tjänst|Inget|
 |www.msftconnecttest.com|443|Identifierar om operativ systemet är anslutet till Internet|Inget|
 |*. prod.do.dsp.mp.microsoft.com|443|Windows Update|Inget|
-|login.windows.net|443|Logga in på Microsoft Online Services, Microsoft 365|Inget|
-|*. sfx.ms|443|Uppdateringar för OneDrive-klientprogramvara|Inget|
+|login.windows.net|443|Logga in på Microsoft Online Services, Microsoft 365|login.microsoftonline.us|
+|*. sfx.ms|443|Uppdateringar för OneDrive-klientprogramvara|oneclient.sfx.ms|
 |*. digicert.com|443|Återkallnings kontroll av certifikat|Inget|
 
 >[!NOTE]
@@ -66,15 +85,15 @@ I följande tabell visas valfria URL: er som dina virtuella Azure-datorer kan ha
 
 Alla fjärr skrivbords klienter som du använder måste ha åtkomst till följande URL: er:
 
-|Adress|Utgående TCP-port|Syfte|Klient (er)|
-|---|---|---|---|
-|*. wvd.microsoft.com|443|Tjänst trafik|Alla|
-|*.servicebus.windows.net|443|Felsöka data|Alla|
-|go.microsoft.com|443|Microsoft-FWLinks|Alla|
-|aka.ms|443|Microsoft URL-kortare|Alla|
-|docs.microsoft.com|443|Dokumentation|Alla|
-|privacy.microsoft.com|443|Sekretesspolicy|Alla|
-|query.prod.cms.rt.microsoft.com|443|Klient uppdateringar|Windows-skrivbordet|
+|Adress|Utgående TCP-port|Syfte|Klient (er)|Azure-gov|
+|---|---|---|---|---|
+|*. wvd.microsoft.com|443|Tjänst trafik|Alla|*. wvd.microsoft.us|
+|*.servicebus.windows.net|443|Felsöka data|Alla|*. servicebus.usgovcloudapi.net|
+|go.microsoft.com|443|Microsoft-FWLinks|Alla|Inget|
+|aka.ms|443|Microsoft URL-kortare|Alla|Inget|
+|docs.microsoft.com|443|Dokumentation|Alla|Inget|
+|privacy.microsoft.com|443|Sekretesspolicy|Alla|Inget|
+|query.prod.cms.rt.microsoft.com|443|Klient uppdateringar|Windows-skrivbordet|Inget|
 
 >[!IMPORTANT]
 >Att öppna dessa URL: er är viktigt för en tillförlitlig klient upplevelse. Det finns inte stöd för att blockera åtkomst till dessa URL: er och det påverkar service funktionerna.

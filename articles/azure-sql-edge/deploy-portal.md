@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 683a3fc148d3521366beef4427e87200ea81a9f3
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445723"
 ---
 # <a name="deploy-azure-sql-edge"></a>Distribuera Azure SQL Edge 
@@ -217,7 +217,7 @@ Du kan ansluta och köra SQL-frågor mot din Azure SQL Edge-instans från alla e
 
 I den här snabb starten har du distribuerat en SQL Edge-modul på en IoT Edge enhet. 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Machine Learning och artificiell intelligens med ONNX i SQL Edge](onnx-overview.md)
 - [Skapa en IoT-lösning från slut punkt till slut punkt med SQL Edge med IoT Edge](tutorial-deploy-azure-resources.md)

@@ -9,10 +9,10 @@ ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
 ms.openlocfilehash: 11b41f4dcffad2c98ea5d1f70346ba150fd18c17
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91278642"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
@@ -71,7 +71,7 @@ Om du använder en offentlig IP-adress som en slut punkt hittar du IP-och DNS-in
 
 För v2-SKU: n öppnar du den offentliga IP-resursen och väljer **konfiguration**. Fältet **DNS-namn (valfritt)** är tillgängligt för att konfigurera DNS-namnet.
 
-### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Vad är inställningarna för Keep-Alive-timeout och timeout för TCP-inaktivitet?
+### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Vad är inställningarna för Keep-Alive timeout och timeout för TCP-inaktivitet?
 
 *Keep-Alive-timeout* styr hur länge Application Gateway väntar på att en klient ska skicka en annan http-begäran på en permanent anslutning innan den återanvänds eller stängas. *Timeout för TCP-inaktivitet* styr hur länge en TCP-anslutning hålls öppen om ingen aktivitet är öppen. 
 

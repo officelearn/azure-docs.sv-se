@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 07/21/2020
 ms.openlocfilehash: 8ffa2a92dd33d16bf047035fb98a79a53b5f2246
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91620179"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Resurs begränsningar för elastiska pooler med vCore inköps modell
@@ -394,7 +394,7 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings belop
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0-8|0-10|0-12|0-14|0-16|0-18|
 |Antal repliker|4|4|4|4|4|4|
-|Multi-AZ|Nej|Nej|Nej|Nej|Nej|Nej|
+|Multi-AZ|Inga|Inga|Inga|Inga|Inga|Inga|
 |Lässkalning|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
@@ -429,7 +429,7 @@ Om alla virtuella kärnor av en elastisk pool är upptagna får varje databas i 
 |Maximalt antal samtidiga inloggningar per pool (begär Anden) <sup>3</sup>|2 000|2 400|3 200|6 400|12 800|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|
 |Antal repliker|4|4|4|4|4|
-|Multi-AZ|Nej|Nej|Nej|Nej|Nej|
+|Multi-AZ|Inga|Inga|Inga|Inga|Inga|
 |Lässkalning|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 

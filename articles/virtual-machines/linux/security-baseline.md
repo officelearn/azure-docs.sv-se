@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 627c0c77cc206cd1b3210fcfc7b2a9bbc3c6daea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9468b9c2c906ffe26bae400dc9e4746630a66e0e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401103"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970324"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Azures säkerhets bas linje för Virtuella Linux-datorer
 
@@ -32,7 +32,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](../../securi
 
 Alternativt, om du har ett särskilt användnings fall för en centraliserad brand vägg kan Azure-brandväggen även användas för att uppfylla dessa krav.
 
-* [Virtuella nätverk och virtuella datorer i Azure](../windows/network-overview.md)
+* [Virtuella nätverk och virtuella datorer i Azure](../network-overview.md)
 
 * [Så här skapar du en Virtual Network](../../virtual-network/quick-create-portal.md)
 
@@ -64,7 +64,7 @@ Du kan också Distribuera Azure Web Application Firewall (WAF) framför viktiga 
 
 * [Skapa en Programgateway med en brand vägg för webbaserade program med hjälp av Azure Portal](../../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
 
-* [Virtuella nätverk och virtuella datorer i Azure](../windows/network-overview.md)
+* [Virtuella nätverk och virtuella datorer i Azure](../network-overview.md)
 
 * [Information om nätverks säkerhets grupper](../../virtual-network/tutorial-filter-network-traffic.md)
 
@@ -82,7 +82,7 @@ Du kan använda Azure Security Center just-in-Time-åtkomst för att begränsa e
 
 * [Så här distribuerar du Azure-brandvägg](../../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Förstå Azure Security Center integrerad Hot information](../../security-center/threat-protection.md)
+* [Förstå Azure Security Center integrerad Hot information](../../security-center/azure-defender.md)
 
 * [Förstå Azure Security Center anpassad nätverks härdning](../../security-center/security-center-adaptive-network-hardening.md)
 
@@ -148,7 +148,7 @@ Du kan använda Azure Security Center just-in-Time-åtkomst för att begränsa e
 
 * [Så här konfigurerar och hanterar du Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy exempel för nätverk](/azure/governance/policy/samples/#network)
+* [Azure Policy exempel för nätverk](../../governance/policy/samples/built-in-policies.md#network)
 
 * [Så här skapar du en Azure Blueprint](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -182,7 +182,7 @@ Använd Azure Policy för att verifiera (och/eller åtgärda) konfigurationer f�
 
 * [Så här konfigurerar och hanterar du Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy exempel för nätverk](/azure/governance/policy/samples/#network)
+* [Azure Policy exempel för nätverk](../../governance/policy/samples/built-in-policies.md#network)
 
 **Azure Security Center övervakning**: inte tillgänglig
 
@@ -306,7 +306,7 @@ Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel e
 
 **Vägledning**: du behöver ett verktyg från tredje part för sårbarhets igenkänning mot skadlig kod för i Linux-operativsystemet.
 
-* [Instruktioner för att publicera Linux-servrar till Azure Security Center](../../security-center/quick-onboard-linux-computer.md)
+* [Instruktioner för att publicera Linux-servrar till Azure Security Center](../../security-center/quickstart-onboard-machines.md)
 
 * [Följande länk innehåller Microsofts rekommenderade säkerhets rikt linjer, som kan fungera som en villkors lista för det sårbarhets program som valts](./security-recommendations.md)
 
@@ -514,7 +514,7 @@ Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel e
 
 * [Så här skapar du ytterligare Azure-prenumerationer](../../cost-management-billing/manage/create-subscription.md)
 
-* [Så här skapar du Hanteringsgrupper](../../governance/management-groups/create.md)
+* [Så här skapar du Hanteringsgrupper](../../governance/management-groups/create-management-group-portal.md)
 
 * [Skapa och använda Taggar](../../azure-resource-manager/management/tag-resources.md)
 
@@ -616,7 +616,7 @@ Microsoft använder TLS-protokollet (Transport Layer Security) för att skydda d
 
 **Vägledning**: du behöver ett verktyg från tredje part för sårbarhets igenkänning mot skadlig kod för i Linux-operativsystemet.
 
-* [Instruktioner för att publicera Linux-servrar till Azure Security Center](../../security-center/quick-onboard-linux-computer.md)
+* [Instruktioner för att publicera Linux-servrar till Azure Security Center](../../security-center/quickstart-onboard-machines.md)
 
 * [Microsofts rekommenderade säkerhets rikt linjer](./security-recommendations.md)
 
@@ -700,7 +700,7 @@ Microsoft använder TLS-protokollet (Transport Layer Security) för att skydda d
 
 * [Så här skapar du ytterligare Azure-prenumerationer](../../cost-management-billing/manage/create-subscription.md)
 
-* [Så här skapar du Hanteringsgrupper](../../governance/management-groups/create.md)
+* [Så här skapar du Hanteringsgrupper](../../governance/management-groups/create-management-group-portal.md)
 
 * [Skapa och använda Taggar](../../azure-resource-manager/management/tag-resources.md)
 
@@ -784,7 +784,7 @@ Förutom att använda Ändringsspårning för övervakning av program vara kan a
 
 * [Så här konfigurerar och hanterar du Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Så här nekar du en speciell resurs typ med Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Så här nekar du en speciell resurs typ med Azure Policy](../../governance/policy/samples/index.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -824,13 +824,13 @@ Förutom att använda Ändringsspårning för övervakning av program vara kan a
 
 **Vägledning**: program med hög risk som distribueras i din Azure-miljö kan isoleras med hjälp av virtuella nätverk, undernät, prenumerationer, hanterings grupper och tillräckligt säkra med antingen en Azure-brandvägg, en brand vägg för webbaserade program (WAF) eller nätverks säkerhets grupp (NSG).
 
-* [Virtuella nätverk och virtuella datorer i Azure](../windows/network-overview.md)
+* [Virtuella nätverk och virtuella datorer i Azure](../network-overview.md)
 
 * [Översikt över Azure Firewall](../../firewall/overview.md)
 
 * [Översikt över brand väggen för webb program](../../web-application-firewall/overview.md)
 
-* [Översikt över Network-säkerhet](../../virtual-network/security-overview.md)
+* [Översikt över Network-säkerhet](../../virtual-network/network-security-groups-overview.md)
 
 * [Översikt över Azure Virtual Network](../../virtual-network/virtual-networks-overview.md)
 

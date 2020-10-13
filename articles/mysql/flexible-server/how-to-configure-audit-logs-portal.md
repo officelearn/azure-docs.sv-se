@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/29/2020
 ms.openlocfilehash: cadd384bc7d3222cbc5d1179271f7b4624c9224a
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565895"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Konfigurera och få åtkomst till gransknings loggar för Azure Database for MySQL-flexibel server med hjälp av Azure Portal
@@ -20,7 +20,7 @@ ms.locfileid: "91565895"
 
 Du kan konfigurera Azure Database for MySQL flexibla Server [gransknings loggar](concepts-audit-logs.md) och diagnostikinställningar från Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Anvisningarna i den här artikeln kräver att du har en [flexibel Server](quickstart-create-server-portal.md).
 
 ## <a name="configure-audit-logging"></a>Konfigurera gransknings loggning

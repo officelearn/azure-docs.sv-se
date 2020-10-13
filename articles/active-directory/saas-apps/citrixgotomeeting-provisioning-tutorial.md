@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.openlocfilehash: 6cb2c90658a69f3e63e9ebe08db41eea0a9bc7fa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91299705"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Självstudie: Konfigurera GoToMeeting för automatisk användar etablering
@@ -48,7 +48,7 @@ Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vi
 Det här avsnittet vägleder dig genom att ansluta din Azure AD till GoToMeeting-API för användar konto och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i GoToMeeting baserat på användar-och grupp tilldelning i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för GoToMeeting enligt anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
+> Du kan också välja att aktivera SAML-baserade enkla Sign-On för GoToMeeting, genom att följa anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
 
 ### <a name="to-configure-automatic-user-account-provisioning"></a>Konfigurera automatisk etablering av användar konto:
 

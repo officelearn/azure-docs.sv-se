@@ -9,10 +9,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
 ms.openlocfilehash: e48e14c13ef2ff171145022f4eafa6e0f80a9b22
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87539024"
 ---
 # <a name="threat-modeling-tool-update-release-71510231---1112018"></a>Threat Modeling Tool, uppdaterad version 7.1.51023.1 – 2018-11-01
@@ -25,7 +25,7 @@ Som det ursprungligen antecknas i [versions informationen för ga](threat-modeli
 
 ## <a name="feature-changes"></a>Funktions ändringar
 
-- Ingen
+- Inget
 
 ## <a name="system-requirements"></a>Systemkrav
 

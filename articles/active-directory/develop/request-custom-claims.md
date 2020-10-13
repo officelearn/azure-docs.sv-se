@@ -13,10 +13,10 @@ ms.date: 08/26/2019
 ms.author: marsma
 ms.custom: aaddev
 ms.openlocfilehash: a570dccad5f14cf9adf5ca2825d8a3b31ae60d3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85477200"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Gör så här: begär anpassade anspråk med MSAL för iOS och macOS
@@ -25,7 +25,7 @@ OpenID Connect gör att du kan begära att returnera enskilda anspråk från Use
 
 Microsoft Authentication Library (MSAL) för iOS och macOS gör det möjligt att begära vissa anspråk i både interaktiva och tysta token för hämtning. Detta görs via `claimsRequest` parametern.
 
-Det finns flera scenarier där det behövs. Ett exempel:
+Det finns flera scenarier där det behövs. Exempel:
 
 - Begära anspråk utanför standard uppsättningen för ditt program.
 - Begär specifika kombinationer av de standard anspråk som inte kan anges med hjälp av omfattningar för ditt program. Om till exempel en åtkomsttoken avvisas på grund av saknade anspråk, kan programmet begära anspråk som saknas med MSAL.
@@ -33,7 +33,7 @@ Det finns flera scenarier där det behövs. Ett exempel:
 > [!NOTE]
 > MSAL kringgår cachen för åtkomsttoken när en anspråks förfrågan anges. Det är viktigt att endast tillhandahålla `claimsRequest` parameter när ytterligare anspråk behövs (i stället för att alltid ha samma `claimsRequest` parameter i varje MSAL-API-anrop).
 
-`claimsRequest`kan anges i `MSALSilentTokenParameters` och `MSALInteractiveTokenParameters` :
+`claimsRequest` kan anges i `MSALSilentTokenParameters` och `MSALInteractiveTokenParameters` :
 
 ```objc
 /*!
@@ -49,7 +49,7 @@ Det finns flera scenarier där det behövs. Ett exempel:
 
 @end
 ```
-`MSALClaimsRequest`kan skapas från en NSString-representation av begäran om JSON-anspråk. 
+`MSALClaimsRequest` kan skapas från en NSString-representation av begäran om JSON-anspråk. 
 
 Mål-C:
 
@@ -98,7 +98,7 @@ do {
 
 
 
-`MSALClaimsRequest`ska sedan anges i token-parametrarna och anges till en av MSAL-API: er för hämtning av token:
+`MSALClaimsRequest` ska sedan anges i token-parametrarna och anges till en av MSAL-API: er för hämtning av token:
 
 Mål-C:
 

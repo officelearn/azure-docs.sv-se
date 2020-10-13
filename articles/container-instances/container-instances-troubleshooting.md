@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc
 ms.openlocfilehash: 46d3ad6afb1761ca9503676ad2176482b7e4530e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260740"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Felsöka vanliga problem med Azure Container Instances
@@ -25,7 +25,7 @@ När du definierar din behållar specifikation kräver vissa parametrar att namn
 | Omfång | Längd | Skiftläge | Giltiga tecken | Föreslaget mönster | Exempel |
 | --- | --- | --- | --- | --- | --- |
 | Behållar namn<sup>1</sup> | 1–63 |Gemener | Alfanumeriskt och bindestreck var som helst förutom det första eller sista tecken |`<name>-<role>-container<number>` |`web-batch-container1` |
-| Container portar | Mellan 1 och 65535 |Integer |Heltal mellan 1 och 65535 |`<port-number>` |`443` |
+| Container portar | Mellan 1 och 65535 |Heltal |Heltal mellan 1 och 65535 |`<port-number>` |`443` |
 | DNS-namnetikett | 5-63 |Skiftlägesokänsligt |Alfanumeriskt och bindestreck var som helst förutom det första eller sista tecken |`<name>` |`frontend-site1` |
 | Miljövariabel | 1–63 |Skiftlägesokänsligt |Alfanumeriskt och under streck (_) var som helst förutom det första eller sista tecknet |`<name>` |`MY_VARIABLE` |
 | Volym namn | 5-63 |Gemener |Alfanumeriskt och bindestreck var som helst utom det första eller sista. Får inte innehålla två bindestreck i följd. |`<name>` |`batch-output-volume` |
@@ -45,7 +45,7 @@ Om du anger en bild som Azure Container Instances inte stöder returneras ett `O
 }
 ```
 
-Det här felet uppstår oftast när du distribuerar Windows-avbildningar som baseras på halvårs kanal version 1709 eller 1803, som inte stöds. Information om vilka Windows-avbildningar som stöds i Azure Container Instances finns i [vanliga frågor och svar](container-instances-faq.md#what-windows-base-os-images-are-supported).
+Det här felet uppstår oftast när du distribuerar Windows-avbildningar som baseras på Semi-Annual Channel release 1709 eller 1803, som inte stöds. Information om vilka Windows-avbildningar som stöds i Azure Container Instances finns i [vanliga frågor och svar](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ### <a name="unable-to-pull-image"></a>Det gick inte att hämta bilden
 
@@ -204,7 +204,7 @@ Azure Container Instances visar inte direkt åtkomst till den underliggande infr
 
 Azure Container Instances har ännu inte stöd för port mappning som med vanlig Docker-konfiguration. Om du hittar en behållar grupps IP-adress inte är tillgänglig när du tror att den bör vara, se till att du har konfigurerat behållar avbildningen så att den lyssnar på samma portar som du exponerar i behållar gruppen med `ports` egenskapen.
 
-Om du vill bekräfta att Azure Container Instances kan lyssna på den port som du konfigurerade i behållar avbildningen testar du en distribution av `aci-helloworld` avbildningen som exponerar porten. Kör även `aci-helloworld` appen så att den lyssnar på porten. `aci-helloworld`accepterar en valfri miljö variabel `PORT` som åsidosätter standard porten 80 den lyssnar på. Om du till exempel vill testa port 9000 ställer du in [miljövariabeln](container-instances-environment-variables.md) när du skapar behållar gruppen:
+Om du vill bekräfta att Azure Container Instances kan lyssna på den port som du konfigurerade i behållar avbildningen testar du en distribution av `aci-helloworld` avbildningen som exponerar porten. Kör även `aci-helloworld` appen så att den lyssnar på porten. `aci-helloworld` accepterar en valfri miljö variabel `PORT` som åsidosätter standard porten 80 den lyssnar på. Om du till exempel vill testa port 9000 ställer du in [miljövariabeln](container-instances-environment-variables.md) när du skapar behållar gruppen:
 
 1. Konfigurera behållar gruppen för att exponera port 9000 och skicka port numret som värde för miljövariabeln. Exemplet är formaterat för bash-gränssnittet. Om du föredrar ett annat gränssnitt, till exempel PowerShell eller kommando tolken, måste du justera variabel tilldelningen enligt detta.
     ```azurecli

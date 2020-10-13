@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: jeedes
 ms.openlocfilehash: 2f3e540174643f20c87396b8568f6e5b0a1ab16d
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658937"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-prezi"></a>Självstudie: Azure Active Directory integration med enkel inloggning med Prezi
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Prezi med Azure Act
 
 Mer information om SaaS-appar (Software as a Service) med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -76,7 +76,7 @@ Aktivera Azure AD SSO i Azure Portal:
 
 1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **Prezi** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** väljer du **Redigera** -ikonen för att redigera inställningarna för **grundläggande SAML-konfiguration**.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du **Redigera** -ikonen för att redigera inställningarna för **grundläggande SAML-konfiguration**.
 
    ![Redigera grundläggande konfigurations inställningar för SAML](common/edit-urls.png)
 
@@ -99,7 +99,7 @@ Aktivera Azure AD SSO i Azure Portal:
     | given_name | user.givenname |
     | family_name | user.surname |
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **certifikat (base64)**. Välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
+1. På sidan **Konfigurera enskilda Sign-On med SAML** , i avsnittet SAML- **signeringscertifikat** , letar du upp **certifikat (base64)**. Välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länken Hämta certifikat](common/certificatebase64.png)
 
@@ -145,9 +145,9 @@ I det här avsnittet aktiverar du B. Simon för att använda Azure SSO genom att
 
     ![Fliken Inställningar](./media/prezi-tutorial/settings-image.png)
 
-1. Gå till avsnittet **enkel inloggning (SSO)** och aktivera växla för att aktivera SSO.
+1. Gå till avsnittet **enkel Sign-On (SSO)** och aktivera växla för att aktivera SSO.
     
-    ![Växla enkel inloggning (SSO)](./media/prezi-tutorial/single-signon.png)
+    ![Växla enkel Sign-On (SSO)](./media/prezi-tutorial/single-signon.png)
 
 1. I avsnittet **enkel inloggning (SSO)** följer du dessa steg:
 
@@ -174,7 +174,7 @@ När du väljer panelen Prezi på åtkomst panelen, bör du loggas in automatisk
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Prova Prezi med Azure AD](https://aad.portal.azure.com/)
 - [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

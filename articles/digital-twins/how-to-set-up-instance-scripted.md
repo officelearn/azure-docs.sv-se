@@ -8,10 +8,10 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 83741f5bc55eb222b379a274ef403f766553b21f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328655"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurera en digital Azure-instans och autentisering (skript)
@@ -49,11 +49,13 @@ Här följer stegen för att köra distributions skriptet i Cloud Shell.
  
 2. Kontrol lera att Cloud Shell har angetts för att köra PowerShell-versionen i Cloud Shell ikon fältet.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Cloud Shell fönster som visar valet av PowerShell-version":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Cloud Shell fönster som visar valet av PowerShell-version&quot;:::
 
-1. Välj ikonen "Ladda upp/ladda ned filer" och välj "Ladda upp".
+1. Välj ikonen &quot;Ladda upp/ladda ned filer" och välj "Ladda upp".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell fönster som visar uppladdnings ikonen":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell fönster som visar valet av PowerShell-version&quot;:::
+
+1. Välj ikonen &quot;Ladda upp/ladda ned filer":::
 
     Navigera till _**deploy.ps1**_ -filen på din dator (i _Azure_Digital_Twins_samples > skript > **deploy.ps1** _) och tryck på "öppna". Detta kommer att överföra filen till Cloud Shell så att du kan köra den i fönstret Cloud Shell.
 
@@ -82,7 +84,9 @@ Skriptet skapar en Azure Digital-instansen, tilldelar din Azure-användare rolle
 
 Här är ett utdrag från utmatnings loggen från skriptet:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Cloud Shell fönstret visar logg över indata och utdata genom körningen av distributions skriptet" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Cloud Shell fönster som visar valet av PowerShell-version&quot;:::
+
+1. Välj ikonen &quot;Ladda upp/ladda ned filer" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 Om skriptet har slutförts kommer den slutliga utskriften att stå `Deployment completed successfully` . Annars kan du åtgärda fel meddelandet och köra skriptet igen. De steg som du redan har slutfört kommer att kringgås och börja begära inmatningar vid den punkt där du slutade.
 
@@ -103,7 +107,9 @@ I [Azure Portal](https://portal.azure.com)kan du hitta din Azure Digital-instans
 
 Om du markerar den öppnas sidan med instansens *Översikt* . Anteckna *namn*, *resurs grupp*och *värdnamn*. Du kan behöva dessa senare för att identifiera och ansluta till din instans.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Markera viktiga värden från instansens översikts sida":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Cloud Shell fönster som visar valet av PowerShell-version&quot;:::
+
+1. Välj ikonen &quot;Ladda upp/ladda ned filer":::
 
 ### <a name="collect-app-registration-values"></a>Samla in registrerings värden för appar 
 
@@ -113,7 +119,9 @@ Du hittar dem genom att följa [den här länken](https://portal.azure.com/#blad
 
 Du bör se den app-registrering som du nyss skapade i den här listan. Välj den för att öppna informationen:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Portal visning av viktiga värden för appens registrering":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Cloud Shell fönster som visar valet av PowerShell-version&quot;:::
+
+1. Välj ikonen &quot;Ladda upp/ladda ned filer":::
 
 Anteckna *program* -ID och *katalog (klient)-ID: t* som **visas på sidan** . Om du inte är den person som ska skriva kod för klient program måste du dela dessa värden med den person som ska vara.
 

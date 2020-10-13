@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
 ms.openlocfilehash: 41dc99c206fb66aa87ccca6e40d6e9488f801a22
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91262441"
 ---
-# <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Snabb start: skapa en Cognitive Services resurs med hjälp av kommando rads gränssnittet för Azure (CLI)
+# <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Snabb start: skapa en Cognitive Services resurs med hjälp av Azure Command-Line Interface (CLI)
 
 Använd den här snabb starten för att komma igång med Azure Cognitive Services med hjälp av [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -99,7 +99,7 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 | Formigenkänning            | `FormRecognizer`          |
 | Handskriftsigenkänning             | `InkRecognizer`           |
 
-### <a name="search"></a>Sök
+### <a name="search"></a>Search
 
 | Tjänst            | Typ                  |
 |--------------------|-----------------------|
@@ -109,7 +109,7 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 | Bing Search        | `Bing.Search.v7`      |
 | Stavningskontroll i Bing   | `Bing.SpellCheck.v7`  |
 
-### <a name="speech"></a>Speech
+### <a name="speech"></a>Tal
 
 | Tjänst            | Typ                 |
 |--------------------|----------------------|
@@ -160,7 +160,7 @@ az cognitiveservices account create \
 
 ## <a name="get-the-keys-for-your-resource"></a>Hämta nycklar för din resurs
 
-Använd kommandot [AZ login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) för att logga in på den lokala installationen av kommando rads gränssnittet (CLI).
+Använd kommandot [AZ login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) för att logga in på den lokala installationen av Command-Line Interface (CLI).
 
 ```azurecli-interactive
 az login

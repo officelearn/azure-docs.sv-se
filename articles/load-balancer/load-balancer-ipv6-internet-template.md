@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 415c95a441ac0cc6ed2dbf2d6a37f57d7a9e7341
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90562527"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Distribuera en Internetbaserad lösning för belastnings utjämning med IPv6 med hjälp av en mall
@@ -103,7 +103,7 @@ När mallen har distribuerats kan du verifiera anslutningen genom att utföra f�
 4. Starta en utgående anslutning till en IPv6-eller IPv4-ansluten Internet-enhet från varje virtuell dator. I båda fallen är belastnings utjämningens offentliga IPv4-eller IPv6-adress den källa-IP-adress som visas av mål enheten.
 
 > [!NOTE]
-> ICMP för både IPv4 och IPv6 är blockerat i Azure-nätverket. Det innebär att ICMP-verktyg som ping alltid inte fungerar. Om du vill testa anslutningen använder du ett TCP-alternativ, till exempel TCPing eller PowerShell-testet-NetConnection-cmdleten. Observera att IP-adresserna som visas i diagrammet är exempel på värden som kan visas. Eftersom IPv6-adresserna tilldelas dynamiskt, kommer de adresser som du får skilja sig åt och kan variera beroende på region. Det är också vanligt att den offentliga IPv6-adressen på belastningsutjämnaren börjar med ett annat prefix än de privata IPv6-adresserna i backend-poolen.
+> ICMP för både IPv4 och IPv6 är blockerat i Azure-nätverket. Det innebär att ICMP-verktyg som ping alltid inte fungerar. Om du vill testa anslutningen använder du ett TCP-alternativ, till exempel TCPing eller PowerShell Test-NetConnection cmdlet. Observera att IP-adresserna som visas i diagrammet är exempel på värden som kan visas. Eftersom IPv6-adresserna tilldelas dynamiskt, kommer de adresser som du får skilja sig åt och kan variera beroende på region. Det är också vanligt att den offentliga IPv6-adressen på belastningsutjämnaren börjar med ett annat prefix än de privata IPv6-adresserna i backend-poolen.
 
 ## <a name="template-parameters-and-variables"></a>Mallparametrar och variabler
 
@@ -111,7 +111,7 @@ En Azure Resource Manager-mall innehåller flera variabler och parametrar som du
 
 Exempel mal len som används i den här artikeln innehåller följande variabler och parametrar:
 
-| Parameter/variabel | Kommentarer |
+| Parameter/variabel | Obs! |
 | --- | --- |
 | adminUsername |Ange namnet på det administratörs konto som används för att logga in på de virtuella datorerna med. |
 | adminPassword |Ange lösen ordet för det administratörs konto som används för att logga in på de virtuella datorerna med. |

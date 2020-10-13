@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.openlocfilehash: 0418785fe558503b716ff1e798446fb64db998b1
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87799846"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Använda Azure Active Directory för autentisering med MySQL
@@ -57,7 +57,7 @@ Vi har även testat de flesta vanliga program driv rutiner, men du kan se inform
 
 Detta är de steg som en användare/ett program behöver för att autentisera med Azure AD som beskrivs nedan:
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Du kan följa med i Azure Cloud Shell, en virtuell Azure-dator eller på den lokala datorn. Kontrol lera att du har [installerat Azure CLI](/cli/azure/install-azure-cli).
 
@@ -126,7 +126,7 @@ mysql -h mydb.mysql.database.azure.com \
 
 Viktiga överväganden vid anslutning:
 
-* `user@tenant.onmicrosoft.com`är namnet på den Azure AD-användare eller-grupp som du försöker ansluta som
+* `user@tenant.onmicrosoft.com` är namnet på den Azure AD-användare eller-grupp som du försöker ansluta som
 * Lägg alltid till Server namnet efter namn på Azure AD-användare/grupp (t. ex. `@mydb` )
 * Se till att använda det exakta sättet som användar-eller grupp namnet i Azure AD är stavat
 * Användar-och grupp namn i Azure AD är Skift läges känsliga

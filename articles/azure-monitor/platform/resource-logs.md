@@ -1,5 +1,5 @@
 ---
-title: Azure resurs loggar
+title: Azure-resursloggar
 description: Lär dig hur du direktuppspelar Azures resurs loggar till en Log Analytics arbets yta i Azure Monitor.
 author: bwren
 services: azure-monitor
@@ -8,13 +8,13 @@ ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87800508"
 ---
-# <a name="azure-resource-logs"></a>Azure resurs loggar
+# <a name="azure-resource-logs"></a>Azure-resursloggar
 Azures resurs loggar är [plattforms loggar](platform-logs-overview.md) som ger inblick i åtgärder som utförts i en Azure-resurs. Innehållet i resurs loggar varierar beroende på Azure-tjänsten och resurs typen. Resurs loggar samlas inte in som standard. Du måste skapa en diagnostisk inställning för varje Azure-resurs för att skicka resurs loggarna till en Log Analytics arbets yta som ska användas med [Azure Monitor loggar](data-platform-logs.md), Azure Event Hubs som ska vidarebefordras utanför Azure, eller för att Azure Storage arkivering.
 
 Se [skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer](diagnostic-settings.md) för information om hur du skapar en diagnostisk inställning och [distribuerar Azure Monitor i skala med Azure policy](../deploy-scale.md) för information om hur du använder Azure policy för att automatiskt skapa en diagnostisk inställning för varje Azure-resurs som du skapar.
@@ -54,7 +54,7 @@ AzureDiagnostics-tabellen ser ut så här:
 | ... |
 
 ### <a name="resource-specific"></a>Resurs-/regionsspecifika
-I det här läget skapas enskilda tabeller i den valda arbets ytan för varje kategori som väljs i den diagnostiska inställningen. Den här metoden rekommenderas eftersom det gör det mycket enklare att arbeta med data i logg frågor, vilket ger bättre identifiering av scheman och deras struktur, förbättrar prestandan för både svars tid och fråge tider samt möjligheten att bevilja RBAC-rättigheter för en speciell tabell. Alla Azure-tjänster kommer slutligen att migreras till det resursbaserade läget. 
+I det här läget skapas enskilda tabeller i den valda arbets ytan för varje kategori som väljs i den diagnostiska inställningen. Den här metoden rekommenderas eftersom det gör det mycket enklare att arbeta med data i logg frågor, vilket ger bättre identifiering av scheman och deras struktur, förbättrar prestandan för både svars tid och fråge tider samt möjligheten att bevilja RBAC-rättigheter för en speciell tabell. Alla Azure-tjänster kommer slutligen att migreras till Resource-Specific läge. 
 
 Exemplet ovan skulle resultera i att tre tabeller skapas:
  
@@ -85,7 +85,7 @@ Exemplet ovan skulle resultera i att tre tabeller skapas:
 
 
 ### <a name="select-the-collection-mode"></a>Välj samlings läge
-De flesta Azure-resurser kommer att skriva data till arbets ytan i **Azure-diagnostik** eller **resurs särskilt läge** utan att du behöver välja något. I [dokumentationen för varje tjänst](./resource-logs-schema.md) finns information om vilket läge den använder. Alla Azure-tjänster kommer att använda resurs-/regionsspecifika läge. Som en del av den här över gången kan vissa resurser välja ett läge i den diagnostiska inställningen. Ange det resursbaserade läget för alla nya diagnostikinställningar eftersom det gör det enklare att hantera data och kan hjälpa dig att undvika komplexa migreringar vid ett senare tillfälle.
+De flesta Azure-resurser kommer att skriva data till arbets ytan i **Azure-diagnostik** eller **resurs särskilt läge** utan att du behöver välja något. I [dokumentationen för varje tjänst](./resource-logs-schema.md) finns information om vilket läge den använder. Alla Azure-tjänster kommer att använda Resource-Specific läge. Som en del av den här över gången kan vissa resurser välja ett läge i den diagnostiska inställningen. Ange det resursbaserade läget för alla nya diagnostikinställningar eftersom det gör det enklare att hantera data och kan hjälpa dig att undvika komplexa migreringar vid ett senare tillfälle.
   
    ![Läges väljare för diagnostiska inställningar](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
@@ -95,7 +95,7 @@ De flesta Azure-resurser kommer att skriva data till arbets ytan i **Azure-diagn
 
 Du kan ändra en befintlig diagnostisk inställning till ett resurs speciellt läge. I det här fallet finns data som redan har samlats in kvar i _AzureDiagnostics_ -tabellen tills den tas bort enligt inställningen för kvarhållning för arbets ytan. Nya data samlas in i den dedikerade tabellen. Använd [union](/azure/kusto/query/unionoperator) -operatorn för att fråga efter data i båda tabellerna.
 
-Fortsätt att titta på [Azures uppdaterings](https://azure.microsoft.com/updates/) blogg om du vill veta mer om Azure-tjänster som stöder resurs-/regionsspecifika läge.
+Fortsätt att titta på [Azures uppdaterings](https://azure.microsoft.com/updates/) blogg för meddelanden om Azure-tjänster som stöder Resource-Specific läge.
 
 ### <a name="column-limit-in-azurediagnostics"></a>Kolumn begränsning i AzureDiagnostics
 Det finns en gräns på 500-egenskapen för alla tabeller i Azure Monitor loggar. När den här gränsen har uppnåtts raderas alla rader som innehåller data med en egenskap utanför de första 500 vid inmatnings tiden. *AzureDiagnostics* -tabellen är särskilt känslig för den här gränsen eftersom den innehåller egenskaper för alla Azure-tjänster som skriver till den.

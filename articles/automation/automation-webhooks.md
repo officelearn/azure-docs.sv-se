@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: 4338bc4a11b785b27f6316748f9cbc4eeaaddbea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015110"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Starta ett Runbook-flöde från en webhook
@@ -66,7 +66,7 @@ Om du till exempel startar följande Runbook från Azure Portal och vill skicka 
 I nästa Runbook-exempel definierar vi följande egenskaper för `WebhookData` :
 
 * **WebhookName**: MyWebhook
-* **RequestBody**:`*[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]*`
+* **RequestBody**: `*[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]*`
 
 Nu skickar vi följande JSON-objekt i användar gränssnittet för- `WebhookData` parametern. Det här exemplet, med vagn returer och rad matnings tecken, matchar formatet som skickas från en webhook.
 
@@ -89,7 +89,7 @@ Tänk på följande strategier:
 
 * Låt runbooken utföra en validering av ett externt villkor när den får en webhook-begäran. Anta till exempel att en Runbook som anropas av GitHub när som helst är en ny incheckning av en GitHub-lagringsplats. Runbooken kan ansluta till GitHub för att kontrol lera att ett nytt genomförande har skett innan du fortsätter.
 
-* Azure Automation stöder Azure Virtual Network Service-taggar, särskilt [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Du kan använda service märken för att definiera nätverks åtkomst kontroller för [nätverks säkerhets grupper](../virtual-network/security-overview.md#security-rules) eller [Azure-brandväggen](../firewall/service-tags.md) och utlösa Webhooks från det virtuella nätverket. Service märken kan användas i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet **GuestAndHybridManagement** i rätt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för Automation-tjänsten. Den här Service tag-koden har inte stöd för att tillåta mer detaljerad kontroll genom att begränsa IP-intervallen till en speciell region.
+* Azure Automation stöder Azure Virtual Network Service-taggar, särskilt [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Du kan använda service märken för att definiera nätverks åtkomst kontroller för [nätverks säkerhets grupper](../virtual-network/security-overview.md#security-rules) eller [Azure-brandväggen](../firewall/service-tags.md) och utlösa Webhooks från det virtuella nätverket. Service märken kan användas i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet **GuestAndHybridManagement**  i rätt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för Automation-tjänsten. Den här Service tag-koden har inte stöd för att tillåta mer detaljerad kontroll genom att begränsa IP-intervallen till en speciell region.
 
 ## <a name="create-a-webhook"></a>Skapa en webhook
 

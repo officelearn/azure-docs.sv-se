@@ -11,15 +11,15 @@ ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.openlocfilehash: a1ba7db72743ac122a697bf271e783ec64e041e8
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165489"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Lägga till en Azure Active Directory med hjälp av anslutna tjänster i Visual Studio
 
-Genom att använda Azure Active Directory (Azure AD) kan du använda enkel inloggning (SSO) för ASP.NET MVC-webbprogram, eller Active Directory autentisering i Web API-tjänster. Med Azure AD-autentisering kan användarna använda sina konton från Azure Active Directory för att ansluta till dina webb program. Fördelarna med Azure AD-autentisering med webb-API inkluderar förbättrad data säkerhet när du exponerar ett API från ett webb program. Med Azure AD behöver du inte hantera ett separat autentiseringsschema med sitt eget konto och användar hantering.
+Genom att använda Azure Active Directory (Azure AD) kan du stödja enskilda Sign-On (SSO) för ASP.NET MVC-webbprogram, eller Active Directory autentisering i webb-API-tjänster. Med Azure AD-autentisering kan användarna använda sina konton från Azure Active Directory för att ansluta till dina webb program. Fördelarna med Azure AD-autentisering med webb-API inkluderar förbättrad data säkerhet när du exponerar ett API från ett webb program. Med Azure AD behöver du inte hantera ett separat autentiseringsschema med sitt eget konto och användar hantering.
 
 Den här artikeln och dess tilläggs artiklar innehåller information om hur du använder funktionen för den anslutna tjänsten i Visual Studio för Active Directory. Funktionen är tillgänglig i Visual Studio 2015 och senare.
 
@@ -32,7 +32,7 @@ Den Active Directory anslutna tjänsten har för närvarande inte stöd för ASP
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Anslut till Azure Active Directory med hjälp av dialog rutan anslutna tjänster
 
-1. Skapa eller öppna ett ASP.NET MVC-projekt eller ett ASP.NET Web API-projekt i Visual Studio. Du kan använda MVC, webb-API, ett program med en sida, Azure API-appen, Azure-mobilappen och Azure Mobile Service-mallar.
+1. Skapa eller öppna ett ASP.NET MVC-projekt eller ett ASP.NET Web API-projekt i Visual Studio. Du kan använda MVC, webb-API, Single-Page program, Azure API-app, Azure-mobilapp och Azure Mobile Service-mallar.
 
 1. Välj **projekt > Lägg till Connected service...** meny kommando eller dubbelklicka på noden **anslutna tjänster** som finns under projektet i Solution Explorer.
 

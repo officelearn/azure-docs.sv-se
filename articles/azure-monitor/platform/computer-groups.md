@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86112120"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Dator grupper i Azure Monitor logg frågor
@@ -21,7 +21,7 @@ Med dator grupper i Azure Monitor kan du begränsa [logg frågor](../log-query/l
 ## <a name="creating-a-computer-group"></a>Skapa en dator grupp
 Du kan skapa en dator grupp i Azure Monitor med någon av metoderna i följande tabell.  Information om varje metod finns i avsnitten nedan. 
 
-| Metod | Description |
+| Metod | Beskrivning |
 |:--- |:--- |
 | Logg fråga |Skapa en logg fråga som returnerar en lista med datorer. |
 | Loggsöknings-API |Använd API för loggs ökning för att program mässigt skapa en dator grupp baserat på resultatet av en logg fråga. |

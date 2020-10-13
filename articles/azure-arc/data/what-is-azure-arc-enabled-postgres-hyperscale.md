@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 7e8746d9b29b0b4af30ba799628328acc3fd8bc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90941541"
 ---
 # <a name="what-is-azure-arc-enabled-postgresql-hyperscale"></a>Vad är Azure Arc aktiverat PostgreSQL-skalning?
@@ -26,7 +26,7 @@ Azure Arc Enabled PostgreSQL-skalning är en av databas tjänsterna som är till
 - Stöd för frånkopplat scenario
 
 Mer information finns på:
-- [Vad är Azure Arc-aktiverade data tjänster](overview.md)
+- [Vad är Azure Arc-aktiverade datatjänster](overview.md)
 - [Anslutningslägen och krav](connectivity.md)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
@@ -43,7 +43,7 @@ Detta är den storskaliga form faktorn för postgres-databasmotorn som är tillg
 
 ## <a name="azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc Enabled PostgreSQL-skalning
 
-:::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-arc.png" alt-text="Azure Arc Enabled PostgreSQL-skalning":::
+:::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-arc.png" alt-text="Azure SQL Database för PostgreSQL-storskalig (citus)":::
 
 Detta är den storskaliga form faktorn för postgres-databasmotorn som är tillgänglig med Azure Arc-aktiverade data tjänster. Den drivs också av citus-tillägget som möjliggör skalnings upplevelsen. I den här formulärs faktorn tillhandahåller våra kunder den infrastruktur som är värd för systemen och använder dem.
 

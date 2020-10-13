@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 37e09612491d41887c5945920488569d3620bf0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85052018"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regel grupper och regler för brand vägg för webb program brand vägg
@@ -99,7 +99,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 
 # <a name="owasp-31"></a>[OWASP 3,1](#tab/owasp31)
 
-## <a name="rule-sets"></a><a name="owasp31"></a>Regel uppsättningar
+## <a name="rule-sets"></a><a name="owasp31"></a> Regel uppsättningar
 
 ### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-31"></a> <p x-ms-format-detection="none">Allmänt</p>
 
@@ -118,9 +118,9 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 
 |RuleId|Beskrivning|
 |---|---|
-|913100|Hittade användar agent som är associerad med säkerhets skannern|
-|913101|Hittade användar agent som är kopplad till skript/allmän HTTP-klient|
-|913102|Hittade användar agent som är associerad med Web Crawler/bot|
+|913100|Hittade User-Agent associerad med säkerhets skannern|
+|913101|Hittade User-Agent kopplade till skript/allmän HTTP-klient|
+|913102|Hittade User-Agent associerad med Web Crawler/bot|
 |913110|Huvudet för begäran hittades som är associerat med säkerhets skannern|
 |913120|Hittade namn/argument för begäran som är associerat med säkerhets skannern|
 
@@ -207,7 +207,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |931100|Möjliga RFI-angrepp (Remote File inkludering) = URL-parameter med IP-adress|
 |931110|Möjliga RFI-angrepp (Remote File inkludering) = vanliga RFI-känsliga parameter namn som används med URL-nyttolast|
 |931120|Möjliga RFI-angrepp (Remote File inkludering) = URL-nyttolast används med avslutande frågetecken (?)|
-|931130|Möjliga RFI-angrepp (Remote File inkludering) = off-domain Reference/Link|
+|931130|Möjliga RFI-angrepp (Remote File inkludering) = Off-Domain referens/länk|
 
 ### <a name="p-x-ms-format-detectionnonerequest-932-application-attack-rcep"></a><a name="crs932-31"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
@@ -239,10 +239,10 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |933130|PHP-injektering attack = variabler hittades|
 |933131|PHP-injektering attack: variabler hittades|
 |933140|PHP-injektering attack: I/O-dataströmmen hittades|
-|933150|PHP-injektering – attack = hög risk PHP-funktions namn hittades|
-|933151|PHP-injektering: namn på PHP-funktion med medel risk hittades|
-|933160|PHP-injektering attack = högrisk PHP-funktions anrop hittades|
-|933161|PHP-injektering: anrop till PHP-funktion med lågt värde hittades|
+|933150|PHP-injektering-attack = High-Risk PHP-funktions namn hittades|
+|933151|PHP-inmatnings attack: Medium-Risk PHP-funktions namn hittades|
+|933160|PHP-injektering-attack = High-Risk PHP-funktions anrop hittades|
+|933161|PHP-inmatnings attack: Low-Value PHP-funktions anrop hittades|
 |933170|PHP-injektering attack: serialiserad objekt inmatning|
 |933180|PHP-injektering attack = variabel funktions anrop hittades|
 |933190|PHP-injektering: stängnings tag gen för PHP hittades|
@@ -259,7 +259,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |941150|XSS-filter – kategori 5 = otillåtna HTML-attribut|
 |941160|NoScript XSS-InjectionChecker: HTML-inmatning|
 |941170|NoScript XSS-InjectionChecker: Attribute insprutning|
-|941180|Node-validator Black-nyckelord|
+|941180|Node-Validator Black-nyckelord|
 |941190|XSS med formatmallar|
 |941200|XSS med VML-ramar|
 |941210|XSS med fördunklade Java Script|
@@ -324,7 +324,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |942432|Begränsad identifiering av SQL Character-avvikelse (argument): # av specialtecken har överskridits (2)|
 |942440|SQL-kommentaren har identifierats.|
 |942450|SQL hex-kodning identifierad|
-|942460|Avisering om avvikelse identifiering i meta-tecken – upprepade tecken som inte är ord|
+|942460|Varningar om Meta-Character avvikelse identifiering – upprepade tecken som inte är ord|
 |942470|SQL-injektering|
 |942480|SQL-injektering|
 |942490|Identifierar klassisk SQL-inmatnings sökning 3/3|
@@ -334,7 +334,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |RuleId|Beskrivning|
 |---|---|
 |943100|Möjlig sessions bindnings attack = ange cookie-värden i HTML|
-|943110|Möjlig sessions bindnings attack = SessionID-parameter namn med referent på annan domän|
+|943110|Möjlig sessions bindnings attack = SessionID-parameter namn med Off-Domain referent|
 |943120|Möjlig sessions bindnings attack = SessionID-parameter namn utan referent|
 
 ### <a name="p-x-ms-format-detectionnonerequest-944-application-attack-session-javap"></a><a name="crs944-31"></a> <p x-ms-format-detection="none">BEGÄRAN-944-APPLICATION-ATTACK-SESSION-JAVA</p>
@@ -347,7 +347,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 
 # <a name="owasp-30"></a>[OWASP 3,0](#tab/owasp30)
 
-## <a name="rule-sets"></a><a name="owasp30"></a>Regel uppsättningar
+## <a name="rule-sets"></a><a name="owasp30"></a> Regel uppsättningar
 
 ### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-30"></a> <p x-ms-format-detection="none">Allmänt</p>
 
@@ -366,11 +366,11 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 
 |RuleId|Beskrivning|
 |---|---|
-|913100|Hittade användar agent som är associerad med säkerhets skannern|
+|913100|Hittade User-Agent associerad med säkerhets skannern|
 |913110|Huvudet för begäran hittades som är associerat med säkerhets skannern|
 |913120|Hittade namn/argument för begäran som är associerat med säkerhets skannern|
-|913101|Hittade användar agent som är kopplad till skript/allmän HTTP-klient|
-|913102|Hittade användar agent som är associerad med Web Crawler/bot|
+|913101|Hittade User-Agent kopplade till skript/allmän HTTP-klient|
+|913102|Hittade User-Agent associerad med Web Crawler/bot|
 
 ### <a name="p-x-ms-format-detectionnonerequest-920-protocol-enforcementp"></a><a name="crs920-30"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
@@ -449,7 +449,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |931100|Möjliga RFI-angrepp (Remote File inkludering) = URL-parameter med IP-adress|
 |931110|Möjliga RFI-angrepp (Remote File inkludering) = vanliga RFI-känsliga parameter namn som används med URL-nyttolast|
 |931120|Möjliga RFI-angrepp (Remote File inkludering) = URL-nyttolast används med avslutande frågetecken (?)|
-|931130|Möjliga RFI-angrepp (Remote File inkludering) = off-domain Reference/Link|
+|931130|Möjliga RFI-angrepp (Remote File inkludering) = Off-Domain referens/länk|
 
 ### <a name="p-x-ms-format-detectionnonerequest-932-application-attack-rcep"></a><a name="crs932-30"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
@@ -470,12 +470,12 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |933110|PHP-injektering-attack = fil uppladdning för PHP-skript hittades|
 |933120|PHP-injektering-attack = konfigurations direktiv hittades|
 |933130|PHP-injektering attack = variabler hittades|
-|933150|PHP-injektering – attack = hög risk PHP-funktions namn hittades|
-|933160|PHP-injektering attack = högrisk PHP-funktions anrop hittades|
+|933150|PHP-injektering-attack = High-Risk PHP-funktions namn hittades|
+|933160|PHP-injektering-attack = High-Risk PHP-funktions anrop hittades|
 |933180|PHP-injektering attack = variabel funktions anrop hittades|
-|933151|PHP-injektering – attack = medel risk PHP-funktions namn hittades|
+|933151|PHP-injektering-attack = Medium-Risk PHP-funktions namn hittades|
 |933131|PHP-injektering attack = variabler hittades|
-|933161|PHP-injektering-attack = funktions anrop för PHP-värde i PHP hittades|
+|933161|PHP-injektering-attack = Low-Value PHP-funktions anrop hittades|
 |933111|PHP-injektering-attack = fil uppladdning för PHP-skript hittades|
 
 ### <a name="p-x-ms-format-detectionnonerequest-941-application-attack-xssp"></a><a name="crs941-30"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
@@ -487,7 +487,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |941130|XSS-filter – kategori 3 = attribut vektor|
 |941140|XSS-filter-kategori 4 = JavaScript-URI Vector|
 |941150|XSS-filter – kategori 5 = otillåtna HTML-attribut|
-|941180|Node-validator Black-nyckelord|
+|941180|Node-Validator Black-nyckelord|
 |941190|XSS med formatmallar|
 |941200|XSS med VML-ramar|
 |941210|XSS med fördunklade Java Script|
@@ -535,21 +535,21 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |942440|SQL-kommentaren har identifierats.|
 |942450|SQL hex-kodning identifierad|
 |942251|Identifierar HAVING-injektering|
-|942460|Avisering om avvikelse identifiering i meta-tecken – upprepade tecken som inte är ord|
+|942460|Varningar om Meta-Character avvikelse identifiering – upprepade tecken som inte är ord|
 
 ### <a name="p-x-ms-format-detectionnonerequest-943-application-attack-session-fixationp"></a><a name="crs943-30"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
 |RuleId|Beskrivning|
 |---|---|
 |943100|Möjlig sessions bindnings attack = ange cookie-värden i HTML|
-|943110|Möjlig sessions bindnings attack = SessionID-parameter namn med referent på annan domän|
+|943110|Möjlig sessions bindnings attack = SessionID-parameter namn med Off-Domain referent|
 |943120|Möjlig sessions bindnings attack = SessionID-parameter namn utan referent|
 
 # <a name="owasp-229"></a>[OWASP 2.2.9](#tab/owasp2)
 
-## <a name="rule-sets"></a><a name="owasp229"></a>Regel uppsättningar
+## <a name="rule-sets"></a><a name="owasp229"></a> Regel uppsättningar
 
-### <a name="crs_20_protocol_violations"></a><a name="crs20"></a>crs_20_protocol_violations
+### <a name="crs_20_protocol_violations"></a><a name="crs20"></a> crs_20_protocol_violations
 
 |RuleId|Beskrivning|
 |---|---|
@@ -563,7 +563,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |960012|POST-begäran saknar Content-Length-rubrik.|
 |960902|Ogiltig användning av identitets kodning.|
 |960022|Förväntad rubrik tillåts inte för HTTP 1,0.|
-|960020|Pragma-huvudet kräver Cache-Control-huvud för HTTP/1.1-begäranden.|
+|960020|Pragma-sidhuvudet kräver Cache-Control-sidhuvud för HTTP/1.1-begäranden.|
 |958291|Range = Field finns och börjar med 0.|
 |958230|Intervall = ogiltigt sista byte-värde.|
 |958295|Flera/motstridiga anslutnings huvud data hittades.|
@@ -575,7 +575,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |960901|Ogiltigt Character i förfrågan|
 |960018|Ogiltigt Character i förfrågan|
 
-### <a name="crs_21_protocol_anomalies"></a><a name="crs21"></a>crs_21_protocol_anomalies
+### <a name="crs_21_protocol_anomalies"></a><a name="crs21"></a> crs_21_protocol_anomalies
 
 |RuleId|Beskrivning|
 |---|---|
@@ -588,7 +588,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |960904|Begäran innehåller innehåll men innehålls typ rubrik saknas|
 |960017|Värd huvudet är en numerisk IP-adress|
 
-### <a name="crs_23_request_limits"></a><a name="crs23"></a>crs_23_request_limits
+### <a name="crs_23_request_limits"></a><a name="crs23"></a> crs_23_request_limits
 
 |RuleId|Beskrivning|
 |---|---|
@@ -599,7 +599,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |960342|Den överförda fil storleken är för stor|
 |960343|Den totala storleken för överförda filer är för stor|
 
-### <a name="crs_30_http_policy"></a><a name="crs30"></a>crs_30_http_policy
+### <a name="crs_30_http_policy"></a><a name="crs30"></a> crs_30_http_policy
 
 |RuleId|Beskrivning|
 |---|---|
@@ -609,7 +609,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |960035|URL-filtillägget begränsas av en princip|
 |960038|HTTP-huvudet begränsas av en princip|
 
-### <a name="crs_35_bad_robots"></a><a name="crs35"></a>crs_35_bad_robots
+### <a name="crs_35_bad_robots"></a><a name="crs35"></a> crs_35_bad_robots
 
 |RuleId|Beskrivning|
 |---|---|
@@ -618,11 +618,11 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |990902|Begäran anger att en säkerhets skanner genomsöker platsen|
 |990012|Falsk webbplats sökrobot|
 
-### <a name="crs_40_generic_attacks"></a><a name="crs40"></a>crs_40_generic_attacks
+### <a name="crs_40_generic_attacks"></a><a name="crs40"></a> crs_40_generic_attacks
 
 |RuleId|Beskrivning|
 |---|---|
-|960024|Avisering om avvikelse identifiering i meta-tecken – upprepade tecken som inte är ord|
+|960024|Varningar om Meta-Character avvikelse identifiering – upprepade tecken som inte är ord|
 |950008|Inmatning av inte dokumentade ColdFusion-Taggar|
 |950010|Attack för LDAP-inmatning|
 |950011|SSI-attack|
@@ -634,7 +634,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |950117|Attack för filinkludering|
 |950118|Attack för filinkludering|
 |950119|Attack för filinkludering|
-|950120|Möjliga RFI-angrepp (Remote File inkludering) = off-domain Reference/Link|
+|950120|Möjliga RFI-angrepp (Remote File inkludering) = Off-Domain referens/länk|
 |981133|Regel 981133|
 |981134|Regel 981134|
 |950009|Sessionens bindnings attack|
@@ -647,7 +647,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |958976|Angrepp för PHP-injektering|
 |958977|Angrepp för PHP-injektering|
 
-### <a name="crs_41_sql_injection_attacks"></a><a name="crs41sql"></a>crs_41_sql_injection_attacks
+### <a name="crs_41_sql_injection_attacks"></a><a name="crs41sql"></a> crs_41_sql_injection_attacks
 
 |RuleId|Beskrivning|
 |---|---|
@@ -684,7 +684,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |981253|Identifierar MySQL och PostgreSQL lagrade procedur/funktions inmatning|
 |981251|Identifierar MySQL UDF-injektering och andra data-/struktur manipulations försök|
 
-### <a name="crs_41_xss_attacks"></a><a name="crs41xss"></a>crs_41_xss_attacks
+### <a name="crs_41_xss_attacks"></a><a name="crs41xss"></a> crs_41_xss_attacks
 
 |RuleId|Beskrivning|
 |---|---|
@@ -789,13 +789,13 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |973329|IE XSS-filter – angrepp identifierat.|
 |973328|IE XSS-filter – angrepp identifierat.|
 
-### <a name="crs_42_tight_security"></a><a name="crs42"></a>crs_42_tight_security
+### <a name="crs_42_tight_security"></a><a name="crs42"></a> crs_42_tight_security
 
 |RuleId|Beskrivning|
 |---|---|
 |950103|Attack för Sök vägs Traversal|
 
-### <a name="crs_45_trojans"></a><a name="crs45"></a>crs_45_trojans
+### <a name="crs_45_trojans"></a><a name="crs45"></a> crs_45_trojans
 
 |RuleId|Beskrivning|
 |---|---|

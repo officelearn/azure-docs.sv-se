@@ -5,7 +5,7 @@ services: virtual-machines-windows
 author: bobbytreed
 manager: carmonm
 tags: azure-resource-manager
-keywords: DSC
+keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
 ms.topic: article
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
 ms.openlocfilehash: dc73b5b9f05d24de206b25095ea7eaf93f035298
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511168"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Önskat tillstånds konfigurations tillägg med Azure Resource Manager mallar
@@ -189,7 +189,7 @@ En lista över de argument som är tillgängliga för standard konfigurations sk
 | Settings. advancedOptions. downloadMappings |Samling |Definierar alternativa platser som WMF ska hämtas från. Mer information finns i [Azure DSC-tillägg 2,8 och så här mappar du hämtning av fil namns beroenden till din egen plats](https://devblogs.microsoft.com/powershell/azure-dsc-extension-2-8-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location/). |
 | protectedSettings.configurationArguments |Samling |Definierar alla parametrar som du vill skicka till din DSC-konfiguration. Den här egenskapen är krypterad. |
 | protectedSettings.configurationUrlSasToken |sträng |Anger den SAS-token som ska användas för att få åtkomst till URL: en som **settings.configuration. URL** definierar. Den här egenskapen är krypterad. |
-| protectedSettings.configurationDataUrlSasToken |sträng |Anger den SAS-token som ska användas för att få åtkomst till URL: en som **settings.configurationData. URL** definierar. Den här egenskapen är krypterad. |
+| protectedSettings.configurationDataUrlSasToken |sträng |Anger den SAS-token som ska användas för att få åtkomst till URL: en som  **settings.configurationData. URL** definierar. Den här egenskapen är krypterad. |
 
 ## <a name="default-configuration-script"></a>Standard konfigurations skript
 
@@ -275,7 +275,7 @@ I Resource Manager-mallen instruerar följande kod den virtuella datorn att ladd
 
 ## <a name="example-using-referenced-azure-automation-registration-values"></a>Exempel som använder refererade Azure Automation registrerings värden
 
-I följande exempel hämtas **RegistrationUrl** och **RegistrationKey** genom att referera till Azure Automation konto egenskaper och använda **listnycklar** -metoden för att hämta primär nyckeln (0).  I det här exemplet angavs parametrarna **automationAccountName** och **NodeConfigName** för mallen.
+I följande exempel hämtas **RegistrationUrl** och **RegistrationKey** genom att referera till Azure Automation konto egenskaper och använda  **listnycklar** -metoden för att hämta primär nyckeln (0).  I det här exemplet angavs parametrarna **automationAccountName** och **NodeConfigName** för mallen.
 
 ```json
 "settings": {

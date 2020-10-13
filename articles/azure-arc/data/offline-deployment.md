@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 575903654a165bef0d09ac6abf0793af3f6784e8
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90942085"
 ---
 # <a name="offline-deployment-overview"></a>Översikt över offline-distribution
@@ -29,7 +29,7 @@ Du hittar ett [exempel skript](https://raw.githubusercontent.com/microsoft/azure
 
 Skriptet uppmanas interaktivt att ange följande information.  Alternativt, om du vill att skriptet ska köras utan interaktiva prompter, kan du ange motsvarande miljövariabler innan du kör skriptet.
 
-|Prompt|Miljö variabel|Kommentarer|
+|Prompt|Miljö variabel|Obs!|
 |---|---|---|
 |Ange käll behållar register – tryck på RETUR för att använda `mcr.microsoft.com`|SOURCE_DOCKER_REGISTRY|Normalt skulle du hämta avbildningarna från Microsoft Container Registry, men om du deltar i en privat för hands version med ett annat register kan du använda den information som du fick som en del av för hands versions programmet.|
 |Ange käll container register lagring – tryck på RETUR för att använda `arcdata` :|SOURCE_DOCKER_REPOSITORY|Om du hämtar från Microsoft Container Registry är lagrings platsen `arcdata` .|

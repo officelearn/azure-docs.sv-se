@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
 ms.openlocfilehash: 3cf493beab6dfe1767ae35ea36732dc364e29736
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401664"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager-dirigeringsmetoder
@@ -103,7 +103,7 @@ När en profil har kon figurer ATS för geografisk routning måste varje slut pu
 - Värld – valfri region
 - Regional gruppering – till exempel Afrika, Mellanöstern, Australien/Stilla havs området osv. 
 - Land/region – till exempel Irland, Peru, Hong Kong SAR osv. 
-- Delstat/provins – till exempel USA-Kalifornien, Australien-Queensland, Kanada-Alberta osv. (OBS! den här granularitet nivån stöds bara för delstater/provinser i Australien, Kanada och USA).
+- Delstat/provins – till exempel USA-Kalifornien, Australien-Queensland, Canada-Alberta osv. (OBS! den här granularitet nivån stöds bara för delstater/provinser i Australien, Kanada och USA).
 
 När en region eller en uppsättning regioner tilldelas till en slut punkt dirigeras alla förfrågningar från dessa regioner endast till den slut punkten. Traffic Manager använder käll-IP-adressen för DNS-frågan för att fastställa den region som en användare frågar från – vanligt vis är detta IP-adressen för den lokala DNS-matcharen som utför frågan för användarens räkning.  
 

@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: bfe150a45c70bc5bed18f8e929c9567905cd38f5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171609"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Självstudie: vidarebefordra händelser till Event Grid Cloud
@@ -23,7 +23,7 @@ Den här artikeln vägleder dig igenom alla steg som krävs för att vidarebefor
 
  För att slutföra den här självstudien måste du ha en förståelse för Event Grid koncept på [Edge](concepts.md) och [Azure](../concepts.md). För ytterligare mål typer, se [händelse hanterare](event-handlers.md). 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 För att kunna slutföra den här självstudien behöver du:
 
 * **Azure-prenumeration** – skapa ett [kostnads fritt konto](https://azure.microsoft.com/free) om du inte redan har ett. 
@@ -36,8 +36,8 @@ Skapa ett event Grid-ämne och en prenumeration i molnet genom att följa [den h
 
 Om du till exempel har skapat ett ämne `testegcloudtopic` som heter västra USA, skulle värdena se ut ungefär så här:
 
-* **TopicUrl**:`https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
-* **TopicName**:`testegcloudtopic`
+* **TopicUrl**: `https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
+* **TopicName**: `testegcloudtopic`
 * **SasKey**: tillgänglig under **Accesskey** i ditt ämne. Använd **KEY1**.
 
 ## <a name="create-event-grid-topic-at-the-edge"></a>Avsnittet Skapa händelse rutnät i kanten

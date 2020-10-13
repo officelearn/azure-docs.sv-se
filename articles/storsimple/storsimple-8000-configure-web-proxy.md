@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 62c052f2293c670b43f1c77363c8bbbcc03d0de2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514282"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Konfigurera webbproxy för din StorSimple-enhet
@@ -143,7 +143,7 @@ Om webbproxy-inställningarna är felaktigt konfigurerade visas fel meddelanden 
 |:--- |:--- |:--- |:--- |
 | 1. |0x80070001 |Kommandot körs från den passiva styrenheten och kan inte kommunicera med den aktiva styrenheten. |Kör kommandot på den aktiva kontroll enheten. Om du vill köra kommandot från den passiva styrenheten måste du åtgärda anslutningen från passiv till aktiv kontroll enhet. Du måste engagera Microsoft Support om den här anslutningen är bruten. |
 | 2. |0x800710dd-åtgärds-ID: n är inte giltig |Proxyinställningar stöds inte på StorSimple Cloud Appliance. |Proxyinställningar stöds inte på StorSimple Cloud Appliance. Dessa kan bara konfigureras på en fysisk StorSimple-enhet. |
-| 3. |0x80070057-ogiltig parameter |En av de parametrar som angavs för proxyinställningarna är inte giltig. |URI: n har inte angetts i rätt format. Använd följande format:`http://<IP address or FQDN of the web proxy server>:<TCP port number>` |
+| 3. |0x80070057-ogiltig parameter |En av de parametrar som angavs för proxyinställningarna är inte giltig. |URI: n har inte angetts i rätt format. Använd följande format: `http://<IP address or FQDN of the web proxy server>:<TCP port number>` |
 | 4. |0x800706ba – RPC-servern är inte tillgänglig |Rotor saken är något av följande:</br></br>Klustret är inte igång. </br></br>Datapath-tjänsten körs inte.</br></br>Kommandot körs från passiv styrenhet och kan inte kommunicera med den aktiva styrenheten. |Engagera Microsoft Support för att säkerställa att klustret är igång och att Datapath-tjänsten körs.</br></br>Kör kommandot från den aktiva kontroll enheten. Om du vill köra kommandot från den passiva styrenheten måste du se till att den passiva styrenheten kan kommunicera med den aktiva styrenheten. Du måste engagera Microsoft Support om den här anslutningen är bruten. |
 | 5. |0x800706be-RPC-anropet misslyckades |Klustret är nere. |Engagera Microsoft Support för att säkerställa att klustret är igång. |
 | 6. |0x8007138f-kluster resursen hittades inte |Det gick inte att hitta plattforms tjänstens kluster resurs. Detta kan inträffa när installationen inte var korrekt. |Du kan behöva göra en fabriks återställning på enheten. Du kan behöva skapa en plattforms resurs. Kontakta Microsoft-supporten om du vill ha hjälp. |

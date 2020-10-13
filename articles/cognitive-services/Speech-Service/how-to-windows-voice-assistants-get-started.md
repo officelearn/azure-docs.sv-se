@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.openlocfilehash: 4ea2f88b02738645af3f8fc32d5fdb99168a1122
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82997385"
 ---
 # <a name="getting-started-with-voice-assistants-on-windows"></a>Komma igång med röst assistenter i Windows
@@ -25,8 +25,8 @@ Den här guiden tar dig igenom stegen för att börja utveckla en röst assisten
 
 För att börja utveckla en röst assistent för Windows måste du kontrol lera att du har rätt utvecklings miljö.
 
-- **Visual Studio:** du måste installera [Microsoft Visual Studio 2017](https://visualstudio.microsoft.com/), Community Edition eller senare
-- **Windows-version**: en dator med en Windows Insider snabb rings version av Windows och Windows Insider-versionen av Windows SDK.Den här exempel koden verifieras som att fungera på Windows Insider-versionen build 19025. vb_release_analog .191112-1600 med Windows SDK 19018.Alla build-eller SDK: er utöver de angivna versionerna bör vara kompatibla.
+- **Visual Studio:**   Du måste installera [Microsoft Visual Studio 2017](https://visualstudio.microsoft.com/), Community Edition eller senare
+- **Windows-version**: en dator med en Windows Insider snabb rings version av Windows och Windows Insider-versionen av Windows SDK.Den här exempel koden verifieras som att fungera på Windows Insider-versionen build 19025.vb_release_analog .191112-1600 med Windows SDK 19018.Alla build-eller SDK: er utöver de angivna versionerna bör vara kompatibla.
 - **Utvecklings verktyg för UWP**: arbets belastningen universell Windows-plattform utveckling i Visual Studio.Se sidan för att [Hämta](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) UWP för att förbereda din dator för att utveckla UWP-program.
 - **En fungerande mikrofon och ljud uppspelning**
 
@@ -34,7 +34,7 @@ För att börja utveckla en röst assistent för Windows måste du kontrol lera 
 
 Vissa resurser som krävs för en helt anpassad röst agent i Windows kräver resurser från Microsoft. [Exemplet på UWP röst assistenten](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) innehåller exempel versioner av dessa resurser för inledande utveckling och testning, så det här avsnittet är inte nödvändigt för inledande utveckling.
 
-- **Nyckelords modell:** röst aktivering kräver en nyckelords modell från Microsoft i form av en. bin-fil. . Bin-filen som anges i exemplet på UWP röst assistenten har tränats på nyckelordet "contoso".
+- **Nyckelords modell:**   Röst aktivering kräver en nyckelords modell från Microsoft i form av en. bin-fil. . Bin-filen som anges i exemplet på UWP röst assistenten har tränats på nyckelordet "contoso".
 - **Token för begränsad åtkomst funktion:** Eftersom ConversationalAgent-API: erna ger åtkomst till mikrofon ljud, skyddas de under begränsade åtkomst funktions begränsningar.Om du vill använda en begränsad åtkomst funktion måste du skaffa en begränsad åtkomst till funktions-token som är ansluten till paket identiteten för ditt program från Microsoft.
 
 ## <a name="establish-a-dialog-service"></a>Upprätta en dialog tjänst

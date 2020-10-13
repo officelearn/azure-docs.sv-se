@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/10/2020
 ms.author: alsin
 ms.openlocfilehash: 54d703b8a493610174f00844cd0736f65f3ee541
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87052171"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux guld-avbildningar för prenumerationer i Azure
@@ -34,7 +34,7 @@ Red Hat Enterprise Linux-avbildningar (RHEL) är tillgängliga i Azure via en "b
 - Bilderna följer de aktuella principerna som beskrivs i [Red Hat Enterprise Linux avbildningar på Azure](./redhat-images.md).
 - Standard Support policys gäller för virtuella datorer som skapats från de här avbildningarna.
 - De virtuella datorer som tillhandahålls från Red Hat Gold-avbildningar har inte RHEL-avgifter som är kopplade till RHEL-avbildningar enligt principen betala per användning.
-- Bilderna är inte berättigade. Du måste använda Red Hat-prenumerationen-Manager för att registrera och prenumerera på de virtuella datorerna för att få uppdateringar från Red Hat direkt.
+- Bilderna är inte berättigade. Du måste använda Red Hat-Subscription-Manager för att registrera och prenumerera på de virtuella datorerna för att få uppdateringar från Red Hat direkt.
 - Det går för närvarande inte att dynamiskt växla mellan BYOS och fakturerings modeller enligt principen betala per användning för Linux-avbildningar. Om du vill byta fakturerings modell måste du distribuera om den virtuella datorn från respektive avbildning.
 
 >[!NOTE]
@@ -120,7 +120,7 @@ Följande instruktioner vägleder dig genom den första distributions processen 
     az vm create -n rhel-byos-vm -g rhel-byos-group --image redhat:rhel-byos:rhel-lvm8:latest
     ```
 
-1. SSH till den virtuella datorn och kontrol lera att du har en berättigad avbildning. Om du vill göra det här steget kör du `sudo yum repolist` . För RHEL 8 använder du `sudo dnf repolist` . Utdata uppmanar dig att använda prenumerations hanteraren för att registrera den virtuella datorn med Red Hat.
+1. SSH till den virtuella datorn och kontrol lera att du har en berättigad avbildning. Om du vill göra det här steget kör du `sudo yum repolist` . För RHEL 8 använder du `sudo dnf repolist` . Utdata uppmanar dig att använda Subscription-Manager för att registrera den virtuella datorn med Red Hat.
 
 >[!NOTE]
 >På RHEL 8 `dnf` och `yum` är utbytbara. Mer information finns i [Administratörs hand boken för RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/packaging_and_distributing_software/index).

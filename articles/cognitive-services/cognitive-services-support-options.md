@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
 ms.openlocfilehash: 0bf4750d5db5961ff8c572c3aa52cc06faf697c1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83590544"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Alternativ för support och feedback för Azure Cognitive Services
@@ -33,7 +33,7 @@ Utforska [support alternativen för Azure och välj den plan](https://azure.micr
 * [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure Portal för USA myndigheter](https://portal.azure.us)
 
-### <a name="search"></a>Sök
+### <a name="search"></a>Search
 
 <div class='icon is-large'>
     <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>
@@ -47,9 +47,9 @@ Utför en sökning på relevanta webbplatser, till exempel [Stack Overflow](http
 
 Var `{search keywords}` finns kontexten för din sökning. Överväg att använda de här omfångs sökningarna på rätt sätt:
 
- - Stack Overflow:`site:stackoverflow.com`
- - Microsoft Docs:`site:docs.microsoft.com`
- - GitHub exempel:`site:github.com/azure-samples`
+ - Stack Overflow: `site:stackoverflow.com`
+ - Microsoft Docs: `site:docs.microsoft.com`
+ - GitHub exempel: `site:github.com/azure-samples`
 
 ### <a name="post-a-question-on-stack-overflow"></a>Publicera en fråga på Stack Overflow
 
@@ -79,7 +79,7 @@ Att hålla dig informerad om funktioner i en ny version eller nyheter på Azure-
 Cognitive Services viktig information uppdateras när nya versioner görs tillgängliga. Anteckningarna innehåller information om nya funktioner, förbättringar och fel korrigeringar.
 
  - [Custom Vision](custom-vision-service/release-notes.md)
- - [Ansikte](face/releasenotes.md)
+ - [Ansiktsigenkänning](face/releasenotes.md)
  - [Language Understanding (LUIS)](LUIS/whats-new.md)
  - [Tal tjänster](speech-service/releasenotes.md)
  - [Speech Services SDK](speech-service/devices-sdk-release-notes.md)
@@ -156,7 +156,7 @@ Här är en lista över Cognitive Services snabb start och exempel kod:
 * [Cognitive Services: dotNet](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 * [Cognitive Services: go](https://github.com/Azure-Samples/azure-sdk-for-go-samples)
 * [Cognitive Services: Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
-* [Cognitive Services: Node. js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+* [Cognitive Services: Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 * [Cognitive Services: python](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 
 #### <a name="cognitive-services-sdk-source-code"></a>Käll kod för Cognitive Services SDK

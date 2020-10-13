@@ -13,17 +13,17 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
 ms.openlocfilehash: 9cf65b2fdeb7faa03b950593db86dd32a4ef91a7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86495850"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analysera data med Azure Machine Learning
 
 Den här självstudien använder [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) för att bygga en förutsägelse maskin inlärnings modell. Modellen baseras på de data som lagras i Azure dataSynapses. Scenariot för självstudien är att förutsäga om en kund sannolikt kommer att köpa en cykel eller inte så att Adventure Worker, Bike Shop, kan bygga en riktad marknadsförings kampanj.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att gå igenom de här självstudierna, behöver du:
 
@@ -90,7 +90,7 @@ Följ sedan stegen nedan för design konfiguration:
 
 1. Dra data uppsättningen som du skapade tidigare till arbets ytan.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Skärm bild av data uppsättnings modul på arbets ytan.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Skärm bild av den vänstra rutan i Azure Machine Learning-gränssnittet":::
 
 ## <a name="clean-the-data"></a>Rensa data
 
@@ -100,13 +100,13 @@ Om du vill rensa data släpper du kolumner som inte är relevanta för modellen.
 
 1. Dra modulen **Välj kolumner i data uppsättning** under **dataomvandling < manipulering** till arbets ytan. Anslut den här modulen till **data uppsättnings** modulen.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Skärm bild av modulen för val av kolumner på arbets ytan." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Skärm bild av den vänstra rutan i Azure Machine Learning-gränssnittet" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
 
 1. Klicka på modulen för att öppna fönstret Egenskaper. Klicka på Redigera kolumn för att ange vilka kolumner som du vill ta bort.
 
 1. Exkludera två kolumner: CustomerAlternateKey och GeographyKey. Klicka på **Spara**
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="Skärm bild som visar kolumner som tas bort.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="Skärm bild av den vänstra rutan i Azure Machine Learning-gränssnittet":::
 
 ## <a name="build-the-model"></a>Bygga modellen
 
@@ -116,7 +116,7 @@ Data delas upp 80-20:80% för att träna en maskin inlärnings modell och 20% f�
 
 1. I rutan egenskaper anger du 0,8 för **bråk delar i den första utdata-datauppsättningen**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="Skärm bild som visar delnings förhållandet för 0,8.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="Skärm bild av den vänstra rutan i Azure Machine Learning-gränssnittet":::
 
 1. Dra modulen **tvåklassförhöjt beslutsträd** till arbetsytan.
 
@@ -124,17 +124,17 @@ Data delas upp 80-20:80% för att träna en maskin inlärnings modell och 20% f�
 
 1. För träna modell modell går du till alternativet **etikett kolumn** i fönstret Egenskaper och väljer Redigera kolumn. Välj kolumnen **BikeBuyer** som den kolumn som du vill förutse och välj **Spara**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="Skärm bild som visar etikett kolumn, BikeBuyer, markerad.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="Skärm bild av den vänstra rutan i Azure Machine Learning-gränssnittet":::
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Skärm bild som visar modulen träna modell som är ansluten till ett besluts träd och delade Datamoduler i två klasser.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Skärm bild av den vänstra rutan i Azure Machine Learning-gränssnittet":::
 
-## <a name="score-the-model"></a>Poängsätt modellen
+## <a name="score-the-model"></a>Poängsätta modellen
 
 Testa nu hur modellen utför test data. Två olika algoritmer jämförs för att se vilken som fungerar bättre. Följ stegen nedan:
 
 1. Dra modulen **Poäng modell** till arbets ytan och Anslut den till **träna modell** -och **delade** Datamoduler.
 
-1. Dra den **genomsnittliga Perceptron i Bayes** till experiment arbets ytan. Du kommer att jämföra hur den här algoritmen fungerar i jämförelse med besluts trädet i två klasser.
+1. Dra den **genomsnittliga Perceptron i Bayes** till experiment arbets ytan. Du jämför hur den här algoritmen fungerar i jämförelse med Two-Class utökat besluts träd.
 
 1. Kopiera och klistra in modulerna **träna modell** och **Poäng modell** på arbets ytan.
 
@@ -142,11 +142,11 @@ Testa nu hur modellen utför test data. Två olika algoritmer jämförs för att
 
 1. Klicka på **Skicka** för att konfigurera pipeline-körningen.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Skärm bild av alla återstående moduler på arbets ytan." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Skärm bild av den vänstra rutan i Azure Machine Learning-gränssnittet" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
 
 1. När körningen är klar högerklickar du på modulen **utvärdera modell** och klickar på **visualisera utvärderings resultat**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="Skärm bild av resultaten.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="Skärm bild av den vänstra rutan i Azure Machine Learning-gränssnittet":::
 
 Måtten som tillhandahålls är ROC-kurvan, precisions återställnings diagrammet och lyft kurvan. Titta på de här måtten för att se att den första modellen utförts bättre än den andra. Om du vill titta på vad den första modellen förutsäger högerklickar du på modulen Poäng modell och klickar på visualisera Poäng data uppsättning för att se de förväntade resultaten.
 

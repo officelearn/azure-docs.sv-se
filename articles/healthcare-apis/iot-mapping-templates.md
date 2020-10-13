@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
 ms.openlocfilehash: da5eb43f8bc2fc8b4ac213f6ff90464de5995a47
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87553656"
 ---
-# <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Mappnings-mallar för Azure IoT Connector för FHIR (för hands version)
+# <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Azure IoT-anslutningsprogram för FHIR (förhandsversion) – mappningsmall
 Den här artikeln beskriver hur du konfigurerar Azure IoT Connector för FHIR * med hjälp av mappning av mallar.
 
 Azure IoT-anslutningen för FHIR kräver två typer av JSON-baserade mappnings-mallar. Den första typen, **enhets mappningen**är ansvarig för att mappa enhetens nytto laster som skickas till `devicedata` slut punkten för Azure Event Hub. Den extraherar typer, enhets identifierare, datum/tid för mätning och mått värden. Den andra typen, **FHIR-mappning**, styr mappningen för FHIR-resursen. Det gör det möjligt att konfigurera längden på observations perioden, FHIR-datatypen som används för att lagra värdena och terminologins kod (er). 
@@ -39,7 +39,7 @@ Nedan visas ett konceptuellt exempel på vad som händer under normalisering.
 
 ![Normaliserings exempel](media/concepts-iot-mapping-templates/normalization-example.png)
 
-Innehålls nytto lasten är ett Azure Event Hub-meddelande, som består av tre delar: brödtext, egenskaper och SystemProperties. `Body`Är en byte mat ris som representerar en UTF-8-kodad sträng. Under utvärdering av mall konverteras byte mat ris automatiskt till strängvärdet. `Properties`är en nyckel värde samling som kan användas av meddelandets skapare. `SystemProperties`är också en nyckel värde samling som reserver ATS av Azure Event Hub-ramverket och poster som fylls i automatiskt.
+Innehålls nytto lasten är ett Azure Event Hub-meddelande, som består av tre delar: brödtext, egenskaper och SystemProperties. `Body`Är en byte mat ris som representerar en UTF-8-kodad sträng. Under utvärdering av mall konverteras byte mat ris automatiskt till strängvärdet. `Properties` är en nyckel värde samling som kan användas av meddelandets skapare. `SystemProperties` är också en nyckel värde samling som reserver ATS av Azure Event Hub-ramverket och poster som fylls i automatiskt.
 
 ```json
 {
@@ -352,7 +352,7 @@ CodeValueFhirTemplate är för närvarande den enda mall som stöds i FHIR-mappn
 |**Komponenter []. Koder**|En eller flera [kodningar](http://hl7.org/fhir/datatypes-definitions.html#coding) som ska tillämpas på komponenten.
 |**Komponenter []. Värde**|Värdet som ska extraheras och återges i komponenten. Mer information finns i [Value Type templates](#valuetypes).
 
-### <a name="value-type-templates"></a>Mallar för värde typer<a name="valuetypes"></a>
+### <a name="value-type-templates"></a>Mallar för värde typer <a name="valuetypes"></a>
 Nedan visas de mallar för aktuell Värdetyp som stöds. I framtiden kan ytterligare mallar läggas till.
 #### <a name="sampleddata"></a>SampledData
 Representerar data typen [SampledData](http://hl7.org/fhir/datatypes.html#SampledData) FHIR. Observations mätningar skrivs till en värde ström som startar vid en tidpunkt och ökar framåt med den angivna perioden. Om det inte finns något värde `E` skrivs ett till data strömmen. Om perioden är sådan att två fler värden upptar samma position i data strömmen används det senaste värdet. Samma logik används när en observation med SampledData uppdateras.

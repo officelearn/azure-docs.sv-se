@@ -10,10 +10,10 @@ ms.date: 09/09/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 2db281f1b3278e37deca8486971a7f7a83f85ccf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86503089"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Så här skapar du en skalnings uppsättning för virtuella datorer med Visual Studio
@@ -24,7 +24,7 @@ Den här artikeln visar hur du distribuerar en skalnings uppsättning för en vi
 
 Distributioner av Azure-resurs grupper är ett sätt att gruppera och publicera en uppsättning relaterade Azure-resurser i en enda distributions åtgärd. Mer information finns i [skapa och Distribuera Azure-resurs grupper via Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång med att distribuera Virtual Machine Scale Sets i Visual Studio behöver du följande förutsättningar:
 
@@ -34,7 +34,7 @@ För att komma igång med att distribuera Virtual Machine Scale Sets i Visual St
 >[!NOTE]
 >I den här artikeln används Visual Studio 2019 med [Azure SDK 2,8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
-## <a name="create-a-project"></a>Skapa ett projekt<a name="creating-a-project"></a> 
+## <a name="create-a-project"></a>Skapa ett projekt <a name="creating-a-project"></a> 
 
 1. Öppna Visual Studio och välj **skapa ett nytt projekt**.
 
@@ -82,7 +82,7 @@ Distribuera Azure Resource Manager-mallen för att skapa den virtuella datorns s
 
    ![Utdata visar resultat](media/virtual-machine-scale-sets-vs-create/deployment-output.png)
 
-## <a name="explore-your-virtual-machine-scale-set"></a>Utforska din skalnings uppsättning för virtuella datorer<a name="exploring-your-virtual-machine-scale-set"></a>
+## <a name="explore-your-virtual-machine-scale-set"></a>Utforska din skalnings uppsättning för virtuella datorer <a name="exploring-your-virtual-machine-scale-set"></a>
 
 Välj **Visa**  >  **Cloud Explorer** för att visa den nya skalnings uppsättningen för virtuella datorer. Använd **Uppdatera alla**, om det behövs.
 

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
 ms.openlocfilehash: 048dbad89893354ae78c03fc522f8ebeeb6a80f4
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87531685"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Hantera Batch-resurser med Azure CLI
@@ -28,7 +28,7 @@ Du kan köra senaste Azure CLI i [Azure Cloud Shell](../cloud-shell/overview.md)
 
 ## <a name="command-help"></a>Kommandohjälp
 
-Du kan visa hjälptext för alla kommandon i Azure CLI genom att lägga till `-h` efter kommandot. Utelämna andra alternativ. Ett exempel:
+Du kan visa hjälptext för alla kommandon i Azure CLI genom att lägga till `-h` efter kommandot. Utelämna andra alternativ. Exempel:
 
 * Om du vill få hjälp med `az`-kommandot anger du: `az -h`
 * Om du vill hämta en lista över alla Batch-kommandon i CLI använder du: `az batch -h`
@@ -111,7 +111,7 @@ Se [CLI-skriptexemplen](cli-samples.md) för att utföra vanliga uppgifter med B
 
 ## <a name="json-files-for-resource-creation"></a>JSON-filer för resursskapande
 
-När du skapar Batch-resurser som pooler och jobb kan ange du en JSON-fil som innehåller den nya resursens konfiguration i stället för att ange dess parametrar som kommandoradsalternativ. Ett exempel:
+När du skapar Batch-resurser som pooler och jobb kan ange du en JSON-fil som innehåller den nya resursens konfiguration i stället för att ange dess parametrar som kommandoradsalternativ. Exempel:
 
 ```azurecli
 az batch pool create my_batch_pool.json
@@ -141,7 +141,7 @@ När du ställer frågor mot Batch-tjänsten med en `list`-åtgärd kan du ange 
 
 I följande tabell beskrivs de OData-satser som stöds av Batch-tjänsten:
 
-| Sats | Description |
+| Sats | Beskrivning |
 |---|---|
 | `--select-clause [select-clause]` | Returnerar en delmängd av egenskaperna för varje entitet. |
 | `--filter-clause [filter-clause]` | Returnerar endast de enheter som matchar det angivna OData-uttrycket. |

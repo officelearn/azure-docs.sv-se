@@ -4,13 +4,13 @@ description: Den här artikeln visar hur du distribuerar Service Fabric program 
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 79d8654733b580be96d59e78f31105077929ac78
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260085"
 ---
-# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Distribuera Service Fabric program med en användardefinierad hanterad identitet
+# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Distribuera Service Fabric program med en User-Assigned hanterad identitet
 
 Om du vill distribuera ett Service Fabric program med hanterad identitet måste programmet distribueras via Azure Resource Manager, vanligt vis med en Azure Resource Manager mall. Mer information om hur du distribuerar Service Fabric program via Azure Resource Manager finns i [hantera program och tjänster som Azure Resource Manager resurser](service-fabric-application-arm-resource.md).
 
@@ -21,9 +21,9 @@ Om du vill distribuera ett Service Fabric program med hanterad identitet måste 
 > Service Fabric program distribution med hanterad identitet stöds med API-versionen `"2019-06-01-preview"` . Du kan också använda samma API-version för program typ, version av program typ och tjänst resurser.
 >
 
-## <a name="user-assigned-identity"></a>Användare tilldelad identitet
+## <a name="user-assigned-identity"></a>User-Assigned identitet
 
-Om du vill aktivera program med en användardefinierad identitet måste du först lägga till egenskapen **identitet** i program resursen med typen **userAssigned** och de referenser som tilldelats av användaren. Lägg sedan till ett **managedIdentities** -avsnitt i avsnittet **Egenskaper** för **program** resursen som innehåller en lista med ett eget namn för principalId-mappningen för var och en av de användare som tilldelats identiteter. Mer information om tilldelade identiteter finns i [skapa, lista eller ta bort en hanterad identitet som tilldelats av användare](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+Om du vill aktivera program med User-Assigned identitet måste du först lägga till egenskapen **Identity** i program resursen med typen **userAssigned** och de referenser som tilldelats av användaren. Lägg sedan till ett **managedIdentities** -avsnitt i avsnittet **Egenskaper** för **program** resursen som innehåller en lista med ett eget namn för principalId-mappningen för var och en av de användare som tilldelats identiteter. Mer information om tilldelade identiteter finns i [skapa, lista eller ta bort en hanterad identitet som tilldelats av användare](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
 ### <a name="application-template"></a>Programmall
 

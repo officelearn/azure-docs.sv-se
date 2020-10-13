@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5ca65a428af02eaf5ae6ac461006c720da4461bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5aafaa02f503582bd0050f8a6389d78b52eaa76
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538188"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939161"
 ---
 # <a name="cloud-tiering-overview"></a>Översikt över moln nivåer
 Moln nivåer är en valfri funktion i Azure File Sync där ofta använda filer cachelagras lokalt på servern medan alla andra filer är i nivå av Azure Files baserat på princip inställningar. När en fil skiktas, ersätter Azure File Sync fil system filtret (StorageSync.sys) filen lokalt med en pekare eller referens punkt. Referens punkten representerar en URL till filen i Azure Files. En fil med flera nivåer har både attributet "offline" och attributet FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS som har angetts i NTFS så att tredjepartsprogram kan identifiera nivåbaserade filer på ett säkert sätt.
@@ -48,9 +48,9 @@ För agent versioner 9 och senare baseras den minsta fil storleken för en fil p
 |8 KB (8192)                 | 16 kB   |
 |16 KB (16384)               | 32 KB   |
 |32 KB (32768)               | 64 kB   |
-|64 KB (65536) och större    | 128 kB  |
+|64 KB (65536)    | 128 kB  |
 
-Med Windows Server 2019 och Azure File Sync agent version 12 (framtida agent version) stöds även kluster storlekar upp till 2 MB och nivåer på de större kluster storlekarna fungerar på samma sätt. Äldre operativ system eller agent versioner har stöd för kluster storlekar på upp till 64 KB men utanför detta fungerar inte moln nivåer.
+Kluster storlekar på upp till 64 KB stöds för närvarande, men för större storlekar fungerar inte moln nivåer.
 
 Alla fil system som används av Windows, organisera din hård disk baserat på kluster storlek (även kallat storlek på allokeringsenhet). Kluster storleken representerar den minsta mängd disk utrymme som kan användas för att lagra en fil. Om fil storlekar inte kommer ut till en till följd av kluster storleken, måste ytterligare utrymme användas för att lagra filen till nästa multipel av kluster storleken.
 

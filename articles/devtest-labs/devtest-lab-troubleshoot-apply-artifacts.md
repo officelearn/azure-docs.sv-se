@@ -4,10 +4,10 @@ description: Lär dig hur du felsöker problem som inträffar när du använder 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a89b675a1b3bf134b98e09c7278f0eccb594c325
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483201"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Felsöka problem när du använder artefakter på en Azure DevTest Labs virtuell dator
@@ -58,7 +58,7 @@ När en artefakt verkar låsa sig måste du först avgöra var den fastnar. En a
     - Du kan komma åt aktivitets loggen från navigerings fältet i Labbets virtuella dator sida. När du väljer det kan du se en post för **att antingen tillämpa artefakter på den virtuella datorn** (om åtgärden tillämpa artefakter utlöstes direkt) eller **lägga till eller ändra virtuella datorer** (om åtgärden tillämpa artefakter var en del av processen för att skapa virtuella datorer).
     - Leta efter fel under dessa poster. Ibland märks felet inte i enlighet med detta och du måste undersöka varje post.
     - När du undersöker informationen om varje post ser du till att granska innehållet i JSON-nyttolasten. Du kan se ett fel längst ned i dokumentet.
-- **Vid försök att köra artefakten**. Det kan bero på nätverks-eller lagrings problem. Mer information finns i respektive avsnitt längre fram i den här artikeln. Det kan också inträffa på grund av hur skriptet har skapats. Ett exempel:
+- **Vid försök att köra artefakten**. Det kan bero på nätverks-eller lagrings problem. Mer information finns i respektive avsnitt längre fram i den här artikeln. Det kan också inträffa på grund av hur skriptet har skapats. Exempel:
     - Ett PowerShell-skript har **obligatoriska parametrar**, men det går inte att skicka ett värde till det, antingen på grund av att du tillåter att användaren lämnar den tom eller eftersom du inte har ett standardvärde för egenskapen i artifactfile.jsi definitions filen. Skriptet slutar svara eftersom det väntar på användarindata.
     - Ett PowerShell-skript **kräver indata från användaren** som en del av körningen. Skripten måste skrivas för att fungera tyst utan att användaren behöver vidta några åtgärder.
 - **Det tar lång tid för VM-agenten att bli redo**. När den virtuella datorn startas eller när det anpassade skript tillägget först installeras för att betjäna begäran om att tillämpa artefakter, kan den virtuella datorn behöva uppgradera VM-agenten eller vänta tills VM-agenten initieras. Det kan finnas tjänster där VM-agenten är beroende av att det tar lång tid att initiera. I sådana fall kan du läsa [Översikt över Azure Virtual Machine agent](../virtual-machines/extensions/agent-windows.md) för ytterligare fel sökning.

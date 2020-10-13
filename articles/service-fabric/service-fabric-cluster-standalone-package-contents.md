@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 8/10/2017
 ms.author: maburlik
 ms.openlocfilehash: fb9a52510788a275bdeea67cd5c1fdd2e894738d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261015"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Innehåll i Service Fabric fristående paket för Windows Server
 [I det fristående](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric fristående paketet hittar du följande filer:
 
-| **Filnamn** | **Kort beskrivning** |
+| **Fil namn** | **Kort beskrivning** |
 | --- | --- |
 | CreateServiceFabricCluster.ps1 |Ett PowerShell-skript som skapar klustret med hjälp av inställningarna i ClusterConfig.jspå. |
 | RemoveServiceFabricCluster.ps1 |Ett PowerShell-skript som tar bort ett kluster med hjälp av inställningarna i ClusterConfig.jspå. |
@@ -29,11 +29,11 @@ ms.locfileid: "86261015"
 | Readme.txt |En länk till viktig information och grundläggande installations anvisningar. Det är en del av instruktionerna i det här dokumentet. |
 | ThirdPartyNotice. RTF |Meddelande om program vara från tredje part som ingår i paketet. |
 | Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |StandaloneLogCollector.exe som körs på begäran för att samla in och överföra spårnings loggar till Microsoft för support ändamål. |
-| Tools\ServiceFabricUpdateService.zip |Ett verktyg som används för att aktivera automatisk kod uppgradering för kluster som inte har till gång till Internet. Mer information hittar du [här](service-fabric-cluster-upgrade-windows-server.md)|
+| Tools\ServiceFabricUpdateService.zip |Ett verktyg som används för att aktivera automatisk kod uppgradering för kluster som inte har till gång till Internet. [Här](service-fabric-cluster-upgrade-windows-server.md) hittar du mer information|
 
 **Mallar** 
 
-| **Filnamn** | **Kort beskrivning** |
+| **Fil namn** | **Kort beskrivning** |
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.jspå |En exempel fil för kluster konfiguration som innehåller inställningarna för en oskyddad, tre-nods (eller virtuell dator) utvecklings kluster, inklusive information för varje nod i klustret. |
 | ClusterConfig.Unsecure.MultiMachine.jspå |En exempel fil för kluster konfiguration som innehåller inställningarna för ett oskyddat kluster med flera datorer (eller virtuella datorer), inklusive information för varje dator i klustret. |

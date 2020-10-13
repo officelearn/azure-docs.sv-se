@@ -10,10 +10,10 @@ ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
 ms.openlocfilehash: 8c4944da8ffcaa75e6448483918a29809c32830b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83124065"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Instans skydd för instanser av skalnings uppsättningar för virtuella Azure-datorer
@@ -178,7 +178,7 @@ az vmss update \
   --protect-from-scale-set-actions true
 ```
 
-## <a name="troubleshoot"></a>Felsök
+## <a name="troubleshoot"></a>Felsöka
 ### <a name="no-protectionpolicy-on-scale-set-model"></a>Ingen protectionPolicy i skalnings uppsättnings modellen
 Instans skydd kan bara användas på skalnings uppsättnings instanser och inte i skalnings uppsättnings modellen.
 

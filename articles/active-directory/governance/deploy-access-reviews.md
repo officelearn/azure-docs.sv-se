@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306573"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planera distribution av Azure Active Directory åtkomst granskningar
@@ -192,9 +192,9 @@ Den administrativa roll som krävs för att skapa, hantera eller läsa en åtkom
 
 | Resurstyp| Skapa och hantera åtkomst granskningar (skapare)| Läs åtkomst gransknings resultat |
 | - | - | -|
-| Grupp eller program| Global administratör <p>Användar administratör| Skapare och säkerhets administratör |
+| Grupp eller program| Global administratör <p>Användaradministratör| Skapare och säkerhets administratör |
 | Privilegierade roller i Azure AD| Global administratör <p>Privilegie rad roll administratör| Creators <p>Säkerhetsläsare<p>Säkerhetsadministratör |
-| Privilegierade roller i Azure (resurser)| Global administratör<p>Användar administratör<p>Resurs ägare| Creators |
+| Privilegierade roller i Azure (resurser)| Global administratör<p>Användaradministratör<p>Resurs ägare| Creators |
 | Åtkomst paket| Global administratör<p>Skapare av Access-paket| Endast global administratör |
 
 
@@ -246,7 +246,7 @@ Om du vill skapa en princip för åtkomst granskning måste du ha följande info
 | **Resurser att granska**| Åtkomst till Microsoft Dynamics |
 | **Gransknings frekvens**| Varje månad |
 | **Som utför granskning**| Program hanterare för Dynamics Business Group |
-| **Meddelande**| E-post 24 timmar innan granskning till alias Dynamics-PMS<p>Ta med att uppmuntra anpassade meddelanden till granskare för att skydda sina köp |
+| **Meddelande**| E-post 24 timmar innan granskning till alias Dynamics-Pms<p>Ta med att uppmuntra anpassade meddelanden till granskare för att skydda sina köp |
 | **Tidslinje**| 48 timmar från meddelande |
 |**Automatiska åtgärder**| Ta bort åtkomst från alla konton som inte har någon interaktiv inloggning inom 90 dagar genom att ta bort användaren från säkerhets gruppen Dynamics-Access. <p>*Utför åtgärder om de inte granskas inom tids linjen.* |
 | **Manuella åtgärder**| Granskare kan utföra borttagnings godkännande innan den automatiserade åtgärden om det behövs. |
@@ -361,7 +361,7 @@ Du kan använda resultatet från en åtkomst granskning på lokala grupper och b
 
 * Använda Microsoft Graph för att programmatiskt komma åt resultat och beslut i slutförda åtkomst granskningar.
 
-Om du till exempel vill få åtkomst till resultat för en Windows AD-hanterad grupp använder du det här [PowerShell-exempel skriptet](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises). Skriptet beskriver de nödvändiga diagram anropen och exporterar Windows AD-PowerShell-kommandona för att genomföra ändringarna.
+Om du till exempel vill få åtkomst till resultat för en Windows AD-hanterad grupp använder du det här [PowerShell-exempel skriptet](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises). Skriptet beskriver de nödvändiga diagram anropen och exporterar Windows AD-PowerShell-kommandon för att genomföra ändringarna.
 
 ## <a name="plan-access-reviews-for-applications"></a>Planera åtkomst granskningar för program 
 
@@ -395,7 +395,7 @@ Med åtkomst granskningar kan granskare intyga om användarna fortfarande måste
 
 * Global administratör
 
-* Användar administratör
+* Användaradministratör
 
 * Administratör för privilegie rad autentisering
 
@@ -419,7 +419,7 @@ När du har för berett en strategi och en plan för att granska åtkomsten för
 
 För att minska risken för föråldrad åtkomst kan administratörer aktivera regelbunden granskning av användare som har aktiva tilldelningar till ett Access-paket. Följ anvisningarna i länken nedan:
 
-| Instruktionsartiklar| Description |
+| Instruktionsartiklar| Beskrivning |
 | - | - |
 | [Skapa åtkomst granskningar](entitlement-management-access-reviews-create.md)| Aktivera granskningar av Access-paket. |
 | [Utför åtkomst granskningar](entitlement-management-access-reviews-review-access.md)| Utför åtkomst granskningar för andra användare som är tilldelade till ett Access-paket. |
@@ -433,7 +433,7 @@ För att minska risken för föråldrad åtkomst kan administratörer aktivera r
 
 Åtkomst behov till grupper och program för medarbetare och gäster kan troligt vis förändras över tid. För att minska risken för inaktuella åtkomst tilldelningar kan administratörer skapa åtkomst granskningar för grupp medlemmar eller program åtkomst. Följ anvisningarna i länken nedan:
 
-| Instruktionsartiklar| Description |
+| Instruktionsartiklar| Beskrivning |
 | - | - |
 | [Skapa åtkomst granskningar](create-access-review.md)| Skapa en eller flera åtkomst granskningar för grupp medlemmar eller program åtkomst. |
 | [Utför åtkomst granskningar](perform-access-review.md)| Utför åtkomst granskning för medlemmar i en grupp eller användare med åtkomst till ett program. |
@@ -450,7 +450,7 @@ För att minska risken för inaktuella roll tilldelningar bör du regelbundet gr
 
 Följ anvisningarna i länkarna nedan:
 
-| Instruktionsartiklar | Description |
+| Instruktionsartiklar | Beskrivning |
 | - | - |
  [Skapa åtkomst granskningar](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Skapa åtkomst granskningar för privilegierade Azure AD-roller i PIM |
 | [Själv granskning av din åtkomst](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Om du har tilldelats en administrativ roll, Godkänn eller neka åtkomst till din roll |
@@ -465,7 +465,7 @@ För att minska risken som är kopplad till föråldrade roll tilldelningar bör
 
 Följ anvisningarna i länkarna nedan:
 
-| Instruktionsartiklar| Description |
+| Instruktionsartiklar| Beskrivning |
 | - | -|
 | [Skapa åtkomst granskningar](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Skapa åtkomst granskningar för privilegierade Azure-resurs roller i PIM |
 | [Själv granskning av din åtkomst](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Om du har tilldelats en administrativ roll, Godkänn eller neka åtkomst till din roll |
@@ -496,7 +496,7 @@ När du skapar nya Graph API-frågor för Automation rekommenderar vi att du anv
 
 Åtkomst gransknings aktiviteter registreras och är tillgängliga från [Azure Ads gransknings loggar](../reports-monitoring/concept-audit-logs.md). Du kan filtrera gransknings data för kategorin, aktivitets typen och datum intervallet. Här är en exempel fråga:
 
-| Kategori| Policy |
+| Kategori| Princip |
 | - | - |
 | Aktivitetstyp| Skapa åtkomstgranskning |
 | | Uppdatera åtkomst granskning |

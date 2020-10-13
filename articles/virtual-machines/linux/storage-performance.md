@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
 ms.openlocfilehash: 650164556223a73a722bc91ecb31491ee98cb8a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91307109"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-linux-virtual-machines"></a>Optimera prestanda för virtuella Linux-datorer i Lsv2-serien
@@ -97,7 +97,7 @@ Mer information om alternativ för att säkerhetskopiera data i lokal lagring fi
    Inställningen rq_affinity är en mindre justering när du använder absoluta maximala in-/utdata-åtgärder per sekund (IOPS). När allt annat fungerar bra kan du försöka ange rq_affinity till 0 för att se om det är en skillnad.
 
 * **Måste jag ändra blk_mq inställningarna?**  
-   RHEL/CentOS 7. x använder automatiskt BLK-MQ för NVMe-enheter. Inga konfigurations ändringar eller inställningar krävs. Inställningen scsi_mod. use_blk_mq är endast för SCSI och användes vid för hands versionen av Lsv2 eftersom NVMe-enheterna är synliga i de virtuella gäst datorerna som SCSI-enheter. För närvarande visas NVMe-enheterna som NVMe-enheter, så inställningen för SCSI-BLK är irrelevant.
+   RHEL/CentOS 7. x använder automatiskt BLK-MQ för NVMe-enheter. Inga konfigurations ändringar eller inställningar krävs. Inställningen scsi_mod. use _blk_mq är endast för SCSI och användes under Lsv2-förhands granskningen eftersom NVMe-enheterna är synliga i de virtuella gäst datorerna som SCSI-enheter. För närvarande visas NVMe-enheterna som NVMe-enheter, så inställningen för SCSI-BLK är irrelevant.
 
 * **Måste jag ändra "FIO"?**  
    Om du vill få högsta IOPS med ett prestanda Mät verktyg som "FIO" i L64v2 och L80v2 VM-storlekar, anger du "rq_affinity" till 0 på varje NVMe-enhet.  Den här kommando raden kommer till exempel att ange "rq_affinity" till noll för alla 10 NVMe-enheter i en virtuell L80v2-dator:

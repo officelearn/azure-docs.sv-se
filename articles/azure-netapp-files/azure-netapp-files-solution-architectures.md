@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 10/09/2020
 ms.author: b-juche
-ms.openlocfilehash: f6e38585e86dd962bc5f94a7c2a8a67c55f2a8fd
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 0818d113b5475e847c009f979345e103d6e089bb
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91595901"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938873"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Lösningsarkitekturer med Azure NetApp Files
 Den här artikeln innehåller referenser till bästa praxis som kan hjälpa dig att förstå lösnings arkitekturerna för att använda Azure NetApp Files.  
@@ -34,9 +34,9 @@ Det här avsnittet innehåller referenser till lösningar för OSS av Linux-prog
 
 ### <a name="oracle"></a>Oracle
 
-* [Prestanda för Oracle-databas på Azure NetApp Files enkla volymer](performance-oracle-single-volumes.md)
+* [Prestanda för Oracle-databas på enskilda Azure NetApp-volymer](performance-oracle-single-volumes.md)
 * [Metod guide för Oracle i Azure-distribution med hjälp av Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf)
-* [VIRTUELLA Oracle-avbildningar och deras distribution på Microsoft Azure: konfigurations alternativ för delad lagring](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
+* [VIRTUELLA Oracle-avbildningar och deras distribution på Microsoft Azure: konfigurations alternativ för delad lagring](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
 * [Fördelar med att använda Azure NetApp Files med Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
 
 ## <a name="windows-apps-and-sql-server-solutions"></a>Windows-appar och SQL Server-lösningar
@@ -61,17 +61,20 @@ Det här avsnittet innehåller referenser till SAP på Azure-lösningar.
 ### <a name="generic-sap-and-sap-netweaver"></a>Allmän SAP-och SAP-NetWeaver 
 
 * [SAP-program på Microsoft Azure med Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
-* [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
-* [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på Red Hat Enterprise Linux med Azure NetApp Files för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
-* [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer i Windows med Azure NetApp Files (SMB) för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb)
-* [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på Red Hat Enterprise Linux för SAP-program med flera SID-guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+* [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program](../virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files.md)
+* [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på Red Hat Enterprise Linux med Azure NetApp Files för SAP-program](../virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files.md)
+* [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer i Windows med Azure NetApp Files (SMB) för SAP-program](../virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb.md)
+* [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på Red Hat Enterprise Linux för SAP-program med flera SID-guide](../virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid.md)
 
 ### <a name="sap-hana"></a>SAP HANA 
 
-* [Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
-* [Hög tillgänglighet för SAP HANA skala upp med Azure NetApp Files på Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat)
-* [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
-* [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
+* [Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA](../virtual-machines/workloads/sap/hana-vm-operations-storage.md)
+* [Hög tillgänglighet för SAP HANA skala upp med Azure NetApp Files på Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md)
+* [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md)
+* [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md)
+
+### <a name="sap-iq-nls"></a>SAP-SWEETIQ – NLS
+*   [Distribuera SAP SWEETIQ-NLS HA-lösning med hjälp av Azure NetApp Files på SUSE Linux Enterprise Server](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-iq-nls-ha-solution-using-azure-netapp-files-on-suse/ba-p/1651172#.X2tDfpNzBh4.linkedin)
 
 ### <a name="sap-tech-community-and-blog-posts"></a>SAP-tekniska community-och blogg inlägg 
 
@@ -88,9 +91,10 @@ Det här avsnittet innehåller referenser till infrastruktur lösningar för vir
 ### <a name="windows-virtual-desktop"></a>Windows Virtual Desktop
 
 * [Fördelar med att använda Azure NetApp Files med Windows Virtual Desktop](solutions-windows-virtual-desktop.md)
-* [Lagrings alternativ för FSLogix profil behållare i Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
-* [Skapa en FSLogix profil behållare för en värd-pool med hjälp av Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
-* [Windows Virtual Desktop i företagsskala](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+* [Lagrings alternativ för FSLogix profil behållare i Windows Virtual Desktop](../virtual-desktop/store-fslogix-profile.md#azure-platform-details)
+* [Skapa en FSLogix profil behållare för en värd-pool med hjälp av Azure NetApp Files](../virtual-desktop/create-fslogix-profile-container.md)
+* [Windows Virtual Desktop i företagsskala](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+* [Microsoft FSLogix för företags-Azure NetApp Files bästa praxis](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#azure-netapp-files-best-practices)
 
 ## <a name="hpc-solutions"></a>HPC-lösningar
 
@@ -100,19 +104,20 @@ Det här avsnittet innehåller referenser för HPC-lösningar (data behandling m
 
 * [Azure NetApp Files: få ut mesta möjliga av din moln lagring](https://cloud.netapp.com/hubfs/Resources/ANF%20PERFORMANCE%20TESTING%20IN%20TEMPLATE.pdf)
 * [Kör MPI-arbetsbelastningar med Azure Batch och Azure NetApp Files](https://azure.microsoft.com/resources/run-mpi-workloads-with-azure-batch-and-azure-netapp-files/)
-* [Azure Cycle Cloud: CycleCloud HPC-miljöer på Azure NetApp Files](https://docs.microsoft.com/azure/cyclecloud/overview)
+* [Azure Cycle Cloud: CycleCloud HPC-miljöer på Azure NetApp Files](/azure/cyclecloud/overview)
 
 ### <a name="oil-and-gas"></a>Olja och gas
 
 * [Data behandling med höga prestanda (HPC): olja och gas i Azure](https://techcommunity.microsoft.com/t5/azure-global/high-performance-computing-hpc-oil-and-gas-in-azure/ba-p/824926)
-* [Kör program vara för program varu simulering på Azure](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/reservoir-simulation)
+* [Kör program vara för program varu simulering på Azure](/azure/architecture/example-scenario/infrastructure/reservoir-simulation)
 
 ### <a name="electronic-design-automation-eda"></a>Elektronisk design automatisering (EDA)
 
 * [Fördelar med att använda Azure NetApp Files för elektronisk designautomatisering](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
 * [Azure CycleCloud: EDA HPC Lab med Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
+* [Azure för halvledar branschen](https://azurecomcdn.azureedge.net/cvt-f40f39cd9de2d875ab0c198a8d7b186350cf0bca161e80d7896941389685d012/mediahandler/files/resourcefiles/azure-for-the-semiconductor-industry/Azure_for_the_Semiconductor_Industry.pdf)
 
-### <a name="analytics"></a>Analys
+### <a name="analytics"></a>Analytics
 
 * [Azure NetApp Files: ett nytt delat fil system som ska användas med SAS-rutnät på Microsoft Azure](https://communities.sas.com/t5/Architecture/Azure-NetApp-Files-A-new-shared-file-system-to-use-with-SAS-Grid/m-p/606978)
 * [Metod tips för att använda Microsoft Azure med SAS®](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
@@ -123,11 +128,10 @@ Det här avsnittet innehåller lösningar för Azures plattforms tjänster.
 
 ### <a name="azure-kubernetes-services-and-kubernetes"></a>Azure Kubernetes Services och Kubernetes
 
-* [Integrera Azure NetApp Files med Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/aks/azure-netapp-files)
+* [Integrera Azure NetApp Files med Azure Kubernetes-tjänsten](../aks/azure-netapp-files.md)
 * [Kubernetes prestanda som inte är i kraft i Azure med Azure NetApp Files](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Trident – Storage Orchestrator för behållare](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/backends/anf.html)
 
 ### <a name="azure-batch"></a>Azure Batch
 
 * [Kör MPI-arbetsbelastningar med Azure Batch och Azure NetApp Files](https://azure.microsoft.com/resources/run-mpi-workloads-with-azure-batch-and-azure-netapp-files/)
- 

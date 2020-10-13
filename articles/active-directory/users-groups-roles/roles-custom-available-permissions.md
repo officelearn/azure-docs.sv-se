@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 624489033097c0da4d85488b7ae376c5e0f3a56b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90967691"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Program registrerings behörigheter för anpassade roller i Azure Active Directory
@@ -65,7 +65,7 @@ Ger möjlighet att ta bort program registreringar som är begränsade till dem s
 > [!NOTE]
 > När du tilldelar en roll som innehåller behörigheten Skapa, måste roll tilldelningen göras i katalog omfånget. En Create-behörighet som tilldelas i ett resurs omfång ger inte möjlighet att skapa registrerings program.
 
-### <a name="read"></a>Läsa
+### <a name="read"></a>Läs
 
 Alla medlems användare i organisationen kan läsa registrerings information för appar som standard. Gäst användare och program tjänstens huvud namn kan dock inte. Om du planerar att tilldela en roll till en gäst användare eller ett program måste du inkludera lämpliga Läs behörigheter.
 

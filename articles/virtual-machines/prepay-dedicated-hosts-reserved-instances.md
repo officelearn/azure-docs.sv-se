@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
 ms.openlocfilehash: 919ff7474dd64cfe3005975beb4cab6f77c177ce
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87825267"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Spara kostnader med Azures dedikerade värd reservationer
@@ -81,7 +81,7 @@ Om du har ett EA-avtal kan du använda **alternativet Lägg till fler**   för
 
 - Omfång för enskild **prenumeration**   – Tillämpar reservations rabatten på de matchande resurserna i den valda prenumerationen.
 
-- **Delat omfång**   – Tillämpar reservations rabatten på matchande resurser i de berättigade prenumerationer som finns i fakturerings kontexten. För EA-kunder är fakturerings kontexten registreringen. För enskilda prenumerationer med betala per användning-priser är faktureringsomfånget alla berättigade prenumerationer som skapats av kontoadministratören.
+- **Delat omfång**   – Tillämpar reservations rabatten på matchande resurser i de berättigade prenumerationer som finns i fakturerings kontexten. För EA-kunder är fakturerings kontexten registreringen. För enskilda prenumerationer med betalning per användning är faktureringsomfånget alla berättigade prenumerationer som kontoadministratören har skapat.
 
 ## <a name="usage-data-and-reservation-utilization"></a>Användnings data och reservations användning
 
@@ -125,7 +125,7 @@ Om du har frågor eller behöver hjälp kan du  [skapa en supportbegäran](http
 
 Information om hur du hanterar en reservation finns i [hantera Azure reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
-Mer information om Azure-reservationer finns i följande artiklar:
+Du kan läsa mer om Azure-reservationer i följande artiklar:
 
 - [Vad är Azure-reservationer?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 

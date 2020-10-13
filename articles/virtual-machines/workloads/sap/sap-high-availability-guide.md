@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a330fc18f39ffd7007e2a41a28016df69a2b739
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91314665"
 ---
 # <a name="high-availability-azure-virtual-machines-for-sap-netweaver"></a>Azure-Virtual Machines med hög tillgänglighet för SAP NetWeaver
@@ -522,7 +522,7 @@ Konfigurera ASCS/SCS multi-SID-mallen genom att ange värden för följande para
   -  **System tillgänglighet**. Välj **ha**.
   -  **Administratörens användar namn och administratörs lösen ord**. Skapa en ny användare som kan användas för att logga in på datorn.
   -  **Nytt eller befintligt undernät**. Ange om ett nytt virtuellt nätverk och undernät ska skapas, eller om ett befintligt undernät ska användas. Om du redan har ett virtuellt nätverk som är anslutet till ditt lokala nätverk väljer du **befintligt**.
-  -  **Undernät-ID**. Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:/Subscriptions/<*prenumerations-id*>/ResourceGroups/<*resurs grupp namn*>/providers/Microsoft.Network/virtualnetworks/<*virtuellt nätverks namn*>/subnets/<*namn på undernät*>
+  -  **Undernät-ID**. Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:/Subscriptions/<*prenumerations-id*>/resourceGroups/<*resurs grupp namn*>/providers/Microsoft.Network/virtualNetworks/<*virtuellt nätverks namn*>/subnets/<*namn på undernät*>
 
 Mallen distribuerar en Azure Load Balancer instans, som stöder flera SAP-system.
 
@@ -740,7 +740,7 @@ Om du vill använda olika nummer för SAP ASCS-eller SCS-instanserna måste du �
 1. I Azure Portal väljer du ** < *sid*>-lb-ASCs**belastnings  >  **Utjämnings regler**.
 2. Ändra följande värden för alla belastnings Utjämnings regler som tillhör SAP ASCS-eller SCS-instansen:
 
-   * Name
+   * Namn
    * Port
    * Server dels port
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: f6b53efdf49538476821ddeaed9bbf4278af0728
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542418"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Skapa och hantera Läs repliker i Azure Database for MariaDB med hjälp av Azure CLI och REST API
@@ -45,7 +45,7 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 | Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
-| namn | mydemoreplicaserver | Namnet på den nya replik servern som skapas. |
+| name | mydemoreplicaserver | Namnet på den nya replik servern som skapas. |
 | source-server | mydemoserver | Namnet eller ID: t för den befintliga käll server som ska replikeras från. |
 
 Använd parametern om du vill skapa en skrivskyddad replik av en kors region `--location` . 
@@ -93,7 +93,7 @@ az mariadb server replica stop --name mydemoreplicaserver --resource-group myres
 | Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resurs gruppen där replik servern finns.  |
-| namn | mydemoreplicaserver | Namnet på replik servern där replikeringen ska stoppas. |
+| name | mydemoreplicaserver | Namnet på replik servern där replikeringen ska stoppas. |
 
 ### <a name="delete-a-replica-server"></a>Ta bort en replik Server
 

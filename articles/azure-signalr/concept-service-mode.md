@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: kenchen
 ms.openlocfilehash: 2cdce64b0ff03521a5848e2b4fd6e01431b5cc16
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89514907"
 ---
 # <a name="service-mode-in-azure-signalr-service"></a>Tjänst läge i Azure SignalR-tjänsten
@@ -21,7 +21,7 @@ Service Mode är ett viktigt begrepp i Azure SignalR-tjänsten. När du skapar e
 
 Du kan också ändra den senare på menyn Inställningar:
 
-:::image type="content" source="media/concept-service-mode/update.png" alt-text="Uppdatera tjänst läge":::
+:::image type="content" source="media/concept-service-mode/update.png" alt-text="Välj tjänst läge när du skapar":::
 
 Azure SignalR service stöder för närvarande tre tjänst lägen: **standard**, utan **Server** och **klassisk**. Signal resursen fungerar annorlunda i olika lägen. I den här artikeln får du lära dig skillnaderna och hur du väljer rätt tjänst läge baserat på ditt scenario.
 
@@ -29,7 +29,7 @@ Azure SignalR service stöder för närvarande tre tjänst lägen: **standard**,
 
 Standard läget är standardvärdet för tjänst läge när du skapar en ny Signals-resurs. I det här läget fungerar ditt program som ett typiskt ASP.NET Core-(eller ASP.NET)-signal program, där du har en webb server som är värd för ett nav (kallas Hub-Server) och klienter kan ha dubbels idig kommunikation i real tid med nav servern. Den enda skillnaden är i stället för att ansluta klient och server direkt, både klienten och servern ansluter till signal tjänsten och använder tjänsten som proxy. Nedan visas ett diagram som illustrerar den typiska program strukturen i standard läget:
 
-:::image type="content" source="media/concept-service-mode/default.png" alt-text="Program struktur i standard läge":::
+:::image type="content" source="media/concept-service-mode/default.png" alt-text="Välj tjänst läge när du skapar":::
 
 Så om du har ett signal program och vill integrera med signaler-tjänsten bör standard läget vara det bästa valet för de flesta fall.
 
@@ -59,7 +59,7 @@ Mer information om hur du konfigurerar uppströms finns i det här [dokumentet](
 
 Nedan visas ett diagram som illustrerar hur Server fritt läge fungerar:
 
-:::image type="content" source="media/concept-service-mode/serverless.png" alt-text="Program struktur i Server fritt läge":::
+:::image type="content" source="media/concept-service-mode/serverless.png" alt-text="Välj tjänst läge när du skapar":::
 
 > [!NOTE]
 > Observera att du kan använda standard läget för REST API/Management SDK/funktions bindning för att direkt skicka meddelanden till klienten om du inte vill gå via NAV Server. Men i standard läge är klient anslutningar fortfarande hanterade av Hub-servrar och överordnade fungerar inte i det läget.

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
 ms.openlocfilehash: 8f679626b69bd855e86b94cdde51955edd068e8f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91714898"
 ---
 # <a name="enable-automanage-for-virtual-machines-through-azure-policy"></a>Aktivera autohantering för virtuella datorer via Azure Policy
@@ -33,7 +33,7 @@ Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.mi
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 
 ## <a name="locate-and-assign-the-policy"></a>Leta upp och tilldela principen

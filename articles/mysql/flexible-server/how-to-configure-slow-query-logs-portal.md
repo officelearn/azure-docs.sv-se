@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: e2046673cda17c58153ceb12eee31edb83365092
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565758"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Konfigurera och komma åt långsamma Query-loggar för Azure Database for MySQL flexibel server med hjälp av Azure Portal
@@ -20,7 +20,7 @@ ms.locfileid: "91565758"
 
 Du kan konfigurera, lista och ladda ned Azure Database for MySQL flexibla servern [långsamma frågemeddelanden](concepts-slow-query-logs.md) från Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Anvisningarna i den här artikeln kräver att du har en [flexibel Server](quickstart-create-server-portal.md).
 
 ## <a name="configure-logging"></a>Konfigurera loggning

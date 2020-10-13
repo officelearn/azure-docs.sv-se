@@ -9,10 +9,10 @@ ms.author: tisande
 ms.reviewer: sngun
 ms.custom: devx-track-js
 ms.openlocfilehash: 1e8e1aa9d8e582644d1d625fc8a97cc0e0c790df
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334403"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Java Script-fråge-API i Azure Cosmos DB
@@ -59,7 +59,7 @@ I följande tabell presenteras olika SQL-frågor och motsvarande JavaScript-frå
 |Select<br>FRÅN dokument<br>WHERE<br>&nbsp;&nbsp;&nbsp;dok. ID = "X998_Y998"|_ _ filter (Function (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;returnera doc.id = = = "X998_Y998";<br>});|Frågor för dokument med predikatet: ID = "X998_Y998".|
 |Select<br>FRÅN dokument<br>WHERE<br>&nbsp;&nbsp;&nbsp;ARRAY_CONTAINS (dokument. Taggar, 123)|_ _. filter (Function (x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;returnera x. Taggar && x. Tags. indexOf (123) >-1;<br>});|Frågor för dokument med egenskapen Taggar och taggar är en matris som innehåller värdet 123.|
 |VÄLJ<br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;dok. Message som MSG<br>FRÅN dokument<br>WHERE<br>&nbsp;&nbsp;&nbsp;dok. ID = "X998_Y998"|_ _. Chain ()<br>&nbsp;&nbsp;&nbsp;&nbsp;. filter (Function (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera doc.id = = = "X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;. map (funktion (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returrelaterade<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Msg: doc. Message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>. Value ();|Frågor om dokument med ett predikat, ID = "X998_Y998" och projekterar sedan ID och meddelande (alias till MSG).|
-|Välj värde tagg<br>FRÅN dokument<br>KOPPLA tagg i dokument. Taggen<br>Sortera efter dokument. _ts|_ _. Chain ()<br>&nbsp;&nbsp;&nbsp;&nbsp;. filter (Function (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera dokument. Taggar && array. isArray (doc. Taggar);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;. sortBy (Function (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera dokument. _ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;. plocka ("Taggar")<br>&nbsp;&nbsp;&nbsp;&nbsp;. förenkla ()<br>&nbsp;&nbsp;&nbsp;&nbsp;. Value ()|Filter för dokument som har en mat ris egenskap, taggar och sorterar de resulterande dokumenten med system egenskapen _ts timestamp, och sedan lägger Project + samman taggarna array.|
+|Välj värde tagg<br>FRÅN dokument<br>KOPPLA tagg i dokument. Taggen<br>Sortera efter docs._ts|_ _. Chain ()<br>&nbsp;&nbsp;&nbsp;&nbsp;. filter (Function (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera dokument. Taggar && array. isArray (doc. Taggar);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;. sortBy (Function (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;. plocka ("Taggar")<br>&nbsp;&nbsp;&nbsp;&nbsp;. förenkla ()<br>&nbsp;&nbsp;&nbsp;&nbsp;. Value ()|Filter för dokument som har en mat ris egenskap, taggar och sorterar de resulterande dokumenten med system egenskapen _ts timestamp, och sedan lägger Project + samman taggarna array.|
 
 ## <a name="next-steps"></a>Nästa steg
 

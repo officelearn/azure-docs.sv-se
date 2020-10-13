@@ -12,10 +12,10 @@ ms.date: 12/14/2017
 ms.author: swmachan
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 68b0de40940fa75dd4eb4e1572405f31ce1c22b8
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934386"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Så här använder du CTF-rapportering (Collaborative Translation Framework)
@@ -94,9 +94,9 @@ Den här metoden hämtar antalet översättningar som skapas av användaren. Den
 
 Resultat uppsättningen innehåller en matris med **UserTranslationCount**. Varje UserTranslationCount har följande element:
 
-| Fält | Beskrivning |
+| Field | Beskrivning |
 |:---|:---|
-| Count| Antalet resultat som hämtas|
+| Antal| Antalet resultat som hämtas|
 | Från | Käll språket|
 | Omdöme| Den klassificering som används av avsändaren i metod anropet AddTranslation ()|
 | Om du vill| Mål språket|
@@ -165,7 +165,7 @@ Den här metoden hämtar översättningarna som skapas av användaren. Den inneh
 
 Resultat uppsättningen innehåller en matris med **UserTranslation**. Varje UserTranslation har följande element:
 
-| Fält | Beskrivning |
+| Field | Beskrivning |
 |:---|:---|
 | CreatedDateUtc| Datumet då posten skapades med AddTranslation ()|
 | Från| Käll språket|

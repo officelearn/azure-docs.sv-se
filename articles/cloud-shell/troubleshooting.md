@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: eea64520dd5440467c911b6de42d8c8c31fc1bde
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543460"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Felsöka & begränsningar i Azure Cloud Shell
@@ -46,7 +46,7 @@ Kända lösningar för fel söknings problem i Azure Cloud Shell är:
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Dialog rutan lagring – fel: 403 RequestDisallowedByPolicy
 
-- **Information**: när du skapar ett lagrings konto via Cloud Shell, Miss lyckas det på grund av en Azure policy tilldelning som har lagts av administratören. Fel meddelandet kommer att innehålla:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Information**: när du skapar ett lagrings konto via Cloud Shell, Miss lyckas det på grund av en Azure policy tilldelning som har lagts av administratören. Fel meddelandet kommer att innehålla: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Lösning**: kontakta Azure-administratören om du vill ta bort eller uppdatera Azure policy tilldelningen som nekar lagrings skapande.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Dialog rutan lagring – fel: 400 DisallowedOperation
@@ -80,10 +80,10 @@ Kända lösningar för fel söknings problem i Azure Cloud Shell är:
 > [!NOTE]
 > Virtuella Azure-datorer måste ha en offentlig IP-adress.
 
-- **Information**: på grund av standard inställningarna för Windows-brandväggen för WinRM kan användaren se följande fel:`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
+- **Information**: på grund av standard inställningarna för Windows-brandväggen för WinRM kan användaren se följande fel: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
 - **Lösning**: kör `Enable-AzVMPSRemoting` för att aktivera alla aspekter av PowerShell-fjärrkommunikation på mål datorn.
 
-### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir`uppdaterar inte resultatet i Azure Drive
+### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir` uppdaterar inte resultatet i Azure Drive
 
 - **Information**: som standard för att optimera användar upplevelsen `dir` cachelagras resultatet i Azure Drive.
 - **Lösning**: när du har skapat, uppdaterat eller tagit bort en Azure-resurs kör `dir -force` du för att uppdatera resultatet i Azure-enheten.
@@ -196,4 +196,4 @@ PowerShell:
 Azure Cloud Shell i Azure Government är endast tillgängligt via Azure Portal.
 
 >[!Note]
-> Det finns för närvarande inte stöd för att ansluta till GCC-högt eller offentliga DoD-moln för Exchange Online.
+> Det finns för närvarande inte stöd för att ansluta till GCC-High eller offentliga DoD-moln för Exchange Online.

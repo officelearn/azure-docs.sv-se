@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543341"
 ---
 # <a name="azure-operational-security"></a>Drift säkerhet i Azure
@@ -228,7 +228,7 @@ Network Watcher har för närvarande följande funktioner:
 -   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Gransknings loggar</a>**– åtgärder som utförs som en del av konfigurationen av nätverk loggas. Dessa loggar kan visas i Azure Portal eller hämtas med hjälp av Microsoft-verktyg som Power BI eller verktyg från tredje part. Gransknings loggar är tillgängliga via portalen, PowerShell, CLI och REST API. Mer information om gransknings loggar finns i gransknings åtgärder med Resource Manager. Gransknings loggar är tillgängliga för åtgärder som utförs på alla nätverks resurser.
 
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP-flödet verifieras</a>** – kontrollerar om ett paket tillåts eller nekas baserat på flödes information 5-tuple paket parametrar (mål-IP, käll-IP, målport, källport och protokoll). Om paketet nekas av en nätverks säkerhets grupp returneras regeln och nätverks säkerhets gruppen som nekade paketet.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP-flödet verifieras </a>** – kontrollerar om ett paket tillåts eller nekas baserat på flödes information 5-tuple paket parametrar (mål-IP, käll-IP, målport, källport och protokoll). Om paketet nekas av en nätverks säkerhets grupp returneras regeln och nätverks säkerhets gruppen som nekade paketet.
 
 -   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview">Nästa hopp</a>** – bestämmer nästa hopp för paket som dirigeras i Azures nätverks infrastruktur resurs, så att du kan diagnostisera eventuella felkonfigurerade användardefinierade vägar.
 
@@ -325,13 +325,13 @@ Den här artikeln beskriver
 <ul>
 <li>Samla in säkerhetsrelaterade händelser, gransknings-och överträdelse analyser för att hålla ett nära öga på dina till gångar:</li>
 <ul>
-<li>Säkerhets position</li>
+<li>Säkerhetsstatus</li>
 <li>Viktiga problem</li>
 <li>Sammanfattar hot</li>
 </ul>
 </ul>
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Design-och drift säkerhet](https://www.microsoft.com/trustcenter/security/designopsecurity)
 

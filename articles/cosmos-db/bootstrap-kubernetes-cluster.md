@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
 ms.openlocfilehash: b9e6e1388465542e9fb3ac69540c981a1fd70d4b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570120"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Använda Azure-Kubernetes med Azure Cosmos DB (för hands version)
@@ -25,7 +25,7 @@ Med etcd-API: et i Azure Cosmos DB kan du använda Azure Cosmos DB som server de
 
 Mer information om etcd API i Azure Cosmos DB finns i [översikts](etcd-api-introduction.md) artikeln. Den här artikeln visar hur du använder [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md) (AKS-motor) för att starta ett Kubernetes-kluster på Azure som använder [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) i stället för lokalt installerat och konfigurerat etcd. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Installera den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Du kan ladda ned Azure CLI som är särskilt för operativ systemet och installera.
 

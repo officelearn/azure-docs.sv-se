@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: aece7278d134145e00b027c184f3817d5566e1e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81408364"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>Säkerhets kontroll: inventering och till gångs hantering
@@ -38,7 +38,7 @@ Använd Azure Resource Graph för att fråga/identifiera alla resurser (t. ex. d
 
 | Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 6.2 | 1.5 | Kund |
+| 6,2 | 1.5 | Kund |
 
 Använd taggar till Azure-resurser som ger metadata till att logiskt organisera dem i en taxonomi.
 
@@ -94,7 +94,7 @@ Använd inventering av virtuella Azure-datorer för att automatisera insamling a
 
 | Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 6.7 | 2.5 | Kund |
+| 6.7 | 2,5 | Kund |
 
 Använd Azure Security Center fil integritets övervakning (Ändringsspårning) och inventering av virtuella datorer för att identifiera all program vara som är installerad på Virtual Machines. Du kan implementera en egen process för att ta bort otillåten program vara. Du kan också använda en lösning från tredje part för att identifiera program som inte godkänts.
 

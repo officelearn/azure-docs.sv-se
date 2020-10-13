@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: d1e2b91b46bee761c7feb1000920d5ae1e65ba4c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713619"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Självstudie: Azure Active Directory integrering med Andromeda
@@ -30,7 +30,7 @@ Genom att integrera Andromeda med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Andromeda behöver du följande objekt:
 
@@ -74,7 +74,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning med Andromeda i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Andromeda-enkel inloggning](#configure-andromeda-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera Andromeda enkel inloggning](#configure-andromeda-single-sign-on)** – om du vill konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Andromeda test User](#create-andromeda-test-user)** – om du vill ha en motsvarighet till Britta Simon i Andromeda som är länkad till Azure AD-representation av användare.
@@ -113,7 +113,7 @@ Utför följande steg för att konfigurera enkel inloggning med Andromeda i Azur
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Du uppdaterar värdet med den faktiska identifieraren, svars-URL: en och inloggnings-URL: en som beskrivs senare i självstudien.
+    > Dessa värden är inte verkliga. Du uppdaterar värdet med den faktiska identifieraren, svars-URL: en och Sign-On URL som beskrivs senare i självstudien.
 
 6. Andromeda-programmet förväntar sig SAML-intyg i ett särskilt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
@@ -124,7 +124,7 @@ Utför följande steg för att konfigurera enkel inloggning med Andromeda i Azur
 
 7. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
 
-    | Namn | Källattribut|
+    | Name | Källattribut|
     | ------ | -----------|
     | roll        | App-speciell roll |
     | typ        | Apptyp |
@@ -165,7 +165,7 @@ Utför följande steg för att konfigurera enkel inloggning med Andromeda i Azur
 
     c. Utloggnings-URL
 
-### <a name="configure-andromeda-single-sign-on"></a>Konfigurera Andromeda enkel inloggning
+### <a name="configure-andromeda-single-sign-on"></a>Konfigurera Andromeda Single Sign-On
 
 1. Logga in på din Andromeda företags webbplats som administratör.
 

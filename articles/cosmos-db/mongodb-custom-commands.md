@@ -8,10 +8,10 @@ ms.date: 05/28/2020
 ms.author: jasonh
 ms.custom: devx-track-js
 ms.openlocfilehash: a40be5212fb1335482ec5011d24c8eaf5f3d9a00
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91409688"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Använd MongoDB-tilläggs kommandon för att hantera data som lagras i Azure Cosmos DB s API för MongoDB 
@@ -213,8 +213,8 @@ I följande tabell beskrivs parametrarna i kommandot:
 
 | **Fält** | **Typ** | **Obligatoriskt** | **Beskrivning** |
 |---------|---------|---------|---------|
-| `customAction` | `string` | Obligatorisk | Namnet på det anpassade kommandot. Måste vara "CreateCollection".|
-| `collection` | `string` | Obligatorisk | Samlingens namn. Inga specialtecken eller mellanslag tillåts.|
+| `customAction` | `string` | Krävs | Namnet på det anpassade kommandot. Måste vara "CreateCollection".|
+| `collection` | `string` | Krävs | Samlingens namn. Inga specialtecken eller mellanslag tillåts.|
 | `offerThroughput` | `int` | Valfritt | Tillhandahållet data flöde som ska anges för-databasen. Om den här parametern inte anges kommer den att vara standard den lägsta, 400 RU/s. * För att ange data flöde utöver 10 000 RU/s `shardKey` krävs parametern.|
 | `shardKey` | `string` | Krävs för samlingar med stort data flöde | Sökvägen till Shard-nyckeln för shardade-samlingen. Den här parametern krävs om du anger mer än 10 000 RU/s i `offerThroughput` .  Om den är angiven, kommer alla dokument som infogas kräva denna nyckel och värde. |
 | `autoScaleSettings` | `Object` | Krävs för [autoskalning-läge](provision-throughput-autoscale.md) | Det här objektet innehåller inställningarna som är associerade med läget för autoskalning-kapacitet. Du kan ställa in `maxThroughput` värdet, som beskriver det högsta antalet enheter för programbegäran som samlingen ökar till dynamiskt. |

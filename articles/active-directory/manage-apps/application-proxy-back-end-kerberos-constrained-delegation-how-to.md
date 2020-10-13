@@ -12,10 +12,10 @@ ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
 ms.openlocfilehash: 3ca3df010426347846b29734426edfad4536516b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568729"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Felsöka konfigurationer med Kerberos-begränsad delegering för programproxy
@@ -33,7 +33,7 @@ Den här artikeln gör följande antaganden:
 - Server-och program värdarna finns i en enda Azure Active Directory domän. Detaljerad information om scenarier mellan domäner och skogar finns i [KCD White Paper](https://aka.ms/KCDPaper).
 - Ämnes programmet publiceras i en Azure-klient med förautentisering aktive rad. Användare förväntas autentisera sig till Azure via formulärbaserad autentisering. Många scenarier för klientautentisering omfattas inte av den här artikeln. De kan läggas till vid en viss tidpunkt i framtiden.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Azure AD-programproxy kan distribueras i många typer av infrastrukturer eller miljöer. Arkitekturerna varierar från organisation till organisation. De vanligaste orsakerna till KCD-relaterade problem är inte i miljöerna. Enkla fel konfigurationer eller allmänna misstag orsakar de flesta problem.
 

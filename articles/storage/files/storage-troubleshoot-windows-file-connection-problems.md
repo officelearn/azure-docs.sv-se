@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715994"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Felsöka Azure Files problem i Windows (SMB)
@@ -154,7 +154,7 @@ Om du vill visa öppna referenser för en fil resurs, katalog eller fil använde
 Om du vill stänga öppna referenser för en fil resurs, katalog eller fil använder du PowerShell-cmdleten [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) .
 
 > [!Note]  
-> Cmdletarna get-AzStorageFileHandle och Close-AzStorageFileHandle ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> De Get-AzStorageFileHandle-och Close-AzStorageFileHandle-cmdletarna ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="noaaccessfailureportal"></a>
 ## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Fel "ingen åtkomst" när du försöker komma åt eller ta bort en Azure-filresurs  
@@ -193,7 +193,7 @@ Om SMB-klienterna har stängt alla öppna referenser och problemet fortsätter a
 - Använd PowerShell [-cmdleten Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) för att stänga öppna referenser. 
 
 > [!Note]  
-> Cmdletarna get-AzStorageFileHandle och Close-AzStorageFileHandle ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> De Get-AzStorageFileHandle-och Close-AzStorageFileHandle-cmdletarna ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Långsam filkopiering till och från Azure Files i Windows
@@ -332,7 +332,7 @@ Kontrol lera först att du har följt alla fyra stegen för att [aktivera Azure 
 
 Försök sedan att [montera Azure-filresursen med lagrings konto nyckeln](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Om du inte kunde montera hämtar du [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) för att hjälpa dig att validera klienten som kör miljön, identifiera inkompatibel klient konfiguration som skulle orsaka åtkomst fel för Azure Files, ger vägledning om själv korrigering och samlar in diagnostiska spårningar.
 
-För det tredje kan du köra cmdleten debug-AzStorageAccountAuth för att utföra en uppsättning grundläggande kontroller på din AD-konfiguration med den inloggade AD-användaren. Den här cmdleten stöds i [versionen AzFilesHybrid v0.1.2+](https://github.com/Azure-Samples/azure-files-samples/releases). Du måste köra denna cmdlet med en AD-användare som har ägarbehörighet på mållagringskontot.  
+För det tredje kan du köra cmdleten Debug-AzStorageAccountAuth för att utföra en uppsättning grundläggande kontroller på din AD-konfiguration med den inloggade AD-användaren. Den här cmdleten stöds i [versionen AzFilesHybrid v0.1.2+](https://github.com/Azure-Samples/azure-files-samples/releases). Du måste köra denna cmdlet med en AD-användare som har ägarbehörighet på mållagringskontot.  
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
@@ -360,7 +360,7 @@ Du kan uppleva antingen symptom som beskrivs nedan när du försöker konfigurer
 
 Vi rekommenderar att du använder [icacls-verktyget](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) för att konfigurera behörigheter för katalogen/fil nivån som en lösning. 
 
-## <a name="errors-when-running-join-azstorageaccountforauth-cmdlet"></a>Fel vid körning av Join-AzStorageAccountForAuth-cmdlet
+## <a name="errors-when-running-join-azstorageaccountforauth-cmdlet"></a>Fel vid körning av Join-AzStorageAccountForAuth cmdlet
 
 ### <a name="error-the-directory-service-was-unable-to-allocate-a-relative-identifier"></a>Fel: "katalog tjänsten kunde inte allokera en relativ identifierare"
 

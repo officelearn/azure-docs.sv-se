@@ -5,10 +5,10 @@ ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: e89cf36e59ab26ec220d1125162a841fc10f0e47
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567272"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Översikt över autoskalning i Microsoft Azure
@@ -89,7 +89,7 @@ Den lodräta skalningen är däremot annorlunda. Det behåller samma antal virtu
 ## <a name="methods-of-access"></a>Åtkomst metoder
 Du kan ställa in autoskalning via
 
-* [Azure-portalen](autoscale-get-started.md)
+* [Azure Portal](autoscale-get-started.md)
 * [PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
 * [Plattformsoberoende kommandoradsgränssnitt (CLI):](../samples/cli-samples.md#autoscale)
 * [REST-API:et för Azure Monitor](/rest/api/monitor/autoscalesettings)
@@ -98,7 +98,7 @@ Du kan ställa in autoskalning via
 | Tjänst | Schema & dokument |
 | --- | --- |
 | Web Apps |[Skalnings Web Apps](autoscale-get-started.md) |
-| Molntjänster |[Autoskala en moln tjänst](../../cloud-services/cloud-services-how-to-scale-portal.md) |
+| Cloud Services |[Autoskala en moln tjänst](../../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtual Machines: klassisk |[Skala klassiska tillgänglighets uppsättningar för virtuella datorer](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) |
 | Virtual Machines: Windows Scale Sets |[Skala skalnings uppsättningar för virtuella datorer i Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Virtual Machines: Linux Scale Sets |[Skala skalnings uppsättningar för virtuella datorer i Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |

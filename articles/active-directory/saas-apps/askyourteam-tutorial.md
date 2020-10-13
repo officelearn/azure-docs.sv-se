@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 6ab6a355b986daeca41ffd18a51689cd9d880dcd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713818"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-askyourteam"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med AskYourTeam
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar AskYourTeam med Azu
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -85,7 +85,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<COMPANY>.app.askyourteam.com/login`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska svars-URL: en och inloggnings-URL-värden som beskrivs senare i självstudien.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska svars-URL: en och Sign-On URL-värden som beskrivs senare i självstudien.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -103,7 +103,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -139,13 +139,13 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **Redigera inställningar**.
 
-    ![Skärm bild som visar meddelandet för enkel inloggning med knappen Redigera inställningar.](./media/askyourteam-tutorial/configure2.png)
+    ![Skärm bild som visar det enskilda Sign-On meddelandet med knappen Redigera inställningar.](./media/askyourteam-tutorial/configure2.png)
 
-1. Utför följande steg på sidan **Redigera enkel inloggnings integrering** : 
+1. På sidan **Redigera en enskild Sign-On-integration** utför du följande steg: 
 
-    ![Skärm bild som visar integrering av enkel inloggning där du kan ange värden för det här steget.](./media/askyourteam-tutorial/configure3.png)
+    ![Skärm bild som visar redigera enkel Sign-On-integrering där du kan ange värden för det här steget.](./media/askyourteam-tutorial/configure3.png)
 
-    a. I text rutan för **SAML-tjänsten för enkel inloggnings-URL** klistrar du in URL-värdet för **inloggning** som du har kopierat från Azure Portal.
+    a. I text rutan för **SAML-Sign-On tjänstens URL** klistrar du in URL-värdet för **inloggning** som du har kopierat från Azure Portal.
 
     b. I text rutan **SAML-entitets-ID** klistrar du in det ID-värde för **Azure AD** som du har kopierat från Azure Portal.
 

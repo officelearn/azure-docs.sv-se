@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: yelevin
 ms.openlocfilehash: e8e44f69965af1987bd5f023644d966b3caf1c77
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89505876"
 ---
 # <a name="connect-data-from-azure-ddos-protection"></a>Anslut data från Azure DDoS Protection
@@ -24,7 +24,7 @@ ms.locfileid: "89505876"
 
 DDoS-attacker (distributed denial of Service) försöker avsluta ett programs resurser, vilket gör programmet otillgängligt för legitima användare. DDoS-attacker kan riktas mot valfri slutpunkt som kan nås offentligt via Internet. [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md), kombinerat med bästa praxis för program design, ger ett robust försvar mot DDoS-attacker. Du kan ansluta Azure DDoS Protection loggar till Azure Sentinel, så att du kan visa loggdata i arbets böcker, använda den för att skapa anpassade aviseringar och införliva den för att förbättra dina undersökningar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha läs-och Skriv behörighet på Azure Sentinel-arbetsytan.
 

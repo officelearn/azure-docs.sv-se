@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 07/16/2020
 ms.author: aahi
 ms.openlocfilehash: eedfe4f24797a9b564479b2f8d3f4d04b0751272
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779584"
 ---
 > [!NOTE]
@@ -23,23 +23,23 @@ ms.locfileid: "91779584"
  
 Följande enhets kategorier returneras när du skickar begär anden till `/v3.1-preview.2/entities/recognition/pii` slut punkten.
 
-| Kategori   | Underkategori | Beskrivning                          | Startar modell version | Kommentarer |
+| Kategori   | Underkategori | Beskrivning                          | Startar modell version | Obs! |
 |------------|-------------|--------------------------------------|------------------------|---|
-| Person     | Ej tillämpligt         | Namn på personer.  | `2019-10-01`  | Returneras också med `domain=phi` . |
-| PersonType | Ej tillämpligt         | Jobb typer eller roller som innehas av en person. | `2020-02-01` | |
-| PhoneNumber | Ej tillämpligt | Telefonnummer (endast USA och EU-telefonnummer). | `2019-10-01` | Returneras också med `domain=phi` . |
-|Organisation  | Ej tillämpligt | Företag, politiska grupper, musik band, sport klubbar, myndighets organ och offentliga organisationer.  | `2019-10-01` | Nationella objekt och religions ingår inte i den här entitetstypen.  |
+| Person     | E.t.         | Namn på personer.  | `2019-10-01`  | Returneras också med `domain=phi` . |
+| PersonType | E.t.         | Jobb typer eller roller som innehas av en person. | `2020-02-01` | |
+| PhoneNumber | E.t. | Telefonnummer (endast USA och EU-telefonnummer). | `2019-10-01` | Returneras också med `domain=phi` . |
+|Organisation  | E.t. | Företag, politiska grupper, musik band, sport klubbar, myndighets organ och offentliga organisationer.  | `2019-10-01` | Nationella objekt och religions ingår inte i den här entitetstypen.  |
 |Organisation | Sjukdom | Medicinska företag och grupper. | `2020-04-01` |  |
 |Organisation | Börs kurs | Fond börs grupper. | `2020-04-01` |  |
 | Organisation | Sport | Idrotts relaterade organisationer. | `2020-04-01` |  |
-| Adress | Ej tillämpligt | Fullständiga post adresser.  | `2020-04-01` | Returneras också med `domain=phi` . |
-| EU GPS-koordinater | Ej tillämpligt | GPS-koordinater för platser inom Europeiska unionen.  | `2019-10-01` |  |
-| E-post | Ej tillämpligt | E-postadresser. | `2019-10-01` | Returneras också med `domain=phi` .   |
-| URL | Ej tillämpligt | URL: er till webbplatser. | `2019-10-01` | Returneras också med `domain=phi` . |
-| IP-adress | Ej tillämpligt | Nätverks-IP-adresser. | `2019-10-01` | Returneras också med `domain=phi` . |
-| DateTime | Ej tillämpligt | Datum och tidpunkter på dagen. | `2019-10-01` |  | 
+| Adress | E.t. | Fullständiga post adresser.  | `2020-04-01` | Returneras också med `domain=phi` . |
+| EU GPS-koordinater | E.t. | GPS-koordinater för platser inom Europeiska unionen.  | `2019-10-01` |  |
+| E-post | E.t. | E-postadresser. | `2019-10-01` | Returneras också med `domain=phi` .   |
+| URL | E.t. | URL: er till webbplatser. | `2019-10-01` | Returneras också med `domain=phi` . |
+| IP-adress | E.t. | Nätverks-IP-adresser. | `2019-10-01` | Returneras också med `domain=phi` . |
+| DateTime | E.t. | Datum och tidpunkter på dagen. | `2019-10-01` |  | 
 | DateTime | Datum | Kalender datum. | `2019-10-01` | Returneras också med `domain=phi` . |
-| Kvantitet | Ej tillämpligt | Siffror och numeriska kvantiteter. | `2019-10-01` |  |
+| Kvantitet | E.t. | Siffror och numeriska kvantiteter. | `2019-10-01` |  |
 | Quantity | Ålder | Personer. | `2019-10-01` | | |
 
 ## <a name="azure-information"></a>Azure-information

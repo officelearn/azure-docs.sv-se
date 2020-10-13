@@ -8,10 +8,10 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 05b99c7f010ad307956b70890ee45f649111b373
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530547"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Felsöka ändringar på en virtuell Azure-dator
@@ -28,9 +28,9 @@ I den här guiden får du lära du dig hur man:
 > * Aktivera aktivitetslogganslutning
 > * Utlösa en händelse
 > * Visa ändringar
-> * Konfigurera varningar
+> * Konfigurera aviseringar
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -166,7 +166,7 @@ Med ändrings spårning väljer du de filer och register nycklar som ska samlas 
 
     ![Visa information om ändringar i portalen](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 
-## <a name="configure-alerts"></a>Konfigurera varningar
+## <a name="configure-alerts"></a>Konfigurera aviseringar
 
 Det kan vara användbart att granska ändringar i Azure-portalen, men det är bättre att kunna få aviseringar när en ändring sker, till exempel en stoppad tjänst. Nu ska vi lägga till en avisering för en stoppad tjänst. 
 
@@ -233,7 +233,7 @@ I den här självstudiekursen lärde du dig att:
 > * Aktivera aktivitets logg anslutning
 > * Utlösa en händelse
 > * Visa ändringar
-> * Konfigurera varningar
+> * Konfigurera aviseringar
 
 Fortsätt till översikten över funktionen Ändringsspårning och inventering för att lära dig mer om det.
 

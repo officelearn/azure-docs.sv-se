@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 1967a2fb5adebe01ef4bff8d58f7832bffe95762
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90531278"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Självstudie: Distribuera och genom gång av en kontinuerlig app-mall för patient övervakning
@@ -61,11 +61,11 @@ När du har distribuerat app-mallen hamnar du först på **lamna instrument pane
 
 * Ändra enhetens **patient status** för att ange om enheten används för ett pågående eller ett fjärrscenario.
 
-:::image type="content" source="media/lamna-in-patient.png" alt-text="Status för patienter":::
+:::image type="content" source="media/lamna-in-patient.png" alt-text="Healthcre app-mall":::
 
 Du kan också välja **gå till instrument panelen för en fjärran sluten patient** för att se instrument panelen för Burkville sjukhus. Den här instrument panelen innehåller en liknande uppsättning åtgärder, telemetri och information. Du kan också se flera enheter som används och välja att **Uppdatera den inbyggda program varan** på var och en.
 
-:::image type="content" source="media/lamna-remote.png" alt-text="Instrument panel för fjärr operatör":::
+:::image type="content" source="media/lamna-remote.png" alt-text="Healthcre app-mall":::
 
 ### <a name="device-templates"></a>Enhetsmallar
 
@@ -75,7 +75,7 @@ Om du väljer **enhets mallar**visas de två enhets typerna i mallen:
 
 * **Smart Knee-klammer**: den här enheten representerar en Knee-klammer som patienter använder vid återställning från en Knee-reoperation. Om du väljer den här mallen visas funktioner som enhets data, rörelse intervall och acceleration.
 
-:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Mall för smart korrigering":::
+:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Healthcre app-mall":::
 
 ### <a name="device-groups"></a>Enhetsgrupper
 
@@ -93,7 +93,7 @@ Om du väljer **regler**visas de tre reglerna i mallen:
 
 * **Korrigerings batteri låg**: den här regeln utlöses när batteri nivån på enheten hamnar under 10%. Använd den här regeln för att utlösa en avisering till patienten för att debitera enheten.
 
-:::image type="content" source="media/brace-temp-rule.png" alt-text="Uttryck":::
+:::image type="content" source="media/brace-temp-rule.png" alt-text="Healthcre app-mall":::
 
 ### <a name="jobs"></a>Jobb
 
@@ -113,7 +113,7 @@ På fliken **Egenskaper** kan du redigera moln egenskaper och egenskaper för l�
 
 På fliken **kommandon** kan du köra kommandon på enheten.
 
-:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Knee-klammer":::
+:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Healthcre app-mall":::
 
 ### <a name="data-export"></a>Dataexport
 
@@ -123,7 +123,7 @@ Med data export kan du exportera enhets data kontinuerligt till andra Azure-tjä
 
 Om du inte kommer att fortsätta att använda det här programmet kan du ta bort programmet genom att gå till **Administration > program inställningar** och klicka på **ta bort**.
 
-:::image type="content" source="media/admin-delete.png" alt-text="Städade resurser":::
+:::image type="content" source="media/admin-delete.png" alt-text="Healthcre app-mall":::
 
 ## <a name="next-steps"></a>Nästa steg
 

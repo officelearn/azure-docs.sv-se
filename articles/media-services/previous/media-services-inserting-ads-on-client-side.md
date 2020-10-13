@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 70db1ff63e3c2a7e7806e5ef3c55b4e4af4a5259
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89263594"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Infoga annonser på klient Sidan
@@ -353,7 +353,7 @@ En datamaste-fil börjar med ett **Datamast** -element som innehåller ett **tri
     </trigger>
 ```
 
-### <a name="using-video-player-ad-interface-definition-vpaid"></a>Använda Videos pelaren – definition av AD-gränssnitt (VPAID)
+### <a name="using-video-player-ad-interface-definition-vpaid"></a>Använda VPAID (video Player-Ad Interface definition)
 VPAID är ett API för att aktivera körbara AD-enheter för att kommunicera med en Videos pelare. Detta möjliggör mycket interaktiva AD-upplevelser. Användaren kan interagera med AD och AD kan svara på åtgärder som vidtagits av visnings programmet. En annons kan till exempel Visa knappar som gör att användaren kan visa mer information eller en längre version av AD. Videos pelaren måste ha stöd för VPAID-API: et och den körbara filen AD måste implementera API: et. När en spelare begär en annons från en AD-server kan servern svara med ett omfattande svar som innehåller en VPAID AD.
 
 En körbar fil för AD skapas i kod som måste köras i en körnings miljö, till exempel Adobe Flash™ eller Java Script som kan köras i en webbläsare. När en AD-server returnerar ett omfattande svar som innehåller en VPAID AD måste värdet för attributet apiFramework i `<MediaFile>` elementet vara "VPAID". Det här attributet anger att den inneslutna AD är en VPAID-körbar AD. Typattributet måste anges till den körbara filens MIME-typ, till exempel "Application/x-Shockwave-Flash" eller "Application/x-Java Script". Följande XML-kodfragment visar `<MediaFile>` elementet från ett omfattande svar som innehåller en VPAID-körbar AD.

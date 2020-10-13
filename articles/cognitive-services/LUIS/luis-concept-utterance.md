@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.openlocfilehash: 4c3b5674fe039a89eb97b915d13b5d472a6a0568
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316400"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Förstå vilka bra yttranden är för din LUIS-app
@@ -72,7 +72,7 @@ Det är bättre att börja med några få yttranden och sedan [Granska slut punk
 
 Uttryck normalisering är processen att ignorera effekterna av text typer, till exempel interpunktion och dia kritiska tecken, under utbildning och förutsägelse.
 
-Inställningarna för uttryck-normalisering är inaktiverade som standard. Inställningarna omfattar:
+Inställningarna för uttryck-normalisering är inaktiverade som standard. Några exempel på inställningar är:
 
 * Ord former
 * Dia kritiska tecken

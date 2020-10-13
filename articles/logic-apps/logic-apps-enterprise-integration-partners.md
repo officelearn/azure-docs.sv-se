@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: 8e3805fae5bf6cc5ad8cf759d3ba75220c6ddbd8
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565079"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Lägga till handelspartner till integrationskonton för Azure Logic Apps
@@ -86,12 +86,12 @@ Välj panelen **partner** .
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Partner klassificering** | Nej | Partnerns organisations typ |
-   | **Kod för leverans kedja** | Nej | Partnerns kod för leverans kedja, till exempel "informations teknik" eller "elektroniska komponenter" |
-   | **Kontakt namn** | Nej | Partnerns kontakt namn |
-   | **E-post** | Nej | Partnerns e-postadress |
-   | **Fax** | Nej | Partnerns Fax nummer |
-   | **Telefon** | Nej | Partnerns telefonnummer |
+   | **Partner klassificering** | Inga | Partnerns organisations typ |
+   | **Kod för leverans kedja** | Inga | Partnerns kod för leverans kedja, till exempel "informations teknik" eller "elektroniska komponenter" |
+   | **Kontakt namn** | Inga | Partnerns kontakt namn |
+   | **E-post** | Inga | Partnerns e-postadress |
+   | **Fax** | Inga | Partnerns Fax nummer |
+   | **Telefon** | Inga | Partnerns telefonnummer |
    ||||
 
 1. När du är klar väljer du **OK** för att spara ändringarna.

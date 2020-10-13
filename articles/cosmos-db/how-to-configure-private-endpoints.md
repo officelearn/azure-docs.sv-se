@@ -8,10 +8,10 @@ ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334437"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurera en privat Azure-länk för ett Azure Cosmos-konto
@@ -98,7 +98,7 @@ När den privata slut punkten har allokerats kan du fråga IP-adresserna. Så h�
 1. Sök efter den privata slut punkt som du skapade tidigare. I det här fallet är det **cdbPrivateEndpoint3**.
 1. Välj fliken **Översikt** för att se DNS-inställningar och IP-adresser.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Privata IP-adresser i Azure Portal":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Val för att skapa en privat slut punkt i Azure Portal":::
 
 Flera IP-adresser skapas per privat slut punkt:
 
@@ -411,7 +411,7 @@ För dessa konton måste du skapa en privat slut punkt för varje API-typ. Motsv
 
 När mallen har distribuerats kan du se utdata som liknar det som visas i följande bild. `provisioningState`Värdet är `Succeeded` om de privata slut punkterna har kon figurer ATS korrekt.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Distributions utdata för Resource Manager-mallen":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Val för att skapa en privat slut punkt i Azure Portal":::
 
 När mallen har distribuerats reserveras de privata IP-adresserna i under nätet. Brand Väggs regeln för Azure Cosmos-kontot har kon figurer ATS för att endast godkänna anslutningar från den privata slut punkten.
 

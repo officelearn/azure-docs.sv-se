@@ -5,10 +5,10 @@ ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74324511"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integrering av Azure blockchain Workbench-meddelanden
@@ -112,7 +112,7 @@ Begäran kräver följande fält:
 | applicationName      | Programmets namn |
 | version              | Programmets version. Krävs om du har flera versioner av programmet aktiverat. Annars är versionen valfri. Mer information om program versioner finns i [Azure blockchain Workbench Application Versioning](version-app.md). |
 | workflowName         | Namn på arbets flödet |
-| parameters           | Parametrar för skapande av kontrakt |
+| parametrar           | Parametrar för skapande av kontrakt |
 | connectionId         | Unikt ID för blockchain-anslutningen |
 | messageSchemaVersion | Meddelande schema version |
 | messageName          | **CreateContractRequest** |
@@ -216,7 +216,7 @@ Begäran kräver följande fält:
 | contractLedgerIdentifier | Adress till kontraktet i redovisningen |
 | version                  | Programmets version. Krävs om du har flera versioner av programmet aktiverat. Annars är versionen valfri. Mer information om program versioner finns i [Azure blockchain Workbench Application Versioning](version-app.md). |
 | workflowFunctionName     | Namn på arbets flödes funktionen |
-| parameters               | Parametrar för skapande av kontrakt |
+| parametrar               | Parametrar för skapande av kontrakt |
 | connectionId             | Unikt ID för blockchain-anslutningen |
 | messageSchemaVersion     | Meddelande schema version |
 | messageName              | **CreateContractActionRequest** |
@@ -401,7 +401,7 @@ Innehåller information om enskilda block. *BlockMessage* innehåller ett avsnit
 | transactionId      | Unikt ID för transaktionen i Azure blockchain Workbench |
 | transactionHash    | Hash för transaktionen i redovisningen |
 | Från               | Unikt ID i redovisningen för transaktions ursprunget |
-| till                 | Unikt ID i redovisningen för transaktions målet |
+| på                 | Unikt ID i redovisningen för transaktions målet |
 | provisioningStatus | Identifierar den aktuella statusen för etablerings processen för transaktionen. Möjliga värden: </br>0 – transaktionen har skapats av API: t i databasen</br>1 – transaktionen har skickats till redovisningen</br>2 – transaktionen har allokerats till redovisningen</br>3 eller 4-transaktionen kunde inte allokeras till redovisningen</br>5 – transaktionen har allokerats till redovisningen |
 
 Exempel på en *BlockMessage* från blockchain Workbench:
@@ -463,7 +463,7 @@ Innehåller information om ett kontrakt. Meddelandet innehåller ett avsnitt med
 | transactionId | Unikt ID för transaktionen i Azure blockchain Workbench |
 | transactionHash | Hash för transaktionen i redovisningen |
 | Från | Unikt ID i redovisningen för transaktions ursprunget |
-| till | Unikt ID i redovisningen för transaktions målet |
+| på | Unikt ID i redovisningen för transaktions målet |
 
 #### <a name="contract-properties"></a>Kontrakts egenskaper
 
@@ -561,7 +561,7 @@ Innehåller information när en kontrakts funktion anropas, t. ex. funktions nam
 | contractId                  | Unikt ID för kontraktet i Azure blockchain Workbench |
 | contractLedgerIdentifier    | Unik identifierare för kontraktet i redovisningen |
 | functionName                | Namnet på funktionen |
-| parameters                  | [Parameter information](#parameter-information) |
+| parametrar                  | [Parameter information](#parameter-information) |
 | transaktionen                 | Transaktionsinformation |
 | inTransactionSequenceNumber | Ordnings numret för transaktionen i blocket |
 | connectionId                | Unikt ID för anslutningen |
@@ -591,7 +591,7 @@ Innehåller information när en kontrakts funktion anropas, t. ex. funktions nam
 | transactionId      | Unikt ID för transaktionen i Azure blockchain Workbench |
 | transactionHash    | Hash för transaktionen i redovisningen |
 | Från               | Unikt ID i redovisningen för transaktions ursprunget |
-| till                 | Unikt ID i redovisningen för transaktions målet |
+| på                 | Unikt ID i redovisningen för transaktions målet |
 
 Exempel på en *EventMessage-ContractFunctionInvocation* från blockchain Workbench:
 
@@ -682,7 +682,7 @@ Innehåller information när ett program laddas upp till Workbench, till exempel
 |------|-------------|
 | id | Unik identifierare för program arbets flödes funktionen i Azure blockchain Workbench |
 | name | Funktionsnamn |
-| parameters | Parametrar för funktionen |
+| parametrar | Parametrar för funktionen |
 
 ##### <a name="workflow-state-information"></a>Information om arbets flödes tillstånd
 

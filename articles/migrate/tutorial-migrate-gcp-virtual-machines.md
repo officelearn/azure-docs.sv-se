@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
 ms.openlocfilehash: cd3bf225c6de0401aaa625cf3bb037b3beb58a35
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91716621"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Identifiera, utvärdera och migrera Google Cloud Platform virtuella datorer (GCP) till Azure
@@ -58,7 +58,7 @@ Konfigurera en utvärdering på följande sätt:
 
 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 - Se till att de virtuella GCP-datorerna som du vill migrera kör en operativ system version som stöds. Virtuella GCP-datorer behandlas som fysiska datorer för migreringen. Granska de [operativ system och kernel-versioner som stöds](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) för migreringen av den fysiska servern. Du kan använda standard kommandon som *hostnamectl* eller *uname-a* för att kontrol lera operativ system och kernel-versioner för dina virtuella Linux-datorer.  Vi rekommenderar att du utför en testmigrering för att verifiera att den virtuella datorn fungerar som förväntat innan du fortsätter med den faktiska migreringen.
 - Se till att dina virtuella GCP-datorer uppfyller de [konfigurationer som stöds](./migrate-support-matrix-physical-migration.md#physical-server-requirements) för migrering till Azure.

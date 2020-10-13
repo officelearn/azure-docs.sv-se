@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 16e232cedb13dc246bf7a568adfad401c1fe3eb8
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89236722"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad-preview"></a>Vanliga frågor och svar om distribution av hybrid FIDO2 säkerhets nycklar i Azure AD (för hands version)
@@ -69,7 +69,7 @@ Mer information om hur du registrerar och använder FIDO2 säkerhets nycklar fin
 
 Nej, inte just nu.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Fungerar den här funktionen om det inte finns någon Internet anslutning?](#does-this-feature-work-if-theres-no-internet-connectivity)
 * [Vilka är de särskilda slut punkter som krävs för att vara öppna för Azure AD?](#what-are-the-specific-end-points-that-are-required-to-be-open-to-azure-ad)
@@ -185,7 +185,7 @@ Azure AD Kerberos-servern representeras i en lokal AD DS-miljö som en domänkon
 
 * *CN = AzureADKerberos, OU = domän kontrol Lanterna,\<domain-DN>*
     
-    Ett *dator* objekt som representerar en skrivskyddad DOMÄNKONTROLLANT (RODC) i AD DS. Det finns ingen dator kopplad till det här objektet. I stället är det en logisk representation av en DOMÄNKONTROLLANT.
+    Ett *dator* objekt som representerar en Read-Only DOMÄNKONTROLLANT (RODC) i AD DS. Det finns ingen dator kopplad till det här objektet. I stället är det en logisk representation av en DOMÄNKONTROLLANT.
 
 * *CN = krbtgt_AzureAD, CN = användare,\<domain-DN>*
 

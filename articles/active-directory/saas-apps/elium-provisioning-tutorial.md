@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: d9bb21ab4b5610c8318fe4ee869f1140faf55367
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544238"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Elium för automatisk användar etablering
@@ -100,11 +100,11 @@ Följ dessa steg om du vill konfigurera automatisk användar etablering för Eli
 
     ![Listan program på bladet företags program](common/all-applications.png)
 
-1. Välj fliken **etablering** .
+1. Välj fliken **Etablering**.
 
     ![Fliken etablering på bladet företags program](common/provisioning.png)
 
-1. Ställ in **etablerings läget** på **automatiskt**.
+1. Ange **Etableringsläge** som **Automatiskt**.
 
     ![Automatisk inställning för etablerings läge](common/provisioning-automatic.png)
 
@@ -114,7 +114,7 @@ Följ dessa steg om du vill konfigurera automatisk användar etablering för Eli
 
 1. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelandena. Markera sedan kryss rutan **Skicka ett e-postmeddelande när ett fel inträffar** .
 
-    ![E-postmeddelande](common/provisioning-notification-email.png)
+    ![E-postavisering](common/provisioning-notification-email.png)
 
 1. Klicka på **Spara**.
 
@@ -147,8 +147,8 @@ Använd avsnittet **aktuell status** för att övervaka förloppet och följa l�
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md).
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: f247465c7e2c0a212df2821ebc7165d3ee5b15f3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80876665"
 ---
 # <a name="deploy-and-run-container-on-azure-container-instance"></a>Distribuera och köra container på Azure Container-instans
@@ -30,17 +30,17 @@ Receptet fungerar med alla Cognitive Services behållare. Kognitiva tjänst resu
 * **Nyckel** för kognitiva tjänster – nycklarna finns på sidan **nycklar** för Azure-resursen. Du behöver bara en av de två nycklarna. Nyckeln är en sträng med 32 alfanumeriska tecken.
 * En enda Cognitive Services-behållare på din lokala värd (datorn). Kontrol lera att du kan:
   * Dra ned avbildningen med ett `docker pull` kommando.
-  * Kör den lokala behållaren korrekt med alla konfigurations inställningar som krävs `docker run` med ett kommando.
+  * Kör den lokala behållaren korrekt med alla konfigurations inställningar som krävs med ett `docker run` kommando.
   * Anropa behållarens slut punkt, få svar på HTTP-2xx och ett JSON-svar tillbaka.
 
-Alla variabler inom vinkelparenteser, `<>`måste ersättas med dina egna värden. Den här ersättningen innehåller vinkelparenteser.
+Alla variabler inom vinkelparenteser, `<>` måste ersättas med dina egna värden. Den här ersättningen innehåller vinkelparenteser.
 
 [!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](includes/create-container-instances-resource.md)]
 
 ## <a name="use-the-container-instance"></a>Använda behållar instansen
 
-1. Välj **Översikt** och kopiera IP-adressen. Det kommer att vara en numerisk IP-adress `55.55.55.55`, till exempel.
-1. Öppna en ny flik i webbläsaren och Använd IP-adressen, till exempel `http://<IP-address>:5000 (http://55.55.55.55:5000`,. Behållarens start sida visas, så att du vet att behållaren körs.
+1. Välj **Översikt** och kopiera IP-adressen. Det kommer att vara en numerisk IP-adress, till exempel `55.55.55.55` .
+1. Öppna en ny flik i webbläsaren och Använd IP-adressen, till exempel, `http://<IP-address>:5000 (http://55.55.55.55:5000` . Behållarens start sida visas, så att du vet att behållaren körs.
 
 1. Välj **Service API-Beskrivning** för att Visa Swagger-sidan för behållaren.
 

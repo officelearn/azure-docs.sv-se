@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: b70db03e03ce914ea1d81d94cd2803a36eccfc88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81418226"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Kopiera data från Impala med hjälp av Azure Data Factory
@@ -35,7 +35,7 @@ Du kan kopiera data från Impala till alla mottagar data lager som stöds. En li
 
 Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning. Därför behöver du inte installera en driv rutin manuellt för att använda den här anslutningen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -49,20 +49,20 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för den länkade Impala-tjänsten.
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till **Impala**. | Ja |
 | värd | IP-adressen eller värd namnet för Impala-servern (det vill säga 192.168.222.160).  | Ja |
-| port | TCP-porten som Impala-servern använder för att lyssna efter klient anslutningar. Standardvärdet är 21050.  | Nej |
+| port | TCP-porten som Impala-servern använder för att lyssna efter klient anslutningar. Standardvärdet är 21050.  | Inga |
 | authenticationType | Autentiseringstypen som ska användas. <br/>Tillåtna värden är **Anonymous**, **SASLUsername**och **UsernameAndPassword**. | Ja |
-| användarnamn | Det användar namn som används för att få åtkomst till Impala-servern. Standardvärdet är anonyma när du använder SASLUsername.  | Nej |
-| password | Det lösen ord som motsvarar användar namnet när du använder UsernameAndPassword. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
-| enableSsl | Anger om anslutningarna till servern krypteras med hjälp av TLS. Standardvärdet är **falskt**.  | Nej |
-| trustedCertPath | Den fullständiga sökvägen till. pem-filen som innehåller certifikat från betrodda certifikat utfärdare som används för att verifiera servern när du ansluter via TLS. Den här egenskapen kan bara anges när du använder TLS på egen värd Integration Runtime. Standardvärdet är cacerts. pem-filen som installeras med integration Runtime.  | Nej |
-| useSystemTrustStore | Anger om du vill använda ett CA-certifikat från systemets betrodda lager eller från en angiven PEM-fil. Standardvärdet är **falskt**.  | Nej |
-| allowHostNameCNMismatch | Anger om ett CA-utfärdat TLS/SSL-certifikat namn ska matcha värd namnet för servern när du ansluter via TLS. Standardvärdet är **falskt**.  | Nej |
-| allowSelfSignedServerCert | Anger om självsignerade certifikat ska tillåtas från servern. Standardvärdet är **falskt**.  | Nej |
-| connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Nej |
+| användarnamn | Det användar namn som används för att få åtkomst till Impala-servern. Standardvärdet är anonyma när du använder SASLUsername.  | Inga |
+| password | Det lösen ord som motsvarar användar namnet när du använder UsernameAndPassword. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
+| enableSsl | Anger om anslutningarna till servern krypteras med hjälp av TLS. Standardvärdet är **falskt**.  | Inga |
+| trustedCertPath | Den fullständiga sökvägen till. pem-filen som innehåller certifikat från betrodda certifikat utfärdare som används för att verifiera servern när du ansluter via TLS. Den här egenskapen kan bara anges när du använder TLS på egen värd Integration Runtime. Standardvärdet är cacerts. pem-filen som installeras med integration Runtime.  | Inga |
+| useSystemTrustStore | Anger om du vill använda ett CA-certifikat från systemets betrodda lager eller från en angiven PEM-fil. Standardvärdet är **falskt**.  | Inga |
+| allowHostNameCNMismatch | Anger om ett CA-utfärdat TLS/SSL-certifikat namn ska matcha värd namnet för servern när du ansluter via TLS. Standardvärdet är **falskt**.  | Inga |
+| allowSelfSignedServerCert | Anger om självsignerade certifikat ska tillåtas från servern. Standardvärdet är **falskt**.  | Inga |
+| connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Inga |
 
 **Exempel:**
 
@@ -95,7 +95,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Impala anger du egenskapen type för data uppsättningen till **ImpalaObject**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **ImpalaObject** | Ja |
 | schema | Schemats namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
@@ -127,7 +127,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Impala anger du käll typen i kopierings aktiviteten till **ImpalaSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** .
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till **ImpalaSource**. | Ja |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |

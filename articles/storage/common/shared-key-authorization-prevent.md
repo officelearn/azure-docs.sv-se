@@ -10,10 +10,10 @@ ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.openlocfilehash: 16080440a9458753992c62309ce75ed241fb64d5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715127"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Förhindra auktorisering av delad nyckel för ett Azure Storage konto (förhands granskning)
@@ -125,7 +125,7 @@ Egenskapen **AllowSharedKeyAccess** har inte angetts som standard och returnerar
 > [!WARNING]
 > Om alla klienter för närvarande har åtkomst till data i ditt lagrings konto med delad nyckel rekommenderar Microsoft att du migrerar dessa klienter till Azure AD innan du nekar åtkomst till den delade nyckeln till lagrings kontot.
 
-# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Följ de här stegen för att förhindra autentisering av delad nyckel för ett lagrings konto i Azure Portal:
 

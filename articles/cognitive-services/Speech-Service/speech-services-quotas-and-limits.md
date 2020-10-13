@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: alexeyo
 ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567170"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Kvoter och gränser för Speech-tjänster
@@ -33,11 +33,11 @@ I tabellen nedan, utan att raden "justerbar", **inte** är justerbar för alla p
 | Justerbar | Nr<sup>2</sup> | Ja<sup>2</sup> |
 | **REST API begär ande gräns ([API Management](../../api-management/api-management-key-concepts.md) slut punkter)** | 100 förfrågningar per 10 sekunder | 100 förfrågningar per 10 sekunder |
 | **Maximal data uppsättnings fil storlek för data import** | 2 GB | 2 GB |
-| **Max storlek för BLOB-inflöde för batch-avskriftering** | Saknas | 2,5 GB |
-| **Maximal BLOB container-storlek för batch-avskriftering** | Saknas | 5 GB |
-| **Högsta antal blobbar per behållare för batch-avskriftering** | Saknas | 10000 |
-| **Maximalt antal filer per avskrifts förfrågan för batch-avskrift (när flera innehålls webb adresser används som indatafiler)** | Saknas | 1000  |
-| **Maximalt antal jobb som körs samtidigt för batch-avskriftering** | Saknas | 2000  |
+| **Max storlek för BLOB-inflöde för batch-avskriftering** | E.t. | 2,5 GB |
+| **Maximal BLOB container-storlek för batch-avskriftering** | E.t. | 5 GB |
+| **Högsta antal blobbar per behållare för batch-avskriftering** | E.t. | 10000 |
+| **Maximalt antal filer per avskrifts förfrågan för batch-avskrift (när flera innehålls webb adresser används som indatafiler)** | E.t. | 1000  |
+| **Maximalt antal jobb som körs samtidigt för batch-avskriftering** | E.t. | 2000  |
 
 <sup>1</sup> **kostnads fri (F0)** pris nivå se även månads traktamenten på [sidan med priser](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>2</sup> se [ytterligare förklaringar](#detailed-description-quota-adjustment-and-best-practices), [metod tips](#general-best-practices-to-mitigate-throttling-during-autoscaling)och [anpassnings anvisningar](#speech-to-text-increasing-online-transcription-concurrent-request-limit).<br/> 
@@ -86,7 +86,7 @@ Att öka gränsen för samtidiga förfrågningar påverkar **inte** dina kostnad
 
 Gränser för samtidiga förfrågningar för **bas** -och **anpassade** modeller måste justeras **separat**.
 
-Det befintliga värdet för begränsnings parametern för samtidiga förfrågningar är **inte** synligt via Azure Portal, kommando rads verktyg eller API-begäranden. Du kan kontrol lera det befintliga värdet genom att skapa en support förfrågan för Azure.
+Det befintliga värdet för begränsnings parametern för samtidiga förfrågningar är **inte** synligt via Azure Portal, Command-Line-verktyg eller API-begäranden. Du kan kontrol lera det befintliga värdet genom att skapa en support förfrågan för Azure.
 
 >[!NOTE]
 >[Tal behållare](speech-container-howto.md) kräver ingen ökning av gränsen för samtidiga förfrågningar, eftersom behållare endast begränsas av CPU: er för den maskin vara som de är värd för.
@@ -152,7 +152,7 @@ Som standard är antalet samtidiga förfrågningar för en anpassad röst slut p
 
 Att öka gränsen för samtidiga förfrågningar påverkar **inte** dina kostnader direkt. Tal tjänster använder "betala endast för det du använder"-modellen. Gränsen definierar hur hög tjänsten kan skalas innan den börjar begränsa dina begär Anden.
 
-Det befintliga värdet för begränsnings parametern för samtidiga förfrågningar är **inte** synligt via Azure Portal, kommando rads verktyg eller API-begäranden. Du kan kontrol lera det befintliga värdet genom att skapa en support förfrågan för Azure.
+Det befintliga värdet för begränsnings parametern för samtidiga förfrågningar är **inte** synligt via Azure Portal, Command-Line-verktyg eller API-begäranden. Du kan kontrol lera det befintliga värdet genom att skapa en support förfrågan för Azure.
 
 >[!NOTE]
 >[Tal behållare](speech-container-howto.md) kräver ingen ökning av gränsen för samtidiga förfrågningar, eftersom behållare endast begränsas av CPU: er för den maskin vara som de är värd för.

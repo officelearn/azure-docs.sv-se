@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
 ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568548"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Branchning och länkning av aktiviteter i en Azure Data Factory pipelinen med hjälp av Azure Portal
@@ -314,7 +314,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
     1. Ange **adftutorial/dummy/input** för parametern **sourceBlobContainer**. Se till att mappen dummy inte finns i containern adftutorial.
     2. Ange **adftutorial/dummy/output** för parametern **sinkBlobContainer**.
     3. Ange en **e-postadress** för **mottagaren**.
-    4. Klicka på **Slutför**.
+    4. Klicka på **Finish**.
 
 ## <a name="monitor-the-failed-pipeline-run"></a>Övervaka den misslyckade pipelinekörningen
 

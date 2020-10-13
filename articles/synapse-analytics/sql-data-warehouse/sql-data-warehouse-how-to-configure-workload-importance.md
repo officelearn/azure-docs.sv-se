@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 83170f4090909e3edcc163312383773d088d8c57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85212130"
 ---
 # <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Konfigurera arbets belastnings prioritet i Azure Synapse Analytics
@@ -24,7 +24,7 @@ Genom att ange prioritet i Synapse SQL för Azure Synapse kan du påverka schema
 
 ## <a name="create-a-workload-classifier-with-importance"></a>Skapa en klassificering av arbets belastningar med prioritet
 
-Ofta i ett informations lager scenario har du användare i ett upptaget system som behöver köra sina frågor snabbt.  Användaren kan vara chefer för företaget som behöver köra rapporter eller så kan användaren vara en analytiker som kör en adhoc-fråga. För att tilldela prioritet, skapar du en klassificering av arbets belastningar och prioriteten tilldelas en fråga.  I exemplen nedan används [klassificerings-syntaxen skapa arbets belastning](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att skapa två klassificerare. `Membername`kan vara en enskild användare eller en grupp.  Om du vill hitta befintliga data lager användare kör du:
+Ofta i ett informations lager scenario har du användare i ett upptaget system som behöver köra sina frågor snabbt.  Användaren kan vara chefer för företaget som behöver köra rapporter eller så kan användaren vara en analytiker som kör en adhoc-fråga. För att tilldela prioritet, skapar du en klassificering av arbets belastningar och prioriteten tilldelas en fråga.  I exemplen nedan används  [klassificerings-syntaxen skapa arbets belastning](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att skapa två klassificerare. `Membername` kan vara en enskild användare eller en grupp.  Om du vill hitta befintliga data lager användare kör du:
 
 ```sql
 Select name from sys.sysusers

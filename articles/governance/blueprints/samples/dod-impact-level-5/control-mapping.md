@@ -1,24 +1,24 @@
 ---
 title: DoD-effekter nivå 5 skiss exempel kontroller
-description: Kontroll mappning av DoD effekt nivå 5. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
+description: Kontroll mappning av DoD effekt nivå 5. Varje kontroll mappas till en eller flera Azure Policy definitioner som hjälper till med utvärderingen.
 ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: 6cd92cba69367c611a0e3a3c435e41e973a80d73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc187480f5342f076a7f07f058e8e570a0e7f146
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540548"
+ms.locfileid: "91929497"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Kontroll mappning av DoD effekt nivå 5 skiss exempel
 
-I följande artikel finns information om hur Azure Skisss-avdelningen på nivå 5 (DoD IL5) skiss-exempel mappar till DoD-effekter på nivå 5. Mer information om kontrollerna finns i [DoD Cloud Computing Security Requirements guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf). Försvars information system Agency (DISA) är ett organ i USA: s departement (DoD) som ansvarar för att utveckla och underhålla DoD Cloud Computing Security Requirements guide (SRG). SRG definierar grundläggande säkerhets krav för moln tjänst leverantörer (CSP: er) som är värdar för DoD information, system och program och för DoD användning av moln tjänster.  
+I följande artikel finns information om hur Azure Skisss-avdelningen på nivå 5 (DoD IL5) skiss-exempel mappar till DoD-effekter på nivå 5. Mer information om kontrollerna finns i [DoD Cloud Computing Security Requirements guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf).
+Försvars information system Agency (DISA) är ett organ i USA: s departement (DoD) som ansvarar för att utveckla och underhålla DoD Cloud Computing Security Requirements guide (SRG). SRG definierar grundläggande säkerhets krav för moln tjänst leverantörer (CSP: er) som är värdar för DoD information, system och program och för DoD användning av moln tjänster.  
 
 Följande mappningar är till **DoD påverkan på nivå 5** . Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj ** \[ förhands granskningen \] : DoD verkningar nivå 5** inbyggt princip initiativ.
 
 > [!IMPORTANT]
-> Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden.
-> Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md).
+> Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen en-till-en-eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden. Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md).
 
 ## <a name="ac-2-account-management"></a>Konto hantering för AC-2
 
@@ -238,7 +238,8 @@ Den här skissen innehåller princip definitioner som granskar poster med analys
 
 ## <a name="ra-5-vulnerability-scanning"></a>RA-5 sårbarhets-genomsökning
 
-Den här skissen hjälper dig att hantera problem med informations systemet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar sårbarheter för operativ system, sårbarheter i SQL och säkerhets risker för virtuella datorer i Azure Security Center. Azure Security Center tillhandahåller rapporterings funktioner som gör att du kan få inblick i real tid i säkerhets läget för distribuerade Azure-resurser. Den här skissen tilldelar också princip definitioner som granskar och tillämpar avancerad data säkerhet på SQL-servrar. Avancerad data säkerhet inkluderar sårbarhets bedömning och avancerade hot skydds funktioner som hjälper dig att förstå sårbarheter i dina distribuerade resurser.
+Den här skissen hjälper dig att hantera problem med informations systemet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar sårbarheter för operativ system, sårbarheter i SQL och säkerhets risker för virtuella datorer i Azure Security Center.
+Azure Security Center tillhandahåller rapporterings funktioner som gör att du kan få inblick i real tid i säkerhets läget för distribuerade Azure-resurser. Den här skissen tilldelar också princip definitioner som granskar och tillämpar avancerad data säkerhet på SQL-servrar. Avancerad data säkerhet inkluderar sårbarhets bedömning och avancerade hot skydds funktioner som hjälper dig att förstå sårbarheter i dina distribuerade resurser.
 
 - Avancerad data säkerhet ska vara aktiverat på SQL-hanterad instans
 - Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
@@ -255,8 +256,7 @@ Azures standard nivå för DDoS (distributed denial of Service) tillhandahåller
 
 ## <a name="sc-7-boundary-protection"></a>SC-7 gränser skydd
 
-Den här skissen hjälper dig att hantera och kontrol lera system gränser genom att tilldela en [Azure policy](../../../policy/overview.md) -definition som övervakar för nätverks säkerhets grupps härdnings rekommendationer i Azure Security Center. Azure Security Center analyserar trafik mönster för virtuella datorer som är riktade mot Internet och ger regel rekommendationer för nätverks säkerhets grupper för att minska risken för angrepp.
-Dessutom tilldelar skissen princip definitioner som övervakar oskyddade slut punkter, program och lagrings konton. Slut punkter och program som inte skyddas av en brand vägg och lagrings konton med obegränsad åtkomst kan ge oavsiktlig åtkomst till information som finns i informations systemet.
+Den här skissen hjälper dig att hantera och kontrol lera system gränser genom att tilldela en [Azure policy](../../../policy/overview.md) -definition som övervakar för nätverks säkerhets grupps härdnings rekommendationer i Azure Security Center. Azure Security Center analyserar trafik mönster för virtuella datorer som är riktade mot Internet och ger regel rekommendationer för nätverks säkerhets grupper för att minska risken för angrepp. Dessutom tilldelar skissen princip definitioner som övervakar oskyddade slut punkter, program och lagrings konton. Slut punkter och program som inte skyddas av en brand vägg och lagrings konton med obegränsad åtkomst kan ge oavsiktlig åtkomst till information som finns i informations systemet.
 
 - Åtkomst via slut punkt mot Internet bör vara begränsad
 - Lagrings konton bör begränsa nätverks åtkomsten

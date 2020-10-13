@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 90d3ff807275c74ce4495c5631ab913971ebe3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4599f4e3ca291c312c99e938b237d1eb9cd9d407
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513017"
+ms.locfileid: "91929288"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>Utveckla för Azure NetApp Files med REST-API 
 
@@ -34,9 +34,9 @@ REST APIs specifikationen för Azure NetApp Files publiceras via [GitHub](https:
 
 ## <a name="access-the-azure-netapp-files-rest-api"></a>Få åtkomst till Azure NetApp Files REST API  
 
-1. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) om du inte redan har gjort det.
+1. [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) om du inte redan har gjort det.
 2. Skapa ett huvud namn för tjänsten i din Azure Active Directory (Azure AD):
-   1. Kontrol lera att du har [tillräcklig behörighet](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+   1. Kontrol lera att du har [tillräcklig behörighet](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
    2. Ange följande kommando i Azure CLI: 
     
@@ -203,4 +203,4 @@ I följande exempel visas hur du skapar en ögonblicks bild av en volym:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Se referens för Azure NetApp Files REST API](https://docs.microsoft.com/rest/api/netapp/)
+[Se referens för Azure NetApp Files REST API](/rest/api/netapp/)

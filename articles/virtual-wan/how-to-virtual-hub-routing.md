@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: cae74a5f4859d208765c9a7e5cde05ff3c0c3096
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91313696"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Så här konfigurerar du routning för en virtuell hubb
@@ -30,7 +30,7 @@ Mer information finns i [om routning av virtuell hubb](about-virtual-hub-routing
 3. Välj **+ skapa routningstabell** för att öppna sidan **skapa** routningstabell.
 4. Fyll i följande fält på fliken **grundläggande** på sidan för att skapa routningstabellen.
 
-   :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="Fliken Grundläggande":::
+   :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="Sidan routning":::
 
    * **Namn**
    * **Vägar**
@@ -41,20 +41,20 @@ Mer information finns i [om routning av virtuell hubb](about-virtual-hub-routing
 
      Om du väljer en virtuell nätverks anslutning visas **Konfigurera statiska vägar**. Detta är en valfri konfigurations inställning. Mer information finns i [Konfigurera statiska vägar](about-virtual-hub-routing.md#static).
 
-      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Nästa hopp":::
+      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Sidan routning":::
 
 5. Välj fliken **Etiketter** för att konfigurera etikett namn. Etiketter ger en mekanism för att gruppera väg tabeller logiskt.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/labels.png" alt-text="Konfigurera etikett namn":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/labels.png" alt-text="Sidan routning":::
 
 6. Välj fliken **associationer** för att associera anslutningarna till routningstabellen.
 Du kan se **grenar**, **virtuella nätverk**och de **aktuella inställningarna** för anslutningarna.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/associations.png" alt-text="Kopplings anslutningar till routningstabellen":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/associations.png" alt-text="Sidan routning":::
 
 7. Välj fliken **spridningar** för att sprida vägar från anslutningar till routningstabellen.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/propagations.png" alt-text="Sprid vägar":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/propagations.png" alt-text="Sidan routning":::
 
 8. Skapa routningstabellen genom att välja **skapa** .
 
@@ -70,7 +70,7 @@ Leta upp den virtuella hubbens routningstabell i Azure Portal. Du kan inte ta bo
 
 Leta upp den virtuella hubbens routningstabell i Azure Portal. Klicka på **"..."** och välj **effektiva vägar** för att visa de vägar som har lärts av den valda routningstabellen. Spridda vägar från anslutningen till routningstabellen fylls i automatiskt i **effektiva vägar** i routningstabellen. Mer information finns i [om effektiva vägar](effective-routes-virtual-hub.md).
 
-:::image type="content" source="./media/how-to-virtual-hub-routing/effective.png" alt-text="Visa effektiva vägar" lightbox="./media/how-to-virtual-hub-routing/effective-expand.png":::
+:::image type="content" source="./media/how-to-virtual-hub-routing/effective.png" alt-text="Sidan routning" lightbox="./media/how-to-virtual-hub-routing/effective-expand.png":::
 
 ## <a name="to-set-up-routing-configuration-for-a-virtual-network-connection"></a><a name="routing-configuration"></a>Konfigurera konfigurering av routning för en virtuell nätverks anslutning
 
@@ -82,7 +82,7 @@ Leta upp den virtuella hubbens routningstabell i Azure Portal. Klicka på **"...
 1. För **statiska vägar**konfigurerar du statiska vägar för virtuell nätverks installation (om tillämpligt). Virtual WAN stöder en enda nästa hopp-IP för en statisk väg i en virtuell nätverks anslutning. Om du till exempel har en separat virtuell installation för ingångs-och utgående trafikflöden, är det bäst att ha de virtuella enheterna i separata virtuella nätverk och koppla virtuella nätverk till den virtuella hubben.
 
 
-:::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="Konfigurera konfiguration av Routning" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
+:::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="Sidan routning" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
 
 ## <a name="next-steps"></a>Nästa steg
 

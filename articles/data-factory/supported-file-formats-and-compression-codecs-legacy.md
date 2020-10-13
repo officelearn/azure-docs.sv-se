@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: a19f81fab525b44f0b55244281930977e0e1f476
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85254624"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Fil format och komprimerings-codecar som stöds i Azure Data Factory (bakåtkompatibelt)
@@ -25,24 +25,24 @@ ms.locfileid: "85254624"
 >[!IMPORTANT]
 >Data Factory introducerade ny formaterad data uppsättnings modell, se motsvarande format artikel med information: <br>- [Avro-format](format-avro.md)<br>- [Binärt format](format-binary.md)<br>- [Avgränsat text format](format-delimited-text.md)<br>- [JSON-format](format-json.md)<br>- [ORC-format](format-orc.md)<br>- [Parquet-format](format-parquet.md)<br>De rest-konfigurationer som nämns i den här artikeln stöds fortfarande som-är för bakåtkompatibla compabitility. Du rekommenderas att använda den nya modellen som går framåt. 
 
-## <a name="text-format-legacy"></a><a name="text-format"></a>Text format (bakåtkompatibelt)
+## <a name="text-format-legacy"></a><a name="text-format"></a> Text format (bakåtkompatibelt)
 
 >[!NOTE]
 >Lär dig mer om den nya modellen från artikeln [om avgränsat text format](format-delimited-text.md) . Följande konfigurationer på filbaserad data lager data uppsättning stöds fortfarande som-är för bakåtkompatibla compabitility. Du rekommenderas att använda den nya modellen som går framåt.
 
 Om du vill läsa från en textfil eller skriva till en textfil anger du `type` egenskapen i `format` avsnittet i data uppsättningen till **TextFormat**text format. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [TextFormat-exempel](#textformat-example).
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| columnDelimiter |Det tecken som används för att avgränsa kolumner i en fil. Du kan överväga att använda ett sällsynt icke utskrivbart teckensnitt som kanske inte finns i dina data. Ange till exempel "\u0001" som representerar början av rubrik (SOH). |Endast ett tecken är tillåtet. **Standardvärdet** är **kommatecken (,)**. <br/><br/>Om du vill använda ett Unicode-tecken läser du [Unicode-tecken](https://en.wikipedia.org/wiki/List_of_Unicode_characters) för att hämta motsvarande kod för den. |No |
-| rowDelimiter |Det tecken som används för att avgränsa rader i en fil. |Endast ett tecken är tillåtet. **Standardvärdet** är något av följande värden vid läsning: **["\r\n", "\r", "\n"]** och **"\r\n"** vid skrivning. |No |
-| escapeChar |Det specialtecken som används för att undanta en kolumnavgränsare i innehållet i indatafilen. <br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Exempel: om du har kommatecken (,) som kolumn avgränsare, men vill ha ett kommatecken i texten (till exempel: "Hello, World"), kan du definiera "$" som escape-tecken och använda strängen "Hej $, World" i källan. |No |
-| quoteChar |Det tecken som används för att referera till ett strängvärde. Kolumn- och radavgränsarna innanför citattecknen behandlas som en del av strängvärdet. Den här egenskapen gäller både in- och utdatauppsättningar.<br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Om du till exempel använder kommatecken (,) som kolumnavgränsare, men vill använda ett kommatecken i texten (till exempel <Hello, world>), kan du definiera " (dubbla citattecken) som citattecknet och använda strängen "Hello, world" i källan. |No |
-| nullValue |Ett eller flera tecken som används för att representera ett null-värde. |Ett eller flera tecken. **Standardvärdena** är **"\N" och "NULL"** vid läsning och **"\N"** vid skrivning. |No |
-| encodingName |Ange kodningsnamnet. |Ett giltigt kodningsnamn. Se [Egenskapen Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exempel: windows-1250 or shift_jis. **Standardvärdet** är **UTF-8**. |No |
-| firstRowAsHeader |Anger om den första raden ska behandlas som en rubrik. För en indatauppsättning läser Data Factory den första raden som en rubrik. För en utdatauppsättning skriver Data Factory den första raden som en rubrik. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Sant<br/><b>False (standard)</b> |No |
-| skipLineCount |Anger antalet **icke-tomma** rader som ska hoppas över vid läsning av data från indatafiler. Om både skipLineCount och firstRowAsHeader anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Integer |No |
-| treatEmptyAsNull |Anger om du vill hantera null-strängar eller tomma strängar som ett null-värde vid läsning av data från en indatafil. |**True (standard)**<br/>Falskt |No |
+| columnDelimiter |Det tecken som används för att avgränsa kolumner i en fil. Du kan överväga att använda ett sällsynt icke utskrivbart teckensnitt som kanske inte finns i dina data. Ange till exempel "\u0001" som representerar början av rubrik (SOH). |Endast ett tecken är tillåtet. **Standardvärdet** är **kommatecken (,)**. <br/><br/>Om du vill använda ett Unicode-tecken läser du [Unicode-tecken](https://en.wikipedia.org/wiki/List_of_Unicode_characters) för att hämta motsvarande kod för den. |Inga |
+| rowDelimiter |Det tecken som används för att avgränsa rader i en fil. |Endast ett tecken är tillåtet. **Standardvärdet** är något av följande värden vid läsning: **["\r\n", "\r", "\n"]** och **"\r\n"** vid skrivning. |Inga |
+| escapeChar |Det specialtecken som används för att undanta en kolumnavgränsare i innehållet i indatafilen. <br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Exempel: om du har kommatecken (,) som kolumn avgränsare, men vill ha ett kommatecken i texten (till exempel: "Hello, World"), kan du definiera "$" som escape-tecken och använda strängen "Hej $, World" i källan. |Inga |
+| quoteChar |Det tecken som används för att referera till ett strängvärde. Kolumn- och radavgränsarna innanför citattecknen behandlas som en del av strängvärdet. Den här egenskapen gäller både in- och utdatauppsättningar.<br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Om du till exempel använder kommatecken (,) som kolumnavgränsare, men vill använda ett kommatecken i texten (till exempel <Hello, world>), kan du definiera " (dubbla citattecken) som citattecknet och använda strängen "Hello, world" i källan. |Inga |
+| nullValue |Ett eller flera tecken som används för att representera ett null-värde. |Ett eller flera tecken. **Standardvärdena** är **"\N" och "NULL"** vid läsning och **"\N"** vid skrivning. |Inga |
+| encodingName |Ange kodningsnamnet. |Ett giltigt kodningsnamn. Se [Egenskapen Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exempel: windows-1250 or shift_jis. **Standardvärdet** är **UTF-8**. |Inga |
+| firstRowAsHeader |Anger om den första raden ska behandlas som en rubrik. För en indatauppsättning läser Data Factory den första raden som en rubrik. För en utdatauppsättning skriver Data Factory den första raden som en rubrik. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Sant<br/><b>False (standard)</b> |Inga |
+| skipLineCount |Anger antalet **icke-tomma** rader som ska hoppas över vid läsning av data från indatafiler. Om både skipLineCount och firstRowAsHeader anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Heltal |Inga |
+| treatEmptyAsNull |Anger om du vill hantera null-strängar eller tomma strängar som ett null-värde vid läsning av data från en indatafil. |**True (standard)**<br/>Falskt |Inga |
 
 ### <a name="textformat-example"></a>TextFormat-exempel
 
@@ -79,7 +79,7 @@ Om du vill använda ett `escapeChar` i stället för `quoteChar` ersätter du ra
 * Du kopierar från en textfil som innehåller en rubrikrad till en mottagare som inte är filbaserad och vill ignorera raden. Ange `firstRowAsHeader` som true i indatauppsättningen.
 * Du kopierar från en textfil och vill hoppa över några rader i början som antingen inte innehåller några data eller som innehåller rubrikinformation. Ange `skipLineCount` för att ange antalet rader som ska hoppas över. Om resten av filen innehåller en rubrikrad kan du också ange `firstRowAsHeader`. Om både `skipLineCount` och `firstRowAsHeader` anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen
 
-## <a name="json-format-legacy"></a><a name="json-format"></a>JSON-format (bakåtkompatibelt)
+## <a name="json-format-legacy"></a><a name="json-format"></a> JSON-format (bakåtkompatibelt)
 
 >[!NOTE]
 >Läs artikeln ny modell från [JSON-format](format-json.md) . Följande konfigurationer på filbaserad data lager data uppsättning stöds fortfarande som-är för bakåtkompatibla compabitility. Du rekommenderas att använda den nya modellen som går framåt.
@@ -88,13 +88,13 @@ Om du vill **Importera/exportera en JSON-fil som är i/från Azure Cosmos DB**, 
 
 Om du vill parsa JSON-filerna eller skriva data i JSON-format anger du `type` egenskapen i `format` avsnittet till **JsonFormat**. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example).
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| filePattern |Ange mönstret för de data som lagras i varje JSON-fil. Tillåtna värden är: **setOfObjects** och **arrayOfObjects**. **Standardvärdet** är **setOfObjects**. Detaljerad information om dessa mönster finns i avsnittet om [JSON-filmönster](#json-file-patterns). |No |
-| jsonNodeReference | Om du vill iterera och extrahera data från objekten i ett matrisfält med samma mönster anger du JSON-sökvägen för matrisen. Den här egenskapen stöds endast när du kopierar data **från** JSON-filer. | No |
-| jsonPathDefinition | Ange JSON-sökvägsuttrycket för varje kolumnmappning med ett anpassat kolumnnamn (inled med liten bokstav). Den här egenskapen stöds endast när du kopierar data **från** JSON-filer och du kan extrahera data från objekt eller matris. <br/><br/> För fält under rotobjektet börjar du med $; för fält inuti matrisen som väljs av egenskapen `jsonNodeReference` börjar du från matriselementet. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example). | No |
-| encodingName |Ange kodningsnamnet. En lista över giltiga kodningsnamn finns i avsnittet om egenskapen [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exempel: windows-1250 or shift_jis. **Standardvärdet** är: **UTF-8**. |No |
-| nestingSeparator |Tecken som används för att avgränsa kapslingsnivåer. Standardvärdet är ”.” (punkt). |No |
+| filePattern |Ange mönstret för de data som lagras i varje JSON-fil. Tillåtna värden är: **setOfObjects** och **arrayOfObjects**. **Standardvärdet** är **setOfObjects**. Detaljerad information om dessa mönster finns i avsnittet om [JSON-filmönster](#json-file-patterns). |Inga |
+| jsonNodeReference | Om du vill iterera och extrahera data från objekten i ett matrisfält med samma mönster anger du JSON-sökvägen för matrisen. Den här egenskapen stöds endast när du kopierar data **från** JSON-filer. | Inga |
+| jsonPathDefinition | Ange JSON-sökvägsuttrycket för varje kolumnmappning med ett anpassat kolumnnamn (inled med liten bokstav). Den här egenskapen stöds endast när du kopierar data **från** JSON-filer och du kan extrahera data från objekt eller matris. <br/><br/> För fält under rotobjektet börjar du med $; för fält inuti matrisen som väljs av egenskapen `jsonNodeReference` börjar du från matriselementet. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example). | Inga |
+| encodingName |Ange kodningsnamnet. En lista över giltiga kodningsnamn finns i avsnittet om egenskapen [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exempel: windows-1250 or shift_jis. **Standardvärdet** är: **UTF-8**. |Inga |
+| nestingSeparator |Tecken som används för att avgränsa kapslingsnivåer. Standardvärdet är ”.” (punkt). |Inga |
 
 >[!NOTE]
 >När det gäller kors användnings data i matrisen i flera rader (fall 1 – > exempel 2 i [JsonFormat-exempel](#jsonformat-example)) kan du bara välja att expandera en enskild matris med egenskap `jsonNodeReference` .
@@ -306,7 +306,7 @@ som du vill kopiera till en Azure SQL-tabell i följande format genom att fören
 Indatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt:
 
 - Avsnittet `structure` definierar de anpassade kolumnnamnen och den motsvarande datatypen vid konverteringen till data i tabellformat. Det här avsnittet är **valfritt** såvida inte kolumnmappning krävs. Mer information finns i [Mappa käll data uppsättnings kolumner till kolumner med mål data uppsättningar](copy-activity-schema-and-type-mapping.md).
-- `jsonNodeReference`indikerar att iterera och extrahera data från objekt med samma mönster under **matrisen** `orderlines` .
+- `jsonNodeReference` indikerar att iterera och extrahera data från objekt med samma mönster under **matrisen** `orderlines` .
 - `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. I det här exemplet `ordernumber` `orderdate` är, och `city` under rot objekt med JSON-sökväg som börjar med `$.` , medan `order_pd` och `order_price` definieras med en sökväg som härletts från mat ris elementet utan `$.` .
 
 ```json
@@ -406,7 +406,7 @@ Utdatauppsättningen med typen **JsonFormat** definieras så här: (partiell def
 }
 ```
 
-## <a name="parquet-format-legacy"></a><a name="parquet-format"></a>Parquet-format (bakåtkompatibelt)
+## <a name="parquet-format-legacy"></a><a name="parquet-format"></a> Parquet-format (bakåtkompatibelt)
 
 >[!NOTE]
 >Lär dig den nya modellen från artikeln [Parquet format](format-parquet.md) . Följande konfigurationer på filbaserad data lager data uppsättning stöds fortfarande som-är för bakåtkompatibla compabitility. Du rekommenderas att använda den nya modellen som går framåt.
@@ -445,7 +445,7 @@ Exempel: Ange variabeln `_JAVA_OPTIONS` med värde `-Xms256m -Xmx16g` . Flaggan 
 
 | Data fabrikens interimistiska datatyp | Parquet primitiv typ | Ursprunglig typ av Parquet (deserialisering) | Ursprunglig typ av Parquet (serialisera) |
 |:--- |:--- |:--- |:--- |
-| Boolesk | Boolesk | E.t. | E.t. |
+| Boolesk | Boolesk | Saknas | Saknas |
 | SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
@@ -454,19 +454,19 @@ Exempel: Ange variabeln `_JAVA_OPTIONS` med värde `-Xms256m -Xmx16g` . Flaggan 
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
 | UInt64 | Int64/binär | UInt64 | Decimal |
-| Enskilt | Float | E.t. | E.t. |
-| Double | Double | E.t. | E.t. |
+| Enkel | Float | Saknas | Saknas |
+| Double | Double | Saknas | Saknas |
 | Decimal | Binär | Decimal | Decimal |
 | Sträng | Binär | Utf8 | Utf8 |
-| DateTime | Int96 | E.t. | E.t. |
-| TimeSpan | Int96 | E.t. | E.t. |
-| DateTimeOffset | Int96 | E.t. | E.t. |
-| ByteArray | Binär | E.t. | E.t. |
+| DateTime | Int96 | Saknas | Saknas |
+| TimeSpan | Int96 | Saknas | Saknas |
+| DateTimeOffset | Int96 | Saknas | Saknas |
+| ByteArray | Binär | Saknas | Saknas |
 | GUID | Binär | Utf8 | Utf8 |
 | Char | Binär | Utf8 | Utf8 |
-| CharArray | Stöds inte | E.t. | E.t. |
+| CharArray | Stöds inte | Saknas | Saknas |
 
-## <a name="orc-format-legacy"></a><a name="orc-format"></a>ORC-format (bakåtkompatibelt)
+## <a name="orc-format-legacy"></a><a name="orc-format"></a> ORC-format (bakåtkompatibelt)
 
 >[!NOTE]
 >Lär dig den nya modellen från artikeln [Orc format](format-orc.md) . Följande konfigurationer på filbaserad data lager data uppsättning stöds fortfarande som-är för bakåtkompatibla compabitility. Du rekommenderas att använda den nya modellen som går framåt.
@@ -507,18 +507,18 @@ För kopiering som körs på egen värd-IR med ORC-filserialisering/deserialiser
 | UInt32 | Lång |
 | Int64 | Lång |
 | UInt64 | Sträng |
-| Enskilt | Float |
+| Enkel | Float |
 | Double | Double |
 | Decimal | Decimal |
 | Sträng | Sträng |
-| DateTime | Tidsstämpel |
-| DateTimeOffset | Tidsstämpel |
-| TimeSpan | Tidsstämpel |
+| DateTime | Timestamp |
+| DateTimeOffset | Timestamp |
+| TimeSpan | Timestamp |
 | ByteArray | Binär |
 | GUID | Sträng |
 | Char | Char (1) |
 
-## <a name="avro-format-legacy"></a><a name="avro-format"></a>AVRO-format (bakåtkompatibelt)
+## <a name="avro-format-legacy"></a><a name="avro-format"></a> AVRO-format (bakåtkompatibelt)
 
 >[!NOTE]
 >Lär dig den nya modellen från artikeln [Avro format](format-avro.md) . Följande konfigurationer på filbaserad data lager data uppsättning stöds fortfarande som-är för bakåtkompatibla compabitility. Du rekommenderas att använda den nya modellen som går framåt.
@@ -538,7 +538,7 @@ Observera följande punkter:
 
 * [Komplexa data typer](https://avro.apache.org/docs/current/spec.html#schema_complex) stöds inte (poster, uppräkningar, matriser, kartor, unioner och fasta).
 
-## <a name="compression-support-legacy"></a><a name="compression-support"></a>Komprimerings stöd (bakåtkompatibelt)
+## <a name="compression-support-legacy"></a><a name="compression-support"></a> Komprimerings stöd (bakåtkompatibelt)
 
 Azure Data Factory stöder komprimering/expandering av data under kopiering. När du anger `compression` en egenskap i en indata-datauppsättning läser kopierings aktiviteten komprimerade data från källan och dekomprimerar den. När du anger egenskapen i en data uppsättning för utdata, komprimerar kopierings aktiviteten sedan data till mottagaren. Här följer några exempel scenarier:
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
 ms.openlocfilehash: a2fe1c7c1ac8799d615c26fdaee40b92bf3e294b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85212504"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Viktig information: tal enheter SDK
@@ -63,7 +63,7 @@ I följande avsnitt listas ändringar i de senaste versionerna.
 - Nya nyckelords teknik ger avsevärda kvalitets förbättringar, se bryta ändringar.
 - Ny pipeline för ljud bearbetning för förbättrad igenkänning i långt fält.
 
-**Bryta ändringar**
+**Icke-bakåtkompatibla ändringar**
 
 - På grund av den nya nyckelords tekniken måste alla nyckelord skapas på nytt i den förbättrade nyckelords portalen. För att helt ta bort gamla nyckelord från enheten avinstallera den gamla appen.
   - ADB Uninstall com. Microsoft. cognitiveservices. Speech. Samples. sdsdkstarterapp
@@ -78,11 +78,11 @@ I följande avsnitt listas ändringar i de senaste versionerna.
 - Uppdaterad nyckelords hantering, se bryta ändringar.
 - Exempel programmet lägger till val av språk för både tal igenkänning och översättning.
 
-**Bryta ändringar**
+**Icke-bakåtkompatibla ändringar**
 
 - Att [Installera ett nyckelord](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) har förenklats, det är nu en del av appen och behöver inte separat installation på enheten.
 - Nyckelords igenkänningen har ändrats och två händelser stöds.
-  - `RecognizingKeyword,`anger att tal resultatet innehåller (ej verifierade) nyckelords text.
+  - `RecognizingKeyword,` anger att tal resultatet innehåller (ej verifierade) nyckelords text.
   - `RecognizedKeyword`, anger att nyckelords igenkänningen har slutfört att det aktuella nyckelordet har identifierats.
 
 ## <a name="speech-devices-sdk-110-2018-nov-release"></a>Tal enheter SDK-1.1.0:2018-nov-version
@@ -97,7 +97,7 @@ I följande avsnitt listas ändringar i de senaste versionerna.
 - Tal igenkännings precisionen förbättras med vår förbättrade algoritm för ljud bearbetning
 - Ett program med kontinuerlig igenkännings ljud session har åtgärd ATS.
 
-**Bryta ändringar**
+**Icke-bakåtkompatibla ändringar**
 
 - I den här versionen introduceras ett antal avbrytande ändringar. Mer information om API: erna finns i [den här sidan](https://aka.ms/csspeech/breakingchanges_1_0_0) .
 - KWS-modellens filer är inte kompatibla med tal enheter SDK-1.0.1. De befintliga nyckelorden tas bort när de nya nyckelorden skrivs till enheten.

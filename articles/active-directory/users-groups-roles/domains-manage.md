@@ -15,10 +15,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48f924cef12db974faae8fb8ed73f01ff8c9a3f8
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056259"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Hantera anpassade domän namn i Azure Active Directory
@@ -49,7 +49,7 @@ Du kan lägga till upp till 900 hanterade domän namn. Om du konfigurerar alla d
 
 Om du vill lägga till ett domän namn på tredje nivån, till exempel "europe.contoso.com" i din katalog, bör du först lägga till och verifiera den andra nivå domänen, till exempel contoso.com. Under domänen verifieras automatiskt av Azure AD. Om du vill se att den under domän som du har lagt till har verifierats uppdaterar du domän listan i webbläsaren.
 
-Anteckning
+Obs!
 
 Om du redan har lagt till en contoso.com-domän i en Azure AD-klient kan du också lägga till under domänen europe.contoso.com till en andra Azure AD-klient. När du lägger till under domänen uppmanas du att lägga till en TXT-post i DNS-hosting-providern.
 
@@ -73,7 +73,7 @@ Du måste ändra eller ta bort alla sådana resurser i Azure AD-katalogen innan 
 
 Du kan **ForceDelete** ett domän namn i [Azure AD Admin Center](https://aad.portal.azure.com) eller använda [Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta). Dessa alternativ använder en asynkron åtgärd och uppdaterar alla referenser från det anpassade domän namnet som " user@contoso.com " till det initiala standard domän namnet som " user@contoso.onmicrosoft.com ." 
 
-Om du vill anropa **ForceDelete** i Azure Portal måste du se till att det finns färre än 1000 referenser till domän namnet och alla referenser där Exchange är etablerings tjänsten måste uppdateras eller tas bort i [administrations centret för Exchange](https://outlook.office365.com/ecp/). Detta omfattar Exchange mail-aktiverade säkerhets grupper och distribuerade listor. Mer information finns i [ta bort e-postaktiverade säkerhets grupper](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups). **ForceDelete** -åtgärden lyckas inte heller om något av följande stämmer:
+Om du vill anropa **ForceDelete** i Azure Portal måste du se till att det finns färre än 1000 referenser till domän namnet och alla referenser där Exchange är etablerings tjänsten måste uppdateras eller tas bort i [administrations centret för Exchange](https://outlook.office365.com/ecp/). Detta omfattar Exchange Mail-Enabled säkerhets grupper och distribuerade listor. Mer information finns i [ta bort e-postaktiverade säkerhets grupper](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups). **ForceDelete** -åtgärden lyckas inte heller om något av följande stämmer:
 
 * Du har köpt en domän via Microsoft 365 domän prenumerations tjänster
 * Du är en partner som administreras åt en annan kund organisation
@@ -92,7 +92,7 @@ Ett fel returneras när:
 ### <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **F: Varför går det inte att ta bort domänen med ett fel som säger att jag har Exchange-hanterade grupper på det här domän namnet?** <br>
-**A:** Idag tillhandahålls vissa grupper som e-postaktiverade säkerhets grupper och distribuerade listor av Exchange och måste rensas manuellt i [administrations Center för Exchange (UK)](https://outlook.office365.com/ecp/). Det kan finnas en kvarvarande ProxyAddresses som förlitar sig på det anpassade domän namnet och måste uppdateras manuellt till ett annat domän namn. 
+**A:** I dag är vissa grupper som Mail-Enabled säkerhets grupper och distribuerade listor etablerade av Exchange och måste rensas manuellt i [administrations Center för Exchange (UK)](https://outlook.office365.com/ecp/). Det kan finnas en kvarvarande ProxyAddresses som förlitar sig på det anpassade domän namnet och måste uppdateras manuellt till ett annat domän namn. 
 
 **F: Jag är inloggad som administratör \@ contoso.com men jag kan inte ta bort domän namnet "contoso.com"?**<br>
 **A:** Du kan inte referera till det anpassade domän namn som du försöker ta bort i ditt användar konto namn. Se till att det globala administratörs kontot använder det initiala standard domän namnet (. onmicrosoft.com), till exempel admin@contoso.onmicrosoft.com . Logga in med ett annat globalt administratörs konto som till exempel admin@contoso.onmicrosoft.com eller ett annat anpassat domän namn, till exempel "fabrikam.com" där kontot finns admin@fabrikam.com .

@@ -9,10 +9,10 @@ ms.date: 06/04/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 164620bdcee7ac546468354f999dcb3ad96ecf4b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84731053"
 ---
 Azure Functions projekt mal len i Visual Studio skapar ett projekt som du kan publicera till en Function-app i Azure. Du kan använda en Function-app för att gruppera funktioner som en logisk enhet för enklare hantering, distribution, skalning och delning av resurser.
@@ -25,7 +25,7 @@ Azure Functions projekt mal len i Visual Studio skapar ett projekt som du kan pu
 
 1. Använd värdena i följande tabell för **program inställningarna skapa en ny Azure Functions** :
 
-    | Inställning      | Värde  | Beskrivning                      |
+    | Inställningen      | Värde  | Beskrivning                      |
     | ------------ |  ------- |----------------------------------------- |
     | **Functions-körning** | **Azure Functions v3 <br /> (.net Core)** | Det här värdet skapar ett funktions projekt som använder version 3. x-körningen av Azure Functions, som stöder .NET Core 3. x. Azure Functions 1.x har stöd för .NET Framework. Mer information finns i [Översikt över Azure Functions körnings versioner](../articles/azure-functions/functions-versions.md).   |
     | **Funktions mal len** | **HTTP-utlösare** | Det här värdet skapar en funktion som utlöses av en HTTP-begäran. |

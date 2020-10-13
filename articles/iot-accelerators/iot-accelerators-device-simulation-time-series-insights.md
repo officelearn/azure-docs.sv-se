@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 88255e60593403951db5b984bb9c69b1060a93c2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540582"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Använd Time Series Insights för att visualisera telemetri som skickas från Device simulering Solution Accelerator
@@ -171,6 +171,6 @@ Om du inte längre behöver Solution Accelerator tar du bort den från sidan [et
 
 Om du har lagt till Time Series Insightss miljön i Solution Accelerators resurs grupp tas den bort automatiskt när du tar bort lösnings acceleratorn. Annars måste du ta bort Time Series Insightss miljön manuellt från Azure Portal.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om hur du utforskar och frågar data i Time Series Insights Explorer finns i [Azure Time Series Insights Explorer](../time-series-insights/time-series-insights-explorer.md).

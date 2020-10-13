@@ -1,5 +1,5 @@
 ---
-title: Prestanda tips för Azure Cosmos DB Java SDK v4
+title: Prestandatips för Azure Cosmos DB Java SDK v4
 description: Lär dig mer om klient konfigurations alternativ för att förbättra Azure Cosmos Database-prestanda för Java SDK v4
 author: anfeldma-ms
 ms.service: cosmos-db
@@ -9,13 +9,13 @@ ms.date: 07/08/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: a014038996ae2846d059551b565feedd8de560a0
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88258305"
 ---
-# <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Prestanda tips för Azure Cosmos DB Java SDK v4
+# <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Prestandatips för Azure Cosmos DB Java SDK v4
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -157,7 +157,7 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
 
     * ***Översikt över direkt läge***
 
-        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Bild av arkitekturen för direkt läge" border="false":::
+        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Bild av Azure Cosmos DB anslutnings princip" border="false":::
 
         Arkitekturen på klient sidan som används i direkt läge möjliggör förutsägbar nätverks användning och multiplex-åtkomst till Azure Cosmos DB repliker. Diagrammet ovan visar hur Direct-läge dirigerar klient begär anden till repliker i Cosmos DB-backend-servern. Arkitekturen för direkt läge allokerar upp till 10 **kanaler** på klient sidan per DB-replik. En kanal är en TCP-anslutning som föregås av en buffert för begäran, som är en djup på 30 begär Anden. Kanaler som tillhör en replik allokeras dynamiskt efter behov av replikens **tjänst slut punkt**. När användaren utfärdar en begäran i direkt läge dirigerar **TransportClient** begäran till rätt tjänst slut punkt utifrån partitionsnyckel. **Begär ande kön** buffrar begär Anden före tjänst slut punkten.
 
@@ -169,7 +169,7 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
 
         I det första steget använder du följande rekommenderade konfigurations inställningar nedan. Dessa *DirectConnectionConfig* -alternativ är avancerade konfigurations inställningar som kan påverka SDK-prestanda på oväntade sätt. Vi rekommenderar att användarna undviker att ändra dem om de inte känner sig för att förstå kompromisserna och det är absolut nödvändigt. Kontakta Azure Cosmos DB- [teamet](mailto:CosmosDBPerformanceSupport@service.microsoft.com) om du stöter på problem på det här specifika ämnet.
 
-        | Konfigurations alternativ       | Standardvärde    |
+        | Konfigurations alternativ       | Default    |
         | :------------------:       | :-----:    |
         | idleConnectionTimeout      | "PT1M"     |
         | maxConnectionsPerEndpoint  | "PT0S"     |

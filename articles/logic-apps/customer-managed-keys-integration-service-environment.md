@@ -7,10 +7,10 @@ ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: ad5b4245cc445ecf8fae22c39db3365d71730a56
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400151"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Konfigurera Kundhanterade nycklar för att kryptera data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps
@@ -33,7 +33,7 @@ Det här avsnittet visar hur du konfigurerar och anger din egen krypterings nyck
 
 * Inom *30 minuter* efter att du skickat https-begäran som skapar din ISE måste du [ge nyckel valv åtkomst till din ISES systemtilldelade identitet](#identity-access-to-key-vault). Annars Miss lyckas ISE-skapande och genererar ett behörighets fel.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Samma krav [prerequisites](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) och [krav för att ge åtkomst till din ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) som när du skapar en ISE i Azure Portal
 
@@ -211,7 +211,7 @@ För den här uppgiften kan du använda antingen kommandot Azure PowerShell [set
 
    1. Välj följande alternativ:
 
-      | Inställningen | Värden |
+      | Inställning | Värden |
       |---------|--------|
       | **Konfigurera från mall (valfritt) lista** | Nyckel hantering |
       | **Nyckel behörigheter** | - **Nyckel hanterings åtgärder**: Hämta, lista <p><p>- **Kryptografiska åtgärder**: unwrap Key, wrap Key |

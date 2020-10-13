@@ -7,10 +7,10 @@ ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 9e5b9017854465724724638bfe5d32783a031030
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056455"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
@@ -236,7 +236,7 @@ Login VSI är en Windows Virtual Desktop-leverantör med mervärdes tjänster oc
 
 Nasuni Corp., den ledande providern av moln fil tjänster och en global Azure Global ISV-partner, erbjuder Nasuni program vara som en tjänst plattform som modern fil lagrings lösning för moderna virtuella skriv bord. Nasuni, i kombination med Azure Blob Storage, konsoliderar primär fil lagring (NAS), fil säkerhets kopiering, haveri beredskap och filsynkronisering över flera regioner i en enhetlig lösning. Med Nasuni kan företag distribuera virtuella Windows-datorer för fler användnings fall och i fler Azure-regioner, förenkla administrationen och garantera affärs kontinuitet. 
 
-För att vara en modern molnbaserad VDI-lösning kräver Windows Virtual Desktop lagring av modern moln fil. Traditionellt är VDI-fillagringen baserad på nätverksansluten lagring (NAS) och fil server maskin vara som finns lokalt, och tillhör ande nödvändiga teknik för att tillhandahålla fil säkerhets kopiering, återställning och haveri beredskap. Dessa traditionella metoder är kostsamma, komplicerade att underhålla och administrera och kan inte skalas enkelt. De introducerar också svars tiden om den används med en modern molnbaserad VDI-lösning som Windows Virtual Desktop på grund av det fysiska avståndet och de långsamma WAN-anslutningarna mellan stationerna i Azure och fil lagringen baserat lokalt. Nasuni, en plattform för fil tjänster som skapats specifikt för Azure, erbjuder obegränsad fil lagrings kapacitet och fil åtkomst med hög prestanda. Nasuni kan samplaceras med det virtuella Windows-skrivbordet i samma Azure-regioner för att leverera ekonomisk, högpresterande fil åtkomst till ett enda globalt namn område. Nasuni erbjuder Windows Virtual Desktop File Storage på en bråkdel av kostnaden för traditionella NAS-och Windows-filservrar och innehåller inbyggda säkerhets kopior och haveri beredskap för att ytterligare minska kostnaderna och frigöra IT-resurser.
+För att vara en modern molnbaserad VDI-lösning kräver Windows Virtual Desktop lagring av modern moln fil. Traditionellt är VDI-fillagringen baserad på Network-Attached Storage (NAS) och fil server maskin vara som finns lokalt, samt den medföljande teknik som krävs för att tillhandahålla fil säkerhets kopiering, återställning och haveri beredskap. Dessa traditionella metoder är kostsamma, komplicerade att underhålla och administrera och kan inte skalas enkelt. De introducerar också svars tiden om den används med en modern molnbaserad VDI-lösning som Windows Virtual Desktop på grund av det fysiska avståndet och de långsamma WAN-anslutningarna mellan stationerna i Azure och fil lagringen baserat lokalt. Nasuni, en plattform för fil tjänster som skapats specifikt för Azure, erbjuder obegränsad fil lagrings kapacitet och fil åtkomst med hög prestanda. Nasuni kan samplaceras med det virtuella Windows-skrivbordet i samma Azure-regioner för att leverera ekonomisk, högpresterande fil åtkomst till ett enda globalt namn område. Nasuni erbjuder Windows Virtual Desktop File Storage på en bråkdel av kostnaden för traditionella NAS-och Windows-filservrar och innehåller inbyggda säkerhets kopior och haveri beredskap för att ytterligare minska kostnaderna och frigöra IT-resurser.
 
 - [Gå till partner webbplatsen](https://www.nasuni.com/partner/microsoft/#wvd).
 - [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeS).

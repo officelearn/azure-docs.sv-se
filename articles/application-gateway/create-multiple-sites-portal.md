@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 08/21/2020
 ms.author: victorh
 ms.openlocfilehash: 6fb613578e520f50701c9a09169f2d78c0c08c4f
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88724004"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Självstudie: skapa och konfigurera en Application Gateway som värd för flera webbplatser med hjälp av Azure Portal
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
@@ -50,7 +50,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
    - **Resurs grupp**: Välj **myResourceGroupAG** för resurs gruppen. Om den inte finns väljer du **Skapa ny** för att skapa den.
    - **Namn på Application Gateway**: ange *myAppGateway* som namn på Application Gateway.
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Skapa Application Gateway":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Application Gateway för flera platser":::
 
 2.  För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett virtuellt nätverk. Du kan antingen skapa ett nytt virtuellt nätverk eller använda ett befintligt. I det här exemplet ska du skapa ett nytt virtuellt nätverk på samma tidpunkt som du skapar programgatewayen. Application Gateway instanser skapas i separata undernät. Du skapar två undernät i det här exemplet: ett för programgatewayen och ett för backend-servrarna.
 
@@ -66,7 +66,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
     Välj **OK** för att stänga fönstret **Skapa virtuellt nätverk** och spara inställningarna för det virtuella nätverket.
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png" alt-text="Skapa VNet":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png" alt-text="Application Gateway för flera platser":::
     
 3. På fliken **grundläggande** accepterar du standardvärdena för de andra inställningarna och väljer sedan **Nästa: frontend**-klienter.
 
@@ -78,7 +78,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 2. Välj **Skapa ny** för den **offentliga IP-adressen** och ange *myAGPublicIPAddress* för den offentliga IP-adressen och välj sedan **OK**. 
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Skapa ett annat VNet":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Application Gateway för flera platser":::
 
 3. Välj **Nästa:** Server delar.
 
@@ -96,7 +96,7 @@ Backend-poolen används för att dirigera begär anden till backend-servrar som 
 3. I fönstret **Lägg till en server dels grupp** väljer du **Lägg till** för att spara konfigurationen av backend-poolen och återgår till fliken back **ändar** .
 4. Lägg nu till en annan backend-pool med namnet *fabrikamPool*.
 
-    :::image type="content" source="./media/create-multiple-sites-portal/backend-pools.png" alt-text="Skapa server delar":::
+    :::image type="content" source="./media/create-multiple-sites-portal/backend-pools.png" alt-text="Application Gateway för flera platser":::
 
 4. **På fliken Server** delar väljer du **Nästa: konfiguration**.
 
@@ -119,7 +119,7 @@ På fliken **konfiguration** ansluter du klient dels-och backend-pooler som du s
 
    Acceptera standardvärdena för de andra inställningarna på fliken **lyssnare** och välj sedan fliken **backend-mål** för att konfigurera resten av regeln.
 
-   :::image type="content" source="./media/create-multiple-sites-portal/routing-rule.png" alt-text="Skapa regel för routning":::
+   :::image type="content" source="./media/create-multiple-sites-portal/routing-rule.png" alt-text="Application Gateway för flera platser":::
 
 4. På fliken **backend-mål** väljer du **ContosoPool** för **Server dels målet**.
 
@@ -128,7 +128,7 @@ På fliken **konfiguration** ansluter du klient dels-och backend-pooler som du s
 6. I fönstret **Lägg till regel för routning** väljer du **Lägg till** för att spara regeln för Routning och återgå till fliken **konfiguration** .
 7. Välj **Lägg till en regel** och Lägg till en liknande regel, lyssnare, Server dels mål och http-inställning för fabrikam.
 
-     :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Fabrikam-regel":::
+     :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Application Gateway för flera platser":::
 
 7. Välj **Nästa: Taggar** och **Nästa: granska + skapa**.
 

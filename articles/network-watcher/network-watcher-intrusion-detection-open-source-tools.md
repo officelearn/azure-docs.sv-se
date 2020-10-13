@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 6a7b4d8c3d2e2b33d8e2a9936670992b1c922b6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84737367"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Utför identifiering av nätverks intrång med Network Watcher och verktyg för öppen källkod
@@ -38,7 +38,7 @@ Du kan konfigurera båda verktygen för öppen källkod på en virtuell Azure-da
 
 ### <a name="install-suricata"></a>Installera suricata
 
-För alla andra installations metoder går du tillhttps://suricata.readthedocs.io/en/suricata-5.0.2/quickstart.html#installation
+För alla andra installations metoder går du till https://suricata.readthedocs.io/en/suricata-5.0.2/quickstart.html#installation
 
 1. Kör följande kommandon i kommando rads terminalen för den virtuella datorn:
 
@@ -233,7 +233,7 @@ Mer information om hur du installerar Logstash finns i den [officiella dokumenta
     ./bin/kibana
     ```
 
-1. Om du vill visa Kibana-webbgränssnittet navigerar du till`http://localhost:5601`
+1. Om du vill visa Kibana-webbgränssnittet navigerar du till `http://localhost:5601`
 1. I det här scenariot är index mönstret som används för suricata-loggarna "logstash-*"
 
 1. Om du vill visa Kibana-instrumentpanelen på distans skapar du en inkommande NSG-regel som tillåter åtkomst till **port 5601**.

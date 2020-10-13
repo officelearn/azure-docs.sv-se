@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: 15f4133b03c1fe77548425500445937e86ed5a8e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87372509"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Kopiera data från Presto med Azure Data Factory (för hands version)
@@ -53,16 +53,16 @@ Följande egenskaper stöds för den länkade tjänsten Presto:
 | värd | IP-adressen eller värd namnet för Presto-servern. (t. ex. 192.168.222.160)  | Ja |
 | serverVersion | Presto-serverns version. (t. ex. 0,148-t)  | Ja |
 | katalogen | Katalog kontexten för all begäran mot servern.  | Ja |
-| port | TCP-porten som Presto-servern använder för att lyssna efter klient anslutningar. Standardvärdet är 8080.  | Nej |
+| port | TCP-porten som Presto-servern använder för att lyssna efter klient anslutningar. Standardvärdet är 8080.  | Inga |
 | authenticationType | Den autentiseringsmekanism som används för att ansluta till Presto-servern. <br/>Tillåtna värden är: **Anonym**, **LDAP** | Ja |
-| användarnamn | Det användar namn som används för att ansluta till Presto-servern.  | Nej |
-| password | Lösen ordet som motsvarar användar namnet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
-| enableSsl | Anger om anslutningarna till servern är krypterade med TLS. Standardvärdet är false.  | Nej |
-| trustedCertPath | Den fullständiga sökvägen till. pem-filen som innehåller certifikat från betrodda certifikat utfärdare för att verifiera servern vid anslutning via TLS. Den här egenskapen kan bara anges när du använder TLS på IR med egen värd. Standardvärdet är den cacerts. PEM-fil som installeras med IR.  | Nej |
-| useSystemTrustStore | Anger om du vill använda ett CA-certifikat från systemets betrodda lager eller från en angiven PEM-fil. Standardvärdet är false.  | Nej |
-| allowHostNameCNMismatch | Anger om ett CA-utfärdat TLS/SSL-certifikat namn ska matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är false.  | Nej |
-| allowSelfSignedServerCert | Anger om självsignerade certifikat ska tillåtas från servern. Standardvärdet är false.  | Nej |
-| timeZoneID | Den lokala tids zonen som används av anslutningen. Giltiga värden för det här alternativet anges i IANA-databasen för tids zoner. Standardvärdet är systemets tidszon.  | Nej |
+| användarnamn | Det användar namn som används för att ansluta till Presto-servern.  | Inga |
+| password | Lösen ordet som motsvarar användar namnet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
+| enableSsl | Anger om anslutningarna till servern är krypterade med TLS. Standardvärdet är false.  | Inga |
+| trustedCertPath | Den fullständiga sökvägen till. pem-filen som innehåller certifikat från betrodda certifikat utfärdare för att verifiera servern vid anslutning via TLS. Den här egenskapen kan bara anges när du använder TLS på IR med egen värd. Standardvärdet är den cacerts. PEM-fil som installeras med IR.  | Inga |
+| useSystemTrustStore | Anger om du vill använda ett CA-certifikat från systemets betrodda lager eller från en angiven PEM-fil. Standardvärdet är false.  | Inga |
+| allowHostNameCNMismatch | Anger om ett CA-utfärdat TLS/SSL-certifikat namn ska matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är false.  | Inga |
+| allowSelfSignedServerCert | Anger om självsignerade certifikat ska tillåtas från servern. Standardvärdet är false.  | Inga |
+| timeZoneID | Den lokala tids zonen som används av anslutningen. Giltiga värden för det här alternativet anges i IANA-databasen för tids zoner. Standardvärdet är systemets tidszon.  | Inga |
 
 **Exempel:**
 

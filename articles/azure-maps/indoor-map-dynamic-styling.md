@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: a96a62d7bb93f0ede6b16008dc844ad7f1a8c8d2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86517305"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implementera dynamisk formatering för Creators inomhus Maps
 
 Med Azure Maps skapare [funktion tillstånds tjänst](https://docs.microsoft.com/rest/api/maps/featurestate) kan du använda formatmallar som baseras på de dynamiska egenskaperna för inlednings data funktioner i kartan.  Du kan till exempel återge anläggningarnas Mötes rum med en speciell färg för att avspegla inslags status. I den här artikeln visar vi hur du dynamiskt återger inaktuella kart funktioner med [funktions tillstånds tjänsten](https://docs.microsoft.com/rest/api/maps/featurestate) och den inaktuella [webbmodulen](how-to-use-indoor-module.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. [Skapa ett Azure Maps-konto](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.

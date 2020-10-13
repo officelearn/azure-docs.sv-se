@@ -8,15 +8,15 @@ ms.date: 02/25/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 6ed382e88700e4ecd7f8de20a2c8da7ed3c13566
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77925935"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Brand vägg för webbaserade program (WAF) med undantags listor för front dörr tjänsten 
 
-Ibland kan brand vägg för webbaserade program (WAF) blockera en begäran som du vill tillåta för ditt program. Active Directory infogar till exempel tokens som används för autentisering. Dessa tokens kan innehålla specialtecken som kan utlösa ett falskt positivt värde från WAF-reglerna. Med undantags listor för WAF kan du utelämna vissa begär ande attribut från en WAF-utvärdering.  En undantags lista kan konfigureras med hjälp av [PowserShell](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), [REST API](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)eller Azure Portal. I följande exempel visas Azure Portal-konfigurationen. 
+Ibland kan brand vägg för webbaserade program (WAF) blockera en begäran som du vill tillåta för ditt program. Active Directory infogar till exempel tokens som används för autentisering. Dessa tokens kan innehålla specialtecken som kan utlösa ett falskt positivt värde från WAF-reglerna. Med undantags listor för WAF kan du utelämna vissa begär ande attribut från en WAF-utvärdering.  En undantags lista kan konfigureras med hjälp av  [PowserShell](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), [REST API](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)eller Azure Portal. I följande exempel visas Azure Portal-konfigurationen. 
 ## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Konfigurera undantags listor med hjälp av Azure Portal
 **Hantera undantag** är tillgängligt från WAF-portalen under **hanterade regler**
 

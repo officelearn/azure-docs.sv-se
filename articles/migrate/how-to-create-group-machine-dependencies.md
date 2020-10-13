@@ -4,10 +4,10 @@ description: I den här artikeln beskrivs hur du konfigurerar en agent-baserad b
 ms.topic: how-to
 ms.date: 6/09/2020
 ms.openlocfilehash: c5c019ec995f59b61fb96917bed50bd8ba3f61d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022385"
 ---
 # <a name="set-up-dependency-visualization"></a>Konfigurera beroende visualisering

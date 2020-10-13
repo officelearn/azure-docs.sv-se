@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 10beee563e4a93332cd817ee04c1e74bda6e9c51
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88210353"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Använda externa tjänster från Azure API Management-tjänsten
@@ -65,7 +65,7 @@ Slacket har begreppet inkommande Webhooks. När du konfigurerar en inkommande We
 ### <a name="is-fire-and-forget-good-enough"></a>Är brand och glömma tillräckligt?
 Det finns vissa kompromisser när du använder en Fire-och-glömma-typ av begäran. Om det av någon anledning Miss lyckas, kommer begäran inte att rapporteras. I den här situationen är komplexiteten med att ha ett sekundärt rapporterings system och den ytterligare prestanda kostnaden för att vänta på responsen inte berättigad. För scenarier där det är viktigt att kontrol lera svaret är det ett bättre alternativ att [skicka begäran](./api-management-advanced-policies.md#SendRequest) .
 
-## <a name="send-request"></a>Skicka begäran
+## <a name="send-request"></a>Send-Request
 `send-request`Principen gör det möjligt att använda en extern tjänst för att utföra komplexa bearbetnings funktioner och returnera data till API Management-tjänsten som kan användas för ytterligare princip bearbetning.
 
 ### <a name="authorizing-reference-tokens"></a>Auktoriserar referens-token
@@ -123,7 +123,7 @@ Du kan använda en `<choose>` princip för att identifiera om token är ogiltig 
 </choose>
 ```
 
-Enligt [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) , som beskriver hur `bearer` tokens ska användas, kan API Management också returnera en `WWW-Authenticate` rubrik med 401-svaret. WWW-autentisera är avsedd att instruera en klient om hur man skapar en korrekt auktoriserad begäran. På grund av de många metoder som är möjliga med OAuth2-ramverket är det svårt att kommunicera all nödvändig information. Lyckligt vis finns det ansträngningar för att hjälpa [klienter att identifiera hur de ska auktorisera begär anden till en resurs Server](https://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+Enligt [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) , som beskriver hur `bearer` tokens ska användas, kan API Management också returnera en `WWW-Authenticate` rubrik med 401-svaret. WWW-Authenticate är avsedd att instruera en klient om hur man skapar en korrekt auktoriserad begäran. På grund av de många metoder som är möjliga med OAuth2-ramverket är det svårt att kommunicera all nödvändig information. Lyckligt vis finns det ansträngningar för att hjälpa [klienter att identifiera hur de ska auktorisera begär anden till en resurs Server](https://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### <a name="final-solution"></a>Slutgiltig lösning
 I slutet får du följande princip:

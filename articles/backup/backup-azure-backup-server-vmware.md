@@ -4,10 +4,10 @@ description: I den här artikeln lär du dig hur du använder Azure Backup Serve
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90069840"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
@@ -306,7 +306,7 @@ Lägg till vCenter Server i Azure Backup Server.
 
     ![Ange autentiseringsuppgift](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. Välj **Lägg** till för att lägga till VMware-servern i listan servrar. Välj sedan **Nästa**.
+6. Välj **Lägg** till för att lägga till VMware-servern i listan servrar. Välj **Nästa**.
 
     ![Lägg till VMWare-Server och autentiseringsuppgift](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -334,18 +334,18 @@ Lägg till virtuella VMware-datorer för säkerhets kopiering. Skydds grupper sa
 
 1. Välj **servrar** på sidan **Välj typ av skydds grupp** och välj sedan **Nästa**. Sidan **Välj grupp medlemmar** visas.
 
-1. I **Välj grupp medlemmar**väljer du de virtuella datorer (eller VM-mappar) som du vill säkerhetskopiera. Välj sedan **Nästa**.
+1. I **Välj grupp medlemmar**väljer du de virtuella datorer (eller VM-mappar) som du vill säkerhetskopiera. Välj **Nästa**.
 
     - När du väljer en mapp, eller virtuella datorer eller mappar i mappen, väljs även för säkerhets kopiering. Du kan avmarkera mappar och virtuella datorer som du inte vill säkerhetskopiera.
 1. Om en virtuell dator eller mapp redan säkerhets kopie ras kan du inte välja den. Detta säkerställer att dubbla återställnings punkter inte skapas för en virtuell dator.
 
     ![Välj grupp medlemmar](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. På sidan **Välj data skydds metod** anger du ett namn på skydds gruppen och skydds inställningarna. Om du vill säkerhetskopiera till Azure ställer du in kortsiktigt skydd på **disk** och aktiverar onlineskydd. Välj sedan **Nästa**.
+1. På sidan **Välj data skydds metod** anger du ett namn på skydds gruppen och skydds inställningarna. Om du vill säkerhetskopiera till Azure ställer du in kortsiktigt skydd på **disk** och aktiverar onlineskydd. Välj **Nästa**.
 
     ![Välj dataskyddsmetod](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
-1. I **Ange kortsiktiga mål**anger du hur länge du vill behålla säkerhetskopierade data till disk.
+1. I **ange Short-Term mål**anger du hur länge du vill behålla data som säkerhets kopie ras till disk.
    - I **kvarhållningsintervall**anger du hur många dagar disk återställnings punkter ska behållas.
    - I **Synkroniseringsfrekvens**anger du hur ofta disk återställnings punkter ska tas.
        - Om du inte vill ange ett intervall för säkerhets kopiering kan du kontrol lera **precis innan en återställnings punkt** så att en säkerhets kopiering körs precis innan varje återställnings punkt schemaläggs.
@@ -372,17 +372,17 @@ Lägg till virtuella VMware-datorer för säkerhets kopiering. Skydds grupper sa
 
     ![Välj metod för skapande av replik](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. I **alternativ för konsekvens kontroll**väljer du hur och när du vill automatisera konsekvens kontroller. Välj sedan **Nästa**.
+1. I **alternativ för konsekvens kontroll**väljer du hur och när du vill automatisera konsekvens kontroller. Välj **Nästa**.
       - Du kan köra konsekvens kontroller när replik data blir inkonsekventa eller enligt ett angivet schema.
       - Om du inte vill konfigurera automatiska konsekvens kontroller kan du köra en manuell kontroll. Det gör du genom att högerklicka på skydds gruppen > **utföra konsekvens kontroll**.
 
-1. På sidan **Ange online skydds data** väljer du de virtuella datorer eller VM-mappar som du vill säkerhetskopiera. Du kan välja medlemmar individuellt, eller välja **alla** medlemmar för att välja alla medlemmar. Välj sedan **Nästa**.
+1. På sidan **Ange online skydds data** väljer du de virtuella datorer eller VM-mappar som du vill säkerhetskopiera. Du kan välja medlemmar individuellt, eller välja **alla** medlemmar för att välja alla medlemmar. Välj **Nästa**.
 
     ![Ange skydds data online](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. På sidan **Ange schema för onlinesäkerhetskopiering** anger du hur ofta du vill säkerhetskopiera data från lokal lagring till Azure.
 
-    - Moln återställnings punkter för data kommer att genereras enligt schemat. Välj sedan **Nästa**.
+    - Moln återställnings punkter för data kommer att genereras enligt schemat. Välj **Nästa**.
     - När återställnings punkten har skapats överförs den till Recovery Services valvet i Azure.
 
     ![Ange schemat för onlinesäkerhetskopiering](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)

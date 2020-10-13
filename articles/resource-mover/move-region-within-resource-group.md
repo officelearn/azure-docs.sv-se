@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
 ms.openlocfilehash: 716928761d23c2cf04ebcc72e253ad7884408065
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061858"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>Flytta resurser mellan regioner (från resurs grupp)
@@ -64,7 +64,7 @@ Välj de resurser som du vill flytta. Du flyttar resurser till en mål region i 
 
     ![Val för att flytta resurser till en annan region](./media/move-region-within-resource-group/select-move-region.png)
     
-4. I **källa + mål**väljer du den mål region dit du vill flytta resurserna. Välj sedan **Nästa**.
+4. I **källa + mål**väljer du den mål region dit du vill flytta resurserna. Välj **Nästa**.
 
 
     ![Sidan källa och mål för att välja mål region](./media/move-region-within-resource-group/source-target.png)
@@ -144,7 +144,7 @@ För att genomföra och slutföra flytt processen:
 > [!NOTE]
 > När flytten har genomförts är käll resurs gruppen i ett *väntande tillstånd för att ta bort källan* .
 
-## <a name="modify-target-settings"></a>Ändra mål inställningar
+## <a name="modify-target-settings"></a>Ändra målinställningar
 
 Om du inte vill flytta en käll resurs kan du göra något av följande:
 

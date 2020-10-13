@@ -13,10 +13,10 @@ ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: ec59c07d66150bf7b184c149a9b1ed9015c17645
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89433661"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Felsöka Azure Active Directory-hybridanslutna enheter
@@ -290,7 +290,7 @@ Använd Loggboken loggar för att hitta felkod, underfelkod, Server fel kod och 
    - Orsak: SAML-token från den lokala identitets leverantören godkändes inte av Azure AD.
    - Lösning: kontrol lera inställningarna för Federations servern. Leta efter server fel koden i inloggnings loggarna.
 - **ERROR_ADAL_WSTRUST_REQUEST_SECURITYTOKEN_FAILED** (0xcaa90014/-894894060)
-   - Orsak: Server WS-Trust-svar rapporterade ett fel undantag och det gick inte att hämta försäkran
+   - Orsak: Server WS-Trust svaret rapporterade fel undantag och det gick inte att hämta försäkran
    - Lösning: kontrol lera inställningarna för Federations servern. Leta efter server fel koden i inloggnings loggarna.
 - **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL** (0xcaa90006/-894894074)
    - Orsak: ett fel uppstod vid försök att hämta åtkomsttoken från token-slutpunkten.

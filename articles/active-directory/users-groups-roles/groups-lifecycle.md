@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eb51f402cd7032358e6a9d2f9fad9aa64316b809
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054559"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Konfigurera förfallo principen för Microsoft 365 grupper
@@ -134,7 +134,7 @@ Här följer några exempel på hur du kan använda PowerShell-cmdlets för att 
    Connect-AzureAD
    ```
 
-1. Konfigurera förfallo inställningarna Använd cmdleten New-AzureADMSGroupLifecyclePolicy för att ange livs längd för alla Microsoft 365 grupper i Azure AD-organisationen till 365 dagar. Förnyelse meddelanden för Microsoft 365 grupper utan att ägare skickas till emailaddress@contoso.com
+1. Konfigurera förfallo inställningarna Använd New-AzureADMSGroupLifecyclePolicy cmdlet för att ange livs längden för alla Microsoft 365 grupper i Azure AD-organisationen till 365 dagar. Förnyelse meddelanden för Microsoft 365 grupper utan att ägare skickas till emailaddress@contoso.com
   
    ``` PowerShell
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
@@ -180,7 +180,7 @@ Följande cmdletar kan användas för att konfigurera principen i mer detalj. Me
 - Remove-AzureADMSGroupLifecyclePolicy
 - Add-AzureADMSLifecyclePolicyGroup
 - Remove-AzureADMSLifecyclePolicyGroup
-- Återställ-AzureADMSLifeCycleGroup
+- Reset-AzureADMSLifeCycleGroup
 - Get-AzureADMSLifecyclePolicyGroup
 
 ## <a name="next-steps"></a>Nästa steg

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
 ms.openlocfilehash: f9b73e0919d660947edd0417f7379b3f6e6140c0
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88245860"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Lösningar på virtuella Azure-datorer
@@ -23,9 +23,9 @@ Den här artikeln beskriver hur du distribuerar virtuella datorer med Azure konf
 
 Virtuella Azure-datorer med konfidentiell användning är utformade för att skydda konfidentialiteten och integriteten hos dina data och kod när de bearbetas i molnet 
 
-[DCsv2-serien](../virtual-machines/dcv2-series.md) Virtuella datorer är den senaste och senaste konfidentiella data bearbetnings familjen. De här virtuella datorerna har stöd för ett större antal distributions funktioner, har 2x enklaven Page cache (EPC) och ett större urval av storlekar jämfört med våra virtuella datorer i DC-serien. VM [-seriens](../virtual-machines/sizes-previous-gen.md#preview-dc-series) virtuella datorer är för närvarande i för hands version och kommer att vara inaktuella och ingår inte i allmän tillgänglighet.
+[DCsv2-serien](../virtual-machines/dcv2-series.md) Virtuella datorer är den senaste och senaste konfidentiella data bearbetnings familjen. De här virtuella datorerna har stöd för ett större antal distributions funktioner, har 2x enklaven Page cache (EPC) och ett större urval av storlekar jämfört med våra DC-Series virtuella datorer. VM [-seriens](../virtual-machines/sizes-previous-gen.md#preview-dc-series) virtuella datorer är för närvarande i för hands version och kommer att vara inaktuella och ingår inte i allmän tillgänglighet.
 
-Börja distribuera en virtuell dator med DCsv2-serien via Microsofts kommersiella marknads plats genom att följa [snabb starts guiden](quick-create-marketplace.md).
+Börja distribuera en DCsv2-Series virtuell dator via Microsofts kommersiella marknads plats genom att följa [snabb starts guiden](quick-create-marketplace.md).
 
 ### <a name="current-available-sizes-and-regions"></a>Aktuella tillgängliga storlekar och regioner
 
@@ -47,16 +47,16 @@ az vm list-skus `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>Krav för dedikerad värd
-Att distribuera en **Standard_DC8_v2** virtuell dator storlek i DCSv2-seriens virtuella dator familj upptar den fullständiga värden och delas inte med andra klienter eller prenumerationer. Denna VM SKU-serie ger den isolering som du kan behöva för att uppfylla kraven på efterlevnad och säkerhet som normalt uppfylls genom att ha en särskild värd tjänst. När du väljer **Standard_DC8_v2** SKU allokerar den fysiska värd servern alla tillgängliga maskin varu resurser, inklusive endast EPC-minne till den virtuella datorn. Observera att den här funktionen finns i infrastruktur designen och att alla funktioner i **Standard_DC8_v2** stöds. Den här distributionen är inte samma som den [Azure-dedikerade värd](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) tjänst som tillhandahålls av andra Azure VM-familjer.
+Att distribuera en **Standard_DC8_v2** virtuell dator storlek i DCSv2-Series VM-serien upptar den fullständiga värden och delas inte med andra klienter eller prenumerationer. Denna VM SKU-serie ger den isolering som du kan behöva för att uppfylla kraven på efterlevnad och säkerhet som normalt uppfylls genom att ha en särskild värd tjänst. När du väljer **Standard_DC8_v2** SKU allokerar den fysiska värd servern alla tillgängliga maskin varu resurser, inklusive endast EPC-minne till den virtuella datorn. Observera att den här funktionen finns i infrastruktur designen och att alla funktioner i **Standard_DC8_v2** stöds. Den här distributionen är inte samma som den [Azure-dedikerade värd](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) tjänst som tillhandahålls av andra Azure VM-familjer.
 
 
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 
-Följ en snabb starts guide för att distribuera en virtuell dator med DCsv2-serien på mindre än 10 minuter. 
+Följ en snabb starts guide för att distribuera en DCsv2-Series virtuell dator på mindre än 10 minuter. 
 
 - **Azure-prenumeration** – om du vill distribuera en konfidentiell VM-instans bör du fundera över en prenumeration där du betalar per användning eller något annat köp alternativ. Om du använder ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/)har du inte någon kvot för lämplig mängd Azure-beräknings kärnor.
 
-- **Priser och regional tillgänglighet** – hitta priserna för virtuella datorer med DCsv2-serien på [sidan prissättning för virtuella datorer](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). Kontrol lera [vilka produkter som är tillgängliga i region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) för tillgänglighet i Azure-regioner.
+- **Priser och regional tillgänglighet** – hitta prissättningen för DCsv2-Series virtuella datorer på [pris sidan för virtuella](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)datorer. Kontrol lera [vilka produkter som är tillgängliga i region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) för tillgänglighet i Azure-regioner.
 
 
 - **Kärnor-kvot** – du kan behöva öka kvoten för kärnor i din Azure-prenumeration från standardvärdet. Din prenumeration kan också begränsa antalet kärnor som du kan distribuera i vissa storlekar på virtuella datorer, inklusive DCsv2-serien. Om du vill begära en kvot ökning [öppnar du en support förfrågan online](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) utan kostnad. Observera att standard gränserna kan variera beroende på din prenumerations kategori.
@@ -84,7 +84,7 @@ Azure Resource Manager är Azures tjänst för distribution och hantering. Det t
 
 Mer information om ARM-mallar finns i [malldistribution översikt](../azure-resource-manager/templates/overview.md).
 
-Om du vill distribuera en virtuell dator med DCsv2-serien i en ARM-mall använder du den [virtuella dator resursen](../virtual-machines/windows/template-description.md). Se till att du anger rätt egenskaper för **vmSize** och för din **imageReference**.
+Om du vill distribuera en DCsv2-Series virtuell dator i en ARM-mall använder du den [virtuella dator resursen](../virtual-machines/windows/template-description.md). Se till att du anger rätt egenskaper för **vmSize** och för din **imageReference**.
 
 ### <a name="vm-size"></a>Storlek på virtuell dator
 
@@ -132,7 +132,7 @@ Under **Egenskaper**måste du också referera till en bild under **storageProfil
 
 ## <a name="next-steps"></a>Nästa steg 
 
-I den här artikeln har du lärt dig om de kvalifikationer och konfigurationer som behövs när du skapar en virtuell dator med konfidentiell dator användning. Nu kan du gå till Microsoft Azure Marketplace för att distribuera en virtuell dator i DCsv2-serien.
+I den här artikeln har du lärt dig om de kvalifikationer och konfigurationer som behövs när du skapar en virtuell dator med konfidentiell dator användning. Nu kan du gå till Microsoft Azure Marketplace för att distribuera en DCsv2-Series virtuell dator.
 
 > [!div class="nextstepaction"]
-> [Distribuera en virtuell dator med DCsv2-serien på Azure Marketplace](quick-create-marketplace.md)
+> [Distribuera en DCsv2-Series virtuell dator på Azure Marketplace](quick-create-marketplace.md)

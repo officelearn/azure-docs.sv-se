@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
 ms.openlocfilehash: e50c0b0fcb883b43650a5d99cea5aa39bae1cd94
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89426273"
 ---
 # <a name="custom-script-extension-for-windows"></a>Anpassat skripttillägg för Windows
@@ -23,10 +23,10 @@ Det anpassade skript tillägget laddar ned och kör skript på virtuella Azure-d
 
 Det här dokumentet beskriver hur du använder tillägget för anpassat skript med hjälp av Azure PowerShell-modulen, Azure Resource Manager mallar och information om fel söknings steg i Windows-system.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!NOTE]  
-> Använd inte anpassat skript tillägg för att köra Update-AzVM med samma virtuella dator som parametern, eftersom det väntar på sig själv.  
+> Använd inte anpassat skript tillägg för att köra Update-AzVM med samma virtuella dator som parameter, eftersom det väntar på sig själv.  
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -122,9 +122,9 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Name | Värde/exempel | Datatyp |
+| Namn | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
+| apiVersion | 2015-06-15 | date |
 | utgivare | Microsoft.Compute | sträng |
 | typ | CustomScriptExtension | sträng |
 | typeHandlerVersion | 1,10 | int |
@@ -275,7 +275,7 @@ Om du vill köra det anpassade skript tillägget mer än en gång kan du bara ut
 
 Du kan också ange egenskapen [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) till **True**.
 
-### <a name="using-invoke-webrequest"></a>Använda Invoke-webbegäran
+### <a name="using-invoke-webrequest"></a>Använda Invoke-WebRequest
 
 Om du använder [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) i skriptet måste du ange parametern, `-UseBasicParsing` annars visas följande fel meddelande när du kontrollerar den detaljerade statusen:
 

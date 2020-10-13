@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
 ms.openlocfilehash: 758607c37f271657c81d4699b0895f9e997450af
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91299059"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-on-azure-virtual-machines"></a>Program mönster och utvecklings strategier för SQL Server på Azure Virtual Machines
@@ -41,7 +41,7 @@ Du kan utveckla många typer av program på n-nivån genom att åtskilja kompone
 
 Ett typiskt *n-Nivåprogram* innehåller presentations nivån, affärs nivån och data nivån:
 
-| Nivå | Description |
+| Nivå | Beskrivning |
 | --- | --- |
 | **Presentation** |*Presentations nivån* (webb nivå, front-end-nivå) är det lager där användarna interagerar med ett program. |
 | **Företag** |*Affärs nivån* (mellan nivån) är det skikt som presentations nivån och data nivån använder för att kommunicera med varandra och som innehåller systemets kärn funktioner. |

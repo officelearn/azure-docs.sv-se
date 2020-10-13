@@ -8,10 +8,10 @@ ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 515cfd5267917f88131571adcb1bea0db274157c
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89437946"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Azures säkerhets bas linje för Azure Data Factory
@@ -30,7 +30,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 **Vägledning**: när du skapar en Azure-SSIS integration Runtime (IR) har du möjlighet att ansluta den till ett virtuellt nätverk. Detta gör att Azure Data Factory kan skapa vissa nätverks resurser, till exempel en nätverks säkerhets grupp (NSG) och en belastningsutjämnare. Du kan också ange en egen statisk IP-adress eller skapa en egen statisk IP-adress eller Azure Data Factory skapa en åt dig. I NSG som skapas automatiskt av Azure Data Factory, är port 3389 öppen för all trafik som standard. Lås den här åtgärden för att säkerställa att endast dina administratörer har åtkomst.
 
-Egen värdbaserade IRs kan distribueras på en lokal dator eller virtuell Azure-dator i ett virtuellt nätverk. Kontrol lera att distributionen av det virtuella nätverkets undernät har en NSG konfigurerad för att endast tillåta administrativ åtkomst. Azure-SSIS IR har otillåten port 3389 utgående som standard i Windows brand Väggs regel på varje IR-nod för skydd. Du kan skydda dina virtuella nätverks konfigurerade resurser genom att associera en NSG med under nätet och ställa in strikta regler.
+Self-Hosted IRs kan distribueras på en lokal dator eller virtuell Azure-dator i ett virtuellt nätverk. Kontrol lera att distributionen av det virtuella nätverkets undernät har en NSG konfigurerad för att endast tillåta administrativ åtkomst. Azure-SSIS IR har otillåten port 3389 utgående som standard i Windows brand Väggs regel på varje IR-nod för skydd. Du kan skydda dina virtuella nätverks konfigurerade resurser genom att associera en NSG med under nätet och ställa in strikta regler.
 
 När privat länk är tillgänglig använder du privata slut punkter för att skydda alla resurser som länkas till Azure Data Factory pipelinen, till exempel Azure SQL Server. Med privat länk passerar trafiken mellan ditt virtuella nätverk och tjänsten över Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet.
 
@@ -1172,7 +1172,7 @@ Information om hur du verifierar säkerhets kopior finns i tjänstens säkerhets
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: se till att skydda säkerhets kopior och Kundhanterade nycklar
 
-**Vägledning**: om du kör integration runtime på en virtuell Azure-dator (VM) och du säkerhetskopierar den virtuella datorn med Azure Backup, krypteras den virtuella datorn i vila med kryptering för lagringstjänst (SSE). Azure Backup kan också säkerhetskopiera virtuella Azure-datorer som krypteras med hjälp av Azure Disk Encryption. Azure Disk Encryption integreras med BitLocker-BEKs (-krypterings nycklar) som skyddas i ett nyckel valv som hemligheter. Azure Disk Encryption integreras också med Azure Key Vault Key Encryption Keys (KeyExchange). Aktivera mjuk borttagning i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
+**Vägledning**: om du kör integration runtime på en virtuell Azure-dator (VM) och du säkerhetskopierar den virtuella datorn med Azure Backup, krypteras den virtuella datorn i vila med kryptering för lagringstjänst (SSE). Azure Backup kan också säkerhetskopiera virtuella Azure-datorer som krypteras med hjälp av Azure Disk Encryption. Azure Disk Encryption integreras med BitLocker-BEKs (-krypterings nycklar) som skyddas i ett nyckel valv som hemligheter. Azure Disk Encryption integreras också med Azure Key Vault Key Encryption Keys (KeyExchange). Aktivera Soft-Delete i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
 
 * [Mjuk borttagning för virtuella datorer](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete)
 

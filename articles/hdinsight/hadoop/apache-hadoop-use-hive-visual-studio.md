@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: c8645ae9cb901b9fc95f00665d73e223a24fda63
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86076461"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Köra Apache Hive-frågor med hjälp av Data Lake Tools för Visual Studio
 
 Lär dig hur du använder Data Lake verktyg för Visual Studio för att fråga Apache Hive. Med Data Lake-verktygen kan du enkelt skapa, skicka och övervaka Hive-frågor till Apache Hadoop på Azure HDInsight.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Apache Hadoop kluster i HDInsight. Information om hur du skapar det här objektet finns i [skapa Apache Hadoop kluster i Azure HDInsight med Resource Manager-mall](./apache-hadoop-linux-tutorial-get-started.md).
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: memildin
 ms.openlocfilehash: 19e9a33350b6a1a67986dc35a372f737e45ab39a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906393"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Förhindra felaktig konfiguration med tvinga/neka-rekommendationer
@@ -41,18 +41,18 @@ Du hittar det här längst upp på sidan resursinformation för de valda säkerh
     > [!TIP]
     > Du kan använda de tre punkterna i slutet av raden för att ändra en enskild prenumeration eller använda kryss rutorna för att välja flera prenumerationer eller grupper. Välj sedan **ändra till neka**.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Ange omfånget för Azure Policy neka":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Sidan rekommendation med knappen neka markerad":::
 
 
 ## <a name="enforce-a-secure-configuration"></a>Framtvinga en säker konfiguration
 
 1. Öppna rekommendationen att distribuera en mall distribution för om nya resurser inte uppfyller den, och välj knappen **Använd** överst på sidan.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="Sidan rekommendation med knappen tillämpa markerad":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="Sidan rekommendation med knappen neka markerad":::
 
     Konfigurations fönstret öppnas med alla princip konfigurations alternativ. 
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="Tvinga konfigurations alternativ":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="Sidan rekommendation med knappen neka markerad":::
 
 1. Ange omfång, tilldelnings namn och andra relevanta alternativ.
 

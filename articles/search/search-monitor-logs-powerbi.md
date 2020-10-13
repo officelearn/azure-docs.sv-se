@@ -8,10 +8,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: 90691fda7b0bf58768c7e9be6a78fb27a7807186
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400374"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualisera Azure Kognitiv sökning-loggar och mät värden med Power BI
@@ -32,7 +32,7 @@ Du hittar Power BI Template app Azure- **kognitiv sökning: Analysera loggar och
     1. Välj **+ Lägg till diagnostisk inställning**
     1. Markera **arkivera till ett lagrings konto**, ange din lagrings konto information och kontrol lera **OperationLogs** och **AllMetrics**
 
-        :::image type="content" source="media/search-monitor-logs-powerbi/add-diagnostic-setting.png" alt-text="Skärm bild som visar hur du gör val för mått och resurs loggning på sidan diagnostiska inställningar.":::
+        :::image type="content" source="media/search-monitor-logs-powerbi/add-diagnostic-setting.png" alt-text="Skärm bild som visar hur du väljer diagnostikinställningar i avsnittet övervakning i Azure Kognitiv sökning-tjänsten.":::
     1. Välj **Spara**
 
 1. När loggning har Aktiver ATS använder du Sök tjänsten för att börja generera loggar och mått. Det tar upp till en timme innan behållarna visas i Blob Storage med dessa loggar. Du kommer att se en **Insights-logs-operationlogs** -behållare för Sök trafik loggar och en **insikts-mått – pt1m** container för mått.
@@ -41,48 +41,48 @@ Du hittar Power BI Template app Azure- **kognitiv sökning: Analysera loggar och
 
 1. När du har installerat appen väljer du appen i listan med appar i Power BI.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/azure-search-app-tile.png" alt-text="Skärm bild som visar Azure Kognitiv sökning-appen att välja från listan över appar.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/azure-search-app-tile.png" alt-text="Skärm bild som visar hur du väljer diagnostikinställningar i avsnittet övervakning i Azure Kognitiv sökning-tjänsten.":::
 
 1. Välj **Anslut** för att ansluta dina data
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/get-started-with-your-new-app.png" alt-text="Skärm bild som visar hur du ansluter till dina data i Azure Kognitiv sökning-appen.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/get-started-with-your-new-app.png" alt-text="Skärm bild som visar hur du väljer diagnostikinställningar i avsnittet övervakning i Azure Kognitiv sökning-tjänsten.":::
 
 1. Skriv in namnet på det lagrings konto som innehåller dina loggar och mät värden. Som standard kommer appen att titta på de senaste 10 dagarna av data, men det här värdet kan ändras med parametern **Days** .
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/connect-to-storage-account.png" alt-text="Skärm bild som visar hur du matar in lagrings kontots namn och antalet dagar att fråga på sidan Anslut till Azure Kognitiv sökning.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/connect-to-storage-account.png" alt-text="Skärm bild som visar hur du väljer diagnostikinställningar i avsnittet övervakning i Azure Kognitiv sökning-tjänsten.":::
 
 1. Välj **nyckel** som autentiseringsmetod och ange din lagrings konto nyckel. Välj **privat** som sekretess nivå. Klicka på logga In för att starta inläsningen.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/connect-to-storage-account-step-two.png" alt-text="Skärm bild som visar hur du anger autentiseringsmetoden, konto nyckeln och sekretess nivån på sidan Anslut till Azure Kognitiv sökning.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/connect-to-storage-account-step-two.png" alt-text="Skärm bild som visar hur du väljer diagnostikinställningar i avsnittet övervakning i Azure Kognitiv sökning-tjänsten.":::
 
 1. Vänta tills data har uppdaterats. Detta kan ta lite tid beroende på hur mycket data du har. Du kan se om data fortfarande uppdateras baserat på nedanstående indikator.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-refreshing.png" alt-text="Skärm bild som visar hur du läser informationen på sidan för data uppdatering.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-refreshing.png" alt-text="Skärm bild som visar hur du väljer diagnostikinställningar i avsnittet övervakning i Azure Kognitiv sökning-tjänsten.":::
 
 1. När data uppdateringen har slutförts väljer du **Azure kognitiv sökning rapporten** för att visa rapporten.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-report.png" alt-text="Skärm bild som visar hur du väljer Azure Kognitiv sökning-rapporten på sidan för data uppdatering.":::![]()
+    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-report.png" alt-text="Skärm bild som visar hur du väljer diagnostikinställningar i avsnittet övervakning i Azure Kognitiv sökning-tjänsten.":::![]()
 
 1. Se till att uppdatera sidan när du har öppnat rapporten så att den öppnas med dina data.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/powerbi-search.png" alt-text="Skärm bild av Azure Kognitiv sökning Power BI-rapporten.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/powerbi-search.png" alt-text="Skärm bild som visar hur du väljer diagnostikinställningar i avsnittet övervakning i Azure Kognitiv sökning-tjänsten.":::
 
 ## <a name="how-to-change-the-app-parameters"></a>Ändra app-parametrarna
 Om du vill visualisera data från ett annat lagrings konto eller ändra antalet dagar som data ska frågas, följer du stegen nedan för att ändra **dagar** och **StorageAccount** -parametrar.
 
 1. Navigera till Power BI appar, hitta din Azure Kognitiv sökning-app och välj knappen **Redigera app** för att Visa arbets ytan.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/azure-search-app-tile-edit.png" alt-text="Skärm bild som visar hur du väljer knappen Redigera app för Azure Kognitiv sökning-appen.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/azure-search-app-tile-edit.png" alt-text="Skärm bild som visar hur du väljer diagnostikinställningar i avsnittet övervakning i Azure Kognitiv sökning-tjänsten.":::
 
 1. Välj **Inställningar** från alternativ för data uppsättning.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-settings.png" alt-text="Skärm bild som visar hur du väljer Inställningar från alternativ för Azure Kognitiv sökning data uppsättning.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-settings.png" alt-text="Skärm bild som visar hur du väljer diagnostikinställningar i avsnittet övervakning i Azure Kognitiv sökning-tjänsten.":::
 
 1. På fliken Data uppsättningar ändrar du parameter värden och väljer **tillämpa**. Om det uppstår ett problem med anslutningen uppdaterar du autentiseringsuppgifterna för data källan på samma sida.
 
 1. Gå tillbaka till arbets ytan och välj **Uppdatera nu** från data uppsättnings alternativen.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-refresh-now.png" alt-text="Skärm bild som visar hur du väljer Uppdatera nu från alternativ för Azure Kognitiv sökning data uppsättning.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-refresh-now.png" alt-text="Skärm bild som visar hur du väljer diagnostikinställningar i avsnittet övervakning i Azure Kognitiv sökning-tjänsten.":::
 
 1. Öppna rapporten om du vill visa uppdaterade data. Du kan också behöva uppdatera rapporten för att visa den senaste informationen.
 

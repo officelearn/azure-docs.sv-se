@@ -11,10 +11,10 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
 ms.openlocfilehash: 9e24a652bb4e577ff9b604b6b4f5284883723ee5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906712"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Självstudie: skapa ett etikett projekt för bild klassificering med flera klasser 
@@ -64,7 +64,7 @@ Azure Machine Learning data lager används för att lagra anslutnings informatio
 
 1. Fyll i formuläret med följande inställningar:
 
-    Fält|Beskrivning 
+    Field|Beskrivning 
     ---|---
     Data lager namn | Ge data lagret ett namn.  Här använder vi **labeling_tutorial**.
     Data lager typ | Välj lagrings typ.  Här använder vi **Azure Blob Storage**, den önskade lagringen för avbildningar.
@@ -89,7 +89,7 @@ Nu när du har åtkomst till de data som du vill ha med etikett, skapar du ett e
 
 1. Använd följande indata för formuläret **projekt information** :
 
-    Fält|Beskrivning 
+    Field|Beskrivning 
     ---|---
     Projektnamn | Ge ditt projekt ett namn.  Här kommer vi att använda **självstudie – katter-n-hundar**.
     Etikettering av uppgifts typ | Välj **bild klassificering flera klasser**.  

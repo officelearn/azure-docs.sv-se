@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: bce5e14db133ad55a2035c0c8074486ed1b8a6ec
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89460515"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Felsöka Synapse SQL i Azure Synapse Analytics
@@ -36,7 +36,7 @@ Den här artikeln innehåller vanliga fel söknings problem i Synapse SQL.
 
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Azure AD-användare saknas i Visual Studio Object Explorer           | Detta är ett känt problem.  Som en lösning kan du Visa användarna i [sys. database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Mer information om hur du använder Azure Active Directory med Synapse SQL-poolen finns i [autentisering med Azure Synapse](sql-data-warehouse-authentication.md) . |
+| Azure AD-användare saknas i Visual Studio Object Explorer           | Detta är ett känt fel.  Som en lösning kan du Visa användare i [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Mer information om hur du använder Azure Active Directory med Synapse SQL-poolen finns i [autentisering med Azure Synapse](sql-data-warehouse-authentication.md) . |
 | Manuell skript användning med skript guiden eller anslutning via SSMS är långsam, svarar inte eller skapar fel | Se till att användarna har skapats i huvud databasen. I skript alternativ ser du också till att motor versionen är inställd på "Microsoft Azure Synapse Analytics Edition" och att motor typen är "Microsoft Azure SQL Database". |
 | Generera skript Miss lyckas i SSMS                               | Det går inte att skapa ett skript för SQL-poolen Synapse om alternativet "skapa skript för beroende objekt" är inställt på "true". Som en lösning måste användarna manuellt gå till **verktyg-> alternativ->SQL Server Object Explorer-> skapa skript för beroende alternativ och ange värdet FALSKT** |
 

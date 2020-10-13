@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.openlocfilehash: 15cb1391cb6482401c2a091a4d5c0e9d819ba52d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777028"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Metod tips för en QnA Maker kunskaps bas
@@ -48,7 +48,7 @@ De bästa svaren är enkla svar, men inte för enkla. Använd inte svar som `yes
 |Stäng av arbets ytans bärbara dator med strömbrytaren på tangent bordet.|* Viktiga kombinationer av ström spar läge, avstängning och omstart.<br>* Så här kan du starta en bärbar dator på en Surface<br>* Ändra BIOS för en Surface-dator<br>* Skillnader mellan ström spar läge, Stäng av och starta om|
 |Kund tjänst är tillgänglig via telefon, Skype och textmeddelande dygnet runt, 24 timmar per dag.|* Kontakt information för försäljning.<br> * Kontor och lagrings platser och timmar för ett personligt besök.<br> * Tillbehör för en Surface-dator.|
 
-## <a name="chit-chat"></a>CHI2TEST – Chat
+## <a name="chit-chat"></a>Chit-Chat
 Lägg till en CHI2TEST i roboten för att göra din robot mer konversation och engagerande med låg ansträngning. Du kan enkelt lägga till data uppsättningar för CHI2TEST från fördefinierade personliga objekt när du skapar dina KB och ändra dem när som helst. Lär dig hur du [lägger till en CHI2TEST i din KB](../How-To/chit-chat-knowledge-base.md).
 
 CHI2TEST-chatt stöds på [många språk](../how-to/chit-chat-knowledge-base.md#language-support).

@@ -7,10 +7,10 @@ ms.date: 06/07/2017
 ms.author: motanv
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8b1d4ae42fa033c03bd82ae5cee5794d98c23c65
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022181"
 ---
 # <a name="testability-actions"></a>Test åtgärder
@@ -36,11 +36,11 @@ För bättre kvalitets validering kör du tjänst-och affärs arbets belastninge
 | InvokeQuorumLoss |Placerar en tilldelad tillstånds känslig tjänst partition i kvorum förlust. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Korrekt |
 | En moveprimary |Flyttar den angivna primära repliken av en tillstånds känslig tjänst till den angivna klusternoden. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Korrekt |
 | MoveSecondary |Flyttar den aktuella sekundära repliken av en tillstånds känslig tjänst till en annan klusternod. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Korrekt |
-| RemoveReplica |Simulerar ett replik fel genom att ta bort en replik från ett kluster. Detta stänger replikeringen och kommer att övergå till rollen "ingen", vilket tar bort alla dess status från klustret. |RemoveReplicaAsync |Remove-Removeservicefabricreplica |Korrekt |
-| RestartDeployedCodePackage |Simulerar ett kod paket process fel genom att starta om ett kod paket som har distribuerats på en nod i ett kluster. Detta avbryter kod paket processen, som startar om alla användare tjänst repliker som finns i den processen. |RestartDeployedCodePackageAsync |Starta om ServiceFabricDeployedCodePackage |Okontrollerad |
-| RestartNode |Simulerar ett fel med en Service Fabric klusternod genom att starta om en nod. |RestartNodeAsync |Starta om ServiceFabricNode |Okontrollerad |
+| RemoveReplica |Simulerar ett replik fel genom att ta bort en replik från ett kluster. Detta stänger replikeringen och kommer att övergå till rollen "ingen", vilket tar bort alla dess status från klustret. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Korrekt |
+| RestartDeployedCodePackage |Simulerar ett kod paket process fel genom att starta om ett kod paket som har distribuerats på en nod i ett kluster. Detta avbryter kod paket processen, som startar om alla användare tjänst repliker som finns i den processen. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Okontrollerad |
+| RestartNode |Simulerar ett fel med en Service Fabric klusternod genom att starta om en nod. |RestartNodeAsync |Restart-ServiceFabricNode |Okontrollerad |
 | RestartPartition |Simulerar ett inaktive rad-eller kluster inaktive rad-scenario genom att starta om några eller alla repliker av en partition. |RestartPartitionAsync |Restart-ServiceFabricPartition |Korrekt |
-| RestartReplica |Simulerar ett replik fel genom att starta om en bestående replik i ett kluster, stänga replikeringen och sedan öppna den igen. |RestartReplicaAsync |Starta om Removeservicefabricreplica |Korrekt |
+| RestartReplica |Simulerar ett replik fel genom att starta om en bestående replik i ett kluster, stänga replikeringen och sedan öppna den igen. |RestartReplicaAsync |Restart-ServiceFabricReplica |Korrekt |
 | StartNode |Startar en nod i ett kluster som redan har stoppats. |StartNodeAsync |Start-ServiceFabricNode |Inte tillämpligt |
 | StopNode |Simulerar ett nodfel genom att stoppa en nod i ett kluster. Noden kommer att stanna kvar tills StartNode anropas. |StopNodeAsync |Stop-ServiceFabricNode |Okontrollerad |
 | ValidateApplication |Kontrollerar tillgängligheten och hälsan för alla Service Fabric tjänster i ett program, vanligt vis efter inducing av fel i systemet. |ValidateApplicationAsync |Test-ServiceFabricApplication |Inte tillämpligt |
@@ -80,7 +80,7 @@ Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 
 Följande skärm bild visar kommandot **restart-ServiceFabricNode** testable i praktiken.
 
-![Skärm bild där du kör kommandot restart-ServiceFabricNode i PowerShell.](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
+![Skärm bild som visar hur du kör Restart-ServiceFabricNode-kommandot i PowerShell.](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
 Utdata från den första **Get-ServiceFabricNode** (en cmdlet från Service Fabric PowerShell-modulen) visar att det lokala klustret har fem noder: Node. 1 till Node. 5. När cmdleten **restart-ServiceFabricNode** körs på noden, heter Node. 4, ser vi att nodens drift tid har återställts.
 

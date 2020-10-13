@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
 ms.openlocfilehash: 40cf46746587cbd221bd958ccb528c9e40cf18bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91299428"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, Visa och hantera logg aviseringar med Azure Monitor
@@ -79,7 +79,7 @@ Här är stegen för att komma igång med att skriva frågor för aviseringar:
 
 1. Du kan också ange [antalet överträdelser som utlöser en avisering](alerts-unified-log.md#number-of-violations-to-trigger-alert) med hjälp av **Totalt antal överträdelser eller i följd**.
 
-1. Välj **Klar**. 
+1. Välj **Done** (Klar). 
 
 1. Definiera **aviserings regelns namn**, **Beskrivning**och välj aviseringens **allvarlighets grad**. Informationen används i alla aviserings åtgärder. Du kan dessutom välja att inte aktivera aviserings regeln när du skapar den genom att välja **Aktivera regel när**du har skapat den.
 

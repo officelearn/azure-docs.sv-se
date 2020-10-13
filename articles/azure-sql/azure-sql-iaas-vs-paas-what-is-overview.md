@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
 ms.openlocfilehash: 4cc1eefa93366451b568da789fd48d8a8c658439
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618275"
 ---
 # <a name="what-is-azure-sql"></a>Vad är Azure SQL? 
@@ -114,12 +114,12 @@ I allmänhet kan SQL Database och SQL-hanterad instans dramatiskt öka antalet d
 | Azure SQL Database | Hanterad Azure SQL-instans | SQL Server på virtuella Azure-datorer |
 | :--- | :--- | :--- |
 |Stöder de flesta lokala funktioner på databas nivå. De vanligaste SQL Server funktionerna är tillgängliga.<br/>99,995% tillgänglighet garanterad.<br/>Inbyggda säkerhets kopieringar, korrigeringar och återställning.<br/>Senaste versionen av stabil databas motor.<br/>Möjlighet att tilldela nödvändiga resurser (CPU/lagring) till enskilda databaser.<br/>Inbyggd avancerad intelligens och säkerhet.<br/>Ändring av resurser online (CPU/lagring).| Har stöd för nästan alla lokala funktioner på instans nivå och databas nivå. Hög kompatibilitet med SQL Server.<br/>99,99% tillgänglighet garanterad.<br/>Inbyggda säkerhets kopieringar, korrigeringar och återställning.<br/>Senaste versionen av stabil databas motor.<br/>Enkel migrering från SQL Server.<br/>Privat IP-adress i Azure Virtual Network.<br/>Inbyggd avancerad intelligens och säkerhet.<br/>Ändring av resurser online (CPU/lagring).| Du har fullständig kontroll över SQL Servers motorn. Stöder alla lokala funktioner.<br/>Upp till 99,99% tillgänglighet.<br/>Fullständig paritet med den matchande versionen av lokala SQL Server.<br/>Fast och välkänd databas motor version.<br/>Enkel migrering från SQL Server.<br/>Privat IP-adress i Azure Virtual Network.<br/>Du kan distribuera program eller tjänster på värden där SQL Server placeras.|
-|Det kan vara svårt att migrera från SQL Server.<br/>Vissa SQL Server funktioner är inte tillgängliga.<br/>Ingen garanterad, exakt underhålls tid (men nästan transparent).<br/>Kompatibilitet med SQL Server-versionen kan bara uppnås med hjälp av kompatibilitetsnivån för databaser.<br/>Stöd för privata IP-adresser med en [privat Azure-länk](database/private-endpoint-overview.md).|Det finns fortfarande ett minimalt antal SQL Server funktioner som inte är tillgängliga.<br/>Ingen garanterad, exakt underhålls tid (men nästan transparent).<br/>Kompatibilitet med SQL Server-versionen kan bara uppnås med hjälp av kompatibilitetsnivån för databaser.|Du måste hantera dina säkerhets kopieringar och uppdateringar.<br>Du måste implementera din egen lösning för hög tillgänglighet.<br/>Det finns ett avbrott när du ändrar resurser (CPU/lagring)|
+|Det kan vara svårt att migrera från SQL Server.<br/>Vissa SQL Server funktioner är inte tillgängliga.<br/>Ingen garanterad, exakt underhålls tid (men nästan transparent).<br/>Kompatibilitet med SQL Server-versionen kan bara uppnås med hjälp av kompatibilitetsnivån för databaser.<br/>Stöd för privata IP-adresser med en [privat Azure-länk](database/private-endpoint-overview.md).|Det finns fortfarande ett minimalt antal SQL Server funktioner som inte är tillgängliga.<br/>Ingen garanterad, exakt underhålls tid (men nästan transparent).<br/>Kompatibilitet med SQL Server-versionen kan bara uppnås med hjälp av kompatibilitetsnivån för databaser.|Du måste hantera dina säkerhets kopieringar och uppdateringar.<br>Du måste implementera din egen High-Availability-lösning.<br/>Det finns ett avbrott när du ändrar resurser (CPU/lagring)|
 | Databaser på upp till 100 TB. | Upp till 8 TB. | SQL Server instanser med upp till 256 TB lagrings utrymme. Instansen har stöd för så många databaser som behövs. |
 | Lokala program kan komma åt data i Azure SQL Database. | [Inbyggd implementering av virtuella nätverk](managed-instance/vnet-existing-add-subnet.md) och anslutning till din lokala miljö med hjälp av Azure Express Route eller VPN gateway. | Med virtuella SQL-datorer kan du ha program som körs delvis i molnet och delvis lokalt. Du kan till exempel utöka ditt lokala nätverk och Active Directory-domän till molnet via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Mer information om hybrid moln lösningar finns i [utöka lokala data lösningar till molnet](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud). |
 
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Kostnad
 
 Oavsett om du är en dålig för kontanter eller ett team i ett etablerat företag som arbetar under tätt budget begränsningar, är den begränsade finansieringen ofta den primära driv rutinen när du bestämmer dig för att vara värd för dina databaser. I det här avsnittet får du lära dig om fakturerings-och licensierings grunderna i Azure som är kopplade till Azure SQL-serien med tjänster.  Du lär dig också hur du beräknar den totala programkostnaden.
 

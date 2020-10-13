@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 07/02/2019
 ms.openlocfilehash: a9850af3ea2365aa73d8b9f08b2e706c79062860
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400527"
 ---
 # <a name="visualize-graph-data-stored-in-azure-cosmos-db-gremlin-api-with-data-visualization-solutions"></a>Visualisera diagram data som lagrats i Azure Cosmos DB Gremlin API med data visualiserings lösningar
@@ -26,11 +26,11 @@ Du kan visualisera data som lagras i Azure Cosmos DB Gremlin API genom att anvä
 
 Det interaktiva gränssnittet i Linkurious Enterprise erbjuder ett enkelt sätt att undersöka komplexa data. Du kan söka efter vissa entiteter, expandera anslutningar för att ta bort dolda relationer och tillämpa layouter som du väljer för att Untangle komplexa nätverk. Linkurious Enterprise är nu kompatibelt med Azure Cosmos DB Gremlin API. Det är lämpligt för visualiserings scenarier från slut punkt till slut punkt och stöder Läs-och skriv funktioner från användar gränssnittet. Du kan begära en [demonstration av Linkurious med Azure Cosmos DB](https://linkurio.us/contact/)
 
-:::image type="content" source="./media/graph-visualization/linkurious-demo.gif" alt-text="Linkurious-demo" border="false":::
+:::image type="content" source="./media/graph-visualization/linkurious-demo.gif" alt-text="Linkurious-logotyp" border="false":::
 
 ## <a name="cambridge-intelligence"></a>Cambridge intelligens
 
-:::image type="content" source="./media/graph-visualization/ci-logo.png" alt-text="Cambridge Intelligence-logotyp" border="false":::
+:::image type="content" source="./media/graph-visualization/ci-logo.png" alt-text="Linkurious-logotyp" border="false":::
 
 Diagram visualiserings verktyg för [Cambridge Intelligence har](https://cambridge-intelligence.com/products/) nu stöd för Azure Cosmos dB. Följande två visualiserings verktyg stöds av Azure Cosmos DB:
 
@@ -38,11 +38,11 @@ Diagram visualiserings verktyg för [Cambridge Intelligence har](https://cambrid
 
 - [Ändra diagram för reagera på utvecklare](https://cambridge-intelligence.com/regraph/)
 
-:::image type="content" source="./media/graph-visualization/ci-demo-2.gif" alt-text="Cambridge Intelligence-demo" border="false":::
+:::image type="content" source="./media/graph-visualization/ci-demo-2.gif" alt-text="Linkurious-logotyp" border="false":::
 
 Med dessa verktyg kan du utforma diagram visualisering och analys program med höga prestanda för ditt användnings fall. De utnyttjar kraftfulla WebGL-rendering (Web Graphics Library) och omsorgsfullt utformad kod för att ge användarna en snabb och inblickad visualiserings upplevelse. Dessa verktyg är kompatibla med valfri webbläsare, enhet, server eller databas och innehåller stegvisa självstudier, fullständigt dokumenterade API: er och interaktiva demonstrationer.
 
-:::image type="content" source="./media/graph-visualization/ci-demo-1.gif" alt-text="Cambridge Intelligence-demo" border="false":::
+:::image type="content" source="./media/graph-visualization/ci-demo-1.gif" alt-text="Linkurious-logotyp" border="false":::
 
 
 ## <a name="next-steps"></a>Nästa steg

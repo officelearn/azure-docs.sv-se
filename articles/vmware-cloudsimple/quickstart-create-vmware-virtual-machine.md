@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4ab613c251bc43a025e0381046805ec998a04227
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77019561"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>Snabb start – förbruka virtuella VMware-datorer i Azure
@@ -38,18 +38,18 @@ Skapa en virtuell dator i ditt privata moln från vCenter-ANVÄNDARGRÄNSSNITTET
 
     ![Skapa CloudSimple virtuella datorer – grunder](media/create-cloudsimple-virtual-machine-basic-info.png)
 
-    | Fält | Beskrivning |
+    | Field | Beskrivning |
     | ------------ | ------------- |
     | Prenumeration | Azure-prenumeration som är associerad med ditt privata moln.  |
     | Resursgrupp | Resurs grupp som den virtuella datorn ska tilldelas till. Du kan välja en befintlig grupp eller skapa en ny. |
     | Name | Namn för att identifiera den virtuella datorn.  |
     | Location | Azure-region där den här virtuella datorn finns.  |
-    | Privat moln | CloudSimple privata moln där du vill skapa den virtuella datorn. |
+    | Privata moln | CloudSimple privata moln där du vill skapa den virtuella datorn. |
     | Resurspool | Mappad resurspool för den virtuella datorn. Välj bland tillgängliga resurspooler. |
     | vSphere-mall | vSphere-mall för den virtuella datorn.  |
     | Användarnamn | Användar namnet för den virtuella dator administratören (för Windows-mallar).|
     | lösenordsinställning |  Lösen ord för VM-administratören (för Windows-mallar). |
-    | Bekräfta lösenord | Bekräfta lösenordet. |
+    | Bekräfta lösenordet | Bekräfta lösenordet. |
 
 5. Välj antalet kärnor och minnes kapacitet för den virtuella datorn och klicka på **Nästa: konfigurationer**. Markera kryss rutan om du vill exponera fullständig CPU-virtualisering till gäst operativ systemet. Program som kräver virtualisering av maskin vara kan köras på virtuella datorer utan binär översättning eller paravirtualiseringsegenskaperna. Mer information finns i VMware-artikeln <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html" target="_blank">exponerar VMware-maskinvarustödd virtualisering</a>.
 

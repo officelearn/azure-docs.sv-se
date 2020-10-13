@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: a756a3cec5702570751e0bea09a4f59152accafc
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89484552"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiera data från Amazon RedShift med Azure Data Factory
@@ -42,7 +42,7 @@ Mer specifikt har den här Amazon RedShift-anslutningen stöd för att hämta da
 > [!TIP]
 > För att uppnå bästa prestanda vid kopiering av stora mängder data från RedShift bör du överväga att använda den inbyggda RedShift-inläsningen via Amazon S3. Mer information finns i avsnittet [använda Unload för att kopiera data från Amazon RedShift](#use-unload-to-copy-data-from-amazon-redshift) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du kopierar data till ett lokalt data lager med hjälp av [egen värd integration runtime](create-self-hosted-integration-runtime.md)beviljar du integration Runtime (Använd IP-adressen för datorn) åtkomst till Amazon RedShift-klustret. Mer information finns i [bevilja åtkomst till klustret](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) .
 * Om du kopierar data till ett Azure-datalager, se [Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) för den BERÄKNINGS-IP-adress och de SQL-intervall som används av Azure Data Center.

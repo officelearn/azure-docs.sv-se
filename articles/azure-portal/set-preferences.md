@@ -10,13 +10,13 @@ ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 20ed84a87486f1095a90e012368b1f56d6426c8e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88205704"
 ---
-# <a name="manage-azure-portal-settings-and-preferences"></a>Hantera Azure Portal inställningar och inställningar
+# <a name="manage-azure-portal-settings-and-preferences"></a>Hantera dina inställningar i Microsoft Azure-portalen
 
 Du kan ändra standardinställningarna för Azure Portal så att de passar dina egna inställningar. De flesta inställningar är tillgängliga på menyn **Inställningar** i det globala sidhuvudet.
 
@@ -33,7 +33,7 @@ Du kan ändra den prenumeration som öppnas som standard när du loggar in på A
 
 1. Välj de prenumerationer som du vill använda som standard prenumerationer när du startar portalen. 
 
-    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Välj de prenumerationer som du vill använda som standard prenumerationer när du startar portalen."::: 
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Filtrera resurs lista efter prenumeration."::: 
 
 
 ## <a name="choose-your-default-view"></a>Välj standardvy 

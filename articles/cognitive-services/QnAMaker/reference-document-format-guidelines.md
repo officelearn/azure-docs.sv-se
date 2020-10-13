@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
 ms.openlocfilehash: d35ea57a68e500deffa99033b83114ec518dd5e3
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776739"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Format rikt linjer för importerade dokument och webb adresser
@@ -54,7 +54,7 @@ Nedan visas ett exempel på ett delvis strukturerat dokument utan ett index:
 
 ## <a name="structured-qna-document"></a>Strukturerat QnA-dokument
 
-Formatet för strukturerad fråga – svar i DOC-filer, är i form av alternerande frågor och svar per rad, en fråga per rad följt av dess svar på följande rad, enligt nedan:
+Formatet för strukturerade Question-Answers i DOC-filer är i form av alternerande frågor och svar per rad, en fråga per rad följt av sitt svar på följande rad:
 
 ```text
 Question1

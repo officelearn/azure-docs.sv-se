@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: a69ce0592b79be0868dd7c15ac054910eee75fc7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393606"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Så här konfigurerar du BGP på en Azure VPN-gateway med CLI
@@ -91,7 +91,7 @@ az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic
 
 #### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. Skapa VPN-gatewayen med AS-numret
 
-Skapa den virtuella nätverksgatewayen för TestVNet1. BGP kräver en Route-baserad VPN-gateway. Du behöver också ytterligare en parameter `-Asn` för att ange autonomt system nummer (ASN) för TestVNet1. Att skapa en gateway kan ta en stund (45 minuter eller mer) att slutföra. 
+Skapa den virtuella nätverksgatewayen för TestVNet1. BGP kräver en Route-Based VPN-gateway. Du behöver också ytterligare en parameter `-Asn` för att ange autonomt system nummer (ASN) för TestVNet1. Att skapa en gateway kan ta en stund (45 minuter eller mer) att slutföra. 
 
 Om du kör det här kommandot med hjälp av `--no-wait` -parametern visas inga synpunkter eller utdata. `--no-wait`Parametern gör att gatewayen kan skapas i bakgrunden. Det innebär inte att VPN-gatewayen skapas direkt.
 

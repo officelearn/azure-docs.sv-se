@@ -11,10 +11,10 @@ ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible
 ms.openlocfilehash: 8e34f73f1c403e3a7d21c6c30844f8b9073b3113
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87373580"
 ---
 # <a name="post-deployment-tasks"></a>Uppgifter efter distribution
@@ -86,7 +86,7 @@ I Azure-portalen:
 
    ![Åtkomst till app-registrering](media/openshift-post-deployment/app-registration-access.png)
 
-8. Välj **Klar**.
+8. Välj **Done** (Klar).
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Konfigurera OpenShift för Azure AD-autentisering
 
@@ -142,7 +142,7 @@ Infoga följande rader direkt efter föregående rader:
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-Se till att texten justeras korrekt under Identityprovider. Hitta klient-ID: t med hjälp av följande CLI-kommando:```az account show```
+Se till att texten justeras korrekt under Identityprovider. Hitta klient-ID: t med hjälp av följande CLI-kommando: ```az account show```
 
 Starta om OpenShift Master-tjänsterna på alla huvudnoder:
 

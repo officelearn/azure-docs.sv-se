@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/12/2020
 ms.author: aahi
 ms.openlocfilehash: 185a6a26350f7803d109e26d8985510380b8cc16
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056599"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Språk stöd för API för textanalys v3 
@@ -25,10 +25,10 @@ ms.locfileid: "90056599"
 
 #### <a name="sentiment-analysis"></a>[Attitydanalys](#tab/sentiment-analysis)
 
-| Språk              | Språkkod | v2-stöd | v3-stöd | Startar v3-modell version: |              Kommentarer |
+| Språk              | Språkkod | v2-stöd | v3-stöd | Startar v3-modell version: |              Obs! |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
-| Kinesiska – Förenklad    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh` även godkänd |
-| Kinesiska (traditionell)   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
+| Chinese-Simplified    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh` även godkänd |
+| Chinese-Traditional   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
 | Danska               |     `da`      |     ✓      |            |                            |                    |
 | Nederländska                 |     `nl`      |     ✓      |            |                            |                    |
 | Engelska               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
@@ -49,7 +49,7 @@ ms.locfileid: "90056599"
 
 ### <a name="opinion-mining-v31-preview-only"></a>Utåsikts utvinning (v 3.1 – endast för hands version)
 
-| Språk              | Språkkod | Från och med v3 modell version: |              Kommentarer |
+| Språk              | Språkkod | Från och med v3 modell version: |              Obs! |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
 | Engelska               |     `en`      |              2020-04-01              |                    |
 
@@ -60,12 +60,12 @@ ms.locfileid: "90056599"
 > * NER v3 stöder för närvarande bara engelska och spanska språk. Om du anropar NER v3 med ett annat språk returneras v 2.1-API: et, förutsatt att språket stöds i version 2,1.
 > * v 2.1 returnerar bara den fullständiga uppsättningen tillgängliga entiteter för de engelska, kinesiska, enkla, franska, tyska och spanska språken.  Entiteterna "person", "plats" och "organisation" returneras för de andra språk som stöds.
 
-| Språk               | Språkkod | v 2.1-stöd | v3-stöd | Från och med v3 modell version: |       Kommentarer        |
+| Språk               | Språkkod | v 2.1-stöd | v3-stöd | Från och med v3 modell version: |       Obs!        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Arabiska                |     `ar`      |     ✓      |            |                                 |                    |
 | Tjeckiska                 |     `cs`      |     ✓      |            |                                 |                    |
-| Kinesiska – Förenklad     |   `zh-hans`   |     ✓      |            |                                 | `zh` även godkänd |
-| Kinesiska (traditionell)   |   `zh-hant`   |     ✓      |            |                                 |                    |
+| Chinese-Simplified     |   `zh-hans`   |     ✓      |            |                                 | `zh` även godkänd |
+| Chinese-Traditional   |   `zh-hant`   |     ✓      |            |                                 |                    |
 | Danska                |     `da`      |     ✓      |            |                                 |                    |
 | Nederländska                 |     `nl`      |     ✓      |            |                                 |                    |
 | Engelska                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
@@ -86,12 +86,12 @@ ms.locfileid: "90056599"
 | Svenska               |     `sv`      |     ✓      |            |                                 |                    |
 | Turkiska               |     `tr`      |     ✓      |            |                                 |                    |
 
-#### <a name="key-phrase-extraction"></a>[Extrahering av nyckelfraser](#tab/key-phrase-extraction)
+#### <a name="key-phrase-extraction"></a>[Extrahering av nyckel fraser](#tab/key-phrase-extraction)
 
 > [!NOTE]
 > Modell versioner av Extrahering av diskussionsämne före 2020-07-01 har en gräns på 64 tecken. Den här gränsen finns inte i senare modell versioner.
 
-| Språk              | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: |       Kommentarer        |
+| Språk              | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: |       Obs!        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
 | Nederländska                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Engelska               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -111,7 +111,7 @@ ms.locfileid: "90056599"
 
 #### <a name="entity-linking"></a>[Länkning av entitet](#tab/entity-linking)
 
-| Språk | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: | Kommentarer |
+| Språk | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: | Obs! |
 |:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
 | Engelska  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
 | Spanska  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |

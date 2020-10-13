@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 101e42263e46c5a21f26b0fa9cdeed798525fee9
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89047095"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Konfigurera katastrof återställning i skala för virtuella VMware-datorer/fysiska servrar
@@ -155,7 +155,7 @@ Process serverns kapacitet påverkas av data omsättnings taxan och inte av anta
 
 **Processor** | **Minne** | **Cachelagra disk** | **Omsättnings pris**
  --- | --- | --- | --- 
-12 virtuella processorer<br> 2 Sockets * 6 kärnor @ 2,5 GHz | 24 GB | 1 GB | Upp till 2 TB per dag
+12 virtuella processorer<br> 2 Sockets * 6 kärnor @ 2,5 GHz | 24 GB | 1 GB | Upp till 2 TB per dag
 
 Konfigurera processervern enligt följande:
 

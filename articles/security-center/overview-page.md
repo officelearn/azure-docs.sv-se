@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3f7298ec7bba82eaddc4a002723f44bc5da68433
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 899fddf08a817126ce775733da38ffd10ab3ab23
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945353"
+ms.locfileid: "91952122"
 ---
 # <a name="azure-security-centers-overview-page"></a>Översikts sida för Azure Security Center
 
@@ -38,7 +38,7 @@ Den **översta meny raden** innehåller:
 
 I mitten av sidan finns **fyra centrala paneler**, vart och ett länkar till en dedikerad instrument panel för mer information:
 - **Säker poäng** Security Center kontinuerligt utvärderar dina resurser, prenumerationer och din organisation efter säkerhets problem. Den sammanställer sedan alla resultat i en enda poäng så att du snabbt kan tala om din aktuella säkerhets situation: ju högre poäng, desto lägre är den identifierade risk nivån. [Läs mer](secure-score-security-controls.md).
-- **Efterlevnad** – Security Center ger insikter om position utifrån kontinuerlig utvärdering av Azure-miljön. Security Center analyserar riskfaktorer i din hybrid moln miljö enligt rekommenderade säkerhets metoder. De här utvärderingarna mappas till kompatibla kontroller från en uppsättning standarder som stöds. [Läs mer](security-center-compliance-dashboard.md).
+- **Efterlevnad** – Security Center ger insikter om position utifrån kontinuerlig utvärdering av Azure-miljön. Security Center analyserar riskfaktorer i din hybrid moln miljö enligt rekommenderade säkerhets metoder. Dessa utvärderingar mappas till kompatibilitetskontroller från en uppsättning standarder som stöds. [Läs mer](security-center-compliance-dashboard.md).
 - **Azure Defender** – det här är CWPP (Cloud Worker Protection Platform) som är integrerad i Security Center för avancerade, intelligenta, skydd av dina Azure-och hybrid arbets belastningar. Panelen visar täckningen för dina anslutna resurser (för de valda prenumerationerna) och de senaste aviseringarna, färgkodade efter allvarlighets grad. [Läs mer](azure-defender.md).
 - **Inventering** – panelen visar antalet oövervakade virtuella datorer och en enkel barometer av dina resurser som övervakas av Security Center. [Läs mer](asset-inventory.md).
 

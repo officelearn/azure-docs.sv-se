@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: f62eec29aebdcc98569134e0c3b75457467bc014
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcad165f5d0ba2cf652cff35091e05b4414193c8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903682"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951799"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Självstudie: transformera data med Azure Stack Edge Pro för avancerat distributions flöde
 
@@ -31,7 +31,7 @@ Compute kan konfigureras för enkla eller avancerade distributions flöden på e
 
 Den här proceduren kan ta cirka 20 till 30 minuter att slutföra.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Konfigurera beräkning
@@ -41,7 +41,7 @@ I den här guiden får du lära dig att:
 > * Verifiera datatransformering och överföring
 
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du ställer in en beräknings roll på din Azure Stack Edge Pro-enhet ser du till att:
 
@@ -58,7 +58,7 @@ Om du vill konfigurera Compute på Azure Stack Edge Pro skapar du en IoT Hub res
 
 2. På panelen **Konfigurera Edge Compute** väljer du **Konfigurera beräkning**.
 
-    ![Kom igång med Compute](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-2.png)
+    ![Kom igång med Compute 2](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-2.png)
 
 3. Ange följande på bladet **Konfigurera Edge Compute** :
 
@@ -66,13 +66,13 @@ Om du vill konfigurera Compute på Azure Stack Edge Pro skapar du en IoT Hub res
     |Field  |Värde  |
     |---------|---------|
     |IoT Hub     | Välj från **ny** eller **befintlig**. <br> Som standard används nivån Standard (S1) till att skapa en IoT-resurs. Om du vill använda en IoT-resurs på kostnadsfri nivå skapar du en sådan och väljer sedan den befintliga resursen. <br> I varje fall använder IoT Hub resursen samma prenumeration och resurs grupp som används av Azure Stack Edge-resursen.     |
-    |Name     |Ange ett namn för din IoT Hub-resurs.         |
+    |Namn     |Ange ett namn för din IoT Hub-resurs.         |
 
-    ![Kom igång med Compute](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
+    ![Kom igång med Compute 3](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
 4. Välj **Skapa**. Det tar några minuter att skapa en IoT Hub-resurs. När IoT Hub resurs har skapats, uppdaterar konfigurations panelen för **Edge** för att Visa beräknings konfigurationen. Bekräfta att Edge Compute-rollen har kon figurer ATS genom att välja **Visa konfiguration** på panelen **Konfigurera beräkning** .
     
-    ![Kom igång med Compute](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
+    ![Kom igång med Compute 4](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
 
     När Edge-beräkningsrollen har konfigurerats på Edge-enheten så skapas två enheter: en IoT-enhet och en IoT Edge-enhet. Bägge enheter kan visas i IoT Hub-resursen. En IoT Edge runtime körs också på den här IoT Edge enheten.
 
@@ -136,17 +136,17 @@ För den avancerade distributionen i den här självstudien behöver du två res
     |Utlösartyp     | Välj **fil** utlösare. En filutlösare utlöses när en filhändelse inträffar, till exempel att en fil skrivs till den angivna resursen. En schemalagd utlösare å andra sidan, utlöses utifrån ett schema som definierats av dig. I det här exemplet behöver vi en fil utlösare.    |
     |Inmatad resurs     | Välj en inmatad resurs. Den lokala Edge-resursen är den ingående resursen i det här fallet. Modulen som används här flyttar filer från den lokala Edge-resursen till en Edge-resurs där de överförs till molnet.        |
 
-    ![Lägg till utlösare](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-2.png)
+    ![Lägg till utlösare 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-2.png)
 
 3. Du får ett meddelande när utlösaren har skapats. Listan över utlösare uppdateras för att visa den nyligen skapade utlösaren. Välj den utlösare som du nyss skapade.
 
-    ![Lägg till utlösare](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-3.png)
+    ![Lägg till utlösare 3](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-3.png)
 
 4. Kopiera och spara exempel vägen. Du kommer att ändra den här exempel vägen och använda den senare i IoT Hub.
 
     `"sampleroute": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/modulename/inputs/input1\")"`
 
-    ![Lägg till utlösare](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-4.png)
+    ![Lägg till utlösare 4](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-4.png)
 
 ## <a name="add-a-module"></a>Lägg till en modul
 
@@ -213,7 +213,7 @@ I det här avsnittet lägger du till en anpassad modul till den IoT Edge enhet s
  
     4. Konfigurera vid behov avancerade Edge-körningsinställningar och klicka sedan på **Nästa**.
 
-        ![Lägga till anpassad modul](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
+        ![Lägg till anpassad modul 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
  
 5. Under **Ange vägar** anger du vägar mellan moduler.  
    
@@ -229,11 +229,11 @@ I det här avsnittet lägger du till en anpassad modul till den IoT Edge enhet s
 
 6. Under **Granska distributionen** så granskar du alla inställningarna. Om du är nöjd så **skickar** du modulen för distribution.
 
-   ![Länken Ange moduler](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
+   ![Sidan Ange moduler 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
  
     Den här åtgärden startar modulen distribution. När distributionen är klar **körs**modulens **körnings status** .
 
-    ![Lägga till anpassad modul](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-10.png)
+    ![Lägg till anpassad modul 3](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-10.png)
 
 ## <a name="verify-data-transform-transfer"></a>Verifiera datatransformering, överföring
 
@@ -247,15 +247,15 @@ Utför följande steg för att verifiera datatransformering och överföra till 
  
 1. Lägg till data i den lokala resursen.
 
-   ![Verifiera datatransformering](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
+   ![Verifiera data Transformation 2](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
  
     Data flyttas till molnresursen.
 
-    ![Verifiera datatransformering](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-4.png)  
+    ![Verifiera data Transform 3](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-4.png)  
 
     Data pushas sedan från molnresursen till lagringskontot. Om du vill visa data går du till ditt lagrings konto och väljer sedan **Storage Explorer**. Du kan visa överförda data i ditt lagrings konto.
 
-    ![Verifiera datatransformering](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-5.png)
+    ![Verifiera data omvandling 4](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-5.png)
  
 Du har slutfört valideringsprocessen.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: 66eafb818b09d6d1cde6c1f3e2dbcdaf55352248
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9092e9564fadb07311b151948656bc6cd007323
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87002989"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951731"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN täckning per tunnelbane linje 
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Den här artikeln innehåller en lista över aktuella Metros som innehåller POP
 | Region | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
 | Nordamerika | Toronto, Kanada<br />Vancouver, Kanada<br />Montrealprotokollet, Kanada<br />Querétaro, Mexiko<br />San-Juan, Puerto Rico<br />Ashburn, VA, USA<br />Atlanta, GA, USA<br />Raleigh, NC, USA<br />Boston, MA, USA<br />Cheyenne, WY, USA<br />Chicago, IL, USA<br /> Borås, TX, USA<br />Denver, CO, USA<br />Honolulu, HI, USA<br />Houston, TX, USA<br />Las Vegas, NV, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, Sverige, USA<br />Newark, NJ, USA<br />Phoenix, AZ, USA<br />Göteborg eller USA<br />San-Antonio, TX, USA<br />San-Jose, CA, USA<br />Seattle, WA, USA | Guadalajara, Mexiko<br />Mexico City, Mexiko<br />Puebla, Mexiko<br />Querétaro, Mexiko<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Borås, TX, USA<br />Denver, CO, USA<br />Detroit, MI, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, Sverige, USA<br />Philadelphia, PA, USA<br />San-Jose, CA, USA<br />Seattle, WA, USA<br />Washington, DC, USA <br /> Ashburn, VA, USA <br /> Phoenix, AZ, USA | Kanada<br />Mexico<br />USA |
-| Sydamerika | Campinas, Brasilien<br />Rio de Janeiro, Brasilien<br />Sao Paulo, Brasilien<br />Santiago, Chile<br />Bogotá, Colombia<br />Buenos Aires, Argentina | Buenos Aires, Argentina<br />Rio de Janeiro, Brasilien<br />São Paulo, Brasilien<br />Valparaíso, Chile<br />Bogotá, Colombia<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Argentina<br />Brasilien<br />Chile<br />Columbia<br />Ecuador<br />Peru<br />Uruguay |
+| Sydamerika | Campinas, Brasilien<br />Rio de Janeiro, Brasilien<br />Sao Paulo, Brasilien<br />Santiago, Chile<br />Bogotá, Colombia<br />Buenos Aires, Argentina | Buenos Aires, Argentina<br />Rio de Janeiro, Brasilien<br />São Paulo, Brasilien<br />Valparaíso, Chile<br />Bogotá, Colombia<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Argentina<br />Brasilien<br />Chile<br />Colombia<br />Ecuador<br />Peru<br />Uruguay |
 | Europa | Wien, Österrike<br />Bryssel, Belgien<br />Sofia, Bulgarien<br />Zagreb, Kroatien<br />Prag, Tjeckien<br />Köpen hamn, Danmark<br /> Helsingfors, Finland<br /> Oslo, Norge<br />Marseille, Frankrike<br />Paris, Frankrike<br />Berlin, Tyskland<br />Frankfurt, Tyskland<br />Aten, Grekland<br />Budapest, Ungern<br />Dublin, Irland<br />Milano, Italien<br />Rom, Italien<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Lissabon, Portugal<br />Bukarest, Rumänien<br />Barcelona, Spanien<br />Madrid, Spanien<br />Stockholm, Sverige<br />Zürich, Schweiz<br />Genève, Schweiz<br />London, Storbritannien<br />Manchester, Storbritannien | Wien, Österrike<br />Köpen hamn, Danmark<br />Helsingfors, Finland<br />Marseille, Frankrike<br />Paris, Frankrike<br />Frankfurt, Tyskland<br />Milano, Italien<br />Riga, Lettland<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Madrid, Spanien<br />Stockholm, Sverige<br />London, Storbritannien <br /> Manchester, Storbritannien| Österrike<br />Bulgarien<br />Danmark<br />Finland<br />Frankrike<br />Tyskland<br />Grekland<br />Irland<br />Italien<br />Nederländerna<br />Polen<br />Ryssland<br />Spanien<br />Sverige<br />Schweiz<br />Storbritannien |
 | Afrika | Kap stadens, Sydafrika<br />Johannesburg, Sydafrika<br />Lagos, Nigeria<br />Nairobi, Kenya | Johannesburg, Sydafrika <br/> Nairobi, Kenya | Sydafrika |
 | Mellanöstern | Dubai, Förenade Arabemiraten<br />Tfn Aviv, Israel<br />Istanbul, Turkiet | Muskat, Oman<br />Fujirah, Förenade Arabemiraten | Qatar<br />Förenade Arabemiraten |

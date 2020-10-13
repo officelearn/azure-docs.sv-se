@@ -4,17 +4,17 @@ description: Beskriver en samling tekniker och tjänster som du kan använda fö
 author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: dedb799121fcdbc6bab38865132ae46a78aa6494
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ad0712de85a08ed581ba89d7e01d8ba1244006b2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91578195"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977569"
 ---
-# <a name="azure-technologies-and-services-for-creating-iot-solutions"></a>Azure-tekniker och-tjänster för att skapa IoT-lösningar
+# <a name="what-azure-technologies-and-services-can-you-use-to-create-iot-solutions"></a>Vilka Azure-tekniker och tjänster kan du använda för att skapa IoT-lösningar?
 
 Azure IoT-teknik och-tjänster ger dig alternativ för att skapa ett brett utbud av IoT-lösningar som möjliggör digital omvandling för din organisation. Du kan till exempel:
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f389581d8fbeb912507b303c46109dd08fcab8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2653742b788ab24fc295ebc156090d1db5f85268
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871524"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978500"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Förbered Azure-infrastrukturen för SAP-HA med hjälp av ett Windows-redundanskluster och en delad disk för SAP ASCS/SCS
 
@@ -165,10 +165,10 @@ ms.locfileid: "88871524"
 Den här artikeln beskriver de steg som du vidtar för att förbereda Azure-infrastrukturen för att installera och konfigurera en ASCS-instans med hög tillgänglighet i ett Windows-redundanskluster med hjälp av en *klusterdelad disk* som ett alternativ för att klustra en SAP ASCS-instans.
 Två alternativ för *klusterdelad disk* visas i dokumentationen:
 
-- [Delade diskar i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared)
+- [Delade diskar i Azure](../../windows/disks-shared.md)
 - Använda [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) för att skapa speglad lagring, som simulerar klustrad delad disk 
 
-Den uppvisade konfigurationen förlitar sig på [Azure närhets placerings grupper (PPG)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) för att uppnå optimal nätverks fördröjning för SAP-arbetsbelastningar. Dokumentationen behandlar inte databas skiktet.  
+Den uppvisade konfigurationen förlitar sig på [Azure närhets placerings grupper (PPG)](./sap-proximity-placement-scenarios.md) för att uppnå optimal nätverks fördröjning för SAP-arbetsbelastningar. Dokumentationen behandlar inte databas skiktet.  
 
 > [!NOTE]
 > Placerings grupper för Azure närhet är nödvändiga för att använda Azure Shared disk.
@@ -199,7 +199,7 @@ Värd namnen och IP-adresserna för det presenterade scenariot är:
 
 ## <a name="create-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Skapa intern Azure-belastningsutjämnare
 
-SAP ASCS, SAP SCS och den nya SAP-ERS2 använder du virtuella värdnamn och virtuella IP-adresser. I Azure krävs en [belastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) för att använda en virtuell IP-adress. Vi rekommenderar starkt att du använder [standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). 
+SAP ASCS, SAP SCS och den nya SAP-ERS2 använder du virtuella värdnamn och virtuella IP-adresser. I Azure krävs en [belastningsutjämnare](../../../load-balancer/load-balancer-overview.md) för att använda en virtuell IP-adress. Vi rekommenderar starkt att du använder [standard Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
 
 
 I följande lista visas konfigurationen av belastningsutjämnaren (A) SCS/ERS. Konfigurationen för både SAP ASCS och ERS2 i utförs i samma Azure Load Balancer.  
@@ -263,8 +263,8 @@ Följande register poster måste ändras på båda klusternoderna:
 
 | Sökväg| Variabelnamn | Variabel typ  | Värde | Dokumentation |
 | --- | --- | --- |---| ---|
-| HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |KeepAliveTime |REG_DWORD (decimal) |120000 |[KeepAliveTime](https://technet.microsoft.com/library/cc957549.aspx) |
-| HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |KeepAliveInterval |REG_DWORD (decimal) |120000 |[KeepAliveInterval](https://technet.microsoft.com/library/cc957548.aspx) |
+| HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |KeepAliveTime |REG_DWORD (decimal) |120000 |[KeepAliveTime](/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)) |
+| HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |KeepAliveInterval |REG_DWORD (decimal) |120000 |[KeepAliveInterval](/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) |
 
 
 Om du vill tillämpa ändringarna startar du om båda klusternoderna.
@@ -325,7 +325,7 @@ Mer information finns i [Windows Server 2019-redundanskluster nya funktioner](ht
    ```
 
 ### <a name="configure-cluster-cloud-quorum"></a>Konfigurera kluster molnets kvorum
-När du använder Windows Server 2016 eller 2019 rekommenderar vi att du konfigurerar [Azure Cloud-vittnet](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), som klusterkvorum.
+När du använder Windows Server 2016 eller 2019 rekommenderar vi att du konfigurerar [Azure Cloud-vittnet](/windows-server/failover-clustering/deploy-cloud-witness), som klusterkvorum.
 
 Kör det här kommandot på en av klusternoderna:
 

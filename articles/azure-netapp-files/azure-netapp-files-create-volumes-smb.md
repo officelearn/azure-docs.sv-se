@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: e2c487b62813bc4480786daa08666fe6471bd18d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d0a16dc639fb3206b480c1091a66686955cbb11d
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325716"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932353"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -45,7 +45,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
     |    AD-webbtjänster    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    Saknas       |    Eko svar    |
+    |    ICMPv4             |    E.t.       |    Eko svar    |
     |    Kerberos           |    464       |    TCP           |
     |    Kerberos           |    464       |    UDP           |
     |    Kerberos           |    88        |    TCP           |
@@ -62,9 +62,9 @@ Ett undernät måste delegeras till Azure NetApp Files.
 
     Adress utrymmet för det virtuella nätverk där Azure NetApp Files distribueras måste läggas till på en ny eller befintlig Active Directory plats (där en domänkontrollant som kan kontaktas av Azure NetApp Files är). 
 
-* De angivna DNS-servrarna måste gå att komma åt från det [delegerade under nätet](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) för Azure NetApp Files.  
+* De angivna DNS-servrarna måste gå att komma åt från det [delegerade under nätet](./azure-netapp-files-delegate-subnet.md) för Azure NetApp Files.  
 
-    Se [rikt linjer för Azure NetApp Files nätverks planering](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) för nätverkstopologier som stöds.
+    Se [rikt linjer för Azure NetApp Files nätverks planering](./azure-netapp-files-network-topologies.md) för nätverkstopologier som stöds.
 
     Nätverks säkerhets grupper (NSG: er) och brand väggar måste ha rätt konfigurerade regler för att tillåta Active Directory-och DNS-trafik begär Anden. 
 
@@ -72,7 +72,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
 
     Om du har domänkontrollanter som inte kan kontaktas av Azure NetApp Files delegerade under nätet kan du ange en Active Directory plats när du skapar Active Directory anslutningen.  Azure NetApp Files behöver endast kommunicera med domänkontrollanter på den plats där Azure NetApp Files-adress utrymmet för under nätet är.
 
-    Se [utforma platstopologi](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) om AD-platser och-tjänster. 
+    Se [utforma platstopologi](/windows-server/identity/ad-ds/plan/designing-the-site-topology) om AD-platser och-tjänster. 
     
 * Du kan aktivera AES-kryptering för en SMB-volym genom att markera rutan **AES-kryptering** i fönstret [Anslut Active Directory](#create-an-active-directory-connection) . Azure NetApp Files stöder krypterings typerna DES, Kerberos AES 128 och Kerberos AES 256 (från den minst säkra som är säkrast). Om du aktiverar AES-kryptering måste de användarautentiseringsuppgifter som används för att ansluta till Active Directory ha det högsta motsvarande konto alternativet som matchar de funktioner som har Aktiver ATS för din Active Directory.    
 
@@ -82,21 +82,21 @@ Ett undernät måste delegeras till Azure NetApp Files.
 
     ![Active Directory användare och datorer MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
 
-* Azure NetApp Files stöder [LDAP-signering](https://docs.microsoft.com/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), vilket möjliggör säker överföring av LDAP-trafik mellan Azure NetApp Files-tjänsten och de [Active Directory domän kontrol Lanterna](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Om du följer anvisningarna i Microsoft Advisory [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) för LDAP-signering bör du aktivera funktionen LDAP-signering i Azure NetApp Files genom att markera rutan **LDAP-signering** i fönstret [Anslut Active Directory](#create-an-active-directory-connection) . 
+* Azure NetApp Files stöder [LDAP-signering](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), vilket möjliggör säker överföring av LDAP-trafik mellan Azure NetApp Files-tjänsten och de [Active Directory domän kontrol Lanterna](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Om du följer anvisningarna i Microsoft Advisory [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) för LDAP-signering bör du aktivera funktionen LDAP-signering i Azure NetApp Files genom att markera rutan **LDAP-signering** i fönstret [Anslut Active Directory](#create-an-active-directory-connection) . 
 
     Konfiguration av [LDAP-kanals bindning](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) har ingen inverkan på den Azure NetApp Files tjänsten. 
 
-Se Azure NetApp Files [FAQ (FAQ](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) ) om ytterligare AD-information. 
+Se Azure NetApp Files [FAQ (FAQ](./azure-netapp-files-faqs.md#smb-faqs) ) om ytterligare AD-information. 
 
 ## <a name="decide-which-domain-services-to-use"></a>Bestäm vilka domän tjänster som ska användas 
 
-Azure NetApp Files stöder både [Active Directory Domain Services](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) (lägger till) och Azure Active Directory Domain Services (AADDS) för AD-anslutningar.  Innan du skapar en AD-anslutning måste du bestämma om du vill använda tillägg eller AADDS.  
+Azure NetApp Files stöder både [Active Directory Domain Services](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) (lägger till) och Azure Active Directory Domain Services (AADDS) för AD-anslutningar.  Innan du skapar en AD-anslutning måste du bestämma om du vill använda tillägg eller AADDS.  
 
-Mer information finns i [jämföra självhanterade Active Directory Domain Services, Azure Active Directory och hanterade Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions). 
+Mer information finns i [jämföra självhanterade Active Directory Domain Services, Azure Active Directory och hanterade Azure Active Directory Domain Services](../active-directory-domain-services/compare-identity-solutions.md). 
 
 ### <a name="active-directory-domain-services"></a>Active Directory Domain Services
 
-Du kan använda önskade [Active Directory platser och tjänste](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) omfång för Azure NetApp Files. Med det här alternativet kan läsningar och skrivningar Active Directory Domain Services (lägger till) domänkontrollanter som är [tillgängliga via Azure NetApp Files](azure-netapp-files-network-topologies.md). Det förhindrar också att tjänsten kommunicerar med domänkontrollanter som inte finns på den angivna Active Directory platser och tjänster-platsen. 
+Du kan använda önskade [Active Directory platser och tjänste](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) omfång för Azure NetApp Files. Med det här alternativet kan läsningar och skrivningar Active Directory Domain Services (lägger till) domänkontrollanter som är [tillgängliga via Azure NetApp Files](azure-netapp-files-network-topologies.md). Det förhindrar också att tjänsten kommunicerar med domänkontrollanter som inte finns på den angivna Active Directory platser och tjänster-platsen. 
 
 Om du vill hitta plats namnet när du använder tillägg kan du kontakta den administrativa gruppen i organisationen som ansvarar för Active Directory Domain Services. Exemplet nedan visar plugin-programmet för Active Directory platser och tjänster där plats namnet visas: 
 
@@ -106,7 +106,7 @@ När du konfigurerar en AD-anslutning för Azure NetApp Files anger du plats nam
 
 ### <a name="azure-active-directory-domain-services"></a>Azure Active Directory Domain Services 
 
-Azure Active Directory Domain Services konfiguration och vägledning för (AADDS) finns i [Azure AD Domain Services dokumentation](https://docs.microsoft.com/azure/active-directory-domain-services/).
+Azure Active Directory Domain Services konfiguration och vägledning för (AADDS) finns i [Azure AD Domain Services dokumentation](../active-directory-domain-services/index.yml).
 
 Ytterligare AADDS-överväganden gäller för Azure NetApp Files: 
 
@@ -184,10 +184,10 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
         ```
         
-        Du kan också använda [Azure CLI-kommandon](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` och `az feature show` Registrera funktionen och Visa registrerings status. 
+        Du kan också använda [Azure CLI-kommandon](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` och `az feature show` Registrera funktionen och Visa registrerings status. 
 
     * **LDAP-signering**   
-        Markera den här kryss rutan om du vill aktivera LDAP-signering. Den här funktionen möjliggör säker LDAP-sökning mellan Azure NetApp Files tjänsten och de användardefinierade [Active Directory Domain Services domän kontrol Lanterna](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). Mer information finns i [ADV190023 | Microsofts vägledning för att aktivera bindning av LDAP-kanaler och LDAP-signering](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
+        Markera den här kryss rutan om du vill aktivera LDAP-signering. Den här funktionen möjliggör säker LDAP-sökning mellan Azure NetApp Files tjänsten och de användardefinierade [Active Directory Domain Services domän kontrol Lanterna](/windows/win32/ad/active-directory-domain-services). Mer information finns i [ADV190023 | Microsofts vägledning för att aktivera bindning av LDAP-kanaler och LDAP-signering](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
 
         ![Active Directory LDAP-signering](../media/azure-netapp-files/active-directory-ldap-signing.png) 
 
@@ -206,7 +206,7 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
         ```
         
-        Du kan också använda [Azure CLI-kommandon](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` och `az feature show` Registrera funktionen och Visa registrerings status. 
+        Du kan också använda [Azure CLI-kommandon](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` och `az feature show` Registrera funktionen och Visa registrerings status. 
 
      * **Användare av säkerhets kopierings princip**  
         Du kan inkludera ytterligare konton som kräver förhöjd behörighet för det dator konto som skapas för användning med Azure NetApp Files. De angivna kontona kommer att kunna ändra NTFS-behörigheter på fil-eller mappnivå. Du kan till exempel ange ett icke-privilegierat tjänst konto som används för att migrera data till en SMB-filresurs i Azure NetApp Files.  
@@ -228,7 +228,7 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
         ```
         
-        Du kan också använda [Azure CLI-kommandon](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` och `az feature show` Registrera funktionen och Visa registrerings status. 
+        Du kan också använda [Azure CLI-kommandon](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` och `az feature show` Registrera funktionen och Visa registrerings status. 
 
     * Autentiseringsuppgifter, inklusive ditt **användar namn** och **lösen ord**
 
@@ -325,6 +325,6 @@ Du kan ange behörigheter för en fil eller mapp genom att använda fliken **sä
 
 * [Montera eller demontera en volym för virtuella Windows- eller Linux-datorer](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resursbegränsningar för Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [Vanliga frågor och svar om SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs)
-* [Läs om integrering av virtuella nätverk för Azure-tjänster](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
-* [Installera en ny Active Directory skog med hjälp av Azure CLI](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)
+* [Vanliga frågor och svar om SMB](./azure-netapp-files-faqs.md#smb-faqs)
+* [Läs om integrering av virtuella nätverk för Azure-tjänster](../virtual-network/virtual-network-for-azure-services.md)
+* [Installera en ny Active Directory skog med hjälp av Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

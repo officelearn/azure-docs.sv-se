@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c69f2ce964d9171197771d783358dcef2ca60726
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 7473da6289d4b871ae77f18fab4c00cebcb55d98
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319533"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977022"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Tilldela eller ta bort licenser i Azure Active Directorys portalen
 
@@ -102,11 +102,11 @@ Se till att alla som behöver använda en licensierad Azure AD-tjänst har rätt
 
 1. På sidan **tilldela** väljer du **användare och grupper**och sedan söker du efter och väljer den grupp som du vill tilldela licensen.
 
-    ![Sidan Tilldela licens, med markerad sökning och välj alternativ](media/license-users-groups/assign-group-license-blade-with-highlight.png)
+    ![Sidan Tilldela licens, med markerad sökning och välj alternativ 2](media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
 1. Välj **tilldelnings alternativ**, se till att du har rätt licens alternativ aktiverat och välj sedan **OK**.
 
-    ![Licens alternativ sidan med alla alternativ som är tillgängliga i licens planen](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![Licens alternativ sidan med alla alternativ som är tillgängliga i licens avtalet 2](media/license-users-groups/license-option-blade-group-assignments.png)
 
     Sidan **tilldela licens** uppdateringar som visar att en användare har marker ATS och att tilldelningarna har kon figurer ATS.
 
@@ -135,7 +135,7 @@ Du kan ta bort en licens från en användares Azure AD-användare på sidan grup
 
 1. Välj **ta bort licens**.
 
-    ![Sidan licensierade grupper med alternativet ta bort licens markerat](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    ![Sidan licensierade grupper med alternativet ta bort licens markerat 2](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
     
     > [!NOTE]
     > När ett lokalt användar konto som synkroniseras med Azure AD hamnar utanför omfånget för synkroniseringen eller när synkroniseringen tas bort, tas användaren bort i Azure AD. När detta inträffar markeras licenser som är tilldelade till användaren direkt eller via gruppbaserad licensiering som **inaktiverade** i stället för att **tas bort**.

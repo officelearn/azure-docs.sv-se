@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: 4a814d575e0879daec64ebfdabc1539219bea250
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc756994cf0f6e12af1c1ad5a6c8db304b4253e3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91368948"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968794"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>Stoppa och starta ett AKS-kluster (Azure Kubernetes service) (för hands version)
 
@@ -30,6 +30,7 @@ När du använder funktionen för att starta/stoppa kluster gäller följande be
 - Den här funktionen stöds bara för Virtual Machine Scale Sets backade kluster.
 - Den här funktionen stöds inte för privata kluster under för hands versionen.
 - Kluster statusen för ett stoppat AKS-kluster bevaras i upp till 12 månader. Om klustret har stoppats i mer än 12 månader går det inte att återställa kluster statusen. Mer information finns i [AKS support policies](support-policies.md).
+- Under för hands versionen måste du stoppa klustrets autoskalning (CA) innan du försöker stoppa klustret.
 - Du kan bara starta eller ta bort ett stoppat AKS-kluster. Starta klustret först om du vill utföra en åtgärd som Scale eller Upgrade.
 
 ### <a name="install-the-aks-preview-azure-cli"></a>Installera `aks-preview` Azure CLI 

@@ -3,15 +3,15 @@ title: Konfigurera belastnings utjämning för Windows Virtual Desktop – Azure
 description: Så här konfigurerar du belastnings Utjämnings metoden för en Windows Virtual Desktop-miljö.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/29/2019
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 07eae73a36bf4051925547fa375f46963a162881
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b133f4cfcb86119687d0d9be1ce91d9207af32a
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88010114"
+ms.locfileid: "91932523"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Konfigurera metoden för belastningsutjämning för Windows Virtual Desktop
 
@@ -51,7 +51,10 @@ Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname>
 
 ## <a name="configure-depth-first-load-balancing"></a>Konfigurera djup-första belastnings utjämning
 
-Djup – den första belastnings utjämningen distribuerar nya användarsessioner till en tillgänglig sessionsvariabel med det högsta antalet anslutningar men har inte uppnått gränsen för högsta antal sessioner. När du konfigurerar djup-första belastnings utjämning, måste du ange en högsta sessionsgräns per session-värd i poolen.
+Djup – den första belastnings utjämningen distribuerar nya användarsessioner till en tillgänglig sessionsvariabel med det högsta antalet anslutningar men har inte uppnått gränsen för högsta antal sessioner.
+
+>[!IMPORTANT]
+>När du konfigurerar djup-första belastnings utjämning, måste du ange en högsta sessionsgräns per session-värd i poolen.
 
 Kör följande PowerShell-cmdlet för att konfigurera en adresspool för att utföra djup-första belastnings utjämning:
 

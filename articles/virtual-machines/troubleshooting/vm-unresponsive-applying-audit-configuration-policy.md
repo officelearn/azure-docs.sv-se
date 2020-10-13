@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: bc41783bf977806b5f9bba5b953f1f581ad07f18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff21975c34c28d7476635467e0c1abb8e6575e35
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299532"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977960"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>Den virtuella datorn svarar inte när konfigurations principen för gransknings principen tillämpas
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller steg för att lösa problem där den virtuella dat
 
 ## <a name="symptom"></a>Symptom
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar att operativ systemet (OS) inte svarade under en start med meddelandet att **använda konfigurations principen för gransknings principer**.
+När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar att operativ systemet (OS) inte svarade under en start med meddelandet att **använda konfigurations principen för gransknings principer**.
 
   ![Operativ systemet startar med meddelandet: "tillämpar konfigurations principen för gransknings principer"](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 
@@ -54,7 +54,7 @@ Här är en problematisk princip: *Computer Datorkonfiguration\principer\adminis
 
 ### <a name="create-and-access-a-repair-vm"></a>Skapa och få åtkomst till en virtuell reparations dator
 
-1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en reparations-VM.
+1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) för att förbereda en reparations-VM.
 1. Anslut till den virtuella reparations datorn med hjälp av Anslutning till fjärrskrivbord.
 
 ### <a name="disable-the-policy"></a>Inaktivera principen
@@ -153,7 +153,7 @@ Här är en problematisk princip: *Computer Datorkonfiguration\principer\adminis
    
 ### <a name="rebuild-the-virtual-machine"></a>Återskapa den virtuella datorn
 
-1. Använd [steg 5 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att återskapa den virtuella datorn.
+1. Använd [steg 5 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) för att återskapa den virtuella datorn.
 
 1. Testa om din virtuella dator startar normalt för att se om problemet har löst problemet.
 
@@ -175,11 +175,11 @@ För att lösa det här problemet måste du först samla in minnesdumpen för kr
 
 #### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Koppla OS-disken till en ny virtuell reparations dator
 
-1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en ny reparations-VM.
+1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) för att förbereda en ny reparations-VM.
 1. Använda Anslutning till fjärrskrivbord ansluta till den virtuella reparations datorn.
 
 #### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Leta upp dumpfilen och skicka in ett support ärende
 
 1. På den reparera virtuella datorn går du till Windows-mappen på den anslutna OS-disken. Om den driv rutins beteckning som tilldelas till den anslutna OS-disken är märkt som *F*måste du gå till `F:\Windows` .
 1. Leta upp `memory.dmp` filen och skicka sedan [ett support ärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med minnesdumpen.
-1. Om du har problem med att hitta `memory.dmp` filen kan du i stället använda [icke-maskbart avbrott (NMI) i serie konsolen](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls) . Följ guiden för att [Generera en kraschdump-fil med NMI-anrop här](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump).
+1. Om du har problem med att hitta `memory.dmp` filen kan du i stället använda [icke-maskbart avbrott (NMI) i serie konsolen](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) . Följ guiden för att [Generera en kraschdump-fil med NMI-anrop här](/windows/client-management/generate-kernel-or-complete-crash-dump).

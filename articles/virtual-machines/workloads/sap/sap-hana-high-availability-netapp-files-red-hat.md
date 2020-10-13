@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 3a5238ec9e9bc30da330be206eb559acc3c2ec07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce24bf541c5a71c50bb34f5e42aa3452f01b871c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598074"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978177"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA skala upp med Azure NetApp Files på Red Hat Enterprise Linux
 
@@ -93,9 +93,9 @@ Läs följande SAP-anteckningar och dokument först:
 
 ## <a name="overview"></a>Översikt
 
-Traditionellt i skalbar miljö alla fil system för SAP HANA monteras från lokal lagring. Att konfigurera hög tillgänglighet för SAP HANA systemreplikering på Red Hat Enterprise Linux publiceras i guiden [konfigurera SAP HANA systemreplikering på RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel)
+Traditionellt i skalbar miljö alla fil system för SAP HANA monteras från lokal lagring. Att konfigurera hög tillgänglighet för SAP HANA systemreplikering på Red Hat Enterprise Linux publiceras i guiden [konfigurera SAP HANA systemreplikering på RHEL](./sap-hana-high-availability-rhel.md)
 
-För att uppnå SAP HANA hög tillgänglighet för att skala upp systemet på [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/) NFS-resurser behöver vi en del ytterligare resurs konfiguration i klustret, så att Hana-resurser kan återställas när en nod förlorar åtkomst till NFS-resurserna på ANF.  Klustret hanterar NFS-monteringar som gör det möjligt för IT att övervaka hälsan för resurserna. Beroenden mellan fil systemet monteras och de SAP HANA resurserna tillämpas.  
+För att uppnå SAP HANA hög tillgänglighet för att skala upp systemet på [Azure NetApp Files](../../../azure-netapp-files/index.yml) NFS-resurser behöver vi en del ytterligare resurs konfiguration i klustret, så att Hana-resurser kan återställas när en nod förlorar åtkomst till NFS-resurserna på ANF.  Klustret hanterar NFS-monteringar som gör det möjligt för IT att övervaka hälsan för resurserna. Beroenden mellan fil systemet monteras och de SAP HANA resurserna tillämpas.  
 
 ![SAP HANA HA skalning på ANF](./media/sap-hana-high-availability-rhel/sap-hana-scale-up-netapp-files-red-hat.png)
 
@@ -125,29 +125,29 @@ Konfigurationen av SAP HANA System Replication använder ett dedikerat virtuellt
 
 ## <a name="set-up-the-azure-netapp-file-infrastructure"></a>Konfigurera fil infrastrukturen i Azure NetApp
 
-Innan du fortsätter med inställningarna för Azure NetApp Files-infrastrukturen kan du bekanta dig med dokumentationen om Azure [NetApp-filer](https://docs.microsoft.com/azure/azure-netapp-files/).
+Innan du fortsätter med inställningarna för Azure NetApp Files-infrastrukturen kan du bekanta dig med dokumentationen om Azure [NetApp-filer](../../../azure-netapp-files/index.yml).
 
 Azure NetApp Files finns i flera [Azure-regioner](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Kontrol lera om din valda Azure-region erbjuder Azure NetApp Files.
 
 För information om tillgängligheten för Azure NetApp Files av Azure-regionen, se [Azure NetApp Files tillgänglighet per Azure-region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all).
 
-Innan du distribuerar Azure NetApp Files kan du begära onboarding till Azure NetApp Files genom att gå till [Registrera dig för Azure NetApp Files instruktioner](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).
+Innan du distribuerar Azure NetApp Files kan du begära onboarding till Azure NetApp Files genom att gå till [Registrera dig för Azure NetApp Files instruktioner](../../../azure-netapp-files/azure-netapp-files-register.md).
 
 ### <a name="deploy-azure-netapp-files-resources"></a>Distribuera Azure NetApp Files-resurser
 
-Följande instruktioner förutsätter att du redan har distribuerat ditt [virtuella Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Azure NetApp Files resurser och virtuella datorer, där Azure NetApp Files resurserna ska monteras, måste distribueras i samma virtuella Azure-nätverk eller i peer-anslutna virtuella Azure-nätverk.
+Följande instruktioner förutsätter att du redan har distribuerat ditt [virtuella Azure-nätverk](../../../virtual-network/virtual-networks-overview.md). Azure NetApp Files resurser och virtuella datorer, där Azure NetApp Files resurserna ska monteras, måste distribueras i samma virtuella Azure-nätverk eller i peer-anslutna virtuella Azure-nätverk.
 
-1. Om du inte redan har distribuerat resurserna begär du [att registrera dig för att Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).
+1. Om du inte redan har distribuerat resurserna begär du [att registrera dig för att Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).
 
-2. Skapa ett NetApp-konto i din valda Azure-region genom att följa instruktionerna i [skapa ett NetApp-konto](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).
+2. Skapa ett NetApp-konto i din valda Azure-region genom att följa instruktionerna i [skapa ett NetApp-konto](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
 
-3.  Konfigurera en pool för Azure NetApp Files kapacitet genom att följa anvisningarna i [Konfigurera en Azure NetApp Files kapacitets pool](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).
+3.  Konfigurera en pool för Azure NetApp Files kapacitet genom att följa anvisningarna i [Konfigurera en Azure NetApp Files kapacitets pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
 
-    Den HANA-arkitektur som presenteras i den här artikeln använder en pool med enskild Azure NetApp Files kapacitet på *Ultra* service-nivå. För HANA-arbetsbelastningar i Azure rekommenderar vi att du använder en Azure NetApp Files *Ultra* eller *Premium* [service nivå](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels).
+    Den HANA-arkitektur som presenteras i den här artikeln använder en pool med enskild Azure NetApp Files kapacitet på *Ultra* service-nivå. För HANA-arbetsbelastningar i Azure rekommenderar vi att du använder en Azure NetApp Files *Ultra* eller *Premium* [service nivå](../../../azure-netapp-files/azure-netapp-files-service-levels.md).
 
-4.  Delegera ett undernät till Azure NetApp Files, enligt beskrivningen i instruktionerna i [delegera ett undernät till Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).
+4.  Delegera ett undernät till Azure NetApp Files, enligt beskrivningen i instruktionerna i [delegera ett undernät till Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 
-5.  Distribuera Azure NetApp Files-volymer genom att följa anvisningarna i [skapa en NFS-volym för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).
+5.  Distribuera Azure NetApp Files-volymer genom att följa anvisningarna i [skapa en NFS-volym för Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).
 
     När du distribuerar volymerna, måste du välja NFSv 4.1-versionen. Distribuera volymerna i det angivna Azure NetApp Files-undernätet. IP-adresserna för Azure NetApp-volymerna tilldelas automatiskt.
 
@@ -171,10 +171,10 @@ Tänk på följande när du skapar din Azure NetApp Files för SAP HANA skala up
 
 - Den minsta kapacitets poolen är 4 tebibyte (TiB).
 - Den minsta volym storleken är 100 gibibyte (GiB).
-- Azure NetApp Files och alla virtuella datorer där Azure NetApp Files volymer ska monteras måste finnas i samma virtuella Azure-nätverk eller i peer-anslutna [virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) i samma region.
+- Azure NetApp Files och alla virtuella datorer där Azure NetApp Files volymer ska monteras måste finnas i samma virtuella Azure-nätverk eller i peer-anslutna [virtuella nätverk](../../../virtual-network/virtual-network-peering-overview.md) i samma region.
 - Det valda virtuella nätverket måste ha ett undernät som är delegerat till Azure NetApp Files.
-- Data flödet för en Azure NetApp Files volym är en funktion av volym kvoten och tjänst nivån, enligt beskrivningen i [service nivå för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). När du ändrar storlek på HANA Azure NetApp-volymer ser du till att det resulterande data flödet uppfyller HANA-system kraven.
-- Med Azure NetApp Files [export policy](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)kan du kontrol lera tillåtna klienter, åtkomst typ (Läs-och Skriv behörighet, skrivskyddad och så vidare).
+- Data flödet för en Azure NetApp Files volym är en funktion av volym kvoten och tjänst nivån, enligt beskrivningen i [service nivå för Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). När du ändrar storlek på HANA Azure NetApp-volymer ser du till att det resulterande data flödet uppfyller HANA-system kraven.
+- Med Azure NetApp Files [export policy](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md)kan du kontrol lera tillåtna klienter, åtkomst typ (Läs-och Skriv behörighet, skrivskyddad och så vidare).
 - Den Azure NetApp Files funktionen är inte Zone-medveten än. Funktionen distribueras för närvarande inte i alla tillgänglighets zoner i en Azure-region. Var medveten om potentiella fördröjnings konsekvenser i vissa Azure-regioner.
 
 > [!IMPORTANT]
@@ -182,7 +182,7 @@ Tänk på följande när du skapar din Azure NetApp Files för SAP HANA skala up
 
 ### <a name="sizing-of-hana-database-on-azure-netapp-files"></a>Storlek på HANA-databas på Azure NetApp Files
 
-Data flödet för en Azure NetApp Files volym är en funktion av volymens storlek och tjänst nivå, enligt beskrivningen i [service nivå för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels).
+Data flödet för en Azure NetApp Files volym är en funktion av volymens storlek och tjänst nivå, enligt beskrivningen i [service nivå för Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md).
 
 När du utformar infrastrukturen för SAP i Azure bör du vara medveten om några lägsta lagrings krav för SAP, som översätter minsta data flödes egenskaper:
 
@@ -190,7 +190,7 @@ När du utformar infrastrukturen för SAP i Azure bör du vara medveten om någr
 - Läs aktivitet minst 400 MB/s för/Hana/data för I/O-storlekarna på 16 MB och 64 MB.
 - Skriv aktivitet minst 250 MB/s för/Hana/data med I/O-storlekar på 16 MB och 64 MB.
 
-[Azure NetApp Files data flödes gränser](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) per 1 TIB volym kvot:
+[Azure NetApp Files data flödes gränser](../../../azure-netapp-files/azure-netapp-files-service-levels.md) per 1 TIB volym kvot:
 
 - Premium Storage nivå – 64 MiB/s.
 - Ultra Storage-nivå – 128 MiB/s.
@@ -256,7 +256,7 @@ Först måste du skapa Azure NetApp Files volymerna. Utför sedan följande steg
         1.  Välj **OK**.
 
 > [!NOTE] 
-> När virtuella datorer utan offentliga IP-adresser placeras i backend-poolen för intern (ingen offentlig IP-adress) standard Azure-belastningsutjämnare, kommer det inte att finnas någon utgående Internet anslutning, om inte ytterligare konfiguration utförs för att tillåta routning till offentliga slut punkter. Mer information om hur du uppnår utgående anslutningar finns i Översikt över [offentliga slut punkter för Virtual Machines med Azure standard Load Balancer i SAP-scenarier med hög tillgänglighet](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).
+> När virtuella datorer utan offentliga IP-adresser placeras i backend-poolen för intern (ingen offentlig IP-adress) standard Azure-belastningsutjämnare, kommer det inte att finnas någon utgående Internet anslutning, om inte ytterligare konfiguration utförs för att tillåta routning till offentliga slut punkter. Mer information om hur du uppnår utgående anslutningar finns i Översikt över [offentliga slut punkter för Virtual Machines med Azure standard Load Balancer i SAP-scenarier med hög tillgänglighet](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
 9. Om ditt scenario till exempel använder Basic Load Balancer, följer du dessa konfigurations steg:
     1.  Konfigurera belastningsutjämnaren. Börja med att skapa en IP-pool på klient sidan:
@@ -308,7 +308,7 @@ Först måste du skapa Azure NetApp Files volymerna. Utför sedan följande steg
 Om du vill ha mer information om de portar som krävs för SAP HANA kan du läsa kapitel [anslutningarna till klient databaserna](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) i guiden för [SAP HANA klient databaser](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) eller SAP NOTE [2388694](https://launchpad.support.sap.com/#/notes/2388694).
 
 > [!IMPORTANT]
-> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net.IPv4.tcp_timestamps** till **0**. Mer information finns i [Load Balancer hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview). Se även SAP anmärkning [2382421](https://launchpad.support.sap.com/#/notes/2382421).
+> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net.IPv4.tcp_timestamps** till **0**. Mer information finns i [Load Balancer hälso avsökningar](../../../load-balancer/load-balancer-custom-probe-overview.md). Se även SAP anmärkning [2382421](https://launchpad.support.sap.com/#/notes/2382421).
 
 ## <a name="mount-the-azure-netapp-files-volume"></a>Montera Azure NetApp Files volym
 
@@ -457,7 +457,7 @@ Om du vill ha mer information om de portar som krävs för SAP HANA kan du läsa
 
 ## <a name="configure-sap-hana-system-replication"></a>Konfigurera SAP HANA system replikering
 
-Följ stegen i Konfigurera [SAP HANA systemreplikering](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-sap-hana-20-system-replication) för att konfigurera SAP HANA system replikering. 
+Följ stegen i Konfigurera [SAP HANA systemreplikering](./sap-hana-high-availability-rhel.md#configure-sap-hana-20-system-replication) för att konfigurera SAP HANA system replikering. 
 
 ## <a name="cluster-configuration"></a>Klusterkonfiguration
 
@@ -465,7 +465,7 @@ I det här avsnittet beskrivs de steg som krävs för att klustret ska kunna kö
 
 ### <a name="create-a-pacemaker-cluster"></a>Skapa ett pacemaker-kluster
 
-Följ stegen i [Konfigurera pacemaker på Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) i Azure för att skapa ett grundläggande pacemaker-kluster för den här Hana-servern.
+Följ stegen i [Konfigurera pacemaker på Red Hat Enterprise Linux](./high-availability-guide-rhel-pacemaker.md) i Azure för att skapa ett grundläggande pacemaker-kluster för den här Hana-servern.
 
 ### <a name="configure-filesystem-resources"></a>Konfigurera fil Systems resurser
 
@@ -540,7 +540,7 @@ I det här exemplet har varje klusternod sina egna HANA NFS-filsystem/Hana/Share
 
 ### <a name="configure-sap-hana-cluster-resources"></a>Konfigurera SAP HANA kluster resurser
 
-1. Följ stegen i [skapa SAP HANA kluster resurser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#create-sap-hana-cluster-resources) för att skapa SAP HANA-resurserna i klustret. När SAP HANA-resurser har skapats måste vi skapa en plats regel begränsning mellan SAP HANA resurser och fil system (NFS-monteringar)
+1. Följ stegen i [skapa SAP HANA kluster resurser](./sap-hana-high-availability-rhel.md#create-sap-hana-cluster-resources) för att skapa SAP HANA-resurserna i klustret. När SAP HANA-resurser har skapats måste vi skapa en plats regel begränsning mellan SAP HANA resurser och fil system (NFS-monteringar)
 
 2. **[1]** konfigurera begränsningar mellan SAP HANA resurser och NFS-monteringar
 
@@ -687,4 +687,4 @@ I det här avsnittet beskrivs hur du kan testa installationen.
          vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hanadb2
     ```
 
-   Vi rekommenderar att du testar SAP HANA kluster konfigurationen noga, genom att även utföra de tester som beskrivs i [installations SAP HANA systemreplikering på RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#test-the-cluster-setup).   
+   Vi rekommenderar att du testar SAP HANA kluster konfigurationen noga, genom att även utföra de tester som beskrivs i [installations SAP HANA systemreplikering på RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).

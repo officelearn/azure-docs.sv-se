@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperfq1
-ms.openlocfilehash: e6c85ba79c21c9a8120feebc02477506eb93d2e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d5e5e6cc77c7fe1d32f0834831ef1b930ee834d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500376"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966176"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Konfigurera en IoT Edge-enhet för att kommunicera via en proxyserver
 
@@ -25,7 +25,7 @@ Den här artikeln vägleder dig genom följande fyra steg för att konfigurera o
 
 1. [**Installera IoT Edge runtime på enheten**](#install-the-runtime-through-a-proxy)
 
-   Installations skripten för IoT Edge hämtar paket och filer från Internet, så din enhet måste kommunicera via proxyservern för att utföra dessa förfrågningar. För Windows-enheter tillhandahåller installations skriptet även ett alternativ för [Offline-installation](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation) .
+   Installations skripten för IoT Edge hämtar paket och filer från Internet, så din enhet måste kommunicera via proxyservern för att utföra dessa förfrågningar. För Windows-enheter tillhandahåller installations skriptet även ett alternativ för offline-installation.
 
    Det här steget är en engångs process för att konfigurera den IoT Edge enheten när du först konfigurerar den. Samma anslutningar krävs också när du uppdaterar IoT Edge Runtime.
 
@@ -65,7 +65,7 @@ Oavsett om din IoT Edge-enhet körs på Windows eller Linux måste du komma åt 
 
 ### <a name="linux-devices"></a>Linux-enheter
 
-Om du installerar IoT Edge runtime på en Linux-enhet konfigurerar du paket hanteraren att gå via proxyservern för att få åtkomst till installations paketet. Konfigurera till exempel [apt-get för att använda en http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). När paket hanteraren har kon figurer ATS följer du anvisningarna i [installera Azure IoT Edge runtime på Linux](how-to-install-iot-edge-linux.md) som vanligt.
+Om du installerar IoT Edge runtime på en Linux-enhet konfigurerar du paket hanteraren att gå via proxyservern för att få åtkomst till installations paketet. Konfigurera till exempel [apt-get för att använda en http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). När paket hanteraren har kon figurer ATS följer du anvisningarna i [installera Azure IoT Edge runtime](how-to-install-iot-edge.md) som vanligt.
 
 ### <a name="windows-devices"></a>Windows-enheter
 
@@ -93,7 +93,7 @@ $proxyCredential = (Get-Credential).GetNetworkCredential()
 Deploy-IoTEdge -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyCredential' = $proxyCredential }
 ```
 
-Mer information om parametrar finns i [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). Mer information om installations alternativ för Windows, inklusive offline-installation, finns i [installera Azure IoT Edge runtime i Windows](how-to-install-iot-edge-windows.md).
+Mer information om parametrar finns i [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). Mer information om installations parametrarna för Windows finns i [PowerShell-skript för IoT Edge i Windows](reference-windows-scripts.md).
 
 ## <a name="configure-the-daemons"></a>Konfigurera daemonar
 

@@ -1,20 +1,20 @@
 ---
 title: Självstudie – konfigurera LDAPs för Azure Active Directory Domain Services | Microsoft Docs
 description: I den här självstudien får du lära dig hur du konfigurerar säkra LDAP (Lightweight Directory Access Protocol) för en Azure Active Directory Domain Services hanterad domän.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 1164d838a45496a075d356995a60beb967cdfcca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: f5ebe594f1f50c7b7490e5ead8cb3fe7636f0ce7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88054348"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967485"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän
 
@@ -24,7 +24,7 @@ Med Azure AD DS kan du konfigurera den hanterade domänen för att använda säk
 
 Den här självstudien visar hur du konfigurerar LDAPs för en Azure AD DS-hanterad domän.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa ett digitalt certifikat för användning med Azure AD DS
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -224,7 +224,7 @@ Nu ska vi skapa en regel för att tillåta inkommande säker LDAP-åtkomst via T
 1. Listan över befintliga inkommande och utgående säkerhets regler visas. Välj **inställningar > inkommande säkerhets regler**till vänster i fönstret nätverks säkerhets grupp.
 1. Välj **Lägg till**och skapa sedan en regel för att tillåta *TCP* -port *636*. För förbättrad säkerhet väljer du källan som *IP-adresser* och anger sedan din egen giltiga IP-adress eller intervall för din organisation.
 
-    | Inställningen                           | Värde        |
+    | Inställning                           | Värde        |
     |-----------------------------------|--------------|
     | Källa                            | IP-adresser |
     | Käll-IP-adresser/CIDR-intervall | En giltig IP-adress eller ett giltigt intervall för din miljö |
@@ -234,7 +234,7 @@ Nu ska vi skapa en regel för att tillåta inkommande säker LDAP-åtkomst via T
     | Protokoll                          | TCP          |
     | Åtgärd                            | Tillåt        |
     | Prioritet                          | 401          |
-    | Name                              | AllowLDAPS   |
+    | Namn                              | AllowLDAPS   |
 
 1. När du är klar väljer du **Lägg till** för att spara och tillämpa regeln.
 

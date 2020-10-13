@@ -9,20 +9,20 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: b19bac439035da85d542d62f33e813822edc38d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2961bbf65fe1cf3ddf59c648f506cee85e248a5
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904584"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951629"
 ---
-# <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Självstudie: transformera data med Azure Stack Edge Pro
+# <a name="tutorial-transform-the-data-with-azure-stack-edge-pro"></a>Självstudie: transformera data med Azure Stack Edge Pro
 
 I den här självstudien beskrivs hur du konfigurerar en beräknings roll på din Azure Stack Edge Pro-enhet. När du har konfigurerat Compute-rollen kan Azure Stack Edge Pro omvandla data innan de skickas till Azure.
 
 Den här proceduren kan ta cirka 10 till 15 minuter att slutföra.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Konfigurera beräkning
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Verifiera datatransformering och överföring
 
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du ställer in en beräknings roll på din Azure Stack Edge Pro-enhet ser du till att:
 
@@ -53,13 +53,13 @@ Om du vill konfigurera Compute på Azure Stack Edge Pro skapar du en IoT Hub res
     |Field  |Värde  |
     |---------|---------|
     |IoT Hub     | Välj från **ny** eller **befintlig**. <br> Som standard används nivån Standard (S1) till att skapa en IoT-resurs. Om du vill använda en IoT-resurs på kostnadsfri nivå skapar du en sådan och väljer sedan den befintliga resursen. <br> I varje fall använder IoT Hub resursen samma prenumeration och resurs grupp som används av Azure Stack Edge-resursen.     |
-    |Name     |Ange ett namn för din IoT Hub-resurs.         |
+    |Namn     |Ange ett namn för din IoT Hub-resurs.         |
 
-    ![Kom igång med Compute](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
+    ![Kom igång med Compute 2](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
 
 4. Välj **Skapa**. Det tar några minuter att skapa en IoT Hub-resurs. När IoT Hub resursen har skapats kan du **Konfigurera** Compute-panelen för att Visa beräknings konfigurationen. Bekräfta att Edge Compute-rollen har kon figurer ATS genom att välja **Visa beräkning** på panelen **Konfigurera beräkning** .
     
-    ![Kom igång med Compute](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
+    ![Kom igång med Compute 3](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
 
     > [!NOTE]
     > Om dialog rutan **Konfigurera beräkning** stängs innan IoT Hub är kopplad till Azure Stack Edge Pro-enheten, skapas IoT Hub men visas inte i beräknings konfigurationen. 
@@ -138,19 +138,19 @@ Verifiera att modulen körs genom att göra följande:
  
 1. I Utforskaren ansluter du till både de lokala resurserna och kant resurserna som du skapade tidigare.
 
-    ![Verifiera datatransformering](./media/azure-stack-edge-deploy-configure-compute/verify-data-2.png) 
+    ![Verifiera data Transformation 2](./media/azure-stack-edge-deploy-configure-compute/verify-data-2.png) 
  
 1. Lägg till data i den lokala resursen.
 
-    ![Verifiera datatransformering](./media/azure-stack-edge-deploy-configure-compute/verify-data-3.png) 
+    ![Verifiera data Transform 3](./media/azure-stack-edge-deploy-configure-compute/verify-data-3.png) 
  
     Data flyttas till molnresursen.
 
-    ![Verifiera datatransformering](./media/azure-stack-edge-deploy-configure-compute/verify-data-4.png)  
+    ![Verifiera data omvandling 4](./media/azure-stack-edge-deploy-configure-compute/verify-data-4.png)  
 
     Data pushas sedan från molnresursen till lagringskontot. Visa data genom att gå till Storage Explorer.
 
-    ![Verifiera datatransformering](./media/azure-stack-edge-deploy-configure-compute/verify-data-5.png) 
+    ![Verifiera data omvandling 5](./media/azure-stack-edge-deploy-configure-compute/verify-data-5.png) 
  
 Du har slutfört valideringsprocessen.
 

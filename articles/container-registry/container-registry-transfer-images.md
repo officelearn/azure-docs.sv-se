@@ -2,14 +2,14 @@
 title: Överförings artefakter
 description: Överföra samlingar med avbildningar eller andra artefakter från ett behållar register till ett annat register genom att skapa en överförings pipeline med Azure Storage-konton
 ms.topic: article
-ms.date: 05/08/2020
+ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: ed848380457862fee506bf5111789e5d44545bdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd2cee972ef173853572b871bc80b92b28c505cd
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253419"
+ms.locfileid: "91932608"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Överföra artefakter till ett annat register
 
@@ -21,7 +21,7 @@ Om du vill överföra artefakter skapar du en *överförings pipeline* som repli
 * Blobben kopieras från käll lagrings kontot till ett mål lagrings konto
 * Blobben i mål lagrings kontot importeras som artefakter i mål registret. Du kan ställa in import pipelinen så att den utlöses när artefakt-bloben uppdateras i mål lagringen.
 
-Överföring är perfekt för att kopiera innehåll mellan två Azure-behållar register i fysiskt frånkopplade moln, som åtgärdas av lagrings konton i varje moln. För avbildnings kopiering från behållar register i anslutna moln, inklusive Docker Hub och andra moln leverantörer, rekommenderas [avbildnings import](container-registry-import-images.md) i stället.
+Överföring är perfekt för att kopiera innehåll mellan två Azure-behållar register i fysiskt frånkopplade moln, som åtgärdas av lagrings konton i varje moln. Om du i stället vill kopiera avbildningar från behållar register i anslutna moln, inklusive Docker Hub och andra moln leverantörer, rekommenderas [avbildnings import](container-registry-import-images.md) .
 
 I den här artikeln använder du Azure Resource Manager mallar distributioner för att skapa och köra överförings pipelinen. Azure CLI används för att etablera de associerade resurserna, till exempel lagrings hemligheter. Azure CLI-version 2.2.0 eller senare rekommenderas. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI][azure-cli].
 
@@ -32,11 +32,18 @@ Den här funktionen är tillgänglig i tjänst nivån **Premium** container Regi
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **Behållar** register – du behöver ett befintligt käll register med artefakter att överföra och ett mål register. ACR-överföring är avsedd för förflyttning över fysiskt frånkopplade moln. För testning kan käll-och mål registren vara i samma eller en annan Azure-prenumeration, Active Directory klient organisation eller molnet. Om du behöver skapa ett register, se [snabb start: skapa ett privat behållar register med hjälp av Azure CLI](container-registry-get-started-azure-cli.md). 
-* **Lagrings konton** – skapa käll-och mål lagrings konton i en prenumeration och plats som du väljer. I test syfte kan du använda samma prenumeration eller prenumerationer som käll-och mål register. I scenarier med flera moln kan du vanligt vis skapa ett separat lagrings konto i varje moln. Om det behövs skapar du lagrings kontona med [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) eller andra verktyg. 
+* **Behållar** register – du behöver ett befintligt käll register med artefakter att överföra och ett mål register. ACR-överföring är avsedd för förflyttning över fysiskt frånkopplade moln. För testning kan käll-och mål registren vara i samma eller en annan Azure-prenumeration, Active Directory klient organisation eller molnet. 
+
+   Om du behöver skapa ett register, se [snabb start: skapa ett privat behållar register med hjälp av Azure CLI](container-registry-get-started-azure-cli.md). 
+* **Lagrings konton** – skapa käll-och mål lagrings konton i en prenumeration och plats som du väljer. I test syfte kan du använda samma prenumeration eller prenumerationer som käll-och mål register. I scenarier med flera moln kan du vanligt vis skapa ett separat lagrings konto i varje moln. 
+
+  Om det behövs skapar du lagrings kontona med [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) eller andra verktyg. 
 
   Skapa en BLOB-behållare för artefakt överföring i varje konto. Du kan till exempel skapa en behållare med namnet *transfer*. Två eller flera överförings pipeliner kan dela samma lagrings konto, men bör använda olika lagrings behållar omfång.
-* **Nyckel valv** – nyckel valv krävs för att lagra SAS-tokens hemligheter som används för att komma åt käll-och mål lagrings konton. Skapa käll-och mål nyckel valven i samma Azure-prenumeration eller prenumerationer som käll-och mål register. Om det behövs skapar du nyckel valv med [Azure CLI](../key-vault/secrets/quick-create-cli.md) eller andra verktyg.
+* **Nyckel valv** – nyckel valv krävs för att lagra SAS-tokens hemligheter som används för att komma åt käll-och mål lagrings konton. Skapa käll-och mål nyckel valven i samma Azure-prenumeration eller prenumerationer som käll-och mål register. I demonstrations syfte förutsätter de mallar och kommandon som används i den här artikeln också att käll-och mål nyckel valven finns i samma resurs grupper som käll-och mål registren. Användning av vanliga resurs grupper krävs inte, men det fören klar de mallar och kommandon som används i den här artikeln.
+
+   Om det behövs skapar du nyckel valv med [Azure CLI](../key-vault/secrets/quick-create-cli.md) eller andra verktyg.
+
 * **Miljövariabler** – till exempel kommandon i den här artikeln anger du följande miljövariabler för käll-och mål miljö. Alla exempel är formaterade för bash-gränssnittet.
   ```console
   SOURCE_RG="<source-resource-group>"
@@ -62,7 +69,7 @@ Lagrings autentisering använder SAS-token som hanteras som hemligheter i nyckel
 
 ### <a name="things-to-know"></a>Saker att känna till
 * ExportPipeline och ImportPipeline kommer vanligt vis att finnas i olika Active Directory klienter som är kopplade till käll-och mål molnen. Det här scenariot kräver separata hanterade identiteter och nyckel valv för export-och import resurserna. I test syfte kan dessa resurser placeras i samma moln, vilket delar identiteter.
-* I pipeline-exemplen skapas systemtilldelade hanterade identiteter för åtkomst till Key Vault-hemligheter. ExportPipelines och ImportPipelines har även stöd för användar tilldelade identiteter. I så fall måste du konfigurera nyckel valven med åtkomst principer för identiteterna. 
+* Som standard ger ExportPipeline och ImportPipeline-mallarna en systemtilldelad hanterad identitet för att få åtkomst till Key Vault-hemligheter. Mallarna ExportPipeline och ImportPipeline stöder också en användardefinierad identitet som du anger. 
 
 ## <a name="create-and-store-sas-keys"></a>Skapa och lagra SAS-nycklar
 
@@ -152,7 +159,13 @@ Ange följande parameter värden i filen `azuredeploy.parameters.json` :
 
 ### <a name="create-the-resource"></a>Skapa resursen
 
-Kör [AZ Deployment Group Create][az-deployment-group-create] för att skapa resursen. I följande exempel namnger distributionen *exportPipeline*.
+Kör [AZ Deployment Group Create][az-deployment-group-create] för att skapa en resurs med namnet *exportPipeline* som visas i följande exempel. Som standard, med det första alternativet, aktiverar exempel mal len en systemtilldelad identitet i ExportPipeline-resursen. 
+
+Med det andra alternativet kan du ange resursen med en tilldelad identitet. (Skapandet av den användardefinierade identiteten visas inte.)
+
+Med båda alternativen konfigurerar mallen identiteten för att få åtkomst till SAS-token i export nyckel valvet. 
+
+#### <a name="option-1-create-resource-and-enable-system-assigned-identity"></a>Alternativ 1: skapa resurs och aktivera systemtilldelad identitet
 
 ```azurecli
 az deployment group create \
@@ -162,10 +175,23 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
+#### <a name="option-2-create-resource-and-provide-user-assigned-identity"></a>Alternativ 2: skapa resurs och ge användare tilldelad identitet
+
+I det här kommandot anger du resurs-ID för den användarspecifika identiteten som en ytterligare parameter.
+
+```azurecli
+az deployment group create \
+  --resource-group $SOURCE_RG \
+  --template-file azuredeploy.json \
+  --name exportPipeline \
+  --parameters azuredeploy.parameters.json \
+  --parameters userAssignedIdentity="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
+```
+
 I kommandot utdata noterar du resurs-ID ( `id` ) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Exempel:
 
 ```azurecli
-EXPORT_RES_ID=$(az group deployment show \
+EXPORT_RES_ID=$(az deployment group show \
   --resource-group $SOURCE_RG \
   --name exportPipeline \
   --query 'properties.outputResources[1].id' \
@@ -198,20 +224,39 @@ Parameter  |Värde  |
 
 ### <a name="create-the-resource"></a>Skapa resursen
 
-Kör [AZ Deployment Group Create][az-deployment-group-create] för att skapa resursen.
+Kör [AZ Deployment Group Create][az-deployment-group-create] för att skapa en resurs med namnet *importPipeline* som visas i följande exempel. Som standard, med det första alternativet, aktiverar exempel mal len en systemtilldelad identitet i ImportPipeline-resursen. 
+
+Med det andra alternativet kan du ange resursen med en tilldelad identitet. (Skapandet av den användardefinierade identiteten visas inte.)
+
+Med båda alternativen konfigurerar mallen identiteten för att få åtkomst till SAS-token i import Key Vault. 
+
+#### <a name="option-1-create-resource-and-enable-system-assigned-identity"></a>Alternativ 1: skapa resurs och aktivera systemtilldelad identitet
 
 ```azurecli
 az deployment group create \
   --resource-group $TARGET_RG \
   --template-file azuredeploy.json \
-  --parameters azuredeploy.parameters.json \
-  --name importPipeline
+  --name importPipeline \
+  --parameters azuredeploy.parameters.json 
 ```
 
-Om du planerar att köra importen manuellt noterar du resurs-ID ( `id` ) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Exempel:
+#### <a name="option-2-create-resource-and-provide-user-assigned-identity"></a>Alternativ 2: skapa resurs och ge användare tilldelad identitet
+
+I det här kommandot anger du resurs-ID för den användarspecifika identiteten som en ytterligare parameter.
 
 ```azurecli
-IMPORT_RES_ID=$(az group deployment show \
+az deployment group create \
+  --resource-group $TARGET_RG \
+  --template-file azuredeploy.json \
+  --name importPipeline \
+  --parameters azuredeploy.parameters.json \
+  --parameters userAssignedIdentity="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
+```
+
+Om du planerar att köra importen manuellt noterar du resurs-ID ( `id` ) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra kommandot [AZ Deployment Group show][az-deployment-group-show] . Exempel:
+
+```azurecli
+IMPORT_RES_ID=$(az deployment group show \
   --resource-group $TARGET_RG \
   --name importPipeline \
   --query 'properties.outputResources[1].id' \
@@ -246,12 +291,22 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
+För senare användning lagrar du resurs-ID för pipelinen som körs i en miljö variabel:
+
+```azurecli
+EXPORT_RUN_RES_ID=$(az deployment group show \
+  --resource-group $SOURCE_RG \
+  --name exportPipelineRun \
+  --query 'properties.outputResources[0].id' \
+  --output tsv)
+```
+
 Det kan ta flera minuter innan artefakter exporteras. När distributionen har slutförts verifierar du artefakt export genom att ange den exporterade blobben i *överförings* containern för käll lagrings kontot. Du kan till exempel köra kommandot [AZ Storage BLOB List][az-storage-blob-list] :
 
 ```azurecli
 az storage blob list \
-  --account-name $SOURCE_SA
-  --container transfer
+  --account-name $SOURCE_SA \
+  --container transfer \
   --output table
 ```
 
@@ -300,11 +355,21 @@ Kör [AZ Deployment Group Create][az-deployment-group-create] för att köra res
 ```azurecli
 az deployment group create \
   --resource-group $TARGET_RG \
+  --name importPipelineRun \
   --template-file azuredeploy.json \
   --parameters azuredeploy.parameters.json
 ```
 
-När distributionen har slutförts verifierar du artefakt import genom att lista databaserna i mål behållar registret. Du kan till exempel köra [AZ ACR databas lista][az-acr-repository-list]:
+För senare användning lagrar du resurs-ID för pipelinen som körs i en miljö variabel:
+
+```azurecli
+IMPORT_RUN_RES_ID=$(az deployment group show \
+  --resource-group $TARGET_RG \
+  --name importPipelineRun \
+  --query 'properties.outputResources[0].id' \
+  --output tsv)
+
+When deployment completes successfully, verify artifact import by listing the repositories in the target container registry. For example, run [az acr repository list][az-acr-repository-list]:
 
 ```azurecli
 az acr repository list --name <target-registry-name>
@@ -329,20 +394,20 @@ az deployment group create \
 
 ## <a name="delete-pipeline-resources"></a>Ta bort pipeline-resurser
 
-Ta bort en pipeline-resurs genom att ta bort dess Resource Manager-distribution med kommandot [AZ Deployment Group Delete][az-deployment-group-delete] . Följande exempel tar bort pipeline-resurserna som skapats i den här artikeln:
+I följande exempel kommandon används [AZ Resource Delete][az-resource-delete] för att ta bort pipelines-resurserna som skapats i den här artikeln. Resurs-ID: n var tidigare lagrade i miljövariabler.
 
-```azurecli
-az deployment group delete \
-  --resource-group $SOURCE_RG \
-  --name exportPipeline
+```
+# Delete export resources
+az resource delete \
+--resource-group $SOURCE_RG \
+--ids $EXPORT_RES_ID $EXPORT_RUN_RES_ID \
+--api-version 2019-12-01-preview
 
-az deployment group delete \
-  --resource-group $SOURCE_RG \
-  --name exportPipelineRun
-
-az deployment group delete \
-  --resource-group $TARGET_RG \
-  --name importPipeline  
+# Delete import resources
+az resource delete \
+--resource-group $TARGET_RG \
+--ids $IMPORT_RES_ID $IMPORT_RUN_RES_ID \
+--api-version 2019-12-01-preview
 ```
 
 ## <a name="troubleshooting"></a>Felsökning
@@ -374,8 +439,6 @@ Om du vill importera enskilda behållar avbildningar till ett Azure Container Re
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-identity-show]: /cli/azure/identity#az-identity-show
 [az-login]: /cli/azure/reference-index#az-login
 [az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
 [az-keyvault-secret-show]: /cli/azure/keyvault/secret#az-keyvault-secret-show
@@ -387,3 +450,4 @@ Om du vill importera enskilda behållar avbildningar till ett Azure Container Re
 [az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-import]: /cli/azure/acr#az-acr-import
+[az-resource-delete]: /cli/azure/resource#az-resource-delete

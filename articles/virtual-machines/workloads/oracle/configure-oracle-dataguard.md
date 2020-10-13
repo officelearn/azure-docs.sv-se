@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: f8a40f87b8fdaa2adf445392bd598dd8133aae4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4182b983b976949103d4eae7dbbf6b08bc164c53
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335909"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979010"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementera Oracle data Guard på en virtuell Azure Linux-dator 
 
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Skapa en tillgänglighetsuppsättning
 
-Att skapa en tillgänglighets uppsättning är valfritt, men vi rekommenderar den. Mer information finns i [rikt linjer för Azures tillgänglighets uppsättningar](../../windows/infrastructure-example.md).
+Att skapa en tillgänglighets uppsättning är valfritt, men vi rekommenderar den. Mer information finns i [rikt linjer för Azures tillgänglighets uppsättningar](/previous-versions/azure/virtual-machines/windows/infrastructure-example).
 
 ```azurecli
 az vm availability-set create \

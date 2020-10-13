@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 07/27/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: 5d9c3c8e795b6651595a17d540aafa849ce81471
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c24a50926fe028dcbf42d3642ae3ec5c9ae84f5b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91401069"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977857"
 ---
 <a name="HOLTop"></a>
 
@@ -147,11 +147,12 @@ Objektet Response är en lista som innehåller analys informationen för varje d
 
 * [Klientautentisering](#client-authentication)
 * [Attitydanalys](#sentiment-analysis) 
-* [Språk identifiering](#language-detection)
+* [Åsikts utvinning](#opinion-mining)
+* [Språkidentifiering](#language-detection)
 * [Igenkänning av namngiven entitet](#named-entity-recognition-ner)
 * [Länkning av entitet](#entity-linking)
 * Personligt identifierbar information
-* [Extrahering av nyckel fraser](#key-phrase-extraction)
+* [Extrahering av nyckelfraser](#key-phrase-extraction)
 
 ## <a name="client-authentication"></a>Klientautentisering
 
@@ -179,7 +180,7 @@ Skapa ett nytt [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@
 
 ---
 
-## <a name="sentiment-analysis"></a>Attitydanalys
+## <a name="sentiment-analysis"></a>Sentimentanalys
 
 # <a name="version-31-preview"></a>[Version 3,1 Preview](#tab/version-3-1)
 

@@ -4,12 +4,12 @@ description: Den här artikeln innehåller en översikt över stöd för schema 
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 1da59d7757a7f78235ab3ef7ab18ca78e419b761
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 30ef2f102a4b8d9f9908ba915f179889710bafd0
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812428"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938805"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Azure Schema Registry i Event Hubs (förhandsversion)
 I många händelse strömnings-och meddelande scenarier innehåller händelse-och meddelande nytto Last strukturerad data som antingen serialiseras eller avserialiseras med hjälp av ett schema drivet format som Apache Avro. Både avsändare och mottagare kan vilja verifiera integriteten för data med ett schema dokument som med JSON-schema. För schema drivna format är det ett krav för att konsumenten ska kunna deserialisera data för att göra schemat tillgängligt för meddelande konsumenten. 
@@ -70,4 +70,4 @@ Anvisningar om hur du skapar registrering av ett program med hjälp av Azure Por
     - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/schemaregistry/azure-data-schemaregistry-avro/src/samples)
     - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro/samples )
     - [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/schemaregistry/azure-schemaregistry-avroserializer/samples )
-    - [Kafka Avro-integrering för Azure schema Registry](https://github.com/Azure/azure-schema-registry-for-kafka/tree/master/avro/samples)
+    - [Kafka Avro-integrering för Azure schema Registry](https://github.com/Azure/azure-schema-registry-for-kafka/tree/master/csharp/avro/samples)

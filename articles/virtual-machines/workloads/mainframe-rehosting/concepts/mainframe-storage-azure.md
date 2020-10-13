@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 639764c9cae5e27e90a55da00b246807e49d2a20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a3a7cad8399146834eed0282e0655a551bc083a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88652856"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977280"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Flytta stordator lagring till Azure
 
@@ -57,7 +57,7 @@ Azure Storage är tillgängligt som [Azure-diskar](../../../managed-disks-overvi
 <tr><td>Azure Files
 </td>
 <td>
-Tillhandahåller ett SMB-gränssnitt, klient bibliotek och ett <a href="https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api">rest</a> -gränssnitt som ger åtkomst från var som helst till lagrade filer.
+Tillhandahåller ett SMB-gränssnitt, klient bibliotek och ett <a href="/rest/api/storageservices/file-service-rest-api">rest</a> -gränssnitt som ger åtkomst från var som helst till lagrade filer.
 </td>
 <td><ul>
 <li>Lyft och flytta ett program till molnet när programmet använder inbyggda API: er för fil system för att dela data mellan dem och andra program som körs i Azure.</li>
@@ -67,7 +67,7 @@ Tillhandahåller ett SMB-gränssnitt, klient bibliotek och ett <a href="https://
 </tr>
 <tr><td>Azure-blobar
 </td>
-<td>Tillhandahåller klient bibliotek och ett <a href="https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api">rest</a> -gränssnitt som tillåter att ostrukturerade data lagras och används i en enorm skala i block-blobbar. Stöder också <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a> för företags lösningar för Big data analys.
+<td>Tillhandahåller klient bibliotek och ett <a href="/rest/api/storageservices/blob-service-rest-api">rest</a> -gränssnitt som tillåter att ostrukturerade data lagras och används i en enorm skala i block-blobbar. Stöder också <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a> för företags lösningar för Big data analys.
 </td>
 <td><ul>
 <li>Stöd för strömning och slumpmässiga åtkomst scenarier i ett program.</li>
@@ -77,7 +77,7 @@ Tillhandahåller ett SMB-gränssnitt, klient bibliotek och ett <a href="https://
 </tr>
 <tr><td>Azure-diskar
 </td>
-<td>Tillhandahåller klient bibliotek och ett <a href="https://docs.microsoft.com/rest/api/compute/disks">rest</a> -gränssnitt som gör att data kan lagras permanent och nås från en ansluten virtuell hård disk.
+<td>Tillhandahåller klient bibliotek och ett <a href="/rest/api/compute/disks">rest</a> -gränssnitt som gör att data kan lagras permanent och nås från en ansluten virtuell hård disk.
 </td>
 <td><ul>
 <li>Lyft och Shift-program som använder inbyggda API: er för fil system för att läsa och skriva data till beständiga diskar.</li>

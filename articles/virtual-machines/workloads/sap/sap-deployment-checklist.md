@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9991bae3d5c8487cc80cca0bf9a249e715b5c521
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e80332b172eeb4c49ae068e1781ffcaf1657f13
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650702"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978228"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure: planering och distribution check lista
 
@@ -60,8 +60,8 @@ Under den här fasen planerar du migreringen av din SAP-arbetsbelastning till Az
     - Användning av klusterkonfigurationer med flera-SID för SAP Central Services stöds på Windows-, SLES-och RHEL gäst operativ system på Azure. Tänk på att den förstärkta radien kan öka den mer ASCS/SCS som du placerar på ett sådant kluster med flera säkerhets-ID. Du hittar dokumentation för respektive gäst operativ system scenario i de här artiklarna:
         - [SAP ASCS/SCS-instans multi-SID hög tillgänglighet med Windows Server-redundanskluster och delad disk i Azure](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
         - [SAP ASCS/SCS-instans multi-SID hög tillgänglighet med kluster för växling vid fel i Windows Server och fil resurs på Azure](./sap-ascs-ha-multi-sid-wsfc-file-share.md)
-        - [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program med flera SID-guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
-        - [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på Red Hat Enterprise Linux för SAP-program med flera SID-guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+        - [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program med flera SID-guide](./high-availability-guide-suse-multi-sid.md)
+        - [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på Red Hat Enterprise Linux för SAP-program med flera SID-guide](./high-availability-guide-rhel-multi-sid.md)
     - Hög tillgänglighet och katastrof återställnings arkitektur.
         - Utifrån RTO och återställnings punkt definierar du vad arkitekturen för hög tillgänglighet och haveri beredskap måste se ut.
         - För hög tillgänglighet i en zon, kontrol lera vad det önskade DBMS: t har att erbjuda i Azure. De flesta DBMS-paket erbjuder synkrona metoder för synkron snabb växling, som vi rekommenderar för produktions system. Kontrol lera också den SAP-relaterade dokumentationen för olika databaser och börja med [att tänka på för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](./dbms_guide_general.md) och relaterade dokument.
@@ -109,7 +109,7 @@ Vi rekommenderar att du ställer in och validerar en fullständig HADR-lösning 
            -  [Storlekar för virtuella Windows-datorer i Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Det är viktigt att tänka på det *maximala disk data flöde* som inte har cachelagrats för storleks ändring.
            -  [Storlekar för virtuella Linux-datorer i Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Det är viktigt att tänka på det *maximala disk data flöde* som inte har cachelagrats för storleks ändring.
    2. Lagring.
-        - Kontrol lera dokument [Azure Storage typer för SAP-arbetsbelastningar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage)
+        - Kontrol lera dokument [Azure Storage typer för SAP-arbetsbelastningar](./planning-guide-storage.md)
         - Använd minst [Azure standard SSD Storage](../../disks-types.md#standard-ssd) för virtuella datorer som representerar SAP-programlager och för distribution av DBMS-objekt som inte är prestanda känsliga.
         - I allmänhet rekommenderar vi inte användningen av [Azure standard HDD-diskar](../../disks-types.md#standard-hdd).
         - Använd [Azure Premium Storage](../../disks-types.md#premium-ssd) för alla DBMS-VM: ar som är fjärrpresterade.
@@ -127,7 +127,7 @@ Vi rekommenderar att du ställer in och validerar en fullständig HADR-lösning 
         - Utvärdera och testa data Sök vägen mellan SAP-program skiktet och SAP-DBMS-skiktet.
             -  Placering av [virtuella Azure-nätverksanslutningar](https://azure.microsoft.com/solutions/network-appliances/) i kommunikations vägen mellan SAP-programmet och DBMS-skiktet i SAP-system baserat på SAP NetWeaver, hybris eller S/4HANA stöds inte.
             -  Placeringen av SAP-program skiktet och SAP-DBMS i olika virtuella Azure-nätverk som inte är peer-versioner stöds inte.
-            -  Du kan använda [regler för program säkerhets grupp och nätverks säkerhets grupper](../../../virtual-network/security-overview.md) för att definiera vägar mellan SAP-program skiktet och SAP-DBMS-skiktet.
+            -  Du kan använda [regler för program säkerhets grupp och nätverks säkerhets grupper](../../../virtual-network/network-security-groups-overview.md) för att definiera vägar mellan SAP-program skiktet och SAP-DBMS-skiktet.
         - Kontrol lera att [Azure-accelererat nätverk](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) är aktiverat på de virtuella datorer som används i SAP-programnivå och SAP DBMS-skiktet. Tänk på att olika OS-nivåer behövs för att stödja accelererat nätverk i Azure:
             - Windows Server 2012 R2 eller senare.
             - SUSE Linux 12 SP3 eller senare.
@@ -138,7 +138,7 @@ Vi rekommenderar att du ställer in och validerar en fullständig HADR-lösning 
         - Om du använder Azure Load Balancer tillsammans med Linux-gäst operativ system, kontrollerar du att parametern för Linux-nätverket **net.IPv4.tcp_timestamps** har angetts till **0**. Den här rekommendationen står i konflikt med rekommendationer i äldre versioner av [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421). SAP-anteckningen har nu uppdaterats för att ange att den här parametern måste ställas in på **0** för att fungera med Azure Load Balancer.
         - Överväg att använda [Azure närhets placerings grupper](../../linux/co-location.md) för att få optimal nätverks fördröjning. Mer information finns i [placerings grupper för Azure närhet för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md).
    4. Distributioner av hög tillgänglighet och haveri beredskap.
-        - Om du distribuerar SAP-programlagret utan att definiera en specifik Azure-tillgänglighets zon, se till att alla virtuella datorer som kör SAP-dialogrutor eller mellan-instanser av ett enda SAP-system distribueras i en [tillgänglighets uppsättning](../../windows/manage-availability.md).
+        - Om du distribuerar SAP-programlagret utan att definiera en specifik Azure-tillgänglighets zon, se till att alla virtuella datorer som kör SAP-dialogrutor eller mellan-instanser av ett enda SAP-system distribueras i en [tillgänglighets uppsättning](../../manage-availability.md).
         - Om du inte behöver hög tillgänglighet för SAP Central Services och DBMS kan du distribuera de virtuella datorerna till samma tillgänglighets uppsättning som SAP-program skiktet.
         - Om du skyddar SAP Central Services och DBMS-skiktet för hög tillgänglighet genom att använda passiv replikering, placerar du de två noderna för SAP Central Services i en separat tillgänglighets uppsättning och de två DBMS-noderna i en annan tillgänglighets uppsättning.
         - Om du distribuerar till Azure-tillgänglighetszoner kan du inte använda tillgänglighets uppsättningar. Men du måste kontrol lera att du distribuerar aktiva och passiva centrala tjänster-noder i två olika Tillgänglighetszoner. Använd Tillgänglighetszoner som har den lägsta svars tiden mellan dem.
@@ -179,7 +179,7 @@ Vi rekommenderar att du ställer in och validerar en fullständig HADR-lösning 
    4. Testa DR-funktioner och arkitektur för flera regioner.
 1. Säkerhets kontroller.
    1. Testa giltigheten för Azure-rollbaserad åtkomst kontrolls arkitektur (Azure RBAC). Målet är att separera och begränsa åtkomsten och behörigheterna för olika team. Till exempel bör SAP basen-team medlemmar kunna distribuera virtuella datorer och tilldela diskar från Azure Storage till ett specifikt virtuellt Azure-nätverk. Men SAP-basen bör inte kunna skapa egna virtuella nätverk eller ändra inställningarna för befintliga virtuella nätverk. Medlemmar i nätverks teamet bör inte kunna distribuera virtuella datorer till virtuella nätverk där SAP-program och virtuella DBMS-datorer körs. Eller om medlemmar i det här teamet ska kunna ändra attribut för virtuella datorer eller till och med ta bort virtuella datorer eller diskar.  
-   1.  Kontrol lera att [nätverks säkerhets gruppen och ASC](../../../virtual-network/security-overview.md) -reglerna fungerar som förväntat och kontrol lera de skyddade resurserna.
+   1.  Kontrol lera att [nätverks säkerhets gruppen och ASC](../../../virtual-network/network-security-groups-overview.md) -reglerna fungerar som förväntat och kontrol lera de skyddade resurserna.
    1.  Kontrol lera att alla resurser som behöver krypteras är krypterade. Definiera och implementera processer för att säkerhetskopiera certifikat, lagra och komma åt dessa certifikat och återställa de krypterade entiteterna.
    1.  Använd [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) för OS-diskar där det är möjligt från en OS-support punkt i vyn.
    1.  Se till att du inte använder för många lager kryptering. I vissa fall kan det vara bra att använda Azure Disk Encryption tillsammans med en av DBMS-transparent datakryptering metoder för att skydda olika diskar eller komponenter på samma server.  Till exempel, på en SAP DBMS-Server, kan Azure Disk Encryption (ADE) aktive ras på Start disken för operativ systemet (om operativ systemet har stöd för ADE) och de data diskar som inte används av DBMS-datapersistens filer.  Ett exempel är att använda ADE på disken som innehåller krypterings nycklarna för DBMS-TDE.

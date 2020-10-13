@@ -1,20 +1,20 @@
 ---
 title: Självstudie – Konfigurera virtuella nätverk för Azure AD Domain Services | Microsoft Docs
 description: I den här självstudien får du lära dig hur du skapar och konfigurerar ett virtuellt undernät i Azure eller nätverks-peering för en Azure Active Directory Domain Services hanterad domän med hjälp av Azure Portal.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: e0d2b235f671ca9b30bf61aef254cb850b25373e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 33beb0767ef1f21d4fb3d08c9072d7c8479d2cb1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86024782"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967417"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: Konfigurera virtuella nätverk för en Azure Active Directory Domain Services hanterad domän
 
@@ -24,7 +24,7 @@ När du skapar dina egna virtuella datorer och program, bör de inte distribuera
 
 I den här självstudien får du lära dig hur du skapar och konfigurerar ett dedikerat virtuellt nätverks under nät eller hur du peer-koppla ett annat nätverk till Azure AD DS-hanterad domäns virtuella nätverk.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Förstå de virtuella nätverks anslutnings alternativen för domänanslutna resurser till Azure AD DS
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 

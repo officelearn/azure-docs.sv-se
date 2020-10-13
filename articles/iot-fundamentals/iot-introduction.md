@@ -10,12 +10,12 @@ ms.author: dobett
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 73eb0b3164a386bb270e42ceba56d5dc7045af1c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ecc79eb52acbe393ac2777a0ec388e538a7f8fd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81728994"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978908"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Vad är Azure Sakernas Internet (IoT)?
 
@@ -74,6 +74,8 @@ I en lösning för fjärrövervakning för en olje pump Station, använder till 
 
 I verkliga exempel på hur organisationer använder Azure IoT, se tekniska fallstudier från [Microsoft för IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
 
+En detaljerad beskrivning av IoT-arkitekturen finns i [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (Referensarkitektur för Microsoft Azure IoT).
+
 ## <a name="next-steps"></a>Nästa steg
 
 För verkliga affärsfall och vilken arkitektur som använts finns i avsnittet om [Microsoft Azure IoT:s tekniska fallstudier](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured).
@@ -81,5 +83,3 @@ För verkliga affärsfall och vilken arkitektur som använts finns i avsnittet o
 Vissa exempelprojekt som du kan prova med en IoT DevKit finns i [IoT DevKit-katalogen](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/). 
 
 En mer omfattande förklaring av de olika tjänsterna och hur de används finns i [Azure IoT-tjänster och-tekniker](iot-services-and-technologies.md).
-
-En detaljerad beskrivning av IoT-arkitekturen finns i [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (Referensarkitektur för Microsoft Azure IoT).

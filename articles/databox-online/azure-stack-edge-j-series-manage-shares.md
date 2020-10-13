@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 44f22f365699ddc345849df78d6e27c2703d785b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fbf765168fd848a2ae349badf4017289b5a4380
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904686"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952275"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Använd Azure Portal för att hantera resurser på din Azure Stack Edge Pro
+# <a name="use-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Använd Azure Portal för att hantera resurser på din Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -41,7 +41,7 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
     
     Resursnamn får bara innehålla siffror, gemener och bindestreck. Resursnamnet måste vara mellan 3 och 63 tecken långt och börja med en bokstav eller en siffra. Varje bindestreck måste föregås och följas av ett tecken som inte är ett bindestreck.
 
-3. Välj en **typ** för resursen. Typen kan vara **SMB** eller **NFS**, där SMB är standardvärdet. SMB är standard för Windows-klienter och NFS används för Linux-klienter. Beroende på om du väljer SMB- eller NFS-resurser visas alternativen lite olika.
+3. Välj en **typ** för resursen. Typen kan vara **SMB** eller **NFS**, med SMB som standard. SMB är standard för Windows-klienter och NFS används för Linux-klienter. Beroende på om du väljer SMB- eller NFS-resurser visas alternativen lite olika.
 
 4. Ange ett **Lagringskonto** där resursen ska placeras. En container skapas på lagringskontot med resursnamnet om containern inte redan finns. Om containern redan finns används den befintliga containern.
 
@@ -59,19 +59,19 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 
 7. Använd den lokala monterings punkten för att enkelt få åtkomst till resurserna från Edge Compute-moduler. Välj **Använd resurs med Edge Compute** så att resursen monteras automatiskt när den har skapats. När det här alternativet är markerat kan Edge-modulen också använda beräkningen med den lokala monterings punkten.
 
-8. Klicka på **Skapa** för att skapa resursen. Du får ett meddelande om att resursen skapas. När resursen har skapats med de angivna inställningarna uppdateras bladet **Resurser** med den nya resursen.
+8. Klicka på **skapa** för att skapa resursen. Du får ett meddelande om att resursen skapas. När resursen har skapats med de angivna inställningarna **uppdateras delnings bladet** så att det återspeglar den nya resursen.
 
 ## <a name="add-a-local-share"></a>Lägg till en lokal resurs
 
 1. I Azure Portal går du till din Azure Stack Edge-resurs och går sedan till **Gateway-> resurser**. Välj **+ Lägg till resurs** i kommando fältet.
 
-    ![Välj Lägg till resurs](media/azure-stack-edge-j-series-manage-shares/add-local-share-1.png)
+    ![Välj Lägg till resurs 2](media/azure-stack-edge-j-series-manage-shares/add-local-share-1.png)
 
 2. I **Lägg till resurs** anger du inställningar för resursen. Ange ett unikt namn på resursen.
     
     Resurs namn får bara innehålla siffror, gemener och versaler och bindestreck. Resursnamnet måste vara mellan 3 och 63 tecken långt och börja med en bokstav eller en siffra. Varje bindestreck måste föregås och följas av ett tecken som inte är ett bindestreck.
 
-3. Välj en **typ** för resursen. Typen kan vara **SMB** eller **NFS**, där SMB är standardvärdet. SMB är standard för Windows-klienter och NFS används för Linux-klienter. Beroende på om du väljer SMB- eller NFS-resurser visas alternativen lite olika.
+3. Välj en **typ** för resursen. Typen kan vara **SMB** eller **NFS**, med SMB som standard. SMB är standard för Windows-klienter och NFS används för Linux-klienter. Beroende på om du väljer SMB- eller NFS-resurser visas alternativen lite olika.
 
    > [!IMPORTANT]
    > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge Pro-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
@@ -86,7 +86,7 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 
     ![Skapa lokal resurs](media/azure-stack-edge-j-series-manage-shares/add-local-share-2.png)
 
-    Du ser ett meddelande om att delningen håller på att skapas. När resursen har skapats med de angivna inställningarna uppdateras bladet **Resurser** med den nya resursen.
+    Du ser ett meddelande om att delningen håller på att skapas. När resursen har skapats med de angivna inställningarna **uppdateras delnings bladet** så att det återspeglar den nya resursen.
 
     ![Visa blad för uppdaterings resurser](media/azure-stack-edge-j-series-manage-shares/add-local-share-3.png)
     
@@ -125,7 +125,7 @@ Utför följande steg i Azure Portal för att demontera en resurs.
 
 1. I Azure Portal går du till din Azure Stack Edge-resurs och går sedan till **Gateway-> resurser**.
 
-    ![Välja resurs](media/azure-stack-edge-j-series-manage-shares/unmount-share-1.png)
+    ![Välj resurs 2](media/azure-stack-edge-j-series-manage-shares/unmount-share-1.png)
 
 2. I listan över resurser väljer du den resurs som du vill demontera. Du vill se till att resursen som du demonterar inte används av några moduler. Om resursen används av en modul visas problem med motsvarande modul. Välj **demontera**.
 
@@ -145,7 +145,7 @@ Utför följande steg på Azure-portalen om du vill ta bort en resurs.
 
 1. Välj från listan över resurser, och klicka på den resurs som du vill ta bort.
 
-    ![Välja resurs](media/azure-stack-edge-j-series-manage-shares/delete-share-1.png)
+    ![Välj resurs 3](media/azure-stack-edge-j-series-manage-shares/delete-share-1.png)
 
 2. Klicka på **Ta bort**.
 
@@ -169,7 +169,7 @@ Utför följande steg på Azure-portalen om du vill uppdatera en resurs.
 
 1.  Gå till **Resurser** i Azure-portalen. Välj och klicka på den resurs som du vill uppdatera.
 
-    ![Välja resurs](media/azure-stack-edge-j-series-manage-shares/refresh-share-1.png)
+    ![Välj resurs 4](media/azure-stack-edge-j-series-manage-shares/refresh-share-1.png)
 
 2.  Klicka på **Uppdatera**. 
 

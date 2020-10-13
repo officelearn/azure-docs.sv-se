@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 203176c4c7ffed95cb4f1616f29f3953fcc0afc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58d4459e1869a9d1f7ccb8234c0356ac486a950c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320106"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975560"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrera till Premium Storage med Azure Site Recovery
 
-[Azure Premium-SSD](disks-types.md) levererar hög prestanda och disk support med låg latens för virtuella datorer som kör I/O-intensiva arbets belastningar. Den här guiden hjälper dig att migrera dina virtuella dator diskar från ett standard lagrings konto till ett Premium Storage-konto med hjälp av [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
+[Azure Premium-SSD](../disks-types.md) levererar hög prestanda och disk support med låg latens för virtuella datorer som kör I/O-intensiva arbets belastningar. Den här guiden hjälper dig att migrera dina virtuella dator diskar från ett standard lagrings konto till ett Premium Storage-konto med hjälp av [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 
 Site Recovery är en Azure-tjänst som bidrar till din strategi för affärs kontinuitet och haveri beredskap genom att dirigera replikeringen av lokala fysiska servrar och virtuella datorer till molnet (Azure) eller till ett sekundärt Data Center. När avbrott uppstår på den primära platsen växlar du över till den sekundära platsen för att hålla program och arbets belastningar tillgängliga. Du växlar tillbaka till den primära platsen när den återgår till normal drift. 
 
@@ -167,7 +167,7 @@ Om du vill kontrol lera att konfigurations servern har kopplats till den replike
 
    ![Aktivera fönstret replikering med vald källa][13]
 
-När du utformar din Azure Storage-miljö rekommenderar vi att du använder separata lagrings konton för varje virtuell dator i en tillgänglighets uppsättning. Vi rekommenderar att du följer bästa praxis i lagrings lagret för att [använda flera lagrings konton för varje tillgänglighets uppsättning](../linux/manage-availability.md). Distribution av virtuella dator diskar till flera lagrings konton hjälper till att förbättra lagrings tillgängligheten och distribuerar I/O i Azure Storage-infrastrukturen.
+När du utformar din Azure Storage-miljö rekommenderar vi att du använder separata lagrings konton för varje virtuell dator i en tillgänglighets uppsättning. Vi rekommenderar att du följer bästa praxis i lagrings lagret för att [använda flera lagrings konton för varje tillgänglighets uppsättning](../manage-availability.md). Distribution av virtuella dator diskar till flera lagrings konton hjälper till att förbättra lagrings tillgängligheten och distribuerar I/O i Azure Storage-infrastrukturen.
 
 Om dina virtuella datorer finns i en tillgänglighets uppsättning, i stället för att replikera diskar för alla virtuella datorer till ett lagrings konto, rekommenderar vi starkt att du migrerar flera virtuella datorer flera gånger. På så sätt delar inte de virtuella datorerna i samma tillgänglighets uppsättning ett enda lagrings konto. Använd fönstret **Aktivera replikering** för att ställa in ett mål lagrings konto för varje virtuell dator, en i taget.
  

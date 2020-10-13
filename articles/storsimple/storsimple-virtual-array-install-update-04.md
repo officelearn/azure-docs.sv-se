@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
-ms.openlocfilehash: 529b93e7754df7aa0a981f4389108b8f53b4be2f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 26890aaa7bc2d0ea70ff326e36a5767d1d468d5c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91300572"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977552"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>Installera Uppdatering 0,4 på din virtuella StorSimple-matris
 
@@ -76,26 +76,26 @@ Använd den här metoden för att installera uppdateringar på en enhet som kör
 
 1. I det lokala webb gränssnittet går du till **Underhåll**  >  **program uppdatering**.
    
-    ![uppdatera enhet](./media/storsimple-virtual-array-install-update/update1m.png)
+    ![uppdatera enhet 1](./media/storsimple-virtual-array-install-update/update1m.png)
 
 2. I **Uppdatera fil Sök väg**anger du fil namnet för uppdateringen eller snabb korrigeringen. Du kan också bläddra till installations filen för uppdateringen eller hotfixen om den placeras på en nätverks resurs. Klicka på **Applicera**.
    
-    ![uppdatera enhet](./media/storsimple-virtual-array-install-update/update2m.png)
+    ![uppdatera enhet 2](./media/storsimple-virtual-array-install-update/update2m.png)
 
 3. En varning visas. Eftersom det här är en enskild nod-enhet, när uppdateringen har tillämpats, startar enheten om och det finns avbrott. Klicka på kryss ikonen.
    
-   ![uppdatera enhet](./media/storsimple-virtual-array-install-update/update3m.png)
+   ![uppdatera enhet 3](./media/storsimple-virtual-array-install-update/update3m.png)
 
 4. Uppdateringen startar. När enheten har uppdaterats startas den om. Det lokala användar gränssnittet är inte tillgängligt under denna varaktighet.
    
-    ![uppdatera enhet](./media/storsimple-virtual-array-install-update/update5m.png)
+    ![uppdatera enhet 4](./media/storsimple-virtual-array-install-update/update5m.png)
 
 5. När omstarten är klar tas du till **inloggnings** sidan. Kontrol lera att enhetens program vara har uppdaterats genom att gå till **Underhåll**  >  **program uppdatering**i det lokala webb gränssnittet. Den program varu version som visas ska vara **10.0.0.0.0.10289.0** för uppdatering 0,4.
    
    > [!NOTE]
    > Vi rapporterar program versioner på ett något annorlunda sätt i det lokala webb gränssnittet och Azure Portal. Till exempel kan de lokala Web UI-rapporterna **10.0.0.0.0.10289** och Azure Portal rapporterar **10.0.10289.0** för samma version.
    
-    ![uppdatera enhet](./media/storsimple-virtual-array-install-update/update6m.png)
+    ![uppdatera enhet 5](./media/storsimple-virtual-array-install-update/update6m.png)
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 

@@ -5,16 +5,16 @@ author: philmea
 ms.author: phil
 ms.service: iot-fundamentals
 services: iot-fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 6/10/2020
-ms.openlocfilehash: ea4ecbbeaa4ad016e32aa9301d6f6ac49a6d342e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 23381a45d045e8f96e989bce9f52d627f5a88255
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91330187"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979078"
 ---
-# <a name="azure-iot-support-and-help-options"></a>Support och hjälp för Azure IoT
+# <a name="what-are-the-azure-iot-support-and-help-options"></a>Vad är Azure IoT-support och hjälp alternativ?
 
 Här är några förslag på var du kan få hjälp när du utvecklar dina Azure IoT-lösningar.
 
@@ -101,5 +101,4 @@ Du kan också dela dina upplevelser, engagera och lära sig från experter i [Sa
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Vad är IoT i Azure?](iot-introduction.md)
+[Vad är IoT i Azure?](iot-introduction.md)

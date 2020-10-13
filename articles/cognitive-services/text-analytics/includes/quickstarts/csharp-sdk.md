@@ -6,15 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 07/27/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 7e074bf898667bb0019d4147ec9abaea2c674d74
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b5249850a572090a32b0d3515cbeaec9bfb112ae
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91400974"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977830"
 ---
 <a name="HOLTop"></a>
 
@@ -174,12 +174,12 @@ Om du använder en version `3.x` av tjänsten kan du använda en valfri `TextAna
 
 ## <a name="code-examples"></a>Kodexempel
 
-* [Sentiment-analys](#sentiment-analysis)
-* [Språk identifiering](#language-detection)
+* [Sentimentanalys](#sentiment-analysis)
+* [Åsikts utvinning](#opinion-mining)
+* [Språkidentifiering](#language-detection)
 * [Igenkänning av namngiven enhet](#named-entity-recognition-ner)
 * [Länkning av entitet](#entity-linking)
-* [Extrahering av nyckel fraser](#key-phrase-extraction)
-
+* [Extrahering av nyckelfraser](#key-phrase-extraction)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
@@ -211,7 +211,7 @@ Skapa en metod för att instansiera [TextAnalyticsClient](https://docs.microsoft
 
 ---
 
-## <a name="sentiment-analysis"></a>Attitydanalys
+## <a name="sentiment-analysis"></a>Sentimentanalys
 
 # <a name="version-31-preview"></a>[Version 3,1 Preview](#tab/version-3-1)
 

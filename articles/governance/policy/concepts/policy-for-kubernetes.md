@@ -3,12 +3,12 @@ title: Lär dig Azure Policy för Kubernetes
 description: Lär dig hur Azure Policy använder Rego och öppna princip agenten för att hantera kluster som kör Kubernetes i Azure eller lokalt.
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 67c6af4842ea1f404468497930b08c36ecd1abb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3478a98ef98001ee8a2e3bb502bf289ed52285e7
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540259"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951544"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Förstå Azure Policy för Kubernetes-kluster
 
@@ -57,6 +57,7 @@ Följande allmänna begränsningar gäller för Azure Policy-tillägget för Kub
 - Installationer av Gatekeeper utanför Azure Policy-tillägget stöds inte. Avinstallera alla komponenter som installeras av en tidigare Gatekeeper-installation innan du aktiverar Azure Policy-tillägget.
 - [Anledningen till att icke-kompatibilitet](../how-to/determine-non-compliance.md#compliance-reasons) inte är tillgängliga för `Microsoft.Kubernetes.Data` 
    [resurs leverantörs läge](./definition-structure.md#resource-provider-modes). Använd [komponent information](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
+- [Undantag](./exemption-structure.md) stöds inte för [resurs leverantörs lägen](./definition-structure.md#resource-provider-modes).
 
 Följande begränsningar gäller endast för Azure Policy-tillägget för AKS:
 

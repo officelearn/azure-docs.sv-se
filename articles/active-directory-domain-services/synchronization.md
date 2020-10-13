@@ -2,7 +2,7 @@
 title: Så här fungerar synkronisering i Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur synkroniseringsprocessen fungerar för objekt och autentiseringsuppgifter från en Azure AD-klient eller en lokal Active Directory Domain Services miljö till en Azure Active Directory Domain Services hanterad domän.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 10eec1527fb0ac5109822da398642613219771f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 683a6c9f31947355a5415a5b8b57b621f717af91
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86039848"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967672"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Hur objekt och autentiseringsuppgifter synkroniseras i en Azure Active Directory Domain Services hanterad domän
 
@@ -40,7 +40,7 @@ Synkroniseringsprocessen är enkelriktad/enkelriktad genom design. Det finns ing
 
 I följande tabell visas några vanliga attribut och hur de synkroniseras till Azure AD DS.
 
-| Attribut i Azure AD DS | Källa | Obs! |
+| Attribut i Azure AD DS | Källa | Anteckningar |
 |:--- |:--- |:--- |
 | UPN | Användarens *UPN* -attribut i Azure AD-klienten | UPN-attributet från Azure AD-klienten synkroniseras med Azure AD DS. Det mest pålitliga sättet att logga in på en hanterad domän är att använda UPN. |
 | Sam | Användarens *smek namn* -attribut i Azure AD-klient eller automatiskt genererad | Attributet *sAMAccountName* hämtas från attributet *smek namn* i Azure AD-klienten. Om flera användar konton har samma *startalias* -attribut skapas *sAMAccountName* automatiskt. Om användarens *smek namn* eller *UPN* -prefix är längre än 20 tecken genereras *sAMAccountName* automatiskt för att uppfylla gränsen på 20 tecken i *sAMAccountName* -attribut. |
@@ -67,7 +67,7 @@ I följande tabell visas hur särskilda attribut för användar objekt i Azure A
 | employeedId |Anställnings |
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | förnamn |förnamn |
-| Befattning |title |
+| Befattning |rubrik |
 | e-post |e-post |
 | mailNickname |msDS-AzureADMailNickname |
 | mailNickname |SAMAccountName (kan ibland skapas automatiskt) |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f89358f4ca34c39527d7e65307ada042ba3df7e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6519f9d549c513e03400366447812a170f9ab41c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776161"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978670"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium-lagring: design för hög prestanda
 
@@ -130,7 +130,7 @@ PerfMon-räknarna är tillgängliga för processor, minne och, varje logisk disk
 | **Högsta minnes storlek** |Mängden minne som krävs för att köra programmet smidigt |% använda dedikerade byte |Använd vmstat |
 | **Max. CPU** |PROCESSOR mängd som krävs för att köra programmet smidigt |% Processor tid |% util |
 
-Läs mer om [iostat](https://linux.die.net/man/1/iostat) och [perfmon](https://docs.microsoft.com/windows/win32/perfctrs/performance-counters-portal).
+Läs mer om [iostat](https://linux.die.net/man/1/iostat) och [perfmon](/windows/win32/perfctrs/performance-counters-portal).
 
 
 
@@ -279,7 +279,7 @@ Följande är de rekommenderade diskens cacheinställningar för data diskar,
 
 | **Inställning av diskcachelagring** | **rekommendation när du ska använda den här inställningen** |
 | --- | --- |
-| Inget |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
+| Ingen |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
 | ReadOnly |Konfigurera Host-cache som skrivskyddat för skrivskyddade och Läs-och skriv diskar. |
 | ReadWrite |Konfigurera Host-cache enbart som ReadWrite om ditt program hanterar skrivningen av cachelagrade data korrekt till beständiga diskar vid behov. |
 
@@ -343,7 +343,7 @@ Det finns konfigurations inställningar som du kan ändra för att påverka den 
 
 Anta till exempel att ditt program använder SQL Server köra en stor fråga och en index åtgärd på samma tid. Låt oss anta att du vill att index åtgärden ska vara mer utförd jämfört med den stora frågan. I sådana fall kan du ange MAXDOP-värdet för index åtgärden som är högre än MAXDOP-värdet för frågan. På så sätt har SQL Server fler processorer som kan utnyttjas för index åtgärden jämfört med antalet processorer som det kan tilldela till den stora frågan. Kom ihåg att du inte styr antalet trådar som SQL Server används för varje åtgärd. Du kan kontrol lera hur många processorer som är dedikerade för flera trådar.
 
-Lär dig mer om [grader av parallellitet](https://technet.microsoft.com/library/ms188611.aspx) i SQL Server. Ta reda på sådana inställningar som påverkar flera trådar i ditt program och deras konfigurationer för att optimera prestanda.
+Lär dig mer om [grader av parallellitet](/previous-versions/sql/sql-server-2008-r2/ms188611(v=sql.105)) i SQL Server. Ta reda på sådana inställningar som påverkar flera trådar i ditt program och deras konfigurationer för att optimera prestanda.
 
 ## <a name="queue-depth"></a>Ködjup
 

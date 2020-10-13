@@ -3,12 +3,12 @@ title: Självstudie – distribuera vSphere-kluster i Azure
 description: Lär dig att distribuera ett vSphere-kluster i Azure med hjälp av Azure VMWare-lösningen
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 3fab49640364ef1b2e68953d366b20f77556b486
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b673a67fac734c9cb63e96b6a0c3dc9182f4b994
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578332"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952292"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Självstudie: Distribuera ett privat moln för Azure VMware-lösningar i Azure
 
@@ -16,13 +16,13 @@ Med Azure VMware-lösningen kan du distribuera ett vSphere-kluster i Azure. Den 
 
 Eftersom Azure VMware-lösningen inte tillåter att du hanterar ditt privata moln med din lokala vCenter vid lanseringen krävs ytterligare konfiguration. Dessa procedurer och relaterade krav beskrivs i den här självstudien.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa ett privat moln för Azure VMware-lösningen
 > * Verifiera att det privata molnet har distribuerats
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Lämpliga administrativa rättigheter och behörigheter för att skapa ett privat moln.
@@ -43,7 +43,7 @@ Du kan skapa ett privat moln i Azure VMware-lösningen med hjälp av [Azure Port
 
 ### <a name="azure-cli"></a>Azure CLI
 
-I stället för Azure Portal skapa ett privat moln i Azure VMware-lösningen kan du använda Azure CLI med hjälp av Azure Cloud Shell.  En lista över kommandon som du kan använda med Azure VMware-lösningen finns i [Azure VMware-kommandon](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
+I stället för Azure Portal skapa ett privat moln i Azure VMware-lösningen kan du använda Azure CLI med hjälp av Azure Cloud Shell.  En lista över kommandon som du kan använda med Azure VMware-lösningen finns i [Azure VMware-kommandon](/cli/azure/ext/vmware/vmware).
 
 #### <a name="open-azure-cloud-shell"></a>Öppna Azure Cloud Shell
 
@@ -82,7 +82,7 @@ Om du har ett privat moln i Azure VMware-lösningen som du inte längre behöver
 > [!CAUTION]
 > Borttagning av det privata molnet är en åtgärd som inte kan ångras. När det privata molnet har tagits bort går det inte att återställa data eftersom de avslutar alla aktiva arbets belastningar och komponenter och förstör alla privata moln data och konfigurations inställningar, inklusive offentliga IP-adresser.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 När ett privat moln har tagits bort finns det inget sätt att återställa de virtuella datorerna och deras data. Om data för den virtuella datorn kommer att krävas senare måste administratören först säkerhetskopiera alla data innan du tar bort det privata molnet.
 
@@ -96,7 +96,7 @@ När ett privat moln har tagits bort finns det inget sätt att återställa de v
 
 ## <a name="azure-vmware-commands"></a>Azure VMware-kommandon
 
-En lista över kommandon som du kan använda med Azure VMware-lösningen finns i [Azure VMware-kommandon](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
+En lista över kommandon som du kan använda med Azure VMware-lösningen finns i [Azure VMware-kommandon](/cli/azure/ext/vmware/vmware).
 
 ## <a name="next-steps"></a>Nästa steg
 

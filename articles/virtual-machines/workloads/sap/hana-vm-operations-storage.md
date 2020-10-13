@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62faec3fd9ee36cb7a2b5da7e6bae07c6c8e06af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9194b461cdceab889e1dfd20e3e70f3f69cb4369
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449386"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978262"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA
 
@@ -229,7 +229,7 @@ Ultra disk ger dig möjlighet att definiera en enskild disk som uppfyller din st
 Andra fördelar med Ultra disk kan vara den bättre Läs fördröjningen jämfört med Premium Storage. Svars tiden för snabbare läsning kan ha fördelar när du vill minska HANA-starttiden och den efterföljande inläsningen av data i minnet. Fördelarna med Ultra disk Storage kan också vara filtpenna när HANA skriver lagrings punkter. 
 
 > [!NOTE]
-> Ultra disk finns ännu inte i alla Azure-regioner och har ännu inte stöd för alla VM-typer som anges nedan. Detaljerad information om hur Ultra disk är tillgängligt och vilka VM-familjer som stöds finns i artikeln [vilka disk typer som är tillgängliga i Azure?](../../windows/disks-types.md#ultra-disk).
+> Ultra disk finns ännu inte i alla Azure-regioner och har ännu inte stöd för alla VM-typer som anges nedan. Detaljerad information om hur Ultra disk är tillgängligt och vilka VM-familjer som stöds finns i artikeln [vilka disk typer som är tillgängliga i Azure?](../../disks-types.md#ultra-disk).
 
 ### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>Rekommenderad lagrings lösning för produktion med ren Ultra disk Configuration
 I den här konfigurationen behåller du **/Hana/data** -och **/Hana/log** -volymerna separat. De föreslagna värdena härleds ut från KPI: er som SAP måste certifiera VM-typer för SAP HANA-och lagrings konfigurationer enligt rekommendationerna i [fakta bladet för SAP TDI-lagring](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
@@ -272,7 +272,7 @@ Mer information om ANF för HANA finns i dokument- [NFS v 4.1-volymer på Azure 
 
 
 ## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Kostnads medveten lösning med Azure Premium Storage
-Den Azure Premium Storage-lösning som beskrivs i det här dokumentet i avsnitts [lösningar med Premium Storage och azure Skrivningsaccelerator för Azure M-seriens virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) avsåg SAP HANA produktions scenarier som stöds. En av egenskaperna för konfigurationer som stöds för produktion är separering av volymer för SAP HANA data och gör om att logga in på två olika volymer. Orsaken till en sådan separation är att arbets Belastningens egenskaper på volymerna skiljer sig åt. Med de föreslagna produktions konfigurationerna kan olika typer av cachelagring eller till och med olika typer av Azure block-lagring vara nödvändiga. Konfigurationerna för produktion som stöds med Azure block Storage Target är kompatibla med det [enda service nivå avtalet för virtuella datorer för azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/) också.  För icke-produktions scenarier kan vissa av de överväganden som vidtas för produktions system inte gälla för mer låga system som inte är för produktion. Det leder till att HANA-data och logg volymen kombineras. Även om det i vissa culprits, till exempel inte uppfyller vissa data flöden eller fördröjnings-KPI: er som krävs för produktions system. En annan aspekt för att minska kostnaderna i sådana miljöer kan vara användningen av [Azure standard SSD Storage](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#azure-standard-ssd-storage). Det är ett alternativ som gör att du inte validerar [service avtalet för enskild virtuell dator för Azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+Den Azure Premium Storage-lösning som beskrivs i det här dokumentet i avsnitts [lösningar med Premium Storage och azure Skrivningsaccelerator för Azure M-seriens virtuella datorer](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) avsåg SAP HANA produktions scenarier som stöds. En av egenskaperna för konfigurationer som stöds för produktion är separering av volymer för SAP HANA data och gör om att logga in på två olika volymer. Orsaken till en sådan separation är att arbets Belastningens egenskaper på volymerna skiljer sig åt. Med de föreslagna produktions konfigurationerna kan olika typer av cachelagring eller till och med olika typer av Azure block-lagring vara nödvändiga. Konfigurationerna för produktion som stöds med Azure block Storage Target är kompatibla med det [enda service nivå avtalet för virtuella datorer för azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/) också.  För icke-produktions scenarier kan vissa av de överväganden som vidtas för produktions system inte gälla för mer låga system som inte är för produktion. Det leder till att HANA-data och logg volymen kombineras. Även om det i vissa culprits, till exempel inte uppfyller vissa data flöden eller fördröjnings-KPI: er som krävs för produktions system. En annan aspekt för att minska kostnaderna i sådana miljöer kan vara användningen av [Azure standard SSD Storage](./planning-guide-storage.md#azure-standard-ssd-storage). Det är ett alternativ som gör att du inte validerar [service avtalet för enskild virtuell dator för Azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
 
 Ett mindre kostsamt alternativ för sådana konfigurationer kan se ut så här:
 

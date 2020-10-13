@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4387bf8067b399165b32ab1cdbb9e6ce55ab5f59
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 95c4464d1ab8416f609f75f2b59fb85a578ef5b7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91816359"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979061"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Använd Azure Portal för att begränsa import/export-åtkomst för hanterade diskar med privata länkar
 
@@ -95,4 +95,4 @@ Nu har du slutfört konfigurationen av privata länkar som du kan använda när 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Vanliga frågor och svar om privata länkar](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Exportera/kopiera hanterade ögonblicksbilder som VHD till ett lagringskonto i en annan region med PowerShell](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)
+- [Exportera/kopiera hanterade ögonblicksbilder som VHD till ett lagringskonto i en annan region med PowerShell](./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md)

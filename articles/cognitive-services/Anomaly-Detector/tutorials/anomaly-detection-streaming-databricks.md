@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 95ab400d645a2a2761e39c191cdb85e49e1c7a27
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 642012a638100a3ad1cb8d9334f5af01adb6ad7a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245612"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979180"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Självstudie: avvikelse identifiering vid strömmande data med Azure Databricks
 
@@ -45,7 +45,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Skapa en [Azure-prenumeration](https://azure.microsoft.com/free/cognitive-services) om du inte har någon.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett [Azure Event Hubs-namnområde](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) och händelsehubben.
 
@@ -63,7 +63,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med hjälp av [Azur
 
 1. I Azure Portal väljer du **skapa en resurs**  >  **analys**  >  **Azure Databricks**.
 
-    ![Databricks på Azure Portal](../media/tutorials/azure-databricks-on-portal.png "Databricks på Azure Portal")
+    ![Azure Databricks på portalen](../media/tutorials/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
 3. Under **Azure Databricks-tjänst** anger du följande värden för att skapa en Databricks-arbetsyta:
 
@@ -115,7 +115,7 @@ Om du vill få en dataström med tweets måste du skapa ett program i Twitter. F
 
 3. På programsidan väljer du fliken med **nycklar och åtkomsttoken** och kopierar värdena för den **använda nyckeln** och **konsumenthemligheten**. Välj också **Skapa min åtkomsttoken** för att generera åtkomsttoken. Kopiera värdena för **åtkomsttoken** och **åtkomsttokenhemligheten**.
 
-    ![Information om Twitter-program](../media/tutorials/twitter-app-key-secret.png "Information om Twitter-program")
+    ![Information om Twitter-program 2](../media/tutorials/twitter-app-key-secret.png "Information om Twitter-program")
 
 Spara de värden som du hämtade för Twitter-programmet. Du behöver dem senare i självstudien.
 
@@ -193,7 +193,7 @@ I det här avsnittet skapar du två anteckningsböcker i Databricks-arbetsytan m
 
 2. I dialog rutan **skapa antecknings bok** anger du **SendTweetsToEventHub** som namn, väljer **Scala** som språk och väljer det Spark-kluster som du skapade tidigare.
 
-    ![Skapa antecknings bok i Databricks](../media/tutorials/databricks-notebook-details.png "Skapa antecknings bok i Databricks")
+    ![Information om bärbara datorer](../media/tutorials/databricks-notebook-details.png "Skapa antecknings bok i Databricks")
 
     Välj **Skapa**.
 
@@ -679,7 +679,7 @@ Resultat enligt nedan:
 +--------------------+-------+
 ```
 
-Klart! Med hjälp av Azure Databricks har du strömmat data till Azure Event Hubs, förbrukat data strömmen med hjälp av Event Hubs Connector och sedan kör avvikelse identifiering på strömmande data i nära real tid.
+Det är allt. Med hjälp av Azure Databricks har du strömmat data till Azure Event Hubs, förbrukat data strömmen med hjälp av Event Hubs Connector och sedan kör avvikelse identifiering på strömmande data i nära real tid.
 I den här självstudien är precisionen varje timme, men du kan alltid ändra granularitet så att den passar dina behov.
 
 ## <a name="clean-up-resources"></a>Rensa resurser

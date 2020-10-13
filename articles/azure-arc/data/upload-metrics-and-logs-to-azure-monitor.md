@@ -9,19 +9,19 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d508e2e24ac35171d87cdba9cb79981dfb8764e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69a2bc002b2ccccba90bde5b6c92d162b6e78815
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757477"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952258"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Ladda upp användnings data, mått och loggar till Azure Monitor
 
 Med jämna mellanrum kan du exportera användnings information för fakturerings syfte, övervaka mått och loggar och sedan ladda upp den till Azure.  Export och uppladdning av någon av dessa tre typer av data kommer också att skapa och uppdatera datakontrollanten, SQL-hanterad instans och PostgreSQL skalnings resurser för Server grupper i Azure.
 
 > [!NOTE] 
-Under för hands versions perioden kostar det inget att använda Azure Arc-aktiverade data tjänster.
+> Under för hands versions perioden kostar det inget att använda Azure Arc-aktiverade data tjänster.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

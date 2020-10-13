@@ -11,35 +11,34 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2019
+ms.date: 10/11/2020
 ms.author: memildin
-ms.openlocfilehash: 7f235f9255df49c096e224e1754ad2bbdf664423
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3108dd32b9d7338e418a1d10684115ad7265702e
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90895824"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951204"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Självstudie: förbättra din regelefterlevnad
----
 
 Azure Security Center hjälper till att effektivisera processen för att uppfylla krav på efterlevnad av efterlevnad, med hjälp av **instrument panelen för kontroll av efterlevnad**. I instrumentpanelen ger dig Security Center insikter om din efterlevnadsstatus baserat på kontinuerliga utvärderingar av Azure-miljön. Security Center analyserar riskfaktorer i din hybrid moln miljö enligt rekommenderade säkerhets metoder. Dessa utvärderingar mappas till kompatibilitetskontroller från en uppsättning standarder som stöds. På instrument panelen för kontroll av efterlevnad kan du se status för alla utvärderingar i din miljö i samband med en viss standard eller regel. När du arbetar med rekommendationerna och minskar riskfaktorerna i din miljö förbättras position.
 
-I den här självstudien får du lära dig hur man:
+I den här kursen får du lära du dig att:
 
--   Utvärdera din regelefterlevnad med hjälp av instrumentpanelen för regelefterlevnad
-
--   Förbättra din efterlevnadsstatus genom att vidta åtgärder enligt rekommendationer
+> [!div class="checklist"]
+> * Utvärdera efterlevnaden av efterlevnaden med hjälp av instrument panelen för regelefterlevnad
+> * Förbättra din efterlevnadsstatus genom att vidta åtgärder enligt rekommendationer
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att gå igenom de funktioner som beskrivs i den här självstudien måste [Azure Defender](azure-defender.md) vara aktiverat. Du kan prova Azure Defender kostnads fritt i 30 dagar.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Utvärdera din regelefterlevnad
 
-Security Center utvärderar kontinuerligt konfigurationen av dina resurser för att identifiera säkerhetsproblem. Dessa utvärderingar presenteras som rekommendationer som fokuserar på att förbättra din säkerhetshygien. På instrumentpanelen för regelefterlevnad kan du visa en uppsättning efterlevnadsstandarder med deras krav, där krav som stöds är mappade till tillämpliga säkerhetsutvärderingar. Det gör att du kan visa din efterlevnadsstatus med avseende på standard, baserat på statusen för dessa utvärderingar.
+Security Center utvärderar kontinuerligt konfigurationen av dina resurser för att identifiera säkerhetsproblem. Dessa utvärderingar presenteras som rekommendationer som fokuserar på att förbättra din säkerhetshygien. På instrument panelen för övervakning av efterlevnad kan du Visa en uppsättning kompatibla standarder med alla krav, där kraven som stöds är mappade till tillämpliga säkerhets utvärderingar. Det gör att du kan visa din efterlevnadsstatus med avseende på standard, baserat på statusen för dessa utvärderingar.
 
 Instrumentpanelens vy för efterlevnad hjälper dig att fokusera din uppmärksamhet på efterlevnadsluckor i enlighet med en standard eller förordning som är viktig för dig. Med den här fokuserade vyn kan du övervaka din kompatibilitetspoäng över tid i dynamiska moln- och hybridmiljöer.
 
@@ -48,58 +47,54 @@ Instrumentpanelens vy för efterlevnad hjälper dig att fokusera din uppmärksam
 >
 > Med funktionen [Dynamic Compliance packages (för hands version)](update-regulatory-compliance-packages.md) kan du uppgradera de standarder som visas på instrument panelen för kontroll av efterlevnad till de nya *dynamiska* paketen. Du kan också använda samma förhands gransknings funktion för att lägga till nya efterlevnadsprinciper och övervaka efterlevnaden av ytterligare standarder. 
 
-1.  I Security Center huvud menyn, under **princip & regelefterlevnad** väljer du **regelefterlevnad.** <br>
+1. Från Security Center menyn väljer du regelefterlevnad **.** <br>
 Överst på skärmen visas en instrumentpanel med en översikt över din efterlevnadsstatus med en uppsättning efterlevnadsföreskrifter som stöds. Du kan se din övergripande kompatibilitetspoäng och antalet godkända och icke godkända utvärderingar som är associerade med varje standard.
 
-    ![hög exakthet för datorbeskrivning](./media/security-center-compliance-dashboard/compliance-dashboard.png)
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Instrument panel för regler för efterlevnad":::
 
-2.  Välj en flik för en efterlevnadsstandard som är relevant för dig. Du ser en lista över alla kontroller för den standarden. För tillämpliga kontroller kan du visa information om godkända och icke godkända utvärderingar som är associerade med denna kontroll. Vissa kontroller är nedtonade. De här kontrollerna har inga associerade Security Center-utvärderingar. Kontrol lera kraven för dessa och utvärdera dem i din miljö på egen hand. Vissa av dem kan vara processrelaterade och inte tekniska.
+1. Välj en flik för en efterlevnadsprincip som är relevant för dig (1). Du ser vilka prenumerationer som standarden tillämpas på (2) och listan över alla kontroller för den standarden (3). För tillämpliga kontroller kan du Visa information om att skicka och stoppa utvärderingar som är associerade med kontrollen (4) samt antalet resurser som påverkas (5). Vissa kontroller är nedtonade. De här kontrollerna har inga associerade Security Center-utvärderingar. Kontrol lera kraven för dessa och utvärdera dem i din miljö på egen hand. Vissa av dem kan vara processrelaterade och inte tekniska.
 
-    ![efterlevnadsflik](./media/security-center-compliance-dashboard/compliance-pci.png)
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Instrument panel för regler för efterlevnad":::
 
 1. Klicka på **Hämta rapport**om du vill skapa och ladda ned en PDF-rapport som sammanfattar din aktuella kompatibilitetsstatus för en viss standard.
 
     Rapporten ger en översikt över din kompatibilitetsstatus för den valda standarden baserat på Security Center utvärderings data och organiseras enligt kontrollerna i denna specifika standard. Rapporten kan delas med relevanta intressenter och kan användas för att tillhandahålla bevis till interna och externa revisorer.
 
-    ![ladda ned](./media/security-center-compliance-dashboard/download-report.png)
+    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Instrument panel för regler för efterlevnad":::
 
 ## <a name="improve-your-compliance-posture"></a>Förbättra din efterlevnadsstatus
 
-Med tanke på informationen i instrumentpanelen för regelefterlevnad kan du förbättra din efterlevnadsstatus genom att utföra rekommendationer direkt i instrumentpanelen.
+Utifrån informationen i instrument panelen för kontroll av efterlevnad kan du förbättra position genom att lösa rekommendationer direkt i instrument panelen.
 
 1.  Klicka dig igenom några icke godkända utvärderingar som visas i instrumentpanelen för att visa information om den här rekommendationen. Varje rekommendation innehåller en uppsättning steg som ska följas för att lösa problemet.
 
-1.  Du kan välja en viss resurs för att visa mer information och lösa rekommendationerna för den resursen. <br>På exempelvis fliken **Azure CIS-standard** kan du klicka på rekommendationen **Require secure transfer to storage account** (Kräv säker överföring till lagringskonto).
+1.  Du kan välja en viss resurs för att visa mer information och lösa rekommendationerna för den resursen. <br>I till exempel **Azure CIS-1.1.0 (ny)** kan du välja rekommendations **disk kryptering ska tillämpas på virtuella datorer**.
 
-    ![Välj rekommendationen * * Kräv säker överföring till lagrings kontot * *](./media/security-center-compliance-dashboard/compliance-recommendation.png)
+    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="Instrument panel för regler för efterlevnad":::
 
-1. När du klickar dig igenom rekommendationens information och väljer en resurs som inte är felfri leder den dig direkt till miljön för att aktivera **säker lagringsöverföring** i Azure-portalen.
+1. I det här exemplet kommer du att **Take action** komma åt den virtuella Azure-datorns sidor i Azure Portal, där du kan öppna fliken **säkerhet** och aktivera kryptering:
+
+    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Instrument panel för regler för efterlevnad":::
 
     Mer information om hur du utför rekommendationerna finns i artikeln [Utföra säkerhetsrekommendationerna i Azure Security Center](security-center-recommendations.md).
-
-    ![Konfiguration av lagringskonto](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
 
 1.  När du vidtar åtgärder för att lösa rekommendationerna visas din påverkan i rapporten i instrumentpanelen för efterlevnad eftersom din kompatibilitetspoäng ökar.
 
     > [!NOTE]
-    > Utvärderingar körs ungefär var 12:e timme, så du ser din påverkan på dina efterlevnadsdata när utvärderingarna har körts.
+    > Utvärderingarna körs ungefär var 12: e timme, så du kommer att se påverkan på dina efterlevnadsprinciper endast efter nästa körning av den relevanta utvärderingen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig om hur du använder instrumentpanelen för Security Center-regelefterlevnad för att:
+I den här självstudien lärde du dig att använda Security Centers instrument panel för kontroll av efterlevnad för att:
 
 -   Visa och övervaka din efterlevnadsstatus i förhållande till standarder och föreskrifter som är viktiga för dig.
-
 -   Förbättra din kompatibilitetsstatus genom att utföra relevanta rekommendationer och se dina kompatibilitetspoäng öka.
 
-Instrumentpanelen för regelefterlevnad kan förenkla processen för regelefterlevnad och avsevärt minska den tid som krävs för att samla in bevis på efterlevnad för Azure- och hybrid-miljön.
+Instrument panelen för kontroll av efterlevnad kan avsevärt förenkla processen för regelefterlevnad och avsevärt minska den tid som krävs för att samla in regelefterlevnad för din Azure-och hybrid miljö.
 
-Mer information finns i:
+Mer information finns i följande relaterade artiklar:
 
 -   [Uppdatera till dynamiska efterlevnadsprinciper i din instrument panel för efterlevnad (för hands version)](update-regulatory-compliance-packages.md) – Läs mer om den här förhands gransknings funktionen som gör att du kan uppdatera de standarder som visas på instrument panelen för regelefterlevnad till de nya *dynamiska* paketen. Du kan också använda samma förhands gransknings funktion för att lägga till nya efterlevnadsprinciper och övervaka efterlevnaden av ytterligare standarder. 
-
 -   [Övervakning av säkerhets hälsa i Azure Security Center](security-center-monitoring.md) – lär dig hur du övervakar Azure-resursernas hälsa.
-
 -   [Hantera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md) – lär dig hur du använder rekommendationer i Azure Security Center för att skydda dina Azure-resurser.
-
 -   [Förbättra dina säkra poäng i Azure Security Center](secure-score-security-controls.md) – lär dig hur du prioriterar sårbarheter och säkerhets rekommendationer för att förbättra din säkerhets position.

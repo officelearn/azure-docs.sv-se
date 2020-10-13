@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: v-mibufo
-ms.openlocfilehash: b07033f96402edc24edd51de57661603e57472bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b13b61aff819271ed1722572f251f9a6d14b17ab
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347769"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977005"
 ---
 # <a name="windows-stop-error---0xc000021a-status-system-process-terminated"></a>Windows Stop-fel-0xC000021A status system process avslutad
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller steg för att lösa problem där operativ systemet
 
 ## <a name="symptom"></a>Symptom
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn, visar skärm bilden meddelandet att operativ systemet påträffade ett fel under starten, med följande meddelande:
+När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm bilden för den virtuella datorn, visar skärm bilden meddelandet att operativ systemet påträffade ett fel under starten, med följande meddelande:
 
 **Datorn stötte på ett problem och måste startas om. Vi har bara samlat in fel information och sedan kan du starta om. (# #% Complete) Om du vill veta mer kan du söka online senare efter det här felet: 0xC000021a**.
 
@@ -52,17 +52,17 @@ För att lösa det här problemet måste krasch dumpning analyseras. Samla in mi
 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Koppla OS-disken till en ny virtuell reparations dator
 
-1.  Använd steg 1-3 i [reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en reparations-VM.
+1.  Använd steg 1-3 i [reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) för att förbereda en reparations-VM.
 2.  Anslut till den virtuella reparations datorn med hjälp av **anslutning till fjärrskrivbord**.
 
 ### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Leta upp dumpfilen och skicka in ett support ärende
 
 1.  På den reparera virtuella datorn går du till Windows-mappen på den anslutna OS-disken. Om den driv rutins beteckning som är kopplad till den anslutna OS-disken är F går du till F:\Windows.
 2.  Leta upp filen Memory. dmp och skicka sedan [ett support ärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med minnesdumpen.
-3.  Om du har problem med att hitta Memory. dmp-filen kanske du vill använda [icke-maskbart avbrott (NMI) i serie konsolen i](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls) stället. Du kan följa guiden för att [generera en kraschdump-fil med hjälp av NMI-anrop här](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump).
+3.  Om du har problem med att hitta Memory. dmp-filen kanske du vill använda [icke-maskbart avbrott (NMI) i serie konsolen i](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) stället. Du kan följa guiden för att [generera en kraschdump-fil med hjälp av NMI-anrop här](/windows/client-management/generate-kernel-or-complete-crash-dump).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-- Mer felsöknings information finns i [Felsöka vanliga start fel](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-error-troubleshoot) eller [Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell dator för återställning](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-windows). Du bör också bekanta dig med [hur du använder startdiagnostik för att felsöka en virtuell dator](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics).
-- Mer information om hur du använder Resource Manager finns i [Azure Resource Manager översikt](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).
-- Om du inte kan ansluta till din virtuella dator kan du läsa [FELSÖKA RDP-anslutningar till en virtuell Azure-dator](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection).
+- Mer felsöknings information finns i [Felsöka vanliga start fel](./boot-error-troubleshoot.md) eller [Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell dator för återställning](./troubleshoot-recovery-disks-windows.md). Du bör också bekanta dig med [hur du använder startdiagnostik för att felsöka en virtuell dator](./boot-diagnostics.md).
+- Mer information om hur du använder Resource Manager finns i [Azure Resource Manager översikt](../../azure-resource-manager/management/overview.md).
+- Om du inte kan ansluta till din virtuella dator kan du läsa [FELSÖKA RDP-anslutningar till en virtuell Azure-dator](./troubleshoot-rdp-connection.md).

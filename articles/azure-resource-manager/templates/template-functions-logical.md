@@ -2,13 +2,13 @@
 title: Template Functions – Logical
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att fastställa logiska värden.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: ede41bd6c03eb7a01ae63526810d0310f31e4014
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84677397"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978517"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Logiska funktioner för ARM-mallar
 
@@ -16,9 +16,11 @@ Resource Manager innehåller flera funktioner för att göra jämförelser i din
 
 * [and](#and)
 * [boolesk](#bool)
+* [!](#false)
 * [eventuella](#if)
 * [Ogiltigt](#not)
 * [eller](#or)
+* [värdet](#true)
 
 ## <a name="and"></a>och
 
@@ -32,7 +34,7 @@ Kontrollerar om alla parameter värden är sanna.
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |boolean |Det första värdet för att kontrol lera om är sant. |
 | arg2 |Ja |boolean |Det andra värdet för att kontrol lera om är sant. |
-| ytterligare argument |Inga |boolean |Ytterligare argument för att kontrol lera om är true. |
+| ytterligare argument |Nej |boolean |Ytterligare argument för att kontrol lera om är true. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -85,7 +87,12 @@ Konverterar parametern till ett booleskt värde.
 | arg1 |Ja |sträng eller heltal |Värdet som ska konverteras till ett booleskt värde. |
 
 ### <a name="return-value"></a>Returvärde
+
 Ett booleskt värde för det konverterade värdet.
+
+### <a name="remarks"></a>Kommentarer
+
+Du kan också använda [sant ()](#true) och [falskt ()](#false) för att hämta booleska värden.
 
 ### <a name="examples"></a>Exempel
 
@@ -125,6 +132,44 @@ Utdata från föregående exempel med standardvärdena är:
 | falseString | Bool | Falskt |
 | trueInt | Bool | Sant |
 | falseInt | Bool | Falskt |
+
+## <a name="false"></a>falskt
+
+`false()`
+
+Returnerar false.
+
+### <a name="parameters"></a>Parametrar
+
+Funktionen false accepterar inte några parametrar.
+
+### <a name="return-value"></a>Returvärde
+
+Ett booleskt värde som alltid är falskt.
+
+### <a name="example"></a>Exempel
+
+I följande exempel returneras ett falskt utdata-värde.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "falseOutput": {
+            "value": "[false()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+Utdata från föregående exempel är:
+
+| Namn | Typ | Värde |
+| ---- | ---- | ----- |
+| falseOutput | Bool | Falskt |
 
 ## <a name="if"></a>om
 
@@ -316,7 +361,7 @@ Kontrollerar om ett parameter värde är sant.
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |boolean |Det första värdet för att kontrol lera om är sant. |
 | arg2 |Ja |boolean |Det andra värdet för att kontrol lera om är sant. |
-| ytterligare argument |Inga |boolean |Ytterligare argument för att kontrol lera om är true. |
+| ytterligare argument |Nej |boolean |Ytterligare argument för att kontrol lera om är true. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -355,6 +400,44 @@ Utdata från föregående exempel är:
 | andExampleOutput | Bool | Falskt |
 | orExampleOutput | Bool | Sant |
 | notExampleOutput | Bool | Falskt |
+
+## <a name="true"></a>true
+
+`true()`
+
+Returnerar true.
+
+### <a name="parameters"></a>Parametrar
+
+Funktionen True accepterar inte några parametrar.
+
+### <a name="return-value"></a>Returvärde
+
+Ett booleskt värde som alltid är sant.
+
+### <a name="example"></a>Exempel
+
+I följande exempel returneras ett sant utdata-värde.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "trueOutput": {
+            "value": "[true()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+Utdata från föregående exempel är:
+
+| Namn | Typ | Värde |
+| ---- | ---- | ----- |
+| trueOutput | Bool | Sant |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 10/07/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 6807174f374e75f826001afecc1eccf8ba1a0603
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a767f6f877ae22a311afdb00417efb9f28fdc8f0
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743394"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938363"
 ---
 # <a name="tutorial-activate-azure-stack-edge-pro-with-gpu"></a>Självstudie: Aktivera Azure Stack Edge Pro med GPU
 
@@ -25,10 +25,10 @@ Aktiverings processen kan ta cirka 5 minuter att slutföra.
 I den här självstudien lärde du dig att:
 
 > [!div class="checklist"]
-> * Krav
+> * Förutsättningar
 > * Aktivera den fysiska enheten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du konfigurerar och konfigurerar din Azure Stack Edge Pro-enhet med GPU måste du kontrol lera att:
 
@@ -92,13 +92,14 @@ Innan du konfigurerar och konfigurerar din Azure Stack Edge Pro-enhet med GPU m�
  
 Enhets aktiveringen har slutförts. Nu kan du lägga till resurser på enheten.
 
+Om du stöter på problem under aktiveringen går du till [Felsöka aktivering och Azure Key Vault fel](azure-stack-edge-gpu-troubleshoot-activation.md#activation-errors).
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudien lärde du dig att:
 
 > [!div class="checklist"]
-> * Krav
+> * Förutsättningar
 > * Aktivera den fysiska enheten
 
 Information om hur du överför data med din Azure Stack Edge Pro-enhet finns i:

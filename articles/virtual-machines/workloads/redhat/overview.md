@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 7394cb50010bddddf8f8eff4b4f04eaf4d3231b6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b08a7d6ab271c266ba850d72d5a8b23a06dc5a3f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87052120"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977671"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Red Hat-arbetsbelastningar på Azure
 
@@ -41,11 +41,11 @@ Azure erbjuder även Red Hat Gold-bilder ( `rhel-byos` ). De här avbildningarna
 * Lär dig hur du [hittar de röda hat Gold-bilderna i Azure Portal, Azure CLI eller PowerShell-cmdleten](./byos.md).
 
 > [!NOTE]
-> Dubbel fakturering uppstår när en användare betalar två gånger för RHEL-prenumerationer. Det här scenariot inträffar vanligt vis när en kund använder Red Hat-prenumerationen-Manager för att koppla en rättighet till en RHEL-dator där du betalar per användning. Till exempel är en kund som använder prenumerations ansvarig för att bifoga en rättighet för SAP-paket på en RHEL-avbildning enligt principen betala per användning, som är indirekt fakturerad, eftersom de betalar två gånger för RHEL. De betalar en gång via Premium avgiften betala per användning och en gång via SAP-prenumerationen. Det här scenariot sker inte för att BYOS avbildnings användare.
+> Dubbel fakturering uppstår när en användare betalar två gånger för RHEL-prenumerationer. Det här scenariot inträffar vanligt vis när en kund använder Red Hat-Subscription-Manager för att koppla en rättighet till en virtuell dator med RHEL betala per användning. Till exempel är en kund som använder Subscription-Manager för att bifoga en rättighet för SAP-paket på en RHEL-avbildning enligt principen betala per användning indirekt dubbelt, eftersom de betalar två gånger för RHEL. De betalar en gång via Premium avgiften betala per användning och en gång via SAP-prenumerationen. Det här scenariot sker inte för att BYOS avbildnings användare.
 
 ### <a name="generation-2-images"></a>Generation 2-avbildningar
 
-Virtuella datorer i generation 2 (VM) tillhandahåller vissa nya funktioner jämfört med virtuella datorer i generation 1. Mer information finns i [generation 2-dokumentationen](../../linux/generation-2.md). Den viktigaste skillnaden från ett RHEL bild perspektiv är att virtuella datorer i generation 2 använder en UEFI i stället för den inbyggda program varans BIOS. De använder också GPT (GUID Partition Table) i stället för en Master Boot Record (MBR) vid start. Användningen av GPT ger bland annat OS-disk storlekar som är större än 2 TB. Dessutom körs [virtuella datorer i Mv2-serien](../../mv2-series.md) bara på generation 2-avbildningar.
+Virtuella datorer i generation 2 (VM) tillhandahåller vissa nya funktioner jämfört med virtuella datorer i generation 1. Mer information finns i [generation 2-dokumentationen](../../generation-2.md). Den viktigaste skillnaden från ett RHEL bild perspektiv är att virtuella datorer i generation 2 använder en UEFI i stället för den inbyggda program varans BIOS. De använder också GPT (GUID Partition Table) i stället för en Master Boot Record (MBR) vid start. Användningen av GPT ger bland annat OS-disk storlekar som är större än 2 TB. Dessutom körs [virtuella datorer i Mv2-serien](../../mv2-series.md) bara på generation 2-avbildningar.
 
 RHEL generation 2-avbildningar finns på Azure Marketplace. Sök efter "Gen2" i avbildnings-SKU: n i listan över alla avbildningar som visas när du använder Azure CLI. Gå till fliken **Avancerat** i distributions processen för virtuella datorer för att distribuera en virtuell dator i generation 2.
 

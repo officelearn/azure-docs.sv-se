@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 0b4890181721d08b741d327adb74bd097be5c9f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c117f9697299b94a54d9184093e65c56822b8bd2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87069160"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975679"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Detaljerade SSH-felsökningssteg för problem med anslutning till en virtuell Linux-dator i Azure
 Det finns många möjliga orsaker till att SSH-klienten kanske inte kan komma åt SSH-tjänsten på den virtuella datorn. Om du har följt de mer [allmänna SSH-fel söknings stegen](troubleshoot-ssh-connection.md)måste du ytterligare felsöka anslutnings problemet. Den här artikeln vägleder dig genom detaljerade fel söknings steg för att avgöra var SSH-anslutningen fungerar och hur du löser den.
@@ -39,7 +39,7 @@ Följande steg hjälper dig att isolera källan till felen och ta reda på lösn
 
 2. Välj **Inställningar** för att undersöka slut punkter, IP-adresser, nätverks säkerhets grupper och andra inställningar.
 
-   Den virtuella datorn ska ha en slut punkt som definierats för SSH-trafik som du kan visa i **slut punkter** eller **[nätverks säkerhets grupp](../../virtual-network/security-overview.md)**. Slut punkter i virtuella datorer som har skapats med hjälp av Resource Manager lagras i en nätverks säkerhets grupp. Kontrol lera att reglerna har tillämpats på nätverks säkerhets gruppen och att de refereras till i under nätet.
+   Den virtuella datorn ska ha en slut punkt som definierats för SSH-trafik som du kan visa i **slut punkter** eller **[nätverks säkerhets grupp](../../virtual-network/network-security-groups-overview.md)**. Slut punkter i virtuella datorer som har skapats med hjälp av Resource Manager lagras i en nätverks säkerhets grupp. Kontrol lera att reglerna har tillämpats på nätverks säkerhets gruppen och att de refereras till i under nätet.
 
 Kontrol lera de konfigurerade slut punkterna och se om du kan ansluta till den virtuella datorn via ett annat protokoll, till exempel HTTP eller en annan tjänst, för att kontrol lera nätverks anslutningen.
 
@@ -114,7 +114,7 @@ För att eliminera slut punkten som en källa till problemet tar du bort den akt
 
 ## <a name="source-4-network-security-groups"></a>Källa 4: nätverks säkerhets grupper
 Med nätverks säkerhets grupper kan du ha mer detaljerad kontroll över tillåten inkommande och utgående trafik. Du kan skapa regler som omfattar undernät och moln tjänster i ett virtuellt Azure-nätverk. Kontrol lera reglerna för nätverks säkerhets gruppen för att säkerställa att SSH-trafik till och från Internet tillåts.
-Mer information finns i [om nätverks säkerhets grupper](../../virtual-network/security-overview.md).
+Mer information finns i [om nätverks säkerhets grupper](../../virtual-network/network-security-groups-overview.md).
 
 Du kan också använda IP-verifiera för att verifiera NSG-konfigurationen. Mer information finns i [Översikt över Azure Network Monitoring](../../network-watcher/network-watcher-monitoring-overview.md). 
 

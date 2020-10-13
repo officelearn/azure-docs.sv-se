@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 70de7363634cee2790a40ecf056134cf002c762d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c84d97a86dd1dc912964b78d488c460faa744dd2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274715"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977348"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Utforma och implementera en Oracle-databas i Azure
 
@@ -49,7 +49,7 @@ I följande tabell visas några av skillnaderna mellan en lokal implementering o
 | **Nätverk** |LAN/WAN  |SDN (program varu Defined Networking)|
 | **Säkerhets grupp** |Verktyg för begränsning av IP/port |[Nätverks säkerhets grupp (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
 | **Återhämtning** |MTBF (genomsnittlig tid mellan haverier) |MTTR (genomsnittlig tid för återställning)|
-| **Planerat underhåll** |Korrigeringar/uppgraderingar|[Tillgänglighets uppsättningar](../../windows/infrastructure-example.md) (uppdatering/uppgraderingar som hanteras av Azure) |
+| **Planerat underhåll** |Korrigeringar/uppgraderingar|[Tillgänglighets uppsättningar](/previous-versions/azure/virtual-machines/windows/infrastructure-example) (uppdatering/uppgraderingar som hanteras av Azure) |
 | **Resurs** |Dedikerad  |Delas med andra klienter|
 | **Regioner** |Datacenter |[Regionpar](../../regions.md#region-pairs)|
 | **Storage** |SAN/fysiska diskar |[Azure-hanterad lagring](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
@@ -230,7 +230,7 @@ När du har konfigurerat och konfigurerat Azure-miljön är nästa steg att skyd
 - [Konfigurera Oracle ASM](configure-oracle-asm.md)
 - [Konfigurera Oracle Data Guard](configure-oracle-dataguard.md)
 - [Konfigurera den gyllene Oracle-grinden](configure-oracle-golden-gate.md)
-- [Säkerhets kopiering och återställning i Oracle](oracle-backup-recovery.md)
+- [Säkerhets kopiering och återställning i Oracle](./oracle-overview.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

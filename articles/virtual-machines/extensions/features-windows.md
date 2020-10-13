@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78ea26adb8299cc13d4677c66a0e06cba901d9dc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829092"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977382"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Tillägg och funktioner för virtuella datorer för Windows
 
@@ -70,7 +70,7 @@ Tilläggs paket laddas ned från Azure Storage förlängnings lagrings plats, oc
 > [!IMPORTANT]
 > Om du har blockerat åtkomst till *168.63.129.16* med hjälp av gäst brand väggen eller med en proxy, kommer tilläggen att fungera oberoende av ovanstående. Portarna 80, 443 och 32526 krävs.
 
-Agenter kan bara användas för att hämta tilläggs paket och rapporterings status. Om ett tillägg till exempel måste ladda ned ett skript från GitHub (anpassat skript) eller behöver åtkomst till Azure Storage (Azure Backup), måste ytterligare brand Väggs-och nätverks säkerhets grupps portar öppnas. Olika tillägg har olika krav, eftersom de är program i sin egen rätt. För tillägg som kräver åtkomst till Azure Storage eller Azure Active Directory kan du tillåta åtkomst med [Azure NSG service-Taggar](../../virtual-network/security-overview.md#service-tags) till Storage eller AzureActiveDirectory.
+Agenter kan bara användas för att hämta tilläggs paket och rapporterings status. Om ett tillägg till exempel måste ladda ned ett skript från GitHub (anpassat skript) eller behöver åtkomst till Azure Storage (Azure Backup), måste ytterligare brand Väggs-och nätverks säkerhets grupps portar öppnas. Olika tillägg har olika krav, eftersom de är program i sin egen rätt. För tillägg som kräver åtkomst till Azure Storage eller Azure Active Directory kan du tillåta åtkomst med [Azure NSG service-Taggar](../../virtual-network/network-security-groups-overview.md#service-tags) till Storage eller AzureActiveDirectory.
 
 Gäst agenten i Windows har inte stöd för att dirigera om agent trafik begär Anden via, vilket innebär att gäst agenten i Windows kommer att förlita sig på din anpassade proxy (om du har en) för att komma åt resurser på Internet eller på värden via IP-168.63.129.16.
 

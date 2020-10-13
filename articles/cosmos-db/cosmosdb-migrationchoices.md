@@ -6,18 +6,18 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2020
-ms.openlocfilehash: 4de6d4ba019af75b0f6179b2794ddb6c1e35e0c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38129c920b422babfedf5d40bb362c7552f6f712
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030080"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951969"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Alternativ för att migrera dina lokala eller molnbaserade data till Azure Cosmos DB
 
 Du kan läsa in data från olika data källor till Azure Cosmos DB. Eftersom Azure Cosmos DB stöder flera API: er kan målen vara alla befintliga API: er. Här följer några scenarier där du migrerar data till Azure Cosmos DB:
 
-* Flytta data från en Azure Cosmos-behållare till en annan behållare i samma databas eller till en annan databas. s
+* Flytta data från en Azure Cosmos-behållare till en annan behållare i samma databas eller till en annan databas.
 * Flytta data mellan dedikerade behållare till delade databas behållare.
 * Flytta data från ett Azure Cosmos-konto som finns i Region1 till ett annat Azure Cosmos-konto i samma eller en annan region.
 * Flytta data från en källa, till exempel Azure Blob Storage, en JSON-fil, Oracle Database, Couchbase, DynamoDB till Azure Cosmos DB.
@@ -40,7 +40,7 @@ Följande faktorer avgör valet av Migreringsverktyg:
 
 ## <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB SQL API
 
-|Typ av migrering|Lösning|Källor som stöds|Mål som stöds|Överväganden|
+|Typ av migrering|Lösning|Källor som stöds|Mål som stöds|Att tänka på|
 |---------|---------|---------|---------|---------|
 |Offline|[Datamigreringsverktyget](import-data.md)| &bull;JSON/CSV-filer<br/>&bull;Azure Cosmos DB SQL API<br/>&bull;MongoDB<br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;AWS DynamoDB<br/>&bull;Azure-Blob Storage|&bull;Azure Cosmos DB SQL API<br/>&bull;API för Azure Cosmos DB tabeller<br/>&bull;JSON-filer |&bull; Enkelt att konfigurera och stödja flera källor. <br/>&bull; Passar inte för stora data mängder.|
 |Offline|[Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)| &bull;JSON/CSV-filer<br/>&bull;Azure Cosmos DB SQL API<br/>&bull;API för Azure Cosmos DB för MongoDB<br/>&bull;MongoDB <br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;Azure-Blob Storage <br/> <br/>Se [Azure Data Factory](../data-factory/connector-overview.md) -artikeln för andra källor som stöds.|&bull;Azure Cosmos DB SQL API<br/>&bull;API för Azure Cosmos DB för MongoDB<br/>&bull;JSON-filer <br/><br/> Se [Azure Data Factory](../data-factory/connector-overview.md) -artikeln för andra mål som stöds. |&bull; Enkelt att konfigurera och stödja flera källor.<br/>&bull; Använder Azure Cosmos DB bulk utförar-biblioteket. <br/>&bull; Lämplig för stora data uppsättningar. <br/>&bull; Brist på kontroll punkt – det innebär att om ett problem inträffar under migreringen måste du starta om hela migreringsprocessen.<br/>&bull; Avsaknad av kö för obeställbara meddelanden – det innebär att några felaktiga filer kan stoppa hela migreringsprocessen.|
@@ -52,7 +52,7 @@ Följande faktorer avgör valet av Migreringsverktyg:
 
 ## <a name="azure-cosmos-db-mongo-api"></a>Azure Cosmos DB Mongo-API
 
-|Typ av migrering|Lösning|Källor som stöds|Mål som stöds|Överväganden|
+|Typ av migrering|Lösning|Källor som stöds|Mål som stöds|Att tänka på|
 |---------|---------|---------|---------|---------|
 |Online|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB|API för Azure Cosmos DB för MongoDB |&bull; Använder Azure Cosmos DB bulk utförar-biblioteket. <br/>&bull; Lämplig för stora data uppsättningar och sköter att replikera Live-ändringar. <br/>&bull; Fungerar endast med andra MongoDB-källor.|
 |Offline|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB| API för Azure Cosmos DB för MongoDB| &bull; Använder Azure Cosmos DB bulk utförar-biblioteket. <br/>&bull; Lämplig för stora data uppsättningar och sköter att replikera Live-ändringar. <br/>&bull; Fungerar endast med andra MongoDB-källor.|
@@ -61,7 +61,7 @@ Följande faktorer avgör valet av Migreringsverktyg:
 
 ## <a name="azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API
 
-|Typ av migrering|Lösning|Källor som stöds|Mål som stöds|Överväganden|
+|Typ av migrering|Lösning|Källor som stöds|Mål som stöds|Att tänka på|
 |---------|---------|---------|---------|---------|
 |Offline|[cqlsh COPY-kommando](cassandra-import-data.md#migrate-data-using-cqlsh-copy-command)|CSV-filer | Azure Cosmos DB Cassandra API| &bull; Enkelt att konfigurera. <br/>&bull; Passar inte för stora data mängder. <br/>&bull; Fungerar bara när källan är en Cassandra-tabell.|
 |Offline|[Kopiera tabell med Spark](cassandra-import-data.md#migrate-data-using-spark) | &bull;Apache Cassandra<br/>&bull;Azure Cosmos DB Cassandra API| Azure Cosmos DB Cassandra API | &bull; Kan använda Spark-funktioner för att parallellisera omvandling och inmatning. <br/>&bull; Behöver konfigureras med en anpassad princip för återförsök för att hantera begränsningar.|

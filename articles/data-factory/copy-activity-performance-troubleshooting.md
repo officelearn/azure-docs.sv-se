@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: d464124c6841cb2e3186d521b93d7ae08f94c9e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: b21f7ba81a74482da6fc4a59948bf16036e5d337
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440532"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951107"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Felsöka prestanda för kopierings aktivitet
 
@@ -40,7 +40,7 @@ Som en referens ger för närvarande prestanda justerings tips förslag på föl
 | Data lager som är speciell   | Läsa in data i **Azure Synpase Analytics (tidigare SQL DW)**: föreslå användning av PolyBase-eller Copy-instruktionen om den inte används. |
 | &nbsp;                | Kopiera data från/till **Azure SQL Database**: när DTU är under hög användning rekommenderar vi att du uppgraderar till en högre nivå. |
 | &nbsp;                | Kopiera data från/till **Azure Cosmos DB**: när ru är under hög användning bör du föreslå att uppgradera till större ru. |
-|                       | Kopiera data från **SAP-tabellen**: vid kopiering av stora mängder data kan du föreslå att utnyttja alternativ för SAP-kopplingens partition för att aktivera parallell belastning och öka Max antalet partitioner. |
+|                       | Kopiera data från **SAP-tabell**: när du kopierar stora mängder data kan du föreslå att använda SAP-kopplingens partitionsalternativ för att aktivera parallell inläsning och öka det högsta antalet partitioner. |
 | &nbsp;                | Mata in data från **Amazon RedShift**: föreslå att använda Unload om det inte används. |
 | Data lagrings begränsning | Om ett antal Läs/skriv-åtgärder begränsas av data lagret under kopieringen, föreslår vi kontroll och ökar den tillåtna begär ande frekvensen för data lagret eller minskar den samtidiga arbets belastningen. |
 | Integration runtime  | Om du använder en **egen värd integration Runtime (IR)** och kopierings aktiviteten väntar länge i kön tills IR-resursen är tillgänglig, föreslår vi att skala ut/upp IR. |
@@ -74,7 +74,7 @@ Om kopierings aktivitetens prestanda inte uppfyller din förväntad händelse f�
 
     - Kontrol lera om du kan [Kopiera filer baserat på sökväg eller namn för datetime-partitionerad fil](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). På så sätt går det inte att ta bördan på käll sidan.
 
-    - Kontrol lera om du kan använda data lagrets interna filter i stället, särskilt "**prefix**" för Amazon S3 och Azure blob. Prefixet filter är ett filter för data lager på Server sidan och har mycket bättre prestanda.
+    - Kontrol lera om du kan använda data lagrets interna filter i stället, särskilt "**prefix**" för Amazon S3/Azure Blob/Azure File Storage och "**listAfter/listBefore**" för ADLS gen1. Dessa filter är filter för data lager på Server sidan och har mycket bättre prestanda.
 
     - Överväg att dela upp en enda stor data uppsättning i flera mindre data mängder, och låt dessa kopierings jobb köras samtidigt, så att varje data mängd förvaras. Du kan göra detta med lookup/GetMetadata + framifrån och efter kopiering. Se [Kopiera filer från flera behållare](solution-template-copy-files-multiple-containers.md) eller [migrera data från Amazon S3 till ADLS Gen2](solution-template-migration-s3-azure.md) Solution-mallar som ett allmänt exempel.
 
@@ -128,7 +128,7 @@ Om kopierings prestandan inte motsvarar förväntad fel sökning av en enskild k
 
     - Kontrol lera om du kan [Kopiera filer baserat på sökväg eller namn för datetime-partitionerad fil](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). På så sätt går det inte att ta bördan på käll sidan.
 
-    - Kontrol lera om du kan använda data lagrets interna filter i stället, särskilt "**prefix**" för Amazon S3 och Azure blob. Prefixet filter är ett filter för data lager på Server sidan och har mycket bättre prestanda.
+    - Kontrol lera om du kan använda data lagrets interna filter i stället, särskilt "**prefix**" för Amazon S3/Azure Blob/Azure File Storage och "**listAfter/listBefore**" för ADLS gen1. Dessa filter är filter för data lager på Server sidan och har mycket bättre prestanda.
 
     - Överväg att dela upp en enda stor data uppsättning i flera mindre data mängder, och låt dessa kopierings jobb köras samtidigt, så att varje data mängd förvaras. Du kan göra detta med lookup/GetMetadata + framifrån och efter kopiering. Se [Kopiera filer från flera behållare](solution-template-copy-files-multiple-containers.md) eller [migrera data från Amazon S3 till ADLS Gen2](solution-template-migration-s3-azure.md) Solution-mallar som ett allmänt exempel.
 
@@ -142,7 +142,7 @@ Om kopierings prestandan inte motsvarar förväntad fel sökning av en enskild k
 
   - Kontrol lera den självbetjänings-och minnes användnings trenden i Azure Portal > din Data Factory-> översikts sida. Överväg att [skala upp/ut IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) om processor användningen är hög eller tillgängligt minne är lågt.
 
-  - Använd bästa praxis för anslutnings data inläsning om detta gäller. Exempel:
+  - Använd bästa praxis för anslutnings data inläsning om detta gäller. Till exempel:
 
     - När du kopierar data från [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source)och [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)) aktiverar du alternativ för datapartitioner för att kopiera data parallellt.
 

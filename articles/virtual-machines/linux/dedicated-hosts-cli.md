@@ -6,17 +6,17 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: cynthn
-ms.openlocfilehash: a85f5cb9cc519b180354445ca9ca2f8dd0354c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d99f8c380b486ed818aff64782ca817dab41c916
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370207"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975289"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Distribuera till dedikerade värdar med hjälp av Azure CLI
  
 
-Den här artikeln vägleder dig genom hur du skapar en dedikerad Azure- [värd](dedicated-hosts.md) som värd för dina virtuella datorer. 
+Den här artikeln vägleder dig genom hur du skapar en dedikerad Azure- [värd](../dedicated-hosts.md) som värd för dina virtuella datorer. 
 
 Kontrol lera att du har installerat Azure CLI version 2.0.70 eller senare och loggat in på ett Azure-konto med hjälp av `az login` . 
 
@@ -319,8 +319,8 @@ az group delete -n myDHResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information finns i Översikt över [dedikerade värdar](dedicated-hosts.md) .
+- Mer information finns i Översikt över [dedikerade värdar](../dedicated-hosts.md) .
 
-- Du kan också skapa dedikerade värdar med hjälp av [Azure Portal](dedicated-hosts-portal.md).
+- Du kan också skapa dedikerade värdar med hjälp av [Azure Portal](../dedicated-hosts-portal.md).
 
 - Det finns en exempel mall som du hittar [här](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), som använder både zoner och fel domäner för maximal återhämtning i en region.

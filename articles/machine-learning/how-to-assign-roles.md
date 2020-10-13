@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: ab94af9ec172a3e88d523024c1e00d3a0d944798
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: a9259e287c75a3a39ad1d4e701638f38b4512ee0
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873089"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966414"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 
@@ -66,6 +66,22 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 ## <a name="azure-machine-learning-operations"></a>Azure Machine Learning åtgärder
 
 Azure Machine Learning inbyggda åtgärder för många åtgärder och uppgifter. En fullständig lista finns i [åtgärder för Azure Resource Provider](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+
+## <a name="mlflow-operations-in-azure-machine-learning"></a>MLflow-åtgärder i Azure Machine Learning
+
+I den här tabellen beskrivs den behörighets omfattning som ska läggas till i åtgärder i den anpassade rollen som skapats för att utföra MLflow-åtgärder.
+
+| MLflow-åtgärd | Omfång |
+| --- | --- |
+| Lista alla experiment i butiken för arbets ytans spårning, få ett experiment med ID, få ett experiment efter namn | Microsoft. MachineLearningServices/arbets ytor/experiment/läsa |
+| Skapa ett experiment med ett namn, ange en tagg för ett experiment, Återställ ett experiment som marker ATS för borttagning| Microsoft. MachineLearningServices/arbets ytor/experiment/Write | 
+| Ta bort ett experiment | Microsoft. MachineLearningServices/arbets ytor/experiment/ta bort |
+| Hämta en körning och relaterade data och metadata, hämta en lista över alla värden för angivet mått för en given körnings List artefakter för en körning | Microsoft. MachineLearningServices/arbets ytor/experiment/kör/Läs |
+| Skapa en ny körning inom ett experiment, ta bort körningar, återställa borttagna körningar, logg mått under den aktuella körningen, ange taggar på en körnings-, ta bort-taggar för en körning, logg-param (nyckel/värde-par) som används för körning, logga en batch med mått, parametrar och taggar för körning, logga en batch med mått, params | Microsoft. MachineLearningServices/arbets ytor/experiment/kör/Skriv |
+| Hämta registrerad modell efter namn, hämta en lista över alla registrerade modeller i registret, Sök efter registrerade modeller, senaste versions modeller för varje begär Ande steg, hämta en registrerad modells version, Sök modell versioner, Hämta URI där en modell versions artefakter lagras, Sök efter körningar efter experiment-ID: n | Microsoft. MachineLearningServices/arbets ytor/modeller/läsa |
+| Skapa en ny registrerad modell, uppdatera en registrerad modells namn/beskrivning, Byt namn på befintlig registrerad modell, skapa ny version av modellen, uppdatera en modell versions beskrivning, gå över en registrerad modell till någon av stegen | Microsoft. MachineLearningServices/arbets ytor/modeller/Skriv |
+| Ta bort en registrerad modell tillsammans med alla dess version, ta bort vissa versioner av en registrerad modell | Microsoft. MachineLearningServices/arbets ytor/modeller/ta bort |
+
 
 ## <a name="create-custom-role"></a>Skapa anpassad roll
 
@@ -253,6 +269,46 @@ Ja här är några vanliga scenarier med anpassade föreslagna roll definitioner
         ]
     }
     ```
+     
+* __MLflow data expert Custom__: gör att en data expert kan utföra alla MLflow azureml-åtgärder som stöds, **förutom**:
+
+   * Skapa beräkning
+   * Distribuera modeller till ett AKS-kluster för produktion
+   * Distribuera en pipeline-slutpunkt i produktion
+
+   `mlflow_data_scientist_custom_role.json` :
+   ```json
+   {
+        "Name": "MLFlow Data Scientist Custom",
+        "IsCustom": true,
+        "Description": "Can perform azureml mlflow integrated functionalities that includes mlflow tracking, projects, model registry",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/experiments/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/delete",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+            "Microsoft.MachineLearningServices/workspaces/models/read",
+            "Microsoft.MachineLearningServices/workspaces/models/write",
+            "Microsoft.MachineLearningServices/workspaces/models/delete"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
+            "Microsoft.Authorization/*",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/write",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
+        ],
+     "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```   
 
 * __MLOps anpassad__: gör att du kan tilldela en roll till ett huvud namn för tjänsten och använda det för att automatisera dina MLOps-pipeliner. Till exempel för att skicka körningar till en redan publicerad pipeline:
 

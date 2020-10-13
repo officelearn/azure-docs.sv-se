@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: b61bbacf889df23455266fb81124e14ef44388d2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 283eb9b9cbdc03813cf7c765c9ef3be5965919eb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336130"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978347"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Tillägg och funktioner för virtuella datorer för Linux
 
@@ -65,7 +65,7 @@ Tilläggs paket laddas ned från Azure Storage förlängnings lagrings plats, oc
 > [!IMPORTANT]
 > Om du har blockerat åtkomst till *168.63.129.16* med hjälp av gäst brand väggen, kommer tilläggen att fungera oberoende av ovanstående.
 
-Agenter kan bara användas för att hämta tilläggs paket och rapporterings status. Om ett tillägg till exempel måste ladda ned ett skript från GitHub (anpassat skript) eller behöver åtkomst till Azure Storage (Azure Backup), måste ytterligare brand Väggs-och nätverks säkerhets grupps portar öppnas. Olika tillägg har olika krav, eftersom de är program i sin egen rätt. För tillägg som kräver åtkomst till Azure Storage kan du tillåta åtkomst med hjälp av Azure NSG service-taggar för [lagring](../../virtual-network/security-overview.md#service-tags).
+Agenter kan bara användas för att hämta tilläggs paket och rapporterings status. Om ett tillägg till exempel måste ladda ned ett skript från GitHub (anpassat skript) eller behöver åtkomst till Azure Storage (Azure Backup), måste ytterligare brand Väggs-och nätverks säkerhets grupps portar öppnas. Olika tillägg har olika krav, eftersom de är program i sin egen rätt. För tillägg som kräver åtkomst till Azure Storage kan du tillåta åtkomst med hjälp av Azure NSG service-taggar för [lagring](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 För att omdirigera begär Anden om agent trafik har Linux-agenten stöd för proxy server. Stöd för den här proxyservern tillämpar dock inte tillägg. Du måste konfigurera varje enskilt tillägg så att det fungerar med en proxy.
 
@@ -403,7 +403,7 @@ Du kan också ta bort ett tillägg i Azure Portal på följande sätt:
 
 ## <a name="common-vm-extension-reference"></a>Vanlig referens för VM-tillägg
 
-| Tilläggs namn | Description | Mer information |
+| Tilläggs namn | Beskrivning | Mer information |
 | --- | --- | --- |
 | Anpassat skript tillägg för Linux |Kör skript mot en virtuell Azure-dator |[Anpassat skript tillägg för Linux](custom-script-linux.md) |
 | VM Access-tillägg |Få åtkomst till en virtuell Azure-dator |[VM Access-tillägg](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

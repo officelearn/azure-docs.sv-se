@@ -12,17 +12,17 @@ ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667701"
 ---
-# <a name="get-started-with-custom-keyword"></a>Kom igång med anpassat nyckelord
+# <a name="get-started-with-custom-keyword"></a>Komma igång med Anpassat nyckelord
 
 I den här snabb starten lär du dig grunderna för att arbeta med anpassade nyckelord, med tal Studio och tal-SDK. Ett nyckelord är ett ord eller en kort fras som gör att produkten röst aktive rad. Du skapar nyckelords modeller i tal Studio och exporterar sedan en modell fil som du använder med talet SDK i dina program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Stegen i den här artikeln kräver en tal prenumeration och talet SDK. Om du inte redan har en prenumeration kan du [prova röst tjänsten kostnads fritt](overview.md#try-the-speech-service-for-free). Information om hur du hämtar SDK finns i [installations guiden](quickstarts/setup-platform.md) för din plattform.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 643010ef1f6e941a57673a711e1871aafd1e341d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361916"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Självstudie: Konfigurera Log Analytics-guiden
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Skapa en anpassad arbets bok med snabb starts mal len
 > * Lägg till en fråga till en befintlig arbetsboksmall
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration med minst en P1-licensierad administratör. Om du inte har någon Azure-prenumeration kan du [Registrera dig för en kostnads fri utvärderings version](https://azure.microsoft.com/free/).
 

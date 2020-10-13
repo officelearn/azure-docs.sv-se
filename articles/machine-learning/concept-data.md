@@ -12,10 +12,10 @@ ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91446700"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Skydda data åtkomst i Azure Machine Learning
@@ -38,7 +38,7 @@ När du är redo att använda data i din molnbaserade lagrings lösning rekommen
 3. Om du vill använda den data uppsättningen i dator inlärnings experimentet kan du antingen
     1. Montera den på ditt Experiments beräknings mål för modell träning.
 
-        **ELLER** 
+        **OR** 
 
     1. Använd den direkt i Azure Machine Learning lösningar, till exempel automatisk maskin inlärning (automatiserad ML) experiment körningar, maskin inlärnings pipeliner eller [Azure Machine Learning designer](concept-designer.md).
 

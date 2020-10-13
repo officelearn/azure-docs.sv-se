@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 49a763af8d936ec9fd15c59c908ba9015f803930
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568637"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure Time Series Insights gen1 Explorer
@@ -40,7 +40,7 @@ Azure Time Series Insights är en fullständigt hanterad tjänst för analys, la
 >[!NOTE]
 >Spela upp föregående video <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"komma igång med Azure Time Series Insights med hjälp av en Azure IoT Solution Accelerator."</a>
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan använda Azure Time Series Insights Explorer måste du:
 
@@ -74,7 +74,7 @@ I minuter när du ansluter din händelse källa till din Azure Time Series Insig
 
       - **Predikat**: Använd predikatet för att snabbt filtrera händelser med hjälp av en uppsättning operander som anges i följande tabell. Om du utför en sökning genom att välja eller klicka på, uppdateras predikatet automatiskt utifrån sökningen. Operands typer som stöds är:
 
-         |Åtgärd  |Typer som stöds  |Kommentarer  |
+         |Åtgärd  |Typer som stöds  |Obs!  |
          |---------|---------|---------|
          |**<**, **>**, **<=**, **>=**    |  **Double**, **datetime**, **TimeSpan**       |         |
          |**=**, **!=**, **<>**     | **Sträng**, **bool**, **Double**, **datetime**, **TimeSpan**, **Null**        |         |

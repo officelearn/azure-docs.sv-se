@@ -11,10 +11,10 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 4a0c2813a45fab497173d0101f87b30288e93884
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568916"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integreringskörning i Azure Data Factory
@@ -246,7 +246,7 @@ Om du använder projekt distributions modell där paket lagras i SSISDB som finn
 
 #### <a name="proxy--staging-tile"></a>Panelen PROXY/mellanlagringsplats
 
-Om du laddar ned, installerar och konfigurerar SHIR (egen värd-IR) som en proxy för din Azure-SSIS IR att komma åt data lokalt, visas panelen **proxy/mellanlagringsplats** på sidan för Azure-SSIS IR övervakning (se [Konfigurera SHIR som proxy för din Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)). På den här panelen kan du välja en länk som anger din SHIR för att öppna sidan övervakning. Du kan också välja en annan länk som anger Azure-Blob Storage för mellanlagring för att konfigurera om den länkade tjänsten.
+Om du laddar ned, installerar och konfigurerar Self-Hosted IR (SHIR) som en proxy för din Azure-SSIS IR för att komma åt data lokalt, visas panelen **proxy/mellanlagringsplats** på sidan för Azure-SSIS IR övervakning (se [Konfigurera SHIR som proxy för dina Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)). På den här panelen kan du välja en länk som anger din SHIR för att öppna sidan övervakning. Du kan också välja en annan länk som anger Azure-Blob Storage för mellanlagring för att konfigurera om den länkade tjänsten.
 
 #### <a name="validate-vnet--subnet-tile"></a>VERIFIERA panelen VNET/SUBNET
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
 ms.openlocfilehash: 8e6a6d1c557a765e55152685f08e80ad54bbd903
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362018"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Distribuera Azure Cosmos DB och Azure App Service med en webbapp från GitHub med en Azure Resource Manager mall
@@ -40,7 +40,7 @@ Först väljer du knappen **distribuera till Azure** nedan för att öppna Azure
 
 När du är i Azure Portal väljer du den prenumeration som du vill distribuera till och väljer eller skapar en ny resurs grupp. Fyll sedan i följande värden.
 
-:::image type="content" source="./media/create-website/template-deployment.png" alt-text="Skärm bild av användar gränssnittet för mall distribution":::
+:::image type="content" source="./media/create-website/template-deployment.png" alt-text="Distribuera till Azure":::
 
 * **Region** – detta krävs av Resource Manager. Ange samma region som används av plats parametern där dina resurser finns.
 * **Program namn** – det här namnet används av alla resurser för den här distributionen. Se till att välja ett unikt namn för att undvika konflikter med befintliga Azure Cosmos DB-och App Service-konton.
@@ -64,31 +64,31 @@ När du har fyllt i värdena väljer du knappen **skapa** för att starta distri
 
 När mallen har distribuerat resurserna kan du nu se var och en av dem i din resurs grupp.
 
-:::image type="content" source="./media/create-website/resource-group.png" alt-text="Resursgrupp":::
+:::image type="content" source="./media/create-website/resource-group.png" alt-text="Distribuera till Azure":::
 
 ### <a name="view-cosmos-db-endpoint-and-keys"></a>Visa Cosmos DB slut punkt och nycklar
 
 Öppna sedan Azure Cosmos-kontot i portalen. Följande skärm bild visar slut punkten och nycklarna för ett Azure Cosmos-konto.
 
-:::image type="content" source="./media/create-website/cosmos-keys.png" alt-text="Cosmos-nycklar":::
+:::image type="content" source="./media/create-website/cosmos-keys.png" alt-text="Distribuera till Azure":::
 
 ### <a name="view-the-azure-cosmos-db-keys-in-application-settings"></a>Visa Azure Cosmos DB nycklar i program inställningar
 
 Gå sedan till Azure App Service i resurs gruppen. Klicka på fliken konfiguration om du vill visa program inställningarna för App Service. Program inställningarna innehåller det Cosmos DB konto och primär nyckel värden som krävs för att ansluta till Cosmos DB samt de databas-och behållar namn som skickades in från mallen distribution.
 
-:::image type="content" source="./media/create-website/application-settings.png" alt-text="Program inställningar":::
+:::image type="content" source="./media/create-website/application-settings.png" alt-text="Distribuera till Azure":::
 
 ### <a name="view-web-app-in-deployment-center"></a>Visa webbapp i distributions Center
 
 Gå sedan till distributions centret för App Service. Här visas databas platser för GitHub-lagringsplatsen som skickades till mallen. Statusen nedan indikerar att det är klart (aktiv), vilket innebär att programmet har distribuerats och startats.
 
-:::image type="content" source="./media/create-website/deployment-center.png" alt-text="Distributionscenter":::
+:::image type="content" source="./media/create-website/deployment-center.png" alt-text="Distribuera till Azure":::
 
 ### <a name="run-the-web-application"></a>Köra webbprogrammet
 
 Klicka på **Bläddra** längst upp i distributions Center för att öppna webb programmet. Webb programmet öppnas på Start skärmen. Klicka på **Skapa ny** och ange data i fälten och klicka på Spara. Skärmen som visas visar de data som sparas i Cosmos DB.
 
-:::image type="content" source="./media/create-website/app-home-screen.png" alt-text="Start skärmen":::
+:::image type="content" source="./media/create-website/app-home-screen.png" alt-text="Distribuera till Azure":::
 
 ## <a name="step-3-how-does-it-work"></a>Steg 3: Hur fungerar det?
 
@@ -98,19 +98,19 @@ Det krävs tre element för att det ska fungera.
 
 Först måste programmet begära Cosmos DB slut punkt och nyckel i `Startup` -klassen i ASP.NET MVC-webbappen. [Cosmos DB att göra-exemplet](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) kan köras lokalt där du kan ange anslutnings informationen till appsettings.jspå. När den distribueras distribueras dock den här filen med appen. Om dessa rader i rött inte kan komma åt inställningarna från appsettings.jspå, kommer den att försöka från program inställningarna i Azure App Service.
 
-:::image type="content" source="./media/create-website/startup.png" alt-text="Skärm bild som visar en metod med flera String-variabler som är markerade i rött, inklusive databaseName, containerName, konto och nyckel.":::
+:::image type="content" source="./media/create-website/startup.png" alt-text="Distribuera till Azure":::
 
 ### <a name="using-special-azure-resource-management-functions"></a>Använda särskilda funktioner för Azure-resurs hantering
 
-För att dessa värden ska vara tillgängliga för programmet när de distribueras kan Azure Resource Manager-mallen fråga efter dessa värden från Cosmos DB-kontot med hjälp av särskilda funktioner för Azure-resurs hantering, inklusive [referens](../azure-resource-manager/templates/template-functions-resource.md#reference) -och [listnycklar](../azure-resource-manager/templates/template-functions-resource.md#listkeys) som hämtar värdena från Cosmos DB-kontot och infogar dem i program inställnings värden med nyckel namn som matchar det som används i programmet ovan i formatet {section: Key}. Till exempel `CosmosDb:Account`.
+För att dessa värden ska vara tillgängliga för programmet när de distribueras kan Azure Resource Manager-mallen fråga efter dessa värden från Cosmos DB-kontot med hjälp av särskilda funktioner för Azure-resurs hantering, inklusive [referens](../azure-resource-manager/templates/template-functions-resource.md#reference) -och [listnycklar](../azure-resource-manager/templates/template-functions-resource.md#listkeys) som hämtar värdena från Cosmos DB-kontot och infogar dem i program inställnings värden med nyckel namn som matchar det som används i programmet ovan i formatet {section: Key}. Exempelvis `CosmosDb:Account`.
 
-:::image type="content" source="./media/create-website/template-keys.png" alt-text="Mallens nycklar":::
+:::image type="content" source="./media/create-website/template-keys.png" alt-text="Distribuera till Azure":::
 
 ### <a name="deploying-web-apps-from-github"></a>Distribuera webb program från GitHub
 
 Slutligen måste vi distribuera webb programmet från GitHub till App Service. Detta görs med hjälp av JSON nedan. Två saker att vara försiktiga med är typ och namn för den här resursen. Både- `"type": "sourcecontrols"` och- `"name": "web"` egenskapsvärdena är hårdkodade och ska inte ändras.
 
-:::image type="content" source="./media/create-website/deploy-from-github.png" alt-text="Distribuera från GitHub":::
+:::image type="content" source="./media/create-website/deploy-from-github.png" alt-text="Distribuera till Azure":::
 
 ## <a name="next-steps"></a>Nästa steg
 

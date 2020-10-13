@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
-ms.openlocfilehash: 6a7bf07359344e26280021a6a55eecc5b96b7a86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a07c6ae48cdca68a95db7770d90076eb8f10f95
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653697"
+ms.locfileid: "91929464"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Vanliga frågor och svar om SMB-prestanda för Azure NetApp Files
 
@@ -39,7 +39,7 @@ När SMB Multichannel är aktiverat upprättar en SMB3-klient flera TCP-anslutni
 
 ## <a name="which-windows-versions-support-smb-multichannel"></a>Vilka Windows-versioner stöder SMB Multichannel?
 
-Windows har stöd för SMB Multichannel sedan Windows 2012 för att möjliggöra bästa prestanda.  Mer information finns i [Distribuera SMB Multichannel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3Dws.11)) och [grunderna i SMB Multichannel](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/) . 
+Windows har stöd för SMB Multichannel sedan Windows 2012 för att möjliggöra bästa prestanda.  Mer information finns i [Distribuera SMB Multichannel](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3Dws.11)) och [grunderna i SMB Multichannel](/archive/blogs/josebda/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0) . 
 
 
 ## <a name="does-my-azure-virtual-machine-support-rss"></a>Stöder min virtuella Azure-dator RSS?
@@ -132,7 +132,7 @@ När du har data trafik som körs i dina volymer kan du övervaka dina kort i pr
 
 ## <a name="is-accelerated-networking-recommended"></a>Rekommenderas snabbare nätverk?
 
-För högsta prestanda rekommenderar vi att du konfigurerar [accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) där det är möjligt. Tänk på följande:  
+För högsta prestanda rekommenderar vi att du konfigurerar [accelererat nätverk](../virtual-network/create-vm-accelerated-networking-powershell.md) där det är möjligt. Tänk på följande:  
 
 * Azure Portal aktiverar accelererat nätverk som standard för virtuella datorer som stöder den här funktionen.  Andra distributions metoder som Ansible och liknande konfigurations verktyg kanske inte heller.  Det gick inte att aktivera accelererad anslutning hobble datorns prestanda.  
 * Om det accelererade nätverket inte är aktiverat på nätverks gränssnittet för en virtuell dator på grund av bristande stöd för en instans typ eller storlek förblir det inaktiverat med större instans typer. Du behöver manuellt ingrepp i dessa fall.

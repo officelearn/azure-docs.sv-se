@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: fd0c0158106a24ba12fec42e41df69f246e7f3f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3e50a6a34a6588ecce8b9ecc3c6b358fddc38b7
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530484"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948722"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Vanliga frågor och svar om Azure VMware-lösningen
 
@@ -101,6 +101,10 @@ Så långt vi vet så bör alla säkerhets kopierings lösningar som använder V
 
 Som de här säkerhets kopierings lösningarna installeras och hanteras av kunderna kan de kontakta respektive ISV för support. 
 
+#### <a name="what-is-the-correct-storage-policy-for-the-dedup-set-up"></a>Vad är rätt lagrings princip för Deduplicerings inställningen?
+
+Använd *thin_provision* lagrings princip för din VM-mall.  Standardvärdet är *thick_provision*.
+
 ## <a name="hosts-clusters-and-private-clouds"></a>Värdar, kluster och privata moln
 
 #### <a name="is-the-underlying-infrastructure-shared"></a>Delas den underliggande infrastrukturen?
@@ -149,7 +153,7 @@ Uppgraderingarna av det privata molnet för program varu paketet görs för att 
 
 Program varan för det privata molnet uppgraderas enligt ett schema som spårar program varu paketets version från VMware. Det privata molnet kräver ingen stillestånds tid för uppgraderingar.
 
-## <a name="connectivity"></a>Anslutningsmöjlighet
+## <a name="connectivity"></a>Anslutning
 
 #### <a name="what-network-ip-address-planning-is-required-to-incorporate-private-clouds-with-on-premises-environments"></a>Vilken nätverks-IP-adress planering krävs för att inkludera privata moln med lokala miljöer?
 
@@ -173,6 +177,8 @@ Nej. Inkommande nätverks trafik från Internet direkt till privata moln är int
 #### <a name="do-i-need-to-restrict-internet-access-from-vms-on-logical-networks-to-the-internet"></a>Måste jag begränsa Internet åtkomst från virtuella datorer i logiska nätverk till Internet?
 
 Ja. Du måste använda NSX-T-hanteraren för att skapa en brand vägg som begränsar VM-åtkomsten till Internet.
+
+
 
 ## <a name="accounts-and-privileges"></a>Konton och behörigheter
 
@@ -211,7 +217,7 @@ Du behöver ett Azure-konto i en Azure-prenumeration.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Hur gör jag för att begära en värd kvot ökning för Azure VMware-lösningen?
 
-* Du behöver ett [Azure-Enterprise-avtal (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) med Microsoft.
+* Du behöver ett [Azure-Enterprise-avtal (EA)](../cost-management-billing/manage/ea-portal-agreements.md) med Microsoft.
 * Du behöver ett Azure-konto i en Azure-prenumeration.
 
 Innan du skapar din Azure VMware-lösnings resurs måste du skicka in ett support ärende om du vill att dina noder ska tilldelas. När support teamet har tagit emot din begäran tar det upp till fem arbets dagar för att bekräfta din begäran och allokera noderna. Om du har ett befintligt privat moln i Azure VMware-lösningen och vill att fler noder ska tilldelas, går du igenom samma process.

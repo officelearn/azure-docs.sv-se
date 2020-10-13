@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: 98210f26072504c129ba32f765cf6bab74fef604
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570711"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Hantera ett Azure Cosmos-konto
@@ -31,7 +31,7 @@ Information om hur du [skapar ett Azure Cosmos DB konto med Azure CLI](manage-wi
 
 Information om hur du [skapar ett Azure Cosmos DB konto med PowerShell](manage-with-powershell.md#create-account)
 
-### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Azure Resource Manager mall
+### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Azure Resource Manager-mall
 
 Information om hur du [skapar Azure Cosmos DB konto med Azure Resource Manager mallar](manage-sql-with-resource-manager.md)
 
@@ -196,7 +196,7 @@ Se [ange prioritet för redundans med Azure CLI](manage-with-cli.md#set-failover
 
 Se [ange prioritet för redundans med PowerShell](manage-with-powershell.md#modify-failover-priority)
 
-## <a name="perform-manual-failover-on-an-azure-cosmos-account"></a><a id="manual-failover"></a>Utför manuell redundansväxling för ett Azure Cosmos-konto
+## <a name="perform-manual-failover-on-an-azure-cosmos-account"></a><a id="manual-failover"></a>Utföra manuell redundans på ett Azure Cosmos-konto
 
 > [!IMPORTANT]
 > Azure Cosmos-kontot måste konfigureras för manuell redundansväxling för att åtgärden ska lyckas.

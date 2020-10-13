@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: f7214668fc63ec8bb2e0c23d264c1aa01c9148ba
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91368420"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga infrastruktur för nätverks Policy Server (NPS) med Azure Multi-Factor Authentication
@@ -303,7 +303,7 @@ Konfigurera RADIUS-klienter som du vill kräva MFA för att skicka begär anden 
 
 Om du har användare som inte är registrerade för MFA kan du bestämma vad som händer när de försöker autentisera sig. Om du vill styra det här beteendet använder du inställningen *REQUIRE_USER_MATCH* i register Sök vägen *HKLM\Software\Microsoft\AzureMFA*. Den här inställningen har ett enda konfigurations alternativ:
 
-| Tangent | Värde | Standardvärde |
+| Tangent | Värde | Default |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | Inte angivet (motsvarar sant) |
 

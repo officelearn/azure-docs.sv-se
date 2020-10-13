@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 92d445991aa8b90a343ad7d015787cff35ddf183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d4a455458812bef1d79aba583a6317c08b65863
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85340927"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948382"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>GitHub åtgärder arbets flöden för för hands versionen av Azure static Web Apps
 
@@ -104,7 +104,7 @@ Varje händelse utlösare kräver en händelse hanterare. [Jobb](https://help.gi
 
 I den statiska Web Apps arbets flödes filen finns det två tillgängliga jobb.
 
-| Name  | Beskrivning |
+| Namn  | Beskrivning |
 |---------|---------|
 |`build_and_deploy_job` | Körs när du utför push-överföring eller öppnar en pull-begäran mot den gren som anges i `on` egenskapen. |
 |`close_pull_request_job` | Körs bara när du stänger en pull-begäran som tar bort den mellanlagrings miljö som skapats från pull-begäranden. |
@@ -139,8 +139,8 @@ with:
 | Egenskap | Beskrivning | Krävs |
 |---|---|---|
 | `app_location` | Plats för program koden.<br><br>Ange till exempel `/` om din program käll kod är i roten för lagrings platsen eller `/app` om program koden finns i en katalog som kallas `app` . | Ja |
-| `api_location` | Azure Functionss kodens plats.<br><br>Ange till exempel `/api` om din app-kod finns i en mapp med namnet `api` . Om det inte går att hitta någon Azure Functions app i mappen, kan inte versionen av det här arbets flödet antas att du inte vill ha något API. | Inga |
-| `app_artifact_location` | Platsen för build-utdatakatalogen i förhållande till `app_location` .<br><br>Om programmets käll kod till exempel finns i `/app` och bygg skriptet `/app/build` utvärderar filer till mappen, anger du `build` som `app_artifact_location` värde. | Inga |
+| `api_location` | Azure Functionss kodens plats.<br><br>Ange till exempel `/api` om din app-kod finns i en mapp med namnet `api` . Om det inte går att hitta någon Azure Functions app i mappen, kan inte versionen av det här arbets flödet antas att du inte vill ha något API. | Nej |
+| `app_artifact_location` | Platsen för build-utdatakatalogen i förhållande till `app_location` .<br><br>Om programmets käll kod till exempel finns i `/app` och bygg skriptet `/app/build` utvärderar filer till mappen, anger du `build` som `app_artifact_location` värde. | Nej |
 
 `repo_token`Värdena, `action` och `azure_static_web_apps_api_token` anges för dig av azures statiska Web Apps bör inte ändras manuellt.
 
@@ -152,7 +152,7 @@ Distributionen anropar alltid `npm install` före ett anpassat kommando.
 
 | Kommando            | Beskrivning |
 |---------------------|-------------|
-| `app_build_command` | Definierar ett anpassat kommando som ska köras under distributionen av programmet för statiskt innehåll.<br><br>Om du till exempel vill konfigurera en produktions version för ett ansvars program anger du `ng build --prod` . Om inget anges försöker arbets flödet köra `npm run build` `npm run build:Azure` kommandona eller.  |
+| `app_build_command` | Definierar ett anpassat kommando som ska köras under distributionen av programmet för statiskt innehåll.<br><br>Om du till exempel vill konfigurera en produktions version för ett anmärknings program skapar du ett NPM-skript som heter `build-prod` för att köra `ng build --prod` och ange `npm run build-prod` som det anpassade kommandot. Om inget anges försöker arbets flödet köra `npm run build` `npm run build:Azure` kommandona eller.  |
 | `api_build_command` | Definierar ett anpassat kommando som ska köras under distributionen av Azure Functions API-programmet. |
 
 ## <a name="route-file-location"></a>Routes-filens plats

@@ -110,18 +110,26 @@
   items:
     - name: Tilldela användare och hantera åtkomst till appar
       items:
-        - name: Konfigurera användarmedgivande
-          href: configure-user-consent.md
-        - name: Hantera och utvärdera samtyckesbegäranden
-          href: manage-consent-requests.md
-        - name: Bevilja administratörsmedgivande för hela klientorganisationen
-          href: grant-admin-consent.md
-        - name: Konfigurera arbetsflöde för administratörsmedgivande (förhandsversion)
-          href: configure-admin-consent-workflow.md
+        - name: Medgivande och behörigheter
+          items:
+            - name: Konfigurera användarmedgivande
+              href: configure-user-consent.md
+            - name: Konfigurera medgivande för gruppägare
+              href: configure-user-consent-groups.md
+            - name: Konfigurera behörighetsklassificeringar
+              href: configure-permission-classifications.md
+            - name: Hantera principer för appmedgivande
+              href: manage-app-consent-policies.md
+            - name: Konfigurera arbetsflöde för administratörsmedgivande (förhandsversion)
+              href: configure-admin-consent-workflow.md
+            - name: Hantera och utvärdera samtyckesbegäranden
+              href: manage-consent-requests.md
+            - name: Bevilja administratörsmedgivande för hela klientorganisationen
+              href: grant-admin-consent.md
+            - name: Granska behörigheter som har beviljats för appar
+              href: manage-application-permissions.md
         - name: Hantera användartilldelning för en app
           href: assign-user-or-group-access-portal.md
-        - name: Granska behörigheter som har beviljats för appar
-          href: manage-application-permissions.md
         - name: Skapa samlingar i Mina appar
           href: access-panel-collections.md
         - name: Använda appåtkomst via självbetjäning

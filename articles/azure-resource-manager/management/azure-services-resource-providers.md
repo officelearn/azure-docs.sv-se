@@ -3,12 +3,12 @@ title: Resurs leverantörer efter Azure-tjänster
 description: Visar en lista över alla resurs leverantörs namn områden för Azure Resource Manager och Azure-tjänsten för namn området visas.
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: b740c8ee7c28bfeeaecc42121d0c7ce4a323ab3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9e31f902d36cf84fc559337f3c69529cf1c014b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330833"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949130"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resursleverantörer för Azure-tjänster
 
@@ -74,7 +74,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. data migration | [Azure Database Migration Service](../../dms/index.yml) |
 | Microsoft. DataProtection | Dataskydd |
 | Microsoft. DataShare | [Azure Data Share](../../data-share/index.yml) |
-| Microsoft. DBforMariaDB | [Azure-databas för MariaDB](../../mariadb/index.yml) |
+| Microsoft. DBforMariaDB | [Azure Database for MariaDB](../../mariadb/index.yml) |
 | Microsoft. DBforMySQL | [Azure Database for MySQL](../../mysql/index.yml) |
 | Microsoft. DBforPostgreSQL | [Azure Database for PostgreSQL](../../postgresql/index.yml) |
 | Microsoft. DeploymentManager | [Azure Deployment Manager](../templates/deployment-manager-overview.md) |
@@ -96,7 +96,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. HardwareSecurityModules | [Azure Dedicated HSM](../../dedicated-hsm/index.yml) |
 | Microsoft. HDInsight | [HDInsight](../../hdinsight/index.yml) |
 | Microsoft. HealthcareApis | [Azure API för FHIR](../../healthcare-apis/index.yml) |
-| Microsoft. HybridCompute | [Azure-båge](../../azure-arc/index.yml) |
+| Microsoft. HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft. HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft. HybridNetwork  | [Privata gräns zoner](../../networking/edge-zones-overview.md) |
 | Microsoft. ImportExport | [Azure Import/Export](../../storage/common/storage-import-export-service.md) |
@@ -110,7 +110,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft.Kusto | [Azure-datautforskaren](/azure/data-explorer/) |
 | Microsoft. LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft. Logic | [Logic Apps](../../logic-apps/index.yml) |
-| Microsoft. MachineLearning | [Machine Learning Studio](../../machine-learning/studio/index.yml) |
+| Microsoft. MachineLearning | [Machine Learning Studio](../../machine-learning/classic/index.yml) |
 | Microsoft.MachineLearningServices | [Azure Machine Learning](../../machine-learning/index.yml) |
 | Microsoft. Maintenance | [Azure-underhåll](../../virtual-machines/maintenance-control-cli.md) |
 | Microsoft. ManagedIdentity | [Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/index.yml) |
@@ -135,7 +135,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. peering | [Azure Peering Service](../../peering-service/index.yml) |
 | Microsoft. PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft. Portal<sup>1</sup> | [Azure Portal](../../azure-portal/index.yml) |
+| Microsoft. Portal<sup>1</sup> | [Azure-portalen](../../azure-portal/index.yml) |
 | Microsoft. PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft. PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft. PowerPlatform | [Power Platform](/power-platform/) |

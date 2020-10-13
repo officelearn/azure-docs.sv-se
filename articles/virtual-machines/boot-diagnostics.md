@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: a8879bed4160c7cd1bd74cb196ce271964e384f7
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 52a2b5e27cd5857416343e559237d08ea9a591be
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91813244"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972398"
 ---
 # <a name="azure-boot-diagnostics"></a>Azure Boot-diagnostik
 
@@ -39,9 +39,9 @@ Alternativet startdiagnostik finns på bladet för den virtuella datorn under av
 - Startdiagnostik är endast tillgängligt för virtuella datorer med Azure Resource Manager. 
 - Startdiagnostiken har inte stöd för Premium Storage-konton, om ett Premium Storage-konto används för att starta diagnostiska användare får ett `StorageAccountTypeNotSupported` fel meddelande när den virtuella datorn startas. 
 - Hanterade lagrings konton stöds i Resource Manager API-versionen "2020-06-01" och senare.
-- Azures serie konsol är för närvarande inte kompatibel med ett hanterat lagrings konto för startdiagnostik. Lär dig mer om [Azures serie konsol](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-overview).
+- Azures serie konsol är för närvarande inte kompatibel med ett hanterat lagrings konto för startdiagnostik. Lär dig mer om [Azures serie konsol](./troubleshooting/serial-console-overview.md).
 - Startdiagnostik med ett hantera lagrings konto kan för närvarande endast tillämpas via Azure Portal. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [Azures serie konsol](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-overview) och hur du använder startdiagnostik för att [Felsöka virtuella datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics).
+Lär dig mer om [Azures serie konsol](./troubleshooting/serial-console-overview.md) och hur du använder startdiagnostik för att [Felsöka virtuella datorer i Azure](./troubleshooting/boot-diagnostics.md).

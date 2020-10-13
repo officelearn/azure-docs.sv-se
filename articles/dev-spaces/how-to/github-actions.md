@@ -7,14 +7,16 @@ description: Granska och testa ändringar från en pull-begäran direkt i Azure 
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, GitHub Actions, Helm, service nät, service mask-routning, kubectl, K8s
 manager: gwallace
 ms.custom: devx-track-js
-ms.openlocfilehash: 25cb0de10e83069514c7918a5a2cdac019fe1ebb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c11150105db7a7bb48d20992dcc259cb5d87752
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316111"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973112"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub-åtgärder & Azure Kubernetes service (för hands version)
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 Azure dev Spaces innehåller ett arbets flöde med GitHub-åtgärder som gör att du kan testa ändringar från en pull-begäran direkt i AKS innan pull-begäran slås samman i huvud grenen för din databas. Att ha ett program som körs för att granska ändringar av en pull-begäran kan öka säkerheten både för utvecklare och grupp medlemmar. Detta program som körs kan också hjälpa grupp medlemmar, till exempel produkt chefer och designers, att bli en del av gransknings processen under de första utvecklings faserna.
 
@@ -51,7 +53,7 @@ Spara *namnet* -värdet från utdata eftersom det används i ett senare steg.
 
 ## <a name="create-a-service-principal-for-authentication"></a>Skapa ett huvud namn för tjänsten för autentisering
 
-Använd [AZ AD SP Create-for-RBAC][az-ad-sp-create-for-rbac] för att skapa ett huvud namn för tjänsten. Exempel:
+Använd [AZ AD SP Create-for-RBAC][az-ad-sp-create-for-rbac] för att skapa ett huvud namn för tjänsten. Till exempel:
 
 ```azurecli
 az ad sp create-for-rbac --sdk-auth --skip-assignment

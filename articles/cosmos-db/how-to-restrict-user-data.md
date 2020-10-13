@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: tvoellm
 ms.openlocfilehash: 44a62643c459fb61e7a2a95c2a9dd55ea4f19111
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570648"
 ---
 # <a name="restrict-user-access-to-data-operations-in-azure-cosmos-db"></a>Begränsa användar åtkomsten till data åtgärder i Azure Cosmos DB
@@ -36,10 +36,10 @@ Nästa avsnitt i den här artikeln visar hur du utför de här stegen.
 > För att kunna köra kommandona i nästa avsnitt måste du installera Azure PowerShell Module 3.0.0 eller senare, samt [rollen Azure-ägare](../role-based-access-control/built-in-roles.md#owner) för den prenumeration som du försöker ändra.
 
 I PowerShell-skripten i nästa avsnitt ersätter du följande plats hållare med värden som är speciella för din miljö:
-- `$MySubscriptionId` – Prenumerations-ID: t som innehåller det Azure Cosmos-konto där du vill begränsa behörigheterna. Till exempel: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
-- `$MyResourceGroupName` – Resurs gruppen som innehåller Azure Cosmos-kontot. Till exempel: `myresourcegroup`.
-- `$MyAzureCosmosDBAccountName` – Namnet på ditt Azure Cosmos-konto. Till exempel: `mycosmosdbsaccount`.
-- `$MyUserName` -Inloggningen ( username@domain ) för den användare som du vill begränsa åtkomsten för. Till exempel: `cosmosdbuser@contoso.com`.
+- `$MySubscriptionId` – Prenumerations-ID: t som innehåller det Azure Cosmos-konto där du vill begränsa behörigheterna. Exempel: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
+- `$MyResourceGroupName` – Resurs gruppen som innehåller Azure Cosmos-kontot. Exempel: `myresourcegroup`.
+- `$MyAzureCosmosDBAccountName` – Namnet på ditt Azure Cosmos-konto. Exempel: `mycosmosdbsaccount`.
+- `$MyUserName` -Inloggningen ( username@domain ) för den användare som du vill begränsa åtkomsten för. Exempel: `cosmosdbuser@contoso.com`.
 
 ## <a name="select-your-azure-subscription"></a>Välj din Azure-prenumeration
 

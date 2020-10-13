@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: aecda5ed9b87ba2345a52923a574919d6a08594f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362679"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Komma igång med Azure Maps Power BI visuella objektet
@@ -92,7 +92,7 @@ Utför följande steg för att läsa in Azure Maps visuella objekt:
 
 Följande databuckets är tillgängliga i rutan **fält** i Azure Maps visualiseringen.
 
-| Fält     | Beskrivning  |
+| Field     | Beskrivning  |
 |-----------|--------------|
 | Latitud  | Det fält som används för att ange latitud-värdet för data punkterna. Latitude-värden ska vara mellan-90 och 90 i formatet decimal grader.  |
 | Longitud | Det fält som används för att ange data punkternas longitud-värde. Longitud-värden ska vara mellan-180 och 180 i decimal format.  |
@@ -135,7 +135,7 @@ Det Azure Maps visuella objektet är tillgängligt i följande tjänster och pro
 | Power BI Mobile-appar             | Ja          |
 | Power BI Publicera på webben                  | Nej           |
 | Power BI Embedded                        | Nej           |
-| Power BI-tjänstinbäddning (PowerBI.com) | Yes          |
+| Power BI-tjänstinbäddning (PowerBI.com) | Ja          |
 
 Stöd för ytterligare Power BI tjänster/appar kommer att läggas till i framtida uppdateringar.
 

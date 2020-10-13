@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: dc931b910981578a3257c9131bea93cd836d1def
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 83cd36683a0487f13ab5707e4b1534cc7f20a88a
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945171"
+ms.locfileid: "91948535"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Stöd för att flytta Azure-resurser mellan regioner
 
@@ -1134,11 +1134,11 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
 > | instancepools | Nej | 
-> | managedinstances | Ja <br/><br/> [Lär dig mer](/azure/azure-sql/database/move-resources-across-regions) om att flytta hanterade instanser i flera regioner. | 
+> | managedinstances | Ja <br/><br/> [Lär dig mer](../../azure-sql/database/move-resources-across-regions.md) om att flytta hanterade instanser i flera regioner. | 
 > | managedinstances/databaser | Ja | 
 > | brygghuvudservrar | Ja | 
-> | servrar/databaser | Ja <br/><br/> [Lär dig mer](/azure/azure-sql/database/move-resources-across-regions) om att flytta databaser över flera regioner.<br/><br/> [Lär dig mer](../../resource-mover/tutorial-move-region-sql.md) om hur du använder Azure Resource-arbetskraft för att flytta Azure SQL-databaser.  | 
-> | servrar/elasticpools | Ja <br/><br/> [Lär dig mer](/azure/azure-sql/database/move-resources-across-regions) om att flytta elastiska pooler över flera regioner.<br/><br/> [Läs mer](../../resource-mover/tutorial-move-region-sql.md) om hur du använder Azure Resource-arbetskraft för att flytta elastiska Azure SQL-pooler.  | 
+> | servrar/databaser | Ja <br/><br/> [Lär dig mer](../../azure-sql/database/move-resources-across-regions.md) om att flytta databaser över flera regioner.<br/><br/> [Lär dig mer](../../resource-mover/tutorial-move-region-sql.md) om hur du använder Azure Resource-arbetskraft för att flytta Azure SQL-databaser.  | 
+> | servrar/elasticpools | Ja <br/><br/> [Lär dig mer](../../azure-sql/database/move-resources-across-regions.md) om att flytta elastiska pooler över flera regioner.<br/><br/> [Läs mer](../../resource-mover/tutorial-move-region-sql.md) om hur du använder Azure Resource-arbetskraft för att flytta elastiska Azure SQL-pooler.  | 
 > | virtualclusters | Ja | 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft. SqlVirtualMachine

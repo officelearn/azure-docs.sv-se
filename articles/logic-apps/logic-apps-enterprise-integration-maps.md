@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: 62c3d4533dd04dbb5a2ce0c73afa52b81d433913
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570777"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformera XML med kartor i Azure Logic Apps med Enterprise-integrationspaket
@@ -40,7 +40,7 @@ För begränsningar som rör integrations konton och artefakter som Maps, se [gr
     |------|-------------|
     | [Azure Storage-konto](../storage/common/storage-account-overview.md) | Skapa en Azure Blob-behållare för din sammansättning i det här kontot. Lär dig [hur du skapar ett lagrings konto](../storage/common/storage-account-create.md). |
     | Blobcontainer | I den här behållaren kan du ladda upp din sammansättning. Du behöver också den här behållarens plats när du lägger till sammansättningen i integrations kontot. Lär dig hur du [skapar en BLOB-behållare](../storage/blobs/storage-quickstart-blobs-portal.md). |
-    | [Azure Lagringsutforskaren](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Med det här verktyget kan du enklare hantera lagrings konton och blob-behållare. Om du vill använda Storage Explorer [laddar du ned och installerar Azure Storage Explorer](https://www.storageexplorer.com/). Anslut sedan Storage Explorer till ditt lagrings konto genom att följa stegen i [komma igång med Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Mer information finns i [snabb start: skapa en BLOB i objekt lagring med Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Du kan också söka efter och välja ditt lagrings konto i Azure Portal. Från menyn lagrings konto väljer du **Storage Explorer**. |
+    | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Med det här verktyget kan du enklare hantera lagrings konton och blob-behållare. Om du vill använda Storage Explorer [laddar du ned och installerar Azure Storage Explorer](https://www.storageexplorer.com/). Anslut sedan Storage Explorer till ditt lagrings konto genom att följa stegen i [komma igång med Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Mer information finns i [snabb start: skapa en BLOB i objekt lagring med Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Du kan också söka efter och välja ditt lagrings konto i Azure Portal. Från menyn lagrings konto väljer du **Storage Explorer**. |
     |||
 
   * För Maps kan du för närvarande lägga till större kartor genom att använda [Azure Logic Apps REST API-Maps](/rest/api/logic/maps/createorupdate).

@@ -1,14 +1,14 @@
 ---
 title: Information om initiativ definitions strukturen
 description: Beskriver hur definitioner av policy initiativ används för att gruppera princip definitioner för distribution till Azure-resurser i din organisation.
-ms.date: 08/17/2020
+ms.date: 10/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7b4adf15193e2cd1b9e516a04c7c989dc442ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f9c6146e1dde5b5a7f6595c61638319de60a82d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048507"
+ms.locfileid: "91876183"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Definitions struktur för Azure Policy initiativ
 
@@ -248,19 +248,18 @@ Här är ett exempel på `policyDefinitions` som har två inkluderade princip de
 ]
 ```
 
-## <a name="policy-definitions-groups-preview"></a><a name="policy-definition-groups"></a>Princip definitions grupper (för hands version)
+## <a name="policy-definition-groups"></a>Princip definitions grupper
 
-Som en del av Azure Policy [kontroll av regelefterlevnad (för](./regulatory-compliance.md) hands version) kan princip definitioner i en initiativ definition grupperas. Den här informationen definieras i egenskapen `policyDefinitionGroups` _array_ . Dessa grupperingar har ytterligare information, till exempel den **kontroll** och **domän överensstämmelse** som princip definitionen ger täckning mot.
-Ytterligare grupperingsinställningar kan hittas i ett **policyMetadata** -objekt som skapats av Microsoft. Mer information finns i [metadata-objekt](#metadata-objects).
+Princip definitioner i en initiativ definition kan grupperas och kategoriseras. Azure Policy funktionen [för kontroll av efterlevnad (för](./regulatory-compliance.md) hands version) använder den här egenskapen för att gruppera definitioner i **kontroll** -och **efterlevnads domäner**. Den här informationen definieras i egenskapen `policyDefinitionGroups` _array_ . Ytterligare grupperingsinställningar kan hittas i ett **policyMetadata** -objekt som skapats av Microsoft. Mer information finns i [metadata-objekt](#metadata-objects).
 
 ### <a name="policy-definition-groups-parameters"></a>Parametrar för princip definitions grupper
 
 Varje _mat ris_ element i `policyDefinitionGroups` måste ha båda följande egenskaper:
 
-- `name` (sträng) \[ krävs \] : **kontrollens**kort namn. Värdet för den här egenskapen används av `groupNames` i `policyDefinitions` .
-- `category` (sträng): kontrollens **efterlevnads domän** .
-- `displayName` (sträng): det egna namnet på **kontrollen**. Används av portalen.
-- `description` (sträng): en beskrivning av vad **kontrollen** gör.
+- `name` (sträng) \[ krävs \] : kort namnet för **gruppen**. I regelefterlevnad, **kontrollen**. Värdet för den här egenskapen används av `groupNames` i `policyDefinitions` .
+- `category` (sträng): hierarkin som gruppen tillhör. Efterlevnaden **av kontrollens efterlevnad.**
+- `displayName` (sträng): det egna namnet för **gruppen** eller **kontrollen**. Används av portalen.
+- `description` (sträng): en beskrivning av vad **gruppen** eller **kontrollen** täcker.
 - `additionalMetadataId` (sträng): platsen för [policyMetadata](#metadata-objects) -objektet som innehåller ytterligare information om domänen för **kontroll** och **efterlevnad**.
 
   > [!NOTE]

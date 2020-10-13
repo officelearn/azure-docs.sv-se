@@ -8,10 +8,10 @@ ms.author: sahubbar
 ms.date: 09/30/2020
 ms.topic: how-to
 ms.openlocfilehash: 5b8aba74cb0914cf26382e0d17a8ce2ba6bd4063
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91573988"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Skapa och köra ett jobb i ditt Azure IoT Central-program
@@ -85,7 +85,7 @@ När ett jobb har skapats uppdateras **status** kolumnen med det senaste jobb st
 
 | Statusmeddelande       | Status betydelse                                          |
 | -------------------- | ------------------------------------------------------- |
-| Slutförd            | Det här jobbet kördes på alla enheter.              |
+| Slutfört            | Det här jobbet kördes på alla enheter.              |
 | Misslyckades               | Jobbet kunde inte köras och kunde inte köras helt på enheterna.  |
 | Väntar              | Det här jobbet har ännu inte börjat köras på enheter.         |
 | Körs              | Det här jobbet körs för närvarande på enheter.             |
@@ -103,7 +103,7 @@ Om du vill visa status för jobbet och alla berörda enheter öppnar du jobbet. 
 
 | Statusmeddelande       | Status betydelse                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
-| Slutförd            | Jobbet kördes på den här enheten.                                     |
+| Slutfört            | Jobbet kördes på den här enheten.                                     |
 | Misslyckades               | Det gick inte att köra jobbet på den här enheten. I fel meddelandet visas mer information.  |
 | Väntar              | Jobbet har ännu inte körts på den här enheten.                                   |
 

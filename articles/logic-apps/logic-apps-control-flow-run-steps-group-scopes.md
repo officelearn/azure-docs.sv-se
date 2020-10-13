@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 1ee8c7eabd33ad2d8773d55041fcdf54a7dd489b
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575018"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Kör åtgärder baserat på grupp status med hjälp av omfång i Azure Logic Apps
@@ -82,7 +82,7 @@ Du kan spara din Logi Kap par när som helst, så spara arbetet ofta.
       | **Avståndsenhet** | <*dina inställningar*> | Ange avstånds enheten för att beräkna din väg. I det här exemplet används detta värde: "mil" | 
       | **Travel mode** (Färdsätt) | Driving (Bil) | Ange rese läge för vägen. I det här exemplet används det här värdet "driver" | 
       | **Transit Date-Time** (Tid/datum för kollektivtrafik) | Inget | Gäller endast för överförings läge. | 
-      | **Typ av överförings datum** | Inget | Gäller endast för överförings läge. | 
+      | **Typ av överförings Date-Type** | Inget | Gäller endast för överförings läge. | 
       ||||  
 
 1. [Lägg till ett villkor](../logic-apps/logic-apps-control-flow-conditional-statement.md) som kontrollerar om den aktuella res tiden med trafik överskrider den angivna tiden. 

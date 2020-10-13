@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
 ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91714454"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
@@ -329,7 +329,7 @@ Storage Explorer kräver att .NET Core installeras i systemet. Vi rekommenderar 
 > [!NOTE]
 > Storage Explorer version 1.7.0 och tidigare kräver .NET Core 2,0. Om du har en nyare version av .NET Core installerad måste du [uppdatera Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). Om du kör Storage Explorer 1.8.0 eller senare behöver du minst .NET Core 2,1.
 
-# <a name="ubuntu-2004"></a>[Ubuntu 20,04](#tab/2004)
+# <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. Hämta filen Storage Explorer. tar. gz.
 2. Installera [.net Core runtime](https://docs.microsoft.com/dotnet/core/install/linux):

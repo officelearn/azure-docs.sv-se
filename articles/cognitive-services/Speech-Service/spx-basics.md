@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: e859ac13c72ed07d3f57da6e61fd6d9f827f0fca
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bceffe5c53b9cbc863fd9c923ffa4718ebd50436
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88854888"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893823"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Lär dig grunderna i tal-CLI
 
@@ -69,6 +69,51 @@ I det här kommandot anger du både källan (språk att översätta **från**) o
 
 > [!NOTE]
 > I [artikeln språk och nationella inställningar](language-support.md) finns en lista över alla språk som stöds med motsvarande språk koder.
+
+### <a name="configuration-files-in-the-datastore"></a>Konfigurationsfiler i data lagret
+
+Tal-CLI: en kan läsa och skriva flera inställningar i konfigurationsfiler, som lagras i det lokala tal CLI-datalagret och är namngivna i tal CLI-anrop med en @-symbol. Tal CLI försöker spara en ny inställning i en ny under `./spx/data` katalog som skapas i den aktuella arbets katalogen.
+När du söker efter ett konfigurations värde, ser tal-CLI ut i din aktuella arbets katalog och sedan i `./spx/data` sökvägen.
+Tidigare använde du data lagret för att spara dina `@key` och `@region` -värden, så du behöver inte ange dem med varje kommando rads anrop.
+Du kan också använda konfigurationsfiler för att lagra egna konfigurations inställningar, eller till och med använda dem för att skicka URL: er eller annat dynamiskt innehåll som genereras vid körning.
+
+Det här avsnittet visar hur du använder en konfigurations fil i det lokala data lagret för att lagra och hämta kommando inställningar med `spx config` , och lagra utdata från tal CLI med `--output` alternativet.
+
+I följande exempel rensas `@my.defaults` konfigurations filen, nyckel/värde-par för **nyckel** och **region** i filen används, och konfigurationen används i ett anrop till `spx recognize` .
+
+```shell
+spx config @my.defaults --clear
+spx config @my.defaults --add key 000072626F6E20697320636F6F6C0000
+spx config @my.defaults --add region westus
+
+spx config @my.defaults
+
+spx recognize --nodefaults @my.defaults --file hello.wav
+```
+
+Du kan också skriva dynamiskt innehåll till en konfigurations fil. Följande kommando skapar till exempel en anpassad tal modell och lagrar URL: en för den nya modellen i en konfigurations fil. Nästa kommando väntar tills modellen på denna URL är klar att användas innan den returneras.
+
+```shell
+spx csr model create --name "Example 4" --datasets @my.datasets.txt --output url @my.model.txt
+spx csr model status --model @my.model.txt --wait
+```
+
+I följande exempel skrivs två URL: er till `@my.datasets.txt` konfigurations filen.
+I det här scenariot `--output` kan du **lägga till** ett valfritt nyckelord för att skapa en konfigurations fil eller lägga till det befintliga.
+
+
+```shell
+spx csr dataset create --name "LM" --kind Language --content https://crbn.us/data.txt --output url @my.datasets.txt
+spx csr dataset create --name "AM" --kind Acoustic --content https://crbn.us/audio.zip --output add url @my.datasets.txt
+
+spx config @my.datasets.txt
+```
+
+Om du vill ha mer information om datalager-filer, inklusive använda standardfiler ( `@spx.default` , `@default.config` , och `@*.default.config` för kommandobaserade standardinställningar), anger du följande kommando:
+
+```shell
+spx help advanced setup
+```
 
 ## <a name="batch-operations"></a>Batch-åtgärder
 

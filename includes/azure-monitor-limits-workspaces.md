@@ -9,10 +9,10 @@ ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: e6b64b5a1a60ba3bbf93e607536eeb0379669c73
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91641926"
 ---
 **Data insamlings volym och kvarhållning** 
@@ -33,7 +33,7 @@ ms.locfileid: "91641926"
 | Kostnadsfri nivå  | 10 | Det går inte att öka den här gränsen. |
 | Alla andra nivåer | Obegränsad | Du är begränsad till antalet resurser i en resurs grupp och antalet resurs grupper per prenumeration. |
 
-**Azure-portalen**
+**Azure Portal**
 
 | Kategori | Gräns | Kommentarer |
 |:---|:---|:---|
@@ -47,7 +47,7 @@ ms.locfileid: "91641926"
 | Maximal storlek för ett enskilt inlägg | 30 MB | Dela upp större volymer i flera inlägg. |
 | Maximal storlek för fält värden  | 32 KB | Fält som är längre än 32 kB trunkeras. |
 
-**Sök-API**
+**Sök API**
 
 | Kategori | Gräns | Kommentarer |
 |:---|:---|:---|

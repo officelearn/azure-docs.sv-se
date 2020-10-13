@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
 ms.openlocfilehash: fc3ca5fdde464ba63671512a6ebecd2c314cb192
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570832"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualisera Azure Cosmos DB-data med hjälp av anslutningsprogrammet för Power BI
@@ -25,7 +25,7 @@ Den här artikeln beskriver de steg som krävs för att ansluta ett Azure Cosmos
 > [!NOTE]
 > Att ansluta till Azure Cosmos DB med Power BI Connector stöds för närvarande endast för Azure Cosmos DB SQL API-och Gremlin API-konton.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du följer anvisningarna i den här Power BI själv studie kursen, se till att du har åtkomst till följande resurser:
 
 * [Ladda ned den senaste versionen av Power BI Desktop](https://powerbi.microsoft.com/desktop).

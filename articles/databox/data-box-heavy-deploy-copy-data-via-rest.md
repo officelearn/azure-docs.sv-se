@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: f9134b57d8a3e76417283e5d863724651b4f6a6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2fc174147b99b7b952c6d10084cfc969dacf5a6
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921171"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949147"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Självstudie: kopiera data till Azure Data Box Blob Storage via REST-API: er  
 
@@ -122,11 +122,11 @@ Följ dessa steg om du vill importera `.cer` filen till rot arkivet för en Wind
 
 3.  Välj **Place all certificates in the following store** (Placera alla certifikat i följande lagringsplats) och klicka sedan på **Bläddra**. Gå till rotcertifikatarkivet på fjärrvärden och klicka på **Nästa**.
 
-    ![Importera certifikat med hjälp av PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
+    ![Importera certifikat med PowerShell 2](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
 4.  Klicka på **Finish**. Ett meddelande visas där det står att importen lyckades.
 
-    ![Importera certifikat med hjälp av PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
+    ![Importera certifikat med PowerShell 3](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
 #### <a name="use-a-linux-system"></a>Använd ett Linux-system
 
@@ -249,7 +249,7 @@ Nästa steg är att förbereda enheten för leverans.
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
-> * Krav
+> * Förutsättningar
 > * Ansluta till Data Box Blob-lagring via *http* eller *https*
 > * Kopiera data till Data Box Heavy
 

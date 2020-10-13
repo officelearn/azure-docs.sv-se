@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 31d98e0d37da1b957d86e425e01fe04de842f532
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715131"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Använd Azure CLI för att tilldela en Azure-roll för åtkomst till blob-och Queue-data
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade 
 
 När en Azure-roll tilldelas till ett säkerhets objekt för Azure AD ger Azure åtkomst till dessa resurser för säkerhets objekt. Åtkomst kan begränsas till prenumerations nivån, resurs gruppen, lagrings kontot eller en enskild behållare eller kö. Ett säkerhets objekt i Azure AD kan vara en användare, en grupp, ett huvud namn för program tjänsten eller en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Den här artikeln beskriver hur du använder Azure CLI för att visa en lista över inbyggda Azure-roller och tilldela dem till användare. Mer information om hur du använder Azure CLI finns i [kommando rads gränssnittet för Azure (CLI)](/cli/azure).
+Den här artikeln beskriver hur du använder Azure CLI för att visa en lista över inbyggda Azure-roller och tilldela dem till användare. Mer information om hur du använder Azure CLI finns i [azure Command-Line Interface (CLI)](/cli/azure).
 
 ## <a name="azure-roles-for-blobs-and-queues"></a>Azure-roller för blobbar och köer
 

@@ -3,12 +3,12 @@ title: Konfigurera GitHub Enterprise Server i ditt privata moln i Azure VMware-l
 description: Lär dig hur du konfigurerar GitHub Enterprise Server i ditt privata moln i Azure VMware-lösningen.
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 53e5264eed761909217c2e3a902c9fee9faaffaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afce212416c7c12631a7f8d388dc991ed957736f
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345182"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949317"
 ---
 # <a name="set-up-github-enterprise-server-on-your-azure-vmware-solution-private-cloud"></a>Konfigurera GitHub Enterprise Server i ditt privata moln i Azure VMware-lösningen
 
@@ -74,7 +74,7 @@ Följande valfria installations steg rekommenderas för att förstärka din inst
 > [!NOTE]
 > GitHub-åtgärder är [för närvarande tillgängliga som en begränsad beta version på GitHub Enterprise Server version 2,22](https://docs.github.com/en/enterprise/admin/github-actions).
 
-Extern blob-lagring krävs för att aktivera GitHub-åtgärder på GitHub Enterprise Server (som för närvarande är tillgänglig som en beta funktion). Den här externa blob-lagringen används av åtgärder för att lagra artefakter och loggar. Åtgärder på GitHub Enterprise Server [har stöd för Azure Blob Storage som en lagrings leverantör](https://docs.github.com/en/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage#about-external-storage-requirements) (och andra). Vi etablerar ett nytt Azure Storage-konto med [lagrings konto typen](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#types-of-storage-accounts) BlobStorage:
+Extern blob-lagring krävs för att aktivera GitHub-åtgärder på GitHub Enterprise Server (som för närvarande är tillgänglig som en beta funktion). Den här externa blob-lagringen används av åtgärder för att lagra artefakter och loggar. Åtgärder på GitHub Enterprise Server [har stöd för Azure Blob Storage som en lagrings leverantör](https://docs.github.com/en/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage#about-external-storage-requirements) (och andra). Vi etablerar ett nytt Azure Storage-konto med [lagrings konto typen](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts) BlobStorage:
 
 :::image type="content" source="media/github-enterprise-server/storage-account.png" alt-text="Välj att köra GitHub lokalt eller i molnet.":::
 

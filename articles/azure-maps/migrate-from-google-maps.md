@@ -1,22 +1,22 @@
 ---
-title: Migrera från Google Maps till Azure Maps | Microsoft Azure Maps
-description: 'Så här migrerar du från Google Maps till Microsoft Azure Maps. Vägledningen vägleder dig genom hur du växlar till Azure Maps API: er och SDK: er.'
+title: Självstudie – migrera från Google Maps till Azure Maps | Microsoft Azure Maps
+description: 'Självstudie om hur du migrerar från Google Maps till Microsoft Azure Maps. Vägledningen vägleder dig genom hur du växlar till Azure Maps API: er och SDK: er.'
 author: rbrundritt
 ms.author: richbrun
 ms.date: 09/23/2020
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: c60890b301ba650c95584e33b5326217086c08c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee7eda58c211ca570b052d55c813999e62b95fde
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264175"
+ms.locfileid: "91876319"
 ---
-# <a name="migrate-from-google-maps-to-azure-maps"></a>Migrera från Google Maps till Azure Maps
+# <a name="tutorial---migrate-from-google-maps-to-azure-maps"></a>Självstudie – migrera från Google Maps till Azure Maps
 
 Den här artikeln innehåller insikter om hur du migrerar webb-, mobil-och serverbaserade program från Google Maps till Microsoft Azure Maps-plattformen. Den här självstudien innehåller jämför ande kod exempel, förslag på migrering och metod tips för migrering till Azure Maps.
 

@@ -7,10 +7,10 @@ author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
 ms.openlocfilehash: 714a43ec197ac150488d4443c1eb6fe1be1da232
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575528"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor loggar dedicerade kluster
@@ -116,12 +116,12 @@ Ska vara 200 OK och en rubrik.
 
 Det tar en stund att slutföra etableringen av det Log Analytics klustret. Du kan kontrol lera etablerings statusen på flera sätt:
 
-- Kör get-AzOperationalInsightsCluster PowerShell-kommandot med namnet på resurs gruppen och kontrol lera egenskapen ProvisioningState. Värdet är *ProvisioningAccount* medan *etableringen och* slutförts.
+- Kör Get-AzOperationalInsightsCluster PowerShell-kommandot med namnet på resurs gruppen och kontrol lera egenskapen ProvisioningState. Värdet är *ProvisioningAccount* medan *etableringen och* slutförts.
   ```powershell
   New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} 
   ```
 
-- Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ status kontrollen asynkrona åtgärder.
+- Kopiera Azure-AsyncOperation URL-värdet från svaret och följ status kontrollen asynkrona åtgärder.
 
 - Skicka en GET-begäran på *kluster* resursen och titta på *provisioningState* -värdet. Värdet är *ProvisioningAccount* medan *etableringen och* slutförts.
 
@@ -218,7 +218,7 @@ Content-type: application/json
 
 Det tar några minuter att utföra spridningen av nyckel identifieraren. Du kan kontrol lera uppdaterings statusen på två sätt:
 
-- Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ status kontrollen asynkrona åtgärder. 
+- Kopiera Azure-AsyncOperation URL-värdet från svaret och följ status kontrollen asynkrona åtgärder. 
 
    ELLER
 
@@ -319,7 +319,7 @@ Om du använder Kundhanterade nycklar lagras inmatade data krypterade med din ha
 
 Du kan kontrol lera associerings tillstånd för arbets ytan på två sätt:
 
-- Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ status kontrollen asynkrona åtgärder.
+- Kopiera Azure-AsyncOperation URL-värdet från svaret och följ status kontrollen asynkrona åtgärder.
 
 - Skicka en [arbets yta – Hämta](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) begäran och observera svaret. Den associerade arbets ytan har en clusterResourceId under "Features".
 

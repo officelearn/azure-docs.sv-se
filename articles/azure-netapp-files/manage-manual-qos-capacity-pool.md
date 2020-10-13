@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: d2abb66684738e97ade2a2e67309a4e7b53c4734
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e44c2cfc81256a8715c7c625648b6ec25bcd319
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442088"
+ms.locfileid: "91929225"
 ---
 # <a name="manage-a-manual-qos-capacity-pool"></a>Hantera en manuell QoS-kapacitetspool
 
@@ -44,7 +44,7 @@ Funktionen för manuell QoS-typ är för närvarande en för hands version. Om d
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexPool
     ```
-Du kan också använda [Azure CLI-kommandon](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` och `az feature show` Registrera funktionen och Visa registrerings status. 
+Du kan också använda [Azure CLI-kommandon](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` och `az feature show` Registrera funktionen och Visa registrerings status. 
 
 ## <a name="set-up-a-new-manual-qos-capacity-pool"></a>Konfigurera en ny pool för manuell QoS-kapacitet 
 
@@ -97,5 +97,3 @@ Om en volym ingår i en manuell pool för QoS-kapacitet kan du ändra den tillde
 * [Skapa en NFS-volym](azure-netapp-files-create-volumes.md)
 * [Skapa en SMB-volym](azure-netapp-files-create-volumes-smb.md)
 * [Skapa en volym med dubbla protokoll](create-volumes-dual-protocol.md)
-
-

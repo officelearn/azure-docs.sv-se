@@ -1,14 +1,14 @@
 ---
 title: 'Självstudie: hantera märkes styrning'
 description: I den här självstudien använder du ändrings resultatet för Azure Policy för att skapa och tillämpa en etikett styrnings modell på nya och befintliga resurser.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: tutorial
-ms.openlocfilehash: f49eedb00c98d3c362140fdca9b195a086903f10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9efeb27151cd3a32741f1bdb6d1d90d3304c5874
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545513"
+ms.locfileid: "91876285"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Självstudie: hantera märkes styrning med Azure Policy
 
@@ -28,7 +28,7 @@ I den här självstudien utför du följande aktiviteter:
 > - Mappa varje krav till en princip definition
 > - Gruppera tag-principerna i ett initiativ
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen. Om du inte har ett konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -126,7 +126,12 @@ En [ändrings](../concepts/effects.md#modify) princip krävs för varje miljö s
         {
             "field": "name",
             "like": "prd-*"
+        },
+        {
+            "field": "tags['Env']",
+            "notEquals": "Production"
         }
+
     ]
     },
     "then": {

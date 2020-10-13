@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: cd104a31fdba932481889db198ae3cc4998a4466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c9641e722cf3892450bbfbea54f169ac6dc764b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88261896"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963303"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Livscykler och tillstånd för Virtual Machines
 
@@ -418,13 +418,13 @@ När åtgärden har slutförts övergår den virtuella datorn till något av fö
 
 ## <a name="vm-instance-view"></a>Vy för VM-instans
 
-Instans visnings-API: et tillhandahåller information om den virtuella datorns körnings tillstånd. Mer information finns i dokumentationen för [Virtual Machines-instans Visa](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) API.
+Instans visnings-API: et tillhandahåller information om den virtuella datorns körnings tillstånd. Mer information finns i dokumentationen för [Virtual Machines-instans Visa](/rest/api/compute/virtualmachines/instanceview) API.
 
 Azures resurs Utforskaren innehåller ett enkelt användar gränssnitt för att visa den virtuella datorn som kör tillstånd: [Resursläsaren](https://resources.azure.com/).
 
 Etablerings tillstånd visas på VM-egenskaper och instans visning. Energi spar lägen är tillgängliga i instans visning av virtuell dator.
 
-Om du vill hämta energi läget för alla virtuella datorer i din prenumeration använder du [Virtual Machines-List all API](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) med parametern **statusOnly** inställd på *True*.
+Om du vill hämta energi läget för alla virtuella datorer i din prenumeration använder du [Virtual Machines-List all API](/rest/api/compute/virtualmachines/listall) med parametern **statusOnly** inställd på *True*.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,10 +4,10 @@ description: Lär dig hur du konfigurerar en Azure Migrate-apparat i Azure Gover
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: 1060bda13cc593980850bc6563555cf5dd4b7fd9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450024"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Konfigurera en installation i Azure Government 
@@ -19,7 +19,7 @@ Följ den här artikeln för att distribuera en [Azure Migrate-apparat](./migrat
 > Alternativet för att distribuera en installation med hjälp av en mall (för virtuella VMware-datorer och virtuella Hyper-V-datorer) stöds inte i Azure Government.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Skriptet konfigurerar Azure Migrate-installationen på en befintlig fysisk eller virtuell dator.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: ed1c5b749b778ef8334ea3b31ef17d3bf106484f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66a135cd1629aa2befcd4c56d835473791d62ce8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835552"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974013"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Skapa och hantera en virtuell Windows-dator som har flera nätverkskort
 Virtuella datorer i Azure kan ha flera virtuella nätverkskort (NIC) anslutna till dem. Ett vanligt scenario är att ha olika undernät för klient dels-och backend-anslutningar. Du kan associera flera nätverkskort på en virtuell dator till flera undernät, men dessa undernät måste finnas i samma virtuella nätverk (vNet). Den här artikeln beskriver hur du skapar en virtuell dator som har flera nätverkskort kopplade till sig. Du lär dig också hur du lägger till eller tar bort nätverkskort från en befintlig virtuell dator. Olika [VM-storlekar](../sizes.md) har stöd för olika antal nätverkskort, så storleken på den virtuella datorn.
@@ -70,7 +70,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -SubnetId $backEnd.Id
 ```
 
-Vanligt vis skapar du också en [nätverks säkerhets grupp](../../virtual-network/security-overview.md) för att filtrera nätverks trafik till den virtuella datorn och en [belastningsutjämnare](../../load-balancer/load-balancer-overview.md) för att distribuera trafik över flera virtuella datorer.
+Vanligt vis skapar du också en [nätverks säkerhets grupp](../../virtual-network/network-security-groups-overview.md) för att filtrera nätverks trafik till den virtuella datorn och en [belastningsutjämnare](../../load-balancer/load-balancer-overview.md) för att distribuera trafik över flera virtuella datorer.
 
 ### <a name="create-the-virtual-machine"></a>Skapa den virtuella datorn
 Börja nu med att skapa din VM-konfiguration. Varje VM-storlek har en gräns för det totala antalet nätverkskort som du kan lägga till i en virtuell dator. Mer information finns i [storlekar för virtuella Windows-datorer](../sizes.md).
@@ -288,4 +288,4 @@ Azure tilldelar en standard-gateway till det första nätverks gränssnittet som
     Den väg som anges med *192.168.1.1* under **Gateway**är den väg som finns som standard för det primära nätverks gränssnittet. Vägen med *192.168.2.1* under **gatewayen**är den väg som du har lagt till.
 
 ## <a name="next-steps"></a>Nästa steg
-Granska [storleken på virtuella Windows-datorer](../sizes.md) när du försöker skapa en virtuell dator som har flera nätverkskort. Var uppmärksam på det maximala antalet nätverkskort som varje VM-storlek stöder. 
+Granska [storleken på virtuella Windows-datorer](../sizes.md) när du försöker skapa en virtuell dator som har flera nätverkskort. Var uppmärksam på det maximala antalet nätverkskort som varje VM-storlek stöder.

@@ -13,16 +13,16 @@ ms.author: pafarley
 zone_pivot_groups: programming-languages-set-ten
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: formulär bearbetning, automatisk data bearbetning
-ms.openlocfilehash: eb3fc3ebe5c3d9f659758a14ba620018671d95f5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b024b3fac76e51264e89100e63a3cdc477443157
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318949"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963068"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library"></a>Snabb start: Använd formulär tolkens klient bibliotek
 
-Kom igång med formulär tolkens klient bibliotek på valfritt språk. Azure formulär igenkänning är en kognitiv tjänst som gör att du kan skapa automatiserad data bearbetnings program vara med hjälp av Machine Learning-teknik. Identifiera och extrahera text, nyckel/värde-par och tabell data från formulär dokument &mdash; tjänsten visar strukturerade data som innehåller relationerna i original filen. Följ de här stegen för att installera SDK-paketet och prova exempel koden för grundläggande uppgifter.
+Kom igång med formulär tolkens klient bibliotek på valfritt språk. Azure formulär igenkänning är en kognitiv tjänst som gör att du kan skapa automatiserad data bearbetnings program vara med hjälp av Machine Learning-teknik. Identifiera och extrahera text, nyckel/värde-par och tabell data från formulär dokument &mdash; tjänsten visar strukturerade data som innehåller relationerna i original filen. Följ de här stegen för att installera SDK-paketet och prova exempel koden för grundläggande uppgifter. Formulär identifierarens klient bibliotek riktar sig till v 2.0 från tolk tjänsten.
 
 Använd formulär identifierarens klient bibliotek för att:
 

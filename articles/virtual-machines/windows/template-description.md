@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: e420fe81941352d1002ed2c25c04fc686115c7c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a2a386264be0ec13e29b7a7546926819c5d931a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87827460"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972891"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuella datorer i en Azure Resource Manager-mall
 
@@ -282,7 +282,7 @@ Flera profil element används när du definierar en resurs för virtuella datore
 
 ## <a name="disks-and-images"></a>Diskar och avbildningar
    
-I Azure kan VHD-filer representera [diskar eller avbildningar](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). När operativ systemet i en VHD-fil är specialiserat för att vara en specifik virtuell dator kallas det för en disk. När operativ systemet i en VHD-fil generaliseras för att användas för att skapa många virtuella datorer kallas det för en avbildning.   
+I Azure kan VHD-filer representera [diskar eller avbildningar](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json). När operativ systemet i en VHD-fil är specialiserat för att vara en specifik virtuell dator kallas det för en disk. När operativ systemet i en VHD-fil generaliseras för att användas för att skapa många virtuella datorer kallas det för en avbildning.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Skapa nya virtuella datorer och nya diskar från en plattforms avbildning
 
@@ -449,7 +449,7 @@ Om du är nyfiken på statusen för resurser i distributionen kan du Visa resurs
     
 Det går inte att använda samma mall för att skapa resurser eller uppdatera befintliga resurser. När du använder kommandon för att distribuera mallar har du möjlighet att säga vilket [läge](../../azure-resource-manager/templates/deploy-powershell.md) du vill använda. Läget kan anges till antingen **fullständig** eller **stegvis**. Standardvärdet är att göra stegvisa uppdateringar. Var försiktig när du använder det **fullständiga** läget eftersom du kan ta bort resurser av misstag. När du anger att läget ska **slutföras**, tar Resource Manager bort alla resurser i resurs gruppen som inte finns i mallen.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Skapa en egen mall med hjälp av [redigera Azure Resource Manager mallar](../../azure-resource-manager/templates/template-syntax.md).
 - Distribuera mallen som du skapade med [skapa en virtuell Windows-dator med en Resource Manager-mall](ps-template.md).

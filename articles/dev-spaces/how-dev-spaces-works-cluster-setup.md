@@ -5,14 +5,16 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Beskriver hur du konfigurerar ett Azure Kubernetes service-kluster för Azure dev Spaces
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: 41b955fac7abcc700d73d8ace601f80982b2253d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 841e67b96e95aa251fa5bf1ef469b68de30f54d9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207962"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972687"
 ---
 # <a name="how-setting-up-a-cluster-for-azure-dev-spaces-works"></a>Så här konfigurerar du ett kluster för Azure dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Med Azure dev Spaces får du flera sätt att snabbt iterera och felsöka Kubernetes-program och samar beta med ditt team i ett Azure Kubernetes service-kluster (AKS). Ett sätt är att aktivera Azure dev Spaces på ditt AKS-kluster så att du kan [köra tjänster direkt i klustret][how-it-works-up] och använda [ytterligare funktioner för nätverk och routning][how-it-works-routing]. I den här artikeln beskrivs vad som händer när du förbereder klustret och aktiverar Azure dev Spaces.
 

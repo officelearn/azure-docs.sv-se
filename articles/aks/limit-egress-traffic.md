@@ -8,10 +8,10 @@ ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
 ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570384"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Styra utgående trafik för klusternoder i Azure Kubernetes service (AKS)
@@ -779,7 +779,7 @@ I den här artikeln har du lärt dig vilka portar och adresser som du kan använ
 
 Om det behövs kan du generalisera stegen ovan för att vidarebefordra trafiken till den önskade utgångs lösningen enligt dokumentationen för [utgående typ `userDefinedRoute` ](egress-outboundtype.md).
 
-Om du vill begränsa hur poddar kommunicerar mellan sig själva och East-västra trafik begränsningar i klustret, se [skydda trafik mellan poddar med hjälp av nätverks principer i AKS][network-policy].
+Om du vill begränsa hur poddar kommunicerar sinsemellan och East-West trafik begränsningar inom klustret, se [säker trafik mellan poddar med hjälp av nätverks principer i AKS][network-policy].
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md

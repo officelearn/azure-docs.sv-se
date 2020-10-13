@@ -12,24 +12,25 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/19/2020
+ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: 58936066abcbe4c3f9fcfad78bf914c74079aa95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc3da6f0d82adab2d21d4dbd91dee8654145b896
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88141796"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951493"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Konfigurera Azure Sentinel – kundhanterad nyckel
-
 
 Den här artikeln innehåller bakgrunds information och steg för att konfigurera en kundhanterad nyckel (CMK) för Azure Sentinel. CMK gör att alla data som sparas eller skickas till Azure Sentinel krypteras i alla relevanta lagrings resurser med en Azure Key Vault nyckel som skapats eller ägs av dig.
 
 > [!NOTE]
-> -   Azure Sentinel CMK-funktionen tillhandahålls endast till kunder som är **nya** och som har åtkomst till den här funktionen styrs av Azure Feature Registration.Du kan begära åtkomst genom att kontakta azuresentinelCMK@microsoft.com och när kapaciteten är tillgänglig godkänns väntande begär Anden.
-> -   Azure Sentinel CMK-funktionen är bara tillgänglig i USA, västra USA 2 och South-Central amerikanska regioner.
-> -   CMK-funktionen är bara tillgänglig för kunder som skickar 1 TB per dag eller mer. Du får information om ytterligare priser när du använder Microsoft för att etablera CMK i din Azure-prenumeration. Läs mer om [Log Analytics prissättning](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
+> - Azure Sentinel CMK-funktionen tillhandahålls endast till **nya kunder**.
+>
+> - Åtkomst till den här funktionen styrs av Azure Feature Registration.Du kan begära åtkomst genom att kontakta azuresentinelCMK@microsoft.com . Väntande begär Anden kommer att godkännas enligt den tillgängliga kapaciteten.
+>
+> - CMK-funktionen är bara tillgänglig för kunder som skickar 1 TB per dag eller mer. Du får information om ytterligare priser när du använder Microsoft för att etablera CMK i din Azure-prenumeration. Läs mer om [Log Analytics prissättning](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
 ## <a name="how-cmk-works"></a>Så här fungerar CMK 
 
@@ -58,7 +59,7 @@ Följ dessa steg om du vill etablera CMK: 
 
 ### <a name="step-1-create-an-azure-key-vault-and-storing-key"></a>STEG 1: skapa en Azure Key Vault och lagra nyckel
 
-1.  [Skapa Azure Key Vault resurs](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal?view=azs-1910)och generera eller importera sedan en nyckel som ska användas för data kryptering.
+1.  [Skapa Azure Key Vault resurs](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal)och generera eller importera sedan en nyckel som ska användas för data kryptering.
     > [!NOTE]
     >  Azure Key Vault måste konfigureras som återställnings Bart för att skydda nyckeln och åtkomsten.
 

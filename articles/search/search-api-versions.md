@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 71862bedc009d560adc8131eacc37c0afba25d81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fab49c4242afc2e4f2d0595e2aa95f19f3d976f8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761727"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951587"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>API-versioner i Azure Kognitiv sökning
 
@@ -41,7 +41,7 @@ Dessutom dras versioner av Azure Kognitiv sökning .NET SDK som är äldre än [
 
 Efter det här datumet kommer program som använder någon av de inaktuella REST API-eller SDK-versionerna inte längre att fungera och måste uppgraderas. Som med alla ändringar av den här typen ger vi 12 månaders varsel, så du har tillräckligt med tid för att justera.
 
-Om du vill fortsätta att använda Azure Kognitiv sökning måste du migrera den befintliga koden som är avsedd för [REST API](search-api-migration.md) till [REST API version 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) eller till en nyare SDK senast den 15 oktober 2020.  Om du har frågor om att uppdatera till den senaste versionen skickar du e-post till den azuresearch_contact@microsoft.com 15 maj 2020 för att se till att du har tillräckligt med tid för att uppdatera koden.
+Om du vill fortsätta att använda Azure Kognitiv sökning måste du migrera den befintliga koden som är avsedd för [REST API](search-api-migration.md) till [REST API version 2020-06-30](/rest/api/searchservice/) eller till en nyare SDK senast den 15 oktober 2020.  Om du har frågor om att uppdatera till den senaste versionen skickar du e-post till den azuresearch_contact@microsoft.com 15 maj 2020 för att se till att du har tillräckligt med tid för att uppdatera koden.
 
 ## <a name="rest-apis"></a>REST API:er
 
@@ -74,8 +74,8 @@ Skapa och konfigurera en Sök tjänst och hantera API-nycklar.
 
 | 2.0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | Status | Beskrivning |
 |-------------------------|--------|------------------------------|
-| [Hantering 2020-08-01](https://docs.microsoft.com/rest/api/searchmanagement/) | Stable | Senaste stabila versionen av hanterings REST-API: erna. Lägger till allmänt tillgänglig delad privat länk resurs stöd för alla utgående resurser förutom de som anges i för hands versionen |
-| [Hantering 2020-08-01 – för hands version](https://docs.microsoft.com/rest/api/searchmanagement/index-preview) | Förhandsgranskning  | Finns för närvarande i för hands version: resurs stöd för delad privat länk för Azure Functions och Azure Database for MySQL. |
+| [Hantering 2020-08-01](/rest/api/searchmanagement/) | Stable | Senaste stabila versionen av hanterings REST-API: erna. Lägger till allmänt tillgänglig delad privat länk resurs stöd för alla utgående resurser förutom de som anges i för hands versionen |
+| [Hantering 2020-08-01 – för hands version](/rest/api/searchmanagement/index-preview) | Förhandsgranskning  | Finns för närvarande i för hands version: resurs stöd för delad privat länk för Azure Functions och Azure Database for MySQL. |
 | Hantering 2020-03-13  | Stable | Lägger till [privat slut punkt](service-create-private-endpoint.md) via privat länk och [nätverks-IP-regler](service-configure-firewall.md) för nya tjänster. Mer information finns i den här [Swagger-specifikationen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2020-08-01). |
 | Hantering 2019-10-01-förhandsversion | Förhandsgranskning  | Inga förhands gransknings funktioner har introducerats i den här listan. Den här för hands versionen är funktionellt likvärdig med 2020-03-13. Mer information finns i den här [Swagger-specifikationen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/preview/2019-10-01-preview). |
 | Hantering 2015-08-19  | Stable | Den första allmänt tillgängliga versionen av hanterings REST-API: erna. Tillhandahåller tjänst etablering, skalning och hantering av API-nycklar. Mer information finns i den här [Swagger-specifikationen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2015-08-19). |

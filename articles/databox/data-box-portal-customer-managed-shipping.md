@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: alkohli
-ms.openlocfilehash: cfa2dee41f07e273d933da356f74063453cb1775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b09176ad8cb93d7710975b67de619b4f58eaa2f0
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88142544"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951918"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Använd självhanterad leverans för Azure Data Box i Azure Portal
 
@@ -41,7 +41,7 @@ När du placerar en Data Box-enhet order kan du välja alternativet för självh
 2. När du väljer leverans typ väljer du alternativet för **själv hantering av leverans** . Det här alternativet är bara tillgängligt om du befinner dig i en region som stöds enligt beskrivningen i kraven.
 
 3. När du har angett din leverans adress måste du verifiera den och slutföra beställningen.
-   ![Egenhanterad frakt](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![Själv hanterad leverans 2](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. När enheten har förberetts och du får ett e-postmeddelande för den kan du schemalägga en hämtning.
 
@@ -78,7 +78,7 @@ När du placerar en Data Box-enhet order kan du välja alternativet för självh
 
 9. Om du har tagit emot en avtalad tid för inaktive ring ska ordern vara **redo att ta emot på Azure datacenter** -tillstånd i Azure Portal. Följ anvisningarna under **Schemaläggning** för att returnera enheten.
 
-   ![Visa din auktoriseringskod](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
+   ![Visa din auktoriseringskod 2](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
 
 10. När ditt ID och din auktoriseringskod har verifierats och du har tappat bort enheten i data centret ska order statusen **tas emot**.
 

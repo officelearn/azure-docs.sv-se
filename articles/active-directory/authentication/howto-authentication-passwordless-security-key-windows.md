@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 01/30/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66283e4965aea9e24da6041133e2d88e95df6755
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: b88b2ca0a420295a7a53608f02923e72045e1c44
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526994"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964748"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Aktivera inloggning med lösen ord utan lösen ord till Windows 10-enheter med Azure Active Directory (för hands version)
 
@@ -91,12 +91,12 @@ Om du vill använda specifika enhets grupper för att aktivera Credential-provid
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Bläddra till **Microsoft Intune**  >  **enhets konfiguration**  >  **profiler**  >  **Skapa profil**.
 1. Konfigurera den nya profilen med följande inställningar:
-   - Namn: säkerhets nycklar för Windows-inloggning
+   - Namn: säkerhets nycklar för Windows Sign-In
    - Beskrivning: aktiverar FIDO-säkerhetsnycklar som ska användas vid inloggning i Windows
    - Plattform: Windows 10 och senare
    - Profil typ: anpassad
    - Anpassade OMA-URI-inställningar:
-      - Namn: Aktivera FIDO säkerhets nycklar för Windows-inloggning
+      - Namn: Aktivera FIDO säkerhets nycklar för Windows Sign-In
       - OMA-URI:./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       - Datatyp: heltal
       - Värde: 1

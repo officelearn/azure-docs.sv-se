@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
 ms.openlocfilehash: ce6561652801d52e5600ddc63e573070281da3f2
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89078137"
 ---
 # <a name="language-understanding-service-encryption-of-data-at-rest"></a>Language Understanding tjänst kryptering av data i vila
@@ -32,11 +32,11 @@ Som standard använder din prenumeration krypteringsnycklar som hanteras av Micr
 
 Det finns också ett alternativ för att hantera din prenumeration med dina egna nycklar. Kundhanterade nycklar (CMK), som även kallas för att ta med din egen nyckel (BYOK), erbjuder större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska krypteringsnycklarna som används för att skydda dina data.
 
-Du måste använda Azure Key Vault för att lagra dina Kundhanterade nycklar. Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault API: er för att generera nycklar. Den Cognitive Services resursen och nyckel valvet måste finnas i samma region och i samma Azure Active Directory-klient (Azure AD), men de kan finnas i olika prenumerationer. Mer information om Azure Key Vault finns i [Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Du måste använda Azure Key Vault till att lagra dina kundhanterade nycklar. Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault API: er för att generera nycklar. Den Cognitive Services resursen och nyckel valvet måste finnas i samma region och i samma Azure Active Directory-klient (Azure AD), men de kan finnas i olika prenumerationer. Mer information om Azure Key Vault finns i [Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 ### <a name="customer-managed-keys-for-language-understanding"></a>Kundhanterade nycklar för Language Understanding
 
-Om du vill begära möjlighet att använda Kundhanterade nycklar, fyller du i och skickar [formuläret Luis service kund-Managed Key Request](https://aka.ms/cogsvc-cmk). Det tar cirka 3-5 arbets dagar att höra om status för din begäran. Beroende på efter frågan kan du placera i en kö och godkännas som utrymme blir tillgängligt. När du har godkänt för att använda CMK med LUIS måste du skapa en ny Language Understanding resurs från Azure Portal och välja E0 som pris nivå. Den nya SKU: n fungerar på samma sätt som F0 SKU som redan är tillgänglig förutom för CMK. Användarna kommer inte att kunna uppgradera från F0 till den nya E0 SKU: n.
+Om du vill begära möjlighet att använda Kundhanterade nycklar, fyller du i och skickar [Luis-tjänsten Customer-Managed formuläret för nyckel förfrågan](https://aka.ms/cogsvc-cmk). Det tar cirka 3-5 arbets dagar att höra om status för din begäran. Beroende på efter frågan kan du placera i en kö och godkännas som utrymme blir tillgängligt. När du har godkänt för att använda CMK med LUIS måste du skapa en ny Language Understanding resurs från Azure Portal och välja E0 som pris nivå. Den nya SKU: n fungerar på samma sätt som F0 SKU som redan är tillgänglig förutom för CMK. Användarna kommer inte att kunna uppgradera från F0 till den nya E0 SKU: n.
 
 ![LUIS prenumerations avbildning](../media/cognitive-services-encryption/luis-subscription.png)
 
@@ -85,5 +85,5 @@ Om du vill återkalla åtkomsten till Kundhanterade nycklar använder du PowerSh
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [LUIS service kund – hanterad nyckel förfrågnings formulär](https://aka.ms/cogsvc-cmk)
+* [Formulär för LUIS service Customer-Managed Key](https://aka.ms/cogsvc-cmk)
 * [Läs mer om Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

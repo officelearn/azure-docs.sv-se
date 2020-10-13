@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 3a585bc2bf3872a21bde9be036628922ee5743fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7248dff25af4693f7f264c8cbf42236612dddda0
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087362"
+ms.locfileid: "91931078"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Konfigurera anonym offentlig Läs behörighet för behållare och blobbar
 
@@ -56,7 +56,7 @@ Om du vill tillåta eller neka offentlig åtkomst till ett lagrings konto konfig
 > [!NOTE]
 > Egenskapen **AllowBlobPublicAccess** har inte angetts som standard och returnerar inte något värde förrän du uttryckligen anger det. Lagrings kontot tillåter offentlig åtkomst när egenskap svärdet är **Null** eller när det är **Sant**.
 >
-> **AllowBlobPublicAccess** -egenskapen är för närvarande endast tillgänglig för lagrings konton i det offentliga Azure-molnet.
+> Egenskapen **AllowBlobPublicAccess** är tillgänglig för alla lagrings konton i det offentliga Azure-molnet och i Azure Government moln.
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 

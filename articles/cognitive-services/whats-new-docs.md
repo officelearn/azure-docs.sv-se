@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 10/02/2020
-ms.openlocfilehash: 17d887f0834733fdc833bbbad66c957b057a588a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a49a51886f921c9d37a33229b6db78479d7198bc
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857817"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938329"
 ---
 # <a name="cognitive-services-docs-whats-new-for-september-1-2020---september-30-2020"></a>Cognitive Services dokument: Vad är nytt för den 1 september 2020 – 30 september 2020
 
@@ -42,51 +42,51 @@ Välkommen till nyheter i Cognitive Services dokument från den 1 september 2020
 
 ### <a name="new-articles"></a>Nya artiklar
 
-- [Installera och kör behållaren för rums analys (förhands granskning)](/azure/cognitive-services/computer-vision/spatial-analysis-container.md)
+- [Installera och kör behållaren för rums analys (förhands granskning)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container?tabs=azure-stack-edge)
 
 ### <a name="updated-articles"></a>Uppdaterade artiklar
 
-- [Avbildnings taggar för Azure Cognitive Services container](/azure/cognitive-services/containers/container-image-tags.md)
+- [Avbildnings taggar för Azure Cognitive Services container](https://docs.microsoft.com/azure/cognitive-services/containers/container-image-tags)
 
 ## <a name="form-recognizer"></a>Formigenkänning
 
 ### <a name="updated-articles"></a>Uppdaterade artiklar
 
-- [Språk stöd för formulär tolken](/azure/cognitive-services/form-recognizer/language-support.md)
-- [Skapa en tränings data uppsättning för en anpassad modell](/azure/cognitive-services/form-recognizer/build-training-data-set.md)
-- [Koncept för kvitton](/azure/cognitive-services/form-recognizer/concept-receipts.md)
-- [Formulär tolkens kryptering av data i vila](/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest.md)
-- [Vad är nytt i Formigenkänning?](/azure/cognitive-services/form-recognizer/whats-new.md)
-- [Koncept för visitkort](/azure/cognitive-services/form-recognizer/concept-business-cards.md)
-- [Vad är formigenkänning?](/azure/cognitive-services/form-recognizer/overview.md)
-- [Snabb start: Använd formulär tolkens klient bibliotek](/azure/cognitive-services/form-recognizer/quickstarts/client-library.md)
+- [Språk stöd för formulär tolken](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/language-support)
+- [Skapa en tränings data uppsättning för en anpassad modell](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/build-training-data-set)
+- [Koncept för kvitton](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/concept-receipts)
+- [Formulär tolkens kryptering av data i vila](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest)
+- [Vad är nytt i Formigenkänning?](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/whats-new)
+- [Koncept för visitkort](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/concept-business-cards)
+- [Vad är formigenkänning?](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/overview)
+- [Snabb start: Använd formulär tolkens klient bibliotek](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/client-library)
 
 ## <a name="immersive-reader"></a>Avancerad läsare
 
 ### <a name="updated-articles"></a>Uppdaterade artiklar
 
-- [Språk stöd för avancerad läsare](/azure/cognitive-services/immersive-reader/language-support.md)
-- [Avancerad läsares Java Script SDK-referens (v 1.1)](/azure/cognitive-services/immersive-reader/reference.md)
-- [Snabb start: kom igång med avancerad läsare](/azure/cognitive-services/immersive-reader/quickstarts/client-libraries.md)
-- [Självstudie: starta den fördjupade läsaren med python-exempelprojektet](/azure/cognitive-services/immersive-reader/tutorial-python.md)
-- [Skapa en fördjupad läsar resurs och konfigurera Azure Active Directory autentisering](/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader.md)
+- [Språk stöd för avancerad läsare](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/language-support)
+- [Avancerad läsares Java Script SDK-referens (v 1.1)](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference)
+- [Snabb start: kom igång med avancerad läsare](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/quickstarts/client-libraries)
+- [Självstudie: starta den fördjupade läsaren med python-exempelprojektet](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/tutorial-python)
+- [Skapa en fördjupad läsar resurs och konfigurera Azure Active Directory autentisering](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader)
 
 ## <a name="metrics-advisor"></a>Metrics Advisor
 
 ### <a name="new-articles"></a>Nya artiklar
 
-- [Gör så här: Konfigurera mått och finjustera identifiering av konfiguration](/azure/cognitive-services/metrics-advisor/how-tos/configure-metrics.md)
-- [Lägg till datafeeds från olika data källor i mått Advisor](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources.md)
-- [Snabb start: Använd REST-API: er för att anpassa din lösning](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api.md)
-- [Anvisningar: Konfigurera aviseringar och få meddelanden med hjälp av en Hook](/azure/cognitive-services/metrics-advisor/how-tos/alerts.md)
+- [Gör så här: Konfigurera mått och finjustera identifiering av konfiguration](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/how-tos/configure-metrics)
+- [Lägg till datafeeds från olika data källor i mått Advisor](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources)
+- [Snabb start: Använd REST-API: er för att anpassa din lösning](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/quickstarts/rest-api)
+- [Anvisningar: Konfigurera aviseringar och få meddelanden med hjälp av en Hook](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/how-tos/alerts)
 
 ## <a name="text-analytics"></a>Textanalys
 
 ### <a name="updated-articles"></a>Uppdaterade artiklar
 
-- [Använda namngiven enhets igenkänning i Textanalys](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [Modell version i API för textanalys](/azure/cognitive-services/text-analytics/concepts/model-versioning.md)
-- [Snabb start: Använd Textanalys klient bibliotek](/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk.md)
+- [Använda namngiven enhets igenkänning i Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
+- [Modell version i API för textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/model-versioning)
+- [Snabb start: Använd Textanalys klient bibliotek](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk)
 
 ## <a name="community-contributors"></a>Community-deltagare
 

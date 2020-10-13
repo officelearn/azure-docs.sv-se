@@ -3,15 +3,15 @@ title: Konfigurera belastnings utjämning för Windows Virtual Desktop – Azure
 description: Så här konfigurerar du belastnings Utjämnings metoden för en Windows Virtual Desktop-miljö.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 10/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4b133f4cfcb86119687d0d9be1ce91d9207af32a
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 2c57ac10fbd318dd4bbb2dc86457e186dd824834
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932523"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951663"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Konfigurera metoden för belastningsutjämning för Windows Virtual Desktop
 
@@ -61,6 +61,9 @@ Kör följande PowerShell-cmdlet för att konfigurera en adresspool för att utf
 ```powershell
 Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ###
 ```
+
+>[!NOTE]
+> Den djupbaserade algoritmen för belastnings utjämning distribuerar sessioner till sessionsbaserade värdar baserat på gränsen för högsta antal sessioner ( `-MaxSessionLimit` ). Den här parameterns standardvärde är `999999` , vilket också är det högsta möjliga antalet som du kan ställa in den här variabeln på. Den här parametern krävs när du använder algoritmen för djup-första belastnings utjämning. För bästa möjliga användar upplevelse måste du ändra den maximala begränsnings parametern för Session Host till ett tal som passar din miljö bäst.
 
 Kör denna cmdlet för att se till att inställningen har uppdaterats:
 

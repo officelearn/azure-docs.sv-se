@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/15/2020
 ms.author: cynthn
 ms.reviewer: cynthn
-ms.openlocfilehash: 3a206a7aabee9f75524ab4715afa30ec05c612bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d01ac7d5b01f485c3b0100c468332475a9bd4274
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328071"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978551"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Felsöka delade avbildnings gallerier i Azure
 
@@ -79,7 +79,7 @@ Möjliga orsaker:
 
 *Användaren som försöker skapa en virtuell dator eller skalnings uppsättning för virtuell dator har inte Läs behörighet till avbildnings versionen.*
 
-Kontakta Prenumerationens ägare och be dem att ge Läs behörighet till avbildnings versionen eller de överordnade resurserna (t. ex. galleriet för delad avbildning eller avbildnings definition) via [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
+Kontakta Prenumerationens ägare och be dem att ge Läs behörighet till avbildnings versionen eller de överordnade resurserna (t. ex. galleriet för delad avbildning eller avbildnings definition) via [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 *Det gick inte att hitta avbildnings versionen.*
 
@@ -91,7 +91,7 @@ Kontrol lera att **OSType** för den avbildnings version som du försöker skapa
 
 ## <a name="unable-to-share-resources"></a>Det går inte att dela resurser
 
-Delning av delade avbildnings gallerier, avbildnings definitioner och avbildnings versions resurser över prenumerationer aktive ras med [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
+Delning av delade avbildnings gallerier, avbildnings definitioner och avbildnings versions resurser över prenumerationer aktive ras med [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 ## <a name="replication-is-slow"></a>Replikeringen är långsam
 
@@ -99,7 +99,7 @@ Använd flaggan **--Expand ReplicationStatus** för att kontrol lera om repliker
 
 ## <a name="azure-limits-and-quotas"></a>Begränsningar och kvoter för Azure 
 
-[Azure-gränser och kvoter](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) gäller för alla delade avbildnings gallerier, avbildnings definitioner och avbildnings versions resurser. Se till att du är inom gränserna för dina prenumerationer. 
+[Azure-gränser och kvoter](../azure-resource-manager/management/azure-subscription-service-limits.md) gäller för alla delade avbildnings gallerier, avbildnings definitioner och avbildnings versions resurser. Se till att du är inom gränserna för dina prenumerationer. 
 
 
 ## <a name="next-steps"></a>Nästa steg

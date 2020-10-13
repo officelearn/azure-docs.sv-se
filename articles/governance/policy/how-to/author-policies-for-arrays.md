@@ -4,10 +4,10 @@ description: Lär dig att arbeta med mat ris parametrar och matris språk uttryc
 ms.date: 09/30/2020
 ms.topic: how-to
 ms.openlocfilehash: c67982197c0161d99f29747d6fd11166cba86079
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91576905"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Redigera principer för mat ris egenskaper på Azure-resurser

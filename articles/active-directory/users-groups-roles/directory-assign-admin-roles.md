@@ -18,7 +18,7 @@ ms.openlocfilehash: a6ccc2911312a74825b885f5f492e67774354316
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91858135"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
@@ -1991,12 +1991,12 @@ Enhets hanterare | Inaktuell | [Dokumentation om föråldrade roller](directory-
 Enhets användare | Inaktuell | [Dokumentation om föråldrade roller](directory-assign-admin-roles.md#deprecated-roles)
 Konton för katalog synkronisering | Visas inte eftersom det inte ska användas | [Dokumentation om Directory Synchronization-konton](directory-assign-admin-roles.md#directory-synchronization-accounts)
 Katalog skrivare | Visas inte eftersom det inte ska användas | [Dokumentation om katalog författare](directory-assign-admin-roles.md#directory-writers)
-Gästanvändare | Visas inte eftersom det inte kan användas  | NA
+Gästanvändare | Visas inte eftersom det inte kan användas  | Ej tillämpligt
 Administratör för Lync-tjänsten | Skype for Business-administratör | [Visar aktuell produkt anpassning](directory-assign-admin-roles.md#role-template-ids)
 Support på partner nivå 1 | Visas inte eftersom det inte ska användas | [Support dokumentation för partner 1](directory-assign-admin-roles.md#partner-tier1-support)
 Support på partner nivå 2 | Visas inte eftersom det inte ska användas | [Support dokumentation för partner – nivå 2](directory-assign-admin-roles.md#partner-tier2-support)
-Begränsad gäst användare | Visas inte eftersom det inte kan användas | NA
-Användare | Visas inte eftersom det inte kan användas | NA
+Begränsad gäst användare | Visas inte eftersom det inte kan användas | Ej tillämpligt
+Användare | Visas inte eftersom det inte kan användas | Ej tillämpligt
 Anslutning till arbets plats enhet | Inaktuell | [Dokumentation om föråldrade roller](directory-assign-admin-roles.md#deprecated-roles)
 
 ## <a name="next-steps"></a>Nästa steg

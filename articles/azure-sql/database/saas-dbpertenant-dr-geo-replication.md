@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: e08150f5998b71523a986eac1f8a9be993125f5a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619160"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Haveri beredskap för ett SaaS-program för flera innehavare med hjälp av databas geo-replikering
@@ -142,7 +142,7 @@ I det här läget körs programmet normalt i den ursprungliga regionen och skydd
 
 2. Utforska resurserna i återställnings resurs gruppen.  
 
-3. Klicka på Contoso konsert Hall-databasen på _tenants1-DPT- &lt; User &gt; -Recovery-_ servern.  Klicka på geo-replikering på vänster sida. 
+3. Klicka på Contoso konsert Hall-databasen på _tenants1-DPT- &lt; User &gt; -Recovery-_ servern.  Klicka på Geo-Replication till vänster. 
 
     ![Contoso konsert geo-replikeringslänken-länk](./media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication.png) 
 
@@ -245,7 +245,7 @@ När återställnings processen har slutförts fungerar programmet och alla klie
     
 4. Öppna SQL Server _-tenants2-DPT- &lt; User &gt; -Recovery_ .  Observera att den innehåller databasen _hawthornhall_ och den elastiska poolen _Pool1_.  _Hawthornhall_ -databasen har kon figurer ATS som en elastisk databas i den elastiska _Pool1_ -poolen.
 
-5. Gå tillbaka till resurs gruppen och klicka på Contoso konsert Hall-databasen på _tenants1-DPT- &lt; User &gt; -Recovery-_ servern. Klicka på geo-replikering på vänster sida.
+5. Gå tillbaka till resurs gruppen och klicka på Contoso konsert Hall-databasen på _tenants1-DPT- &lt; User &gt; -Recovery-_ servern. Klicka på Geo-Replication till vänster.
     
     ![Contoso-databas efter redundans](./media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication-after-failover.png)
 

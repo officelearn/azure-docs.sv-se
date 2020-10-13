@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
 ms.openlocfilehash: d91ada217d54f424803abfeb31dcad237b5fe05c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90979927"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SAP NetWeaver
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig hur du integrerar SAP NetWeaver med A
 * Gör det möjligt för användarna att logga in automatiskt till SAP NetWeaver med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -138,7 +138,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I Azure Portal går du till sidan för program integration i **SAP NetWeaver** och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -177,7 +177,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     d. Klicka på **Spara**.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
@@ -193,7 +193,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
     1. I **Namn**-fältet skriver du `B.Simon`.  
-    1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+    1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
     1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
     1. Klicka på **Skapa**.
 
@@ -215,51 +215,51 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. För att konfigurera slutpunkter för betrodda identitetsproviders (Azure AD) går du till fliken **Trusted Providers** (Betrodda providers).
 
-    ![Konfigurera betrodda providrar för enkel inloggning](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_samlconfig.png)
+    ![Konfigurera betrodda providrar för enskild Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_samlconfig.png)
 
 3. Tryck på **Lägg till** och välj **Ladda upp metadatafil** på snabbmenyn.
 
-    ![Konfigurera enkel inloggning 2](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_uploadmetadata.png)
+    ![Konfigurera Single Sign-On 2](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_uploadmetadata.png)
 
 4. Ladda upp metadatafilen som du har laddat ned från Azure-portalen.
 
-    ![Konfigurera enkel inloggning 3](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
+    ![Konfigurera Single Sign-On 3](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
 
 5. Ange aliasnamnet på nästa skärm, Till exempel aadsts och Fortsätt genom att klicka på **Nästa** .
 
-    ![Konfigurera enkel inloggning 4](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_aliasname.png)
+    ![Konfigurera Single Sign-On 4](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_aliasname.png)
 
 6. Se till att din **sammandragsalgoritm** ska vara **SHA-256** och att den inte kräver några ändringar och tryck på **Nästa**.
 
-    ![Konfigurera enkel inloggning 5](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_identityprovider.png)
+    ![Konfigurera Single Sign-On 5](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_identityprovider.png)
 
 7. På **Single Sign-On Endpoints** (Slutpunkter för enkel inloggning) använder du **HTTP POST** och klickar på **Nästa** för att fortsätta.
 
-    ![Konfigurera enkel inloggning 6](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect.png)
+    ![Konfigurera Single Sign-On 6](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect.png)
 
 8. På **Single Logout Endpoints** (Slutpunkter för enkel utloggning) använder du **HTTP POST** och klickar på **Nästa** för att fortsätta.
 
-    ![Konfigurera enkel inloggning 7](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect1.png)
+    ![Konfigurera Single Sign-On 7](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect1.png)
 
 9. På **Artifact Endpoints** (Slutpunkter för artefakter) trycker du på **Nästa** för att fortsätta.
 
-    ![Konfigurera enkel inloggning 8](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_artifactendpoint.png)
+    ![Konfigurera Single Sign-On 8](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_artifactendpoint.png)
 
 10. Vid **Autentiseringskrav** klickar du på **Slutför**.
 
-    ![Konfigurera enkel inloggning 9](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_authentication.png)
+    ![Konfigurera Single Sign-On 9](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_authentication.png)
 
 11. Gå till fliken **Trusted Provider**  >  **Identity Federation** (längst ned på skärmen). Klicka på **Redigera**.
 
-    ![Konfigurera enkel inloggning 10](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_trustedprovider.png)
+    ![Konfigurera Single Sign-On 10](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_trustedprovider.png)
 
 12. Klicka på **Lägg till** under fliken **Identitetsfederation** (det nedre fönstret).
 
-    ![Konfigurera enkel inloggning 11](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
+    ![Konfigurera Single Sign-On 11](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
 
 13. I popup-fönstret väljer du **ospecificerad** från de NameID- **format som stöds** och klickar på OK.
 
-    ![Konfigurera enkel inloggning 12](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
+    ![Konfigurera Single Sign-On 12](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
 
 14. Observera att värdena för **användar-ID-källa** och **användar-ID-mappning** anger länken mellan SAP-användare och Azure AD-anspråk.  
 
@@ -267,29 +267,29 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     a. Skärmbild med NameID-information från SAP.
 
-    ![Konfigurera enkel inloggning 13](./media/sapnetweaver-tutorial/nameiddetails.png)
+    ![Konfigurera Single Sign-On 13](./media/sapnetweaver-tutorial/nameiddetails.png)
 
     b. Skärmbild som nämner nödvändiga anspråk från Azure AD.
 
-    ![Konfigurera enkel inloggning 14](./media/sapnetweaver-tutorial/claimsaad1.png)
+    ![Konfigurera Single Sign-On 14](./media/sapnetweaver-tutorial/claimsaad1.png)
 
     #### <a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Scenario: Välj SAP-användar-ID baserat på konfigurerad e-postadress i SU01. I det här fallet ska e-post-ID konfigureras i su01 för varje användare som kräver SSO.
 
     a.  Skärmbild med NameID-information från SAP.
 
-    ![Konfigurera enkel inloggning 15](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameiddetails1.png)
+    ![Konfigurera Single Sign-On 15](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameiddetails1.png)
 
     b. skärmbild som nämner nödvändiga anspråk från Azure AD.
 
-    ![Konfigurera enkel inloggning 16](./media/sapnetweaver-tutorial/claimsaad2.png)
+    ![Konfigurera Single Sign-On 16](./media/sapnetweaver-tutorial/claimsaad2.png)
 
 15. Klicka på **Spara** och klicka sedan på **Aktivera** för att aktivera identitetsprovider.
 
-    ![Konfigurera enkel inloggning 17](./media/sapnetweaver-tutorial/configuration1.png)
+    ![Konfigurera Single Sign-On 17](./media/sapnetweaver-tutorial/configuration1.png)
 
 16. Klicka på **OK** när du uppmanas till detta.
 
-    ![Konfigurera enkel inloggning 18](./media/sapnetweaver-tutorial/configuration2.png)
+    ![Konfigurera Single Sign-On 18](./media/sapnetweaver-tutorial/configuration2.png)
 
     ### <a name="create-sap-netweaver-test-user"></a>Skapa SAP NetWeaver-testanvändare
 
@@ -310,7 +310,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Webbadressen ovan bör ta dig under den nämnda skärmen. Om du kan komma till sidan nedan är Azure AD SSO-installationen klar.
 
-    ![Testa enkel inloggning](./media/sapnetweaver-tutorial/testingsso.png)
+    ![testa enstaka Sign-On](./media/sapnetweaver-tutorial/testingsso.png)
 
 3. Om du ser en uppmaning för användarnamn och lösenord ska du diagnostisera problemet genom att aktivera spårning med hjälp av nedanstående URL
 
@@ -374,6 +374,6 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 5. Klicka på **Slutför**.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 När du har konfigurerat Azure AD SAP-NetWeaver kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)

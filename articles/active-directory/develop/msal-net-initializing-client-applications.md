@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 5ec419be5c7549553788d009f09fa3e0fb8655e4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91258293"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Initiera klient program med MSAL.NET
@@ -96,7 +96,7 @@ I kodfragmenten med hjälp av program byggare kan ett antal `.With` metoder anv�
 
 De modifierare som du kan ställa in på en offentlig klient eller en konfidentiell klient Application Builder är:
 
-|Modifieraren | Description|
+|Modifieraren | Beskrivning|
 |--------- | --------- |
 |`.WithAuthority()` 7 åsidosättningar | Ställer in program standard auktoritet till en Azure AD-auktoritet, med möjligheten att välja Azure-moln, mål grupp, klient organisation (klient-ID eller domän namn) eller tillhandahålla direkt auktoritets-URI: n.|
 |`.WithAdfsAuthority(string)` | Anger att program standard utfärdaren ska vara en ADFS-auktoritet.|
@@ -115,7 +115,7 @@ De modifierare som du kan ställa in på en offentlig klient eller en konfidenti
 
 De modifierare som du kan ställa in i en offentlig klient programs Builder på Xamarin. iOS är:
 
-|Modifieraren | Description|
+|Modifieraren | Beskrivning|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Xamarin. iOS**: anger säkerhets gruppen för iOS-nyckelpar (för cacheminnet).|
 
@@ -123,7 +123,7 @@ De modifierare som du kan ställa in i en offentlig klient programs Builder på 
 
 De modifierare som du kan ställa in i ett konfidentiellt klient program verktyg är:
 
-|Modifieraren | Description|
+|Modifieraren | Beskrivning|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | Anger det certifikat som identifierar programmet med Azure AD.|
 |`.WithClientSecret(string clientSecret)` | Anger klient hemligheten (app Password) som identifierar programmet med Azure AD.|

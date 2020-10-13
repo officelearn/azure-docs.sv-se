@@ -8,18 +8,20 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 6671b8aa60690bc1915e297bc31b19299be2b1da
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: f39fb5766965e3881068bd6d2fd3a8142f9eb2ac
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629088"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975917"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Registrera ett offentligt klient program i Azure Active Directory
 
 I den här artikeln får du lära dig hur du registrerar ett offentligt program i Azure Active Directory.  
 
 Klient program registreringar är Azure Active Directory representationer av program som kan autentisera och fråga efter API-behörigheter för en användares räkning. Offentliga klienter är program som mobil program och en enda sida JavaScript-program som inte kan spara hemligheter konfidentiellt. Proceduren påminner om att [Registrera en konfidentiell klient](register-confidential-azure-ad-client-app.md), men eftersom offentliga klienter inte är betrodda för att innehålla en program hemlighet behöver du inte lägga till en.
+
+Snabb starten tillhandahåller allmän information om hur du [registrerar ett program med Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 ## <a name="app-registrations-in-azure-portal"></a>Appregistreringar i Azure Portal
 
@@ -38,6 +40,18 @@ Klient program registreringar är Azure Active Directory representationer av pro
 2. Ange en svars-URL. Svars-URL: en är den plats där autentiseringsnivåer kommer att returneras till klient programmet. Du kan lägga till fler svars-URL: er och redigera befintliga senare.
 
     ![Azure Portal. Ny registrering av offentliga appar.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-NAME.png)
+
+
+Så här konfigurerar du [Skriv bordet](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), [mobilt](https://docs.microsoft.com/azure/active-directory/develop/scenario-mobile-app-registration) eller [en Enkels Ides](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) applikation som ett offentligt program:
+
+1. I [Azure Portal](https://portal.azure.com)väljer du din App i **Appregistreringar**och väljer sedan **autentisering**.
+
+2. Välj **Avancerade inställningar**  >  **standard klient typ**. För **behandla program som en offentlig klient**väljer du **Ja**.
+
+3. För ett program med en enda sida väljer du **åtkomsttoken** och **ID-token** för att aktivera implicit flöde.
+
+   - Om ditt program loggar in användare väljer du **ID-token**.
+   - Om ditt program också behöver anropa ett skyddat webb-API väljer du **åtkomsttoken**.
 
 ## <a name="api-permissions"></a>API-behörigheter
 

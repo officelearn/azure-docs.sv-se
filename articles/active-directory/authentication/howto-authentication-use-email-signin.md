@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 10/01/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: 9b9617b4109318257895587cc0d8e75054a7f729
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: c822aaebb2451d709f6afcdeba959f39c4d491cb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91650314"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964544"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Logga in för att Azure Active Directory med e-post som ett alternativt inloggnings-ID (för hands version)
 
@@ -65,7 +65,7 @@ I det aktuella förhands gransknings läget gäller följande begränsningar nä
 
 Traditionell Active Directory Domain Services-autentisering (AD DS) eller Active Directory Federation Services (AD FS) (AD FS) sker direkt i nätverket och hanteras av din AD DS-infrastruktur. Med hybrid autentisering kan användarna i stället logga in direkt till Azure AD.
 
-För att stödja den här metoden för Hybrid autentisering, synkroniserar du din lokala AD DS-miljö till Azure AD med hjälp av [Azure AD Connect][azure-ad-connect] och konfigurerar den för att använda PHS (Password hash Sync) eller DIREKTAUTENTISERING (PTA).
+För att stödja den här metoden för Hybrid autentisering, synkroniserar du din lokala AD DS-miljö till Azure AD med hjälp av [Azure AD Connect][azure-ad-connect] och konfigurerar den för att använda PHS (Password hash Sync) eller Pass-Through autentisering (PTA).
 
 I båda konfigurations alternativen skickar användaren sitt användar namn och lösen ord till Azure AD, som validerar autentiseringsuppgifterna och utfärdar en biljett. När användarna loggar in på Azure AD tar det bort behovet av att din organisation ska vara värd för och hantera en AD FS-infrastruktur.
 

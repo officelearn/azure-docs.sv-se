@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 351b10b68cf1c014d358032f41bb01ac1093bd68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b407ae18316071d77cc87992a70a4fba857ab64
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91373125"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979027"
 ---
 # <a name="azure-dedicated-hosts"></a>Dedikerade Azure-värdar
 
@@ -122,7 +122,7 @@ Den infrastruktur som stöder dina virtuella datorer kan ibland uppdateras för 
 
 Med **underhålls kontrollen** får kunderna möjlighet att hoppa över regelbundna plattforms uppdateringar som är schemalagda på sina dedikerade värdar, och sedan använda dem vid den tidpunkt som de väljer i ett rullande 35-dagars fönster.
 
-Mer information finns i [Hantera plattforms uppdateringar med underhålls kontroll](https://docs.microsoft.com/azure/virtual-machines/maintenance-control).
+Mer information finns i [Hantera plattforms uppdateringar med underhålls kontroll](./maintenance-control.md).
 
 ## <a name="capacity-considerations"></a>Överväganden för kapaciteter
 
@@ -142,7 +142,7 @@ Genom att etablering av en dedikerad värd förbrukas både dedikerad värd vCPU
 
 ![Skärm bild av sidan användning och kvoter i portalen](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
-Mer information finns i [vCPU kvoter för virtuella datorer](/azure/virtual-machines/windows/quotas).
+Mer information finns i [vCPU kvoter för virtuella datorer](./windows/quotas.md).
 
 Den kostnads fria utvärderings versionen och MSDN-prenumerationen har inte kvot för Azure-dedikerade värdar.
 
@@ -182,7 +182,7 @@ Azure övervakar och hanterar dina värdars hälso status. Följande tillstånd 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Du kan distribuera en dedikerad värd med hjälp av [Azure PowerShell](./windows/dedicated-hosts-powershell.md), [portalen](./windows/dedicated-hosts-portal.md)och [Azure CLI](./linux/dedicated-hosts-cli.md).
+- Du kan distribuera en dedikerad värd med hjälp av [Azure PowerShell](./windows/dedicated-hosts-powershell.md), [portalen](./dedicated-hosts-portal.md)och [Azure CLI](./linux/dedicated-hosts-cli.md).
 
 - Det finns en exempel mall som du hittar [här](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), som använder både zoner och fel domäner för maximal återhämtning i en region.
 

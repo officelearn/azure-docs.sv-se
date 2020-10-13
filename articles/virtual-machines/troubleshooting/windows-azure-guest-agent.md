@@ -11,18 +11,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/15/2020
 ms.author: genli
-ms.openlocfilehash: 597ea6e7ff7dbcfcb8a99d4e4de3c1b82915ee07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 738c2a240ad6c88186357e69b02d33b40d366d7f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90561269"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977073"
 ---
 # <a name="troubleshooting-windows-azure-guest-agent"></a>Felsöka Windows Azures gästa Gent
 
-Windows Azures gästa Gent är en virtuell dator agent (VM). Den gör det möjligt för den virtuella datorn att kommunicera med infrastruktur styrenheten (den underliggande fysiska server som den virtuella datorn finns på) på IP-168.63.129.16. Detta är en virtuell offentlig IP-adress som underlättar kommunikationen. Mer information finns i [Vad är IP-168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+Windows Azures gästa Gent är en virtuell dator agent (VM). Den gör det möjligt för den virtuella datorn att kommunicera med infrastruktur styrenheten (den underliggande fysiska server som den virtuella datorn finns på) på IP-168.63.129.16. Detta är en virtuell offentlig IP-adress som underlättar kommunikationen. Mer information finns i [Vad är IP-168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
- Den virtuella datorn som migreras till Azure lokalt eller som har skapats med hjälp av en anpassad avbildning har inte Windows Azures gästa Gent installerad. I dessa fall måste du installera VM-agenten manuellt. Mer information om hur du installerar VM-agenten finns i [Översikt över Azure Virtual Machine agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
+ Den virtuella datorn som migreras till Azure lokalt eller som har skapats med hjälp av en anpassad avbildning har inte Windows Azures gästa Gent installerad. I dessa fall måste du installera VM-agenten manuellt. Mer information om hur du installerar VM-agenten finns i [Översikt över Azure Virtual Machine agent](../extensions/agent-windows.md).
 
 När Windows Azures gästa Gent har installerats kan du se följande tjänster som listas i Services. msc på den virtuella datorn:
  
@@ -74,7 +74,7 @@ Gå till sidan Egenskaper för virtuell dator i Azure Portal och kontrol lera **
 
     I kontroll panelen går du till **program och funktioner** för att avgöra om tjänsten Windows Azure gästa Gent är installerad.
 
-Om du inte hittar några paket, tjänster och processer som kör och inte ens ser Windows Azures gästa Gent installerade under program och funktioner, kan du försöka [Installera Windows Azure gästa Gent tjänst](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows). Om gäst agenten inte installeras korrekt kan du [installera VM-agenten offline](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
+Om du inte hittar några paket, tjänster och processer som kör och inte ens ser Windows Azures gästa Gent installerade under program och funktioner, kan du försöka [Installera Windows Azure gästa Gent tjänst](../extensions/agent-windows.md). Om gäst agenten inte installeras korrekt kan du [installera VM-agenten offline](./install-vm-agent-offline.md).
 
 Om du kan se tjänsterna och de körs startar du om tjänsten som ser om problemet är löst. Om tjänsterna stoppas startar du dem och väntar några minuter. Kontrol lera sedan om **agent statusen** rapporteras som **klar**. Om du upptäcker att dessa tjänster kraschar kan vissa utomstående processer orsaka att dessa tjänster kraschar. Kontakta [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)om du vill ha ytterligare fel sökning av dessa problem.
 
@@ -111,7 +111,7 @@ Windows Azures gästa Gent har en funktion för automatisk uppdatering. Den sök
     ```
     Kontrol lera sedan om gäst Agent tjänsterna har startats på rätt sätt.
  
-    I sällsynta fall där gäst agenten inte installeras korrekt kan du [installera VM-agenten offline](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
+    I sällsynta fall där gäst agenten inte installeras korrekt kan du [installera VM-agenten offline](./install-vm-agent-offline.md).
     
 
 ### <a name="step-3-check-whether-the-vm-can-connect-to-the-fabric-controller"></a>Steg 3 kontrol lera om den virtuella datorn kan ansluta till infrastruktur styrenheten
@@ -189,7 +189,7 @@ Den virtuella datorn kan inte komma åt wireserver-värd servern.
 1. Om du inte kan komma åt URL: en från steg 1 kontrollerar du nätverks gränssnittet för att avgöra om det har angetts som DHCP-aktiverat och har DNS. Om du vill kontrol lera DHCP-statusen för nätverks gränssnittet kör du följande kommando:  `netsh interface ip show config` .
 1. Om DHCP är inaktiverat kör du följande för att se till att du ändrar värdet i gult till namnet på ditt gränssnitt: `netsh interface ip set address name="Name of the interface" source=dhcp` .
 1. Sök efter eventuella problem som kan ha orsakats av en brand vägg, en proxy eller annan källa som kan blockera åtkomst till IP-168.63.129.16.
-1. Kontrol lera om Windows-brandväggen eller en brand vägg från tredje part blockerar åtkomsten till portarna 80, 443 och 32526. Mer information om varför den här adressen inte ska blockeras finns i [Vad är IP-168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+1. Kontrol lera om Windows-brandväggen eller en brand vägg från tredje part blockerar åtkomsten till portarna 80, 443 och 32526. Mer information om varför den här adressen inte ska blockeras finns i [Vad är IP-168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ### <a name="guest-agent-is-stuck-stopping"></a>Gäst agenten har fastnat i att stoppa  
 

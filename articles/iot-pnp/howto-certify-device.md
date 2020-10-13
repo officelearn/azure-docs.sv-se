@@ -9,15 +9,15 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 6aa4273933190ccfe495bcaf243ee15a5ce823fb
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91577653"
 ---
-# <a name="how-to-certify-iot-plug-and-play-devices"></a>Så här certifierar du IoT Plug and Play-enheter
+# <a name="how-to-certify-iot-plug-and-play-devices"></a>Certifiera IoT Plug and Play-enheter
 
-IoT-Plug and Play enhets certifierings program innehåller verktyg för att kontrol lera att en enhet uppfyller IoT-Plug and Play certifierings krav. Verktygen hjälper också organisationer att öka medvetenheten om tillgängligheten för sina IoT Plug and Play-enheter. Dessa certifierade enheter är skräddarsydda för IoT-lösningar och hjälper till att minska tiden till marknaden.
+Certifieringsprogrammet för IoT Plug and Play-enheter har verktyg som kontrollerar att en enhet uppfyller IoT Plug and Play-certifieringskraven. Verktygen hjälper också organisationer att öka medvetenheten om tillgängligheten för sina IoT Plug and Play-enheter. Dessa certifierade enheter är skräddarsydda för IoT-lösningar och hjälper till att minska tiden till marknaden.
 
 Den här artikeln visar hur du:
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du:
 - Kör IoT Plug and Play-testerna för att validera enhets programmet under utvecklings fasen  
 - Använd Azure-certifierad enhets Portal för att validera enhets programmet
 
-## <a name="prepare-your-device"></a>Förbered din enhet
+## <a name="prepare-your-device"></a>Förbereda enheten
 
 Program koden som körs på din IoT-Plug and Play måste:
 
@@ -162,7 +162,7 @@ Exempel på testning av utdata
             },
 ```
 
-## <a name="test-using-the-azure-certified-device-portal"></a>Testa med Azure-certifierad enhets Portal
+## <a name="test-using-the-azure-certified-device-portal"></a>Testa med portalen för Microsoft Azure Certified for IoT
 
 Följande steg visar hur du använder [Azure-certifierad enhets Portal](https://aka.ms/acdp) för att publicera, registrera produkt information, skicka in en guide för att komma igång och köra certifierings test.
 
@@ -199,7 +199,7 @@ Det finns tre steg som ska utföras:
 
 1. Anslut och identifiera gränssnitt. Enheten måste ansluta till Azure IoT-certifierings tjänsten via DPS. Välj autentiseringsmetoden (X. 509-certifikat, symmetriska nycklar eller Trusted Platform Module) för att använda och uppdatera enhets programmet med DPS-informationen.
 1. Granska gränssnitt. Granska gränssnittet och se till att var och en har nytto laster som passar för testning.
-1. Koncentration. Systemet testar varje enhets modell för att kontrol lera att telemetri, egenskaper och kommandon som beskrivs i modellen följer IoT Plug and Play konventioner. När testet är klart väljer du länken **Visa loggar** för att se Telemetrin från enheten och rå data som skickas till IoT Hub enhetens dubbla egenskaper.
+1. Test. Systemet testar varje enhets modell för att kontrol lera att telemetri, egenskaper och kommandon som beskrivs i modellen följer IoT Plug and Play konventioner. När testet är klart väljer du länken **Visa loggar** för att se Telemetrin från enheten och rå data som skickas till IoT Hub enhetens dubbla egenskaper.
 
 ### <a name="submit-and-publish"></a>Skicka och publicera
 

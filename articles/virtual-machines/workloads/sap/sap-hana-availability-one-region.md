@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58ea65e53f4a1262b448a3abd08807113d016fcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c706ba6847334648fade1e8983e00433d3fa618
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87833325"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978211"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>SAP HANA tillgänglighet inom en Azure-region
 I den här artikeln beskrivs flera tillgänglighets scenarier i en Azure-region. Azure har många regioner, sprids över hela världen. En lista över Azure-regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/). För att distribuera SAP HANA på virtuella datorer inom en Azure-region, erbjuder Microsoft distribution av en enskild virtuell dator med en HANA-instans. För ökad tillgänglighet kan du distribuera två virtuella datorer med två HANA-instanser i en [Azures tillgänglighets uppsättning](../../windows/tutorial-availability-sets.md) som använder Hana-systemreplikering för tillgänglighet. 
@@ -29,7 +29,7 @@ För närvarande erbjuder Azure [Azure-tillgänglighetszoner](../../../availabil
 
 Azure-regioner där Tillgänglighetszoner erbjuds har flera data Center. Data centren är oberoende av utbudet av ström källor, kylning och nätverk. Skälet för att erbjuda olika zoner inom en enda Azure-region är att distribuera program över två eller tre Tillgänglighetszoner som erbjuds. Distribution över zoner, problem i kraft och nätverk som bara påverkar en Azures tillgänglighets zon infrastruktur fungerar fortfarande program distributionen i en Azure-region. Viss reducerad kapacitet kan uppstå. Till exempel kan virtuella datorer i en zon gå förlorade, men virtuella datorer i de andra två zonerna är fortfarande igång. 
  
-En Azure-tillgänglighets uppsättning är en logisk grupperings funktion som hjälper till att se till att de VM-resurser som du placerar i tillgänglighets uppsättningen inte är isolerade från varandra när de distribueras i ett Azure-datacenter. Azure ser till att de virtuella datorer du placerar i en tillgänglighetsuppsättning körs över flera fysiska servrar, datarack, lagringsenheter och nätverksväxlar. I vissa Azure-dokumentation kallas den här konfigurationen för placeringar i olika [uppdaterings-och fel domäner](../../windows/manage-availability.md). Dessa platser är vanligt vis i ett Azure-datacenter. Om du antar att strömförsörjnings källan och nätverks problem skulle påverka data centret som du distribuerar, kommer all din kapacitet i en Azure-region att påverkas.
+En Azure-tillgänglighets uppsättning är en logisk grupperings funktion som hjälper till att se till att de VM-resurser som du placerar i tillgänglighets uppsättningen inte är isolerade från varandra när de distribueras i ett Azure-datacenter. Azure ser till att de virtuella datorer du placerar i en tillgänglighetsuppsättning körs över flera fysiska servrar, datarack, lagringsenheter och nätverksväxlar. I vissa Azure-dokumentation kallas den här konfigurationen för placeringar i olika [uppdaterings-och fel domäner](../../manage-availability.md). Dessa platser är vanligt vis i ett Azure-datacenter. Om du antar att strömförsörjnings källan och nätverks problem skulle påverka data centret som du distribuerar, kommer all din kapacitet i en Azure-region att påverkas.
 
 Placeringen av data Center som representerar Azure-tillgänglighetszoner är en kompromiss mellan att leverera acceptabel nätverks fördröjning mellan tjänster som har distribuerats i olika zoner och ett avstånd mellan data Center. Naturlig katastrofer bör helst inte påverka strömförsörjningen, nätverks utbudet och infrastrukturen för alla Tillgänglighetszoner i den här regionen. Men när Monumental naturlig katastrofer har visats kan Tillgänglighetszoner inte alltid tillhandahålla den tillgänglighet som du vill ha i en region. Tänk på orkan Maria som nådde ön Republiken Puerto Rico den 20 september 2017. Orkan har i princip en nästan 100 procents inaktive rad på 90 – mil-wide-ön.
 
@@ -127,4 +127,4 @@ Steg för steg-anvisningar om hur du konfigurerar dessa konfigurationer i Azure 
 
 Mer information om SAP HANA tillgänglighet i Azure-regioner finns i:
 
-- [SAP HANA tillgänglighet i Azure-regioner](./sap-hana-availability-across-regions.md) 
+- [SAP HANA tillgänglighet i Azure-regioner](./sap-hana-availability-across-regions.md)

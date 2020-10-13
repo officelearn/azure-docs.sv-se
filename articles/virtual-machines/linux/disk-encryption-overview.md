@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 405ebbbfa4a662dd9ee3c8d10dde8f28e5ce9c66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f23e2c58ae25fefb8508474921e476163b33e79
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87830452"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978432"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption för virtuella Linux-datorer 
 
@@ -26,7 +26,7 @@ Om du använder [Azure Security Center](../../security-center/index.yml)får du 
 > [!WARNING]
 > - Om du tidigare har använt Azure Disk Encryption med Azure AD för att kryptera en virtuell dator måste du fortsätta att använda det här alternativet för att kryptera den virtuella datorn. Mer information finns i [Azure Disk Encryption med Azure AD (tidigare version)](disk-encryption-overview-aad.md) . 
 > - Vissa rekommendationer kan öka användningen av data, nätverk eller beräknings resurser, vilket resulterar i ytterligare licens-eller prenumerations kostnader. Du måste ha en giltig aktiv Azure-prenumeration för att kunna skapa resurser i Azure i de regioner som stöds.
-> - Virtuella datorer i generation 2 har inte stöd för Azure Disk Encryption. Mer information finns i [stöd för virtuella datorer i generation 2 på Azure](../windows/generation-2.md) .
+> - Virtuella datorer i generation 2 har inte stöd för Azure Disk Encryption. Mer information finns i [stöd för virtuella datorer i generation 2 på Azure](../generation-2.md) .
 
 Du kan lära dig grunderna i Azure Disk Encryption för Linux på bara några minuter med [skapa och kryptera en virtuell Linux-dator med Azure CLI snabb start](disk-encryption-cli-quickstart.md) eller [skapa och kryptera en virtuell Linux-dator med Azure PowerShell snabb start](disk-encryption-powershell-quickstart.md).
 
@@ -46,7 +46,7 @@ När operativ systemets disk krypterings process har slutförts på virtuella Li
 
 Azure Disk Encryption är också tillgängligt för virtuella datorer med Premium Storage.
 
-Azure Disk Encryption är inte tillgänglig på virtuella [datorer i generation 2](generation-2.md#generation-1-vs-generation-2-capabilities)) och [virtuella datorer i Lsv2-serien](../lsv2-series.md)). Mer undantag finns i [Azure Disk Encryption: scenarier som inte stöds](disk-encryption-linux.md#unsupported-scenarios).
+Azure Disk Encryption är inte tillgänglig på virtuella datorer i [generation 2](../generation-2.md#generation-1-vs-generation-2-capabilities) och [virtuella datorer i Lsv2-serien](../lsv2-series.md). Mer undantag finns i [Azure Disk Encryption: scenarier som inte stöds](disk-encryption-linux.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 

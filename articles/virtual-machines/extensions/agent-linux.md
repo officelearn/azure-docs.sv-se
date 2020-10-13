@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2237b0b0d0c1f6e95e100743b377f9c04f57210f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19b9259b55332d9f31fdefd166f0509e5443628d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279711"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965819"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Förstå och använda Azure Linux-agenten
 
@@ -93,7 +93,7 @@ Linux-agenten är beroende av vissa system paket för att fungera korrekt:
 * Nätverks verktyg: IP-Route
 * Kernel-stöd för att montera UDF-filsystem.
 
-Se till att den virtuella datorn har åtkomst till IP-168.63.129.16. Mer information finns i [Vad är IP-168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+Se till att den virtuella datorn har åtkomst till IP-168.63.129.16. Mer information finns i [Vad är IP-168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 
 ## <a name="installation"></a>Installation

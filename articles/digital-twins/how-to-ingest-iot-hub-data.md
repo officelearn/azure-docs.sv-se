@@ -8,10 +8,10 @@ ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 9fa3c27f9cc35b31fc78b2a09bea725934093e63
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983322"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Mata in IoT Hub telemetri i Azure Digitals, dubbla
@@ -209,14 +209,14 @@ Efter en lyckad publicering visas utdata i Visual Studio-kommando fönstret som 
 ```
 Du kan också kontrol lera status för publicerings processen i [Azure Portal](https://portal.azure.com/). Sök efter din _resurs grupp_ och navigera till _aktivitets loggen_ och leta efter _Hämta publicerings profil för webbapp_ i listan och kontrol lera att statusen har slutförts.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Skärm bild av Azure Portal som visar publicerings processens status.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Ett diagram som visar ett flödes diagram. I diagrammet skickar en IoT Hub enhet temperatur telemetri via IoT Hub till en Azure-funktion som uppdaterar en temperatur egenskap på en enhet i en digital i Azure Digitals.":::
 
 ## <a name="connect-your-function-to-iot-hub"></a>Anslut din funktion till IoT Hub
 
 Konfigurera ett händelse mål för Hub-data.
 I [Azure Portal](https://portal.azure.com/)navigerar du till IoT Hub-instansen som du skapade i avsnittet [*krav*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) . Under **händelser**skapar du en prenumeration för Azure-funktionen.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Skärm bild av Azure Portal som visar hur du lägger till en händelse prenumeration.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Ett diagram som visar ett flödes diagram. I diagrammet skickar en IoT Hub enhet temperatur telemetri via IoT Hub till en Azure-funktion som uppdaterar en temperatur egenskap på en enhet i en digital i Azure Digitals.":::
 
 På sidan **Skapa händelse prenumeration** fyller du i fälten enligt följande:
   1. Namn på den prenumeration du vill ha under **namn**.
@@ -225,7 +225,7 @@ På sidan **Skapa händelse prenumeration** fyller du i fälten enligt följande
   4. Välj _Azure Function_under **typ av slut punkt**.
   5. Under **slut punkt**väljer du _Välj en slut punkts_ länk för att skapa en slut punkt.
     
-:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Skärm bild av Azure Portal för att skapa information om händelse prenumerationen":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Ett diagram som visar ett flödes diagram. I diagrammet skickar en IoT Hub enhet temperatur telemetri via IoT Hub till en Azure-funktion som uppdaterar en temperatur egenskap på en enhet i en digital i Azure Digitals.":::
 
 Verifiera nedanstående information på sidan _Välj Azure-funktion_ som öppnas.
  1. **Prenumeration**: din Azure-prenumeration
@@ -236,7 +236,7 @@ Verifiera nedanstående information på sidan _Välj Azure-funktion_ som öppnas
 
 Spara informationen genom att välja knappen _Bekräfta markering_ .            
       
-:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Skärm bild av Azure Portal för att välja Azure Function":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Ett diagram som visar ett flödes diagram. I diagrammet skickar en IoT Hub enhet temperatur telemetri via IoT Hub till en Azure-funktion som uppdaterar en temperatur egenskap på en enhet i en digital i Azure Digitals.":::
 
 Klicka på _skapa_ om du vill skapa en händelse prenumeration.
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: a21d0db383e8c563f0b187061a95ac818dd2a4f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996862"
 ---
-# <a name="managed-hsm-access-control"></a>Hanterad HSM-åtkomst kontroll
+# <a name="managed-hsm-access-control"></a>Åtkomstkontroll i Managed HSM
 
 > [!NOTE]
 > Key Vault Resource provider stöder två resurs typer: **valv** och **hanterade HSM: er**. Åtkomst kontroll som beskrivs i den här artikeln gäller endast **hanterade HSM: er**. Mer information om åtkomst kontroll för hanterad HSM finns i [ge åtkomst till Key Vault nycklar, certifikat och hemligheter med en rollbaserad åtkomst kontroll i Azure](../general/rbac-guide.md).
@@ -60,7 +60,7 @@ Säkerhets objekt får åtkomst till planen genom slut punkter. Åtkomst kontrol
 
 I följande tabell visas slut punkterna för hanterings-och data planen.
 
-| Åtkomst &nbsp; plan | Slutpunkter för åtkomst | Operations | Åtkomstkontrollmekanismer |
+| Åtkomst &nbsp; plan | Slutpunkter för åtkomst | Åtgärder | Åtkomstkontrollmekanismer |
 | --- | --- | --- | --- |
 | Hanteringsplanet | **EAN**<br> management.azure.com:443<br> | Skapa, läsa, uppdatera, ta bort och flytta hanterade HSM: er<br>Ange hanterade HSM-Taggar | Azure RBAC |
 | Dataplanet | **EAN**<br> &lt;HSM-name &gt; . Vault.Azure.net:443<br> | **Nycklar**: dekryptera, kryptera,<br> Packa upp, radbryta, verifiera, signera, Hämta, lista, uppdatera, skapa, importera, ta bort, säkerhetskopiera, återställa, rensa<br/><br/> **Data Plans roll – hantering (hanterad HSM lokal RBAC) * * *: lista roll definitioner, tilldela roller, ta bort roll tilldelningar <br/> <br/> , definiera anpassade roller** Säkerhets kopiering/återställning **: säkerhets kopiering, återställning, check status säkerhets kopiering <br/> <br/> /återställning åtgärder **säkerhets domän * *: Hämta och ladda upp säkerhets domän | Hanterad HSM lokal RBAC |

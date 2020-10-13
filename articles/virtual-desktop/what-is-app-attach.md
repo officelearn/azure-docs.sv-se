@@ -1,6 +1,6 @@
 ---
 title: Översikt över Windows Virtual Desktop MSIX-appen – Azure
-description: Vad är MSIX-appen ansluten? Läs mer i den här artikeln.
+description: Vad är MSIX-appbifogningen? Läs mer i den här artikeln.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,13 +9,13 @@ ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c6bf296b5173a662b1e9dd7b025648e3f16d23c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88556349"
 ---
-# <a name="what-is-msix-app-attach"></a>Vad är MSIX-appen ansluten?
+# <a name="what-is-msix-app-attach"></a>Vad är MSIX-appbifogningen?
 
 MSIX är ett nytt paket format som innehåller många funktioner som syftar till att förbättra paketeringen för alla Windows-appar. Mer information om MSIX finns i [Översikt över MSIX](/windows/msix/overview).
 
@@ -45,7 +45,7 @@ MSIX app Attach måste vara tillämpligt utanför VDI eller SBC.
 
 I följande tabell jämförs nyckel funktionen i MSIX-appens koppling och app-skiktning.
 
-| Funktion | Traditionell app-skiktning  | MSIX app-anslutning  |
+| Funktion | Traditionell app-skiktning  | MSIX-appbifogning  |
 |-----|-----------------------------|--------------------|
 | Format               | Olika program skikts tekniker kräver olika tillverkarspecifika format. | Fungerar med det interna förpacknings formatet för MSIX.        |
 | Omförpacka omkostnader | Tillverkarspecifika format kräver sekvensering och ompaketering per uppdatering.         | Appar som publiceras som MSIX behöver inte paketera om. Om MSIX-paketet inte är tillgängligt gäller dock ompackningen fortfarande. |

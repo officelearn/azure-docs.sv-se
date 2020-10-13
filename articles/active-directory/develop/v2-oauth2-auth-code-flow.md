@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 6648cfb717ade4b842e8ff470a46bf744b630363
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88612324"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft Identity Platform och OAuth 2,0 Authorization Code Flow
@@ -136,7 +136,7 @@ I följande tabell beskrivs de olika fel koderna som kan returneras i `error` pa
 | `login_required` | För många eller inga användare hittades | Klienten begärde tyst autentisering ( `prompt=none` ), men en enskild användare kunde inte hittas. Detta kan betyda att flera användare är aktiva i sessionen eller inga användare. Detta tar hänsyn till den klient som valts (till exempel om det finns två Azure AD-konton aktiva och en Microsoft-konto, och `consumers` väljs, så fungerar tyst autentisering). |
 | `interaction_required` | Begäran kräver användar interaktion. | Ytterligare ett steg eller ett tillstånd för autentisering krävs. Gör om begäran utan `prompt=none` . |
 
-## <a name="request-an-access-token"></a>Begär en åtkomsttoken
+## <a name="request-an-access-token"></a>Begära åtkomsttoken
 
 Nu när du har skaffat en authorization_code och har beviljats behörighet av användaren kan du lösa in `code` för en `access_token` till önskad resurs. Gör detta genom att skicka en `POST` begäran till `/token` slut punkten:
 

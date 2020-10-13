@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: c31ebfedeee0fe208f68c190402796b98c73ea1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85829881"
 ---
 # <a name="how-to-secure-your-private-cloud-environment"></a>Skydda din privata moln miljö
@@ -39,7 +39,7 @@ En standard användare `CloudOwner@cloudsimple.local` skapas i VCENTER SSO-domä
 
 1. [Eskalera privilegier](escalate-private-cloud-privileges.md) för **CloudOwner \@ cloudsimple. local** -användare i det privata molnet.
 2. Logga in på vCenter med **CloudOwner \@ cloudsimple. local**
-3. [Lägg till användare av vCenter enkel inloggning](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html).
+3. [Lägg till vCenter Single Sign-On-användare](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html).
 4. Lägg till användare i [grupper med enkel inloggning för vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
 
 Mer information om fördefinierade roller och grupper finns i [CloudSimple Private Cloud permission Model of VMware vCenter](learn-private-cloud-permissions.md) artikeln.

@@ -8,10 +8,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 03bc41a0159253359b4f87fd35d4de055b294cc4
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961796"
 ---
 # <a name="create-an-external-app-service-environment"></a>Skapa en extern App Service-miljö
@@ -65,7 +65,7 @@ Så här skapar du en ASE när du skapar en App Service plan:
 
 2. Välj din prenumeration. Appen och ASE skapas i samma prenumerationer.
 
-3. Välj eller skapa en Resursgrupp. Med resurs grupper kan du hantera relaterade Azure-resurser som en enhet. Resurs grupper är också användbara när du upprättar rollbaserade Access Control regler för dina appar. Mer information finns i [översikten över Azure Resource Manager][ARMOverview].
+3. Välj eller skapa en Resursgrupp. Med resurs grupper kan du hantera relaterade Azure-resurser som en enhet. Resurs grupper är också användbara när du upprättar Role-Based Access Controls regler för dina appar. Mer information finns i [översikten över Azure Resource Manager][ARMOverview].
 
 4. Välj ditt operativ system (Windows, Linux eller Docker). 
 
@@ -103,7 +103,7 @@ Så här skapar du en ASE när du skapar en App Service plan:
 
 1. Välj din prenumeration. Appen och ASE skapas i samma prenumerationer.
 
-1. Välj eller skapa en Resursgrupp. Med resurs grupper kan du hantera relaterade Azure-resurser som en enhet. Resurs grupper är också användbara när du upprättar rollbaserade Access Control regler för dina appar. Mer information finns i [översikten över Azure Resource Manager][ARMOverview].
+1. Välj eller skapa en Resursgrupp. Med resurs grupper kan du hantera relaterade Azure-resurser som en enhet. Resurs grupper är också användbara när du upprättar Role-Based Access Controls regler för dina appar. Mer information finns i [översikten över Azure Resource Manager][ARMOverview].
 
 1. Välj App Service plan och välj sedan **Skapa ny**. Linux-webbappar och Windows-webbappar kan inte vara i samma App Service plan, men kan vara i samma App Service-miljön. 
 

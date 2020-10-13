@@ -18,10 +18,10 @@ ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
 ms.openlocfilehash: 92e71a8c08ef2c64509d7e00b0c43abdd58cf036
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804035"
 ---
 # <a name="manage-public-ip-addresses"></a>Hantera offentliga IP-adresser
@@ -58,7 +58,7 @@ Instruktioner för hur du skapar offentliga IP-adresser med hjälp av portalen, 
 
 Mer information om de speciella attributen för en offentlig IP-adress under skapandet finns i tabellen nedan.
 
-   |Inställningen|Obligatoriskt?|Information|
+   |Inställning|Obligatoriskt?|Information|
    |---|---|---|
    |IP-version|Ja| Välj IPv4 eller IPv6 eller båda. Om du väljer båda kommer två offentliga IP-adresser att skapas-1 IPv4-adress och 1 IPv6-adress. Läs mer om [IPv6 i Azure virtuella nätverk](../virtual-network/ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
    |SKU|Ja|Alla offentliga IP-adresser som skapats innan introduktionen av SKU: er är **grundläggande** offentliga IP-adresser för SKU. Du kan inte ändra SKU när den offentliga IP-adressen har skapats. En fristående virtuell dator, virtuella datorer i en tillgänglighets uppsättning eller skalnings uppsättningar för virtuella datorer kan använda Basic-eller standard-SKU: er. Det är inte tillåtet att blanda SKU: er mellan virtuella datorer i tillgänglighets uppsättningar eller skalnings uppsättningar eller fristående virtuella datorer. **Basic** SKU: om du skapar en offentlig IP-adress i en region som har stöd för tillgänglighets zoner anges inställningen *ingen* som standard för **tillgänglighets zon** . Grundläggande offentliga IP-adresser har inte stöd för tillgänglighets zoner. **Standard** SKU: en offentlig IP-adress för standard-SKU kan associeras med en virtuell dator eller till en klient del för belastningsutjämnare. Om du skapar en offentlig IP-adress i en region som har stöd för tillgänglighets zoner anges **tillgänglighets zon** inställningen till *zon-redundant* som standard. Mer information om tillgänglighets zoner finns i inställningen **tillgänglighets zon** . Standard-SKU: n krävs om du associerar adressen med en standard belastningsutjämnare. Mer information om standardload-belastningsutjämnare finns i [Azure Load Balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). När du tilldelar en offentlig IP-adress för standard-SKU till en virtuell dators nätverksgränssnitt måste du uttryckligen tillåta den avsedda trafiken med en [nätverkssäkerhetsgrupp](security-overview.md#network-security-groups). Kommunikationen med resursen misslyckas tills du har skapat och kopplat en nätverkssäkerhetsgrupp och uttryckligen tillåtit önskad trafik.|
@@ -92,7 +92,7 @@ Mer information om de speciella attributen för en offentlig IP-adress under ska
 |---|---|---|---|
 |[Virtuell dator](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm)|Välj Koppla bort för att koppla bort IP-adressen från NIC-konfigurationen **och välj sedan** **ta bort**.|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) för att koppla bort IP-adressen från NIC-konfigurationen; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) att ta bort|[AZ Network Public-IP Update--Remove](/cli/azure/network/public-ip#az-network-public-ip-update) för att koppla bort IP-adressen från NIC-konfigurationen; [AZ Network Public-IP Delete](/cli/azure/network/public-ip#az-network-public-ip-delete) to delete |
 |Load Balancer-frontend | Navigera till en oanvänd offentlig IP-adress och välj **associera** och välj den Load Balancer med lämplig IP-konfiguration för klient delen för att ersätta den (sedan kan den gamla IP-adressen tas bort med samma metod som för VM)  | [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) för att associera ny klient del IP-konfiguration med offentlig Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) att ta bort. kan också använda [Remove-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) för att ta bort klient DELENS IP-konfiguration om det finns fler än en |[AZ Network lb frontend-IP Update](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_update) för att koppla ny klient del IP-konfiguration med offentlig Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) att ta bort. kan också använda [AZ Network lb frontend-IP Delete](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_delete) för att ta bort klient DELENS IP-konfiguration om det finns mer än en|
-|Brandvägg|Ej tillämpligt| [Frigör ()](https://docs.microsoft.com/azure/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall) för att frigöra brand vägg och ta bort alla IP-konfigurationer | [AZ nätverks brand vägg IP-config Delete](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) för att ta bort IP (men måste använda PowerShell för att frigöra först)|
+|Brandvägg|E.t.| [Frigör ()](https://docs.microsoft.com/azure/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall) för att frigöra brand vägg och ta bort alla IP-konfigurationer | [AZ nätverks brand vägg IP-config Delete](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) för att ta bort IP (men måste använda PowerShell för att frigöra först)|
 
 >[!NOTE]
 >Vissa resurser kan inte ha sina offentliga IP-adresser ändrade eller tas bort när de har skapats.  Detta är: Azure NAT gateway, Azure VPN Gateway Azure Application Gateway.
@@ -119,7 +119,7 @@ Lär dig hur du tilldelar en offentlig IP-adress till följande resurser:
 
 Om du vill utföra uppgifter på offentliga IP-adresser måste ditt konto tilldelas rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som har tilldelats lämpliga åtgärder i följande tabell:
 
-| Åtgärd                                                             | Namn                                                           |
+| Action                                                             | Namn                                                           |
 | ---------                                                          | -------------                                                  |
 | Microsoft.Network/publicIPAddresses/read                           | Läs en offentlig IP-adress                                          |
 | Microsoft.Network/publicIPAddresses/write                          | Skapa eller uppdatera en offentlig IP-adress                           |

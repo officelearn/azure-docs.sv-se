@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0583852f0be590eb1c6a4b53047f94b3ea0fbaa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95dc5b70174cd738104260aac2e175c0657d9c90
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447813"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966210"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Skapa och etablera en IoT Edge enhet med en TPM på Linux
 
@@ -178,11 +178,36 @@ Nu när en registrering finns för den här enheten kan IoT Edge runtime automat
 
 IoT Edge-körningen distribueras på alla IoT Edge-enheter. Komponenterna körs i behållare och gör att du kan distribuera ytterligare behållare till enheten så att du kan köra kod i kanten. Installera IoT Edge runtime på den virtuella datorn.
 
-Var medveten om ditt DPS **-ID-omfång** och enhets **registrerings-ID: t** innan du påbörjar artikeln som matchar enhets typen. Om du har installerat exemplet Ubuntu-servern använder du **x64** -instruktionerna. Se till att konfigurera IoT Edge runtime för automatisk, inte manuell, etablering.
+Följ stegen i [installera Azure IoT Edge runtime](how-to-install-iot-edge.md)och gå sedan tillbaka till den här artikeln för att etablera enheten.
 
-När du kommer till steget för att konfigurera Security daemon måste du se till att välja [Alternativ 2 automatisk etablering](how-to-install-iot-edge-linux.md#option-2-automatic-provisioning) och konfigurering för TPM-attestering.
+## <a name="configure-the-device-with-provisioning-information"></a>Konfigurera enheten med etablerings information
 
-[Installera Azure IoT Edge runtime på Linux](how-to-install-iot-edge-linux.md)
+När körningen har installerats på enheten konfigurerar du enheten med den information som används för att ansluta till enhets etablerings tjänsten och IoT Hub.
+
+1. Känna till ditt DPS **-ID-omfång** och enhets **registrerings-ID** som samlades in i föregående avsnitt.
+
+1. Öppna konfigurations filen på den IoT Edge enheten.
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+1. Hitta konfigurations avsnittet för etablering i filen. Ta bort kommentarer till linjerna för TPM-etablering och se till att alla andra etablerings rader är kommenterade.
+
+   `provisioning:`Raden ska inte ha något föregående blank steg, och kapslade objekt bör dras av två blank steg.
+
+   ```yml
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "<SCOPE_ID>"
+     attestation:
+       method: "tpm"
+       registration_id: "<REGISTRATION_ID>"
+   ```
+
+1. Uppdatera värdena för `scope_id` och `registration_id` med din DPS-och enhets information.
 
 ## <a name="give-iot-edge-access-to-the-tpm"></a>Ge IoT Edge åtkomst till TPM: en
 

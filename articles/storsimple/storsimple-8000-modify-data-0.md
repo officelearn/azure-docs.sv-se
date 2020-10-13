@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 1d5d57cab9906c04c5c207fa7df2d2fae6f749e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514604"
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Ändra inställningarna för nätverks gränssnittet för DATA 0 på din StorSimple 8000-serie enhet
@@ -47,10 +47,10 @@ Du kan konfigurera om DATA 0 nätverks inställningar genom att ansluta till Win
 > [!NOTE]
 > De fasta styrenheterna för IP-adresser måste konfigureras om via bladet **nätverks inställningar** på StorSimple-enheten i Azure Portal. Mer information finns i [ändra nätverks gränssnitt](storsimple-8000-modify-device-config.md#modify-network-interfaces).
 
-## <a name="modify-data-0-network-settings-through-set-hcsnetinterface-cmdlet"></a>Ändra nätverks inställningar för DATA 0 via set-HcsNetInterface-cmdleten
+## <a name="modify-data-0-network-settings-through-set-hcsnetinterface-cmdlet"></a>Ändra nätverks inställningar för DATA 0 via Set-HcsNetInterface cmdlet
 Ett annat sätt att konfigurera om DATA 0-nätverks gränssnittet är genom att använda `Set-HcsNetInterface` cmdleten. Cmdleten körs från Windows PowerShell-gränssnittet på din StorSimple-enhet. När du använder den här proceduren kan styrenhetens fasta IP-adresser också konfigureras här. Utför följande steg för att ändra inställningarna för DATA 0: 
 
-#### <a name="to-modify-data-0-network-settings-through-the-set-hcsnetinterface-cmdlet"></a>Ändra nätverks inställningarna för DATA 0 via cmdleten Set-HcsNetInterface
+#### <a name="to-modify-data-0-network-settings-through-the-set-hcsnetinterface-cmdlet"></a>Ändra nätverks inställningar för DATA 0 via Set-HcsNetInterface cmdlet
 1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. När du uppmanas ange enhetens administratörs lösen ord. Standard lösen ordet är `Password1` .
 2. Skriv följande i kommandotolken:
    

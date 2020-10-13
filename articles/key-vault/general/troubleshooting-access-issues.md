@@ -8,10 +8,10 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.openlocfilehash: d77cc4cc65eb73aa85a1d54202627cd18d5747b3
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595996"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Felsöka problem med åtkomst principer för Azure Key Vault
@@ -45,7 +45,7 @@ Om du skapar ett lokal program, gör en lokal utveckling eller inte kan använda
 
 ### <a name="how-can-i-give-the-ad-group-access-to-the-key-vault"></a>Hur kan jag ge AD-gruppen åtkomst till nyckel valvet?
 
-Ge AD-gruppen behörighet till ditt nyckel valv med hjälp av Azure CLI `az keyvault set-policy` -kommandot eller cmdleten Azure PowerShell set-AzKeyVaultAccessPolicy. Se [tilldela en åtkomst princip – CLI](assign-access-policy-cli.md) och [tilldela en åtkomst princip – PowerShell](assign-access-policy-powershell.md).
+Ge AD-gruppen behörighet till ditt nyckel valv med hjälp av Azure CLI `az keyvault set-policy` -kommandot eller Azure PowerShell Set-AzKeyVaultAccessPolicy-cmdleten. Se [tilldela en åtkomst princip – CLI](assign-access-policy-cli.md) och [tilldela en åtkomst princip – PowerShell](assign-access-policy-powershell.md).
 
 Programmet behöver också minst en roll för identitets-och åtkomst hantering (IAM) som har tilldelats nyckel valvet. Annars kommer den inte att kunna logga in och kommer att Miss lyckas med otillräcklig behörighet för att komma åt prenumerationen. Azure AD-grupper med hanterade identiteter kan kräva upp till åtta timmar för att uppdatera tokens och bli gällande.
 
@@ -64,6 +64,6 @@ För närvarande Key Vault omdistribution tar bort alla åtkomst principer i Key
 ### <a name="what-are-the-best-practices-i-should-implement-when-key-vault-is-getting-throttled"></a>Vilka är de bästa metoderna jag bör implementera när Key Vault får en begränsning?
 Följ de bästa metoderna, dokumenterade [här](overview-throttling.md#how-to-throttle-your-app-in-response-to-service-limits)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du felsöker Key Vault-autentiseringsfel: [Key Vault fel söknings guide](rest-error-codes.md).

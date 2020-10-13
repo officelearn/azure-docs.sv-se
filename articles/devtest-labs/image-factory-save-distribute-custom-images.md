@@ -4,10 +4,10 @@ description: Den här artikeln innehåller anvisningar för hur du sparar anpass
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a5278626f8cdd4299912f3c952786422436fe916
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476248"
 ---
 # <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Spara anpassade avbildningar och distribuera till flera labb
@@ -78,7 +78,7 @@ Med samma steg som du såg tidigare i den här artikeln lägger du till ytterlig
 
 ![Bygg uppgift för att distribuera avbildningar](./media/save-distribute-custom-images/second-build-task-powershell.png)
 
-Parametrarna är:`-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(DevTestLabName) -maxConcurrentJobs 20`
+Parametrarna är: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(DevTestLabName) -maxConcurrentJobs 20`
 
 Den här uppgiften tar alla anpassade avbildningar som finns i avbildnings fabriken och skickar dem till eventuella labb som definierats i Labs.jsi filen.
 

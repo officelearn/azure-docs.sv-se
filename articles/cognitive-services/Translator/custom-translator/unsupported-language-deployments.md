@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 05/26/2020
+ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 4b6214ebfaf4b9ed6dd97f6a6ac2f5c4ae164a59
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964693"
 ---
 # <a name="unsupported-language-deployments"></a>Språkdistributioner som inte stöds
@@ -47,7 +47,7 @@ När den har skickats är den inte längre tillgänglig på fliken **utbildninga
 
 ## <a name="whats-next"></a>Nästa steg
 
-De modeller som du har valt för distribution sparas när navet har inaktiverats och alla modeller är avdistribuerade.  Du har till och med 24 maj att skicka förfrågningar om distribution av modeller som inte stöds.  Vi kommer att distribuera dessa modeller den 15 juni vid vilken punkt de kommer att vara tillgängliga via Translator v3.  Dessutom kommer de att vara tillgängliga via Translator v2 till och med 1 juli.  
+De modeller som du har valt för distribution sparas när navet har inaktiverats och alla modeller är avdistribuerade.  Du har till och med 24 maj att skicka förfrågningar om distribution av modeller som inte stöds.  Vi kommer att distribuera dessa modeller den 15 juni vid vilken punkt de kommer att vara tillgängliga via Translator v3 API.  Dessutom kommer de att vara tillgängliga via v2-API: et till 1 juli.  
 
 Mer information om viktiga datum i utfasningen av hubben finns [här](https://www.microsoft.com/translator/business/hub/).
 När det har distribuerats kommer de normala värd avgifterna att gälla.  Se [pris](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) information.  
@@ -57,4 +57,4 @@ Till skillnad från standard anpassade översättare-modeller är hubb modeller 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Träna en modell](how-to-train-model.md).
-- Börja använda din distribuerade anpassade översättnings modell via [Translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Börja använda din distribuerade anpassade översättnings modell via [Microsoft Translator text API v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

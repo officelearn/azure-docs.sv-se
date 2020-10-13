@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2020
 ms.author: jeedes
 ms.openlocfilehash: d0fee044506a9a19e09478ef8d70b3719ecc167a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554268"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ns1-sso-for-azure"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med NS1 SSO för Azure
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar NS1 SSO för Azure 
 
 Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -94,7 +94,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     > [!NOTE]
     > Svars-URL-värdet är inte verkligt. Uppdatera värdet för svars-URL med den faktiska svars-URL:en. Kontakta [ns1 SSO för Azure client support-teamet](mailto:techops@nsone.net) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. NS1 SSO för Azure-programmet förväntar sig SAML-intyg i ett särskilt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för de här attributen från avsnittet **användarattribut &-anspråk** på sidan program integration. På sidan **Konfigurera enkel inloggning med SAML** väljer du Penn ikonen för att öppna dialog rutan **användarattribut** .
+1. NS1 SSO för Azure-programmet förväntar sig SAML-intyg i ett särskilt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för de här attributen från avsnittet **användarattribut &-anspråk** på sidan program integration. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du Penn ikonen för att öppna dialog rutan **användarattribut** .
 
     ![Skärm bild av avsnittet användarattribut &-anspråk med Penn ikonen markerad](./media/ns1-sso-for-azure-tutorial/attribute-edit-option.png)
 
@@ -131,7 +131,7 @@ I det här avsnittet skapar du en test användare i Azure Portal som kallas B. S
 1. I **användar** egenskaperna följer du de här stegen:
 
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryss rutan **Visa lösen ord** och skriv sedan ned värdet som visas i fältet **lösen ord** .
    1. Välj **Skapa**.
 
@@ -171,7 +171,7 @@ När du väljer NS1 SSO för Azure på åtkomst panelen, bör du loggas in autom
 
 - [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

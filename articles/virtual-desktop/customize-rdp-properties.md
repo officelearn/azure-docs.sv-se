@@ -3,15 +3,15 @@ title: Anpassa RDP-egenskaper med PowerShell – Azure
 description: Anpassa RDP-egenskaperna för virtuella Windows-datorer med PowerShell-cmdletar.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c4bda1ecf28e964db6ba672157790114affe650
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86e3422cbd1cbf92a0d0d218267001c934403753
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462232"
+ms.locfileid: "91930704"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Anpassa Remote Desktop Protocol egenskaper (RDP) för en värd pool
 
@@ -28,8 +28,8 @@ RDP-filer har som standard följande egenskaper:
 
 |RDP-egenskap|På Skriv bordet|Som en RemoteApp|
 |---|---|---|
-|Läge för flera övervakare|Enabled|E.t.|
-|Aktiverade enhets omdirigeringar|Enheter, Urklipp, skrivare, COM-portar, USB-enheter och smartkort|Enheter, urklipp och skrivare|
+|Läge för flera övervakare|Inaktiverad|Enabled|
+|Aktiverade enhets omdirigeringar|Enheter, Urklipp, skrivare, COM-portar och smartkort|Enheter, urklipp och skrivare|
 |Fjärr ljud läge|Spela lokalt|Spela lokalt|
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -45,8 +45,9 @@ Konfigurera RDP-egenskaperna i Azure Portal:
 3. Under tjänster väljer du **virtuellt Windows-skrivbord**.
 4. På sidan Windows Virtual Desktop väljer du **lagringspooler** på menyn till vänster på skärmen.
 5. Välj **namnet på den modempool** som du vill uppdatera.
-6. Välj **Egenskaper** på menyn på vänster sida av skärmen.
-7. På fliken **Egenskaper** går du till **RDP-inställningar** för att börja redigera RDP-egenskaperna. Egenskaperna ska vara i ett semikolonavgränsat format som PowerShell-exemplen.
+6. Välj **RDP-egenskaper** på menyn på vänster sida av skärmen.
+7. Ange den egenskap som du vill använda.
+   - Du kan också öppna fliken **Avancerat** och lägga till RDP-egenskaperna i ett semikolonavgränsat format som PowerShell-exemplen i följande avsnitt.
 8. När du är klar väljer du **Spara** för att spara ändringarna.
 
 I nästa avsnitt får du veta hur du redigerar anpassade RDP-egenskaper manuellt i PowerShell.

@@ -17,10 +17,10 @@ ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c837a4020ab1aaad1798d6b19e72e09edafea1f5
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360360"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arkitektur och scenarier med hög tillgänglighet för SAP NetWeaver
@@ -288,7 +288,7 @@ En tillgänglighets uppsättning används för att uppnå hög tillgänglighet f
 * Kluster med två eller flera noder (t. ex. virtuella datorer) som skyddar SPOFs, till exempel en SAP-ASCS/SCS-instans eller ett DBMS.
 
 
-### <a name="azure-availability-zones"></a>Tillgänglighetszoner i Azure
+### <a name="azure-availability-zones"></a>Azure-tillgänglighetszoner
 Azure håller på att genomföra ett koncept i [Azure-tillgänglighetszoner](../../../availability-zones/az-overview.md) i olika Azure- [regioner](https://azure.microsoft.com/global-infrastructure/regions/). I Azure-regioner där Tillgänglighetszoner erbjuds, har Azure-regionerna flera data Center som är oberoende av utbudet av ström källor, kylning och nätverk. Orsak till att erbjuda olika zoner inom en enda Azure-region är att du ska kunna distribuera program över två eller tre Tillgänglighetszoner som erbjuds. Om du antar att problem i ström källor och/eller nätverk påverkar endast en infrastruktur för tillgänglighets zoner är program distributionen i en Azure-region fortfarande fullt fungerande. Till slut, med minskad kapacitet eftersom vissa virtuella datorer i en zon kan gå förlorade. Men virtuella datorer i de andra två zonerna är fortfarande igång. Azure-regionerna som erbjuder zoner visas i [Azure-tillgänglighetszoner](../../../availability-zones/az-overview.md).
 
 Det finns några saker att tänka på när du använder Tillgänglighetszoner. Övervägande listan, t. ex.:

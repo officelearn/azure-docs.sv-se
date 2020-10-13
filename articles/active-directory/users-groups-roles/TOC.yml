@@ -183,6 +183,8 @@
                   href: roles-custom-available-permissions.md
                 - name: Behörigheter för företagsappar
                   href: custom-enterprise-app-permissions.md
+                - name: Behörigheter för appmedgivande
+                  href: custom-consent-permissions.md
             - name: Delegera behörigheter för appadministratörer
               href: roles-delegate-app-roles.md
         - name: Hantera rolltilldelningar med hjälp av grupper

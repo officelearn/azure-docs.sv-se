@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
 ms.openlocfilehash: 4414dc86ff318cfff5d224ce7aa064c31f3df460
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294537"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installera Log Analytics agent på Linux-datorer
@@ -81,7 +81,7 @@ Andra härdnings-och anpassnings metoder stöds inte eller planeras inte för OM
 
 I följande tabell visas de paket som krävs för [Linux-distributioner som stöds](#supported-operating-systems) av-agenten som agenten ska installeras på.
 
-|Nödvändigt paket |Description |Lägsta version |
+|Nödvändigt paket |Beskrivning |Lägsta version |
 |-----------------|------------|----------------|
 |Glibc |    GNU C-bibliotek | 2.5-12 
 |Openssl    | OpenSSL-bibliotek | 1.0. x eller 1.1. x |

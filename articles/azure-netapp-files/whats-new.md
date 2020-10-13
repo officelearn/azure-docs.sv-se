@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/30/2020
 ms.author: b-juche
-ms.openlocfilehash: beb1cc9957f7b43bc6ad9b9b6ee6c7707eb0c2d6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 56ae3ac1331ed054a1fb808ae06e990b67c06bae
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91571569"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932421"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Vad är nytt i Azure NetApp Files
 
@@ -31,7 +31,7 @@ Azure NetApp Files uppdateras regelbundet. Den här artikeln innehåller en öve
 
   Azure NetApp Files stöder nu replikering över flera regioner. Med den här nya funktionen för haveri beredskap kan du replikera dina Azure NetApp Files volymer från en Azure-region till en annan på ett snabbt och kostnads effektivt sätt och skydda dina data från oförutsedda regionala haverier. Azure NetApp Files replikering mellan regioner utnyttjar NetApp SnapMirror® Technology; endast ändrade block skickas över nätverket i ett komprimerat, effektivt format. Den här tillverkarspecifika tekniken minimerar mängden data som krävs för att replikera över regionerna, och därför sparar kostnader för data överföring. Den förkortar också replikerings tiden, så att du kan få ett mindre återställnings punkt mål (återställnings punkt mål).
 
-* [Manuell pool för QoS-kapacitet](manage-manual-qos-capacity-pool.md) (för hands version)  
+* [Manuell pool för QoS-kapacitet](manual-qos-capacity-pool-introduction.md) (för hands version)  
 
     I en manuell pool för QoS-kapacitet kan du tilldela kapaciteten och data flödet för en volym oberoende av varandra. Det totala data flödet för alla volymer som skapats med en manuell QoS-kapacitet begränsas av poolens totala genomflöde. Det bestäms av kombinationen av poolens storlek och data flödet på tjänst nivå. Alternativt kan en Pools [QoS-typ](azure-netapp-files-understand-storage-hierarchy.md#qos_types) vara automatisk (automatisk), vilket är standardvärdet. I en pool med automatisk QoS-kapacitet tilldelas data flöde automatiskt till volymerna i poolen, proportionella mot storleks kvoten som tilldelats volymerna.
 

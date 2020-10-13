@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936120"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Anpassad enhets sökning av kognitiva kunskaper (för hands version)
@@ -69,7 +69,7 @@ Om definitionen anges som infogad, ska den anges som infogad som innehåll i *in
 
 ### <a name="csv-format"></a>CSV-format
 
-Du kan ange definitionen av de anpassade entiteterna som ska sökas efter i en fil med kommaavgränsade värden (CSV) genom att ange sökvägen till filen och ange den i *entitiesDefinitionUri*  -kunskaps parametern. Sökvägen ska vara på en https-plats. Definitions filen kan vara upp till 10 MB stor.
+Du kan ange definitionen av de anpassade entiteterna som ska sökas efter i en Comma-Separated värde-fil (CSV) genom att ange sökvägen till filen och ange den i *entitiesDefinitionUri*  -kunskaps parametern. Sökvägen ska vara på en https-plats. Definitions filen kan vara upp till 10 MB stor.
 
 CSV-formatet är enkelt. Varje rad representerar en unik entitet, som du ser nedan:
 

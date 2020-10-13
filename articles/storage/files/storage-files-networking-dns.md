@@ -8,10 +8,10 @@ ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 4b5ce48cf15c890fbdb3dfd90d9d0ab922a2f4b2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320276"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Konfigurera DNS-vidarebefordring för Azure Files
@@ -110,7 +110,7 @@ New-AzDnsForwarder `
 
 Du kanske också tycker att det är användbart/nödvändigt att tillhandahålla flera ytterligare parametrar:
 
-| Parameternamn | Typ | Description |
+| Parameternamn | Typ | Beskrivning |
 |----------------|------|-------------|
 | `DnsServerResourceGroupName` | `string` | Som standard kommer DNS-servrarna att distribueras till samma resurs grupp som det virtuella nätverket. Om du inte vill använda den här parametern kan du välja en alternativ resurs grupp som du vill distribuera till. |
 | `DnsForwarderRootName` | `string` | Som standard har DNS-servrarna som distribueras i Azure namn `DnsFwder-*` , där asterisken fylls med en iterator. Den här parametern ändrar roten för det namnet (t. ex. `DnsFwder` ). |

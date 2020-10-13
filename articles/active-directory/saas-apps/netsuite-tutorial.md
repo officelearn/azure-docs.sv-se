@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
 ms.openlocfilehash: c5be6ef39a3e980852aa3373dbc54da63aa3983e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554523"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Självstudie: integrera enkel inloggning med Azure AD (SSO) med Netsuite
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Netsuite med Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -79,7 +79,7 @@ Gör så här om du vill aktivera Azure AD SSO i Azure Portal:
 
 1. I [Azure Portal](https://portal.azure.com/)på sidan **Netsuite** -programintegration letar du reda på avsnittet **Hantera** och väljer sedan **enkel inloggning**.
 1. I fönstret **Välj en metod för enkel inloggning** väljer du **SAML**.
-1. I fönstret **Konfigurera enkel inloggning med SAML** väljer du ikonen **Redigera** (Penn) bredvid den **grundläggande SAML-konfigurationen**.
+1. I fönstret **Konfigurera enkla Sign-On med SAML** väljer du ikonen **Redigera** ("blyertspenna") bredvid den **grundläggande SAML-konfigurationen**.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -263,7 +263,7 @@ När du väljer Netsuite-panelen på åtkomst panelen, bör du loggas in automat
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Testa Netsuite med Azure AD](https://aad.portal.azure.com/)
 - [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

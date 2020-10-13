@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: dech
 ms.custom: devx-track-python, devx-track-csharp
 ms.openlocfilehash: 47ac6b4caf97b264df58732f8d031fc63091171e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019274"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Använd inbyggda Notebook-kommandon och-funktioner i Azure Cosmos DB C#-anteckningsböcker (för hands version)
@@ -117,12 +117,12 @@ I exemplet *GetingStarted_Csharp. ipynb* kan vi till exempel skriva ut variabeln
 
 :::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Csharp Query-cell":::
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="nteract data Utforskare":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="Csharp Query-cell":::
 
 ## <a name="use-built-in-dictionary-viewer"></a>Använd inbyggda ordboks visnings program
 Du kan använda det inbyggda lexikon visnings programmet för att visa en variabel. I en cell ska du placera variabeln som du vill visualisera på den sista raden, som visas automatiskt när cellen körs.
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Inbyggda ordboks visnings program":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Csharp Query-cell":::
 
 ## <a name="upload-json-items-to-a-container"></a>Ladda upp JSON-objekt till en behållare
 Du kan använda ``%%upload`` kommandot Magic för att överföra data från en JSON-fil till en angiven Azure Cosmos-behållare. Använd följande kommando för att ladda upp objekten:
@@ -160,7 +160,7 @@ Ersätt ``{notebookName}`` med namnet på den antecknings bok som du vill köra.
 ## <a name="reset-notebooks-workspace"></a>Återställ arbets ytan för antecknings böcker
 Om du vill återställa arbets ytan för antecknings böcker till standardinställningarna väljer du **Återställ arbets yta** i kommando fältet. Detta tar bort alla anpassade installerade paket och startar om Jupyter-servern. Dina antecknings böcker, filer och Azure Cosmos-resurser kommer inte att påverkas.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Återställ arbets ytan för antecknings böcker":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Csharp Query-cell":::
 
 ## <a name="next-steps"></a>Nästa steg
 

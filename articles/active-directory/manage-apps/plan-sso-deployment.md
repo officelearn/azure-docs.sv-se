@@ -14,10 +14,10 @@ ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 87d455a77096a2ae9339c578f3405c629d79fa76
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90603347"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planera en distribution för enkel inloggning
@@ -158,8 +158,8 @@ I följande avsnitt beskrivs kraven för att konfigurera ditt specifika program,
 För alla förintegrerade SaaS-appar ger Microsoft en själv studie kurs och du behöver inte den här informationen. Om programmet inte finns i vår Marketplace/Galleri för program, kan du behöva samla in följande typer av data:
 
 - **Aktuell identitetsprovider som programmet använder för SSO om det är tillämpligt** – till exempel: AD FS, PingFederate, okta
-- **Protokoll som stöds av mål programmet** , till exempel SAML 2,0, OpenID Connect, OAuth, formulärbaserad autentisering, WS-utfodras, WS-Trust
-- **Protokoll som konfigureras med Azure AD** – till exempel SAML 2,0 eller 1,1, OpenID Connect, OAuth, Forms-Based, WS-utfodras
+- **Protokoll som stöds av mål programmet** , till exempel SAML 2,0, OpenID Connect, OAuth, Forms-Based auth, WS-utfodras, WS-Trust
+- **Protokoll som konfigureras med Azure AD** – till exempel SAML 2,0 eller 1,1, OpenID Connect, OAuth, Forms-Based WS-Fed
 
 ### <a name="attribute-requirements"></a>Krav för attribut
 
@@ -313,11 +313,11 @@ Följande länkar visar fel söknings scenarier. Du kanske vill skapa en speciel
 
 [SAML-protokoll för enkel inloggning](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
 
-[SAML-protokoll för enkel utloggning](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-out-protocol-reference)
+[Single Sign-Out SAML-protokoll](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-out-protocol-reference)
 
 [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) (för externa användare som partner och leverantörer)
 
-[Villkorlig åtkomst för Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
+[Villkorsstyrd åtkomst i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 [Azure Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 

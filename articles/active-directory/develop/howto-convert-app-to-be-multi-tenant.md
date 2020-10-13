@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
 ms.openlocfilehash: 3578562839069eb4b9c99b16d938efe48821fcec
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91631315"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Anvisningar: Loggar in valfri Azure Active Directory-användare med programmönstret för flera klienter
@@ -190,7 +190,7 @@ Program med flera klienter kan också få åtkomsttoken för att anropa API: er 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du skapar ett program som kan logga in en användare från valfri Azure AD-klient. När du har aktiverat enkel inloggning (SSO) mellan din app och Azure AD kan du också uppdatera ditt program för att få åtkomst till API: er som exponeras av Microsoft-resurser som Microsoft 365. På så sätt kan du erbjuda en anpassad upplevelse i ditt program, till exempel Visa sammanhangsbaserad information till användarna, till exempel deras profil bild eller nästa kalender möte. Mer information om hur du gör API-anrop till Azure AD och Microsoft 365-tjänster som Exchange, SharePoint, OneDrive, OneNote och mer finns i [Microsoft Graph API][MSFT-Graph-overview].
+I den här artikeln har du lärt dig hur du skapar ett program som kan logga in en användare från valfri Azure AD-klient. När du har aktiverat enkel Sign-On (SSO) mellan din app och Azure AD kan du också uppdatera ditt program för att få åtkomst till API: er som exponeras av Microsoft-resurser som Microsoft 365. På så sätt kan du erbjuda en anpassad upplevelse i ditt program, till exempel Visa sammanhangsbaserad information till användarna, till exempel deras profil bild eller nästa kalender möte. Mer information om hur du gör API-anrop till Azure AD och Microsoft 365-tjänster som Exchange, SharePoint, OneDrive, OneNote och mer finns i [Microsoft Graph API][MSFT-Graph-overview].
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com

@@ -7,10 +7,10 @@ ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f2f01e2b58c997db08ad4427de7eef1ee3760c4a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323508"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Konfigurera PowerShell-modulen för virtuellt Windows-skrivbord
@@ -68,7 +68,7 @@ Om du vill ändra standard prenumerationen efter att du har loggat in, kör du d
 Select-AzSubscription -Subscription <preferredsubscriptionname>
 ```
 
-Du kan också välja en från en lista med hjälp av out-GridView-cmdleten:
+Du kan också välja en från en lista med hjälp av Out-GridView cmdlet:
 
 ```powershell
 Get-AzSubscription | Out-GridView -PassThru | Select-AzSubscription

@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
 ms.openlocfilehash: 2f298f240d8aa7a38b42a8c78ee3c90fe3423d10
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91630600"
 ---
 # <a name="tutorial-create-and-publish-a-product"></a>Självstudie: skapa och publicera en produkt  
@@ -26,7 +26,7 @@ I den här guiden får du lära dig att:
 :::image type="content" source="media/api-management-howto-add-products/added-product.png" alt-text="API Management produkter i portalen":::
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabb start: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
@@ -44,7 +44,7 @@ I den här guiden får du lära dig att:
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Visningsnamn             | Namnet som du vill att det ska visas i [Developer-portalen](api-management-howto-developer-portal.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | Beskrivning              | Ange information om produkten, till exempel dess syfte, de API: er som ger åtkomst till och annan information.                                                                                                                                               |
-    | Stat                    | Välj **publicerad** om du vill publicera produkten. Produkten måste vara publicerad innan API:er i en produkt kan anropa den. Som standard är nya produkter opublicerade och visas endast i gruppen  **Administratörer** .                                                                                      |
+    | Tillstånd                    | Välj **publicerad** om du vill publicera produkten. Produkten måste vara publicerad innan API:er i en produkt kan anropa den. Som standard är nya produkter opublicerade och visas endast i gruppen  **Administratörer** .                                                                                      |
     | Prenumeration krävs    | Välj om en användare måste prenumerera för att använda produkten.                                                                                                                                                                                                                                   |
     | Godkännande krävs        | Välj om du vill att en administratör ska granska och godkänna eller avvisa prenumerations försök till den här produkten. Om du inte väljer det här godkänns prenumerations försök automatiskt.                                                                                                                         |
     | Antal tillåtna prenumerationer | Du kan också begränsa antalet flera samtidiga prenumerationer.                                                                                                                                                                                                                                |

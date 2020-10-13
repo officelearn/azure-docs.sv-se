@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
 ms.openlocfilehash: 3cb9bee65ab7fa2c29185c40ecb48fd531192187
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321721"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Självstudie: så här visar du väg riktningar med Azure Maps Route service och kart kontroll
@@ -28,7 +28,7 @@ Den här självstudien visar hur du använder [API för Azure Maps Route service
 
 Du kan hämta den fullständiga käll koden för exemplet [här](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Du hittar ett Live-exempel [här](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
@@ -174,7 +174,7 @@ I den här självstudien återger vi vägen med ett linje lager. Start-och slut 
 
 3. Spara **MapRoute.html** och uppdatera webbläsaren. Kartan centreras nu över Seattle. Den blå Teardrop-PIN-koden markerar start punkten. Den runda blå PIN-koden markerar slut punkten.
 
-    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Visa vägarnas start-och slut punkt på kartan":::
+    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Grundläggande kart åter givning av kart kontroll":::
 
 <a id="getroute"></a>
 
@@ -216,7 +216,7 @@ Det här avsnittet visar hur du använder API: et för Azure Maps väg riktninga
 
 3. Spara filen **MapRoute.html** och uppdatera webbläsaren. Kartan ska nu visa vägen från start till slut punkt.
 
-     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Azure kart kontroll och Route service":::
+     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Grundläggande kart åter givning av kart kontroll":::
 
 Du kan hämta den fullständiga käll koden för exemplet [här](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Du hittar ett Live-exempel [här](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d215c2e200308664f24daa28a0054c8f1bcfc09c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319885"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Använda kopplingar med Azure AD Connect Sync-Service Manager
@@ -67,7 +67,7 @@ Med det här alternativet kan du se de körnings profiler som kon figurer ATS f�
 
 Börja med att välja ett **omfång**. Du kan söka baserat på data (RDN, DN, ankare, under träd) eller tillstånd för objektet (alla andra alternativ).  
 ![Skärm bild som visar den nedrullningsbara menyn "omfång".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
-Om du till exempel gör en under träds ökning får du alla objekt i en ORGANISATIONSENHET.  
+Om du till exempel gör en Sub-Tree Sök, får du alla objekt i en ORGANISATIONSENHET.  
 ![Skärm bild som visar ett exempel på en "under träd"-sökning.](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 Från det här rutnätet kan du välja ett objekt, välja **Egenskaper**och [följa det](tshoot-connect-object-not-syncing.md) från källans kopplings utrymme, via metaversum och till mål kopplings utrymmet.
 

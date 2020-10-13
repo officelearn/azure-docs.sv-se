@@ -10,10 +10,10 @@ ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-js
 ms.openlocfilehash: 005473fa02dda2e5466ffbc5a32499006c41292c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322707"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Självstudie: Bygg en Node.js-webbapp med hjälp av Java Script SDK för att hantera ett SQL API-konto i Azure Cosmos DB 
@@ -38,7 +38,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Ansluta programmet till Azure Cosmos DB
 > * Köra och distribuera programmet till Azure
 
-## <a name="prerequisites"></a><a name="_Toc395783176"></a>Förutsättningar
+## <a name="prerequisites"></a><a name="_Toc395783176"></a>Krav
 
 Innan du följer anvisningarna i den här artikeln bör du se till att du har följande resurser:
 
@@ -439,7 +439,7 @@ Nu när du har skapat programmet kan du köra det lokalt genom att använda föl
 
 1. Om du vill testa programmet på din lokala dator kör du `npm start` i terminalen för att starta programmet. Uppdatera sedan `http://localhost:3000`-webbläsarsidan. Sidan bör ser ut så som på följande skärmbild:
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Skärmdump av programmet MyTodo List i ett webbläsarfönster":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Lär dig använda Node.js – Skärmdump av programmet Hello World i ett webbläsarfönster":::
 
     > [!TIP]
     > Om du får ett felmeddelande om indrag i layout.jade- eller index.jade-filen, kontrollerar du att de första två raderna i båda filerna är vänsterjusterade, utan blanksteg. Om det finns blanksteg före de två första raderna tar du bort dem. Spara filerna och uppdatera sedan webbläsarfönstret. 
@@ -448,7 +448,7 @@ Nu när du har skapat programmet kan du köra det lokalt genom att använda föl
 
 3. Sidan bör uppdateras och visa det nya objektet i ToDo-listan.
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Skärmdump av programmet med ett nytt objekt i ToDo-listan":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Lär dig använda Node.js – Skärmdump av programmet Hello World i ett webbläsarfönster":::
 
 4. Du slutför en aktivitet genom att markera kryssrutan i kolumnen Slutför. Klicka sedan på **Uppdatera uppgifter**. Då uppdateras det dokument som du redan har skapat och tas bort från vyn.
 

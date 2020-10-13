@@ -4,10 +4,10 @@ description: Översikt över hur du använder Azure Functions-proxyservrar
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 3e08b9cf633162cc7015f47774b043cf58c115a0
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87385882"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions-proxyservrar
@@ -55,7 +55,7 @@ Konfigurationen för en proxy behöver inte vara statisk. Du kan ange att den sk
 ### <a name="reference-local-functions"></a><a name="reference-localhost"></a>Referera till lokala funktioner
 Du kan använda `localhost` för att referera till en funktion inuti samma Function-app direkt, utan en tur-proxy-begäran.
 
-`"backendurl": "https://localhost/api/httptriggerC#1"`hänvisar till en lokal HTTP-utlöst funktion på vägen`/api/httptriggerC#1`
+`"backendurl": "https://localhost/api/httptriggerC#1"` hänvisar till en lokal HTTP-utlöst funktion på vägen `/api/httptriggerC#1`
 
  
 >[!Note]  
@@ -142,7 +142,7 @@ Varje proxy har ett eget namn, till exempel *Proxy1* i föregående exempel. Mot
 > [!NOTE] 
 > Egenskapen *Route* i Azure Functions-proxyservrar följer inte egenskapen *routePrefix* för Funktionsapp-värd konfigurationen. Om du vill inkludera ett prefix som `/api` , måste det ingå i egenskapen *Route* .
 
-### <a name="disable-individual-proxies"></a><a name="disableProxies"></a>Inaktivera enskilda proxyservrar
+### <a name="disable-individual-proxies"></a><a name="disableProxies"></a> Inaktivera enskilda proxyservrar
 
 Du kan inaktivera enskilda proxyservrar genom att lägga till `"disabled": true` dem i proxyn i `proxies.json` filen. Detta gör att alla begär Anden som uppfyller matchCondition kan returnera 404.
 ```json
@@ -160,14 +160,14 @@ Du kan inaktivera enskilda proxyservrar genom att lägga till `"disabled": true`
 }
 ```
 
-### <a name="application-settings"></a><a name="applicationSettings"></a>Program inställningar
+### <a name="application-settings"></a><a name="applicationSettings"></a> Program inställningar
 
 Proxy-beteendet kan styras av flera appinställningar. De beskrivs i avsnittet [Functions App Settings Reference](./functions-app-settings.md)
 
 * [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azure_function_proxy_disable_local_call)
 * [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azure_function_proxy_backend_url_decode_slashes)
 
-### <a name="reserved-characters-string-formatting"></a><a name="reservedChars"></a>Reserverade tecken (sträng formatering)
+### <a name="reserved-characters-string-formatting"></a><a name="reservedChars"></a> Reserverade tecken (sträng formatering)
 
 Proxyservrar läser alla strängar från en JSON-fil med hjälp av \ som en Escape-symbol. Proxyservrar tolkar också klammerparenteser. Se en fullständig uppsättning av exempel nedan.
 
@@ -241,7 +241,7 @@ En exempel konfiguration kan se ut så här:
 > [!NOTE] 
 > I det här exemplet anges svars texten direkt, så ingen `backendUri` egenskap krävs. Exemplet visar hur du kan använda Azure Functions-proxyservrar för att modellera API: er.
 
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [HTTP-utlösare]: ./functions-bindings-http-webhook.md
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 24e9087a175385f8e5c347a1d2df3b2785868506
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327862"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migrera ditt program till att använda Azure Cosmos DB Java SDK v4
@@ -36,7 +36,7 @@ I följande tabell visas olika Azure Cosmos DB Java-SDK: er, paket namnet och ve
 | Async 2. x. x  | Juni 2018    | Asynkron (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Viktig information](sql-api-sdk-async-java.md) |
 | Synkronisera 2. x. x     | Sept 2018    | Synkronisera   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Viktig information](sql-api-sdk-java.md)  |
 | 3. x. x    | Juli 2019    | Async (reaktor)/Sync  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
-| 4.0   | Juni 2020   | Async (reaktor)/Sync  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | [API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1/index.html)  |
+| 4,0   | Juni 2020   | Async (reaktor)/Sync  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | [API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1/index.html)  |
 
 ## <a name="sdk-level-implementation-changes"></a>Implementerings ändringar för SDK-nivå
 
@@ -87,8 +87,8 @@ I Azure Cosmos DB Java SDK 3. x, `CosmosItemProperties` exponeras objektet av de
 
 ### <a name="imports"></a>Kina
 
-* Azure Cosmos DB Java SDK 4,0-paket börjar med`com.azure.cosmos`
-  * Azure Cosmos DB Java SDK 3. x. x-paket börjar med`com.azure.data.cosmos`
+* Azure Cosmos DB Java SDK 4,0-paket börjar med `com.azure.cosmos`
+  * Azure Cosmos DB Java SDK 3. x. x-paket börjar med `com.azure.data.cosmos`
 
 * Azure Cosmos DB Java SDK 4,0 placerar flera klasser i ett kapslat paket `com.azure.cosmos.models` . Några av dessa paket är:
 
@@ -100,7 +100,7 @@ I Azure Cosmos DB Java SDK 3. x, `CosmosItemProperties` exponeras objektet av de
   * `FeedOptions`
   * `PartitionKey`
   * `IndexingPolicy`
-  * `IndexingMode`... annat.
+  * `IndexingMode` ... annat.
 
 ### <a name="accessors"></a>Accessorer
 

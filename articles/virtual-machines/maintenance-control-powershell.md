@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
 ms.openlocfilehash: efd35cfe2660f4597ec0c95dc29bcb4b839da680
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306947"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Styra uppdateringar med underhålls kontroll och Azure PowerShell
@@ -37,7 +37,7 @@ Om du installerar lokalt, se till att du öppnar PowerShell-prompten som adminis
 Du kan också uppmanas att bekräfta att du vill installera från ett *ej betrott lager*. Skriv `Y` eller Välj **Ja till alla** för att installera modulen.
 
 
-## <a name="create-a-maintenance-configuration"></a>Skapa en underhålls konfiguration
+## <a name="create-a-maintenance-configuration"></a>Skapa en underhållskonfiguration
 
 Skapa en resurs grupp som en behållare för din konfiguration. I det här exemplet skapas en resurs grupp med namnet *myMaintenanceRG* i *öster*. Om du redan har en resurs grupp som du vill använda kan du hoppa över den här delen och ersätta resurs gruppens namn med dig i resten av exemplen.
 

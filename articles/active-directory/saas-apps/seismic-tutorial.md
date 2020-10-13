@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
 ms.openlocfilehash: c42180990f81e179a8fa8cdfe9e5d762323213b0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89661064"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-seismic"></a>Självstudie: Azure Active Directory integrering med seismisk
@@ -30,7 +30,7 @@ När du integrerar Seismic med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Seismic behöver du följande:
 
@@ -68,7 +68,7 @@ Om du vill konfigurera och testa enkel inloggning i Azure AD med Seismic, måste
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     * **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
     * **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-2. **[Konfigurera SEISMISK SSO](#configure-seismic-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera SEISMISK SSO](#configure-seismic-sso)** – om du vill konfigurera inställningar för enskilda Sign-On på program sidan.
     * **[Skapa Seismic-testanvändare](#create-seismic-test-user)** – för att ha en motsvarighet till Britta Simon i Seismic som är länkad till Azure AD-representationen av användaren.
 3. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
@@ -93,7 +93,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     c. Skriv en URL i text rutan **svars-URL** med följande mönster: `https://<SUBDOMAIN>.seismic.com/SSO/<ROUTEURL>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdet med den faktiska inloggnings-URL: en, identifierare och svars-URL. Kontakta [Seismic-klientens supportteam](mailto:support@seismic.com) för att hämta dessa värden. Du kan också ladda upp **tjänstleverantörens metadata** för att automatiskt fylla i identifierarvärdet. Mer information om **tjänstleverantörens metadata** finns hos [Seismic-klientens supportteam](mailto:support@seismic.com).
+    > Dessa värden är inte verkliga. Uppdatera värdet med den faktiska Sign-On URL, identifierare och svars-URL. Kontakta [Seismic-klientens supportteam](mailto:support@seismic.com) för att hämta dessa värden. Du kan också ladda upp **tjänstleverantörens metadata** för att automatiskt fylla i identifierarvärdet. Mer information om **tjänstleverantörens metadata** finns hos [Seismic-klientens supportteam](mailto:support@seismic.com).
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -111,7 +111,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -151,6 +151,6 @@ När du klickar på Seismic-ikonen i åtkomstpanelen bör du automatiskt loggas 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

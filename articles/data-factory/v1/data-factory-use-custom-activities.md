@@ -14,10 +14,10 @@ ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: b8935b9f2c3c598aee7c5d0eb37f21d8114dac42
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88997463"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Använd anpassade aktiviteter i en Azure Data Factory version 1-pipeline
@@ -50,11 +50,11 @@ Följande genom gång innehåller stegvisa instruktioner för hur du skapar en a
 ### <a name="azure-batch-prerequisites"></a>Azure Batch förutsättningar
 I genom gången kör du dina anpassade .NET-aktiviteter med Azure Batch som en beräknings resurs. **Azure Batch** är en plattformstjänst för effektiv körning av storskaliga parallella program och HPC-program (databehandling med höga prestanda) i molnet. Azure Batch schemalägger beräknings intensiva arbete som ska köras på en hanterad **samling virtuella datorer**och kan automatiskt skala beräknings resurser för att uppfylla jobbens behov. En detaljerad översikt över tjänsten Azure Batch finns i artikeln [Azure Batch grundläggande][batch-technical-overview] information.
 
-För självstudien skapar du ett Azure Batch-konto med en pool med virtuella datorer. Gör så här:
+För självstudien skapar du ett Azure Batch-konto med en pool med virtuella datorer. Här är stegen:
 
 1. Skapa ett **Azure Batch konto** med hjälp av [Azure Portal](https://portal.azure.com). Instruktioner finns i artikeln [skapa och hantera en Azure Batch konto][batch-create-account] .
 2. Anteckna Azure Batch konto namn, konto nyckel, URI och poolnamn. Du behöver dem för att skapa en Azure Batch länkad tjänst.
-    1. På Start sidan för Azure Batch konto visas en **URL** i följande format: `https://myaccount.westus.batch.azure.com` . I det här exemplet är ditt **konto** namnet på Azure Batch kontot. URI som du använder i den länkade tjänst definitionen är URL: en utan namnet på kontot. Till exempel: `https://<region>.batch.azure.com`.
+    1. På Start sidan för Azure Batch konto visas en **URL** i följande format: `https://myaccount.westus.batch.azure.com` . I det här exemplet är ditt **konto** namnet på Azure Batch kontot. URI som du använder i den länkade tjänst definitionen är URL: en utan namnet på kontot. Exempel: `https://<region>.batch.azure.com`.
     2. Klicka på **nycklar** i den vänstra menyn och kopiera den **primära åtkomst nyckeln**.
     3. Om du vill använda en befintlig pool klickar du på **pooler** på menyn och noterar **ID** för poolen. Om du inte har en befintlig pool går du vidare till nästa steg.
 2. Skapa en **Azure Batch pool**.

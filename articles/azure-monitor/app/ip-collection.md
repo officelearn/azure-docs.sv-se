@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 6131105ef78a8559b0fb95043a87e562e887ebfd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333315"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Hantering av geolokalisering och IP-adresser
@@ -243,7 +243,7 @@ Nyligen insamlade IP-adresser visas i `customDimensions_client-ip` kolumnen. Sta
 
 Om du testar från localhost och värdet för `customDimensions_client-ip` är `::1` , förväntas det här värdet. `::1` representerar loopback-adressen i IPv6. Den motsvarar `127.0.01` i IPv4.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om [insamling av personliga data](../platform/personal-data-mgmt.md) i Application Insights.
 

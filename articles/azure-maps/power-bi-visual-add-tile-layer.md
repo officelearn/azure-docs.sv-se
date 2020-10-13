@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 8a0d930d1c0fd30c48d97b0d1d4b94548077fbca
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86262158"
 ---
 # <a name="add-a-tile-layer"></a>Lägga till ett panelskikt
@@ -51,11 +51,11 @@ Det finns tre olika namngivnings konventioner för panel tjänster som stöds av
 
 Panel-URL: en HTTPS-URL till en panels URL-mall som använder följande parametrar:
 
--   `{x}`-X position i rutan. Du måste också ha `{y}` och `{z}` .
--   `{y}`-Y position i panelen. Du måste också ha `{x}` och `{z}` .
--   `{z}`-Zoomnings nivå i panelen. Du måste också ha `{x}` och `{y}` .
--   `{quadkey}`-Panel `quadkey` identifierare baserad på Bing Maps-panelens system namngivnings konvention.
--   `{bbox-epsg-3857}`– En sträng med avgränsnings rutor med formatet `{west},{south},{east},{north}` i EPSG 3857 rums referens system.
+-   `{x}` -X position i rutan. Du måste också ha `{y}` och `{z}` .
+-   `{y}` -Y position i panelen. Du måste också ha `{x}` och `{z}` .
+-   `{z}` -Zoomnings nivå i panelen. Du måste också ha `{x}` och `{y}` .
+-   `{quadkey}` -Panel `quadkey` identifierare baserad på Bing Maps-panelens system namngivnings konvention.
+-   `{bbox-epsg-3857}` – En sträng med avgränsnings rutor med formatet `{west},{south},{east},{north}` i EPSG 3857 rums referens system.
 
 Följande är ett exempel på en formaterad panel URL för [väder polär-panelen](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) i Azure Maps. Observera att det `[subscription-key]` finns en plats hållare för din Azure Maps prenumerations nyckel.
 
@@ -68,4 +68,4 @@ Mer information om hur du Azure Maps i systemet finns i [zoomnings nivåer och 
 Lägg till mer kontext till kartan:
 
 > [!div class="nextstepaction"]
-> [Visa real tids trafik](power-bi-visual-show-real-time-traffic.md)
+> [Visa trafik i realtid](power-bi-visual-show-real-time-traffic.md)

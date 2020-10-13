@@ -13,10 +13,10 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84195972"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Flytta data med hjälp av kopierings aktivitet
@@ -94,9 +94,9 @@ När både käll-och mottagar data lager finns i molnet använder Data Factory e
 
 | Geografi för mål data lager | Region för mål data lagret | Region som används för data förflyttning |
 |:--- |:--- |:--- |
-| USA | USA, östra | USA, östra |
+| USA | East US | East US |
 | &nbsp; | USA, östra 2 | USA, östra 2 |
-| &nbsp; | USA, centrala | USA, centrala |
+| &nbsp; | Central US | Central US |
 | &nbsp; | USA, norra centrala | USA, norra centrala |
 | &nbsp; | USA, södra centrala | USA, södra centrala |
 | &nbsp; | USA, västra centrala | USA, västra centrala |
@@ -105,7 +105,7 @@ När både käll-och mottagar data lager finns i molnet använder Data Factory e
 | Kanada | Kanada, östra | Kanada, centrala |
 | &nbsp; | Kanada, centrala | Kanada, centrala |
 | Brasilien | Brasilien, södra | Brasilien, södra |
-| Europa | Europa, norra | Europa, norra |
+| Europa | Norra Europa | Norra Europa |
 | &nbsp; | Europa, västra | Europa, västra |
 | Storbritannien | Storbritannien, västra | Storbritannien, södra |
 | &nbsp; | Storbritannien, södra | Storbritannien, södra |

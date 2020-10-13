@@ -1,16 +1,16 @@
 ---
-title: Felsöka register prestanda
+title: Felsöka registerprestanda
 description: Symptom, orsaker och lösningar på vanliga problem med prestanda i ett register
 ms.topic: article
 ms.date: 08/11/2020
 ms.openlocfilehash: 414e3a92b8ebd4ff58528fc5e9ec4794471bd775
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88227539"
 ---
-# <a name="troubleshoot-registry-performance"></a>Felsöka register prestanda
+# <a name="troubleshoot-registry-performance"></a>Felsöka registerprestanda
 
 Den här artikeln hjälper dig att felsöka problem som kan uppstå i Azure Container Registry. 
 
@@ -80,7 +80,7 @@ Relaterade länkar:
 
 ### <a name="configure-dns-for-geo-replicated-registry"></a>Konfigurera DNS för geo-replikerat register
 
-Om pull-åtgärder från ett geo-replikerat register verkar vara långsamma kan DNS-konfigurationen på klienten matcha till en geografiskt avlägsen DNS-server. I det här fallet kan Traffic Manager dirigera begär anden till en replik som är nätverks nära DNS-servern men som är avlägsen från klienten. Kör ett verktyg som `nslookup` eller `dig` (i Linux) för att avgöra vilken replik som Traffic Manager dirigerar register begär anden till. Ett exempel:
+Om pull-åtgärder från ett geo-replikerat register verkar vara långsamma kan DNS-konfigurationen på klienten matcha till en geografiskt avlägsen DNS-server. I det här fallet kan Traffic Manager dirigera begär anden till en replik som är nätverks nära DNS-servern men som är avlägsen från klienten. Kör ett verktyg som `nslookup` eller `dig` (i Linux) för att avgöra vilken replik som Traffic Manager dirigerar register begär anden till. Exempel:
 
 ```console
 nslookup myregistry.azurecr.io

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 89a9a1b762e02237a8ee08dca5d6eedefabaafbb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87328358"
 ---
 # <a name="enable-azure-monitor-for-vms-using-resource-manager-templates"></a>Aktivera Azure Monitor for VMs med Resource Manager-mallar
@@ -20,7 +20,7 @@ I den här artikeln beskrivs hur du aktiverar Azure Monitor for VMs för en virt
 - Skalnings uppsättning för virtuella Azure-datorer
 - Hybrid virtuell dator som är ansluten till Azure-bågen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa och konfigurera en Log Analytics-arbetsyta](vminsights-configure-workspace.md). 
 - Se [operativ system som stöds](vminsights-enable-overview.md#supported-operating-systems) för att säkerställa att operativ systemet för den virtuella datorn eller skalnings uppsättningen för virtuella datorer som du aktiverar stöds. 

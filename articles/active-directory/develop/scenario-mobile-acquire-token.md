@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: dfccc274ef920c59d39c160055ab27a6900c839c
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88141286"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Hämta en token för en mobilapp som anropar webb-API: er
@@ -207,7 +207,7 @@ catch(MsalUiRequiredException)
 
 #### <a name="mandatory-parameters-in-msalnet"></a>Obligatoriska parametrar i MSAL.NET
 
-`AcquireTokenInteractive`har endast en obligatorisk parameter: `scopes` . `scopes`Parametern räknar upp strängar som definierar de omfång som en token krävs för. Om token är för Microsoft Graph kan du hitta de omfattningar som krävs i API-referensen för varje Microsoft Graph-API. I referensen går du till avsnittet "behörigheter".
+`AcquireTokenInteractive` har endast en obligatorisk parameter: `scopes` . `scopes`Parametern räknar upp strängar som definierar de omfång som en token krävs för. Om token är för Microsoft Graph kan du hitta de omfattningar som krävs i API-referensen för varje Microsoft Graph-API. I referensen går du till avsnittet "behörigheter".
 
 Om du till exempel vill [lista användarens kontakter](/graph/api/user-list-contacts)använder du avsnittet "User. Read", "Contacts. Read". Mer information finns i [referens för Microsoft Graph-behörigheter](/graph/permissions-reference).
 
@@ -225,19 +225,19 @@ I följande avsnitt beskrivs de valfria parametrarna i MSAL.NET.
 
 Klassen definierar följande konstanter:
 
-- `SelectAccount`tvingar säkerhetstokentjänst (STS) att Visa dialog rutan för konto val. Dialog rutan innehåller de konton som användaren har en session för. Du kan använda det här alternativet om du vill låta användaren välja mellan olika identiteter. Det här alternativet MSAL för att skicka `prompt=select_account` till identitets leverantören.
+- `SelectAccount` tvingar säkerhetstokentjänst (STS) att Visa dialog rutan för konto val. Dialog rutan innehåller de konton som användaren har en session för. Du kan använda det här alternativet om du vill låta användaren välja mellan olika identiteter. Det här alternativet MSAL för att skicka `prompt=select_account` till identitets leverantören.
 
     `SelectAccount`Konstanten är standard och ger den bästa möjliga upplevelsen baserat på tillgänglig information. Den tillgängliga informationen kan innehålla konto, närvaro för en session för användaren och så vidare. Ändra inte det här standardvärdet om du inte har en lämplig anledning att göra det.
-- `Consent`gör att du kan uppmana användaren att ge sitt medgivande även om medgivande beviljades tidigare. I det här fallet skickar MSAL `prompt=consent` till identitets leverantören.
+- `Consent` gör att du kan uppmana användaren att ge sitt medgivande även om medgivande beviljades tidigare. I det här fallet skickar MSAL `prompt=consent` till identitets leverantören.
 
     Du kanske vill använda `Consent` konstanten i säkerhetsfokuserade program där organisationens styrning kräver att användare ser dialog rutan medgivande varje gången de använder programmet.
-- `ForceLogin`gör att tjänsten kan fråga användaren om autentiseringsuppgifter även om frågan inte behövs.
+- `ForceLogin` gör att tjänsten kan fråga användaren om autentiseringsuppgifter även om frågan inte behövs.
 
     Det här alternativet kan vara användbart om hämtningen av token Miss lyckas och du vill låta användaren logga in igen. I det här fallet skickar MSAL `prompt=login` till identitets leverantören. Du kanske vill använda det här alternativet i säkerhetsfokuserade program där organisationens styrning kräver att användaren loggar in varje gång de kommer åt specifika delar av programmet.
-- `Never`är endast för .NET 4,5 och Windows Runtime (WinRT). Den här konstanten kommer inte att fråga användaren, men den kommer att försöka använda den cookie som lagras i den dolda inbäddade vyn. Mer information finns i [använda webbläsare med MSAL.net](./msal-net-web-browsers.md).
+- `Never` är endast för .NET 4,5 och Windows Runtime (WinRT). Den här konstanten kommer inte att fråga användaren, men den kommer att försöka använda den cookie som lagras i den dolda inbäddade vyn. Mer information finns i [använda webbläsare med MSAL.net](./msal-net-web-browsers.md).
 
     Om det här alternativet Miss lyckas `AcquireTokenInteractive` utlöses ett undantag för att meddela dig att det krävs en användar gränssnitts interaktion. Sedan måste du använda en annan `Prompt` parameter.
-- `NoPrompt`skickar inte någon prompt till identitets leverantören.
+- `NoPrompt` skickar inte någon prompt till identitets leverantören.
 
     Det här alternativet är användbart endast för principer för redigering och profiler i Azure Active Directory B2C. Mer information finns i [B2C-information](https://aka.ms/msal-net-b2c-specificities).
 

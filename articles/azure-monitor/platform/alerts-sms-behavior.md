@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.subservice: alerts
 ms.openlocfilehash: ff3d055840d69623234a799c62b1d8a6efd96ec5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327097"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Aviserings beteende i SMS i åtgärds grupper
@@ -32,8 +32,8 @@ En SMS-mottagare som kon figurer ATS som en del av en åtgärds grupp får ett S
 
 | REPLY | Beskrivning |
 | ----- | ----------- |
-| Tillåt`<Action Group Short name>` | Inaktiverar ytterligare SMS från åtgärds gruppen |
-| Använd`<Action Group Short name>` | Aktiverar SMS från åtgärds gruppen igen |
+| Tillåt `<Action Group Short name>` | Inaktiverar ytterligare SMS från åtgärds gruppen |
+| Använd `<Action Group Short name>` | Aktiverar SMS från åtgärds gruppen igen |
 | Stanna | Inaktiverar ytterligare SMS från alla åtgärds grupper |
 | HAR | Aktiverar SMS från alla åtgärds grupper igen |
 | HJÄLP | Ett svar skickas till användaren med en länk till den här artikeln. |

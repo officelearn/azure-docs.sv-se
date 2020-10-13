@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
 ms.openlocfilehash: 6c07ab4b18c017bd29723d2640129b8e67374e3c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87837388"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migrera appar och lösningar från BizTalk Services till Azure Logic Apps
@@ -59,7 +59,7 @@ Som standard har varje bro en HTTP-slutpunkt som är konfigurerad med körnings 
 
 ## <a name="xml-processing-and-bridges"></a>XML-bearbetning och bryggor
 
-I BizTalk Services är en brygga likvärdig med en bearbetnings pipeline. En brygga kan ta emot data från en koppling, göra en del arbete med data och skicka resultatet till ett annat system. Logic Apps är detsamma genom att stödja samma pipeline-baserade interaktions mönster som BizTalk Services och även tillhandahålla andra integrations mönster. [XML-begäran – svars brygga](/previous-versions/azure/hh689781(v=azure.100)) i BizTalk Services kallas för en VETER-pipeline, som består av steg som utför dessa uppgifter:
+I BizTalk Services är en brygga likvärdig med en bearbetnings pipeline. En brygga kan ta emot data från en koppling, göra en del arbete med data och skicka resultatet till ett annat system. Logic Apps är detsamma genom att stödja samma pipeline-baserade interaktions mönster som BizTalk Services och även tillhandahålla andra integrations mönster. [XML Request-Reply Bridge](/previous-versions/azure/hh689781(v=azure.100)) i BIZTALK Services kallas VETER pipeline, som består av steg som utför dessa uppgifter:
 
 * (V) validera
 * (E) utöka
@@ -71,7 +71,7 @@ Den här bilden visar hur bearbetning delas mellan begäran och svar, som ger ko
 
 ![Skärm bild som visar hur bearbetningen delas mellan begäran och svara.](media/logic-apps-move-from-mabs/xml-request-reply.png)
 
-En enkelriktad XML-brygga lägger också till avkoda och koda steg i början och slutet av bearbetningen. Genom strömnings bryggan finns en enda utökad fas.
+En XML One-Way Bridge lägger också till avkoda och koda steg i början och slutet av bearbetningen. Pass-Throughs bryggan innehåller en enda utökande fas.
 
 ### <a name="message-processing-decoding-and-encoding"></a>Meddelande bearbetning, avkodning och kodning
 

@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: e4564005e3b9cc9673cc20596d4114d102174b9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85482861"
 ---
 # <a name="synapse-sql-recommendations"></a>Synapse SQL-rekommendationer
@@ -38,7 +38,7 @@ Om du har en underoptimerad statistik kan du kraftigt påverka frågeresultatet 
 
 - [Skapa och uppdatera tabell statistik](sql-data-warehouse-tables-statistics.md)
 
-Om du vill se en lista över berörda tabeller med dessa rekommendationer kör du följande [T-SQL-skript](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). Advisor kör kontinuerligt samma T-SQL-skript för att skapa rekommendationerna.
+Om du vill se en lista över berörda tabeller med dessa rekommendationer kör du följande  [T-SQL-skript](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). Advisor kör kontinuerligt samma T-SQL-skript för att skapa rekommendationerna.
 
 ## <a name="replicate-tables"></a>Replikera tabeller
 

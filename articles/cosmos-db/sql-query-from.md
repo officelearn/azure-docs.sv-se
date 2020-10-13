@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83005860"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>FROM-sats i Azure Cosmos DB
@@ -55,11 +55,11 @@ FROM <from_specification>
   
 -  Om uttrycket är `<container_expression>` , sedan Property_Name, kommer Property_Name att användas som ett alias. Om uttrycket är ett container_name, kommer container_name att användas som ett alias.  
   
-- SOM`input_alias`  
+- SOM `input_alias`  
   
   Anger att `input_alias` är en uppsättning värden som returneras av det underliggande behållar uttrycket.  
  
-- `input_alias`FÖR  
+- `input_alias` FÖR  
   
   Anger att `input_alias` ska motsvara den uppsättning värden som erhålls genom att iterera över alla mat ris element i varje matris som returneras av det underliggande behållar uttrycket. Värden som returneras av underliggande container-uttryck som inte är matris ignoreras.  
   

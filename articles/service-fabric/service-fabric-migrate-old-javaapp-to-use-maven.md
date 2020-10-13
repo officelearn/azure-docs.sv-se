@@ -7,16 +7,16 @@ ms.date: 08/23/2017
 ms.custom: devx-track-java
 ms.author: rapatchi
 ms.openlocfilehash: f65194cde25deac8c03d6ddc3a7c0b928aaca171
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327318"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Uppdatera det tidigare Service Fabric Java-programmet för att hämta Java-bibliotek från Maven
 Service Fabric Java-binärfiler har flyttats från Service Fabric Java SDK till maven-värd. Du kan använda **mavencentral** för att hämta de senaste Service Fabric Java-beroenden. Den här guiden hjälper dig att uppdatera befintliga Java-program som skapats för Service Fabric Java SDK med hjälp av en Yeoman-mall eller Sol förmörkelse som är kompatibla med den maven-baserade versionen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Avinstallera först den befintliga Java SDK: n.
 

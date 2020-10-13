@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: 9d703eab97b087ed6b3e4d9c3519a7e3ee7489cd
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d27498748f03fb101d165351ec80c77d57f78f1a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117421"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "88141507"
 ---
 # <a name="national-clouds"></a>Nationella moln
 
@@ -67,7 +67,7 @@ För program med en enda klient ersätter du "common" i föregående URL: er med
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
-Information om hur du anropar Microsoft Graph-API: er i en nationell moln miljö finns i [Microsoft Graph i nationella moln distributioner](https://developer.microsoft.com/graph/docs/concepts/deployments).
+Information om hur du anropar Microsoft Graph-API: er i en nationell moln miljö finns i [Microsoft Graph i nationella moln distributioner](/graph/deployments).
 
 > [!IMPORTANT]
 > Vissa tjänster och funktioner i vissa regioner i den globala tjänsten kanske inte är tillgängliga i alla nationella moln. Om du vill ta reda på vilka tjänster som är tillgängliga går du till [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).

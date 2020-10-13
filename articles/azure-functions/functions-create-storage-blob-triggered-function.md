@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: bf6865d2756579f457dded90b247326d2eec137c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83123130"
 ---
 # <a name="create-a-function-in-azure-thats-triggered-by-blob-storage"></a>Skapa en funktion i Azure som utlöses av Blob Storage
 
 Lär dig hur du skapar en funktion som utlöses när filer laddas upp till eller uppdateras i en Blob Storage-behållare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -36,23 +36,23 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 1. Välj **Functions**och välj sedan **+ Lägg** till för att lägga till en ny funktion.
 
-   :::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-template.png" alt-text="Välj en funktions mal len i Azure Portal." border="true":::
+   :::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-template.png" alt-text="Funktionsappen skapades." border="true":::
 
 1. Välj mallen för **Azure Blob Storage-utlösaren** .
 
 1. Använd inställningarna som anges i tabellen nedanför bilden.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png" alt-text="Namnge och konfigurera Blob Storage-utlöst funktion." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png" alt-text="Funktionsappen skapades." border="true":::
 
-    | Inställningen | Föreslaget värde | Beskrivning |
+    | Inställning | Föreslaget värde | Beskrivning |
     |---|---|---|
     | **Ny funktion** | Ett unikt namn i funktionsappen | Namnge funktionen som utlöses av blobben. |
-    | **Sökväg**   | samples-workitems/{namn}    | Platsen i Blob Storage som övervakas. Filnamnet för bloben skickas i bindningen som parametern _namn_.  |
+    | **Sökväg**   | samples-workitems/{name}    | Platsen i Blob Storage som övervakas. Filnamnet för bloben skickas i bindningen som parametern _namn_.  |
     | **Lagringskontoanslutning** | AzureWebJobsStorage | Du kan antingen använda den lagringskontoanslutning som redan används i funktionsappen eller skapa en ny.  |
 
 1. Välj **skapa funktion** för att skapa din funktion.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-3.png" alt-text="Skapa funktionen som utlöses av Blob Storage." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-3.png" alt-text="Funktionsappen skapades." border="true":::
 
 Skapa sedan behållaren **samples-WorkItems** .
 
@@ -60,19 +60,19 @@ Skapa sedan behållaren **samples-WorkItems** .
 
 1. I din funktion går du till sidan **Översikt** och väljer din resurs grupp.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-resource-group.png" alt-text="Välj din Azure Portal resurs grupp." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-resource-group.png" alt-text="Funktionsappen skapades." border="true":::
 
 1. Sök efter och välj din resurs grupps lagrings konto.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-account-access.png" alt-text="Åtkomst till lagrings kontot." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-account-access.png" alt-text="Funktionsappen skapades." border="true":::
 
 1. Välj **behållare**och välj sedan **+ container**. 
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-add-container.png" alt-text="Lägg till behållare till ditt lagrings konto i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-add-container.png" alt-text="Funktionsappen skapades." border="true":::
 
 1. I fältet **namn** skriver `samples-workitems` du och väljer sedan **skapa**.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-name-blob-container.png" alt-text="Namnge lagrings behållaren." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-name-blob-container.png" alt-text="Funktionsappen skapades." border="true":::
 
 Nu när du har en blobcontainer kan du testa funktionen genom att ladda upp en fil till containern.
 
@@ -80,23 +80,23 @@ Nu när du har en blobcontainer kan du testa funktionen genom att ladda upp en f
 
 1. Gå tillbaka till den Azure Portal, bläddra till din funktion expandera **loggarna** längst ned på sidan och se till att logg strömningen inte är pausad.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-log-expander.png" alt-text="Expandera loggen i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-log-expander.png" alt-text="Funktionsappen skapades." border="true":::
 
 1. I ett separat webbläsarfönster går du till din resurs grupp i Azure Portal och väljer lagrings kontot.
 
 1. Välj **behållare**och välj sedan behållaren **samples-WorkItems** .
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-container.png" alt-text="Gå till exempel-WorkItems-behållaren i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-container.png" alt-text="Funktionsappen skapades." border="true":::
 
 1. Välj **Ladda upp**och välj sedan mappikonen för att välja en fil att ladda upp.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png" alt-text="Ladda upp en fil till blobcontainern." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png" alt-text="Funktionsappen skapades." border="true":::
 
 1. Bläddra till en fil på din lokala dator, till exempel en bildfil, och välj filen. Välj **Öppna** och sedan **Ladda upp**.
 
 1. Gå tillbaka till funktionsloggarna och kontrollera att bloben har lästs.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png" alt-text="Visa meddelande i loggarna." border="true":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png" alt-text="Funktionsappen skapades." border="true":::
 
     >[!NOTE]
     > Om din funktionsapp körs med standardförbrukningsplanen kan det dröja flera minuter från det att blobben läggs till eller uppdateras och att funktionen utlöses. Om du behöver låg latens i dina blobutlösta funktioner bör du köra funktionsapparna med en App Service-plan.

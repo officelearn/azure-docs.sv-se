@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
 ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88235832"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Attributbaserade program etablering med omfångs filter
@@ -64,7 +64,7 @@ Definitions områdes filter konfigureras som en del av mappningar av mappar för
 
 2. Välj det program som du har konfigurerat automatisk etablering för: till exempel "ServiceNow".
 
-3. Välj fliken **etablering** .
+3. Välj fliken **Etablering**.
 
 4. I avsnittet **mappningar** väljer du den mappning som du vill konfigurera ett omfångs filter för: till exempel "synkronisera Azure Active Directory användare till ServiceNow".
 

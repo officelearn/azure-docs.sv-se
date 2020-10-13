@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: 0598f21cddbaeef6b3cd10cd77250eeae8bd34bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808713"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Flytta en extern belastningsutjämnare till en annan region med hjälp av Azure Portal
@@ -182,7 +182,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
 
     1. I en annan flik i webbläsaren eller fönstret loggar du in på [Azure Portal](https://portal.azure.com) och väljer **resurs grupper**.
     2. Leta upp mål resurs gruppen som innehåller den offentliga IP-adress som du flyttade i föregående steg. Välj den.
-    3. Välj **Inställningar**  >  **Egenskaper**.
+    3. Välj **Inställningar** > **egenskaper**.
     4. Markera **resurs-ID** i bladet till höger och kopiera det till Urklipp. Alternativt kan du välja **Kopiera till Urklipp** till höger om sökvägen till **resurs-ID: t** .
     5. Klistra in resurs-ID: t i egenskapen **Value** i **Redigera parameter** redigeraren som är öppen i det andra webbläsarfönstret eller fliken:
 

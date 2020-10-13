@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: batch
 documentationcenter: ''
 author: JnHs
@@ -14,10 +14,10 @@ ms.date: 06/16/2020
 ms.author: jenhayes
 ms.custom: include file
 ms.openlocfilehash: 3e4bca058f554f60dfa5c237633d1fecf06dfea7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87507517"
 ---
 ### <a name="general-requirements"></a>Allmänna krav
@@ -69,8 +69,8 @@ Konfigurera inkommande trafik på port 3389 (Windows) eller 22 (Linux) endast om
 
 | Käll-IP-adresser | Käll tjänst tag gen | Källportar | Mål | Målportar | Protokoll | Action |
 | --- | --- | --- | --- | --- | --- | --- |
-| Ej tillämpligt | `BatchNodeManagement`[Service tag](../articles/virtual-network/security-overview.md#service-tags) (om du använder regional variant, i samma region som batch-kontot) | * | Valfri | 29876–29877 | TCP | Tillåt |
-| Användar Källans IP-adresser för fjärråtkomst fjärråtkomst till Compute-noder och/eller Compute Node-undernät för Linux-aktiviteter med flera instanser, om det behövs. | Ej tillämpligt | * | Valfri | 3389 (Windows), 22 (Linux) | TCP | Tillåt |
+| E.t. | `BatchNodeManagement`[Service tag](../articles/virtual-network/security-overview.md#service-tags) (om du använder regional variant, i samma region som batch-kontot) | * | Alla | 29876–29877 | TCP | Tillåt |
+| Användar Källans IP-adresser för fjärråtkomst fjärråtkomst till Compute-noder och/eller Compute Node-undernät för Linux-aktiviteter med flera instanser, om det behövs. | E.t. | * | Alla | 3389 (Windows), 22 (Linux) | TCP | Tillåt |
 
 > [!WARNING]
 > IP-adresser för batch-tjänsten kan ändras med tiden. Därför rekommenderar vi starkt att du använder `BatchNodeManagement` tjänst tag gen (eller regional variant) för NSG-regler. Undvik att fylla i NSG-regler med en speciell IP-adress för batch-tjänsten.
@@ -79,7 +79,7 @@ Konfigurera inkommande trafik på port 3389 (Windows) eller 22 (Linux) endast om
 
 | Källa | Källportar | Mål | Måltjänsttagg | Målportar | Protokoll | Action |
 | --- | --- | --- | --- | --- | --- | --- |
-| Valfri | * | [Tjänsttagg](../articles/virtual-network/security-overview.md#service-tags) | `Storage`(om du använder regional variant, i samma region som batch-kontot) | 443 | TCP | Tillåt |
+| Alla | * | [Tjänsttagg](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (om du använder regional variant, i samma region som batch-kontot) | 443 | TCP | Tillåt |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Pooler i Cloud Services-konfigurationen
 
@@ -103,11 +103,11 @@ Konfigurera inkommande trafik på port 3389 för Windows om du behöver tillåta
 
 | Käll-IP-adresser | Källportar | Mål | Målportar | Protokoll | Action |
 | --- | --- | --- | --- | --- | --- |
-Valfri <br /><br />Även om detta i princip kräver ”tillåt alla” så tillämpar Batch-tjänsten en ACL-regel på nivån för varje nod som filtrerar ut alla IP-adresser som inte gäller för Batch-tjänsten. | * | Valfri | 10100, 20100, 30100 | TCP | Tillåt |
-| Valfritt, för att tillåta RDP-åtkomst till Compute-noder. | * | Valfri | 3389 | TCP | Tillåt |
+Alla <br /><br />Även om detta i princip kräver ”tillåt alla” så tillämpar Batch-tjänsten en ACL-regel på nivån för varje nod som filtrerar ut alla IP-adresser som inte gäller för Batch-tjänsten. | * | Alla | 10100, 20100, 30100 | TCP | Tillåt |
+| Valfritt, för att tillåta RDP-åtkomst till Compute-noder. | * | Alla | 3389 | TCP | Tillåt |
 
 **Säkerhetsregler för utgående trafik**
 
 | Källa | Källportar | Mål | Målportar | Protokoll | Action |
 | --- | --- | --- | --- | --- | --- |
-| Valfri | * | Valfri | 443  | Valfri | Tillåt |
+| Alla | * | Alla | 443  | Alla | Tillåt |

@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: v-erkel
 ms.openlocfilehash: 7d0844e699c012d987c23a75e2b0874005cf535a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87100332"
 ---
-# <a name="set-up-azure-cli-for-azure-hpc-cache"></a>Konfigurera Azure CLI för Azure HPC cache
+# <a name="set-up-azure-cli-for-azure-hpc-cache"></a>Konfigurera Azure CLI för Azure HPC Cache
 
 Följ de här stegen för att förbereda din miljö innan du använder Azure CLI för att skapa eller hantera en Azure HPC-cache.
 
@@ -21,7 +21,7 @@ Följ de här stegen för att förbereda din miljö innan du använder Azure CLI
 
 ## <a name="install-azure-cli"></a>Installera Azure CLI
 
-Azure HPC-cache kräver version 2,7 eller senare av Azure CLI. Kör `az --version` för att hitta den version och beroende bibliotek som är installerade. Information om hur du installerar eller uppgraderar finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
+Azure HPC-cache kräver version 2,7 eller senare av Azure CLI. Kör `az --version` för att se vilken version och vilka beroende bibliotek som är installerade. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
 az --version
@@ -39,7 +39,7 @@ Azure HPC cache-funktioner ingår inte i huvud kods basen, så du måste också 
     az login
     ```
 
-    Slutför autentiseringsprocessen genom att följa stegen som visas i terminalen.
+    Slutför autentiseringsprocessen genom att följa anvisningarna i terminalen.
 
    > [!TIP]
    > Om du har flera prenumerationer måste du välja en. Välj den när du startar en Cloud Shell-session i Azure-portalen eller följ instruktionerna i [Kom igång med Azure CLI](/cli/azure/get-started-with-azure-cli#sign-in) för att ställa in din prenumeration från kommando raden.

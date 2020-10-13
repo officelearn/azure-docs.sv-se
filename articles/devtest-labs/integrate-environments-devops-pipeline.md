@@ -4,10 +4,10 @@ description: Lär dig hur du integrerar Azure DevTest Labs miljöer i din Azure 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: be726b2a3f67fd3dada4fdc3cf794922a3c18d06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483031"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integrera miljöer i Azure DevOps CI/CD-pipeliner
@@ -53,8 +53,8 @@ Nästa steg i distributionen är att skapa miljön som ska användas i utvecklin
 4. För **mallnamn**väljer du namnet på den miljö som du sparade i din käll kods lagrings plats *. 
 5. **Labb namnet**, **databas namnet**och **mallnamnet** är de egna representationerna av Azures resurs-ID. Om du anger det egna namnet manuellt kan det orsaka fel, Använd List rutorna för att välja informationen.
 6. För **miljö namn**anger du ett namn som identifierar miljö instansen unikt i labbet.  Det måste vara unikt inom labbet.
-7. **Parameter filen** och **parametrarna**tillåter att anpassade parametrar skickas till miljön. Båda kan användas för att ange parameter värden. I det här exemplet används avsnittet parametrar. Använd namnen på de variabler som du har definierat i miljön, till exempel:`-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
-8. Information i miljö mal len kan skickas genom i avsnittet utdata i mallen. Markera **skapa utdata-variabler baserat på miljö mal len utdata** så att andra aktiviteter kan använda dessa data. `$(Reference name.Output Name)`är mönstret som ska följas. Om referens namnet exempelvis var DTL och utdatafilen i mallen var variabeln `$(DTL.location)` .
+7. **Parameter filen** och **parametrarna**tillåter att anpassade parametrar skickas till miljön. Båda kan användas för att ange parameter värden. I det här exemplet används avsnittet parametrar. Använd namnen på de variabler som du har definierat i miljön, till exempel: `-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
+8. Information i miljö mal len kan skickas genom i avsnittet utdata i mallen. Markera **skapa utdata-variabler baserat på miljö mal len utdata** så att andra aktiviteter kan använda dessa data. `$(Reference name.Output Name)` är mönstret som ska följas. Om referens namnet exempelvis var DTL och utdatafilen i mallen var variabeln `$(DTL.location)` .
 
 ## <a name="delete-the-environment"></a>Ta bort miljön
 Det sista steget är att ta bort den miljö som du har distribuerat i Azure DevTest Labs-instansen. Du skulle vanligt vis ta bort miljön när du har kört dev-aktiviteterna eller kört de tester som du behöver på de distribuerade resurserna.

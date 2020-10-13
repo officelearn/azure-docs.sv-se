@@ -7,18 +7,18 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.openlocfilehash: 197decbb263391a32b8bf01cdbb6c2f34b750111
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88003568"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Vanliga frågor och svar om Azure Cache for Redis
 Lär dig svaren på vanliga frågor, mönster och metod tips för Azure cache för Redis.
 
-* [Planera vanliga frågor](cache-planning-faq.md)
+* [Vanliga frågor och svar om planering](cache-planning-faq.md)
 * [Vanliga frågor och svar om utveckling](cache-development-faq.md)
-* [Vanliga frågor om hantering](cache-management-faq.md)
+* [Vanliga frågor och svar om hantering](cache-management-faq.md)
 * [Vanliga frågor och svar om övervakning och fel sökning](cache-monitor-troubleshoot-faq.md)
 
 ## <a name="deprecated-cache-services"></a>Föråldrade cache-tjänster
@@ -28,10 +28,10 @@ Lär dig svaren på vanliga frågor, mönster och metod tips för Azure cache f�
 
 Om du vill visa Arkiverad dokumentation, se [arkiverad Managed Cache service dokumentation](/previous-versions/azure/azure-services/dn386094(v=azure.100)).
 
-### <a name="in-role-cache"></a>Cachelagring i rollinstanser
+### <a name="in-role-cache"></a>In-Role cache
 [Cachelagring i rollinstanser drogs tillbaka 30 november 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-Om du vill visa Arkiverad dokumentation, se [arkiverad cachelagring i rollinstanser dokumentation](/previous-versions/azure/azure-services/dn386103(v=azure.100)).
+Om du vill visa Arkiverad dokumentation, se [arkiverad In-Role cache-dokumentation](/previous-versions/azure/azure-services/dn386103(v=azure.100)).
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 

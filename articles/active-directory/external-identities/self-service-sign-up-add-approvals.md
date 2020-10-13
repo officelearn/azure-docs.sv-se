@@ -12,10 +12,10 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d664d7cd169593924917bb02a0220e4047eb0cdb
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165264"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Lägg till ett anpassat godkännande arbets flöde till självbetjänings registrering
@@ -38,7 +38,7 @@ Du måste registrera ditt godkännande system som ett program i din Azure AD-kli
 
    <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
 
-5. Välj **Registrera**. Du kan lämna standardvärdena för övriga fält.
+5. Välj **Register** (Registrera). Du kan lämna standardvärdena för övriga fält.
 
    ![Registrera en program sida](media/self-service-sign-up-add-approvals/register-approvals-app.png)
 
@@ -50,7 +50,7 @@ Du måste registrera ditt godkännande system som ett program i din Azure AD-kli
 
 9. På sidan **API-behörigheter** väljer du **bevilja administrativt medgivande för (ditt klient namn)** och väljer sedan **Ja**.
 10. Under **Hantera** i den vänstra menyn väljer du **certifikat & hemligheter**och väljer sedan **ny klient hemlighet**.
-11. Ange en **Beskrivning** av hemligheten, till exempel _godkännande av klient hemlighet_, och välj varaktigheten för när klient hemligheten **upphör att gälla**. Välj sedan **Lägg till**.
+11. Ange en **Beskrivning** av hemligheten, till exempel _godkännande av klient hemlighet_, och välj varaktigheten för när klient hemligheten **upphör att gälla**. Välj **Lägg till**.
 12. Kopiera värdet för klient hemligheten.
 
     ![Kopiera klient hemligheten för användning i godkännande systemet](media/self-service-sign-up-add-approvals/client-secret-value-copy.png)
@@ -325,8 +325,8 @@ Content-type: application/json
 | e-post                                                | Ja      | Motsvarar det `email` anspråk som skickas till API: et.                                                                                                               |
 | userType                                            | Ja      | Måste vara `Guest` . Utser den här användaren som gäst användare.                                                                                                                 |
 | identiteter                                          | Ja      | Federerad identitets information.                                                                                                                                    |
-| \<otherBuiltInAttribute>                            | Nej       | Andra inbyggda attribut som `displayName` , `city` och andra. Parameter namn är desamma som de parametrar som skickas av API-anslutningen.                            |
-| \<extension\_\{extensions-app-id}\_CustomAttribute> | Nej       | Anpassade attribut för användaren. Parameter namn är desamma som de parametrar som skickas av API-anslutningen.                                                            |
+| \<otherBuiltInAttribute>                            | Inga       | Andra inbyggda attribut som `displayName` , `city` och andra. Parameter namn är desamma som de parametrar som skickas av API-anslutningen.                            |
+| \<extension\_\{extensions-app-id}\_CustomAttribute> | Inga       | Anpassade attribut för användaren. Parameter namn är desamma som de parametrar som skickas av API-anslutningen.                                                            |
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>För en federerad Azure Active Directory användare
 

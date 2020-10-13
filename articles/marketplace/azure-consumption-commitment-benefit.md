@@ -8,13 +8,13 @@ author: anbene
 ms.author: mingshen
 ms.date: 07/21/2020
 ms.openlocfilehash: 8a8b64bc0ed2702066a1ba280f1b40aabbcdb11b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87100003"
 ---
-# <a name="azure-consumption-commitment-benefit"></a>Förmån för Azure konsumtions åtagande
+# <a name="azure-consumption-commitment-benefit"></a>Azure-förbrukningsåtagandeförmån
 
 En urvals uppsättning av Microsofts kommersiella Marketplace-erbjudanden bidrar till din organisations Microsoft Azure förbruknings åtagande om organisationen har något av följande avtal:
 

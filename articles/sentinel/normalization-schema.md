@@ -16,10 +16,10 @@ ms.topic: reference
 ms.date: 09/08/2020
 ms.author: yelevin
 ms.openlocfilehash: eb1752ea66f2cbebf6a653705b5a760e8e268240
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937608"
 ---
 # <a name="azure-sentinel-data-normalization-schema-reference"></a>Schema referens för Azure Sentinel-datanormalisering
@@ -28,7 +28,7 @@ ms.locfileid: "90937608"
 
 Följande terminologi används i Sentinel-scheman:
 
-| Term | Definition |
+| Period | Definition |
 | ---- | ---------- |
 | Rapporterings enhet | Systemet skickar posterna till Azure Sentinel. Det kanske inte är ämnes systemet för posten. |
 | Post | En enhet med data som skickas från rapporterings enheten. Detta kallas ofta "logg", "händelse" eller "varning", men behöver inte nödvändigt vis vara något av dem. |
@@ -41,12 +41,12 @@ Värdena ska normaliseras baserat på rikt linjerna nedan. Detta är obligatoris
 | Datatyp | Fysisk typ | Format och värde |
 | --------- | ------------- | ---------------- |
 | **Datum/tid** | Beroende på inmatnings metoden använder funktionen i fallande prioritet:<ul><li>Log Analytics inbyggd datetime-typ</li><li>Ett heltals fält med Log Analytics datetime numerisk representation</li><li>Ett sträng fält med Log Analytics datetime numerisk representation</li></ul> | Log Analytics datetime-representation. <br></br>Log Analytics datum & tid representationen liknar en annan typ än UNIX-tidsrepresentation. Läs de här rikt linjerna för konvertering. <br></br>Datumet & tiden ska vara tidszon justerad. |
-| **MAC-adress** | Sträng | Kolon-hexadecimalt format |
+| **MAC-adress** | Sträng | Colon-Hexadecimal notation |
 | **IP-adress** | IP-adress | Schemat har inga separata IPv4-och IPv6-adresser. Alla IP-adresser kan innehålla antingen en IPv4-eller IPv6-adress:<ul><li>IPv4 i en punkt-Decimal form</li><li>IPv6 i 8 hextets-notation, som tillåter de kort former som beskrivs här.</li></ul> |
 | **Användare** | Sträng | Följande tre användar fält är tillgängliga:<ul><li>Användarnamn</li><li>Användarens UPN</li><li>Användar domän</li></ul> |
 | **Användar-ID** | Sträng | Följande 2 användar-ID: n stöds för närvarande:<ul><li>Användarens SID</li><li>Azure Active Directory-ID</li></ul> |
-| **Enhet** | Sträng | Följande tre enhets-och värd kolumner stöds:<ul><li>ID</li><li>Name</li><li>Fullständigt kvalificerat domän namn (FQDN)</li></ul> |
-| **Land** | Sträng | En sträng som använder ISO 3166-1 enligt denna prioritet:<ul><li>Alfa – 2 koder (t. ex. oss för USA)</li><li>Alfa-3 koder (t. ex. USA för USA)</li><li>Kort namn</li></ul> |
+| **Enhet** | Sträng | Följande tre enhets-och värd kolumner stöds:<ul><li>ID</li><li>Namn</li><li>Fullständigt kvalificerat domän namn (FQDN)</li></ul> |
+| **Ursprungslandet** | Sträng | En sträng som använder ISO 3166-1 enligt denna prioritet:<ul><li>Alfa – 2 koder (t. ex. oss för USA)</li><li>Alfa-3 koder (t. ex. USA för USA)</li><li>Kort namn</li></ul> |
 | **Region** | Sträng | Landets underordnade avdelnings namn med hjälp av ISO 3166-2 |
 | **City** | Sträng | |
 | **Long** | Double | ISO 6709-koordinat representation (signerad decimal) |
@@ -63,7 +63,7 @@ Nedan visas schemat för tabellen nätverks sessioner, versions 1.0.0
 |-|-|-|-|-|
 | Typ | Sträng | Trafik | Typ av händelse som samlas in | Händelse |
 | EventSubType | Sträng | Autentisering | Ytterligare beskrivning av typ om tillämpligt | Händelse |
-| EventCount | Heltal  | 10 | Antalet händelser som sammanställts, om tillämpligt. | Händelse |
+| EventCount | Integer  | 10 | Antalet händelser som sammanställts, om tillämpligt. | Händelse |
 | EventEndTime | Datum/tid | Se "data typer" | Tiden då händelsen avslutades | Händelse |
 | EventMessage | sträng |  åtkomst nekad | Ett allmänt meddelande eller en beskrivning, antingen inkluderad i eller genererad från posten | Händelse |
 | DvcIpAddr | IP-adress |  23.21.23.34 | IP-adressen för enheten som genererar posten | Anordningar<br>IP-adress |
@@ -101,7 +101,7 @@ Nedan visas schemat för tabellen nätverks sessioner, versions 1.0.0
 | DstMacAddr | Sträng | 06:10:9f: EB: 8F: 14 | MAC-adressen för det nätverks gränssnitt där anslutningen eller sessionen avslutades, som oftast kallas för mål-MAC i nätverks paketet | Mål<br>OS |
 | DstDvcMacAddr | Sträng | 06:10:9f: EB: 8F: 14 | Mål-MAC-adressen för en enhet som inte är direkt kopplad till nätverks paketet. | Mål<br>Anordningar<br>OS |
 | DstDvcDomain | Sträng | CONTOSO | Domänen för mål enheten. | Mål<br>Enhet |
-| DstPortNumber | Heltal | 443 | Målets IP-port. | Mål<br>Port |
+| DstPortNumber | Integer | 443 | Målets IP-port. | Mål<br>Port |
 | DstGeoRegion | Region (sträng) | Vermont | Regionen i ett land som är kopplat till målets IP-adress | Mål<br>Geografi |
 | DstResourceId | Enhets-ID (sträng) |  /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /victim | Resurs-ID för mål enheten. | Mål |
 | DstNatIpAddr | IP-adress | 2::1 | Om den rapporteras av en mellanhand NAT-enhet, till exempel en brand vägg, den IP-adress som används av NAT-enheten för kommunikation med källan. | Mål-NAT,<br>IP-adress |
@@ -116,14 +116,14 @@ Nedan visas schemat för tabellen nätverks sessioner, versions 1.0.0
 | DvcAction | Multivärde: Tillåt, neka, Drop (sträng) | Tillåt | Om det rapporteras av en mellanliggande enhet, till exempel en brand vägg, den åtgärd som utförs av enheten. | Enhet |
 | DvcInboundInterface | Sträng | eth0 | Om det rapporteras av en mellanliggande enhet, till exempel en brand vägg, används nätverks gränssnittet för anslutningen till käll enheten. | Enhet |
 | DvcOutboundInterface | Sträng  | Ethernet-nätverkskort Ethernet 4 | Om det rapporteras av en mellanliggande enhet, till exempel en brand vägg, används nätverks gränssnittet för anslutningen till mål enheten. | Enhet |
-| NetworkDuration | Heltal | 1500 | Tiden, i millisekunder, för att slutföra nätverks sessionen eller-anslutningen | Nätverk |
-| NetworkIcmpCode | Heltal | 34 | För ICMP-meddelanden anger du ett numeriskt värde för ICMP-meddelanden (RFC 2780 eller RFC 4443). | Nätverk |
+| NetworkDuration | Integer | 1500 | Tiden, i millisekunder, för att slutföra nätverks sessionen eller-anslutningen | Nätverk |
+| NetworkIcmpCode | Integer | 34 | För ICMP-meddelanden anger du ett numeriskt värde för ICMP-meddelanden (RFC 2780 eller RFC 4443). | Nätverk |
 | NetworkIcmpType | Sträng | Det går inte att hitta målet | För ett ICMP-meddelande skriver du text representation för ICMP-meddelande (RFC 2780 eller RFC 4443). | Nätverk |
 | DstPackets | int  | 446 | Antalet paket som skickats från målet till källan för anslutningen eller sessionen. Innebörden av ett paket definieras av rapporterings enheten. | Mål |
 | SrcPackets | int  | 6478 | Antalet paket som skickas från källan till målet för anslutningen eller sessionen. Innebörden av ett paket definieras av rapporterings enheten. | Källa |
 | NetworkPackets | int  | 0 | Antal paket som skickats i båda riktningarna. Om både PacketsReceived och PacketsSent finns måste BytesTotal vara lika med summan. | Nätverk |
-| HttpRequestTime | Heltal | 700 | Hur lång tid det tog att skicka begäran till servern, om tillämpligt. | Http |
-| HttpResponseTime | Heltal | 800 | Hur lång tid det tog att ta emot ett svar på servern, om tillämpligt. | Http |
+| HttpRequestTime | Integer | 700 | Hur lång tid det tog att skicka begäran till servern, om tillämpligt. | Http |
+| HttpResponseTime | Integer | 800 | Hur lång tid det tog att ta emot ett svar på servern, om tillämpligt. | Http |
 | NetworkRuleName | Sträng | AnyAnyDrop | Namnet eller ID: t för den regel som DeviceAction valdes vid | Nätverk |
 | NetworkRuleNumber | int |  23 | Matchat regel nummer  | Nätverk |
 | NetworkSessionId | sträng | 172_12_53_32_4322__123_64_207_1_80 | Sessions-ID: t som rapporteras av rapporterings enheten. Till exempel, L7-sessions-ID för vissa program efter autentisering | Nätverk |
@@ -135,7 +135,7 @@ Nedan visas schemat för tabellen nätverks sessioner, versions 1.0.0
 | SrcDvcOs | Sträng | iOS | Käll enhetens operativ system | Källicensservern<br>Enhet |
 | SrcDvcModelName | Sträng | Samsung Galaxy-anteckning | Käll enhetens modell namn | Källicensservern<br>Enhet |
 | SrcDvcModelNumber | Sträng | 10,0 | Käll enhetens modell nummer | Källicensservern<br>Enhet |
-| SrcDvcType | Sträng | Mobilt | Typ av käll enhet | Källicensservern<br> Enhet |
+| SrcDvcType | Sträng | Mobil | Typ av käll enhet | Källicensservern<br> Enhet |
 | SrcIntefaceName | Sträng | eth01 | Nätverks gränssnittet som används för anslutningen eller sessionen av käll enheten. | Källa |
 | SrcInterfaceGuid | Sträng | 46ad544b-eaf0-47ef-827c-266030f545a6 | GUID för det nätverks gränssnitt som används | Källa |
 | SrcIpAddr | IP-adress | 77.138.103.108 | IP-adressen som anslutningen eller sessionen kommer från. | Källicensservern<br>IP-adress |
@@ -144,11 +144,11 @@ Nedan visas schemat för tabellen nätverks sessioner, versions 1.0.0
 | SrcGeoLongitude | Longitud (dubbel) | – 73,211944 | Longituden för den geografiska koordinat som är associerad med käll-IP-adressen | Källicensservern<br>Geografi |
 | SrcMacAddr | Sträng | 06:10:9f: EB: 8F: 14 | MAC-adressen för det nätverks gränssnitt som anslutningen för OD-sessionen kommer från. | Källicensservern<br>Mac |
 | SrcDvcMacAddr | Sträng | 06:10:9f: EB: 8F: 14 | Käll-MAC-adressen för en enhet som inte är direkt kopplad till nätverks paketet. | Källicensservern<br>Anordningar<br>Mac |
-| SrcPortNumber | Heltal | 2335 | IP-porten som anslutningen kommer från. Är kanske inte relevant för en session som består av flera anslutningar. | Källicensservern<br>Port |
+| SrcPortNumber | Integer | 2335 | IP-porten som anslutningen kommer från. Är kanske inte relevant för en session som består av flera anslutningar. | Källicensservern<br>Port |
 | SrcGeoRegion | Region (sträng) | Vermont | Regionen i ett land som är kopplat till käll-IP-adressen | Källicensservern<br>Geografi |
 | SrcResourceId | Sträng | /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /syslogserver1 | Resurs-ID för enheten som genererar meddelandet. | Källa |
 | SrcNatIpAddr | IP-adress | 4.3.2.1 | Om den rapporteras av en mellanhand NAT-enhet, till exempel en brand vägg, den IP-adress som används av NAT-enheten för kommunikation med målet. | Källans NAT,<br>IP-adress |
-| SrcNatPortNumber | Heltal | 345 | Om det rapporteras av en mellanhand NAT-enhet, till exempel en brand vägg, den port som används av NAT-enheten för kommunikation med målet. | Källans NAT,<br>Port |
+| SrcNatPortNumber | Integer | 345 | Om det rapporteras av en mellanhand NAT-enhet, till exempel en brand vägg, den port som används av NAT-enheten för kommunikation med målet. | Källans NAT,<br>Port |
 | SrcUserSid | Användar-ID (sträng) | S-15-1445 | Användar-ID för den identitet som är kopplad till sessionens källa. Normalt utför användaren en åtgärd på klienten. Mer information finns i "data typer". | Källicensservern<br>Användare |
 | SrcUserAadId | Sträng (GUID) | 16c8752c-7dd2-4cad-9e03-fb5d1cee5477 | Objekt-ID för Azure AD-kontot för användaren vid sessionens källa | Källicensservern<br>Användare |
 | SrcUserName | Användar namn (sträng) | Bob | Användar namnet för den identitet som är kopplad till sessionens källa. Normalt utför användaren en åtgärd på klienten. Mer information finns i "data typer". | Källa<br>Användare |
@@ -168,9 +168,9 @@ Nedan visas schemat för tabellen nätverks sessioner, versions 1.0.0
 | FileHashSha512 | Sträng | 5E127D... F69F73F01F361 | SHA512 hash-värdet för den fil som överförs via nätverks anslutningar för protokoll. | Fil |
 | FileExtension |  Sträng | exe | Den typ av fil som överförs via nätverks anslutningar för protokoll som FTP och HTTP. | Fil
 | FileMimeType | Sträng | program-MSWord | MIME-typen för den fil som överförs via nätverks anslutningar för protokoll som FTP och HTTP | Fil |
-| Storlek | Heltal | 23500 | Fil storleken, i byte, för den överförda filen över nätverks anslutningarna för protokoll. | Fil |
+| Storlek | Integer | 23500 | Fil storleken, i byte, för den överförda filen över nätverks anslutningarna för protokoll. | Fil |
 | HttpVersion | Sträng | 2,0 | HTTP-begäran version för HTTP/HTTPS-nätverksanslutningar. | Http |
-| HttpRequestMethod | Sträng | HÄMTA | HTTP-metoden för HTTP/HTTPS-klientsessioner. | Http |
+| HttpRequestMethod | Sträng | GET | HTTP-metoden för HTTP/HTTPS-klientsessioner. | Http |
 | HttpStatusCode | Sträng | 404 | HTTP-statuskod för HTTP/HTTPS-klientsessioner. | Http |
 | HttpContentType | Sträng | multipart/form-data; gränser = något | Innehålls typ huvudet för HTTP-svar för HTTP/HTTPS-klientsessioner. | Http |
 | HttpReferrerOriginal | Sträng | https://developer.mozilla.org/en-US/docs/Web/JavaScript | HTTP referent-huvudet för HTTP/HTTPS-klientsessioner. | Http |

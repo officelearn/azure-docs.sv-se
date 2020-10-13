@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
 ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83005935"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa ett Video Indexer-konto som är anslutet till Azure
 
-När du skapar ett Video Indexer konto kan du välja ett kostnads fritt utvärderings konto (där du får ett visst antal kostnads fria indexerings minuter) eller ett betalt alternativ (där du inte är begränsad till kvoten). Med en kostnads fri utvärderings version tillhandahåller Video Indexer upp till 600 minuter kostnads fri indexering för webbplats användare och upp till 2400 minuter kostnads fri indexering för API-användare. Med alternativet betald kan du skapa ett Video Indexer-konto som är kopplat till din Azure-prenumeration och ett Azure Media Services-konto. Du betalar för minuter som har indexerats samt de kostnader som gäller för medie kontot.
+När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betalalternativet skapar du ett Video Indexer-konto som är anslutet till din Azure-prenumeration och ett Azure Media Services-konto. Du betalar för minuter som indexeras samt kostnader relaterade till mediekontot.
 
 Den här artikeln visar hur du skapar ett Video Indexer-konto som är länkat till en Azure-prenumeration och ett Azure Media Services-konto. Avsnittet innehåller steg för att ansluta till Azure med hjälp av det automatiska (standard) flödet. Det visar också hur du ansluter till Azure manuellt (avancerat).
 
 Om du flyttar från en *utvärdering* till *betald* video Indexer konto kan du välja att kopiera alla videor och modell anpassningar till det nya kontot, enligt beskrivningen i avsnittet [Importera ditt innehåll från utvärderings kontot](#import-your-content-from-the-trial-account) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration.
 
@@ -147,7 +147,7 @@ Ange följande information i dialog rutan:
 |Inställningen|Beskrivning|
 |---|---|
 |Video Indexer konto region|Namnet på Video Indexer konto region. För bättre prestanda och lägre kostnader rekommenderar vi starkt att du anger namnet på den region där Azure Media Services resursen och Azure Storage kontot finns. |
-|Azure AD-klient|Namnet på Azure AD-klienten, till exempel "contoso.onmicrosoft.com". Klient informationen kan hämtas från Azure Portal. Placera markören över namnet på den inloggade användaren i det övre högra hörnet. Hitta namnet till höger om **domänen**.|
+|Azure AD-klientorganisation|Namnet på Azure AD-klienten, till exempel "contoso.onmicrosoft.com". Klient informationen kan hämtas från Azure Portal. Placera markören över namnet på den inloggade användaren i det övre högra hörnet. Hitta namnet till höger om **domänen**.|
 |Prenumerations-ID:t|Azure-prenumerationen som den här anslutningen ska skapas under. Prenumerations-ID kan hämtas från Azure Portal. Välj **alla tjänster** i den vänstra panelen och Sök efter "prenumerationer". Välj **prenumerationer** och välj önskat ID i listan med dina prenumerationer.|
 |Namn på Azure Media Services resurs grupp|Namnet på resurs gruppen där du skapade Media Services-kontot.|
 |Medie tjänst resurs namn|Namnet på det Azure Media Services konto som du skapade i föregående avsnitt.|
@@ -163,7 +163,7 @@ Möjligheten att importera innehållet är giltig för både automatiserade och 
 > [!NOTE]
 > Innehållet kan bara importeras en gång från varje konto.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 Följande Azure Media Services relaterade överväganden gäller:
 

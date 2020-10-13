@@ -4,10 +4,10 @@ description: Lär dig hur du bättre uppskattar kostnaderna som du kan stöta p�
 ms.date: 9/20/2019
 ms.topic: conceptual
 ms.openlocfilehash: 33c892bd7904d2921039a4b2afb9c775d6a4926a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88207766"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Uppskatta förbruknings Plans kostnader
@@ -240,4 +240,4 @@ customMetrics
 > [Lär dig mer om att övervaka Function-appar](functions-monitoring.md)
 
 [Sidan prissättning]:https://azure.microsoft.com/pricing/details/functions/
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

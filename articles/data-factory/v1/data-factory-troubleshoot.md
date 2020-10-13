@@ -14,10 +14,10 @@ ms.reviewer: maghan
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: 45aa444393ed81bc320a770203ca114c35e16107
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84195904"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Felsök Data Factory-problem
@@ -56,7 +56,7 @@ Expressinstallationen för Data Management Gateway kräver Internet Explorer ell
 
 * Använd Internet Explorer eller en Microsoft ClickOnce-kompatibel webbläsare.
 
-    Om du använder Chrome, går du till [Chrome Web Store](https://chrome.google.com/webstore/), söker efter nyckelordet ”ClickOnce”, väljer ett av ClickOnce-tilläggen och installerar det.
+    Om du använder Chrome går du till [Chrome-webbarkivet](https://chrome.google.com/webstore/), söker med nyckelordet "ClickOnce", väljer ett av ClickOnce-tilläggen och installerar det.
 
     Gör samma sak för Firefox (installera tillägg). Klicka på knappen Öppna menyn i verktygsfältet (tre horisontella linjer högst upp till höger), klicka på Tillägg, sök efter nyckelordet ”ClickOnce”, välj ett av ClickOnce-tilläggen och installera det.
 * Använd den **manuella installations** länken som visas på samma blad i portalen. Du kan använda den här metoden för att ladda ned installations filen och köra den manuellt. När installationen har slutförts visas dialog rutan Data Management Gateway konfiguration. Kopiera **nyckeln** från portalskärmen och använd den i konfigurationshanteraren för att manuellt registrera gatewayen i tjänsten.  

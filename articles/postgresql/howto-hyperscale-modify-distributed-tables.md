@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
 ms.openlocfilehash: 628944f9763dc79148e0b64c97158064208412bf
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88137056"
 ---
 # <a name="distribute-and-modify-tables"></a>Distribuera och ändra tabeller
@@ -144,7 +144,7 @@ Om du delar upp orelaterade tabeller i sina egna samplacerings grupper förbätt
 
 När tabeller är relaterade (till exempel när de kommer att kopplas), kan det vara klokt att explicit hitta dem. Vinsterna för lämplig samplacering är viktigare än eventuella ombalanserings kostnader.
 
-Om du vill samplacera flera tabeller, distribuerar du en och lägger sedan till de andra i sin samplacerings grupp. Till exempel:
+Om du vill samplacera flera tabeller, distribuerar du en och lägger sedan till de andra i sin samplacerings grupp. Exempel:
 
 ```postgresql
 -- distribute stores

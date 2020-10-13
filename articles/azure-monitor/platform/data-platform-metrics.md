@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: b05007e2ea7815afbba2a7a71368686cf7c049fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87325618"
 ---
 # <a name="metrics-in-azure-monitor"></a>Mått i Azure Monitor
@@ -36,7 +36,7 @@ I följande tabell visas de olika sätt som du kan använda Metric-data i Azure 
 | **Varning** | Konfigurera en [regel för mått varningar](alerts-metric.md) som skickar ett meddelande eller [automatiserar en åtgärd](action-groups.md) när mått värdet korsar ett tröskelvärde. |
 | **Automatisera** |  Använd [autoskalning](autoscale-overview.md) för att öka eller minska resurser baserat på ett mått värde som korsar ett tröskelvärde. |
 | **Export** | [Dirigera mått till loggar](./resource-logs.md#send-to-azure-storage) för att analysera data i Azure Monitor mått tillsammans med data i Azure Monitor loggar och lagra mått värden i mer än 93 dagar.<br>Strömma mått till en [Event Hub](stream-monitoring-data-event-hubs.md) för att dirigera dem till externa system. |
-| **Hämta** | Komma åt Mät värden från en kommando rad med [PowerShell-cmdletar](/powershell/module/az.applicationinsights)<br>Använd [REST API](rest-api-walkthrough.md)för att komma åt Mät värden från anpassade program.<br>Komma åt Mät värden från en kommando rad med [CLI](/cli/azure/monitor/metrics). |
+| **Hämta** | Komma åt Mät värden från en kommando rad med  [PowerShell-cmdletar](/powershell/module/az.applicationinsights)<br>Använd [REST API](rest-api-walkthrough.md)för att komma åt Mät värden från anpassade program.<br>Komma åt Mät värden från en kommando rad med  [CLI](/cli/azure/monitor/metrics). |
 | **Arkiv** | [Arkivera](./platform-logs-overview.md) prestanda-eller hälso historiken för din resurs för efterlevnad, granskning eller offline rapportering. |
 
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Hur struktureras data i Azure Monitor mått?

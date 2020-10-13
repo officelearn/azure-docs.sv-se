@@ -8,10 +8,10 @@ ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87079561"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Avancerade funktioner i Azure Metrics Explorer
@@ -21,7 +21,7 @@ ms.locfileid: "87079561"
 
 ## <a name="metrics-in-azure"></a>Mått i Azure
 
-[Mått i Azure Monitor](data-platform-metrics.md) är serien med uppmätta värden och antal som samlas in och lagras över tid. Det finns standard-(eller "Platform") mått och anpassade mått. Standard måtten tillhandahålls av själva Azure-plattformen. Standard måtten återspeglar hälso-och användnings statistik för dina Azure-resurser. Anpassade mått skickas till Azure av dina program med hjälp av [Application Insights API för anpassade händelser och mått](../app/api-custom-events-metrics.md), [Windows Azure-diagnostik (wad)-tillägg](./diagnostics-extension-overview.md)eller [Azure Monitor REST API](./metrics-store-custom-rest-api.md).
+[Mått i Azure Monitor](data-platform-metrics.md) är serien med uppmätta värden och antal som samlas in och lagras över tid. Det finns standard-(eller "Platform") mått och anpassade mått. Standard måtten tillhandahålls av själva Azure-plattformen. Standard måtten återspeglar hälso-och användnings statistik för dina Azure-resurser. Anpassade mått skickas till Azure av dina program med hjälp av [Application Insights API för anpassade händelser och mått](../app/api-custom-events-metrics.md),  [Windows Azure-diagnostik (wad)-tillägg](./diagnostics-extension-overview.md)eller [Azure Monitor REST API](./metrics-store-custom-rest-api.md).
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Skapa vyer med flera mått och diagram
 

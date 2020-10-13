@@ -115,7 +115,7 @@
               href: partner-center-portal/azure-vm-create-offer.md
             - name: Skapa tekniska tillgångar för virtuella Azure-datorer
               items:
-                - name: Certifiering av virtuella datorer – problem och lösningar
+                - name: Certifieringsproblem för virtuella datorer
                   href: partner-center-portal/vm-certification-issues-solutions.md
                 - name: Skapa tekniska tillgångar för en virtuell Azure-dator
                   href: partner-center-portal/create-azure-vm-technical-asset.md
@@ -324,17 +324,27 @@
       href: marketplace-faq-publisher-guide.md
     - name: Vanliga frågor och svar om Cloud Partner Portal-migrering
       href: cloud-partner-portal-migration-faq.md
+    - name: Kontorstid för affärsmöjligheter
+      href: 'https://aka.ms/marketplaceofficehours'
+    - name: Kontorstider för teknik och publicering
+      href: 'https://aka.ms/marketplacepublishingofficehours'
     - name: Supportalternativ för Partnercenter
       href: partner-center-portal/support.md
+    - name: Partnercenter-meddelanden
+      href: /partner-center/announcements
+    - name: Microsoft Partner-community
+      href: 'https://www.microsoftpartnercommunity.com/'
+    - name: Partner-communityforum
+      href: 'https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222'
     - name: Geografisk tillgänglighet och valutor
       href: marketplace-geo-availability-currencies.md
+    - name: 'Hitta ID:n för klientorganisation och objekt'
+      href: find-tenant-object-id.md
     - name: Länder och regioner som stöds
       href: sell-from-countries.md
-    - name: HTML-taggar som stöds
-      href: supported-html-tags.md
     - name: Lands- och regionkoder för säljsamarbete
       href: partner-center-portal/commercial-marketplace-co-sell-countries.md
     - name: Kod för tillstånd för säljsamarbete
       href: partner-center-portal/commercial-marketplace-co-sell-states.md
-    - name: 'Forum, bloggar och snabblänkar'
-      href: marketplace-roadmap.md
+    - name: HTML-taggar som stöds
+      href: supported-html-tags.md

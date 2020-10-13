@@ -3,12 +3,12 @@ title: Livs cykel hantering av virtuella Azure VMware-lösningar
 description: Lär dig att hantera alla aspekter av livs cykeln för dina virtuella Azure VMware-lösningar med Microsoft Azure inbyggda verktyg.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 10e721996b2e3186417a702d2d7473b36b11237f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 452fa6bf4610c9d0dcb46587242e8d6df9cebd0d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575492"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950371"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Livs cykel hantering av virtuella Azure VMware-lösningar
 
@@ -58,7 +58,7 @@ Virtuella Azure VMware-lösningar kan övervakas via MMA (kallas även för Log 
 
 **Azure Security Center** tillhandahåller Avancerat skydd för dina hybrid arbets belastningar i molnet och lokalt. Det kommer att bedöma sårbarheten hos virtuella datorer i Azure VMware-lösningen och utlösa aviseringar efter behov. Dessa säkerhets aviseringar kan vidarebefordras till Azure Monitor för lösning.
 - Azure Security Center behöver inte distribueras. Mer information finns i en lista över [funktioner som stöds för virtuella datorer](../security-center/security-center-services.md).
-- Om du vill lägga till virtuella datorer i Azure VMware och icke-Azure-datorer i Azure Security Center kan du läsa [Windows-datorer för att Azure Security Center](../security-center/quick-onboard-windows-computer.md) och [publicera Linux-datorer till Azure Security Center](../security-center/quick-onboard-linux-computer.md).
+- Om du vill lägga till virtuella datorer i Azure VMware och icke-Azure-datorer i Azure Security Center kan du läsa [Windows-datorer för att Azure Security Center](../security-center/quickstart-onboard-machines.md) och [publicera Linux-datorer till Azure Security Center](../security-center/quickstart-onboard-machines.md).
 - När du har lagt till virtuella datorer analyserar Azure Security Center säkerhets status för resurserna för att identifiera potentiella sårbarheter. Den innehåller också rekommendationer på fliken Översikt. Mer information finns [i säkerhets rekommendationer i Azure Security Center](../security-center/security-center-recommendations.md).
 - Du kan definiera säkerhets principer i Azure Security Center. Information om hur du konfigurerar dina säkerhets principer finns i [arbeta med säkerhets principer](../security-center/tutorial-security-policy.md).
 

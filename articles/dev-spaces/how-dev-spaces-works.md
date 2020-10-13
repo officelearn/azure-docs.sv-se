@@ -5,14 +5,16 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 description: Beskriver de processer som Power Spaces för Azure dev
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: 81408ed4bbe5322538d893b29c7397104c5b0844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8de2c27ce03c871e60b6437656ad630fc8de8408
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981265"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963711"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Så här fungerar Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Det kan vara svårt att utveckla ett Kubernetes-program. Du behöver Docker-och Kubernetes-konfigurationsfiler. Du måste ta reda på hur du testar programmet lokalt och interagerar med andra beroende tjänster. Du kan behöva hantera utveckling och testning av flera tjänster samtidigt och med en grupp utvecklare.
 

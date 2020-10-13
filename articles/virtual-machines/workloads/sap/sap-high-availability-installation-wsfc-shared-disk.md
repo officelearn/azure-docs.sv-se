@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c5b7debe0c94839e2ca7742817a49216328c571
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5126ae94d8c751952964aaf4df0736a5e546ff36
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855348"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963643"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Installera SAP NetWeaver HA på ett Windows-redundanskluster och en delad disk för en SAP ASCS/SCS-instans i Azure
 
@@ -149,7 +149,7 @@ ms.locfileid: "88855348"
 
 Den här artikeln beskriver hur du installerar och konfigurerar ett SAP-system med hög tillgänglighet i Azure med hjälp av ett Windows Server-redundanskluster och en klusterdelad disk för att klustra en SAP ASCS/SCS-instans. Som det beskrivs i [arkitektur guiden: kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk][sap-high-availability-guide-wsfc-shared-disk]finns det två alternativ för *klusterdelad disk*:
 
-- [Delade diskar i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared)
+- [Delade diskar i Azure](../../windows/disks-shared.md)
 - Använda [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) för att skapa speglad lagring, som simulerar klustrad delad disk 
 
 ## <a name="prerequisites"></a>Förutsättningar

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: c4332f3e5a1ca6d434671d3a2cfe100a5d12795d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4a847b273472ecc9d2aaa3993ec9d88aa46f2e7f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182023"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973877"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Skapa och hantera ett support paket för StorSimple 8000-serien
 
@@ -23,7 +23,7 @@ Den här självstudien innehåller stegvisa instruktioner för att skapa och han
 
 ## <a name="create-a-support-package"></a>Skapa ett support paket
 
-I vissa fall måste du skapa ett support paket manuellt via Windows PowerShell för StorSimple. Exempel:
+I vissa fall måste du skapa ett support paket manuellt via Windows PowerShell för StorSimple. Till exempel:
 
 * Om du behöver ta bort känslig information från dina loggfiler innan du delar med Microsoft Support.
 * Om du har problem med att ladda upp paketet på grund av anslutnings problem.
@@ -60,9 +60,9 @@ Du kan dela ditt manuellt genererade support paket med Microsoft Support via e-p
      
        Support paketet skapas för båda styrenheterna i standardmappen. Paketet är en krypterad komprimerad fil som kan skickas till Microsoft Support för fel sökning. Mer information finns i [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
-### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Cmdlet-parametrarna export-HcsSupportPackage
+### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Parametrarna för Export-HcsSupportPackage cmdlet
 
-Du kan använda följande parametrar med cmdleten export-HcsSupportPackage.
+Du kan använda följande parametrar med Export-HcsSupportPackage-cmdleten.
 
 | Parameter | Obligatorisk/valfri | Beskrivning |
 | --- | --- | --- |
@@ -108,7 +108,7 @@ Om du vill redigera ett support paket innan du laddar upp det på Microsoft Supp
    
     `Close-HcsSupportPackage <Path to the folder that contains support package files>`
    
-    ![Redigera support paket](./media/storsimple-8000-create-manage-support-package/IC750707.png)
+    ![Redigera support paket 2](./media/storsimple-8000-create-manage-support-package/IC750707.png)
 8. När du uppmanas anger du en krypterings lösen fras för det ändrade support paketet.
    
     ```powershell

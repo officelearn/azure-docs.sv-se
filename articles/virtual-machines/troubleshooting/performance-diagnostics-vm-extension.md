@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c570c43560ad865b8bcc5161cbd0c6731ea4a237
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16af8b8c1258ef7945e88a7af42e86a7bba2003b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090660"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963269"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Azures VM-tillägg för prestandadiagnostik för Windows
 
-Med VM-tillägget för Azure Performance Diagnostics kan du samla in prestanda diagnostikdata från virtuella Windows-datorer. Tillägget utför analyser och innehåller en rapport över resultat och rekommendationer för att identifiera och lösa prestanda problem på den virtuella datorn. Det här tillägget installerar ett fel söknings verktyg som kallas [PerfInsights](https://aka.ms/perfinsights).
+Med VM-tillägget för Azure Performance Diagnostics kan du samla in prestanda diagnostikdata från virtuella Windows-datorer. Tillägget utför analyser och innehåller en rapport över resultat och rekommendationer för att identifiera och lösa prestanda problem på den virtuella datorn. Det här tillägget installerar ett fel söknings verktyg som kallas [PerfInsights](./how-to-use-perfinsights.md).
 
 > [!NOTE]
 > Om du vill köra diagnostik på den virtuella datorn från Azure Portal för icke-klassiska virtuella datorer, rekommenderar vi att du använder den nya upplevelsen. Mer information finns i [prestandadiagnostik för Azure Virtual Machines](performance-diagnostics.md) 
@@ -237,7 +237,7 @@ Set-AzVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ```
 
 ## <a name="information-on-the-data-captured"></a>Information om de data som samlas in
-PerfInsights-verktyget samlar in olika loggar, konfigurations-och diagnostikdata, beroende på det valda scenariot. Mer information finns i PerfInsights- [dokumentationen](https://aka.ms/perfinsights).
+PerfInsights-verktyget samlar in olika loggar, konfigurations-och diagnostikdata, beroende på det valda scenariot. Mer information finns i PerfInsights- [dokumentationen](./how-to-use-perfinsights.md).
 
 ## <a name="view-and-share-the-results"></a>Visa och dela resultaten
 

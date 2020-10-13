@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 683a3fc148d3521366beef4427e87200ea81a9f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f90d84b5897175dbda0a24591893c4e41a06822a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445723"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973588"
 ---
 # <a name="deploy-azure-sql-edge"></a>Distribuera Azure SQL Edge 
 
@@ -25,8 +25,7 @@ Azure SQL Edge är en Relations databas motor som är optimerad för IoT och Azu
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 * Logga in på [Azure-portalen](https://portal.azure.com/).
 * Skapa ett [Azure-IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
-* Registrera en [IoT Edge-enhet från Azure Portal](../iot-edge/how-to-register-device-portal.md).
-* Förbered IoT Edge-enheten för att [distribuera IoT Edge modul från Azure Portal](../iot-edge/how-to-deploy-modules-portal.md).
+* Skapa en [Azure IoT Edge enhet](../iot-edge/how-to-install-iot-edge.md).
 
 > [!NOTE]   
 > Om du vill distribuera en virtuell Azure Linux-dator som en IoT Edge enhet, se den här [snabb starts guiden](../iot-edge/quickstart-linux.md).
@@ -217,7 +216,7 @@ Du kan ansluta och köra SQL-frågor mot din Azure SQL Edge-instans från alla e
 
 I den här snabb starten har du distribuerat en SQL Edge-modul på en IoT Edge enhet. 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Machine Learning och artificiell intelligens med ONNX i SQL Edge](onnx-overview.md)
 - [Skapa en IoT-lösning från slut punkt till slut punkt med SQL Edge med IoT Edge](tutorial-deploy-azure-resources.md)

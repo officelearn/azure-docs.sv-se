@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 9266a5efb7156367dfa0d6036f5876337098c143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54be34b2151aa88705559ac2913db4f528ea4492
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743938"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963524"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Skapa en NFSv3-och SMB-volym (Dual-Protocol) för Azure NetApp Files
 
@@ -28,19 +28,29 @@ Azure NetApp Files stöder skapande av volymer med NFS (NFSv3 och NFSv 4.1), SMB
 
 ## <a name="before-you-begin"></a>Innan du börjar 
 
-* Du måste redan ha konfigurerat en kapacitetspool.  
+* Du måste redan ha skapat en kapacitets grupp.  
     Se [Konfigurera en pool för kapacitet](azure-netapp-files-set-up-capacity-pool.md).   
 * Ett undernät måste delegeras till Azure NetApp Files.  
     Se [delegera ett undernät till Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 * Se till att du uppfyller [kraven för Active Directory anslutningar](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * Skapa en zon för omvänd sökning på DNS-servern och Lägg sedan till en pekare (PTR) av AD host-datorn i den zonen för omvänd sökning. Annars går det inte att skapa dubbla protokoll volymer.
 * Se till att NFS-klienten är uppdaterad och att de senaste uppdateringarna för operativ systemet körs.
-* Kontrol lera att LDAP-servern Active Directory (AD) är igång och körs på AD. Detta görs genom att installera och konfigurera rollen [Active Directory Lightweight Directory Services (AD LDS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) på AD-datorn.
-* Se till att en certifikat utfärdare (CA) skapas på AD med hjälp av rollen [Active Directory certifikat tjänster (AD CS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) för att generera och exportera det självsignerade certifikatet för rot certifikat utfärdaren.   
+* Kontrol lera att LDAP-servern Active Directory (AD) är igång och körs på AD. Du kan göra det genom att installera och konfigurera rollen [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) på AD-datorn.
+* Se till att en certifikat utfärdare (CA) skapas på AD med hjälp av rollen [Active Directory certifikat tjänster (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) för att generera och exportera det självsignerade certifikatet för rot certifikat utfärdaren.   
 * Dubbla protokoll volymer stöder för närvarande inte Azure Active Directory Domain Services (AADDS).  
+* NFS-versionen som används av en dual-Protocol-volym är NFSv3. På så sätt gäller följande:
+    * Dubbla protokoll stöder inte Windows ACL utökade attribut `set/get` från NFS-klienter.
+    * NFS-klienter kan inte ändra behörigheter för säkerhets formatet NTFS och Windows-klienter kan inte ändra behörigheter för UNIX-typ med dubbla protokoll volymer.   
+
+    I följande tabell beskrivs säkerhets stilarna och deras effekter:  
+    
+    | Säkerhets stil    | Klienter som kan ändra behörigheter   | Behörigheter som klienter kan använda  | Resulterande effektiv säkerhets stil    | Klienter som har åtkomst till filer     |
+    |-  |-  |-  |-  |-  |
+    | UNIX  | NFS   | NFSv3 läges bitar   | UNIX  | NFS och Windows   |
+    | NTFS  | Windows   | NTFS ACL: er     | NTFS  |NFS och Windows|
 
 ## <a name="create-a-dual-protocol-volume"></a>Skapa en volym med dubbla protokoll
 
@@ -113,9 +123,9 @@ Azure NetApp Files stöder skapande av volymer med NFS (NFSv3 och NFSv 4.1), SMB
 
 ## <a name="upload-active-directory-certificate-authority-public-root-certificate"></a>Ladda upp Active Directory certifikat utfärdarens offentliga rot certifikat  
 
-1.  Följ [Installera certifikat utfärdaren](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) för att installera och konfigurera Lägg till certifikat utfärdare. 
+1.  Följ [Installera certifikat utfärdaren](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) för att installera och konfigurera Lägg till certifikat utfärdare. 
 
-2.  Följ [Visa certifikat med MMC-snapin-](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) modulen för att använda MMC-snapin-modulen och verktyget Certificate Manager.  
+2.  Följ [Visa certifikat med MMC-snapin-](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) modulen för att använda MMC-snapin-modulen och verktyget Certificate Manager.  
     Använd snapin-modulen certifikat hanterare för att hitta rot-eller utfärdande certifikatet för den lokala enheten. Du bör köra snapin-kommandona för certifikat hantering från någon av följande inställningar:  
     * En Windows-baserad klient som har anslutit till domänen och har rot certifikatet installerat 
     * En annan dator i domänen som innehåller rot certifikatet  
@@ -152,4 +162,4 @@ Följ anvisningarna i [Konfigurera en NFS-klient för att Azure NetApp Files](co
 ## <a name="next-steps"></a>Nästa steg  
 
 * [Vanliga frågor och svar om dubbla protokoll](azure-netapp-files-faqs.md#dual-protocol-faqs)
-* [Konfigurera en NFS-klient för Azure NetApp Files](configure-nfs-clients.md) 
+* [Konfigurera en NFS-klient för Azure NetApp Files](configure-nfs-clients.md)

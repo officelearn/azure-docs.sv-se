@@ -3,12 +3,12 @@ title: Översikt över Azure Management – Azure-styrning
 description: Översikt över hanterings områden för Azure-program och-resurser med länkar till innehåll på hanterings verktyg för Azure.
 ms.date: 09/09/2020
 ms.topic: overview
-ms.openlocfilehash: 0aaa23dd2841802919cfdfcc857a189e072a5c6b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ffb37cd1db5740ed022b52cd9687bb3db1632bb
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89662125"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949504"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Vad är Azures hanterings områden?
 
@@ -44,7 +44,7 @@ Med [Azure Cost Management](../cost-management-billing/cost-management-billing-o
 
 ## <a name="secure"></a>Skydda
 
-Hantera säkerheten för dina resurser och data. Ett säkerhets program omfattar att utvärdera hot, samla in och analysera data och efterlevnad av dina program och resurser. Säkerhets övervakning och hot analys tillhandahålls av [Azure Security Center](../security-center/security-center-intro.md), som innehåller enhetlig säkerhets hantering och Avancerat skydd för arbets belastningar i hybrid moln. Mer information och vägledning om hur du skyddar Azure-resurser finns i [Introduktion till Azure-säkerhet](../security/fundamentals/overview.md) .
+Hantera säkerheten för dina resurser och data. Ett säkerhets program omfattar att utvärdera hot, samla in och analysera data och efterlevnad av dina program och resurser. Säkerhets övervakning och hot analys tillhandahålls av [Azure Security Center](../security-center/security-center-introduction.md), som innehåller enhetlig säkerhets hantering och Avancerat skydd för arbets belastningar i hybrid moln. Mer information och vägledning om hur du skyddar Azure-resurser finns i [Introduktion till Azure-säkerhet](../security/fundamentals/overview.md) .
 
 ## <a name="protect"></a>Skydda
 

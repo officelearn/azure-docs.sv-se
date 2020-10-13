@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
-ms.openlocfilehash: 9f92a6277765447cbc1a9b12f06c3ec49548f4d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15c35fb314af27b1ced129a12f752d0a2794e0f8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513451"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949912"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Använd StorSimple Manager-tjänsten för att hantera åtkomst kontroll poster
 
@@ -63,11 +63,11 @@ Utför följande steg för att lägga till en ACR.
 
     3. Klicka på **Lägg till** för att skapa ACR.
 
-        ![Klicka på Lägg till ACR](./media/storsimple-8000-manage-acrs/createacr2.png)
+        ![Klicka på Lägg till ACR 2](./media/storsimple-8000-manage-acrs/createacr2.png)
 
 4.  De nyligen tillagda ACR visas i tabell listan över ACR: er.
 
-    ![Klicka på Lägg till ACR](./media/storsimple-8000-manage-acrs/createacr5.png)
+    ![Klicka på Lägg till ACR 3](./media/storsimple-8000-manage-acrs/createacr5.png)
 
 
 ## <a name="edit-an-access-control-record"></a>Redigera en åtkomst kontroll post
@@ -89,11 +89,11 @@ Utför följande steg för att redigera en ACR.
 
 3. I bladet **Redigera åtkomst kontroll post** anger du ett annat IQN som motsvarar en annan värd.
 
-    ![Redigera åtkomst kontroll poster](./media/storsimple-8000-manage-acrs/editacr2.png)
+    ![Redigera åtkomst kontroll poster 2](./media/storsimple-8000-manage-acrs/editacr2.png)
 
 4. Klicka på **Spara**. Klicka på **Ja** när du uppmanas att bekräfta åtgärden. 
 
-    ![Redigera åtkomst kontroll poster](./media/storsimple-8000-manage-acrs/editacr3.png)
+    ![Redigera åtkomst kontroll poster 3](./media/storsimple-8000-manage-acrs/editacr3.png)
 
 5. Du får ett meddelande när ACR uppdateras. Tabell listan uppdateras också för att avspegla ändringen.
 
@@ -109,23 +109,23 @@ Utför följande steg för att ta bort en åtkomst kontroll post.
 #### <a name="to-delete-an-access-control-record"></a>Ta bort en åtkomst kontroll post
 1.  Gå till StorSimple Enhetshanteraren-tjänsten, dubbelklicka på tjänstens namn och klicka sedan på **åtkomst kontroll poster**i avsnittet **konfiguration** .
 
-    ![Gå till åtkomst kontroll poster](./media/storsimple-8000-manage-acrs/createacr1.png)
+    ![Gå till åtkomst kontroll poster 1b](./media/storsimple-8000-manage-acrs/createacr1.png)
 
 2. Klicka och välj den ACR som du vill ta bort i tabell listan över åtkomst kontroll poster.
 
-    ![Gå till åtkomst kontroll poster](./media/storsimple-8000-manage-acrs/deleteacr1.png)
+    ![Gå till åtkomst kontroll poster 2](./media/storsimple-8000-manage-acrs/deleteacr1.png)
 
 3. Högerklicka för att anropa snabb menyn och välj **ta bort**.
 
-    ![Gå till åtkomst kontroll poster](./media/storsimple-8000-manage-acrs/deleteacr2.png)
+    ![Gå till åtkomst kontroll poster 3](./media/storsimple-8000-manage-acrs/deleteacr2.png)
 
 4. När du uppmanas att bekräfta kontrollerar du informationen och klickar sedan på **ta bort**.
 
-    ![Gå till åtkomst kontroll poster](./media/storsimple-8000-manage-acrs/deleteacr3.png)
+    ![Gå till åtkomst kontroll poster 4](./media/storsimple-8000-manage-acrs/deleteacr3.png)
 
 5. Du får ett meddelande när borttagningen är klar. Tabell listan uppdateras för att återspegla borttagningen.
 
-    ![Gå till åtkomst kontroll poster](./media/storsimple-8000-manage-acrs/deleteacr5.png)
+    ![Gå till åtkomst kontroll poster 5](./media/storsimple-8000-manage-acrs/deleteacr5.png)
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om hur du [hanterar StorSimple-volymer](storsimple-8000-manage-volumes-u2.md).

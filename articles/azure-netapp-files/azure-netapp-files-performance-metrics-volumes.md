@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.openlocfilehash: a254465d9055fcf1cf10a2a1d6eb82b2afc16f0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf25ef59bc1ea5db61dcfb3c76c0d978cb1f95d0
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "82692274"
+ms.locfileid: "91931844"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Rekommendationer från benchmark-prestandatest för Azure NetApp Files
 
@@ -24,7 +24,7 @@ Om du vill förstå prestanda egenskaperna för en Azure NetApp Files volym kan 
 
 ### <a name="vm-instance-sizing"></a>Storlek på virtuell dator instans
 
-För bästa resultat bör du kontrol lera att du använder en virtuell dator instans (VM) som har rätt storlek för att utföra testerna. I följande exempel används en Standard_D32s_v3-instans. Mer information om storlekar för virtuella dator instanser finns i [storlekar för virtuella Windows-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) för Windows-baserade virtuella datorer och [storlekar för virtuella Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för Linux-baserade virtuella datorer.
+För bästa resultat bör du kontrol lera att du använder en virtuell dator instans (VM) som har rätt storlek för att utföra testerna. I följande exempel används en Standard_D32s_v3-instans. Mer information om storlekar för virtuella dator instanser finns i [storlekar för virtuella Windows-datorer i Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-network%252ftoc.json) för Windows-baserade virtuella datorer och [storlekar för virtuella Linux-datorer i Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) för Linux-baserade virtuella datorer.
 
 ### <a name="azure-netapp-files-volume-sizing"></a>Azure NetApp Files volym storlek
 
@@ -113,7 +113,7 @@ Du kan också skapa en instrument panel i Azure Monitor för Azure NetApp Files 
 
 ### <a name="azure-monitor-api-access"></a>Azure Monitor API-åtkomst
 
-Du kan komma åt Azure NetApp Files räknare genom att använda REST API-anrop. Se [mått som stöds med Azure Monitor: Microsoft. NetApp/netAppAccounts/capacityPools/Volumes](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftnetappnetappaccountscapacitypoolsvolumes) för räknare för kapacitets grupper och volymer.
+Du kan komma åt Azure NetApp Files räknare genom att använda REST API-anrop. Se [mått som stöds med Azure Monitor: Microsoft. NetApp/netAppAccounts/capacityPools/Volumes](../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) för räknare för kapacitets grupper och volymer.
 
 I följande exempel visas en Hämta URL för visning av logisk volym storlek:
 

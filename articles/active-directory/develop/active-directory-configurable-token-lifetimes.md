@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: ryanwi
-ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1
+ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 8697676abe5af77c8c7795ae4e2ec6480cb99e91
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 1410af4d3c1fb9974818e5c4ebc469eee03a314c
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819433"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948631"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurerbara livstider för token i Microsoft Identity Platform (för hands version)
 
@@ -89,9 +89,9 @@ En livs längds princip för token är en typ av princip objekt som innehåller 
 | --- | --- | --- | --- | --- | --- |
 | Livstid för åtkomsttoken |AccessTokenLifetime<sup>2</sup> |Åtkomsttoken, ID-token, SAML2-token |1 timme |10 minuter |1 dag |
 | Maximal inaktiv tid för uppdateringstoken |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
-| Högsta ålder för token för enkel uppdatering |MaxAgeSingleFactor |Uppdatera tokens (för alla användare) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
+| Högsta ålder för Single-Factor uppdaterad token |MaxAgeSingleFactor |Uppdatera tokens (för alla användare) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
 | Högsta ålder för Multi-Factor Refresh-token |MaxAgeMultiFactor |Uppdatera tokens (för alla användare) | 180 dagar |10 minuter |180 dagar<sup>1</sup> |
-| Högsta ålder för token för token för en session |MaxAgeSessionSingleFactor |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
+| Högsta ålder för Single-Factor sessionstoken |MaxAgeSessionSingleFactor |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
 | Högsta ålder för Multi-Factor session |MaxAgeSessionMultiFactor |Token för sessioner (beständiga och inte permanenta) | 180 dagar |10 minuter | 180 dagar<sup>1</sup> |
 
 * <sup>1</sup>365 dagar är den maximala explicita längden som kan anges för dessa attribut.
@@ -160,11 +160,11 @@ Ett exempel finns i [skapa en princip för webb inloggning](configure-token-life
 
 Den här principen tvingar användare som inte har varit aktiva på sin klient att autentiseras igen för att hämta en ny uppdateringstoken.
 
-Egenskapen för maximal inaktiv tid för uppdateringstoken måste anges till ett lägre värde än max åldern för token för en token och Multi-Factor Refresh-token.
+Egenskapen för maximal inaktiv tid för uppdateringstoken måste anges till ett lägre värde än max ålder för Single-Factor token och Multi-Factor Refresh-token.
 
 Ett exempel finns i [skapa en princip för en intern app som anropar ett webb-API](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
 
-### <a name="single-factor-refresh-token-max-age"></a>Högsta ålder för token för enkel uppdatering
+### <a name="single-factor-refresh-token-max-age"></a>Högsta ålder för Single-Factor uppdaterad token
 **Sträng:** MaxAgeSingleFactor
 
 **Påverkar:** Uppdatera token
@@ -182,11 +182,11 @@ Ett exempel finns i [skapa en princip för en intern app som anropar ett webb-AP
 
 **Sammanfattning:** Den här principen styr hur länge en användare kan använda en uppdateringstoken för att hämta ett nytt nyckel par för åtkomst/uppdatering efter att de senast autentiserades med hjälp av flera faktorer. När en användare autentiserar och tar emot en ny uppdateringstoken kan användaren använda det för att uppdatera token-flödet under den angivna tids perioden. (Detta är sant så länge den aktuella uppdateringstoken inte återkallas och inte används längre än den inaktiva tiden.) Då tvingas användarna att autentisera igen för att få en ny uppdateringstoken.
 
-Att minska den högsta åldern tvingar användare att autentisera sig oftare. Eftersom autentisering med en faktor anses vara mindre säker än Multi-Factor Authentication, rekommenderar vi att du ställer in den här egenskapen till ett värde som är lika med eller större än max ålders egenskapen för en token för en enskild faktor.
+Att minska den högsta åldern tvingar användare att autentisera sig oftare. Eftersom autentisering med en faktor anses vara mindre säker än Multi-Factor Authentication, rekommenderar vi att du ställer in den här egenskapen till ett värde som är lika med eller större än egenskapen Single-Factor Refresh token max ålder.
 
 Ett exempel finns i [skapa en princip för en intern app som anropar ett webb-API](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
 
-### <a name="single-factor-session-token-max-age"></a>Högsta ålder för token för token för en session
+### <a name="single-factor-session-token-max-age"></a>Högsta ålder för Single-Factor sessionstoken
 **Sträng:** MaxAgeSessionSingleFactor
 
 **Påverkar:** Token för sessioner (beständiga och inte permanenta)
@@ -204,7 +204,7 @@ Ett exempel finns i [skapa en princip för webb inloggning](configure-token-life
 
 **Sammanfattning:** Den här principen styr hur länge en användare kan använda en sessionstoken för att hämta ett nytt ID och sessionstoken efter den senaste gången de autentiserades genom att använda flera faktorer. När en användare autentiserar och tar emot en ny sessionstoken, kan användaren använda sessionens token-flöde under den angivna tids perioden. (Detta är sant så länge den aktuella sessionstoken inte har återkallats och har inte gått ut.) Efter den angivna tids perioden tvingas användaren att autentisera igen för att ta emot en ny sessionstoken.
 
-Att minska den högsta åldern tvingar användare att autentisera sig oftare. Eftersom autentisering med en faktor anses vara mindre säker än Multi-Factor Authentication, rekommenderar vi att du ställer in den här egenskapen till ett värde som är lika med eller större än den token för token för token med en token.
+Att minska den högsta åldern tvingar användare att autentisera sig oftare. Eftersom autentisering med en faktor anses vara mindre säker än Multi-Factor Authentication, rekommenderar vi att du ställer in den här egenskapen till ett värde som är lika med eller större Single-Factor än max ålders egenskapen för sessionstoken.
 
 ## <a name="cmdlet-reference"></a>Cmdlet-referens
 

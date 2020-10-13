@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b910e3b119167fb4c6de55289d92b9d538c8ddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fedefccf57364e690415542114030ba7ce12b49
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284565"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974099"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Vanliga frågor och svar om Azure Disk Encryption för virtuella Windows-datorer
 
@@ -140,5 +140,5 @@ Du kan ställa frågor eller lämna feedback på [sidan Microsoft Q&en fråga f�
 I det här dokumentet har du lärt dig mer om de vanligaste frågorna som rör Azure Disk Encryption. Mer information om den här tjänsten finns i följande artiklar:
 
 - [Översikt av Azure Disk Encryption](disk-encryption-overview.md)
-- [Använd disk kryptering i Azure Security Center](../../security-center/security-center-virtual-machine-protection.md)
+- [Använd disk kryptering i Azure Security Center](../../security-center/asset-inventory.md)
 - [Azure-datakryptering i vila](../../security/fundamentals/encryption-atrest.md)

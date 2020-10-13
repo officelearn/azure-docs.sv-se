@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: ec1e74c6a029ab0f8defc3ae783c9e974f387289
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a13f78b6aa4fc3cb6f6777c76bc762ec565624fc
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922981"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951323"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Konfigurera en anslutning från en Azure Kognitiv sökning-indexerare till SQL Server på en virtuell Azure-dator
 
@@ -63,7 +63,7 @@ Det är inte ovanligt att konfigurera NSG och motsvarande Azure-slutpunkt eller 
 Länkarna nedan innehåller instruktioner om NSG-konfiguration för distribution av virtuella datorer. Använd de här anvisningarna för att ACL en Azure Kognitiv sökning-slutpunkt baserat på dess IP-adress.
 
 > [!NOTE]
-> I bakgrunden, se [Vad är en nätverks säkerhets grupp?](../virtual-network/security-overview.md)
+> I bakgrunden, se [Vad är en nätverks säkerhets grupp?](../virtual-network/network-security-groups-overview.md)
 > 
 > 
 

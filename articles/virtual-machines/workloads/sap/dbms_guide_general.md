@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ac3a43776ee71716e618d7a1698aa1915d3d1b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c0158e4bdaff5400404b290e27837bfb3b95419
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331360"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974829"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -217,7 +217,7 @@ Följande rekommendationer antar dessa I/O-egenskaper för standard-DBMS:
 
 För standard lagring är möjliga cache-typer:
 
-* Inget
+* Ingen
 * Läs
 * Läsa/Skriva
 
@@ -225,7 +225,7 @@ Om du vill få konsekvent och deterministisk prestanda ställer du in cachelagri
 
 Följande cachealternativ finns för Azure Premium Storage:
 
-* Inget
+* Ingen
 * Läs
 * Läsa/skriva
 * Ingen + Skrivningsaccelerator, som endast gäller för virtuella datorer i Azure M-serien
@@ -273,7 +273,7 @@ Det finns andra metoder för redundans. Mer information finns i [Azure Storage r
 
 
 ## <a name="vm-node-resiliency"></a>Återhämtning av VM-nod
-Azure erbjuder flera olika service avtal för virtuella datorer. Mer information finns i den senaste versionen av [SLA för Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Eftersom DBMS-skiktet är kritiskt för att vara tillgängligt i ett SAP-system, måste du förstå tillgänglighets uppsättningar, Tillgänglighetszoner och underhålls händelser. Mer information om dessa begrepp finns i [Hantera tillgängligheten för virtuella Windows-datorer i Azure](../../windows/manage-availability.md) och [Hantera tillgängligheten för virtuella Linux-datorer i Azure](../../linux/manage-availability.md).
+Azure erbjuder flera olika service avtal för virtuella datorer. Mer information finns i den senaste versionen av [SLA för Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Eftersom DBMS-skiktet är kritiskt för att vara tillgängligt i ett SAP-system, måste du förstå tillgänglighets uppsättningar, Tillgänglighetszoner och underhålls händelser. Mer information om dessa begrepp finns i [Hantera tillgängligheten för virtuella Windows-datorer i Azure](../../manage-availability.md) och [Hantera tillgängligheten för virtuella Linux-datorer i Azure](../../manage-availability.md).
 
 Den minsta rekommendationen för scenarier med produktions-DBMS med en SAP-arbets belastning är att:
 
@@ -295,7 +295,7 @@ Dessa bästa metoder är resultatet av hundratals kund distributioner:
 - De virtuella nätverk som SAP-programmet har distribuerats till har inte åtkomst till Internet.
 - De virtuella databas datorerna körs i samma virtuella nätverk som program skiktet, separerade i ett annat undernät från SAP-program skiktet.
 - De virtuella datorerna i det virtuella nätverket har en statisk allokering av den privata IP-adressen. Mer information finns i [IP-diagramtyper och autentiseringsmetoder i Azure](../../../virtual-network/public-ip-addresses.md).
-- Begränsningar för routning till och från de virtuella DBMS-datorerna har *inte* ställts in med brand väggar som är installerade på lokala DBMS-datorer. I stället definieras trafik dirigeringen med [nätverks säkerhets grupper (NSG: er)](../../../virtual-network/security-overview.md).
+- Begränsningar för routning till och från de virtuella DBMS-datorerna har *inte* ställts in med brand väggar som är installerade på lokala DBMS-datorer. I stället definieras trafik dirigeringen med [nätverks säkerhets grupper (NSG: er)](../../../virtual-network/network-security-groups-overview.md).
 - Om du vill avgränsa och isolera trafik till den virtuella DBMS-datorn tilldelar du olika nätverkskort till den virtuella datorn. Varje nätverkskort får en annan IP-adress och varje nätverkskort tilldelas till ett annat virtuellt nätverks under nät. Varje undernät har olika NSG-regler. Isolering eller separering av nätverks trafik är ett mått för routning. Den används inte för att ange kvoter för nätverks data flöde.
 
 > [!NOTE]
@@ -304,7 +304,7 @@ Dessa bästa metoder är resultatet av hundratals kund distributioner:
 
 
 > [!WARNING]
-> Konfigurera [virtuella nätverks](https://azure.microsoft.com/solutions/network-appliances/) installationer i kommunikations vägen mellan SAP-programmet och DBMS-skiktet i ett SAP NetWeaver-, hybris-eller S/4HANA-baserat SAP-system stöds inte. Den här begränsningen är av funktions-och prestanda skäl. Kommunikations vägen mellan SAP-program lagret och DBMS-skiktet måste vara en direkt. Begränsningen omfattar inte [program säkerhets gruppen (grupperna) och NSG-regler](../../../virtual-network/security-overview.md) om de grupperna och NSG reglerna tillåter en direkt kommunikations väg. 
+> Konfigurera [virtuella nätverks](https://azure.microsoft.com/solutions/network-appliances/) installationer i kommunikations vägen mellan SAP-programmet och DBMS-skiktet i ett SAP NetWeaver-, hybris-eller S/4HANA-baserat SAP-system stöds inte. Den här begränsningen är av funktions-och prestanda skäl. Kommunikations vägen mellan SAP-program lagret och DBMS-skiktet måste vara en direkt. Begränsningen omfattar inte [program säkerhets gruppen (grupperna) och NSG-regler](../../../virtual-network/network-security-groups-overview.md) om de grupperna och NSG reglerna tillåter en direkt kommunikations väg. 
 >
 > Andra scenarier där virtuella nätverks enheter inte stöds finns i:
 >
@@ -333,7 +333,7 @@ Om det finns en redundansväxling av Database-noden behöver du inte konfigurera
 
 Azure erbjuder två olika [SKU: er för belastnings utjämning](../../../load-balancer/load-balancer-overview.md): en grundläggande SKU och en standard-SKU. Baserat på fördelarna med installationen och funktionen bör du använda standard-SKU: n för Azure Load Balancer. En av de stora fördelarna med den vanliga versionen av belastningsutjämnaren är att data trafiken inte dirigeras via själva belastningsutjämnaren.
 
-Ett exempel på hur du kan konfigurera en intern belastningsutjämnare finns i artikeln [Självstudier: Konfigurera en SQL Server tillgänglighets grupp på Azure Virtual Machines manuellt](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial#create-an-azure-load-balancer)
+Ett exempel på hur du kan konfigurera en intern belastningsutjämnare finns i artikeln [Självstudier: Konfigurera en SQL Server tillgänglighets grupp på Azure Virtual Machines manuellt](../../../azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial.md#create-an-azure-load-balancer)
 
 > [!NOTE]
 > Det finns skillnader i funktions sättet för Basic-och standard-SKU: n som är relaterade till åtkomsten till offentliga IP-adresser. Hur du kringgår begränsningarna för standard-SKU: n för att komma åt offentliga IP-adresser beskrivs i dokumentets [offentliga slut punkts anslutning för Virtual Machines med Azure standard Load Balancer i SAP-scenarier med hög tillgänglighet](./high-availability-guide-standard-load-balancer-outbound-connections.md)

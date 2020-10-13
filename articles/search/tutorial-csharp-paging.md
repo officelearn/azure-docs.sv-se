@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8dfc69bf251a811363426a3aeca7379d18458b47
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: a08756a1e3153aa69bd0e79dc23e88d4bf211e5d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667239"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950694"
 ---
 # <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Självstudie: Lägg till sid indelning i Sök resultat med hjälp av .NET SDK
 
@@ -35,7 +35,7 @@ Färdiga versioner av koden som du kommer att utveckla i den här självstudien 
 
 * [2b-Lägg till oändlig rullning (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/2b-add-infinite-scroll)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [1 – Basic-search-Page-projekt (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/1-basic-search-page) . Projektet kan antingen vara din egen version som skapats från den föregående själv studie kursen eller en kopia från GitHub.
 
@@ -304,7 +304,7 @@ Ha den grundläggande Sök sid lösningen öppen.
     }
     ```
 
-1. Metoden **RunQueryAsync** , som introducerades i föregående lektion, behöver ändras för att lösa syntaxfel. Vi använder fälten **hoppa över**, **storlek**och **IncludeTotalCount** i [**SearchOptions**](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchoptions) -klassen för att begära endast en sida med resultat, med början vid **Skip** -inställningen. Vi måste också beräkna växlings variablerna för vår vy. Ersätt hela metoden med följande kod.
+1. Metoden **RunQueryAsync** , som introducerades i föregående lektion, behöver ändras för att lösa syntaxfel. Vi använder fälten **hoppa över**, **storlek**och **IncludeTotalCount** i [**SearchOptions**](/dotnet/api/azure.search.documents.searchoptions) -klassen för att begära endast en sida med resultat, med början vid **Skip** -inställningen. Vi måste också beräkna växlings variablerna för vår vy. Ersätt hela metoden med följande kod.
 
     ```csharp
     private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage)

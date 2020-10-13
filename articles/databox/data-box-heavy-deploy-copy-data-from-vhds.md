@@ -9,18 +9,18 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 01031159d1894c7cb5f36b48f268186dff21fd22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 755d0077abcba71d705a14643f5c2b28001bfa13
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77471337"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951442"
 ---
 # <a name="tutorial-use-data-box-heavy-to-import-data-as-managed-disks-in-azure"></a>Självstudie: Använd Data Box Heavy för att importera data som Managed disks i Azure
 
 I den här självstudien beskrivs hur du använder Azure Data Box Heavy för att migrera lokala virtuella hård diskar till hanterade diskar i Azure. Virtuella hård diskar från lokala virtuella datorer kopieras till Data Box Heavy som Page blobbar och överförs till Azure som hanterade diskar. Dessa hanterade diskar kan sedan anslutas till virtuella Azure-datorer.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Gå igenom förhandskraven
@@ -75,11 +75,11 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
     > [!NOTE]
     > Autentiseringsuppgifterna för alla resurser för hanterade diskar är identiska.
 
-    ![Hämta resursautentiseringsuppgifter 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
+    ![Hämta resursautentiseringsuppgifter](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
 2. I dialog rutan åtkomst resurs och kopiera data kopierar du **användar namnet** och **lösen ordet** för resursen. Klicka på **OK**.
     
-    ![Hämta resursautentiseringsuppgifter 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
+    ![Hämta resursautentiseringsuppgifter 2](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
 
 3. Öppna ett kommando fönster för att få åtkomst till de resurser som är associerade med din resurs (*mydbmdrg1* i följande exempel) från värddatorn. Skriv följande i kommandotolken:
 
@@ -101,7 +101,7 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
 
 4. Tryck på Windows + R. I fönstret **Kör** anger du `\\<device IP address>\<ShareName>`. Öppna Utforskaren genom att klicka på **OK**.
     
-    ![Ansluta till resursen via Utforskaren 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
+    ![Ansluta till resurs via Utforskaren](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
     Nu bör du se följande förskapade mappar i varje resurs.
     
@@ -114,7 +114,7 @@ Om du använder en Linux-värddator utför du följande steg för att konfigurer
 
 1. Ange IP-adresserna för de tillåtna klienterna som har åtkomst till resursen. I det lokala webbgränssnittet går du till sidan **Anslut och kopiera**. Under **NFS-inställningar** klickar du på **NFS-klientåtkomst**.
 
-    ![Konfigurera NFS-klientåtkomst 1](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
+    ![Konfigurera åtkomst till NFS-klienter](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 
 2. Ange NFS-klientens IP-adress och klicka på **Add**. Du kan konfigurera åtkomst för flera NFS genom att upprepa det här steget. Klicka på **OK**.
 

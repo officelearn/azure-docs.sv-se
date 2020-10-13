@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: b8d16b4e112c9aebe86c60dc01d380d591fc7624
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743530"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Kom igång med autoskalning i Azure
@@ -127,7 +127,7 @@ Hälso kontroll Sök vägen bör kontrol lera de kritiska komponenterna i ditt p
 
 #### <a name="security"></a>Säkerhet 
 
-Utvecklings grupper i stora företag måste ofta följa säkerhets kraven för de exponerade API: erna. För att skydda Healthcheck-slutpunkten bör du först använda funktioner som [IP-begränsningar](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), [klient certifikat](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)eller en Virtual Network för att begränsa åtkomsten till programmet. Du kan skydda själva Healthcheck-slutpunkten genom att kräva att den `User-Agent` inkommande begäran matchar `ReadyForRequest/1.0` . Användar agenten kan inte ha förfalskning eftersom begäran redan skyddats av de tidigare säkerhetsfunktionerna.
+Utvecklings grupper i stora företag måste ofta följa säkerhets kraven för de exponerade API: erna. För att skydda Healthcheck-slutpunkten bör du först använda funktioner som [IP-begränsningar](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), [klient certifikat](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)eller en Virtual Network för att begränsa åtkomsten till programmet. Du kan skydda själva Healthcheck-slutpunkten genom att kräva att den `User-Agent` inkommande begäran matchar `ReadyForRequest/1.0` . User-Agent kan inte manipuleras eftersom begäran redan var skyddad av de tidigare säkerhetsfunktionerna.
 
 ### <a name="behavior"></a>Beteende
 

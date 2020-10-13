@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 78743c5f045f2544cafe88414ed996d08bacd2a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 231ce9d946a2fb6650f25d90aaa423d1c95fb106
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631122"
+ms.locfileid: "91930721"
 ---
 # <a name="tutorial-mock-api-responses"></a>Självstudie: blå API-svar
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 :::image type="content" source="media/mock-api-responses/mock-api-responses01.png" alt-text="Interagerat API-svar":::
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Förstå [begreppet principer i Azure API Management](api-management-howto-policies.md).
@@ -63,7 +63,7 @@ Ett API visar en eller flera åtgärder. I det här avsnittet lägger du till en
 1. Välj **+ Lägg till åtgärd**.
 1. Ange följande värden i fönstret **klient** del.
 
-     | Inställningen             | Värde                             | Beskrivning                                                                                                                                                                                   |
+     | Inställning             | Värde                             | Beskrivning                                                                                                                                                                                   |
     |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Visningsnamn**    | *Testanrop*                       | Namnet som visas i [Developer-portalen](api-management-howto-developer-portal.md).                                                                                                                                       |
     | **URL** (HTTP-verb) | GET                               | Välj en av de fördefinierade HTTP-verben.                                                                                                                                         |
@@ -107,7 +107,7 @@ Ett API visar en eller flera åtgärder. I det här avsnittet lägger du till en
 1. Välj **Spara**.
 
     > [!TIP]
-    > Ett gult fält med texts **skisser är aktiverat** för ditt API anger att svar som returneras från API Management skicka en skissad princip och inte ett faktiskt Server dels svar.
+    > Ett gult fält med text **modelleringen är aktiverat** för ditt API anger att svar som returneras från API Management är nedlagda av den [skissade principen](api-management-advanced-policies.md#mock-response) och inte produceras av Server delen.
 
 ## <a name="test-the-mocked-api"></a>Testa det simulerade API:et
 

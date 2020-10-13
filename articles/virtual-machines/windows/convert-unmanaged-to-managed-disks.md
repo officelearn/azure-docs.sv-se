@@ -7,16 +7,16 @@ ms.subservice: disks
 ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: cf601c7f7429d4676ec480ddc016158150da8ce5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2168b3e3c55eaf06b93358f4623b181f134b4f9e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815207"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974202"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konvertera en virtuell Windows-dator från ohanterade till hanterade diskar
 
-Om du har befintliga virtuella Windows-datorer som använder ohanterade diskar kan du konvertera de virtuella datorerna så att de använder hanterade diskar via [Azure Managed disks](managed-disks-overview.md) -tjänsten. Den här processen konverterar både OS-disken och anslutna data diskar.
+Om du har befintliga virtuella Windows-datorer som använder ohanterade diskar kan du konvertera de virtuella datorerna så att de använder hanterade diskar via [Azure Managed disks](../managed-disks-overview.md) -tjänsten. Den här processen konverterar både OS-disken och anslutna data diskar.
 
  
 

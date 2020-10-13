@@ -7,18 +7,18 @@ ms.service: expressroute
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: dbb28726d1c2eaf887ced818284d4b1e0298f8db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e25ebd181d0017885a24310e3dac3ff30a59a21e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767803"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973367"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>Snabb start: skapa och ändra en ExpressRoute-krets
 
 Den här snabb starten visar hur du skapar en ExpressRoute-krets med hjälp av Azure Portal och Azure Resource Manager distributions modell. Du kan också kontrol lera status, uppdatera, ta bort eller avetablera en krets.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Granska [nödvändiga komponenter](expressroute-prerequisites.md) och [arbets flöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
@@ -170,7 +170,7 @@ Om etablerings statusen för ExpressRoute-kretsen **etableras** eller **etablera
 >* Om tjänst leverantören har avetablerat kretsen (etablerings statusen för tjänst leverantören är inställd på **inte etablerad**) kan du ta bort kretsen. Därmed avbryts faktureringen för kretsen.
 
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Rensa resurser
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Du kan ta bort ExpressRoute-kretsen genom att välja ikonen **ta bort** . 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: a46c0d4df4d9a25b249ef552558700f4f776dc47
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ce0858f61ca1fe3b81c3d0c8a3c97954827def80
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946410"
+ms.locfileid: "91950626"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Aktivera Security Center för alla prenumerationer i en hanterings grupp
 
@@ -54,7 +54,7 @@ Det finns flera olika sätt du kan välja att ändra Azure Policy definition:
     Den angivna definitionen definierar *någon* av pris inställningarna nedan som kompatibel. Innebär att en prenumeration som är "standard" eller "Free" är kompatibel.
 
     > [!TIP]
-    > Standard syftar på när en Azure Defender-plan är aktive rad, så beskrivs den som i inställningen "standard". När den är inaktive rad är den "ledig".
+    > När en Azure Defender-plan är aktive rad beskrivs den som i "standard"-inställningen. När den är inaktive rad är den "ledig". [Läs mer om Azure Defender-planer](security-center-pricing.md).
 
     ```
     "existenceCondition": {

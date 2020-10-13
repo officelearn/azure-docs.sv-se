@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2af4f2e2148c96a6059836f861cf56d4a4ac005b
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 61c8468400898655b6501b7a8fada607b77b1466
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766181"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931503"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
 
@@ -29,7 +29,7 @@ API: er för kontroll plan är [arm](https://docs.microsoft.com/azure/azure-reso
 Den mest aktuella API-versionen för kontroll plan för den offentliga för hands versionen är _**2020-03-01 – för hands**_ version.
 
 Använda API: er för kontroll plan:
-* Du kan anropa API: erna direkt genom att referera till den senaste [Swagger-mappen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Den här lagrings platsen innehåller också en mapp med exempel som visar användningen.
+* Du kan anropa API: erna direkt genom att referera till de senaste Swagger i [mappen Control plan Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Den här lagrings platsen innehåller också en mapp med exempel som visar användningen.
 * Du kan för närvarande komma åt SDK: er för kontroll-API: er i...
   - [.Net (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) ([källa](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([referens [genereras automatiskt]](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview&preserve-view=true))
   - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([källa](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)) ([referens [automatiskt genererad]](https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview&preserve-view=true))
@@ -51,7 +51,7 @@ Den mest aktuella data planet API-versionen för den offentliga för hands versi
 
 Använda data Plans-API: er:
 * Du kan anropa API: erna direkt, efter...
-   - refererar till den senaste [Swagger-mappen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). Den här lagrings platsen innehåller också en mapp med exempel som visar användningen. 
+   - referera till de senaste Swagger i [mappen dataplan Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). Den här lagrings platsen innehåller också en mapp med exempel som visar användningen. 
    - Visa [API Reference-dokumentationen](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
 * Du kan använda **.net (C#)** SDK. För att använda .NET SDK...
    - Du kan visa och lägga till paketet från NuGet: [Azure. DigitalTwins. Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 

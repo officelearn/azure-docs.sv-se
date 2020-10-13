@@ -1,5 +1,5 @@
 ---
-title: Kryptering på klient sidan med Java för Microsoft Azure Storage | Microsoft Docs
+title: Client-Side kryptering med Java för Microsoft Azure Storage | Microsoft Docs
 description: Azure Storage klient bibliotek för Java stöder kryptering på klient sidan och integration med Azure Key Vault för maximal säkerhet för dina Azure Storage program.
 services: storage
 author: tamram
@@ -12,13 +12,13 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-java
 ms.openlocfilehash: fafce52f9d760fac0d5c3f0ea1be2480547c5d4d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91817518"
 ---
-# <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Kryptering på klient sidan och Azure Key Vault med Java för Microsoft Azure Storage
+# <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Client-Side kryptering och Azure Key Vault med Java för Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Översikt

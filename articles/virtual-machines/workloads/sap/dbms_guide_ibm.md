@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2be5daf5bcad0f5b4530ba7a76986dae4833aa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e401fb35e6524e8a32cbe09bf5b9c7feafbf5da
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331275"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974744"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>DBMS-distribution för SAP-arbetsbelastning för IBM Db2 på virtuella Azure-datorer
 
@@ -55,9 +55,9 @@ Information om vilka SAP-produkter som stöds och Azure VM-typer finns i SAP NOT
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Konfigurations rikt linjer för IBM DB2 för Linux, UNIX och Windows för SAP-installationer i virtuella Azure-datorer
 ### <a name="storage-configuration"></a>Storage-konfiguration
-En översikt över Azure Storage-typer för SAP-arbetsbelastningar finns i artikeln [Azure Storage typer för SAP-arbets belastning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) alla databasfiler måste lagras på monterade diskar i Azure block Storage (Windows: NFFS, Linux: xfs, ext4 eller ext3). Alla typer av nätverks enheter eller fjär resurser som följande Azure-tjänster stöds **inte** för databasfiler: 
+En översikt över Azure Storage-typer för SAP-arbetsbelastningar finns i artikeln [Azure Storage typer för SAP-arbets belastning](./planning-guide-storage.md) alla databasfiler måste lagras på monterade diskar i Azure block Storage (Windows: NFFS, Linux: xfs, ext4 eller ext3). Alla typer av nätverks enheter eller fjär resurser som följande Azure-tjänster stöds **inte** för databasfiler: 
 
-* [Microsoft Azure fil tjänst](https://docs.microsoft.com/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
+* [Microsoft Azure fil tjänst](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
 * [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)
 

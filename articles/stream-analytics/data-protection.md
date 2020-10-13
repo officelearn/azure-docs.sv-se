@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.openlocfilehash: fa37c251e61b1f920edc55ead38f745439f2de92
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812870"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Data skydd i Azure Stream Analytics 
@@ -33,7 +33,7 @@ Azure Stream Analytics behåller följande metadata och data för att köra:
 
 För att hjälpa dig att uppfylla dina krav på efterlevnad i en reglerad bransch eller miljö kan du läsa mer om [Microsofts erbjudanden för efterlevnad](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
 
-## <a name="in-region-data-residency"></a>Placering för region data
+## <a name="in-region-data-residency"></a>In-Region data placering
 Azure Stream Analytics lagrar kund information och andra metadata som beskrivs ovan. Kund information lagras av Azure Stream Analytics i en enda region som standard, så den här tjänsten uppfyller automatiskt placering-kraven för regions data, inklusive de som anges i [säkerhets Center](https://azuredatacentermap.azurewebsites.net/).
 Dessutom kan du välja att lagra alla data till gångar (kund information och andra metadata) som är relaterade till ditt Stream Analytics-jobb i en enda region genom att kryptera dem i ett valfritt lagrings konto.
 

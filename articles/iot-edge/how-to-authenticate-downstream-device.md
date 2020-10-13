@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a9d2116062dc45f3602bf5ee0efba31ad815c0c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2f189adf198a7e04edd3900a1e6da134329857e
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447851"
+ms.locfileid: "91932149"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autentisera en underordnad enhet på Azure IoT Hub
 
@@ -59,7 +59,7 @@ Ange följande information när du skapar den nya enhets identiteten:
 
 * Välj **symmetrisk nyckel** som autentiseringstyp.
 
-* Du kan också välja att **Ange en överordnad enhet** och välja den IoT Edge gateway-enhet som den här underordnade enheten ska ansluta till. Det här steget är valfritt för autentisering med symmetrisk nyckel, men det rekommenderas eftersom inställning av en överordnad enhet möjliggör [Offline-kapacitet](offline-capabilities.md) för din underordnade enhet. Du kan alltid uppdatera enhets informationen för att lägga till eller ändra den överordnade senare.
+* Välj **Ange en överordnad enhet** och välj den IoT Edge gateway-enhet som den här underordnade enheten ska ansluta till. Det här steget aktiverar [offline-funktioner](offline-capabilities.md) för din underordnade enhet. Du kan alltid ändra överordnad senare.
 
    ![Skapa enhets-ID med symmetrisk nyckel-auth i portalen](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
@@ -201,7 +201,7 @@ Eller
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-Om du har upprättat en överordnad/underordnad-relation för den här underordnade enheten kan du förenkla anslutnings strängen genom att anropa gatewayen direkt som anslutnings värd. Överordnad/underordnad-relationer krävs för X. 509-autentisering men valfritt för symmetrisk nyckel autentisering. Exempel:
+Tack vare den överordnade/underordnade relationen kan du förenkla anslutnings strängen genom att anropa gatewayen direkt som anslutnings värd. Exempel:
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

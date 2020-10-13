@@ -274,181 +274,6 @@
           href: ../luis/luis-language-support.md
         - name: Stöd för regioner
           href: regions.md#intent-recognition
-- name: Konversationsscenarier
-  items:
-    - name: Dokumentation om konversationsscenarier
-      displayName: 'meeting, meetings, conversation, call center, transcription, multi-device conversation'
-      href: index-conversation-scenarios.yml
-    - name: Samtalstranskription
-      items:
-        - name: Översikt
-          items:
-            - name: Vad är samtalstranskription?
-              href: conversation-transcription.md
-        - name: Anvisningar
-          items:
-            - name: Hantera kundtjänstscenarier
-              displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
-              href: call-center-transcription.md
-            - name: Samtalstranskription i realtid
-              href: how-to-use-conversation-transcription.md
-            - name: Asynkron samtalstranskription
-              href: how-to-async-conversation-transcription.md
-        - name: Referens
-          items:
-            - name: Speech SDK
-              items:
-                - name: C++
-                  displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-                  href: 'https://aka.ms/csspeech/cppref'
-                - name: C#
-                  displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-                  href: 'https://aka.ms/csspeech/csharpref'
-                - name: Java
-                  displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-                  href: 'https://aka.ms/csspeech/javaref'
-                - name: JavaScript
-                  displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-                  href: 'https://aka.ms/csspeech/javascriptref'
-                - name: Objective-C
-                  displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-                  href: 'https://aka.ms/csspeech/objectivecref'
-                - name: Python
-                  displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-                  href: 'https://aka.ms/csspeech/pythonref'
-                - name: Viktig information
-                  displayName: 'release notes,updates,what''s new,what is new,changes'
-                  href: releasenotes.md
-            - name: 'REST API:er'
-              items:
-                - name: 'REST-API:er för samtalstranskription'
-                  href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
-    - name: Konversation med flera enheter
-      items:
-        - name: Översikt
-          items:
-            - name: Vad är konversation med flera enheter?
-              href: multi-device-conversation.md
-        - name: Snabbstart
-          items:
-            - name: Starta och delta i en konversation
-              href: quickstarts/multi-device-conversation.md
-        - name: Referens
-          items:
-            - name: Speech SDK
-              items:
-                - name: C++
-                  href: 'https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace'
-                - name: C#
-                  href: 'https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription'
-                - name: Java
-                  href: 'https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription'
-- name: Röstassistenter
-  items:
-    - name: Dokumentation om röstassistenter
-      href: index-voice-assistants.yml
-    - name: Översikt
-      items:
-        - name: Vad är röstassistent?
-          href: voice-assistants.md
-        - name: Röstassistentexempel (GitHub)
-          href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
-    - name: Anpassade kommandon
-      items:
-        - name: Vad är anpassade kommandon?
-          href: custom-commands.md
-        - name: Snabbstarter
-          items:
-            - name: Skapa en app för anpassade kommandon
-              href: quickstart-custom-commands-application.md
-        - name: Anvisningar
-          items:
-            - name: Utveckla
-              items:
-                - name: Skapa program med enkla kommandon
-                  href: how-to-custom-commands-create-application-with-simple-commands.md
-                - name: Lägga till parametrar till kommandon
-                  href: how-to-custom-commands-add-parameters-to-commands.md
-                - name: Lägga till konfigurationer i parametrar för kommandon
-                  href: how-to-custom-commands-add-parameter-configuration.md
-                - name: Lägga till interaktionsregler
-                  href: how-to-custom-commands-add-interaction-rules.md
-                - name: Lägga till mallar för att skapa språk för talsvar
-                  href: how-to-custom-commands-add-language-generation-templates.md
-                - name: Använda anpassad röst
-                  href: how-to-custom-commands-use-custom-voice.md
-            - name: Integrera
-              items:
-                - name: Integrera med en klientapp med hjälp av Speech SDK
-                  href: how-to-custom-commands-setup-speech-sdk.md
-                - name: Skicka aktivitet till klientprogram
-                  href: how-to-custom-commands-send-activity-to-client.md
-                - name: Konfigurera webbslutpunkter
-                  href: how-to-custom-commands-setup-web-endpoints.md
-            - name: Distribuera
-              items:
-                - name: Kontinuerlig distribution med Azure DevOps
-                  href: how-to-custom-commands-deploy-cicd.md
-            - name: Testa
-              items:
-                - name: Testa din app för anpassade kommandon
-                  href: how-to-custom-commands-developer-flow-test.md
-            - name: Felsökning
-              items:
-                - name: Felsökningsfel vid redigering av appen
-                  href: how-to-custom-commands-debug-build-time.md
-                - name: Felsökningsfel vid körning av appen
-                  href: how-to-custom-commands-debug-runtime.md
-            - name: Referenser
-              items:
-                - name: Begrepp för anpassade kommandon
-                  href: custom-commands-references.md
-        - name: Resurser
-          items:
-            - name: Exempel på anpassade kommandon (GitHub)
-              href: 'https://aka.ms/speech/cc-samples'
-            - name: Röstassistentexempel (GitHub)
-              href: 'http://aka.ms/speech/va-samples'
-            - name: Vanliga frågor och svar om röstassistenter
-              href: faq-voice-assistants.md
-            - name: Speech SDK
-              href: speech-sdk.md
-            - name: Anpassade kommandon för kryptering av vilande data
-              href: custom-commands-encryption-of-data-at-rest.md
-    - name: Direct Line Speech
-      items:
-        - name: Vad är Direct Line Speech?
-          href: direct-line-speech.md
-        - name: Snabbstarter
-          items:
-            - name: Skapa en anpassad röstassistent
-              href: quickstarts/voice-assistants.md
-        - name: Självstudier
-          items:
-            - name: Röstaktivera din robot med Speech SDK
-              href: tutorial-voice-enable-your-bot-speech-sdk.md
-        - name: Resurser
-          items:
-            - name: Vanliga frågor och svar om röstassistenter
-              href: faq-voice-assistants.md
-    - name: Röstassistenter i Windows
-      items:
-        - name: Översikt över röstassistenter i Windows
-          href: windows-voice-assistants-overview.md
-        - name: Anvisningar
-          items:
-            - name: Börja utveckla din assistent med Windows
-              href: how-to-windows-voice-assistants-get-started.md
-            - name: Aktivera röstaktivering
-              href: windows-voice-assistants-implementation-guide.md
-        - name: Resurser
-          items:
-            - name: Sekretesskrav och -riktlinjer
-              href: windows-voice-assistants-automatic-enablement-guidelines.md
-            - name: Regelverk för assistentupplevelser
-              href: windows-voice-assistants-best-practices.md
-            - name: Exempel och vanliga frågor och svar
-              href: windows-voice-assistants-faq.md
 - name: Talarigenkänning
   items:
     - name: Översikt för talarigenkänning
@@ -465,6 +290,183 @@
       href: custom-keyword-overview.md
     - name: Grundläggande anpassade nyckelord
       href: custom-keyword-basics.md
+- name: Djupdykningsscenarier
+  items:
+    - name: Konversationsscenarier
+      items:
+        - name: Dokumentation om konversationsscenarier
+          displayName: 'meeting, meetings, conversation, call center, transcription, multi-device conversation'
+          href: index-conversation-scenarios.yml
+        - name: Samtalstranskription
+          items:
+            - name: Översikt
+              items:
+                - name: Vad är samtalstranskription?
+                  href: conversation-transcription.md
+            - name: Anvisningar
+              items:
+                - name: Hantera kundtjänstscenarier
+                  displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
+                  href: call-center-transcription.md
+                - name: Samtalstranskription i realtid
+                  href: how-to-use-conversation-transcription.md
+                - name: Asynkron samtalstranskription
+                  href: how-to-async-conversation-transcription.md
+            - name: Referens
+              items:
+                - name: Speech SDK
+                  items:
+                    - name: C++
+                      displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+                      href: 'https://aka.ms/csspeech/cppref'
+                    - name: C#
+                      displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+                      href: 'https://aka.ms/csspeech/csharpref'
+                    - name: Java
+                      displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+                      href: 'https://aka.ms/csspeech/javaref'
+                    - name: JavaScript
+                      displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
+                      href: 'https://aka.ms/csspeech/javascriptref'
+                    - name: Objective-C
+                      displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+                      href: 'https://aka.ms/csspeech/objectivecref'
+                    - name: Python
+                      displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+                      href: 'https://aka.ms/csspeech/pythonref'
+                    - name: Viktig information
+                      displayName: 'release notes,updates,what''s new,what is new,changes'
+                      href: releasenotes.md
+                - name: 'REST API:er'
+                  items:
+                    - name: 'REST-API:er för samtalstranskription'
+                      href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
+        - name: Konversation med flera enheter
+          items:
+            - name: Översikt
+              items:
+                - name: Vad är konversation med flera enheter?
+                  href: multi-device-conversation.md
+            - name: Snabbstart
+              items:
+                - name: Starta och delta i en konversation
+                  href: quickstarts/multi-device-conversation.md
+            - name: Referens
+              items:
+                - name: Speech SDK
+                  items:
+                    - name: C++
+                      href: 'https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace'
+                    - name: C#
+                      href: 'https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription'
+                    - name: Java
+                      href: 'https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription'
+    - name: Röstassistenter
+      items:
+        - name: Dokumentation om röstassistenter
+          href: index-voice-assistants.yml
+        - name: Översikt
+          items:
+            - name: Vad är röstassistent?
+              href: voice-assistants.md
+            - name: Röstassistentexempel (GitHub)
+              href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
+        - name: Anpassade kommandon
+          items:
+            - name: Vad är anpassade kommandon?
+              href: custom-commands.md
+            - name: Snabbstarter
+              items:
+                - name: Skapa en app för anpassade kommandon
+                  href: quickstart-custom-commands-application.md
+            - name: Anvisningar
+              items:
+                - name: Utveckla
+                  items:
+                    - name: Skapa program med enkla kommandon
+                      href: how-to-custom-commands-create-application-with-simple-commands.md
+                    - name: Lägga till parametrar till kommandon
+                      href: how-to-custom-commands-add-parameters-to-commands.md
+                    - name: Lägga till konfigurationer i parametrar för kommandon
+                      href: how-to-custom-commands-add-parameter-configuration.md
+                    - name: Lägga till interaktionsregler
+                      href: how-to-custom-commands-add-interaction-rules.md
+                    - name: Lägga till mallar för att skapa språk för talsvar
+                      href: how-to-custom-commands-add-language-generation-templates.md
+                    - name: Använda anpassad röst
+                      href: how-to-custom-commands-use-custom-voice.md
+                - name: Integrera
+                  items:
+                    - name: Integrera med en klientapp med hjälp av Speech SDK
+                      href: how-to-custom-commands-setup-speech-sdk.md
+                    - name: Skicka aktivitet till klientprogram
+                      href: how-to-custom-commands-send-activity-to-client.md
+                    - name: Konfigurera webbslutpunkter
+                      href: how-to-custom-commands-setup-web-endpoints.md
+                - name: Distribuera
+                  items:
+                    - name: Kontinuerlig distribution med Azure DevOps
+                      href: how-to-custom-commands-deploy-cicd.md
+                - name: Testa
+                  items:
+                    - name: Testa din app för anpassade kommandon
+                      href: how-to-custom-commands-developer-flow-test.md
+                - name: Felsökning
+                  items:
+                    - name: Felsökningsfel vid redigering av appen
+                      href: how-to-custom-commands-debug-build-time.md
+                    - name: Felsökningsfel vid körning av appen
+                      href: how-to-custom-commands-debug-runtime.md
+                - name: Referenser
+                  items:
+                    - name: Begrepp för anpassade kommandon
+                      href: custom-commands-references.md
+            - name: Resurser
+              items:
+                - name: Exempel på anpassade kommandon (GitHub)
+                  href: 'https://aka.ms/speech/cc-samples'
+                - name: Röstassistentexempel (GitHub)
+                  href: 'http://aka.ms/speech/va-samples'
+                - name: Vanliga frågor och svar om röstassistenter
+                  href: faq-voice-assistants.md
+                - name: Speech SDK
+                  href: speech-sdk.md
+                - name: Anpassade kommandon för kryptering av vilande data
+                  href: custom-commands-encryption-of-data-at-rest.md
+        - name: Direct Line Speech
+          items:
+            - name: Vad är Direct Line Speech?
+              href: direct-line-speech.md
+            - name: Snabbstarter
+              items:
+                - name: Skapa en anpassad röstassistent
+                  href: quickstarts/voice-assistants.md
+            - name: Självstudier
+              items:
+                - name: Röstaktivera din robot med Speech SDK
+                  href: tutorial-voice-enable-your-bot-speech-sdk.md
+            - name: Resurser
+              items:
+                - name: Vanliga frågor och svar om röstassistenter
+                  href: faq-voice-assistants.md
+        - name: Röstassistenter i Windows
+          items:
+            - name: Översikt över röstassistenter i Windows
+              href: windows-voice-assistants-overview.md
+            - name: Anvisningar
+              items:
+                - name: Börja utveckla din assistent med Windows
+                  href: how-to-windows-voice-assistants-get-started.md
+                - name: Aktivera röstaktivering
+                  href: windows-voice-assistants-implementation-guide.md
+            - name: Resurser
+              items:
+                - name: Sekretesskrav och -riktlinjer
+                  href: windows-voice-assistants-automatic-enablement-guidelines.md
+                - name: Regelverk för assistentupplevelser
+                  href: windows-voice-assistants-best-practices.md
+                - name: Exempel och vanliga frågor och svar
+                  href: windows-voice-assistants-faq.md
 - name: Verktyg
   items:
     - name: Speech SDK
@@ -489,6 +491,8 @@
               href: 'https://aka.ms/csspeech/objectivecref'
             - name: Python
               href: 'https://aka.ms/csspeech/pythonref'
+            - name: Go
+              href: 'https://github.com/microsoft/cognitive-services-speech-sdk-go'
     - name: Speech CLI
       displayName: SPX
       items:

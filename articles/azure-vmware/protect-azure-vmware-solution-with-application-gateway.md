@@ -3,12 +3,12 @@ title: Använd Azure Application Gateway för att skydda dina webbappar på Azur
 description: Konfigurera Azure Application Gateway för att på ett säkert sätt exponera dina webbappar som körs på Azure VMware-lösningen.
 ms.topic: how-to
 ms.date: 07/31/2020
-ms.openlocfilehash: ad7cd36d77da41d75ea9dcc18a51d0ffc5540d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b63b7348419500504cb45917d741cc17e2b8a622
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580568"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951459"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Använd Azure Application Gateway för att skydda dina webbappar på Azure VMware-lösningen
 
@@ -144,6 +144,6 @@ Du kan använda Azure Application Gateway för att konfigurera URL-sökvägar ba
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-10.png" alt-text="Skapa Application Gateway":::
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-Läs [dokumentationen om Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) för fler konfigurations exempel.
+Läs [dokumentationen om Azure Application Gateway](../application-gateway/index.yml) för fler konfigurations exempel.

@@ -1,18 +1,25 @@
 ---
 title: Migrera till Bridge to Kubernetes
 services: azure-dev-spaces
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 description: Beskriver de processer som Power Spaces för Azure dev
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänsten, behållare, bro till Kubernetes
-ms.openlocfilehash: b585ee20efb7b377a041152996ef41d8c59c539e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7f4f095a0306beffc0e224d7e813f7f02455da
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997173"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962861"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrera till Bridge to Kubernetes
+
+> [!IMPORTANT]
+> Azure dev Spaces kommer att dras tillbaka den 31 oktober 2023. Utvecklare bör flytta till att använda Bridge till Kubernetes, ett verktyg för klient utvecklare.
+>
+> Syftet med Azure dev Spaces var att det var en över gång utvecklare att utveckla på Kubernetes. En betydande kompromiss i tillvägagångs sättet med Azure dev Spaces gjorde extra bördan för utvecklare för att förstå Docker-och Kubernetes-konfigurationer samt Kubernetes-distributions koncept. Med tiden är det också uppenbart att metoden för Azure dev Spaces inte på ett effektivt sätt minskade hastigheten för inre loop-utveckling på Kubernetes. Brygga till Kubernetes minskar hastigheten på inre loop-utveckling och undviker onödig börda för utvecklare.
+>
+> Kärn uppdraget är oförändrat: skapa de bästa utvecklings upplevelserna för att utveckla, testa och felsöka mikrotjänst kod i samband med det större programmet.
 
 Bridge to Kubernetes ger ett lättare vikt alternativ till många av de utvecklings scenarier som fungerar med Azure dev Spaces. Bridge till Kubernetes är bara en upplevelse på klient sidan som använder tillägg i [Visual Studio][vs]   och [Visual Studio Code][vsc].  
 
@@ -39,25 +46,25 @@ Azure dev Spaces och Bridge till Kubernetes har liknande funktioner, men de skil
 | Azure Kubernetes Service | I 15 Azure-regioner | Alla AKS-tjänsteregion    |
 | **Säkerhet** |
 | Säkerhets åtkomst krävs i klustret  | AKS-kluster deltagare  | Kubernetes RBAC – distributions uppdatering   |
-| Säkerhets åtkomst krävs på din utvecklings dator  | E.t.  | Lokal administratör/sudo   |
+| Säkerhets åtkomst krävs på din utvecklings dator  | Saknas  | Lokal administratör/sudo   |
 | **Användbarhet** |
-| Oberoende av Kubernetes och Docker-artefakter  | Inga  | Ja   |
-| Automatisk återställning av ändringar, efter fel sökning  | Inga  | Ja   |
+| Oberoende av Kubernetes och Docker-artefakter  | Nej  | Ja   |
+| Automatisk återställning av ändringar, efter fel sökning  | Nej  | Ja   |
 | **Miljöer** |
 | Fungerar med Visual Studio 2019  | Ja  | Ja   |
 | Fungerar med Visual Studio Code  | Ja  | Ja   |
-| Fungerar med CLI  | Ja  | Inga   |
+| Fungerar med CLI  | Ja  | Nej   |
 | **Kompatibilitet för operativ system** |
 | Fungerar i Windows 10  | Ja  | Ja  |
 | Fungerar på Linux  | Ja  | Ja  |
 | Fungerar på macOS  | Ja  | Ja  |
-| **Funktioner** |
+| **Trådlösa** |
 | Isolering av utvecklare eller grupp utveckling  | Ja  | Ja  |
-| Skriv över miljövariabler selektivt  | Inga  | Ja  |
-| Skapa Dockerfile-och Helm-diagram  | Ja  | Inga  |
-| Beständig distribution av kod till Kubernetes  | Ja  | Inga  |
-| Fjärrfelsökning i en Kubernetes-Pod  | Ja  | Inga  |
-| Lokal fel sökning, ansluten till Kubernetes  | Inga  | Ja  |
+| Skriv över miljövariabler selektivt  | Nej  | Ja  |
+| Skapa Dockerfile-och Helm-diagram  | Ja  | Nej  |
+| Beständig distribution av kod till Kubernetes  | Ja  | Nej  |
+| Fjärrfelsökning i en Kubernetes-Pod  | Ja  | Nej  |
+| Lokal fel sökning, ansluten till Kubernetes  | Nej  | Ja  |
 | Felsöka flera tjänster samtidigt, på samma arbets Station  | Ja  | Ja  |
 
 ## <a name="kubernetes-inner-loop-development"></a>Kubernetes inre loop-utveckling

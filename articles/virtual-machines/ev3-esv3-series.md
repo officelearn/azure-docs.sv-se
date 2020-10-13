@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: lahugh
 ms.openlocfilehash: 698b95dc5b38e1d365a80878a5057dee357d81af
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91649583"
 ---
 # <a name="ev3-and-esv3-series"></a>Ev3- och Esv3-serien
@@ -24,7 +24,7 @@ Instanserna i Ev3-serien körs på Intel® Xeon® platina 8272CL (överlappande 
 
 Datadisklagring faktureras separat från virtuella datorer. Om du vill använda premiumlagringsdiskar använder du ESv3-storlekarna. Pris- och debiteringsmätarna för ESv3-storlekar är samma som för Ev3-serien.
 
-Ev3 för virtuella datorer i serien Intel® Hyper-Threading-teknik.
+Ev3 för virtuella datorer i-serien Intel® Hyper-Threading-teknik.
 
 [ACU](acu.md): 160-190<br>
 [Premium Storage](premium-storage-performance.md): stöds inte<br>
@@ -54,7 +54,7 @@ Ev3 för virtuella datorer i serien Intel® Hyper-Threading-teknik.
 
 Instanserna i Esv3-serien körs på Intel® Xeon® platina 8272CL (överlappande sjö), Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell), funktion Intel Turbo Boost Technology 2,0 och Använd Premium Storage. Esv3-seriens instanser är idealiska för minnes intensiva företags program.
 
-Esv3 för virtuella datorer i serien Intel® Hyper-Threading-teknik.
+Esv3 för virtuella datorer i-serien Intel® Hyper-Threading-teknik.
 
 [ACU](acu.md): 160-190<br>
 [Premium Storage](premium-storage-performance.md): stöds<br>

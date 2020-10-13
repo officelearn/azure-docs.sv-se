@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 6282e159a537eb3b9bf5d9a44c7498f3f1db0019
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 032f35fcf5ff661f5a0bfb59be191ffae93272a0
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88550732"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944518"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Självstudie: Azure Active Directory integrering med HappyFox
 
@@ -30,7 +30,7 @@ Integreringen av HappyFox med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med HappyFox behöver du följande:
 
@@ -132,19 +132,19 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ha
 
 2. Gå till **Hantera** och klicka fliken **Integreringar**.
 
-    ![Konfigurera enkel inloggning](./media/happyfox-tutorial/header.png) 
+    ![Skärm bild som visar sidan "hantera" med fliken "integrationer" vald.](./media/happyfox-tutorial/header.png) 
 
 3. På fliken Integreringar klickar du på **Konfigurera** under **SAML-integrering** för att öppna inställningarna för enkel inloggning.
 
-    ![Konfigurera enkel inloggning](./media/happyfox-tutorial/configure.png)
+    ![Skärm bild som visar inställningen "S A M L-integration" med åtgärden "Konfigurera" vald.](./media/happyfox-tutorial/configure.png)
 
 4. I avsnittet för SAML-konfiguration klistrar du in det värde för **inloggnings-URL** som du har kopierat från Azure-portalen i textrutan **SSO Target URL** (Mål-URL för enkel inloggning).
 
-    ![Konfigurera enkel inloggning](./media/happyfox-tutorial/targeturl.png)
+    ![Skärm bild som visar avsnittet "S A M L-konfiguration" med text rutan "S S O Target U R L" markerad.](./media/happyfox-tutorial/targeturl.png)
 
 5. Öppna det certifikat som laddats ned från Azure-portalen i Anteckningar och klistra in dess innehåll i avsnittet **IdP Signature** (IdP-signatur).
 
-    ![Konfigurera enkel inloggning](./media/happyfox-tutorial/cert.png)
+    ![Skärm bild som visar avsnittet "I d P-signaturen" markerat.](./media/happyfox-tutorial/cert.png)
 
 6. Klicka på knappen **Spara inställningar**.
 

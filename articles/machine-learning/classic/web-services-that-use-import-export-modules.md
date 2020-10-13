@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a963a9f10ee23c50f50e66191e92f0839c457d9c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362856"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Distribuera Azure Machine Learning Studio (klassiska) webb tjänster som använder moduler för data import och data export
@@ -118,7 +118,7 @@ Distribuera som en klassisk webb tjänst och skapa ett program för att använda
         }
     };
     ```
-10. Kör programmet.
+10. Kör appen.
 
 När körningen har slutförts läggs en ny tabell till i databasen som innehåller resultat resultaten.
 
@@ -151,5 +151,5 @@ Distribuera som en ny webb tjänst och skapa ett program för att använda den:
         }
     };
     ```
-10. Kör programmet.
+10. Kör appen.
 

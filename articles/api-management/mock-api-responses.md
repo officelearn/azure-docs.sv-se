@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
 ms.openlocfilehash: 78743c5f045f2544cafe88414ed996d08bacd2a0
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91631122"
 ---
 # <a name="tutorial-mock-api-responses"></a>Självstudie: blå API-svar
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 :::image type="content" source="media/mock-api-responses/mock-api-responses01.png" alt-text="Interagerat API-svar":::
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Förstå [begreppet principer i Azure API Management](api-management-howto-policies.md).
@@ -63,7 +63,7 @@ Ett API visar en eller flera åtgärder. I det här avsnittet lägger du till en
 1. Välj **+ Lägg till åtgärd**.
 1. Ange följande värden i fönstret **klient** del.
 
-     | Inställning             | Värde                             | Beskrivning                                                                                                                                                                                   |
+     | Inställningen             | Värde                             | Beskrivning                                                                                                                                                                                   |
     |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Visningsnamn**    | *Testanrop*                       | Namnet som visas i [Developer-portalen](api-management-howto-developer-portal.md).                                                                                                                                       |
     | **URL** (HTTP-verb) | GET                               | Välj en av de fördefinierade HTTP-verben.                                                                                                                                         |

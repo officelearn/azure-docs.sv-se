@@ -4,17 +4,17 @@ description: Lär dig hur IoT Edge runtime hanterar moduler, säkerhet, kommunik
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2019
+ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
-ms.openlocfilehash: 25493312854bbd495dce01f8f107b3e3320cb92c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cbfc374a5964983c43594fef5d97986e51c0d83
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016962"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971701"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Förstå Azure IoT Edge Runtime och dess arkitektur
 
@@ -71,7 +71,7 @@ Om du vill ta emot ett meddelande registrerar du ett återanrop som bearbetar me
    await client.SetInputMessageHandlerAsync("input1", messageProcessor, userContext);
    ```
 
-Mer information om klassen ModuleClient och dess kommunikations metoder finns i API-referensen för ditt prioriterade SDK-språk: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)eller [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
+Mer information om klassen ModuleClient och dess kommunikations metoder finns i API-referensen för ditt prioriterade SDK-språk: [C#](/dotnet/api/microsoft.azure.devices.client.moduleclient), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [python](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient), [Java](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)eller [Node.js](/javascript/api/azure-iot-device/moduleclient).
 
 Lösnings utvecklaren ansvarar för att ange regler som avgör hur IoT Edge Hub skickar meddelanden mellan moduler. Routningsregler definieras i molnet och flyttas ned till IoT Edge Hub i sin modul. Samma syntax för IoT Hub vägar används för att definiera vägar mellan moduler i Azure IoT Edge. Mer information finns i [Lär dig hur du distribuerar moduler och etablerar vägar i IoT Edge](module-composition.md).
 
@@ -124,6 +124,22 @@ IoT Edge agenten spelar en viktig roll i en IoT Edge enhets säkerhet. Den utfö
 
 Mer information om säkerhets ramverket Azure IoT Edge finns i [IoT Edge Security Manager](iot-edge-security-manager.md).
 
+## <a name="runtime-quality-telemetry"></a>Telemetri för körnings kvalitet
+
+IoT Edge samlar in anonymiserats telemetri från värd körning och systemmoduler för att förbättra produkt kvaliteten. Den här informationen kallas telemetri för körnings kvalitet (RQT). RQT skickas regelbundet som "enhet till molnet"-meddelanden till IoT Hub från IoT Edge-agenten. RQT-meddelanden visas inte i kundens vanliga telemetri och använder inte någon meddelande kvot.
+
+En fullständig lista över de mått som samlas in av edgeAgent och edgeHub finns i [avsnittet tillgängliga mått i artikeln åtkomst IoT Edge körnings statistik](how-to-access-built-in-metrics.md#available-metrics). En delmängd av dessa mått samlas in av den IoT Edge agenten som en del av RQT. Mått som samlas in som en del av RQT inkluderar taggen `ms_telemetry` .
+
+Som en del av anonymisering tas all personlig eller organisations identifierbar information, till exempel enhets-och Modulnamn, bort före uppladdning.
+
+Standard frekvensen RQT är ett meddelande som skickas till IoT Hub var 24: e timme och lokal samling med edgeAgent varje timme.
+
+Om du vill välja bort från RQT kan du göra det på två sätt:
+
+* Ange `SendRuntimeQualityTelemetry` miljövariabeln till `false` för **edgeAgent**, eller
+* Avmarkera alternativet i Azure Portal under distributionen.
+
 ## <a name="next-steps"></a>Nästa steg
 
-[Förstå Azure IoT Edge-moduler](iot-edge-modules.md)
+* [Förstå Azure IoT Edge-moduler](iot-edge-modules.md)
+* [Lär dig mer om IoT Edge körnings mått](how-to-access-built-in-metrics.md)

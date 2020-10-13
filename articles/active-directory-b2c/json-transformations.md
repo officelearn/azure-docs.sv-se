@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37df1a052a58271c239b8b3bcaa4808ab7c355f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 676b6abb28abf58287bfc9036ca907ae6a1ee192
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85204378"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961297"
 ---
 # <a name="json-claims-transformations"></a>JSON-anspråk omvandlingar
 
@@ -28,11 +28,13 @@ Den här artikeln innehåller exempel på hur du använder JSON-anspråks omvand
 
 Använd antingen anspråks värden eller konstanter för att generera en JSON-sträng. Sök vägs strängen följande punkt notation används för att ange var data ska infogas i en JSON-sträng. Efter delning med punkter tolkas alla heltal som index för en JSON-matris och icke-heltal tolkas som index för ett JSON-objekt.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | Valfri sträng efter punkt notation | sträng | JsonPath för JSON där anspråks värde ska infogas i. |
 | InputParameter | Valfri sträng efter punkt notation | sträng | JsonPath för JSON där det konstanta strängvärdet ska infogas i. |
 | OutputClaim | outputClaim | sträng | Den genererade JSON-strängen. |
+
+### <a name="example-1"></a>Exempel 1
 
 I följande exempel genereras en JSON-sträng baserat på anspråks värdet "email" och "eng ång slö sen" samt konstanta strängar.
 
@@ -52,8 +54,6 @@ I följande exempel genereras en JSON-sträng baserat på anspråks värdet "ema
   </OutputClaims>
 </ClaimsTransformation>
 ```
-
-### <a name="example"></a>Exempel
 
 Följande anspråks omvandling matar ut ett JSON-sträng anspråk som kommer att bli bröd texten i begäran som skickas till SendGrid (en tredjeparts e-postprovider). JSON-objektets struktur definieras av ID: n i punkt notation för indataparametrarna och TransformationClaimTypes för InputClaims. Siffror i punkt notation innebär att matriser. Värdena hämtas från InputClaims-värdena och värdet för indataparametrar.
 
@@ -90,11 +90,61 @@ Följande anspråks omvandling matar ut ett JSON-sträng anspråk som kommer att
 }
 ```
 
+### <a name="example-2"></a>Exempel 2
+
+I följande exempel genereras en JSON-sträng baserat på anspråks värden och konstanta strängar.
+
+```xml
+<ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="customerEntity.email" />
+    <InputClaim ClaimTypeReferenceId="objectId" TransformationClaimType="customerEntity.userObjectId" />
+    <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="customerEntity.firstName" />
+    <InputClaim ClaimTypeReferenceId="surname" TransformationClaimType="customerEntity.lastName" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="customerEntity.role.name" DataType="string" Value="Administrator"/>
+    <InputParameter Id="customerEntity.role.id" DataType="long" Value="1"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="requestBody" TransformationClaimType="outputClaim"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+Följande anspråks omvandling matar ut ett JSON-sträng anspråk som kommer att vara bröd texten i begäran som skickas till en REST API. JSON-objektets struktur definieras av ID: n i punkt notation för indataparametrarna och TransformationClaimTypes för InputClaims. Siffror i punkt notation innebär att matriser. Värdena hämtas från InputClaims-värdena och värdet för indataparametrar.
+
+- Inmatade anspråk:
+  - **e-post**, omvandlings anspråks typ  **customerEntity. e-post**: " john.s@contoso.com "
+  - **ObjectID**, omvandlings anspråks typ **customerEntity. userObjectId** "01234567-89ab-cdef-0123-456789abcdef"
+  - **ObjectID**, omvandlings anspråks typ **customerEntity. FirstName** "John"
+  - **ObjectID**, omvandlings anspråks typ **customerEntity. LastName** "Svensson"
+- Indataparameter:
+  - **customerEntity.Role.name**: "administratör"
+  - **customerEntity.Role.ID** 1
+- Utgående anspråk:
+  - **requestBody**: JSON-värde
+
+```json
+{
+   "customerEntity":{
+      "email":"john.s@contoso.com",
+      "userObjectId":"01234567-89ab-cdef-0123-456789abcdef",
+      "firstName":"John",
+      "lastName":"Smith",
+      "role":{
+         "name":"Administrator",
+         "id": 1
+      }
+   }
+}
+```
+
 ## <a name="getclaimfromjson"></a>GetClaimFromJson
 
 Hämta ett angivet element från en JSON-data.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta objektet. |
 | InputParameter | claimToExtract | sträng | namnet på det JSON-element som ska extraheras. |
@@ -130,7 +180,7 @@ I följande exempel extraherade anspråks omvandlingen `emailAddress` elementet 
 
 Hämta en lista med angivna element från JSON-data.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | jsonSourceClaim | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta anspråk. |
 | InputParameter | errorOnMissingClaims | boolean | Anger om ett fel ska genereras om en av anspråken saknas. |
@@ -184,7 +234,7 @@ I följande exempel extraherar anspråks omvandlingen följande anspråk: email 
 
 Hämtar ett angivet numeriskt (långt) element från JSON-data.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta anspråket. |
 | InputParameter | claimToExtract | sträng | Namnet på det JSON-element som ska extraheras. |
@@ -227,7 +277,7 @@ I följande exempel extraherar anspråks omvandlingen `id` elementet från JSON-
 
 Hämtar det första elementet från en JSON-data.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta objektet från JSON-data. |
 | OutputClaim | key | sträng | Den första element nyckeln i JSON. |
@@ -260,7 +310,7 @@ I följande exempel extraherar anspråks omvandlingen det första elementet (til
 
 Hämtar det första elementet från en JSON-datamatris.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJsonClaim | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta objektet från JSON-matrisen. |
 | OutputClaim | extractedClaim | sträng | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats, det första elementet i JSON-matrisen. |
@@ -289,7 +339,7 @@ I följande exempel extraherar anspråks omvandlingen det första elementet (e-p
 
 Konverterar XML-data till JSON-format.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | xml | sträng | ClaimTypes som används av anspråks omvandlingen för att konvertera data från XML till JSON-format. |
 | OutputClaim | json | sträng | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats, data i JSON-format. |

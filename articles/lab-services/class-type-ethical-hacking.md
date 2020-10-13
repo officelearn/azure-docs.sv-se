@@ -4,10 +4,10 @@ description: Lär dig hur du konfigurerar ett labb med Azure Lab Services för a
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ae0d57223edb68d1bed4ad64a005dd33da019dd0
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91631689"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Konfigurera ett labb för att lära dig etiska hackning-klassen 
@@ -114,7 +114,7 @@ Rapid7 Metasploitable-avbildningen är en avbildning som har kon figurer ATS med
 Mallen har nu uppdaterats och innehåller bilder som behövs för en etisk hackning-inträngning test klass, en bild med verktyg för att göra inträngande testning och en annan bild med säkerhets problem som kan upptäckas. Nu kan du publicera mallfilen till-klassen. Klicka på knappen **publicera** på mallsida för att publicera mallen i labbet.
   
 
-## <a name="cost"></a>Cost  
+## <a name="cost"></a>Kostnad  
 Om du vill uppskatta kostnaden för det här labbet kan du använda följande exempel: 
  
 För en klass av 25 studenter med 20 timmar schemalagda klass tider och 10 timmars kvot för läxor eller tilldelningar, skulle priset för labbet vara: 

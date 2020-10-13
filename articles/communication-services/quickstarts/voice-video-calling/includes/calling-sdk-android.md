@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
 ms.openlocfilehash: bed2a4ccbe87aef9afa395ed789da393e885cc89
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779160"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - En distribuerad kommunikations tjänst resurs. [Skapa en kommunikations tjänst resurs](../../create-communication-resource.md).
@@ -141,7 +141,7 @@ call = callAgent.join(context, groupCallContext, joinCallOptions);
 ### <a name="overview"></a>Översikt
 Mobila push-meddelanden är de popup-meddelanden som visas på mobila enheter. För att anropa ska vi fokusera på VoIP (Voice-of-Internet Protocol) push-meddelanden. Vi registrerar dig för push-meddelanden, hanterar push-meddelanden och avregistrerar push-meddelanden.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra det här avsnittet skapar du ett Firebase-konto och aktiverar Cloud Messaging (FCM). Se till att Firebase Cloud Messaging är anslutet till en ANH-instans (Azure Notification Hub). Instruktioner finns i [ansluta Firebase till Azure](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) .
 Det här avsnittet förutsätter också att du använder Android Studio version 3,6 eller senare för att bygga ditt program.

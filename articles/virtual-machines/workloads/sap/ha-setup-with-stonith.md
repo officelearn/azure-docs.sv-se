@@ -14,10 +14,10 @@ ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0967c5e354c3b0e433753cf89d830dc2101741af
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91363128"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Konfigurera hög tillgänglighet i SUSE med hjälp av STONITH
@@ -75,7 +75,7 @@ Microsoft Service Management tillhandahåller den här strängen. Ändra filen p
 
 ![Skärm bild som visar en initiatorname-fil med InitiatorName-värden för en nod.](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
-1,2 ändra */etc/iSCSI/iscsid.conf*: ange *Node. session. Time. replacement_timeout = 5* och *Node. Startup = automatisk*. Ändra filen på **båda** noderna.
+1,2 ändra */etc/iSCSI/iscsid.conf*: ange *Node.session.Timeo.replacement_timeout = 5* och *Node. Startup = automatisk*. Ändra filen på **båda** noderna.
 
 1,3 kör identifierings kommandot. det visar fyra sessioner. Kör det på båda noderna.
 

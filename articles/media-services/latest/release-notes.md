@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: efdfc1c12191977c0422cda6c52eb9b73c95c55f
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91651198"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
@@ -94,7 +94,7 @@ Media Services GA'ed i följande Azure Government regioner: *USGov Arizona* och 
 
 ## <a name="december-2019"></a>December 2019
 
-Stöd för CDN-stöd har lagts till för *ursprungligt stöd för hämtnings* rubriker för både Live och video på begäran. tillgängligt för kunder som har direkt kontrakt med Akamai CDN. Ursprung – hjälp CDN-för hämtnings funktion omfattar följande HTTP-huvud utbyten mellan Akamai CDN och Azure Media Services ursprung:
+Stöd för CDN-stöd har lagts till för *ursprungligt stöd för hämtnings* rubriker för både Live och video på begäran. tillgängligt för kunder som har direkt kontrakt med Akamai CDN. Origin-Assist CDN-Prefetch-funktionen omfattar följande HTTP-huvud utbyten mellan Akamai CDN och Azure Media Services ursprung:
 
 |HTTP-huvud|Värden|Avsändare|Mottagare|Syfte|
 | ---- | ---- | ---- | ---- | ----- |
@@ -337,7 +337,7 @@ Det nya **Transform** -objektet fören klar kodnings modellen. Det nya objektet 
 
 #### <a name="azure-active-directory-authentication-and-rbac"></a>Azure Active Directory autentisering och RBAC
 
-Azure AD-autentisering och rollbaserad Access Control (RBAC) möjliggör säker transformering, LiveEvents, principer för innehålls nycklar eller till gångar efter roll eller användare i Azure AD.
+Azure AD-autentisering och Role-Based Access Control (RBAC) möjliggör säker transformering, LiveEvents, principer för innehålls nycklar eller till gångar efter roll eller användare i Azure AD.
 
 #### <a name="client-sdks"></a>Klient-SDK: er  
 

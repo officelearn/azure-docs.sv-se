@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
 ms.openlocfilehash: b8db69792b31fd82646757423e669e39e8539d06
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91630710"
 ---
 # <a name="networking"></a>Nätverk
@@ -62,7 +62,7 @@ Att skala ut infrastruktur krävs för att aktivera accelererat nätverk i ett b
 De grundläggande reglerna här är minst för en säkerhets låsning av ett Azure-hanterat Service Fabric-kluster. Om du inte öppnar följande portar eller godkänner IP/URL, förhindras att klustret fungerar korrekt och kanske inte stöds. Med den här regeln är det absolut nödvändigt att använda [automatiska uppgraderingar av operativ Systems avbildningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md), annars måste ytterligare portar öppnas.
 
 ### <a name="inbound"></a>Inbound (Inkommande) 
-|Prioritet   |Name               |Port        |Protokoll  |Källa             |Mål       |Action   
+|Prioritet   |Namn               |Port        |Protokoll  |Källa             |Mål       |Action   
 |---        |---                |---         |---       |---                |---               |---
 |3900       |Azure              |19080       |TCP       |Internet           |VirtualNetwork    |Tillåt
 |3910       |Client             |19000       |TCP       |Internet           |VirtualNetwork    |Tillåt
@@ -97,7 +97,7 @@ Mer information om inkommande säkerhets regler:
 
 ### <a name="outbound"></a>Outbound (Utgående)
 
-|Prioritet   |Name               |Port        |Protokoll  |Källa             |Mål       |Action   
+|Prioritet   |Namn               |Port        |Protokoll  |Källa             |Mål       |Action   
 |---        |---                |---         |---       |---                |---               |---
 |3900       |Nätverk            |Alla         |TCP       |VirtualNetwork     |VirtualNetwork    |Tillåt
 |3910       |Resurs leverantör  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Tillåt

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 13c15eeb98b13d0fe9a5b7797ec942209d403cc6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91447747"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Skapa och etablera en IoT Edge-enhet med X. 509-certifikat
@@ -28,7 +28,7 @@ Den här artikeln visar hur du skapar en registrering av enhets etablerings tjä
 
 Att använda X. 509-certifikat som en mekanism för attestering är ett utmärkt sätt att skala produktion och förenkla enhets etablering. Normalt är X. 509-certifikat ordnade i en certifikat kedja med förtroende. Från och med ett självsignerat eller betrott rot certifikat signerar varje certifikat i kedjan nästa lägre certifikat. Det här mönstret skapar en delegerad kedja av förtroende från rot certifikatet nedåt genom varje mellanliggande certifikat till det slutliga "löv"-certifikatet som är installerat på en enhet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En aktiv IoT Hub.
 * En fysisk eller virtuell enhet som IoT Edge enheten.
@@ -279,7 +279,7 @@ Mer detaljerad information om hur du installerar IoT Edge i Windows, inklusive k
    ```
 
    >[!TIP]
-   >Config. yaml-filen lagrar ditt certifikat och viktig information som fil-URI: er. Kommandot Initialize-IoTEdge hanterar dock detta steg åt dig, så att du kan ange den absoluta sökvägen till certifikatet och nyckelfilen på enheten.
+   >Config. yaml-filen lagrar ditt certifikat och viktig information som fil-URI: er. Men kommandot Initialize-IoTEdge hanterar den här formateringen för dig, så att du kan ange den absoluta sökvägen till certifikatet och nyckelfilen på enheten.
 
 ## <a name="verify-successful-installation"></a>Verifiera lyckad installation
 

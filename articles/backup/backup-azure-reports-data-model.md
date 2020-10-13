@@ -4,10 +4,10 @@ description: Den här data modellen refererar till det resursbaserade läget fö
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: c2c5d37596be104c4b1dc7e865586a4728a27bae
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569593"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Data modell för Azure Backup Diagnostics-händelser
@@ -77,14 +77,14 @@ Den här tabellen innehåller information om aviserings relaterade fält.
 | AlertOccurrenceDateTime        | DateTime      | Datum och tid då aviseringen skapades                     |
 | AlertRaisedOn                  | Text          | Typ av entitet som aviseringen utlöses på                        |
 | AlertSeverity                  | Text          | Aviseringens allvarlighets grad. Till exempel kritiskt                 |
-| Alert status                    | Text          | Aviseringens status. Till exempel Active                     |
-| AlertTimeToResolveInMinutes    | Tal        | Åtgången tid för att lösa en avisering. Tomt för aktiva aviseringar.     |
+| AlertStatus                    | Text          | Aviseringens status. Till exempel Active                     |
+| AlertTimeToResolveInMinutes    | Antal        | Åtgången tid för att lösa en avisering. Tomt för aktiva aviseringar.     |
 | AlertType                      | Text          | Typ av avisering. Till exempel säkerhets kopiering                           |
 | AlertUniqueId                  | Text          | Unik identifierare för den genererade aviseringen                    |
 | BackupItemUniqueId             | Text          | Unik identifierare för det säkerhets kopierings objekt som är associerat med aviseringen |
 | BackupManagementServerUniqueId | Text          | Fält för att unikt identifiera säkerhets kopierings hanterings servern som objektet skyddas med, om tillämpligt |
 | BackupManagementType           | Text          | Providertyp för server som utför säkerhets kopierings jobb, till exempel IaaSVM, FileFolder |
-| CountOfAlertsConsolidated      | Tal        | Antal aviseringar som konsol IDE ras om det är en konsol IDE rad avisering  |
+| CountOfAlertsConsolidated      | Antal        | Antal aviseringar som konsol IDE ras om det är en konsol IDE rad avisering  |
 | ProtectedContainerUniqueId     | Text          | Unik identifierare för den skyddade servern som är associerad med aviseringen |
 | RecommendedAction              | Text          | Åtgärd som rekommenderas för att lösa aviseringen                      |
 | Schema                  | Text          | Aktuell version av schemat, till exempel **v2**            |
@@ -125,8 +125,8 @@ Den här tabellen innehåller information om projektrelaterade fält.
 | BackupItemUniqueId             | Text          | Unikt ID som används för att identifiera det säkerhets kopierings objekt som är relaterat till lagrings enheten |
 | BackupManagementServerUniqueId | Text          | Unikt ID som används för att identifiera säkerhets kopierings hanterings servern som är relaterad till lagrings enheten |
 | BackupManagementType           | Text          | Typ av Provider för säkerhets kopiering, till exempel IaaSVM, FileFolder som jobbet tillhör |
-| DataTransferredInMB            | Tal        | Överförda data i MB för det här jobbet                          |
-| JobDurationInSecs              | Tal        | Total jobb varaktighet i sekunder                                |
+| DataTransferredInMB            | Antal        | Överförda data i MB för det här jobbet                          |
+| JobDurationInSecs              | Antal        | Total jobb varaktighet i sekunder                                |
 | JobFailureCode                 | Text          | Kod sträng för felkod på grund av vilket jobbfel som skett    |
 | JobOperation                   | Text          | Åtgärd för vilket jobb som körs, till exempel säkerhets kopiering, återställning, konfigurera säkerhets kopiering |
 | JobOperationSubType            | Text          | Undertyp för jobb åtgärden. Till exempel "log", i händelse av logg säkerhets kopierings jobb |
@@ -208,8 +208,8 @@ Den här tabellen innehåller information om Storage-relaterade fält.
 | ProtectedContainerUniqueId     | Text          | Unik identifierare för den skyddade behållare som är associerad med säkerhets kopierings objekt |
 | Schema                  | Text          | Schemats version. Till exempel **v2**                   |
 | Tillstånd                          | Text          | Status för objektet säkerhets objekt. Till exempel aktiv, borttagen |
-| StorageAllocatedInMBs          | Tal        | Storleken på det lagrings utrymme som allokerats av motsvarande säkerhets kopierings objekt i motsvarande lagring av typ disk |
-| StorageConsumedInMBs           | Tal        | Storlek på lagring som förbrukas av motsvarande säkerhets kopierings objekt i motsvarande lagrings utrymme |
+| StorageAllocatedInMBs          | Antal        | Storleken på det lagrings utrymme som allokerats av motsvarande säkerhets kopierings objekt i motsvarande lagring av typ disk |
+| StorageConsumedInMBs           | Antal        | Storlek på lagring som förbrukas av motsvarande säkerhets kopierings objekt i motsvarande lagrings utrymme |
 | StorageName                    | Text          | Namn på lagrings enhet. Till exempel E:\                      |
 | StorageTotalSizeInGBs          | Text          | Total lagrings utrymme, i GB, som används av lagrings enheten     |
 | StorageType                    | Text          | Typ av lagring, till exempel moln, volym, disk             |
@@ -236,7 +236,7 @@ Varje post i tabellen ovan har ett associerat **Åtgärds namn**. Ett åtgärds 
 | AddonAzureBackupStorage | Storage | Representerar en post som innehåller all information om en specifik lagrings enhet. Till exempel lagrings namn, typ osv. |
 | AddonAzureBackupStorage | StorageAssociation | Representerar en mappning mellan ett säkerhets kopierings objekt och den totala moln lagring som förbrukas av säkerhets kopierings objekt. |
 | AddonAzureBackupProtectedInstance | ProtectedInstance | Representerar en post som innehåller antalet skyddade instanser för varje behållare eller säkerhets kopierings objekt. För säkerhets kopiering av virtuella Azure-datorer är antalet skyddade instanser tillgängligt på säkerhets kopierings objekt nivå för andra arbets belastningar på den skyddade container nivån. |
-| AddonAzureBackupPolicy | Policy |  Representerar en post som innehåller all information om en säkerhets kopierings-och bevarande princip. Till exempel ID, namn, inställningar för kvarhållning osv. |
+| AddonAzureBackupPolicy | Princip |  Representerar en post som innehåller all information om en säkerhets kopierings-och bevarande princip. Till exempel ID, namn, inställningar för kvarhållning osv. |
 | AddonAzureBackupPolicy | PolicyAssociation | Representerar en mappning mellan ett säkerhets kopierings objekt och den säkerhets kopierings princip som tillämpas på den. |   
 
 Ofta måste du utföra kopplingar mellan olika tabeller och olika uppsättningar med poster som ingår i samma tabell (differentierade med åtgärds namn) för att hämta alla fält som krävs för din analys. Kom igång genom att läsa [exempel frågorna](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries) . 

@@ -12,10 +12,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6b54cff85da02415bbc9dfa9ead037ced48cb58f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259449"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en OAuth1 teknisk profil i en Azure Active Directory B2C anpassad princip
@@ -70,13 +70,13 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| client_id | Yes | Program identifieraren för identitets leverantören. |
-| ProviderName | No | Namnet på identitets leverantören. |
-| request_token_endpoint | Yes | URL: en för token för begäran som enligt RFC 5849. |
-| authorization_endpoint | Yes | URL: en för Authorization-slutpunkten enligt RFC 5849. |
-| access_token_endpoint | Yes | URL: en för token-slutpunkten enligt RFC 5849. |
-| ClaimsEndpoint | No | URL till användar informations slut punkten. |
-| ClaimsResponseFormat | No | Format för anspråk svar.|
+| client_id | Ja | Program identifieraren för identitets leverantören. |
+| ProviderName | Inga | Namnet på identitets leverantören. |
+| request_token_endpoint | Ja | URL: en för token för begäran som enligt RFC 5849. |
+| authorization_endpoint | Ja | URL: en för Authorization-slutpunkten enligt RFC 5849. |
+| access_token_endpoint | Ja | URL: en för token-slutpunkten enligt RFC 5849. |
+| ClaimsEndpoint | Inga | URL till användar informations slut punkten. |
+| ClaimsResponseFormat | Inga | Format för anspråk svar.|
 
 ## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 
@@ -84,7 +84,7 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| client_secret | Yes | Klient hemligheten för Identity Provider-programmet.   |
+| client_secret | Ja | Klient hemligheten för Identity Provider-programmet.   |
 
 ## <a name="redirect-uri"></a>Omdirigerings-URI
 

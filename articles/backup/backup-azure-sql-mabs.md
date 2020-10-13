@@ -4,10 +4,10 @@ description: I den här artikeln får du lära dig hur du säkerhetskopierar SQL
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.openlocfilehash: 29813741e88ad5f2bc5109be87939abf7cc11502
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316927"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Säkerhetskopiera SQL Server till Azure med Azure Backup Server
@@ -70,7 +70,7 @@ För att skydda SQL Server databaser i Azure måste du först skapa en princip f
 1. Ge skydds gruppen ett namn och välj sedan **Jag vill ha onlineskydd**.
 
     ![Välj en data skydds metod – kortvarigt disk skydd eller online Azure-skydd](./media/backup-azure-backup-sql/pg-name.png)
-1. På sidan **Ange kortsiktiga mål** inkluderar du nödvändiga indata för att skapa säkerhets kopierings punkter på disken.
+1. På sidan **ange Short-Term mål** inkluderar du nödvändiga indata för att skapa säkerhets kopierings punkter på disken.
 
     I det här exemplet är **kvarhållningsintervallet** inställt på *5 dagar*. **Frekvensen för synkronisering** av säkerhets kopiering är en gång var *15: e minut*. **Fullständig snabb säkerhets kopiering** har värdet *8:00 PM*.
 

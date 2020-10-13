@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76e94e3c1571f865b41acd488ee1e868043427b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f7a1b63864f0fbd945b97d6c2e285bfccbf934f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321954"
+ms.locfileid: "91874551"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Ett oväntat fel inträffade vid godkännande av ett program
 
@@ -79,10 +79,12 @@ Felen inträffar när programmet som en användare försöker godkänna för att
     -   Lägga till programmet från Azure AD-programgalleriet
 
 ## <a name="risky-app-error-and-warning"></a>Riskfylldt program fel och varning
+* **AADSTS900941:** Administratörs medgivande krävs. Appen anses vara riskfylld. (AdminConsentRequiredDueToRiskyApp)
 * Den här appen kan vara riskfylld. Om du litar på den här appen ber du administratören att ge dig åtkomst.
+* **AADSTS900981:** En begäran om administrativt medgivande togs emot för en riskfylld app. (AdminConsentRequestRiskyAppWarning)
 * Den här appen kan vara riskfylld. Fortsätt bara om du litar på den här appen.
 
-Båda dessa meddelanden visas när Microsoft har fastställt att medgivande förfrågan kan vara riskfylld. Bland ett antal andra faktorer kan detta inträffa om en [verifierad utgivare](../develop/publisher-verification-overview.md) inte har lagts till i appens registrering. Det första meddelandet visas för slutanvändare när [arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md) är inaktiverat. Det andra meddelandet visas för slutanvändare när arbets flödet för administratörs medgivande är aktiverat och administratörer. 
+Båda dessa meddelanden visas när Microsoft har fastställt att medgivande förfrågan kan vara riskfylld. Bland ett antal andra faktorer kan detta inträffa om en [verifierad utgivare](../develop/publisher-verification-overview.md) inte har lagts till i appens registrering. Den första felkoden och meddelandet visas för slutanvändarna när [arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md) är inaktiverat. Den andra koden och meddelandet visas för slutanvändarna när arbets flödet för administratörs medgivande är aktiverat och administratörer. 
 
 Slutanvändare kommer inte att kunna bevilja medgivande till appar som har identifierats som riskfyllda. Administratörer kan, men bör utvärdera appen mycket noggrant och fortsätta med försiktighet. Om appen verkar misstänkt vid ytterligare granskning kan den rapporteras till Microsoft från medgivande skärmen. 
 

@@ -12,10 +12,10 @@ ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
 ms.openlocfilehash: d90cc76da20861ae9eca7aaf59a49e5f3e866c92
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91444436"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Använd Azure Active Directory autentisering
@@ -155,7 +155,7 @@ Följande autentiseringsmetoder stöds för Azure AD server-Huvudkonton (inloggn
 - Vi rekommenderar att du ställer in tids gränsen för anslutningen på 30 sekunder.
 - SQL Server 2016 Management Studio och SQL Server Data Tools för Visual Studio 2015 (version 14.0.60311.1 april 2016 eller senare) stöder Azure Active Directory autentisering. (Azure AD-autentisering stöds av **.NET Framework Data Provider för SQLServer**; minst version .NET Framework 4,6). Därför kan de senaste versionerna av dessa verktyg och data skikts program (DAC och BACPAC) använda Azure AD-autentisering.
 - Från och med version 15.0.1, [SQLCMD-verktyget](/sql/tools/sqlcmd-utility) och BCP- [verktyget](/sql/tools/bcp-utility) stöds Active Directory interaktiv autentisering med Multi-Factor Authentication.
-- SQL Server Data Tools för Visual Studio 2015 kräver minst april 2016-versionen av data verktyg (version 14.0.60311.1). Azure AD-användare visas för närvarande inte i SSDT Object Explorer. Som en lösning kan du Visa användarna i [sys. database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+- SQL Server Data Tools för Visual Studio 2015 kräver minst april 2016-versionen av data verktyg (version 14.0.60311.1). Azure AD-användare visas för närvarande inte i SSDT Object Explorer. Som en lösning kan du Visa användare i [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 - [Microsoft JDBC-drivrutin 6,0 för SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) stöder Azure AD-autentisering. Se även [Ange anslutnings egenskaper](/sql/connect/jdbc/setting-the-connection-properties).
 - PolyBase kan inte autentiseras med Azure AD-autentisering.
 - Azure AD-autentisering stöds för Azure SQL Database och Azure-Synapse med hjälp av bladet Azure Portal **Importera databas** och **Exportera databas** . Import och export med Azure AD-autentisering stöds också från ett PowerShell-kommando.

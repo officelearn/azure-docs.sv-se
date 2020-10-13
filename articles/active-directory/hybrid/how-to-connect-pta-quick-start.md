@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0aefe95f3e78afc4b449539fd683ffc1fe525a15
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89280187"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory direktautentisering: snabb start
@@ -79,7 +79,7 @@ Se till att följande krav är uppfyllda.
 ### <a name="azure-government-cloud-prerequisite"></a>Förutsättning för Azure Government moln
 Innan du aktiverar direktautentisering genom Azure AD Connect med steg 2 laddar du ned den senaste versionen av PTA-agenten från Azure Portal.  Du måste se till att agenten är versions **1.5.1742.0.** eller senare.  För att verifiera agenten se [Upgrade Authentication agents](how-to-connect-pta-upgrade-preview-authentication-agents.md)
 
-När du har laddat ned den senaste versionen av agenten fortsätter du med anvisningarna nedan för att konfigurera direktautentisering genom att Azure AD Connect.
+När du har laddat ned den senaste versionen av agenten fortsätter du med anvisningarna nedan för att konfigurera Pass-Through autentisering via Azure AD Connect.
 
 ## <a name="step-2-enable-the-feature"></a>Steg 2: aktivera funktionen
 

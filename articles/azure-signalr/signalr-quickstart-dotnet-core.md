@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: 77ab19296d1e310e48cdf3609c9f109dc42f6ec1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b5fc15815c9843c55bf31efe31e12e2de02d3be3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91408315"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874024"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Snabb start: skapa ett chattrum med hjälp av signal tjänsten
 
@@ -112,11 +112,11 @@ I det här avsnittet ska du lägga till [verktyget Secret Manager](https://docs.
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddSignalR();
+        services.AddAzureSignalR();
     }
     ```
 
-    Genom att inte skicka en parameter till `AddSignalR()` använder den här koden standard konfigurations nyckeln för signal anslutningens tjänst resurs anslutnings sträng. Standard konfigurations nyckeln är *Azure: SignalR: ConnectionString*.
+    Genom att inte skicka en parameter till `AddAzureSignalR()` använder den här koden standard konfigurations nyckeln för signal anslutningens tjänst resurs anslutnings sträng. Standard konfigurations nyckeln är *Azure: SignalR: ConnectionString*.
 
 5. I *startup.cs*uppdaterar du `Configure` metoden genom att ersätta den med följande kod.
 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
 ms.openlocfilehash: 29f7f824d96aedd80e490ba84c390be4d9493683
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604248"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Självstudie: utvärdera virtuella VMware-datorer för migrering till AVS
@@ -29,7 +29,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du följer den här självstudien för att utvärdera datorerna för migrering till AVS, kontrollerar du att du har identifierat de datorer som du vill utvärdera:
 
@@ -44,8 +44,8 @@ Bestäm om du vill köra en utvärdering med storleks kriterier baserat på dato
 
 **Utvärdering** | **Information** | **Rekommendation**
 --- | --- | ---
-**Som lokal** | Utvärdera baserat på dator konfigurations data/metadata.  | Den rekommenderade nodtypen i AVS baseras på den lokala virtuella dator storleken, tillsammans med de inställningar som du anger i utvärderingen för inställningen nodtyp, lagrings typ och problem-till-tolerera.
-**Prestanda-baserade** | Utvärdera baserat på insamlade dynamiska prestanda data. | Rekommenderad nodadress i AVS baseras på processor-och minnes användnings data, tillsammans med de inställningar som du anger i utvärderingen för inställningen nodtyp, lagrings typ och typ av problem.
+**Som lokalt** | Utvärdera baserat på dator konfigurations data/metadata.  | Den rekommenderade nodtypen i AVS baseras på den lokala virtuella dator storleken, tillsammans med de inställningar som du anger i utvärderingen för inställningen nodtyp, lagrings typ och problem-till-tolerera.
+**Prestandabaserad** | Utvärdera baserat på insamlade dynamiska prestanda data. | Rekommenderad nodadress i AVS baseras på processor-och minnes användnings data, tillsammans med de inställningar som du anger i utvärderingen för inställningen nodtyp, lagrings typ och typ av problem.
 
 ## <a name="run-an-assessment"></a>Köra en utvärdering
 
@@ -101,7 +101,7 @@ Kör en utvärdering på följande sätt:
 
 11. Klicka på **Spara** om du gör ändringar.
 
-    ![Bedömnings egenskaper](./media/tutorial-assess-vmware-azure-vmware-solution/view-all.png)
+    ![Utvärderingsegenskaper](./media/tutorial-assess-vmware-azure-vmware-solution/view-all.png)
 
 12. I **utvärdera servrar**klickar du på **Nästa**.
 13. I **utvärdera servrar**  >  **väljer du datorer som ska utvärderas**för att skapa en ny grupp med servrar för utvärdering, Välj **Skapa ny**och ange ett grupp namn. 
@@ -125,7 +125,7 @@ En AVS-utvärdering beskriver:
 Så här visar du en utvärdering:
 
 1. I **servrar**  >  **Azure Migrate: Server bedömning**klickar du på siffran bredvid **utvärderingar**.
-2. I **utvärderingar**väljer du en utvärdering för att öppna den. 
+2. I **Utvärderingar** väljer du en utvärdering för att öppna den. 
 3. Granska utvärderings sammanfattningen. Du kan också redigera bedömnings egenskaperna eller beräkna om utvärderingen.
  
 

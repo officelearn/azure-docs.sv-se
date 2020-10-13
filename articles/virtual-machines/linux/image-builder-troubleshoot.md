@@ -7,12 +7,12 @@ ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: dd17057a56e8dfb269a22458b9aa20fefaab68bc
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.openlocfilehash: 7c937353c645ee5d977a52ec0f8e935eba19a940
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91661116"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969984"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Felsöka Azure Image Builder-tjänsten
 
@@ -209,7 +209,7 @@ Anpassningen. log innehåller följande steg:
     ```
 5. Avetablerings steg. Azure Image Builder lägger till en dold anpassning. Det här avetablerings steget ansvarar för att förbereda den virtuella datorn för inetablering. Den kör Windows Sysprep (med c:\DeprovisioningScript.ps1) eller i Linux waagent deetablering (med/tmp/DeprovisioningScript.sh). 
 
-    Exempel:
+    Till exempel:
     ```text
     PACKER ERR 2020/03/04 23:05:04 [INFO] (telemetry) Starting provisioner powershell
     PACKER ERR 2020/03/04 23:05:04 packer: 2020/03/04 23:05:04 Found command: if( TEST-PATH c:\DeprovisioningScript.ps1 ){cat c:\DeprovisioningScript.ps1} else {echo "Deprovisioning script [c:\DeprovisioningScript.ps1] could not be found. Image build may fail or the VM created from the Image may not boot. Please make sure the deprovisioning script is not accidentally deleted by a Customizer in the Template."}
@@ -247,7 +247,7 @@ Anpassnings problem.
 
 Granska loggen för att hitta de anpassade felen. Sök efter *(telemetri)*. 
 
-Exempel:
+Till exempel:
 ```text
 (telemetry) Starting provisioner windows-update
 (telemetry) ending windows-update
@@ -522,7 +522,7 @@ PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 230
 Tjänsten Image Builder använder port 22 (Linux) eller 5986 (Windows) för att ansluta till den virtuella build-datorn, detta inträffar när tjänsten är frånkopplad från den virtuella build-datorn under en avbildnings version. Orsaker till från koppling kan variera, men aktivering eller konfiguration av brand väggar i skript kan blockera portarna ovan.
 
 #### <a name="solution"></a>Lösning
-Granska skripten för brand Väggs ändringar/-aktivering eller ändringar av SSH eller WinRM och se till att alla ändringar tillåter konstant anslutning mellan tjänsten och skapa en virtuell dator på portarna ovan. Om du vill ha mer information om nätverk i Image Builder kontrollerar du [kraven](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking).
+Granska skripten för brand Väggs ändringar/-aktivering eller ändringar av SSH eller WinRM och se till att alla ändringar tillåter konstant anslutning mellan tjänsten och skapa en virtuell dator på portarna ovan. Om du vill ha mer information om nätverk i Image Builder kontrollerar du [kraven](./image-builder-networking.md).
 
 ## <a name="devops-task"></a>DevOps-uppgift 
 
@@ -547,7 +547,7 @@ Gå till lagrings kontot > blobbar > behållare > loggar.
 ### <a name="troubleshooting-successful-builds"></a>Felsöka lyckade versioner
 Det kanske finns fall där du behöver undersöka lyckade versioner och vill granska loggen. Om avbildningen har skapats, tas den tillfälliga resurs gruppen som innehåller loggarna bort som en del av rensningen. Men det du kan göra är att införa en ström spar läge efter det infogade kommandot och sedan hämta loggarna när versionen har pausats. Detta gör du genom att följa dessa steg:
  
-1. Uppdatera det infogade kommandot och Lägg till: Skriv-Host/ECHO vilo läge – Detta gör att du kan söka i loggen
+1. Uppdatera det infogade kommandot och Lägg till: Write-Host/ECHO "vila" – Detta gör att du kan söka i loggen
 2. Lägg till en ström spar läge för minst 10mins kan du använda kommandot [Start-sömn](/powershell/module/microsoft.powershell.utility/start-sleep)eller `Sleep` Linux.
 3. Använd metoden ovan för att identifiera logg platsen och fortsätt sedan att ladda ned/kontrol lera loggen tills den får ström spar läge.
 
@@ -586,7 +586,7 @@ Det kanske finns fall där du behöver undersöka lyckade versioner och vill gra
 
 Om versionen inte har avbrutits av en användare avbröts den av Azure DevOps user agent. Förmodligen har tids gränsen på 1 timme uppstått på grund av Azure DevOps-funktioner. Om du använder ett privat projekt och en agent får du 60 minuter för bygg tiden. Om versionen överskrider tids gränsen avbryter DevOps aktiviteten som körs.
 
-Mer information om funktioner och begränsningar för Azure DevOps finns i [Microsoft-värdbaserade agenter](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations)
+Mer information om funktioner och begränsningar för Azure DevOps finns i [Microsoft-värdbaserade agenter](/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations)
  
 #### <a name="solution"></a>Lösning
 
@@ -601,7 +601,7 @@ Please wait for the Windows Modules Installer
 ```
 
 #### <a name="solution"></a>Lösning
-I första hand i Image-versionen kontrollerar du att det inte finns några väntande omstarter som krävs genom att lägga till en Windows-startanpassare som den senaste anpassningen och att all program varu installation är klar. Slutligen lägger du till [/läge: alternativet för virtuell dator](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-command-line-options) till standard-Sysprep som AIB använder, se nedan. virtuella datorer som skapats från AIB-avbildningar skapar inte korrekt > åsidosätter kommandona  
+I första hand i Image-versionen kontrollerar du att det inte finns några väntande omstarter som krävs genom att lägga till en Windows-startanpassare som den senaste anpassningen och att all program varu installation är klar. Slutligen lägger du till [/läge: alternativet för virtuell dator](/windows-hardware/manufacture/desktop/sysprep-command-line-options) till standard-Sysprep som AIB använder, se nedan. virtuella datorer som skapats från AIB-avbildningar skapar inte korrekt > åsidosätter kommandona  
 
  
 ## <a name="vms-created-from-aib-images-do-not-create-successfully"></a>Det gick inte att skapa virtuella datorer som skapats från AIB-avbildningar

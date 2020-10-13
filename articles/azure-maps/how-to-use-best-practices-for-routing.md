@@ -8,27 +8,26 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1c108c79cafb591dced6f6be0dd5c1b353ddac45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13c7178b4a0866066dc74e409f8f4bfcd21a23f4
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90086410"
+ms.locfileid: "91874602"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Metod tips för Azure Maps Route service
 
 API: er för väg riktning och väg mat ris i Azure Maps [Route service](https://docs.microsoft.com/rest/api/maps/route) kan användas för att beräkna uppskattade ankomst tider (ETAs) för varje begärd väg. Väg-API: er kan se faktorer som information om trafik i real tid och historiska trafikdata, till exempel vanliga väg hastigheter på den begärda dagen i veckan och tid på dagen. API: erna returnerar de kortaste eller snabbaste vägarna som är tillgängliga för flera mål i taget i följd eller i optimerad ordning, baserat på tid eller avstånd. Användare kan också begära särskilda vägar och information för avvisare, cyklister och kommersiella bilar som Last bilar. I den här artikeln ska vi dela de bästa metoderna för att anropa Azure Maps [Route service](https://docs.microsoft.com/rest/api/maps/route)och du får lära dig att:
 
-> [!div class="checklist"]
-> * Välj mellan API: er för väg riktningar och mat ris Dirigerings-API: et
-> * Begära historiska och förväntade restider baserat på trafikdata i realtid och historiska trafikdata
-> * Begär flödes information, t. ex. tid och avstånd, för hela vägen och varje steg i vägen
-> * Begär routning för ett kommersiellt fordon, som en Last bil
-> * Begär trafik information längs en väg, t. ex. sylt och avgifts information
-> * Begär en väg som består av ett eller flera stopp (waypoints)
-> * Optimera en väg av ett eller flera stopp för att få den bästa ordningen för att besöka varje stopp (waypoint)
-> * Optimera alternativa vägar med hjälp av stöd punkter. Du kan till exempel erbjuda alternativa vägar som passerar en station med elektrisk fordons debitering.
-> * Använd [Route service](https://docs.microsoft.com/rest/api/maps/route) med Azure Maps webb-SDK
+ * Välj mellan API: er för väg riktningar och mat ris Dirigerings-API: et
+ * Begära historiska och förväntade restider baserat på trafikdata i realtid och historiska trafikdata
+ * Begär flödes information, t. ex. tid och avstånd, för hela vägen och varje steg i vägen
+ * Begär routning för ett kommersiellt fordon, som en Last bil
+ * Begär trafik information längs en väg, t. ex. sylt och avgifts information
+ * Begär en väg som består av ett eller flera stopp (waypoints)
+ * Optimera en väg av ett eller flera stopp för att få den bästa ordningen för att besöka varje stopp (waypoint)
+ * Optimera alternativa vägar med hjälp av stöd punkter. Du kan till exempel erbjuda alternativa vägar som passerar en station med elektrisk fordons debitering.
+ * Använd [Route service](https://docs.microsoft.com/rest/api/maps/route) med Azure Maps webb-SDK
 
 ## <a name="prerequisites"></a>Förutsättningar
 

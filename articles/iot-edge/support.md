@@ -8,12 +8,12 @@ ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 679fa4002f687f715ab1fe9701997d46e4b6f2cd
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 27d078bc1dc61079d44110999b70c5195c9c8a2a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018466"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874228"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge system som stöds
 
@@ -85,7 +85,7 @@ De system som anges i följande tabell anses vara kompatibla med Azure IoT Edge,
 | [Mentor Embedded Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Embedded Linux Flex OS + AMD64](./media/tutorial-c-module/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Mentor Embedded Linux Omni OS](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![Mentor Embedded Linux Omni OS + AMD64](./media/tutorial-c-module/green-check.png) |  | ![Mentor Embedded Linux Omni OS + ARM64](./media/tutorial-c-module/green-check.png) |
 | [RHEL 7.5](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.5_release_notes/index) | ![RHEL 7,5 + AMD64](./media/tutorial-c-module/green-check.png) | ![RHEL 7,5 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![RHEL 7,5 + ARM64](./media/tutorial-c-module/green-check.png) |
-| [Ubuntu 16,04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu 16,04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16,04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16,04 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Ubuntu 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu 16,04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16,04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16,04 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Ubuntu 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu 18,04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18,04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18,04 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Vind floden 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
@@ -114,7 +114,7 @@ IoT Edge-komponenter kan installeras eller uppdateras individuellt och är bakå
 | **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 |  |
 | **1.0.5** | 1.0.5 | 1.0.5 | 1.0.5 | 3.0.2 |
 
-IoT Edge använder Microsoft. Azure. Device. client SDK. Mer information finns i [Azure IoT C# SDK GitHub-lagrings platsen](https://github.com/Azure/azure-iot-sdk-csharp) eller [Azure SDK för .net-referens innehåll](https://docs.microsoft.com/dotnet/api/overview/azure/iot/client?view=azure-dotnet). I följande lista visas den version av klient-SDK: n som varje version testas mot:
+IoT Edge använder Microsoft. Azure. Device. client SDK. Mer information finns i [Azure IoT C# SDK GitHub-lagrings platsen](https://github.com/Azure/azure-iot-sdk-csharp) eller [Azure SDK för .net-referens innehåll](/dotnet/api/overview/azure/iot/client). I följande lista visas den version av klient-SDK: n som varje version testas mot:
 
 * **IoT Edge 1.0.9**: klient-SDK-1.21.1
 * **IoT Edge 1.0.8**: klient-SDK-1.20.3
@@ -122,7 +122,7 @@ IoT Edge använder Microsoft. Azure. Device. client SDK. Mer information finns i
 * **IoT Edge 1.0.6**: klient-SDK-1.17.1
 * **IoT Edge 1.0.5**: klient-SDK-1.17.1
 
-## <a name="virtual-machines"></a>Virtuella datorer
+## <a name="virtual-machines"></a>Virtual Machines
 
 Azure IoT Edge kan köras i virtuella datorer. Att använda en virtuell dator som en IoT Edge enhet är vanligt när kunder vill utöka den befintliga infrastrukturen med Edge Intelligence. Familjen för värddatorns virtuella dator operativ system måste matcha den familj av gäst operativ systemet som används i en moduls behållare. Detta krav är detsamma som när Azure IoT Edge körs direkt på en enhet. Azure IoT Edge är oberoende av den underliggande Virtualization-tekniken och fungerar i virtuella datorer som drivs av plattformar som Hyper-V och vSphere.
 

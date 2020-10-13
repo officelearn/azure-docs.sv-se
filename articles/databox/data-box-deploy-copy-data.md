@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 09/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: a0622c7556896b7ae7201ffa3a7ecac8de1106a4
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: fcdc5d0e7254b8e491285baae6c2a1bc6979e437
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053549"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766313"
 ---
 ::: zone target="docs"
 
@@ -72,11 +72,11 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
 
 1. Det första steget är att autentisera och starta en session. Gå till **Anslut och kopiera**. Välj **SMB** för att hämta autentiseringsuppgifterna för de resurser som är kopplade till ditt lagringskonto. 
 
-    ![Hämta resursautentiseringsuppgifter 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
+    ![Hämta resursautentiseringsuppgifter för SMB-resurser](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
 2. I dialogrutan Få åtkomst till resursen och kopiera data kopierar du **användarnamnet** och **lösenordet** som motsvarar resursen. Välj **OK**.
     
-    ![Hämta resursautentiseringsuppgifter 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
+    ![Hämta användarnamn och lösenord för en resurs](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
 3. För att komma åt resurser som är associerade med ditt lagringskonto (*utsac1* i följande exempel) från värddatorn öppnar du ett kommandofönster. Skriv följande i kommandotolken:
 
@@ -97,11 +97,11 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
 
 4. Tryck på Windows + R. I fönstret **Kör** anger du `\\<device IP address>`. Öppna Utforskaren genom att välja **OK**.
     
-    ![Ansluta till resursen via Utforskaren 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
+    ![Ansluta till resurs via Utforskaren](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
     Du bör nu se resurserna som mappar.
     
-    ![Ansluta till resursen via Utforskaren 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
+    ![Resurser som visas i Utforskaren](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
     **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root*-mappen i lagringskontot.
     
@@ -116,7 +116,7 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 När du är ansluten till Data Box-resurser är nästa steg att kopiera data. Granska följande innan du kopierar data:
 
 * Se till att du kopierar data till resurser som motsvarar lämplig dataformat. Kopiera exempelvis blockblobdata till resursen för blockblobobjekt. Kopiera de virtuella hårddiskarna till en sidblob. Om dataformatet inte matchar lämplig resurstyp misslyckas datauppladdningen till Azure i ett senare skede.
-* När du kopierar data ser du till att datastorleken överensstämmer med storleksbegränsningarna som beskrivs i avsnittet om [Azure Storage- och Data Box-gränser](data-box-limits.md).
+* När du kopierar data ska du se till att datastorleken följer de storleksbegränsningar som beskrivs i [Storleksgränser för Azure-lagringskonto](data-box-limits.md#azure-storage-account-size-limits).
 * Om data som laddas upp av Data Box samtidigt överförs av andra program utanför Data Box, kan detta resultera i att uppladdningsjobbet misslyckas samt att data skadas.
 * Vi rekommenderar att du:
   * Inte använder SMB och NFS samtidigt.
@@ -225,15 +225,15 @@ Mer information om Robocopy-kommandon finns i [Robocopy and a few examples](http
 
 Ett meddelande visas om det uppstår fel under kopieringen.
 
-![Ladda ned och visa fel från Anslut och kopiera](media/data-box-deploy-copy-data/view-errors-1.png)
+![Ett meddelande om kopieringsfel i Anslut och kopiera](media/data-box-deploy-copy-data/view-errors-1.png)
 
 Välj **Ladda ned lista med ärenden**.
 
-![Ladda ned och visa fel från Anslut och kopiera](media/data-box-deploy-copy-data/view-errors-2.png)
+![Ladda ned och visa fel från Anslut och kopiera 2](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Öppna listan för att visa information om felet och välj lösnings-URL:en för att visa den rekommenderade lösningen.
 
-![Ladda ned och visa fel från Anslut och kopiera](media/data-box-deploy-copy-data/view-errors-3.png)
+![Ladda ned och visa fel från Anslut och kopiera 3](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Mer information finns i [Visa felloggar under datakopiering till Data Box](data-box-logs.md#view-error-log-during-data-copy). En detaljerad lista över fel i samband med datakopieringen finns i [Felsöka problem med Data Box](data-box-troubleshoot.md).
 

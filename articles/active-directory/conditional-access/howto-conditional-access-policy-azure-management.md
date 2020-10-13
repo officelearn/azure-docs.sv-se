@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 717e81a1385b04d3152beac39105c56754c55c40
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89049289"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>Villkorlig åtkomst: Kräv MFA för Azure-hantering
@@ -48,7 +48,7 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst som kr
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
-   1. Välj **Klar**.
+   1. Välj **Done** (Klar).
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Välj appar**, Välj **Microsoft Azure hantering**och välj sedan **Välj** . **Done**
 1. Under **villkor**  >  **klient program (förhands granskning)** under **Välj de klient program som den här principen ska tillämpas på** lämna alla standardvärden markerade och välj **slutförd**.
 1. Under **åtkomst kontroller**  >  **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och väljer **Välj**.

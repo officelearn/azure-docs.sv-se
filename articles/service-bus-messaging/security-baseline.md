@@ -8,10 +8,10 @@ ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 0f433c33f50506309e88b7ffa2c8aaf498fb3613
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761166"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Azures säkerhets bas linje för Service Bus
@@ -715,7 +715,7 @@ Microsofts program mot skadlig kod har Aktiver ATS på den underliggande värden
 
 **Vägledning**: Azure Service Bus tillhandahåller kryptering av data i vila med Azure Storage Service Encryption (Azure SSE). Service Bus förlitar sig på Azure Storage för att lagra data och som standard krypteras alla data som lagras med Azure Storage med hjälp av Microsoft-hanterade nycklar. Om du använder Azure Key Vault för att lagra Kundhanterade nycklar, se till att vanliga automatiserade säkerhets kopieringar av dina nycklar är vanliga.
 
-Säkerställ vanliga automatiserade säkerhets kopieringar av Key Vault hemligheter med följande PowerShell-kommando: backup-AzKeyVaultSecret
+Säkerställ vanliga automatiserade säkerhets kopieringar av Key Vault hemligheter med följande PowerShell-kommando: Backup-AzKeyVaultSecret
 
 - [Konfigurera Kundhanterade nycklar för att kryptera Azure Service Bus data i vila](configure-customer-managed-key.md)
 

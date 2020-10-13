@@ -11,17 +11,17 @@ ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
 ms.openlocfilehash: dbd5724797fdaf44d147d2f29362b1e5092728dd
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761557"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Avancerad läsares Java Script SDK-referens (v 1.1)
 
 SDK: n för avancerad läsare innehåller ett JavaScript-bibliotek som gör att du kan integrera den fördjupade läsaren i ditt program.
 
-## <a name="functions"></a>Functions (Funktioner)
+## <a name="functions"></a>Functions
 
 SDK: n visar funktionerna:
 
@@ -526,7 +526,7 @@ När formateringen är aktive rad kommer följande innehåll att återges som HT
 | --------- | ----------- |
 | Teckensnitts format | Fet, kursiv, understruken, kod, genomstruken, upphöjd, nedsänkt |
 | Osorterade listor | Skiva, cirkel, kvadrat |
-| Ordnade listor | Decimal, gemener, gemener, gemener, gemener, gemener och gemener |
+| Ordnade listor | Decimal, övre-alfa, lägre – alfa, övre roman Lower-Roman |
 
 Taggar som inte stöds kommer att återges jämförbart. Bilder och tabeller stöds inte för närvarande.
 

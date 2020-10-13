@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 3bd54d8a23aca7e493cd3c0ddb7f057a6e1f5362
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761489"
 ---
 # <a name="sizing-guidance"></a>Vägledning för storleks kontroll
@@ -47,7 +47,7 @@ Se artikeln [lagrings konfiguration](storage-configuration.md) för information 
 
 Datakontrollanten är en samling poddar som distribueras till ditt Kubernetes-kluster för att tillhandahålla ett API, styrenhets tjänsten, start program och övervaknings databaser och instrument paneler.  I den här tabellen beskrivs standardvärdena för minnes-och CPU-begäranden och-gränser.
 
-|Pod namn|PROCESSOR förfrågan|Minnes förfrågan|PROCESSOR gräns|Minnes gräns|Kommentarer|
+|Pod namn|PROCESSOR förfrågan|Minnes förfrågan|PROCESSOR gräns|Minnes gräns|Obs!|
 |---|---|---|---|---|---|
 |**Start program**|100 miljoner|100Mi|200m|200Mi||
 |**reglering**|400m|2Gi|1800|2Gi||
@@ -89,7 +89,7 @@ Varje SQL-hanterad instans måste ha följande minsta resurs begär Anden:
 - Kärnor: 1
 
 Varje SQL-hanterad instans Pod som skapas har tre behållare:
-|Containerns namn|PROCESSOR förfrågan|Minnes förfrågan|PROCESSOR gräns|Minnes gräns|Kommentarer|
+|Containerns namn|PROCESSOR förfrågan|Minnes förfrågan|PROCESSOR gräns|Minnes gräns|Obs!|
 |---|---|---|---|---|---|
 |fluentbit|100 miljoner|100Mi|Inte angivet|Inte angivet|Fluentbit behållar resurs begär Anden är _utöver_ de begär Anden som anges för SQL-hanterad instans.||
 |båge – sqlmi|Användaren har angetts eller inte angetts.|Användaren har angetts eller inte angetts.|Användaren har angetts eller inte angetts.|Användaren har angetts eller inte angetts.||
@@ -104,7 +104,7 @@ Varje PostgreSQL för storskalig Server grupp måste ha följande minsta resurs 
 - Kärnor: 1
 
 Varje PostgreSQL-Server grupp koordinator eller arbets Pod som skapas har tre behållare:
-|Containerns namn|PROCESSOR förfrågan|Minnes förfrågan|PROCESSOR gräns|Minnes gräns|Kommentarer|
+|Containerns namn|PROCESSOR förfrågan|Minnes förfrågan|PROCESSOR gräns|Minnes gräns|Obs!|
 |---|---|---|---|---|---|
 |fluentbit|100 miljoner|100Mi|Inte angivet|Inte angivet|Fluentbit behållar resurs begär Anden gäller _utöver_ de begär Anden som anges för noderna i postgresql-server gruppen.|
 |postgres|Användaren har angetts eller inte angetts.|Användardefinierad eller 256Mi (standard).|Användaren har angetts eller inte angetts.|Användaren har angetts eller inte angetts.||

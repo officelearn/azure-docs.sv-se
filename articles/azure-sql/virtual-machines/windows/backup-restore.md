@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
 ms.openlocfilehash: a4965c587cb2f42c8411d48af2417dd3fe3d5edb
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360794"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Säkerhets kopiering och återställning av SQL Server på virtuella Azure-datorer
@@ -31,7 +31,7 @@ Den första delen av den här artikeln ger en översikt över tillgängliga alte
 
 Följande tabell innehåller information om olika alternativ för säkerhets kopiering och återställning av SQL Server på virtuella Azure-datorer:
 
-| Strategi | SQL-versioner | Description |
+| Strategi | SQL-versioner | Beskrivning |
 |---|---|---|
 | [Automatisk säkerhetskopiering](#automated) | 2014<br/> 2016<br/> 2017 | Med automatisk säkerhets kopiering kan du schemalägga regelbundna säkerhets kopieringar för alla databaser på en SQL Server VM. Säkerhets kopior lagras i Azure Storage i upp till 30 dagar. Från och med SQL Server 2016 erbjuder automatisk säkerhets kopiering v2 ytterligare alternativ som att konfigurera manuell schemaläggning och frekvensen för fullständiga säkerhets kopior och logg säkerhets kopior. |
 | [Azure Backup för virtuella SQL-datorer](#azbackup) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup tillhandahåller en affärs kopierings funktion i företags klass för SQL Server på virtuella Azure-datorer. Med den här tjänsten kan du centralt hantera säkerhets kopior för flera servrar och tusentals databaser. Databaser kan återställas till en viss tidpunkt i portalen. Den erbjuder en anpassningsbar bevarande princip som kan upprätthålla säkerhets kopieringar i flera år. |
@@ -104,7 +104,7 @@ Från och med SQL Server 2012 SP1 CU2 kan du säkerhetskopiera och återställa 
 | 2016-förbättringar | Information |
 | --- | --- |
 | **Striping** |När du säkerhetskopierar till Microsoft Azure Blob Storage stöder SQL Server 2016 säkerhets kopiering till flera blobbar för att aktivera säkerhets kopiering av stora databaser, upp till högst 12,8 TB. |
-| **Säkerhets kopiering av ögonblicks bild** |Genom att använda Azure-ögonblicksbilder ger SQL Server säkerhets kopiering av fil ögonblicks bilder nästan omedelbara säkerhets kopieringar och snabba återställningar av databasfiler lagrade med Azure Blob Storage-tjänsten. Med den här funktionen kan du förenkla säkerhets kopierings-och återställnings principerna. Säkerhets kopiering av fil-ögonblicks bilder stöder även återställning av tidpunkter. Mer information finns i [ögonblicks bilder av säkerhets kopior för databasfiler i Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
+| **Säkerhets kopiering av ögonblicks bild** |Genom att använda Azure-ögonblicksbilder ger SQL Server File-Snapshot säkerhets kopieringen nästan momentan säkerhets kopiering och snabb återställning av databasfiler som lagras med Azure Blob Storage-tjänsten. Med den här funktionen kan du förenkla säkerhets kopierings-och återställnings principerna. Säkerhets kopiering av fil-ögonblicks bilder stöder även återställning av tidpunkter. Mer information finns i [ögonblicks bilder av säkerhets kopior för databasfiler i Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
 
 Mer information finns i följande artiklar som baseras på din version av SQL Server:
 

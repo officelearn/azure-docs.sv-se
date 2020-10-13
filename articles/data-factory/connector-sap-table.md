@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
 ms.openlocfilehash: 608694c07894c8bdff8b1101d607e07ea4383764
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279863"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Kopiera data från en SAP-tabell med hjälp av Azure Data Factory
@@ -56,7 +56,7 @@ Version 7,01 eller senare avser SAP NetWeaver-versionen i stället för SAP ECC-
 3.  Kontrol lera versionen av SAP_BASIS, se till att den är lika med eller större än 701.  
       ![Kontrol lera SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda den här SAP Table Connector måste du:
 
@@ -91,7 +91,7 @@ Följande egenskaper stöds för den länkade tjänsten SAP BW Open Hub:
 | `systemId` | ID: t för det SAP-system där tabellen finns.<br/>Använd för att ansluta till en SAP-meddelande Server. | Inga |
 | `logonGroup` | Inloggnings gruppen för SAP-systemet.<br/>Använd för att ansluta till en SAP-meddelande Server. | Inga |
 | `clientId` | ID för klienten i SAP-systemet.<br/>Tillåtet värde: ett fyrsiffrigt decimal tal som representeras som en sträng. | Ja |
-| `language` | Det språk som används i SAP-systemet.<br/>Standardvärdet är `EN` .| Inga |
+| `language` | Det språk som används i SAP-systemet.<br/>Standardvärdet är `EN`.| Inga |
 | `userName` | Namnet på den användare som har åtkomst till SAP-servern. | Ja |
 | `password` | Ange lösenordet för användaren. Markera det här fältet med `SecureString` typen för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | `sncMode` | Aktiverings indikatorn för SNC för att få åtkomst till SAP-servern där tabellen finns.<br/>Använd om du vill använda SNC för att ansluta till SAP-servern.<br/>Tillåtna värden är `0` (av, standard) eller `1` (på). | Inga |
@@ -225,8 +225,8 @@ Följande egenskaper stöds för att kopiera data från en SAP-tabell:
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | `type`                             | `type`Egenskapen måste anges till `SapTableSource` .         | Ja      |
 | `rowCount`                         | Antalet rader som ska hämtas.                              | Inga       |
-| `rfcTableFields`                 | De fält (kolumner) som ska kopieras från SAP-tabellen. Till exempel `column0, column1`. | Inga       |
-| `rfcTableOptions`                | Alternativen för att filtrera raderna i en SAP-tabell. Till exempel `COLUMN0 EQ 'SOMEVALUE'`. Se även tabellen SAP Query-operator längre fram i den här artikeln. | Inga       |
+| `rfcTableFields`                 | De fält (kolumner) som ska kopieras från SAP-tabellen. Exempelvis `column0, column1`. | Inga       |
+| `rfcTableOptions`                | Alternativen för att filtrera raderna i en SAP-tabell. Exempelvis `COLUMN0 EQ 'SOMEVALUE'`. Se även tabellen SAP Query-operator längre fram i den här artikeln. | Inga       |
 | `customRfcReadTableFunctionModule` | En anpassad RFC Function-modul som kan användas för att läsa data från en SAP-tabell.<br>Du kan använda en anpassad RFC Function-modul för att definiera hur data hämtas från SAP-systemet och returneras till Data Factory. Modulen för anpassad funktion måste ha ett implementerat gränssnitt (importera, exportera, tabeller) som liknar `/SAPDS/RFC_READ_TABLE2` , vilket är det standard gränssnitt som används av Data Factory.<br>Data Factory | Inga       |
 | `partitionOption`                  | Den partition mekanism som ska läsas från en SAP-tabell. Alternativ som stöds är: <ul><li>`None`</li><li>`PartitionOnInt` (vanliga heltals-eller heltals värden med utfyllnaden noll till vänster, till exempel `0000012345` )</li><li>`PartitionOnCalendarYear` (4 siffror i formatet "åååå")</li><li>`PartitionOnCalendarMonth` (6 siffror i formatet "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 siffror i formatet "ÅÅÅÅMMDD")</li></ul> | Inga       |
 | `partitionColumnName`              | Namnet på den kolumn som används för att partitionera data.                | Inga       |

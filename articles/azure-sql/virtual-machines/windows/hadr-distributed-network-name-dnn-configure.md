@@ -15,10 +15,10 @@ ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: ce3261eca8697ae1fabc07785353a4e845dadeba
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317012"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>Konfigurera ett distribuerat nätverks namn för en FCI 
@@ -119,7 +119,7 @@ Följ dessa steg om du vill uppdatera möjliga ägare:
    :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/fci-dnn-properties.png" alt-text="Snabb menyn för DNN-resursen med kommandot Egenskaper markerat.":::
 1. Avmarkera kryss rutan för alla noder som inte ingår i instansen av redundanskluster. Listan över möjliga ägare för DNN-resursen ska matcha listan över möjliga ägare för den SQL Server instans resursen. Om du till exempel antar att DATA3 inte ingår i FCI, är följande bild ett exempel på att ta bort DATA3 från listan över möjliga ägare för DNN-resursen: 
 
-   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Avmarkera kryss rutan bredvid de noder som inte ingår i FCI för möjliga ägare till DNN-resursen":::
+   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Snabb menyn för DNN-resursen med kommandot Egenskaper markerat.":::
 
 1. Spara inställningarna genom att välja **OK**. 
 

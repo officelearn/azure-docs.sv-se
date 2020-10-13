@@ -7,12 +7,13 @@ ms.date: 10/01/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: df780e4e55bb5c119320d4b33502d50a95da1eaf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+zone_pivot_groups: non-azure-machines
+ms.openlocfilehash: 818ef3a29724f18cad5924bf1961b74afadfdb75
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91612225"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939604"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Anslut dina datorer som inte är Azure-datorer till Security Center
 
@@ -23,7 +24,9 @@ Du kan lägga till icke-Azure-datorer på något av följande sätt:
 - Använda Azure-båge (**rekommenderas**)
 - Från Security Center sidor i Azure Portal (**komma igång** och **inventering**)
 
-Var och en av dessa beskrivs nedan.
+Var och en av dem beskrivs på den här sidan.
+
+::: zone pivot="azure-arc"
 
 ## <a name="add-non-azure-machines-with-azure-arc"></a>Lägg till datorer som inte är Azure-datorer med Azure Arc
 
@@ -42,6 +45,10 @@ Läs mer om [Azure-bågen](../azure-arc/servers/overview.md).
 
 > [!TIP]
 > Om du registrerar AWS-datorer kan Security Centerns koppling för AWS transparent Hantera Azure Arc-distributionen åt dig. Läs mer i [ansluta dina AWS-konton till Azure Security Center](quickstart-onboard-aws.md).
+
+::: zone-end
+
+::: zone pivot="azure-portal"
 
 ## <a name="add-non-azure-machines-from-security-centers-portal-pages"></a>Lägg till datorer som inte är Azure-datorer från Security Center Portal sidor
 
@@ -114,6 +121,7 @@ När du är klar visas **Log Analytics agenten** på **kontroll panelen**. Du ka
 
 Mer information om hur du installerar och konfigurerar agenten finns i [ansluta Windows-datorer](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
+::: zone-end
 
 ## <a name="verifying"></a>Verifiera
 Grattis! Nu kan du se dina Azure-och icke-Azure-datorer tillsammans på en och samma plats. Öppna [sidan Asset Inventory](asset-inventory.md) och filtrera till relevanta resurs typer. Dessa ikoner särskiljer typerna:

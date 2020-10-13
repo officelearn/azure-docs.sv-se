@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 05/26/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: QNA Maker, robotar med låg kod, flera konversationer
-ms.openlocfilehash: fe46fadc6d3f5a74c95faeec6b7759f18e843f7d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 6a5ea51086e3ab532966c9cea9eb866334494bba
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776790"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874432"
 ---
 # <a name="what-is-qna-maker"></a>Vad är QnA Maker?
 
@@ -46,7 +46,7 @@ När en QnA Maker kunskaps bas har publicerats skickar ett klient program en fr�
 
 ![Ställ en robot till en fråga och få svar från kunskaps bas innehållet](../media/qnamaker-overview-learnabout/bot-chat-with-qnamaker.png)
 
-|Steg|Åtgärd|
+|Steg|Action|
 |:--|:--|
 |1|Klient programmet skickar användarens _fråga_ (text i sina egna ord), "Hur gör jag för att program mässigt uppdatera min kunskaps bas?" till din kunskaps bas slut punkt.|
 |2|QnA Maker använder den utbildade kunskaps basen för att tillhandahålla rätt svar och eventuella uppföljnings instruktioner som kan användas för att förfina sökningen efter det bästa svaret. QnA Maker returnerar ett JSON-formaterat svar.|
@@ -83,9 +83,9 @@ QnA Maker ger redigering, utbildning och publicering tillsammans med samarbets b
 
 Vi erbjuder snabb starter i de flesta populära programmeringsspråk, som var och en har utformats för att lära dig grundläggande design mönster, och du kan köra kod på mindre än 10 minuter. Se följande lista för snabb starten för varje funktion.
 
-* [Kom igång med LUIS-klient biblioteket](../quickstarts/quickstart-sdk.md)
-* [Kom igång med LUIS-portalen](../quickstarts/create-publish-knowledge-base.md)
-* [Kom igång med LUIS REST API: er](../quickstarts/quickstart-rest-curl.md)
+* [Kom igång med QnA Maker klient bibliotek](../quickstarts/quickstart-sdk.md)
+* [Kom igång med QnA Maker Portal](../quickstarts/create-publish-knowledge-base.md)
+* [Kom igång med QnA Maker REST API: er](../quickstarts/quickstart-rest-curl.md)
 
 
 ## <a name="next-steps"></a>Nästa steg

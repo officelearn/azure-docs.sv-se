@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
 ms.openlocfilehash: c4ac9e182a7504ea96f73f2ab95d50fb9d859e47
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665267"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-elium"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Elium
@@ -96,7 +96,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig Elium-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Namn | Källattribut|
+    | Name | Källattribut|
     | ---------------| ----------------|
     | e-post   |user.mail |
     | first_name| user.givenname |
@@ -123,7 +123,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -153,15 +153,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **användar profilen** från det högra övre hörnet och välj sedan **Inställningar**.
 
-    ![Konfigurera enkel inloggning Elium 01](./media/elium-tutorial/elium-01.png)
+    ![Konfigurera enkla Sign-On Elium 01](./media/elium-tutorial/elium-01.png)
 
 1. Välj **säkerhet** under **Avancerat**.
 
-    ![Konfigurera enkel inloggning Elium 02](./media/elium-tutorial/elium-02.png)
+    ![Konfigurera enkla Sign-On Elium 02](./media/elium-tutorial/elium-02.png)
 
 1. Rulla ned till avsnittet **Enkel inloggning (SSO)** och utför följande steg:
 
-    ![Konfigurera enkel inloggning Elium 03](./media/elium-tutorial/elium-03.png)
+    ![Konfigurera Single Sign-On Elium 03](./media/elium-tutorial/elium-03.png)
 
     a. Kopiera värdet för **Verify that SAML2 authentication works for your account** (Kontrollera att SAML2-autentiseringen fungerar för ditt konto) och klistra in det i textrutan **Inloggnings-URL** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
@@ -176,11 +176,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     e. Sök efter **entityID** i **SP-metadatafilen**, kopiera **entityID**värdet och klistra in det i textrutan **Identifierare** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen. 
 
-    ![Konfigurera enkel inloggning Elium 04](./media/elium-tutorial/elium-04.png)
+    ![Konfigurera Single Sign-On Elium 04](./media/elium-tutorial/elium-04.png)
 
     f. Sök efter **AssertionConsumerService** i **SP-metadatafilen**, kopiera **platsvärdet** och klistra in det i textrutan **Svars-URL** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Konfigurera enkel inloggning Elium 05](./media/elium-tutorial/elium-05.png)
+    ![Konfigurera Single Sign-On Elium 05](./media/elium-tutorial/elium-05.png)
 
     ex. Öppna den nedladdade metadatafilen från Azure-portalen i Anteckningar, kopiera innehållet och klistra in det i textrutan **IdP-metadata**.
 
@@ -209,6 +209,6 @@ I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning
  
 Du kan också använda Microsoft Access-panelen för att testa programmet i vilket läge som helst. När du klickar på panelen Elium i åtkomst panelen, om den har kon figurer ATS i SP-läge omdirigeras du till programmets inloggnings sida för att initiera inloggnings flödet och om det kon figurer ATS i IDP-läge, bör du loggas in automatiskt på Elium som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 När du har konfigurerat Elium kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

@@ -15,10 +15,10 @@ ms.date: 09/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6911128cfbaa87229a09bcea0d655c6110c2d208
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259789"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>Tillgängliga SKU: er för stora instanser av HANA
@@ -86,7 +86,7 @@ Listan över tillgängliga Azure Large-instanser som erbjuds listor som följand
 
 
 - PROCESSOR kärnor = summan av icke-processorers processor kärnor som summan av processorerna för server enheten har.
-- PROCESSOR trådar = summan av de beräknings trådar som tillhandahålls av processor kärnor i Hyper-Threading av summan av processorerna för server enheten. De flesta enheter är konfigurerade som standard för att använda Hyper-Threading-teknik.
+- PROCESSOR trådar = summan av de beräknings trådar som tillhandahålls av processor kärnor i Hyper-Threading av summan av processorerna för server enheten. De flesta enheter är konfigurerade som standard för att använda Hyper-Threading teknik.
 - Baserat på leverantörs rekommendationer S768m, S768xm och S960m har inte kon figurer ATS för att använda Hyper-Threading för att köra SAP HANA.
 
 

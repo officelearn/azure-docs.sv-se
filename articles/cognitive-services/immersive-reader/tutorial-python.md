@@ -12,10 +12,10 @@ ms.date: 09/11/2020
 ms.author: dylankil
 ms.custom: devx-track-python
 ms.openlocfilehash: 81d4135671d8ab3e2a8854b855ca285107faaa86
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90979357"
 ---
 # <a name="tutorial-start-the-immersive-reader-using-the-python-sample-project"></a>Självstudie: starta den fördjupade läsaren med python-exempelprojektet
@@ -29,7 +29,7 @@ I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren �
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](./how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar miljö egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
 * [Git](https://git-scm.com/).
@@ -217,7 +217,7 @@ sudo nano /etc/paths
 - Gå till slutet av filen och ange den sökväg som du vill lägga till som sista objekt i listan, till exempel `PATH=$PATH:/usr/local/bin` .
 - Välj **CTRL + X** om du vill avsluta.
 - Skriv **Y** för att spara den ändrade bufferten.
-- Klart! Testa det genom att ange i ett nytt terminalfönster `echo $PATH` .
+- Det är allt. Testa det genom att ange i ett nytt terminalfönster `echo $PATH` .
 
 Installations flaska.
 

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 2e6efc08cb7d38a856098395aff363d9d7ec2bab
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442994"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-an-appropriate-database"></a>Använd data beroende routning för att dirigera en fråga till en lämplig databas
@@ -25,7 +25,7 @@ ms.locfileid: "91442994"
 
 Programmet behöver inte spåra olika anslutnings strängar eller DB-platser som är kopplade till olika data sektorer i shardade-miljön. I stället öppnar [Shard Map Manager](elastic-scale-shard-map-management.md) anslutningar till rätt databaser vid behov, baserat på data i Shard-mappningen och värdet för horisontell partitionering-nyckeln som är målet för programmets begäran. Nyckeln är vanligt vis *customer_id*, *tenant_id*, *date_key*eller någon annan unik identifierare som är en grundläggande parameter för databas förfrågan.
 
-Mer information finns i [skala ut SQL Server med data beroende routning](https://technet.microsoft.com/library/cc966448.aspx).
+Mer information finns i [skala ut SQL Server med Data-Dependent routing](https://technet.microsoft.com/library/cc966448.aspx).
 
 ## <a name="download-the-client-library"></a>Ladda ned klient biblioteket
 
@@ -118,7 +118,7 @@ Metoden **OpenConnectionForKey** returnerar en ny anslutning som redan är öppe
 
 En bra idé att utveckla data åtkomst program i molnet är att se till att tillfälliga fel fångas av appen och att åtgärderna provas flera gånger innan ett fel utlöses. Tillfälligt fel hantering för moln program diskuteras vid hantering av tillfälliga fel ([Java](/java/api/com.microsoft.azure.elasticdb.core.commons.transientfaulthandling), [.net](https://docs.microsoft.com/previous-versions/msp-n-p/dn440719(v=pandp.60))).
 
-Hantering av tillfälliga fel kan fungera naturligt med det data som är beroende av routningen. Nyckel kravet är att försöka köra hela data åtkomst förfrågan på nytt, inklusive det **använda** block som hämtade den databaserade routningslänken. Föregående exempel kunde skrivas om på följande sätt.
+Hantering av tillfälliga fel kan fungera naturligt med mönster för Data-Dependent routning. Nyckel kravet är att försöka köra hela data åtkomst förfrågan på nytt, inklusive det **använda** block som hämtade den databaserade routningslänken. Föregående exempel kunde skrivas om på följande sätt.
 
 ### <a name="example---data-dependent-routing-with-transient-fault-handling"></a>Exempel – data beroende routning med tillfälligt fel hantering
 

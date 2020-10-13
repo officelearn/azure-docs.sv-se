@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18, has-adal-ref
 ms.openlocfilehash: 7408e3fb279536f61dd2e5cf1858476da57219d4
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665826"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autentisering och auktorisering för Azure Time Series Insights API
@@ -110,7 +110,7 @@ För att utföra autentiserade frågor mot [Azure Time Series Insights REST-API:
 
 Obligatoriska begärandehuvuden beskrivs nedan.
 
-| Nödvändigt begär ande huvud | Description |
+| Nödvändigt begär ande huvud | Beskrivning |
 | --- | --- |
 | Auktorisering | För att autentisera med Azure Time Series Insights måste en giltig OAuth 2,0 Bearer-token skickas i **Authorization** -huvudet. |
 
@@ -122,7 +122,7 @@ Obligatoriska begärandehuvuden beskrivs nedan.
 
 Valfria begärandehuvuden beskrivs nedan.
 
-| Valfritt begärandehuvud | Description |
+| Valfritt begärandehuvud | Beskrivning |
 | --- | --- |
 | Innehålls typ | `application/json`stöds endast. |
 | x-MS-client-Request-ID | En klientbegärans-ID. Tjänsten registrerar det här värdet. Tillåter att tjänsten spårar åtgärder mellan tjänster. |
@@ -131,7 +131,7 @@ Valfria begärandehuvuden beskrivs nedan.
 
 Valfria men rekommenderade svarshuvuden beskrivs nedan.
 
-| Svars huvud | Description |
+| Svars huvud | Beskrivning |
 | --- | --- |
 | Innehålls typ | `application/json`Stöds endast. |
 | x-MS-Request-ID | Server-genererat fråge-ID. Kan användas för att kontakta Microsoft för att undersöka en begäran. |
@@ -157,7 +157,7 @@ Valfria URL-parametrar för frågesträngar inkluderar att ange en tids gräns f
 
 | Valfri frågeparameter | Beskrivning | Version |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Tids gräns på Server sidan för körning av HTTP-begäran. Gäller endast för [Hämta miljö händelser](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) och hämta API: er för [samling av miljö](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api) . Timeout-värdet ska vara i ISO 8601-varaktighets format, till exempel `"PT20S"` och måste vara inom intervallet `1-30 s` . Standardvärdet är `30 s` . | Gen1 |
+| `timeout=<timeout>` | Tids gräns på Server sidan för körning av HTTP-begäran. Gäller endast för [Hämta miljö händelser](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) och hämta API: er för [samling av miljö](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api) . Timeout-värdet ska vara i ISO 8601-varaktighets format, till exempel `"PT20S"` och måste vara inom intervallet `1-30 s` . Standardvärdet är `30 s`. | Gen1 |
 | `storeType=<storeType>` | För Gen2-miljöer där varm lagring är aktiverat kan frågan köras antingen på `WarmStore` eller `ColdStore` . Den här parametern i frågan definierar i vilken lagring frågan ska köras. Om den inte är definierad körs frågan på kall butiken. **StoreType** måste ställas in på för att kunna fråga det varmt arkivet `WarmStore` . Om den inte är definierad utförs frågan mot kyl lagret. | Gen2 |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 122cc6a2be17cb35e77b638a60fc5fa4f035c0d4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266147"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv godkända klient program för Cloud app-åtkomst med villkorlig åtkomst
@@ -46,7 +46,7 @@ Organisationer måste utföra följande tre steg för att kräva att en godkänd
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare** eller de enskilda **användare och grupper** som du vill tillämpa principen på. 
-   1. Välj **Klar**.
+   1. Välj **Done** (Klar).
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365**.
 1. Under **villkor**väljer du **enhets plattformar**.
    1. **Konfigurera** till **Ja**.
@@ -65,7 +65,7 @@ Organisationer måste utföra följande tre steg för att kräva att en godkänd
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare** eller de enskilda **användare och grupper** som du vill tillämpa principen på. 
-   1. Välj **Klar**.
+   1. Välj **Done** (Klar).
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365 Exchange Online**.
 1. Under **villkor**:
    1. **Klient program (för hands version)**:
@@ -93,7 +93,7 @@ Organisationer måste utföra följande tre steg för att kräva att en godkänd
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare** eller de enskilda **användare och grupper** som du vill tillämpa principen på. 
-   1. Välj **Klar**.
+   1. Välj **Done** (Klar).
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365 Exchange Online** och **Office 365 SharePoint Online**.
 1. Under **villkor**väljer du **enhets plattformar**.
    1. **Konfigurera** till **Ja**.
@@ -112,7 +112,7 @@ Organisationer måste utföra följande tre steg för att kräva att en godkänd
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare** eller de enskilda **användare och grupper** som du vill tillämpa principen på. 
-   1. Välj **Klar**.
+   1. Välj **Done** (Klar).
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365 Exchange Online**.
 1. Under **villkor**:
    1. **Klient program (för hands version)**:

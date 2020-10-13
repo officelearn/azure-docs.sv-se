@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/17/2020
 ms.author: Zhchia
 ms.openlocfilehash: e8d8f2af0350a8b4457f70632341f070c890cba0
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761064"
 ---
 # <a name="tutorial-configure-myday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera MyDay för automatisk användar etablering
@@ -35,7 +35,7 @@ I den här självstudien beskrivs de steg du behöver utföra i både MyDay och 
 > * Etablera grupper och grupp medlemskap i MyDay
 > * Enkel inloggning till MyDay (rekommenderas)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 

@@ -1,6 +1,6 @@
 ---
 title: Vad är säkerhet på kolumn nivå för Azure-Synapse?
-description: Säkerhet på kolumn nivå gör det möjligt för kunder att styra åtkomsten till databas tabell kolumner baserat på användarens körnings kontext eller grupp medlemskap, förenkla utformningen och kodningen av säkerhet i ditt program och gör att du kan implementera begränsningar för kolumn åtkomst.
+description: Column-Level säkerhet gör det möjligt för kunder att kontrol lera åtkomsten till databas tabell kolumner baserat på användarens körnings kontext eller grupp medlemskap, förenkla utformningen och kodningen av säkerhet i ditt program och gör att du kan implementera begränsningar för kolumn åtkomst.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -13,15 +13,15 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
 ms.openlocfilehash: f8bb40f9c80a0785c81c7aeacf783553bf73aa90
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259891"
 ---
 # <a name="column-level-security"></a>Säkerhet på kolumn nivå
 
-Säkerhet på kolumn nivå gör det möjligt för kunder att styra åtkomsten till tabell kolumner baserat på användarens körnings kontext eller grupp medlemskap.
+Column-Level säkerhet gör det möjligt för kunder att kontrol lera åtkomsten till tabell kolumner baserat på användarens körnings kontext eller grupp medlemskap.
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
 Eftersom den här videon har publicerats [säkerhet på radnivå](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) blev tillgänglig för Azure Synapse.

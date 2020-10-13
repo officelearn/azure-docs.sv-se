@@ -7,38 +7,33 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8b9653daf945b6a189bc528cd00de832ae97c03b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9c9bac20beb415f8bc29ca63d530e5cd8492d2d3
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978155"
+ms.locfileid: "91997007"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Ansluta till en virtuell Windows-dator med Azure skydds
 
-Med hjälp av Azure skydds kan du på ett säkert och smidigt sätt ansluta till dina virtuella datorer via SSL direkt i Azure Portal. När du använder Azure skydds kräver inte de virtuella datorerna någon klient, agent eller ytterligare program vara. Den här artikeln visar hur du ansluter till dina virtuella Windows-datorer. Information om hur du ansluter till en virtuell Linux-dator finns i [ansluta till en virtuell dator med Azure skydds – Linux](bastion-connect-vm-ssh.md).
+Med hjälp av Azure skydds kan du på ett säkert och smidigt sätt ansluta till dina virtuella datorer via SSL direkt i Azure Portal. När du använder Azure skydds kräver inte de virtuella datorerna någon klient, agent eller ytterligare program vara. Den här artikeln visar hur du ansluter till dina virtuella Windows-datorer. Information om hur du ansluter till en virtuell Linux-dator finns i [ansluta till en virtuell Linux-dator](bastion-connect-vm-ssh.md).
 
-Azure skydds ger säker anslutning till alla virtuella datorer i det virtuella nätverk där det är etablerad. Med hjälp av Azure skydds kan du skydda dina virtuella datorer från att exponera RDP/SSH-portar till utsidan, samtidigt som du ger säker åtkomst med RDP/SSH. Mer information finns i [Översikt](bastion-overview.md).
+Azure skydds ger säker anslutning till alla virtuella datorer i det virtuella nätverk där det är etablerad. Med hjälp av Azure skydds kan du skydda dina virtuella datorer från att exponera RDP/SSH-portar till utsidan, samtidigt som du ger säker åtkomst med RDP/SSH. Mer information finns i [Vad är Azure skydds?](bastion-overview.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-### <a name="install-the-bastion-host"></a>Installera skydds-värden
+Innan du börjar ska du kontrol lera att du har uppfyllt följande kriterier:
 
-Kontrol lera att du har konfigurerat en Azure skydds-värd för det virtuella nätverk där den virtuella datorn finns. När skydds-tjänsten har tillhandahållits och distribuerats i det virtuella nätverket kan du använda den för att ansluta till en virtuell dator i det virtuella nätverket. Information om hur du konfigurerar en Azure skydds-värd finns i [skapa en Azure skydds-värd](bastion-create-host-portal.md).
+* Ett VNet med skydds-värden har redan installerats.
 
-### <a name="required-roles"></a>Nödvändiga roller
-
-Följande roller krävs för att upprätta en anslutning:
-
-* Rollen läsare på den virtuella datorn
-* Rollen läsare på NÄTVERKSKORTet med den virtuella datorns privata IP-adress
-* Läsar roll på Azure skydds-resursen
-
-### <a name="ports"></a>Portar
-
-För att ansluta till den virtuella Windows-datorn måste du ha följande portar öppna på din virtuella Windows-dator:
-
-* Inkommande portar: RDP (3389)
+   Kontrol lera att du har konfigurerat en Azure skydds-värd för det virtuella nätverk där den virtuella datorn finns. När skydds-tjänsten har tillhandahållits och distribuerats i det virtuella nätverket kan du använda den för att ansluta till en virtuell dator i det virtuella nätverket. Information om hur du konfigurerar en Azure skydds-värd finns i [skapa en skydds-värd](tutorial-create-host-portal.md#createhost).
+* En virtuell Windows-dator i det virtuella nätverket.
+* Följande nödvändiga roller:
+  * Rollen läsare på den virtuella datorn.
+  * Rollen läsare på NÄTVERKSKORTet med den virtuella datorns privata IP-adress.
+  * Rollen läsare på Azure skydds-resursen.
+* Portar: för att ansluta till den virtuella Windows-datorn måste du ha följande portar öppna på din virtuella Windows-dator:
+  * Inkommande portar: RDP (3389)
 
 ## <a name="connect"></a><a name="rdp"></a>Anslut
 

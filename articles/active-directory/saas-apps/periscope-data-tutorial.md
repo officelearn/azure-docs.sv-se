@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ca0bfcb0c90142924285215c427a7071297be730
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f808cff5bddf6566276df2f707232bde1ecca8a
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553928"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995087"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Självstudie: Azure Active Directory integrering med Periscope-data
 
@@ -30,7 +30,7 @@ Integreringen av Periscope Data med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Periscope Data behöver du följande:
 
@@ -123,7 +123,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Peris
 
 2. Öppna kugg hjuls menyn längst ned till vänster och öppna menyn **fakturerings**  >  **säkerhet** och utför följande steg. Endast administratörer har åtkomst till de här inställningarna.
 
-    ![Konfigurera information för Periscope Data](./media/periscope-data-tutorial/configure01.png)
+    ![Skärm bild som visar dialog rutan "säkerhet" med de valda inställningarna.](./media/periscope-data-tutorial/configure01.png)
 
     a. Kopiera **URL:en för appfederationsmetadata** från steg 5, **SAML-signeringscertifikat**, och öppna den i en webbläsare. Då öppnas ett XML-dokument.
 
@@ -143,7 +143,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Peris
 
     i. Klicka slutligen på **Spara** och **bekräfta** ändringen av inställningarna för enkel inloggning genom att skriva **Logout** (Logga ut).
 
-    ![Konfigurera information för Periscope Data](./media/periscope-data-tutorial/configure02.png)
+    ![Skärm bild som visar dialog rutan "uppdatera S O-konfiguration" med "utloggning" skriven i text rutan och knappen "bekräfta" markerad.](./media/periscope-data-tutorial/configure02.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -206,7 +206,7 @@ För att göra det möjligt för Azure AD-användare att logga in på Periscope 
 
 2. Klicka på ikonen **Inställningar** nere till vänster på menyn och gå till **Behörigheter**.
 
-    ![Konfigurera information för Periscope Data](./media/periscope-data-tutorial/configure03.png)
+    ![Skärm bild som visar menyn "Inställningar" där "behörigheter" har valts.](./media/periscope-data-tutorial/configure03.png)
 
 3. Klicka på **ADD USER** (Lägg till användare) och utför följande steg:
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: ed023f17e19c6a018f55cb95df6447c6e5474ce8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fda40e58231b849f1e63f53f7bb268375ffe7fec
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314886"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996455"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>PostgreSQL-tillägg i Azure Database for PostgreSQL – storskalig (citus)
 
@@ -41,6 +41,7 @@ I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande 
 > | [Lo](https://www.postgresql.org/docs/current/lo.html) | Stort objekt underhåll. |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Tillhandahåller en datatyp för hierarkiska träd strukturer. |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | Datatyp som representerar linje segment eller flytt ALS intervall. |
+> | [tdigest](https://github.com/tvondra/tdigest) | Data typen för en online-ackumulering av rankad statistik, till exempel quantiles och trimmade medel. |
 > | [TOPN](https://github.com/citusdata/postgresql-topn/) | Typ för Top-n-JSONB. |
 
 ### <a name="full-text-search-extensions"></a>Full texts öknings tillägg

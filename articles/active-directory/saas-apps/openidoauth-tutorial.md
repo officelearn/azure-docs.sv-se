@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: f36c80b9d08f2fde07483c1dde3afe99ec9f92d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce4cccba678a934780dc987f1441ea658a70f8eb
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705630"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996613"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Konfigurera ett OpenID/OAuth-program från Azure AD-appgalleri
 
@@ -99,19 +99,19 @@ Följande steg visar hur medgivande fungerar för programutvecklare och använda
 
     a. Klicka på **Appregistreringar** på menyns vänstra sida och öppna programmet genom att skriva in program namnet i sökrutan.
 
-    ![Graph API](./media/openidoauth-tutorial/application.png)
+    ![Skärm bild som visar "Appregistreringar" som valts från den vänstra menyn och sökrutan "program I D" markerat.](./media/openidoauth-tutorial/application.png)
 
     b. Klicka på **Visa API-behörigheter**.
 
-    ![Graph API](./media/openidoauth-tutorial/api-permission.png)
+    ![Skärm bild som visar sidan "Ring A P I" med knappen "Visa en P-behörighet" markerad.](./media/openidoauth-tutorial/api-permission.png)
 
     c. Klicka på **Lägg till en behörighet**.
 
-    ![Graph API](./media/openidoauth-tutorial/add-permission.png)
+    ![Skärm bild som visar avsnittet "A P I-behörigheter" med knappen "Lägg till en behörighet" markerat.](./media/openidoauth-tutorial/add-permission.png)
 
     d. Klicka på **Microsoft Graph**.
 
-    ![Graph API](./media/openidoauth-tutorial/microsoft-graph.png)
+    ![Skärm bild som visar sidan "begär en P-behörighet" med fliken "Microsoft A P I" och "Microsoft Graph" vald.](./media/openidoauth-tutorial/microsoft-graph.png)
 
     e. Välj nödvändiga alternativ från **delegerade behörigheter** och **program behörigheter**.
 

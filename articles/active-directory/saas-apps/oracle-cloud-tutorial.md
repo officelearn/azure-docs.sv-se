@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: d4a478c402346e33a4f27ff2a363de75285b435b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a0da85aeba1a9736884a6b8b345efd3f0a8544c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543847"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996543"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Självstudie: integrera Oracle Cloud Infrastructure-konsolen med Azure Active Directory
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera Oracle Cloud Infrastruc
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -101,7 +101,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Program varan för Oracle Cloud Infrastructure-konsolen förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade attribut mappningar i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
-   ![image](common/edit-attribute.png)
+   ![Skärm bild som visar dialog rutan "användarattribut" med ikonen "redigera" överst till höger.](common/edit-attribute.png)
 
 1. Utöver ovan förväntar sig program för Oracle Cloud Infrastructure-konsolen att fler attribut skickas tillbaka i SAML-svar. I avsnittet **användarattribut &-anspråk** i dialog rutan **grupp anspråk (förhands granskning)** utför du följande steg:
 
@@ -111,9 +111,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
  
    1. Klicka på **Spara**.
 
-      ![image](./media/oracle-cloud-tutorial/config07.png)
+      ![Skärm bild som visar avsnittet "användarattribut &-anspråk" med ikonerna "redigera" för "namn identifierare" och "grupper som returneras i anspråk" markerade.](./media/oracle-cloud-tutorial/config07.png)
     
-      ![image](./media/oracle-cloud-tutorial/config11.png)
+      ![Skärm bild som visar dialog rutan "hantera användar anspråk" med "beständig" och knappen "Spara" markerad.](./media/oracle-cloud-tutorial/config11.png)
 
    1. Klicka på **pennan** bredvid **grupper som returneras i anspråk**.
 
@@ -173,15 +173,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på den vänstra sidan av menyn och klicka på **identitet** och navigera sedan till **Federation**.
 
-   ![Konfiguration](./media/oracle-cloud-tutorial/config01.png)
+   ![Skärm bild som visar "Oracle Cloud Infrastructure console" med "Identity" och "federation" vald på menyn längst upp till vänster.](./media/oracle-cloud-tutorial/config01.png)
 
 1. Spara **metadata-filen för tjänst leverantören** genom att klicka på länken **Ladda ned det här dokumentet** och ladda upp den i avsnittet **grundläggande SAML-konfiguration** i Azure Portal och klicka sedan på **Lägg till identitets leverantör**.
 
-   ![Konfiguration](./media/oracle-cloud-tutorial/config02.png)
+   ![Skärm bild som visar "federation" som valts från den vänstra menyn och knappen "Lägg till identitetsprovider" och "Hämta det här dokumentet" valt.](./media/oracle-cloud-tutorial/config02.png)
 
 1. Utför följande steg på popup-sidan **Lägg till identitets leverantör** :
 
-   ![Konfiguration](./media/oracle-cloud-tutorial/config03.png)
+   ![Skärm bild som visar popup-fönstret "Lägg till identitets leverantör".](./media/oracle-cloud-tutorial/config03.png)
 
    1. I text rutan **namn** anger du ditt namn.
 
@@ -193,7 +193,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
    1. Klicka på **Fortsätt** och gå till avsnittet **Redigera identitetsprovider** och utför följande steg:
 
-      ![Konfiguration](./media/oracle-cloud-tutorial/config09.png)
+      ![Skärm bild som visar avsnittet "redigera identitets leverantör" med "Identity Provider Group", "O C I grupp", "Lägg till mappning" och knappen "Skicka" markerad.](./media/oracle-cloud-tutorial/config09.png)
 
    1. **Gruppen med identitets leverantörer** ska väljas som anpassad grupp. GRUPP-ID: t ska vara GUID för gruppen från Azure Active Directory. Gruppen måste mappas med motsvarande grupp i fältet **OCI-grupp** .
 

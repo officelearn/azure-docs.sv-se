@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: ed2f2cd9fc10017619937cfd6b5644934f7631f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7581dd52cb9affa3295bfbc00c14535ee72de5be
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553971"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995465"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Självstudie: Azure Active Directory integration med uppfattning USA (icke-UltiPro)
 
@@ -30,7 +30,7 @@ Genom att integrera uppfattning USA (icke-UltiPro) med Azure AD får du följand
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med uppfattning USA (icke-UltiPro) behöver du följande objekt:
 
@@ -133,7 +133,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med upp
 
 2. Klicka på **konto inställningar**i huvud verktygsfältet.
 
-    ![Uppfattning USA (icke-UltiPro) användare](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
+    ![Skärm bild som visar "konto inställningar" som valts från huvud verktygsfältet.](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
 
 3. Utför följande steg på sidan **konto inställningar** :
 

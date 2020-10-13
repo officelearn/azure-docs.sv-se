@@ -6,18 +6,18 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: f0583af05ae7d8e365b50610bfb812ac7764f223
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12497d3ac86888ed861e8d5f655f45c8cbe4b6e3
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602473"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996153"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Snabb start: kom igång med Application Insights i ett Java-webbprojekt
 
 
 > [!IMPORTANT]
-> Den rekommenderade metoden för att övervaka Java-program är att använda den automatiska Instrumentation utan att ändra koden. Följ rikt linjerna för [Application Insights Java 3,0-agenten](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+> Den rekommenderade metoden för att övervaka Java-program är att använda den automatiska Instrumentation utan att ändra koden. Följ rikt linjerna för [Application Insights Java 3,0-agenten](./java-in-process-agent.md).
 
 I den här snabb starten använder du Application Insights SDK för att hantera begäran, spåra beroenden och samla in prestanda räknare, diagnostisera prestanda problem och undantag och skriv kod för att spåra vad användarna gör med din app.
 
@@ -199,7 +199,7 @@ Publicera appen på servern, låt användarna använda den och se hur telemetrin
 
 ## <a name="azure-app-service-aks-vms-config"></a>Azure App Service, AKS, VM-konfiguration
 
-Det bästa och enklaste sättet att övervaka dina program som körs på någon av Azure-resurs leverantörer är att använda Application Insights Auto-Instrumentation via [Java 3,0-agenten](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+Det bästa och enklaste sättet att övervaka dina program som körs på någon av Azure-resurs leverantörer är att använda Application Insights Auto-Instrumentation via [Java 3,0-agenten](./java-in-process-agent.md).
 
 
 ## <a name="exceptions-and-request-failures"></a>Fel relaterade till begäranden och undantag
@@ -313,4 +313,3 @@ Application Insights kan testa din webbplats med jämna mellanrum för att kontr
 [javalogs]: java-trace-logs.md
 [metrics]: ../platform/metrics-charts.md
 [usage]: javascript.md
-

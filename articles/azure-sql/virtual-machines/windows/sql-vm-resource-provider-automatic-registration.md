@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/21/2020
-ms.openlocfilehash: 75f68a4de2db0c4c9102a58da12d80cc273a6e80
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b986832e5febbb2a0f88b65213f9acf0dd4c5ab5
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931180"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996887"
 ---
 # <a name="automatic-registration-with-sql-vm-resource-provider"></a>Automatisk registrering med SQL VM Resource Provider
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -43,7 +43,7 @@ För att registrera SQL Server VM med resurs leverantören behöver du:
 
 Följ stegen nedan om du vill aktivera automatisk registrering av SQL Server virtuella datorer i Azure Portal:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Gå till resurs sidan för [**virtuella SQL-datorer**](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
 1. Välj **automatisk SQL Server VM registreringen** för att öppna sidan för **automatisk registrering** . 
 
@@ -77,6 +77,25 @@ Unregister-AzProviderFeature -FeatureName BulkRegistration -ProviderNamespace Mi
 
 ---
 
+## <a name="enable-for-multiple-subscriptions"></a>Aktivera för flera prenumerationer
+
+Du kan aktivera funktionen för automatisk registrering för flera Azure-prenumerationer med hjälp av PowerShell. 
+
+Det gör du på följande sätt:
+
+1. Spara [skriptet](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/RegisterSubscriptionsToSqlVmAutomaticRegistration.ps1) till en `.ps1` fil, till exempel `EnableBySubscription.ps1` . 
+1. Navigera till den plats där du sparade skriptet med hjälp av en administrativ kommando tolk eller PowerShell-fönster. 
+1. Anslut till Azure ( `az login` ).
+1. Kör skriptet och skicka i SubscriptionIds som parametrar som   
+   `.\EnableBySubscription.ps1 -SubscriptionList SubscriptionId1,SubscriptionId2`
+
+   Till exempel: 
+
+   ```console
+   .\EnableBySubscription.ps1 -SubscriptionList a1a1a-aa11-11aa-a1a1-a11a111a1,b2b2b2-bb22-22bb-b2b2-b2b2b2bb
+   ```
+
+Misslyckade registrerings fel lagras i `RegistrationErrors.csv` samma katalog som du sparade och körde `.ps1` skriptet från. 
 
 ## <a name="next-steps"></a>Nästa steg
 

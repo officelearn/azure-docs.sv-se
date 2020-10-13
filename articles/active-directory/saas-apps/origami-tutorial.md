@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 0fe7e0d43050120daa017669a96e90f96b873530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39f2f592601f60f060cce8ded2b5303dc6b10e8a
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543796"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995818"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>Självstudie: Azure Active Directory integrering med origami
 
@@ -30,7 +30,7 @@ Genom att integrera origami med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med origami behöver du följande objekt:
 
@@ -126,11 +126,11 @@ Utför följande steg för att konfigurera enkel inloggning med origami i Azure 
 
 2. På menyn längst upp klickar du på **Admin**.
    
-    ![Konfigurera enkel inloggning](./media/origami-tutorial/tutorial_origami_51.png)
+    ![Skärm bild som visar start sidan för origami med "admin" vald.](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. Utför följande steg på sidan installation av enkel inloggnings konfiguration:
    
-    ![Konfigurera enkel inloggning](./media/origami-tutorial/tutorial_origami_531.png)
+    ![Skärm bild som visar sidan "enkel inloggnings konfiguration" med alternativet "aktivera enkel inloggning" markerat och text rutorna är markerade.](./media/origami-tutorial/tutorial_origami_531.png)
 
     a. Välj **aktivera enkel inloggning**.
 
@@ -201,19 +201,19 @@ I det här avsnittet skapar du en användare som heter Britta Simon i origami.
 
 2. På menyn längst upp klickar du på **Admin**.
    
-    ![Konfigurera enkel inloggning](./media/origami-tutorial/tutorial_origami_51.png)
+    ![Skärm bild som visar origami-kontots start sida med "admin" vald.](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. I dialog rutan **användare och säkerhet** klickar du på **användare**.
    
-    ![Konfigurera enkel inloggning](./media/origami-tutorial/tutorial_origami_54.png)
+    ![Skärm bild som visar dialog rutan "användare och säkerhet" där "användare" har valts.](./media/origami-tutorial/tutorial_origami_54.png)
 
 4. Klicka på **Lägg till ny användare**.
    
-    ![Konfigurera enkel inloggning](./media/origami-tutorial/tutorial_origami_55.png)
+    ![Skärm bild som visar knappen "Lägg till ny användare" vald.](./media/origami-tutorial/tutorial_origami_55.png)
 
 5. I dialog rutan Lägg till ny användare utför du följande steg:
    
-    ![Konfigurera enkel inloggning](./media/origami-tutorial/tutorial_origami_56.png)
+    ![Skärm bild som visar dialog rutan "Lägg till ny användare" med text rutorna "användar namn", "förnamn" och "efter namn" markerade.](./media/origami-tutorial/tutorial_origami_56.png)
 
     a. I text rutan **användar namn** anger du e-postadressen till användaren, t. ex. **brittasimon \@ contoso.com**.
 
@@ -227,7 +227,7 @@ I det här avsnittet skapar du en användare som heter Britta Simon i origami.
 
     f. Klicka på **Spara**.
    
-    ![Konfigurera enkel inloggning](./media/origami-tutorial/tutorial_origami_57.png)
+    ![Skärm bild som visar knappen "Spara" vald.](./media/origami-tutorial/tutorial_origami_57.png)
 
 6. Tilldela användar **roller** och **klient åtkomst** till användaren. 
    

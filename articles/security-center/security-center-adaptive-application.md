@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 12140b71f8ef720a9e48b486a43e683b5766d102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3f3aad08266337756038dfa6ac6ff0c9afe093c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439015"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996823"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Använd anpassningsbara program kontroller för att minska dina datorers attack ytor
 
@@ -46,7 +46,7 @@ Genom att definiera listor över kända säkra program och generera aviseringar 
 
 
 
-## <a name="availability"></a>Tillgänglighet
+## <a name="availability"></a>Tillgängligt
 
 |Aspekt|Information|
 |----|:----|
@@ -149,6 +149,23 @@ Redigera reglerna för en grupp datorer:
 
 1. Om du vill tillämpa ändringarna väljer du **Spara**.
 
+
+## <a name="review-and-edit-a-groups-settings"></a>Granska och redigera en grupps inställningar
+
+1. Om du vill visa information och inställningar för gruppen väljer du **grupp inställningar**
+
+    I det här fönstret visas namnet på gruppen (som kan ändras), OS-typen, platsen och annan relevant information.
+
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Öppna adaptiva program kontroller från Azure-instrumentpanelen" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+
+    > [!IMPORTANT]
+    > Alternativet **Använd** i inställningar för fil typs skydd är nedtonat i alla scenarier. Det finns inga tillgängliga tvingande alternativ för tillfället. 
+    >
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Öppna adaptiva program kontroller från Azure-instrumentpanelen":::
+
+1. Du kan också ändra gruppens namn eller skydds lägen för filtyper.
+
+1. Välj **tillämpa** och **Spara**.
 
 
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: deb64aa0c344e818b5fd85ca1a161293fd35d6f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be9f2163813d1dc52a593c110fa4cef9b561614e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554023"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995417"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Självstudie: Azure Active Directory integrering med Percolate
 
@@ -32,7 +32,7 @@ Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i 
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Percolate måste du ha:
 
@@ -103,7 +103,7 @@ Utför följande steg för att konfigurera enkel inloggning med Percolate i Azur
 
 5. Om du vill konfigurera programmet i SP-initierat läge väljer du **Ange ytterligare URL: er** i rutan **inloggnings-URL** och anger **https://percolate.com/app/login** :
 
-   ![Information om enkel inloggning för Percolate-domän och URL: er](common/metadata-upload-additional-signon.png)
+   ![Skärm bild som visar "Ange ytterligare U R LS" som marker ATS med text rutan "logga in U R L" markerad.](common/metadata-upload-additional-signon.png)
 6. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **kopierings** ikonen för att kopiera **URL: en för appens federationens metadata**. Spara den här URL: en.
 
     ![Kopiera URL för app Federation-Metadata](common/copy-metadataurl.png)
@@ -184,7 +184,7 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
 
 3. I den vänstra rutan väljer **du användare och grupper**:
 
-    ![Välj Användare och grupper](common/users-groups-blade.png)
+    ![Skärm bild som visar "användare och grupper" som valts i det vänstra fönstret.](common/users-groups-blade.png)
 
 4. Välj **Lägg till användare** och sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 

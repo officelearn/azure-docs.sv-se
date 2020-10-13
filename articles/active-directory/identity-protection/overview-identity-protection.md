@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a6911f736e466277ba023f97189e1bb6619b8da
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e2dbb47371197d07b45f9144e2be66e992df4c97
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91265286"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996540"
 ---
 # <a name="what-is-identity-protection"></a>Vad är Identity Protection?
 
@@ -91,8 +91,8 @@ Identitets skydd kräver att användare är en säkerhets läsare, säkerhets op
 | --- | --- | --- |
 | Global administratör | Fullständig åtkomst till identitets skydd |   |
 | Säkerhetsadministratör | Fullständig åtkomst till identitets skydd | Återställ lösen ord för en användare |
-| Säkerhets operatör | Visa alla identitets skydds rapporter och översikts blad <br><br> Ignorera användar risk, bekräfta säker inloggning, bekräfta kompromettera | Konfigurera eller ändra principer <br><br> Återställ lösen ord för en användare <br><br> Konfigurera varningar |
-| Säkerhetsläsare | Visa alla identitets skydds rapporter och översikts blad | Konfigurera eller ändra principer <br><br> Återställ lösen ord för en användare <br><br> Konfigurera varningar <br><br> Ge feedback om identifieringar |
+| Säkerhets operatör | Visa alla identitets skydds rapporter och översikts blad <br><br> Ignorera användar risk, bekräfta säker inloggning, bekräfta kompromettera | Konfigurera eller ändra principer <br><br> Återställ lösen ord för en användare <br><br> Konfigurera aviseringar |
+| Säkerhetsläsare | Visa alla identitets skydds rapporter och översikts blad | Konfigurera eller ändra principer <br><br> Återställ lösen ord för en användare <br><br> Konfigurera aviseringar <br><br> Ge feedback om identifieringar |
 
 För närvarande går det inte att komma åt rapporten över riskfyllda inloggningar i rollen säkerhets operatör.
 
@@ -104,15 +104,17 @@ Administratörer för villkorlig åtkomst kan också skapa principer som faktorn
 
 | Funktion | Information  | Azure AD Free/Microsoft 365 appar | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| Risk principer | Användar risk princip (via identitets skydd)  | Nej | Nej |Ja | 
-| Risk principer | Inloggnings risk princip (via identitets skydd eller villkorlig åtkomst)  | Nej |  Nej |Ja |
-| Säkerhetsrapporter | Översikt |  Nej | Nej |Ja |
+| Risk principer | Användar risk princip (via identitets skydd)  | Inga | Inga |Ja | 
+| Risk principer | Inloggnings risk princip (via identitets skydd eller villkorlig åtkomst)  | Inga |  Inga |Ja |
+| Säkerhetsrapporter | Översikt |  Inga | Inga |Ja |
 | Säkerhetsrapporter | Riskfyllda användare  | Begränsad information | Begränsad information | Fullständig åtkomst|
 | Säkerhetsrapporter | Riskfyllda inloggningar  | Begränsad information | Begränsad information | Fullständig åtkomst|
-| Säkerhetsrapporter | Riskidentifieringar   | Nej | Begränsad information| Fullständig åtkomst|
-| Meddelanden | Varningar för användare med risk identifiering  | Nej | Nej |Ja |
-| Meddelanden | Vecko sammandrag| Nej | Nej | Ja | 
-| | Registreringsprincip för multifaktorautentisering | Nej | Nej | Ja |
+| Säkerhetsrapporter | Riskidentifieringar   | Inga | Begränsad information| Fullständig åtkomst|
+| Meddelanden | Varningar för användare med risk identifiering  | Inga | Inga |Ja |
+| Meddelanden | Vecko sammandrag| Inga | Inga | Ja | 
+| | Registreringsprincip för multifaktorautentisering | Inga | Inga | Ja |
+
+Mer information om de här omfattande rapporterna finns i artikeln [så här gör du: Undersök risker](howto-identity-protection-investigate-risk.md#navigating-the-reports).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 0a04b893af41f15d0757b781716909535f43239e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8caf136c43f40458634316da4b4002386f1419da
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544017"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997043"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Onit
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Onit med Azure Acti
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -132,7 +132,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Klicka på **Administration**i menyn högst upp.
    
-    ![Administration](./media/onit-tutorial/IC791174.png "Administration")
+    ![Skärm bild som visar menyn överst på sidan "M S S O test" med åtgärden "administration" vald.](./media/onit-tutorial/IC791174.png "Administration")
 
 3. Klicka på **Redigera Corporation**.
    

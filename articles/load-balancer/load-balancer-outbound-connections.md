@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/30/2020
 ms.author: allensu
-ms.openlocfilehash: 6b9f454c75a10644e86931dc86ebd9514e5431d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fcd0315afcbf38af2b8175deda748522cb335ec
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649804"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996851"
 ---
 # <a name="outbound-connections"></a>Utgående anslutningar
 
@@ -136,7 +136,7 @@ Med utgående regler kan du styra:
 - Vilka virtuella datorer som ska översättas till vilka offentliga IP-adresser.
 - Hur utgående [SNAT](#snat) -portar ska anges.
 - Vilka protokoll som ska tillhandahålla utgående översättning för.
-- Vilken varaktighet som ska användas för utgående timeout för utgående anslutning (4-120 minuter).
+- Vilken varaktighet som ska användas för utgående timeout för utgående anslutning (4-100 minuter).
 - Om du vill skicka en TCP-återställning vid inaktivitet
 - Både TCP-och UDP-transport protokoll med en enda regel
 
@@ -375,7 +375,7 @@ En SNAT-port används för vilken mål-IP-adress och port som ska användas för
 
 | Tillämpligt protokoll |
 |------------------------|
-| E.t. |
+| Saknas |
 
 #### <a name="details"></a>Information
 

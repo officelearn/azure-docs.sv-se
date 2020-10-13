@@ -1,21 +1,21 @@
 ---
 title: Lär dig om dubbla Azure IoT Hub-moduler | Microsoft Docs
 description: Utvecklings guide – använda modulen för att synkronisera tillstånds-och konfigurations data mellan IoT Hub och dina enheter
-author: ash2017
+author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/29/2020
-ms.author: asrastog
+ms.date: 09/29/2020
+ms.author: nehsin
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 81c5d410599edcbbb4e216b630709541be02c9fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e728eaf8335a102e38a3b4b07ab5e504d452294
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323017"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996463"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Förstå och Använd modul dubbla i IoT Hub
 
@@ -116,7 +116,7 @@ I det föregående exemplet innehåller modul två en `batteryLevel` egenskap so
 
 ### <a name="desired-property-example"></a>Exempel på önskad egenskap
 
-I föregående exempel `telemetryConfig` används modulens dubbla önskade och rapporterade egenskaper av lösningens Server del och modulens app för att synkronisera telemetri-konfigurationen för den här modulen. Exempel:
+I föregående exempel `telemetryConfig` används modulens dubbla önskade och rapporterade egenskaper av lösningens Server del och modulens app för att synkronisera telemetri-konfigurationen för den här modulen. Till exempel:
 
 1. Server delen för lösningen anger önskad egenskap med det önskade konfiguration svärdet. Här är den del av dokumentet med önskad egenskaps uppsättning:
 
@@ -179,7 +179,7 @@ Lösningens Server del fungerar i modulen dubbla med hjälp av följande atomisk
 
   - Egenskaper
 
-    | Namn | Värde |
+    | Name | Värde |
     | --- | --- |
     $content-typ | application/json |
     $iothub-enqueuedtime |  Tid när meddelandet skickades |
@@ -241,7 +241,7 @@ Taggar, önskade egenskaper och rapporterade egenskaper är JSON-objekt med föl
 
 * **Nycklar**: alla nycklar i JSON-objekt är UTF-8-kodade, SKIFT läges känsliga och upp till 1 KB. Tillåtna tecken utesluter UNICODE-kontrolltecken (segment C0 och C1) och `.` , `$` , och SP.
 
-* **Värden**: alla värden i JSON-objekt kan vara av följande JSON-typer: Boolean, Number, String, Object. Matriser är inte tillåtna.
+* **Värden**: alla värden i JSON-objekt kan vara av följande JSON-typer: Boolean, Number, String, Object. Matriser stöds också.
 
     * Heltal kan ha ett lägsta värde på-4503599627370496 och ett högsta värde på 4503599627370495.
 
@@ -300,7 +300,7 @@ IoT Hub avvisar alla åtgärder som skulle öka storleken på dokumenten över g
 ## <a name="module-twin-metadata"></a>Modul, dubbla metadata
 
 IoT Hub behåller tidsstämpeln för den senaste uppdateringen för varje JSON-objekt i modulen, och rapporterade egenskaper. Tidsstämplar anges i UTC och kodas i [iso8601](https://en.wikipedia.org/wiki/ISO_8601) -format `YYYY-MM-DDTHH:MM:SS.mmmZ` .
-Exempel:
+Till exempel:
 
 ```json
 {

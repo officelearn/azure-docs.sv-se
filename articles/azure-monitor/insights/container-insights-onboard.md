@@ -3,12 +3,12 @@ title: Aktivera Azure Monitor för behållare | Microsoft Docs
 description: I den här artikeln beskrivs hur du aktiverar och konfigurerar Azure Monitor för behållare så att du kan förstå hur din behållare presterar och vilka prestandarelaterade problem som har identifierats.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1cb393faded714593ce635669f585d5979ee69b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69022643e3346444eee95f4487eeed292c4ef139
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320314"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994067"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Aktivera Azure Monitor för behållare
 
@@ -25,7 +25,7 @@ Du kan också övervaka prestanda för arbets belastningar som distribueras till
 
 Du kan aktivera Azure Monitor för behållare för en ny distribution eller för en eller flera befintliga distributioner av Kubernetes med någon av följande metoder som stöds:
 
-- Azure Portal
+- Azure-portalen
 - Azure PowerShell
 - Azure CLI
 - [Terraform och AKS](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks)
@@ -43,7 +43,7 @@ Innan du börjar kontrollerar du att du uppfyller följande krav:
    Du kan skapa en arbets yta när du aktiverar övervakning för ditt nya AKS-kluster, eller så kan du låta onboarding-upplevelsen skapa en standard arbets yta i standard resurs gruppen för AKS-kluster prenumerationen. 
    
    Om du väljer att skapa arbets ytan själv kan du skapa den genom att: 
-   - [Azure Resource Manager](../platform/template-workspace-configuration.md)
+   - [Azure Resource Manager](../samples/resource-manager-workspace.md)
    - [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
    - [Azure-portalen](../learn/quick-create-workspace.md) 
    
@@ -131,4 +131,3 @@ Om du vill aktivera Azure Monitor för behållare använder du en av de metoder 
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har aktiverat övervakning kan du börja analysera prestanda för dina Kubernetes-kluster som finns i Azure Kubernetes service (AKS), Azure Stack eller någon annan miljö. Information om hur du använder Azure Monitor för behållare finns i [Visa Kubernetes kluster prestanda](container-insights-analyze.md).
-

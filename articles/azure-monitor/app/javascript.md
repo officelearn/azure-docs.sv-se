@@ -4,12 +4,12 @@ description: Hämta sid visning och antal sessioner, webb klient data, enstaka s
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5a90f0b4223d69ccb6c4def871eb9d5bf5fbc2e8
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: b109aaea1ae5e751f40b55a3c703f0739661e10d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91841449"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876217"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 
@@ -153,7 +153,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Konfiguration
 De flesta konfigurations fälten får ett namn som är förfalskade som standard. Alla fält är valfria förutom för `instrumentationKey` .
 
-| Name | Default | Beskrivning |
+| Namn | Default | Beskrivning |
 |------|---------|-------------|
 | instrumentationKey | null | **Obligatoriskt**<br>Instrumentation-nyckel som du fick från Azure Portal. |
 | accountId | null | Ett valfritt konto-ID, om din app grupperar användare till konton. Inga blank steg, kommatecken, semikolon, likheter eller lodräta staplar |
@@ -200,6 +200,41 @@ De flesta konfigurations fälten får ett namn som är förfalskade som standard
 | ajaxPerfLookupDelay | 25 | Standardvärdet är 25 MS. Vänte tiden innan ett nytt försök att hitta Windows. prestanda tids inställningarna för en `ajax` begäran visas i millisekunder och skickas direkt till setTimeout ().
 | enableUnhandledPromiseRejectionTracking | falskt | Om värdet är true, kommer ohanterade löftes avslag att samlas in automatiskt och rapporteras som ett JavaScript-fel. När disableExceptionTracking är true (spåra inte undantag) ignoreras konfiguration svärdet och ohanterade löftes avslag rapporteras inte.
 
+## <a name="enable-time-on-page-tracking"></a>Aktivera tids spårning på sidan
+
+Genom att ställa in `autoTrackPageVisitTime: true` den tid som en användare lägger på varje sida spåras. På varje ny sid visningar skickas varaktigheten som användaren har använt på *föregående* sida som ett [anpassat mått](../platform/metrics-custom-overview.md) med namnet `PageVisitTime` . Det här anpassade måttet visas i [Metrics Explorer](../platform/metrics-getting-started.md) som ett "log-baserat mått".
+
+## <a name="enable-correlation"></a>Aktivera korrelation
+
+Korrelation genererar och skickar data som möjliggör distribuerad spårning och ger [program kartan](../app/app-map.md), [vyn från slut punkt till slut punkt](../app/app-map.md#go-to-details)och andra diagnostikverktyg.
+
+I följande exempel visas alla möjliga konfigurationer som krävs för att aktivera korrelation, med scenario-/regionsspecifika anteckningar nedan:
+
+```javascript
+// excerpt of the config section of the JavaScript SDK snippet with correlation
+// between client-side AJAX and server requests enabled.
+cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    disableFetchTracking: false,
+    enableCorsCorrelation: true,
+    enableRequestHeaderTracking: true,
+    enableResponseHeaderTracking: true,
+    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
+    /* ...Other Configuration Options... */
+}});
+</script>
+
+``` 
+
+Om någon av de servrar från tredje part som klienten kommunicerar med inte accepterar `Request-Id` `Request-Context` -och-rubrikerna, och du inte kan uppdatera konfigurationen, måste du lägga dem i en exkluderings lista via `correlationHeaderExcludeDomains` konfigurations egenskapen. Den här egenskapen stöder jokertecken.
+
+Server sidan måste kunna acceptera anslutningar med de aktuella huvudena. Beroende på `Access-Control-Allow-Headers` Server sidans konfiguration är det ofta nödvändigt att utöka listan på Server sidan genom att manuellt lägga till `Request-Id` och `Request-Context` .
+
+Åtkomst – kontroll-Tillåt-rubriker: `Request-Id` , `Request-Context` , `<your header>`
+
+> [!NOTE]
+> Om du använder OpenTelemtry eller Application Insights SDK: er som publicerats i 2020 eller senare rekommenderar vi att du använder [WC3 spåra tracecontext](https://www.w3.org/TR/trace-context/). Se konfigurations vägledning [här](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
+
 ## <a name="single-page-applications"></a>Program med en sida
 
 Som standard hanterar **inte** denna SDK tillstånds väg ändringar som inträffar i program med en enda sida. Om du vill aktivera automatisk väg ändrings spårning för ditt program på en sida kan du lägga till `enableAutoRouteTracking: true` i konfigurations konfigurationen.
@@ -208,10 +243,6 @@ För närvarande erbjuder vi ett separat [reagerar-plugin-program](javascript-re
 > [!NOTE]
 > Använd `enableAutoRouteTracking: true` endast om du **inte** använder den reagera plugin-programmet. Båda kan skicka nya PageViews när vägen ändras. Om båda är aktiverade kan duplicerade PageViews skickas.
 
-## <a name="configuration-autotrackpagevisittime"></a>Konfiguration: autoTrackPageVisitTime
-
-Genom att ställa in `autoTrackPageVisitTime: true` den tid som en användare lägger på varje sida spåras. På varje ny sid visningar skickas varaktigheten som användaren har använt på *föregående* sida som ett [anpassat mått](../platform/metrics-custom-overview.md) med namnet `PageVisitTime` . Det här anpassade måttet visas i [Metrics Explorer](../platform/metrics-getting-started.md) som ett "log-baserat mått".
-
 ## <a name="extensions"></a>Tillägg
 
 | Tillägg |
@@ -219,38 +250,6 @@ Genom att ställa in `autoTrackPageVisitTime: true` den tid som en användare l�
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
 | [Angular](javascript-angular-plugin.md) |
-
-## <a name="correlation"></a>Korrelation
-
-Klient till Server-sido-korrelation stöds för:
-
-- XHR/AJAX-begäranden 
-- Hämta förfrågningar 
-
-Jämförelse mellan klienter och Server sidan **stöds inte** för `GET` och `POST` begär Anden.
-
-### <a name="enable-cross-component-correlation-between-client-ajax-and-server-requests"></a>Aktivera över-komponent-korrelation mellan client AJAX och Server förfrågningar
-
-Om du vill aktivera `CORS` korrelation måste klienten skicka två ytterligare begärandehuvuden `Request-Id` och `Request-Context` Server sidan måste kunna acceptera anslutningar med dessa huvuden. Att skicka rubrikerna är aktiverat genom `enableCorsCorrelation: true` att ställa in i Java Script SDK-konfigurationen. 
-
-Beroende på `Access-Control-Allow-Headers` Server sidans konfiguration är det ofta nödvändigt att utöka listan på Server sidan genom att manuellt lägga till `Request-Id` och `Request-Context` .
-
-Åtkomst – kontroll-Tillåt-rubriker: `Request-Id` , `Request-Context` , `<your header>`
-
-Om någon av de servrar från tredje part som klienten kommunicerar med inte accepterar `Request-Id` `Request-Context` -och-rubrikerna, och du inte kan uppdatera konfigurationen, måste du lägga dem i en exkluderings lista via `correlationHeaderExcludeDomains` konfigurations egenskapen. Den här egenskapen stöder jokertecken.
-
-```javascript
-// excerpt of the config section of the JavaScript SDK snippet with correlation
-// between client-side AJAX and server requests enabled.
-cfg: { // Application Insights Configuration
-    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
-    enableCorsCorrelation: true,
-    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
-    /* ...Other Configuration Options... */
-}});
-</script>
-
-``` 
 
 ## <a name="explore-browserclient-side-data"></a>Utforska data från webbläsare/klient Sidan
 

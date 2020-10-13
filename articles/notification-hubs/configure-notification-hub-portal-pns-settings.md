@@ -12,12 +12,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c8e2372e22c9db3aa5ea8b0bd953f18a2c01fbe2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 67e90667df2b62ec2c37d865fe431a2be6f81b9e
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87761033"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876574"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>Snabb start: Konfigurera push-meddelanden i en Notification Hub
 
@@ -67,14 +67,11 @@ När du slutför de här stegen anger en varning att Notification Hub har uppdat
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-### <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Innan du börjar måste du ha följande:
+- Notification Hubs kräver version 2.0.67 eller senare av Azure CLI. Kör [AZ-versionen](/cli/azure/reference-index?#az_version) för att hitta den version och beroende bibliotek som är installerade. Uppgradera till den senaste versionen genom att köra [AZ Upgrade](/cli/azure/reference-index?#az_upgrade).
 
-* [Azure CLI](/cli/azure/install-azure-cli) -versionen 2.0.67 eller senare.
-
-* Azure CLI- [tillägget för Notification Hubs](/cli/azure/ext/notification-hub/notification-hub).
-* **API-nyckeln** för ett FCM-projekt (Google Firebase Cloud Messaging).
+- Du kommer att behöva **API-nyckeln** för ditt Google Firebase Cloud Messaging-projekt (FCM).
 
 ### <a name="set-up-push-notifications-for-google-fcm"></a>Konfigurera push-meddelanden för Google FCM
 

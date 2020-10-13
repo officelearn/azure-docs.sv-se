@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: fa457bf930978965b7ad37ea032e6517bda2e9d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62f4d069a6eda6dba48817589e338f010b766a34
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291205"
+ms.locfileid: "91893721"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Självstudie: Migrera PostgreSQL till Azure DB för PostgreSQL online med DMS via Azure CLI
 
@@ -38,7 +38,7 @@ I den här guiden får du lära dig att:
 > [!IMPORTANT]
 > För en optimal migrering rekommenderar Microsoft att du skapar en instans av Azure Database Migration Service i samma Azure-region som mål databasen. Att flytta data mellan regioner eller geografiska områden kan göra migreringsprocessen långsammare och leda till fel.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -373,8 +373,6 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output --query 'properties.output[].migrationState | [0]' "READY_TO_COMPLETE"
     ```
 
-## <a name="understanding-migration-task-status"></a>Förstå aktivitetsstatus för migrering
-
 Det finns flera parametrar som visar förloppet för migrering i utdatafilen. Använd udatafilen nedan som exempel:
 
   ```output
@@ -487,6 +485,7 @@ För att säkerställa att alla data har samlats in, verifiera radantal mellan k
     ```azurecli
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
     ```
+3. När status för migreringen av **databasen visas,** [återskapar du sekvenser](https://wiki.postgresql.org/wiki/Fixing_Sequences) (om tillämpligt) och ansluter dina program till den nya mål instansen av Azure Database for PostgreSQL.
 
 ## <a name="service-project-task-cleanup"></a>Rensa tjänst, projekt, aktivitet
 

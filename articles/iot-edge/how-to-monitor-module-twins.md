@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1bf2e3f07d9e5576f62ef9badd9c8a46ac92fad0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 1a11d3a9a972188af4cf8f054349da98d69691a3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450166"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876166"
 ---
 # <a name="monitor-module-twins"></a>Övervaka modultvillingar
 
@@ -168,15 +168,15 @@ Om du har problem med dina underordnade enheter kan det vara bra att undersöka 
 
 Informationen om anslutningarna för dina anpassade moduler behålls i IoT Edge agent-modul, med dubbla. Modulen för din anpassade modul används främst för att underhålla data för din lösning. De önskade egenskaperna som du definierade i deployment.jspå filen visas i modulen, och modulen kan uppdatera rapporterade egenskaps värden efter behov.
 
-Du kan använda önskat programmeringsspråk med [Azure IoT Hub enhets-SDK: erna](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) för att uppdatera rapporterade egenskaps värden i modulen, baserat på modulens program kod. I följande procedur används Azure SDK för .NET för att göra detta med hjälp av kod från [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) -modulen:
+Du kan använda önskat programmeringsspråk med [Azure IoT Hub enhets-SDK: erna](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) för att uppdatera rapporterade egenskaps värden i modulen, baserat på modulens program kod. I följande procedur används Azure SDK för .NET för att göra detta med hjälp av kod från [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) -modulen:
 
-1. Skapa en instans av [ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) med [CreateFromEnvironmentAysnc](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) -metoden.
+1. Skapa en instans av [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) med [CreateFromEnvironmentAysnc](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) -metoden.
 
-1. Hämta en samling av modulens egenskaper med [GetTwinAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync?view=azure-dotnet) -metoden.
+1. Hämta en samling av modulens egenskaper med [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync) -metoden.
 
-1. Skapa en lyssnare (som skickar ett återanrop) för att fånga ändringar av önskade egenskaper med [SetDesiredPropertyUpdateCallbackAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?view=azure-dotnet) -metoden.
+1. Skapa en lyssnare (som skickar ett återanrop) för att fånga ändringar av önskade egenskaper med [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync) -metoden.
 
-1. I återanrops metoden uppdaterar du de rapporterade egenskaperna i modulen dubbla med metoden [UpdateReportedPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) och skickar en [TwinCollection](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twincollection) av de egenskaps värden som du vill ange.
+1. I återanrops metoden uppdaterar du de rapporterade egenskaperna i modulen dubbla med metoden [UpdateReportedPropertiesAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient) och skickar en [TwinCollection](/dotnet/api/microsoft.azure.devices.shared.twincollection) av de egenskaps värden som du vill ange.
 
 ## <a name="access-the-module-twins"></a>Få åtkomst till modulen dubbla
 

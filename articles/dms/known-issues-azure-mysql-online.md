@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 9a8ae9be983ecb0e6b50ef889525ae33726c2d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 673480d1b5171e03b701cd2102c7a640aae58ad0
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330340"
+ms.locfileid: "91893755"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problem med online-migrering & begränsningar för Azure DB för MySQL med Azure Database Migration Service
 
@@ -82,12 +82,12 @@ LOB-kolumner (Large Object) är kolumner som kan växa stora i storlek. För MyS
 
     **Lösning**: Ersätt primär nyckel med andra data typer eller kolumner som inte är LOB.
 
-- **Begränsning**: om kolumnen för stora objekt (LOB) är större än 32 KB kan data trunkeras vid målet. Du kan kontrol lera längden på LOB-kolumnen med den här frågan:
+- **Begränsning**: om kolumnen för stora objekt (LOB) är större än parametern "Limit LOB-storlek" (bör inte vara större än 64 KB) kan data trunkeras vid målet. Du kan kontrol lera längden på LOB-kolumnen med den här frågan:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Lösning**: om du har LOB-objekt som är större än 32 KB kan du kontakta teknik teamet på [fråga Azure Database-migreringar](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Lösning**: om du har LOB-objekt som är större än 64 KB använder du parametern "Tillåt obegränsad LOB-storlek". Observera att migrering med parametern "Tillåt obegränsad LOB-storlek" är långsammare än migreringar med parametern "gräns för LOB-storlek".
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>Begränsningar vid migrering online från AWS RDS MySQL
 

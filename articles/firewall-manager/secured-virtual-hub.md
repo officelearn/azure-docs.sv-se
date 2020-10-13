@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/12/2020
 ms.author: victorh
-ms.openlocfilehash: 56e0d40bcbfb97f57b63dc82da1a6604f83dffad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c840bf9e82b8dcdb1fbf9b380ea847b3d1b08dd9
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85563625"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948076"
 ---
 # <a name="what-is-a-secured-virtual-hub"></a>Vad är en skyddad virtuell hubb?
 
@@ -20,9 +20,9 @@ En virtuell hubb är ett Microsoft-hanterat virtuellt nätverk som möjliggör a
 
 En *säker* virtuell hubb är en [virtuell WAN-hubb i Azure](../virtual-wan/virtual-wan-about.md#resources) med associerade säkerhets-och routningsprinciperna som kon figurer ATS av Azure Firewall Manager. Använd skyddade virtuella hubbar för att enkelt skapa nav-och ekrar och transitiva arkitekturer med interna säkerhets tjänster för trafik styrning och skydd. 
 
-Du kan använda en säker virtuell hubb som en hanterad Central VNet utan lokal anslutning. Den ersätter det centrala VNet som tidigare krävdes för en Azure Firewall-distribution. Eftersom den säkra virtuella hubben tillhandahåller automatisk routning behöver du inte konfigurera egna UDR (användardefinierade vägar) för att dirigera trafik genom brand väggen.
+Du kan använda en säker virtuell hubb för att filtrera trafik mellan virtuella nätverk (V2V), virtuella nätverk och avdelnings kontor (B2V) och trafik till Internet (B2I/V2I). En säker virtuell hubb ger automatisk routning. Du behöver inte konfigurera egna UDR (användardefinierade vägar) för att dirigera trafik genom brand väggen.
 
-Det går också att använda säkra virtuella hubbar som en del av en fullständig virtuell WAN-arkitektur. Den här arkitekturen ger säker, optimerad och automatiserad gren anslutning till och via Azure. Du kan välja vilka tjänster som ska skydda och styra nätverks trafiken, inklusive Azure-brandväggen och andra SECaaS-leverantörer (Security as a Service).
+Du kan välja vilka säkerhets leverantörer som krävs för att skydda och styra nätverks trafiken, inklusive Azure Firewall, SECaaS-providers (Security as a Service) eller båda. För närvarande stöder inte en skyddad hubb gren till förgrening (B2B)-filtrering och filtrering över flera hubbar. Mer information finns i [Vad är Azure Firewall Manager?](overview.md#known-issues). 
 
 ## <a name="create-a-secured-virtual-hub"></a>Skapa en säker virtuell hubb
 

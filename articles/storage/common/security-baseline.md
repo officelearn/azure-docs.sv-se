@@ -8,10 +8,10 @@ ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: f4687add8fdd55c8084a7180a6e0a3bffd9751b1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715154"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azures säkerhets bas linje för Azure Storage
@@ -316,7 +316,7 @@ Du kan också aktivera en just-in-Time/bara-tillräcklig-åtkomst genom att anv�
 
 **Ansvar**: kund
 
-### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: Använd Azure Active Directory enkel inloggning (SSO)
+### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: Använd Azure Active Directory Single Sign-On (SSO)
 
 **Vägledning**: där det är möjligt använder Azure Active Directory SSO i stället för att konfigurera enskilda fristående autentiseringsuppgifter per tjänst. Använd rekommendationer för Azure Security Center identitets-och åtkomst hantering. 
 
@@ -960,7 +960,7 @@ Du kan också förskanna allt innehåll för skadlig kod innan du laddar upp til
 
 Du kan också aktivera Azure Automation för att ta regelbundna ögonblicks bilder av blobarna.
 
-- [Förstå Azure Storage redundans och service nivå avtal](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+- [Förstå Azure Storage redundans och Service-Level avtal](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 - [Skapa en ögonblicks bild av en BLOB](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 
@@ -990,7 +990,7 @@ Kundhanterade/tillhandahållna nycklar kan säkerhets kopie ras i Azure Key Vaul
 
 **Vägledning**: regelbundet utföra Data återställning av Key Vault certifikat, nycklar, hanterade lagrings konton och hemligheter, med följande PowerShell-kommandon: 
 
-Återställa-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret 
+Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret 
 
 - [Återställa Key Vault-certifikat](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
 

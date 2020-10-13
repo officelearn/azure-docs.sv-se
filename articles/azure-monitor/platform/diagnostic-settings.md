@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
 ms.openlocfilehash: 48d2a657059908417bc81fd8cc2a132d2d131530
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449330"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Skapa diagnostikinställningar för att skicka plattformsloggar och mått till olika målplatser
@@ -81,7 +81,7 @@ Du kan konfigurera diagnostikinställningar i Azure Portal antingen från Azure 
 
    - I aktivitets loggen klickar du på **aktivitets logg** på **Azure Monitor** -menyn och sedan på **diagnostikinställningar**. Se till att inaktivera all äldre konfiguration för aktivitets loggen. Se [inaktivera befintliga inställningar](./activity-log.md#legacy-collection-methods) för mer information.
 
-        ![Skärm bild av Azure Monitor menyn med aktivitets logg valt och diagnostikinställningar markerat i meny raden övervaka-aktivitets logg.](media/diagnostic-settings/menu-activity-log.png)
+        ![Skärm bild av Azure Monitor-menyn med aktivitets logg valt och diagnostikinställningar markerat i Monitor-Activity logg meny raden.](media/diagnostic-settings/menu-activity-log.png)
 
 2. Om det inte finns några inställningar på den resurs du har valt uppmanas du att skapa en inställning. Klicka på **Lägg till diagnostisk inställning**.
 

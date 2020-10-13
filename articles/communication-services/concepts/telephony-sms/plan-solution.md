@@ -10,12 +10,12 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 6a63df282cadf86668e69d2422a6c791e86010b6
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: eb698cf3c4cf2bdc47e3df57c65847f499d8760c
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767153"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893670"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>Planera din telefoni- och SMS-lösning
 
@@ -48,7 +48,7 @@ I tabellen nedan sammanfattas dessa telefonnummer typer:
 | Typ av telefonnummer | Exempel                              | Lands tillgänglighet    | Telefon funktion |Vanligt användnings fall                                                                                                     |
 | ----------------- | ------------------------------------ | ----------------------- | ------------------------|------------------------------------------------------------------------------------------------------------------- |
 | Lokalt (geografiskt)        | + 1 (lokalt rikt nummer) XXX XX XX  | USA                      | Anropar (utgående) | Tilldela telefonnummer till användare i dina program  |
-| Avgiftsfritt         | + 1 (avgiftsfrit rikt *nummer*) xxx xx xx | USA                      | Anrop (utgående), SMS (inkommande/utgående)| Tilldela telefonnummer till IVR-system/robotar-system (Interactive Voice Response), SMS-program                                        |
+| Toll-Free         | + 1 (avgiftsfrit rikt *nummer*) xxx xx xx | USA                      | Anrop (utgående), SMS (inkommande/utgående)| Tilldela telefonnummer till IVR-system/robotar-system (Interactive Voice Response), SMS-program                                        |
 
 
 ## <a name="phone-number-plans-in-azure-communication-services"></a>Telefonnummers planer i Azure Communication Services 
@@ -68,13 +68,15 @@ I följande tabell visas var du kan hämta olika typer av telefonnummer tillsamm
 |Siffer typ| Hämta nummer i | Gör anrop till                                        | Ta emot samtal från                                    |Skicka meddelanden till       | Ta emot meddelanden från |
 |-----------| ------------------ | ---------------------------------------------------  |-------------------------------------------------------|-----------------------|--------|
 | Lokalt (geografiskt)  | USA                 | USA, Kanada, Storbritannien, Tyskland, Frankrike. + Mer *| USA, Kanada, Storbritannien, Tyskland, Frankrike. + Mer * |Inte tillgänglig| Inte tillgänglig |
-| Avgiftsfritt | USA                 | USA                                                   | USA                                                    |USA                | USA |
+| Toll-Free | USA                 | USA                                                   | USA                                                    |USA                | USA |
 
 * Mer information om samtals destinationer och priser finns på sidan med [priser](../pricing.md).
 
 ## <a name="azure-subscriptions-eligibility"></a>Azure-prenumerationer berättigar
 
 För att skaffa ett telefonnummer måste du vara på en betald Azure-prenumeration. Det går inte att hämta telefonnummer för utvärderings konton. 
+
+För närvarande är telefonnumret för tillgänglighet begränsat till Azure-prenumerationer som har en fakturerings adress i USA.
 
 ## <a name="next-steps"></a>Nästa steg
 

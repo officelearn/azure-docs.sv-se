@@ -16,10 +16,10 @@ ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 62faec3fd9ee36cb7a2b5da7e6bae07c6c8e06af
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449386"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA
@@ -75,7 +75,7 @@ Linux har flera olika I/O-schemaläggnings lägen. Vanliga rekommendationer via 
 Azure Skrivningsaccelerator är en funktion som endast är tillgänglig för virtuella datorer i Azure M-serien. Som namn tillstånd är syftet med funktionen att förbättra I/O-svars tiden för skrivningar mot Azure Premium-lagringen. För SAP HANA ska Skrivningsaccelerator endast användas mot **/Hana/log** -volymen. Därför är **/Hana/data** och **/Hana/log** separata volymer med Azure Skrivningsaccelerator som bara stöder **/Hana/log** -volymen. 
 
 > [!IMPORTANT]
-> När du använder Azure Premium Storage är användningen av Azure- [Skrivningsaccelerator](../../how-to-enable-write-accelerator.md) för **/Hana/log** -volymen obligatorisk. Skrivningsaccelerator är endast tillgängligt för Premium Storage och virtuella datorer i M-serien och Mv2-serien. Skrivningsaccelerator fungerar inte tillsammans med andra Azure VM-familjer, t. ex. Esv3 eller Edsv4.
+> När du använder Azure Premium Storage är användningen av Azure- [Skrivningsaccelerator](../../how-to-enable-write-accelerator.md) för **/Hana/log** -volymen obligatorisk. Skrivningsaccelerator är tillgängligt för Premium Storage och M-serien och endast Mv2-Series virtuella datorer. Skrivningsaccelerator fungerar inte tillsammans med andra Azure VM-familjer, t. ex. Esv3 eller Edsv4.
 
 Rekommendationerna för cachelagring för Azure Premium-diskar nedan förutsätter I/O-egenskaperna för SAP HANA listan, t. ex.:
 
@@ -88,7 +88,7 @@ Rekommendationerna för cachelagring för Azure Premium-diskar nedan förutsätt
 **Rekommendation: som ett resultat av dessa observerade I/O-mönster genom SAP HANA ska cachelagring för de olika volymerna med Azure Premium Storage ställas in som:**
 
 - **/Hana/data** – ingen cachelagring eller cachelagring av läsning
-- **/Hana/log** – ingen cachelagring – undantag för virtuella datorer i M-och Mv2-serien där Azure Skrivningsaccelerator ska aktive ras 
+- **/Hana/log** – ingen cachelagring – undantag för M-och Mv2-Series virtuella datorer där Azure Skrivningsaccelerator ska aktive ras 
 - **/Hana/Shared** – cachelagring för läsning
 - **OS-disk** – ändra inte standardvärdet för cachelagring som anges av Azure när den virtuella datorn skapades
 

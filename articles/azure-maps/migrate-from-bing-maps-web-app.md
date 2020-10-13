@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Migrera en webbapp från Bing Maps | Microsoft Azure Maps'
-description: Så här migrerar du en webbapp från Bing Maps till Microsoft Azure Maps.
+description: Självstudie om hur du migrerar en webbapp från Bing Maps till Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 9/10/2020
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 469565385ce4b3ee4b1589f105216213d584c8c9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 42ba92a0134ae1e8da91bbe7513668fa24c4718f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319749"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876523"
 ---
-# <a name="migrate-a-web-app-from-bing-maps"></a>Migrera en webbapp från Bing Maps
+# <a name="tutorial---migrate-a-web-app-from-bing-maps"></a>Självstudie – migrera en webbapp från Bing Maps
 
 Webb program som använder Bing Maps använder ofta Bing Maps V8 Java Script SDK. Azure Maps Web SDK är lämplig Azure-baserad SDK för att migrera till. Med Azure Maps Web SDK kan du anpassa interaktiva kartor med ditt eget innehåll och bilder för visning i dina webb-eller mobil program. Den här kontrollen använder WebGL, så att du kan rendera stora datauppsättningar med höga prestanda. Utveckla med det här SDK: t med Java Script eller TypeScript.
 
@@ -53,13 +53,13 @@ I följande tabell visas viktiga API-funktioner i Bing Maps V8 JavaScript SDK oc
 | Netencoder-tjänst         | ✓                                                                                      |
 | Vägbeskrivnings tjänst       | ✓                                                                                      |
 | Distans mat ris tjänst  | ✓                                                                                      |
-| Spatial data tjänst     | Saknas                                                                                    |
+| Spatial data tjänst     | E.t.                                                                                    |
 | Satellit-/flyg bilder | ✓                                                                                      |
 | Fåglars ögon bilder         | Planerad                                                                                |
 | Streetside bilder       | Planerad                                                                                |
 | Stöd för interjson          | ✓                                                                                      |
 | GeoXML-stöd           | ✓                                                                                      |
-| Stöd för välkända texter  | ✓                                                                                      |
+| Stöd för Well-Known text  | ✓                                                                                      |
 | Anpassade kart format        | Delvis                                                                                |
 
 Azure Maps också många ytterligare [moduler med öppen källkod för webb-SDK](open-source-projects.md#open-web-sdk-modules) : n som utökar dess funktioner.
@@ -932,7 +932,7 @@ I Azure Maps läggs data till och hanteras av en data källa. Lager ansluter til
 
 När klustring är aktiverat skickar data källan klustrade och data punkter som inte är klustrade till lager för åter givning. Data källan kan klustra hundratals tusen data punkter. En klustrad data punkt har följande egenskaper:
 
-| Egenskapsnamn               | Typ    | Description                                    |
+| Egenskapsnamn               | Typ    | Beskrivning                                    |
 |-----------------------------|---------|------------------------------------------------|
 | `cluster`                   | boolean | Anger om funktionen representerar ett kluster.     |
 | `cluster_id`                | sträng  | Ett unikt ID för klustret som kan användas med `DataSource` klasserna `getClusterExpansionZoom` , `getClusterChildren` och `getClusterLeaves` . |
@@ -941,7 +941,7 @@ När klustring är aktiverat skickar data källan klustrade och data punkter som
 
 `DataSource`Klassen har följande hjälp funktion för att få åtkomst till ytterligare information om ett kluster med hjälp av `cluster_id` .
 
-| Funktion       | Returtyp        | Description     |
+| Funktion       | Returtyp        | Beskrivning     |
 |----------------|--------------------|-----------------|
 | `getClusterChildren(clusterId: number)`                              | `Promise<Feature<Geometry, any> | Shape>` | Hämtar underordnade för det aktuella klustret på nästa zoomnings nivå. Dessa underordnade kan vara en kombination av former och del kluster. Under klustren är funktioner med egenskaper som matchar kluster egenskaper. |
 | `getClusterExpansionZoom(clusterId: number)`                         | `Promise<number>`                            | Beräknar en zoomnings nivå som klustret börjar att utöka eller dela upp.    |
@@ -1409,7 +1409,7 @@ I Azure Maps kan de refererade avbildningarna överkonfigureras med hjälp av `a
 
 ### <a name="add-kml-data-to-the-map"></a>Lägg till KML-data till kartan
 
-Både Azure-och Bing Maps kan importera och återge KML-, KMZ-, GeoRSS-, geografi-och välkända text data (well) på kartan. Azure Maps stöder också GPX, GML, spatiala CSV-filer, webb mappnings tjänster (WMS), webb mappnings tjänster (WMTS) och webb funktions tjänster (WFS).
+Både Azure-och Bing Maps kan importera och återge KML-, KMZ-, GeoRSS-, interjson-och Well-Known text (well) data på kartan. Azure Maps stöder också GPX, GML, spatiala CSV-filer, Web-Mapping Services (WMS), Web-Mapping panel tjänster (WMTS) och Web Feature Services (WFS).
 
 **Före: Bing Maps**
 

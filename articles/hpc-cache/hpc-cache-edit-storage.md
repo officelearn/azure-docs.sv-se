@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
 ms.openlocfilehash: 70f350204796099e02f7afe829a6e2e1fdf653c8
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613129"
 ---
 # <a name="edit-storage-targets"></a>Redigera lagringsmål
@@ -133,7 +133,7 @@ Du måste ange alla tre värdena för varje sökväg i ``--junction`` instruktio
 
 Cache-namn, lagrings mål namn och resurs grupp krävs även i alla uppdaterings kommandon.
 
-Exempel kommando:
+Exempelkommando:
 
 ```azurecli
 az hpc-cache nfs-storage-target update --cache-name mycache \

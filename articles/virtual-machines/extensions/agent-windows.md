@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 07/20/2019
 ms.author: mimckitt
-ms.openlocfilehash: 2db83b643ec3000c5b86388f4b603bba32f2a9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ef2c9ef4e2a2296ceb214c89bb6e3fb98dcb26f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91855783"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974914"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Översikt över Azure Virtual Machine agent
 Den Microsoft Azure virtuella dator agenten (VM-agenten) är en säker, lätt process som hanterar interaktionen mellan virtuella datorer (VM) med Azure Fabric-styrenheten. VM-agenten har en primär roll för att aktivera och köra tillägg för virtuella Azure-datorer. Med VM-tillägg kan du konfigurera virtuella datorer efter distributionen, till exempel installera och konfigurera program vara. VM-tillägg möjliggör också återställnings funktioner som att återställa det administrativa lösen ordet för en virtuell dator. Utan Azure VM-agenten kan VM-tillägg inte köras.
@@ -62,13 +62,13 @@ $vm.OSProfile.AllowExtensionOperations = $true
 $vm | Update-AzVM
 ```
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Windows VM-agenten måste ha minst Windows Server 2008 SP2 (64-bitars) för att kunna köras, med .NET Framework 4,0. Se [lägsta versions stöd för virtuella dator agenter i Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 - Se till att den virtuella datorn har åtkomst till IP-168.63.129.16. Mer information finns i [Vad är IP-168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
-- Se till att DHCP är aktiverat i den virtuella gäst datorn. Detta krävs för att hämta värden eller infrastruktur resurser från DHCP för att IaaS VM-agenten och tillägg ska fungera. Om du behöver en statisk privat IP-adress bör du konfigurera den via Azure Portal eller PowerShell och kontrol lera att DHCP-alternativet i den virtuella datorn är aktiverat. [Lär dig mer](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-ps#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) om att konfigurera en statisk IP-adress med PowerShell.
+- Se till att DHCP är aktiverat i den virtuella gäst datorn. Detta krävs för att hämta värden eller infrastruktur resurser från DHCP för att IaaS VM-agenten och tillägg ska fungera. Om du behöver en statisk privat IP-adress bör du konfigurera den via Azure Portal eller PowerShell och kontrol lera att DHCP-alternativet i den virtuella datorn är aktiverat. [Lär dig mer](../../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) om att konfigurera en statisk IP-adress med PowerShell.
 
 
 ## <a name="detect-the-vm-agent"></a>Identifiera VM-agenten
@@ -120,7 +120,7 @@ Om du vill ta bort ett certifikat permanent måste du ta bort det från och `OSP
 
 Använd [Remove-AzVMSecret]() för en virtuell dator för att ta bort certifikat från `OSProfile` .
 
-Mer information om certifikat för skalnings uppsättningar för virtuella datorer finns i [Virtual Machine Scale Sets-hur gör jag för att ta bort föråldrade certifikat?](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-remove-deprecated-certificates)
+Mer information om certifikat för skalnings uppsättningar för virtuella datorer finns i [Virtual Machine Scale Sets-hur gör jag för att ta bort föråldrade certifikat?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-remove-deprecated-certificates)
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 4f7db88da646c9787c70d04ff7e3478a27a09275
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9e52d931f8873cebf42534fd6bf03b144e61e23
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401647"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974676"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>IP-adresser för HDInsight-hantering
 
@@ -85,6 +85,7 @@ Tillåt trafik från IP-adresserna som anges för Azure HDInsight-hälso-och han
 | &nbsp; | USA, västra | 13.64.254.98</br>23.101.196.19 | \*: 443 | Inbound (Inkommande) |
 | &nbsp; | USA, västra 2 | 52.175.211.210</br>52.175.222.222 | \*: 443 | Inbound (Inkommande) |
 | &nbsp; | Förenade Arabemiraten, norra | 65.52.252.96</br>65.52.252.97 | \*: 443 | Inbound (Inkommande) |
+| &nbsp; | Förenade Arabemiraten Central | 20.37.76.96</br>20.37.76.99 | \*: 443 | Inbound (Inkommande) |
 
 Information om vilka IP-adresser som ska användas för Azure Government finns i dokumentet [Azure Government information + analys](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) .
 

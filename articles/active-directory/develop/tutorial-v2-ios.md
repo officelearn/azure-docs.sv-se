@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 70194c7adc55a00c5cb65928daac184499eb124d
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91611120"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Självstudie: Logga in användare och anropa Microsoft Graph från en iOS-eller macOS-app
@@ -35,7 +35,7 @@ I de här självstudierna har du
 > * Lägg till kod för att anropa API: et för Microsoft Graph
 > * Testa appen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Xcode 11. x +](https://developer.apple.com/xcode/)
 
@@ -80,7 +80,7 @@ Om du vill ladda ned en slutförd version av appen som du skapar i den här sjä
 
 7. Välj **prova den nya upplevelsen** längst upp på skärmen för att öppna den nya appens registrerings upplevelse och välj sedan **+ ny registrering**  >  **+ Lägg till en plattforms**  >  **-iOS/MacOS**.
     - Ange ditt projekts paket-ID. Om du har hämtat koden är detta `com.microsoft.identitysample.MSALiOS` . Om du skapar ett eget projekt väljer du ditt projekt i Xcode och öppnar fliken **Allmänt** . Paket-ID visas i avsnittet **identitet** .
-8. Välj `Configure` och spara **MSAL-konfigurationen** som visas på sidan **MSAL konfiguration** så att du kan ange den när du konfigurerar appen senare. Välj **Klar**.
+8. Välj `Configure` och spara **MSAL-konfigurationen** som visas på sidan **MSAL konfiguration** så att du kan ange den när du konfigurerar appen senare. Välj **Done** (Klar).
 
 ## <a name="add-msal"></a>Lägg till MSAL
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 6036ff86c430422556ed4f7e1bc80fe122ed0a30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eee16c1ba207eb35633d7ec1a7167300d40d662
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552576"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Självstudie: Azure Active Directory integrering med N2F-utgifts rapporter
 
@@ -30,7 +30,7 @@ Genom att integrera N2F med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med N2F utgifts rapporter behöver du följande objekt:
 
@@ -99,11 +99,11 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med N2
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, behöver användaren inte utföra några steg eftersom appen redan är Förintegrerad med Azure.
 
-    ![N2F-utgifts rapporter domän och URL-information för enkel inloggning](common/preintegrated.png)
+    ![Skärm bild som visar den SAML-baserade inloggnings sidan med grundläggande SAML-konfiguration.](common/preintegrated.png)
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![N2F-utgifts rapporter domän och URL-information för enkel inloggning](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar sidan integrationer där du kan lägga till Azure A D enkel inloggning.](common/metadata-upload-additional-signon.png)
 
     Skriv en URL i text rutan **inloggnings-URL** :  `https://www.n2f.com/app/`
 
@@ -127,23 +127,23 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med N2
 
 2. Klicka på **Inställningar** och välj sedan **Avancerade inställningar** i list rutan.
 
-    ![N2F – konfiguration av utgifts rapporter](./media/n2f-expensereports-tutorial/configure1.png)
+    ![Skärm bild som visar avancerade inställningar valda.](./media/n2f-expensereports-tutorial/configure1.png)
 
 3. Välj fliken **konto inställningar** .
 
-    ![N2F – konfiguration av utgifts rapporter](./media/n2f-expensereports-tutorial/configure2.png)
+    ![Skärm bild som visar valda konto inställningar.](./media/n2f-expensereports-tutorial/configure2.png)
 
 4. Välj **autentisering** och välj sedan **+ Lägg till en autentiseringsmetod** -flik.
 
-    ![N2F – konfiguration av utgifts rapporter](./media/n2f-expensereports-tutorial/configure3.png)
+    ![Skärm bild som visar autentisering av konto inställningar där du kan lägga till en autentiseringsmetod.](./media/n2f-expensereports-tutorial/configure3.png)
 
 5. Välj **SAML Microsoft Office 365** som autentiseringsmetod.
 
-    ![N2F – konfiguration av utgifts rapporter](./media/n2f-expensereports-tutorial/configure4.png)
+    ![Skärm bild som visar autentiseringsmetoden med SAML Microsoft Office 365 vald.](./media/n2f-expensereports-tutorial/configure4.png)
 
 6. Utför följande steg i avsnittet **autentiseringsmetod** :
 
-    ![N2F – konfiguration av utgifts rapporter](./media/n2f-expensereports-tutorial/configure5.png)
+    ![Skärm bild som visar autentiseringsmetoden där du kan ange de värden som beskrivs.](./media/n2f-expensereports-tutorial/configure5.png)
 
     a. I text rutan **entitets-ID** klistrar du in värdet för **Azure AD-identifieraren** , som du har kopierat från Azure Portal.
 
@@ -212,19 +212,19 @@ Om du vill att Azure AD-användare ska kunna logga in på N2F-utgifts rapporter 
 
 2. Klicka på **Inställningar** och välj sedan **Avancerade inställningar** i list rutan.
 
-    ![N2F – utgifter Lägg till användare](./media/n2f-expensereports-tutorial/configure1.png)
+    ![Skärm bild som visar avancerade inställningar valda.](./media/n2f-expensereports-tutorial/configure1.png)
 
 3. Välj fliken **användare** från den vänstra navigerings panelen.
 
-    ![N2F – konfiguration av utgifts rapporter](./media/n2f-expensereports-tutorial/user1.png)
+    ![Skärm bild som visar användare markerade.](./media/n2f-expensereports-tutorial/user1.png)
 
 4. Välj fliken **ny användare** .
 
-    ![N2F – konfiguration av utgifts rapporter](./media/n2f-expensereports-tutorial/user2.png)
+    ![Skärm bild som visar alternativet ny användare.](./media/n2f-expensereports-tutorial/user2.png)
 
 5. Utför följande steg i avsnittet **användare** :
 
-    ![N2F – konfiguration av utgifts rapporter](./media/n2f-expensereports-tutorial/user3.png)
+    ![Skärm bild som visar avsnittet där du kan ange de värden som beskrivs.](./media/n2f-expensereports-tutorial/user3.png)
 
     a. I text rutan **e-postadress** anger du e-postadressen till användaren, t. ex. **brittasimon \@ contoso.com**.
 

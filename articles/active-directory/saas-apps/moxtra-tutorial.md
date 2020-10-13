@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 7fffe58dfdb63da28edc19c19b56b576f4fbadd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 132da93bcb1e8138b63361cdb448c05b985cdf27
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544051"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940913"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moxtra"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Moxtra
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Moxtra med Azure Ac
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -89,7 +89,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig Moxtra-programmet att fler attribut skickas tillbaka i SAML-svar. I avsnittet Användaranspråk i dialogrutan Användarattribut utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
-    | Name | Källattribut|
+    | Namn | Källattribut|
     | ------------------- | -------------------- |    
     | förnamn | user.givenname |
     | efternamn | user.surname |
@@ -156,11 +156,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. I verktygsfältet till vänster klickar du på **administrations konsol > SAML enkel inloggning**och klickar sedan på **ny**.
    
-    ![Konfigurera enkel inloggning](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
+    ![Skärm bild som visar sidan för enkel inloggning med SAML med alternativet att skapa en ny enkel inloggning med SAML.](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
 
 3. Utför följande steg på sidan **SAML** :
    
-    ![Konfigurera enkel inloggning](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
+    ![Skärm bilden visar SAML-sidan där du kan ange de värden som beskrivs.](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
     a. I text rutan **namn** anger du ett namn för din konfiguration (t. ex.: *SAML*). 
   
@@ -191,7 +191,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
 
 1. I verktygsfältet till vänster klickar du på **Administratörs konsol > användar hantering**och lägger sedan **till användare**.
    
-    ![Konfigurera enkel inloggning](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
+    ![Skärm bild som visar sidan användar hantering med Lägg till användare vald.](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
 
 1. I dialogrutan **Lägg till användare** utför du följande steg:
   

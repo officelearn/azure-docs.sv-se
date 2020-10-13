@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
 ms.openlocfilehash: 3a20b69189226486de8cfceb95e2fa79a976cb12
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91841041"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Vad är nytt i Azure Load Balancer?
@@ -27,7 +27,7 @@ Du kan också hitta de senaste Azure Load Balancer uppdateringarna och prenumere
 
 ## <a name="recent-releases"></a>Nya versioner
 
-| Typ |Name |Beskrivning  |Tillagt den  |
+| Typ |Namn |Beskrivning  |Tillagt den  |
 | ------ |---------|---------|---------|
 | Funktion | Stöd för flytt över resurs grupper | Standard Load Balancer-och standard-offentliga IP-stöd för [resurs grupps flyttningar](https://azure.microsoft.com/updates/standard-resource-group-move/). | Oktober 2020 |
 | Funktion | Stöd för IP-baserad hantering av Server dels pooler (för hands version) | Azure Load Balancer har stöd för att lägga till och ta bort resurser från en backend-pool via en IPv4-eller IPv6-adress. Detta möjliggör enkel hantering av behållare, virtuella datorer och skalnings uppsättningar för virtuella datorer som är associerade med Load Balancer. Det innebär också att IP-adresser kan reserveras som en del av en server del innan de associerade resurserna skapas. Lär dig mer [här](backend-pool-management.md)|Juli 2020 |

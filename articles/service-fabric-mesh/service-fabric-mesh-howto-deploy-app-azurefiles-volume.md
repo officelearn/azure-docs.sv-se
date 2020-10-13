@@ -7,10 +7,10 @@ ms.date: 11/21/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 01cee3dc3f6b67aba1e6f8455ed7b538a44fc6f7
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91842795"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montera en Azure Files baserad volym i ett Service Fabric nätprogram 
@@ -19,7 +19,7 @@ Den här artikeln beskriver hur du monterar en Azure Files-baserad volym i en tj
 
 Om du vill montera en volym i en tjänst skapar du en volym resurs i Service Fabric nätprogram och refererar sedan till den volymen i din tjänst.  Att deklarera volym resursen och referera till den i tjänst resursen kan göras antingen i [yaml-baserade resursfiler](#declare-a-volume-resource-and-update-the-service-resource-yaml) eller i den [JSON-baserade distributions mal len](#declare-a-volume-resource-and-update-the-service-resource-json). Innan du monterar volymen måste du först skapa ett Azure Storage-konto och en [fil resurs i Azure Files](../storage/files/storage-how-to-create-file-share.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 > [!NOTE]
 > **Känt problem med distribution på Windows RS5 Development Machine:** Det finns öppen bugg med PowerShell-cmdlet New-SmbGlobalMapping på RS5 Windows-datorer som förhindrar montering av Azurefile-volymer. Nedan visas ett exempel fel som påträffas när AzureFile-baserade volymer monteras på den lokala utvecklings datorn.
 ```

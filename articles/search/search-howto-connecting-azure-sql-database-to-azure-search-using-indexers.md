@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.openlocfilehash: b1ad4ead83c9e07966f921a5b192f2791838e6ef
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530569"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Ansluta till och indexera Azure SQL-innehåll med hjälp av Azure Kognitiv sökning-indexeraren
@@ -316,7 +316,7 @@ När du använder metoden för att använda mjuk borttagning kan du ange princip
 <a name="TypeMapping"></a>
 
 ## <a name="mapping-between-sql-and-azure-cognitive-search-data-types"></a>Mappning mellan SQL-och Azure Kognitiv sökning data typer
-| SQL-datatyp | Tillåtna fält typer för mål index | Kommentarer |
+| SQL-datatyp | Tillåtna fält typer för mål index | Obs! |
 | --- | --- | --- |
 | bit |EDM. Boolean, EDM. String | |
 | int, smallint, tinyint |EDM. Int32, EDM. Int64, EDM. String | |
@@ -327,8 +327,8 @@ När du använder metoden för att använda mjuk borttagning kan du ange princip
 | smalldatetime, DateTime, datetime2, date, DateTimeOffset |EDM. DateTimeOffset, EDM. String | |
 | uniqueidentifer |Edm.String | |
 | geography |Edm.GeographyPoint |Endast geografi instanser av typ punkt med SRID 4326 (vilket är standard) stöds |
-| rowversion |Saknas |Rad versions kolumner kan inte lagras i Sök indexet, men de kan användas för ändrings spårning |
-| tid, TimeSpan, Binary, varbinary, bild, XML, geometri, CLR-typer |Saknas |Stöds inte |
+| rowversion |E.t. |Rad versions kolumner kan inte lagras i Sök indexet, men de kan användas för ändrings spårning |
+| tid, TimeSpan, Binary, varbinary, bild, XML, geometri, CLR-typer |E.t. |Stöds inte |
 
 ## <a name="configuration-settings"></a>Konfigurations inställningar
 SQL-indexeraren visar flera konfigurations inställningar:

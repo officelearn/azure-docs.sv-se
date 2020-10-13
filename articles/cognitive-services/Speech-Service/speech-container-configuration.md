@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: e65bb7c7d8fc04baec6b50a53519e689e748fbe1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90900290"
 ---
 # <a name="configure-speech-service-containers"></a>Konfigurera tal tjänst behållare
@@ -50,7 +50,7 @@ Du hittar den här inställningen på följande plats:
 
 - Azure Portal: **tal** översikt, märkt `Endpoint`
 
-| Obligatorisk | Name | Datatyp | Beskrivning |
+| Krävs | Namn | Datatyp | Beskrivning |
 | -------- | ---- | --------- | ----------- |
 | Ja | `Billing` | Sträng | URI för fakturerings slut punkt. Mer information om hur du skaffar fakturerings-URI: n finns i [samla in obligatoriska parametrar](speech-container-howto.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
@@ -78,7 +78,7 @@ Standard tal behållarna använder inte indata eller utdata monteras för att la
 
 Den exakta syntaxen för värd monterings platsen varierar beroende på värd operativ systemet. Dessutom kanske [värd datorns](speech-container-howto.md#the-host-computer)monterings plats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värd monterings platsens behörigheter.
 
-| Valfritt | Name | Datatyp | Beskrivning |
+| Valfritt | Namn | Datatyp | Beskrivning |
 | -------- | ---- | --------- | ----------- |
 | Inte tillåtet | `Input` | Sträng | Standard tal behållare använder inte detta. Anpassade tal behållare använder [volym monteringar](#volume-mount-settings).                                                                                    |
 | Valfritt | `Output` | Sträng | Målet för utmatnings monteringen. Standardvärdet är `/output`. Detta är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output` |

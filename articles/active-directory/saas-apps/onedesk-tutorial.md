@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 4c3eb3706858bd2bfd2160e58698c0f5136c41f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e8ed59783a6a714434b17a1d1abbb22fbe30939
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88547921"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944065"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onedesk"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med OneDesk
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar OneDesk med Azure A
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -141,7 +141,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på fliken **integrationer** .
 
-    ![Fliken Inställningar](./media/onedesk-tutorial/img-integration.png)
+    ![Skärm bild som visar fliken "integreringar" vald.](./media/onedesk-tutorial/img-integration.png)
 
 1. Klicka på **enkel inloggning**, Välj **Ladda upp metadatafil** och klicka på **Välj fil** för att ladda upp metadatafilen, som du har laddat ned från Azure Portal.
 

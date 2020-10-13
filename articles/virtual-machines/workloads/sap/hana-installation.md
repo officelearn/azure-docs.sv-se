@@ -14,10 +14,10 @@ ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 60d889b232857ae69372df8ebabbd0edd01a2f17
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91529838"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Så här installerar och konfigurerar du SAP HANA (stora instanser) i Azure
@@ -58,18 +58,18 @@ Därför är det obligatoriskt för dig som kund att läsa SAP-anteckningar som 
 
 Mer specifikt, kontrol lera följande parametrar och ändra till sist till:
 
-- net. Core. rmem_max = 16777216
-- net. Core. wmem_max = 16777216
-- net. Core. rmem_default = 16777216
-- net. Core. wmem_default = 16777216
-- net. Core. optmem_max = 16777216
-- net. IPv4. tcp_rmem = 65536 16777216 16777216
-- net. IPv4. tcp_wmem = 65536 16777216 16777216
+- net.core.rmem_max = 16777216
+- net.core.wmem_max = 16777216
+- net.core.rmem_default = 16777216
+- net.core.wmem_default = 16777216
+- net.core.optmem_max = 16777216
+- net.ipv4.tcp_rmem = 65536 16777216 16777216
+- net.ipv4.tcp_wmem = 65536 16777216 16777216
 
 Från och med SLES12 SP1 och RHEL 7,2 måste dessa parametrar anges i en konfigurations fil i katalogen/etc/sysctl.d. Till exempel måste en konfigurations fil med namnet 91-NetApp-HANA. conf skapas. För äldre SLES-och RHEL-versioner måste dessa parametrar anges i/etc/sysctl. conf.
 
 För alla RHEL-utgåvor som börjar med RHEL 6,3, Tänk på följande: 
-- Parametern sunrpc. tcp_slot_table_entries = 128 måste anges i/etc/modprobe. d/sunrpc-Local. conf. Om filen inte finns måste du först skapa den genom att lägga till posten: 
+- Parametern sunrpc.tcp_slot_table_entries = 128 måste anges i/etc/modprobe. d/sunrpc-Local. conf. Om filen inte finns måste du först skapa den genom att lägga till posten: 
     - alternativ sunrpc tcp_max_slot_table_entries = 128
 
 Det **femte steget** är att kontrol lera system tiden för din Hana-stora instans enhet. Instanserna distribueras med en system tids zon. Den här tids zonen representerar platsen för den Azure-region där den stora instans stämpeln för HANA finns. Du kan ändra system tiden eller tids zonen för de instanser som du äger. 

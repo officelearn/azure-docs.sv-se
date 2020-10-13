@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 00ddd61209af6e0d16b7f7579a6e8729cde0cdf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be48e4bb4f8364e9fafff69e2dc9eb6aa8db223c
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552483"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941031"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Självstudie: Azure Active Directory integrering med, nämligen
 
@@ -30,7 +30,7 @@ Integrering med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med, måste du ha följande objekt:
 
@@ -128,19 +128,19 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med:
 
 2. I verktygsfältet högst upp klickar du på **företag**.
    
-    ![Konfigurera enkel inloggning](./media/namely-tutorial/tutorial_namely_06.png) 
+    ![Skärm bild som visar det valda företags värdet.](./media/namely-tutorial/tutorial_namely_06.png) 
 
 3. Klicka på fliken **Settings** (Inställningar).
    
-    ![Konfigurera enkel inloggning](./media/namely-tutorial/tutorial_namely_07.png) 
+    ![Skärm bild som visar fliken företags inställningar vald.](./media/namely-tutorial/tutorial_namely_07.png) 
 
 4. Klicka på **SAML**.
    
-    ![Konfigurera enkel inloggning](./media/namely-tutorial/tutorial_namely_08.png) 
+    ![Skärm bild som visar SAML vald.](./media/namely-tutorial/tutorial_namely_08.png) 
 
 5. Utför följande steg på sidan **SAML-inställningar** :
    
-    ![Konfigurera enkel inloggning](./media/namely-tutorial/tutorial_namely_09.png)
+    ![Skärm bild som visar SAML-inställningar där du kan ange de värden som beskrivs.](./media/namely-tutorial/tutorial_namely_09.png)
  
     a. Klicka på **Aktivera SAML**. 
 
@@ -211,15 +211,15 @@ Syftet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 2. I verktygsfältet högst upp klickar du på **personer**.
    
-    ![Konfigurera enkel inloggning](./media/namely-tutorial/tutorial_namely_10.png) 
+    ![Skärm bild som visar värdet för personer som valts.](./media/namely-tutorial/tutorial_namely_10.png) 
 
 3. Klicka på fliken **katalog** .
    
-    ![Konfigurera enkel inloggning](./media/namely-tutorial/tutorial_namely_11.png) 
+    ![Skärm bild som visar fliken person katalog vald.](./media/namely-tutorial/tutorial_namely_11.png) 
 
 4. Klicka på **Lägg till ny person**.
 
-    ![Konfigurera enkel inloggning](./media/namely-tutorial/tutorial_namely_12.png)
+    ![Skärm bild som visar alternativet Lägg till ny person.](./media/namely-tutorial/tutorial_namely_12.png)
 
 5. I dialog rutan **Lägg till ny person** utför du följande steg:
 

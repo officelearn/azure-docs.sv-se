@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: c5be6ef39a3e980852aa3373dbc54da63aa3983e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1845a8371c3b64174b83ce640f91e4ce9221b8e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554523"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940845"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Självstudie: integrera enkel inloggning med Azure AD (SSO) med Netsuite
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Netsuite med Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -96,7 +96,7 @@ Gör så här om du vill aktivera Azure AD SSO i Azure Portal:
 
     * Du får **<`Instance ID`>** värdet i avsnittet Netsuite-konfiguration, som beskrivs senare i självstudien vid steg 8 under Netsuite-konfiguration. Du hittar den exakta domänen (till exempel system.na0.netsuite.com i det här fallet).
 
-        ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/domain-value.png)
+        ![Skärm bild som visar sidan för SAML-installationen där du kan hämta domänen.](./media/NetSuite-tutorial/domain-value.png)
 
         > [!NOTE]
         > Värdena i föregående URL: er är inte verkliga. Uppdatera dem med den faktiska svars-URL: en. Om du vill hämta värdet kontaktar du [support teamet för Netsuite-klienten](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). Du kan också se de format som visas i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
@@ -107,7 +107,7 @@ Gör så här om du vill aktivera Azure AD SSO i Azure Portal:
 
 1. Utöver ovan förväntar Netsuite-programmet fler attribut som ska skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Name | Källattribut |
+    | Namn | Källattribut |
     | ---------------| --------------- |
     | konto  | `account id` |
 
@@ -164,31 +164,31 @@ I det här avsnittet aktiverar du användare B. Simon för att använda enkel in
 
 2. I det övre navigerings fältet väljer du **konfiguration**och väljer sedan **företags**  >  **aktiverings funktioner**.
 
-    ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-setupsaml.png)
+    ![Skärm bild som visar aktivera funktioner som valts från företaget.](./media/NetSuite-tutorial/ns-setupsaml.png)
 
 3. I verktygsfältet i mitten av sidan väljer du **SuiteCloud**.
 
-    ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-suitecloud.png)
+    ![Skärm bild som visar SuiteCloud vald.](./media/NetSuite-tutorial/ns-suitecloud.png)
 
 4. Under **hantera autentisering**markerar du kryss rutan **SAML enkel inloggning** för att aktivera alternativet för enkel inloggning för SAML i Netsuite.
 
-    ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-ticksaml.png)
+    ![Skärm bild som visar hantera autentisering där du kan välja SAML enkel inloggning.](./media/NetSuite-tutorial/ns-ticksaml.png)
 
 5. I det övre navigerings fältet väljer du **Inställningar**.
 
-    ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-setup.png)
+    ![Skärm bild som visar installations programmet som valts i NetSuites navigerings fält.](./media/NetSuite-tutorial/ns-setup.png)
 
 6. Välj **integration**i listan **installations uppgifter** .
 
-    ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-integration.png)
+    ![Skärm bild som visar integrering som valts från KONFIGURATIONs aktiviteter.](./media/NetSuite-tutorial/ns-integration.png)
 
 7. Under **hantera autentisering**väljer du **enkel inloggning med SAML**.
 
-    ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-saml.png)
+    ![Skärm bild som visar att SAML enkel inloggning har marker ATS från integrations objekt i KONFIGURATIONs uppgifter.](./media/NetSuite-tutorial/ns-saml.png)
 
 8. I fönstret **SAML-installation** under **Netsuite-konfiguration**gör du följande:
 
-    ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-saml-setup.png)
+    ![Skärm bild som visar SAML-inställningar där du kan ange de värden som beskrivs.](./media/NetSuite-tutorial/ns-saml-setup.png)
   
     a. Markera kryss rutan **primär autentiseringsmetod** .
 
@@ -198,9 +198,9 @@ I det här avsnittet aktiverar du användare B. Simon för att använda enkel in
 
 9. I det övre navigerings fältet i Netsuite väljer du **installation**och sedan **företags**  >  **information**.
 
-    ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-com.png)
+    ![Skärm bild som visar företags information som valts från företaget.](./media/NetSuite-tutorial/ns-com.png)
 
-    ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-account-id.png)
+    ![Skärm bild som visar fönstret där du kan ange de värden som beskrivs.](./media/NetSuite-tutorial/ns-account-id.png)
 
     b. I den högra kolumnen i rutan **företags information** kopierar du **konto-ID-** värdet.
 
@@ -210,23 +210,23 @@ I det här avsnittet aktiverar du användare B. Simon för att använda enkel in
 
     a. I det övre navigerings fältet väljer du **Inställningar**.
 
-    ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-setup.png)
+    ![Skärm bild som visar installations programmet som valts i NetSuites navigerings fält.](./media/NetSuite-tutorial/ns-setup.png)
 
     b. Välj **användare/roller**i den vänstra rutan och välj sedan **hantera roller**.
 
-    ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-manage-roles.png)
+    ![Skärm bild som visar fönstret hantera roller där du kan välja ny roll.](./media/NetSuite-tutorial/ns-manage-roles.png)
 
     c. Välj **ny roll**.
 
     d. Ange ett **namn** för den nya rollen.
 
-    ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-new-role.png)
+    ![Skärm bild som visar installations hanteraren där du kan ange ett namn på rollen.](./media/NetSuite-tutorial/ns-new-role.png)
 
     e. Välj **Spara**.
 
     f. I det övre navigerings fältet väljer du **behörigheter**. Välj sedan **installation**.
 
-    ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-sso.png)
+    ![Skärm bild som visar fliken konfiguration där du kan ange de värden som beskrivs.](./media/NetSuite-tutorial/ns-sso.png)
 
     ex. Välj **SAML enkel inloggning**och välj sedan **Lägg till**.
 
@@ -234,19 +234,19 @@ I det här avsnittet aktiverar du användare B. Simon för att använda enkel in
 
     i. I det övre navigerings fältet väljer du **installation**och sedan **installations hanteraren**.
 
-    ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-setup.png)
+    ![Skärm bild som visar installations programmet som valts i NetSuites navigerings fält.](./media/NetSuite-tutorial/ns-setup.png)
 
     j. I den vänstra rutan väljer **du användare/roller**och väljer sedan **Hantera användare**.
 
-    ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-manage-users.png)
+    ![Skärm bild som visar fönstret Hantera användare där du kan välja Suite-demo team.](./media/NetSuite-tutorial/ns-manage-users.png)
 
     k. Välj en test användare, Välj **Redigera**och välj sedan fliken **åtkomst** .
 
-    ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-edit-user.png)
+    ![Skärm bild som visar fönstret Hantera användare där du kan välja Redigera.](./media/NetSuite-tutorial/ns-edit-user.png)
 
     l. I fönstret **roller** tilldelar du rätt roll som du har skapat.
 
-    ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-add-role.png)
+    ![Skärm bild som visar den administratör som valts från medarbetare.](./media/NetSuite-tutorial/ns-add-role.png)
 
     m. Välj **Spara**.
 

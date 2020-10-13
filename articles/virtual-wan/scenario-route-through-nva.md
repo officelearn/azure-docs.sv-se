@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90976261"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenario: dirigera trafik via en NVA
@@ -71,8 +71,8 @@ Med det här alternativet är de statiska vägar som vi behöver i standard tabe
 
 | Beskrivning | Routningstabell | Statisk väg              |
 | ----------- | ----------- | ------------------------- |
-| VNet 2       | Standardvärde     | 10.2.0.0/16-> eastusconn |
-| VNet 4       | Standardvärde     | 10.4.0.0/16-> weconn     |
+| VNet 2       | Default     | 10.2.0.0/16-> eastusconn |
+| VNet 4       | Default     | 10.4.0.0/16-> weconn     |
 
 Nu vet Virtual WAN vilken anslutning som ska skicka paketen till, men anslutningen måste veta vad du ska göra när du tar emot dessa paket: det är här som anslutnings väg tabellerna används. Här kommer vi att använda de kortare prefixen (/24 i stället för längre/16) för att se till att dessa vägar har prioritet över vägar som importeras från NVA-virtuella nätverk (VNet 2 och VNet 4):
 
@@ -99,7 +99,7 @@ I **bild 2**finns det två hubbar. **Hub1** och **Hub2**.
 
 **Bild 2**
 
-:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Bild 2" lightbox="./media/routing-scenarios/nva/nva.png":::
+:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Bild 1" lightbox="./media/routing-scenarios/nva/nva.png":::
 
 ## <a name="scenario-workflow"></a><a name="workflow"></a>Scenario arbets flöde
 
@@ -117,7 +117,7 @@ Det virtuella WAN-nätverket har inte stöd för ett scenario där virtuella nä
 
 2. Lägg till en sammanställd statisk väg post för virtuella nätverk 2, 5, 6 till hubb 1 standard väg tabell.
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Exempel":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Bild 1":::
 
 3. Konfigurera en statisk väg för virtuella nätverk 5, 6 i VNet 2: s virtuella nätverks anslutning. Information om hur du konfigurerar konfigurering av routning för en virtuell nätverks anslutning finns i [routning av virtuell hubb](how-to-virtual-hub-routing.md#routing-configuration).
 
@@ -129,7 +129,7 @@ Detta leder till konfigurations ändringar för routning, som visas i **bild 3**
 
 **Bild 3**
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Bild 3" lightbox="./media/routing-scenarios/nva/nva-result.png":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Bild 1" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 
 ## <a name="next-steps"></a>Nästa steg
 

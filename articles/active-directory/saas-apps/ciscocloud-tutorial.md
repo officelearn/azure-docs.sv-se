@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.openlocfilehash: b6372f313517b1ef8515bc3a5b9c8e56eb8643bc
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760707"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Självstudie: Azure Active Directory integrering med Cisco Cloud
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste du upprätta en länk relation mell
 Om du vill konfigurera och testa enkel inloggning med Azure AD med Cisco Cloud måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. Konfigurera enkel inloggning för **[Cisco Cloud](#configure-cisco-cloud-single-sign-on)** – så här konfigurerar du inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera enkel inloggning med Cisco Cloud](#configure-cisco-cloud-single-sign-on)** – så här konfigurerar du de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Cisco Cloud test User](#create-cisco-cloud-test-user)** – för att få en motsvarighet till Britta Simon i Cisco Cloud som är länkad till Azure AD-representation av användare.
@@ -120,7 +120,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ci
 
 7. Utöver ovan förväntar Cisco Cloud Application några fler attribut att skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
-    | Namn | Källattribut|
+    | Name | Källattribut|
     | -----------| ------------|
     | land    | användare. land |
     | company    | user.companyname |
@@ -148,7 +148,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ci
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-### <a name="configure-cisco-cloud-single-sign-on"></a>Konfigurera enkel inloggning med Cisco Cloud
+### <a name="configure-cisco-cloud-single-sign-on"></a>Konfigurera Cisco Cloud Single Sign-On
 
 Om du vill konfigurera enkel inloggning på **Cisco Cloud** -sidan måste du skicka **URL: en för appens Federations-metadata** till [Cisco Cloud Support Team](mailto:cpr-ops@cisco.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 

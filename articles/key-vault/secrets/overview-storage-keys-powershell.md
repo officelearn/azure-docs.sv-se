@@ -9,10 +9,10 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.openlocfilehash: b667254ece93c083de95728abe0ddecd5cfed197
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91612378"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Hantera lagrings konto nycklar med Key Vault och Azure PowerShell
@@ -53,7 +53,7 @@ Key Vault är ett Microsoft-program som är förregistrerat i alla Azure AD-klie
 För att slutföra den här guiden måste du först göra följande:
 
 - [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps?view=azps-2.6.0).
-- [Skapa ett nyckelvalv](quick-create-powershell.md)
+- [Skapa ett nyckel valv](quick-create-powershell.md)
 - [Skapa ett Azure Storage-konto](../../storage/common/storage-account-create.md?tabs=azure-powershell). Lagrings konto namnet får bara innehålla gemena bokstäver och siffror. Namnet måste innehålla mellan 3 och 24 tecken.
       
 

@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
 ms.openlocfilehash: 59bbca9461ff174ebe2451a6c01d84dee404cf56
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91398314"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Felsök problem med Azure-till-Azure VM-nätverksanslutningar
@@ -74,14 +74,11 @@ Det här exemplet visar hur du konfigurerar NSG-regler för en virtuell dator at
 
 1. Skapa en HTTPS utgående säkerhets regel för NSG så som visas på följande skärm bild. I det här exemplet används **destinations tjänst tag gen**: _Storage. öster_ och **mål Port intervall**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="Skärm bild som visar rutan Lägg till regel för utgående trafik för en säkerhets regel för lagrings punkt öst U S.":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="com-fel":::
 
 1. Skapa en HTTPS utgående säkerhets regel för NSG så som visas på följande skärm bild. I det här exemplet används **destinations tjänst tag gen**: _AzureActiveDirectory_ -och **mål Port intervall**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="Skärm bild som visar fönstret Lägg till utgående säkerhets regel för en säkerhets regel för Azure Active Directory.":::
-
-1. På samma sätt som säkerhets regler, skapar du en utgående HTTPS (443) säkerhets regel för "EventHub. Central" på den NSG som motsvarar mål platsen. Detta ger åtkomst till Site Recovery övervakning.
-1. Skapa en utgående HTTPS (443) säkerhets regel för "AzureSiteRecovery" på NSG. Detta ger till gång till Site Recovery tjänst i vilken region som helst.
+     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="com-fel" på NSG. Detta ger till gång till Site Recovery tjänst i vilken region som helst.
 
 #### <a name="nsg-rules---central-us"></a>NSG-regler – centrala USA
 

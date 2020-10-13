@@ -4,10 +4,10 @@ description: Diagnostiska funktioner för tillstånds känsliga Reliable Service
 ms.topic: conceptual
 ms.date: 8/24/2018
 ms.openlocfilehash: 5a3831dd4f8d5402980fac3daf8c35d9884c852d
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91840769"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnostisk funktionalitet för tillståndskänsliga Reliable Services

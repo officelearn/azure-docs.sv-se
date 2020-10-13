@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 857d49fa579e7ea1a6e2c14ae8198cd8ac4fe228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04b70e593e8b1bee8beb72ac88bc8441bc38bb9a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090643"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963252"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Prestandadiagnostik för virtuella Azure-datorer
 
@@ -61,7 +61,7 @@ Du kan köra prestandadiagnostik direkt från Azure Portal, där du också kan g
 
 ## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Installera och köra prestandadiagnostik på den virtuella datorn
 
-Prestandadiagnostik installerar ett VM-tillägg som kör ett diagnostiskt verktyg med namnet PerfInsights. PerfInsights är tillgängligt för både [Windows](https://aka.ms/perfinsights) och [Linux](https://aka.ms/perfinsightslinux). Följ dessa steg om du vill installera och köra prestandadiagnostik:
+Prestandadiagnostik installerar ett VM-tillägg som kör ett diagnostiskt verktyg med namnet PerfInsights. PerfInsights är tillgängligt för både [Windows](./how-to-use-perfinsights.md) och [Linux](./how-to-use-perfinsights-linux.md). Följ dessa steg om du vill installera och köra prestandadiagnostik:
 
 1. I den vänstra kolumnen med kommandon väljer du **virtuella datorer**.
 1. I listan med namn på virtuella datorer väljer du den virtuella dator som du vill köra diagnostik på.
@@ -91,16 +91,16 @@ Prestandadiagnostik installerar ett VM-tillägg som kör ett diagnostiskt verkty
 Följande analys scenarier är tillgängliga från Azure Portal. Välj en analys, beroende på det prestanda problem som du har. Välj varaktighet och spårnings alternativ vid behov för analysen.
 
 * **Snabb prestanda analys**  
-    Söker efter kända problem, analyserar bästa praxis och samlar in diagnostikdata. Det tar flera minuter att köra den här analysen. Läs mer om [Windows](https://aka.ms/perfinsights/quick) eller [Linux](https://aka.ms/perfinsightslinux/quick)
+    Söker efter kända problem, analyserar bästa praxis och samlar in diagnostikdata. Det tar flera minuter att köra den här analysen. Läs mer om [Windows](./how-to-use-perfinsights.md) eller [Linux](./how-to-use-perfinsights-linux.md)
 
 * **Prestanda analys**  
-    Innehåller alla kontroller i snabb prestanda analys och övervakar hög resursförbrukning. Använd den här versionen för att felsöka allmänna prestanda problem, till exempel hög CPU, minne och disk användning. Den här analysen tar 30 sekunder till 15 minuter, beroende på vald varaktighet. Läs mer om [Windows](https://aka.ms/perfinsights/vmslow) eller [Linux](https://aka.ms/perfinsightslinux/vmslow)
+    Innehåller alla kontroller i snabb prestanda analys och övervakar hög resursförbrukning. Använd den här versionen för att felsöka allmänna prestanda problem, till exempel hög CPU, minne och disk användning. Den här analysen tar 30 sekunder till 15 minuter, beroende på vald varaktighet. Läs mer om [Windows](./how-to-use-perfinsights.md) eller [Linux](./how-to-use-perfinsights-linux.md)
 
 * **Avancerad prestanda analys**`*`  
-    Innehåller alla kontroller i prestanda analysen och samlar in en eller flera av de spår som anges i följande avsnitt. Använd det här scenariot för att felsöka komplexa problem som kräver ytterligare spår. Om du kör det här scenariot under längre perioder ökar den totala storleken på diagnostiska utdata, beroende på storleken på den virtuella datorn och de spårnings alternativ som valts. Den här analysen tar 30 sekunder till 15 minuter att köra, beroende på vald varaktighet. [Läs mer](https://aka.ms/perfinsights/advanced)
+    Innehåller alla kontroller i prestanda analysen och samlar in en eller flera av de spår som anges i följande avsnitt. Använd det här scenariot för att felsöka komplexa problem som kräver ytterligare spår. Om du kör det här scenariot under längre perioder ökar den totala storleken på diagnostiska utdata, beroende på storleken på den virtuella datorn och de spårnings alternativ som valts. Den här analysen tar 30 sekunder till 15 minuter att köra, beroende på vald varaktighet. [Läs mer](./how-to-use-perfinsights.md)
 
 * **Azure Files analys**`*`  
-    Innehåller alla kontroller i prestanda analysen och fångar in en nätverks spårning och SMB-räknare. Använd det här scenariot för att felsöka prestanda i Azure Files. Den här analysen tar 30 sekunder till 15 minuter att köra, beroende på vald varaktighet. [Läs mer](https://aka.ms/perfinsights/azurefiles)
+    Innehåller alla kontroller i prestanda analysen och fångar in en nätverks spårning och SMB-räknare. Använd det här scenariot för att felsöka prestanda i Azure Files. Den här analysen tar 30 sekunder till 15 minuter att köra, beroende på vald varaktighet. [Läs mer](./how-to-use-perfinsights.md)
 
 >[!Note]
 >[ `*` ] Dessa analys scenarier stöds bara i Windows.

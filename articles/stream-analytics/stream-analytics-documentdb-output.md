@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
 ms.openlocfilehash: 891cd651278906c6ff4b24d91342c612c67604de
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91596563"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics utdata till Azure Cosmos DB  
@@ -107,7 +107,7 @@ Om du använder Azure Cosmos DB som utdata i Stream Analytics genereras följand
 
 ![Informations fält för en Azure Cosmos DB-utdataström](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-|Fält           | Beskrivning|
+|Field           | Beskrivning|
 |-------------   | -------------|
 |Utdataalias    | Ett alias som refererar till utdata i din Stream Analytics fråga.|
 |Prenumeration    | Azure-prenumerationen.|

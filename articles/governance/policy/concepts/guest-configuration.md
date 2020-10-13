@@ -3,12 +3,12 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder gäst konfigurations agenten för att granska inställningar i virtuella datorer.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 951960793ebda50fdb87d266c4dc8561f2fcd70f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d396403f23df1e0c48ea66e0c2a23866f790d3c5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88756698"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974727"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Om Azure Policys gästkonfiguration
 
@@ -48,7 +48,7 @@ I datorn använder gäst konfigurations klienten lokala verktyg för att köra g
 
 I följande tabell visas en lista över de lokala verktyg som används på varje operativ system som stöds. För inbyggt innehåll hanterar gäst konfigurationen inläsning av dessa verktyg automatiskt.
 
-|Operativsystem|Validerings verktyg|Obs!|
+|Operativsystem|Validerings verktyg|Anteckningar|
 |-|-|-|
 |Windows|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| Sidan har lästs in till en mapp som endast används av Azure Policy. Är inte i konflikt med Windows PowerShell DSC. PowerShell-kärnan har inte lagts till i System Sök vägen.|
 |Linux|[Chefs INSPEC](https://www.chef.io/inspec/)| Installerar chefs inspecens version 2.2.61 på standard platsen och läggs till i System Sök vägen. Beroenden för INSPEC-paketet inklusive ruby och python installeras också. |
@@ -116,9 +116,7 @@ Principer för gäst konfiguration använder **AuditIfNotExists** -effekter. Nä
 **AuditIfNotExists** -principerna returnerar inte några träffar förrän alla krav är uppfyllda på datorn. Kravet beskrivs i avsnittet [distribuera krav för Azure Virtual Machines](#deploy-requirements-for-azure-virtual-machines)
 
 > [!IMPORTANT]
-> I en tidigare version av gäst konfigurationen krävdes ett initiativ för att kombinera **DeployIfNoteExists** -och **AuditIfNotExists** -definitioner. **DeployIfNotExists** -definitioner krävs inte längre. Definitionerna och intiaitives är märkta `[Deprecated]` men befintliga tilldelningar fungerar fortfarande.
->
-> En manuell åtgärd krävs. Om du tidigare har tilldelat princip initiativen i kategorin `Guest Configuration` tar du bort princip tilldelningen och tilldelar den nya definitionen. Principer för gäst konfiguration har ett namn mönster enligt följande: `Audit <Windows/Linux> machines that <non-compliant condition>`
+> I en tidigare version av gäst konfigurationen krävdes ett initiativ för att kombinera **DeployIfNoteExists** -och **AuditIfNotExists** -definitioner. **DeployIfNotExists** -definitioner krävs inte längre. Definitionerna och intiaitives är märkta `[Deprecated]` men befintliga tilldelningar fungerar fortfarande. Mer information finns i blogg inlägget: [viktig ändring har lanserats för gransknings principer för gäst konfiguration](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 Azure Policy använder **complianceStatus** -egenskapen för gäst konfiguration för att rapportera efterlevnad i noden **efterlevnad** . Mer information finns i [Hämta efterlevnadsprinciper](../how-to/get-compliance-data.md).
 

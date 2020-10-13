@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 18bc7ca9e108a35fd27f7b3155f186221a8caae3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90980058"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Visa, lägga till och ta bort tilldelningar för ett Access-paket i hantering av Azure AD-rättigheter

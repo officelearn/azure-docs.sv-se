@@ -10,17 +10,17 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: a405a7a32b1f54732589fb14e34ff52db4992028
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761693"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Skapa en Azure Arc-dataenhet med hjälp av Azure Data CLI (azdata)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Läs avsnittet [skapa data styrenheten för Azure båg](create-data-controller.md) för översikts information.
 

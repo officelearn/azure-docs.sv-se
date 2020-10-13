@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 19a471b9339828250baa190b1de57c86eb22b30c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8d24d0b71ce537b81ee729109b398042c3b60c5
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554472"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940966"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med nya Relic efter konto
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera nya Relic efter konto m
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -134,7 +134,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Klicka på **konto inställningar**på menyn högst upp.
    
-    ![Konto inställningar](./media/new-relic-tutorial/ic797036.png "Konto inställningar")
+    ![Skärm bild som visar Välkomst sidan med konto inställningar valt.](./media/new-relic-tutorial/ic797036.png "Konto inställningar")
 
 3. Klicka på fliken **säkerhet och autentisering** och klicka sedan på fliken **enkel inloggning** .
    
@@ -158,11 +158,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Klicka på **konto inställningar**på menyn högst upp.
    
-    ![Konto inställningar](./media/new-relic-tutorial/ic797040.png "Konto inställningar")
+    ![Skärm bild som visar de konto inställningar som valts från Välkomst sidan.](./media/new-relic-tutorial/ic797040.png "Konto inställningar")
 
 3. I fönstret **konto** till vänster klickar du på **Sammanfattning**och sedan på **Lägg till användare**.
    
-    ![Konto inställningar](./media/new-relic-tutorial/ic797041.png "Konto inställningar")
+    ![Skärm bild som visar fönstret Sammanfattning där du kan välja Lägg till användare.](./media/new-relic-tutorial/ic797041.png "Konto inställningar")
 
 4. I dialog rutan **aktiva användare** utför du följande steg:
    

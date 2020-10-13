@@ -1,26 +1,26 @@
 ---
 title: Ansluta en virtuell Windows Server-dator till en Azure AD Domain Services hanterad domän | Microsoft Docs
 description: I den här självstudien får du lära dig hur du ansluter en virtuell Windows Server-dator till en Azure Active Directory Domain Services hanterad domän.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 259b27528779c9934da6d69ca46f2794e2257d24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 3df96f5576829694b5eb12fd1811de112279884d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723035"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963235"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: ansluta en virtuell Windows Server-dator till en Azure Active Directory Domain Services hanterad domän
 
 Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade domän tjänster som domän anslutning, grup princip, LDAP, Kerberos/NTLM-autentisering som är helt kompatibelt med Windows Server Active Directory. Med en Azure AD DS-hanterad domän kan du tillhandahålla funktioner för domän anslutning och hantering av virtuella datorer i Azure. Den här självstudien visar hur du skapar en virtuell Windows Server-dator och ansluter den till en hanterad domän.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa en virtuell Windows Server-dator
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser:
 

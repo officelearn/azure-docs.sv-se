@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
 ms.openlocfilehash: 46435ef773e90234538bb755e20035990bbf1066
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460041"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Köra Jupyter Notebooks på arbetsytan
@@ -231,8 +231,8 @@ En indikator bredvid List rutan **Compute** visar dess status.  Statusen visas o
 |Färg |Beräknings status |
 |---------|---------| 
 | Green | Beräkning som körs |
-| Red |Det gick inte att beräkna | 
-| Svarta | Beräkning stoppad |
+| Röd |Det gick inte att beräkna | 
+| Svart | Beräkning stoppad |
 |  Ljusblå |Beräkning skapa, starta, starta om, konfigurera |
 |  Mörkgrå |Ta bort beräkning, stoppa |
 

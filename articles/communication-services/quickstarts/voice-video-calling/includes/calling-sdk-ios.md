@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
 ms.openlocfilehash: 7ca15baffd3fac4a1f3635ac7377bac620673446
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91451395"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - En distribuerad kommunikations tjänst resurs. [Skapa en kommunikations tjänst resurs](../../create-communication-resource.md).
@@ -68,7 +68,7 @@ import AVFoundation
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Azure Communication Services som anropar klient bibliotek för iOS.
 
 
-| Name                                  | Beskrivning                                                  |
+| Namn                                  | Beskrivning                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | ACSCallClient | ACSCallClient är den huvudsakliga start punkten för det anropande klient biblioteket.|
 | ACSCallAgent | ACSCallAgent används för att starta och hantera samtal. |

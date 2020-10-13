@@ -2,19 +2,19 @@
 title: Hjälte-exempel för grupp Chat
 titleSuffix: An Azure Communication Services sample overview
 description: Översikt över chatt-exemplet med Azure Communication Services för att göra det möjligt för utvecklare att lära sig mer om de inre arbetet i exemplet och lär dig hur du ändrar det.
-author: ddematheu
+author: ddematheu2
 manager: nimag
 services: azure-communication-services
 ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0a01036eb4856d9fd306a50958285bd469791f24
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 51b985cd67e1b540e2f24f2f37b19f9bff4223db
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823876"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962997"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Kom igång med hjälte-exemplet för grupp Chat
 
@@ -82,7 +82,6 @@ Du kan testa exemplet lokalt genom att öppna flera webbläsare med URL: en för
 2. `git clone https://github.com/Azure/Communication.git`
 3. Hämta `Connection String` från Azure Portal. Mer information om anslutnings strängar finns i [skapa en Azure-kommunikations resurser](../quickstarts/create-communication-resource.md)
 4. När du `Connection String` har lagt till lägger du till anslutnings strängen i **chatten/appsettings.js** filen som finns under mappen chatt. Mata in anslutnings strängen i variabeln: `ResourceConnectionString` .
-5. Uppdatera ENVIRONMENT_URL i `./Chat/ClientApp/src/constants.tsx` med platsen för din resurs. (t. ex. https://<RESOURCE_NAME>. communication.azure.com)
 
 ### <a name="local-run"></a>Lokal körning
 

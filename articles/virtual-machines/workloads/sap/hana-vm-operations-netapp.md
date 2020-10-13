@@ -16,13 +16,13 @@ ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d0df2199a2afdbea1ee1c6c543df324e9fe3cc3e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450767"
 ---
-# <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>NFS v 4.1-volymer på Azure NetApp Files för SAP HANA
+# <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>NFS v4.1-volymer på Azure NetApp Files för SAP HANA
 
 Azure NetApp Files tillhandahåller interna NFS-resurser som kan användas för **/Hana/Shared**-, **/Hana/data**-och **/Hana/log** -volymer. Att använda ANF-baserade NFS-resurser för **/Hana/data** -och **/Hana/log** -volymerna kräver att v 4.1 NFS-protokollet används. NFS-protokollet v3 stöds inte för användning av **/Hana/data** -och **/Hana/log** -volymer när du baserar resurserna på ANF. 
 
@@ -30,7 +30,7 @@ Azure NetApp Files tillhandahåller interna NFS-resurser som kan användas för 
 > [!IMPORTANT]
 > Det NFS v3-protokoll som implementeras på Azure NetApp Files stöds **inte** för användning för **/Hana/data** och **/Hana/log**. Användningen av NFS 4,1 är obligatorisk för **/Hana/data** -och **/Hana/log** -volymer från en funktionell punkt i vyn. För **/Hana/Shared** -volymen kan NFS v3 eller NFS v 4.1-protokollet användas från en funktionell punkt i vyn.
 
-## <a name="important-considerations"></a>Viktiga överväganden
+## <a name="important-considerations"></a>Att tänka på
 
 Tänk på följande viktiga överväganden när du överväger Azure NetApp Files för SAP-NetWeaver och SAP HANA:
 

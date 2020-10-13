@@ -8,10 +8,10 @@ ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 7a07a42e208cb0f6fe91f6a65777fd28155106a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330595"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Hantera konsekvensnivåer i Azure Cosmos DB
@@ -24,7 +24,7 @@ Den här artikeln förklarar hur du hanterar konsekvensnivåer i Azure Cosmos DB
 
 [Standard konsekvens nivån](consistency-levels.md) är den konsekvens nivå som klienter använder som standard.
 
-# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Om du vill visa eller ändra standardkonsekvensnivån loggar du in på Azure-portalen. Hitta ditt Azure Cosmos-konto och öppna fönstret **standard konsekvens** . Välj den konsekvensnivå som du vill ha som den nya standarden, och välj sedan **Spara**. Azure Portal innehåller också en visualisering av olika konsekvens nivåer med noter. 
 
@@ -281,7 +281,7 @@ item = client.ReadItem(doc_link, options)
 
 Hur eventuell konsekvens fungerar? I genomsnitts fallet kan vi erbjuda inaktuella gränser med avseende på versions historik och-tid. Probabilistically-måttet för [**föråldrad (PBS)**](https://pbs.cs.berkeley.edu/) försöker kvantifiera sannolikheten för inaktuellhet och visar det som ett mått. Om du vill visa PBS-måttet går du till ditt Azure Cosmos-konto i Azure Portal. Öppna fönstret **mått** och välj fliken **konsekvens** . Titta på diagrammet med namnet **sannolikhet för starkt konsekventa läsningar baserat på din arbets belastning (se PBS)**.
 
-:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="PBS-graf i Azure-portalen":::
+:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Konsekvensmeny på Azure-portalen":::
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,10 +4,10 @@ description: Den här artikeln innehåller information om Apache Kafka support a
 ms.topic: article
 ms.date: 09/25/2020
 ms.openlocfilehash: 5c49f8f87d8d399cda33a332f7464ed340ae3a0f
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761506"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Använda Azure Event Hubs från Apache Kafka-program

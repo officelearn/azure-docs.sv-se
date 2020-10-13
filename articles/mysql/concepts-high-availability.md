@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
 ms.openlocfilehash: 668243f66deff67a923097c116c4b150d0256992
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90882553"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Hög tillgänglighet i Azure Database for MySQL
@@ -46,7 +46,7 @@ Här följer några planerade underhålls scenarier:
 Oplanerade stillestånd kan uppstå på grund av oförutsedda fel, inklusive underliggande maskin varu fel, nätverks problem och program fel. Om databas servern slutar fungera som den ska skapas en ny databas server automatiskt på några sekunder. Fjärrlagringen ansluts automatiskt till den nya databas servern. MySQL-motorn utför återställnings åtgärden med WAL-och databasfiler och öppnar databas servern så att klienter kan ansluta. Ej allokerade transaktioner förloras och måste göras om av programmet. En oplanerad stillestånds tid kan inte undvikas, Azure Database for MySQL minimerar stillestånds tiden genom att automatiskt utföra återställnings åtgärder på både databas server och lagrings lager utan mänsklig inblandning. 
 
 
-:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="vy över hög tillgänglighet i Azure MySQL":::
+:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="vy över elastisk skalning i Azure MySQL":::
 
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>Oplanerat avbrott: haveri-scenarier och tjänst återställning
 Här följer några fel scenarier och hur Azure Database for MySQL återställer automatiskt:

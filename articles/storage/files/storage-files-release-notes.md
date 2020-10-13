@@ -9,10 +9,10 @@ ms.date: 9/24/2020
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 0b99ce2afcdb5fd7462827fb9893e34577fc6c02
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371209"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Viktig information om Azure File Sync-agenten
@@ -37,12 +37,12 @@ Följande Azure File Sync agent versioner har upphört att gälla och stöds int
 
 | Gränser | Agentversionsnummer | Utgivningsdatum | Status |
 |----|----------------------|--------------|------------------|
-| V7-version | 7.0.0.0 - 7.2.0.0 | Saknas | Stöds inte-agent versioner har upphört att gälla den 1 september 2020 |
-| V6-version | 6.0.0.0 - 6.3.0.0 | Saknas | Stöds inte-agent versioner upphörde att gälla den 21 april 2020 |
-| Version V5 | 5.0.2.0 - 5.2.0.0 | Saknas | Stöds inte-agent versioner har upphört att gälla den 18 mars 2020 |
-| V4-version | 4.0.1.0 - 4.3.0.0 | Saknas | Stöds inte-agent versioner upphörde att gälla den 6 november 2019 |
-| V3-version | 3.1.0.0 - 3.4.0.0 | Saknas | Stöds inte-agent versioner har upphört att gälla den 19 augusti 2019 |
-| För GA-agenter | 1.1.0.0 – 3.0.13.0 | Saknas | Stöds inte-agent versioner har upphört att gälla den 1 oktober 2018 |
+| V7-version | 7.0.0.0 - 7.2.0.0 | E.t. | Stöds inte-agent versioner har upphört att gälla den 1 september 2020 |
+| V6-version | 6.0.0.0 - 6.3.0.0 | E.t. | Stöds inte-agent versioner upphörde att gälla den 21 april 2020 |
+| Version V5 | 5.0.2.0 - 5.2.0.0 | E.t. | Stöds inte-agent versioner har upphört att gälla den 18 mars 2020 |
+| V4-version | 4.0.1.0 - 4.3.0.0 | E.t. | Stöds inte-agent versioner upphörde att gälla den 6 november 2019 |
+| V3-version | 3.1.0.0 - 3.4.0.0 | E.t. | Stöds inte-agent versioner har upphört att gälla den 19 augusti 2019 |
+| För GA-agenter | 1.1.0.0 – 3.0.13.0 | E.t. | Stöds inte-agent versioner har upphört att gälla den 1 oktober 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
@@ -175,7 +175,7 @@ Följande viktig information gäller version 9.0.0.0 av Azure File Sync agent (l
  
         Kör följande PowerShell-kommandon för att köra testet för nätverks anslutning: 
  
-        Importera-modul "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"  
+        Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"  
         Test-StorageSyncNetworkConnectivity
  
 - Ta bort Server slut punkts förbättring när moln skiktning är aktiverat 

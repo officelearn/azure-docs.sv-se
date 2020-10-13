@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 62b2fd0554c218b733501805779745049d3b8c92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8acab17e9d8dfc078b46f6a279cc671a70b0a50
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532714"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974846"
 ---
 # <a name="preview-maintenance-control-for-os-image-upgrades-on-azure-virtual-machine-scale-sets-using-powershell"></a>För hands version: underhålls kontroll för uppgraderingar av OS-avbildningar på virtuella Azure-datorer med hjälp av PowerShell
 
@@ -44,7 +44,7 @@ Du kan också uppmanas att bekräfta att du vill installera från ett *ej betrot
 
 ## <a name="connect-to-an-azure-account"></a>Ansluta till ett Azure-konto
 
-Anslut till önskat Azure-konto med [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) och [set-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext).
+Anslut till önskat Azure-konto med [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) och [set-AzAccount](/powershell/module/az.accounts/set-azcontext).
 
 ```azurepowershell-interactive
 Connect-AzAccount

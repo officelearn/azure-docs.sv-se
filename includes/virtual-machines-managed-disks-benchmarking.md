@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 5fea0cb8c6ac3f706cfef5e4a153fbbf4ff465b8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91451439"
 ---
 *Uppvärmning av cacheminnet*  
@@ -62,24 +62,24 @@ Utför stegen nedan för att värma upp cachen
 
 1. Skapa två åtkomst-specifikationer med värden som visas nedan,
 
-   | Name | Begär ande storlek | Slumpmässiga | Läs |
+   | Namn | Begär ande storlek | Slumpmässiga | Läs |
    | --- | --- | --- | --- |
    | RandomWrites \_ 1 MB |1 MB |100 |0 |
    | RandomReads \_ 1 MB |1 MB |100 |100 |
 1. Kör IOMeter-testet för att initiera cache-disken med följande parametrar. Använd tre arbets trådar för mål volymen och ett ködjup på 128. Ange körnings tiden för testet till 2 timmar på fliken test konfiguration.
 
-   | Scenario | Mål volym | Name | Varaktighet |
+   | Scenario | Mål volym | Namn | Varaktighet |
    | --- | --- | --- | --- |
    | Initiera cache-disk |CacheReads |RandomWrites \_ 1 MB |2 timmar |
 1. Kör IOMeter-testet för att värma upp cache-disken med följande parametrar. Använd tre arbets trådar för mål volymen och ett ködjup på 128. Ange körnings tiden för testet till 2 timmar på fliken test konfiguration.
 
-   | Scenario | Mål volym | Name | Varaktighet |
+   | Scenario | Mål volym | Namn | Varaktighet |
    | --- | --- | --- | --- |
    | Värm upp cache-disk |CacheReads |RandomReads \_ 1 MB |2 timmar |
 
 När du har värmt upp cache-disken fortsätter du med de test scenarier som anges nedan. Om du vill köra IOMeter-testet använder du minst tre arbets trådar för **varje** mål volym. För varje arbets tråd väljer du mål volymen, ställer in ködjup och väljer en av de sparade test specifikationerna, som du ser i tabellen nedan, för att köra motsvarande test scenario. Tabellen visar även förväntade resultat för IOPS och data flöde när du kör de här testerna. I alla scenarier används en liten IO-storlek på 8 KB och ett högt ködjup på 128.
 
-| Test scenario | Mål volym | Name | Resultat |
+| Test scenario | Mål volym | Namn | Resultat |
 | --- | --- | --- | --- |
 | Max. Läs IOPS |CacheReads |RandomWrites \_ 8K |50 000 IOPS |
 | Max. Skriv IOPS |NoCacheWrites |RandomReads \_ 8K |64 000 IOPS |

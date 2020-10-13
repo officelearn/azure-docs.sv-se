@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: bdf7a46dec6f4ea766d5d5a039109022755bc3fb
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761285"
 ---
 # <a name="tutorial-how-to-convert-an-iot-plug-and-play-device-to-a-module-c"></a>Självstudie: så här konverterar du en IoT Plug and Play-enhet till en modul (C#)
@@ -98,7 +98,7 @@ Så här öppnar och förbereder du exempelprojektet:
 
 1. I Visual Studio navigerar du till **Project > termostat-egenskaper > Felsök**. Lägg sedan till följande miljövariabler i projektet:
 
-    | Namn | Värde |
+    | Name | Värde |
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | Begär |
     | IOTHUB_MODULE_CONNECTION_STRING | Den anslutnings sträng för modul som du antecknade tidigare |
@@ -173,7 +173,7 @@ Med tjänst-SDK: er kan du hämta modell-ID: t för anslutna IoT Plug and Play e
 
 1. I Visual Studio navigerar du till **Project > termostat-egenskaper > Felsök**. Lägg sedan till följande miljövariabler i projektet:
 
-    | Namn | Värde |
+    | Name | Värde |
     | ---- | ----- |
     | IOTHUB_DEVICE_ID | min-modul-enhet |
     | IOTHUB_CONNECTION_STRING | Värdet du antecknade när du slutförde [konfiguration av din miljö](set-up-environment.md) |

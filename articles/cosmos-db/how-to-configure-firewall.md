@@ -8,10 +8,10 @@ ms.date: 08/24/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 69c39d2478ed7d488c1209c2c7e16c241c59bcef
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88814186"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Konfigurera IP-brandvägg i Azure Cosmos DB
@@ -46,13 +46,13 @@ När du aktiverar en princip för IP-åtkomstkontroll program mässigt måste du
 
 Du kan aktivera begär Anden om åtkomst till Azure Portal genom att välja alternativet **Tillåt åtkomst från Azure Portal** , som du ser i följande skärm bild:
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Skärm bild som visar hur du aktiverar Azure Portal-åtkomst":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Skärm bild som visar hur du öppnar brand Väggs sidan i Azure Portal":::
 
 ### <a name="allow-requests-from-global-azure-datacenters-or-other-sources-within-azure"></a>Tillåt förfrågningar från globala Azure-datacenter eller andra källor i Azure
 
 Om du har åtkomst till ditt Azure Cosmos DB-konto från tjänster som inte har en statisk IP-adress (till exempel Azure Stream Analytics och Azure Functions) kan du fortfarande använda IP-brandväggen för att begränsa åtkomsten. Du kan aktivera åtkomst från andra källor i Azure genom att markera alternativet **Godkänn anslutningar från Azure-datacenter** , som du ser i följande skärm bild:
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Skärm bild som visar hur du accepterar anslutningar från Azure-datacenter":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Skärm bild som visar hur du öppnar brand Väggs sidan i Azure Portal":::
 
 När du aktiverar det här alternativet läggs IP-adressen `0.0.0.0` till i listan över tillåtna IP-adresser. `0.0.0.0`IP-adressen begränsar begär anden till ditt Azure Cosmos DB konto från Azure datacenters IP-intervall. Den här inställningen tillåter inte åtkomst för några andra IP-intervall till ditt Azure Cosmos DB-konto.
 
@@ -67,7 +67,7 @@ Portalen identifierar automatiskt klientens IP-adress. Det kan vara klientens IP
 
 Om du vill lägga till din aktuella IP-adress i listan över IP-adresser väljer du **Lägg till min nuvarande IP**. Välj sedan **Spara**.
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Skärm bild som visar hur du konfigurerar brand Väggs inställningar för den aktuella IP-adressen":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Skärm bild som visar hur du öppnar brand Väggs sidan i Azure Portal":::
 
 ### <a name="requests-from-cloud-services"></a>Förfrågningar från moln tjänster
 
@@ -75,7 +75,7 @@ I Azure är moln tjänster ett vanligt sätt för att vara värd för mellanskik
 
 Du kan hämta IP-adresser för dina moln tjänster i Azure Portal, som visas på följande skärm bild:
 
-:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses.png" alt-text="Skärm bild som visar den offentliga IP-adressen för en moln tjänst som visas i Azure Portal":::
+:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses.png" alt-text="Skärm bild som visar hur du öppnar brand Väggs sidan i Azure Portal":::
 
 När du skalar ut din moln tjänst genom att lägga till roll instanser, kommer dessa nya instanser automatiskt att ha åtkomst till det Azure Cosmos DB kontot eftersom de är en del av samma moln tjänst.
 
@@ -85,7 +85,7 @@ Du kan också använda [virtuella datorer](https://azure.microsoft.com/services/
 
 Du kan hämta IP-adresser för virtuella datorer i Azure Portal, som visas på följande skärm bild:
 
-:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses-dns.png" alt-text="Skärm bild som visar en offentlig IP-adress för en virtuell dator som visas i Azure Portal":::
+:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses-dns.png" alt-text="Skärm bild som visar hur du öppnar brand Väggs sidan i Azure Portal":::
 
 När du lägger till instanser av virtuella datorer i gruppen får de automatiskt åtkomst till ditt Azure Cosmos DB-konto.
 

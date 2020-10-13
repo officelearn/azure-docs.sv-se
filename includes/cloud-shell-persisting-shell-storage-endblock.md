@@ -5,23 +5,23 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: c2ed33aea77b5478e8d17f6bd0213ef3e778b806
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67187680"
 ---
 ## <a name="transfer-local-files-to-cloud-shell"></a>Överför lokala filer till Cloud Shell
 `clouddrive`Katalogen synkroniseras med bladet Azure Portal lagring. Använd det här bladet för att överföra lokala filer till eller från din fil resurs. Uppdatering av filer från Cloud Shell visas i användar gränssnittet för fil lagring när du uppdaterar bladet.
 
-### <a name="download-files"></a>Hämta filer
+### <a name="download-files"></a>Ladda ned filer
 
 ![Lista över lokala filer](../articles/cloud-shell/media/persisting-shell-storage/download.png)
 1. I Azure Portal går du till den monterade fil resursen.
 2. Välj mål filen.
 3. Välj knappen **Ladda ned** .
 
-### <a name="upload-files"></a>Överföra filer
+### <a name="upload-files"></a>Ladda upp filer
 
 ![Lokala filer som ska överföras](../articles/cloud-shell/media/persisting-shell-storage/upload.png)
 1. Gå till den monterade fil resursen.

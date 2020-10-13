@@ -6,10 +6,10 @@ ms.subservice: shared-capabilities
 ms.date: 07/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 610c2050150a533e246bc74ed7750ce87f7cf617
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87004655"
 ---
 # <a name="management-of-azure-automation-data"></a>Hantera Azure Automation-data
@@ -47,7 +47,7 @@ När du tar bort en resurs i Azure Automation sparas den i ett antal dagar för 
 
 I följande tabell sammanfattas bevarande principen för olika resurser.
 
-| Data | Policy |
+| Data | Princip |
 |:--- |:--- |
 | Konton |Ett konto tas bort permanent 30 dagar efter att användaren tagit bort det. |
 | Tillgångar |En till gång tas bort permanent 30 dagar efter att användaren tagit bort den, eller 30 dagar efter att en användare har tagit bort ett konto som innehåller till gången. Till gångar innehåller variabler, scheman, autentiseringsuppgifter, certifikat, python 2-paket och anslutningar. |

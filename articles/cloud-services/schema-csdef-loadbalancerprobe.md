@@ -10,10 +10,10 @@ caps.latest.revision: 14
 author: georgewallace
 ms.author: tagore
 ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79537354"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>LoadBalancerProbe-schema för Azure Cloud Services-definition
@@ -47,10 +47,10 @@ Om du använder en anpassad avsökning för belastningsutjämnare måste du se t
 - [LoadBalancerProbes-element](#LoadBalancerProbes)
 - [LoadBalancerProbe-element](#LoadBalancerProbe)
 
-##  <a name="loadbalancerprobes-element"></a><a name="LoadBalancerProbes"></a>LoadBalancerProbes-element
+##  <a name="loadbalancerprobes-element"></a><a name="LoadBalancerProbes"></a> LoadBalancerProbes-element
 `LoadBalancerProbes`Elementet beskriver insamlingen av belastnings Utjämnings avsökningar. Det här elementet är det överordnade elementet i [LoadBalancerProbe-elementet](#LoadBalancerProbe). 
 
-##  <a name="loadbalancerprobe-element"></a><a name="LoadBalancerProbe"></a>LoadBalancerProbe-element
+##  <a name="loadbalancerprobe-element"></a><a name="LoadBalancerProbe"></a> LoadBalancerProbe-element
 `LoadBalancerProbe`Elementet definierar hälso avsökningen för en modell. Du kan definiera flera belastnings Utjämnings avsökningar. 
 
 I följande tabell beskrivs attributen för- `LoadBalancerProbe` elementet:
@@ -59,7 +59,7 @@ I följande tabell beskrivs attributen för- `LoadBalancerProbe` elementet:
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Krävs. Namnet på belastnings Utjämnings avsökningen. Namnet måste vara unikt.|
 | `protocol`          | `string` | Krävs. Anger protokollet för slut punkten. Möjliga värden är `http` eller `tcp`. Om `tcp` har angetts krävs en mottagen ack för att avsökningen ska lyckas. Om `http` har angetts krävs ett 200 OK-svar från den angivna URI: n för att avsökningen ska lyckas.|
-| `path`              | `string` | Den URI som används för att begära hälso status från den virtuella datorn. `path`krävs om `protocol` är inställt på `http` . Annars är det inte tillåtet.<br /><br /> Det finns inget standardvärde.|
+| `path`              | `string` | Den URI som används för att begära hälso status från den virtuella datorn. `path` krävs om `protocol` är inställt på `http` . Annars är det inte tillåtet.<br /><br /> Det finns inget standardvärde.|
 | `port`              | `integer` | Valfritt. Porten för att kommunicera avsökningen. Detta är valfritt för alla slut punkter, eftersom samma port kommer att användas för avsökningen. Du kan också konfigurera en annan port för deras avsökning. Möjliga värden är mellan 1 och 65535.<br /><br /> Standardvärdet anges av slut punkten.|
 | `intervalInSeconds` | `integer` | Valfritt. Intervallet, i sekunder, för hur ofta slut punkten för hälso status ska avsökas. Normalt är intervallet mindre än hälften av den tilldelade tids gränsen (i sekunder) som tillåter två fullständiga avsökningar innan instansen tas ur bruk.<br /><br /> Standardvärdet är 15, minimivärdet är 5.|
 | `timeoutInSeconds`  | `integer` | Valfritt. Tids gränsen, i sekunder, som tillämpas på avsökningen där inget svar leder till att ytterligare trafik inte levereras till slut punkten. Med det här värdet kan slut punkter tas bort från rotationen snabbare eller långsammare än de vanligaste tiderna som används i Azure (som är standardvärdena).<br /><br /> Standardvärdet är 31, minimivärdet är 11.|

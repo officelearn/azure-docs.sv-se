@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
 ms.openlocfilehash: 66c56ae6730043022a0d8bf3c94f7c6ce14d9852
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84809343"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Uppgradera offentliga Azure-Load Balancer
@@ -41,7 +41,7 @@ Det finns ett Azure PowerShell-skript tillgängligt som gör följande:
 
 ## <a name="download-the-script"></a>Hämta skriptet
 
-Hämta migrerings skriptet från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0).
+Hämta migrerings skriptet från  [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0).
 ## <a name="use-the-script"></a>Använd skriptet
 
 Det finns två alternativ för dig, beroende på din lokala PowerShell-Miljös konfiguration och inställningar:
@@ -51,7 +51,7 @@ Det finns två alternativ för dig, beroende på din lokala PowerShell-Miljös k
 
 Du kan ta reda på om du har installerat Azure AZ-moduler genom att köra `Get-InstalledModule -Name az` . Om du inte ser några installerade AZ-moduler kan du använda- `Install-Script` metoden.
 
-### <a name="install-using-the-install-script-method"></a>Installera med metoden install-script
+### <a name="install-using-the-install-script-method"></a>Installera med hjälp av metoden Install-Script
 
 Om du vill använda det här alternativet behöver du inte ha de Azure AZ-moduler som är installerade på datorn. Om de är installerade visar följande kommando ett fel. Du kan antingen avinstallera Azure AZ-moduler eller använda det andra alternativet för att ladda ned skriptet manuellt och köra det.
   

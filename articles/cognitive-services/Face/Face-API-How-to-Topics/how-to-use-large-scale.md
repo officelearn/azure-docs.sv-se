@@ -1,5 +1,5 @@
 ---
-title: 'Exempel: använda storskalig funktion – ansikte'
+title: 'Exempel: Använd Large-Scale funktion – ansikte'
 titleSuffix: Azure Cognitive Services
 description: Den här guiden är en artikel om hur du skalar upp från befintliga PersonGroup-och FaceList-objekt till LargePersonGroup-och LargeFaceList-objekt.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5341c2613624c6a52f1649dcd8a64b6746b84f67
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332397"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Exempel: Använd funktionen för storskalig skalning

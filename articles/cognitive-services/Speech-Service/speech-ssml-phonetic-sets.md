@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: jiajzhan
 ms.openlocfilehash: 770e97ad126f66efb43bf8cf7eb12f7510858192
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78675333"
 ---
 # <a name="speech-service-phonetic-sets"></a>Fonetiska uppsättningar för tal tjänst
 
-Tal tjänsten definierar fonetiska alfabet ("telefon uppsättningar" för kort), bestående av sju språk. `en-US`, `fr-FR` `es-ES`, `de-DE` `zh-CN`,,, och `zh-TW`. `ja-JP` Tal tjänstens telefonnummer anges vanligt vis till det <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">internationella fonetiska alfabetet ( <span class="docon docon-navigate-external x-hidden-focus"> </span>IPA) </a>. Telefon uppsättningar för tal tjänster används tillsammans med [SSML (Speech syntes Markup Language)](speech-synthesis-markup.md)som en del av det text till tal-erbjudandet. I den här artikeln får du lära dig hur dessa telefon uppsättningar mappas och när du ska använda vilken telefon uppsättning.
+Tal tjänsten definierar fonetiska alfabet ("telefon uppsättningar" för kort), bestående av sju språk. `en-US`,,,,, `fr-FR` `de-DE` `es-ES` `ja-JP` `zh-CN` och `zh-TW` . Tal tjänstens telefonnummer anges vanligt vis till det <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">internationella fonetiska alfabetet ( <span class="docon docon-navigate-external x-hidden-focus"></span> IPA) </a>. Telefon uppsättningar för tal tjänster används tillsammans med [SSML (Speech syntes Markup Language)](speech-synthesis-markup.md)som en del av det text till tal-erbjudandet. I den här artikeln får du lära dig hur dessa telefon uppsättningar mappas och när du ska använda vilken telefon uppsättning.
 
 # <a name="en-us"></a>[en-US](#tab/en-US)
 
@@ -179,7 +179,7 @@ Tal tjänstens telefon uppsättning placerar stress efter vokalen för den beton
 **1** *endast för några främmande ord.*
 
 > [!TIP]
-> `fr-FR` Tal tjänst telefonnumret har inte stöd för följande franska liasions, `n‿`, `t‿`, och `z‿`. Om de behövs bör du överväga att använda IPA direkt.
+> `fr-FR`Tal tjänst telefonnumret har inte stöd för följande franska liasions, `n‿` , `t‿` , och `z‿` . Om de behövs bör du överväga att använda IPA direkt.
 
 # <a name="de-de"></a>[de-DE](#tab/de-DE)
 
@@ -256,7 +256,7 @@ Tal tjänstens telefon uppsättning placerar stress efter vokalen för den beton
 | ts | `ts` | **Z**μg | Ar**z**t | Wit**z** |  |
 | ch | `tʃ` | **Tsch**echien | aufgepu**tsch**t | bundesdeu**tsch** |  |
 | v | `v` | **v**-Inken | Q**u**Alle | [<sup>9</sup>](#de-c-9) Gr**säkerhets**ve |  |
-| x | [<sup>10</sup>](#de-c-10)`x`,[<sup>11</sup>](#de-c-11)`ç` | [<sup>12</sup>](#de-c-12) BA**CH**erach | Ma **-** t mögli**CH**St | Schma**CH** **ch** |
+| x | [<sup>10</sup>](#de-c-10) `x` ,[<sup>11</sup>](#de-c-11)`ç` | [<sup>12</sup>](#de-c-12) BA**CH**erach | Ma **-** t mögli**CH**St | Schma**CH** **ch** |
 | z | `z` | **s**uper |  |  |  |
 | zh | `ʒ` | **G**enre | B**re**-ezinski | Edvi**g**e |
 
@@ -292,7 +292,7 @@ Tal tjänstens telefon uppsättning placerar stress efter vokalen för den beton
 | ^      | `ʔ`   | beachtlich/b AX-^ a 1 x t-l IH c/ |
 
 > [!NOTE]
-> Vi måste lägga till en [GS\] -telefon mellan två distinkta vokaler, förutom att de två vokalerna är en äkta Diphthong. Den här orala konsonanten är en glottal-stopp, mer <a href="http://en.wikipedia.org/wiki/Glottal_stop" target="_blank">information finns <span class="docon docon-navigate-external x-hidden-focus"> </a> </a>i glottal Stop.
+> Vi måste lägga till en [GS \] -telefon mellan två distinkta vokaler, förutom att de två vokalerna är en äkta Diphthong. Den här orala konsonanten är en glottal-stopp, mer information finns i <a href="http://en.wikipedia.org/wiki/Glottal_stop" target="_blank"> glottal Stop <span class="docon docon-navigate-external x-hidden-focus"> </a> </a> .
 
 # <a name="es-es"></a>[es-ES](#tab/es-ES)
 
@@ -336,11 +336,11 @@ Tal tjänstens telefon uppsättning placerar stress efter vokalen för den beton
 | x      | `x`        | **j**OTA   | a**j**o        | relo**j**      |
 
 > [!TIP]
-> `es-ES` Tal tjänstens telefon uppsättning stöder inte följande spanska IPA, `β`, `ð`, och `ɣ`. Om de behövs bör du överväga att använda IPA direkt.
+> `es-ES`Tal tjänstens telefon uppsättning stöder inte följande spanska IPA, `β` , `ð` , och `ɣ` . Om de behövs bör du överväga att använda IPA direkt.
 
 # <a name="zh-cn"></a>[zh-CN](#tab/zh-CN)
 
-Tal tjänst telefonnumret för är `zh-CN` baserat på den <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank">inbyggda uppsättningen för telefonnummer <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
+Tal tjänst telefonnumret för `zh-CN` är baserat på den inbyggda uppsättningen för <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> telefonnummer.
 
 ### <a name="tone"></a>Lämplig ton
 
@@ -390,8 +390,8 @@ Tal tjänstens telefon uppsättning för `ja-JP` baseras på den inbyggda telefo
 
 | `sapi` | `ipa`          |
 |--------|----------------|
-| `ˈ`    | `ˈ`mainstress |
-| `+`    | `ˌ`under stress  |
+| `ˈ`    | `ˈ` mainstress |
+| `+`    | `ˌ` under stress  |
 
 #### <a name="example"></a>Exempel
 

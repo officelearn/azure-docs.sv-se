@@ -10,10 +10,10 @@ ms.date: 04/06/2018
 ms.author: johnkem
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: c981214c69653b3a4a687a861cb348f3587def7c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89078766"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Azure-diagnostik tillägg för virtuella Windows-datorer
@@ -22,7 +22,7 @@ ms.locfileid: "89078766"
 
 Med tillägget Azure-diagnostik VM kan du samla in övervaknings data, till exempel prestanda räknare och händelse loggar, från din virtuella Windows-dator. Du kan i detalj ange vilka data du vill samla in och var du vill att data ska placeras, till exempel ett Azure Storage konto eller en Azure Event Hub. Du kan också använda dessa data för att skapa diagram i Azure Portal eller skapa mått aviseringar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 

@@ -6,10 +6,10 @@ ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: aafd284122ca61ba2b668186095b88003be2775c
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87450374"
 ---
 # <a name="limit-update-management-deployment-scope"></a>Begränsa Uppdateringshantering distributions omfång
@@ -30,11 +30,11 @@ Begränsa omfånget för din Uppdateringshantering-distribution:
 
 3. Välj **scope-konfigurationer (för hands version)** under **arbets ytans data källor**.
 
-4. Välj ellipsen till höger om `MicrosoftDefaultScopeConfig-Updates` omfattnings konfigurationen och välj **Redigera**.
+4. Välj ellipsen till höger om  `MicrosoftDefaultScopeConfig-Updates` omfattnings konfigurationen och välj **Redigera**.
 
 5. I redigerings fönstret expanderar du **Välj dator grupper**. I fönstret dator grupper visas sparade sökningar som används för att skapa omfattnings konfigurationen. Den sparade sökningen som används av Uppdateringshantering är:
 
-    |Name     |Kategori  |Alias  |
+    |Namn     |Kategori  |Alias  |
     |---------|---------|---------|
     |MicrosoftDefaultComputerGroup     | Uppdateringar        | Updates__MicrosoftDefaultComputerGroup         |
 

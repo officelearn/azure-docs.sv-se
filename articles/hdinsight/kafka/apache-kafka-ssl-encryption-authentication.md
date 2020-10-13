@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
 ms.openlocfilehash: 9a95970647a26ea80db9f63fb8523c6a65cc5e06
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86082088"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Konfigurera TLS-kryptering och autentisering för Apache Kafka i Azure HDInsight
@@ -52,7 +52,7 @@ Sammanfattningen av installations processen för Broker är följande:
 Använd följande detaljerade anvisningar för att slutföra konfigurationen av Service Broker:
 
 > [!Important]
-> I följande kodfragment är wnX en förkortning för en av de tre arbetsnoderna och bör ersättas med `wn0` `wn1` eller `wn2` efter behov. `WorkerNode0_Name`och `HeadNode0_Name` bör ersättas med namnen på respektive datorer.
+> I följande kodfragment är wnX en förkortning för en av de tre arbetsnoderna och bör ersättas med `wn0` `wn1` eller `wn2` efter behov. `WorkerNode0_Name` och `HeadNode0_Name` bör ersättas med namnen på respektive datorer.
 
 1. Utför den första installationen på Head-noden 0, som för HDInsight ska fylla rollen för certifikat utfärdaren (CA).
 
@@ -128,8 +128,8 @@ Slutför konfigurations ändringen genom att utföra följande steg:
 
 1. Logga in på Azure Portal och välj ditt Azure HDInsight Apache Kafka-kluster.
 1. Gå till Ambari-ANVÄNDARGRÄNSSNITTET genom att klicka på **Ambari start** under **kluster instrument paneler**.
-1. Under **Kafka Broker** anger du egenskapen **Listeners** till`PLAINTEXT://localhost:9092,SSL://localhost:9093`
-1. Under **Advanced Kafka-Broker** ställer du in egenskapen **Security. Interservice Broker. Protocol** till`SSL`
+1. Under **Kafka Broker** anger du egenskapen **Listeners** till `PLAINTEXT://localhost:9092,SSL://localhost:9093`
+1. Under **Advanced Kafka-Broker** ställer du in egenskapen **Security. Interservice Broker. Protocol** till `SSL`
 
     ![Redigera Kafka egenskaper för SSL-konfiguration i Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
 

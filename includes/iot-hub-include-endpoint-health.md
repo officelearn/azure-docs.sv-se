@@ -9,16 +9,16 @@ ms.date: 04/28/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: a0d1de622eefad4ae5e55a427f8b0b1bf4360c0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84792105"
 ---
 Du kan använda REST API [Hämta slut punkts hälsa](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) för att få hälso status för slut punkterna. Vi rekommenderar att du använder [IoT Hub mått](../articles/iot-hub/iot-hub-metrics.md) som rör svars tiden för routning av meddelanden för att identifiera och felsöka fel när slut punktens hälso tillstånd är död eller ohälsosamt, eftersom fördröjningen blir högre när slut punkten är i något av dessa tillstånd.
 
 
-|Hälsostatus|Description|
+|Hälsostatus|Beskrivning|
 |---|---|
 |felfri|Slut punkten accepterar meddelanden som förväntat.|
 |fel tillstånd|Slut punkten tar inte emot meddelanden och IoT Hub försöker skicka meddelanden till den här slut punkten igen.|

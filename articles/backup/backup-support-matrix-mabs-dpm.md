@@ -4,10 +4,10 @@ description: I den här artikeln sammanfattas Azure Backup support när du anvä
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 011e115c7f3cc94b03ffd9ad2467406c60738033
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332703"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Backup Server eller System Center DPM
@@ -102,7 +102,7 @@ Du kan distribuera MABS på en Azure Stack VM så att du kan hantera säkerhets 
 **.NET Framework på MABS** | Den virtuella MABS-datorn behöver .NET Framework 3,3 SP1 eller senare installerad.
 **MABS-domän** | Den virtuella MABS-datorn måste vara ansluten till en domän. En domän användare med administratörs behörighet måste installera MABS på den virtuella datorn.
 **Säkerhets kopiering av Azure Stack VM-data** | Du kan säkerhetskopiera filer, mappar och appar.
-**Säkerhets kopiering som stöds** | Dessa operativ system stöds för virtuella datorer som du vill säkerhetskopiera:<br/><br/> Halvårs kanal för Windows Server (Data Center, Enterprise, standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
+**Säkerhets kopiering som stöds** | Dessa operativ system stöds för virtuella datorer som du vill säkerhetskopiera:<br/><br/> Windows Server Semi-Annual-kanal (Data Center, Enterprise, standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
 **SQL Server stöd för Azure Stack virtuella datorer** | Säkerhetskopiera SQL Server 2016, SQL Server 2014 SQL Server 2012 SP1.<br/><br/> Säkerhetskopiera och återställa en databas.
 **SharePoint-stöd för Azure Stack virtuella datorer** | SharePoint 2016, SharePoint 2013, SharePoint 2010.<br/><br/> Säkerhetskopiera och återställa en Server grupp, databas, klient del och webb server.
 **Nätverks krav för säkerhetskopierade virtuella datorer** | Alla virtuella datorer i Azure Stack-arbetsbelastning måste tillhöra samma virtuella nätverk och tillhör samma prenumeration.

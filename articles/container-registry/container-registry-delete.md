@@ -4,10 +4,10 @@ description: Information om hur du effektivt hanterar register storlek genom att
 ms.topic: article
 ms.date: 07/31/2019
 ms.openlocfilehash: 449a1c09bf88e3e0e0aeca4d3b687371d2a6b91a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78403346"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Ta bort behållar avbildningar i Azure Container Registry med Azure CLI
@@ -58,7 +58,7 @@ Are you sure you want to continue? (y/n):
 
 En [manifest Sammanfattning](container-registry-concepts.md#manifest-digest) kan associeras med en, ingen eller flera taggar. När du tar bort en sammanfattning raderas alla Taggar som manifestet refererar till, som lager data för alla lager som är unika för bilden. Delade lager data tas inte bort.
 
-Om du vill ta bort från sammandrag ska du först Visa manifest sammanfattningarna för den lagrings plats som innehåller de avbildningar som du vill ta bort. Ett exempel:
+Om du vill ta bort från sammandrag ska du först Visa manifest sammanfattningarna för den lagrings plats som innehåller de avbildningar som du vill ta bort. Exempel:
 
 ```azurecli
 az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -154,7 +154,7 @@ fi
 
 Som vi nämnt i avsnittet [manifest Sammanfattning](container-registry-concepts.md#manifest-digest) skickar du en ändrad avbildning med hjälp av en befintlig tagg som **avtaggar** den tidigare publicerade avbildningen, vilket resulterar i en överbliven (eller "Dangling") bild. Den tidigare publicerade avbildningens manifest – och dess lager data – finns kvar i registret. Tänk på följande händelser:
 
-1. Push *-avbildning ACR-HelloWorld* med tagga **senaste**:`docker push myregistry.azurecr.io/acr-helloworld:latest`
+1. Push *-avbildning ACR-HelloWorld* med tagga **senaste**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
 1. Kontrol lera manifest för databasen *ACR-HelloWorld*:
 
    ```azurecli
@@ -175,7 +175,7 @@ Som vi nämnt i avsnittet [manifest Sammanfattning](container-registry-concepts.
    ```
 
 1. Ändra *ACR-HelloWorld* Dockerfile
-1. Push *-avbildning ACR-HelloWorld* med tagga **senaste**:`docker push myregistry.azurecr.io/acr-helloworld:latest`
+1. Push *-avbildning ACR-HelloWorld* med tagga **senaste**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
 1. Kontrol lera manifest för databasen *ACR-HelloWorld*:
 
    ```azurecli

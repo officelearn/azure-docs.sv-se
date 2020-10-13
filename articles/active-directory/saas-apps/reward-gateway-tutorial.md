@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 61d7e678b2904ff6eda1866951cfafd0fa0d6688
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88534347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Självstudie: Azure Active Directory integrering med belönings-Gateway
@@ -30,7 +30,7 @@ Genom att integrera belönad Gateway med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med belönings-Gateway behöver du följande objekt:
 
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste du upprätta en länk relation mell
 Om du vill konfigurera och testa enkel inloggning med Azure AD med belöna Gateway måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. Konfigurera enkel inloggning för **[belönings Gateway](#configure-reward-gateway-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera en belöning Gateway-enkel inloggning](#configure-reward-gateway-single-sign-on)** – om du vill konfigurera enskilda Sign-On inställningar på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa belönings-gatewayens test användare](#create-reward-gateway-test-user)** – om du vill ha en motsvarighet till Britta Simon i belönings-gateway som är länkad till Azure AD-representation av användare.
@@ -132,7 +132,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med be
 
     c. Utloggnings-URL
 
-### <a name="configure-reward-gateway-single-sign-on"></a>Konfigurera enkel inloggning för belönad Gateway
+### <a name="configure-reward-gateway-single-sign-on"></a>Konfigurera en enskild Sign-On för belöning Gateway
 
 Om du vill konfigurera enkel inloggning på sidan för **belönings-Gateway** börjar du konfigurera en integrering på The belöning Manager-portalen. Använd hämtade metadata för att hämta ditt signerings certifikat och ladda upp det under konfigurationen. Information finns på https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
 
@@ -201,6 +201,6 @@ När du klickar på panelen för att dela gateway på åtkomst panelen, bör du 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

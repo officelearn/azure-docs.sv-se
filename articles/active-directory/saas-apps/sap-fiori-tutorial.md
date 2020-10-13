@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 4d2f6766fa32beb9cebaa8f77c04f6865e15e14d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543402"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SAP Fiori
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar SAP Fiori med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -158,7 +158,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     > 
     > Du kan ange `ServicePrincipal` objekt-ID: t själv innan du kör skriptet, eller så kan du skicka det här.
 
-1. Fiori-programmet i SAP förväntar sig att SAML-intygen ska vara i ett särskilt format. Konfigurera följande anspråk för det här programmet. Om du vill hantera dessa attributvärden går du till fönstret **Konfigurera enkel inloggning med SAML** och väljer **Redigera**.
+1. Fiori-programmet i SAP förväntar sig att SAML-intygen ska vara i ett särskilt format. Konfigurera följande anspråk för det här programmet. Om du vill hantera dessa attributvärden går du till fönstret **Konfigurera enskilda Sign-On med SAML** och väljer **Redigera**.
 
     ![Fönstret användarattribut](common/edit-attribute.png)
 
@@ -192,7 +192,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -238,9 +238,9 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Verifiera värdet för Digest-algoritmen i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-identityprovider.png)
 
-1. Under **slut punkter för enkel inloggning**väljer du **http post**och väljer sedan **Nästa**.
+1. Under **enkla Sign-On slut punkter**väljer du **http post**och väljer sedan **Nästa**.
 
-    ![Alternativ för enkel inloggnings slut punkter i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-httpredirect.png)
+    ![Alternativ för enkel Sign-On-slutpunkter i SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-httpredirect.png)
 
 1. Under **enkel utloggning-slutpunkter**väljer du **http-omdirigering**och väljer sedan **Nästa**.
 
@@ -320,7 +320,7 @@ I det här avsnittet skapar du en användare med namnet Britta Simon i SAP Fiori
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

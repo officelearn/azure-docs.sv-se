@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 12a15ab1a4c7369c448e9f65862121b03ca05bba
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89078562"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Skala sessionsbaserade värdar med hjälp av Azure Automation
@@ -25,9 +25,9 @@ Skalnings verktyget ger till gång till ett kostnads fritt automatiserings alter
 
 Du kan använda skalnings verktyget för att:
 
-- Schemalägg VM: ar för start och stopp baserat på kontors tid och låg belastning.
+- Schemalägg virtuella datorer för start och stopp baserat på högsta och Off-Peak kontors tid.
 - Skala ut virtuella datorer baserat på antalet sessioner per CPU-kärna.
-- Skala i virtuella datorer under låg belastnings tider och lämna det lägsta antalet virtuella dator värdar som körs.
+- Skala i virtuella datorer under Off-Peak timmar och lämna det lägsta antalet virtuella dator värdar som körs.
 
 Skalnings verktyget använder en kombination av ett Azure Automation konto, en PowerShell-Runbook, en webhook och Azure Logic-appen att fungera. När verktyget körs anropar Azure Logic app en webhook för att starta Azure Automation Runbook. Runbooken skapar sedan ett jobb.
 
@@ -56,7 +56,7 @@ Verktyget har dock också följande begränsningar:
 >[!NOTE]
 >Skalnings verktyget styr belastnings Utjämnings läget för den aktuella värddatorn som skalas för närvarande. Verktyget använder det bredd-första belastnings Utjämnings läget för både högsta och låg belastnings tid.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar konfigurera skalnings verktyget ser du till att du har följande klart:
 

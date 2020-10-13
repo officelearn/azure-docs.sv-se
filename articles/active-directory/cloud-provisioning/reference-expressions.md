@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c14f406e5671e1eefb43f0208044f9945e446267
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89226581"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriver uttryck för mappningar av attribut i Azure Active Directory
@@ -47,7 +47,7 @@ Syntaxen för-uttryck för attributmappning är reminiscent av Visual Basic for 
 |[ConvertFromBase64](#convertfrombase64)|Funktionen ConvertFromBase64 konverterar det angivna base64-kodade värdet till en vanlig sträng.|
 |[ConvertToBase64](#converttobase64)|Funktionen ConvertToBase64 konverterar en sträng till en Unicode base64-sträng. |
 |[ConvertToUTF8Hex](#converttoutf8hex)|Funktionen ConvertToUTF8Hex konverterar en sträng till ett hexadecimalt värde för UTF8-kodning.|
-|[Antal](#count)|Funktionen COUNT returnerar antalet element i ett multi-värde-attribut|
+|[Reparationer](#count)|Funktionen COUNT returnerar antalet element i ett multi-värde-attribut|
 |[Cstr](#cstr)|Funktionen CStr konverterar till en sträng data typ.|
 |[DateFromNum](#datefromnum)|Funktionen DateFromNum konverterar ett värde i ADs datum format till en DateTime-typ.|
 |[DNComponent](#dncomponent)|Funktionen DNComponent returnerar värdet för en angiven DN-komponent som går från vänster.|
@@ -73,7 +73,7 @@ Syntaxen för-uttryck för attributmappning är reminiscent av Visual Basic for 
 |[Del](#split)|Delar upp en sträng i en Multivärdes mat ris med hjälp av det angivna avgränsnings tecken.|
 |[StringFromSID](#stringfromsid)|Funktionen StringFromSid konverterar en byte mat ris som innehåller en säkerhets identifierare till en sträng.| 
 |[StripSpaces](#stripspaces) |Tar bort alla blank steg ("") från käll strängen.| 
-|[Switch](#switch)|Returnerar **värdet** för den **nyckeln**när **källobjektet** matchar en **nyckel**. | 
+|[Byta](#switch)|Returnerar **värdet** för den **nyckeln**när **källobjektet** matchar en **nyckel**. | 
 |[ToLower](#tolower)|Tar ett *käll* sträng värde och konverterar det till gemener med de angivna kultur reglerna.| 
 |[ToUpper](#toupper)|Tar ett *käll* sträng värde och konverterar det till versaler med de angivna kultur reglerna.|
 |[Reducera](#trim)|Funktionen trim tar bort inledande och avslutande blank steg från en sträng.|
@@ -87,10 +87,10 @@ Syntaxen för-uttryck för attributmappning är reminiscent av Visual Basic for 
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Krävs/upprepas | Typ | Obs! |
    | --- | --- | --- | --- |
-   | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet från källobjektet. |
-   | **huvudnamnssuffix** |Obligatorisk |Sträng |Strängen som du vill lägga till i slutet av source-värdet. |
+   | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet från källobjektet. |
+   | **huvudnamnssuffix** |Krävs |Sträng |Strängen som du vill lägga till i slutet av source-värdet. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -250,11 +250,11 @@ Om attributet accountName inte finns genererar du ett fel på objektet.
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Krävs/upprepas | Typ | Obs! |
    | --- | --- | --- | --- |
-   | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet från källobjektet. |
-   | **inputFormat** |Obligatorisk |Sträng |Förväntat format för Source-värdet. För format som stöds, se [/dotNet/Standard/Base-types/Custom-date-and-Time-format-Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
-   | **outputFormat** |Obligatorisk |Sträng |Formatet för datum för utdata. |
+   | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet från källobjektet. |
+   | **inputFormat** |Krävs |Sträng |Förväntat format för Source-värdet. För format som stöds, se [/dotNet/Standard/Base-types/Custom-date-and-Time-format-Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+   | **outputFormat** |Krävs |Sträng |Formatet för datum för utdata. |
 
 ---
 ### <a name="guid"></a>GUID
@@ -392,9 +392,9 @@ Om ett av käll värdena är ett flervärdesattribut, kopplas alla värden i det
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Krävs/upprepas | Typ | Obs! |
    | --- | --- | --- | --- |
-   | **brytning** |Obligatorisk |Sträng |Sträng som används för att avgränsa käll värden när de sammanfogas till en sträng. Kan vara "" om ingen avgränsare krävs. |
+   | **brytning** |Krävs |Sträng |Sträng som används för att avgränsa käll värden när de sammanfogas till en sträng. Kan vara "" om ingen avgränsare krävs. |
    | **source1 ... Källa** |Obligatoriskt, variabel antal gånger |Sträng |Sträng värden som ska sammanfogas tillsammans. |
 
 ---
@@ -429,11 +429,11 @@ Returnerar `Joh` .
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Krävs/upprepas | Typ | Obs! |
    | --- | --- | --- | --- |
-   | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet. |
-   | **har** |Obligatorisk |heltal |Index i **käll** strängen där under strängen ska starta. Det första alfabetet i strängen kommer att ha indexet 1, andra tecken kommer att ha index 2 och så vidare. |
-   | **krävande** |Obligatorisk |heltal |Del strängens längd. Om längden slutar utanför **käll** strängen returnerar funktionen del sträng från **Start** index till slutet av **käll** strängen. |
+   | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet. |
+   | **start** |Krävs |heltal |Index i **käll** strängen där under strängen ska starta. Det första alfabetet i strängen kommer att ha indexet 1, andra tecken kommer att ha index 2 och så vidare. |
+   | **length** |Krävs |heltal |Del strängens längd. Om längden slutar utanför **käll** strängen returnerar funktionen del sträng från **Start** index till slutet av **käll** strängen. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -443,9 +443,9 @@ Returnerar `Joh` .
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Krävs/upprepas | Typ | Obs! |
    | --- | --- | --- | --- |
-   | **källicensservern** |Obligatorisk |Sträng | Vanligt vis attributet förnamn eller efter namn. |
+   | **källicensservern** |Krävs |Sträng | Vanligt vis attributet förnamn eller efter namn. |
 
 ---
 ### <a name="not"></a>Inte
@@ -455,9 +455,9 @@ Returnerar `Joh` .
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Krävs/upprepas | Typ | Obs! |
    | --- | --- | --- | --- |
-   | **källicensservern** |Obligatorisk |Boolesk sträng |Förväntade **käll** värden är "true" eller "false". |
+   | **källicensservern** |Krävs |Boolesk sträng |Förväntade **käll** värden är "true" eller "false". |
 
 ---
 ### <a name="removeduplicates"></a>RemoveDuplicates
@@ -497,9 +497,9 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka 
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Krävs/upprepas | Typ | Obs! |
    | --- | --- | --- | --- |
-   | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet från **källobjektet** . |
+   | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet från **källobjektet** . |
    | **Gammalt** |Valfritt |Sträng |Värdet som ska ersättas i **källa** eller **mall**. |
    | **regexPattern** |Valfritt |Sträng |Regex-mönster för värdet som ska ersättas i **källan**. Eller, när **replacementPropertyName** används, mönster för att extrahera värdet från **replacementPropertyName**. |
    | **regexGroupName** |Valfritt |Sträng |Namnet på gruppen inuti **regexPattern**. Endast när  **replacementPropertyName** används kommer vi att extrahera värdet för den här gruppen som **replacementValue** från **replacementPropertyName**. |
@@ -522,7 +522,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka 
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Krävs/upprepas | Typ | Obs! |
    | --- | --- | --- | --- |
    | **uniqueValueRule1 ... uniqueValueRuleN** |Minst 2 krävs, ingen övre bindning |Sträng | Lista med regler för generering av unika värden som ska utvärderas. |
 
@@ -535,9 +535,9 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka 
 
 **Komponentparametrar**<br> 
 
-  | Name | Krävs/upprepas | Typ | Anteckningar |
+  | Namn | Krävs/upprepas | Typ | Obs! |
   |--- | --- | --- | --- |
-  | **AppRoleAssignments** |Obligatorisk |Sträng |**[appRoleAssignments]** -objekt. |
+  | **AppRoleAssignments** |Krävs |Sträng |**[appRoleAssignments]** -objekt. |
 
 ---
 ### <a name="split"></a>Dela
@@ -547,10 +547,10 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka 
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Krävs/upprepas | Typ | Obs! |
    | --- | --- | --- | --- |
-   | **källicensservern** |Obligatorisk |Sträng |**käll** värde att uppdatera. |
-   | **avgränsare** |Obligatorisk |Sträng |Anger det tecken som ska användas för att dela strängen (exempel: ",") |
+   | **källicensservern** |Krävs |Sträng |**käll** värde att uppdatera. |
+   | **avgränsare** |Krävs |Sträng |Anger det tecken som ska användas för att dela strängen (exempel: ",") |
 
 ---
 ### <a name="stringfromsid"></a>StringFromSid
@@ -568,9 +568,9 @@ Funktionen StringFromSid konverterar en byte mat ris som innehåller en säkerhe
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Krävs/upprepas | Typ | Obs! |
    | --- | --- | --- | --- |
-   | **källicensservern** |Obligatorisk |Sträng |**käll** värde att uppdatera. |
+   | **källicensservern** |Krävs |Sträng |**käll** värde att uppdatera. |
 
 ---
 ### <a name="switch"></a>Switch
@@ -580,12 +580,12 @@ Funktionen StringFromSid konverterar en byte mat ris som innehåller en säkerhe
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Krävs/upprepas | Typ | Obs! |
    | --- | --- | --- | --- |
-   | **källicensservern** |Obligatorisk |Sträng |**Käll** värde att kontrol lera. |
+   | **källicensservern** |Krävs |Sträng |**Käll** värde att kontrol lera. |
    | **Standar** |Valfritt |Sträng |Standardvärdet som ska användas när källan inte matchar några nycklar. Kan vara en tom sträng (""). |
-   | **knapp** |Obligatorisk |Sträng |**Nyckel** att jämföra **käll** värde med. |
-   | **värde** |Obligatorisk |Sträng |Ersättnings värde för den **källa** som matchar nyckeln. |
+   | **knapp** |Krävs |Sträng |**Nyckel** att jämföra **käll** värde med. |
+   | **värde** |Krävs |Sträng |Ersättnings värde för den **källa** som matchar nyckeln. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -595,9 +595,9 @@ Funktionen StringFromSid konverterar en byte mat ris som innehåller en säkerhe
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Krävs/upprepas | Typ | Obs! |
    | --- | --- | --- | --- |
-   | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet från källobjektet |
+   | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet från källobjektet |
    | **substrat** |Valfritt |Sträng |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
 
 ---
@@ -609,9 +609,9 @@ Funktionen StringFromSid konverterar en byte mat ris som innehåller en säkerhe
 
 **Komponentparametrar**<br> 
 
-  | Name | Krävs/upprepas | Typ | Anteckningar |
+  | Namn | Krävs/upprepas | Typ | Obs! |
   | --- | --- | --- | --- |
-  | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet från källobjektet. |
+  | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet från källobjektet. |
   | **substrat** |Valfritt |Sträng |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
 
 ---

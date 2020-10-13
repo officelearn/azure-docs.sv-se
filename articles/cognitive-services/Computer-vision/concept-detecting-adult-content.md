@@ -12,10 +12,10 @@ ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: ee18916a59bb081d65494f46e7aba7c29c7177cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "71718516"
 ---
 # <a name="detect-adult-content"></a>Identifiera vuxen innehåll
@@ -35,7 +35,7 @@ Inom klassificeringen "vuxen" är flera olika kategorier:
 
 ## <a name="use-the-api"></a>Använda API:et
 
-Du kan identifiera innehåll för vuxna med API för att [analysera avbildning](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . När du lägger till värdet för `Adult` i **visualFeatures** -Frågeparametern returnerar API tre booleska egenskaper&mdash;`isAdultContent` `isRacyContent`, och `isGoryContent` &mdash;i dess JSON-svar. Metoden returnerar också motsvarande egenskaper&mdash;`adultScore`, `racyScore`och `goreScore` &mdash;som representerar förtroende poängen mellan noll och en för varje respektive kategori.
+Du kan identifiera innehåll för vuxna med API för att [analysera avbildning](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . När du lägger till värdet för `Adult` i **visualFeatures** -Frågeparametern returnerar API tre booleska egenskaper &mdash; `isAdultContent` , `isRacyContent` och `isGoryContent` &mdash; i dess JSON-svar. Metoden returnerar också motsvarande egenskaper &mdash; `adultScore` , `racyScore` och `goreScore` &mdash; som representerar förtroende poängen mellan noll och en för varje respektive kategori.
 
 - [Snabb start: analysera en avbildning (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
 - [Snabb start: analysera en avbildning (REST API)](./quickstarts/csharp-analyze.md)

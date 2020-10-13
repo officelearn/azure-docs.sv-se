@@ -16,21 +16,21 @@ ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: d66b4c8e9f41f661cfc399f72a9ad97405a860fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790854"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Lägga till eller ta bort roll tilldelningar i Azure med hjälp av REST API
+# <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Lägga till eller ta bort Azure-rolltilldelningar med hjälp av REST API
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]I den här artikeln beskrivs hur du tilldelar roller med hjälp av REST API.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] I den här artikeln beskrivs hur du tilldelar roller med hjälp av REST API.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 
-- `Microsoft.Authorization/roleAssignments/write`och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
 
 ## <a name="add-a-role-assignment"></a>Lägg till en rolltilldelning
 
@@ -38,7 +38,7 @@ I Azure RBAC för att bevilja åtkomst lägger du till en roll tilldelning. Om d
 
 1. Använd [roll definitionerna-List](/rest/api/authorization/roledefinitions/list) REST API eller se [inbyggda roller](built-in-roles.md) för att hämta identifieraren för den roll definition som du vill tilldela.
 
-1. Använd ett GUID-verktyg för att generera en unik identifierare som ska användas för roll tilldelnings-ID: t. Identifieraren har formatet:`00000000-0000-0000-0000-000000000000`
+1. Använd ett GUID-verktyg för att generera en unik identifierare som ska användas för roll tilldelnings-ID: t. Identifieraren har formatet: `00000000-0000-0000-0000-000000000000`
 
 1. Börja med följande begäran och brödtext:
 
@@ -170,5 +170,5 @@ Följande visar ett exempel på utdata:
 
 - [Visa en lista med Azures roll tilldelningar med hjälp av REST API](role-assignments-list-rest.md)
 - [Distribuera resurser med Resource Manager-mallar och Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
-- [Referens för Azure-REST API](/rest/api/azure/)
+- [Azure REST API-referens](/rest/api/azure/)
 - [Skapa eller uppdatera anpassade Azure-roller med hjälp av REST API](custom-roles-rest.md)

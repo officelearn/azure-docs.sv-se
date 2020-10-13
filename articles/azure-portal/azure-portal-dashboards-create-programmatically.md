@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
 ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764051"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Skapa Azure-instrumentpaneler program mässigt
@@ -78,7 +78,7 @@ Om du vill publicera den här instrument panelen för en virtuell dator i framti
 Det finns två metoder för API: er som skapar resurser i Azure:
 
 * Tvingande API: er skapa en resurs i taget. Mer information finns i [resurser](/rest/api/resources/resources).
-* Ett mallbaserat distributions system som skapar flera beroende resurser med ett enda API-anrop. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+* Ett mallbaserat distributions system som skapar flera beroende resurser med ett enda API-anrop. Mer information finns i  [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 Mall baserad distribution stöder parameterisering och mall. Vi använder den här metoden i den här artikeln.
 

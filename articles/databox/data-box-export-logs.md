@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87494493"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Spårning och händelse loggning för din Azure Data Box och Azure Data Box Heavy export order
@@ -26,7 +26,7 @@ I följande tabell visas en översikt över de Data Box-enhet stegen för att ex
 | Data Box-enhet export order fas       | Verktyg för att spåra och granska                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Skapa order               | [Konfigurera åtkomst kontroll på ordern via RBAC](#set-up-access-control-on-the-order) <br> [Aktivera utförlig logg i ordern](#enable-verbose-log-in-the-order)                                                    |
-| Bearbetad beställning            | [Spåra beställningen](#track-the-order) genom <ul><li> Azure-portalen </li><li> Frakt bär Vågs webbplats </li><li>E-postmeddelanden</ul> |
+| Bearbetad beställning            | [Spåra beställningen](#track-the-order) genom <ul><li> Azure Portal </li><li> Frakt bär Vågs webbplats </li><li>E-postmeddelanden</ul> |
 | Konfigurera enhet              | Autentiseringsuppgifter [för åtkomst till](#query-activity-logs-during-setup) inloggnings uppgifter för enhet              |
 | Data kopiering från enhet        | [Granska kopierings loggar](#copy-log) <br> [Granska utförliga loggar](#verbose-log) innan du kopierar data            |
 | Data radering från enhet   | [Visa kedja av vårdnads loggar](#get-chain-of-custody-logs-after-data-erasure) inklusive gransknings loggar och order historik                |
@@ -190,7 +190,7 @@ När data har raderats från Data Box-enhet diskar enligt rikt linjerna för NIS
 
 ### <a name="chain-of-custody-audit-logs"></a>Kedja av vårdnads gransknings loggar
 
-Kedjan med invårdnads gransknings loggar innehåller information om att starta och komma åt resurser på Data Box-enhet eller Data Box Heavy när den är utanför Azure-datacenter. Loggarna finns på:`storage-account/azuredatabox-chainofcustodylogs`
+Kedjan med invårdnads gransknings loggar innehåller information om att starta och komma åt resurser på Data Box-enhet eller Data Box Heavy när den är utanför Azure-datacenter. Loggarna finns på: `storage-account/azuredatabox-chainofcustodylogs`
 
 Här är ett exempel på gransknings loggen från en Data Box-enhet:
 

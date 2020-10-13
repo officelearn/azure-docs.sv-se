@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: punagpal
 ms.openlocfilehash: 43b7bcba97617d6931fd5c191e62e833a25bf89d
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513389"
 ---
-# <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Azure IoT Connector för FHIR (förhands granskning) data flöde
+# <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Azure IoT-anslutningsprogram för FHIR (förhandsversion) – dataflöde
 
 Den här artikeln innehåller en översikt över data flödet i Azure IoT Connector för FHIR *. Du lär dig mer om olika data bearbetnings faser i Azure IoT Connector för FHIR som omvandlar enhets data till FHIR-baserade [observations](https://www.hl7.org/fhir/observation.html) resurser.
 
@@ -36,7 +36,7 @@ Normalisering är nästa steg där enhets data hämtas från ovanstående Azure 
 
 Normaliserings processen fören klar inte bara data bearbetning i senare skeden, men ger även möjlighet att projicera ett indatameddelande i flera normaliserade meddelanden. Till exempel kan en enhet skicka flera viktiga tecken för text temperatur, puls frekvens, blod tryck och respiration frekvens i ett enda meddelande. Detta indatameddelande skulle skapa fyra separata FHIR-resurser. Varje resurs representerar olika viktiga tecken, med indatamängden projiceras i fyra olika normaliserade meddelanden.
 
-## <a name="group"></a>Grupp
+## <a name="group"></a>Group
 Grupp är nästa steg där de normaliserade meddelanden som är tillgängliga från föregående steg grupperas med hjälp av tre olika parametrar: enhets identitet, mätnings typ och tids period.
 
 Gruppering av enhets identitet och mått typ möjliggör användning av [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) -mått typ. Den här typen är ett koncist sätt att representera en tidsbaserad serie mätningar från en enhet i FHIR. Tids perioden styr svars tiden då observations resurser som genereras av Azure IoT Connector för FHIR skrivs till Azure API för FHIR.

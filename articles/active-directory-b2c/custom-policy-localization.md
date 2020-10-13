@@ -11,10 +11,10 @@ ms.date: 8/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 581811b1ed9738b98a734f5d52a025a872cd0846
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87540877"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Lokalisera användar gränssnittet för ditt program med hjälp av en anpassad princip i Azure Active Directory B2C
@@ -252,7 +252,7 @@ I följande exempel läggs de engelska (en) och spanska (ES) anpassade strängar
 1. Välj den princip som du överförde och välj sedan **Kör nu**.
 1. Du bör kunna se den lokaliserade registrerings-eller inloggnings sidan.
 1. Klicka på registrerings länken och du bör kunna se den lokaliserade anmälnings sidan.
-1. Ändra webbläsarens standard språk till spanska. Du kan också lägga till frågesträngparametern `ui_locales` för begäran. Ett exempel: 
+1. Ändra webbläsarens standard språk till spanska. Du kan också lägga till frågesträngparametern `ui_locales` för begäran. Exempel: 
 
 ```http
 https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es

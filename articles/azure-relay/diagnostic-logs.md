@@ -4,10 +4,10 @@ description: Den här artikeln innehåller en översikt över alla aktiviteter o
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 980f2f7a737d3f2460c17a84c472cbf56f5eb90f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87533010"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Aktivera diagnostikloggar för Azure Relay Hybridanslutningar
@@ -52,7 +52,7 @@ De nya inställningarna börjar gälla om 10 minuter. Loggarna visas i det konfi
 ## <a name="schema-for-hybrid-connections-events"></a>Schema för Hybrid anslutnings händelser
 I händelse loggen för Hybrid anslutningar ingår de element som anges i följande tabell:
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 | ------- | ------- |
 | ResourceId | Resurs-ID för Azure Resource Manager |
 | ActivityId | Internt ID som används för att identifiera den angivna åtgärden. Kan även kallas "TrackingId" |
@@ -80,7 +80,7 @@ Här är ett exempel på en hybrid anslutnings händelse i JSON-format.
 
 ## <a name="events-and-operations-captured-in-diagnostic-logs"></a>Händelser och åtgärder som har registrerats i diagnostikloggar
 
-| Åtgärd | Description | 
+| Åtgärd | Beskrivning | 
 | --------- | ----------- | 
 | AuthorizationFailed | Auktoriseringen misslyckades.|
 | InvalidSasToken | Ogiltig SAS-token. | 

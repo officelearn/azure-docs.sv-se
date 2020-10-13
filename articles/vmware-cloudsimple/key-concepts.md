@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 8677bc7e4b9f4c2b24b5439aeefb307b9c544ed3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86525032"
 ---
 # <a name="key-concepts-for-administration-of-azure-vmware-solutions-by-cloudsimple"></a>Viktiga begrepp för administration av Azure VMware-lösningar från CloudSimple
@@ -50,7 +50,7 @@ CloudSimple-tjänsten tillhandahåller ett nätverk per region där din CloudSim
 
 * [VLAN och undernät](cloudsimple-vlans-subnets.md)
 * [Brandväggstabeller](cloudsimple-firewall-tables.md)
-* [VPN-gatewayer](cloudsimple-vpn-gateways.md)
+* [VPN-gateways](cloudsimple-vpn-gateways.md)
 * [Offentlig IP-adress](cloudsimple-public-ip-address.md)
 * [Azure-nätverksanslutning](cloudsimple-azure-network-connection.md)
 

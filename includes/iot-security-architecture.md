@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73034554"
 ---
 När du designar ett system är det viktigt att förstå de potentiella hoten mot systemet och lägga till lämpliga försvar i enlighet med detta, eftersom systemet är utformat och konstruerat. Det är viktigt att utforma produkten från början med säkerhet i åtanke eftersom du förstår hur en angripare kan kompromettera ett system och se till att lämpliga åtgärder är på plats från början.

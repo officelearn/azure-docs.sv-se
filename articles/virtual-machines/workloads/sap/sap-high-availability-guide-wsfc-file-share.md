@@ -17,10 +17,10 @@ ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 721389b557fde41b1461654b03299601e2384108
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361338"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av en fil resurs i Azure
@@ -133,7 +133,7 @@ Om du vill använda en skalbar fil resurs måste systemet uppfylla följande kra
 * Vi rekommenderar att du formaterar volymer med hjälp av ReFS (elastiskt fil system).
     * Mer information finns i [SAP Note 1869038-SAP-stöd för ReFs-filsystem][1869038] och [Välj fil system][planning-volumes-s2d-choosing-filesystem] kapitlet i artikeln Planera volymer i Lagringsdirigering.
     * Se till att du installerar den [kumulativa uppdateringen av Microsoft KB4025334][kb4025334].
-* Du kan använda VM-storlekar i DS-eller DSv2-serien.
+* Du kan använda DS-Series eller DSv2-Series storlekar för virtuella Azure-datorer.
 * Använd en VM-typ som har minst en "hög" nätverks bandbredd för bästa nätverks prestanda mellan virtuella datorer, vilket krävs för att Lagringsdirigering synkronisering av disk.
     Mer information finns i specifikationer för [DSv2-serien][dv2-series] och [DS-serien][ds-series] .
 * Vi rekommenderar att du reserverar en del ej allokerad kapacitet i lagringspoolen. Om du lämnar en icke-allokerad kapacitet i lagringspoolen får du volym utrymme att reparera på plats. om en enhet kraschar. Detta förbättrar data säkerhet och prestanda.  Mer information finns i [välja volym storlek][choosing-the-size-of-volumes-s2d].

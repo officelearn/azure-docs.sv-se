@@ -4,10 +4,10 @@ description: Skapa aviseringar program mässigt som meddelar dig när dina Azure
 ms.topic: conceptual
 ms.date: 9/4/2018
 ms.openlocfilehash: 3859bb0ce2497b1c1f547c3750e53745ef6d6f28
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537437"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurera resurshälsoaviseringar med Resource Manager-mallar

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: ca674f38b5c327123bc1d13dd284f84f614881b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91300453"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Använd verktyget StorSimple Diagnostics för att felsöka enhets problem i 8000-serien
@@ -414,10 +414,10 @@ Controller0>
 
 Här är en tabell som beskriver de olika Windows PowerShell-parametrarna i system information Map till. 
 
-| PowerShell-parameter    | Description  |
+| PowerShell-parameter    | Beskrivning  |
 |-------------------------|------------------|
 | Instance ID             | Varje styrenhet har en unik identifierare eller ett GUID som är associerat med den.|
-| Name                    | Det egna namnet på enheten enligt konfigurationen i Azure Portal under enhets distributionen. Det egna standard namnet är enhetens serie nummer. |
+| Namn                    | Det egna namnet på enheten enligt konfigurationen i Azure Portal under enhets distributionen. Det egna standard namnet är enhetens serie nummer. |
 | Modell                   | Modellen för din enhet med StorSimple 8000-serien. Modellen kan vara 8100 eller 8600.|
 | Serienummer            | Enhetens serie nummer tilldelas till fabriken och är 15 tecken långt. Till exempel visar 8600-SHX0991003G44HT:<br> 8600 – är enhets modellen.<br>SHX – är webbplatsen för produktion.<br> 0991003 – är en enskild produkt. <br> G44HT – de sista 5 siffrorna ökar för att skapa unika serie nummer. Det får inte vara en sekventiell uppsättning.|
 | TimeZone                | Enhetens tidszon enligt konfigurationen i Azure Portal under enhets distributionen.|
@@ -440,6 +440,6 @@ Här är en tabell som beskriver de olika Windows PowerShell-parametrarna i syst
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig [syntaxen för cmdleten Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
+* Lär dig [syntaxen för Invoke-HcsDiagnostics-cmdleten](https://technet.microsoft.com/library/mt795371.aspx).
 
 * Läs mer om hur du [felsöker distributions problem](storsimple-troubleshoot-deployment.md) på din StorSimple-enhet.

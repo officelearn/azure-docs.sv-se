@@ -15,10 +15,10 @@ ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 83b29252038f88bf8b81299303442abd0cc36814
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91298668"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-on-an-azure-virtual-machine"></a>Migrera en SQL Server databas till SQL Server på en virtuell Azure-dator
@@ -61,7 +61,7 @@ Om det inte går att använda ovanstående metoder kan du migrera databasen manu
 
 I följande tabell visas var och en av de primära metoderna för migrering och information om hur användningen av varje metod är lämpligast.
 
-| Metod | Käll databas version | Mål databas version | Storleks begränsning för säkerhets kopiering av käll databasen | Kommentarer |
+| Metod | Käll databas version | Mål databas version | Storleks begränsning för säkerhets kopiering av käll databasen | Obs! |
 | --- | --- | --- | --- | --- |
 | [Utföra en lokal säkerhets kopiering med komprimering och kopiera säkerhets kopian manuellt till den virtuella Azure-datorn](#back-up-and-restore) |SQL Server 2005 eller mer |SQL Server 2005 eller mer |[Lagrings gräns för Azure VM](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) | Den här tekniken är enkel och väl testad för att flytta databaser mellan datorer. |
 | [Säkerhetskopiera till en URL och Återställ den till den virtuella Azure-datorn från URL: en](#backup-to-url-and-restore-from-url) |SQL Server 2012 SP1 CU2 eller senare | SQL Server 2012 SP1 CU2 eller senare | < 12,8 TB för SQL Server 2016, annars < 1 TB | Den här metoden är bara ett annat sätt att flytta säkerhets kopian till den virtuella datorn med Azure Storage. |

@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ab89e0da3d4512cef9741ec97e9d772c852beb4b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 1e7a58ba5e858b44f137834b2e1ab5472b9d0965
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804103"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970086"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Key Vault tillägg för virtuell dator för Windows
 
@@ -31,6 +31,11 @@ Key Vault VM-tillägget stöder följande versioner av Windows:
 
 - PKCS-#12
 - PEM
+
+## <a name="prerequisities"></a>Prerequisities
+  - Key Vault instans med certifikat. Se [skapa en Key Vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+  - VM/VMSS måste ha tilldelats en [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+  - Åtkomst principen för Key Vault måste anges med hemligheter `get` och `list` behörighet för VM/VMSS-hanterad identitet för att hämta en hemlig del av certifikatet. Se [hur du autentiserar till Key Vault](/azure/key-vault/general/authentication) och [tilldelar en Key Vault åtkomst princip](/azure/key-vault/general/assign-access-policy-cli).
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
@@ -206,8 +211,7 @@ Azure CLI kan användas för att distribuera Key Vault VM-tillägget till en bef
 Observera följande begränsningar/krav:
 - Key Vault begränsningar:
   - Det måste finnas vid tidpunkten för distributionen 
-  - Key Vault åtkomst princip måste anges för VM/VMSS-identitet med hjälp av en hanterad identitet. Se [hur du autentiserar till Key Vault](/azure/key-vault/general/authentication) och [tilldelar en Key Vault åtkomst princip](/azure/key-vault/general/assign-access-policy-cli).
-
+  - Key Vault åtkomst princip måste anges för VM/VMSS-identitet med hjälp av en hanterad identitet. Se [hur du autentiserar till Key Vault](../../key-vault/general/authentication.md) och [tilldelar en Key Vault åtkomst princip](../../key-vault/general/assign-access-policy-cli.md).
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 

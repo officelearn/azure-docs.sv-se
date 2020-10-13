@@ -12,10 +12,10 @@ manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
 ms.openlocfilehash: c331334df64ea1bea45949152a34241a73fa5bb9
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666168"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Vilka autentiserings- och verifieringsmetoder är tillgängliga i Azure Active Directory?
@@ -45,7 +45,7 @@ Följande tabell beskriver säkerhets överväganden för tillgängliga autentis
 | OATH-programvaru-token           | Medel   | Medel    | Hög         |
 | SMS                            | Medium   | Högt      | Medel       |
 | Röst                          | Medel   | Medel    | Medel       |
-| Lösenord                       | Lågt      | Högt      | Hög         |
+| lösenordsinställning                       | Lågt      | Högt      | Hög         |
 
 Mer information om säkerhet finns i [sårbarheter och angrepps vektorer för autentisering](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124).
 
@@ -63,11 +63,11 @@ Följande tabell beskriver när du kan använda en autentiseringsmetod under en 
 | Windows Hello för företag     | Ja                    | Multifaktorautentisering                       |
 | Microsoft Authenticator-appen    | Ja (för hands version)          | MFA och SSPR              |
 | Säkerhets nyckel för FIDO2 (för hands version)   | Ja                    | Multifaktorautentisering                       |
-| OATH-token för maskin vara (för hands version) | Nej                     | Multifaktorautentisering                       |
-| OATH-programvaru-token           | Nej                     | Multifaktorautentisering                       |
+| OATH-token för maskin vara (för hands version) | Inga                     | Multifaktorautentisering                       |
+| OATH-programvaru-token           | Inga                     | Multifaktorautentisering                       |
 | SMS                            | Ja (för hands version)          | MFA och SSPR              |
-| Röstsamtal                     | Nej                     | MFA och SSPR              |
-| Lösenord                       | Ja                    |                           |
+| Röstsamtal                     | Inga                     | MFA och SSPR              |
+| lösenordsinställning                       | Ja                    |                           |
 
 Alla dessa autentiseringsmetoder kan konfigureras i Azure Portal och i allt större användning av [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
@@ -80,7 +80,7 @@ Mer information om hur varje autentiseringsmetod fungerar finns i följande arti
 * [OATH-programvaru-token](concept-authentication-oath-tokens.md#oath-software-tokens)
 * SMS- [inloggning (för hands version)](howto-authentication-sms-signin.md) och [verifiering](concept-authentication-phone-options.md#mobile-phone-verification)
 * [Verifiering av röst samtal](concept-authentication-phone-options.md)
-* Lösenord
+* lösenordsinställning
 
 > [!NOTE]
 > I Azure AD är ett lösen ord ofta en av de primära autentiseringsmetoderna. Du kan inte inaktivera autentiseringsmetoden för lösen ord. Om du använder ett lösen ord som primär autentiserings faktor ökar du säkerheten för inloggnings händelser med hjälp av Azure Multi-Factor Authentication.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2020
 ms.author: Zhchia
-ms.openlocfilehash: dd052bf7a95cbadf2a107f7e49915a9899b084ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce4b93bc8f44e7bec490466fc42be829f942ae07
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614095"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940930"
 ---
 # <a name="tutorial-configure-cinode-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Cinode för automatisk användar etablering
 
@@ -55,7 +55,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 3. Navigera till **tokens** och skapa en ny token.
 
-4. Ange ett unikt namn, Välj https://api.cinode.app/scim/v2 som mål grupp och ange ett förfallo datum på lämpligt sätt.
+4. Ange ett unikt namn, Välj **" https://api.cinode.app/scim/v2 "** som mål grupp och ange ett förfallo datum på lämpligt sätt.
 
 5. Klicka på **skapa token**.
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: ae3090689f9999c9ea6aa65447dadbdd7b0b2026
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2aa30f86b32005b9c85664b5bb2d0772a6e5f443
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91001077"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940777"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service-public-preview"></a>Konfidentiella data behandlings noder i Azure Kubernetes service (offentlig för hands version)
 
@@ -40,7 +40,7 @@ Azure Kubernetes service (AKS) har stöd för att lägga till [DCsv2 konfidentie
 
 #### <a name="sgx-device-plugin"></a>Plugin-program för SGX-enhet <a id="sgx-plugin"></a>
 
-Plugin-programmet SGX-enhet implementerar plugin-gränssnittet för Kubernetes-enheten för EPC-minne. Det här plugin-programmet gör effektivt EPC-minne till en ytterligare resurs typ i Kubernetes. Användare kan ange gränser för den här resursen precis som andra resurser. Förutom schemaläggnings funktionen hjälper enhets-plugin-programmet till att tilldela enhets driv rutins behörigheter för SGX till konfidentiella arbets belastnings behållare. En exempel implementering av EPC Memory-baserad distribution ( `kubernetes.azure.com/sgx_epc_mem_in_MiB` )-exemplet finns [här](https://github.com/azure-samples/confidential-computing/blob/main/containersamples/helloworld/helloworld.yaml)
+Plugin-programmet SGX-enhet implementerar plugin-gränssnittet för Kubernetes-enheten för EPC-minne. Det här plugin-programmet gör effektivt EPC-minne till en ytterligare resurs typ i Kubernetes. Användare kan ange gränser för den här resursen precis som andra resurser. Förutom schemaläggnings funktionen hjälper enhets-plugin-programmet till att tilldela enhets driv rutins behörigheter för SGX till konfidentiella arbets belastnings behållare. En exempel implementering av EPC Memory-baserad distribution ( `kubernetes.azure.com/sgx_epc_mem_in_MiB` )-exemplet finns [här](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
 
 #### <a name="sgx-quote-helper-service"></a>Hjälp tjänst för SGX-offerter <a id="sgx-quote"></a>
 
@@ -56,7 +56,7 @@ Enklaven-program som utför fjärrattestering måste generera en offert. OFFERTe
 
 AKS stöder program som är programmerade att köras på konfidentiella noder och använder **särskild instruktions uppsättning som** görs tillgänglig via SDK: er och ramverk. Den här program modellen ger mest kontroll över dina program med en lägsta TCB (Trusted Computing Base). [Läs mer](enclave-aware-containers.md) om enklaven-medvetna behållare.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 [Distribuera AKS-kluster med konfidentiella databeräknings noder](./confidential-nodes-aks-get-started.md)
 

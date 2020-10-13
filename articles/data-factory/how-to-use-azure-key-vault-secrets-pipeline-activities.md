@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
 ms.openlocfilehash: 5a662119d9ccf95eac23785c5fe9a787da882531
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537403"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Använda Azure Key Vault-hemligheter i pipeline-aktiviteter
@@ -53,7 +53,7 @@ Den här funktionen använder den hanterade identiteten för Data Factory.  Lär
     |---------|---------|
     |Säkra utdata     |Sant         |
     |URL     |[Ditt hemliga URI-värde]? API-version = 7.0         |
-    |Metod     |HÄMTA         |
+    |Metod     |GET         |
     |Autentisering     |MSI         |
     |Resurs        |https://vault.azure.net       |
 

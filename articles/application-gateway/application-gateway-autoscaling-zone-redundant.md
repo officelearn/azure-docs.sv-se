@@ -9,10 +9,10 @@ ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
 ms.openlocfilehash: 8c989e426faa77025a84515fe0a19424cb6bfa89
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826626"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
@@ -100,7 +100,7 @@ I det här avsnittet beskrivs funktioner och begränsningar för v2-SKU: n som s
 |--|--|
 |Certifikat för autentisering|Stöds inte.<br>Mer information finns i [Översikt över TLS to end-TLS med Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
 |Mixa Standard_v2 och standard Application Gateway i samma undernät|Stöds inte|
-|Användardefinierad väg (UDR) i Application Gateway undernät|Stöds (vissa scenarier). I för hands version.<br> Mer information om vilka scenarier som stöds finns i [Application Gateway konfigurations översikt](configuration-infrastructure.md#supported-user-defined-routes).|
+|User-Defined väg (UDR) på Application Gateway undernät|Stöds (vissa scenarier). I för hands version.<br> Mer information om vilka scenarier som stöds finns i [Application Gateway konfigurations översikt](configuration-infrastructure.md#supported-user-defined-routes).|
 |NSG för inkommande port intervall| – 65200 till 65535 för Standard_v2 SKU<br>– 65503 till 65534 för standard-SKU.<br>Mer information finns i [vanliga frågor och svar](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Prestanda loggar i Azure Diagnostics|Stöds inte.<br>Azure-mått ska användas.|
 |Fakturering|Faktureringen är schemalagd för att starta den 1 juli 2019.|

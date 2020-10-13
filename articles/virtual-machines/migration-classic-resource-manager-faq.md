@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 0f9a8a1c4631fc667d0dd31ae62f7d57aefccc90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ccbf7e8aaab5463abf8fa9e129ba9f0ea8599c4e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855844"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969848"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Vanliga frågor och svar om migrering från klassiskt läge till Azure Resource Manager
 
@@ -26,7 +26,7 @@ Ordet "klassisk" i IaaS VM (klassisk) refererar till virtuella datorer som hante
 
 ## <a name="what-is-azure-resource-manager"></a>Vad är Azure Resource Manager?
 
-[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) är det senaste kontroll planet för Azure som ansvarar för att skapa, hantera och ta bort virtuella datorer och utföra andra kontroll Plans åtgärder. 
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) är det senaste kontroll planet för Azure som ansvarar för att skapa, hantera och ta bort virtuella datorer och utföra andra kontroll Plans åtgärder. 
 
 ## <a name="what-is-the-time-required-for-migration"></a>Vad är den tid som krävs för migrering?
 
@@ -42,7 +42,7 @@ Kunder som haft aktiva eller stoppade men allokerade IaaS-VM: ar (klassisk) i si
 
 ## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Varför får jag ett fel meddelande om att "NewClassicVMCreationNotAllowedForSubscription"?
 
-IaaS VM (klassisk) är inte längre tillgängligt för nya kunder som en del av indragnings processen. Vi har identifierat dig som nya kunder och därför var din åtgärd inte auktoriserad. Vi rekommenderar starkt att du använder [Azure Virtual Machines med arm](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Om du inte kan använda virtuella Azure-datorer med ARM kontaktar du support för att lägga till din prenumeration i listan över tillåtna.
+IaaS VM (klassisk) är inte längre tillgängligt för nya kunder som en del av indragnings processen. Vi har identifierat dig som nya kunder och därför var din åtgärd inte auktoriserad. Vi rekommenderar starkt att du använder [Azure Virtual Machines med arm](./windows/quick-create-powershell.md). Om du inte kan använda virtuella Azure-datorer med ARM kontaktar du support för att lägga till din prenumeration i listan över tillåtna.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Påverkar den här migreringsplanen några befintliga tjänster eller program som körs på virtuella Azure-datorer? 
 
@@ -105,7 +105,7 @@ Vi rekommenderar att du avbryter migreringen och loggar en supportbegäran om at
 
 ## <a name="how-do-i-report-an-issue"></a>Hur gör jag för att rapportera ett problem? 
 
-Publicera dina problem och frågor om migrering till vår [Microsoft Q&en fråge sida för virtuell dator](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html)med nyckelordet ClassicIaaSMigration. Vi rekommenderar att du lägger upp alla dina frågor på det här forumet. Om du har ett supportavtal är du även välkommen att logga ett supportärende.
+Publicera dina problem och frågor om migrering till vår [Microsoft Q&en fråge sida för virtuell dator](/answers/topics/azure-virtual-machines.html)med nyckelordet ClassicIaaSMigration. Vi rekommenderar att du lägger upp alla dina frågor på det här forumet. Om du har ett supportavtal är du även välkommen att logga ett supportärende.
 
 ## <a name="what-if-i-dont-like-the-names-of-the-resources-that-the-platform-chose-during-migration"></a>Vad gör jag om jag inte gillar namnen på resurserna som plattformen väljer under migreringen? 
 

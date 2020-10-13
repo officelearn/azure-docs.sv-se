@@ -1,21 +1,22 @@
 ---
-title: 'ExpressRoute: väg filter-Microsoft-peering: Azure PowerShell'
-description: Den här artikeln beskriver hur du konfigurerar väg filter för Microsoft-peering med hjälp av PowerShell
+title: 'Självstudie: Konfigurera väg filter för Microsoft-peering – Azure PowerShell'
+description: I den här självstudien beskrivs hur du konfigurerar väg filter för Microsoft-peering med PowerShell.
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.topic: how-to
-ms.date: 02/25/2019
+ms.topic: tutorial
+ms.date: 10/08/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: c4ca4362f10ea6ed2fa7cc39370fc9b4c764ff3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90d4def5a1c08e305b9315f299e83e2187b6be2c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566202"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969950"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Konfigurera väg filter för Microsoft-peering: PowerShell
+# <a name="tutorial-configure-route-filters-for-microsoft-peering-using-powershell"></a>Självstudie: Konfigurera väg filter för Microsoft-peering med PowerShell
+
 > [!div class="op_single_selector"]
 > * [Azure Portal](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
@@ -26,125 +27,80 @@ Flödesfilter är ett sätt att använda en delmängd av tjänster som stöds vi
 
 Microsoft 365 tjänster som Exchange Online, SharePoint Online och Skype för företag, och offentliga Azure-tjänster, t. ex. lagring och SQL DB, är tillgängliga via Microsoft-peering. Offentliga Azure-tjänster kan väljas per region och kan inte definieras per offentlig tjänst.
 
-När Microsoft-peering har kon figurer ATS på en ExpressRoute-krets och ett flödes filter är kopplat annonseras alla prefix som valts för dessa tjänster via de BGP-sessioner som etableras. Ett community-värde för BGP är kopplat till varje prefix för att identifiera vilken tjänst som erbjuds genom prefixet. En lista över värdena för BGP-communityn och de tjänster som de mappar till finns i [BGP-communities](expressroute-routing.md#bgp).
+När Microsoft-peering konfigureras i en ExpressRoute-krets annonseras alla prefix som är relaterade till dessa tjänster via de BGP-sessioner som etableras. Ett community-värde för BGP är kopplat till varje prefix för att identifiera vilken tjänst som erbjuds genom prefixet. En lista över värdena för BGP-communityn och de tjänster som de mappar till finns i [BGP-communities](expressroute-routing.md#bgp).
 
-Om du behöver anslutning till alla tjänster annonseras ett stort antal prefix via BGP. Detta ökar markant storleken på de väg tabeller som hanteras av routrarna i nätverket. Om du planerar att endast använda en delmängd av tjänster som erbjuds via Microsoft-peering kan du minska storleken på dina routningstabeller på två sätt. Du kan:
+Anslutning till alla Azure-och Microsoft 365-tjänster gör att ett stort antal prefix annonseras via BGP. Det stora antalet prefix ökar avsevärt storleken på de väg tabeller som hanteras av routrarna i nätverket. Om du planerar att endast använda en delmängd av tjänster som erbjuds via Microsoft-peering kan du minska storleken på dina routningstabeller på två sätt. Du kan:
 
-- Filtrera bort oönskade prefix genom att använda väg filter på BGP-communities. Detta är en vanlig nätverks praxis och används ofta i många nätverk.
+* Filtrera bort oönskade prefix genom att använda väg filter på BGP-communities. Flödes filtrering är en vanlig nätverks praxis och används ofta i många nätverk.
 
-- Definiera väg filter och Använd dem i ExpressRoute-kretsen. Ett flödes filter är en ny resurs där du kan välja listan över tjänster som du planerar att använda via Microsoft-peering. ExpressRoute-routrar skickar bara listan över prefix som hör till de tjänster som identifieras i flödes filtret.
+* Definiera väg filter och Använd dem i ExpressRoute-kretsen. Ett flödes filter är en ny resurs där du kan välja listan över tjänster som du planerar att använda via Microsoft-peering. ExpressRoute-routrar skickar bara listan över prefix som hör till de tjänster som identifieras i flödes filtret.
+
+I de här självstudierna får du lära dig att
+> [!div class="checklist"]
+> - Hämta värden för BGP-communityn.
+> - Skapa flödes filter och filter regel.
+> - Koppla flödes filter till en ExpressRoute-krets.
 
 ### <a name="about-route-filters"></a><a name="about"></a>Om flödes filter
 
-När Microsoft-peering har kon figurer ATS på din ExpressRoute-krets upprättar Microsoft Network Edge-routrarna ett par med BGP-sessioner med Edge-routrarna (dina eller anslutnings leverantörens). Inga vägar annonseras till ditt nätverk. Om du vill aktivera vägannonseringar till ditt nätverk måste du associera ett flödesfilter.
+När Microsoft-peering konfigureras på din ExpressRoute-krets, upprättar Microsoft Edge-routrarna ett par med BGP-sessioner med dina gräns-routrar via anslutnings leverantören. Inga vägar annonseras till ditt nätverk. Om du vill aktivera vägannonseringar till ditt nätverk måste du associera ett flödesfilter.
 
-Med ett flödesfilter kan du identifiera tjänster som du vill använda via Microsoft-peering för din ExpressRoute-krets. Det är i stort sett en tillåten lista över alla värden för BGP-communityn. När en flödesfilterresurs har definierats och kopplats till en ExpressRoute-krets, annonseras alla prefix som mappar till community-värden för BGP till ditt nätverk.
+Med ett flödesfilter kan du identifiera tjänster som du vill använda via Microsoft-peering för din ExpressRoute-krets. Det är i stort sett en tillåten lista över alla värden för BGP-communityn. När en väg filter resurs har definierats och kopplats till en ExpressRoute-krets annonseras alla prefix som mappar till BGP-communityns värden till nätverket.
 
-Om du vill kunna koppla väg filter med Microsoft 365 tjänster på dem måste du ha behörighet att använda Microsoft 365 tjänster via ExpressRoute. Om du inte har behörighet att använda Microsoft 365 tjänster via ExpressRoute Miss lyckas åtgärden att bifoga väg filter. Mer information om auktoriseringsprocessen finns i [Azure-ExpressRoute för Microsoft 365](/microsoft-365/enterprise/azure-expressroute).
+Om du vill bifoga väg filter med Microsoft 365 tjänster måste du ha behörighet att använda Microsoft 365 tjänster via ExpressRoute. Om du inte har behörighet att använda Microsoft 365 tjänster via ExpressRoute Miss lyckas åtgärden att bifoga väg filter. Mer information om auktoriseringsprocessen finns i [Azure-ExpressRoute för Microsoft 365](/microsoft-365/enterprise/azure-expressroute).
 
 > [!IMPORTANT]
 > Microsoft-peering av ExpressRoute-kretsar som har kon figurer ATS före den 1 augusti 2017 kommer att ha alla tjänste prefix som annonseras via Microsoft-peering, även om det inte finns några väg filter definierade. Microsoft-peering av ExpressRoute-kretsar som är konfigurerade på eller efter den 1 augusti 2017 har inga prefix som annonseras förrän ett flödes filter är kopplat till kretsen.
 > 
-> 
+## <a name="prerequisites"></a>Förutsättningar
 
-### <a name="workflow"></a><a name="workflow"></a>Arbetsflöde
-
-För att kunna ansluta till tjänster via Microsoft-peering måste du utföra följande konfigurations steg:
+- Granska [nödvändiga komponenter](expressroute-prerequisites.md) och [arbets flöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
 
 - Du måste ha en aktiv ExpressRoute-krets som har Microsoft-peering etablerad. Du kan använda följande instruktioner för att utföra dessa uppgifter:
   - [Skapa en ExpressRoute-krets](expressroute-howto-circuit-arm.md) och låt den krets som aktive ras av anslutnings leverantören innan du fortsätter. ExpressRoute-kretsen måste vara i ett tillstånd som har tillhandahållits och Aktiver ATS.
   - [Skapa Microsoft-peering](expressroute-circuit-peerings.md) om du hanterar BGP-sessionen direkt. Du kan också använda din anslutnings leverantör för att etablera Microsoft-peering för din krets.
+  
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
--  Du måste skapa och konfigurera ett flödes filter.
-    - Identifiera de tjänster du använder via Microsoft-peering
-    - Identifiera listan över värden för BGP-communityn som är kopplade till tjänsterna
-    - Skapa en regel för att tillåta att listan med prefix matchar BGP-communityns värden
+### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Logga in på ditt Azure-konto och välj din prenumeration
 
--  Du måste koppla väg filtret till ExpressRoute-kretsen.
+[!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="get-a-list-of-prefixes-and-bgp-community-values"></a><a name="prefixes"></a> Hämta en lista över prefix och värden för BGP-community
 
-Innan du påbörjar konfigurationen kontrollerar du att du uppfyller följande kriterier:
+1. Använd följande cmdlet för att hämta listan över BGP community-värden och prefix som är kopplade till tjänster som är tillgängliga via Microsoft-peering:
 
- - Granska [nödvändiga komponenter](expressroute-prerequisites.md) och [arbets flöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
+    ```azurepowershell-interactive
+    Get-AzBgpServiceCommunity
+    ```
 
- - Du måste ha en aktiv ExpressRoute-krets. Följ anvisningarna för att [Skapa en ExpressRoute-krets](expressroute-howto-circuit-arm.md) och aktivera kretsen av anslutningsprovidern innan du fortsätter. ExpressRoute-kretsen måste vara i ett tillstånd som har tillhandahållits och Aktiver ATS.
+1. Skapa en lista över värden för BGP-grupper som du vill använda i flödes filtret.
 
- - Du måste ha en aktiv Microsoft-peering. Följ anvisningarna i artikeln [skapa och ändra peering-konfiguration](expressroute-circuit-peerings.md) .
+## <a name="create-a-route-filter-and-a-filter-rule"></a><a name="filter"></a>Skapa ett flödes filter och en filter regel
 
+Ett flödes filter kan bara ha en regel och regeln måste vara av typen Allow. Den här regeln kan ha en lista över värden för BGP-communityn. Kommandot `az network route-filter create` skapar bara en Route filter-resurs. När du har skapat resursen måste du skapa en regel och koppla den till Route filter-objektet.
 
-### <a name="working-with-azure-powershell"></a>Arbeta med Azure PowerShell
+1. Om du vill skapa en Route filter-resurs kör du följande kommando:
 
-[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
+    ```azurepowershell-interactive
+    New-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Location "West US"
+    ```
 
-[!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
-
-### <a name="log-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
-
-Innan du påbörjar konfigurationen måste du logga in på ditt Azure-konto. Den här cmdleten uppmanar dig att ange inloggningsuppgifterna för ditt Azure-konto. När du har loggat in hämtas dina kontoinställningar så att de blir tillgängliga för Azure PowerShell.
-
-Öppna PowerShell-konsolen med utökad behörighet och anslut till ditt konto. Använd följande exempel för att få hjälp att ansluta. Om du använder Azure Cloud Shell behöver du inte köra den här cmdleten, eftersom du loggas in automatiskt.
-
-```azurepowershell
-Connect-AzAccount
-```
-
-Om du har flera Azure-prenumerationer anger du prenumerationerna för kontot.
-
-```azurepowershell-interactive
-Get-AzSubscription
-```
-
-Ange den prenumeration som du vill använda.
-
-```azurepowershell-interactive
-Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-```
-
-## <a name="step-1-get-a-list-of-prefixes-and-bgp-community-values"></a><a name="prefixes"></a>Steg 1: Hämta en lista över prefix och värden för BGP-community
-
-### <a name="1-get-a-list-of-bgp-community-values"></a>1. Hämta en lista över värden för BGP-communityn
-
-Använd följande cmdlet för att hämta listan över BGP-gruppvärden som är kopplade till tjänster som är tillgängliga via Microsoft-peering och listan med prefix som är kopplade till dem:
-
-```azurepowershell-interactive
-Get-AzBgpServiceCommunity
-```
-### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. gör en lista över de värden som du vill använda
-
-Skapa en lista över värden för BGP-grupper som du vill använda i flödes filtret.
-
-## <a name="step-2-create-a-route-filter-and-a-filter-rule"></a><a name="filter"></a>Steg 2: skapa ett flödes filter och en filter regel
-
-Ett flödes filter kan bara ha en regel och regeln måste vara av typen Allow. Den här regeln kan ha en lista över värden för BGP-communityn.
-
-### <a name="1-create-a-route-filter"></a>1. skapa ett flödes filter
-
-Börja med att skapa ett flödes filter. Kommandot New-AzRouteFilter skapar bara en Route filter-resurs. När du har skapat resursen måste du skapa en regel och koppla den till Route filter-objektet. Kör följande kommando för att skapa en Route filter-resurs:
-
-```azurepowershell-interactive
-New-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Location "West US"
-```
-
-### <a name="2-create-a-filter-rule"></a>2. skapa en filter regel
-
-Du kan ange en uppsättning BGP-communities som en kommaavgränsad lista, som du ser i exemplet. Kör följande kommando för att skapa en ny regel:
+1. Kör följande kommando för att skapa en flödes filter regel:
  
-```azurepowershell-interactive
-$rule = New-AzRouteFilterRuleConfig -Name "Allow-EXO-D365" -Access Allow -RouteFilterRuleType Community -CommunityList 12076:5010,12076:5040
-```
+    ```azurepowershell-interactive
+    $rule = New-AzRouteFilterRuleConfig -Name "Allow-EXO-D365" -Access Allow -RouteFilterRuleType Community -CommunityList 12076:5010,12076:5040
+    ```
 
-### <a name="3-add-the-rule-to-the-route-filter"></a>3. Lägg till regeln i flödes filtret
-
-Kör följande kommando för att lägga till filter regeln i flödes filtret:
+1. Kör följande kommando för att lägga till filter regeln i flödes filtret:
  
-```azurepowershell-interactive
-$routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
-$routefilter.Rules.Add($rule)
-Set-AzRouteFilter -RouteFilter $routefilter
-```
+    ```azurepowershell-interactive
+    $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+    $routefilter.Rules.Add($rule)
+    Set-AzRouteFilter -RouteFilter $routefilter
+    ```
 
-## <a name="step-3-attach-the-route-filter-to-an-expressroute-circuit"></a><a name="attach"></a>Steg 3: koppla väg filtret till en ExpressRoute-krets
+## <a name="attach-the-route-filter-to-an-expressroute-circuit"></a><a name="attach"></a>Koppla väg filtret till en ExpressRoute-krets
 
 Kör följande kommando för att koppla väg filtret till ExpressRoute-kretsen, förutsatt att du bara har Microsoft-peering:
 
@@ -174,7 +130,7 @@ Använd följande steg för att hämta egenskaperna för ett flödes filter:
 
 ### <a name="to-update-the-properties-of-a-route-filter"></a><a name="updateproperties"></a>Så här uppdaterar du egenskaperna för ett flödes filter
 
-Om flödes filtret redan är kopplat till en krets sprider uppdateringar till BGP community-listan automatiskt lämpliga annonserings annonserings ändringar via etablerade BGP-sessioner. Du kan uppdatera listan med BGP-grupper för ditt flödes filter med följande kommando:
+Om flödes filtret redan är kopplat till en krets sprider uppdateringar till BGP community-listan automatiskt annonserings ändringar via den upprättade BGP-sessionen. Du kan uppdatera listan med BGP-grupper för ditt flödes filter med följande kommando:
 
 ```azurepowershell-interactive
 $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
@@ -191,7 +147,7 @@ $ckt.Peerings[0].RouteFilter = $null
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="to-delete-a-route-filter"></a><a name="delete"></a>Ta bort ett flödes filter
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Du kan bara ta bort ett flödes filter om det inte är kopplat till någon krets. Se till att flödes filtret inte är kopplat till någon krets innan du försöker ta bort det. Du kan ta bort ett flödes filter med följande kommando:
 
@@ -199,6 +155,9 @@ Du kan bara ta bort ett flödes filter om det inte är kopplat till någon krets
 Remove-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-Mer information om ExpressRoute finns i [vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
+Information om konfigurations exempel för routern finns i:
+
+> [!div class="nextstepaction"]
+> [Konfigurations exempel för routern för att konfigurera och hantera routning](expressroute-config-samples-routing.md)

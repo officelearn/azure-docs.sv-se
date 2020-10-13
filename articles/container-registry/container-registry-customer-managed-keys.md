@@ -4,12 +4,12 @@ description: Lär dig mer om kryptering – resten av ditt Azure Container Regis
 ms.topic: article
 ms.date: 09/30/2020
 ms.custom: ''
-ms.openlocfilehash: 7b4b3fd21421ba1e371bd27d8224c1f2aa34b7be
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 6eaae5266277a6a65c7cecaa761b75e3a41ebe87
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91620349"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940675"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Kryptera registret med en kundhanterad nyckel
 
@@ -114,7 +114,7 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-Du kan också använda [Azure RBAC för Key Vault](../key-vault/general/rbac-guide.md) (för hands version) för att tilldela behörigheter till identiteten för att få åtkomst till nyckel valvet. Tilldela till exempel krypterings rollen Key Vault krypterings tjänst till identiteten med hjälp av kommandot [AZ roll tilldelning Create](/cli/azure/az/role/assigment#az-role-assignment-create) :
+Du kan också använda [Azure RBAC för Key Vault](../key-vault/general/rbac-guide.md) (för hands version) för att tilldela behörigheter till identiteten för att få åtkomst till nyckel valvet. Tilldela till exempel krypterings rollen Key Vault krypterings tjänst till identiteten med hjälp av kommandot [AZ roll tilldelning Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) :
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
@@ -525,7 +525,7 @@ Om du försöker ta bort en tilldelad identitet från ett register som används 
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-Du kan inte heller ändra krypterings nyckeln (rotera). Om det här problemet uppstår måste du först tilldela om identiteten med hjälp av det GUID som visas i fel meddelandet. Exempel:
+Du kan inte heller ändra krypterings nyckeln (rotera). Om det här problemet uppstår måste du först tilldela om identiteten med hjälp av det GUID som visas i fel meddelandet. Till exempel:
 
 ```azurecli
 az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx

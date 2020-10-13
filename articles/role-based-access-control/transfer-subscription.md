@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
 ms.openlocfilehash: 35c6d94ce69acf59ae6cd8b26b0ad75645eb526a
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819713"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Överföra en Azure-prenumeration till en annan Azure AD-katalog
@@ -363,9 +363,9 @@ I det här avsnittet beskrivs de grundläggande stegen för att uppdatera nyckel
 
 Även om roll tilldelningar tas bort under överföringen kan användare i det ursprungliga ägar kontot fortsätta att ha åtkomst till prenumerationen via andra säkerhets metoder, inklusive:
 
-- Åtkomstnycklar för tjänster som Storage.
+- Åtkomstnycklar för tjänster såsom Storage.
 - [Hanterings certifikat](../cloud-services/cloud-services-certs-create.md) som ger användare administratörs åtkomst till prenumerations resurser.
-- Autentiseringsuppgifter för fjärråtkomst för tjänster som Azure Virtual Machines.
+- Autentiseringsuppgifter för fjärråtkomst för tjänster såsom Azure Virtual Machines.
 
 Om avsikten är att ta bort åtkomst från användare i käll katalogen så att de inte har åtkomst till mål katalogen, bör du överväga att rotera eventuella autentiseringsuppgifter. Användarna fortsätter att ha åtkomst efter överföringen tills autentiseringsuppgifterna har uppdaterats.
 

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 1c2df017a9af47bfa330c8e0fa7561bf5b2d5bae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ffb13912780edcf3d92093e672d1dae983e50a8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514699"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977416"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Använd tjänsten StorSimple Enhetshanteraren för att övervaka StorSimple-enheten
 
@@ -77,7 +77,7 @@ Om du kör uppdatering 3 eller senare kan du dela upp den primära lagrings kapa
 
 Du kan också klicka på var och en av volymerna i listan och se motsvarande användning.
 
-![Primär kapacitets användning för alla lokalt fästa volymer](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
+![Primär kapacitets användning för alla lokalt fästa volymer 2](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
 
 ### <a name="cloud-storage-usage"></a>Användning av moln lagring
 De här diagrammen visar mängden moln lagring som används. Den här informationen är deduplicerad och komprimerad. Den här mängden innehåller moln ögonblicks bilder som kan innehålla data som inte återspeglas i någon primär volym och bevaras för äldre eller krävda kvarhållning. Du kan jämföra de primära och moln lagrings förbruknings siffrorna för att få en uppfattning om data minsknings takten, även om talet inte är exakt.

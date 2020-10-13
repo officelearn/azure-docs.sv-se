@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: buhollan
 ms.custom: devx-track-js
 ms.openlocfilehash: 4d6dae8a4f4ed83af3103e95e711bacdb62cf522
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326175"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Konfigurera lokal utveckling för för hands versionen av Azure statisk Web Apps
@@ -75,7 +75,7 @@ Live Server-tillägget för Visual Studio Code tillhandahåller en lokal utveckl
 
 1. Skriv **klona** i sökrutan och välj **git: klon**.
 
-    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="git-klonings alternativ i Visual Studio Code":::
+    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="GitHub nytt lagrings platsen-fönster":::
 
 1. Ange följande värde för **lagrings platsens URL**.
 
@@ -87,7 +87,7 @@ Live Server-tillägget för Visual Studio Code tillhandahåller en lokal utveckl
 
 1. När du uppmanas att öppna den klonade lagrings platsen väljer du **Öppna**.
 
-    :::image type="content" source="media/local-development/open-new-window.png" alt-text="Öppna i nytt fönster":::
+    :::image type="content" source="media/local-development/open-new-window.png" alt-text="GitHub nytt lagrings platsen-fönster":::
 
 Visual Studio Code öppnar det klonade projektet i redigeraren.
 
@@ -99,7 +99,7 @@ Visual Studio Code öppnar det klonade projektet i redigeraren.
 
     En webbläsare-flik öppnas för att visa programmet.
 
-    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="Enkel statisk plats som körs i webbläsaren":::
+    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="GitHub nytt lagrings platsen-fönster":::
 
     Det här programmet gör en HTTP-begäran till `api/message` slut punkten. Just nu fungerar inte begäran eftersom API-delen av det här programmet måste startas.
 
@@ -113,13 +113,13 @@ Som en del av processen för att skapa API skapas en start konfiguration för Vi
 
 1. En ny terminal-instans öppnas som visar utdata från API-build-processen.
 
-    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="API som körs i Visual Studio Code Terminal":::
+    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="GitHub nytt lagrings platsen-fönster":::
 
    Statusfältet i Visual Studio Code är nu orange. Den här färgen indikerar att API: et körs och fel söknings programmet är anslutet.
 
 1. Tryck sedan på **CTRL/cmd** och klicka på URL: en i terminalen för att öppna ett webbläsarfönster som anropar API: et.
 
-    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="Webbläsarens visnings resultat för API-anrop":::
+    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="GitHub nytt lagrings platsen-fönster":::
 
 ### <a name="debugging-the-api"></a>Felsöka API: et
 
@@ -127,19 +127,19 @@ Som en del av processen för att skapa API skapas en start konfiguration för Vi
 
 1. Ange en Bryt punkt genom att klicka i den vänstra marginalen på rad 2. En röd prick visas som anger att Bryt punkten har angetts.
 
-    :::image type="content" source="media/local-development/breakpoint-set.png" alt-text="Bryt punkt i Visual Studio Code":::
+    :::image type="content" source="media/local-development/breakpoint-set.png" alt-text="GitHub nytt lagrings platsen-fönster":::
 
 1. I webbläsaren uppdaterar du sidan som körs på <http://127.0.0.1:7071/api/message> .
 
 1. Bryt punkten har nåtts i Visual Studio Code och program körningen har pausats.
 
-   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="Bryt punkts träff i Visual Studio Code":::
+   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="GitHub nytt lagrings platsen-fönster":::
 
    En fullständig [fel söknings funktion finns i Visual Studio Code](https://code.visualstudio.com/Docs/editor/debugging) för ditt API.
 
 1. Fortsätt att köra genom att klicka på knappen **Fortsätt** i fel söknings fältet.
 
-    :::image type="content" source="media/local-development/continue-button.png" alt-text="Knappen Fortsätt i Visual Studio Code":::
+    :::image type="content" source="media/local-development/continue-button.png" alt-text="GitHub nytt lagrings platsen-fönster":::
 
 ### <a name="calling-the-api-from-the-application"></a>Anropar API: et från programmet
 
@@ -192,7 +192,7 @@ Mer information om hur du konfigurerar miljöfiler för front-end JavaScript-ram
 
 1. Skriv **Live** Server och välj **Live Server: stoppa Live Server**.
 
-    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Stoppa Live Server-kommandot i Visual Studio Command-paletten":::
+    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="GitHub nytt lagrings platsen-fönster":::
 
 1. Tryck på **F1** för att öppna kommandopaletten.
 
@@ -200,7 +200,7 @@ Mer information om hur du konfigurerar miljöfiler för front-end JavaScript-ram
 
 1. Uppdatera programmet som körs vid `http://locahost:3000` . Webbläsaren visar nu meddelandet som returnerades från API: et.
 
-    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="Hej från API: t som visas i webbläsaren":::
+    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="GitHub nytt lagrings platsen-fönster":::
 
 ## <a name="next-steps"></a>Nästa steg
 

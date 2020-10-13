@@ -2,20 +2,20 @@
 title: Aktivera Azure DS Domain Services med hjälp av en mall | Microsoft Docs
 description: Lär dig hur du konfigurerar och aktiverar Azure Active Directory Domain Services att använda en Azure Resource Manager-mall
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 316f77b2447bd75b03a05c4e6466d153bf51201d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: f257a186f05dc94923d1d39829b5ed68b518f20c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88722644"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967638"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Skapa en Azure Active Directory Domain Services hanterad domän med hjälp av en Azure Resource Manager mall
 
@@ -23,7 +23,7 @@ Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade 
 
 Den här artikeln visar hur du skapar en hanterad domän med hjälp av en Azure Resource Manager-mall. Stöd resurser skapas med hjälp av Azure PowerShell.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här artikeln behöver du följande resurser:
 

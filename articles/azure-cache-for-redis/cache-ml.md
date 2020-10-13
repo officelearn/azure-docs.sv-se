@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.openlocfilehash: 54109d5889ae2c08f444a3a089386d413bf4262b
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91650195"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Distribuera en maskin inlärnings modell till Azure Functions med Azure cache för Redis 
@@ -23,7 +23,7 @@ Azure cache för Redis är mycket presterande och skalbart – när de kombinera
 > Både Azure Machine Learning och Azure Functions är allmänt tillgängliga, men möjligheten att paketera en modell från Machine Learnings tjänsten för functions är i för hands version.  
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/).
 * En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) .
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).

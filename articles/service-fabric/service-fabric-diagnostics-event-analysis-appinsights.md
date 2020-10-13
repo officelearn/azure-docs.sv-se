@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: a912b7a6d918a40aaae54c9b177250dc3c30c84d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61a1d7cb3a5f43aa8100f1c7e8a102ab19b803f5
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "86256568"
+ms.locfileid: "91932455"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Händelse analys och visualisering med Application Insights
 
@@ -34,7 +34,7 @@ På den högra panelen i föregående bild finns det två huvud typer av poster 
 
 ![Information om Application Insights begäran](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
-Application Insights har en angiven vy för frågor mot alla data som ingår i. Klicka på "Metrics Explorer" överst på översikts sidan för att navigera till Application Insights Portal. Här kan du köra frågor mot anpassade händelser som anges före, begär Anden, undantag, prestanda räknare och andra mått med hjälp av Kusto-frågespråket. I följande exempel visas alla begär Anden under den senaste timmen.
+Application Insights har en angiven vy för frågor mot alla data som ingår i. Välj "Metrics Explorer" överst på översikts sidan för att navigera till Application Insights Portal. Här kan du köra frågor mot anpassade händelser som anges före, begär Anden, undantag, prestanda räknare och andra mått med hjälp av Kusto-frågespråket. I följande exempel visas alla begär Anden under den senaste timmen.
 
 ![Information om Application Insights begäran](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
@@ -57,15 +57,15 @@ Se till att göra nödvändiga ändringar i dina filter, samt inkludera andra in
 
 ## <a name="application-insights-sdk"></a>Application Insights SDK
 
-Vi rekommenderar att du använder EventFlow och WAD som samlings lösningar eftersom de tillåter en mer modulär metod för diagnostik och övervakning, d.v.s. om du vill ändra dina utdata från EventFlow, behöver den inte ändra den aktuella instrumentering, bara en enkel ändring av konfigurations filen. Om du däremot bestämmer dig för att investera i med Application Insights och inte troligt vis kommer att byta till en annan plattform, bör du titta i att använda Application Insights "New SDK för att aggregera händelser och skicka dem till Application Insights. Det innebär att du inte längre behöver konfigurera EventFlow för att skicka data till Application Insights, utan i stället installerar ApplicationInsight Service Fabric NuGet-paketet. Information om paketet hittar du [här](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
+Vi rekommenderar att du använder EventFlow och WAD som samlings lösningar, eftersom de tillåter en mer modulär metod för diagnostik och övervakning, det vill säga om du vill ändra dina utdata från EventFlow, behöver den inte ändra din faktiska Instrumentation, bara en enkel ändring av konfigurations filen. Om du bestämmer dig för att investera i med Application Insights och inte troligt vis kommer att byta till en annan plattform bör du titta i Application Insights "New SDK för att aggregera händelser och skicka dem till Application Insights. Det innebär att du inte längre behöver konfigurera EventFlow för att skicka data till Application Insights, utan i stället installerar ApplicationInsight Service Fabric NuGet-paketet. Information om paketet hittar du [här](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 
 [Application Insights stöd för mikrotjänster och behållare](https://azure.microsoft.com/blog/app-insights-microservices/) visar några av de nya funktionerna som används (för närvarande fortfarande i Beta versionen), vilket gör att du kan få bättre övervaknings alternativ med Application Insights. Dessa omfattar beroende spårning (används för att skapa en AppMap av alla dina tjänster och program i ett kluster och kommunikationen mellan dem) och bättre korrelation av spår som kommer från dina tjänster (hjälper till att bättre hitta ett problem i arbets flödet för ett program eller en tjänst).
 
-Om du utvecklar i .NET och kommer att använda några av Service Fabrics programmerings modeller, och är villiga att använda Application Insights som plattform för visualisering och analys av händelse-och loggdata, rekommenderar vi att du går via Application Insights SDK-vägen som arbets flöde för övervakning och diagnostik. Läs [detta](../azure-monitor/app/asp-net-more.md) och [här](../azure-monitor/app/asp-net-trace-logs.md) för att komma igång med att använda Application Insights för att samla in och Visa dina loggar.
+Om du utvecklar i .NET och kommer att använda några av Service Fabrics programmerings modeller, och är villiga att använda Application Insights som plattform för visualisering och analys av händelse-och loggdata, rekommenderar vi att du går via Application Insights SDK-vägen som arbets flöde för övervakning och diagnostik. Läs dokumentationen om [Application Insights dokumentation](../azure-monitor/azure-monitor-app-hub.yml) och [spårnings loggar](../azure-monitor/app/asp-net-trace-logs.md) för att komma igång med att använda Application Insights för att samla in och Visa dina loggar.
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>Navigera Application Insights resursen i Azure Portal
 
-När du har konfigurerat Application Insights som utdata för dina händelser och loggar, ska information börja visas i din Application Insights-resurs om några minuter. Navigera till Application Insights resurs, som tar dig till Application Insights resurs instrument panel. Klicka på **Sök** i Application Insights aktivitets fältet för att se de senaste spårningarna som har tagits emot och för att kunna filtrera genom dem.
+När du har konfigurerat Application Insights som utdata för dina händelser och loggar, ska information börja visas i din Application Insights-resurs om några minuter. Navigera till Application Insights resurs, som tar dig till Application Insights resurs instrument panel. Välj **Sök** i Application Insights aktivitets fältet för att se de senaste spårningarna som har tagits emot och för att kunna filtrera genom dem.
 
 *Metrics Explorer* är ett användbart verktyg för att skapa anpassade instrument paneler baserat på mått som dina program, tjänster och kluster kan rapportera. Se [utforska mått i Application Insights](../azure-monitor/platform/metrics-charts.md) för att skapa några diagram för dig själv baserat på de data som du samlar in.
 

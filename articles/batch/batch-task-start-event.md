@@ -4,10 +4,10 @@ description: Referensinformation för start händelse för batch-aktivitet. Den 
 ms.topic: reference
 ms.date: 10/08/2020
 ms.openlocfilehash: 3a57ffbb1e1659cff54d101aa4b90ca1bd5d3a57
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91851024"
 ---
 # <a name="task-start-event"></a>Starthändelse för uppgift

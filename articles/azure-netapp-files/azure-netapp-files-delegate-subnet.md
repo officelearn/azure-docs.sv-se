@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: bed1375631c017d23ed53b6102c424533237099e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb3d1fd49c2623ff6dcbe8a19ae8c8ca3b46425a
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447557"
+ms.locfileid: "91930636"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegera ett undernät till Azure NetApp Files 
 
@@ -33,7 +33,7 @@ Du måste delegera ett undernät till Azure NetApp Files.   När du skapar en vo
    Du kan bara ha ett enda delegerat undernät i ett VNet. Ett NetApp-konto kan distribuera volymer i flera virtuella nätverk, vart och ett har sitt eget delegerade undernät.  
 * Du kan inte ange en grupp eller en tjänstslutpunkt i delegerade undernät. Det leder till att delegeringen av undernätet misslyckas.
 * Åtkomst till en volym från ett globalt peer-kopplat virtuellt nätverk stöds inte för närvarande.
-* [Användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) (UDR) och nätverks säkerhets grupper (NSG: er) stöds inte i delegerade undernät för Azure NetApp Files. Du kan dock använda UDR och NSG: er till andra undernät, även inom samma VNet som under nätet delegerat till Azure NetApp Files.  
+* [Användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md#custom-routes) (UDR) och nätverks säkerhets grupper (NSG: er) stöds inte i delegerade undernät för Azure NetApp Files. Du kan dock använda UDR och NSG: er till andra undernät, även inom samma VNet som under nätet delegerat till Azure NetApp Files.  
    Azure NetApp Files skapar en system väg till det delegerade under nätet. Vägen visas i **effektiva vägar** i routningstabellen om du behöver den för fel sökning.
 
 ## <a name="steps"></a>Steg
@@ -54,6 +54,4 @@ Du kan också skapa och delegera ett undernät när du [skapar en volym för Azu
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa en volym för Azure NetApp Files](azure-netapp-files-create-volumes.md)
-* [Läs om integrering av virtuella nätverk för Azure-tjänster](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
-
-
+* [Läs om integrering av virtuella nätverk för Azure-tjänster](../virtual-network/virtual-network-for-azure-services.md)

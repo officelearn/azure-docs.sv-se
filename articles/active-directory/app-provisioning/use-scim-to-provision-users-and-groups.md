@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 59c899d2450e9d439426239384945258e8df694a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd534443c56612d0c0d67c228cba154fb1db18c3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266657"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967060"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure AD
 
@@ -100,7 +100,7 @@ Du kan sedan använda tabellen nedan för att förstå hur attributen som progra
 |Anställnings|urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: employeeNumber|
 | Facsimile-TelephoneNumber |phoneNumbers [Type EQ "fax"]. värde |
 | förnamn |name.givenName |
-| Befattning |title |
+| Befattning |rubrik |
 | e-post |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager |
@@ -747,7 +747,7 @@ Minsta fält för TLS 1,2 cipher-paket:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>IP-intervall
-Azure AD Provisioning-tjänsten fungerar för närvarande under IP-intervallen för AzureActiveDirectory som visas [här](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Du kan lägga till IP-intervallen som visas i AzureActiveDirectory-taggen för att tillåta trafik från Azure AD Provisioning-tjänsten till ditt program. 
+Azure AD Provisioning-tjänsten fungerar för närvarande under IP-intervallen för AzureActiveDirectory som visas [här](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Du kan lägga till IP-intervallen som visas i AzureActiveDirectory-taggen för att tillåta trafik från Azure AD Provisioning-tjänsten till ditt program. Observera att du måste granska listan över IP-adressintervall noggrant för beräknade adresser. En adress som "40.126.25.32" kunde representeras i listan över IP-adressintervall som "40.126.0.0/18". Du kan också program mässigt hämta listan över IP-intervall med hjälp av följande [API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list).
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Steg 3: Bygg en SCIM-slutpunkt
 

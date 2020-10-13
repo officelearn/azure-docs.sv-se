@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 04/06/2020
 ms.openlocfilehash: 1442ca7957a458e1458c4815033bf5e79c67c32a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448915"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Konfigurera direkt uppspelnings export av Azure SQL Database-och SQL-hanterad instans Diagnostic-telemetri
@@ -96,7 +96,7 @@ Du kan använda menyn **diagnostikinställningar** på Azure Portal för att akt
 
 Välj någon av följande flikar för att få stegvisa anvisningar om hur du konfigurerar strömnings exporten av Diagnostic-telemetri i Azure Portal och skript för att utföra samma med PowerShell och Azure CLI.
 
-# <a name="azure-portal"></a>[Azure-portalen](#tab/azure-portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
 ### <a name="elastic-pools-in-azure-sql-database"></a>Elastiska pooler i Azure SQL Database
 

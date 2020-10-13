@@ -9,12 +9,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4c44ad91b4fb8581a67ea67e09faca4a9d96df91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 791aadf349654e1e62c3ac2b98a955de7b46c0b7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447767"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966125"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Skapa och etablera en IoT Edge enhet med hjälp av symmetrisk nyckel attestering
 
@@ -81,7 +81,7 @@ När du skapar en registrering i DPS har du möjlighet att deklarera en **först
 
    1. Välj **hur du vill att enhets data ska hanteras vid ny etablering** när enheter begär etablering efter första gången.
 
-   1. Lägg till ett tagg-värde till den **första enheten** i ett läge om du vill. Du kan använda taggar för att ange mål grupper för enheter för modul distribution. Exempel:
+   1. Lägg till ett tagg-värde till den **första enheten** i ett läge om du vill. Du kan använda taggar för att ange mål grupper för enheter för modul distribution. Till exempel:
 
       ```json
       {
@@ -156,7 +156,13 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 IoT Edge-körningen distribueras på alla IoT Edge-enheter. Komponenterna körs i behållare och gör att du kan distribuera ytterligare behållare till enheten så att du kan köra kod i kanten.
 
-Du behöver följande information när du konfigurerar din enhet:
+Följ stegen i [installera Azure IoT Edge runtime](how-to-install-iot-edge.md)och gå sedan tillbaka till den här artikeln för att etablera enheten.
+
+## <a name="configure-the-device-with-provisioning-information"></a>Konfigurera enheten med etablerings information
+
+När körningen har installerats på enheten konfigurerar du enheten med den information som används för att ansluta till enhets etablerings tjänsten och IoT Hub.
+
+Ha följande information redo:
 
 * DPS **-ID omfångs** värde
 * ID för enhets **registrering** som du har skapat
@@ -167,50 +173,49 @@ Du behöver följande information när du konfigurerar din enhet:
 
 ### <a name="linux-device"></a>Linux-enhet
 
-Följ anvisningarna för enhetens arkitektur. Se till att konfigurera IoT Edge runtime för automatisk, inte manuell, etablering.
+1. Öppna konfigurations filen på den IoT Edge enheten.
 
-[Installera Azure IoT Edge runtime på Linux](how-to-install-iot-edge-linux.md)
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-Avsnittet i konfigurations filen för symmetrisk nyckel etablering ser ut så här:
+1. Hitta konfigurations avsnittet för etablering i filen. Ta bort kommentarer till raderna för etablering av DPS symmetrisk nyckel och se till att alla andra etablerings rader är kommenterade.
 
-```yaml
-# DPS symmetric key provisioning configuration
-provisioning:
-   source: "dps"
-   global_endpoint: "https://global.azure-devices-provisioning.net"
-   scope_id: "<SCOPE_ID>"
-   attestation:
-      method: "symmetric_key"
-      registration_id: "<REGISTRATION_ID>"
-      symmetric_key: "<SYMMETRIC_KEY>"
-```
+   `provisioning:`Raden ska inte ha något föregående blank steg, och kapslade objekt bör dras av två blank steg.
 
-Ersätt plats hållarnas värden för `<SCOPE_ID>` , `<REGISTRATION_ID>` och `<SYMMETRIC_KEY>` med de data som du samlade in tidigare. Se till att **etableringen:** raden inte har några föregående blank steg och att kapslade objekt är indragna med två blank steg.
+   ```yml
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "<SCOPE_ID>"
+     attestation:
+       method: "symmetric_key"
+       registration_id: "<REGISTRATION_ID>"
+       symmetric_key: "<SYMMETRIC_KEY>"
+   ```
+
+1. Uppdatera värdena för `scope_id` , `registration_id` och `symmetric_key` med din DPS-och enhets information.
+
+1. Starta om IoT Edge runtime så att den hämtar alla konfigurations ändringar som du har gjort på enheten.
+
+   ```bash
+   sudo systemctl restart iotedge
+   ```
 
 ### <a name="windows-device"></a>Windows-enhet
 
-Installera IoT Edge runtime på enheten som du genererade en härledd enhets nyckel för. Du konfigurerar IoT Edge runtime för automatisk, inte manuell, etablering.
-
-Mer detaljerad information om hur du installerar IoT Edge i Windows, inklusive krav och instruktioner för aktiviteter som hantering av behållare och uppdatering av IoT Edge, finns i [installera Azure IoT Edge runtime i Windows](how-to-install-iot-edge-windows.md).
-
 1. Öppna ett PowerShell-fönster i administratörs läge. Se till att använda en AMD64-session av PowerShell när du installerar IoT Edge, inte PowerShell (x86).
 
-1. Kommandot **Deploy-IoTEdge** kontrollerar att Windows-datorn finns på en version som stöds, aktiverar funktionen containers och laddar sedan ned Moby runtime och IoT Edge Runtime. Kommandot använder som standard Windows-behållare.
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge
-   ```
-
-1. I det här läget kan IoT core-enheter startas om automatiskt. Andra Windows 10-eller Windows Server-enheter kan bli ombedd att starta om. Om så är fallet startar du om enheten nu. När enheten är klar kör du PowerShell som administratör igen.
-
-1. Kommandot **Initialize-IoTEdge** konfigurerar IoT Edge runtime på din dator. Kommandot använder standardinställningen manuell etablering med Windows-behållare om du inte använder `-Dps` flaggan för att använda automatisk etablering.
+1. Kommandot **Initialize-IoTEdge** konfigurerar IoT Edge runtime på din dator. Kommandot använder standardinställningen manuell etablering med Windows-behållare, så Använd `-DpsSymmetricKey` flaggan för att använda automatisk etablering med symmetrisk nyckel autentisering.
 
    Ersätt plats hållarnas värden för `{scope_id}` , `{registration_id}` och `{symmetric_key}` med de data som du samlade in tidigare.
 
+   Lägg till `-ContainerOs Linux` parametern om du använder Linux-behållare i Windows.
+
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
+   Initialize-IoTEdge -DpsSymmetricKey -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
    ```
 
 ## <a name="verify-successful-installation"></a>Verifiera lyckad installation

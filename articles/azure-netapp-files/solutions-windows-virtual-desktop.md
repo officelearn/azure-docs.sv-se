@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
-ms.openlocfilehash: a003090fd610f2ac75895cccbf97750adbd4cfcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cd1f6210fbdb74e3fd511150157dccca3e92dda
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258323"
+ms.locfileid: "91932472"
 ---
 # <a name="benefits-of-using-azure-netapp-files-with-windows-virtual-desktop"></a>Fördelar med att använda Azure NetApp Files med Windows Virtual Desktop 
 
 Den här artikeln innehåller råd om hur du distribuerar Windows Virtual Desktop (WVD) med Azure NetApp Files.
 
-Azure NetApp Files är en fil lagrings tjänst med hög prestanda från Azure. Det kan ge upp till 450 000 IOPS-och under millisekunder-svars tid, vilket kan ge stöd för extremt stor skala av Windows-distributioner för virtuella datorer. Du kan justera bandbredden och ändra service nivån för dina Azure NetApp Files volymer på begäran nästan omedelbart utan att pausa IO samtidigt som data Plans åtkomsten behålls. Med den här funktionen kan du enkelt optimera din WVD distributions skala för kostnad. Du kan också skapa utrymmes effektiva ögonblicks bilder av en viss tidpunkt utan att påverka volymens prestanda. Den här funktionen gör det möjligt för dig att återställa enskilda [FSLogix användar profil behållare](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile) via en kopia från `~snapshot` katalogen eller att omedelbart återställa hela volymen på en gång via volym återställnings funktionen.  Med upp till 255 (rotations) ögonblicks bilder på plats för att skydda en volym från data förlust eller skada, har administratörer många chans att ångra vad som har gjorts.
+Azure NetApp Files är en fil lagrings tjänst med hög prestanda från Azure. Det kan ge upp till 450 000 IOPS-och under millisekunder-svars tid, vilket kan ge stöd för extremt stor skala av Windows-distributioner för virtuella datorer. Du kan justera bandbredden och ändra service nivån för dina Azure NetApp Files volymer på begäran nästan omedelbart utan att pausa IO samtidigt som data Plans åtkomsten behålls. Med den här funktionen kan du enkelt optimera din WVD distributions skala för kostnad. Du kan också skapa utrymmes effektiva ögonblicks bilder av en viss tidpunkt utan att påverka volymens prestanda. Den här funktionen gör det möjligt för dig att återställa enskilda [FSLogix användar profil behållare](../virtual-desktop/store-fslogix-profile.md) via en kopia från `~snapshot` katalogen eller att omedelbart återställa hela volymen på en gång via volym återställnings funktionen.  Med upp till 255 (rotations) ögonblicks bilder på plats för att skydda en volym från data förlust eller skada, har administratörer många chans att ångra vad som har gjorts.
 
 ## <a name="sample-blueprints"></a>Exempel ritningar
 
-Följande exempel ritningar visar integrationen av virtuella Windows-datorer med Azure NetApp Files. I ett sammanslaget Skriv bords scenario dirigeras användare till den bästa tillgängliga sessionen ( [Bredd-första läge](https://docs.microsoft.com/azure/virtual-desktop/host-pool-load-balancing#breadth-first-load-balancing-method)) i poolen med hjälp av [virtuella datorer med flera sessioner](https://docs.microsoft.com/azure/virtual-desktop/windows-10-multisession-faq#what-is-windows-10-enterprise-multi-session). Å andra sidan är personliga datorer reserverade för scenarier där varje användare har sin egen virtuella dator.
+Följande exempel ritningar visar integrationen av virtuella Windows-datorer med Azure NetApp Files. I ett sammanslaget Skriv bords scenario dirigeras användare till den bästa tillgängliga sessionen ( [Bredd-första läge](../virtual-desktop/host-pool-load-balancing.md#breadth-first-load-balancing-method)) i poolen med hjälp av [virtuella datorer med flera sessioner](../virtual-desktop/windows-10-multisession-faq.md#what-is-windows-10-enterprise-multi-session). Å andra sidan är personliga datorer reserverade för scenarier där varje användare har sin egen virtuella dator.
 
 ### <a name="pooled-desktop-scenario"></a>Scenario med poolen skriv bord
 
-I det poolbaserade scenariot [rekommenderar](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs#multi-session-recommendations) Windows Virtual Desktop-teamet följande vägledning genom antal användare till vCPU. Observera att ingen virtuell dator storlek anges i den här rekommendationen.
+I det poolbaserade scenariot [rekommenderar](/windows-server/remote/remote-desktop-services/virtual-machine-recs#multi-session-recommendations) Windows Virtual Desktop-teamet följande vägledning genom antal användare till vCPU. Observera att ingen virtuell dator storlek anges i den här rekommendationen.
 
 |     Arbets belastnings typ     |     Ljus    |     Medium    |     Tung    |
 |-----------------------|--------------|---------------|--------------|
@@ -42,7 +42,7 @@ I det poolbaserade scenariot [rekommenderar](https://docs.microsoft.com/windows-
 
 Den här rekommendationen bekräftas av ett 500-användare LoginVSI-test, som loggar cirka 62 "kunskap/medium-användare" på varje D16as_V4 virtuell dator. 
 
-Som exempel, vid 62 användare per D16as_V4 virtuell dator, kan Azure NetApp Files enkelt stödja 60 000-användare per miljö. Testning för att utvärdera den övre gränsen för den D32as_v4 virtuella datorn pågår. Om WVD-användaren per vCPU-rekommendation är sann för D32as_v4, skulle fler än 120 000 användare få plats inom 1 000 Virtual Machines innan [1 000](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies)broaching, vilket visas i följande bild.  
+Som exempel, vid 62 användare per D16as_V4 virtuell dator, kan Azure NetApp Files enkelt stödja 60 000-användare per miljö. Testning för att utvärdera den övre gränsen för den D32as_v4 virtuella datorn pågår. Om WVD-användaren per vCPU-rekommendation är sann för D32as_v4, skulle fler än 120 000 användare få plats inom 1 000 Virtual Machines innan [1 000](./azure-netapp-files-network-topologies.md)broaching, vilket visas i följande bild.  
 
 ![Scenario för pool med virtuella Windows-datorer i virtuella datorer](../media/azure-netapp-files/solutions-pooled-desktop-scenario.png)   
 

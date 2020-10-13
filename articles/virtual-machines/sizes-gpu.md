@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 87314e38225d6e08f81ce6c3855f70a13db9c6bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb534ae4a59c9a5c87a7eb7ab268a40b9771fdb2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653187"
+ms.locfileid: "91876234"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Storlekar för GPU-optimerade virtuella datorer
 
 GPU-optimerade VM-storlekar är specialiserade virtuella datorer som är tillgängliga med enkla, flera eller bråktal-GPU: er. De här storlekarna är utformade för beräknings intensiva, grafik intensiva och visualiserings arbets belastningar. Den här artikeln innehåller information om antalet och typen av GPU, virtuella processorer, data diskar och nätverkskort. Lagrings data flöde och nätverks bandbredd ingår också för varje storlek i grupperingen.
 
-- [NC-serien](nc-series.md), [NCv2-serien](ncv2-series.md), [NCv3-](ncv3-series.md) seriens och [NCT4_v3-seriens](nct4-v3-series.md) storlekar är optimerade för beräknings intensiva och nätverks intensiva program och algoritmer. Några exempel är CUDA-och OpenCL-baserade program och simuleringar, AI och djup inlärning. NCT4v3-serien fokuserar på moln arbets belastningar med NVIDIA: s Tesla-T4 GPU-och AMD EPYC2 Rom-processor. NCv3-serien fokuserar på högpresterande data behandlings arbets belastningar med NVIDIA: s Tesla V100-GPU. NC-serien använder Intel Xeon E5-2690 v3 2.60 GHz v3-processorn, och de virtuella datorerna i NCv2-serien och NCv3-serien använder Intel Xeon E5-2690 v4-processorn (Broadwell).
+- Storlekarna för [NCv3-serien](ncv3-series.md) och [NC T4_v3-serien](nct4-v3-series.md) är optimerade för beräknings intensiva GPU-accelererade program. Några exempel är CUDA-och OpenCL-baserade program och simuleringar, AI och djup inlärning. NC-T4 v3-serien fokuserar på moln arbets belastningar med NVIDIA: s Tesla T4 GPU-och AMD EPYC2 Rom-processor. NCv3-serien fokuserar på data behandling med höga prestanda och AI-arbetsbelastningar med NVIDIA: s Tesla V100-GPU.
 
-- [Nd-seriens](nd-series.md)och [NDv2-seriens](ndv2-series.md) storlekar fokuserar på utbildning och härlednings scenarier för djup inlärning. ND-serien använder NVIDIA Tesla P40-GPU och Intel Xeon E5-2690 v4-processorn (Broadwell). NDv2-serien använder NVIDIA Volta-V100 och Intel Xeon Platin 8168-processorn (Skylake).
+- [NDv2-seriens](ndv2-series.md) storlek fokuserar på skalbara och skalbara program för djup inlärning. NDv2-serien använder NVIDIA Volta-V100 och Intel Xeon Platin 8168-processorn (Skylake).
 
 - Storlekarna på [NV-](nv-series.md) och [NVv3-serien](nvv3-series.md) är optimerade och utformade för fjärrvisualiseringar, strömnings-, spel-, kodnings-och VDI-scenarier med ramverk som OpenGL och DirectX. De här virtuella datorerna backas upp av NVIDIA Tesla M60-GPU: n.
 
@@ -31,7 +31,7 @@ GPU-optimerade VM-storlekar är specialiserade virtuella datorer som är tillgä
 
 För att kunna dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien måste du installera NVIDIA-och AMD GPU-drivrutiner.
 
-- För virtuella datorer som backas upp av NVIDIA GPU: er installeras lämpliga NVIDIA-CUDA eller RUTNÄTs driv rutiner i [nVidia GPU-drivrutinen](./extensions/hpccompute-gpu-windows.md) . Installera eller hantera tillägget med hjälp av Azure Portal eller verktyg som Azure PowerShell eller Azure Resource Manager mallar. Mer information om vilka operativ system och distributions steg som stöds finns i [dokumentationen för NVIDIA GPU-drivrutins tillägget](./extensions/hpccompute-gpu-windows.md) . Allmän information om VM-tillägg finns i [tillägg och funktioner för virtuella Azure-datorer](./extensions/overview.md).
+- För virtuella datorer som backas upp av NVIDIA GPU: er installeras lämpliga NVIDIA-CUDA eller RUTNÄTs driv rutiner i [nVidia GPU-drivrutinen](./extensions/hpccompute-gpu-windows.md) . Installera eller hantera tillägget med hjälp av Azure Portal eller verktyg som Azure PowerShell eller Azure Resource Manager mallar. Mer information om vilka operativ system och distributions steg som stöds finns i [dokumentationen för NVIDIA GPU-drivrutins tillägget](./extensions/hpccompute-gpu-windows.md) . Allmän information om VM-tillägg finns i [tillägg och funktioner för virtuella Azure-datorer](./extensions/overview.md).   
 
    Alternativt kan du installera NVIDIA GPU-drivrutiner manuellt. Se [Installera nVidia GPU-drivrutiner för virtuella datorer i n-serien som kör Windows](./windows/n-series-driver-setup.md) eller [Installera nVidia GPU-drivrutiner på virtuella datorer i n-serien som kör Linux](./linux/n-series-driver-setup.md) för operativ system, driv rutiner, installation och verifierings steg som stöds.
 

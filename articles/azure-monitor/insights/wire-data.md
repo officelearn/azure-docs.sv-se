@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
 ms.openlocfilehash: 06698ad3ab2ceb76278e23bc1ac0002b9c2284f9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445779"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Wire Data 2.0 (för hands version)-lösning i Azure Monitor
@@ -54,7 +54,7 @@ Men eftersom du ser metadata är det inte säkert att det går att använda vid 
 
 Wire Data hämtar sina data från Microsofts beroendeagent. Dependency Agent är beroende av att Log Analytics agenten för att ansluta till Azure Monitor. Det innebär att en server måste ha Log Analytics-agenten installerad och konfigurerad med beroende agenten. I följande tabell beskrivs de anslutna källor som stöds av Wire Data-lösningen.
 
-| **Ansluten källa** | **Stöds** | **Beskrivning** |
+| **Ansluten källa** | **Tillåtna** | **Beskrivning** |
 | --- | --- | --- |
 | Windows-agenter | Ja | Wire Data analyserar och samlar in data från Windows-agentdatorer. <br><br> Utöver [Log Analytics agent för Windows](../platform/agent-windows.md)kräver Windows-agenter Microsoft-beroende agent. Se [Operativsystem som stöds](vminsights-enable-overview.md#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
 | Linux-agenter | Ja | Wire Data analyserar och samlar in data från Linux-agentdatorer.<br><br> Utöver [Log Analytics-agenten för Linux](../learn/quick-collect-linux-computer.md)kräver Linux-agenterna Microsofts beroende agent. Se [Operativsystem som stöds](vminsights-enable-overview.md#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
@@ -76,7 +76,7 @@ Om du är en System Center Operations Manager användare med en hanterings grupp
 
 Om dina Windows-eller Linux-datorer inte kan ansluta direkt till tjänsten måste du konfigurera Log Analytics-agenten att ansluta till Azure Monitor med hjälp av Log Analytics Gateway. Du kan hämta Log Analytics gatewayen från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Kräver lösningen [Insikter och analys](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing).
 - Om du använder en tidigare version av Wire Data-lösningen måste du först bort den. Alla data som hämtats via den ursprungliga Wire Data-lösningen är dock fortfarande tillgängliga i Wire Data 2.0 och loggsökningen.
@@ -226,7 +226,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 Filer för beroende agenten placeras i följande kataloger:
 
-| **Files** | **Plats** |
+| **Projektfiler** | **Plats** |
 | --- | --- |
 | Kärnfiler | /opt/microsoft/dependency-agent |
 | Loggfiler | /var/opt/microsoft/dependency-agent/log |

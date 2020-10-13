@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3e3dce20f447b47ad78deea617b513c50f552733
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 24229c331d0c7c4b2327e8e609e9d75b6654868f
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893636"
+ms.locfileid: "91931995"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Skicka frågor till Azure Digitals dubbla grafer
 
@@ -47,14 +47,14 @@ WHERE ...
 
 ### <a name="count-items"></a>Antal objekt
 
-Du kan räkna antalet dubbla i en resultat uppsättning med hjälp av- `Select COUNT` satsen:
+Du kan räkna antalet objekt i en resultat uppsättning med hjälp av- `Select COUNT` satsen:
 
 ```sql
 SELECT COUNT() 
 FROM DIGITALTWINS
 ``` 
 
-Lägg till en `WHERE` sats för att räkna antalet dubbla tal som uppfyller ett visst villkor. Här följer några exempel på hur du kan räkna med ett applicerat filter baserat på typen av dubbel modell (mer information om den här syntaxen finns i [*fråga efter modell*](#query-by-model) nedan):
+Lägg till en `WHERE` sats för att räkna antalet objekt som uppfyller ett visst kriterium. Här följer några exempel på hur du kan räkna med ett applicerat filter baserat på typen av dubbel modell (mer information om den här syntaxen finns i [*fråga efter modell*](#query-by-model) nedan):
 
 ```sql
 SELECT COUNT() 
@@ -68,7 +68,7 @@ WHERE IS_OF_MODEL('dtmi:sample:Room;1') AND c.Capacity > 20
 Du kan också använda `COUNT` tillsammans med- `JOIN` satsen. Här är en fråga som räknar alla lampor som finns på de ljusa panelerna i rum 1 och 2:
 
 ```sql
-SELECT COUNT(LightBulb)  
+SELECT COUNT()  
 FROM DIGITALTWINS Room  
 JOIN LightPanel RELATED Room.contains  
 JOIN LightBulb RELATED LightPanel.contains  

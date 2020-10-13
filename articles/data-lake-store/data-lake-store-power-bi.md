@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bcc561cd5eea4372d798fff4580362ba0879c3a4
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91574202"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analysera data i Azure Data Lake Storage Gen1 med Power BI
@@ -78,7 +78,7 @@ Innan du påbörjar de här självstudierna måste du ha:
         ![Skapa visualiseringar](./media/data-lake-store-power-bi/create-visualizations.png "Skapa visualiseringar")
     3. Cirkel diagrammet bör nu likna det som visas nedan.
        
-        ![Cirkeldiagram](./media/data-lake-store-power-bi/pie-chart.png "Skapa visualiseringar")
+        ![Cirkel diagram](./media/data-lake-store-power-bi/pie-chart.png "Skapa visualiseringar")
 16. Genom att välja ett land/en viss region från sid nivå filtren kan du nu se antalet driv rutiner i varje stad för det valda landet/den valda regionen. Välj exempelvis **Brasilien**under fliken **visualiseringar** under **sid nivå filter**.
     
     ![Välj ett land eller en region](./media/data-lake-store-power-bi/select-country.png "Välj ett land eller en region")

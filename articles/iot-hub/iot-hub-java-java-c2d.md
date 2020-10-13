@@ -14,10 +14,10 @@ ms.custom:
 - mqtt
 - devx-track-java
 ms.openlocfilehash: f4e5880a39d6ad299fd6e7f29bd0e3aefadc3bcd
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91446895"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Skicka meddelanden från moln till enhet med IoT Hub (Java)
@@ -47,7 +47,7 @@ I slutet av den här självstudien kör du två Java-konsol program:
 > [!NOTE]
 > IoT Hub har SDK-stöd för många enhets plattformar och språk (inklusive C, Java, python och Java Script) via SDK: er för Azure IoT-enheter. Stegvisa instruktioner för hur du ansluter din enhet till den här själv studie kursen och i allmänhet till Azure IoT Hub finns i [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En komplett fungerande version av funktionen [Skicka telemetri från en enhet till en snabb start för IoT Hub](quickstart-send-telemetry-java.md) eller den [konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) själv studie kursen.
 

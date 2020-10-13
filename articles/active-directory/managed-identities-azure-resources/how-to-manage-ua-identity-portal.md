@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/26/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5045c81f280d9d7687a466aed2e918d21eec697
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ad91c916a6134f2507e74df6e87478421a00f43
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266395"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977433"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Skapa, Visa, ta bort eller tilldela en roll till en användare som tilldelats en hanterad identitet med hjälp av Azure Portal
 
@@ -45,7 +45,7 @@ För att skapa en användardefinierad hanterad identitet måste ditt konto ha ro
     - **Region**: Välj en region för att distribuera den tilldelade hanterade identiteten, till exempel **västra USA**.
     - **Namn**: det här är namnet på din användarspecifika hanterade identitet, till exempel UAI1.
     ![Skapa en användartilldelad hanterad identitet](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
-4. Granska ändringarna genom att klicka på **Granska + häck** .
+4. Granska ändringarna genom att klicka på **Granska + skapa** .
 5. Klicka på **Skapa**.
 
 ## <a name="list-user-assigned-managed-identities"></a>Lista användare-tilldelade hanterade identiteter

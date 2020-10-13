@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/28/2020
 ms.author: baanders
-ms.openlocfilehash: 6dfddd9179569075abdbd94b6c1afa719db9ba1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 450ea0b8024192f6f351b4893fe6e8e07db236f7
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905607"
+ms.locfileid: "91931994"
 ---
 ## <a name="query-language-features"></a>Funktioner i frågespråk
 
@@ -32,6 +32,7 @@ Du kan förbättra dina frågor ytterligare med följande åtgärder:
 * Hämta dubblare över flera Relations typer ( `JOIN` frågor). 
   - Under för hands versionen tillåts upp till fem nivåer av `JOIN` .
 * Välj endast de översta frågeresultaten ( `Select TOP` operator)
+* Räkna antalet objekt i en resultat uppsättning med hjälp av `Select COUNT`
 * Använd skalära funktioner:,,,,,,, `IS_BOOL` `IS_DEFINED` `IS_NULL` `IS_NUMBER` `IS_OBJECT` `IS_PRIMITIVE` `IS_STRING` `STARTSWITH` , `ENDSWITH` .
 * Använd jämförelse operatorer för frågor:,,,,, `IN` / `NIN` `=` `!=` `<` `>` `<=` , `>=` .
 * Använd valfri kombination ( `AND` , `OR` , `NOT` operator) av `IS_OF_MODEL` , skalära funktioner och jämförelse operatorer.

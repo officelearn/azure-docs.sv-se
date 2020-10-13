@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 000bc150b1a4addb4b68bd86b8d72524ec1015fc
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450423"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Vad är en primär uppdateringstoken?
@@ -87,7 +87,7 @@ En PRT förnyas på två olika sätt:
    * En app begär WAM för en åtkomsttoken i bakgrunden men det finns ingen uppdaterad token för den appen. I det här fallet använder WAM PRT för att begära en token för appen och får tillbaka en ny PRT i svaret.
    * En app begär WAM för en åtkomsttoken, men PRT är ogiltig eller så kräver Azure AD ytterligare behörighet (till exempel Azure Multi-Factor Authentication). I det här scenariot initierar WAM en interaktiv inloggning som kräver att användaren autentiserar eller ger ytterligare verifiering och att en ny PRT utfärdas vid lyckad autentisering.
 
-I en ADFS-miljö krävs inte direkt insikten för domänkontrollanten för att kunna förnya PRT. PRT-förnyelsen kräver bara/ADFS/Services/Trust/2005/usernamemixed-och/ADFS/Services/Trust/13/usernamemixed-slutpunkter som är aktiverade på proxy med hjälp av WS-Trust-protokollet.
+I en ADFS-miljö krävs inte direkt insikten för domänkontrollanten för att kunna förnya PRT. PRT-förnyelsen kräver bara/ADFS/Services/Trust/2005/usernamemixed-och/ADFS/Services/Trust/13/usernamemixed-slutpunkter som är aktiverade på proxy genom att använda WS-Trust protokoll.
 
 Windows transport-slutpunkter krävs endast för lösenordsautentisering när ett lösen ord ändras, inte för PRT-förnyelse.
 

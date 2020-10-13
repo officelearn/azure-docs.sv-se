@@ -1,19 +1,17 @@
 ---
 title: Översikt över Azure Monitor-arbetsböcker
 description: Lär dig hur arbets böcker ger en flexibel arbets yta för data analys och hur du skapar rika visuella rapporter i Azure Portal.
-author: mrbullwinkle
 manager: carmonm
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.author: mbullwin
-ms.openlocfilehash: e8ce4feaec6571adfb15f5928a6eb7c910173353
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd0c08fa968f9d029f1b89be1183ab374f1b5348
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825782"
+ms.locfileid: "91932404"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor arbets böcker
 

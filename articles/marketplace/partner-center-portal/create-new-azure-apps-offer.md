@@ -8,10 +8,10 @@ author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
 ms.openlocfilehash: fb3a3ab5339186d8fa4e347d9d13e66940457f8a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710727"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
@@ -38,7 +38,7 @@ Granska följande resurser när du förbereder ditt erbjudande för Azure-progra
 
 * Snabbstarter:
 
-    * [Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates/)
+    * [Azure-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/)
     * [Best Practices guide för Azure-mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
     * [Publicera programdefinition](../../managed-applications/publish-service-catalog-app.md)
     * [Distribuera tjänstkatalogapp](../../managed-applications/deploy-service-catalog-quickstart.md)
@@ -72,7 +72,7 @@ Välj en eller båda av följande skript miljöer för att hantera ditt Azure-pr
 
 Vi rekommenderar att du lägger till följande verktyg i utvecklings miljön:
 
-* [Azure Lagringsutforskaren](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Visual Studio Code](https://code.visualstudio.com/) med följande fil namns tillägg:
     * Tillägg: [Azure Resource Manager verktyg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     * Tillägg: [beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -188,7 +188,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 5. Sekretess policy adress (länk)
 6. Erbjudandets namn
 7. Sammanfattning
-8. Description
+8. Beskrivning
 9. Skärm bilder/videor
 
 <br>Här är ett exempel på hur information om erbjudandet visas i Azure Portal:
@@ -214,7 +214,7 @@ Ange en kort beskrivning av erbjudandet, upp till 100 tecken. Beskrivningen kan 
 
 Ange en längre Beskrivning av erbjudandet, upp till 256 tecken. Beskrivningen kan användas i Sök resultat.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 

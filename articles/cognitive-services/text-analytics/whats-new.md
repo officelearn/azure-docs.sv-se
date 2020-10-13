@@ -8,18 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 12f3ce506d8b4588dc9c670e49cabd3bc7767566
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f0a40e30cc58a01a66ba808076fe1d42c31c326
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460279"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978891"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Vad är nytt i API:et för textanalys?
 
 API för textanalys uppdateras regelbundet. Den här artikeln innehåller information om nya versioner och funktioner för att hålla dig uppdaterad med den senaste utvecklingen.
+
+## <a name="october-2020"></a>Oktober 2020
+
+* Stöd för hindi för Attitydanalys, från och med modell version `2020-04-01` . 
 
 ## <a name="september-2020"></a>September 2020
 
@@ -165,7 +169,7 @@ Ytterligare entitetstyper är nu tillgängliga i den namngivna enhets igenkänni
 
 * Igenkänning av följande allmänna entitetstyper (endast engelska):
     * PersonType
-    * Produkt
+    * Product
     * Händelse
     * GPE (politisk entitet) som en undertyp under plats
     * Kvalifikation
@@ -217,7 +221,7 @@ Det stöder engelska ( `en` ), japanska ( `ja` ), kinesiska (förenklad) `zh-Han
 
 * [Vad är API för textanalys?](overview.md)  
 * [Exempel på användarscenarier](text-analytics-user-scenarios.md)
-* [Sentiment-analys](how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Språk identifiering](how-tos/text-analytics-how-to-language-detection.md)
-* [Enhets igenkänning](how-tos/text-analytics-how-to-entity-linking.md)
-* [Extrahering av nyckel fraser](how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Sentimentanalys](how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Språkidentifiering](how-tos/text-analytics-how-to-language-detection.md)
+* [Igenkänning av enhet](how-tos/text-analytics-how-to-entity-linking.md)
+* [Extrahering av nyckelfraser](how-tos/text-analytics-how-to-keyword-extraction.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fd04e92804a1d37afd8ee2cefb159c1e686748d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d04fff069e7cd7d766125bc7364cf4648911ad
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86496187"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948355"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Skalbarhet för Azure Files och prestandamål
 
@@ -87,10 +87,17 @@ För att hjälpa dig att planera distributionen för var och en av stegen nedan 
 | Antal objekt | 25 000 000 objekt |
 | Storlek på data uppsättning| ~ 4,7 TiB |
 | Genomsnittlig fil storlek | ~ 200 KiB (största fil: 100 GiB) |
+| Första moln ändrings uppräkning | 7 objekt per sekund  |
 | Ladda upp data flöde | 20 objekt per sekund per Sync-grupp |
-| Data flöde för hämtning av namnrymd * | 400 objekt per sekund |
+| Hämta data område | 400 objekt per sekund |
 
-* När en ny server slut punkt skapas laddar inte Azure File Sync agent ned något fil innehåll. Den synkroniserar först det fullständiga namn området och utlöser sedan bakgrunden återkallande för att ladda ned filerna, antingen i sin helhet eller, om moln nivåer är aktiverade, till den moln nivå princip som angetts på Server slut punkten.
+### <a name="initial-one-time-provisioning"></a>Första engångs etablering
+
+Första **moln ändrings uppräkning**: när en ny synkroniseringsresurs skapas är den första omräkningen av moln ändringar det första steget som ska utföras. I den här processen kommer systemet att räkna upp alla objekt i Azure-filresursen. Under den här processen kommer det inte att finnas någon Sync-aktivitet, d.v.s. inga objekt hämtas från moln slut punkten till Server slut punkten och inga objekt överförs från Server slut punkten till moln slut punkten. Synkroniseringen återupptas när den första uppräkningen av moln ändringar slutförs.
+Prestanda frekvensen är 7 objekt per sekund. Kunder kan uppskatta hur lång tid det tar att slutföra den inledande moln ändrings uppräkningen genom att fastställa antalet objekt i moln resursen och använda följande formel för att hämta tiden i dagar. Tid (i dagar) för inledande moln uppräkning = (antal objekt i moln slut punkt)/(7*60*60 * 24)
+
+**Hämta data område** När en ny server slut punkt läggs till i en befintlig Sync-grupp, laddas inte Azure File Sync-agenten ned något av fil innehållet från moln slut punkten. Den synkroniserar först det fullständiga namn området och utlöser sedan bakgrunden återkallande för att ladda ned filerna, antingen i sin helhet eller, om moln nivåer är aktiverade, till den moln nivå princip som angetts på Server slut punkten.
+
 
 | Pågående synkronisering  | Information  |
 |-|--|

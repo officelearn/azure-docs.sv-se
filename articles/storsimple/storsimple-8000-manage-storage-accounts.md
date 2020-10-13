@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 306d3a14d759ac73e78626a4c2ec6abc69d3df85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a0ea8a2f07ef596cd80e9165eedb2b98dab0bfa
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515037"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978721"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Använd tjänsten StorSimple Enhetshanteraren för att hantera dina autentiseringsuppgifter för lagrings kontot
 
@@ -33,7 +33,7 @@ I **konfigurations** avsnittet i bladet StorSimple Enhetshanteraren tjänst visa
 
 I den här självstudien beskrivs hur du lägger till, redigerar eller tar bort autentiseringsuppgifter för lagrings kontot eller roterar säkerhets nycklarna för ett lagrings konto.
 
- ![Lista över autentiseringsuppgifter för lagringskonton](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
+ ![Lista över autentiseringsuppgifter för lagrings konto 1](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
 
 Lagrings konton innehåller de autentiseringsuppgifter som StorSimple-enheten använder för att komma åt ditt lagrings konto hos din moln tjänst leverantör. För Microsoft Azure lagrings konton är dessa autentiseringsuppgifter, till exempel konto namnet och den primära åtkomst nyckeln. 
 
@@ -102,7 +102,7 @@ Du kan redigera ett lagrings konto som används av en volym behållare. Om du re
 
 1. Gå till StorSimple Device Manager-tjänsten. Klicka på **Autentiseringsuppgifter för lagringskonto** i avsnittet **Konfiguration**.
 
-    ![Autentiseringsuppgifter för lagringskonto](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
+    ![Autentiseringsuppgifter för lagrings konto 2](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
 
 2. I bladet med **autentiseringsuppgifter för lagrings kontot** , i listan över autentiseringsuppgifter för lagrings konto, väljer du och klickar på det du vill redigera. 
 
@@ -159,11 +159,11 @@ För att meddela StorSimple-Enhetshanteraren tjänstens ändring, behöver du å
 
 3. Klicka på **... Mer** och välj sedan **Synkronisera åtkomst nyckel för att rotera**.   
 
-    ![Synkronisera nycklar](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
+    ![Synkronisera nycklar 2](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
 
 4. I StorSimple-Enhetshanteraren tjänsten måste du uppdatera den nyckel som tidigare har ändrats i Microsoft Azure Storage-tjänsten. Om den primära åtkomst nyckeln ändrades (återskapades) väljer du **primär** nyckel. Om den sekundära nyckeln ändrades väljer du **sekundär** nyckel. Klicka på **Synkronisera nyckel**.
       
-      ![Synkronisera nycklar](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
+      ![Synkronisera nycklar 3](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
 
 Du får ett meddelande när nyckeln har synkroniserats.
 

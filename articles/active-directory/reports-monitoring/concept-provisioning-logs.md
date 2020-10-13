@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812564"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Etablering av rapporter i Azure Active Directory portal (för hands version)
@@ -61,7 +61,7 @@ Etablerings loggarna ger svar på följande frågor:
 
 Du kan komma åt etablerings loggarna genom att välja **etablerings loggar** i avsnittet **övervakning** på bladet **Azure Active Directory** i [Azure Portal](https://portal.azure.com). Det kan ta upp till två timmar för vissa etablerings poster att visas i portalen.
 
-![Etableringsloggar](./media/concept-provisioning-logs/access-provisioning-logs.png "Etableringsloggar")
+![Etablerings loggar](./media/concept-provisioning-logs/access-provisioning-logs.png "Etableringsloggar")
 
 
 En etablerings logg har en Standardlistvy som visar:
@@ -86,7 +86,7 @@ På så sätt kan du visa ytterligare fält eller ta bort fält som redan visas.
 
 Välj ett objekt i listvyn om du vill ha mer detaljerad information.
 
-![Detaljerad information](./media/concept-provisioning-logs/steps.png "Filtrera")
+![Detaljerad information](./media/concept-provisioning-logs/steps.png "Filter")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrera etablerings aktiviteter
@@ -95,12 +95,12 @@ Du kan filtrera dina etablerings data. Vissa filter värden fylls i dynamiskt ba
 I standardvyn kan du välja följande filter:
 
 - Identitet
-- Datum
+- Date
 - Status
 - Action
 
 
-![Lägg till filter](./media/concept-provisioning-logs/default-filter.png "Filtrera")
+![Lägg till filter](./media/concept-provisioning-logs/default-filter.png "Filter")
 
 Med filtret **identitet** kan du ange namnet eller identiteten som du bryr dig om. Den här identiteten kan vara en användare, grupp, roll eller något annat objekt. Du kan söka efter objektets namn eller ID. ID varierar beroende på scenario. När ett objekt till exempel konfigureras från Azure AD till SalesForce, är käll-ID: t objekt-ID för användaren i Azure AD medan TargetID är användarens ID i Salesforce. Vid etablering från arbets dagar till Active Directory, är käll-ID: t arbets dagen anställdas anställnings-ID. Observera att namnet på användaren kanske inte alltid finns i identitets kolumnen. Det kommer alltid att finnas ett ID. 
 
@@ -191,7 +191,7 @@ På fliken **steg** beskrivs de steg som vidtas för att etablera ett objekt. Et
 
 
 
-![Skärm bild som visar fliken steg som visar etablerings stegen.](./media/concept-provisioning-logs/steps.png "Filtrera")
+![Skärm bild som visar fliken steg som visar etablerings stegen.](./media/concept-provisioning-logs/steps.png "Filter")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Felsöka och rekommendationer

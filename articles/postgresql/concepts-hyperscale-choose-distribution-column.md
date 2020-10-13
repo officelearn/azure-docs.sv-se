@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: f3c86f4b194e6d3935434b35cae958dfcf772986
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 129eff8c954c0c5469d3607e6ae16ce3202630ed
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314920"
+ms.locfileid: "91929344"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Välj distributions kolumner i Azure Database for PostgreSQL – storskalig (citus)
 
@@ -71,8 +71,6 @@ Det vanligaste misstaget vid modellering av Time-Series-information i storskalig
 
 -   **Välj inte en tidstämpel som distributions kolumn.** Välj en annan distributions kolumn. I en app för flera klient organisationer använder du klient-ID: t eller i en app i real tid använder du entitets-ID: t.
 -   **Använd PostgreSQL Table partitioning för tid i stället.** Använd tabell partitionering för att dela upp en stor tabell med tidsordnade data i flera ärvda tabeller med varje tabell som innehåller olika tidsintervall. Genom att distribuera en postgres tabell i citus () skapas Shards för de ärvda tabellerna.
-
-I [själv studie kursen om tids serier](https://aka.ms/hyperscale-tutorial-timeseries) finns ett exempel på hur du skapar den här typen av program.
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur [samplaceringen](concepts-hyperscale-colocation.md) mellan distribuerade data hjälper frågor att köras snabbt.

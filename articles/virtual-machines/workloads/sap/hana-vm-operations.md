@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5438132f32117e0ec48a6f985c3b9d2045a9da2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 602e3f58ac5f8f194ad4704a4e792d4f0aec3a3e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88649694"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978789"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfigurationer och åtgärder för SAP HANA i Azure-infrastrukturer
 Det här dokumentet innehåller rikt linjer för att konfigurera Azure-infrastruktur och operativ SAP HANA system som distribueras på virtuella Azure-datorer (VM: ar). Dokumentet innehåller också konfigurations information för SAP HANA skala ut för VM-SKU: n för M128s. Detta dokument är inte avsett att ersätta standard-SAP-dokumentationen, som innehåller följande innehåll:
@@ -79,7 +79,7 @@ För lagringspooler och lagrings typer som ska användas med SAP HANA i Azure l�
 När du har plats-till-plats-anslutning till Azure via VPN eller ExpressRoute måste du ha minst ett virtuellt Azure-nätverk som är anslutet via en virtuell gateway till VPN-eller ExpressRoute-kretsen. I enkla distributioner kan den virtuella gatewayen distribueras i ett undernät för det virtuella Azure-nätverket (VNet) som är värd för de SAP HANA instanserna. Om du vill installera SAP HANA skapar du två ytterligare undernät i det virtuella Azure-nätverket. Ett undernät är värd för de virtuella datorer som kör SAP HANA instanser. Det andra under nätet kör byglar eller hantering av virtuella datorer som värd SAP HANA Studio, annan hanterings program vara eller program vara.
 
 > [!IMPORTANT]
-> Slut på funktioner, men viktiga av prestanda skäl är att det inte går att konfigurera [virtuella Azure-enheter](https://azure.microsoft.com/solutions/network-appliances/) i kommunikations vägen mellan SAP-programmet och DBMS-skiktet i ett SAP NetWeaver-, hybris-eller S/4HANA-baserat SAP-system. Kommunikationen mellan SAP-program skiktet och DBMS-skiktet måste vara en direkt ett. Begränsningen omfattar inte [Azure-grupperna och NSG-regler](../../../virtual-network/security-overview.md) förutsatt att de grupperna och NSG reglerna tillåter en direkt kommunikation. Ytterligare scenarier där NVA inte stöds finns i kommunikations vägar mellan virtuella Azure-datorer som representerar Linux pacemaker-klusternoder och SBD-enheter enligt beskrivningen i [hög tillgänglighet för SAP-NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](./high-availability-guide-suse.md). Eller i kommunikations vägar mellan virtuella Azure-datorer och Windows Server-SOFS som beskrivs i skapa [en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en fil resurs i Azure](./sap-high-availability-guide-wsfc-file-share.md). NVA i kommunikations vägar kan enkelt dubblera nätverks fördröjningen mellan två kommunikations partner, kan begränsa data flödet i kritiska sökvägar mellan SAP-program skiktet och DBMS-skiktet. I vissa scenarier med kunder kan NVA orsaka att pacemaker Linux-kluster kraschar i fall där kommunikationen mellan Linux pacemaker-klusternoderna måste kommunicera med sin SBD-enhet via en NVA.  
+> Slut på funktioner, men viktiga av prestanda skäl är att det inte går att konfigurera [virtuella Azure-enheter](https://azure.microsoft.com/solutions/network-appliances/) i kommunikations vägen mellan SAP-programmet och DBMS-skiktet i ett SAP NetWeaver-, hybris-eller S/4HANA-baserat SAP-system. Kommunikationen mellan SAP-program skiktet och DBMS-skiktet måste vara en direkt ett. Begränsningen omfattar inte [Azure-grupperna och NSG-regler](../../../virtual-network/network-security-groups-overview.md) förutsatt att de grupperna och NSG reglerna tillåter en direkt kommunikation. Ytterligare scenarier där NVA inte stöds finns i kommunikations vägar mellan virtuella Azure-datorer som representerar Linux pacemaker-klusternoder och SBD-enheter enligt beskrivningen i [hög tillgänglighet för SAP-NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](./high-availability-guide-suse.md). Eller i kommunikations vägar mellan virtuella Azure-datorer och Windows Server-SOFS som beskrivs i skapa [en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en fil resurs i Azure](./sap-high-availability-guide-wsfc-file-share.md). NVA i kommunikations vägar kan enkelt dubblera nätverks fördröjningen mellan två kommunikations partner, kan begränsa data flödet i kritiska sökvägar mellan SAP-program skiktet och DBMS-skiktet. I vissa scenarier med kunder kan NVA orsaka att pacemaker Linux-kluster kraschar i fall där kommunikationen mellan Linux pacemaker-klusternoderna måste kommunicera med sin SBD-enhet via en NVA.  
 > 
 
 > [!IMPORTANT]
@@ -108,7 +108,7 @@ En översikt över olika metoder för att tilldela IP-adresser finns i [IP-diagr
 
 För virtuella datorer som kör SAP HANA bör du arbeta med statiska IP-adresser tilldelade. Orsak är att vissa konfigurationsfiler för HANA-referens-IP-adresser.
 
-[Azure nätverks säkerhets grupper (NSG: er)](../../../virtual-network/virtual-network-vnet-plan-design-arm.md) används för att dirigera trafik som dirigeras till SAP HANA-instansen eller hoppet. NSG: er och slutligen [program säkerhets grupper](../../../virtual-network/security-overview.md#application-security-groups) är kopplade till SAP HANA under nätet och hanterings under nätet.
+[Azure nätverks säkerhets grupper (NSG: er)](../../../virtual-network/virtual-network-vnet-plan-design-arm.md) används för att dirigera trafik som dirigeras till SAP HANA-instansen eller hoppet. NSG: er och slutligen [program säkerhets grupper](../../../virtual-network/network-security-groups-overview.md#application-security-groups) är kopplade till SAP HANA under nätet och hanterings under nätet.
 
 Följande bild visar en översikt över ett grovt distributions schema för SAP HANA som följer en nav och ekrar VNet-arkitektur:
 
@@ -316,7 +316,7 @@ Mer information om hur du konfigurerar och underhåller support anslutningar via
 ### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Hög tillgänglighet med SAP HANA på virtuella Azure-datorer
 Om du kör SUSE Linux Enterprise Server eller Red Hat kan du upprätta ett pacemaker-kluster med STONITH-enheter. Du kan använda enheterna för att konfigurera en SAP HANA-konfiguration som använder synkron replikering med HANA-systemreplikering och automatisk redundans. Mer information finns i avsnittet "nästa steg".
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Bekanta dig med artiklarna som de visas i listan
 - [Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA](./hana-vm-operations-storage.md)
 - [Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md)
@@ -324,4 +324,3 @@ Bekanta dig med artiklarna som de visas i listan
 - [Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SUSE Linux Enterprise Server](./sap-hana-high-availability.md)
 - [Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på Red Hat Enterprise Linux](./sap-hana-high-availability-rhel.md)
 
- 

@@ -2,19 +2,17 @@
 title: Tids parametrar för Azure Monitor arbets böcker
 description: Lär dig hur du ställer in tids parametrar så att användarna kan ställa in tids kontexten för analyser. Tids parametrarna används av nästan alla rapporter.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: c84133d5728f7b6593e0606dda2eef28b8167e43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 471b775abfebec646ab3950803622271c0bd559b
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972875"
+ms.locfileid: "91932302"
 ---
 # <a name="workbook-time-parameters"></a>Tids parametrar för arbets bok
 

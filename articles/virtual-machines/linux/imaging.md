@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 781cc10895f3a77afe71d508c1194b425010ec41
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 61c21aed76cfaac5621b234b32c90877ef6faa9f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89319550"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966329"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Skapa och skapa Linux-avbildningar i Azure
 
@@ -46,7 +46,7 @@ Azure erbjuder två huvud avbildnings typer, generaliserade och specialiserade. 
 
 ### <a name="generalized-images"></a>Generaliserade avbildningar
 
-En generaliserad avbildning är en avbildning som kräver att installationen slutförs vid första starten. Vid den första starten anger du till exempel värd namnet, administratörs användaren och andra VM-/regionsspecifika konfigurationer. Detta är användbart när du vill att avbildningen ska återanvändas flera gånger och när du vill skicka in parametrar när du skapar den. Om den generaliserade avbildningen innehåller Azure-agenten kommer agenten att bearbeta parametrarna och signaler tillbaka till den plattform där den inledande konfigurationen har slutförts. Den här processen kallas för [etablering](https://docs.microsoft.com/azure/virtual-machines/linux/provisioning). 
+En generaliserad avbildning är en avbildning som kräver att installationen slutförs vid första starten. Vid den första starten anger du till exempel värd namnet, administratörs användaren och andra VM-/regionsspecifika konfigurationer. Detta är användbart när du vill att avbildningen ska återanvändas flera gånger och när du vill skicka in parametrar när du skapar den. Om den generaliserade avbildningen innehåller Azure-agenten kommer agenten att bearbeta parametrarna och signaler tillbaka till den plattform där den inledande konfigurationen har slutförts. Den här processen kallas för [etablering](./provisioning.md). 
 
 Etableringen kräver att en-etablering ingår i avbildningen. Det finns två provisioner:
 - [Azure Linux-Agent](../extensions/agent-linux.md)
@@ -94,7 +94,7 @@ På hög nivå skapar du en SIG, och den består av:
 
 ## <a name="hyper-v-generation"></a>Hyper-V-generering
 
-Azure stöder Hyper-V generation 1 (gen1) och generation 2 (Gen2), Gen2 är den senaste generationen och erbjuder ytterligare funktioner över gen1. Till exempel: ökat minne, Intel Software Guard-tillägg (Intel SGX) och virtualiserat beständigt minne (vPMEM). Generation 2 virtuella datorer som körs lokalt, har vissa funktioner som inte stöds i Azure än. Mer information finns i avsnittet funktioner och funktioner. Mer information finns i den här [artikeln](../windows/generation-2.md). Skapa Gen2-avbildningar om du behöver ytterligare funktioner.
+Azure stöder Hyper-V generation 1 (gen1) och generation 2 (Gen2), Gen2 är den senaste generationen och erbjuder ytterligare funktioner över gen1. Till exempel: ökat minne, Intel Software Guard-tillägg (Intel SGX) och virtualiserat beständigt minne (vPMEM). Generation 2 virtuella datorer som körs lokalt, har vissa funktioner som inte stöds i Azure än. Mer information finns i avsnittet funktioner och funktioner. Mer information finns i den här [artikeln](../generation-2.md). Skapa Gen2-avbildningar om du behöver ytterligare funktioner.
 
 Om du fortfarande behöver skapa en egen avbildning kontrollerar du att den uppfyller [avbildnings kraven](./create-upload-generic.md)och laddar upp till Azure. Distributions särskilda krav:
 

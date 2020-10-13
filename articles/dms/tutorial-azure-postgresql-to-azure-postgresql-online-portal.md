@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 713b1698bff703507f46e1a8f76c6be385f41ec5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f7b45e88eeb1e391ec86fa230a87e9f5194cd60
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282481"
+ms.locfileid: "91893806"
 ---
-# <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server-or-hyperscale-citus-online-using-dms-via-the-azure-portal"></a>Självstudie: Migrera Azure DB för PostgreSQL – en server till Azure DB för PostgreSQL-enskild server eller citus () online med DMS via Azure Portal
+# <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Självstudie: Migrera Azure DB för PostgreSQL – en server till Azure DB för PostgreSQL – en server online med DMS via Azure Portal
 
-Du kan använda Azure Database Migration Service för att migrera databaserna från en [Azure Database for PostgreSQL-enskild server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) instans till en [storskalig (Citus) på Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) instans med minimal stillestånds tid. I den här självstudien migrerar du exempel databasen för **DVD-hyra** från en Azure Database for PostgreSQL v10 till citus () på Azure Database for PostgreSQL med hjälp av aktiviteten Online migration i Azure Database migration service.
+Du kan använda Azure Database Migration Service för att migrera databaserna från en [Azure Database for PostgreSQL-enskild server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) instans till en annan [Azure Database for PostgreSQL-enskild server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) instans med minimal stillestånds tid. I den här självstudien migrerar du exempel databasen för **DVD-hyra** från en Azure Database for PostgreSQL v10 till Azure Database for PostgreSQL-en server med hjälp av aktiviteten online-migrering i Azure Database migration service.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 > [!IMPORTANT]
 > Migrering från Azure Database for PostgreSQL stöds för PostgreSQL version 10 och senare. Du kan också använda den här självstudien för att migrera från en Azure Database for PostgreSQL instans till en annan Azure Database for PostgreSQL instans eller citus-instans.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -57,9 +57,10 @@ För att slutföra den här kursen behöver du:
 * Se till att reglerna för nätverks säkerhets gruppen (NSG) för ditt virtuella nätverk inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om NSG för trafik filtrering i virtuellt nätverk finns i artikeln [filtrera nätverks trafik med nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 * Skapa en [brand Väggs regel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) på server nivå för Azure Database for PostgreSQL källa för att tillåta Azure Database migration service åtkomst till käll databaserna. Ange under nätets intervall för det virtuella nätverk som används för Azure Database Migration Service.
 * Skapa en [brand Väggs regel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) på server nivå för Azure Database for PostgreSQL Target för att tillåta Azure Database migration service åtkomst till mål databaserna. Ange under nätets intervall för det virtuella nätverk som används för Azure Database Migration Service.
+* [Aktivera logisk replikering](https://docs.microsoft.com/azure/postgresql/concepts-logical) i Azure dB för postgresql-källan. 
 * Ange följande Server parametrar i Azure Database for PostgreSQL-instansen som används som källa:
 
-  * max_replication_slots = [antal fack], rekommenderar att du ställer in på **fem platser**
+  * max_replication_slots = [antal fack], rekommenderar inställningen till **tio platser**
   * max_wal_senders = [antalet samtidiga uppgifter] – parametern max_wal_senders anger antal samtidiga aktiviteter som kan köras, rekommenderad inställning är **10 uppgifter**
 
 > [!NOTE]
@@ -284,7 +285,7 @@ När den fullständiga inläsningen är klar är databaserna märkta med **Klar 
 
     ![Slutför start punkt-skärmen](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover.png)
 
-3. När status för databas migreringen är **slutförd**ansluter du dina program till den nya mål instansen av Azure Database for PostgreSQL.
+3. När status för migreringen av **databasen visas,** [återskapar du sekvenser](https://wiki.postgresql.org/wiki/Fixing_Sequences) (om tillämpligt) och ansluter dina program till den nya mål instansen av Azure Database for PostgreSQL.
 
 ## <a name="next-steps"></a>Nästa steg
 

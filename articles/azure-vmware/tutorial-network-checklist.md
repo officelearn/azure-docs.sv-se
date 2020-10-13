@@ -4,10 +4,10 @@ description: Läs om kraven för nätverks krav och information om nätverks ans
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.openlocfilehash: 5538f9c5d6543ca312835f4ef6437e413dea231b
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91576685"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Check lista för nätverks planering för Azure VMware-lösning 
@@ -30,7 +30,7 @@ När du skapar en virtuell nätverks anslutning i din prenumeration upprättas E
 
 När du distribuerar ett privat moln får du IP-adresser för vCenter och NSX-T Manager. Du måste skapa ytterligare resurser i prenumerationens virtuella nätverk för att få åtkomst till dessa hanterings gränssnitt. Du kan hitta procedurerna för att skapa dessa resurser och upprätta [ExpressRoute privata peering](tutorial-expressroute-global-reach-private-cloud.md) i självstudierna.
 
-Det privata molnet logiska nätverk levereras med företablerade NSX-T. En gateway på nivå 0 och nivå 1 har fördefinierats för dig. Du kan skapa ett segment och koppla det till den befintliga nivån-1-gatewayen eller koppla den till en ny nivå 1-gateway som du definierar. NSX-T logiska nätverks komponenter ger sydöstra anslutningar mellan arbets belastningar och ger Nord-syd-anslutning till Internet och Azure-tjänster.
+Det privata molnet logiska nätverk levereras med företablerade NSX-T. En gateway på nivå 0 och nivå 1 har fördefinierats för dig. Du kan skapa ett segment och koppla det till den befintliga nivån-1-gatewayen eller koppla den till en ny nivå 1-gateway som du definierar. NSX-T-T logiska nätverks komponenter ger East-West anslutning mellan arbets belastningar och ger North-South anslutning till Internet och Azure-tjänster.
 
 ## <a name="routing-and-subnet-considerations"></a>Överväganden för Routning och undernät
 Det privata AVS-molnet är anslutet till ditt virtuella Azure-nätverk med en Azure ExpressRoute-anslutning. Med den här hög bandbredden kan du få åtkomst till tjänster som körs i din Azure-prenumeration från din privata moln miljö. Routning är Border Gateway Protocol (BGP) baserat, automatiskt etablerade och aktiverat som standard för varje privat moln distribution. 
@@ -57,14 +57,14 @@ Under näten:
 | Lokal DNS-Server   | DNS-server för privat moln | UDP | 53 | DNS-klient vidarebefordra begär Anden från lokala tjänster till privata moln DNS-servrar (kontrol lera DNS-avsnittet nedan) |  
 | Lokalt nätverk  | VCenter-Server för privat moln  | TCP (HTTP)  | 80 | vCenter Server kräver port 80 för direkta HTTP-anslutningar.Port 80 omdirigerar begär anden till HTTPS-port 443. Den här omdirigeringen hjälper om du använder  `http://server`   i stället för  `https://server` .  <br><br>WS-Management (kräver också att port 443 är öppen) <br><br>Om du använder en anpassad Microsoft SQL-databas och inte den paketerade SQL Server 2008-databasen på vCenter Server, används port 80 av SQL Reporting tjänsterna. När du installerar vCenter Server uppmanas du i installations programmet att ändra HTTP-porten för vCenter Server. Ändra vCenter Server HTTP-port till ett anpassat värde för att säkerställa en lyckad installation.Microsoft Internet Information Services (IIS) använder också port 80. Se konflikt mellan vCenter Server och IIS för port 80. |  
 | Nätverk för hantering av privata moln | Lokalt Active Directory  | TCP  | 389 | Den här porten måste vara öppen på den lokala och alla fjärrinstanser av vCenter Server. Den här porten är LDAP-portnumret för katalog tjänsterna för vCenter Servers gruppen. VCenter Server systemet måste bindas till port 389, även om du inte ansluter den här vCenter Server-instansen till en grupp med länkade lägen. Om en annan tjänst körs på den här porten kan det vara bättre att ta bort den eller ändra dess port till en annan port. Du kan köra LDAP-tjänsten på vilken port som helst från 1025 till 65535.Om den här instansen fungerar som Microsoft Windows Active Directory ändrar du Port numret från 389 till en tillgänglig port från 1025 till 65535. Den här porten är valfri för att konfigurera lokal AD som identitets källa i det privata molnet vCenter. |  
-| Lokalt nätverk  | VCenter-Server för privat moln  | TCP (HTTPS)  | 443 | Med den här porten kan du komma åt vCenter från det lokala nätverket.Standard porten som vCenter Server systemet använder för att lyssna efter anslutningar från vSphere-klienten. Om du vill att vCenter Server systemet ska ta emot data från vSphere-klienten öppnar du port 443 i brand väggen. VCenter Server systemet använder också port 443 för att övervaka data överföring från SDK-klienter.Den här porten används också för följande tjänster: WS-Management (kräver också att port 80 är öppen). vSphere-klient åtkomst till vSphere Update Manager. Klient anslutningar från tredje part för nätverks hantering till vCenter Server. Nätverks hanterings klienter från tredje part får åtkomst till värdar. |  
+| Lokalt nätverk  | VCenter-Server för privat moln  | TCP (HTTPS)  | 443 | Med den här porten kan du komma åt vCenter från det lokala nätverket.Standard porten som vCenter Server systemet använder för att lyssna efter anslutningar från vSphere-klienten. Om du vill att vCenter Server systemet ska ta emot data från vSphere-klienten öppnar du port 443 i brand väggen. VCenter Server systemet använder också port 443 för att övervaka data överföring från SDK-klienter.Den här porten används också för följande tjänster: WS-Management (måste också port 80 vara öppen). vSphere-klient åtkomst till vSphere Update Manager. Klient anslutningar från tredje part för nätverks hantering till vCenter Server. Nätverks hanterings klienter från tredje part får åtkomst till värdar. |  
 | Webbläsare  | Hybrid moln hanterare  | TCP (HTTPS) | 9443 | Hybrid Cloud Manager Virtual Management Interface för Hybrid Cloud Manager system konfiguration. |
 | Admin-nätverk  | Hybrid moln hanterare | SSH | 22 | Administratörs SSH-åtkomst till hybrid moln hanterare. |
 | HCM | Cloud Gateway | TCP (HTTPS) | 8123 | Skicka instruktioner för värdbaserade replikeringstjänsten till hybrid molnets Gateway. |
 | HCM | Cloud Gateway | HTTP TCP (HTTPS) | 9443 | Skicka hanterings instruktioner till den lokala hybrid moln-gatewayen med hjälp av REST API. |
 | Cloud Gateway | L2C | TCP (HTTPS) | 443 | Skicka hanterings instruktioner från Cloud Gateway till L2C när L2C använder samma sökväg som hybrid molnets Gateway. |
 | Cloud Gateway | ESXi-värdar | TCP | 80 902 | Hanterings-och OVF-distribution. |
-| Molnbaserad Gateway (lokal)| Molnbaserad Gateway (fjärran sluten) | UDP | 4500 | Krävs för IPSEC<br>   IKEv2 (Internet Key Exchange) för att kapsla in arbets belastningar för dubbelriktad tunnel. Nätverks adress översättning – traversal (NAT-T) stöds också. |
+| Molnbaserad Gateway (lokal)| Molnbaserad Gateway (fjärran sluten) | UDP | 4500 | Krävs för IPSEC<br>   IKEv2 (Internet Key Exchange) för att kapsla in arbets belastningar för dubbelriktad tunnel. Nätverks adress Translation-Traversal (NAT-T) stöds också. |
 | Molnbaserad Gateway (lokal) | Molnbaserad Gateway (fjärran sluten)  | UDP | 500 | Krävs för IPSEC<br> ISAKMP (Internet Key Exchange) för dubbelriktad tunnel. |
 | Lokalt vCenter-nätverk | Nätverk för hantering av privata moln | TCP | 8000 |  vMotion av virtuella datorer från lokala vCenter till privat moln vCenter   |     
 

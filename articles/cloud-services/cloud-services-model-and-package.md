@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79247493"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872144"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Vad är moln tjänst modellen och hur kan jag paketera den?
 En moln tjänst skapas från tre komponenter, tjänst definitionen *(. csdef)*, tjänst konfigurationen *(. cscfg)* och ett service paket *(. cspkg)*. Både **service definition. csdef** -och **ServiceConfig. cscfg** -filerna är XML-baserade och beskriver moln tjänst strukturen och hur den är konfigurerad. gemensamt kallat modellen. Filen **servicepack. cspkg** är en zip-fil som genereras från **service definition. csdef** och bland annat, och innehåller alla nödvändiga binära-baserade beroenden. Azure skapar en moln tjänst från både **servicepack. cspkg** och **ServiceConfig. cscfg**.

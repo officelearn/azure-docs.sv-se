@@ -1,16 +1,14 @@
 ---
 title: Skapa en ny Azure Monitor Application Insights arbets ytans baserade resurs | Microsoft Docs
 description: Lär dig mer om de steg som krävs för att aktivera de nya Azure Monitor Application Insights arbets ytans baserade resurser.
-author: mrbullwinkle
-ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: 196be1caf91b6f1f1731d7c4afbfe72482c8f2ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29fa9f1dc401ac4132d9c6c0d8c054b3f4a154ac
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894541"
+ms.locfileid: "91932438"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Arbets yta-baserade Application Insights resurser
 

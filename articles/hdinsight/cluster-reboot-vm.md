@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: 149a82526263f5e372db81b5a92a9ee90a2c76f3
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2177e74bd627e80ea1afbcacaf85baf4e030834c
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089980"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91928987"
 ---
 # <a name="reboot-vms-for-hdinsight-clusters"></a>Starta om virtuella datorer för HDInsight-kluster
 
@@ -31,8 +31,8 @@ När en nod startas om kan klustret bli ohälsosamt, och jobben kan bli långsam
 - Den temporära disken är full på noden.
 - Process tabellen på den virtuella datorn har många poster där processen har slutförts, men den visas med "avslutad status".
 
-> [!WARNING]
-> Var försiktig när du startar om virtuella datorer för **HBase** -och **Kafka** -kluster eftersom omstart kan leda till att data går förlorade.
+> [!NOTE]
+> Omstart av virtuella datorer stöds inte för **HBase** -och **Kafka** -kluster eftersom omstart kan leda till att data går förlorade.
 
 ## <a name="use-powershell-to-reboot-vms"></a>Använd PowerShell för att starta om virtuella datorer
 

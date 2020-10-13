@@ -1,14 +1,14 @@
 ---
 title: Storbritannien, officiella & UK NHS-skisser kontroller
-description: Kontroll mappning av NHS i Storbritannien och Storbritannien. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
+description: Kontroll mappning av NHS i Storbritannien och Storbritannien. Varje kontroll mappas till en eller flera Azure Policy definitioner som hjälper till med utvärderingen.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: dd16e6e62e5df3bae083cc4df05207f1f518d560
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: b798ac98e057b85cce0faa835575dbb0d50f9c8c
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540395"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931280"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Kontroll mappning av NHS i Storbritannien och Storbritannien i Storbritannien
 
@@ -17,7 +17,7 @@ I följande artikel beskrivs hur NHS i Storbritannien och Storbritannien i Storb
 Följande mappningar är de officiella NHS-kontrollerna i **Storbritannien** och **Storbritannien** . Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj ** \[ förhands granskningen i \] Storbritannien NHS kontroller och distribuera särskilda VM-tillägg så att de stöder gransknings krav i** det inbyggda princip initiativet.
 
 > [!IMPORTANT]
-> Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden. Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
+> Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen en-till-en-eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden. Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
 
 ## <a name="1-data-in-transit-protection"></a>1 data i överförings skydd
 
@@ -33,8 +33,7 @@ Skissen hjälper dig att se till att informations överföring med Azure-tjänst
 
 ## <a name="23-data-at-rest-protection"></a>2,3 data vid rest-skydd
 
-Den här skissen hjälper dig att genomdriva principen om användningen av kryptografiska kontroller genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som upprätthåller vissa kryptografiska kontroller och granska användningen av svaga kryptografiska inställningar.
-Att förstå var dina Azure-resurser kan ha icke-optimala kryptografiska konfigurationer kan hjälpa dig att vidta korrigerande åtgärder för att säkerställa att resurserna konfigureras i enlighet med din informations säkerhets princip. Mer specifikt kräver principerna som tilldelats av den här skissen kryptering för data Lake Storage-konton. Kräv transparent data kryptering på SQL-databaser; granska saknad kryptering på lagrings konton, SQL-databaser, virtuella dator diskar och variabler för Automation-konton. granska oskyddade anslutningar till lagrings konton och Redis Cache. granska svag kryptering av lösen ord för virtuella datorer; och granska okrypterad Service Fabric kommunikation.
+Den här skissen hjälper dig att genomdriva principen om användningen av kryptografiska kontroller genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som upprätthåller vissa kryptografiska kontroller och granska användningen av svaga kryptografiska inställningar. Att förstå var dina Azure-resurser kan ha icke-optimala kryptografiska konfigurationer kan hjälpa dig att vidta korrigerande åtgärder för att säkerställa att resurserna konfigureras i enlighet med din informations säkerhets princip. Mer specifikt kräver principerna som tilldelats av den här skissen kryptering för data Lake Storage-konton. Kräv transparent data kryptering på SQL-databaser; granska saknad kryptering på lagrings konton, SQL-databaser, virtuella dator diskar och variabler för Automation-konton. granska oskyddade anslutningar till lagrings konton och Redis Cache. granska svag kryptering av lösen ord för virtuella datorer; och granska okrypterad Service Fabric kommunikation.
 
 - Disk kryptering bör tillämpas på virtuella datorer
 - Variabler för Automation-konton ska vara krypterade
@@ -76,7 +75,8 @@ Den här skissen hjälper dig att skydda informations systemets till gångar gen
 
 ## <a name="9-secure-user-management"></a>9 säker användar hantering 
 
-Rollbaserad åtkomst kontroll i Azure (Azure RBAC) hjälper dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen hjälper dig att begränsa och kontrol lera åtkomst behörighet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner för att granska externa konton med ägare och/eller Läs-/skriv behörigheter och konton med ägar-, Läs-och/eller Skriv behörighet som inte har Multi-Factor Authentication aktiverat.
+Rollbaserad åtkomst kontroll i Azure (Azure RBAC) hjälper dig att hantera vem som har åtkomst till resurser i Azure.
+Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen hjälper dig att begränsa och kontrol lera åtkomst behörighet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner för att granska externa konton med ägare och/eller Läs-/skriv behörigheter och konton med ägar-, Läs-och/eller Skriv behörighet som inte har Multi-Factor Authentication aktiverat.
 
 - MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
 - Multifaktorautentisering bör aktiveras på konton med skrivbehörighet för prenumerationen
@@ -101,7 +101,8 @@ Den här skissen tilldelar Azure Policy definitioner för att granska användnin
 - En Azure Active Directory administratör bör tillhandahållas för SQL-servrar
 - Service Fabric kluster bör endast använda Azure Active Directory för klientautentisering
 
-Den här skissen tilldelar också Azure Policy definitioner till gransknings konton som ska prioriteras för granskning, inklusive avskrivna konton och externa konton. Vid behov kan konton blockeras från att logga in (eller tas bort), vilket omedelbart tar bort åtkomst behörighet till Azure-resurser. Den här skissen tilldelar två Azure Policy definitioner för att granska avskrivet konto som bör tas bort.
+Den här skissen tilldelar också Azure Policy definitioner till gransknings konton som ska prioriteras för granskning, inklusive avskrivna konton och externa konton. Vid behov kan konton blockeras från att logga in (eller tas bort), vilket omedelbart tar bort åtkomst behörighet till Azure-resurser.
+Den här skissen tilldelar två Azure Policy definitioner för att granska avskrivet konto som bör tas bort.
 
 - Föråldrade konton bör tas bort från din prenumeration
 - Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration
@@ -137,7 +138,8 @@ Den här skissen hjälper dig också att styra åtkomsten till Azure-resurser ge
 
 ## <a name="11-external-interface-protection"></a>11 externt gränssnitts skydd
 
-Förutom att använda fler än 25 principer för lämplig säker användar hantering hjälper den här skissen dig att skydda tjänst gränssnitt från obehörig åtkomst genom att tilldela en [Azure policy](../../../policy/overview.md) -definition som övervakar obegränsade lagrings konton. Lagrings konton med obegränsad åtkomst kan ge oavsiktlig åtkomst till information som finns i informations systemet. Den här skissen tilldelar också en princip som aktiverar anpassningsbara program kontroller på virtuella datorer.
+Förutom att använda fler än 25 principer för lämplig säker användar hantering hjälper den här skissen dig att skydda tjänst gränssnitt från obehörig åtkomst genom att tilldela en [Azure policy](../../../policy/overview.md) -definition som övervakar obegränsade lagrings konton.
+Lagrings konton med obegränsad åtkomst kan ge oavsiktlig åtkomst till information som finns i informations systemet. Den här skissen tilldelar också en princip som aktiverar anpassningsbara program kontroller på virtuella datorer.
 
 - Granska obegränsad nätverks åtkomst till lagrings konton
 - Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
@@ -151,7 +153,8 @@ Förutom att använda fler än 25 principer för lämplig säker användar hante
 
 ## <a name="13-audit-information-for-users"></a>13 gransknings information för användare
 
-Den här skissen hjälper dig att se till att system händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar logg inställningar på Azure-resurser. En tilldelad princip granskar också om virtuella datorer inte skickar loggar till en angiven Log Analytics-arbetsyta.
+Den här skissen hjälper dig att se till att system händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar logg inställningar på Azure-resurser.
+En tilldelad princip granskar också om virtuella datorer inte skickar loggar till en angiven Log Analytics-arbetsyta.
 
 - Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 - Granska diagnostikinställning

@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: 0f1050bf58e0cd8d9a601d60a4c5dc22a5420483
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: d7734fde529c24e8113ea3b019d343b7223f0122
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88949039"
+ms.locfileid: "91929650"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Uppgradera till den senaste REST API i Azure Kognitiv sökning
 
@@ -40,13 +40,19 @@ Om någon av dessa situationer gäller dig kan du behöva ändra koden. Annars b
 
 ## <a name="upgrade-to-2020-06-30"></a>Uppgradera till 2020-06-30
 
-Version 2020-06-30 är den nya allmänt tillgängliga versionen av REST API. Det finns inga bryta ändringar, men det finns några skillnader i beteendet. 
+Version 2020-06-30 är den nya allmänt tillgängliga versionen av REST API. Det finns en rad brytnings förändring och flera beteende skillnader. 
 
 Funktionerna är nu allmänt tillgängliga i den här API-versionen:
 
 * [Kunskaps lager](knowledge-store-concept-intro.md), beständigt lagrings utrymme med innehåll som skapats via färdighetsuppsättningar, som skapats för underordnad analys och bearbetning via andra program. Med den här funktionen kan en indexerare-driven AI-pipeline fylla i ett kunskaps lager förutom ett Sök index. Om du har använt för hands versionen av den här funktionen motsvarar den allmänt tillgängliga versionen. Den enda kod ändring som krävs är att ändra API-versionen.
 
-I funktions ändringar ingår följande:
+### <a name="breaking-change"></a>Bryta ändring
+
+Befintlig kod som skrivs mot tidigare API-versioner kommer att brytas på API-version = 2020-06-30 och senare om koden innehåller följande funktioner:
+
+* Alla EDM. date-litteraler (ett datum som består av år-månad-dag, t. ex. `2020-12-12` ) i filter uttryck måste följa formatet EDM. DateTimeOffset: `2020-12-12T00:00:00Z` . Den här ändringen var nödvändig för att hantera felaktiga eller oväntade frågeresultat på grund av skillnader i zonen.
+
+### <a name="behavior-changes"></a>Beteende ändringar
 
 * [Algoritmen för BM25](index-ranking-similarity.md) ersätter den tidigare rangordningen med nyare teknik. Nya tjänster kommer att använda den här algoritmen automatiskt. För befintliga tjänster måste du ange parametrar för att använda den nya algoritmen.
 

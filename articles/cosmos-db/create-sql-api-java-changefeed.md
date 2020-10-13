@@ -10,10 +10,10 @@ ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: 86fcdde72145cf25ee289ef3869976fecd628707
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362052"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Så här skapar du ett Java-program som använder Azure Cosmos DB SQL API och ändra flödes processor
@@ -78,7 +78,7 @@ mvn clean package
     * **InventoryContainer – pktype** – en materialiserad vy av inventerings posten, optimerad för frågor över objekt ```type```
     * **InventoryContainer – leasing** avtal – en container container krävs alltid för ändrings flödet. lån spårar appens förlopp vid läsning av ändrings flödet.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="Tomma behållare":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="Azure Cosmos DB-konto":::
 
 1. I terminalen bör du nu se en prompt
 
@@ -96,7 +96,7 @@ mvn clean package
 
     Gå tillbaka till Azure Portal Datautforskaren i webbläsaren. Under behållaren **InventoryContainer-Leases** , klickar du på **objekt** för att se dess innehåll. Du ser att Change feed-processorn har fyllt i leasing containern, dvs. processorn har tilldelat ```SampleHost_1``` arbetaren ett lån på vissa partitioner i **InventoryContainer**.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Lån":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Azure Cosmos DB-konto":::
 
 1. Tryck på RETUR igen i terminalen. Detta kommer att utlösa 10 dokument som ska infogas i **InventoryContainer**. Varje dokument infogning visas i ändra feed som JSON. följande callback-kod hanterar dessa händelser genom att spegla JSON-dokumenten till en materialiserad vy:
 
@@ -106,15 +106,15 @@ mvn clean package
 
 1. Tillåt att koden kör 5-10sec. Gå sedan tillbaka till Azure Portal Datautforskaren och gå till **InventoryContainer > objekt**. Du bör se att objekten infogas i lager behållaren. Anteckna partitionsnyckel ( ```id``` ).
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_items.JPG" alt-text="Feed-behållare":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_items.JPG" alt-text="Azure Cosmos DB-konto":::
 
 1. Nu går du till Datautforskaren navigera till **InventoryContainer-pktype > objekt**. Detta är den materialiserade vyn – objekten i denna behållares spegel **InventoryContainer** eftersom de infogades program mässigt av ändrings flödet. Anteckna partitionsnyckel ( ```type``` ). Den här materialiserade vyn är optimerad för frågor som filtrerar över ```type``` , vilket skulle vara ineffektivt på **InventoryContainer** eftersom den är partitionerad ```id``` .
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Skärm bild som visar Datautforskaren sidan för ett Azure Cosmos D B-konto med valda objekt.":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Azure Cosmos DB-konto":::
 
 1. Vi håller på att ta bort ett dokument från både **InventoryContainer** och **InventoryContainer-pktype** med bara ett enda ```upsertItem()``` anrop. Börja med att titta på Azure Portal Datautforskaren. Vi tar bort dokumentet som ```/type == "plums"``` är inringat i rött under
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Skärm bild som visar Datautforskaren sidan för ett Azure Cosmos D B-konto med ett visst objekt I D valt.":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Azure Cosmos DB-konto":::
 
     Tryck på RETUR igen för att anropa funktionen ```deleteDocument()``` i exempel koden. Den här funktionen, som visas nedan, upsertar en ny version av dokumentet med ```/ttl == 5``` , som anger TTL-värdet (Time-to-Live) till 5Sec. 
     

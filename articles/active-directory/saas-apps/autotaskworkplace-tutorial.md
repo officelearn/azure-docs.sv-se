@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/20/2019
 ms.author: jeedes
 ms.openlocfilehash: d75f18d0d3ea1b093639cabe22567fb6e664bcc5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713844"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Självstudie: Azure Active Directory integrering med arbets plats för AutoTask
@@ -30,7 +30,7 @@ Integreringen av Autotask Workplace med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande saker för att konfigurera Azure AD-integrering med Autotask Workplace:
 

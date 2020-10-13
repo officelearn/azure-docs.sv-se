@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
-ms.openlocfilehash: 3bd19f301b1afd7dd1c35f03f6f6131a26b00708
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffac5ac4d1a8143590e1d72aaafc8a02d6ab04ca
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596838"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977263"
 ---
 # <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Felsök frågor med höga processorer för virtuella Azure Windows-datorer
 
@@ -90,11 +90,11 @@ PerfInsights är det rekommenderade verktyget från Azure-supporten för prestan
 
 #### <a name="run-perfinsights"></a>Kör PerfInsights
 
-PerfInsights är tillgängligt för både [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) -och [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) -operativsystem. För Windows finns alternativen.
+PerfInsights är tillgängligt för både [Windows](./how-to-use-perfinsights.md) -och [Linux](./how-to-use-perfinsights-linux.md) -operativsystem. För Windows finns alternativen.
 
 #### <a name="run-and-analyze-reports-through-azure-portal"></a>Köra och analysera rapporter via Azure Portal
 
-När den [installeras via Azure Portal](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics)installerar faktiskt ett tillägg på den virtuella datorn. Användare kan också installera PerfInsights som ett tillägg genom att gå direkt till [tillägg på VM-bladet](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics-vm-extension)och sedan välja ett alternativ för prestanda diagnos.
+När den [installeras via Azure Portal](./performance-diagnostics.md)installerar faktiskt ett tillägg på den virtuella datorn. Användare kan också installera PerfInsights som ett tillägg genom att gå direkt till [tillägg på VM-bladet](./performance-diagnostics-vm-extension.md)och sedan välja ett alternativ för prestanda diagnos.
 
 #### <a name="azure-portal-option-1"></a>Azure Portal alternativ 1
 
@@ -132,7 +132,7 @@ Rapporten lagras på ett av lagrings kontona under din prenumeration. Det finns 
 
 #### <a name="run-perfinsights-from-within-the-vm"></a>Kör PerfInsights inifrån den virtuella datorn
 
-Den här metoden kan användas om du vill köra PerfInsights under längre perioder. [PerfInsights-artikeln](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights#how-do-i-run-perfinsights) innehåller en detaljerad genom gång av de olika kommandon och flaggor som krävs för att köra PerfInsights som körbar fil. I syfte att använda hög processor användning behöver du något av följande lägen:
+Den här metoden kan användas om du vill köra PerfInsights under längre perioder. [PerfInsights-artikeln](./how-to-use-perfinsights.md#how-do-i-run-perfinsights) innehåller en detaljerad genom gång av de olika kommandon och flaggor som krävs för att köra PerfInsights som körbar fil. I syfte att använda hög processor användning behöver du något av följande lägen:
 
 - Avancerat scenario
 
@@ -289,7 +289,7 @@ När inställningarna har Aktiver ATS kan du visa dessa **gäst** räknare i avs
 
   ![Mått namn område](./media/troubleshoot-high-cpu-issues-azure-windows-vm/19-metrics-namespace.png)
 
-Mer information om hur du använder Azure Monitor för att hantera virtuella Azure-datorer finns i [övervaka virtuella Azure-datorer med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-vm-azure).
+Mer information om hur du använder Azure Monitor för att hantera virtuella Azure-datorer finns i [övervaka virtuella Azure-datorer med Azure Monitor](../../azure-monitor/insights/monitor-vm-azure.md).
 
 ### <a name="reactive-troubleshooting"></a>Reaktiv fel sökning
 
@@ -311,7 +311,7 @@ Kommandot **logman Create Counter** används för att köra perfmon-insamling vi
 
 Logman.exe kan också startas från en peer Azure VM-dator i samma VNET.
 
-Mer information om dessa parametrar finns i [logman Create Counter](https://docs.microsoft.com/windows-server/administration/windows-commands/logman-create-counter).
+Mer information om dessa parametrar finns i [logman Create Counter](/windows-server/administration/windows-commands/logman-create-counter).
 
 När perfmon-data har samlats in medan problemet inträffar är de återstående stegen för att analysera data desamma som de som diskuterats tidigare.
 

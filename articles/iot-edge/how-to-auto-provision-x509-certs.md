@@ -9,12 +9,12 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 13c15eeb98b13d0fe9a5b7797ec942209d403cc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 761b031916dd9ead71f5be6a6887208a1f200f58
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447747"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966142"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Skapa och etablera en IoT Edge-enhet med X. 509-certifikat
 
@@ -103,7 +103,7 @@ Mer information om registreringar i Device Provisioning-tjänsten finns i [Hante
 
    * **Välj de IoT-hubbar som enheten kan tilldelas**: Välj den länkade IoT-hubben som du vill ansluta enheten till. Du kan välja flera hubbar och enheten tilldelas en av dem enligt den valda allokeringsregeln.
 
-   * **Första enhets status**: Lägg till ett taggvärde som ska läggas till på enheten, med ett värde om du vill. Du kan använda taggar för att ange mål grupper för enheter för automatisk distribution. Exempel:
+   * **Första enhets status**: Lägg till ett taggvärde som ska läggas till på enheten, med ett värde om du vill. Du kan använda taggar för att ange mål grupper för enheter för automatisk distribution. Till exempel:
 
       ```json
       {
@@ -188,7 +188,7 @@ Mer information om registreringar i Device Provisioning-tjänsten finns i [Hante
 
    * **Välj de IoT-hubbar som enheten kan tilldelas**: Välj den länkade IoT-hubben som du vill ansluta enheten till. Du kan välja flera hubbar och enheten tilldelas en av dem enligt den valda allokeringsregeln.
 
-   * **Första enhets status**: Lägg till ett taggvärde som ska läggas till på enheten, med ett värde om du vill. Du kan använda taggar för att ange mål grupper för enheter för automatisk distribution. Exempel:
+   * **Första enhets status**: Lägg till ett taggvärde som ska läggas till på enheten, med ett värde om du vill. Du kan använda taggar för att ange mål grupper för enheter för automatisk distribution. Till exempel:
 
       ```json
       {
@@ -209,73 +209,76 @@ Nu när en registrering finns för den här enheten kan IoT Edge runtime automat
 
 IoT Edge-körningen distribueras på alla IoT Edge-enheter. Komponenterna körs i behållare och gör att du kan distribuera ytterligare behållare till enheten så att du kan köra kod i kanten.
 
+Följ stegen i [installera Azure IoT Edge runtime](how-to-install-iot-edge.md)och gå sedan tillbaka till den här artikeln för att etablera enheten.
+
 X. 509-etablering med DPS stöds bara i IoT Edge version 1.0.9 eller senare.
 
-Du behöver följande information när du konfigurerar din enhet:
+## <a name="configure-the-device-with-provisioning-information"></a>Konfigurera enheten med etablerings information
+
+När körningen har installerats på enheten konfigurerar du enheten med den information som används för att ansluta till enhets etablerings tjänsten och IoT Hub.
+
+Ha följande information redo:
 
 * Värdet för DPS **-ID-omfånget** . Du kan hämta det här värdet från sidan Översikt i DPS-instansen i Azure Portal.
 * Certifikat kedjas filen för enhets identitet på enheten.
 * Enhetens identitets nyckel fil på enheten.
-* Ett valfritt registrerings-ID (hämtas från det egna namnet i enhetens identitets certifikat om inget anges).
+* Ett valfritt registrerings-ID. Om detta inte anges hämtas ID: t från det egna namnet i enhetens identitets certifikat.
 
 ### <a name="linux-device"></a>Linux-enhet
 
-Använd följande länk för att installera Azure IoT Edge runtime på enheten med hjälp av de kommandon som är lämpliga för enhetens arkitektur. När du kommer till avsnittet om hur du konfigurerar säkerhets demon konfigurerar du IoT Edge runtime för X. 509 automatisk, inte manuell, etablering. Du bör ha all information och alla certifikatfiler som du behöver när du har slutfört föregående avsnitt i den här artikeln.
+1. Öppna konfigurations filen på den IoT Edge enheten.
 
-[Installera Azure IoT Edge runtime på Linux](how-to-install-iot-edge-linux.md)
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-När du lägger till X. 509-certifikatet och nyckelinformation i filen config. yaml ska Sök vägarna anges som fil-URI: er. Exempel:
+1. Hitta konfigurations avsnittet för etablering i filen. Ta bort kommentarer till raderna för etablering av DPS symmetrisk nyckel och se till att alla andra etablerings rader är kommenterade.
 
-* `file:///<path>/identity_certificate_chain.pem`
-* `file:///<path>/identity_key.pem`
+   `provisioning:`Raden ska inte ha något föregående blank steg, och kapslade objekt bör dras av två blank steg.
 
-Avsnittet i konfigurations filen för X. 509 automatisk etablering ser ut så här:
+   ```yml
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "<SCOPE_ID>"
+     attestation:
+       method: "x509"
+   #   registration_id: "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
+       identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
+       identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+   ```
 
-```yaml
-# DPS X.509 provisioning configuration
-provisioning:
-  source: "dps"
-  global_endpoint: "https://global.azure-devices-provisioning.net"
-  scope_id: "<SCOPE_ID>"
-  attestation:
-    method: "x509"
-#   registration_id: "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
-    identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
-    identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
-```
+1. Uppdatera värdena för `scope_id` , `identity_cert` och `identity_pk` med din DPS-och enhets information.
 
-Ersätt plats hållar värden `scope_id` för `identity_cert` , `identity_pk` med scope-ID från din DPS-instans och URI: erna till certifikat kedjan och nyckel fil platser på enheten. Ange en `registration_id` för enheten om du vill, eller lämna den här raden kommenterad om du vill registrera enheten med CN-namnet för identitets certifikatet.
+   När du lägger till X. 509-certifikatet och nyckelinformation i filen config. yaml ska Sök vägarna anges som fil-URI: er. Till exempel:
 
-Starta alltid om säkerhets daemonen efter att du uppdaterat config. yaml-filen.
+   `file:///<path>/identity_certificate_chain.pem`
+   `file:///<path>/identity_key.pem`
 
-```bash
-sudo systemctl restart iotedge
-```
+1. Ange en `registration_id` för enheten om du vill, eller lämna den här raden kommenterad om du vill registrera enheten med CN-namnet för identitets certifikatet.
+
+1. Starta om IoT Edge runtime så att den hämtar alla konfigurations ändringar som du har gjort på enheten.
+
+   ```bash
+   sudo systemctl restart iotedge
+   ```
 
 ### <a name="windows-device"></a>Windows-enhet
 
-Installera IoT Edge runtime på enheten för vilken du genererade identitets certifikat kedjan och identitets nyckeln. Du konfigurerar IoT Edge runtime för automatisk, inte manuell, etablering.
-
-Mer detaljerad information om hur du installerar IoT Edge i Windows, inklusive krav och instruktioner för aktiviteter som hantering av behållare och uppdatering av IoT Edge, finns i [installera Azure IoT Edge runtime i Windows](how-to-install-iot-edge-windows.md).
-
 1. Öppna ett PowerShell-fönster i administratörs läge. Se till att använda en AMD64-session av PowerShell när du installerar IoT Edge, inte PowerShell (x86).
 
-1. Kommandot **Deploy-IoTEdge** kontrollerar att Windows-datorn finns på en version som stöds, aktiverar funktionen containers och laddar sedan ned Moby runtime och IoT Edge Runtime. Kommandot använder som standard Windows-behållare.
+1. Kommandot **Initialize-IoTEdge** konfigurerar IoT Edge runtime på din dator. Standardvärdet för manuell etablering med Windows-behållare är att använda- `-DpsX509` flaggan för att använda automatisk etablering med X. 509-certifikatautentisering.
+
+   Ersätt plats hållarnas värden för `{scope_id}` , `{identity cert chain path}` och `{identity key path}` med lämpliga värden från DPS-instansen och fil Sök vägarna på enheten.
+
+   Lägg till `-RegistrationId {registration_id}` om du vill ange enhets-ID: t som något annat än namnet på identitets certifikatets CN-namn.
+
+   Lägg till `-ContainerOs Linux` parametern om du använder Linux-behållare i Windows.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge
-   ```
-
-1. I det här läget kan IoT core-enheter startas om automatiskt. Andra Windows 10-eller Windows Server-enheter kan bli ombedd att starta om. Om så är fallet startar du om enheten nu. När enheten är klar kör du PowerShell som administratör igen.
-
-1. Kommandot **Initialize-IoTEdge** konfigurerar IoT Edge runtime på din dator. Kommandot använder standardinställningen manuell etablering om du inte använder `-Dps` flaggan för att använda automatisk etablering.
-
-   Ersätt plats hållarnas värden för `{scope_id}` , `{identity cert chain path}` och `{identity key path}` med lämpliga värden från DPS-instansen och fil Sök vägarna på enheten. Om du vill ange registrerings-ID: t inkluderar du `-RegistrationId {registration_id}` även och ersätter plats hållaren vid behov.
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -X509IdentityCertificate {identity cert chain path} -X509IdentityPrivateKey {identity key path}
+   Initialize-IoTEdge -DpsX509 -ScopeId {scope ID} -X509IdentityCertificate {identity cert chain path} -X509IdentityPrivateKey {identity key path}
    ```
 
    >[!TIP]

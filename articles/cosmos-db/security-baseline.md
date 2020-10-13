@@ -8,10 +8,10 @@ ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 75344204e03920c96d0868ad584b8701813fabf0
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569520"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Azures säkerhets bas linje för Cosmos DB
@@ -334,7 +334,7 @@ Få åtkomst till nycklar via programmering med hjälp av Azure Active Directory
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3,4: Använd enkel inloggning (SSO) med Azure Active Directory
 
-**Vägledning**: Azure Cosmos DB använder två typer av nycklar för att auktorisera användare och inte stöder enkel inloggning (SSO) på data planet nivå. Åtkomst till kontroll planet för Cosmos DB är tillgänglig via REST API och stöder SSO. Du autentiserar genom att ange Authorization-huvudet för dina begär anden till ett JSON Web Token som du får från Azure Active Directory.
+**Vägledning**: Azure Cosmos DB använder två typer av nycklar för att auktorisera användare och har inte stöd för Single Sign-On (SSO) på data planet nivå. Åtkomst till kontroll planet för Cosmos DB är tillgänglig via REST API och stöder SSO. Du autentiserar genom att ange Authorization-huvudet för dina begär anden till ett JSON Web Token som du får från Azure Active Directory.
 
 Förstå Azure Database för Cosmos DB REST API: https://docs.microsoft.com/rest/api/cosmos-db/
 
@@ -991,7 +991,7 @@ Så här säkerhetskopierar du Key Vault nycklar: https://docs.microsoft.com/pow
 
 **Vägledning**: om en databas eller container tas bort kan du använda ett support ärende eller kontakta Azure-supporten för att återställa data från automatiska säkerhets kopieringar online. Support för Azure är tillgängligt för valda planer, till exempel standard, utvecklare och planer som är högre än dem. För att återställa en speciell ögonblicks bild av säkerhets kopieringen kräver Azure Cosmos DB att data är tillgängliga under tiden för säkerhets kopierings cykeln för ögonblicks bilden.
 
-Testa återställningen av dina hemligheter lagrade i Azure Key Vault med PowerShell. Restore-AzureKeyVaultKey-cmdlet: en skapar en nyckel i det angivna nyckel valvet. Den här nyckeln är en replik av den säkerhetskopierade nyckeln i indatafilen och har samma namn som den ursprungliga nyckeln.
+Testa återställningen av dina hemligheter lagrade i Azure Key Vault med PowerShell. Restore-AzureKeyVaultKey cmdlet skapar en nyckel i det angivna nyckel valvet. Den här nyckeln är en replik av den säkerhetskopierade nyckeln i indatafilen och har samma namn som den ursprungliga nyckeln.
 
 Förstå Azure Cosmos DB automatiserade säkerhets kopieringar:
 
@@ -1013,11 +1013,11 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 **Vägledning**: eftersom alla användar data som lagras i Cosmos DB krypteras i vila och under transport behöver du inte vidta några åtgärder. Ett annat sätt att göra detta är att kryptering i vila är "on" som standard. Det finns inga kontroller att inaktivera eller sätta på. Azure Cosmos DB använder AES-256-kryptering i alla regioner där kontot körs.
 
-Aktivera mjuk borttagning i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
+Aktivera Soft-Delete i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
 
 Förstå data kryptering i Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest
 
-Så här aktiverar du mjuk borttagning i Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+Så här aktiverar du Soft-Delete i Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
 **Azure Security Center övervakning**: Ja
 

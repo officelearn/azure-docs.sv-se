@@ -3,14 +3,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 09/30/2019
 ms.author: alkohli
-ms.openlocfilehash: a23b0b2c71207bf84a4938d54a78a62efb6cbcbd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ca7b83d24f2416b224963559361faf5a7775cd0d
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "71172685"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631552"
 ---
 När Microsoft tar emot och genomsöker enheten uppdateras orderstatusen till **mottagen**. Sedan görs en fysisk kontroll av skador eller tecken på manipulation.
 
@@ -20,7 +20,7 @@ När kopieringen är slutförd uppdateras statusen till **slutförd**.
 
 Försäkra dig om att dina data har överförts till Azure innan du tar bort dem från källan. Dina data kan finnas i:
 
-- Ditt Azure Storage-konto. När du kopierar data till Data Box laddas data beroende på typ upp till någon av följande sökvägar i ditt Azure Storage-konto.
+- Ditt Azure Storage-konto. När du kopierar data till Data Box laddas data upp till någon av följande sökvägar i ditt Azure Storage-konto:
 
   - För blockblobar och sidblobar: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
   - För Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
@@ -37,7 +37,7 @@ Försäkra dig om att dina data har överförts till Azure innan du tar bort dem
 
         ![Hanterad disk ansluten till resursgrupper](media/data-box-verify-upload-return/managed-disks-resource-group.png)
 
-    - Om du har kopierat en VHDX, eller en dynamisk/differentierad virtuell hårddisk, överförs VHDX/VHD till mellanlagringskontot som en sidblob, men konverteringen av de virtuella hårddiskarna till hanterade diskar misslyckas. Gå till ditt **mellanlagringskonto > Blobar** och välj sedan lämplig container – Standard SSD, Standard HDD eller Premium SSD. De virtuella hårddiskarna laddas upp som sidblobar i mellanlagringskontot.
+    - Om du kopierade en VHDX, eller en dynamisk eller differentierad virtuell hårddisk, laddas VHDX eller VHD upp till mellanlagringskontot som en sidblob, men konverteringen av VHD till en hanterad disk misslyckas. Gå till ditt **mellanlagringskonto > Blobar** och välj lämplig container – Standard SSD, Standard HDD eller Premium SSD. De virtuella hårddiskarna laddas upp som sidblobar i ditt mellanlagringskonto och börjar debiteras.
 
 
 ## <a name="erasure-of-data-from-data-box"></a>Radera data från Data Box

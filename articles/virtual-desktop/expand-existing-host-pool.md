@@ -3,15 +3,15 @@ title: Expandera den befintliga poolen med nya sessionsbaserade värdar – Azur
 description: Hur du expanderar en befintlig adresspool med nya sessionsbaserade värdar i Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 339fe25a5a75ca8bc5cc0af7c4d96651e90c7eb6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b65560a3b10d04887040c4da1e137912810b3095
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002441"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929599"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandera en befintlig adresspool med nya värdbaserade sessioner
 
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig hur du kan expandera en befintlig adresspo
 
 Innan du börjar ska du kontrol lera att du har skapat en adresspool och en sessions värd för virtuella datorer (VM) med någon av följande metoder:
 
-- [Azure-portalen](./create-host-pools-azure-marketplace.md)
+- [Azure Portal](./create-host-pools-azure-marketplace.md)
 - [Skapa en värdpool med PowerShell](./create-host-pools-powershell.md)
 
 Du behöver också följande information från första gången du skapade värddatorn och de virtuella datorerna i sessionen:
@@ -39,7 +39,7 @@ Du behöver också följande information från första gången du skapade värdd
 
 Expandera din värddator genom att lägga till virtuella datorer:
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 
 2. Sök efter och välj **virtuellt skriv bord i Windows**.
 
@@ -56,7 +56,7 @@ Expandera din värddator genom att lägga till virtuella datorer:
 8. Ange antalet värdar för sessionen som du vill lägga till i din värddator i **antal virtuella datorer**. Om du till exempel expanderar din värd-pool med fem värdar anger du **5**.
 
     >[!NOTE]
-    >Du kan inte redigera storleken eller avbildningen av de virtuella datorerna eftersom det är viktigt att se till att alla virtuella datorer i poolen har samma storlek.
+    >Även om det är möjligt att redigera avbildningen och prefixet för de virtuella datorerna, rekommenderar vi inte att du redigerar dem om du har virtuella datorer med olika avbildningar i samma adresspool. Redigera bara avbildningen och prefixet om du planerar att ta bort virtuella datorer med äldre avbildningar från den berörda poolen.
 
 9. För information om det **virtuella nätverket**väljer du det virtuella nätverk och undernät som du vill att de virtuella datorerna ska anslutas till. Du kan välja samma virtuella nätverk som befintliga datorer som används eller välja en annan som passar den region som du valde i steg 7.
 
@@ -67,7 +67,7 @@ Expandera din värddator genom att lägga till virtuella datorer:
 
 11. Välj fliken **taggar** om du har några taggar som du vill gruppera de virtuella datorerna med. Annars hoppar du över den här fliken.
 
-12. Välj fliken **Granska + skapa** . granska dina val och om allt ser bra ut väljer du **skapa**.
+12. Välj fliken **Granska + skapa** . Granska dina val och om allt ser bra ut väljer du **skapa**.
 
 ## <a name="next-steps"></a>Nästa steg
 

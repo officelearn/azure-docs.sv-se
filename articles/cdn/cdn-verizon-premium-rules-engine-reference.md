@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
 ms.openlocfilehash: 295bc0a20a547bf944f48af6711b18af34571b02
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362588"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Azure CDN från Verizon Premium-regel motor referens
@@ -43,7 +43,7 @@ Dessa element identifieras i följande bild.
 
 ![Skärm bild med etiketter visar villkors uttrycket, matchningen och funktionerna i en regel.](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
 
-### <a name="policy"></a>Policy
+### <a name="policy"></a>Princip
 En princip som består av en uppsättning skrivskyddade regler innebär att:
 
 - Skapa, lagra och hantera flera varianter av reglerna.
@@ -67,7 +67,7 @@ Det arbets flöde genom vilket en princip kan tillämpas på antingen produktion
 
 ![Arbets flöde för princip distribution](./media/cdn-verizon-premium-rules-engine-reference/policy-deployment-workflow.png)
 
-|Steg |Description |
+|Steg |Beskrivning |
 |---------|---------|
 |[Skapa utkast](https://docs.vdms.com/cdn/index.html#HRE/AdministeringDraftsandRules.htm#Create)    |    Ett utkast består av en uppsättning regler som definierar hur begär Anden för ditt innehåll ska hanteras av CDN.     |
 |Lås utkast   |     När ett utkast har slutförts bör det låsas och konverteras till en skrivskyddad princip.    |
@@ -93,7 +93,7 @@ En procent symbol används för att indikera URL-kodning (till exempel `%20` ).
 
 Text som tolkas som ett jokertecken tilldelar ytterligare en mening till specialtecken. I följande tabell beskrivs hur följande tecken uppsättning tolkas:
 
-Tecken | Description
+Tecken | Beskrivning
 ----------|------------
 \ | Ett omvänt snedstreck används för att undanta de tecken som anges i den här tabellen. Ett omvänt snedstreck måste anges direkt före det specialtecken som ska undantas.<br/>Följande syntax kan till exempel undanta en asterisk: `\*`
 % | En procent symbol används för att indikera URL-kodning (till exempel `%20` ).
@@ -105,7 +105,7 @@ värde | Ett enkelt citat har ingen särskild betydelse. En uppsättning enkla c
 
 Reguljära uttryck definierar ett mönster som genomsöks i ett text värde. Reguljär uttrycks notation definierar olika betydelser för olika symboler. I följande tabell visas hur specialtecken behandlas av matchnings villkor och funktioner som stöder reguljära uttryck.
 
-Specialtecken | Description
+Specialtecken | Beskrivning
 ------------------|------------
 \ | Ett omvänt snedstreck utvärderar det tecken som följer, vilket gör att tecken behandlas som ett litteralt värde i stället för dess reguljära uttryck. Följande syntax kan till exempel undanta en asterisk: `\*`
 % | Innebörden av en procent symbol beror på dess användning.<br/><br/> `%{HTTPVariable}`: Den här syntaxen identifierar en HTTP-variabel.<br/>`%{HTTPVariable%Pattern}`: Den här syntaxen använder en procent symbol för att identifiera en HTTP-variabel och som avgränsare.<br />`\%`: Med en procents symbol kan det användas som ett litteralt värde eller för att indikera URL-kodning (till exempel `\%20` ).

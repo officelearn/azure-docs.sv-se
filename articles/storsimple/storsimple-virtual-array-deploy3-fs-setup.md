@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e544d135883d0c936b3f23b3e50e385268c992c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05447db97311fb78707079528e0570b3fd42df59
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006304"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977586"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuera virtuell StorSimple-matris – Ställ in som fil server via Azure Portal
 ![Diagram som visar de steg som krävs för att distribuera en virtuell matris. Den första delen av det tredje steget är märkt konfigurerad som fil server och är markerad.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -118,7 +118,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
     ![Skärm bild av sidan alla resurser i Azure Portal. En Enhetshanteraren tjänst är markerad.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
 13. I den filtrerade listan väljer du din StorSimple-Enhetshanteraren tjänst och navigera sedan till **hanterings > enheter**. På bladet **enheter** kontrollerar du att enheten har lyckats ansluta till tjänsten och att statusen **redo att konfigureras**.
     
-    ![Konfigurera en fil Server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
+    ![Distribuera](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
 
 ## <a name="step-2-configure-the-device-as-file-server"></a>Steg 2: Konfigurera enheten som fil Server
 Utför följande steg i [Azure Portal](https://portal.azure.com/) för att slutföra den nödvändiga enhets konfigurationen.
@@ -129,7 +129,7 @@ Utför följande steg i [Azure Portal](https://portal.azure.com/) för att slutf
    ![Konfigurera en fil Server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. Klicka på enheten så visas ett informations meddelande som anger att enheten är redo att konfigureras.
    
-    ![Konfigurera en fil Server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
+    ![Konfigurera en fil Server 2](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. Klicka på **Konfigurera** i kommando fältet. Då öppnas bladet **Konfigurera** . Gör följande på bladet **Konfigurera** :
    
    1. Fil Server namnet fylls i automatiskt.
@@ -140,7 +140,7 @@ Utför följande steg i [Azure Portal](https://portal.azure.com/) för att slutf
     
    4. Klicka på **Konfigurera nödvändiga inställningar** för att ange de autentiseringsuppgifter för lagrings konto som ska användas med din enhet. Klicka på **Lägg till ny** om inga autentiseringsuppgifter för lagrings kontot har kon figurer ATS. **Se till att det lagrings konto som du använder stöder block-blobbar. Page blobbar stöds inte.** Mer information om [block-blobar och Page blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
-      ![Konfigurera en fil Server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![Konfigurera en fil Server 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Gör följande på bladet **Lägg till autentiseringsuppgifter för lagrings konto** : 
 
     1. Välj aktuell prenumeration om lagrings kontot finns i samma prenumeration som tjänsten. Ange andra är lagrings kontot utanför tjänst prenumerationen. 
@@ -153,19 +153,19 @@ Utför följande steg i [Azure Portal](https://portal.azure.com/) för att slutf
     
     5. Klicka på **Lägg** till för att lägga till autentiseringsuppgifterna för lagrings kontot. 
    
-        ![Konfigurera en fil Server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
+        ![Konfigurera en fil Server 4](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
 
 5. När lagrings kontots autentiseringsuppgift har skapats, kommer **Konfigurera** -bladet att uppdateras för att visa de angivna autentiseringsuppgifterna för lagrings kontot. Klicka på **Konfigurera**.
    
-   ![Konfigurera en fil Server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs11m.png)
+   ![Konfigurera en fil Server 5](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs11m.png)
    
    En fil server som skapas visas. När fil servern har skapats får du ett meddelande.
    
-   ![Konfigurera en fil Server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs13m.png)
+   ![Konfigurera en fil Server 5b](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs13m.png)
    
    Enhetens status ändras också till **online**.
    
-   ![Konfigurera en fil Server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs14m.png)
+   ![Konfigurera en fil Server 5c](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs14m.png)
    
    Du kan fortsätta att lägga till en resurs.
 
@@ -189,15 +189,15 @@ Skapa en resurs genom att utföra stegen nedan på [Azure-portalen](https://port
    
    5. Klicka på **Lägg till** för att skapa resursen. 
     
-       ![Lägga till en resurs](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![Lägg till en resurs 1](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
        Du får ett meddelande om att resursen skapas.
    
-       ![Lägga till en resurs](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![Lägg till en resurs 2](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
       När resursen har skapats med de angivna inställningarna kommer bladet **resurser** att uppdateras för att avspegla den nya resursen. Som standard aktive ras övervakning och säkerhets kopiering för resursen.
    
-      ![Lägga till en resurs](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![Lägg till en resurs 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## <a name="step-4-connect-to-the-share"></a>Steg 4: Anslut till resursen
 Du måste nu ansluta till en eller flera resurser som du skapade i föregående steg. Utför de här stegen på Windows Server-värden som är ansluten till din virtuella StorSimple-matris.

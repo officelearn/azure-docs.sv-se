@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/21/2020
 ms.author: aahi
-ms.openlocfilehash: 714a4709eceea875798940de962716d34437f2a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 856e73181ee02fe2bb21c4317ec8c733e2536d53
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91530467"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973130"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrera till Read v3. x OCR-behållare
 
@@ -65,10 +65,10 @@ Core och minne motsvarar `--cpus` `--memory` inställningarna och som används s
 >[!NOTE]
 > MongoDB stöds inte längre i 3. x-versioner av behållaren. I stället stöder behållarna Azure Storage och fil system offline.
 
-| Implementering |  Obligatoriska körnings argument |
+| Implementering |    Obligatoriska körnings argument |
 |---------|---------|
-|Filnivå (standard)   | Inga körnings argument krävs. `/share` katalogen kommer att användas. |
-|Azure-blobb | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
+|Filnivå (standard)    | Inga körnings argument krävs. `/share` katalogen kommer att användas. |
+|Azure-blobb    | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
 
 ## <a name="queue-implementations"></a>Köa implementeringar
 
@@ -78,7 +78,7 @@ I v3. x i behållaren stöds inte RabbitMQ för närvarande. De implementeringar
 |---------|---------|-------|
 | I minnet (standard) | Inga körnings argument krävs. | Utveckling och testning |
 | Azure Queues | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | Produktion |
-| RabbitMQ  | Ej tillgänglig | Produktion |
+| RabbitMQ    | Inte tillgänglig | Produktion |
 
 För tillagd redundans använder Read v3. x-behållaren en Synlighets-timer för att se till att begär Anden kan bearbetas i händelse av en krasch när de körs i en konfiguration med flera behållare. 
 
@@ -86,7 +86,7 @@ Ställ in timern med `Queue:Azure:QueueVisibilityTimeoutInMilliseconds` , vilket
 
 | Standardvärde | Rekommenderat värde |
 |---------|---------|
-| 30000 |   120000 |
+| 30000 |    120000 |
 
 
 ## <a name="next-steps"></a>Nästa steg

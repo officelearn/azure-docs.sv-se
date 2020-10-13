@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d0df2199a2afdbea1ee1c6c543df324e9fe3cc3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02755c164e72e3149497ee8e3c1fdc19141fd54f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450767"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973639"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>NFS v4.1-volymer på Azure NetApp Files för SAP HANA
 
@@ -81,7 +81,7 @@ När du utformar infrastrukturen för SAP i Azure bör du vara medveten om någr
 | Typ av volym och I/O-typ | Minsta KPI som krävs av SAP | Premium service-nivå | Ultra service-nivå |
 | --- | --- | --- | --- |
 | Skrivning av logg volym | 250 MB/sek | 4 TB | 2 TB |
-| Skrivning av data volym | 250 MB/sek | 4 TB | 2 TB |
+| Skrivning av data volym | 250 MB/sek. | 4 TB | 2 TB |
 | Läsning av data volym | 400 MB/SEK | 6,3 TB | 3,2 TB |
 
 Eftersom alla tre KPI: er krävs måste **/Hana/data** -volymen anpassas till den större kapaciteten för att uppfylla minimi kraven för läsning.
@@ -131,7 +131,7 @@ Samma gäller för volymen som du använder för att skriva fullständiga HANA-d
  
 
 ## <a name="backup"></a>Backup
-Förutom att strömma säkerhets kopieringar och Azures back tjänst som säkerhetskopierar SAP HANA databaser enligt beskrivningen i artikeln [säkerhets kopierings guide för SAP HANA på Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide), öppnar Azure NetApp Files möjligheten att utföra lagrings ögonblicks bild säkerhets kopior. 
+Förutom att strömma säkerhets kopieringar och Azures back tjänst som säkerhetskopierar SAP HANA databaser enligt beskrivningen i artikeln [säkerhets kopierings guide för SAP HANA på Azure Virtual Machines](./sap-hana-backup-guide.md), öppnar Azure NetApp Files möjligheten att utföra lagrings ögonblicks bild säkerhets kopior. 
 
 SAP HANA stöder:
 
@@ -195,4 +195,4 @@ root # > azcopy sync '/hana/data/SID/mnt00001/.snapshot' 'https://azacsnaptmytes
 ## <a name="next-steps"></a>Nästa steg
 Läs artikeln:
 
-- [SAP HANA hög tillgänglighet för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
+- [SAP HANA hög tillgänglighet för virtuella Azure-datorer](./sap-hana-availability-overview.md)

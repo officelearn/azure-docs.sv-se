@@ -1,14 +1,14 @@
 ---
 title: Åtgärda icke-kompatibla resurser
 description: Den här guiden vägleder dig genom reparationen av resurser som inte är kompatibla med principer i Azure Policy.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 3b2d145322be8b70e096e49be892018952519cf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76d2e57c1b5df965c81c88506ff2c2f70b2cb1f8
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269853"
+ms.locfileid: "91876336"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Åtgärda icke-kompatibla resurser med Azure Policy
 
@@ -17,7 +17,7 @@ Resurser som inte är kompatibla med en **deployIfNotExists** eller en **ändrin
 ## <a name="how-remediation-security-works"></a>Så här fungerar reparations säkerhet
 
 När Azure Policy kör mallen i **deployIfNotExists** -princip definitionen används en [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md).
-Azure Policy skapar en hanterad identitet för varje tilldelning, men du måste ha information om vilka roller som ska bevilja den hanterade identiteten. Om den hanterade identiteten saknar roller visas det här felet under tilldelningen av principen eller ett initiativ. När du använder portalen beviljas Azure Policy automatiskt den hanterade identitet som listade roller när tilldelningen startar. När du använder SDK måste rollerna manuellt beviljas till den hanterade identiteten. _Platsen_ för den hanterade identiteten påverkar inte åtgärden med Azure policy.
+Azure Policy skapar en hanterad identitet för varje tilldelning, men du måste ha information om vilka roller som ska bevilja den hanterade identiteten. Om den hanterade identiteten saknar roller visas ett fel när principen eller ett initiativ tilldelas. När du använder portalen beviljas Azure Policy automatiskt den hanterade identitet som listade roller när tilldelningen startar. När du använder SDK måste rollerna manuellt beviljas till den hanterade identiteten. _Platsen_ för den hanterade identiteten påverkar inte åtgärden med Azure policy.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Skärm bild av en deployIfNotExists-princip som saknar definierad behörighet för den hanterade identiteten." border="false":::
 

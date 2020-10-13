@@ -3,12 +3,12 @@ title: Spara kostnader med den reserverade instansen av Azure VMware-lösningen
 description: Lär dig hur du köper en reserverad instans för Azure VMware-lösningen.
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.openlocfilehash: a477b1730d70ec729a2be333b545b6faeb009998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa354d4fbfef868ea1e6783656be7871669f200d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91492493"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951425"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Spara kostnader med Azure VMware-lösningen
 
@@ -22,7 +22,7 @@ Reserverade instanser är tillgängliga med vissa undantag.
 
 -   **Otillräcklig kvot**   -En reservation som är begränsad till en enda/delad prenumeration måste ha värd kvoten tillgänglig i prenumerationen för den nya reserverade instansen. Du kan [skapa en begäran om kvot ökning](enable-azure-vmware-solution.md) för att lösa problemet.
 
--   **Erbjudande för erbjudandet**– du behöver ett [Azure-Enterprise-avtal (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements)   med Microsoft.
+-   **Erbjudande för erbjudandet**– du behöver ett [Azure-Enterprise-avtal (EA)](../cost-management-billing/manage/ea-portal-agreements.md)   med Microsoft.
 
 -   **Kapacitets begränsningar**   I sällsynta fall begränsar Azure köpet av nya reservationer för Azure VMware-lösningar värd-SKU: er, på grund av låg kapacitet i en region.
 

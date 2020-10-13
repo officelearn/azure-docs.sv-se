@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
-ms.openlocfilehash: d62eaf96354627e0c1e4e0a31bb16fb3265f66ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da17122de8db41b6ba9ae9597d52bc3e1d8d0062
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279781"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962402"
 ---
 # <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>För hands version: Azure Hybrid-förmån – hur det gäller för Virtuella Linux-datorer
 
@@ -112,7 +112,7 @@ az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 Du kan visa status för AHB för en virtuell dator på tre sätt: genom att kontrol lera i portalen, använda Azure CLI eller använda Azure-Instance Metadata Service (Azure IMDS).
 
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>Portal
 
 Visa konfigurations bladet och kontrol lera licensierings statusen för att se om AHB har Aktiver ATS för den virtuella datorn.
 
@@ -126,7 +126,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
-Från den virtuella datorn kan du fråga IMDS-bestyrkade metadata för att fastställa den virtuella datorns licenseType. LicenseType-värdet RHEL_BYOS eller SLES_BYOS anger att den virtuella datorn har förmånen aktive rad. Läs mer om attestering av metadata [här](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#attested-data)
+Från den virtuella datorn kan du fråga IMDS-bestyrkade metadata för att fastställa den virtuella datorns licenseType. LicenseType-värdet RHEL_BYOS eller SLES_BYOS anger att den virtuella datorn har förmånen aktive rad. Läs mer om attestering av metadata [här](./instance-metadata-service.md#attested-data)
 
 ## <a name="compliance"></a>Efterlevnad
 

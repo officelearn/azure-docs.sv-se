@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 94ba4b159e0a7e52603e7c200c11828f996cf6d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b45eea7a6c4bccbdc6669752255469174493ab55
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090524"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938348"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps community-projekt med öppen källkod
 
@@ -39,8 +39,10 @@ Följande är en lista med projekt med öppen källkod som utökar funktionerna 
 |-|-|
 | [Modul för Azure Maps animering](https://github.com/Azure-Samples/azure-maps-animations) | Ett avancerat bibliotek med animeringar som används med Azure Maps Web SDK. |
 | [Azure Maps modulen för kontroll av geolokalisering](https://github.com/Azure-Samples/azure-maps-geolocation-control) | En Azure Maps Web SDK-modul som tillhandahåller en kontroll som använder webbläsarens API för geolokalisering för att hitta användaren på kartan. |
+| [Gridded för data källa för Azure Maps](https://github.com/Azure-Samples/azure-maps-gridded-data-source) | En modul för Azure Maps Web SDK som tillhandahåller en data källa som klustrar data punkter i celler i ett rutnäts område. Den här åtgärden är också känd av många namn som tessellations, data diskretisering eller hex-platser.  |
 | [Azure Maps helskärm-kontrollmodul](https://github.com/Azure-Samples/azure-maps-fullscreen-control) | En Azure Maps Web SDK-modul som ger en kontroll för att visa kartan i hel skärms läge. |
 | [Modul för Azure Maps urvals kontroll](https://github.com/Azure-Samples/azure-maps-selection-control) | En Azure Maps Web SDK-modul som tillhandahåller kontroller för att markera data i en data källa med hjälp av rit verktyg eller genom att begära ett flödes intervall polygon. |
+| [Azure Maps svepa Map-modul](https://github.com/Azure-Samples/azure-maps-swipe-map) | En modul för Azure Maps Web SDK som tillåter Svep mellan två överlappande kartor, perfekt för att jämföra två överlappande data uppsättningar. |
 | [Azure Maps Sync Map-modul](https://github.com/Azure-Samples/azure-maps-sync-maps) | En Azure Maps Web SDK-modul som synkroniserar kameror med två eller flera Maps. |
 | [Modul för Azure Maps Services-gränssnittet](https://github.com/Azure-Samples/azure-maps-services-ui) | En uppsättning webb GRÄNSSNITTs kontroller som radbryter Azure Maps REST-tjänsterna. |
 

@@ -7,33 +7,33 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 08/21/2020
+ms.date: 10/12/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cb012fcc701e9dd18dbe1db5304807b4d96c2a86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13825422358fdddf6742353fbabaac0303b0c82e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757800"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973452"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Självstudie: optimera indexering med push-API
 
 Azure Kognitiv sökning stöder [två grundläggande metoder](search-what-is-data-import.md) för att importera data till ett sökindex *: att* skicka data till indexet program mässigt eller att peka en [Azure kognitiv sökning-indexerare](search-indexer-overview.md) på en data källa som stöds för att *Hämta* data.
 
-I den här självstudien beskrivs hur du effektivt indexerar data med [push-modellen](search-what-is-data-import.md#pushing-data-to-an-index) genom batching-begäranden och en exponentiell backoff-strategi för återförsök. Du kan [Hämta och köra programmet](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). I den här artikeln beskrivs viktiga aspekter av programmet och faktorer som du bör tänka på när du indexerar data.
+I den här självstudien beskrivs hur du effektivt indexerar data med [push-modellen](search-what-is-data-import.md#pushing-data-to-an-index) genom batching-begäranden och en exponentiell backoff-strategi för återförsök. Du kan [Hämta och köra exempel programmet](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). I den här artikeln beskrivs viktiga aspekter av programmet och faktorer som du bör tänka på när du indexerar data.
 
 I den här självstudien används C# och [.NET SDK](/dotnet/api/overview/azure/search) för att utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Skapa ett index
 > * Testa olika batch-storlekar för att fastställa den mest effektiva storleken
-> * Index data asynkront
+> * Index-batchar asynkront
 > * Använd flera trådar för att öka indexerings hastigheten
-> * Använd en exponentiell backoff-strategi för återförsök för att försöka utföra misslyckade objekt
+> * Använd en exponentiell backoff-strategi för återförsök för att försöka använda misslyckade dokument
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande tjänster och verktyg krävs för den här självstudien.
 
@@ -45,7 +45,7 @@ Följande tjänster och verktyg krävs för den här självstudien.
 
 ## <a name="download-files"></a>Ladda ned filer
 
-Käll koden för den här självstudien finns i mappen [optimzize-data-Indexing](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing) i [Azure-samples/Azure-Search-dotNet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) GitHub-lagringsplatsen.
+Käll koden för den här självstudien finns i mappen [optimzize-data-Indexing/V11](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing/v11) i mappen [Azure-samples/Azure-Search-dotNet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) GitHub.
 
 ## <a name="key-considerations"></a>Viktiga överväganden
 
@@ -79,12 +79,11 @@ API-anrop kräver tjänst-URL och en åtkomst nyckel. En Sök tjänst skapas med
 
 1. Starta Visual Studio och öppna **OptimizeDataIndexing. SLN**.
 1. I Solution Explorer öppnar du **appsettings.jspå** för att ange anslutnings information.
-1. För `searchServiceName` , om den fullständiga URL: en är " https://my-demo-service.search.windows.net ", är tjänst namnet som ska tillhandahållas "min-demo-service".
 
 ```json
 {
-  "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
-  "SearchServiceAdminApiKey": "<YOUR-ADMIN-API-KEY>",
+  "SearchServiceUri": "https://{service-name}.search.windows.net",
+  "SearchServiceAdminApiKey": "",
   "SearchIndexName": "optimize-indexing"
 }
 ```
@@ -112,7 +111,7 @@ Den här enkla/.NET-distribution.-konsolen i C# utför följande uppgifter:
 
 ### <a name="creating-the-index"></a>Skapar indexet
 
-Det här exempel programmet använder .NET SDK för att definiera och skapa ett Azure Kognitiv sökning-index. Det drar nytta av klassen [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder) för att generera en index struktur från en C#-data modell klass.
+Det här exempel programmet använder .NET SDK för att definiera och skapa ett Azure Kognitiv sökning-index. Det drar nytta av `FieldBuilder` klassen för att generera en index struktur från en C#-data modell klass.
 
 Data modellen definieras av hotell klassen, som också innehåller referenser till klassen address. FieldBuilder går igenom flera klass definitioner för att generera en komplex data struktur för indexet. Metadata-Taggar används för att definiera attributen för varje fält, till exempel om det är sökbart eller sorterbart.
 
@@ -120,27 +119,25 @@ Följande kodfragment från **Hotel.cs** -filen visar hur ett enskilt fält och 
 
 ```csharp
 . . .
-[IsSearchable, IsSortable]
+[SearchableField(IsSortable = true)]
 public string HotelName { get; set; }
 . . .
 public Address Address { get; set; }
 . . .
 ```
 
-I **program.cs** -filen definieras indexet med ett namn och en fält samling som genereras av `FieldBuilder.BuildForType<Hotel>()` metoden, och sedan skapas följande:
+I **program.cs** -filen definieras indexet med ett namn och en fält samling som genereras av `FieldBuilder.Build(typeof(Hotel))` metoden, och sedan skapas följande:
 
 ```csharp
-private static async Task CreateIndex(string indexName, SearchServiceClient searchService)
+private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)
 {
     // Create a new search index structure that matches the properties of the Hotel class.
     // The Address class is referenced from the Hotel class. The FieldBuilder
     // will enumerate these to create a complex data structure for the index.
-    var definition = new Index()
-    {
-        Name = indexName,
-        Fields = FieldBuilder.BuildForType<Hotel>()
-    };
-    await searchService.Indexes.CreateAsync(definition);
+    FieldBuilder builder = new FieldBuilder();
+    var definition = new SearchIndex(indexName, builder.Build(typeof(Hotel)));
+
+    await indexClient.CreateIndexAsync(definition);
 }
 ```
 
@@ -148,11 +145,12 @@ private static async Task CreateIndex(string indexName, SearchServiceClient sear
 
 En enkel klass implementeras i **DataGenerator.cs** -filen för att generera data för testning. Det enda syftet med den här klassen är att göra det enkelt att generera ett stort antal dokument med ett unikt ID för indexering.
 
-Om du vill hämta en lista över 100 000 hotell med unika ID: n kör du följande två kodrader:
+Om du vill hämta en lista över 100 000 hotell med unika ID: n kör du följande kodrader:
 
 ```csharp
+long numDocuments = 100000;
 DataGenerator dg = new DataGenerator();
-List<Hotel> hotels = dg.GetHotels(100000, "large");
+List<Hotel> hotels = dg.GetHotels(numDocuments, "large");
 ```
 
 Det finns två storlekar på hotell som är tillgängliga för testning i det här exemplet: **liten** och  **stor**.
@@ -164,7 +162,7 @@ Schemat för ditt index kan ha en betydande inverkan på indexerings hastigheten
 Azure Kognitiv sökning stöder följande API: er för att läsa in enstaka eller flera dokument i ett index:
 
 + [Lägg till, uppdatera eller ta bort dokument (REST API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [indexAction-klass](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) eller [indexBatch-klass](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet)
++ [IndexDocumentsAction-klass](/dotnet/api/azure.search.documents.models.indexdocumentsaction?view=azure-dotnet) eller [IndexDocumentsBatch-klass](/dotnet/api/azure.search.documents.models.indexdocumentsbatch?view=azure-dotnet)
 
 Indexering av dokument i batchar kan förbättra indexerings prestanda avsevärt. Dessa batchar kan vara upp till 1000 dokument eller upp till ungefär 16 MB per batch.
 
@@ -178,7 +176,7 @@ Eftersom den optimala batchstorleken är beroende av ditt index och dina data, �
 Följande funktion visar en enkel metod för att testa batchstorleken.
 
 ```csharp
-public static async Task TestBatchSizes(ISearchIndexClient indexClient, int min = 100, int max = 1000, int step = 100, int numTries = 3)
+public static async Task TestBatchSizesAsync(SearchClient searchClient, int min = 100, int max = 1000, int step = 100, int numTries = 3)
 {
     DataGenerator dg = new DataGenerator();
 
@@ -192,7 +190,7 @@ public static async Task TestBatchSizes(ISearchIndexClient indexClient, int min 
             List<Hotel> hotels = dg.GetHotels(numDocs, "large");
 
             DateTime startTime = DateTime.Now;
-            await UploadDocuments(indexClient, hotels);
+            await UploadDocumentsAsync(searchClient, hotels).ConfigureAwait(false);
             DateTime endTime = DateTime.Now;
             durations.Add(endTime - startTime);
 
@@ -208,22 +206,24 @@ public static async Task TestBatchSizes(ISearchIndexClient indexClient, int min 
         // Pausing 2 seconds to let the search service catch its breath
         Thread.Sleep(2000);
     }
+
+    Console.WriteLine();
 }
 ```
 
 Eftersom inte alla dokument har samma storlek (även om de finns i det här exemplet) beräknar vi storleken på de data som vi skickar till Sök tjänsten. Vi gör detta med hjälp av funktionen nedan som först konverterar objektet till JSON och bestämmer dess storlek i byte. Med den här tekniken kan vi avgöra vilka batchstorleken som är mest effektiva i förhållande till MB/s indexerings hastigheter.
 
 ```csharp
+// Returns size of object in MB
 public static double EstimateObjectSize(object data)
 {
-    // converting data to json for more accurate sizing
-    var json = JsonConvert.SerializeObject(data);
-
     // converting object to byte[] to determine the size of the data
     BinaryFormatter bf = new BinaryFormatter();
     MemoryStream ms = new MemoryStream();
     byte[] Array;
 
+    // converting data to json for more accurate sizing
+    var json = JsonSerializer.Serialize(data);
     bf.Serialize(ms, json);
     Array = ms.ToArray();
 
@@ -234,10 +234,10 @@ public static double EstimateObjectSize(object data)
 }
 ```
 
-Funktionen kräver `ISearchIndexClient` både och antalet försök som du vill testa för varje batchstorlek. Eftersom det kan finnas vissa variationer i indexerings tiderna för varje batch, försöker vi varje batch tre gånger som standard för att göra resultaten mer statistiskt signifikanta.
+Funktionen kräver `SearchClient` både och antalet försök som du vill testa för varje batchstorlek. Eftersom det kan finnas vissa variationer i indexerings tiderna för varje batch, försöker vi varje batch tre gånger som standard för att göra resultaten mer statistiskt signifikanta.
 
 ```csharp
-await TestBatchSizes(indexClient, numTries: 3);
+await TestBatchSizesAsync(searchClient, numTries: 3);
 ```
 
 När du kör funktionen bör du se utdata som nedan i-konsolen:
@@ -250,8 +250,8 @@ Identifiera vilken batchstorlek som är mest effektiv och Använd sedan den batc
 
 Nu när vi har identifierat batchstorleken som vi tänker använda, är nästa steg att börja indexera data. För att indexera data effektivt, det här exemplet:
 
-* Använder flera trådar/arbetare.
-* Implementerar en exponentiell backoff-strategi för återförsök.
++ Använder flera trådar/arbetare.
++ Implementerar en exponentiell backoff-strategi för återförsök.
 
 ### <a name="use-multiple-threadsworkers"></a>Använd flera trådar/arbetare
 
@@ -268,13 +268,16 @@ När du ramperar de begär Anden som når Sök tjänsten kan du stöta på [HTTP
 
 Om ett fel inträffar ska förfrågningarna göras om med en [exponentiell backoff-strategi för återförsök](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
-Azure Kognitiv söknings .NET SDK försöker automatiskt 503s och andra misslyckade förfrågningar, men du måste implementera din egen logik för att försöka igen 207s. Verktyg med öppen källkod, till exempel [Polly](https://github.com/App-vNext/Polly) , kan också användas för att implementera en strategi för återförsök. 
+Azure Kognitiv söknings .NET SDK försöker automatiskt 503s och andra misslyckade förfrågningar, men du måste implementera din egen logik för att försöka igen 207s. Verktyg med öppen källkod, till exempel [Polly](https://github.com/App-vNext/Polly) , kan också användas för att implementera en strategi för återförsök.
 
 I det här exemplet implementerar vi vår egen strategi för exponentiell backoff-återförsök. För att implementera den här strategin börjar vi med att definiera några variabler, inklusive `maxRetryAttempts` och initial `delay` för en misslyckad begäran:
 
 ```csharp
 // Create batch of documents for indexing
-IndexBatch<Hotel> batch = IndexBatch.Upload(hotels);
+var batch = IndexDocumentsBatch.Upload(hotels);
+
+// Create an object to hold the result
+IndexDocumentsResult result = null;
 
 // Define parameters for exponential backoff
 int attempts = 0;
@@ -282,9 +285,9 @@ TimeSpan delay = delay = TimeSpan.FromSeconds(2);
 int maxRetryAttempts = 5;
 ```
 
-Det är viktigt att fånga [IndexBatchException](/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet) som dessa undantag anger att indexerings åtgärden endast delvis lyckades (207s). Misslyckade objekt bör göras om med hjälp av `FindFailedActionsToRetry` metoden som gör det enkelt att skapa en ny batch som bara innehåller de misslyckade objekten.
+Resultatet av indexerings åtgärden lagras i variabeln `IndexDocumentResult result` . Den här variabeln är viktig eftersom du kan kontrol lera om några dokument i batchen misslyckades på det sätt som visas nedan. Om det uppstår ett partiellt fel skapas en ny batch utifrån det misslyckade dokumentets ID.
 
-Andra undantag än `IndexBatchException` bör också fångas och tyder på att begäran inte kunde slutföras fullständigt. Dessa undantag är mindre vanliga, särskilt med .NET SDK när det försöker 503s automatiskt.
+`RequestFailedException` undantag bör också fångas eftersom de anger att begäran inte kunde utföras fullständigt och även bör göras om.
 
 ```csharp
 // Implement exponential backoff
@@ -293,29 +296,46 @@ do
     try
     {
         attempts++;
-        var response = await indexClient.Documents.IndexAsync(batch);
-        break;
+        result = await searchClient.IndexDocumentsAsync(batch).ConfigureAwait(false);
+
+        var failedDocuments = result.Results.Where(r => r.Succeeded != true).ToList();
+
+        // handle partial failure
+        if (failedDocuments.Count > 0)
+        {
+            if (attempts == maxRetryAttempts)
+            {
+                Console.WriteLine("[MAX RETRIES HIT] - Giving up on the batch starting at {0}", id);
+                break;
+            }
+            else
+            {
+                Console.WriteLine("[Batch starting at doc {0} had partial failure]", id);
+                Console.WriteLine("[Retrying {0} failed documents] \n", failedDocuments.Count);
+
+                // creating a batch of failed documents to retry
+                var failedDocumentKeys = failedDocuments.Select(doc => doc.Key).ToList();
+                hotels = hotels.Where(h => failedDocumentKeys.Contains(h.HotelId)).ToList();
+                batch = IndexDocumentsBatch.Upload(hotels);
+
+                Task.Delay(delay).Wait();
+                delay = delay * 2;
+                continue;
+            }
+        }
+
+        return result;
     }
-    catch (IndexBatchException ex)
+    catch (RequestFailedException ex)
     {
-        Console.WriteLine("[Attempt: {0} of {1} Failed] - Error: {2}", attempts, maxRetryAttempts, ex.Message);
+        Console.WriteLine("[Batch starting at doc {0} failed]", id);
+        Console.WriteLine("[Retrying entire batch] \n");
 
         if (attempts == maxRetryAttempts)
+        {
+            Console.WriteLine("[MAX RETRIES HIT] - Giving up on the batch starting at {0}", id);
             break;
-
-        // Find the failed items and create a new batch to retry
-        batch = ex.FindFailedActionsToRetry(batch, x => x.HotelId);
-        Console.WriteLine("Retrying failed documents using exponential backoff...\n");
-
-        Task.Delay(delay).Wait();
-        delay = delay * 2;
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine("[Attempt: {0} of {1} Failed] - Error: {2} \n", attempts, maxRetryAttempts, ex.Message);
-
-        if (attempts == maxRetryAttempts)
-            break;
+        }
 
         Task.Delay(delay).Wait();
         delay = delay * 2;
@@ -325,10 +345,10 @@ do
 
 Härifrån kommer vi att packa upp exponent backoff-koden i en funktion så att den enkelt kan anropas.
 
-En annan funktion skapas sedan för att hantera aktiva trådar. För enkelhetens skull ingår inte den funktionen här, men den kan hittas i [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v10/OptimizeDataIndexing/ExponentialBackoff.cs). Funktionen kan anropas med följande kommando där `hotels` är de data som vi vill överföra, `1000` är batchstorleken och `8` är antalet samtidiga trådar:
+En annan funktion skapas sedan för att hantera aktiva trådar. För enkelhetens skull ingår inte den funktionen här, men den kan hittas i [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v11/OptimizeDataIndexing/ExponentialBackoff.cs). Funktionen kan anropas med följande kommando där `hotels` är de data som vi vill överföra, `1000` är batchstorleken och `8` är antalet samtidiga trådar:
 
 ```csharp
-ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8).Wait();
+await ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8);
 ```
 
 När du kör funktionen bör du se utdata som nedan:
@@ -337,7 +357,10 @@ När du kör funktionen bör du se utdata som nedan:
 
 När en batch med dokument Miss lyckas skrivs ett fel ut som anger felet och att batchen provas igen:
 
-![Fel vid index data funktion](media/tutorial-optimize-data-indexing/index-data-error.png "Utdata från funktionen test batchstorlek")
+```
+[Batch starting at doc 6000 had partial failure]
+[Retrying 560 failed documents]
+```
 
 När funktionen har körts klart kan du kontrol lera att alla dokument har lagts till i indexet.
 
@@ -354,7 +377,7 @@ Det finns två huvud alternativ för att kontrol lera antalet dokument i ett ind
 Med åtgärden räkna dokument hämtas antalet dokument i ett sökindex:
 
 ```csharp
-long indexDocCount = indexClient.Documents.Count();
+long indexDocCount = await searchClient.GetDocumentCountAsync();
 ```
 
 #### <a name="get-index-statistics"></a>Hämta index statistik
@@ -362,7 +385,7 @@ long indexDocCount = indexClient.Documents.Count();
 Åtgärden hämta index statistik returnerar ett dokument antal för det aktuella indexet samt lagrings användningen. Index statistik tar längre tid än antalet dokument att uppdatera.
 
 ```csharp
-IndexGetStatisticsResult indexStats = serviceClient.Indexes.GetStatistics(configuration["SearchIndexName"]);
+var indexStats = await indexClient.GetIndexStatisticsAsync(indexName);
 ```
 
 ### <a name="azure-portal"></a>Azure Portal

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 8e1a08af1be3d9b5cfb011516d00a8c0548994bf
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 5eade0ad48dcdd1f0c18ef6e65e498a7b9c79c15
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946185"
+ms.locfileid: "91951698"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopierings aktivitet i Azure Data Factory
 
@@ -186,10 +186,11 @@ Se [schema-och data typs mappning](copy-activity-schema-and-type-mapping.md) fö
 Förutom att kopiera data från käll data lagret till Sink kan du också konfigurera för att lägga till ytterligare data kolumner som ska kopieras till mottagaren. Till exempel:
 
 - När du kopierar från filbaserad källa lagrar du den relativa fil Sök vägen som en ytterligare kolumn att spåra från vilken fil data kommer från.
+- Duplicera den angivna käll kolumnen som en annan kolumn. 
 - Lägg till en kolumn med ADF-uttryck för att koppla ADF-systemvariabler som pipeline-namn/pipeline-ID eller lagra andra dynamiska värden från den överordnade aktivitetens utdata.
 - Lägg till en kolumn med ett statiskt värde för att uppfylla de behov du behöver.
 
-Du kan hitta följande konfiguration på fliken Kopiera aktivitet Källa: 
+Du kan hitta följande konfiguration på fliken Kopiera aktivitet källa. Du kan också mappa dessa ytterligare kolumner i Kopiera aktivitets [schema mappning](copy-activity-schema-and-type-mapping.md#schema-mapping) som vanligt genom att använda definierade kolumn namn. 
 
 ![Lägg till ytterligare kolumner i kopierings aktiviteten](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
 
@@ -200,7 +201,7 @@ Om du vill konfigurera den program mässigt lägger du till `additionalColumns` 
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| additionalColumns | Lägg till ytterligare data kolumner som ska kopieras till Sink.<br><br>Varje objekt i `additionalColumns` matrisen representerar en extra kolumn. `name`Kolumnens namn definieras och `value` anger kolumnens data värde.<br><br>Tillåtna data värden är:<br>- **`$$FILEPATH`** – en reserverad variabel indikerar att lagra källfilernas relativa sökväg till den mappsökväg som anges i data uppsättningen. Tillämpa på filbaserad källa.<br>- **Uttryck**<br>- **Statiskt värde** | Nej |
+| additionalColumns | Lägg till ytterligare data kolumner som ska kopieras till Sink.<br><br>Varje objekt i `additionalColumns` matrisen representerar en extra kolumn. `name`Kolumnens namn definieras och `value` anger kolumnens data värde.<br><br>Tillåtna data värden är:<br>- **`$$FILEPATH`** – en reserverad variabel indikerar att lagra källfilernas relativa sökväg till den mappsökväg som anges i data uppsättningen. Tillämpa på filbaserad källa.<br>- **$ $Column: <source_column_name>** – ett reserverat variabel mönster anger att duplicera den angivna käll kolumnen som en annan kolumn<br>- **Uttryck**<br>- **Statiskt värde** | Nej |
 
 **Exempel:**
 
@@ -218,6 +219,10 @@ Om du vill konfigurera den program mässigt lägger du till `additionalColumns` 
                     {
                         "name": "filePath",
                         "value": "$$FILEPATH"
+                    },
+                    {
+                        "name": "newColName",
+                        "value": "$$COLUMN:SourceColumnA"
                     },
                     {
                         "name": "pipelineName",

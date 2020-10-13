@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad9d135df428c79df745ad24d9e7382e06599168
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84022188"
+ms.locfileid: "91893211"
 ---
 # <a name="late-stage-reprojection"></a>Omprojektion av sena steg
 
@@ -34,7 +34,9 @@ I så fall använder appen djup LSR, annars används Planning LSR.
 
 För att djupet LSR ska fungera måste klient programmet tillhandahålla en giltig djup buffert som innehåller alla relevanta geometrier att överväga under LSR.
 
-Djup LSR försöker stabilisera video ramen baserat på innehållet i den angivna djup bufferten. Som en följd av detta kan innehåll som inte har renderas till den, till exempel transparenta objekt, inte justeras av LSR och kan visa instabilitets-och omprojektions artefakter.
+Djup LSR försöker stabilisera video ramen baserat på innehållet i den angivna djup bufferten. Som en följd av detta kan innehåll som inte har renderas till den, till exempel transparenta objekt, inte justeras av LSR och kan visa instabilitets-och omprojektions artefakter. 
+
+Om du vill minska omprojektionen för transparenta objekt, kan du framtvinga Skriv djupet. Se material flaggan *TransparencyWritesDepth* för [färg](color-materials.md) -och [PBR](pbr-materials.md) -material. Observera dock att den visuella kvaliteten för transparent/ogenomskinlig objekt interaktion kan bli lidande när du aktiverar den här flaggan.
 
 ## <a name="planar-lsr"></a>Plan-LSR
 

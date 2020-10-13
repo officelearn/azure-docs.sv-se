@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 394c87bcd3e4580289fbccc6a31b164f914dc8a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bedb619d77d9e5a88fdc16d0fbd066fa092e0765
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020804"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950796"
 ---
 # <a name="how-to-use-microsoftazuresearch-v10-in-a-net-application"></a>Använda Microsoft. Azure. search (v10) i ett .NET-program
 
@@ -44,7 +44,7 @@ Om du vill ge feedback om en kommande uppdatering av SDK: n, se vår [feedback-s
 
 .NET SDK mål versionen `2019-05-06` av [Azure kognitiv sökning REST API](/rest/api/searchservice/). Den här versionen innehåller stöd för [komplexa typer](search-howto-complex-data-types.md), [AI-anrikning](cognitive-search-concept-intro.md), [komplettering](/rest/api/searchservice/autocomplete)och [JsonLines tolknings läge](search-howto-index-json-blobs.md) vid indexering av Azure-blobar. 
 
-Detta SDK stöder inte [hanterings åtgärder](/rest/api/searchmanagement/) som att skapa och skala Sök tjänster och hantera API-nycklar. Om du behöver hantera dina Sök resurser från ett .NET-program kan du använda Azure- [kognitiv sökning .net Management SDK](https://aka.ms/search-mgmt-sdk).
+Detta SDK stöder inte [hanterings åtgärder](/rest/api/searchmanagement/) som att skapa och skala Sök tjänster och hantera API-nycklar. Om du behöver hantera dina Sök resurser från ett .NET-program kan du använda Azure- [kognitiv sökning .net Management SDK](/dotnet/api/overview/azure/search).
 
 ## <a name="upgrading-to-the-latest-version-of-the-sdk"></a>Uppgradera till den senaste versionen av SDK
 Om du redan använder en äldre version av Azure Kognitiv sökning .NET SDK och du vill uppgradera till den senaste allmänt tillgängliga versionen, förklarar [den här artikeln](search-dotnet-sdk-migration-version-9.md) hur.

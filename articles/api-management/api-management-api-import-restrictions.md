@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: 86ed7f3941965bcac525a2ba71786d20a4753489
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a53cc2b2ec6d46b4bde54af58b4e5542ff6cf79
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335508"
+ms.locfileid: "91932642"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API-importbegränsningar och kända problem
 
@@ -42,6 +42,7 @@ Om du får fel när du importerar OpenAPI-dokumentet ser du till att du har vali
 -   Säkerhets definitioner ignoreras.
 -   Infogade schema definitioner för API-åtgärder stöds inte. Schema definitioner definieras i API-omfånget och kan refereras till i API-åtgärder för begäran eller svars omfattningar.
 -   En definierad URL-parameter måste vara en del av URL-mallen.
+-   `server` objektet stöds inte på API-åtgärds nivån.
 -   `Produces` nyckelord, som beskriver MIME-typer som returneras av ett API, stöds inte. 
 
 ### <a name="openapi-version-2"></a><a name="open-api-v2"> </a>Openapi version 2

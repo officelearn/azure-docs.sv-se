@@ -4,13 +4,13 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 05/23/2019
 ms.author: rgarcia
-ms.openlocfilehash: e0038fd5632d512f18d50c4d11577b7f5756baa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66f68e84553f064f0d2259d5ef2b3ab29d1ee064
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67235469"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971468"
 ---
-Öppna projektet i-mappen i Unity `Unity` . Uniting kan bli ombedd att ange en annan version av enhets versionen mellan projektet och den som du har installerat på datorn. Den här varningen är OK så länge din version av Uniting Editor är nyare än den som projektet skapades med. I så fall klickar du bara på **Fortsätt**. Om din Unity Editor-version är äldre än den som projektet behöver, klickar du på **Avsluta**och uppgraderar din Unity-redigerare.
+Öppna projektet *i Unity-mappen i* Unity. Unity kan bli en fråga om en skillnad mellan versionen i projektet och den version som är installerad på datorn. Den här varningen är OK så länge din version av Uniting Editor är nyare än den som projektet skapades med. Om versionen är nyare väljer du **Fortsätt**. Om din version är äldre än den som projektet behöver, väljer du **Avsluta**och uppgraderar din Unity-redigerare.
 
-![Unity-fönstret](./media/spatial-anchors-unity/unity-window.png)
+![Skärm bild av fönstret Unity.](./media/spatial-anchors-unity/unity-window.png)

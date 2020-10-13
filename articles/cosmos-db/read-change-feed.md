@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 58db7dcade7567d632fb405b31c4ff7bdbc6e71a
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90018977"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Läsa ändringsflödet i Azure Cosmos DB
@@ -27,7 +27,7 @@ När du läser från Azure Cosmos DB ändra feed rekommenderar vi vanligt vis at
 - Belastnings utjämning över flera klienter som förbrukar ändringar. Till exempel om en klient inte kan fortsätta att bearbeta ändringar och en annan har tillgänglig kapacitet.
 - [Hanterings fel](change-feed-processor.md#error-handling). Försök till exempel automatiskt att försöka utföra ändringar som inte bearbetades korrekt efter ett ohanterat undantag i kod eller ett tillfälligt nätverks problem.
 
-De flesta scenarier som använder Azure Cosmos DB ändra feed kommer att använda en av alternativen för push-modellen. Det finns dock vissa scenarier där du kanske vill ha en extra låg nivå kontroll av pull-modellen. Dessa omfattar:
+De flesta scenarier som använder Azure Cosmos DB ändra feed kommer att använda en av alternativen för push-modellen. Det finns dock vissa scenarier där du kanske vill ha en extra låg nivå kontroll av pull-modellen. Exempel:
 
 - Läser ändringar från en viss partitionsnyckel
 - Styra i vilken takt klienten får ändringar för bearbetning

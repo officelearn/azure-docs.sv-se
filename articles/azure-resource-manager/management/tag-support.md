@@ -4,10 +4,10 @@ description: Visar vilka typer av Azure-resurs typer som stöder taggar. Innehå
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 27e25b1048bb759a3b38859788c27c03f1cf0447
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371549"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagga stöd för Azure-resurser
@@ -1739,9 +1739,9 @@ Hoppa till ett namn område för en resurs leverantör:
 > | expressRoutePorts | Ja | Ja |
 > | expressRouteServiceProviders | Inga | Inga |
 > | firewallPolicies | Ja | Ja |
-> | frontdoors | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Yes |
-> | frontdoorWebApplicationFirewallManagedRuleSets | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | No |
-> | frontdoorWebApplicationFirewallPolicies | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Yes |
+> | frontdoors | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Ja |
+> | frontdoorWebApplicationFirewallManagedRuleSets | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Inga |
+> | frontdoorWebApplicationFirewallPolicies | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Ja |
 > | getDnsResourceReference | Inga | Inga |
 > | internalNotify | Inga | Inga |
 > | ipGroups | Ja | Ja |
@@ -2217,7 +2217,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | Ja | Ja |
-> | managedInstances/databaser | Ja (se [Anmärkning nedan](#sqlnote)) | Yes |
+> | managedInstances/databaser | Ja (se [Anmärkning nedan](#sqlnote)) | Ja |
 > | managedInstances/databaser/backupShortTermRetentionPolicies | Inga | Inga |
 > | managedInstances/databaser/scheman/tabeller/kolumner/sensitivityLabels | Inga | Inga |
 > | managedInstances/databaser/vulnerabilityAssessments | Inga | Inga |
@@ -2229,7 +2229,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | brygghuvudservrar | Ja | Ja |
 > | servrar/administratörer | Inga | Inga |
 > | servrar/communicationLinks | Inga | Inga |
-> | servrar/databaser | Ja (se [Anmärkning nedan](#sqlnote)) | Yes |
+> | servrar/databaser | Ja (se [Anmärkning nedan](#sqlnote)) | Ja |
 > | servrar/encryptionProtector | Inga | Inga |
 > | servrar/firewallRules | Inga | Inga |
 > | servrar/nycklar | Inga | Inga |
@@ -2332,7 +2332,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | kluster | Ja | Ja |
-> | streamingjobs | Ja (se anmärkning nedan) | Yes |
+> | streamingjobs | Ja (se anmärkning nedan) | Ja |
 
 > [!NOTE]
 > Du kan inte lägga till en tagg när streamingjobs körs. Stoppa resursen för att lägga till en tagg.

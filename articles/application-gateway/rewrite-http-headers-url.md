@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
 ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281199"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Skriv om HTTP-sidhuvuden och URL: en med Application Gateway
 
- Med Application Gateway kan du skriva om det valda innehållet i begär Anden och svar. Med den här funktionen kan du översätta URL: er, fråga sträng parametrar och ändra begäran och svarshuvuden. Du kan också lägga till villkor för att se till att URL: en eller de angivna rubrikerna bara skrivs om när vissa villkor är uppfyllda. Dessa villkor baseras på begäran och svars information.
+ Med Application Gateway kan du skriva om det valda innehållet i begär Anden och svar. Med den här funktionen kan du översätta URL: er, fråga sträng parametrar och ändra begäran och svarshuvuden. Du kan också lägga till villkor för att se till att URL: en eller de angivna rubrikerna bara skrivs om när vissa villkor är uppfyllda. Dessa villkor baseras på informationen för begäran och svar.
 
 >[!NOTE]
 >Funktioner för HTTP-huvud-och URL-omskrivning är bara tillgängliga för [Application Gateway v2-SKU: n](application-gateway-autoscaling-zone-redundant.md)
@@ -113,21 +113,21 @@ Application Gateway stöder följande servervariabler:
 | client_port               | Klient porten.                                             |
 | client_tcp_rtt            | Information om klientens TCP-anslutning. Tillgängligt på system som har stöd för alternativet TCP_INFO socket. |
 | client_user               | När HTTP-autentisering används anges användar namnet för autentisering. |
-| värd                      | I den här prioritetsordningen: värd namnet från begär ande raden, värd namnet från fältet värd begär ande huvud eller Server namnet som matchar en begäran. Exempel: i begäran `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` är värd värdet`contoso.com` |
+| värd                      | I den här prioritetsordningen: värd namnet från begär ande raden, värd namnet från fältet värd begär ande huvud eller Server namnet som matchar en begäran. Exempel: i begäran `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` är värd värdet `contoso.com` |
 | cookie_*namn*             | Cookie- *namn* .                                           |
 | http_method               | Den metod som används för att göra URL-begäran. Till exempel GET eller POST. |
 | http_status               | Sessionens status. Till exempel 200, 400 eller 403.           |
 | http_version              | Protokollet för begäran. Vanligt vis HTTP/1.0, HTTP/1.1 eller HTTP/2.0. |
-| query_string              | Listan över variabel/värde-par som följer "?" i den begärda URL: en. Exempel: i begäran `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` visas QUERY_STRING värde`id=123&title=fabrikam` |
+| query_string              | Listan över variabel/värde-par som följer "?" i den begärda URL: en. Exempel: i begäran `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` visas QUERY_STRING värde `id=123&title=fabrikam` |
 | received_bytes            | Längden på begäran (inklusive raden för begäran, sidhuvud och brödtext). |
 | request_query             | Argumenten på raden för begäran.                           |
 | request_scheme            | Begär ande schema: http eller https.                           |
-| request_uri               | Fullständig URI för ursprunglig begäran (med argument). Exempel: i begäran `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*` visas REQUEST_URI värde`/article.aspx?id=123&title=fabrikam` |
+| request_uri               | Fullständig URI för ursprunglig begäran (med argument). Exempel: i begäran `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*` visas REQUEST_URI värde `/article.aspx?id=123&title=fabrikam` |
 | sent_bytes                | Antalet byte som har skickats till en klient.                        |
 | server_port               | Porten för den server som godkände en begäran.              |
 | ssl_connection_protocol   | Protokollet för en etablerad TLS-anslutning.               |
 | ssl_enabled               | "On" om anslutningen fungerar i TLS-läge. Annars är en tom sträng. |
-| uri_path                  | Identifierar den angivna resursen i värden som webb klienten vill ha åtkomst till. Detta är en del av URI: n för begäran utan argumenten. Exempel: i begäran `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` visas uri_path värde`/article.aspx` |
+| uri_path                  | Identifierar den angivna resursen i värden som webb klienten vill ha åtkomst till. Detta är en del av URI: n för begäran utan argumenten. Exempel: i begäran `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` visas uri_path värde `/article.aspx` |
 
  
 
@@ -205,23 +205,23 @@ Om du vill göra scenarier där du vill välja backend-poolen baserat på värde
 
 **Steg 2 (a):** Skapa en omskrivnings uppsättning som har tre omskrivnings regler: 
 
-* Den första regeln har ett villkor som kontrollerar *QUERY_STRING* -variabeln för *kategori = skor* och har en åtgärd som skriver om URL-sökvägen till/*listing1* och har **omutvärderat Sök vägs mappning** aktive rad
+* Den första regeln har ett villkor som kontrollerar *QUERY_STRING*  -variabeln för *kategori = skor* och har en åtgärd som skriver om URL-sökvägen till/*listing1* och har **omutvärderat Sök vägs mappning** aktive rad
 
-* Den andra regeln har ett villkor som kontrollerar *QUERY_STRING* -variabeln för *kategori = påsar* och har en åtgärd som skriver om URL-sökvägen till/*listing2* och har **omutvärderat Sök vägs kartan** aktiverat
+* Den andra regeln har ett villkor som kontrollerar *QUERY_STRING*  -variabeln för *kategori = påsar* och har en åtgärd som skriver om URL-sökvägen till/*listing2*  och har **omutvärderat Sök vägs kartan** aktiverat
 
-* Den tredje regeln har ett villkor som kontrollerar *QUERY_STRING* -variabeln för *Category = Accessories* och har en åtgärd som skriver om URL-sökvägen till/*listing3* och har **omutvärderat Sök vägs mappning** aktive rad
+* Den tredje regeln har ett villkor som kontrollerar *QUERY_STRING*  -variabeln för *Category = Accessories* och har en åtgärd som skriver om URL-sökvägen till/*listing3* och har **omutvärderat Sök vägs mappning** aktive rad
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="URL-omskrivning scenario 1-2.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="URL-omskrivning scenario 1-1.":::
 
  
 
 **Steg 2 (b):** Associera denna omarbetnings uppsättning med standard Sök vägen för ovanstående Sök vägs regel
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="URL-omskrivning scenario 1-3.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="URL-omskrivning scenario 1-1.":::
 
 Om användaren begär *contoso.com/Listing?Category=any*matchas den nu med standard Sök vägen eftersom inget av Sök vägs mönstren i Sök vägs kartan (/listing1,/listing2,/listing3) matchar. Eftersom du kopplade ovanstående omskrivnings uppsättning med den här sökvägen kommer den här omskrivnings uppsättningen att utvärderas. Eftersom frågesträngen inte matchar villkoret i någon av reglerna för 3-omskrivning i den här Skriv åtgärden kommer ingen omskrivning att ske, och därför kommer begäran att dirigeras oförändrad till Server delen som är kopplad till standard Sök vägen (som är *GenericList*).
 
- Om användaren begär *contoso.com/Listing?Category=Shoes* så matchas standard Sök vägen igen. I det här fallet kommer dock villkoret i den första regeln att matchas och därför körs åtgärden som är associerad med villkoret, vilket kommer att skriva om URL-sökvägen till/*listing1* och sedan utvärdera sökvägen till kartan igen. När sökvägen – kartan har utvärderats på nytt matchar begäran nu den sökväg som är kopplad till mönstret */listing1* och begäran dirigeras till Server delen som är kopplad till det här mönstret, som är ShoesListBackendPool
+ Om användaren begär *contoso.com/Listing?Category=Shoes* så matchas standard Sök vägen igen. I det här fallet kommer dock villkoret i den första regeln att matchas och därför körs åtgärden som är associerad med villkoret, vilket kommer att skriva om URL-sökvägen till/*listing1*  och sedan utvärdera sökvägen till kartan igen. När sökvägen – kartan har utvärderats på nytt matchar begäran nu den sökväg som är kopplad till mönstret */listing1* och begäran dirigeras till Server delen som är kopplad till det här mönstret, som är ShoesListBackendPool
 
 >[!NOTE]
 >Det här scenariot kan utökas till alla sidhuvuds-eller cookie-värden, URL-sökvägar, frågesträngar eller servervariabler baserat på villkoret som definierats och innebär att du kan dirigera begär Anden baserat på dessa villkor.
@@ -232,13 +232,13 @@ Om användaren begär *contoso.com/Listing?Category=any*matchas den nu med stand
 
 I så fall kan Application Gateway avbilda parametrar från URL: en och lägga till frågesträngar nyckel/värde-par från URL: en. Anta till exempel att användaren vill skriva om, `https://www.contoso.com/fashion/shirts` till `https://www.contoso.com/buy.aspx?category=fashion&product=shirts` , det kan uppnås genom följande URL-omskrivning av konfigurationen.
 
-**Villkor** – om Server variabeln `uri_path` är lika med mönstret`/(.+)/(.+)`
+**Villkor** – om Server variabeln `uri_path` är lika med mönstret `/(.+)/(.+)`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="URL-omskrivning scenario 2-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="URL-omskrivning scenario 1-1.":::
 
-**Åtgärd** – ange URL-sökvägen till `buy.aspx` och frågesträng till`category={var_uri_path_1}&product={var_uri_path_2}`
+**Åtgärd** – ange URL-sökvägen till `buy.aspx` och frågesträng till `category={var_uri_path_1}&product={var_uri_path_2}`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="URL-omskrivning scenario 2-2.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="URL-omskrivning scenario 1-1.":::
 
 En steg-för-steg-guide för att uppnå scenariot som beskrivs ovan finns i [omskrivnings-URL med Application Gateway med Azure Portal](rewrite-url-portal.md)
 
@@ -248,11 +248,11 @@ Om URL-omskrivning görs om, Application Gateway skriver om URL: en innan begär
 
 I händelse av URL-omdirigering skickar Application Gateway ett omdirigerings svar till klienten med den nya URL: en. Som i sin tur kräver att klienten skickar en begäran till den nya URL: en som finns i omdirigeringen. URL som användaren ser i webbläsaren kommer att uppdateras till den nya URL: en
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Skriv om vs Redirect.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="URL-omskrivning scenario 1-1.":::
 
 ## <a name="limitations"></a>Begränsningar
 
-- Om ett svar har fler än en rubrik med samma namn, kommer de andra rubrikerna att tas bort om du skriver om värdet för en av dessa huvuden. Detta kan vanligt vis inträffa med set-cookie-sidhuvudet eftersom du kan ha fler än en uppsättning-cookie-huvud i ett svar. Ett sådant scenario är när du använder en app service med en Application Gateway och har konfigurerat cookie-baserad mappning mellan sessioner på Application Gateway. I det här fallet kommer svaret att innehålla två uppsättningar-cookie-huvuden: en som används av App Service, till exempel: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` och en annan för Application Gateway-tillhörighet, till exempel `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Om du skriver om en av Set-cookie-huvudena i det här scenariot kan det leda till att du tar bort den andra uppsättningen av cookie-huvud från svaret.
+- Om ett svar har fler än en rubrik med samma namn, kommer de andra rubrikerna att tas bort om du skriver om värdet för en av dessa huvuden. Detta kan vanligt vis inträffa med Set-Cookie sidhuvud eftersom du kan ha fler än ett Set-Cookie-huvud i ett svar. Ett sådant scenario är när du använder en app service med en Application Gateway och har konfigurerat cookie-baserad mappning mellan sessioner på Application Gateway. I det här fallet kommer svaret att innehålla två Set-Cookie huvuden: en som används av App Service, till exempel: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` och en annan för Application Gateway-tillhörighet, till exempel `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Om du skriver om en av Set-Cookie rubrikerna i det här scenariot kan det leda till att den andra Set-Cookies rubriken tas bort från svaret.
 - Omskrivningar stöds inte när Application Gateway har kon figurer ATS för att omdirigera begär Anden eller för att visa en anpassad felsida.
 - Rubrik namn får innehålla alfanumeriska tecken och vissa symboler som definieras i [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Vi stöder för närvarande inte under streck (_) specialtecken i rubrik namn.
 - Det går inte att skriva om anslutnings-och uppgraderings rubriker

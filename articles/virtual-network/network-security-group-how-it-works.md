@@ -14,10 +14,10 @@ ms.date: 08/24/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: e60cdfb00d0dc9d446bd52a72e9fd15676acd285
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89458203"
 ---
 # <a name="how-network-security-groups-filter-network-traffic"></a>Hur nätverks säkerhets grupper filtrerar nätverks trafik
@@ -52,7 +52,7 @@ För utgående trafik bearbetar Azure först reglerna i en nätverkssäkerhetsgr
 - **VM4**: All nätverkstrafik tillåts från *VM4* eftersom ingen nätverkssäkerhetsgrupp är associerad med nätverksgränssnittet som är kopplat till den virtuella datorn eller till *Subnet3*.
 
 
-## <a name="intra-subnet-traffic"></a>Trafik inom under nätet
+## <a name="intra-subnet-traffic"></a>Intra-Subnet trafik
 
 Det är viktigt att Observera att säkerhets regler i en NSG som är kopplade till ett undernät kan påverka anslutningen mellan den virtuella datorn i det. Om en regel till exempel läggs till i *NSG1* som nekar all inkommande och utgående trafik, kommer *VM1* och *VM2* inte längre att kunna kommunicera med varandra. En annan regel skulle behöva läggas till specifikt för att tillåta detta. 
 

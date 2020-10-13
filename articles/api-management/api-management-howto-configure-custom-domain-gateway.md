@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
 ms.openlocfilehash: 0894203be4867e305c8e15467a2a867b9bfdc727
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86506816"
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurera ett anpassat domännamn
 
 När du etablerar en [Azure API Management-Gateway med egen värd](self-hosted-gateway-overview.md) är den inte tilldelad värd namnet och måste refereras till av dess IP-adress. Den här artikeln visar hur du mappar ett befintligt anpassat DNS-namn (kallas även hostname) till en egen värd-Gateway.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att utföra stegen som beskrivs i den här artikeln måste du ha:
 

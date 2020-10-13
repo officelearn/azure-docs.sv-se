@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: daberry
 ms.openlocfilehash: 3766c31add02799c62bca7e9063e723e0a5b498e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86509366"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Felsöka allokeringsfel när du skapar, startar om eller ändrar storlek på virtuella datorer i Azure
@@ -73,7 +73,7 @@ Fullständig avallokering innebär att du har stoppat (frigjort) alla virtuella 
 ### <a name="workaround"></a>Lösning
 
 Om du använder äldre serien eller storlekar för virtuella datorer, till exempel DV1, DSv1, AV1, D15v2 eller DS15v2, bör du överväga att flytta till nyare versioner. Se de här rekommendationerna för enskilda VM-storlekar.
-Om du inte har alternativet att använda en annan VM-storlek kan du prova att distribuera till en annan region inom samma geografiska område. Mer information om tillgängliga VM-storlekar i varje region finns påhttps://aka.ms/azure-regions
+Om du inte har alternativet att använda en annan VM-storlek kan du prova att distribuera till en annan region inom samma geografiska område. Mer information om tillgängliga VM-storlekar i varje region finns på https://aka.ms/azure-regions
 
 Om du använder tillgänglighets zoner kan du prova en annan zon inom den region som kan ha tillgänglig kapacitet för den begärda virtuella dator storleken.
 

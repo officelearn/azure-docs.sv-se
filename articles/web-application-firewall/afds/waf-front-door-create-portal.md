@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: victorh
 ms.openlocfilehash: 7c7ea5297276ed9a1d1f2ca8f4190997dcab57c3
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90602225"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Självstudie: skapa en brand Väggs princip för webb program på Azure-frontend med hjälp av Azure Portal
@@ -25,7 +25,7 @@ I den här guiden får du lära dig att:
 > * Koppla den till en klient dels värd
 > * Konfigurera WAF-regler
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Skapa en profil för en frontend-dörr genom att följa anvisningarna i [snabb start: skapa en profil för front dörren](../../frontdoor/quickstart-create-front-door.md). 
 
@@ -36,7 +36,7 @@ Börja med att skapa en grundläggande WAF-princip med hanterad standard regel u
 1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**>söker efter **WAF**>väljer **brand vägg för webbaserade program (för hands version)** > väljer **skapa**.
 2. På fliken **grundläggande** på sidan **skapa en WAF-princip** anger eller väljer du följande information, accepterar standardinställningarna för återstående inställningar och väljer sedan **Granska + skapa**:
 
-    | Inställning                 | Värde                                              |
+    | Inställningen                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration            |Välj prenumerations namnet på din front dörr.|
     | Resursgrupp          |Välj resurs grupps namnet för front dörren.|
@@ -46,14 +46,14 @@ Börja med att skapa en grundläggande WAF-princip med hanterad standard regel u
 
 3. På fliken **Association** på sidan **skapa en WAF-princip** väljer du **Lägg till klient dels värd**, anger följande inställningar och väljer sedan **Lägg till**:
 
-    | Inställning                 | Värde                                              |
+    | Inställningen                 | Värde                                              |
     | ---                     | ---                                                |
     | Front dörr              | Välj profil namnet för din klient del.|
     | Klient dels värd           | Välj namnet på värddatorn för din frontend-dörr och välj sedan **Lägg till**.|
     
     > [!NOTE]
     > Om klient dels värden är kopplad till en WAF-princip visas den som nedtonad. Du måste först ta bort klient dels värden från den associerade principen och sedan associera klient dels värden på nytt till en ny WAF-princip.
-1. Välj **Granska + skapa**och välj sedan **skapa**.
+1. Välj **Granska + skapa** och välj sedan **Skapa**.
 
 ## <a name="configure-web-application-firewall-rules-optional"></a>Konfigurera brand Väggs regler för webb program (valfritt)
 

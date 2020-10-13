@@ -12,15 +12,15 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b5f8d08f0814ec69719c002ea9efd39bb38b7d16
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88718024"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Så här fungerar Azure Multi-Factor Authentication
 
-Multi-Factor Authentication är en process där en användare uppmanas att ange en ytterligare typ av identifiering, till exempel för att ange en kod på mobilen eller för att tillhandahålla en finger avsökning.
+Multifaktorautentisering är en process där en användare under inloggningen uppmanas att ange ytterligare en typ av identifiering, till exempel att ange en kod på sin mobiltelefon eller ange ett fingeravtryck.
 
 Om du bara använder ett lösen ord för att autentisera en användare lämnar den osäker vektor för angrepp. Om lösen ordet är svagt eller har exponerats någon annan stans, är det verkligen användaren som loggar in med användar namnet och lösen ordet, eller är det en angripare? När du behöver en andra form av autentisering, ökar säkerheten eftersom den här ytterligare faktorn inte är något som är lätt för en angripare att hämta eller duplicera.
 

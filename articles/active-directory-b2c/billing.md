@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 416e2c767b5afd40fea38e6f75fcd3f01440b49a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89255367"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Fakturerings modell för Azure Active Directory B2C
@@ -78,7 +78,7 @@ En klient måste vara länkad till lämplig pris nivå för Azure baserat på de
 
 Följ dessa steg om du vill ändra pris nivån.
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 
 2. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure-prenumerationen som din Azure B2C-klient är länkad till (Välj*inte* själva Azure AD B2C klienten).
 

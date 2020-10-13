@@ -9,10 +9,10 @@ ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 25571db967608c238bccb1ab44f75a0a163803d5
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90020376"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Azures säkerhets bas linje för Azure Sentinel
@@ -551,13 +551,13 @@ Det är ditt ansvar att förskanna allt innehåll som laddas upp till Azure-resu
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: se till att skydda säkerhets kopior och Kundhanterade nycklar
 
-**Vägledning**: Aktivera mjuk borttagning i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning. I händelse av att en användare återkallar nyckel krypterings nyckeln, antingen genom att ta bort eller ta bort åtkomst för Azure Sentinel, inom en timme, kommer Azure Sentinel att bearbeta ändringen och beter sig som om data inte längre är tillgängliga. I det här läget kommer alla utförda åtgärder som använder permanenta lagrings resurser, till exempel data inmatning, beständiga konfigurations ändringar och incident skapande att förhindras. Tidigare lagrade data tas inte bort, men kommer inte att vara tillgängliga. Otillgängliga data regleras av data bevarande principen och tas bort i enlighet med principen.
+**Vägledning**: Aktivera Soft-Delete i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning. I händelse av att en användare återkallar nyckel krypterings nyckeln, antingen genom att ta bort eller ta bort åtkomst för Azure Sentinel, inom en timme, kommer Azure Sentinel att bearbeta ändringen och beter sig som om data inte längre är tillgängliga. I det här läget kommer alla utförda åtgärder som använder permanenta lagrings resurser, till exempel data inmatning, beständiga konfigurations ändringar och incident skapande att förhindras. Tidigare lagrade data tas inte bort, men kommer inte att vara tillgängliga. Otillgängliga data regleras av data bevarande principen och tas bort i enlighet med principen.
 
 Den enda åtgärd som är möjlig efter att krypterings nyckeln har återkallats eller tagits bort är ta bort konto.
 
 Om åtkomsten återställs efter återkallning kommer Azure Sentinel att återställa åtkomsten till data inom en timme.
 
-- [Så här aktiverar du mjuk borttagning i Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Så här aktiverar du Soft-Delete i Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 - [Förstå Kundhanterade nycklar i Azure Sentinel](customer-managed-keys.md)
 

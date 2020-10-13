@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.openlocfilehash: 69824df1b84f6cdfafa08a662816281442ad44fd
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86044387"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Avvikelse identifiering i Azure Stream Analytics
@@ -131,9 +131,9 @@ Följande tabell innehåller observationer av data flödet för en nod (6 SU) f�
 
 | Historik storlek (händelser) | Fönster varaktighet (MS) | Totalt antal ingångs händelser per sekund |
 | --------------------- | -------------------- | -------------------------- |
-| 60 | 55 | 2200 |
+| 60 | 55 | 2 200 |
 | 600 | 728 | 1 650 |
-| 6 000 | 10 910 | 1 100 |
+| 6 000 | 10 910 | 1 100 |
 
 Följande tabell innehåller observationer av data flödet för en nod (6 SU) för det partitionerade fallet:
 
@@ -141,10 +141,10 @@ Följande tabell innehåller observationer av data flödet för en nod (6 SU) f�
 | --------------------- | -------------------- | -------------------------- | ------------ |
 | 60 | 1 091 | 1 100 | 10 |
 | 600 | 10 910 | 1 100 | 10 |
-| 6 000 | 218 182 | <550 | 10 |
+| 6 000 | 218 182 | <550 | 10 |
 | 60 | 21 819 | 550 | 100 |
 | 600 | 218 182 | 550 | 100 |
-| 6 000 | 2 181 819 | <550 | 100 |
+| 6 000 | 2 181 819 | <550 | 100 |
 
 Exempel kod för att köra icke-partitionerade konfigurationer ovan finns i [strömningen i skala lagrings platsen](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/anomalydetection/create-solution.sh) i Azure-exempel. Koden skapar ett Stream Analytics-jobb utan partitionering på funktions nivå, som använder Händelsehubben som indata och utdata. Inläsningen av indatamängden genereras med hjälp av test klienter. Varje ingångs händelse är ett 1 KB JSON-dokument. Händelser simulerar en IoT-enhet som skickar JSON-data (för upp till 1 kB-enheter). Historik storlek, fönster varaktighet och total händelse belastning varierar över 2 partitioner.
 

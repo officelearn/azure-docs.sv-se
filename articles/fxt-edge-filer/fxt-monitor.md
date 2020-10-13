@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: 7027fe9988c0c559db72c3c388c7a579d533c57e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85509446"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Övervaka maskin varu status för Azure FXT Edge-filer
@@ -75,7 +75,7 @@ Den stora lit-knappen till höger om den vänstra kontroll panelen anger allmän
 
 Tryck på knappen system hälsa och ID för att växla mellan system-ID-läge och system hälso läge.
 
-|Tillstånd för system hälso status | Villkor |
+|Tillstånd för system hälso status | Condition (Väderförhållanden) |
 |-------------------------------------------|-----------------------------------------------|
 | Heldragen blå | Normal drift: systemet är aktiverat, fungerar normalt och system-ID-läget är inte aktivt. <br/>Tryck på knappen system hälsa och ID om du vill växla till system-ID-läge. |
 | Blinkande blå | System-ID-läget är aktivt. Tryck på knappen system hälsa och system-ID om du vill växla till system hälso läge. |

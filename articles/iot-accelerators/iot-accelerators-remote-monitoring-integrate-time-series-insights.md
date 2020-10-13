@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: b0ab1e2e43210ecd7a61b7dffcb12d2c7c5c1c46
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86536614"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrera Azure Time Series Insights med fjärrövervakning
@@ -24,7 +24,7 @@ Lösnings acceleratorn för fjärrövervakning tillhandahåller nu automatisk di
 > [!NOTE]
 > Time Series Insights är för närvarande inte tillgängligt i Azure Kina-molnet. Nya distributioner av Solution Accelerator för fjärrövervakning i molnet i Azure Kina använder Cosmos DB för all lagring.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här instruktionen måste du redan ha distribuerat en lösning för fjärrövervakning:
 
@@ -57,12 +57,12 @@ Sedan distribuerar du Time Series Insights som en ytterligare resurs i din lösn
 
 1. Använd värdena i följande tabell för att skapa en Time Series Insightss miljö:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn på miljö | Följande skärm bild använder namnet **contorosrmtsi**. Välj ditt eget unika namn när du är klar med det här steget. |
     | Prenumeration | I listrutan väljer du din Azure-prenumeration. |
     | Resursgrupp | **Använd befintlig**. Välj namnet på din befintliga resurs grupp för fjärr övervakning. |
-    | Position | Vi använder **USA, östra**. Skapa din miljö i samma region som din lösning för fjärrövervakning om möjligt. |
+    | Location | Vi använder **USA, östra**. Skapa din miljö i samma region som din lösning för fjärrövervakning om möjligt. |
     | Sku |**S1** |
     | Kapacitet | **1** |
 
@@ -86,7 +86,7 @@ Skapa en ny händelse källa för att ansluta till din IoT Hub. Se till att du a
 
 1. Om du vill konfigurera IoT-hubben som en ny händelse källa använder du värdena i följande tabell:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Händelsekällans namn | Följande skärm bild använder namnet **contosorm-IoT-Hub**. Använd ett eget unikt namn när du har slutfört det här steget. |
     | Källa | **IoT Hub** |

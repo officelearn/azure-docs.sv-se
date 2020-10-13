@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
 ms.openlocfilehash: 7d47c21da1279271b12933a2e4642abcce622600
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90015491"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Självstudie: Konfigurera arbets dag till användar etablering i Azure AD
@@ -183,7 +183,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 
      * **Endast vid skapande** – Använd endast den här mappningen för åtgärder för att skapa användare
 
-6. Spara dina mappningar genom att klicka på **Spara** överst i avsnittet attribut-mappning.
+6. Spara dina mappningar genom att klicka på **Spara** överst i Attribute-Mapping avsnittet.
 
 
 ## <a name="enable-and-launch-user-provisioning"></a>Aktivera och starta användar etablering
@@ -210,7 +210,7 @@ När du har slutfört konfigurationen av appar för arbets dag etablering kan du
 
 * [Läs mer om de Workday-attribut som stöds för inkommande etablering](../app-provisioning/workday-attribute-reference.md)
 * [Lär dig hur du konfigurerar tillbakaskrivning av arbets dagar](workday-writeback-tutorial.md)
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 * [Lär dig hur du konfigurerar enkel inloggning mellan arbets dagar och Azure Active Directory](workday-tutorial.md)
 * [Lär dig hur du integrerar andra SaaS-program med Azure Active Directory](tutorial-list.md)
 * [Lär dig hur du exporterar och importerar dina etablerings konfigurationer](../app-provisioning/export-import-provisioning-configuration.md)

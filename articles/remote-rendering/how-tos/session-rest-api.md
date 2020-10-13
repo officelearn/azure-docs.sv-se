@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 0af9d6906e038a4b9285a2c302fc0c98345fdbd9
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90023762"
 ---
 # <a name="use-the-session-management-rest-api"></a>Använda REST API:et för sessionshantering
@@ -69,7 +69,7 @@ Det här kommandot skapar en session. Den returnerar ID: t för den nya sessione
 |-----------|:-----------|
 | /v1/Accounts/*accountId*/sessions/Create | POST |
 
-**Brödtext i begäran:**
+**Begärandetext:**
 
 * maxLeaseTime (TimeSpan): ett timeout-värde när sessionen tas ur bruk automatiskt
 * modeller (matris): URL: er för till gångs behållare till preload
@@ -135,7 +135,7 @@ Detta kommando uppdaterar en sessions parametrar. För närvarande kan du bara u
 |-----------|:-----------|
 | /v1/Accounts/*accountID*/sessions/*SessionID* | 9.0a |
 
-**Brödtext i begäran:**
+**Begärandetext:**
 
 * maxLeaseTime (TimeSpan): ett timeout-värde när sessionen tas ur bruk automatiskt
 
@@ -173,7 +173,7 @@ Det här kommandot returnerar en lista över aktiva sessioner.
 
 | URI | Metod |
 |-----------|:-----------|
-| /v1/Accounts/*accountId*/sessions | HÄMTA |
+| /v1/Accounts/*accountId*/sessions | GET |
 
 **Registrera**
 
@@ -216,7 +216,7 @@ Det här kommandot returnerar information om en session, till exempel dess VM-v�
 
 | URI | Metod |
 |-----------|:-----------|
-| /v1/Accounts/*accountId*/sessions/*SessionID*/Properties | HÄMTA |
+| /v1/Accounts/*accountId*/sessions/*SessionID*/Properties | GET |
 
 **Registrera**
 

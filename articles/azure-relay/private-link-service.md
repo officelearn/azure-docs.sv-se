@@ -4,10 +4,10 @@ description: Lär dig hur du integrerar Azure Relay med Azure Private Link servi
 ms.date: 09/24/2020
 ms.topic: article
 ms.openlocfilehash: 10d82fe8e272ed18dcc339830dfef0f71d4b2ddb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91263879"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integrera Azure Relay med en privat Azure-länk (förhands granskning)
@@ -152,9 +152,9 @@ När du skapar en privat slut punkt måste anslutningen godkännas. Om resursen 
 
 Det finns fyra etablerings tillstånd:
 
-| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Description |
+| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
 |--|--|--|
-| Inget | Väntar | Anslutningen skapas manuellt och väntar på godkännande från Azure Relay namn områdes ägare. |
+| Ingen | Väntar | Anslutningen skapas manuellt och väntar på godkännande från Azure Relay namn områdes ägare. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
 | Avvisa | Avslagen | Anslutningen avvisades av Azure Relay namn områdes ägare. |
 | Ta bort | Frånkopplad | Anslutningen togs bort av Azure Relay namn områdets ägare, den privata slut punkten blir informativ och bör tas bort för rensning. |
@@ -236,9 +236,9 @@ Aliases:  <namespace-name>.servicebus.windows.net
 ### <a name="limitations"></a>Begränsningar 
 - Maximalt antal privata slut punkter per Azure Relay namnrymd: 64.
 - Maximalt antal Azure Relay namn rymder med privata slut punkter per prenumeration: 64.
-- Regler för nätverks säkerhets grupper (NSG) och användardefinierade vägar gäller inte för privat slut punkt. Mer information finns i [Azure Private Link service: begränsningar](../private-link/private-link-service-overview.md#limitations)
+- Regler för nätverks säkerhets grupper (NSG) och User-Defined vägar gäller inte för privat slut punkt. Mer information finns i [Azure Private Link service: begränsningar](../private-link/private-link-service-overview.md#limitations)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [Azure Private Link (för hands version)](../private-link/private-link-service-overview.md)
 - Läs mer om [Azure Relay](relay-what-is-it.md)

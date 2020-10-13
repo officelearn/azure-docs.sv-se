@@ -10,10 +10,10 @@ ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ms.openlocfilehash: 92020313fccf1b8be0add58a7bafab62b5daa4d5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187140"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Felsöka problem med uppdateringsagenten i Windows
@@ -55,7 +55,7 @@ Resultaten visas på sidan när de är klara. I avsnittet kontroller visas vad s
 
 Operativ system kontrollen verifierar om Hybrid Runbook Worker kör något av de operativ system som visas i nästa tabell.
 
-|Operativsystem  |Anteckningar  |
+|Operativsystem  |Obs!  |
 |---------|---------|
 |Windows Server 2012 och senare |.NET Framework 4,6 eller senare krävs. ([Hämta .NET Framework](/dotnet/framework/install/guide-for-developers).)<br/> Windows PowerShell 5,1 krävs.  ([Ladda ned Windows Management Framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616).)        |
 

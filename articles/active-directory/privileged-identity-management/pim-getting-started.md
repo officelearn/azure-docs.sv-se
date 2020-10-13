@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5bcfb21ab15355653780355f1b5e459bc806ec8c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90600729"
 ---
 # <a name="start-using-privileged-identity-management"></a>Börja använda Privileged Identity Management
@@ -67,7 +67,7 @@ När Privileged Identity Management har kon figurer ATS kan du lära dig hur du 
 
 ![Navigerings fönster i Privileged Identity Management visar uppgifter och hantera alternativ](./media/pim-getting-started/pim-quickstart-tasks.png)
 
-| Aktivitet + hantera | Description |
+| Aktivitet + hantera | Beskrivning |
 | --- | --- |
 | **Mina roller**  | Visar en lista över giltiga och aktiva roller som har tilldelats dig. Här kan du aktivera tilldelade berättigade roller. |
 | **Mina förfrågningar** | Visar väntande begär Anden om att aktivera kvalificerade roll tilldelningar. |

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
 ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514917"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatiserad katastrof återställnings lösning med Azure Site Recovery för fil resurser som finns på StorSimple
@@ -93,7 +93,7 @@ Det här steget kräver att du förbereder den lokala fil Server miljön, skapar
       
 1. Klicka på **Nästa**.
 1. Godkänn **villkoren i avtalet** och klicka sedan på **Nästa**.
-1. Klicka på **Slutför**.
+1. Klicka på **Finish**.
 1. Skapa fil resurser med hjälp av volymer hämtas out of StorSimple Storage. Mer information finns i [använda tjänsten StorSimple Manager för att hantera volymer](storsimple-manage-volumes.md).
    
    1. På dina lokala virtuella datorer trycker du på Windows-tangenten + Q och söker efter **iSCSI**.
@@ -170,7 +170,7 @@ Du kan skapa en återställnings plan i ASR för att automatisera växlings proc
    
 1. I Automation-kontot klickar du på **variabler** &gt; **Lägg till en variabel** och lägger till följande variabler. Du kan välja att kryptera dessa till gångar. Dessa variabler är en unik återställnings plan. Om din återställnings plan, som du kommer att skapa i nästa steg, är TestPlan, så bör variablerna vara TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName och så vidare.
 
-   - **BaseUrl**: Resource Manager-URL för Azure-molnet. Hämta med **Get-AzEnvironment | Välj-objekt namn, ResourceManagerUrl-** cmdlet.
+   - **BaseUrl**: Resource Manager-URL för Azure-molnet. Hämta med **Get-AzEnvironment | Select-Object namn, ResourceManagerUrl-** cmdlet.
    - _RecoveryPlanName_**– ResourceGroupName**: Resource Manager-gruppen som har resursen StorSimple.
    - _RecoveryPlanName_**-ManagerName**: den StorSimple-resurs som har StorSimple-enheten.
    - _RecoveryPlanName_**-enhets**namn: den StorSimple-enhet som måste växlas över.

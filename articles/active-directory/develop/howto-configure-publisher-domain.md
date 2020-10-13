@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.openlocfilehash: d62328534157a1e2d9e53830be9d6b87e08c9e40
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87129278"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Gör så här: Konfigurera ett programs utgivares domän
@@ -97,7 +97,7 @@ Om din app inte är registrerad i en klient, ser du bara alternativet för att v
 - Om klienten har verifierat domäner väljer du en av domänerna i list rutan **Välj en verifierad domän** .
 
 >[!Note]
-> Det förväntade Content-Type-huvudet som ska returneras är `application/json` . Du kan få ett fel meddelande som anges nedan om du använder något annat som`application/json; charset=utf-8` 
+> Det förväntade Content-Type-huvudet som ska returneras är `application/json` . Du kan få ett fel meddelande som anges nedan om du använder något annat som `application/json; charset=utf-8` 
 > 
 >``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
 >

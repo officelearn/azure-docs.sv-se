@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 2a03b791f37868010e107214ddcb7cf42174e4e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85833561"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Skapa en ILB ASE med hjälp av Azure Resource Manager-mallar
@@ -88,7 +88,7 @@ Parametrarna i *azuredeploy.parameters.jsi* filen visas nedan:
 * *pfxBlobString*: den based64-kodade sträng representationen för. pfx-filen.  Med hjälp av kodfragmentet som visas tidigare kopierar du strängen som finns i "exportedcert. pfx. B64" och klistrar in den som värdet för attributet *pfxBlobString* .
 * *lösen ord*: lösen ordet som används för att skydda. pfx-filen.
 * *certificateThumbprint*: certifikatets tumavtryck.  Om du hämtar det här värdet från PowerShell (t. ex. *$Certificate. Tumavtryck* från det tidigare kodfragmentet) kan du använda värdet som-är.  Om du däremot kopierar värdet från dialog rutan Windows-certifikat, måste du komma ihåg att utesluta de extra utrymmena.  *CertificateThumbprint* bör se ut ungefär så här: AF3143EB61D43F6727842115BB7F17BBCECAECAE
-* *certificateName*: ett eget sträng-ID som du väljer används för att identifiera certifikatet.  Namnet används som en del av det unika Azure Resource Manager ID: t för entiteten *Microsoft. Web/Certificate* som representerar TLS/SSL-certifikatet.  Namnet **måste** sluta med följande suffix: \_ yourASENameHere_InternalLoadBalancingASE.  Det här suffixet används av portalen som en indikator att certifikatet används för att skydda en ILB-aktiverad ASE.
+* *certificateName*: ett eget sträng-ID som du väljer används för att identifiera certifikatet.  Namnet används som en del av det unika Azure Resource Manager ID: t för entiteten *Microsoft. Web/Certificate* som representerar TLS/SSL-certifikatet.  Namnet **måste** sluta med följande suffix:  \_ yourASENameHere_InternalLoadBalancingASE.  Det här suffixet används av portalen som en indikator att certifikatet används för att skydda en ILB-aktiverad ASE.
 
 Ett förkortat exempel på *azuredeploy.parameters.jspå* visas nedan:
 

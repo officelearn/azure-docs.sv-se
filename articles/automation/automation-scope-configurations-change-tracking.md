@@ -6,10 +6,10 @@ ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 353f29d9b4c6599226619d40e4378e21618bcad4
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185916"
 ---
 # <a name="limit-change-tracking-and-inventory-deployment-scope"></a>Begränsa Ändringsspårning och distributions omfång för inventering
@@ -30,11 +30,11 @@ Begränsa omfånget för din Ändringsspårning-och inventerings distribution:
 
 3. Välj **scope-konfigurationer (för hands version)** under **arbets ytans data källor**.
 
-4. Välj ellipsen till höger om `MicrosoftDefaultScopeConfig-ChangeTracking` omfattnings konfigurationen och klicka på **Redigera**. 
+4. Välj ellipsen till höger om  `MicrosoftDefaultScopeConfig-ChangeTracking` omfattnings konfigurationen och klicka på **Redigera**. 
 
 5. I redigerings fönstret väljer du **Välj dator grupper**. I fönstret dator grupper visas sparade sökningar som används för att skapa omfattnings konfigurationen. Den sparade sökningen som används av Ändringsspårning och inventering är:
 
-    |Namn     |Kategori  |Alias  |
+    |Name     |Kategori  |Alias  |
     |---------|---------|---------|
     |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 

@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 71b6f35b107a8cb213e97d9a05bdf93b93967606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c5084ff770f27438c85b7bc57cef0145182abb4
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256899"
+ms.locfileid: "91873157"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Felsöka verifiering av utgivare
 Om du inte kan slutföra processen eller har oväntad funktion med [utgivar verifieringen](publisher-verification-overview.md), bör du börja med att göra följande om du får fel eller om du får oväntade beteenden: 
@@ -58,7 +58,7 @@ Nedan visas några vanliga problem som kan uppstå under processen.
     Dina app-registreringar kan ha skapats med ett annat användar konto i den här klienten, ett personligt/konsument konto eller en annan klient. Se till att du är inloggad med rätt konto i klient organisationen där dina app-registreringar skapades.
 
 - **Jag får ett fel som rör Multi-Factor Authentication. Vad ska jag göra?** 
-    Kontrol lera att [Multi-Factor Authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) har Aktiver ATS och krävs för den användare som du loggar in med och för det här scenariot. MFA kan till exempel vara:
+    Kontrol lera att [Multi-Factor Authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) har Aktiver ATS och **krävs** för den användare som du loggar in med och för det här scenariot. MFA kan till exempel vara:
     - Krävs alltid för den användare som du loggar in med
     - [Krävs för Azure-hantering](../conditional-access/howto-conditional-access-policy-azure-management.md).
     - [Krävs för den typ av administratör](../conditional-access/howto-conditional-access-policy-admin-mfa.md) som du loggar in med.
@@ -226,7 +226,9 @@ Den här funktionen stöds inte för Microsoft-konsument konton. Endast program 
 
 ### <a name="interactionrequired"></a>InteractionRequired
 
-Inträffar när Multi-Factor Authentication inte har utförts innan du försöker lägga till en verifierad utgivare i appen. Se [vanliga problem](#common-issues) för mer information.
+Inträffar när Multi-Factor Authentication inte har utförts innan du försöker lägga till en verifierad utgivare i appen. Se [vanliga problem](#common-issues) för mer information. Obs: MFA måste utföras i samma session när du försöker lägga till en verifierad utgivare. Om MFA är aktiverat men inte krävs för att utföras i sessionen, kommer begäran att Miss förväntas.   
+
+Det fel meddelande som visas är: "på grund av en konfigurations ändring som gjorts av administratören eller på grund av att du har flyttat till en ny plats måste du använda Multi-Factor Authentication för att fortsätta."
 
 ## <a name="next-steps"></a>Nästa steg
 

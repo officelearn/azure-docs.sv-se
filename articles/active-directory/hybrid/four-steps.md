@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90600805"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Fyra steg till en stark identitets grund med Azure Active Directory
@@ -131,7 +131,7 @@ I dagens digitala arbets plats är det viktigt att balansera säkerheten med pro
 
 I det här avsnittet listas rekommendationer för att ta bort friktion från din organisation genom att ge användarna möjlighet att använda återstående vigilant.
 
-### <a name="enable-self-service-password-reset-for-all-users"></a>Aktivera självbetjäning för återställning av lösen ord för alla användare
+### <a name="enable-self-service-password-reset-for-all-users"></a>Aktivera Self-Service lösen ords återställning för alla användare
 
 Azures självbetjäning för [återställning av lösen ord](../authentication/tutorial-enable-sspr.md) (SSPR) erbjuder ett enkelt sätt för IT-administratörer att tillåta att användare återställer och låser upp sina lösen ord eller konton utan Administratörs åtgärder. Systemet innehåller detaljerade rapporter för att spåra när användare använder systemet tillsammans med aviseringar som informerar om missbruk.
 
@@ -147,7 +147,7 @@ På samma sätt kan du använda [rapporten för lösen ords hantering med själv
 
 ### <a name="self-service-app-management"></a>Hantering av självbetjänings program
 
-Innan användarna kan identifiera program från sina åtkomst paneler måste du aktivera självbetjänings [program åtkomst](../manage-apps/access-panel-manage-self-service-access.md) till alla program som du vill ge användare möjlighet att själv identifiera och begära åtkomst till. Åtkomst till självbetjänings program är ett bra sätt att ge användare möjlighet att identifiera program och eventuellt tillåta affärs gruppen att godkänna åtkomst till dessa program. Du kan tillåta att affärs gruppen hanterar de autentiseringsuppgifter som tilldelats dessa användare för [lösen ords program med enkel inloggning](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) direkt från sina åtkomst paneler.
+Innan användarna kan identifiera program från sina åtkomst paneler måste du aktivera självbetjänings [program åtkomst](../manage-apps/access-panel-manage-self-service-access.md) till alla program som du vill ge användare möjlighet att själv identifiera och begära åtkomst till. Åtkomst till självbetjänings program är ett bra sätt att ge användare möjlighet att identifiera program och eventuellt tillåta affärs gruppen att godkänna åtkomst till dessa program. Du kan tillåta att affärs gruppen hanterar de autentiseringsuppgifter som tilldelats dessa användare för [lösen ord Single-Sign på program](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) direkt från sina åtkomst paneler.
 
 ### <a name="self-service-group-management"></a>Självbetjäning, grupphantering
 

@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
 ms.openlocfilehash: f607ebb64b27c45ec696d7fcd431a0ba2342697f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89447996"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Fel i Windows Boot Manager-0xC0000428 status ogiltigt bild-hash
@@ -58,7 +58,7 @@ Förhands gransknings bilder har en angiven livs cykel och skärm bilden som vis
 
 `a699494373c04fc0bc8f2bb1389d6106__Windows-Server-Technical-Preview-201505.01-en.us-127GB.vhd`
 
-Du kan inte utöka förfallo datumet för en förhands gransknings bild. När för hands versionen har upphört att gälla kommer den virtuella datorn inte längre att kunna starta.
+Du kan inte förlänga utgångsdatumet för en förhandsversionsavbildning. När förhandsversionen har upphört att gälla, går det inte längre att starta den virtuella datorn.
 
 - Beroende på produkten kan utvärderings perioden variera. Till exempel har Windows Preview-avbildningar en 180-dagars utvärderings period.
 

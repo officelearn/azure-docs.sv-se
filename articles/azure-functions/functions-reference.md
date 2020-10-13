@@ -5,10 +5,10 @@ ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
 ms.openlocfilehash: 9a3c0643f4fc965ff64106758320aeb445aaf9ae
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85921732"
 ---
 # <a name="azure-functions-developer-guide"></a>Utvecklarguide för Azure Functions
@@ -42,7 +42,7 @@ Mer information finns i [Azure Functions utlösare och bindningar begrepp](funct
 
 | Egenskap | Värden/typer | Kommentarer |
 | --- | --- | --- |
-| `type` |sträng |Bindnings typ. Till exempel `queueTrigger`. |
+| `type` |sträng |Bindnings typ. Exempelvis `queueTrigger`. |
 | `direction` |in, out |Anger om bindningen avser att ta emot data i funktionen eller skicka data från funktionen. |
 | `name` |sträng |Namnet som används för de data som är kopplade till funktionen. För C# är detta ett argument namn. för Java Script är det nyckeln i en nyckel/värde-lista. |
 
@@ -65,7 +65,7 @@ Function-appar kan skapas och publiceras med en rad olika verktyg, inklusive [Vi
 
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
-## <a name="how-to-edit-functions-in-the-azure-portal"></a><a id="fileupdate"></a>Redigera funktioner i Azure Portal
+## <a name="how-to-edit-functions-in-the-azure-portal"></a><a id="fileupdate"></a> Redigera funktioner i Azure Portal
 Funktions redigeraren som är inbyggd i Azure Portal låter dig uppdatera koden och *function.jspå* filen direkt. Detta rekommenderas endast för små ändringar eller koncept bevis – bästa praxis är att använda ett lokalt utvecklingsverktyg som VS Code.
 
 ## <a name="parallel-execution"></a>Parallell körning

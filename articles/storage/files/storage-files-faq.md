@@ -8,10 +8,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
 ms.openlocfilehash: 9bb228c81ee180ec337ce52e3c87a4a9684e158a
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563700"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
@@ -277,7 +277,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 * <a id="ad-aad-smb-files"></a>
 **Finns det någon skillnad i att skapa ett dator konto eller tjänst inloggnings konto som representerar mitt lagrings konto i AD?**
 
-    Att skapa antingen ett [dator konto](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (standard) eller ett [inloggnings konto för tjänsten](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) har ingen skillnad på hur autentiseringen fungerar med Azure Files. Du kan välja hur du vill representera ett lagrings konto som en identitet i din AD-miljö. Standard DomainAccountType som angetts i Join-AzStorageAccountForAuth-cmdlet är dator konto. Lösen ordets giltighets tid för lösen ord som kon figurer ATS i din AD-miljö kan dock vara olika för inloggnings kontot för datorn eller tjänsten och du måste ta hänsyn till [uppdateringen av lösen ordet för din lagrings konto identitet i AD](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#5-update-ad-account-password).
+    Att skapa antingen ett [dator konto](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (standard) eller ett [inloggnings konto för tjänsten](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) har ingen skillnad på hur autentiseringen fungerar med Azure Files. Du kan välja hur du vill representera ett lagrings konto som en identitet i din AD-miljö. Standard DomainAccountType som angetts i Join-AzStorageAccountForAuth cmdlet är dator konto. Lösen ordets giltighets tid för lösen ord som kon figurer ATS i din AD-miljö kan dock vara olika för inloggnings kontot för datorn eller tjänsten och du måste ta hänsyn till [uppdateringen av lösen ordet för din lagrings konto identitet i AD](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#5-update-ad-account-password).
  
 * <a id="ad-support-rest-apis"></a>
 **Finns det REST-API: er som stöder get/set/Copy Directory/File Windows ACL: er?**

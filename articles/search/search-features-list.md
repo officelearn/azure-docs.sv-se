@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.openlocfilehash: 21f5a9f58acbaf3d0444d7da10ad489ade99cd76
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604197"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Funktioner i Azure Kognitiv sökning
@@ -72,6 +72,6 @@ Azure Kognitiv sökning tillhandahåller en full texts öknings motor, beständi
 
 ## <a name="see-also"></a>Se även
 
-+ [Vad är nytt i Kognitiv sökning](whats-new.md)
++ [Senaste nytt i Cognitive Search](whats-new.md)
 
 + [Förhands gransknings funktioner i Kognitiv sökning](search-api-preview.md)

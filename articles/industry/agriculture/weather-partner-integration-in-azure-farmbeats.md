@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
 ms.openlocfilehash: a2677b5343b2d65a39e7c9f6d5006db599c1ac73
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86497003"
 ---
 # <a name="weather-partner-integration"></a>Väderpartnerintegration
@@ -18,7 +18,7 @@ Den här artikeln innehåller information om Azure FarmBeats **Connector** Docke
 
  > [!NOTE]
  > I den här dokumentationen kommer vi att använda en referens implementering som skapats med NOAA från Azure Open data uppsättningar och är tillgänglig på [https://github.com/azurefarmbeats/noaa_docker](https://github.com/azurefarmbeats/noaa_docker) .
- > Motsvarande Docker-avbildning finns på[https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa)
+ > Motsvarande Docker-avbildning finns på [https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa)
 
 En väder partner måste tillhandahålla en Docker-avbildning/ett program (med specifikationer som nämns nedan) och vara värd för Docker-avbildningen i ett behållar register som kunder kan komma åt. Väder partnern måste tillhandahålla följande information till sina kunder:
 
@@ -36,10 +36,10 @@ Med hjälp av ovanstående Docker-information registrerar kunden en väder partn
 
 FarmBeats-API: erna innehåller teknisk dokumentation för Swagger. Information om alla API: er och deras motsvarande förfrågningar och svar finns i [FarmBeats Swagger](https://aka.ms/farmbeatsswagger). 
 
-Om du har installerat FarmBeats kan du komma åt din FarmBeats-Swagger på`https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
+Om du har installerat FarmBeats kan du komma åt din FarmBeats-Swagger på `https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
 Observera att "-API" läggs till i FarmBeats-webbplatsens namn.
-API-slutpunkten kommer att vara:`https://yourfarmbeatswebsitename-api.azurewebsites.net`
+API-slutpunkten kommer att vara: `https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
 ### <a name="datahub-lib"></a>Datahub-lib
 
@@ -95,10 +95,10 @@ Mer information om hur ADF-pipelines och aktiviteter fungerar finns i [https://d
 
 Här är de vanligaste begärandehuvuden som måste anges när du gör ett API-anrop till FarmBeats.
 
-**Huvud** | **Beskrivning och exempel**
+**Sidfot** | **Beskrivning och exempel**
 --- | ---
 Content-Type | Formatet för begäran (Content-Type: Application/ <format> ). För FarmBeats Datahub-API: er är formatet JSON. Innehålls typ: Application/JSON
-Auktorisering | Anger den åtkomsttoken som krävs för att göra ett API-anrop. Auktorisering: innehavare <åtkomst-token>
+Auktorisering | Anger den åtkomsttoken som krävs för att göra ett API-anrop. Auktorisering: Bearer <Access-Token>
 Acceptera | Svars formatet. För FarmBeats Datahub-API: er är formatet JSON. Acceptera: Application/JSON
 
 ## <a name="data-format"></a>Dataformat
@@ -136,7 +136,7 @@ Den här komponenten kommer att anropas varje gång en FarmBeats-användare kör
 
   WeatherDataModel | Beskrivning |
   --- | ---
-  Name  | Namnet på väder data modellen |
+  Namn  | Namnet på väder data modellen |
   Beskrivning  | Ange en meningsfull beskrivning av modellen. |
   Egenskaper  | Ytterligare egenskaper som definieras av data leverantören. |
   weatherMeasures > namn  | Namnet på väder måttet. Till exempel humidity_max |
@@ -148,7 +148,7 @@ Den här komponenten kommer att anropas varje gång en FarmBeats-användare kör
   weatherMeasures > djup  | Sensorns djup i centimeter. Till exempel mätningen av fukt 10 cm under marken.
   Beskrivning av weatherMeasures->  | Ge en meningsfull beskrivning av måttet. |
   **JobType** | **Beskrivning** |
-  Name  | namnet på jobbet, till exempel Get_Daily_Forecast; jobbet som kunden kommer att köra för att hämta väder data|
+  Namn  | namnet på jobbet, till exempel Get_Daily_Forecast; jobbet som kunden kommer att köra för att hämta väder data|
   pipelineDetails > parametrar > namn  | parameterns namn |
   pipelineDetails > parametrar > typ | antingen sträng, int, Float, bool, array |
   pipelineDetails > parametrar > parametrarna isrequired | booleskt sant om den obligatoriska parametern, falskt om inte; Standardvärdet är true |
@@ -159,7 +159,7 @@ Den här komponenten kommer att anropas varje gång en FarmBeats-användare kör
   **WeatherDataLocation** | **Beskrivning** |
   weatherDataModelId  | ID för motsvarande WeatherDataModel som skapades under start|
   location  | representerar latitud, longitud och höjning |
-  Name | Objektets namn |
+  Namn | Objektets namn |
   Beskrivning | Beskrivning |
   farmId | **valfritt** ID för den grupp som tillhandahålls av kunden som en del av jobb parametern |
   Egenskaper  | Ytterligare egenskaper från tillverkaren.

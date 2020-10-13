@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: e8c3a0d60e10b1cf1f8a827cec8fcc25f3d33b05
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90564329"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-containerapp i Windows
@@ -321,7 +321,7 @@ Om du vill inaktivera integrering av **HEALTHCHECK** för hela Service Fabric-kl
 ## <a name="deploy-the-container-application"></a>Distribuera containerappen
 Spara alla dina ändringar och skapa programmet. Om du vill publicera appen högerklickar du på **MyFirstContainer** i Solution Explorer och väljer **Publish** (Publicera).
 
-I **anslutningsslutpunkten** anger du hanteringsslutpunkten för klustret. Till exempel `containercluster.westus2.cloudapp.azure.com:19000`. Slutpunkten för klientanslutningen finns på översiktsfliken för ditt kluster i [Azure Portal](https://portal.azure.com).
+I **anslutningsslutpunkten** anger du hanteringsslutpunkten för klustret. Exempelvis `containercluster.westus2.cloudapp.azure.com:19000`. Slutpunkten för klientanslutningen finns på översiktsfliken för ditt kluster i [Azure Portal](https://portal.azure.com).
 
 Klicka på **Publicera**.
 

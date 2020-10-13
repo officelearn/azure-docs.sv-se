@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 9f3ba6b2f13b9f2bb1d538db84723e3a9baaef12
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87271849"
 ---
 # <a name="retrieve-a-specific-offer"></a>Hämta ett Special erbjudande
@@ -41,12 +41,12 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i u
 |-------------|------------------------------------------------------------------------------------------|---------------|
 | publisherId | publisherId. Till exempel contoso                                                        | Sträng        |
 | offerId     | GUID som unikt identifierar erbjudandet.                                                 | Sträng        |
-| version     | Version av erbjudandet som hämtas. Den senaste versionen av erbjudandet hämtas som standard. | Heltal       |
-| slotId      | Den plats som erbjudandet ska hämtas från kan vara något av följande:      <br/>  - `Draft`(standard) hämtar erbjudande versionen för närvarande i utkastet.  <br/>  -  `Preview`hämtar den erbjudande version som för närvarande finns i för hands version.     <br/>  -  `Production`hämtar den erbjudande version som för närvarande finns i produktion.          |      räkning |
-| api-version | Senaste versionen av API                                                                    | Datum          |
+| version     | Version av erbjudandet som hämtas. Den senaste versionen av erbjudandet hämtas som standard. | Integer       |
+| slotId      | Den plats som erbjudandet ska hämtas från kan vara något av följande:      <br/>  - `Draft` (standard) hämtar erbjudande versionen för närvarande i utkastet.  <br/>  -  `Preview` hämtar den erbjudande version som för närvarande finns i för hands version.     <br/>  -  `Production` hämtar den erbjudande version som för närvarande finns i produktion.          |      räkning |
+| api-version | Senaste versionen av API                                                                    | Date          |
 |  |  |  |
 
-## <a name="header"></a>Huvud
+## <a name="header"></a>Sidhuvud
 
 |  **Namn**          |   **Värde**            |
 |  ---------------   |  --------------        |
@@ -186,10 +186,10 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i u
 
 | **Kod**  | **Beskrivning**                                                                                                                 |
 |  ------   | ------------------------------------------------------------------------------------------------------------------------------- |
-|  200      | `OK`-Begäran har bearbetats och alla erbjudanden under utgivaren returnerades till klienten.               |
-|  400      | `Bad/Malformed request`– Fel svars texten kan innehålla mer information.                                                 |
-|  403      | `Forbidden`-Klienten har inte åtkomst till den angivna namn rymden.                                                        |
-|  404      | `Not found`-Den angivna entiteten finns inte. Klienten bör kontrol lera publisherId, offerId och version (om det anges).      |
+|  200      | `OK` -Begäran har bearbetats och alla erbjudanden under utgivaren returnerades till klienten.               |
+|  400      | `Bad/Malformed request` – Fel svars texten kan innehålla mer information.                                                 |
+|  403      | `Forbidden` -Klienten har inte åtkomst till den angivna namn rymden.                                                        |
+|  404      | `Not found` -Den angivna entiteten finns inte. Klienten bör kontrol lera publisherId, offerId och version (om det anges).      |
 |  |  |
 
 ### <a name="offer-status"></a>Erbjudande status
@@ -202,5 +202,5 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i u
 |  Körs                    | Överföring av erbjudande bearbetas.          |
 |  Lyckades                  | Bearbetningen av erbjudandet har slutförts.    |
 |  Avbrutna                   | Överföring av erbjudande avbröts.                |
-|  Misslyckad                     | Det gick inte att skicka erbjudandet.                      |
+|  Misslyckades                     | Det gick inte att skicka erbjudandet.                      |
 |  |  |

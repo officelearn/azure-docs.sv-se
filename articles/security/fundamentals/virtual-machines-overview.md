@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: d2862d5ab2c42ebdd1787022dc86119bc4e0f596
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86229371"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Översikt över Azure Virtual Machines-säkerhet
@@ -160,7 +160,7 @@ Läs mer:
 
 Även om konfidentiella data behandling inte är tekniskt en del av säkerheten för virtuella datorer, ingår avsnittet om säkerhet på den virtuella datorn på den högre nivån av "Compute"-säkerhet. Konfidentiell data behandling ingår i kategorin "Compute"-säkerhet.
 
-Konfidentiell bearbetning garanterar att när data är "i klartext", vilket krävs för effektiv bearbetning, skyddas data i en betrodd körnings miljö https://en.wikipedia.org/wiki/Trusted_execution_environment (tee, även kallat en enklaven), ett exempel på som visas i bilden nedan.  
+Konfidentiell bearbetning garanterar att när data är "i klartext", vilket krävs för effektiv bearbetning, skyddas data i en betrodd körnings miljö  https://en.wikipedia.org/wiki/Trusted_execution_environment (tee, även kallat en enklaven), ett exempel på som visas i bilden nedan.  
 
 TEEs se till att det inte finns något sätt att visa data eller åtgärderna inuti utanför, även med en fel sökare. De säkerställer även att endast auktoriserad kod tillåts komma åt data. Om koden ändras eller manipuleras, nekas åtgärderna och miljön inaktive rad. TEE tillämpar dessa skydd i hela körningen av kod i den.
 

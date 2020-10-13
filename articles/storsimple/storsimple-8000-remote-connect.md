@@ -8,10 +8,10 @@ ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1da688dfb00b26ca6b561d5aa0fb548c221381c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514566"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Fjärrans luta till din StorSimple 8000-serie enhet
@@ -66,9 +66,9 @@ Utför följande steg i enhetens serie konsol för att aktivera fjärrhantering.
 
 #### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Så här aktiverar du fjärrhantering via enhetens serie konsol
 1. I menyn serie konsol väljer du alternativ 1. Mer information om hur du använder serie konsolen på enheten finns i [ansluta till Windows PowerShell för StorSimple via enhetens serie konsol](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
-2. Skriv följande i prompten:`Enable-HcsRemoteManagement –AllowHttp`
+2. Skriv följande i prompten: `Enable-HcsRemoteManagement –AllowHttp`
 3. Du får ett meddelande om säkerhets sårbarheter i att använda HTTP för att ansluta till enheten. Bekräfta genom att skriva **Y**när du uppmanas till detta.
-4. Verifiera att HTTP är aktiverat genom att skriva:`Get-HcsSystem`
+4. Verifiera att HTTP är aktiverat genom att skriva: `Get-HcsSystem`
 5. Kontrol lera att fältet **RemoteManagementMode** visar **HttpsAndHttpEnabled**. Följande bild visar dessa inställningar i SparaTillFil.
    
      ![Seriellt HTTPS och HTTP aktiverat](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
@@ -189,7 +189,7 @@ Var och en av de föregående procedurerna beskrivs nedan.
 3. Välj **Place all certificates in the following store** (Placera alla certifikat i följande lagringsplats) och klicka sedan på **Bläddra**. Gå till rotcertifikatarkivet på fjärrvärden och klicka på **Nästa**.
    
     ![Guiden Importera certifikat 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
-4. Klicka på **Slutför**. Ett meddelande visas där det står att importen lyckades.
+4. Klicka på **Finish**. Ett meddelande visas där det står att importen lyckades.
    
     ![Guiden Importera certifikat 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
 

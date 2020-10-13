@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
 ms.openlocfilehash: afb4026a7865f2cc8f831d8d1d7b1d332014d310
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90007578"
 ---
 # <a name="features"></a>Funktioner
@@ -55,13 +55,13 @@ Alla typer av Sök parametrar stöds.
 
 | Typ av Sök parameter | Stöds – PaaS | Support – OSS (SQL) | Support – OSS (Cosmos DB) | Kommentar |
 |-----------------------|-----------|-----------|-----------|---------|
-| Tal                | Ja       | Ja       | Ja       |         |
+| Antal                | Ja       | Ja       | Ja       |         |
 | Datum/DateTime         | Ja       | Ja       | Ja       |         |
 | Sträng                | Ja       | Ja       | Ja       |         |
 | Token                 | Ja       | Ja       | Ja       |         |
 | Referens             | Ja       | Ja       | Ja       |         |
 | Sammansatt             | Ja       | Ja       | Ja       |         |
-| Quantity              | Ja       | Ja       | Ja       |         |
+| Kvantitet              | Ja       | Ja       | Ja       |         |
 | URI                   | Ja       | Ja       | Ja       |         |
 | Speciella               | Inga        | Inga        | Inga        |         |
 
@@ -127,7 +127,7 @@ Cosmos DB är en globalt distribuerad multi-Model-databas (SQL API, MongoDB API 
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-FHIR-servern använder [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) för åtkomst kontroll. Rollbaserade Access Control (RBAC) framtvingas, om `FhirServer:Security:Enabled` konfigurations parametern är inställd på `true` och alla begär Anden (utom `/metadata` ) till FHIR-servern måste ha `Authorization` begär ande huvud inställt på `Bearer <TOKEN>` . Token måste innehålla en eller flera roller som definieras i `roles` anspråket. En begäran kommer att tillåtas om token innehåller en roll som tillåter den angivna åtgärden på den angivna resursen.
+FHIR-servern använder [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) för åtkomst kontroll. Mer specifikt är Role-Based Access Control (RBAC) framtvingas, om `FhirServer:Security:Enabled` konfigurations parametern har angetts till `true` och alla begär Anden (förutom `/metadata` ) till FHIR-servern måste ha `Authorization` begär ande huvud inställt på `Bearer <TOKEN>` . Token måste innehålla en eller flera roller som definieras i `roles` anspråket. En begäran kommer att tillåtas om token innehåller en roll som tillåter den angivna åtgärden på den angivna resursen.
 
 För närvarande tillämpas de tillåtna åtgärderna för en specifik roll *globalt* på API: et.
 

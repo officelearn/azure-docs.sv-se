@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: aahi
 ms.openlocfilehash: 09ea16f07973757b169f21c7c3f909a24651daa4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90942097"
 ---
 # <a name="how-to-build-a-metrics-graph-to-analyze-related-metrics"></a>Anvisningar: bygga ett mått diagram för att analysera relaterade mått
@@ -35,7 +35,7 @@ Därefter måste du lägga till en annan nod och ange en relation till en befint
 
 Klicka på **Lägg till relation**och du kommer att kunna välja ett annat mått och ange Relations typen mellan de två noderna. Du kan också använda vissa dimensions filter. 
 
-:::image type="content" source="../media/graph/metrics-graph-node-action.png" alt-text="Lägg till en nod och relation":::
+:::image type="content" source="../media/graph/metrics-graph-node-action.png" alt-text="Välj mått":::
 
 När du har upprepat stegen ovan kommer du att ha ett mått diagram som beskriver relationerna mellan alla relaterade mått.
 **Tips om Node-färger**
@@ -50,7 +50,7 @@ När mått diagrammet skapas, när en avvikelse identifieras på mått i grafen,
 
 Klicka i en incident i diagrammet och rulla ned till **kors mått analys**, under diagnostikinformation.
 
-:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="Visa relaterade mått och avvikelser":::
+:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="Välj mått":::
 
 ## <a name="next-steps"></a>Nästa steg
 

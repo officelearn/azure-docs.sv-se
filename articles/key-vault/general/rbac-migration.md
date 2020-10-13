@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
 ms.openlocfilehash: e06a7a759c712b47f3a725a3c49a660226da6a09
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90064196"
 ---
 # <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-preview-permission-model"></a>Migrera från valv åtkomst princip till en Azure rollbaserad åtkomst kontroll (för hands version) behörighets modell
@@ -66,7 +66,7 @@ Valv åtkomst principer kan tilldelas med individuellt valda behörigheter eller
 - Azure information-BYOK
 
 ### <a name="access-policies-templates-to-azure-roles-mapping"></a>Mallar för åtkomst principer till Azure roles-mappning
-| Mall för åtkomst princip | Operations | Azure-roll |
+| Mall för åtkomst princip | Åtgärder | Azure-roll |
 | --- | --- | --- |
 | Nyckel, hemlighet, certifikat hantering | Nycklar: alla åtgärder <br>Certifikat: alla åtgärder<br>Hemligheter: alla åtgärder | Key Vault administratör (förhands granskning) |
 | Nyckel & hemlig hantering | Nycklar: alla åtgärder <br>Hemligheter: alla åtgärder| Key Vault kryptografi utanordnare (förhands granskning)<br> Key Vault hemligheter (förhands granskning)|

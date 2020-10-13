@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a53e9ae42031203347784b78e162e8f806eb3c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16659eafccd4c15e37ef8a6d16a3765d0afdbc3e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320257"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960651"
 ---
 # <a name="linux-support"></a>Linux-support
 
-Du kan komma åt Windows virtuella Skriv bords resurser från dina Linux-enheter med följande klienter som stöds, som tillhandahålls av våra Linux-tunna klient partner. Vi arbetar med ett antal partner för att aktivera Windows virtuella Skriv bords klienter som stöds på fler Linux-baserade operativ system och enheter. Om du behöver stöd för virtuella Windows-datorer på en Linux-plattform som inte visas här kan du berätta för oss på vår [UserVoice-sida](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
+Du kan komma åt Windows virtuella Skriv bords resurser från dina Linux [-enheter med webb klienten](connect-web.md) eller följande klienter som stöds, som tillhandahålls av våra Linux-tunna klient partner. Vi arbetar med ett antal partner för att aktivera Windows virtuella Skriv bords klienter som stöds på fler Linux-baserade operativ system och enheter. Om du behöver stöd för virtuella Windows-datorer på en Linux-plattform som inte visas här kan du berätta för oss på vår [UserVoice-sida](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
 
 ## <a name="connect-with-your-linux-device"></a>Anslut till din Linux-enhet
 

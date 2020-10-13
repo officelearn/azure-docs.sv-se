@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
 ms.openlocfilehash: 09206b8189f03a37f8bd7d073238609a3f1bd3ad
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816107"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montera Blob Storage med hjälp av Network File System (NFS) 3,0-protokollet (för hands version)
@@ -92,7 +92,7 @@ När du konfigurerar kontot väljer du dessa värden:
 
 |Inställningen | Värde|
 |----|---|
-|Plats|En av följande regioner: USA, östra, centrala USA, västra centrala, sydöstra Australien, norra Europa, Storbritannien, västra, Korea, centrala, Korea, södra och centrala Kanada |
+|Location|En av följande regioner: USA, östra, centrala USA, västra centrala, sydöstra Australien, norra Europa, Storbritannien, västra, Korea, centrala, Korea, södra och centrala Kanada |
 |Prestanda|Premium|
 |Typ av konto|BlockBlobStorage|
 |Replikering|Lokalt redundant lagring (LRS)|
@@ -109,7 +109,7 @@ Skapa en behållare i ditt lagrings konto genom att använda något av dessa ver
 
 |Verktyg|SDK:er|
 |---|---|
-|[Azure-portalen](https://portal.azure.com)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
+|[Azure Portal](https://portal.azure.com)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|

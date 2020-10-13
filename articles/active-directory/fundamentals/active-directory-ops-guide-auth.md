@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601372"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Referens guide för Azure Active Directory hanterings åtgärder för autentisering
@@ -105,7 +105,7 @@ För att bättre förstå dina autentiseringsalternativ, se [Välj rätt autenti
 
 ### <a name="programmatic-usage-of-credentials"></a>Användning av autentiseringsuppgifter för program mässig användning
 
-Azure AD-skript med hjälp av PowerShell eller program som använder Microsoft Graph API kräver säker autentisering. Dålig hantering av autentiseringsuppgifter som kör dessa skript och verktyg ökar risken för stöld av autentiseringsuppgifter. Om du använder skript eller program som förlitar sig på hårdkodade lösen ord eller lösen ord, bör du först granska lösen ord i konfigurationsfiler eller käll koden och sedan ersätta dessa beroenden och använda Azure Managed Identities, integrerad Windows-autentisering eller [certifikat](../reports-monitoring/tutorial-access-api-with-certificates.md) närhelst det är möjligt. Överväg att använda [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)för program där tidigare lösningar inte är möjliga.
+Azure AD-skript med hjälp av PowerShell eller program som använder Microsoft Graph API kräver säker autentisering. Dålig hantering av autentiseringsuppgifter som kör dessa skript och verktyg ökar risken för stöld av autentiseringsuppgifter. Om du använder skript eller program som förlitar sig på hårdkodade lösen ord eller lösen ord, bör du först granska lösen ord i konfigurationsfiler eller käll koden, sedan ersätta dessa beroenden och använda Azure Managed Identities, Integrated-Windows autentisering eller [certifikat](../reports-monitoring/tutorial-access-api-with-certificates.md) närhelst det är möjligt. Överväg att använda [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)för program där tidigare lösningar inte är möjliga.
 
 Om du fastställer att det finns tjänstens huvud namn med autentiseringsuppgifter för lösen ord och du är osäker på hur lösen ords uppgifterna skyddas av skript eller program, kan du kontakta programmets ägare för att bättre förstå användnings mönster.
 
@@ -115,7 +115,7 @@ Microsoft rekommenderar också att du kontaktar program ägare för att förstå
 
 ### <a name="on-premises-authentication"></a>Lokal autentisering
 
-Federerad autentisering med integrerad Windows-autentisering (IWA) eller sömlös enkel inloggning (SSO) hanterad autentisering med hash-synkronisering av lösen ord eller direktautentisering är den bästa användar upplevelsen i företags nätverket med detaljerad information till lokala domänkontrollanter. Den minimerar risken för autentiseringsuppgifter för att minska risken för att användare som faller Prey till nätfiske-attacker minskar. Om du redan använder molnbaserad autentisering med PHS eller PTA, men användarna fortfarande behöver ange sina lösen ord vid autentisering lokalt, bör du omedelbart [distribuera sömlös SSO](../hybrid/how-to-connect-sso.md). Å andra sidan bör du implementera sömlös SSO som en del av migreringsjobbet om du för närvarande är federerad med planer för att till sist migrera till molnbaserad autentisering.
+Federerad autentisering med integrerad Windows-autentisering (IWA) eller sömlös enkel Sign-On-hanterad autentisering med lösen ords-hash-synkronisering eller direktautentisering är den bästa användar upplevelsen i företags nätverket med detaljerad information till lokala domänkontrollanter. Den minimerar risken för autentiseringsuppgifter för att minska risken för att användare som faller Prey till nätfiske-attacker minskar. Om du redan använder molnbaserad autentisering med PHS eller PTA, men användarna fortfarande behöver ange sina lösen ord vid autentisering lokalt, bör du omedelbart [distribuera sömlös SSO](../hybrid/how-to-connect-sso.md). Å andra sidan bör du implementera sömlös SSO som en del av migreringsjobbet om du för närvarande är federerad med planer för att till sist migrera till molnbaserad autentisering.
 
 ### <a name="device-trust-access-policies"></a>Åtkomst principer för enhets förtroende
 

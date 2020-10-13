@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: raynew
 ms.openlocfilehash: 68e5f937b8ad8367abf488598bda311a39d462c6
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90600661"
 ---
 # <a name="common-questions"></a>Vanliga frågor
@@ -71,12 +71,12 @@ Ja, både under överföring och i vila.
 
 ### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>Vilka behörigheter för hanterad identitet behöver resurs förflyttningen?
 
-Azure Resource superprocessens hanterade identitet måste ha minst följande behörigheter: 
+En Azure Resource Mover-hanterad identitet måste ha minst följande behörigheter: 
 
 - Behörighet att skriva/skapa resurser i användar prenumeration, som är tillgängliga med *deltagar* rollen. 
-- Behörighet att skapa roll tilldelningar. Är vanligt vis tillgängligt med administratörs rollerna *ägare* eller *användar åtkomst* , eller med en anpassad roll som har tilldelats *behörigheten Microsoft. auktorisering/roll tilldelningar/Skriv* . Den här behörigheten behövs inte om data resurs resursens hanterade identitet redan har beviljats åtkomst till Azure Data Store. 
+- Behörighet att skapa rolltilldelningar. Är vanligt vis tillgängligt med administratörs rollerna *ägare* eller *användar åtkomst* , eller med en anpassad roll som har tilldelats *behörigheten Microsoft. auktorisering/roll tilldelningar/Skriv* . Den här behörigheten behövs inte om data resurs resursens hanterade identitet redan har beviljats åtkomst till Azure Data Store. 
  
-När du lägger till resurser i resurs förflyttnings hubben på portalen hanteras behörigheter automatiskt så länge användaren har de behörigheter som beskrivs ovan. Om du lägger till resurser med PowerShell tilldelar du behörigheter manuellt.
+När du lägger till resurser i Resource Mover-hubben på portalen hanteras behörigheter automatiskt så länge användaren har de behörigheter som beskrivs ovan. Om du lägger till resurser med PowerShell tilldelar du behörigheter manuellt.
 
 > [!IMPORTANT]
 > Vi rekommenderar starkt att du inte ändrar eller tar bort roll tilldelningar för identitet. 

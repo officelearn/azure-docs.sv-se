@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 4498e78b408f64ab5bc00b9f8730559b90c95d57
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88817909"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Använd Azure Portal för att aktivera kryptering från slut punkt till slut punkt med kryptering på värden
@@ -63,7 +63,7 @@ Du måste distribuera en ny virtuell dator för att aktivera kryptering på vär
 1. På bladet **diskar** väljer du **Ja** för **kryptering på värden**.
 1. Gör de återstående valen som du vill.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Skärm bild av bladet disk för skapande av virtuell dator, kryptering på värd är markerat.":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Skärm bild av bladet grunderna för att skapa virtuella datorer, region och V M storlek är markerade.":::
 
 1. Slutför distributions processen för den virtuella datorn och gör de val som passar din miljö.
 

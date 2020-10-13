@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: peterpr
 ms.openlocfilehash: 58e481e34d9f798b73b72b114b071cf035c3319f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90967902"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Självstudie – definiera en ny enhets typ för IoT gateway i ditt Azure IoT Central-program
@@ -35,7 +35,7 @@ I den här självstudien skapar du en mall för **Smart Building** gateway-enhet
 > [!div class="checklist"]
 > Skapa mallar för underordnade enheter skapa en mall för en gateway-enhet publicera enhets mal len skapa de simulerade enheterna
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien måste du [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md).
 
@@ -110,8 +110,8 @@ För att lägga till moln egenskaper till enhets mal len för **Smart skapande G
 
     | Visningsnamn      | Semantiktyp | Schema |
     | ----------------- | ------------- | ------ |
-    | Senaste servicedatum | Ingen          | Date   |
-    | Kundnamn     | Ingen          | Sträng |
+    | Senaste servicedatum | Inget          | Datum   |
+    | Kundnamn     | Inget          | Sträng |
 
 2. Välj **Spara**.
 

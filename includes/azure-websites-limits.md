@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
 ms.openlocfilehash: 557e20dcafabb2db0bc66c9dfda4977aca50de50
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91745579"
 ---
 | Resurs | Kostnadsfri | Delad | Basic | Standard | Premium (v3) | Isolerad </th> |
@@ -30,7 +30,7 @@ ms.locfileid: "91745579"
 | Anpassade domäner per app</a> |0 (endast azurewebsites.net-underdomän)|500 |500 |500 |500 |500 |
 | Stöd för anpassad domän- [SSL](../articles/app-service/configure-ssl-certificate.md) |Jokertecken för \* . azurewebsites.net är inte stöds som standard|Jokertecken för \* . azurewebsites.net är inte stöds som standard|Obegränsade SNI SSL anslutningar |Obegränsade SNI SSL och 1 IP SSL anslutningar ingår |Obegränsade SNI SSL och 1 IP SSL anslutningar ingår | Obegränsade SNI SSL och 1 IP SSL anslutningar ingår|
 | Hybridanslutningar | | | 5 per plan | 25 per plan | 200 per app | 200 per app |
-| [Integrering med virtuellt nätverk](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
+| [Virtual Network-integrering](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
 | Integrerad belastningsutjämnare | |X |X |X |X |X<sup>10</sup> |
 | [Always on](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Schemalagda säkerhets kopieringar](../articles/app-service/manage-backup.md) | | | | Schemalagda säkerhets kopieringar varje 2 timme, högst 12 säkerhets kopior per dag (manuellt + schemalagd) | Schemalagda säkerhets kopieringar varje timme, högst 50 säkerhets kopior per dag (manuellt + schemalagd) | Schemalagda säkerhets kopieringar varje timme, högst 50 säkerhets kopior per dag (manuellt + schemalagd) |

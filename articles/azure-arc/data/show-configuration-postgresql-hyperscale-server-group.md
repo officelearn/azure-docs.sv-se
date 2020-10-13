@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: ceab9af7e6556b2d957fafce8cd89d4a0daf9508
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90942140"
 ---
 # <a name="show-the-configuration-of-an-arc-enabled-postgresql-hyperscale-server-group"></a>Visa konfigurationen av en ARC-aktiverad PostgreSQL-Server grupp
@@ -369,4 +369,4 @@ Returnerar nedanstående utdata i ett format och innehåll som liknar det som re
 - [Läs mer om lagrings konfiguration](storage-configuration.md)
 - [Läs hur du övervakar en databas instans](monitor-grafana-kibana.md)
 - [Använd PostgreSQL-tillägg i Azure Arc-aktiverade PostgreSQL för storskalig Server grupp](using-extensions-in-postgresql-hyperscale-server-group.md)
-- [Konfigurera säkerhet för din Azure-Arc-aktiverad PostgreSQL-Server grupp](configure-security-postgres-hyperscale.md)
+- [Konfigurera säkerhet för din Azure-Arc-aktiverade PostgreSQL-hyperskala-servergrupp](configure-security-postgres-hyperscale.md)

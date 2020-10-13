@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: tomfitz
 ms.openlocfilehash: 04f86883a75110985d1cbe050fe3fd3e0582986a
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88893816"
 ---
 # <a name="microsoftcommoneditablegrid-ui-element"></a>Elementet Microsoft. Common. EditableGrid UI
@@ -128,7 +128,7 @@ En kontroll för insamling av tabell indata. Alla fält i rutnätet kan redige r
 - `$rowIndex`Variabeln är endast giltig i uttryck som finns i underordnade till rutnätets kolumner. Det är ett heltal som representerar elementets relativa rad index och antalet börjar med ett och flera steg. Som du ser i schemat `"columns":` , `$rowIndex` används för verifiering.
 - När valideringar utförs med `$rowIndex` variabeln, är det möjligt att hämta den aktuella radens värde genom att kombinera `last()` `take()` kommandona och.
 
-  Ett exempel:
+  Exempel:
 
   `last(take(<reference_to_grid>, $rowIndex))`
 

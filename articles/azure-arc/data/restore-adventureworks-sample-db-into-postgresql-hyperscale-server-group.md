@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 2b51c5ca2295671a30fa6c0aee8d313c4c333900
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90941500"
 ---
 # <a name="restore-the-adventureworks-sample-database-to-azure-arc-enabled-postgresql-hyperscale"></a>Återställa AdventureWorks-exempel databasen till Azure Arc Enabled PostgreSQL-skalning
@@ -84,4 +84,4 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --use
 
    > \* I dokumenten ovan hoppar du över avsnitten **Logga**in på Azure Portal, & **skapa en Azure Database for PostgreSQL-till-skala (citus)**. Implementera de återstående stegen i din Azure Arc-distribution. Dessa avsnitt är speciella för Azure Database for PostgreSQL disscale (citus) som erbjuds som en PaaS-tjänst i Azure-molnet, men andra delar av dokumenten är direkt tillämpliga på den Azure Arc-aktiverade PostgreSQL-skalan.
 
-- [Skala ut din Azure Database for PostgreSQL skalnings Server grupp](scale-out-postgresql-hyperscale-server-group.md)
+- [Skala ut din Azure Database for PostgreSQL Hyperscale-servergrupp](scale-out-postgresql-hyperscale-server-group.md)

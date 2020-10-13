@@ -7,10 +7,10 @@ ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a3fccc934fafd8ff7db2cffbd6ba641329ba8de2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89006813"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Använd Log Analytics för funktionen diagnostik
@@ -18,7 +18,7 @@ ms.locfileid: "89006813"
 >[!IMPORTANT]
 >Det här innehållet gäller för virtuella Windows-datorer med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder Windows Virtual Desktop (klassisk) utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
 
-Windows Virtual Desktop använder [Azure Monitor](../azure-monitor/overview.md) för övervakning och aviseringar som många andra Azure-tjänster. Detta gör att administratörer kan identifiera problem via ett enda gränssnitt. Tjänsten skapar aktivitets loggar för både användar-och administrations åtgärder. Varje aktivitets logg faller under följande kategorier:
+Windows Virtual Desktop använder [Azure Monitor](../azure-monitor/overview.md) för övervakning och aviseringar som många andra Azure-tjänster. Det här gör att administratörerna kan identifiera problem via ett enda gränssnitt. Tjänsten skapar aktivitets loggar för både användar-och administrations åtgärder. Varje aktivitets logg faller under följande kategorier:
 
 - Hanterings aktiviteter:
     - Spåra om försök att ändra virtuella Windows-skrivbordet med API: er eller PowerShell lyckas. Kan någon till exempel skapa en adresspool med PowerShell?
@@ -91,7 +91,7 @@ Du kan komma åt Log Analytics arbets ytor på Azure Portal eller Azure Monitor.
 
 ### <a name="access-log-analytics-on-a-log-analytics-workspace"></a>Åtkomst Log Analytics på en Log Analytics arbets yta
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 
 2. Sök efter **Log Analytics-arbetsyta**.
 

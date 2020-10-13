@@ -14,10 +14,10 @@ ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.openlocfilehash: 4fca84c8e5aa562572792968d0438a61be5ab91b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601477"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Gör så här: anpassa anspråk som skickas i token för en angiven app i en klient (för hands version)
@@ -44,7 +44,7 @@ En princip för anspråks mappning är en typ av **princip** objekt som ändrar 
 
 Det finns vissa uppsättningar med anspråk som definierar hur och när de används i tokens.
 
-| Anspråks uppsättning | Description |
+| Anspråks uppsättning | Beskrivning |
 |---|---|
 | Uppsättning Core-anspråk | Förekommer i varje token oavsett principen. Dessa anspråk anses också vara begränsade och kan inte ändras. |
 | Grundläggande anspråks uppsättning | Innehåller de anspråk som genereras som standard för token (utöver uppsättningen med kärn anspråk). Du kan utelämna eller ändra grundläggande anspråk genom att använda anspråks mappnings principerna. |
@@ -285,7 +285,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabell 3: giltiga ID-värden per källa
 
-| Källa | ID | Description |
+| Källa | ID | Beskrivning |
 |-----|-----|-----|
 | Användare | surname | Familje namn |
 | Användare | givenname | Förnamn |
@@ -322,7 +322,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 | Användare | othermail | Annan e-post |
 | Användare | land | Land/region |
 | Användare | city | City |
-| Användare | state | Stat |
+| Användare | state | Tillstånd |
 | Användare | befattning | Befattning |
 | Användare | employeeid | Anställnings-ID |
 | Användare | facsimiletelephonenumber | Facsimile-telefonnummer |
@@ -362,7 +362,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabell 4: omvandlings metoder och förväntade indata och utdata
 
-|TransformationMethod|Förväntad Indatatyp|Förväntad utdata|Description|
+|TransformationMethod|Förväntad Indatatyp|Förväntad utdata|Beskrivning|
 |-----|-----|-----|-----|
 |Slå ihop|sträng1, sträng2, avgränsare|outputClaim|Kopplar ihop inmatade strängar med hjälp av en avgränsare mellan. Till exempel: sträng1: " foo@bar.com ", sträng2: "sandbox", avgränsare: "." resulterar i outputClaim: " foo@bar.com.sandbox "|
 |ExtractMailPrefix|E-post eller UPN|extraherad sträng|ExtensionAttributes 1-15 eller andra schema tillägg som lagrar ett UPN-eller e-postadress värde för användaren, t. ex. johndoe@contoso.com . Extraherar den lokala delen av en e-postadress. Exempel: mail: " foo@bar.com " resulterar i outputClaim: "foo". Om det inte finns något \@ tecken returneras den ursprungliga Indatasträngen som den är.|
@@ -388,7 +388,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabell 5: attribut som tillåts som data källa för SAML-NameID
 
-|Källa|ID|Description|
+|Källa|ID|Beskrivning|
 |-----|-----|-----|
 | Användare | e-post|E-postadress|
 | Användare | userPrincipalName|UPN (User Principal Name)|

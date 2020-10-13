@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: d04311fce81d147a0830918aee1d4a2a9c0808d4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88923406"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>OData-språk översikt för `$filter` , `$orderby` och `$select` i Azure kognitiv sökning
@@ -46,7 +46,7 @@ OData-uttryck sträcker sig från enkla till mycket komplexa, men alla delar gem
 
 ## <a name="field-paths"></a>Fält Sök vägar
 
-Följande EBNF ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken för fält Sök vägar.
+Följande EBNF ([utökad Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken för fält Sök vägar.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -135,7 +135,7 @@ Till exempel skulle en fras med en oformaterad apostrof som "Alices bil" visas i
 
 ### <a name="constants-syntax"></a>Konstant syntax
 
-Följande EBNF ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken för de flesta konstanter som visas i tabellen ovan. Grammatiken för geo-spatial-typer finns i [OData geo-spatial-funktioner i Azure kognitiv sökning](search-query-odata-geo-spatial-functions.md).
+Följande EBNF ([utökade Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken för de flesta konstanter som visas i tabellen ovan. Grammatiken för geo-spatial-typer finns i [OData geo-spatial-funktioner i Azure kognitiv sökning](search-query-odata-geo-spatial-functions.md).
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -211,7 +211,7 @@ Fält Sök vägar och konstanter är den mest grundläggande delen av ett OData-
 
 I de flesta fall behöver du dock mer komplexa uttryck som refererar till mer än ett fält och konstant. Dessa uttryck är inbyggda på olika sätt beroende på parametern.
 
-Följande EBNF ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken för parametrarna **$filter**, **$OrderBy**och **$Select** . Dessa är skapade med enklare uttryck som refererar till fält Sök vägar och konstanter:
+Följande EBNF ([utökad Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken för parametrarna **$filter**, **$OrderBy**och **$Select** . Dessa är skapade med enklare uttryck som refererar till fält Sök vägar och konstanter:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 

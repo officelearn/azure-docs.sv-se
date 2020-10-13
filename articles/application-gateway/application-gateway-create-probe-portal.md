@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 5dc8bf670e14d8a44b10b8093d786091791ae793
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186813"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Skapa en anpassad avsökning för Application Gateway med hjälp av portalen
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](application-gateway-create-probe-portal.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [PowerShell och Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell och den klassiska Azure-portalen](application-gateway-create-probe-classic-ps.md)
 
@@ -44,7 +44,7 @@ Avsökningar konfigureras i en två stegs process via portalen. Det första steg
 
 4. På sidan **Lägg till hälso avsökning** fyller du i den information som krävs för avsökningen och när du är klar väljer du **OK**.
 
-   |**Inställning** | **Värde** | **Detaljer**|
+   |**Inställning** | **Värde** | **Information**|
    |---|---|---|
    |**Namn**|customProbe|Det här värdet är ett eget namn som anges för den avsökning som är tillgänglig i portalen.|
    |**Protokoll**|HTTP eller HTTPS | Det protokoll som används av hälso avsökningen. |
@@ -95,7 +95,7 @@ Avsökningar konfigureras i en två stegs process via portalen. Det första steg
 
 4. På bladet **Lägg till hälso avsökning** fyller du i den information som krävs för avsökningen och när du är klar väljer du **OK**.
 
-   |**Inställning** | **Värde** | **Detaljer**|
+   |**Inställning** | **Värde** | **Information**|
    |---|---|---|
    |**Namn**|customProbe|Det här värdet är ett eget namn som anges för den avsökning som är tillgänglig i portalen.|
    |**Protokoll**|HTTP eller HTTPS | Det protokoll som används av hälso avsökningen. |

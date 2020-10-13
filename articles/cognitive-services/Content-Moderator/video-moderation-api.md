@@ -12,10 +12,10 @@ ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9b389841bdba107ba27371387d4a6e5d1f009d41
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919360"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analysera video innehåll för stötande material i C #
@@ -121,7 +121,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 Om du vill använda en lokal videofil (enklaste fallet) lägger du till den i projektet och anger dess sökväg som `INPUT_FILE` värde (relativa sökvägar är relativa till körnings katalogen).
 
-Du måste också skapa _preset.js_ filen i den aktuella katalogen och använda den för att ange ett versions nummer. Ett exempel:
+Du måste också skapa _preset.js_ filen i den aktuella katalogen och använda den för att ange ett versions nummer. Exempel:
 
 ```JSON
 {

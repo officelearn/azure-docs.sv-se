@@ -11,10 +11,10 @@ ms.custom:
 - devx-track-python
 - device-developer
 ms.openlocfilehash: 1be7087e99ca2e4dc605a8d1c6b9821567aecfef
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90968127"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Självstudie: skapa och ansluta ett klient program till ditt Azure IoT Central-program (python)
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 > * Använd en vy för att hantera enhets egenskaper.
 > * Anropa synkrona och asynkrona kommandon för att styra enheten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 

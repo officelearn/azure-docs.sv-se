@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
 ms.openlocfilehash: 9f0a7b6f68c5a3adeb320fd18bec2f195a833dbf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310007"
 ---
 # <a name="log-analytics-agent-overview"></a>Översikt över Log Analytics agent
@@ -39,7 +39,7 @@ Det kostar inget att Log Analytics agent, men du kan debiteras avgifter för inm
 ## <a name="data-collected"></a>Insamlade data
 I följande tabell visas de typer av data som du kan konfigurera en Log Analytics arbets yta att samla in från alla anslutna agenter. Se [vad som övervakas av Azure Monitor?](../monitor-reference.md) för en lista med insikter, lösningar och andra lösningar som använder Log Analytics-agenten för att samla in andra typer av data.
 
-| Datakälla | Description |
+| Datakälla | Beskrivning |
 | --- | --- |
 | [Händelse loggar i Windows](data-sources-windows-events.md) | Information som skickas till händelse loggnings systemet i Windows. |
 | [Syslog](data-sources-syslog.md)                     | Information som skickas till händelse loggnings systemet i Linux. |
@@ -111,10 +111,10 @@ I följande tabell visas den konfigurations information för proxy och brand vä
 
 |Agentresurs|Portar |Riktning |Kringgå HTTPS-kontroll|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Port 443 |Outbound (Utgående)|Yes |  
-|*.oms.opinsights.azure.com |Port 443 |Outbound (Utgående)|Yes |  
-|*.blob.core.windows.net |Port 443 |Outbound (Utgående)|Yes |
-|*.azure-automation.net |Port 443 |Outbound (Utgående)|Yes |
+|*.ods.opinsights.azure.com |Port 443 |Outbound (Utgående)|Ja |  
+|*.oms.opinsights.azure.com |Port 443 |Outbound (Utgående)|Ja |  
+|*.blob.core.windows.net |Port 443 |Outbound (Utgående)|Ja |
+|*.azure-automation.net |Port 443 |Outbound (Utgående)|Ja |
 
 För brand Väggs information som krävs för Azure Government, se [Azure Government hantering](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 

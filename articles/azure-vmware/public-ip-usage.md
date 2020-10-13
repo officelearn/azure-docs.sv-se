@@ -4,10 +4,10 @@ description: Den här artikeln förklarar hur du använder funktionen för offen
 ms.topic: how-to
 ms.date: 10/30/2020
 ms.openlocfilehash: ec8af45a98e82a7c1c657776c4fee2c3ef068dca
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91745004"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-virtual-wan"></a>Använda funktionen för offentliga IP-funktioner i Azure Virtual WAN
@@ -19,7 +19,7 @@ Offentlig IP är en ny funktion i Azures anslutning till VMware-lösningar och k
 
 Som en del av distributionen av privata moln i Azure VMware-lösningen, vid aktivering av offentliga IP-funktioner, skapas de komponenter som krävs med automation och aktive ras automatiskt:
 
--  Virtuellt WAN
+-  Virtual WAN
 
 -  Virtuell WAN-hubb med ExpressRoute-anslutning
 

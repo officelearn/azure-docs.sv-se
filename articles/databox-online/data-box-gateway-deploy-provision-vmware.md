@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 09/25/2020
 ms.author: alkohli
 ms.openlocfilehash: 026caf101f58ff9d93e3306d0bd224f24e8af864
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743955"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Självstudie: etablera Azure Data Box Gateway i VMware
@@ -23,7 +23,7 @@ I den här självstudien beskrivs hur du etablerar Data Box Gateway på ett vär
 
 Du måste ha administratörsbehörighet för att etablera och ansluta till en virtuell enhet. Etableringen och den inledande installationen kan ta ungefär 10 minuter att slutföra. 
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Se till att värden uppfyller minimikraven för enhet
@@ -33,7 +33,7 @@ I de här självstudierna får du lära dig att
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kraven för att etablera en virtuell enhet på ett värdsystem som kör VMware ESXi 6.0, 6.5 eller 6.7 är följande.
 
@@ -155,7 +155,7 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 
     ![Sidan anpassa inställningar om du kör VMware ESXi Server 6,7](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
 
-18. På sidan **Ready to Complete** (Redo att slutföra)granskar du alla inställningar associerade med den nya virtuella datorn. Kontrollera att CPU är 4, minnet är 8 192 MB, nätverksgränssnittet är 1 och hårddisk 2 har IDE-styrenhet 0. Klicka på **Slutför**.
+18. På sidan **Ready to Complete** (Redo att slutföra)granskar du alla inställningar associerade med den nya virtuella datorn. Kontrollera att CPU är 4, minnet är 8 192 MB, nätverksgränssnittet är 1 och hårddisk 2 har IDE-styrenhet 0. Klicka på **Finish**.
    
     ![Klar för att slutföra sidan ](./media/data-box-gateway-deploy-provision-vmware/image16.png)
      ![ 2](./media/data-box-gateway-deploy-provision-vmware/image17.png)

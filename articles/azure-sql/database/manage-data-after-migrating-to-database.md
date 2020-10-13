@@ -13,10 +13,10 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: 016bb1e4a0844be2a137108d673159bd041cd351
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89439783"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Ny DBA i molnet – Hantera Azure SQL Database efter migrering
@@ -139,7 +139,7 @@ Som standard är din databas konfigurerad för att "ge Azure-tjänster åtkomst 
 
 Med tjänst slut punkter (SE) kan du bara exponera dina kritiska Azure-resurser för ditt privata virtuella nätverk i Azure. Genom att göra det, eliminerar du i princip den offentliga åtkomsten till dina resurser. Trafiken mellan ditt virtuella nätverk i Azure ligger kvar på Azures stamnät nätverk. Utan SE ska du Hämta paket routning för Tvingad tunnel trafik. Ditt virtuella nätverk tvingar Internet trafiken till din organisation och Azure-tjänstetrafiken att gå över samma väg. Med tjänst slut punkter kan du optimera detta eftersom paketen flödar direkt från ditt virtuella nätverk till tjänsten i Azure stamnät nätverket.
 
-![VNet-tjänstens slut punkter](./media/manage-data-after-migrating-to-database/vnet-service-endpoints.png)
+![VNet-tjänstslutpunkter](./media/manage-data-after-migrating-to-database/vnet-service-endpoints.png)
 
 #### <a name="reserved-ips"></a>Reserverade ip-adresser
 
@@ -273,7 +273,7 @@ I det här diagrammet kan du också konfigurera aviseringar per resurs. Med de h
 
 #### <a name="dynamic-management-views"></a>Dynamiska hanteringsvyer
 
-Du kan ställa frågor till vyn [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamisk hantering för att returnera historiken för resurs förbruknings statistik från den senaste timmen och vyn [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) system katalog för att returnera historik för de senaste 14 dagarna.
+Du kan köra en fråga [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamisk hanterings vy för att returnera statistik historik för resurs förbrukning från den senaste timmen och vyn [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) system katalog för att returnera historik under de senaste 14 dagarna.
 
 #### <a name="query-performance-insight"></a>Query Performance Insight
 
@@ -293,7 +293,7 @@ Din metod för fel sökning av prestanda problem kan avsevärt utnyttjas med hj�
 
 Med prestanda fel sökning är det viktigt att identifiera om det bara är programmet eller databasen som säkerhetskopierar, vilket påverkar programmets prestanda. Ofta beror prestanda problemet på program nivån. Det kan vara arkitekturen eller data åtkomst mönstret. Anta till exempel att du har ett chatt-program som är känsligt för nätverks fördröjning. I det här fallet är ditt program lidande eftersom det skulle finnas många korta begär Anden som kommer fram och tillbaka ("samtal") mellan programmet och servern och i ett överbelastat nätverk, så tur och retur lägger upp snabbt. För att förbättra prestandan i det här fallet kan du använda [batch-frågor](performance-guidance.md#batch-queries). Genom att använda batchar får du en fantastisk funktion eftersom dina begär Anden bearbetas i en batch. Därför hjälper du att minska tiden för roundtrip-svar och förbättra programmets prestanda.
 
-Om du anvisar en försämring i den övergripande prestandan för databasen kan du även övervaka [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) och [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamiska hanterings vyer för att förstå CPU, IO och minnes användning. Dina prestanda kan påverkas eftersom databasen är har av resurser. Det kan vara att du kan behöva ändra beräknings storlek och/eller tjänste nivå baserat på de växande och förminskande arbets belastnings kraven.
+Om du ser en försämring i databasens övergripande prestanda kan du också övervaka [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) och [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamiska hanterings vyer för att förstå CPU-, IO-och minnes förbrukning. Dina prestanda kan påverkas eftersom databasen är har av resurser. Det kan vara att du kan behöva ändra beräknings storlek och/eller tjänste nivå baserat på de växande och förminskande arbets belastnings kraven.
 
 En omfattande uppsättning rekommendationer för att justera prestanda problem finns i: [finjustera din databas](performance-guidance.md#tune-your-database).
 

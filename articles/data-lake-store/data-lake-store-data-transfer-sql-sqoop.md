@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: twooley
 ms.openlocfilehash: c61862ccc7bac839627e9e7a9fbff9859155c6a2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323085"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Kopiera data mellan Data Lake Storage Gen1 och Azure SQL Database med Sqoop
@@ -24,7 +24,7 @@ Big data program är ett naturligt val för bearbetning av ostrukturerade och de
 
 [Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) är ett verktyg som utformats för att överföra data mellan Relations databaser och en stor data lagrings plats, till exempel data Lake Storage gen1. Du kan använda den för att importera data från ett relationellt databas hanterings system (RDBMS) som Azure SQL Database till Data Lake Storage Gen1. Du kan sedan omvandla och analysera data med hjälp av Big data-arbetsbelastningar och sedan exportera data tillbaka till en RDBMS. I den här artikeln använder du en databas i Azure SQL Database som Relations databas för att importera/exportera från.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar måste du ha följande:
 

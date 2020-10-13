@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: b760ad03318b3c31b39b6470251847150dc5a70a
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88869430"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics utdata till Azure SQL Database
@@ -39,7 +39,7 @@ Här följer några konfigurationer i varje tjänst som kan hjälpa till att fö
 
 - **Undvik unika nyckel överträdelser** – om du får [varnings meddelanden om flera nyckel](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) överträdelser i Azure Stream Analytics aktivitets loggen, kontrollerar du att jobbet inte påverkas av unika begränsnings överträdelser som sannolikt kommer att inträffa under återställnings fall. Detta kan undvikas genom att ange alternativet för att [Ignorera \_ duplicera- \_ nyckeln](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) i dina index.
 
-## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory och InMemory-tabeller
+## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory och In-Memory tabeller
 
 - **InMemory-tabell som temporär tabell** – [i-minnes tabeller](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) möjliggör mycket data inläsning av data, men data måste anpassas i minnet. Benchmarks Visa Mass inläsning från en InMemory-tabell till en diskbaserad tabell är ungefär 10 gånger snabbare än att infoga direkt Mass infogning med hjälp av en enda skrivare i den diskbaserade tabellen med en identitets kolumn och ett grupperat index. Om du vill dra nytta av den här Mass infogningen måste du konfigurera ett [kopierings jobb med Azure Data Factory](../data-factory/connector-azure-sql-database.md) som kopierar data från InMemory-tabellen till den diskbaserade tabellen.
 
@@ -48,10 +48,10 @@ Mass infogning av data är mycket snabbare än att läsa in data med enskilda in
 
 Om frekvensen inkommande händelser är låg kan det enkelt skapa batchgrupper som är mindre än 100 rader, vilket gör Mass infogningen ineffektiv och använder för mycket disk utrymme. Du kan undvika den här begränsningen genom att utföra någon av följande åtgärder:
 * Skapa en i stället för [utlösare](/sql/t-sql/statements/create-trigger-transact-sql) för att använda enkel infogning för varje rad.
-* Använd en temporär tabell i minnet enligt beskrivningen i föregående avsnitt.
+* Använd en In-Memory temporär tabell enligt beskrivningen i föregående avsnitt.
 
 Ett annat sådant scenario uppstår när du skriver till ett icke-grupperat columnstore-index (NCCI), där mindre Mass infogningar kan skapa för många segment, vilket kan krascha indexet. I det här fallet är rekommendationen att använda ett grupperat columnstore-index i stället.
 
 ## <a name="summary"></a>Sammanfattning
 
-I sammanfattning, med funktionen för partitionerade utdata i Azure Stream Analytics för SQL-utdata, bör parallellisering av jobbet med en partitionerad tabell i SQL Azure ge dig betydande data flödes förbättringar. Genom att använda Azure Data Factory för att dirigera data förflyttning från en InMemory-tabell till diskbaserade tabeller kan du ange storleks vinster för data flödet. Om möjligt kan det också vara en större faktor att förbättra meddelande tätheten för att förbättra det totala data flödet.
+I sammanfattning, med funktionen för partitionerade utdata i Azure Stream Analytics för SQL-utdata, bör parallellisering av jobbet med en partitionerad tabell i SQL Azure ge dig betydande data flödes förbättringar. Genom att använda Azure Data Factory för att dirigera data förflyttning från en In-Memory tabell till diskbaserade tabeller kan du ange hur stor data flödes vinster är. Om möjligt kan det också vara en större faktor att förbättra meddelande tätheten för att förbättra det totala data flödet.

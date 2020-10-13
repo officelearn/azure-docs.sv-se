@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d7c02e413fdaa54db431cdac7a3cf7af0bddeb98
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331904"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team data vetenskaps processen i praktiken: använda SQL Server
@@ -431,7 +431,7 @@ plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
 ![Rita #8][8]
 
-### <a name="sub-sampling-the-data-in-sql"></a>Under sampling av data i SQL
+### <a name="sub-sampling-the-data-in-sql"></a>Sub-Sampling data i SQL
 När du förbereder data för modell utveckling i [Azure Machine Learning Studio](https://studio.azureml.net)kan du antingen bestämma om **SQL-frågan ska användas direkt i modulen importera data** eller spara de utformade och samplade data i en ny tabell, som du kan använda i modulen [Importera data][import-data] med ett enkelt **Select * från <det \_ nya \_ tabell \_ namnet>**.
 
 I det här avsnittet ska vi skapa en ny tabell för att lagra de insamlade och tillverkade data. Ett exempel på en direkt SQL-fråga för modell utveckling finns i avsnittet [data utforskning och funktions teknik i SQL Server](#dbexplore) avsnittet.

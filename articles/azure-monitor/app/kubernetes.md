@@ -6,10 +6,10 @@ author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
 ms.openlocfilehash: 3cd43963175594fcdc1c3c67d6b2493ce1ccd313
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87321929"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Övervakning av program vara utan instrumentering för Kubernetes-värdbaserade program med Istio-inaktuell
@@ -23,7 +23,7 @@ Azure Monitor använder nu teknisk teknik för service nät på ditt Kubernetes-
 > [!NOTE]
 > Det här är ett av många sätt att utföra program övervakning på Kubernetes.Du kan också instrumentera alla appar som finns i Kubernetes med hjälp av [Application Insights SDK](../azure-monitor-app-hub.yml) utan att det behövs något service nät. Om du vill övervaka Kubernetes utan att instrumentera programmet med ett SDK kan du använda metoden nedan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett [Kubernetes-kluster](../../aks/concepts-clusters-workloads.md).
 - Konsol åtkomst till klustret för att köra *kubectl*.

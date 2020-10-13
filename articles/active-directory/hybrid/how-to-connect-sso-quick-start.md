@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: sömlös enkel inloggning-snabb start | Microsoft Docs'
-description: Den här artikeln beskriver hur du kommer igång med Azure Active Directory sömlös enkel inloggning
+title: 'Azure AD Connect: sömlös Single Sign-On-snabb start | Microsoft Docs'
+description: Den här artikeln beskriver hur du kommer igång med Azure Active Directory sömlösa enkla Sign-On
 services: active-directory
 keywords: Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
 documentationcenter: ''
@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295034"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory sömlös enkel inloggning: snabb start
 
-## <a name="deploy-seamless-single-sign-on"></a>Distribuera sömlös enkel inloggning
+## <a name="deploy-seamless-single-sign-on"></a>Distribuera sömlösa enkla Sign-On
 
-Azure Active Directory (Azure AD) sömlös enkel inloggning (sömlös SSO) loggar automatiskt in användare när de befinner sig på sina företags datorer som är anslutna till företagets nätverk. Sömlös SSO ger dina användare enkel åtkomst till dina molnbaserade program utan att behöva ytterligare lokala komponenter.
+Azure Active Directory (Azure AD) sömlös enkel Sign-On (sömlös SSO) loggar automatiskt in användare när de befinner sig på sina företags datorer som är anslutna till företagets nätverk. Sömlös SSO ger dina användare enkel åtkomst till dina molnbaserade program utan att behöva ytterligare lokala komponenter.
 
 Följ dessa steg om du vill distribuera sömlös SSO.
 
@@ -236,7 +236,7 @@ Instruktioner för hur du rullar över nycklar finns [Azure Active Directory sö
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Teknisk djupgående](how-to-connect-sso-how-it-works.md): förstå hur den sömlösa funktionen för enkel inloggning fungerar.
+- [Teknisk djupgående](how-to-connect-sso-how-it-works.md): förstå hur den sömlösa Sign-On funktionen fungerar.
 - [Vanliga frågor](how-to-connect-sso-faq.md)och svar: få svar på vanliga frågor om sömlös enkel inloggning.
-- [Felsöka](tshoot-connect-sso.md): Lär dig hur du löser vanliga problem med funktionen för sömlös enkel inloggning.
+- [Felsöka](tshoot-connect-sso.md): Lär dig hur du löser vanliga problem med den sömlösa Sign-On funktionen.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Använd Azure Active Directory-forumet för att fil nya funktions begär Anden.

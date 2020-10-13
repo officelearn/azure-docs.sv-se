@@ -11,10 +11,10 @@ ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
 ms.openlocfilehash: 09ea3ceb15c9b175b8366bf3ac57a61e468ab72a
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91356034"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Skicka meddelanden till en MQTT-Server
@@ -33,7 +33,7 @@ I det här projektet får du lära dig:
 
 Slutför [komma igång guiden](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) för att:
 
-* Låt dina DevKit vara anslutna till Wi-Fi
+* Låt din DevKit vara ansluten till Wi-Fi
 * Förbereda utvecklingsmiljön
 
 ## <a name="open-the-project-folder"></a>Öppna projektmappen
@@ -70,7 +70,7 @@ I VS Code följer du stegen nedan för att öppna och konfigurera den seriella �
   
 3. I statusfältet klickar du på det tal som representerar överföringshastigheten och ställer in det på `115200` : ![ skärm bilden visar hur överföringshastigheten visas i Visual Studio Code.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
 
-I den seriella övervakaren visas alla meddelanden som skickas av exempel ritningen. Skissen ansluter DevKit till Wi-Fi. När Wi-Fi-anslutningen har slutförts skickar skissen ett meddelande till MQTT-koordinatorn. Efter det skickar exemplet upprepade gånger två "iot.eclipse.org"-meddelanden med QoS 0 och QoS 1.
+I den seriella övervakaren visas alla meddelanden som skickas av exempel ritningen. Skissen ansluter DevKit till Wi-Fi. När Wi-Fi anslutningen lyckas skickar skissen ett meddelande till MQTT-koordinatorn. Efter det skickar exemplet upprepade gånger två "iot.eclipse.org"-meddelanden med QoS 0 och QoS 1.
 
 ![Skärm bild visar den seriella övervakaren som visar de meddelanden som skickas av skissen.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
 

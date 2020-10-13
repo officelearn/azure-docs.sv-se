@@ -4,13 +4,13 @@ description: Beskriver hur du konfigurerar kontinuerlig integrering i Azure-pipe
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.openlocfilehash: 6784df30340e4c54b8b1d6e82b45046666824315
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653408"
 ---
-# <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrera ARM-mallar med Azure-pipeliner
+# <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrera ARM-mallar med Azure Pipelines
 
 Du kan integrera Azure Resource Manager mallar (ARM-mallar) med Azure-pipelines för kontinuerlig integrering och kontinuerlig distribution (CI/CD). Självstudien [för kontinuerlig integrering av arm-mallar med Azure-pipeliner](deployment-tutorial-pipeline.md) visar hur du använder [distributions uppgiften för arm-mallen](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) för att distribuera en mall från din GitHub-lagrings platsen. Den här metoden fungerar när du vill distribuera en mall direkt från en lagrings plats.
 

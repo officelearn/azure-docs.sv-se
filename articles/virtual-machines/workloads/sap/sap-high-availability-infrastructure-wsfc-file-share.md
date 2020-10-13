@@ -17,10 +17,10 @@ ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 14ffcbf2e111e052f4b45259b0b25664049d3b3d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855373"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Förbered Azure-infrastrukturen för SAP med hög tillgänglighet genom att använda ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser
@@ -218,8 +218,8 @@ Läs följande artikel innan du påbörjar installationen:
 | --- | --- | --- | --- |
 | Första klusternoden ASCS/SCS-kluster | ASCs-1 | 10.0.6.4 | ASCs – som |
 | Andra klusternoden ASCS/SCS-kluster | ASCs-2 | 10.0.6.5 | ASCs – som |
-| Kluster nätverks namn |ASCs-cl | 10.0.6.6 | saknas |
-| SAP PR1 ASCS-kluster nätverks namn |PR1 – ASCs | 10.0.6.7 | saknas |
+| Kluster nätverks namn |ASCs-cl | 10.0.6.6 | Saknas |
+| SAP PR1 ASCS-kluster nätverks namn |PR1 – ASCs | 10.0.6.7 | Saknas |
 
 
 **Tabell 1**: ASCS/SCS-kluster
@@ -236,10 +236,10 @@ Läs följande artikel innan du påbörjar installationen:
 | Första klusternoden | SOFS-1 | 10.0.6.10 | SOFS – som |
 | Andra klusternoden | SOFS-2 | 10.0.6.11 | SOFS – som |
 | Tredje klusternoden | SOFS-3 | 10.0.6.12 | SOFS – som |
-| Kluster nätverks namn | SOFS-cl | 10.0.6.13 | saknas |
-| Globalt värd namn för SAP | sapglobal | Använd IP-adresser för alla klusternoder | saknas |
+| Kluster nätverks namn | SOFS-cl | 10.0.6.13 | Saknas |
+| Globalt värd namn för SAP | sapglobal | Använd IP-adresser för alla klusternoder | Saknas |
 
-**Tabell 3**: skalbar filserver kluster
+**Tabell 3**: Scale-Out fil Server kluster
 
 
 ## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>Distribuera virtuella datorer för ett SAP ASCS/SCS-kluster, ett databas hanterings system (DBMS)-kluster och SAP Application Server-instanser
@@ -259,9 +259,9 @@ Förbered Azure-infrastrukturen genom att slutföra följande:
 * När du använder Windows Server 2016 rekommenderar vi att du konfigurerar [Azure Cloud-vittnet][deploy-cloud-witness].
 
 
-## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Distribuera Skalbar filserver klustret manuellt 
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Distribuera Scale-Out fil Server kluster manuellt 
 
-Du kan distribuera Microsoft Skalbar filserver Cluster manuellt, enligt beskrivningen i blogg [Lagringsdirigering i Azure][ms-blog-s2d-in-azure]genom att köra följande kod:  
+Du kan distribuera Microsoft Scale-Out fil Server kluster manuellt, enligt beskrivningen i blogg [Lagringsdirigering i Azure][ms-blog-s2d-in-azure]genom att köra följande kod:  
 
 
 ```powershell
@@ -294,25 +294,25 @@ $SAPGlobalHostName = "sapglobal"
 Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 ```
 
-## <a name="deploy-scale-out-file-server-automatically"></a>Distribuera Skalbar filserver automatiskt
+## <a name="deploy-scale-out-file-server-automatically"></a>Distribuera Scale-Out fil Server automatiskt
 
-Du kan också automatisera distributionen av Skalbar filserver genom att använda Azure Resource Manager mallar i ett befintligt virtuellt nätverk och i Active Directory miljö.
+Du kan också automatisera distributionen av Scale-Out fil Server genom att använda Azure Resource Manager mallar i ett befintligt virtuellt nätverk och i Active Directory miljö.
 
 > [!IMPORTANT]
-> Vi rekommenderar att du har tre eller flera klusternoder för Skalbar filserver med tre-vägs spegling.
+> Vi rekommenderar att du har tre eller flera klusternoder för Scale-Out fil server med tre-vägs spegling.
 >
-> Skalbar filserver i användar gränssnittet för Resource Manager-mallen måste du ange antalet virtuella datorer.
+> I användar gränssnittet för mall Scale-Out i Hanteraren för fil server resurser måste du ange antalet virtuella datorer.
 >
 
 ### <a name="use-managed-disks"></a>Använd Managed disks
 
-Azure Resource Manager-mallen för att distribuera Skalbar filserver med Lagringsdirigering och Azure Managed Disks finns på [GitHub][arm-sofs-s2d-managed-disks].
+Azure Resource Manager-mallen för att distribuera Scale-Out fil server med Lagringsdirigering och Azure Managed Disks finns på [GitHub][arm-sofs-s2d-managed-disks].
 
 Vi rekommenderar att du använder Managed Disks.
 
-![Bild 1: GRÄNSSNITTs skärmen för Skalbar filserver Resource Manager-mall med Managed disks][sap-ha-guide-figure-8010]
+![Bild 1: GRÄNSSNITTs skärmen för Scale-Out mall för Hanteraren för fil server resurser med Managed disks][sap-ha-guide-figure-8010]
 
-_**Bild 1**: gränssnitts skärmen för skalbar filserver Resource Manager-mall med Managed disks_
+_**Bild 1**: gränssnitts skärmen för Scale-Out mall för Hanteraren för fil server resurser med Managed disks_
 
 Gör följande i mallen:
 1. Ange det minsta antalet **2**i rutan **antal virtuella datorer** .
@@ -322,17 +322,17 @@ Gör följande i mallen:
 
 ### <a name="use-unmanaged-disks"></a>Använd ohanterade diskar
 
-Azure Resource Manager-mallen för att distribuera Skalbar filserver med Lagringsdirigering och ohanterade Azure-diskar finns på [GitHub][arm-sofs-s2d-non-managed-disks].
+Azure Resource Manager-mallen för att distribuera Scale-Out fil server med Lagringsdirigering och ohanterade Azure-diskar finns på [GitHub][arm-sofs-s2d-non-managed-disks].
 
-![Bild 2: GRÄNSSNITTs skärmen för Skalbar filserver Azure Resource Manager-mallen utan Managed disks][sap-ha-guide-figure-8011]
+![Bild 2: GRÄNSSNITTs skärmen för Scale-Out fil Server Azure Resource Manager mall utan hanterade diskar][sap-ha-guide-figure-8011]
 
-_**Bild 2**: gränssnitts skärmen för skalbar filserver Azure Resource Manager-mallen utan Managed disks_
+_**Bild 2**: gränssnitts skärmen för Scale-Out fil Server Azure Resource Manager mall utan hanterade diskar_
 
 I rutan **lagrings konto typ** väljer du **Premium Storage**. Alla andra inställningar är samma som inställningarna för Managed disks.
 
 ## <a name="adjust-cluster-timeout-settings"></a>Justera inställningar för kluster tids gräns
 
-När du har installerat Windows Skalbar filserver-klustret kan du anpassa timeout-tröskelvärden för identifiering av redundansväxling till villkor i Azure. De parametrar som ska ändras dokumenteras i [Justera tröskelvärden för redundanskluster i nätverket][tuning-failover-cluster-network-thresholds]. Förutsatt att de klustrade virtuella datorerna finns i samma undernät ändrar du följande parametrar till följande värden:
+När du har installerat Windows Scale-Out fil Server kluster kan du anpassa timeout-tröskelvärden för identifiering av redundans till villkor i Azure. De parametrar som ska ändras dokumenteras i [Justera tröskelvärden för redundanskluster i nätverket][tuning-failover-cluster-network-thresholds]. Förutsatt att de klustrade virtuella datorerna finns i samma undernät ändrar du följande parametrar till följande värden:
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15

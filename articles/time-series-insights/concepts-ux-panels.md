@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: 5810bea7920dbfe91a836814124cbe4c7f6f3bee
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653799"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
 
 I den här artikeln beskrivs de olika funktionerna och alternativen som är tillgängliga i Azure Time Series Insights Gen2 [demo Environment](https://insights.timeseries.azure.com/preview/demo).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång med Azure Time Series Insights Explorer måste du:
 
@@ -214,7 +214,7 @@ Azure Time Series Insights Gen2 terms Editor-panelen tar följande parametrar:
 
 **Där**: Använd WHERE-satsen för att snabbt filtrera händelser med hjälp av en uppsättning operander som anges i följande tabell. Om du utför en sökning genom att välja en operand uppdateras predikatet automatiskt baserat på den sökningen. De operands typer som stöds är följande:
 
-| Åtgärd    | Typer som stöds    | Kommentarer |
+| Åtgärd    | Typer som stöds    | Obs! |
 | --- | --- | --- |
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | Sträng, bool, Double, DateTime, TimeSpan, NULL |

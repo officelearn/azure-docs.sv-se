@@ -4,10 +4,10 @@ description: Som tjänst leverantör eller företag som använder Azure-Lighthou
 ms.date: 08/12/2020
 ms.topic: how-to
 ms.openlocfilehash: 165110556282e90bbacf4ce3b3c59e34b203a528
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88167206"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Visa och hantera kunder och delegerade resurser
@@ -59,7 +59,7 @@ Om du har inkluderat användare med [tilldelnings rollen för hantering av hante
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>Arbeta i kontexten för en delegerad prenumeration
 
-Du kan arbeta direkt i kontexten för en delegerad prenumeration i Azure Portal, utan att byta katalog som du arbetar i. Gör så här:
+Du kan arbeta direkt i kontexten för en delegerad prenumeration i Azure Portal, utan att byta katalog som du arbetar i. Så här gör du:
 
 1. Välj ikonen **katalog + prenumeration** längst upp i Azure Portal.
 2. I det **globala prenumerations** filtret ser du till att endast rutan för den delegerade prenumerationen är markerad. Du kan använda List rutan **aktuella och delegerade kataloger** om du bara vill visa prenumerationer i en angiven katalog. (Använd inte alternativet **Växla katalog** eftersom det ändrar den katalog som du är inloggad på.)

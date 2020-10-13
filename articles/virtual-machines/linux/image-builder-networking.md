@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: dfd0929ea03cd99033482f71579e91aaf6fc131c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 531c423e42338b72b41c54466d5bfe8a89cd3c45
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88068343"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969645"
 ---
 # <a name="azure-image-builder-service-networking-options"></a>Nätverks alternativ för Azure Image Builder-tjänster
 
@@ -33,7 +33,7 @@ Mer information finns i något av följande exempel:
 
 ### <a name="what-is-azure-private-link"></a>Vad är Azure Privat Link?
 
-Azures privata länk ger privat anslutning från ett virtuellt nätverk till Azure-PaaS (Platform as a Service), kundägda eller Microsoft partner tjänster. Det fören klar nätverks arkitekturen och skyddar anslutningen mellan slut punkter i Azure genom att eliminera data exponeringen för det offentliga Internet. Mer information finns i dokumentationen till [privat länk](https://docs.microsoft.com/azure/private-link).
+Azures privata länk ger privat anslutning från ett virtuellt nätverk till Azure-PaaS (Platform as a Service), kundägda eller Microsoft partner tjänster. Det fören klar nätverks arkitekturen och skyddar anslutningen mellan slut punkter i Azure genom att eliminera data exponeringen för det offentliga Internet. Mer information finns i dokumentationen till [privat länk](../../private-link/index.yml).
 
 ### <a name="required-permissions-for-an-existing-vnet"></a>Nödvändiga behörigheter för ett befintligt VNET
 
@@ -68,7 +68,7 @@ Den distribuerade virtuella proxyns storlek är standard A1_v2 förutom den virt
 | subnetName | Namnet på under nätet i det angivna virtuella nätverket. Måste anges om och endast om *namn* har angetts. |
 | resourceGroupName | Namnet på den resurs grupp som innehåller det angivna virtuella nätverket. Måste anges om och endast om *namn* har angetts. |
 
-Private Link Service kräver en IP-adress från angivet VNET och undernät. För närvarande stöder inte Azure nätverks principer på de här IP-adresserna. Nätverks principer måste därför inaktive ras på under nätet. Mer information finns i dokumentationen till [privat länk](https://docs.microsoft.com/azure/private-link).
+Private Link Service kräver en IP-adress från angivet VNET och undernät. För närvarande stöder inte Azure nätverks principer på de här IP-adresserna. Nätverks principer måste därför inaktive ras på under nätet. Mer information finns i dokumentationen till [privat länk](../../private-link/index.yml).
 
 ### <a name="checklist-for-using-your-vnet"></a>Check lista för att använda ditt VNET
 

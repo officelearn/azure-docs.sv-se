@@ -4,10 +4,10 @@ description: Skicka händelser från tredjeparts Event Grid SaaS-och PaaS-partne
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: e56055c55a3b30c5d13736b9838257f3c0bbec10
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87831914"
 ---
 # <a name="partner-topics-in-azure-event-grid-preview"></a>Partner ämnen i Azure Event Grid (för hands version)
@@ -21,7 +21,7 @@ Den första partner som är tillgänglig via Event Grid partner ämnen är Auth0
 ## <a name="pricing"></a>Prissättning
 Partner ämnen debiteras enligt samma åtgärds takt som system ämnen.
 
-## <a name="limits"></a>Gränser
+## <a name="limits"></a>Begränsningar
 Partner ämnena finns i offentlig för hands version. Under den offentliga för hands versionen omfattas partner ämnen av [samma gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits) som system ämnen och anpassade ämnen.
 
 ## <a name="how-do-i-become-an-event-grid-partner"></a>Hur gör jag för att bli en Event Grid-partner?

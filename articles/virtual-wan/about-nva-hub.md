@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
 ms.openlocfilehash: 1e4b8a2d801d7d7eccfaf558c3926ead1ab0a953
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91313781"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Om virtuell nätverks installation i en Azure Virtual WAN Hub (för hands version)
@@ -50,7 +50,7 @@ NVA-partner kan skapa olika resurser beroende på deras installation, konfigurat
 * **Kund resurs grupp** – detta kommer att innehålla en program plats hållare för det hanterade programmet. Partner kan använda detta för att visa vilka kund egenskaper de väljer här.
 * **Hanterad resurs grupp** – kunder kan inte konfigurera eller ändra resurser i den här resurs gruppen direkt, eftersom detta styrs av utgivaren av det hanterade programmet. Den här resurs gruppen kommer att innehålla **NetworkVirtualAppliances** -resursen.
 
-:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Resurs grupper för hanterade program":::
+:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Process översikt":::
 
 ### <a name="nva-infrastructure-units"></a><a name="units"></a>NVA infrastruktur enheter
 
@@ -85,7 +85,7 @@ NVA i den virtuella hubben är tillgänglig för för hands version i följande 
 | Asien | Japan, östra |
 | Australien | Australien, östra |
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 ### <a name="i-am-a-network-appliance-partner-and-want-to-get-our-nva-in-the-hub--can-i-join-this-partner-program"></a>Jag är en partner för nätverks installationer och vill få våra NVA i hubben.  Kan jag ansluta till det här partner programmet?
 

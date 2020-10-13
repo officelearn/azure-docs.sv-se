@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c083b319b11807a88461b2464153821fa2ad0b67
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89276192"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Hybrid identitets överväganden för Azure Government molnet
@@ -74,9 +74,9 @@ Om du använder direktautentisering som inloggnings metod krävs ingen ytterliga
 
   Om inte, Tillåt åtkomst till Azure datacenter IP-intervall som uppdateras varje vecka. Detta krav gäller endast när du aktiverar funktionen. Det krävs inte för faktiska användar inloggningar.
 
-### <a name="roll-out-seamless-single-sign-on"></a>Distribuera sömlös enkel inloggning
+### <a name="roll-out-seamless-single-sign-on"></a>Distribuera sömlösa enkla Sign-On
 
-Du kan gradvis Distribuera Azure AD sömlös enkel inloggning till dina användare med hjälp av följande instruktioner. Du börjar med att lägga till Azure AD-URL: en `https://autologon.microsoft.us` till alla eller valda användares intranät zons inställningar genom att använda Grupprincip i Active Directory.
+Du kan gradvis Distribuera Azure AD sömlöst Sign-On till dina användare med hjälp av följande instruktioner. Du börjar med att lägga till Azure AD-URL: en `https://autologon.microsoft.us` till alla eller valda användares intranät zons inställningar genom att använda Grupprincip i Active Directory.
 
 Du måste också aktivera princip inställningen **Tillåt uppdateringar till statusfältet via skript genom att Grupprincip**.
 

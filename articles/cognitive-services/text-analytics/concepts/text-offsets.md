@@ -12,10 +12,10 @@ ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
 ms.openlocfilehash: 14fd7c2b034077d818d1a1224d3c4c12a7fc07bc
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855651"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Text förskjutningar i API för textanalys utdata
@@ -54,6 +54,6 @@ Om det `stringIndexType` begärda matchar den programmerings miljö du väljer k
 
 * [Översikt över Textanalys](../overview.md)
 * [Sentiment-analys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Igenkänning av enhet](../how-tos/text-analytics-how-to-entity-linking.md)
+* [Enhets igenkänning](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Identifiera språk](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Språk igenkänning](../how-tos/text-analytics-how-to-language-detection.md)

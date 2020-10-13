@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 0e8ea218aa9c557fb109aee0dba318cfd5f605c7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836249"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Azure Disk Encryption med Azure AD för virtuella Windows-datorer (tidigare version)
@@ -63,20 +63,20 @@ I följande tabell visas parametrarna för Resource Manager-mallen för nya virt
 | subnetName | Namnet på under nätet i det virtuella nätverk som den virtuella datorns nätverkskort ska tillhöra. |
 | AADClientID | Klient-ID för Azure AD-programmet som har behörighet att skriva hemligheter till ditt nyckel valv. |
 | AADClientSecret | Klient hemlighet för Azure AD-programmet som har behörighet att skriva hemligheter till ditt nyckel valv. |
-| keyVaultURL | URL för nyckel valvet som BitLocker-nyckeln ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzKeyVault -VaultName "MyKeyVault" -ResourceGroupName "MyKeyVaultResourceGroupName").VaultURI` eller Azure CLI`az keyvault show --name "MySecureVault" --query properties.vaultUri` |
+| keyVaultURL | URL för nyckel valvet som BitLocker-nyckeln ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzKeyVault -VaultName "MyKeyVault" -ResourceGroupName "MyKeyVaultResourceGroupName").VaultURI` eller Azure CLI `az keyvault show --name "MySecureVault" --query properties.vaultUri` |
 | keyEncryptionKeyURL | URL till den nyckel krypterings nyckel som används för att kryptera den genererade BitLocker-nyckeln (valfritt). </br> </br>KeyEncryptionKeyURL är en valfri parameter. Du kan ta med din egen KEK för att ytterligare skydda data krypterings nyckeln (lösen Frass hemlighet) i ditt nyckel valv. |
 | keyVaultResourceGroup | Nyckel valvets resurs grupp. |
 | vmName | Namnet på den virtuella dator som krypterings åtgärden ska utföras på. |
 
 
-## <a name="enable-encryption-on-existing-or-running-iaas-windows-vms"></a><a name="bkmk_RunningWinVM"></a>Aktivera kryptering på befintliga eller aktiva virtuella IaaS-datorer i Windows
+## <a name="enable-encryption-on-existing-or-running-iaas-windows-vms"></a><a name="bkmk_RunningWinVM"></a> Aktivera kryptering på befintliga eller aktiva virtuella IaaS-datorer i Windows
 I det här scenariot kan du aktivera kryptering med hjälp av en mall, PowerShell-cmdletar eller CLI-kommandon. I följande avsnitt beskrivs mer information om hur du aktiverar Azure Disk Encryption. 
 
 
-### <a name="enable-encryption-on-existing-or-running-vms-with-azure-powershell"></a><a name="bkmk_RunningWinVMPSH"></a>Aktivera kryptering på befintliga eller aktiva virtuella datorer med Azure PowerShell 
+### <a name="enable-encryption-on-existing-or-running-vms-with-azure-powershell"></a><a name="bkmk_RunningWinVMPSH"></a> Aktivera kryptering på befintliga eller aktiva virtuella datorer med Azure PowerShell 
 Använd cmdleten [set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) för att aktivera kryptering på en virtuell IaaS-dator som körs i Azure. Information om hur du aktiverar kryptering med Azure Disk Encryption med hjälp av PowerShell-cmdlets finns i blogg inläggen [utforska Azure Disk Encryption med Azure PowerShell del 1](/archive/blogs/azuresecurity/explore-azure-disk-encryption-with-azure-powershell) och [utforska Azure Disk Encryption med Azure PowerShell-del 2](/archive/blogs/azuresecurity/explore-azure-disk-encryption-with-azure-powershell-part-2).
 
--  **Kryptera en virtuell dator som körs med en klient hemlighet:** Skriptet nedan initierar variablerna och kör cmdleten Set-AzVMDiskEncryptionExtension. Resurs gruppen, den virtuella datorn, nyckel valvet, AAD-appen och klient hemligheten bör redan ha skapats som krav. Ersätt MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-Client-ID och My-AAD-client-Secret med dina värden.
+-  **Kryptera en virtuell dator som körs med en klient hemlighet:** Skriptet nedan initierar variablerna och kör Set-AzVMDiskEncryptionExtension-cmdleten. Resurs gruppen, den virtuella datorn, nyckel valvet, AAD-appen och klient hemligheten bör redan ha skapats som krav. Ersätt MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-Client-ID och My-AAD-client-Secret med dina värden.
      ```azurepowershell
       $KVRGname = 'MyKeyVaultResourceGroup';
       $VMRGName = 'MyVirtualMachineResourceGroup';
@@ -166,7 +166,7 @@ I följande tabell visas parametrarna för Resource Manager-mallen för befintli
 | --- | --- |
 | AADClientID | Klient-ID för Azure AD-programmet som har behörighet att skriva hemligheter till nyckel valvet. |
 | AADClientSecret | Klient hemlighet för Azure AD-programmet som har behörighet att skriva hemligheter till nyckel valvet. |
-| keyVaultName | Namnet på nyckel valvet som BitLocker-nyckeln ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` eller Azure CLI-kommandot`az keyvault list --resource-group "MySecureGroup"`|
+| keyVaultName | Namnet på nyckel valvet som BitLocker-nyckeln ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` eller Azure CLI-kommandot `az keyvault list --resource-group "MySecureGroup"`|
 |  keyEncryptionKeyURL | URL till den nyckel krypterings nyckel som används för att kryptera den genererade BitLocker-nyckeln. Den här parametern är valfri om du väljer **nokek** i list rutan UseExistingKek. Om du väljer **KEK** i list rutan UseExistingKek måste du ange värdet _keyEncryptionKeyURL_ . |
 | volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden är _OS_, _data_och _alla_. |
 | sequenceVersion | Sekvens-version av BitLocker-åtgärden. Öka det här versions numret varje gång en disk krypterings åtgärd utförs på samma virtuella dator. |
@@ -194,10 +194,10 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 Du kan [lägga till en ny disk till en virtuell Windows-dator med hjälp av PowerShell](attach-disk-ps.md), eller [via Azure Portal](attach-managed-disk-portal.md). 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Aktivera kryptering på en nyligen tillagd disk med Azure PowerShell
- När du använder PowerShell för att kryptera en ny disk för virtuella Windows-datorer ska en ny version av sekvens anges. Sekvens-versionen måste vara unik. Skriptet nedan genererar en GUID för sekvens-versionen. I vissa fall kan en nyligen tillagd datadisk krypteras automatiskt av Azure Disk Encryption tillägget. Automatisk kryptering sker vanligt vis när den virtuella datorn startas om efter att den nya disken är online. Detta beror vanligt vis på att "alla" angavs för volym typen när disk kryptering tidigare kördes på den virtuella datorn. Om automatisk kryptering sker på en nyligen tillagd datadisk rekommenderar vi att du kör cmdleten Set-AzVmDiskEncryptionExtension igen med en ny sekvens-version. Om den nya datadisken krypteras automatiskt och du inte vill vara krypterad dekrypterar du alla enheter och krypterar först om med en ny sekvens version som anger OS som typ av volym. 
+ När du använder PowerShell för att kryptera en ny disk för virtuella Windows-datorer ska en ny version av sekvens anges. Sekvens-versionen måste vara unik. Skriptet nedan genererar en GUID för sekvens-versionen. I vissa fall kan en nyligen tillagd datadisk krypteras automatiskt av Azure Disk Encryption tillägget. Automatisk kryptering sker vanligt vis när den virtuella datorn startas om efter att den nya disken är online. Detta beror vanligt vis på att "alla" angavs för volym typen när disk kryptering tidigare kördes på den virtuella datorn. Om automatisk kryptering sker på en nyligen tillagd datadisk rekommenderar vi att du kör Set-AzVmDiskEncryptionExtension-cmdleten igen med en ny sekvens-version. Om den nya datadisken krypteras automatiskt och du inte vill vara krypterad dekrypterar du alla enheter och krypterar först om med en ny sekvens version som anger OS som typ av volym. 
  
 
--  **Kryptera en virtuell dator som körs med en klient hemlighet:** Skriptet nedan initierar variablerna och kör cmdleten Set-AzVMDiskEncryptionExtension. Resurs gruppen, den virtuella datorn, nyckel valvet, AAD-appen och klient hemligheten bör redan ha skapats som krav. Ersätt MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-Client-ID och My-AAD-client-Secret med dina värden. I det här exemplet används "alla" för parametern-VolumeType, som innehåller både OS-och data volymer. Om du bara vill kryptera operativ system volymen använder du "OS" för parametern-VolumeType. 
+-  **Kryptera en virtuell dator som körs med en klient hemlighet:** Skriptet nedan initierar variablerna och kör Set-AzVMDiskEncryptionExtension-cmdleten. Resurs gruppen, den virtuella datorn, nyckel valvet, AAD-appen och klient hemligheten bör redan ha skapats som krav. Ersätt MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-Client-ID och My-AAD-client-Secret med dina värden. I det här exemplet används "alla" för parametern-VolumeType, som innehåller både OS-och data volymer. Om du bara vill kryptera operativ system volymen använder du "OS" för parametern-VolumeType. 
 
      ```azurepowershell
       $sequenceVersion = [Guid]::NewGuid();
@@ -253,7 +253,7 @@ Du kan [lägga till en ny disk till en virtuell Windows-dator med hjälp av Powe
 
 
 ## <a name="enable-encryption-using-azure-ad-client-certificate-based-authentication"></a>Aktivera kryptering med Azure AD client Certificate-baserad autentisering.
-Du kan använda autentisering med klient certifikat med eller utan KEK. Innan du använder PowerShell-skripten bör du redan ha certifikatet överfört till nyckel valvet och distribuerat till den virtuella datorn. Om du använder KEK bör KEK redan finnas. Mer information finns i avsnittet [certifikatbaserad autentisering för Azure AD](disk-encryption-key-vault-aad.md#certificate-based-authentication-optional) i krav artikeln.
+Du kan använda autentisering med klient certifikat med eller utan KEK. Innan du använder PowerShell-skripten bör du redan ha certifikatet överfört till nyckel valvet och distribuerat till den virtuella datorn. Om du använder KEK bör KEK redan finnas. Mer information finns i avsnittet  [certifikatbaserad autentisering för Azure AD](disk-encryption-key-vault-aad.md#certificate-based-authentication-optional) i krav artikeln.
 
 
 ### <a name="enable-encryption-using-certificate-based-authentication-with-azure-powershell"></a>Aktivera kryptering med certifikatbaserad autentisering med Azure PowerShell
@@ -324,7 +324,7 @@ Du kan inaktivera kryptering med Azure PowerShell, Azure CLI eller med en Resour
      ```
 - **Inaktivera kryptering med en Resource Manager-mall:** 
 
-    1. Klicka på **distribuera till Azure** från den [inaktivera disk kryptering vid körning av Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) -mall.
+    1. Klicka på **distribuera till Azure** från den [inaktivera disk kryptering vid körning av Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm)  -mall.
     2. Välj prenumeration, resurs grupp, plats, virtuell dator, juridiska villkor och avtal.
     3.  Klicka på **köp** för att inaktivera disk kryptering på en Windows-VM som körs. 
 

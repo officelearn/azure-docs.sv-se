@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpfr
 ms.openlocfilehash: 3192a9f121d4380a3e681747596fc91997662bf0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90967943"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Självstudie: Använd enhets grupper för att analysera enhets telemetri
@@ -27,7 +27,7 @@ I den här guiden får du lära dig att:
 > * Skapa en enhetsgrupp.
 > * Använda en enhets grupp för att analysera telemetri för enheter
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar bör du fylla i [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md) och [lägga till en simulerad enhet i IoT Central](./quick-create-simulated-device.md) snabb starter för att skapa **MXChip IoT DevKit** Device-mallen för att arbeta med.
 
@@ -65,7 +65,7 @@ Så här skapar du en enhets grupp:
 > [!NOTE]
 > För Azure IoT Edge enheter väljer du Azure IoT Edge mallar för att skapa en enhets grupp.
 
-## <a name="analytics"></a>Analys
+## <a name="analytics"></a>Analytics
 
 Du kan använda **Analytics** med en enhets grupp för att analysera Telemetrin från enheterna i gruppen. Du kan till exempel rita den genomsnittliga temperatur som rapporteras av alla Contosos miljö sensorer.
 

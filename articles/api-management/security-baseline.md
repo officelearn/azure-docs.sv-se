@@ -8,10 +8,10 @@ ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 4db7727558d0b7f4c26aba3ffa823bebb07862f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713771"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Azures säkerhets bas linje för API Management
@@ -367,7 +367,7 @@ Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel e
 
 **Vägledning**: underhålla en inventering av konton som har administrativ åtkomst till Azure API Management kontroll planet (Azure Portal).
 
-Azure Active Directory (AD) har inbyggda roller som måste tilldelas explicit och som kan frågas. API Management förlitar sig på dessa roller och rollbaserade Access Control för att möjliggöra detaljerad åtkomst hantering för API Management tjänster och entiteter.
+Azure Active Directory (AD) har inbyggda roller som måste tilldelas explicit och som kan frågas. API Management är beroende av dessa roller och Role-Based Access Control för att möjliggöra detaljerad åtkomst hantering för API Management tjänster och entiteter.
 
 API Management innehåller dessutom en inbyggd administratörs grupp i API Managements användar system. Grupper i API Management kontroll synlighet för API: er i Developer-portalen och medlemmar i gruppen Administratörer kan se alla API: er.
 
@@ -1112,9 +1112,9 @@ Hanterade identiteter kan användas för att hämta certifikat från Azure Key V
 
 * [Säkerhets rekommendation för Blob Storage](../storage/blobs/security-recommendations.md)
 
-Aktivera mjuk borttagning i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
+Aktivera Soft-Delete i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
 
-* [Så här aktiverar du mjuk borttagning i Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Så här aktiverar du Soft-Delete i Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

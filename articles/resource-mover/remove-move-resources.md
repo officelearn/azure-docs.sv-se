@@ -7,28 +7,35 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 241ccbda67f7a2518d0c44a0d362673922ad4284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38a633a7a11ac29271231679e7075920e1f33a70
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89653132"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945951"
 ---
-# <a name="remove-resources-from-a-move-collection"></a>Ta bort resurser från en flyttsamling
+# <a name="manage-move-collections-and-resource-groups"></a>Hantera flytta samlingar och resurs grupper
 
-I den här artikeln beskrivs hur du tar bort resurser från en flyttnings samling i [Azure Resource-arbetskraften](overview.md). Flytta samlingar används när du flyttar Azure-resurser mellan Azure-regioner.
+Den här artikeln beskriver hur du tar bort resurser från en flyttnings samling eller tar bort en flytta samling/resurs grupp i [Azure Resource-arbetskraften](overview.md). Flytta samlingar används när du flyttar Azure-resurser mellan Azure-regioner.
 
 ## <a name="remove-a-resource-portal"></a>Ta bort en resurs (portal)
 
-Ta bort i resurs förflyttnings portalen på följande sätt:
+Du kan ta bort resurser i en flyttnings samling i resurs förflyttnings portalen på följande sätt:
 
-1. I **flera regioner**väljer du de resurser som du vill ta bort från samlingen > **ta bort**.
+1. I **flera regioner**väljer du alla resurser som du vill ta bort från samlingen och väljer **ta bort**. 
 
     ![Knapp att välja för att ta bort](./media/remove-move-resources/portal-select-resources.png)
 
-1. I **ta bort resurser**klickar du på **ta bort**.
+2. I **ta bort resurser**klickar du på **ta bort**.
 
     ![Knappen för att välja att ta bort resurser från en flytt samling](./media/remove-move-resources/remove-portal.png)
+
+## <a name="remove-a-move-collectionresource-group-portal"></a>Ta bort en flytt samling/resurs grupp (portal)
+
+Du kan ta bort en flytt samling/resurs grupp i portalen.
+
+1. Följ anvisningarna i proceduren ovan för att ta bort resurser från samlingen. Om du tar bort en resurs grupp kontrollerar du att den inte innehåller några resurser.
+2. Ta bort flyttnings samlingen eller resurs gruppen.  
 
 ## <a name="remove-a-resource-powershell"></a>Ta bort en resurs (PowerShell)
 
@@ -41,16 +48,20 @@ Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceG
 **Förväntade utdata** 
  ![ Mata ut text efter borttagning av en resurs från en flyttnings samling](./media/remove-move-resources/remove-resource.png)
 
+
+
 ## <a name="remove-a-collection-powershell"></a>Ta bort en samling (PowerShell)
 
 Ta bort en hel flytt samling med PowerShell enligt följande:
 
-```azurepowershell-interactive
-# Remove a resource using the resource ID
-Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus 
-```
-**Förväntade utdata** 
- ![ Mata ut text efter borttagning av en flytt samling](./media/remove-move-resources/remove-collection.png)
+1. Följ anvisningarna ovan för att ta bort resurser i samlingen med hjälp av PowerShell.
+2. Kör följande:
+
+    ```azurepowershell-interactive
+    # Remove a resource using the resource ID
+    Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus 
+    ```
+    **Förväntade utdata** ![ Mata ut text efter borttagning av en flytt samling](./media/remove-move-resources/remove-collection.png)
 
 ## <a name="vm-resource-state-after-removing"></a>Status för VM-resurs efter borttagning
 

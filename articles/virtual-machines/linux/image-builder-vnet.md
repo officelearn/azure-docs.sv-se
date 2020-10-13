@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: f216b6fa3a0e43c1c0313baa4f8414546a74d8f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d75d73fcd64917257b850861142e7f4a67da834c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88068337"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972330"
 ---
 # <a name="use-azure-image-builder-for-linux-vms-allowing-access-to-an-existing-azure-vnet"></a>Använd Azure Image Builder för virtuella Linux-datorer som ger åtkomst till ett befintligt Azure VNET
 
@@ -163,7 +163,7 @@ sed -i -e "s/<vnetRgName>/$vnetRgName/g" aibRoleNetworking.json
 
 ## <a name="set-permissions-on-the-resource-group"></a>Ange behörigheter för resurs gruppen
 
-Image Builder använder den [användar identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) som tillhandahölls för att mata in avbildningen i Azure-galleriet för delad avbildning (sig). I det här exemplet ska du skapa en Azure-roll definition som innehåller detaljerade åtgärder för att distribuera avbildningen till SIG själv. Roll definitionen tilldelas sedan till användar identiteten.
+Image Builder använder den [användar identitet](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) som tillhandahölls för att mata in avbildningen i Azure-galleriet för delad avbildning (sig). I det här exemplet ska du skapa en Azure-roll definition som innehåller detaljerade åtgärder för att distribuera avbildningen till SIG själv. Roll definitionen tilldelas sedan till användar identiteten.
 
 ```bash
 # create user assigned identity for image builder

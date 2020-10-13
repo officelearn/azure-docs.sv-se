@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.openlocfilehash: 7b6c8faafac34ada664ddfadebf8d71a16c73fa7
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710540"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Övervaka prestanda med Query Store
@@ -88,18 +88,18 @@ När Query Store har Aktiver ATS sparas data i 15-minuters agg regerings fönste
 
 Följande alternativ är tillgängliga för att konfigurera parametrar för Frågearkivet.
 
-| **Parameter** | **Beskrivning** | **Objekt** | **Intervall**|
+| **Parameter** | **Beskrivning** | **Default** | **Intervall**|
 |---|---|---|---|
-| pg_qs pg_qs.query_capture_mode | Anger vilka instruktioner som spåras. | inget | ingen, Top, alla |
+| pg_qs pg_qs.query_capture_mode | Anger vilka instruktioner som spåras. | ingen | ingen, Top, alla |
 | pg_qs pg_qs.max_query_text_length | Anger den maximala fråge längden som kan sparas. Längre frågor kommer att trunkeras. | 6000 | 100 – 10 000 |
 | pg_qs pg_qs.retention_period_in_days | Anger kvarhållningsperioden. | 7 | 1 - 30 |
 | pg_qs pg_qs.track_utility | Anger om verktygs kommandon spåras | på | på, av |
 
 Följande alternativ gäller specifikt för väntande statistik.
 
-| **Parameter** | **Beskrivning** | **Objekt** | **Intervall**|
+| **Parameter** | **Beskrivning** | **Default** | **Intervall**|
 |---|---|---|---|
-| pgms_wait_sampling pgms_wait_sampling.query_capture_mode | Anger vilka instruktioner som spåras för väntande statistik. | inget | ingen, alla|
+| pgms_wait_sampling pgms_wait_sampling.query_capture_mode | Anger vilka instruktioner som spåras för väntande statistik. | ingen | ingen, alla|
 | Pgms_wait_sampling Pgms_wait_sampling.history_period | Ange frekvensen, i millisekunder, vid sampling av väntande händelser. | 100 | 1-600000 |
 
 > [!NOTE] 
@@ -167,7 +167,7 @@ Den här vyn returnerar information om väntande händelser i Frågearkivet. Det
 |fjärrproceduranrop  |Integer        ||Antal insamlade händelser|
 
 
-### <a name="functions"></a>Functions (Funktioner)
+### <a name="functions"></a>Functions
 Query_store Query_store.qs_reset () returnerar void
 
 `qs_reset` ignorerar all statistik som har samlats in hittills i Query Store. Den här funktionen kan bara utföras av Server administratörs rollen.

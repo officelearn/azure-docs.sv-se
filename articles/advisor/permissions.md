@@ -4,10 +4,10 @@ description: Advisor-behörigheter och hur de kan blockera din möjlighet att ko
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 402a21c47c4cba8f747d5d4601f9c95034c99262
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91712927"
 ---
 # <a name="permissions-in-azure-advisor"></a>Behörigheter i Azure Advisor
@@ -20,15 +20,15 @@ Följande tabell definierar de roller och den åtkomst som de har i Advisor:
 
 | **Role** | **Visa rekommendationer** | **Redigera regler** | **Redigera prenumerations konfiguration** | **Redigera konfiguration av resurs grupp**| **Stäng och Senarelägg rekommendationer**|
 |---|:---:|:---:|:---:|:---:|:---:|
-|Prenumerations ägare|**X**|**X**|**X**|**X**|**X**|
-|Prenumerations deltagare|**X**|**X**|**X**|**X**|**X**|
-|Prenumerations läsare|**X**|--|--|--|--|
-|Resurs grupp ägare|**X**|--|--|**X**|**X**|
-|Resurs grupps deltagare|**X**|--|--|**X**|**X**|
-|Resurs grupp läsare|**X**|--|--|--|--|
-|Resurs ägare|**X**|--|--|--|**X**|
-|Resurs deltagare|**X**|--|--|--|**X**|
-|Resurs läsare|**X**|--|--|--|--|
+|Prenumerations ägare|**Röntgen**|**Röntgen**|**Röntgen**|**Röntgen**|**Röntgen**|
+|Prenumerations deltagare|**Röntgen**|**Röntgen**|**Röntgen**|**Röntgen**|**Röntgen**|
+|Prenumerations läsare|**Röntgen**|--|--|--|--|
+|Resurs grupp ägare|**Röntgen**|--|--|**Röntgen**|**Röntgen**|
+|Resurs grupps deltagare|**Röntgen**|--|--|**Röntgen**|**Röntgen**|
+|Resurs grupp läsare|**Röntgen**|--|--|--|--|
+|Resurs ägare|**Röntgen**|--|--|--|**Röntgen**|
+|Resurs deltagare|**Röntgen**|--|--|--|**Röntgen**|
+|Resurs läsare|**Röntgen**|--|--|--|--|
 
 > [!NOTE]
 > Åtkomst till att Visa rekommendationer är beroende av din åtkomst till rekommendationens påverkade resurser.

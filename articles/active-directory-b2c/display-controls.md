@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 131ecd010cba55f08199f713654792c0844a47e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49626d418f90f8b4bc7288a6d2f7d195cd906f7a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85202304"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961365"
 ---
 # <a name="display-controls"></a>Visa kontroller
 
@@ -30,9 +30,9 @@ Följande bild illustrerar en självkontrollerad registrerings sida med två vis
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
- I avsnittet [metadata](self-asserted-technical-profile.md#metadata) i en [självkontrollerad teknisk profil](self-asserted-technical-profile.md)måste den refererade [ContentDefinition](contentdefinitions.md) ha `DataUri` ställts in på sid kontrakt version 2.0.0 eller högre. Exempel:
+ I avsnittet [metadata](self-asserted-technical-profile.md#metadata) i en [självkontrollerad teknisk profil](self-asserted-technical-profile.md)måste den refererade [ContentDefinition](contentdefinitions.md) ha `DataUri` ställts in på sid kontrakt version 2.0.0 eller högre. Till exempel:
 
 ```xml
 <ContentDefinition Id="api.selfasserted">
@@ -55,9 +55,9 @@ Elementet Visa poster innehåller **följande element:**
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | **InputClaims** används för att förkonfigurera värdet för de anspråk som ska samlas in från användaren. |
-| DisplayClaims | 0:1 | **DisplayClaims** används för att representera anspråk som ska samlas in från användaren. |
-| OutputClaims | 0:1 | **OutputClaims** används för att representera anspråk som ska sparas temporärt för **den här**visaren. |
+| InputClaims | 0:1 | **InputClaims** används för att förkonfigurera värdet för de anspråk som ska samlas in från användaren. Mer information finns i [InputClaims](technicalprofiles.md#inputclaims) -element. |
+| DisplayClaims | 0:1 | **DisplayClaims** används för att representera anspråk som ska samlas in från användaren. Mer information finns i [DisplayClaim](technicalprofiles.md#displayclaim) -element.|
+| OutputClaims | 0:1 | **OutputClaims** används för att representera anspråk som ska sparas temporärt för **den här**visaren. Mer information finns i [OutputClaims](technicalprofiles.md#outputclaims) -element.|
 | Åtgärder | 0:1 | **Åtgärder** används för att visa en lista med de tekniska profilerna som ska anropas för användar åtgärder på klient sidan. |
 
 ### <a name="input-claims"></a>Inmatade anspråk
@@ -80,7 +80,7 @@ Varje typ av visnings kontroll kräver en annan uppsättning visnings anspråk, 
 
 På liknande sätt som de **visnings anspråk** som definierats i en [självkontrollerad teknisk profil](self-asserted-technical-profile.md#display-claims)representerar visnings anspråken de anspråk som ska samlas in från användaren i visnings kontrollen. **ClaimType** -elementet som refereras måste ange **UserInputType** -elementet för en indatatyp som stöds av Azure AD B2C, till exempel `TextBox` eller `DropdownSingleSelect` . Om ett visnings anspråks värde krävs av en **åtgärd**anger du det attribut som **krävs** för `true` att tvinga användaren att ange ett värde för det angivna visnings kravet.
 
-Vissa visnings anspråk krävs för vissa typer av visnings kontroll. Till exempel krävs **VerificationCode** för visnings kontrollen av typen **VerificationControl**. Använd attributet **ControlClaimType** för att ange vilken DisplayClaim som är avsedd för det begärda anspråket. Exempel:
+Vissa visnings anspråk krävs för vissa typer av visnings kontroll. Till exempel krävs **VerificationCode** för visnings kontrollen av typen **VerificationControl**. Använd attributet **ControlClaimType** för att ange vilken DisplayClaim som är avsedd för det begärda anspråket. Till exempel:
 
 ```xml
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
@@ -98,7 +98,90 @@ Om du vill bubbla ut anspråk till nästa Orchestration-steg använder du **Outp
 
 En åtgärd definierar en lista över **tekniska verifierings profiler**. De används för att verifiera vissa eller alla visnings anspråk för visnings kontrollen. Den tekniska verifierings profilen verifierar indata från användaren och kan returnera ett fel till användaren. Du kan använda **ContinueOnError**, **ContinueOnSuccess**och **villkor** i visnings kontroll åtgärden som liknar det sätt som de används för att [validera tekniska profiler](validation-technical-profile.md) i en egen kontrollerad teknisk profil.
 
-I följande exempel skickas en kod i e-post eller SMS baserat på användarens val av **mfaType** -anspråket.
+#### <a name="actions"></a>Åtgärder
+
+Elementet **Actions** innehåller följande element:
+
+| Element | Förekomster | Beskrivning |
+| ------- | ----------- | ----------- |
+| Åtgärd | 1: n | Lista med åtgärder som ska utföras. |
+
+#### <a name="action"></a>Åtgärd
+
+**Åtgärds** elementet innehåller följande attribut:
+
+| Attribut | Krävs | Beskrivning |
+| --------- | -------- | ----------- |
+| Id | Ja | Typ av åtgärd. Möjliga värden: `SendCode` eller `VerifyCode` . `SendCode`Värdet skickar en kod till användaren. Den här åtgärden kan innehålla två verifierade tekniska profiler: en för att generera en kod och en för att skicka den. `VerifyCode`Värdet verifierar den kod som användaren skrev i text rutan för indata. |
+
+**Åtgärds** elementet innehåller följande element:
+
+| Element | Förekomster | Beskrivning |
+| ------- | ----------- | ----------- |
+| ValidationClaimsExchange | 1:1 | Identifierare för tekniska profiler som används för att validera vissa eller alla visnings anspråk för den refererande tekniska profilen. Alla ingående anspråk för den refererade tekniska profilen måste visas i visnings anspråk för den refererande tekniska profilen. |
+
+#### <a name="validationclaimsexchange"></a>ValidationClaimsExchange
+
+**ValidationClaimsExchange** -elementet innehåller följande element:
+
+| Element | Förekomster | Beskrivning |
+| ------- | ----------- | ----------- |
+| ValidationTechnicalProfile | 1: n | En teknisk profil som används för att verifiera vissa eller alla visnings anspråk för den refererande tekniska profilen. |
+
+**ValidationTechnicalProfile** -elementet innehåller följande attribut:
+
+| Attribut | Krävs | Beskrivning |
+| --------- | -------- | ----------- |
+| ReferenceId | Ja | En identifierare för en teknisk profil som redan har definierats i principen eller överordnad princip. |
+|ContinueOnError|Nej| Anger om validering av eventuella efterföljande verifierings tekniska profiler ska fortsätta om den här verifierings tekniska profilen genererar ett fel. Möjliga värden: `true` eller `false` (standard, bearbetning av ytterligare verifierings profiler kommer att stoppas och ett fel returneras). |
+|ContinueOnSuccess | Nej | Anger om validering av efterföljande validerings profiler ska fortsätta om den här verifieringen av teknisk profil lyckas. Möjliga värden: `true` eller `false` . Standardvärdet är `true` , vilket innebär att bearbetningen av ytterligare verifierings profiler fortsätter. |
+
+**ValidationTechnicalProfile** -elementet innehåller följande element:
+
+| Element | Förekomster | Beskrivning |
+| ------- | ----------- | ----------- |
+| Villkor | 0:1 | En lista med förutsättningar som måste uppfyllas för att den tekniska profilen för validering ska kunna köras. |
+
+**Villkors** elementet innehåller följande attribut:
+
+| Attribut | Krävs | Beskrivning |
+| --------- | -------- | ----------- |
+| `Type` | Ja | Typ av kontroll eller fråga som ska utföras för villkoret. Möjliga värden: `ClaimsExist` eller `ClaimEquals` . `ClaimsExist` anger att åtgärderna ska utföras om de angivna anspråken finns i användarens aktuella anspråks uppsättning. `ClaimEquals` anger att åtgärderna ska utföras om det angivna anspråket finns och dess värde är lika med det angivna värdet. |
+| `ExecuteActionsIf` | Ja | Anger om åtgärderna i villkoret ska utföras om testet är sant eller falskt. |
+
+**Villkors** elementet innehåller följande element:
+
+| Element | Förekomster | Beskrivning |
+| ------- | ----------- | ----------- |
+| Värde | 1: n | De data som används av kontrollen. Om typen av kontroll är `ClaimsExist` , anger det här fältet en ClaimTypeReferenceId att fråga efter. Om typen av kontroll är `ClaimEquals` , anger det här fältet en ClaimTypeReferenceId att fråga efter. Ange det värde som ska kontrol leras i ett annat värde element.|
+| Åtgärd | 1:1 | Den åtgärd som ska vidtas om villkors kontrollen i ett Orchestration-steg är sann. Värdet för **åtgärden** är inställt på `SkipThisValidationTechnicalProfile` , vilket anger att den tillhör ande tekniska profilen för verifiering inte ska köras. |
+
+I följande exempel skickas och verifieras e-postadressen med hjälp av [Azure AD SSPR Technical Profile](aad-sspr-technical-profile.md).
+
+```xml
+<DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
+  <InputClaims></InputClaims>
+  <DisplayClaims>
+    <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
+  </DisplayClaims>
+  <OutputClaims></OutputClaims>
+  <Actions>
+    <Action Id="SendCode">
+      <ValidationClaimsExchange>
+        <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-SendCode" />
+      </ValidationClaimsExchange>
+    </Action>
+    <Action Id="VerifyCode">
+      <ValidationClaimsExchange>
+        <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-VerifyCode" />
+      </ValidationClaimsExchange>
+    </Action>
+  </Actions>
+</DisplayControl>
+```
+
+I följande exempel skickas en kod antingen i e-post eller SMS baserat på användarens val av **mfaType** -anspråk med villkor.
 
 ```xml
 <Action Id="SendCode">
@@ -129,7 +212,7 @@ I följande exempel skickas en kod i e-post eller SMS baserat på användarens v
 
 Visa kontroller refereras till i [Visa anspråk](self-asserted-technical-profile.md#display-claims) för den [självkontrollerade tekniska profilen](self-asserted-technical-profile.md).
 
-Exempel:
+Till exempel:
 
 ```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
@@ -141,3 +224,10 @@ Exempel:
     <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
 ```
+
+## <a name="next-steps"></a>Nästa steg
+
+Exempel på hur du använder visnings kontroll finns i: 
+
+- [Anpassad e-postverifiering med MailJet](custom-email-mailjet.md)
+- [Anpassad e-postverifiering med SendGrid](custom-email-sendgrid.md)

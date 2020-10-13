@@ -7,12 +7,12 @@ ms.date: 01/28/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 62ea64f6f0ccf3a9f4ceabc64a97e1e5570b92b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ef41516d516ce6498fc8c502a229084acdebfa1
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88586077"
+ms.locfileid: "91875544"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrera Azure Key Vault med Azure Policy
 
@@ -148,7 +148,10 @@ Du hanterar ett nyckel valv som används av flera team som innehåller 100-certi
 Att tilldela en princip med en "Neka"-effekt kan ta upp till 30 minuter (genomsnittligt fall) och 1 timme (värsta fall) för att börja neka skapandet av icke-kompatibla resurser. Princip utvärderingen av befintliga komponenter i ett valv kan ta upp till 1 timme (genomsnittligt fall) och 2 timmar (värsta fall) innan resultatet visas i portalens gränssnitt. Om resultatet av efterlevnaden visas som "inte startad" kan det bero på följande orsaker:
 - Princip värderingen har inte slutförts än. Den första utvärderings fördröjningen kan ta upp till 2 timmar i värsta fall scenariot. 
 - Det finns inga nyckel valv i omfånget för princip tilldelningen.
-- Det finns inga nyckel valv med certifikat inom omfånget för princip tilldelningen. 
+- Det finns inga nyckel valv med certifikat inom omfånget för princip tilldelningen.
+
+> [!NOTE]
+> Azure Policy [resurs lägen](../../governance/policy/concepts/definition-structure.md#resource-provider-modes)för olika leverantörer, till exempel för Azure Key Vault, ger information om kompatibilitet på sidan [komponenternas efterlevnad](../../governance/policy/how-to/get-compliance-data.md#component-compliance) .
 
 ## <a name="next-steps"></a>Nästa steg
 

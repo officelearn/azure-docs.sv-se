@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c4a9d7fbfbda568c07a528e5a7eafd70b85add45
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91447806"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge enheter (klassisk redigerare)
@@ -38,7 +38,7 @@ Om inget annat anges utforskar procedurerna i den här artikeln inte alla funkti
 * [Miljövariabler](https://docs.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#environment-variables)
 * [Variabler för utdata](https://docs.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#use-output-variables-from-tasks)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure databaser-lagringsplats. Om du inte har någon kan du [skapa en ny git-lagrings platsen i projektet](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav). I den här artikeln har vi skapat ett lagrings lager med namnet **IoTEdgeRepo**.
 * En IoT Edge lösning har allokerats och skickas till din lagrings plats. Om du vill skapa en ny exempel lösning för att testa den här artikeln följer du stegen i [utveckla och felsöka moduler i Visual Studio Code](how-to-vs-code-develop-module.md) eller [utveckla och felsöka C#-moduler i Visual Studio](how-to-visual-studio-develop-csharp-module.md). I den här artikeln har vi skapat en lösning i vårt lagrings lager som kallas **IoTEdgeSolution**, som har koden för en modul med namnet **filtermodule**.
@@ -144,7 +144,7 @@ I det här avsnittet skapar du en ny versions pipeline. Du konfigurerar pipeline
     | --- | --- |
     | Visningsnamn | Använd standard namnet eller anpassa. |
     | Sökväg för att publicera | Ange variabeln `$(Build.ArtifactStagingDirectory)` . Mer information finns i [bygga variabler](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) . |
-    | Artefakt namn | Använd standard namnet: **Drop** |
+    | Artefaktnamn | Använd standard namnet: **Drop** |
     | Plats för artefakt publicering | Använd standard platsen: **Azure-pipeline** |
 
 11. Öppna fliken **utlösare** och markera kryss rutan för att **aktivera kontinuerlig integrering**. Se till att grenen som innehåller din kod ingår.

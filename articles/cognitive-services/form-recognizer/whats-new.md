@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 16bdb0d8ed421763895e61a6e1173fc7c5a48d4d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4f381e2f2e9f85422bd5f4fb89ec684f4bc99f91
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297954"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970817"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Vad är nytt i Formigenkänning?
 
@@ -53,7 +53,7 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 
 ### <a name="new-features"></a>Nya funktioner
 
-* **v 2.0-referensen är tillgänglig** Visa [v 2.0 API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) och de uppdaterade SDK: erna för [.net](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet), [python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)och [Java Script](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
+* **v 2.0-referensen är tillgänglig** Visa [v 2.0 API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) och de uppdaterade SDK: erna för [.net](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)och [Java Script](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
 * Förbättringar av **tabell förbättringar och extraktioner** omfattar precisions förbättringar och förbättringar av tabell extrahering, särskilt möjligheten att lära tabell rubriker och strukturer i _anpassade tåg utan etiketter_. 
 
 * **Valuta stöd** Identifiering och extrahering av globala valuta symboler.
@@ -78,10 +78,10 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 
 ### <a name="new-features"></a>Nya funktioner
 * **SDK-stöd för Forms IGENKÄNNING API v 2.0 offentlig för hands version** Den här månaden utökade vi vår tjänst support för att inkludera en för hands versions-SDK för formulär igenkännings versionen v 2.0 (för hands version). Använd länkarna nedan för att komma igång med ditt val av språk: 
-   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet)
-   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)
-   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-python-preview)
-   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme-pre?view=azure-node-preview)
+   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
+   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
+   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
+   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
 
   Den nya SDK: n stöder alla funktioner i v 2.0-REST API för formulär igenkänning. Du kan till exempel träna en modell med eller utan etiketter och extrahera text, nyckel värde par och tabeller från dina formulär, extrahera data från kvitton med den förbyggda tjänsten för inaktuella inleveranser och extrahera text och tabeller med layout tjänsten från dina dokument. Du kan dela din feedback på SDK: erna via [feedback-formuläret för SDK](https://aka.ms/FR_SDK_v1_feedback).
  

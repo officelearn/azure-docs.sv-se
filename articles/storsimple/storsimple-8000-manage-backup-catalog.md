@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 549c14e0506613aca91ee4666026348d74afedbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ab4694159c6269f2f72d3d591147d43aef34a0a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514754"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961603"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Använd tjänsten StorSimple Enhetshanteraren för att hantera din säkerhets kopierings katalog
 ## <a name="overview"></a>Översikt
@@ -75,11 +75,11 @@ Utför följande steg för att välja en säkerhets kopia för en volym eller s�
       
       De säkerhets kopior som är associerade med den valda volymen eller säkerhets kopierings principen visas i listan över säkerhets kopior.
 
-      ![Gå till säkerhets kopierings katalog](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
+      ![Gå till säkerhets kopierings katalog 2](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
 3. Välj och expandera en säkerhets kopia. Nu kan du se säkerhets kopie uppsättningarna uppdelade efter de volymer som den innehåller. Alternativen för att **återställa** och **ta bort** är tillgängliga via snabb menyn (högerklicka) för säkerhets kopian. Du kan utföra någon av dessa åtgärder på den säkerhets kopia som du har valt.
 
-    ![Gå till säkerhets kopierings katalog](./media/storsimple-8000-manage-backup-catalog/bucatalog2.png)
+    ![Gå till säkerhets kopierings katalog 3](./media/storsimple-8000-manage-backup-catalog/bucatalog2.png)
 
 ## <a name="delete-a-backup-set"></a>Ta bort en säkerhets kopia
 Ta bort en säkerhets kopia när du inte längre vill behålla de data som är kopplade till den. Utför följande steg för att ta bort en säkerhets kopia.
@@ -95,19 +95,19 @@ Ta bort en säkerhets kopia när du inte längre vill behålla de data som är k
       
       De säkerhets kopior som är associerade med den valda volymen eller säkerhets kopierings principen visas i listan över säkerhets kopior.
 
-      ![Gå till säkerhets kopierings katalog](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
+      ![Gå till säkerhets kopierings katalog 4](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
 1. Välj och expandera en säkerhets kopia. Nu kan du se säkerhets kopie uppsättningarna uppdelade efter de volymer som den innehåller. Alternativen för att **återställa** och **ta bort** är tillgängliga via snabb menyn (högerklicka) för säkerhets kopian. Högerklicka på den markerade säkerhets kopian och välj **ta bort**på snabb menyn.
 
-    ![Gå till säkerhets kopierings katalog](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
+    ![Gå till säkerhets kopierings katalog 5](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
 
 1. När du uppmanas att bekräfta, granskar du den information som visas och klickar på **ta bort**. Den valda säkerhets kopian tas bort permanent.
 
-    ![Gå till säkerhets kopierings katalog](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
+    ![Gå till säkerhets kopierings katalog 6](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
 
 1. Du får ett meddelande när borttagningen pågår och när den har slutförts. Uppdatera frågan på den här sidan när borttagningen är färdig. Den borttagna säkerhets kopian visas inte längre i listan över säkerhets kopior.
 
-    ![Gå till säkerhets kopierings katalog](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
+    ![Gå till säkerhets kopierings katalog 7](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [använder säkerhets kopierings katalogen för att återställa enheten från en säkerhets kopia](storsimple-8000-restore-from-backup-set-u2.md).

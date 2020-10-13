@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
 ms.openlocfilehash: ff61af192471bcfc9bdb9f1ce3970d5c22f39579
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569779"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Åtgärder för Azure Front Door-regelmotorn
@@ -33,7 +33,7 @@ Använd den här åtgärden för att ändra rubriker som finns i begär Anden so
 
 ### <a name="required-fields"></a>Obligatoriska fält
 
-Åtgärd | Namn på HTTP-huvud | Värde
+Action | Namn på HTTP-huvud | Värde
 -------|------------------|------
 Lägg till | När det här alternativet markeras och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns läggs värdet till i det befintliga värdet. | Sträng
 Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns skriver det angivna värdet över det befintliga värdet. | Sträng
@@ -45,7 +45,7 @@ Använd den här åtgärden för att ändra huvuden som finns i svar som returne
 
 ### <a name="required-fields"></a>Obligatoriska fält
 
-Åtgärd | Namn på HTTP-huvud | Värde
+Action | Namn på HTTP-huvud | Värde
 -------|------------------|------
 Lägg till | När det här alternativet markeras och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns läggs **värdet** till i det befintliga värdet. | Sträng
 Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns skriver **värdet** över det befintliga värdet. | Sträng
@@ -59,7 +59,7 @@ Använd den här åtgärden för att omdirigera klienter till en ny URL.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Fält | Beskrivning 
+Field | Beskrivning 
 ------|------------
 Omdirigera typ | Välj den svarstyp som ska returneras till begär ande: hittas (302), flyttad (301), tillfällig omdirigering (307) och permanent omdirigering (308).
 Omdirigera protokoll | Matcha begäran, HTTP, HTTPS.
@@ -73,7 +73,7 @@ Målcachen | Definiera det fragment som ska användas i omdirigeringen. Lämna t
 
 Använd den här åtgärden för att vidarebefordra klienter till en ny URL. Den här åtgärden innehåller även under åtgärder för URL-omskrivning och cachelagring. 
 
-Fält | Beskrivning 
+Field | Beskrivning 
 ------|------------
 Serverdelspool | Välj den backend-pool som ska åsidosättas och betjänar begär Anden. då visas även alla förkonfigurerade backend-pooler i din profil för din front dörr. 
 Protokoll för vidarebefordran | Matcha begäran, HTTP, HTTPS.
@@ -84,7 +84,7 @@ Caching | Aktiverad, inaktiverad. Se följande ytterligare fält som krävs om d
 
 Använd den här inställningen om du vill konfigurera en valfri **anpassad vidarebefordrings Sök väg** som ska användas för att skapa begäran att vidarebefordra till Server delen.
 
-Fält | Beskrivning 
+Field | Beskrivning 
 ------|------------
 Anpassad vidarebefordrings Sök väg | Definiera sökvägen för att vidarebefordra begär anden till. 
 

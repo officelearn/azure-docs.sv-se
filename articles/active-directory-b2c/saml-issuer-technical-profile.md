@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bb5383ee7930cb3d54593f71a709c033d3850889
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f52111fbbbd90f3d2f39f538c4bf1a2672cd504b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88521220"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961246"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för en SAML-token utfärdare i en Azure Active Directory B2C anpassad princip
 
@@ -37,6 +37,7 @@ I följande exempel visas en teknisk profil för `Saml2AssertionIssuer` :
   <OutputTokenFormat>SAML2</OutputTokenFormat>
   <Metadata>
     <Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>
+    <Item Key="TokenNotBeforeSkewInSeconds">600</Item>
   </Metadata>
   <CryptographicKeys>
     <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
@@ -56,8 +57,9 @@ I följande exempel visas en teknisk profil för `Saml2AssertionIssuer` :
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| IssuerUri | Inga | Utfärdarens namn som visas i SAML-svaret. Värdet ska vara samma namn som det som kon figurer ATS i programmet för förlitande part. |
-| XmlSignatureAlgorithm | Inga | Metoden som Azure AD B2C använder för att signera SAML-kontrollen. Möjliga värden: `Sha256` , `Sha384` , `Sha512` eller `Sha1` . Se till att du konfigurerar signeringsalgoritmen på båda sidor med samma värde. Använd bara den algoritm som ditt certifikat stöder. Om du vill konfigurera SAML-svaret, se [SAML-metadata för förlitande part](relyingparty.md#metadata)|
+| IssuerUri | Nej | Utfärdarens namn som visas i SAML-svaret. Värdet ska vara samma namn som det som kon figurer ATS i programmet för förlitande part. |
+| XmlSignatureAlgorithm | Nej | Metoden som Azure AD B2C använder för att signera SAML-kontrollen. Möjliga värden: `Sha256` , `Sha384` , `Sha512` eller `Sha1` . Se till att du konfigurerar signeringsalgoritmen på båda sidor med samma värde. Använd bara den algoritm som ditt certifikat stöder. Om du vill konfigurera SAML-svaret, se [SAML-metadata för förlitande part](relyingparty.md#metadata)|
+|TokenNotBeforeSkewInSeconds| Nej| Anger skevningen, som ett heltal, för den tidsstämpel som markerar början av giltighets perioden. Ju högre det här antalet är, desto längre tid börjar giltighets perioden med avseende på den tid som anspråken utfärdas för den förlitande parten. Om TokenNotBeforeSkewInSeconds till exempel är inställt på 60 sekunder, om token utfärdas vid 13:05:10 UTC, är token giltig från 13:04:10 UTC. Standardvärdet är 0. Det maximala värdet är 3600 (en timme). |
 
 ## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 

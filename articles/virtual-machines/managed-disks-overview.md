@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: 773c5f95cdbec6961b063720106794e6ec00451d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb310861edc2ba1ee183bc6f996cb1593457e3c7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299940"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972041"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduktion till Azure Managed Disks
 
@@ -35,7 +35,7 @@ Med hanterade diskar kan du skapa upp till 50 000 VM- **diskar** av en typ i en 
 
 ### <a name="integration-with-availability-sets"></a>Integrering med tillgänglighets uppsättningar
 
-Hanterade diskar är integrerade med tillgänglighets uppsättningar för att säkerställa att diskarna för [virtuella datorer i en tillgänglighets uppsättning](windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) är tillräckligt isolerade från varandra för att undvika en enskild felpunkt. Diskar placeras automatiskt i olika enheter för lagrings skalning (stämplar). Om en stämpel Miss lyckas på grund av maskin-eller program varu fel, Miss lyckas bara de virtuella dator instanserna med diskar på dessa stämplar. Anta till exempel att du har ett program som körs på fem virtuella datorer och att de virtuella datorerna finns i en tillgänglighets uppsättning. Diskarna för de virtuella datorerna lagras inte i samma stämpel, så om en stämpel slutar fungera fortsätter de andra instanserna av programmet att köras.
+Hanterade diskar är integrerade med tillgänglighets uppsättningar för att säkerställa att diskarna för [virtuella datorer i en tillgänglighets uppsättning](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) är tillräckligt isolerade från varandra för att undvika en enskild felpunkt. Diskar placeras automatiskt i olika enheter för lagrings skalning (stämplar). Om en stämpel Miss lyckas på grund av maskin-eller program varu fel, Miss lyckas bara de virtuella dator instanserna med diskar på dessa stämplar. Anta till exempel att du har ett program som körs på fem virtuella datorer och att de virtuella datorerna finns i en tillgänglighets uppsättning. Diskarna för de virtuella datorerna lagras inte i samma stämpel, så om en stämpel slutar fungera fortsätter de andra instanserna av programmet att köras.
 
 ### <a name="integration-with-availability-zones"></a>Integrering med Tillgänglighetszoner
 
@@ -47,7 +47,7 @@ För att skydda mot regionala haverier kan [Azure Backup](../backup/backup-overv
 
 ### <a name="granular-access-control"></a>Detaljerad åtkomst kontroll
 
-Du kan använda [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) för att tilldela vissa behörigheter för en hanterad disk till en eller flera användare. Hanterade diskar visar en rad olika åtgärder, inklusive läsa, skriva (Skapa/uppdatera), ta bort och hämta en [URL för signatur för delad åtkomst (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) för disken. Du kan bevilja åtkomst till endast de åtgärder som en person behöver för att utföra sitt jobb. Om du till exempel inte vill att en person ska kopiera en hanterad disk till ett lagrings konto kan du välja att inte bevilja åtkomst till export åtgärden för den hanterade disken. Om du inte vill att en person ska använda en SAS-URI för att kopiera en hanterad disk kan du välja att inte bevilja den här behörigheten till den hanterade disken.
+Du kan använda [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) för att tilldela vissa behörigheter för en hanterad disk till en eller flera användare. Hanterade diskar visar en rad olika åtgärder, inklusive läsa, skriva (Skapa/uppdatera), ta bort och hämta en [URL för signatur för delad åtkomst (SAS)](../storage/common/storage-sas-overview.md) för disken. Du kan bevilja åtkomst till endast de åtgärder som en person behöver för att utföra sitt jobb. Om du till exempel inte vill att en person ska kopiera en hanterad disk till ett lagrings konto kan du välja att inte bevilja åtkomst till export åtgärden för den hanterade disken. Om du inte vill att en person ska använda en SAS-URI för att kopiera en hanterad disk kan du välja att inte bevilja den här behörigheten till den hanterade disken.
 
 ### <a name="upload-your-vhd"></a>Ladda upp din virtuella hård disk
 
@@ -96,7 +96,7 @@ Den här disken har en maximal kapacitet på 4 095 GiB.
 
 ### <a name="temporary-disk"></a>Tillfällig disk
 
-De flesta virtuella datorer innehåller en temporär disk, som inte är en hanterad disk. Den temporära disken ger kortsiktig lagring för program och processer och är avsedd att endast lagra data, till exempel sid-eller växlingsfiler. Data på den tillfälliga disken kan gå förlorade under en [underhålls händelse](windows/manage-availability.md?toc=/azure/virtual-machines/windows/toc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du [distribuerar om en virtuell dator](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Vid en lyckad standard omstart av den virtuella datorn kommer data på den temporära disken att kvarstå. Mer information om virtuella datorer utan temporära diskar finns i [storlekar för virtuella Azure-datorer utan lokal temporär disk](azure-vms-no-temp-disk.md).
+De flesta virtuella datorer innehåller en temporär disk, som inte är en hanterad disk. Den temporära disken ger kortsiktig lagring för program och processer och är avsedd att endast lagra data, till exempel sid-eller växlingsfiler. Data på den tillfälliga disken kan gå förlorade under en [underhålls händelse](./manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du [distribuerar om en virtuell dator](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Vid en lyckad standard omstart av den virtuella datorn kommer data på den temporära disken att kvarstå. Mer information om virtuella datorer utan temporära diskar finns i [storlekar för virtuella Azure-datorer utan lokal temporär disk](azure-vms-no-temp-disk.md).
 
 På virtuella Azure Linux-datorer är den temporära disken vanligt vis/dev/SDB och på virtuella Windows-datorer är den temporära disken D: som standard. Den tillfälliga disken krypteras inte med kryptering på Server sidan om du inte aktiverar kryptering på värden.
 
@@ -104,14 +104,14 @@ På virtuella Azure Linux-datorer är den temporära disken vanligt vis/dev/SDB 
 
 En ögonblicks bild av en hanterad disk är en skrivskyddad, enhetlig, fullständig kopia av en hanterad disk som är lagrad som en standard-hanterad disk som standard. Med ögonblicks bilder kan du säkerhetskopiera de hanterade diskarna vid alla tidpunkter. Dessa ögonblicks bilder finns oberoende av käll disken och kan användas för att skapa nya hanterade diskar. 
 
-Ögonblicks bilder faktureras baserat på den använda storleken. Om du till exempel skapar en ögonblicks bild av en hanterad disk med en etablerad kapacitet på 64 GiB och den faktiska använda data storleken på 10 GiB, faktureras ögonblicks bilden endast för den använda data storleken på 10 GiB. Du kan se den använda storleken på dina ögonblicks bilder genom att titta på [Azures användnings rapport](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). Om den använda data storleken för en ögonblicks bild till exempel är 10 GiB, visar rapporten **daglig** användning 10 GIB/(31 dagar) = 0,3226 som förbrukad kvantitet.
+Ögonblicks bilder faktureras baserat på den använda storleken. Om du till exempel skapar en ögonblicks bild av en hanterad disk med en etablerad kapacitet på 64 GiB och den faktiska använda data storleken på 10 GiB, faktureras ögonblicks bilden endast för den använda data storleken på 10 GiB. Du kan se den använda storleken på dina ögonblicks bilder genom att titta på [Azures användnings rapport](../cost-management-billing/understand/review-individual-bill.md). Om den använda data storleken för en ögonblicks bild till exempel är 10 GiB, visar rapporten **daglig** användning 10 GIB/(31 dagar) = 0,3226 som förbrukad kvantitet.
 
 Mer information om hur du skapar ögonblicks bilder för Managed disks finns i följande resurser:
 
 - [Skapa en ögonblicks bild av en hanterad disk i Windows](windows/snapshot-copy-managed-disk.md)
 - [Skapa en ögonblicks bild av en hanterad disk i Linux](linux/snapshot-copy-managed-disk.md)
 
-### <a name="images"></a>Avbildningar
+### <a name="images"></a>Bilder
 
 Managed disks stöder också skapande av en hanterad anpassad avbildning. Du kan skapa en avbildning från din anpassade virtuella hård disk i ett lagrings konto eller direkt från en generaliserad (Sysprep) virtuell dator. Den här processen fångar upp en enda avbildning. Den här avbildningen innehåller alla hanterade diskar som är associerade med en virtuell dator, inklusive både operativ system och data diskar. Den här hanterade anpassade avbildningen gör det möjligt att skapa hundratals virtuella datorer med din anpassade avbildning utan att behöva kopiera eller hantera lagrings konton.
 

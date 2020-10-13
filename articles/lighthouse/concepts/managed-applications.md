@@ -3,12 +3,12 @@ title: Azure Lighthouse och Azure Managed Applications
 description: Förstå hur Azure-Lighthouse och Azure-hanterade program kan hjälpa dig att aktivera olika scenarier och hur de kan användas tillsammans.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7fd8801fc714a0f0c245d27462e368602dc41eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 078361ba3cff80a5fff03e3d9ca767afcc3ca029
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483855"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970766"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse och Azure Managed Applications
 
@@ -35,7 +35,7 @@ I ett hanterat program paketeras de resurser som används av programmet tillsamm
 
 Hanterade program stöder [anpassade Azure Portal upplevelser](../../azure-resource-manager/managed-applications/concepts-view-definition.md) och [integrering med anpassade providers](../../azure-resource-manager/managed-applications/tutorial-create-managed-app-with-custom-provider.md). Dessa alternativ kan användas för att tillhandahålla en mer anpassad och integrerad upplevelse, vilket gör det enklare för kunderna att utföra vissa hanterings uppgifter själva.
 
-Hanterade program kan [publiceras på Azure Marketplace](../../azure-resource-manager/managed-applications/publish-marketplace-app.md), antingen som ett privat erbjudande för en specifik kunds användning eller som offentliga erbjudanden som flera kunder kan köpa. De kan också levereras till användare i din organisation genom [att publicera hanterade program till tjänst katalogen](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md). Du kan distribuera både tjänst katalog-och Marketplace-instanser med ARM-mallar, som kan innehålla en prenumeration på kommersiell Marketplace-partner för att spåra [användnings behörighet för kunder](../../marketplace/azure-partner-customer-usage-attribution.md).
+Hanterade program kan [publiceras på Azure Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md), antingen som ett privat erbjudande för en specifik kunds användning eller som offentliga erbjudanden som flera kunder kan köpa. De kan också levereras till användare i din organisation genom [att publicera hanterade program till tjänst katalogen](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md). Du kan distribuera både tjänst katalog-och Marketplace-instanser med ARM-mallar, som kan innehålla en prenumeration på kommersiell Marketplace-partner för att spåra [användnings behörighet för kunder](../../marketplace/azure-partner-customer-usage-attribution.md).
 
 Azure-hanterade program används vanligt vis för specifika kund behov som kan uppnås genom en nyckel färdig lösning som är helt hanterad av tjänste leverantören.
 

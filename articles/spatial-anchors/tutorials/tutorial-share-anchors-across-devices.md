@@ -8,33 +8,35 @@ ms.author: rgarcia
 ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8b6c3608165ed592cc2f0daf475226c9d35de012
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 440d8af17bccaf8d3fcb92f65e5d91ed969aec31
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358838"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971418"
 ---
-# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Självstudie: dela Azure spatiala ankare mellan sessioner och enheter
+# <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>Självstudie: dela spatiala ankare mellan sessioner och enheter
 
-I den här självstudien får du lära dig hur du använder [Azures spatiala ankare](../overview.md) för att skapa ankare under en session och sedan söker efter dem, på samma enhet eller på en annan. Samma ankare kan också finnas på flera enheter på samma plats och samtidigt.
+Molnbaserade ankare är en plattforms oberoende utvecklare som du kan använda för att skapa blandade verklighets upplevelser genom att använda objekt som bevarar sin plats mellan enheter över tid. 
 
-![Animeringen visar Azures avstånds ankare som skapats med en mobil enhet och som används med en annan enhet under loppet av dagar.](./media/persistence.gif)
+I den här självstudien använder du [Azure spatiala ankare](../overview.md) för att skapa ankare under en session och sedan hitta dem på samma enhet eller en annan. Samma ankare kan också placeras av flera enheter på samma plats och samtidigt.
 
-Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa upplevelser med mixad verklighet med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en app som kan distribueras till två eller fler enheter. Azure Spatial Anchors som skapats av en instans kan delas till de andra.
+![Animering som visar spatiala ankare som skapas med en mobil enhet och som används med en annan enhet under loppet av dagar.](./media/persistence.gif)
 
-Du lär dig följande:
+
+I den här självstudien får du lära dig att:
 
 > [!div class="checklist"]
-> * Distribuera en ASP.NET Core-webbapp i Azure som kan användas för att dela fästpunkter, och lagra dem i minnet under en tid.
-> * Konfigurera AzureSpatialAnchorsLocalSharedDemo-scenen i Unity-exemplet från våra snabbstarter för att dra nytta av webbappen för delningsfästpunkter.
-> * Distribuera och köra på en eller flera enheter.
+> * Distribuera en ASP.NET Core webbapp i Azure som du kan använda för att dela ankare och lagra ankare i minnet under en angiven tids period.
+> * Konfigurera AzureSpatialAnchorsLocalSharedDemo-scenen i Unity-exemplet från våra snabb starter för att dra nytta av webbappen för delnings ankare.
+> * Distribuera och kör ankarena till en eller flera enheter.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
-Det är värt att nämna att även om du använder Unity och en ASP.NET Core-webbapp i den här självstudien, är det bara för att visa ett exempel på hur du delar Azure Spatial Anchors-ID mellan andra enheter. Du kan använda andra språk och backend-tekniker för att uppnå samma mål.
+> [!NOTE]
+> Du använder Unity och en ASP.NET Core webbapp i den här självstudien, men metoden här är endast till för att ge ett exempel på hur du kan dela Azure spatiala ankare på andra enheter. Du kan använda andra språk och backend-tekniker för att uppnå samma mål.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -42,21 +44,21 @@ Det är värt att nämna att även om du använder Unity och en ASP.NET Core-web
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-## <a name="deploy-your-sharing-anchors-service"></a>Distribuera tjänsten för delningsfästpunkter
+## <a name="deploy-the-sharing-anchors-service"></a>Distribuera tjänsten delnings ankare
 
 ## <a name="visual-studio"></a>[Visual Studio](#tab/VS)
 
-Öppna Visual Studio och öppna projektet i mappen `Sharing\SharingServiceSample`.
+Öppna Visual Studio och öppna sedan projektet i mappen *Sharing\SharingServiceSample* .
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
 ## <a name="visual-studio-code"></a>[Visual Studio Code](#tab/VSC)
 
-Du måste skapa en resurs grupp och en App Service plan innan du distribuerar tjänsten i VS Code.
+Du måste skapa en resurs grupp och en App Service plan innan du distribuerar tjänsten i Visual Studio Code.
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Navigera till <a href="https://portal.azure.com/" target="_blank">Azure Portal</a> och logga in på din Azure-prenumeration.
+Gå till <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>och logga sedan in på din Azure-prenumeration.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -64,7 +66,7 @@ Navigera till <a href="https://portal.azure.com/" target="_blank">Azure Portal</
 
 Välj **Ny** bredvid **Resursgrupp**.
 
-Ge resursgruppen namnet **myResourceGroup** och välj **OK**.
+Namnge resurs gruppen **myResourceGroup**och välj sedan **OK**.
 
 ### <a name="create-an-app-service-plan"></a>Skapa en App Service-plan
 
@@ -72,17 +74,19 @@ Ge resursgruppen namnet **myResourceGroup** och välj **OK**.
 
 Bredvid **Värdplan** väljer du **Ny**.
 
-Använd de här inställningarna i dialog rutan **Konfigurera värd plan** :
+Använd de här inställningarna i fönstret **Konfigurera värd plan** :
 
 | Inställning | Föreslaget värde | Beskrivning |
 |-|-|-|
-|App Service-plan| MySharingServicePlan | Namnet på App Service-planen. |
-| Plats | USA, västra | Datacenter som är värd för webbappen. |
-| Storlek | Kostnadsfri | Den [pris nivå](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) som avgör värd funktionerna. |
+|App Service-plan| MySharingServicePlan | Namnet på App Service plan |
+| Plats | USA, västra | Data centret där webbappen finns |
+| Storlek | Kostnadsfri | Den [pris nivå](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) som avgör värd funktioner |
 
 Välj **OK**.
 
-Öppna Visual Studio Code och öppna projektet i `Sharing\SharingServiceSample` mappen. Följ <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">den här självstudien</a> för att distribuera delnings tjänsten via Visual Studio Code. Du kan följa stegen i avsnittet "öppna med Visual Studio Code". Skapa inte ett annat ASP.NET-projekt enligt beskrivningen i steget ovan eftersom du redan har projektet som måste distribueras och publiceras – SharingServiceSample.
+Öppna Visual Studio Code och öppna sedan projektet i *Sharing\SharingServiceSample* -mappen. 
+
+Om du vill distribuera delnings tjänsten via Visual Studio Code följer du anvisningarna i <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">publicera ett ASP.net Core-program till Azure med Visual Studio Code</a>. Börja med avsnittet "öppna med Visual Studio Code". Skapa inte ett annat ASP.NET-projekt enligt beskrivningen i föregående steg eftersom du redan har ett projekt som ska distribueras och publiceras: SharingServiceSample.
 
 ---
 
@@ -94,10 +98,10 @@ Välj **OK**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du distribuerat en ASP.NET Core-webbapp i Azure, och sedan konfigurerat och distribuerat en Unity-app. Du har skapat spatiala fästpunkter med appen och delat dem med andra enheter med hjälp av ASP.NET Core-webbappen.
+I den här självstudien har du distribuerat en ASP.NET Core webbapp i Azure och du har konfigurerat och distribuerat en Unity-app. Du har skapat spatialdata med appen och du har delat dem med andra enheter genom att använda din ASP.NET Core-webbapp.
 
-Du kan förbättra din ASP.NET Core webbapp så att den använder Azure Cosmos DB för att spara lagringen av dina delade rums ankare. Genom att lägga till Azure Cosmos DB support kan din ASP.NET Core webbapp Skapa en fäst punkt idag och komma tillbaka dagar senare för att kunna hitta den igen, genom att använda det Anchor-ID som lagras i din webbapp.
+Du kan förbättra din ASP.NET Core webbapp så att den använder Azure Cosmos DB för att spara lagringen av dina delade avstånds ankare. Genom att lägga till Azure Cosmos DB support kan du låta din ASP.NET Core webbapp Skapa en fäst punkt idag. Sedan kan du med hjälp av den fäst punkts identifierare som lagras i din webbapp låta appen returnera dagar senare för att hitta ankaret igen.
 
 > [!div class="nextstepaction"]
-> [Använd Azure Cosmo DB för att lagra ankare](./tutorial-use-cosmos-db-to-store-anchors.md)
+> [Använd Azure Cosmos DB för att lagra ankare](./tutorial-use-cosmos-db-to-store-anchors.md)
 

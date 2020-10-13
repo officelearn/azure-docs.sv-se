@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
 ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629003"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Felsöka fel vid utgående anslutningar
@@ -67,5 +67,5 @@ Utgående anslutningar har en tids gräns på 4 minuter. Denna timeout är juste
 
 När du använder TCP keepalive-åtgärder räcker det att aktivera dem på ena sidan av anslutningen. Det räcker till exempel att aktivera dem på Server sidan för att återställa flödets inaktivitet och det är inte nödvändigt för båda sidorna att initiera TCP keepalive.  Det finns liknande koncept för program lager, inklusive databas klient server konfiguration.  Kontrol lera Server sidan för vilka alternativ som finns för programspecifika keepalive-objekt.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Vi vill alltid förbättra upplevelsen av våra kunder. Om du har problem med utgående anslutningar som inte finns med i listan eller har lösts av den här artikeln skickar du feedback via GitHub längst ned på den här sidan och vi kommer att adressera din feedback så snart som möjligt.

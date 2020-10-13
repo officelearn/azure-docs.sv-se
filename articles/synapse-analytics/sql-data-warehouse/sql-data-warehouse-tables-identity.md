@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 375c97179351e1dbf90ce4488114cb232d6dd450
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8b4e9aa73a959bcaac18df38f975331ecbf6b034
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121331"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876013"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Använda identitet för att skapa surrogat nycklar i Synapse SQL-pool
 
@@ -26,7 +26,8 @@ I den här artikeln hittar du rekommendationer och exempel på hur du använder 
 
 En surrogat nyckel i en tabell är en kolumn med en unik identifierare för varje rad. Nyckeln genereras inte från tabell data. Data modellerare som skapar surrogat nycklar i sina tabeller när de utformar data lager modeller. Du kan använda identitets egenskapen för att uppnå det här målet enkelt och effektivt utan att påverka belastnings prestanda.
 > [!NOTE]
-> IDENTITETS värdet i Synapse SQL är inte garanterat unikt om användaren explicit infogar ett dubblettvärde med "SET IDENTITY_INSERT på" eller lägger till IDENTITETen. Mer information finns i [CREATE TABLE (Transact-SQL) Identity (Property)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). 
+> I Azure Synapse Analytics, ökar identitets värdet på egen hand i varje distribution och överlappar inte identitets värden i andra distributioner.  IDENTITETS värdet i Synapse är inte garanterat unikt om användaren explicit infogar ett dubblettvärde med "SET IDENTITY_INSERT på" eller pålägger IDENTITETen. Mer information finns i [CREATE TABLE (Transact-SQL) Identity (Property)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). 
+
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Skapa en tabell med en identitets kolumn
 
@@ -163,13 +164,13 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Det går inte att använda `CREATE TABLE AS SELECT` för närvarande när data läses in i en tabell med en identitets kolumn.
 >
 
-Mer information om hur du läser in data finns i [utforma extrahera, läsa in och transformera (ELT) för SYNAPSE SQL-pool](design-elt-data-loading.md) och [läsa in bästa praxis](guidance-for-loading-data.md).
+Mer information om hur du läser in data finns i [utforma extrahera, läsa in och transformera (ELT) för SYNAPSE SQL-pool](design-elt-data-loading.md) och  [läsa in bästa praxis](guidance-for-loading-data.md).
 
 ## <a name="system-views"></a>Systemvyer
 
-Du kan använda vyn [sys. identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Catalog för att identifiera en kolumn som har egenskapen Identity.
+Du kan använda vyn [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Catalog för att identifiera en kolumn som har egenskapen Identity.
 
-För att hjälpa dig att bättre förstå databasschemat, visar det här exemplet hur du integrerar sys. identity_column "med andra system katalog visningar:
+För att hjälpa dig att bättre förstå databasschemat, visar det här exemplet hur du integrerar sys.identity_column med andra system katalogs visningar:
 
 ```sql
 SELECT  sm.name

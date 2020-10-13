@@ -4,11 +4,13 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 10/23/2019
 ms.author: shreshar
-ms.openlocfilehash: 38a0ad9ecd7a2a9f1e14be6e4b0d1023a581a675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68dda321f0088a28f7f3ad1a80a02473fe0e7379
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358827"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971449"
 ---
-**Skapa & resurs ankare** gör att du kan skapa ett ankare och spara det i delnings tjänsten. I retur får du tillbaka en identifierare som du kan använda för att hämta den från delnings tjänsten. Sedan kan du köra det andra scenariot, **hitta delat ankare**, antingen från din enhet eller en annan. Genom att **söka efter delade fäst punkter** kan du hitta tidigare delade ankare genom att ange den identifierare som nämns ovan. När du har valt ditt scenario hjälper appen dig med ytterligare instruktioner kring vad du ska göra. Till exempel uppmanas du att flytta enheten runt till samla in miljö information. Senare kan du placera en fäst punkt i världen, vänta tills den har sparats, starta en ny session och sedan hitta den.
+Med **skapa & resurs ankare**kan du skapa en fäst punkt och spara den i delnings tjänsten. I retur får du tillbaka en identifierare som du kan använda för att hämta den från delnings tjänsten. Sedan kan du köra det andra scenariot, **hitta delat ankare**, antingen från din enhet eller en annan. 
+
+Med **hitta delade ankare**kan du hitta tidigare delade ankare genom att ange den identifierare som nämnts tidigare. När du har valt ditt scenario hjälper appen dig med ytterligare instruktioner. Till exempel uppmanas du att flytta enheten runt till samla in miljö information. Senare kan du placera en fäst punkt i världen, vänta tills den har sparats, starta en ny session och sedan hitta den.

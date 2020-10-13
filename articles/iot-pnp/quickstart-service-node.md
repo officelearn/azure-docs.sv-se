@@ -3,17 +3,17 @@ title: Interagera med en IoT Plug and Play-enhet som är ansluten till din Azure
 description: Använd Node.js för att ansluta till och interagera med en IoT Plug and Play-enhet som är ansluten till din Azure IoT-lösning.
 author: elhorton
 ms.author: elhorton
-ms.date: 08/11/2020
+ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 6ad6e48642e7b7df4b93b37b5ef66381833d8bbc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a6ade8d44e6c751f45849743c66d0a34075943b4
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91575001"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946135"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>Snabb start: interagera med en IoT Plug and Play-enhet som är ansluten till din lösning (Node.js)
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 Läs mer om exempel konfigurationen i [README-exemplet](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md).
 
-I den här snabb starten kan du använda ett exempel på en termostat-enhet som är skriven i Node.js som IoT Plug and Play-enheten. Så här kör du exempel enheten:
+I den här snabb starten använder du ett exempel på en termostat-enhet som är skriven i Node.js som IoT Plug and Play-enheten. Så här kör du exempel enheten:
 
 1. Öppna ett terminalfönster och navigera till den lokala mappen som innehåller Microsoft Azure IoT SDK för Node.js lagrings plats som du har klonat från GitHub.
 
@@ -94,48 +94,103 @@ I den här snabb starten använder du en exempel-IoT-lösning i Node.js för att
 1. Gå till **tjänsten** Terminal och Använd följande kommando för att köra exemplet för att läsa enhets information:
 
     ```cmd/sh
-    node get_digital_twin.js
+    node twin.js
     ```
 
-1. Lägg märke till svaret på den digitala dubbla i **tjänstens** Terminal-utdata. Du ser enhetens modell-ID och tillhör ande egenskaper som rapporter ATS:
+1. Lägg märke till enhetens svar i terminalen för **tjänsten** . Du ser enhetens modell-ID och tillhör ande egenskaper som rapporter ATS:
 
     ```json
-    "$dtId": "mySimpleThermostat",
-    "serialNumber": "123abc",
-    "maxTempSinceLastReboot": 51.96167432818655,
-    "$metadata": {
-      "$model": "dtmi:com:example:Thermostat;1",
-      "serialNumber": { "lastUpdateTime": "2020-07-09T14:04:00.6845182Z" },
-      "maxTempSinceLastReboot": { "lastUpdateTime": "2020-07-09T14:04:00.6845182" }
+    Model Id: dtmi:com:example:Thermostat;1
+    {
+      "deviceId": "my-pnp-device",
+      "etag": "AAAAAAAAAAE=",
+      "deviceEtag": "Njc3MDMxNDcy",
+      "status": "enabled",
+      "statusUpdateTime": "0001-01-01T00:00:00Z",
+      "connectionState": "Connected",
+      "lastActivityTime": "0001-01-01T00:00:00Z",
+      "cloudToDeviceMessageCount": 0,
+      "authenticationType": "sas",
+      "x509Thumbprint": {
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+      },
+      "modelId": "dtmi:com:example:Thermostat;1",
+      "version": 4,
+      "properties": {
+        "desired": {
+          "$metadata": {
+            "$lastUpdated": "2020-10-05T11:35:19.4574755Z"
+          },
+          "$version": 1
+        },
+        "reported": {
+          "maxTempSinceLastReboot": 31.343640523762232,
+          "serialNumber": "123abc",
+          "$metadata": {
+            "$lastUpdated": "2020-10-05T11:35:23.7339042Z",
+            "maxTempSinceLastReboot": {
+              "$lastUpdated": "2020-10-05T11:35:23.7339042Z"
+            },
+            "serialNumber": {
+              "$lastUpdated": "2020-10-05T11:35:23.7339042Z"
+            }
+          },
+          "$version": 3
+        }
+      },
+      "capabilities": {
+        "iotEdge": false
+      },
+      "tags": {}
     }
     ```
 
-1. I följande kodfragment visas koden i *get_digital_twin.js* som hämtar enhetens modell-ID:
+1. I följande kodfragment visas koden i *twin.js* som hämtar enhetens modell-ID:
 
     ```javascript
-    console.log("Model Id: " + inspect(digitalTwin.$metadata.$model))
+    var registry = Registry.fromConnectionString(connectionString);
+    registry.getTwin(deviceId, function(err, twin) {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log('Model Id: ' + twin.modelId);
+        //...
+      }
+      //...
+    }
     ```
 
 I det här scenariot matas den ut `Model Id: dtmi:com:example:Thermostat;1` .
 
+> [!NOTE]
+> Dessa tjänst exempel använder **register** klassen från **IoT Hub-tjänst klienten**. Mer information om API: er, inklusive digitala dubbla API: er, finns i [service Developer-guiden](concepts-developer-guide-service.md).
+
 ### <a name="update-a-writable-property"></a>Uppdatera en skrivbar egenskap
 
-1. Öppna filen *update_digital_twin.js* i en kod redigerare.
+1. Öppna filen *twin.js* i en kod redigerare.
 
-1. Granska exempel koden. Du kan se hur du skapar en JSON-korrigering för att uppdatera enhetens digitala enhet. I det här exemplet ersätter koden termostat temperatur med värdet 42:
+1. Granska exempel koden, visar hur du kan uppdatera enheten på två sätt. Om du vill använda det första sättet ändrar du `twinPatch` variabeln enligt följande:
 
     ```javascript
-    const patch = [{
-        op: 'add',
-        path: '/targetTemperature',
-        value: '42'
-      }]
+    var twinPatch = {
+      tags: {
+        city: "Redmond"
+      },
+      properties: {
+        desired: {
+          targetTemperature: 42
+        }
+      }
+    };
     ```
+
+    `targetTemperature`Egenskapen definieras som en skrivbar egenskap i termostat-enhets modellen.
 
 1. I **tjänsten** Terminal använder du följande kommando för att köra exemplet för att uppdatera egenskapen:
 
     ```cmd/sh
-    node update_digital_twin.js
+    node twin.js
     ```
 
 1. I **enhetens** Terminal ser du att enheten har tagit emot uppdateringen:
@@ -151,44 +206,54 @@ I det här scenariot matas den ut `Model Id: dtmi:com:example:Thermostat;1` .
       }
     }
     updated the property
-    Properties have been reported for component
     ```
 
 1. Kör följande kommando i din **tjänst-** Terminal för att bekräfta att egenskapen har uppdaterats:
 
     ```cmd/sh
-    node get_digital_twin.js
+    node twin.js
     ```
 
-1. I **tjänstens** Terminal-utdata, i det digitala dubbla svaret under `thermostat1` komponenten, ser du att den uppdaterade mål temperaturen har rapporter ATS. Det kan ta en stund innan enheten har slutfört uppdateringen. Upprepa det här steget tills enheten har bearbetat egenskaps uppdateringen:
+1. I **tjänstens** Terminal-utdata, i avsnittet ¬ rapporterade egenskaper, ser du att den uppdaterade mål temperaturen har rapporter ATS. Det kan ta en stund innan enheten har slutfört uppdateringen. Upprepa det här steget tills enheten har bearbetat egenskaps uppdateringen:
 
     ```json
-    targetTemperature: 42,
+    "reported": {
+      //...
+      "targetTemperature": {
+        "value": 42,
+        "ac": 200,
+        "ad": "Successfully executed patch for targetTemperature",
+        "av": 4
+      },
+      //...
+    }
     ```
 
 ### <a name="invoke-a-command"></a>Anropa ett kommando
 
-1. Öppna filen *invoke_command.js* och granska koden.
+1. Öppna filen *device_method.js* och granska koden.
 
 1. Gå till **tjänsten** Terminal. Använd följande kommando för att köra exemplet för att anropa kommandot:
 
     ```cmd/sh
-    set IOTHUB_COMMAND_NAME=getMaxMinReport
-    set IOTHUB_COMMAND_PAYLOAD=commandpayload
-    node invoke_command.js
+    set IOTHUB_METHOD_NAME=getMaxMinReport
+    set IOTHUB_METHOD_PAYLOAD=commandpayload
+    node device_method.js
     ```
 
 1. Utdata i **tjänst** terminalen visar följande bekräftelse:
 
     ```cmd/sh
+    getMaxMinReport on my-pnp-device:
     {
-        xMsCommandStatuscode: 200,  
-        xMsRequestId: 'ee9dd3d7-4405-4983-8cee-48b4801fdce2',  
-        connection: 'close',  'content-length': '18',  
-        'content-type': 'application/json; charset=utf-8',  
-        date: 'Thu, 09 Jul 2020 15:05:14 GMT',  
-        server: 'Microsoft-HTTPAPI/2.0',  vary: 'Origin',  
-        body: 'min/max response'
+      "status": 200,
+      "payload": {
+        "maxTemp": 23.460596940801928,
+        "minTemp": 23.460596940801928,
+        "avgTemp": 23.460596940801928,
+        "endTime": "2020-10-05T12:48:08.562Z",
+        "startTime": "2020-10-05T12:47:54.450Z"
+      }
     }
     ```
 

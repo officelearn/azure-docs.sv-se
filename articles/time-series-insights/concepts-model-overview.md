@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: a61dd6c17ad4d11c6dd7294c9a4f96270748c16a
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91630669"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Tids serie modell i Azure Time Series Insights Gen2
@@ -101,7 +101,7 @@ Instanser definieras av **timeSeriesId**, **typeId**, **Name**, **Description**,
 | --- | ---|
 | timeSeriesId | Unikt ID för tids serien som instansen är associerad med. I de flesta fall identifieras instanser unikt av en egenskap som deviceId eller assetId. I vissa fall kan ett mer särskilt sammansatt ID som kombinerar upp till 3 egenskaper användas. |
 | ID | Det Skift läges känsliga unika sträng-ID: t för den tids serie modell typ som instansen är associerad med. Som standard blir alla identifierade nya instanser kopplade till en standard typ.
-| namn | Egenskapen **Name** är valfri och Skift läges känslig. Om **namnet** inte är tillgängligt används **timeSeriesId**som standard. Om ett namn anges är **timeSeriesId** fortfarande [tillgängligt.](time-series-insights-update-explorer.md#4-time-series-well) |
+| name | Egenskapen **Name** är valfri och Skift läges känslig. Om **namnet** inte är tillgängligt används **timeSeriesId**som standard. Om ett namn anges är **timeSeriesId** fortfarande [tillgängligt.](time-series-insights-update-explorer.md#4-time-series-well) |
 | description | En text Beskrivning av instansen. |
 | hierarchyIds | Definierar vilka hierarkier som instansen tillhör. |
 | instanceFields | Egenskaperna för en instans och eventuella statiska data som definierar en instans. De definierar värden för hierarki-eller icke-hierarkiska egenskaper och stöder även indexering för att utföra Sök åtgärder. |
@@ -148,7 +148,7 @@ Hierarkier definieras av hierarki **-ID**, **namn**och **källa**.
 | Egenskap | Beskrivning |
 | ---| ---|
 | id | Den unika identifieraren för hierarkin, som används, till exempel när du definierar en instans. |
-| namn | En sträng som används för att ange ett namn för hierarkin. |
+| name | En sträng som används för att ange ett namn för hierarkin. |
 | källa | Anger organisationens hierarki eller sökväg, som är en överordnad överordnad-underordnad ordning i hierarkin som användare vill skapa. De överordnade-underordnade egenskaperna mappar instans fält. |
 
 Hierarkier representeras i JSON som:
@@ -240,7 +240,7 @@ Tids serie modell typer definieras av **ID**, **namn**, **Beskrivning**och **var
 | Egenskap | Beskrivning |
 | ---| ---|
 | id | Det Skift läges känsliga unika sträng-ID: t för typen. |
-| namn | En sträng som används för att ange ett namn för typen. |
+| name | En sträng som används för att ange ett namn för typen. |
 | description | En sträng beskrivning för typen. |
 | användarvariabler | Ange variabler som är associerade med typen. |
 

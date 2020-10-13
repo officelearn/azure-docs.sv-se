@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5ca6431531f8cebf1205aa555c5545f4dc44abd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a1bdce0478961b27bde7dd32733d95c58ba2361
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372220"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972245"
 ---
 # <a name="azure-disk-encryption-for-linux-vms-troubleshooting-guide"></a>Azure Disk Encryption för fel söknings guide för Linux-VM: ar
 
@@ -135,5 +135,5 @@ Om du vill inaktivera Azure Disk Encryption med CLI använder du [inaktivera AZ 
 
 I det här dokumentet har du lärt dig mer om några vanliga problem i Azure Disk Encryption och hur du felsöker problemen. Mer information om den här tjänsten och dess funktioner finns i följande artiklar:
 
-- [Använd disk kryptering i Azure Security Center](../../security-center/security-center-virtual-machine-protection.md)
+- [Använd disk kryptering i Azure Security Center](../../security-center/asset-inventory.md)
 - [Azure-datakryptering i vila](../../security/fundamentals/encryption-atrest.md)

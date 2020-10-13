@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: a1e77b5f669d1b492f2d71063a6c77bec1178696
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: d533b8fed47b1790cc35429613179f440f1fac51
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449278"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961756"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Övervaka mått och loggar i Azures front dörr
 
@@ -31,14 +31,14 @@ Mått är en funktion för vissa Azure-resurser som gör att du kan visa prestan
 
 | Mått | Mått visnings namn | Enhet | Dimensioner | Beskrivning |
 | --- | --- | --- | --- | --- |
-| RequestCount | Antal begäranden | Antal | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antalet klient förfrågningar som hanteras av frontend-dörren.  |
+| RequestCount | Antal begäranden | Count | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antalet klient förfrågningar som hanteras av frontend-dörren.  |
 | RequestSize | Begär ande storlek | Byte | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antalet byte som har skickats som begär Anden från klienter till front dörren. |
 | ResponseSize | Svars storlek | Byte | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antalet byte som har skickats som svar från Front dörren till klienter. |
-| TotalLatency | Total svars tid | Millisekunder | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Den tid som beräknas från den klientbegäran som mottagits av front dörren tills klienten bekräftade den senaste svars byten från Front dörren. |
-| BackendRequestCount | Antal Server dels begär Anden | Antal | HttpStatus</br>HttpStatusGroup</br>Serverdel | Antalet förfrågningar som skickats från Front dörren till Server delar. |
+| TotalLatency | Total svars tid | Millisekunder | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Den totala tiden från klient förfrågan som mottagits av front dörren tills de sista svars byte som skickades från AFD till klienten. |
+| BackendRequestCount | Antal Server dels begär Anden | Count | HttpStatus</br>HttpStatusGroup</br>Serverdel | Antalet förfrågningar som skickats från Front dörren till Server delar. |
 | BackendRequestLatency | Svars tid för Server del | Millisekunder | Serverdel | Tiden räknat från när begäran skickades av frontend till Server delen tills front dörren fick den senaste svars byten från Server delen. |
 | BackendHealthPercentage | Server delens hälso procent | Procent | Serverdel</br>BackendPool | Procent andelen lyckade hälso avsökningar från Front dörren till Server delar. |
-| WebApplicationFirewallRequestCount | Antal begär Anden om webb programs brand vägg | Antal | PolicyName</br>RuleName</br>Action | Antalet klient begär Anden som bearbetats av program nivå säkerheten för front dörren. |
+| WebApplicationFirewallRequestCount | Antal begär Anden om webb programs brand vägg | Count | PolicyName</br>RuleName</br>Åtgärd | Antalet klient begär Anden som bearbetats av program nivå säkerheten för front dörren. |
 
 ## <a name="activity-logs"></a><a name="activity-log"></a>Aktivitets loggar
 
@@ -52,7 +52,7 @@ Få åtkomst till aktivitets loggar i din front dörr eller alla loggar för din
 1. Välj din instans av frontend-dörren.
 2. Välj **aktivitets logg**.
 
-    :::image type="content" source="./media/front-door-diagnostics/activity-log.png" alt-text="Aktivitetslogg":::
+    :::image type="content" source="./media/front-door-diagnostics/activity-log.png" alt-text="Aktivitets logg":::
 
 3. Välj en filtrerings omfattning och välj sedan **Använd**.
 
@@ -61,7 +61,7 @@ Diagnostikloggar ger omfattande information om åtgärder och fel som är viktig
 
 Aktivitets loggar ger insikter om de åtgärder som utförs på Azure-resurser. Diagnostikloggar ger insikter om åtgärder som din resurs har utfört. Mer information finns i [Azure Monitor diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md).
 
-:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Aktivitetslogg":::
+:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Aktivitets logg":::
 
 Så här konfigurerar du diagnostikloggar för din frontend-dörr:
 
@@ -75,7 +75,7 @@ Front dörren innehåller för närvarande diagnostikloggar (batch-varje timme).
 
 | Egenskap  | Beskrivning |
 | ------------- | ------------- |
-| BackendHostname | Om begäran vidarebefordrades till en server del representerar Server delens värdnamn. Det här fältet är tomt om begäran har omdirigerats eller vidarebefordrats till ett regionalt cacheminne (när cachelagring har Aktiver ATS för regeln). |
+| BackendHostname | Om begäran vidarebefordrades till en server del representerar Server delens värdnamn. Det här fältet är tomt om begäran omdirigeras eller vidarebefordras till ett regionalt cacheminne (när cachelagring är aktiverat för regeln). |
 | CacheStatus | För cachelagring av scenarier definierar det här fältet cache-träff/missar på POP |
 | ClientIp | IP-adressen för klienten som gjorde begäran. Om det fanns ett X-vidarebefordrat-för-huvud i begäran plockas klientens IP-adress från samma. |
 | ClientPort | IP-porten för den klient som gjorde begäran. |
@@ -90,19 +90,49 @@ Front dörren innehåller för närvarande diagnostikloggar (batch-varje timme).
 | RoutingRuleName | Namnet på den routningsregler som begäran matchade. |
 | RulesEngineMatchNames | Namnen på de regler som begäran matchade. |
 | SecurityProtocol | TLS/SSL-protokollets version som används av begäran eller null om ingen kryptering. |
-| SentToOriginShield | Booleskt fält som representerar om det fanns en cache missar i den första miljön och begäran skickades till den regionala cachen. Ignorera det här fältet om Routningsprincipen är en omdirigering eller om inte cachelagring är aktiverat. |
+| SentToOriginShield </br> (inaktuell) * **se kommentarer om utfasning i följande avsnitt.**| Om värdet är true innebär det att begäran besvarades från ursprungs sköldens cacheminne i stället för Edge-pop. Ursprungs sköld är ett överordnat cacheminne som används för att förbättra förhållandet mellan cacheträffar. |
+| isReceivedFromClient | Om värdet är true innebär det att begäran kom från klienten. Om det här värdet är falskt, är begäran en brist i kanten (underordnad POP) och är besvarad från ursprungs skölden (överordnad POP). 
 | TimeTaken | Tiden från första byte av begäran till front dörren till sista mottagna byte, i sekunder. |
 | TrackingReference | Den unika referens strängen som identifierar en begäran som betjänas av en front dörr, som också skickas som X-Azure-ref-huvud till klienten. Krävs för att söka efter information i åtkomst loggarna för en speciell begäran. |
 | UserAgent | Webbläsarens typ som används av klienten. |
 
-**Obs:** För olika konfigurationer av Routning och trafik, kan vissa av fälten som backendHostname, cacheStatus, sentToOriginShield och POP-fält svara med olika värden. I tabellen nedan förklaras de olika värdena, dessa fält kommer att ha för olika scenarier:
+### <a name="sent-to-origin-shield-deprecation"></a>Skickas till ursprungs sköldens utfasning
+Den råa logg egenskapen **isSentToOriginShield** har ersatts och ersatts av ett nytt fält **isReceivedFromClient**. Använd det nya fältet om du redan använder det inaktuella fältet. 
 
-| Scenarier | Antal logg poster | POP | BackendHostname | SentToOriginShield | CacheStatus |
+Obehandlade loggar innehåller loggar som skapats från både CDN-Edge (underordnad POP) och ursprungs sköld. Ursprungs sköld syftar på överordnade noder som är strategiskt placerade över hela världen. Dessa noder kommunicerar med ursprungs servrar och minskar belastningen på belastningen på ursprunget. 
+
+För varje begäran som går till ursprungs sköld finns det två logg poster:
+
+* En för Edge-noder
+* En för ursprungs sköld. 
+
+Om du vill särskilja utgången eller svaren från Edge-noderna eller ursprungs skölden kan du använda fältet **isReceivedFromClient** för att hämta rätt data. 
+
+Om värdet är false innebär det att begäran besvaras från ursprungs sköld till Edge-noder. Den här metoden är effektiv för att jämföra obehandlade loggar med fakturerings data. Avgifter debiteras inte för utgående från ursprungs sköld till Edge-noderna. Avgifter debiteras för utgående från Edge-noderna till klienter. 
+
+**Kusto Query-exempel för att utesluta loggar som skapats på ursprungs sköld i Log Analytics.**
+
+`AzureDiagnostics 
+| where Category == "FrontdoorAccessLog" and isReceivedFromClient_b == true`
+
+> [!NOTE]
+> För olika konfigurationer av Routning och trafik, kan vissa av fälten som backendHostname, cacheStatus, isReceivedFromClient och POP-fält svara med olika värden. I tabellen nedan beskrivs de olika värdena som fälten har för olika scenarier:
+
+| Scenarier | Antal logg poster | POP | BackendHostname | isReceivedFromClient | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Routningsregler utan cachelagring aktiverat | 1 | Kant-POP-kod | Backend där begäran vidarebefordrades | Falskt | CONFIG_NOCACHE |
-| Routningsregler med cachelagring aktiverat. Cacheträff i Edge-popup | 1 | Kant-POP-kod | Tom | Falskt | TRÄFFA |
-| Routningsregler med cachelagring aktiverat. Cache missar i Edge POP, men cache träff vid överordnat cache-fönster | 2 | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. POP-värdnamn för överordnad cache</br>2. Tom | 1. True</br>2. false | 1. SAKNAT</br>2. PARTIAL_HIT |
-| Routningsregler med cachelagring aktiverat. Cache missar i både Edge och överordnad cache POP | 2 | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. POP-värdnamn för överordnad cache</br>2. Server del som hjälper till att fylla i cache | 1. True</br>2. false | 1. SAKNAT</br>2. SAKNAT |
+| Routningsregler utan cachelagring aktiverat | 1 | Kant-POP-kod | Backend där begäran vidarebefordrades | Sant | CONFIG_NOCACHE |
+| Routningsregler med cachelagring aktiverat. Cacheträff i Edge-popup | 1 | Kant-POP-kod | Tom | Sant | TRÄFFA |
+| Routningsregler med cachelagring aktiverat. Cache missar i Edge POP, men cache träff vid överordnat cache-fönster | 2 | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. POP-värdnamn för överordnad cache</br>2. Tom | 1. True</br>2. false | 1. SAKNAT</br>2. TRÄFF |
+| Routningsregler med cachelagring aktiverat. Cache missar i Edge-POP men delvis cache träff i överordnat cache-fönster | 2 | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. POP-värdnamn för överordnad cache</br>2. Server del som hjälper till att fylla i cache | 1. True</br>2. false | 1. SAKNAT</br>2. PARTIAL_HIT |
+| Routningsregler med cachelagring aktiverat. Cachelagra PARTIAL_HIT i Edge-POP, men cache träff på överordnad cache-POP | 2 | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. True</br>2. false | 1. PARTIAL_HIT</br>2. TRÄFF |
+| Routningsregler med cachelagring aktiverat. Missar i cacheminnet för både Edge och överordnad cache | 2 | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. True</br>2. false | 1. SAKNAT</br>2. SAKNAT |
+
+> [!NOTE]
+> För cache-scenarier är värdet för cache-status partial_hit när några av bytena för en begäran erhålls från den främre dörr kanten eller ursprungs skärms-cacheminnet, medan några av de byte som hämtas från ursprunget för stora objekt.
+
+Front dörren använder en teknik som kallas objekt segment. När en stor fil begärs hämtar front dörren mindre delar av filen från ursprunget. När POP-servern på den främre dörren tar emot en fullständig eller byte-intervall av den begärda filen begär servern från ursprunget i segment om 8 MB.
+
+När segmentet anländer till den främre dörren, cachelagras det och betjänas direkt för användaren. Den främre dörren för hämtar sedan nästa segment parallellt. Med den här för hämtningen ser du till att innehållet förblir ett segment framför användaren, vilket minskar svars tiden. Den här processen fortsätter tills hela filen laddas ned (om så krävs), alla byte-intervall är tillgängliga (om de begärs) eller när klienten stänger anslutningen. Mer information om byte Range-begäran finns i RFC 7233. Den främre dörren cachelagrar alla segment när de tas emot. Hela filen behöver inte cachelagras i cachen med frontend-dörren. Kommande begär Anden om fil-eller byte-intervallen hanteras från cachen med frontend-dörren. Om inte alla segment cachelagras på den främre dörren används för hämtning för att begära segment från ursprunget. Den här optimeringen är beroende av möjligheten för ursprungs servern att stödja byte intervall begär Anden. Om ursprungs servern inte stöder byte intervall begär Anden är den här optimeringen inte effektiv.
 
 ## <a name="next-steps"></a>Nästa steg
 

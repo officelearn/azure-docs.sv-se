@@ -5,18 +5,18 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 88be632e17912012618ab559f22f97487ad26c9c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 262774233871a46cf971d95a6cf5d810adf9746a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88723509"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961805"
 ---
 ## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Analysera formulär för nyckel/värde-par och tabeller
 
 Sedan använder du din nya tränade modell för att analysera ett dokument och extrahera nyckel/värde-par och tabeller från det. Anropa **[analys formulärets](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)** API genom att köra följande kod i ett nytt Python-skript. Innan du kör skriptet gör du följande ändringar:
 
-1. Ersätt `<file path>` med fil Sök vägen för ditt formulär (till exempel C:\temp\file.pdf). Detta kan också vara webb adressen till en fjärrfil. I den här snabb starten kan du använda filerna under mappen **test** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451).
+1. Ersätt `<file path>` med fil Sök vägen för ditt formulär (till exempel C:\temp\file.pdf). Detta kan också vara webb adressen till en fjärrfil. I den här snabb starten kan du använda filerna under mappen **test** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451) (Hämta och extrahera *sample_data.zip*).
 1. Ersätt `<model_id>` med modell-ID: t som du fick i föregående avsnitt.
 1. Ersätt `<endpoint>` med den slut punkt som du fick med ditt formulärs igenkännings prenumerations nyckel. Du hittar det på fliken **Översikt** i formulärets tolknings resurs.
 1. Ersätt `<file type>` med filtypen. Typer som stöds: `application/pdf` , `image/jpeg` , `image/png` , `image/tiff` .
@@ -102,7 +102,7 @@ Sedan använder du din nya tränade modell för att analysera ett dokument och e
 
 1. Spara koden i en fil med fil namns tillägget. py. Till exempel *form-Recognizer-Analyze.py*.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-analyze.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python form-recognizer-analyze.py`.
 
 När du anropar API: t **analysera formulär** får du ett `201 (Success)` svar med en **Åtgärds plats** rubrik. Värdet för den här rubriken är ett ID som du kommer att använda för att spåra resultatet av analys åtgärden. Skriptet ovan skriver ut värdet för den här rubriken till-konsolen.
 

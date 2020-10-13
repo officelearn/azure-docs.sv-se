@@ -12,10 +12,10 @@ ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
 ms.openlocfilehash: cc4256ae0591e9fc82dcdce7c66514710fad3f57
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91711381"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Konfigurera beräknings mål för modell utbildning och distribution
@@ -39,7 +39,7 @@ Om du vill använda beräknings mål som hanteras av Azure Machine Learning, se:
 * [Azure Machine Learning beräknings kluster](how-to-create-attach-compute-cluster.md)
 * [Azure Kubernetes service-kluster](how-to-create-attach-kubernetes.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 

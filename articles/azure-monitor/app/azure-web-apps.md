@@ -4,12 +4,12 @@ description: Övervakning av program prestanda för Azure App Services. Diagramm
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 36f6ad4c248b3de54de5de0893410e9b13df0c26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91759466"
+ms.locfileid: "91875620"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service-prestanda
 
@@ -75,7 +75,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-Följande versioner av .NET Core stöds: ASP.NET Core 2,0, ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0
+Följande versioner av .NET Core stöds: ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0, ASP.NET Core 3,1
 
 Det finns för närvarande **inte stöd** för att rikta in hela ramverket från .net Core, fristående distribution och Linux-baserade program med agent/tillägg-baserad övervakning. ([Manuell instrumentering](./asp-net-core.md) via kod fungerar i alla tidigare scenarier.)
 
@@ -90,7 +90,7 @@ Det finns för närvarande **inte stöd** för att rikta in hela ramverket från
 
      ![Instrumentera din webbapp](./media/azure-web-apps/create-resource-01.png)
 
-2. När du har angett vilken resurs som ska användas kan du välja hur du vill Application Insights Samla in data per plattform för ditt program. .NET Core erbjuder **rekommenderad samling** eller **inaktive rad** för .net Core 2,0, 2,1, 2,2 och 3,0.
+2. När du har angett vilken resurs som ska användas kan du välja hur du vill Application Insights Samla in data per plattform för ditt program. .NET Core erbjuder **rekommenderad samling** eller **inaktive rad** för ASP.net Core 2,1, 2,2, 3,0 och 3,1.
 
     ![Välj alternativ per plattform](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -359,8 +359,8 @@ Nedan visas vår stegvisa fel söknings guide för tillägg/agent-baserad överv
 
     ![Skärm bild av https://yoursitename.scm.azurewebsites/applicationinsights resultat Sidan](./media/azure-web-apps/app-insights-sdk-status.png)
 
-    * Bekräfta att `Application Insights Extension Status` är `Pre-Installed Site Extension, version 2.8.12.1527, is running.`
-        * Om den inte körs följer du anvisningarna för [att aktivera Application Insights övervakning](#enable-application-insights)
+    * Bekräfta att `Application Insights Extension Status` är `Pre-Installed Site Extension, version 2.8.12.1527, is running.` 
+    * Om den inte körs följer du anvisningarna för [att aktivera Application Insights övervakning](#enable-application-insights)
 
     * Bekräfta att status källan finns och ser ut så här: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
         * Om ett liknande värde inte finns, innebär det att programmet inte körs eller inte stöds. För att säkerställa att programmet körs kan du försöka gå till programmets URL/program slut punkter manuellt, vilket gör att körnings informationen blir tillgänglig.
@@ -406,6 +406,10 @@ PHP-och WordPress-platser stöds inte. Det finns för närvarande inget officiel
 ### <a name="connection-string-and-instrumentation-key"></a>Anslutnings sträng och Instrumentation-nyckel
 
 När kod enbart övervakning används krävs bara anslutnings strängen. Vi rekommenderar dock fortfarande att ställa in Instrumentation-nyckeln för att bevara bakåtkompatibilitet med äldre versioner av SDK när manuell Instrumentation utförs.
+
+## <a name="release-notes"></a>Viktig information
+
+De senaste uppdateringarna och fel korrigeringarna [finns i viktig information](./web-app-extension-release-notes.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Kör profileraren för din live-app](./profiler.md).

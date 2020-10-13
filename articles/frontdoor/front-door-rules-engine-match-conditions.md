@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.openlocfilehash: 0e874ae3d29f4143a4f8a9275d5ffcde48d08e6d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569759"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Motor matchnings villkor för Azures frontend-dörr
@@ -82,7 +82,7 @@ Inte IP-matchning | IP-adress (blankstegsavgränsad)
 - Om du vill ange flera IP-adresser och IP-adressblock använder du ett enda blank steg mellan värdena:
   - **IPv4-exempel**: *1.2.3.4 10.20.30.40* matchar alla begär Anden som kommer från adressen 1.2.3.4 eller 10.20.30.40.
   - **IPv6-exempel**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* matchar alla begär Anden som kommer från adress 1:2:3:4:5:6:7:8 eller 10:20:30:40:50:60:70:80.
-- Syntaxen för ett IP-adressblock är bas-IP-adressen följt av ett snedstreck och prefixets storlek. Till exempel:
+- Syntaxen för ett IP-adressblock är bas-IP-adressen följt av ett snedstreck och prefixets storlek. Exempel:
   - **IPv4-exempel**: *5.5.5.64/26* matchar alla begär Anden som kommer från adresser 5.5.5.64 via 5.5.5.127.
   - **IPv6-exempel**: *1:2:3:/48* matchar alla begär Anden som kommer från adresser 1:2:3:0:0:0:0:0 till 1:2:3: FFFF: FFFF: FFFF: FFFF: FFFF.
 
@@ -130,13 +130,13 @@ Operator | Värden som stöds
 ---------|----------------
 Lika med, inte lika med | HTTP, HTTPS
 
-## <a name="request-url"></a>URL för begäran
+## <a name="request-url"></a>Begärans-URL
 
 Identifierar begär Anden som matchar angiven URL.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Operator | URL för begäran | Skift läges omvandling
+Operator | Begärans-URL | Skift läges omvandling
 ---------|-------------|---------------
 [Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Gemener, versaler, trim, ta bort blank steg, URL-kod, URL-avkodning
 

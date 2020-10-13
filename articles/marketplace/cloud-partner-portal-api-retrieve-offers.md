@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 39d07751c708d5555799ecbb3b3bc66d3f44f43a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87271968"
 ---
 # <a name="retrieve-offers"></a>Hämta erbjudanden
@@ -27,11 +27,11 @@ Hämtar en summerad lista med erbjudanden under ett utgivar namn område.
 
 | **Namn**         |  **Beskrivning**                         |  **Datatyp** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Utgivar identifierare, till exempel`contoso` |   Sträng    |
-|  api-version     | Senaste versionen av API                    |    Datum        |
+|  publisherId     | Utgivar identifierare, till exempel `contoso` |   Sträng    |
+|  api-version     | Senaste versionen av API                    |    Date        |
 |  |  |
 
-## <a name="header"></a>Huvud
+## <a name="header"></a>Sidhuvud
 
 |  **Namn**        |         **Värde**       |
 |  --------------- |       ----------------  |
@@ -77,10 +77,10 @@ Hämtar en summerad lista med erbjudanden under ett utgivar namn område.
 
 | **Kod**  |  **Beskrivning**                                                                                                   |
 | -------   |  ----------------------------------------------------------------------------------------------------------------- |
-|  200      | `OK`-Begäran har bearbetats och alla erbjudanden under utgivaren returnerades till klienten.  |
-|  400      | `Bad/Malformed request`– Fel svars texten kan innehålla mer information.                                    |
-|  403      | `Forbidden`-Klienten har inte åtkomst till den angivna namn rymden.                                          |
-|  404      | `Not found`-Den angivna entiteten finns inte.                                                                 |
+|  200      | `OK` -Begäran har bearbetats och alla erbjudanden under utgivaren returnerades till klienten.  |
+|  400      | `Bad/Malformed request` – Fel svars texten kan innehålla mer information.                                    |
+|  403      | `Forbidden` -Klienten har inte åtkomst till den angivna namn rymden.                                          |
+|  404      | `Not found` -Den angivna entiteten finns inte.                                                                 |
 |  |  |
 
 ### <a name="offer-status"></a>Erbjudande status
@@ -93,5 +93,5 @@ Hämtar en summerad lista med erbjudanden under ett utgivar namn område.
 |  Körs                     | Överföring av erbjudande bearbetas.             |
 |  Lyckades                   | Bearbetningen av erbjudandet har slutförts.       |
 |  Avbrutna                    | Överföring av erbjudande avbröts.                   |
-|  Misslyckad                      | Det gick inte att skicka erbjudandet.                         |
+|  Misslyckades                      | Det gick inte att skicka erbjudandet.                         |
 |  |  |

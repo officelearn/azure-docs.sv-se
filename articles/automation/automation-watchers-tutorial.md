@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.openlocfilehash: 38963a8e1bfdbde50439ed871aa33e9aaa830d35
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185661"
 ---
 # <a name="track-updated-files-with-a-watcher-task"></a>Spåra uppdaterade filer med en bevakare-uppgift
@@ -32,7 +32,7 @@ Den här självstudien vägleder dig genom att skapa en bevakare-uppgift som ska
 > * Utlös en övervakare
 > * Granska utdata
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att genomföra kursen:
 

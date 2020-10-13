@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
 ms.openlocfilehash: cb2654c2854692d120cf6dea7fa8fb901e14688e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86203522"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk gränser
@@ -84,7 +84,7 @@ Här följer storleken på de Azure-objekt som kan skrivas. Se till att alla fil
 | Entitet                                       | Konventioner                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Behållar namn för Block-Blob och Page BLOB <br> Fileshare-namn för Azure Files | Måste vara ett giltigt DNS-namn som är mellan 3 och 63 tecken långt. <br>  Måste börja med en bokstav eller en siffra. <br> Får bara innehålla gemena bokstäver, siffror och bindestreck (-). <br> Varje bindestreck (-) måste föregås och följas av en bokstav eller siffra. <br> Flera bindestreck i rad tillåts inte i namn. |
-| Katalog-och fil namn för Azure Files     |<li> Skift läges känsligt, SKIFT läges okänsligt och får inte överskrida 255 tecken. </li><li> Kan inte sluta med snedstreck (/). </li><li>Om den anges tas den bort automatiskt. </li><li> Följande tecken är inte tillåtna:<code>" \\ / : \| < > * ?</code></li><li> Reserverade URL-tecken måste undantas korrekt. </li><li> Otillåtna Sök vägs tecken för URL är inte tillåtna. Kod punkter som \\ uE000 är inte giltiga Unicode-tecken. Vissa ASCII-eller Unicode-tecken, t. ex. styr tecken (0x00 till 0x1F, \\ u0081 osv.), är inte heller tillåtna. För regler som styr Unicode-strängar i HTTP/1.1 se RFC 2616, avsnitt 2,2: Basic rules och RFC 3987. </li><li> Följande fil namn är inte tillåtna: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, klock $, punkt tecken (.) och två punkt tecken (..).</li>|
+| Katalog-och fil namn för Azure Files     |<li> Skift läges känsligt, SKIFT läges okänsligt och får inte överskrida 255 tecken. </li><li> Kan inte sluta med snedstreck (/). </li><li>Om den anges tas den bort automatiskt. </li><li> Följande tecken är inte tillåtna: <code>" \\ / : \| < > * ?</code></li><li> Reserverade URL-tecken måste undantas korrekt. </li><li> Otillåtna Sök vägs tecken för URL är inte tillåtna. Kod punkter som \\ uE000 är inte giltiga Unicode-tecken. Vissa ASCII-eller Unicode-tecken, t. ex. styr tecken (0x00 till 0x1F, \\ u0081 osv.), är inte heller tillåtna. För regler som styr Unicode-strängar i HTTP/1.1 se RFC 2616, avsnitt 2,2: Basic rules och RFC 3987. </li><li> Följande fil namn är inte tillåtna: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, klock $, punkt tecken (.) och två punkt tecken (..).</li>|
 | Blobnamn för blockblobar och sidblobar      | Blobnamn är skiftlägeskänsliga och kan innehålla valfri kombination av tecken. <br> Ett blobnamn måste vara mellan 1 och 1 024 tecken långt. <br> Reserverade URL-tecken måste undantas korrekt. <br>Antalet sökvägssegment som blobnamnet består av får inte överskrida 254. Ett segment är strängen mellan avgränsningstecken (till exempel snedstreck ”/”) som motsvarar namnet på en virtuell katalog. |
 
 ## <a name="managed-disk-naming-conventions"></a>Namn konventioner för hanterade diskar

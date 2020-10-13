@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 05132e4c7e644e681e2e4cfdedaa2b04a066ebeb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259973"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
@@ -131,7 +131,7 @@ Hämta Service Fabric kluster manifestet. Kluster manifestet innehåller egenska
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl kluster åtgärd-Avbryt
 Avbryter en användardefinierad fel åtgärd.
 
-Följande API: er startar fel åtgärder som kan avbrytas med hjälp av CancelOperation \: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Om tvinga är falskt stoppas och rensas den angivna användardefinierade åtgärden på ett smidigt sätt.  Om tvinga är sant avbryts kommandot och ett internt tillstånd kan vara kvar bakom.  Att ange Force som sant bör användas med försiktighet. Anrop till det här API: t med värdet True är inte tillåtet förrän denna API redan har anropats för samma test kommando med tvinga set till false först, eller om test kommandot redan har en OperationState av OperationState. RollingBack. Klargörande \: OperationState. RollingBack innebär att systemet kommer att rensas genom att rensa det interna system tillståndet, vilket orsakas av att kommandot körs.  Det kommer inte att återställa data om test kommandot var för att leda till data förlust.  Om du t. ex. anropar StartDataLoss anropar det här API: t så rensar systemet bara internt tillstånd från att köra kommandot. Den kommer inte att återställa mål partitionens data, om kommandot är tillräckligt långt för att orsaka data förlust. Viktigt \: om detta API anropas med Force = = true kan det interna läget vara kvar bakom.
+Följande API: er startar fel åtgärder som kan avbrytas med hjälp av CancelOperation \: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Om tvinga är falskt stoppas och rensas den angivna användardefinierade åtgärden på ett smidigt sätt.  Om tvinga är sant avbryts kommandot och ett internt tillstånd kan vara kvar bakom.  Att ange Force som sant bör användas med försiktighet. Anrop till det här API: t med värdet True är inte tillåtet förrän denna API redan har anropats för samma test kommando med tvinga set till false först, eller om test kommandot redan har en OperationState av OperationState. RollingBack. Klargörande \: OperationState. RollingBack innebär att systemet kommer att rensas genom att rensa det interna system tillståndet, vilket orsakas av att kommandot körs.  Det kommer inte att återställa data om test kommandot var för att leda till data förlust.  Om du t. ex. anropar StartDataLoss anropar det här API: t så rensar systemet bara internt tillstånd från att köra kommandot. Den kommer inte att återställa mål partitionens data, om kommandot är tillräckligt långt för att orsaka data förlust. Viktigt \:  om detta API anropas med Force = = true kan det interna läget vara kvar bakom.
 
 ### <a name="arguments"></a>Argument
 

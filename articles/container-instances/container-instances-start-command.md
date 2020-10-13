@@ -4,10 +4,10 @@ description: Ange en kommando rad för att åsidosätta EntryPoint i en behålla
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: 23221de3dc91c37c2e6fb96489539d3954efcd87
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86169637"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Ange kommando raden i en behållar instans för att åsidosätta standard kommando rads åtgärden
@@ -54,8 +54,8 @@ Kommando rads koden varierar beroende på vilket Azure-API eller verktyg som anv
 
 |    |  Azure CLI   | Portalen | Mall | 
 | ---- | ---- | --- | --- |
-| **Enda kommando** | `--command-line "python myscript.py arg1 arg2"` | **Åsidosätt kommando**:`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
-| **Flera kommandon** | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Åsidosätt kommando**:`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
+| **Enda kommando** | `--command-line "python myscript.py arg1 arg2"` | **Åsidosätt kommando**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
+| **Flera kommandon** | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Åsidosätt kommando**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
 ## <a name="azure-cli-example"></a>Azure CLI-exempel
 
@@ -78,7 +78,7 @@ När behållarens tillstånd visas som *avslutad* (Använd [AZ container Visa][a
 az container logs --resource-group myResourceGroup --name mycontainer1
 ```
 
-Resultat:
+Utdata:
 
 ```console
 [('HAMLET', 386), ('HORATIO', 127), ('CLAUDIUS', 120)]
@@ -104,7 +104,7 @@ Igen när behållaren har *avbrutits*visas utdata genom att Visa behållarens lo
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-Resultat:
+Utdata:
 
 ```console
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 7d6c0928196c9e8e1abf6aa7f724a58753ce3d2a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289044"
 ---
 # <a name="add-interaction-rules"></a>Lägga till interaktionsregler
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig mer om **interaktions regler**. Detta är 
 
 Om du vill veta mer om interaktions regler går du till avsnittet [referenser](./custom-commands-references.md) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha utfört stegen i följande artiklar:
 > [!div class="checklist"]

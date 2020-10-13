@@ -4,10 +4,10 @@ description: Automatisera konfigurationen av Application Insights för att få e
 ms.topic: conceptual
 ms.date: 07/23/2016
 ms.openlocfilehash: 74d477b6660c0f7ec2ee32b34169bb85886936e5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87322473"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Använd PowerShell för att ställa in aviseringar i Application Insights
@@ -100,7 +100,7 @@ Add-AzMetricAlertRule -Name "poor sales" `
 
 Samma regel kan användas för måttet som rapporteras med hjälp av [mått parametern](./api-custom-events-metrics.md#properties) för ett annat spårnings anrop, till exempel TrackEvent eller trackPageView.
 
-## <a name="metric-names"></a>Mått namn
+## <a name="metric-names"></a>Måttnamn
 | Måttnamn | Skärm namn | Beskrivning |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Webbläsarundantag |Antal ej fångade undantag som har utlösts i webbläsaren. |

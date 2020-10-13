@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 9b0b2b08e01c99fc918c4bc5649197c9caa4978a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75775503"
 ---
 # <a name="internet-peering---faqs"></a>Internet-peering – vanliga frågor och svar
@@ -29,8 +29,8 @@ Peering-anslutning som konfigureras med Azure PowerShell hanteras som en Azure-r
 
 **Vilka IP-adresser ges till Microsoft-och peer-enheter när New-AzPeeringDirectConnectionObject anropas?**
 
-När du anropar New-AzPeeringDirectConnectionObject-cmdleten anges en/31-adress (a. b. c. d/31) eller en/30-adress (a. b. c. d/30). Den första IP-adressen (a. b. c. d + 0) tilldelas peer-enheten och den andra IP-adressen (a. b. c. d + 1) har tilldelats till Microsoft Device.
+När du anropar New-AzPeeringDirectConnectionObject cmdleten anges en/31-adress (a. b. c. d/31) eller en/30-adress (a. b. c. d/30). Den första IP-adressen (a. b. c. d + 0) tilldelas peer-enheten och den andra IP-adressen (a. b. c. d + 1) har tilldelats till Microsoft Device.
 
-**Vad är MaxPrefixesAdvertisedIPv4 och MaxPrefixesAdvertisedIPv6-parametrar i New-AzPeeringDirectConnectionObject-cmdlet?**
+**Vad är MaxPrefixesAdvertisedIPv4-och MaxPrefixesAdvertisedIPv6-parametrar i New-AzPeeringDirectConnectionObject cmdlet?**
 
 Parametrarna MaxPrefixesAdvertisedIPv4 och MaxPrefixesAdvertisedIPv6 representerar det maximala antalet IPv4-och IPv6-prefix som en peer vill att Microsoft accepterar. Dessa parametrar kan ändras när som helst.

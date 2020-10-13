@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 8/04/2017
 ms.author: cawa
 ms.openlocfilehash: d4d6b781d97d481793e69cf2ca97cca5b93ce432
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86256101"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Konfigurera säkra anslutningar till ett Service Fabric kluster från Visual Studio
@@ -31,13 +31,13 @@ Dialog rutan **publicera Service Fabric program** validerar automatiskt kluster 
 
 ### <a name="to-connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster
 1. Se till att du har åtkomst till ett klient certifikat som är förtroende för mål klustret. Certifikatet delas vanligt vis som en PFX-fil (personal information Exchange). Mer information om hur du konfigurerar servern för att bevilja åtkomst till en klient finns i Konfigurera [ett Service Fabric kluster från Azure Portal](service-fabric-cluster-creation-via-portal.md) .
-2. Installera det betrodda certifikatet. Det gör du genom att dubbelklicka på. pfx-filen eller använda PowerShell-skriptet import-PfxCertificate för att importera certifikaten. Installera certifikatet på certifikat **: \ LocalMachine\My**. Det är OK att acceptera alla standardinställningar när certifikatet importeras.
+2. Installera det betrodda certifikatet. Det gör du genom att dubbelklicka på. pfx-filen eller använda PowerShell-skriptet Import-PfxCertificate för att importera certifikaten. Installera certifikatet på certifikat **: \ LocalMachine\My**. Det är OK att acceptera alla standardinställningar när certifikatet importeras.
 3. Välj kommandot **publicera...** på snabb menyn för projektet för att öppna dialog rutan **publicera Azure Application** och välj sedan mål klustret. Verktyget löser automatiskt anslutningen och sparar parametrarna för säker anslutning i publicerings profilen.
 4. Valfritt: du kan redigera publicerings profilen för att ange en säker kluster anslutning.
    
    Eftersom du redigerar XML-filen för publicerings profilen manuellt för att ange certifikat information, måste du anteckna certifikat arkivets namn, lagrings plats och tumavtryck för certifikatet. Du måste ange dessa värden för certifikatets lagrings namn och lagrings plats. Mer information finns i [så här: Hämta tumavtrycket för ett certifikat](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) .
    
-   Du kan använda *ClusterConnectionParameters* -parametrarna för att ange de PowerShell-parametrar som ska användas vid anslutning till Service Fabric klustret. Giltiga parametrar är de som accepteras av cmdleten Connect-ServiceFabricCluster. Se [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) för en lista över tillgängliga parametrar.
+   Du kan använda *ClusterConnectionParameters* -parametrarna för att ange de PowerShell-parametrar som ska användas vid anslutning till Service Fabric klustret. Giltiga parametrar är de som accepteras av Connect-ServiceFabricCluster-cmdleten. Se [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) för en lista över tillgängliga parametrar.
    
    Om du publicerar till ett fjärrkluster måste du ange lämpliga parametrar för det aktuella klustret. Följande är ett exempel på anslutning till ett icke-säkert kluster:
    

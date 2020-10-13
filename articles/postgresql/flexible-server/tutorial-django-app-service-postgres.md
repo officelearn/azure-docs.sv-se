@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 3366f39f3aca8ad0114244c122d1003b5e9b91a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90946667"
 ---
 # <a name="tutorial-deploy-django-app-with-app-service-and-azure-database-for-postgresql---flexible-server-preview"></a>Självstudie: Distribuera django-app med App Service och Azure Database for PostgreSQL-flexibel Server (för hands version)
@@ -22,7 +22,7 @@ ms.locfileid: "90946667"
 
 I den här självstudien får du lära dig hur du distribuerar ett django-program i Azure med hjälp av App Services och Azure Database for PostgreSQL-flexibel server i ett virtuellt nätverk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -270,11 +270,11 @@ Bläddra till *http: \/ / \<app-name> . azurewebsites.net* och testa appen igen 
 
 I [Azure Portal](https://portal.azure.com)söker du efter appens namn och väljer appen i resultaten.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Navigera till din python django-app i Azure Portal":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Exempel på utdata för django Development Server":::
 
 Som standard visar portalen appens **översikts** sida, som ger en allmän prestanda vy. Här kan du också utföra grundläggande hanterings åtgärder som att bläddra, stoppa, starta om och ta bort. På flikarna till vänster på sidan kan du se olika konfigurationssidor som du kan öppna.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Hantera din python django-app på sidan Översikt i Azure Portal":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Exempel på utdata för django Development Server":::
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

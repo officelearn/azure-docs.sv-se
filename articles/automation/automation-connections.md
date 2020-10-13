@@ -7,10 +7,10 @@ ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
 ms.openlocfilehash: 39085aa7967ffeac3416b61f32146ac023b46dfe
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186664"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Hantera anslutningar i Azure Automation
@@ -31,9 +31,9 @@ När du skapar en anslutning måste du ange en Anslutnings typ. Anslutnings type
 
 Azure Automation gör följande inbyggda anslutnings typer tillgängliga:
 
-* `Azure`– Representerar en anslutning som används för att hantera klassiska resurser.
-* `AzureServicePrincipal`– Representerar en anslutning som används av kör som-kontot i Azure.
-* `AzureClassicCertificate`– Representerar en anslutning som används av det klassiska kör som-kontot i Azure.
+* `Azure` – Representerar en anslutning som används för att hantera klassiska resurser.
+* `AzureServicePrincipal` – Representerar en anslutning som används av kör som-kontot i Azure.
+* `AzureClassicCertificate` – Representerar en anslutning som används av det klassiska kör som-kontot i Azure.
 
 I de flesta fall behöver du inte skapa en anslutnings resurs eftersom den skapas när du skapar ett [Kör som-konto](manage-runas-account.md).
 

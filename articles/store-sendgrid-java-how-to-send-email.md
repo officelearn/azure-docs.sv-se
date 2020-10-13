@@ -17,10 +17,10 @@ ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.custom: devx-track-java
 ms.openlocfilehash: 9ff006b74b6202b02a2767aee4d853b1206ce60d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87304487"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Skicka e-post med SendGrid från Java
@@ -202,9 +202,9 @@ SendGrid erbjuder webbaserade API: er som du kan använda för att utnyttja ytte
 Nu när du har lärt dig grunderna i SendGrid-e-posttjänsten kan du följa dessa länkar för att lära dig mer.
 
 * Exempel som visar hur du använder SendGrid i en Azure-distribution: [så här skickar du e-post med SendGrid från java i en Azure-distribution](store-sendgrid-java-how-to-send-email-example.md)
-* SendGrid Java SDK:<https://sendgrid.com/docs/Code_Examples/java.html>
-* SendGrid API-dokumentation:<https://sendgrid.com/docs/API_Reference/index.html>
-* SendGrid Special erbjudande för Azure-kunder:<https://sendgrid.com/windowsazure.html>
+* SendGrid Java SDK: <https://sendgrid.com/docs/Code_Examples/java.html>
+* SendGrid API-dokumentation: <https://sendgrid.com/docs/API_Reference/index.html>
+* SendGrid Special erbjudande för Azure-kunder: <https://sendgrid.com/windowsazure.html>
 
 [https://sendgrid.com]: https://sendgrid.com
 [https://sendgrid.com/pricing.html]: https://sendgrid.com/pricing.html

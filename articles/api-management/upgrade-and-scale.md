@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: 93c686fb2688a7a8ae71d8156e6e5c7915d6c604
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86205763"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Uppgradera och skala en Azure API Management-instans  
@@ -29,11 +29,11 @@ Priset för varje enhet och de tillgängliga funktionerna (till exempel distribu
 >[!NOTE]
 >I artikeln [pris information](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) visas ungefärligt antal enhets kapaciteter på varje nivå. För att få mer exakta siffror måste du titta på ett realistiskt scenario för dina API: er. Se [kapaciteten för en artikel i Azure API Management-instansen](api-management-capacity.md) .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att följa stegen i den här artikeln måste du:
 
-+ Ha en aktiv Azure-prenumeration.
++ En aktiv Azure-prenumeration.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,7 +45,7 @@ För att följa stegen i den här artikeln måste du:
 
 ## <a name="upgrade-and-scale"></a>Uppgradera och skala  
 
-Du kan välja mellan fyra nivåer: **Developer**, **Basic**, **standard**och **Premium**. **Developer** -nivån ska användas för att utvärdera tjänsten. den bör inte användas för produktion. **Developer** -nivån har inget SLA och du kan inte skala den här nivån (Lägg till/ta bort enheter). 
+Du kan välja mellan fyra nivåer: **Developer**, **Basic**,  **standard**och **Premium**. **Developer** -nivån ska användas för att utvärdera tjänsten. den bör inte användas för produktion. **Developer** -nivån har inget SLA och du kan inte skala den här nivån (Lägg till/ta bort enheter). 
 
 **Basic**, **standard**och **Premium** är produktions nivåer som har service avtal och kan skalas. **Basic** -nivån är billigaste-nivån med ett service avtal och kan skalas upp till två enheter. **standard** nivån kan skalas upp till fyra enheter. Du kan lägga till valfritt antal enheter på **Premium** -nivån.
 
@@ -67,7 +67,7 @@ Du kan uppgradera och nedgradera till och från valfri nivå. Uppgradering eller
 2. Välj **platser** på menyn.
 3. Klicka på raden med den plats som du vill skala.
 4. Ange det nya antalet **enheter** – Använd antingen skjutreglaget eller Skriv in numret.
-5. Klicka på **Använd**.
+5. Klicka på **Applicera**.
 
 ## <a name="change-your-api-management-service-tier"></a>Ändra API Management tjänst nivå
 

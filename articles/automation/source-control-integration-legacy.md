@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: f1e4e288b5b95f355221188a45f1e6c764fde77c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187344"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Använd käll kontroll integrering i Azure Automation-bakåtkompatibelt
@@ -115,7 +115,7 @@ Med knappen Synkronisera på sidan lagringsplats för lagring kan du hämta alla
 
     ![Knappen Synkronisera med meddelandet bekräftar att alla Runbooks kommer att synkroniseras](media/source-control-integration-legacy/automation-SyncButtonwithMessage.png)
 
-2. Sync startar **MicrosoftAzureAutomationAccountFromGitHubV1** Runbook, som ansluter till GitHub och hämtar ändringarna från lagrings platsen till Azure Automation. Du bör se ett nytt jobb på sidan för synkronisering av databasen för den här åtgärden. Om du vill visa information om synkroniseringsjobb klickar du på för att öppna sidan jobb information.  
+2. Sync startar  **MicrosoftAzureAutomationAccountFromGitHubV1** Runbook, som ansluter till GitHub och hämtar ändringarna från lagrings platsen till Azure Automation. Du bör se ett nytt jobb på sidan för synkronisering av databasen för den här åtgärden. Om du vill visa information om synkroniseringsjobb klickar du på för att öppna sidan jobb information.  
 
     ![Ett fönster som visar synkroniseringsresultat för ett synkroniseringsjobb på en GitHub-lagringsplats](media/source-control-integration-legacy/automation-SyncRunbook.png)
 

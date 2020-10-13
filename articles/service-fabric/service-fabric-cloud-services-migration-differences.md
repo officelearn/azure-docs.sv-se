@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: c98aeaff3ba39a28fad68454d76f6f4d33f44e5d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836742"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Lär dig mer om skillnaderna mellan Cloud Services och Service Fabric innan du migrerar program.
@@ -91,14 +91,14 @@ Samma kommunikations modell kan användas i Service Fabric. Detta kan vara anvä
 | RoleInstance. GetUpgradeDomain | FabricClient. QueryManager. GetNodeList | Filtrera på nodnamn och Använd egenskapen Upgrade |
 | RoleInstance. GetInstanceEndpoints | FabricRuntime. GetActivationContext eller Naming (ResolveService) | CodePackageActivationContext som tillhandahålls både av FabricRuntime. GetActivationContext och inom replikerna via ServiceInitializationParameters. CodePackageActivationContext som angavs under. Initialize |
 | RoleEnvironment.GetRoles | FabricClient. QueryManager. GetNodeList | Om du vill göra samma sortering av filtrering efter typ kan du hämta listan över nodtyper från kluster manifestet via FabricClient. ClusterManager. GetClusterManifest och ta bort roll-/nodtypen därifrån. |
-| RoleEnvironment.GetIsAvailable | Connect-WindowsFabricCluster eller skapa en FabricRuntime som pekar mot en viss nod | * |
+| RoleEnvironment.GetIsAvailable | Connect-WindowsFabricCluster eller skapa en FabricRuntime som pekar på en viss nod | * |
 | RoleEnvironment.GetLocalResource | CodePackageActivationContext. log/Temp/Work | * |
 | RoleEnvironment.GetCurrentRoleInstance | CodePackageActivationContext. log/Temp/Work | * |
 | LocalResource.GetRootPath | CodePackageActivationContext. log/Temp/Work | * |
 | Roll. GetInstances | FabricClient. QueryManager. GetNodeList eller ResolveService | * |
 | RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime. GetActivationContext eller Naming (ResolveService) | * |
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Den enklaste sökvägen från Cloud Services till Service Fabric är att bara ersätta Cloud Services-distributionen med ett Service Fabric program, så att programmets övergripande arkitektur är ungefär samma. Följande artikel innehåller en guide som hjälper dig att konvertera en webb-eller arbets roll till en Service Fabric tillstånds lös tjänst.
 
 * [Enkel migrering: konvertera en webb-eller arbets roll till en Service Fabric tillstånds lös tjänst](service-fabric-cloud-services-migration-worker-role-stateless-service.md)

@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 818ef3a29724f18cad5924bf1961b74afadfdb75
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: bf31c2d4a90abeec62d785d0294a9c50f3b675ab
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939604"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993610"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Anslut dina datorer som inte är Azure-datorer till Security Center
 
-Security Center kan övervaka säkerhetsstatusen för icke-Azure-datorer men du måste först publicera dessa resurser. 
+Security Center kan övervaka säkerhets position för datorer som inte är Azure-datorer, men först måste du ansluta dem till Azure. 
 
-Du kan lägga till icke-Azure-datorer på något av följande sätt:
+Du kan ansluta datorer som inte är Azure-datorer på något av följande sätt:
 
 - Använda Azure-båge (**rekommenderas**)
 - Från Security Center sidor i Azure Portal (**komma igång** och **inventering**)
@@ -30,7 +30,7 @@ Var och en av dem beskrivs på den här sidan.
 
 ## <a name="add-non-azure-machines-with-azure-arc"></a>Lägg till datorer som inte är Azure-datorer med Azure Arc
 
-Att använda Azure Arc är det bästa sättet att lägga till datorer som inte är Azure-datorer till Azure Security Center.
+Azure-bågen är det bästa sättet att lägga till icke-Azure-datorer till Azure Security Center.
 
 En dator med Azure Arc aktive rad blir en Azure-resurs och visas i Security Center med rekommendationer som dina andra Azure-resurser. 
 
@@ -50,7 +50,7 @@ Läs mer om [Azure-bågen](../azure-arc/servers/overview.md).
 
 ::: zone pivot="azure-portal"
 
-## <a name="add-non-azure-machines-from-security-centers-portal-pages"></a>Lägg till datorer som inte är Azure-datorer från Security Center Portal sidor
+## <a name="add-non-azure-machines-from-the-azure-portal"></a>Lägg till datorer som inte är Azure-datorer från Azure Portal
 
 1. Från Security Center menyn öppnar du sidan **komma igång** .
 1. Välj fliken **Kom igång**.

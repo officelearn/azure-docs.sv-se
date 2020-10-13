@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: 4ec7cd2b0f573a9a74f82546da2367edcf721539
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2f2272363cbc26895b061fe7b6263ed2a29fbab
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441459"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993249"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Distribuera Azure Monitor i skala med Azure Policy
 Vissa Azure Monitor funktioner konfigureras en gång eller ett begränsat antal gånger, men andra måste upprepas för varje resurs som du vill övervaka. I den här artikeln beskrivs metoder för att använda Azure Policy för att implementera Azure Monitor i skala för att säkerställa att övervakningen är konsekvent och korrekt konfigurerad för alla dina Azure-resurser.
@@ -33,7 +33,7 @@ Azure Policy består av objekten i följande tabell. Se [Azure policy objekt](..
 | Tilldelning | En princip definition eller ett initiativ börjar inte gälla förrän det har tilldelats en omfattning. Du kan till exempel tilldela en princip till en resurs grupp för att tillämpa den på alla resurser som skapats i den resursen, eller tillämpa den på en prenumeration för att tillämpa den på alla resurser i den prenumerationen.  Mer information finns i [Azure policy tilldelnings struktur](../governance/policy/concepts/assignment-structure.md). |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Inbyggda princip definitioner för Azure Monitor
-Azure Policy innehåller flera fördefinierade definitioner relaterade till Azure Monitor. Du kan tilldela dessa princip definitioner till din befintliga prenumeration eller använda dem som grund för att skapa dina egna anpassade definitioner. En fullständig lista över de inbyggda politiken i kategorin **övervakning** finns i [Azure policy inbyggda princip definitioner för Azure Monitor](samples/policy-samples.md).
+Azure Policy innehåller flera fördefinierade definitioner relaterade till Azure Monitor. Du kan tilldela dessa princip definitioner till din befintliga prenumeration eller använda dem som grund för att skapa dina egna anpassade definitioner. En fullständig lista över de inbyggda politiken i kategorin **övervakning** finns i [Azure policy inbyggda princip definitioner för Azure Monitor](./samples/policy-reference.md).
 
 Om du vill visa de inbyggda princip definitionerna som är relaterade till övervakning gör du följande:
 
@@ -130,7 +130,7 @@ Initiativet kommer att gälla för varje virtuell dator när den skapas. En [rep
 
 Azure Monitor for VMs innehåller följande inbyggda initiativ som installerar båda agenterna för att aktivera fullständig övervakning. 
 
-|Namn |Beskrivning |
+|Name |Beskrivning |
 |:---|:---|
 |Aktivera Azure Monitor for VMs | Installerar Log Analytics agent och beroende agent på virtuella Azure-datorer och hybrid virtuella datorer som är anslutna till Azure Arc. |
 |Aktivera Azure Monitor för skalnings uppsättningar för virtuella datorer | Installerar den Log Analytics agenten och beroende agenten på skalnings uppsättningen för den virtuella Azure-datorn. |
@@ -163,7 +163,7 @@ Du kan ha scenarier där du vill installera Log Analytics agenten men inte beroe
 > Det kan inte finnas någon anledning att distribuera beroende agenten på egen hand eftersom den kräver att den Log Analytics agenten levererar sina data till Azure Monitor.
 
 
-|Namn |Beskrivning |
+|Name |Beskrivning |
 |-----|------------|
 |Granska Log Analytics agent distribution – VM-avbildningen (OS) har inte listats |Rapporterar virtuella datorer som icke-kompatibla om VM-avbildningen (OS) inte är definierad i listan och agenten inte är installerad. |
 |Distribuera Log Analytics agent för virtuella Linux-datorer |Distribuera Log Analytics agent för virtuella Linux-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f1bde255355e7a4f47df6a3969837410692cef5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ca23c1503b01c1aa9523edc2576599d7b6ab458
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266067"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992817"
 ---
 # <a name="continuous-access-evaluation"></a>Utvärdering av kontinuerlig åtkomst
 
@@ -103,7 +103,7 @@ Om du inte använder CAE-kompatibla klienter blir din standardtoken för åtkoms
 
 1. En CAE-kompatibel klient visar autentiseringsuppgifter eller en uppdateringstoken till Azure AD som efterfrågar en åtkomsttoken för en viss resurs.
 1. En åtkomsttoken returneras tillsammans med andra artefakter till klienten.
-1. En administratör [återkallar uttryckligen alla uppdateringstoken för användaren](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). En återkallnings händelse kommer att skickas till resurs leverantören från Azure AD.
+1. En administratör [återkallar uttryckligen alla uppdateringstoken för användaren](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). En återkallnings händelse kommer att skickas till resurs leverantören från Azure AD.
 1. En åtkomsttoken visas för resurs leverantören. Resurs leverantören utvärderar giltigheten hos token och kontrollerar om det finns någon återkallnings händelse för användaren. Resurs leverantören använder den här informationen för att avgöra om du vill bevilja åtkomst till resursen eller inte.
 1. I det här fallet nekar resurs leverantören åtkomst och skickar en 401 + anspråks utmaning tillbaka till klienten.
 1. Den CAE-kompatibla klienten förstår 401 +-anspråks utmaningen. Den kringgår cacheminnena och går tillbaka till steg 1 och skickar dess uppdateringstoken tillsammans med anspråks utmaningen tillbaka till Azure AD. Azure AD kommer sedan att utvärdera alla villkor och uppmana användaren att autentisera om i det här fallet.
@@ -144,7 +144,7 @@ För CAE har vi bara insikter om namngivna IP-baserade namngivna platser. Vi har
 
 ### <a name="ip-address-configuration"></a>Konfigurera IP-adress
 
-Identitets leverantören och resurs leverantörerna kan se olika IP-adresser. Detta matchnings fel kan inträffa på grund av nätverks-proxy-implementeringar i din organisation eller felaktiga IPv4/IPv6-konfigurationer mellan identitets leverantören och resurs leverantören. Exempel:
+Identitets leverantören och resurs leverantörerna kan se olika IP-adresser. Detta matchnings fel kan inträffa på grund av nätverks-proxy-implementeringar i din organisation eller felaktiga IPv4/IPv6-konfigurationer mellan identitets leverantören och resurs leverantören. Till exempel:
 
 - Din identitetsprovider ser en IP-adress från klienten.
 - Resurs leverantören ser en annan IP-adress från klienten när den har passerat via en proxy.
@@ -159,7 +159,7 @@ Om det här scenariot finns i din miljö för att undvika oändliga slingor, utf
 | Semi-Annual Enterprise-kanal | Om inställningen är aktive rad eller 1, stöds inte CAE. | Om inställningen är aktive rad eller 1, stöds inte CAE. |
 | Aktuell kanal <br> eller <br> Månatlig företags kanal | CAE stöds oavsett inställningen | CAE stöds oavsett inställningen |
 
-En förklaring av Office Update-kanaler finns i [Översikt över uppdaterings kanaler för Microsoft 365 appar](https://docs.microsoft.com/deployoffice/overview-update-channels). Vi rekommenderar att organisationer inte inaktiverar WAM (Web Account Manager).
+En förklaring av Office Update-kanaler finns i [Översikt över uppdaterings kanaler för Microsoft 365 appar](/deployoffice/overview-update-channels). Vi rekommenderar att organisationer inte inaktiverar WAM (Web Account Manager).
 
 ### <a name="policy-change-timing"></a>Ändrings tid för princip
 

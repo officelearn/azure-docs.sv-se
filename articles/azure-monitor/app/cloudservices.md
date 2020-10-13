@@ -4,12 +4,12 @@ description: Övervaka webb- och arbetsroller effektivt med Application Insights
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 676d3543cbcbf86feb67cad4bd2b9709c2b81437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cae2e4e1d5b5e199e772c5263a46d82289f5d6ac
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91759381"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992838"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
 [Application Insights][start] kan övervaka [Azure Cloud Service-appar](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, haverier och användning genom att kombinera data från Application Insights sdk: er med [Azure-diagnostik](../platform/diagnostics-extension-overview.md) data från moln tjänsterna. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
@@ -67,7 +67,7 @@ Undvik den här situationen genom att skapa separata resurser för varje build-k
 
 Om du vill skicka Telemetrin till lämpliga resurser kan du konfigurera Application Insights SDK så att den hämtar en annan Instrumentation-nyckel, beroende på Build-konfigurationen. 
 
-Lär dig hur du [ställer in Instrumentation-nyckeln dynamiskt](https://docs.microsoft.com/azure/azure-monitor/app/separate-resources#dynamic-ikey) för olika faser. 
+Lär dig hur du [ställer in Instrumentation-nyckeln dynamiskt](./separate-resources.md#dynamic-ikey) för olika faser. 
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Skapa en Application Insights-resurs för varje roll
 
@@ -290,4 +290,3 @@ Utvecklade du för .NET 4.6? .NET 4,6 stöds inte automatiskt i Azure Cloud Serv
 [qna]: ../faq.md
 [redfield]: ./monitor-performance-live-website-now.md
 [start]: ./app-insights-overview.md
-

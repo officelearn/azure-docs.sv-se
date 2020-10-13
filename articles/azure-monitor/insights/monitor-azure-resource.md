@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 70ab387018fc54b4dad9ee911d4c7557e1e7805c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3a8e8b908c9d278654bfe992474811d6a9ddb86
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030352"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993709"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Övervaka Azure-resurser med Azure Monitor
 När du har viktiga program och affärs processer som förlitar sig på Azure-resurser, vill du övervaka resurserna för deras tillgänglighet, prestanda och drift. I den här artikeln beskrivs övervaknings data som genereras av Azure-resurser och hur du kan använda funktionerna i Azure Monitor för att analysera och varna för dessa data.
@@ -80,7 +80,7 @@ Diagnostiska inställningar definierar var resurs loggar och-mått för en viss 
 - [Event Hub](../platform/resource-logs.md#send-to-azure-event-hubs) för att strömma data till externa system, till exempel Siem från tredje part och andra Log Analytics-lösningar. 
 - [Azure Storage-konto](../platform/resource-logs.md#send-to-azure-storage) som är användbart för granskning, statisk analys eller säkerhets kopiering.
 
-Följ proceduren i [skapa diagnostisk inställning för att samla in plattforms loggar och mått i Azure](../platform/diagnostic-settings.md) för att skapa och hantera diagnostikinställningar via Azure Portal. Se [skapa diagnostisk inställning i Azure med hjälp av en Resource Manager-mall](../platform/diagnostic-settings-template.md) för att definiera dem i en mall och aktivera fullständig övervakning för en resurs när den skapas.
+Följ proceduren i [skapa diagnostisk inställning för att samla in plattforms loggar och mått i Azure](../platform/diagnostic-settings.md) för att skapa och hantera diagnostikinställningar via Azure Portal. Se [skapa diagnostisk inställning i Azure med hjälp av en Resource Manager-mall](../samples/resource-manager-diagnostic-settings.md) för att definiera dem i en mall och aktivera fullständig övervakning för en resurs när den skapas.
 
 
 ## <a name="monitoring-in-the-azure-portal"></a>Övervakning i Azure Portal
@@ -160,5 +160,4 @@ Använd **aviseringar** från en resurs meny för att visa aviseringar och hante
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om resurs loggar för olika Azure-tjänster finns i [tjänster, scheman och kategorier som stöds för Azures resurs loggar](../platform/resource-logs-schema.md) .  
-
+* Mer information om resurs loggar för olika Azure-tjänster finns i [tjänster, scheman och kategorier som stöds för Azures resurs loggar](../platform/resource-logs-schema.md) .

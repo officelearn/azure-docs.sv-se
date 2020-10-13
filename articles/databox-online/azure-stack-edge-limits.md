@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: 5f3c39ce7334145d3ffc1d54badb1f7b766da70f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1bb5662b48765c08ec58d1f7fa9d341de4937bc
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904447"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992755"
 ---
 # <a name="azure-stack-edge-pro-limits"></a>Azure Stack Edge Pro – begränsningar
 
@@ -27,12 +27,16 @@ Tänk på följande begränsningar när du distribuerar och använder din Micros
 
 I följande tabell beskrivs gränserna för den Azure Stack Edge Pro-enheten. 
 
+I följande tabell beskrivs gränserna för Azure Stack Edge-enheten.
+
 | Beskrivning | Värde |
 |---|---|
 |Nej. av filer per enhet |100 000 000 |
-|Nej. av resurser per enhet |24 |
 |Nej. av resurser per behållare |1 |
+|Maximalt antal. av resurs slut punkter och REST-slutpunkter per enhet| 24 |
+|Maximalt antal. av skiktade lagrings konton per enhet| 24|
 |Maximal fil storlek som skrivs till en resurs| 5 TB |
+|Maximalt antal resurs grupper per enhet| 800 |
 
 ## <a name="azure-storage-limits"></a>Azure Storage-gränser
 

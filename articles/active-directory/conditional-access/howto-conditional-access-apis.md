@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33f3766e02316eccb519bea15246541531750ed1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d681eba53aa85fe5df05f8404bcddb7c6877477
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90008091"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992789"
 ---
 # <a name="conditional-access-programmatic-access"></a>Villkorlig åtkomst: program mässig åtkomst
 
@@ -78,7 +78,7 @@ Automatisera säkerhets kopiering och återställning av principer för villkorl
 
 ### <a name="emergency-access-accounts"></a>Konton för nöd åtkomst
 
-Flera administratörer kan skapa principer för villkorlig åtkomst och kan glömma att lägga till [konton för nöd åtkomst](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) som ett undantag till dessa principer. I det här exemplet ser du till att alla principer uppdateras för att inkludera de utsedda åtkomst kontona.
+Flera administratörer kan skapa principer för villkorlig åtkomst och kan glömma att lägga till [konton för nöd åtkomst](../users-groups-roles/directory-emergency-access.md) som ett undantag till dessa principer. I det här exemplet ser du till att alla principer uppdateras för att inkludera de utsedda åtkomst kontona.
 
 - [Hantera tilldelningen av nödfalls åtkomst konton till principer för villkorlig åtkomst med hjälp av Microsoft Graph API-anrop](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/05-manage/02-emergency-access)
 

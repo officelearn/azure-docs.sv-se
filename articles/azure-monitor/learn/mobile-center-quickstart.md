@@ -8,12 +8,12 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: 0539dcecbbbfe28817122e0f47e813182a9abd9d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 27b74f99d926bf72bc22f153a8d76deb56646987
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87322150"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993875"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Börja analysera mobilappen med App Center och Application Insights
 
@@ -67,7 +67,7 @@ Om du vill säkerställa att de anpassade händelserna tas emot går du till fli
 
 När appen skickar anpassade händelser och dessa händelser tas emot av App Center måste du skapa en Application Insights-resurs av App Center-typ i Azure-portalen:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **skapa ett verktyg för resurs**  >  **utvecklare**  >  **Application Insights**.
 
     > [!NOTE]
@@ -124,7 +124,7 @@ Application Insights kan fråga, segmentera, filtrera och analysera den anpassad
    1. Välj frågan genom att klicka var som helst på frågan i textredigeraren.
    2. Klicka sedan på **Kör** för att köra frågan. 
 
-   Läs mer om [Application Insights Analytics](../log-query/log-query-overview.md) och [Log Analytics-frågespråket](https://aka.ms/LogAnalyticsLanguageReference).
+   Läs mer om [Application Insights Analytics](../log-query/log-query-overview.md) och [Log Analytics-frågespråket](/azure/data-explorer/kusto/query/).
 
 
 2. **Segmentera och filtrera din anpassade händelsetelemetri.** Från sidan **Översikt** i Application Insights väljer du **Användare** i innehållsförteckningen.
@@ -168,4 +168,3 @@ Ta bort Application Insights-resursen:
 
 > [!div class="nextstepaction"]
 > [Förstå hur kunder använder din app](../app/usage-overview.md)
-

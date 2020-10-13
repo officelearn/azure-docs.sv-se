@@ -7,12 +7,12 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 652d63cbf71f7a998462780a5057ce8269463da4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69ec25348c3056536a2e09fd889b48e1e63ea7bb
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88930391"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992775"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profil ASP.NET Core Azure Linux-webbappar med Application Insights Profiler
 
@@ -107,7 +107,7 @@ Följande instruktioner gäller för alla Windows-, Linux-och Mac-utvecklings mi
 
     ![Konfigurera git-lagringsplatsen](./media/profiler-aspnetcore-linux/setup-git-repo.png)
 
-Fler distributions alternativ finns i [App Service-dokumentationen](https://docs.microsoft.com/azure/app-service).
+Fler distributions alternativ finns i [App Service-dokumentationen](../../app-service/index.yml).
 
 ## <a name="deploy-your-project"></a>Distribuera projektet
 
@@ -172,4 +172,3 @@ Fler distributions alternativ finns i [App Service-dokumentationen](https://docs
 Om du använder anpassade behållare som finns i Azure App Service följer du anvisningarna i [ aktivera Service profiler för ett behållar ASP.net Core program](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) för att aktivera Application Insights profiler.
 
 Rapportera eventuella problem eller förslag till Application Insights GitHub-databasen: [ApplicationInsights-profilerare-AspNetCore: problem](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).
-

@@ -12,10 +12,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 06db7b46d095a79177b80bba6df3d5e9aadad16b
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91766982"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Skapa och läsa IoT Hub-meddelanden
@@ -61,8 +61,8 @@ Mer information om hur du kodar och avkodar meddelanden som skickas med olika pr
 | iothub-Connection-module-ID |Ett ID som anges av IoT Hub för meddelanden från enhet till moln. Den innehåller **moduleId** för enheten som skickade meddelandet. | Inga | connectionModuleId |
 | iothub-Connection-auth-generation-ID |Ett ID som anges av IoT Hub för meddelanden från enhet till moln. Den innehåller **connectionDeviceGenerationId** (som per [enhets identitets egenskaper](iot-hub-devguide-identity-registry.md#device-identity-properties)) för enheten som skickade meddelandet. | Inga |connectionDeviceGenerationId |
 | iothub-anslutnings-auth-Method |En autentiseringsmetod som anges av IoT Hub för meddelanden från enhet till moln. Den här egenskapen innehåller information om autentiseringsmetoden som används för att autentisera enheten som skickar meddelandet.| Inga | connectionAuthMethod |
-| DT-dataschema | Det här värdet anges av IoT Hub på enhet-till-moln-meddelanden. Det innehåller det enhets modell-ID som angetts i enhets anslutningen. | Inga | Ej tillämpligt |
-| DT-ämne | Namnet på komponenten som skickar meddelanden från enheten till molnet. | Ja | Ej tillämpligt |
+| DT-dataschema | Det här värdet anges av IoT Hub på enhet-till-moln-meddelanden. Det innehåller det enhets modell-ID som angetts i enhets anslutningen. | Inga | E.t. |
+| DT-ämne | Namnet på komponenten som skickar meddelanden från enheten till molnet. | Ja | E.t. |
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>System egenskaper för **C2D** IoT Hub-meddelanden
 
@@ -90,7 +90,7 @@ Systemets egenskaps namn varierar beroende på slut punkten som meddelandena dir
 |Metod för anslutnings verifiering|iothub-anslutnings-auth-Method|connectionAuthMethod|iothub-anslutnings-auth-Method|iothub-anslutnings-auth-Method|
 |Innehålls|innehålls typ|Innehålls|Innehålls|iothub – innehålls typ|
 |contentEncoding|innehålls kodning|contentEncoding|ContentEncoding|iothub – innehålls kodning|
-|iothub – enqueuedtime|iothub – enqueuedtime|enqueuedTime| Ej tillämpligt |iothub – enqueuedtime|
+|iothub – enqueuedtime|iothub – enqueuedtime|enqueuedTime| E.t. |iothub – enqueuedtime|
 |CorrelationId|korrelations-id|correlationId|CorrelationId|korrelations-id|
 |DT-dataschema|DT-dataschema|DT-dataschema|DT-dataschema|DT-dataschema|
 |DT-ämne|DT-ämne|DT-ämne|DT-ämne|DT-ämne|

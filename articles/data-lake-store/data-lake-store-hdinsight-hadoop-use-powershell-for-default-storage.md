@@ -10,7 +10,7 @@ ms.openlocfilehash: db29b6743458a4a3ec87dfec9e367bef0c946a15
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91857018"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Skapa HDInsight-kluster med Azure Data Lake Storage Gen1 som standard lagring med hjälp av PowerShell
@@ -31,7 +31,7 @@ Här är några viktiga överväganden när du använder HDInsight med Data Lake
 
 Följ anvisningarna i följande fem avsnitt om du vill konfigurera HDInsight att arbeta med Data Lake Storage Gen1 med hjälp av PowerShell.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

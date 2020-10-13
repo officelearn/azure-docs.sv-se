@@ -4,10 +4,10 @@ description: Lär dig hur du associerar ditt partner-ID för att få partner int
 ms.date: 10/05/2020
 ms.topic: how-to
 ms.openlocfilehash: 5caa205ce74152c7ec047952f66c1bf9188ddf02
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776178"
 ---
 # <a name="link-your-partner-id-to-enable-partner-earned-credit-on-delegated-resources"></a>Länka ditt partner-ID för att aktivera intjänad partner kredit på delegerade resurser

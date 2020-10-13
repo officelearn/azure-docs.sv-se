@@ -11,10 +11,10 @@ ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 09/30/2020
 ms.openlocfilehash: 44dafd1b0043c2daa7065069f571f13529303a73
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91614435"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Översikt över vCore-modellen – Azure SQL Database och Azure SQL-hanterad instans 
@@ -111,7 +111,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 |Fsv2-serien     |– Intel® 8168-processorer (Skylake)<br>– Med en hög kärnors klock hastighet på 3,4 GHz och en maximal Turbo Turbo klock hastighet på 3,7 GHz.<br>-Etablera upp till 72 virtuella kärnor (1 vCore = 1 Hyper-Thread)|– 1,9 GB per vCore<br>-Etablera upp till 136 GB|
 |M-serien     |– Intel® E7-8890 v3 2,5 GHz och Intel® 8280M 2,7 GHz-processorer (Cascade Lake)<br>-Etablera upp till 128 virtuella kärnor (1 vCore = 1 Hyper-Thread)|– 29 GB per vCore<br>-Etablera upp till 3,7 TB|
 
-\* I vyn [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamisk hantering visas maskin varu generering för databaser som använder Intel® SP-8160-processorer (Skylake) som Gen6, medan maskin varu generering för databaser som använder Intel® 8272CL (Cascade Lake) visas som Gen7. Resurs gränser för alla Gen5-databaser är desamma oavsett processor typ (Broadwell, Skylake eller överlappande sjö).
+\* I vyn [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamisk hantering visas maskin varu generering för databaser som använder Intel® SP-8160-processorer (Skylake) som Gen6, medan maskin varu generation för databaser som använder Intel® 8272CL (Cascade Lake) visas som Gen7. Resurs gränser för alla Gen5-databaser är desamma oavsett processor typ (Broadwell, Skylake eller överlappande sjö).
 
 Mer information om resurs gränser finns i [resurs gränser för enskilda databaser (vCore)](resource-limits-vcore-single-databases.md)eller [resurs gränser för elastiska pooler (vCore)](resource-limits-vcore-elastic-pools.md).
 

@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 4348d3d71259b5bdf63b1c52af53bff59c650086
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17d36acfa2de699ff2b22ac16d327ea738519f4a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829024"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975390"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Skapa en komplett virtuell Linux-dator med Azure CLI
 Om du snabbt vill skapa en virtuell dator i Azure kan du använda ett enda Azure CLI-kommando som använder standardvärden för att skapa nödvändiga resurser. Resurser som ett virtuellt nätverk, en offentlig IP-adress och regler för nätverks säkerhets grupper skapas automatiskt. Om du vill ha mer kontroll över din miljö i produktions användningen kan du skapa resurserna i förväg och sedan lägga till dina virtuella datorer i dem. Den här artikeln vägleder dig genom hur du skapar en virtuell dator och var och en av de stödda resurserna en i taget.
@@ -434,7 +434,7 @@ Fel domäner definierar en gruppering av virtuella datorer som delar en gemensam
 
 Uppdaterings domäner visar grupper av virtuella datorer och underliggande fysisk maskin vara som kan startas om samtidigt. Under planerat underhåll kanske den ordning i vilken uppdaterings domäner startas om inte är sekventiell, men endast en uppdaterings domän startas om i taget.
 
-Azure distribuerar automatiskt virtuella datorer på fel-och uppdaterings domäner när de placeras i en tillgänglighets uppsättning. Mer information finns i [Hantera tillgängligheten för virtuella datorer](manage-availability.md).
+Azure distribuerar automatiskt virtuella datorer på fel-och uppdaterings domäner när de placeras i en tillgänglighets uppsättning. Mer information finns i [Hantera tillgängligheten för virtuella datorer](../manage-availability.md).
 
 Skapa en tillgänglighets uppsättning för den virtuella datorn med [AZ VM Availability-set Create](/cli/azure/vm/availability-set). I följande exempel skapas en tillgänglighetsuppsättning med namnet *myAvailabilitySet*:
 

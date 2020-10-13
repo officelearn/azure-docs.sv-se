@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.openlocfilehash: ed68e02be500ebd863eb7d6d54ddffe63873fe61
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91774590"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Självstudie: Azure Active Directory integration med samstämmande rekryterings program vara
@@ -120,7 +120,7 @@ Om du vill konfigurera Azure AD enkel inloggning med Comeet Recruiting Software 
 
 6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
 
-    | Namn |  Källattribut|
+    | Name |  Källattribut|
     | ---------------| --------------- |
     | nameidentifier | user.mail |
     | comeet_id | user.userprincipalname |

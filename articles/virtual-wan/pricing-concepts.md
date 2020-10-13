@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: reyandap
 ms.custom: references_pricing
 ms.openlocfilehash: b4025990a1a62351d3971d788558dea8ecb390ba
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327965"
 ---
 # <a name="about-virtual-wan-pricing"></a>Om priser för virtuella WAN-nätverk
@@ -56,7 +56,7 @@ Tabellerna nedan använder följande förkortningar: {Oceanien: Nordamerika}, {E
 
 **Priser inom kontinenten (*)**
 
-| Intra-kontinent| Pris ($/GB)|
+| Intra-Continent| Pris ($/GB)|
 |---|---|
 | Tillst|0,02 USD |
 | EU till EU |0,02 USD |
@@ -67,7 +67,7 @@ Tabellerna nedan använder följande förkortningar: {Oceanien: Nordamerika}, {E
 
 **Priser för Inter-kontinental (*)**
 
-| Inter-kontinental| Pris ($/GB)|
+| Inter-Continental| Pris ($/GB)|
 |---|---|
 | FRÅN och med EU eller EU till dig |$0,07 |
 | FRÅN LATAM till var som helst |$0,17 |

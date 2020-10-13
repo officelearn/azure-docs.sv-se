@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f953d87c53bc13af623c2bfd49ceb953280f8f2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e72c9d64a71fceb90d0a6ae9984997f73c1b5c6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540718"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963541"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines Oracle DBMS-distribution för SAP-arbetsbelastning
 
@@ -376,10 +376,10 @@ Den lägsta konfigurationen är följande:
 
 | Komponent | Disk | Caching | Lagringspool |
 | --- | ---| --- | --- |
-| \oracle \<SID> \origlogaA & mirrlogB | Premium eller Ultra disk | Inget | Krävs inte |
-| \oracle \<SID> \origlogaB & mirrlogA | Premium eller Ultra disk | Inget | Krävs inte |
+| \oracle \<SID> \origlogaA & mirrlogB | Premium eller Ultra disk | Ingen | Krävs inte |
+| \oracle \<SID> \origlogaB & mirrlogA | Premium eller Ultra disk | Ingen | Krävs inte |
 | \oracle \<SID> \sapdata1... m | Premium eller Ultra disk | Skrivskyddad | Kan användas för Premium |
-| \oracle \<SID> \oraarch | Standard | Inget | Krävs inte |
+| \oracle \<SID> \oraarch | Standard | Ingen | Krävs inte |
 | Oracle Home, `saptrace` ,... | OS-disk (Premium) | | Krävs inte |
 
 
@@ -389,13 +389,13 @@ Prestanda konfigurationen är följande:
 
 | Komponent | Disk | Caching | Lagringspool |
 | --- | ---| --- | --- |
-| \oracle \<SID> \origlogaA | Premium eller Ultra disk | Inget | Kan användas för Premium  |
-| \oracle \<SID> \origlogaB | Premium eller Ultra disk | Inget | Kan användas för Premium |
-| \oracle \<SID> \mirrlogAB | Premium eller Ultra disk | Inget | Kan användas för Premium |
-| \oracle \<SID> \mirrlogBA | Premium eller Ultra disk | Inget | Kan användas för Premium |
+| \oracle \<SID> \origlogaA | Premium eller Ultra disk | Ingen | Kan användas för Premium  |
+| \oracle \<SID> \origlogaB | Premium eller Ultra disk | Ingen | Kan användas för Premium |
+| \oracle \<SID> \mirrlogAB | Premium eller Ultra disk | Ingen | Kan användas för Premium |
+| \oracle \<SID> \mirrlogBA | Premium eller Ultra disk | Ingen | Kan användas för Premium |
 | \oracle \<SID> \sapdata1... m | Premium eller Ultra disk | Skrivskyddad | Rekommenderas för Premium  |
-| \oracle\SID\sapdata (n + 1) * | Premium eller Ultra disk | Inget | Kan användas för Premium |
-| \oracle \<SID> \oraarch * | Premium eller Ultra disk | Inget | Krävs inte |
+| \oracle\SID\sapdata (n + 1) * | Premium eller Ultra disk | Ingen | Kan användas för Premium |
+| \oracle \<SID> \oraarch * | Premium eller Ultra disk | Ingen | Krävs inte |
 | Oracle Home, `saptrace` ,... | OS-disk (Premium) | Krävs inte |
 
 * (n + 1): värdbaserade SYSTEM-, TEMP-och UNDO-datatabeller. I/O-mönstret för system-och Undo-datatabeller skiljer sig från andra register utrymmen som är värdar för program data. Ingen cachelagring är det bästa alternativet för systemets prestanda och återställa tabell utrymmen.
@@ -444,7 +444,7 @@ I det här fallet rekommenderar vi att du installerar/hittar Oracle Home, Stage,
 
 ### <a name="storage-configuration"></a>Storage-konfiguration
 
-Fil systemet för ext4, xfs eller Oracle ASM stöds för Oracle Database-filer på Azure. Alla databasfiler måste lagras i dessa fil system baserat på VHD: er eller Managed Disks. De här diskarna monteras på den virtuella Azure-datorn och baseras på [Azure Page Blob Storage](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) eller [Azure Managed disks](../../managed-disks-overview.md).
+Fil systemet för ext4, xfs eller Oracle ASM stöds för Oracle Database-filer på Azure. Alla databasfiler måste lagras i dessa fil system baserat på VHD: er eller Managed Disks. De här diskarna monteras på den virtuella Azure-datorn och baseras på [Azure Page Blob Storage](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) eller [Azure Managed disks](../../managed-disks-overview.md).
 
 För Oracle Linux UEK-kärnor krävs minst UEK version 4 för att stödja [Azure Premium-SSD](../../premium-storage-performance.md#disk-caching).
 
@@ -468,10 +468,10 @@ Lägsta konfiguration:
 
 | Komponent | Disk | Caching | Tar bort |
 | --- | ---| --- | --- |
-| /Oracle/ \<SID> /origlogaA & mirrlogB | Premium eller Ultra disk | Inget | Krävs inte |
-| /Oracle/ \<SID> /origlogaB & mirrlogA | Premium eller Ultra disk | Inget | Krävs inte |
+| /Oracle/ \<SID> /origlogaA & mirrlogB | Premium eller Ultra disk | Ingen | Krävs inte |
+| /Oracle/ \<SID> /origlogaB & mirrlogA | Premium eller Ultra disk | Ingen | Krävs inte |
 | /Oracle/ \<SID> /sapdata1... m | Premium eller Ultra disk | Skrivskyddad | Kan användas för Premium |
-| /Oracle/ \<SID> /oraarch | Standard | Inget | Krävs inte |
+| /Oracle/ \<SID> /oraarch | Standard | Ingen | Krävs inte |
 | Oracle Home, `saptrace` ,... | OS-disk (Premium) | | Krävs inte |
 
 * Ta bort: LVM rand eller MDADM med RAID0
@@ -482,13 +482,13 @@ Prestanda konfiguration:
 
 | Komponent | Disk | Caching | Tar bort |
 | --- | ---| --- | --- |
-| /Oracle/ \<SID> /origlogaA | Premium eller Ultra disk | Inget | Kan användas för Premium  |
-| /Oracle/ \<SID> /origlogaB | Premium eller Ultra disk | Inget | Kan användas för Premium |
-| /Oracle/ \<SID> /mirrlogAB | Premium eller Ultra disk | Inget | Kan användas för Premium |
-| /Oracle/ \<SID> /mirrlogBA | Premium eller Ultra disk | Inget | Kan användas för Premium |
+| /Oracle/ \<SID> /origlogaA | Premium eller Ultra disk | Ingen | Kan användas för Premium  |
+| /Oracle/ \<SID> /origlogaB | Premium eller Ultra disk | Ingen | Kan användas för Premium |
+| /Oracle/ \<SID> /mirrlogAB | Premium eller Ultra disk | Ingen | Kan användas för Premium |
+| /Oracle/ \<SID> /mirrlogBA | Premium eller Ultra disk | Ingen | Kan användas för Premium |
 | /Oracle/ \<SID> /sapdata1... m | Premium eller Ultra disk | Skrivskyddad | Rekommenderas för Premium  |
-| /Oracle/ \<SID> /sapdata (n + 1) * | Premium eller Ultra disk | Inget | Kan användas för Premium |
-| /Oracle/ \<SID> /oraarch * | Premium eller Ultra disk | Inget | Krävs inte |
+| /Oracle/ \<SID> /sapdata (n + 1) * | Premium eller Ultra disk | Ingen | Kan användas för Premium |
+| /Oracle/ \<SID> /oraarch * | Premium eller Ultra disk | Ingen | Krävs inte |
 | Oracle Home, `saptrace` ,... | OS-disk (Premium) | Krävs inte |
 
 * Ta bort: LVM rand eller MDADM med RAID0
@@ -508,7 +508,7 @@ När du använder Azure-Skrivningsaccelerator för virtuella datorer i Azure M-s
 ### <a name="backuprestore"></a>Säkerhetskopiera och återställa
 För säkerhets kopierings-/återställnings funktioner stöds SAP BR *-verktygen för Oracle på samma sätt som på datorer utan operativ system och Hyper-V. Oracle Recovery Manager (RMAN) stöds också för säkerhets kopiering till disk och återställning från disk.
 
-Mer information om hur du kan använda Azure Backup-och återställnings tjänster för att säkerhetskopiera och återställa Oracle-databaser finns i [säkerhetskopiera och återställa en Oracle Database 12C-databas på en virtuell Azure Linux-dator](../oracle/oracle-backup-recovery.md).
+Mer information om hur du kan använda Azure Backup-och återställnings tjänster för att säkerhetskopiera och återställa Oracle-databaser finns i [säkerhetskopiera och återställa en Oracle Database 12C-databas på en virtuell Azure Linux-dator](../oracle/oracle-overview.md).
 
 ### <a name="high-availability"></a>Hög tillgänglighet
 Oracle data Guard stöds för hög tillgänglighet och katastrof återställning. Om du vill uppnå automatisk redundans i data Guard måste du använda Fast-Start redundans (FSFA). FSFA (observatörs funktioner) utlöser redundansväxlingen. Om du inte använder FSFA kan du bara använda en manuell redundanskonfiguration. Mer information finns i [implementera Oracle data Guard på en virtuell Azure Linux-dator](../oracle/configure-oracle-dataguard.md).
@@ -531,5 +531,3 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 Läs artikeln 
 
 - [Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md)
- 
-

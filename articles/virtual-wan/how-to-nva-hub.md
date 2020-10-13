@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
 ms.openlocfilehash: 014339b02167a1bb4cba11cc10c9740b8fa53f2c
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91773254"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Så här skapar du en virtuell nätverks installation i Azure Virtual WAN Hub (för hands version)
@@ -49,7 +49,7 @@ En hubb är ett virtuellt nätverk som kan innehålla gatewayer för plats-till-
 1. Leta upp det virtuella WAN-nätverket som du har skapat. På sidan **virtuellt WAN** , under avsnittet **anslutning** , väljer du **hubbar**.
 1. På sidan **hubbar** väljer du + ny hubb för att öppna sidan **Skapa virtuell hubb** .
 
-   :::image type="content" source="./media/how-to-nva-hub/vwan-hub.png" alt-text="Grunderna":::
+   :::image type="content" source="./media/how-to-nva-hub/vwan-hub.png" alt-text="Grundläggande inställningar":::
 1. Fyll i följande fält på fliken **grundläggande grunder** på sidan **Skapa virtuell hubb** :
 
    **Projektinformation**
@@ -66,14 +66,14 @@ I det här steget ska du skapa en virtuell nätverks installation i hubben. Proc
 
 1. Leta upp den virtuella WAN-hubb som du skapade i föregående steg och öppna det.
 
-   :::image type="content" source="./media/how-to-nva-hub/nva-hub.png" alt-text="Grunderna":::
+   :::image type="content" source="./media/how-to-nva-hub/nva-hub.png" alt-text="Grundläggande inställningar":::
 1. Leta upp panelen nätverks virtuella enheter och välj länken **skapa** .
 1. På bladet **virtuell nätverks** installation väljer du **Barracuda CloudGen WAN**och väljer sedan knappen **skapa** .
 
-   :::image type="content" source="./media/how-to-nva-hub/select-nva.png" alt-text="Grunderna":::
+   :::image type="content" source="./media/how-to-nva-hub/select-nva.png" alt-text="Grundläggande inställningar":::
 1. Detta tar dig till Azure Marketplace-erbjudandet för Barracuda CloudGen WAN Gateway. Läs villkoren och välj sedan knappen **skapa** när du är klar.
 
-   :::image type="content" source="./media/how-to-nva-hub/barracuda-create-basics.png" alt-text="Grunderna":::
+   :::image type="content" source="./media/how-to-nva-hub/barracuda-create-basics.png" alt-text="Grundläggande inställningar":::
 1. På sidan **grundläggande** måste du ange följande information:
 
    * **Prenumeration** – Välj den prenumeration som du använde för att distribuera det virtuella WAN-nätverket och hubben.
@@ -83,14 +83,14 @@ I det här steget ska du skapa en virtuell nätverks installation i hubben. Proc
    * **Hanterad resurs grupp** – det här är namnet på den hanterade resurs grupp där Barracuda ska distribuera resurser som hanteras av dem. Namnet måste vara ifyllt för detta.
 1. Välj **Nästa: CLOUDGEN WAN Gateway** -knapp.
 
-   :::image type="content" source="./media/how-to-nva-hub/barracuda-cloudgen-wan.png" alt-text="Grunderna":::
+   :::image type="content" source="./media/how-to-nva-hub/barracuda-cloudgen-wan.png" alt-text="Grundläggande inställningar":::
 1. Ange följande information:
 
    * **Virtuell WAN-hubb** – den virtuella WAN-hubb som du vill distribuera NVA till.
    * **NVA-infrastruktur enheter** – ange antalet infrastruktur enheter för NVA som du vill distribuera NVA med. Välj den mängd bandbredds kapacitet som du vill tillhandahålla på alla de förgrenings platser som ska ansluta till det här navet via den här NVA.
    * **Token** – Barracuda kräver att du anger en autentiseringstoken här för att identifiera dig som en registrerad användare av produkten. Du måste skaffa detta från Barracuda.
 1. Fortsätt genom att klicka på knappen **Granska och skapa** .
-1. På den här sidan kommer du att bli ombedd att godkänna villkoren i medadministratörens åtkomst avtal. Detta är standard med hanterade program där utgivaren kommer att ha åtkomst till vissa resurser i den här distributionen. Markera kryss rutan **Jag godkänner villkoren ovan** och välj sedan **skapa**.
+1. På den här sidan kommer du att uppmanas att godkänna villkoren i Co-Admins åtkomst avtal. Detta är standard med hanterade program där utgivaren kommer att ha åtkomst till vissa resurser i den här distributionen. Markera kryss rutan **Jag godkänner villkoren ovan** och välj sedan **skapa**.
 
 ## <a name="connect-the-vnet-to-the-hub"></a><a name="vnet"></a>Anslut VNet till hubben
 

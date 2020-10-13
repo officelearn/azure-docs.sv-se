@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: 6d19027cfd406f81d31696c5cd2c1a235574e400
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91577857"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender för SQL-servrar på datorer 
@@ -33,7 +33,7 @@ Du ser aviseringar när det finns misstänkta databas aktiviteter, potentiella s
 |Versions tillstånd:|Förhandsgranskning|
 |Priset|**Azure Defender för SQL-servrar på datorer** faktureras enligt [pris sidan](security-center-pricing.md)|
 |Skyddade SQL-versioner:|Azure SQL Server (alla versioner som omfattas av Microsofts support)|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Nej](./media/icons/no-icon.png) Kina gov, andra gov|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Inga](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 ## <a name="set-up-azure-defender-for-sql-servers-on-machines"></a>Konfigurera Azure Defender för SQL-servrar på datorer

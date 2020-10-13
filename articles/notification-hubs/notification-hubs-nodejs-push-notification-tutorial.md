@@ -19,10 +19,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 34962686ae36764a6dc16b164e91004be9ef038d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250427"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Skicka push-meddelanden med Azure Notification Hubs och Node.js
@@ -90,7 +90,7 @@ Hämta anslutnings `connectionstring` värdet från [Azure portalen] genom att u
 ![Azure Portal-Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> Du kan också hämta anslutnings strängen med hjälp av **Get-AzureSbNamespace** -cmdleten som tillhandahålls av [Azure PowerShell](/powershell/azure/) eller **Azure SB-namnrymden Visa** med [kommando rads gränssnittet för Azure (Azure CLI)](/cli/azure/install-classic-cli).
+> Du kan också hämta anslutnings strängen med hjälp av **Get-AzureSbNamespace** -cmdleten som tillhandahålls av [Azure PowerShell](/powershell/azure/) eller **Azure SB-namnrymden Visa** med [Azure Command-Line Interface (Azure CLI)](/cli/azure/install-classic-cli).
 
 ## <a name="general-architecture"></a>Allmän arkitektur
 
@@ -196,7 +196,7 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
 });
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Med exempel kodfragmenten ovan kan du enkelt skapa tjänst infrastruktur för att leverera push-meddelanden till en mängd olika enheter. Nu när du har lärt dig grunderna för att använda Notification Hubs med node.js kan du följa dessa länkar för att lära dig mer om hur du kan utöka dessa funktioner ytterligare.
 

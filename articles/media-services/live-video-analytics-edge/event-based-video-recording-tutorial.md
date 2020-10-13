@@ -4,10 +4,10 @@ description: I den här självstudien får du lära dig hur du använder Azure L
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.openlocfilehash: a2388a01544d2158e7ca6f1692df07b14ec03a93
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91773560"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Självstudie: Event-baserad videoinspelning till molnet och uppspelningen från molnet

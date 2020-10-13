@@ -12,14 +12,14 @@ ms.openlocfilehash: c8862398d5c79335e4ed59f4ca42df9abd58965e
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91856593"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
 Azure HDInsight-kluster ger Apache Hadoop på en välbekant Linux-miljö, som körs i Azure-molnet. För de flesta saker bör det fungera exakt som vilken annan Hadoop-on-Linux-installation som helst. Det här dokumentet anropar vissa skillnader som du bör vara medveten om.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Många av stegen i det här dokumentet använder följande verktyg, som kan behöva installeras i systemet.
 

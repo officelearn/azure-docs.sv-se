@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
 ms.openlocfilehash: 6c562f7a5d9c7c02c737898821eef5ee5271eea4
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613908"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub stöd för virtuella nätverk med privat länk och hanterad identitet
@@ -281,12 +281,12 @@ För python laddar du ned vår begränsade version från GitHub.
 1. Gå till [sidan med GitHub-versionen](https://aka.ms/vnetpythonsdk).
 
 2. Ladda ned följande fil, som du hittar längst ned på sidan version under rubriken namngivna **till gångar**.
-    > *azure_iot_hub-2,2.0_limited-PY2. py3-none-any. WHL*
+    > *azure_iot_hub-2.2.0_limited-PY2. py3-none-any. WHL*
 
 3. Öppna en Terminal och navigera till mappen med den nedladdade filen.
 
 4. Kör följande kommando för att installera python service SDK med stöd för virtuella nätverk:
-    > PIP install./azure_iot_hub-2,2.0_limited-PY2. py3-none-any. WHL
+    > PIP install./azure_iot_hub-2.2.0_limited-PY2. py3-none-any. WHL
 
 
 ## <a name="next-steps"></a>Nästa steg

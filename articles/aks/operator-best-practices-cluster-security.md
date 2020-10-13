@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: 5f249a7e6e7fac13301f0d2717336651b171b422
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776314"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Metod tips för kluster säkerhet och uppgraderingar i Azure Kubernetes service (AKS)
@@ -30,7 +30,7 @@ Du kan också använda [Azure Kubernetes Services-integrering med Security Cente
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Säker åtkomst till API-servern och klusternoder
 
-**Rekommendationer om bästa praxis** – att säkra åtkomsten till KUBERNETES-API-servern är en av de viktigaste saker som du kan göra för att skydda klustret. Integrera Kubernetes-rollbaserad åtkomst kontroll (RBAC) med Azure Active Directory för att kontrol lera åtkomsten till API-servern. Med de här kontrollerna kan du skydda AKS på samma sätt som du skyddar åtkomsten till dina Azure-prenumerationer.
+**Rekommendationer för bästa praxis** – att säkra åtkomsten till Kubernetes API-Server är ett av de viktigaste sakerna du kan göra för att skydda klustret. Integrera Kubernetes-rollbaserad åtkomst kontroll (RBAC) med Azure Active Directory för att kontrol lera åtkomsten till API-servern. Med de här kontrollerna kan du skydda AKS på samma sätt som du skyddar åtkomsten till dina Azure-prenumerationer.
 
 Kubernetes-API-servern tillhandahåller en enda anslutnings punkt för förfrågningar om att utföra åtgärder inom ett kluster. Om du vill skydda och granska åtkomst till API-servern begränsar du åtkomsten och ger de minst privilegierade åtkomst behörigheter som krävs. Den här metoden är inte unik för Kubernetes, men är särskilt viktig när AKS-klustret är logiskt isolerat för användning med flera klienter.
 

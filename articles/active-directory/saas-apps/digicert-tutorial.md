@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.openlocfilehash: b2027cbe3fd04f500e03a2b3bdcb7463643d15a2
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91774597"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Självstudie: Azure Active Directory integrering med DigiCert
@@ -109,7 +109,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Di
 
 6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
 
-    | Namn |  Källattribut|
+    | Name |  Källattribut|
     | ---------------| --------------- |
     | nameidentifier | user.userprincipalname |
     | company | < företagskod > |

@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig om de scenarier och begränsningar 
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: e3bfc5ab9a91ae3aee73d7ed24161acae60211ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3ad68fcaaa820daca842d567ecd40f011df729f
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022334"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946373"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Supportmatris för säkerhetskopiering av SAP HANA-databaser på virtuella Azure-datorer
 
@@ -32,7 +32,7 @@ Azure Backup stöder säkerhets kopiering av SAP HANA-databaser till Azure. Den 
 | **HANA-databasens storlek**     | HANA-databaser med storlek <= 2 TB (detta är inte minnes storleken för HANA-systemet)               |                                                              |
 | **Säkerhets kopierings typer**           | Fullständiga, differentiella och logg säkerhets kopior                          | Stegvisa ögonblicks bilder                                       |
 | **Återställningstyper**          | Läs SAP HANA anmärkning [1642148](https://launchpad.support.sap.com/#/notes/1642148) om du vill veta mer om vilka återställnings typer som stöds |                                                              |
-| **Säkerhets kopierings gränser**          | Upp till 2 TB fullständig säkerhets kopierings storlek per SAP HANA instans         |                                                              |
+| **Säkerhets kopierings gränser**          | Upp till 2 TB fullständig säkerhets kopierings storlek per SAP HANA instans (mjuk gräns)         |                                                              |
 | **Särskilda konfigurationer** |                                                              | SAP HANA + dynamisk nivå <br>  Kloning via LaMa        |
 
 ------

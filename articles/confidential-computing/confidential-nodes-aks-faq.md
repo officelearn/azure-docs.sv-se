@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: amgowda
 ms.openlocfilehash: b4b6c04a1e35031387a006b6350ebf6cbe502fee
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997905"
 ---
 # <a name="frequently-asked-questions-about-confidential-computing-nodes-on-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om konfidentiella databeräkningar i Azure Kubernetes service (AKS)
@@ -125,5 +125,5 @@ Vi stöder och rekommenderar Kubernetes version 1,16 och senare
 - Det finns inte stöd för autoskalning i EPC Memory-baserade vågräta pod. PROCESSOR-och normal minnes skalning stöds.
 - Dev Spaces på AKS för konfidentiella appar stöds för närvarande inte
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Gå till [sidan konfidentiella behållare](confidential-containers.md) om du vill ha mer information kring konfidentiella behållare.

@@ -4,10 +4,10 @@ description: I den här artikeln beskrivs funktioner för nätverks säkerhet, t
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: fb21c8beb6d48ecab04917525011cc4762c46ff3
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91766402"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Nätverks säkerhet för Azure Service Bus 
@@ -30,10 +30,10 @@ Du kan använda service märken för att definiera nätverks åtkomst kontroller
 
 
 > [!NOTE]
-> Du kan endast använda service märken för **Premium** -namnområden. Om du använder ett **standard** namn område använder du den IP-adress som du ser när du kör följande kommando: `nslookup <host name for the namespace>` . Till exempel: `nslookup contosons.servicebus.windows.net`. 
+> Du kan endast använda service märken för **Premium** -namnområden. Om du använder ett **standard** namn område använder du den IP-adress som du ser när du kör följande kommando: `nslookup <host name for the namespace>` . Exempel: `nslookup contosons.servicebus.windows.net`. 
 
 ## <a name="ip-firewall"></a>IP-brandvägg 
-Som standard är Service Bus-namnrymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+Som standard är Service Bus-namnrymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i [CIDR-notation (classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 
 Den här funktionen är användbar i scenarier där Azure Service Bus bör endast vara tillgängliga från vissa välkända webbplatser. Med brand Väggs regler kan du konfigurera regler för att acceptera trafik som kommer från vissa IPv4-adresser. Om du till exempel använder Service Bus med [Azure Express Route] [Express-Route], kan du skapa en **brand Väggs regel** för att tillåta trafik från enbart den lokala infrastrukturens IP-adresser eller adresser för en Corporate NAT-gateway. 
 

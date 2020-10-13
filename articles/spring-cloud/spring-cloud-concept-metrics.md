@@ -9,10 +9,10 @@ ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: e488f2ddc44f1339d648cd6fe6b1aae18b748679
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90892647"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Förstå mått för Azure våren Cloud
@@ -90,13 +90,13 @@ I följande tabeller visas tillgängliga mått och information.
 
 ### <a name="error"></a>Fel
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Mått namn för våren-motstånd | Enhet | Information |
+>| Namn | Mått namn för våren-motstånd | Enhet | Information |
 >|----|----|----|------------|
 >| tomcat. global. error | tomcat. global. error | Antal | Antal fel som inträffade i bearbetade begär Anden |
 
 ### <a name="performance"></a>Prestanda
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Mått namn för våren-motstånd | Enhet | Information |
+>| Namn | Mått namn för våren-motstånd | Enhet | Information |
 >|----|----|----|------------|
 >| system. CPU. Usage | system. CPU. Usage | Procent | Senaste CPU-användning för hela systemet. Det här värdet är ett dubbelt i [0,0, 1,0]-intervallet. Värdet 0,0 innebär att alla processorer var inaktiva under den senaste tids perioden, medan värdet 1,0 innebär att alla processorer kördes aktivt 100% av tiden under den senaste perioden.|
 >| process. CPU. Usage | Procent andel CPU-användning för app | Procent | Senaste CPU-användning för Java Virtual Machine processen. Det här värdet är ett dubbelt i [0,0, 1,0]-intervallet. Värdet 0,0 innebär att ingen av processorerna körde trådar från JVM-processen under den senaste tids perioden, medan värdet 1,0 innebär att alla processorer aktivt körde trådar från JVM 100% av tiden under den senaste perioden. Trådar från JVM omfattar både program trådar och JVM interna trådar.|
@@ -114,7 +114,7 @@ I följande tabeller visas tillgängliga mått och information.
 ### <a name="performance-net"></a>Prestanda (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Mått namn för våren-motstånd | Enhet | Information |
+>| Namn | Mått namn för våren-motstånd | Enhet | Information |
 >|------|-----------------------------|------|---------|
 >| CPU-användning       | CPU-användning      | Millisekunder | Den tid som processen har använt processorn. |
 >| Arbets minne     | arbets uppsättning    | Megabyte    | Mängden arbets minne som används av processen. |
@@ -138,9 +138,9 @@ I följande tabeller visas tillgängliga mått och information.
 Mer information finns i [dotNet-räknare](/dotnet/core/diagnostics/dotnet-counters).
 ::: zone-end
 
-### <a name="request"></a>Begäran
+### <a name="request"></a>Förfrågan
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Mått namn för våren-motstånd | Enhet | Information |
+>| Namn | Mått namn för våren-motstånd | Enhet | Information |
 >|----|----|----|------------|
 >| tomcat. global. skickat | tomcat. global. skickat | Byte | Mängden data Tomcat-webbserver som skickats |
 >| tomcat. global. mottagen | tomcat. global. mottagen | Byte | Mängden data Tomcat-webb servern tog emot |
@@ -151,7 +151,7 @@ Mer information finns i [dotNet-räknare](/dotnet/core/diagnostics/dotnet-counte
 ### <a name="request-net"></a>Begäran (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Mått namn för våren-motstånd | Enhet | Information |
+>| Namn | Mått namn för våren-motstånd | Enhet | Information |
 >|------|-----------------------------|------|---------|
 >| Förfrågningar per sekund | begär Anden per sekund | Antal | Begär ande frekvens. |
 >| Totalt antal förfrågningar | Totalt-begär Anden | Antal | Totalt antal begär Anden. |
@@ -163,7 +163,7 @@ Mer information finns i [dotNet-räknare](/dotnet/core/diagnostics/dotnet-counte
 
 ### <a name="session"></a>Session
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Mått namn för våren-motstånd | Enhet | Information |
+>| Namn | Mått namn för våren-motstånd | Enhet | Information |
 >|----|----|----|------------|
 >| tomcat. sessions. Active. Max | tomcat. sessions. Active. Max | Antal | Maximalt antal sessioner som har varit aktiva samtidigt |
 >| tomcat. sessions. Alive. Max | tomcat. sessions. Alive. Max | Millisekunder | Längsta tid (i sekunder) som en utgången session var Alive |

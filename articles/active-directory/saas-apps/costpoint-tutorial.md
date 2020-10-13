@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 7b32c5576ef38f07d28777e1a72aafa935042930
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91775736"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>Självstudie: integrera Costpoint med Azure Active Directory
@@ -106,7 +106,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal:
 
    1. Välj **Ange ytterligare URL: er**. För **relä tillstånd**anger du ett värde med hjälp av följande mönster: `system=[your system]` (till exempel **system = DELTEKCP**).
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **kopierings** ikonen för att kopiera **URL: en för appens Federations-metadata** och spara den i anteckningar.
+1. På sidan **Konfigurera enskilda Sign-On med SAML** , i avsnittet SAML- **signeringscertifikat** , väljer du **kopierings** ikonen för att kopiera **URL: en för appens Federations-metadata** och spara den i anteckningar.
 
    ![SAML-signeringscertifikat](common/copy-metadataurl.png)
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: alkohli
 ms.openlocfilehash: 337c0c4434eb768ee45429d9b2d23536db4c3fc7
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575460"
 ---
 # <a name="update-your-azure-data-box-gateway"></a>Uppdatera din Azure Data Box Gateway
@@ -63,7 +63,7 @@ Vi rekommenderar att du installerar uppdateringar via Azure Portal. Enheten sök
 
     ![Skärm bild av Azure Stack Edge Data Box Gateway start sidan med alternativet översikt och meddelande banderollen för hämtade uppdateringar som kallas för.](./media/data-box-gateway-apply-updates/portal-apply-update-10a.png)
 
-    Om du väljer att bara hämta uppdateringar väljer du meddelandet för att öppna bladet med **enhets uppdateringar** . Välj **Install** (Installera).
+    Om du väljer att bara hämta uppdateringar väljer du meddelandet för att öppna bladet med **enhets uppdateringar** . Välj **installera**.
   
     ![Skärm bild av dialog rutan enhets uppdateringar med alternativet Installera som kallas för.](./media/data-box-gateway-apply-updates/portal-apply-update-11a.png)
 

@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
 ms.openlocfilehash: 3753004b2bd9c18399655cffd594392b63c14264
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325172"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Vad är en Azure SQL-hanterad instans pool (för hands version)?
@@ -24,7 +24,7 @@ ms.locfileid: "91325172"
 
 Instans pooler i Azure SQL Managed instance är ett bekvämt och kostnads effektivt sätt att migrera mindre SQL Server instanser till molnet i stor skala.
 
-Med instanspooler kan du företablera beräkningsresurser enligt dina totala migreringskrav. Du kan sedan distribuera flera enskilda hanterade instanser upp till din företablerade beräkningsnivå. Om du till exempel företablerar 8-virtuella kärnor kan du distribuera två 2-vCore och en 4-vCore-instans och sedan migrera databaserna till dessa instanser. Innan instans pooler var tillgängliga måste mindre och mindre beräknings intensiva arbets belastningar ofta samlas in i en större hanterad instans vid migrering till molnet. Behovet av att migrera grupper av databaser till en stor instans kräver normalt noggrann kapacitets planering och resurs styrning, ytterligare säkerhets överväganden och viss extra data konsoliderings åtgärd på instans nivå.
+Med instanspooler kan du företablera beräkningsresurser enligt dina totala migreringskrav. Du kan sedan distribuera flera enskilda hanterade instanser upp till din företablerade beräkningsnivå. Om du till exempel företablerar 8-virtuella kärnor kan du distribuera 2 2-vCore och 1 4-vCore-instans och sedan migrera databaserna till dessa instanser. Innan instans pooler var tillgängliga måste mindre och mindre beräknings intensiva arbets belastningar ofta samlas in i en större hanterad instans vid migrering till molnet. Behovet av att migrera grupper av databaser till en stor instans kräver normalt noggrann kapacitets planering och resurs styrning, ytterligare säkerhets överväganden och viss extra data konsoliderings åtgärd på instans nivå.
 
 Dessutom stöder instans-pooler inbyggd VNet-integrering så att du kan distribuera flera instanser av pooler och flera instanser i samma undernät.
 

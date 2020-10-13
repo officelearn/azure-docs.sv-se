@@ -9,10 +9,10 @@ ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
 ms.openlocfilehash: 25f18eb0f55560b7abd250b8511b2e250ea55852
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250444"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-300-preview1"></a>Självstudie: skicka push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs (version 3.0.0-preview1)
@@ -28,7 +28,7 @@ Den här självstudien omfattar följande steg:
 
 Du kan ladda ned den fullständiga koden för den här självstudien [från GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/v3-preview2/Samples).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du följande förutsättningar:
 
@@ -53,11 +53,11 @@ Innan du fortsätter bör du gå igenom föregående självstudie om att komma i
 
    Om du inte ser den nya etableringsprofil som du skapade i Xcode, kan du försöka uppdatera profilerna för din signeringsidentitet. Klicka på **Xcode**   på Meny raden, klicka på **Inställningar**, klicka på fliken **konto**   , klicka på knappen **Visa information**   , klicka på din signerings identitet och klicka sedan på knappen Uppdatera i det nedre högra hörnet.
 
-   :::image type="content" source="media/ios-sdk/image2.png" alt-text="Visa detaljer":::
+   :::image type="content" source="media/ios-sdk/image2.png" alt-text="Välj mall":::
 
 4. På fliken **signerings & funktioner**   väljer du **+ funktion**. Dubbelklicka på **push-meddelanden**   för att aktivera det.
 
-   :::image type="content" source="media/ios-sdk/image3.png" alt-text="Kapacitet":::
+   :::image type="content" source="media/ios-sdk/image3.png" alt-text="Välj mall":::
 
 5. Lägg till Azure Notification Hubs SDK-modulerna.
 
@@ -81,7 +81,7 @@ Innan du fortsätter bör du gå igenom föregående självstudie om att komma i
 
         - I Xcode högerklickar du på projektet och klickar på alternativet **Lägg till filer**i för   att lägga till mappen **WindowsAzureMessaging. Framework**i   ditt Xcode-projekt. Välj **alternativ**   och kontrol lera att **Kopiera objekt om det behövs**   är markerat och klicka sedan på **Lägg till**.
 
-          :::image type="content" source="media/ios-sdk/image4.png" alt-text="Lägg till ramverk":::
+          :::image type="content" source="media/ios-sdk/image4.png" alt-text="Välj mall":::
 
 6. Lägg till en ny rubrik fil i projektet med namnet **konstanter. h**. Det gör du genom att högerklicka på projekt namnet och välja **ny fil.**... Välj sedan **rubrik fil**. Den här filen innehåller konstanterna för din meddelandehubb. Välj sedan **Nästa**. Namnge filens **konstanter. h**.
 
@@ -98,13 +98,7 @@ Innan du fortsätter bör du gå igenom föregående självstudie om att komma i
 
 8. Lägg till implementerings filen för konstanter. h. Det gör du genom att högerklicka på projekt namnet och välja **ny fil.**... Välj **mål-C-fil**och välj sedan **Nästa**. Namnge filens **konstanter. m**.
 
-   :::image type="content" source="media/ios-sdk/image5.png" alt-text="Lägg till implementerings fil":::
-
-9. Öppna filen **konstanter. m**   och ersätt innehållet med följande kod. Ersätt plats hållarna för sträng litteraler  `NotificationHubConnectionString`   och  `NotificationHubConnectionString`   med hubb-och **DefaultListenSharedAccessSignature**som du tidigare har hämtat från portalen:
-
-   ```objc
-   #import <Foundation/Foundation.h>
-   #import "Constants.h"
+   :::image type="content" source="media/ios-sdk/image5.png" alt-text="Välj mall"
 
    NSString* const NHInfoConnectionString = @"NotificationHubConnectionString";
    NSString* const NHInfoHubName = @"NotificationHubName";NSString* const NHUserDefaultTags = @"notification_tags";
@@ -311,7 +305,7 @@ Innan du fortsätter bör du gå igenom föregående självstudie om att komma i
 
 Du kan testa att ta emot meddelanden i din app med alternativet **testa sändning**   i [Azure Portal](https://portal.azure.com/). Den skickar ett test-push-meddelande till enheten.
 
-:::image type="content" source="media/ios-sdk/image6.png" alt-text="Testa att skicka":::
+:::image type="content" source="media/ios-sdk/image6.png" alt-text="Välj mall":::
 
 Push-meddelanden skickas vanligtvis via en serverdelstjänst, till exempel Mobile Apps eller ASP.NET, med hjälp av ett kompatibelt bibliotek. Om ett bibliotek inte är tillgängligt för Server delen kan du också använda REST API direkt för att skicka meddelanden.
 
@@ -328,13 +322,13 @@ Om du vill testa push-meddelanden på iOS måste du distribuera appen till en fy
 
 1. Kör appen och kontrol lera att registreringen lyckas och tryck sedan på **OK**.
 
-   :::image type="content" source="media/ios-sdk/image7.png" alt-text="Registrera":::
+   :::image type="content" source="media/ios-sdk/image7.png" alt-text="Välj mall":::
 
 2. Skicka sedan ett test-push-meddelande från [Azure Portal](https://portal.azure.com/), enligt beskrivningen i föregående avsnitt.
 
 3. Push-meddelandet skickas till alla enheter som har registrerats för att ta emot meddelanden från den aktuella Notification Hub.
 
-   :::image type="content" source="media/ios-sdk/image8.png" alt-text="Skicka test":::
+   :::image type="content" source="media/ios-sdk/image8.png" alt-text="Välj mall":::
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 66d62cde9ea17e73f561dfbce94eb3d3e7175b6d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: b8e5c6b6b755134772cc8eaea3dab3af7f5346c9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827828"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963371"
 ---
 # <a name="use-spot-vms-in-azure"></a>Använda virtuella datorer i Azure
 
@@ -99,17 +99,17 @@ Du kan se historiska priser och avlägsna priser per storlek i en region i porta
 
 **F:** Hur hanteras kvoten för virtuella datorer med virtuella datorer?
 
-**A:** Virtuella datorer med virtuella datorer kommer att ha en separat kvotmall. Kvoten för kvoten kommer att delas mellan virtuella datorer och skalnings uppsättnings instanser. Läs mer i dokumentationen om [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**A:** Virtuella datorer med virtuella datorer kommer att ha en separat kvotmall. Kvoten för kvoten kommer att delas mellan virtuella datorer och skalnings uppsättnings instanser. Läs mer i dokumentationen om [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 **F:** Kan jag begära ytterligare kvot för platsen?
 
-**A:** Ja, du kommer att kunna skicka begäran om att öka din kvot för virtuella datorer med hjälp av [standard kvot processen](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+**A:** Ja, du kommer att kunna skicka begäran om att öka din kvot för virtuella datorer med hjälp av [standard kvot processen](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **F:** Var kan jag skicka frågor?
 
-**A:** Du kan skicka och tagga din fråga med `azure-spot` på [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**A:** Du kan skicka och tagga din fråga med `azure-spot` på [Q&A](/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Nästa steg
 Använd [CLI](./linux/spot-cli.md), [Portal](spot-portal.md), [arm-mallen](./linux/spot-template.md)eller [PowerShell](./windows/spot-powershell.md) för att distribuera virtuella datorer.

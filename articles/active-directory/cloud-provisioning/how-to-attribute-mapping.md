@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58b7aa0bf8c82990a00b4e41041145a67ee2f02b
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91637365"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-attibute-mapping"></a>Azure AD Connect mappning av attribut Cloud Provisioning
@@ -94,7 +94,7 @@ Du kan testa din attributmappning genom att använda [etablering på begäran](h
 
   ![Utför åtgärd](media/how-to-attribute-mapping/mapping5.png)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Vad är Azure AD Connect-molnetablering?](what-is-cloud-provisioning.md)
 - [Skriva uttryck för attribut-mappningar](reference-expressions.md)

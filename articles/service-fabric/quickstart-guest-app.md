@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/06/2017
 ms.custom: devx-track-js
 ms.openlocfilehash: dfd1fe9db54925bc17a53a7686fa34d5ea53cd5a
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91614112"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Skapa ett Node.js-program i Azure med Node.js
@@ -61,7 +61,7 @@ Programprojektet (**MyGuestApp**) innehåller ingen kod direkt. Projektet refere
 * **Publicera profiler**  
 Verktygsinställningar för olika miljöer.
 
-* **Skript**  
+* **Alfabet**  
 PowerShell-skript för distribution/uppgradering av program.
 
 * **Programdefinition**  
@@ -116,7 +116,7 @@ När tjänsten har publicerats kan du testa den i en webbläsare.
 
 Först öppna Azure-portalen och sök efter Service Fabric-tjänsten.
 
-Kontrollera översiktsbladet för tjänstadressen. Använda domännamnet från egenskapen _Klientanslutningsslutpunkt_. Till exempel `http://mysvcfab1.westus2.cloudapp.azure.com`.
+Kontrollera översiktsbladet för tjänstadressen. Använda domännamnet från egenskapen _Klientanslutningsslutpunkt_. Exempelvis `http://mysvcfab1.westus2.cloudapp.azure.com`.
 
 ![Bladet Service fabric-översikt på Azure portal][overview]
 

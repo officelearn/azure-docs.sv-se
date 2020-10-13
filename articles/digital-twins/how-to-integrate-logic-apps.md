@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: baf89ec75f844ae1a1f7797d26d2fb04a0d5df34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1288f117a6b6c9fb05fd29578be35c676453177
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849851"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975169"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrera med Logic Apps med hjälp av en anpassad anslutning
 
@@ -108,7 +108,7 @@ På sidan *redigera Logic Apps anpassad anslutning* som följer konfigurerar du 
 * **Anpassade anslutningar**
     - API-slut punkt: REST (lämna standard)
     - Import läge: OpenAPI-fil (lämna standard)
-    - Fil: det här är den anpassade Swagger-fil som du laddade ned tidigare. Tryck på *Importera*, leta upp filen på din dator (*Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.jspå*) och tryck på *Öppna*.
+    - Fil: det här är den anpassade Swagger-fil som du laddade ned tidigare. Tryck på *Importera*, leta upp filen på din dator (*Azure_Digital_Twins_Custom_Swaggers \logicapps \...\digitaltwins.jspå*) och tryck på *Öppna*.
 * **Allmän information**
     - Ikon: Ladda upp en ikon som du gillar
     - Bakgrunds färg för ikon: Ange hexadecimal kod i formatet #xxxxxx för din färg.
@@ -201,7 +201,7 @@ Du kan uppmanas att logga in med dina Azure-autentiseringsuppgifter för att ans
 I rutan ny *DigitalTwinsAdd* fyller du i fälten enligt följande:
 * _ID_: Fyll i det *dubbla ID: t* för den digitala dubbla i din instans som du vill att Logic-appen ska uppdatera.
 * _dubbla_: det här fältet är där du anger den text som den valda API-begäran kräver. För *DigitalTwinsUpdate*är den här texten i form av JSON-patch-kod. Mer information om att strukturera en JSON-korrigering för att uppdatera din dubbla finns i avsnittet [Uppdatera ett digitalt](how-to-manage-twin.md#update-a-digital-twin) avsnitt med *anvisningar: hantera digitala dubbla*.
-* _API-version_: i den aktuella offentliga för hands versionen är detta värde *2020-05-31-för hands* version
+* _API-version_: den senaste API-versionen. I den aktuella offentliga för hands versionen är det här värdet *2020-05-31 – för hands version*
 
 Tryck på *Spara* i Logic Apps designer.
 

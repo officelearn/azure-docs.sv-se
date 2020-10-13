@@ -12,7 +12,7 @@ ms.openlocfilehash: 69067ca34b231f1b14f8cc854288c3ed4c4ac82a
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91855998"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit"></a>Självstudie: ansluta ett virtuellt nätverk till en ExpressRoute-krets
@@ -39,7 +39,7 @@ I den här guiden får du lära dig att:
 > - Ändra en virtuell nätverks anslutning
 > - Konfigurera ExpressRoute-FastPath
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Granska kraven [prerequisites](expressroute-prerequisites.md), kraven för [routning](expressroute-routing.md)och [arbets flöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: aahi
 ms.openlocfilehash: e4a75bdd6147ee2189660c37062c5bec9d55d512
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91631755"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Vanliga frågor och svar om mått rådgivare
@@ -109,7 +109,7 @@ Om det inte finns några tröskelvärden kan du använda "Smart identifiering" s
 Om dina data normalt är instabila och varierar mycket, och du vill bli aviserad om det blir för stabilt eller till och med en plan, kan "ändra tröskel" konfigureras för att identifiera sådana data punkter när ändringen är för liten.
 Mer information finns i [konfigurationer för avvikelse identifiering](how-tos/configure-metrics.md#anomaly-detection-methods) .
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 - [Översikt över Metrics Advisor](overview.md)
 - [Prova demo webbplatsen](quickstarts/explore-demo.md)
 - [Använda webbportalen](quickstarts/web-portal.md)

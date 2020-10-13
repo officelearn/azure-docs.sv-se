@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c610eb8fe6caf308117fa7adfc6e2f2a35c6352
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325903"
 ---
 # <a name="tls-12-enforcement-for-azure-ad-connect"></a>TLS 1,2-tillämpning för Azure AD Connect
@@ -34,19 +34,19 @@ För att tvinga Azure AD Connect-servern att endast använda TLS 1,2 måste Wind
 
 
 ### <a name="enable-tls-12"></a>Aktivera TLS 1.2
-- [HKEY_LOCAL_MACHINE \SOFTWARE\WOW6432Node\Microsoft \\ . NETFramework\v4.0.30319]
+- [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\ . NETFramework\v4.0.30319]
   - "SystemDefaultTlsVersions" = DWORD: 00000001
   - "SchUseStrongCrypto" = DWORD: 0000001
-- [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft \\ . NETFramework\v4.0.30319]
+- [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\ . NETFramework\v4.0.30319]
   - "SystemDefaultTlsVersions" = DWORD: 00000001
   - "SchUseStrongCrypto" = DWORD: 00000001
-- [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ server]
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ server]
   - "Enabled" = DWORD: 00000001
-- [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ server]
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ server]
   - "DisabledByDefault" = DWORD: 00000000 
-- [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ Client]
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ klient]
   - "Enabled" = DWORD: 00000001
-- [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ Client]
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ klient]
   - "DisabledByDefault" = DWORD: 00000000
 
 ### <a name="powershell-script-to-enable-tls-12"></a>PowerShell-skript för att aktivera TLS 1,2
@@ -80,19 +80,19 @@ Du kan använda följande PowerShell-skript för att aktivera TLS 1,2 på din Az
 ```
 
 ### <a name="disable-tls-12"></a>Inaktivera TLS 1,2
-- [HKEY_LOCAL_MACHINE \SOFTWARE\WOW6432Node\Microsoft \\ . NETFramework\v4.0.30319]
+- [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\ . NETFramework\v4.0.30319]
   - "SystemDefaultTlsVersions" = DWORD: 00000000
   - "SchUseStrongCrypto" = DWORD: 0000000
-- [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft \\ . NETFramework\v4.0.30319]
+- [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\ . NETFramework\v4.0.30319]
   - "SystemDefaultTlsVersions" = DWORD: 00000000
   - "SchUseStrongCrypto" = DWORD: 00000000
-- [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ server]
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ server]
   - "Enabled" = DWORD: 00000000
-- [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ server]
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ server]
   - "DisabledByDefault" = DWORD: 00000001
-- [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ Client]
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ klient]
   - "Enabled" = DWORD: 00000000
-- [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ Client]
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ klient]
   - "DisabledByDefault" = DWORD: 00000001 
 
 ### <a name="powershell-script-to-disable-tls-12"></a>PowerShell-skript för att inaktivera TLS 1,2

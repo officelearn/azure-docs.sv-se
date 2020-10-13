@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 22f36448a4246f7cc8c66b2c4f8051c835ed939a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fafe2ba9ae65f95d8a2258ead5715cc0630202ba
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86510165"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963490"
 ---
 # <a name="tutorial---configure-the-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>Självstudie – konfigurera strategin för Kanarie-distribution för Azure Virtuella Linux-datorer
 
@@ -25,7 +25,7 @@ ms.locfileid: "86510165"
 
 Azure-pipeliner ger en helt aktuell uppsättning CI/CD Automation-verktyg för distribution till virtuella datorer. Du kan konfigurera en pipeline för kontinuerlig leverans för en virtuell Azure-dator från Azure Portal.
 
-Den här artikeln visar hur du konfigurerar en CI/CD-pipeline som använder Kanarie strategin för MultiMachine-distributioner. Azure Portal stöder också andra strategier som [rullande](https://aka.ms/AA7jlh8) och [blå – grönt](https://aka.ms/AA83fwu).
+Den här artikeln visar hur du konfigurerar en CI/CD-pipeline som använder Kanarie strategin för MultiMachine-distributioner. Azure Portal stöder också andra strategier som [rullande](./tutorial-devops-azure-pipelines-classic.md) och [blå – grönt](./tutorial-azure-devops-blue-green-strategy.md).
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Konfigurera CI/CD på virtuella datorer
 
@@ -72,8 +72,8 @@ Med alternativet för kontinuerlig leverans kan du konfigurera Kanarie-distribut
    ![Fönster rutan artefakter som visar deploy.sh i mappen deployscripts](media/tutorial-deployment-strategy/package.png)
 
 ## <a name="other-deployment-strategies"></a>Andra distributions strategier
-- [Konfigurera strategin för löpande distribution](https://aka.ms/AA7jlh8)
-- [Konfigurera den blå gröna distributions strategin](https://aka.ms/AA83fwu)
+- [Konfigurera strategin för löpande distribution](./tutorial-devops-azure-pipelines-classic.md)
+- [Konfigurera den blå gröna distributions strategin](./tutorial-azure-devops-blue-green-strategy.md)
 
 ## <a name="azure-devops-projects"></a>Azure DevOps Projects
 

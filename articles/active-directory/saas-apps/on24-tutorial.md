@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 3977aee84b1281e7918987c63185069892b5909e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 163a0c9a7e728ee9cd08c4a154ea499c059cf2f6
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554287"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944516"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Självstudie: Azure Active Directory integration med SAML-anslutning för virtuell ON24-miljö
 
@@ -30,7 +30,7 @@ Genom att integrera ON24 virtuell miljö SAML-anslutning med Azure AD får du f�
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med ON24 virtuell miljö SAML-anslutning behöver du följande objekt:
 
@@ -147,7 +147,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med ON2
 
 5.  Utför följande steg om du vill konfigurera programmet i **SP** initierat läge:
 
-    ![ON24 virtuell miljö, SAML-anslutnings domän och URL-information för enkel inloggning](common/both-signonurl.png)
+    ![Skärm bild som visar avsnittet "Ange ytterligare U R LS" med text rutan "logga in U R L" markerad.](common/both-signonurl.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster: `https://vshow.on24.com/vshow/<INSTANCENAME>`
 

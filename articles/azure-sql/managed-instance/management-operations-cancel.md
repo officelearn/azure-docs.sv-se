@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: 4ec999cc35e7d18287679c74c6d45a5aa2ecb9e7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997245"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Avbryta hanterings åtgärder för Azure SQL-hanterad instans
@@ -38,14 +38,14 @@ I följande tabell sammanfattas hanterings åtgärder, oavsett om du kan säga u
 
 Kategori  |Åtgärd  |Avbrytbar  |Beräknad tids längd för avbrott  |
 |---------|---------|---------|---------|
-|Distribution |Skapa instans |Yes |90% av åtgärderna har slutförts på 5 minuter. |
-|Uppdatera |Skalning av instans lagring upp/ned (Generell användning) |No |  |
-|Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk) |Yes |90% av åtgärderna har slutförts på 5 minuter. |
-|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning) |Yes |90% av åtgärderna har slutförts på 5 minuter. |
-|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk) |Yes |90% av åtgärderna har slutförts på 5 minuter. |
-|Uppdatera |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa) |Yes |90% av åtgärderna har slutförts på 5 minuter. |
-|Ta bort |Borttagning av instans |No |  |
-|Ta bort |Borttagning av virtuellt kluster (som användarinitierad åtgärd) |No |  |
+|Distribution |Skapa instans |Ja |90% av åtgärderna har slutförts på 5 minuter. |
+|Uppdatera |Skalning av instans lagring upp/ned (Generell användning) |Inga |  |
+|Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
+|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
+|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
+|Uppdatera |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
+|Ta bort |Borttagning av instans |Inga |  |
+|Ta bort |Borttagning av virtuellt kluster (som användarinitierad åtgärd) |Inga |  |
 
 ## <a name="cancel-management-operation"></a>Avbryt hanterings åtgärden
 
@@ -61,7 +61,7 @@ Följ dessa steg om du vill avbryta hanterings åtgärder med hjälp av Azure Po
 
 1. Välj **Avbryt åtgärden** längst ned på sidan. 
 
-   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Välj Avbryt om du vill avbryta åtgärden.":::
+   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Välj rutan pågående åtgärd för att öppna sidan pågående åtgärd.":::
 
 1. Bekräfta att du vill avbryta åtgärden. 
 

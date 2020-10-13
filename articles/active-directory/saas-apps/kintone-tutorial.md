@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e831fd561b7c8dcf78e9203ec6d38c60c22a5bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1e966595422f353067d66483defa0b880874415
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88535418"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Självstudie: Azure Active Directory integrering med Kintone
 
@@ -30,7 +30,7 @@ Genom att integrera Kintone med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Kintone behöver du följande objekt:
 
@@ -145,7 +145,7 @@ Utför följande steg för att konfigurera enkel inloggning med Kintone i Azure 
 
 1. Klicka på **Aktivera SAML-autentisering**.
 
-    ![SAML-autentisering](./media/kintone-tutorial/ic785882.png "SAML-autentisering")
+    ![Skärm bild som visar "användare & system administration" valt.](./media/kintone-tutorial/ic785882.png "SAML-autentisering")
 
 1. Gör följande i avsnittet SAML-autentisering:
 
@@ -232,7 +232,7 @@ Om du vill att Azure AD-användare ska kunna logga in på Kintone måste de till
 
 1. Klicka på **Ny användare**.
 
-    ![Nya användare](./media/kintone-tutorial/ic785889.png "Nya användare")
+    ![Skärm bild som visar avsnittet "användare" med åtgärden "ny användare" vald.](./media/kintone-tutorial/ic785889.png "Nya användare")
 
 1. I avsnittet **ny användare** utför du följande steg:
 

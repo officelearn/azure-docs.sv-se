@@ -7,17 +7,17 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
 ms.openlocfilehash: 310637ce099aca7b8b9057a674d6b2094b008a87
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613619"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Självstudie: Använd exporterad mall från Azure Portal
 
 I den här själv studie serien har du skapat en mall för att distribuera ett Azure Storage-konto. I de kommande två självstudierna lägger du till en *App Service plan* och en *webbplats*. I stället för att skapa mallar från grunden får du lära dig hur du exporterar mallar från Azure Portal och hur du använder exempel mallar från [Azures snabb starts mallar](https://azure.microsoft.com/resources/templates/). Du anpassar mallarna efter din användning. Den här självstudien fokuserar på att exportera mallar och anpassa resultatet för din mall. Det tar ungefär **14 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Vi rekommenderar att du slutför [självstudien om utdata](template-tutorial-add-outputs.md), men det är inte obligatoriskt.
 

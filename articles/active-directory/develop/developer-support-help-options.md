@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.openlocfilehash: af363bb30d6515ce969afe146c780baa4b31cd83
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88117217"
 ---
 # <a name="support-and-help-options-for-developers"></a>Support- och hjälpalternativ för utvecklare
@@ -30,7 +30,7 @@ Om du bara börjar integrera med Azure Active Directory (Azure AD), Microsoft-id
 > * Om du hittar ett problem med ett av våra autentiseringspaket, Utlös ett *GitHub* -problem
 > * Slutligen, om du behöver prata med någon, kanske du vill öppna en support förfrågan
 
-## <a name="search"></a>Sök
+## <a name="search"></a>Search
 
 Om du har en utvecklings fråga kanske du kan hitta svaret i dokumentationen, [GitHub-exempel](https://github.com/azure-samples)eller svar på [Stack Overflow](https://www.stackoverflow.com) frågor.
 

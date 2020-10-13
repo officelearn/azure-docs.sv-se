@@ -9,10 +9,10 @@ ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: e6ccba27fb599cb26da86e94d3500f4f806ecb76
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328878"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Installera och konfigurera Windows Azure Diagnostics-tillägget (WAD)
@@ -142,7 +142,7 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `
   -DiagnosticsConfigurationPath "DiagnosticsConfiguration.json"
 ```
 
-De privata inställningarna definieras i PrivateConfig- [elementet](diagnostics-extension-schema-windows.md#privateconfig-element), medan de offentliga inställningarna definieras i det [offentliga elementet](diagnostics-extension-schema-windows.md#publicconfig-element) i konfigurations schemat. Du kan också välja att ange information om lagrings kontot som parametrar för cmdleten Set-AzVMDiagnosticsExtension i stället för att inkludera dem i de privata inställningarna.
+De privata inställningarna definieras i PrivateConfig- [elementet](diagnostics-extension-schema-windows.md#privateconfig-element), medan de offentliga inställningarna definieras i det [offentliga elementet](diagnostics-extension-schema-windows.md#publicconfig-element) i konfigurations schemat. Du kan också välja att ange information om lagrings kontot som parametrar i Set-AzVMDiagnosticsExtension cmdlet i stället för att inkludera dem i de privata inställningarna.
 
 Följande är ett minimalt exempel på en konfigurations fil som möjliggör insamling av diagnostiska infrastruktur loggar, en enda prestanda räknare och en enda händelse logg. Se [exempel på konfiguration](diagnostics-extension-schema-windows.md#publicconfig-element) för fullständig information om de privata och offentliga inställningarna. 
 
@@ -192,7 +192,7 @@ Se även [använda PowerShell för att aktivera Azure-diagnostik på en virtuell
 I följande tabell visas olika typer av data som har samlats in från diagnostikprogrammet och om de lagras som en tabell eller en blob. Data som lagras i tabeller kan också lagras i blobbar beroende på [inställningen StorageType](diagnostics-extension-schema-windows.md#publicconfig-element) i din offentliga konfiguration.
 
 
-| Data | Lagringstyp | Description |
+| Data | Lagringstyp | Beskrivning |
 |:---|:---|:---|
 | WADDiagnosticInfrastructureLogsTable | Tabell | Diagnostisk övervakning och konfigurations ändringar. |
 | WADDirectoriesTable | Tabell | Kataloger som diagnostiken övervakar.  Detta inkluderar IIS-loggar, IIS misslyckade begär Anden och anpassade kataloger.  Platsen för blobb logg filen anges i fältet container och namnet på blobben är i fältet RelativePath.  Fältet AbsolutePath anger platsen och namnet på filen som den fanns på den virtuella Azure-datorn. |

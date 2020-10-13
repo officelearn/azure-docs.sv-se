@@ -10,10 +10,10 @@ ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 7709f26b30d41b932569227b8b6f05b5725dc98f
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88815680"
 ---
 När du publicerar ditt erbjudande på den kommersiella Marketplace via partner Center måste du ansluta ditt erbjudande till ditt CRM-system. På så sätt kan du ta emot kund kontakt uppgifter direkt efter att en kund har fått ett intresse eller distribuerar din produkt.
@@ -26,7 +26,7 @@ När du publicerar ditt erbjudande på den kommersiella Marketplace via partner 
 
     Om ditt CRM-system inte uttryckligen stöds i listan kan du lagra kundens lead-data med hjälp av följande alternativ. Sedan kan du exportera eller importera dessa data till CRM-systemet.
 
-    * [Azure-tabell](../commercial-marketplace-lead-management-instructions-azure-table.md)
+    * [Azure Table](../commercial-marketplace-lead-management-instructions-azure-table.md)
     * [HTTPS-slutpunkt](../commercial-marketplace-lead-management-instructions-https.md)
 
 1. Läs den tillämpliga länkade dokumentationen ovan för att lära dig hur du konfigurerar din lead-destination och tar emot leads från dina kommersiella Marketplace-erbjudanden.

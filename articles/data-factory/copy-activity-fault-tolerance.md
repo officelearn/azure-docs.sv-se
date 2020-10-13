@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
 ms.openlocfilehash: 4a0529248c58f7fa7f962d9d1432411c351c7bdd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440651"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Feltolerans för kopieringsaktivitet i Azure Data Factory
@@ -70,7 +70,7 @@ När du kopierar binära filer mellan lagrings lager kan du aktivera fel toleran
      } 
 } 
 ```
-Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | -------- 
 skipErrorFile | En grupp egenskaper som anger vilka typer av försök som du vill hoppa över under data flytten. | | Inga
 fileMissing | Ett nyckel/värde-par i skipErrorFile egenskaps uppsättning för att avgöra om du vill hoppa över filer som tas bort av andra program när ADF kopieras i taget. <br/> – Sant: du vill kopiera resten genom att hoppa över de filer som tas bort av andra program. <br/> -Falskt: du vill avbryta kopierings aktiviteten när filer tas bort från käll arkivet i mitten av data förflyttningen. <br/>Tänk på att den här egenskapen har angetts till true som standard. | Sant (standard) <br/>Falskt | Inga
@@ -185,7 +185,7 @@ I följande exempel visas en JSON-definition som hoppar över inkompatibla rader
 }, 
 ```
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Anger om inkompatibla rader ska hoppas över vid kopiering eller inte. | Sant<br/>False (standard) | Inga
 logStorageSettings | En grupp egenskaper som kan anges när du vill logga de inkompatibla raderna. | &nbsp; | Inga
@@ -259,7 +259,7 @@ I följande exempel visas en JSON-definition som hoppar över inkompatibla rader
 }
 ```
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Anger om inkompatibla rader ska hoppas över vid kopiering eller inte. | Sant<br/>False (standard) | Inga
 redirectIncompatibleRowSettings | En grupp egenskaper som kan anges när du vill logga de inkompatibla raderna. | &nbsp; | Inga

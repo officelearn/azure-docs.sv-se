@@ -4,10 +4,10 @@ description: Den här artikeln innehåller rekommenderade Apache Kafka konfigura
 ms.topic: reference
 ms.date: 07/20/2020
 ms.openlocfilehash: f9a03d1d3433461a575b32cd69893408a8b0ef97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87099716"
 ---
 # <a name="recommended-configurations-for-apache-kafka-clients"></a>Rekommenderade konfigurationer för Apache Kafka klienter
@@ -17,7 +17,7 @@ Här är de rekommenderade konfigurationerna för att använda Azure Event Hubs 
 
 ### <a name="producer-and-consumer-configurations"></a>Tillverkare och konsument konfiguration
 
-Egenskap | Rekommenderade värden | Tillåtet intervall | Kommentarer
+Egenskap | Rekommenderade värden | Tillåtet intervall | Obs!
 ---|---:|-----:|---
 `metadata.max.age.ms` | 180000 (ungefärligt) | < 240000 | Kan sänkas för att hämta metadata ändringar snart.
 `connections.max.idle.ms`   | 180000 | < 240000 | Azure stänger inkommande TCP-inaktiv > 240 000 MS, vilket kan leda till att de skickas vid död anslutningar (visas som utgångna batchar på grund av sändnings tids gräns).
@@ -25,7 +25,7 @@ Egenskap | Rekommenderade värden | Tillåtet intervall | Kommentarer
 ### <a name="producer-configurations-only"></a>Endast producerande konfigurationer
 Du hittar Producer-konfiguration [här](https://kafka.apache.org/documentation/#producerconfigs).
 
-Egenskap | Rekommenderade värden | Tillåtet intervall | Kommentarer
+Egenskap | Rekommenderade värden | Tillåtet intervall | Obs!
 ---|---:|---:|---
 `max.request.size` | 1000000 | < 1046528 | Tjänsten stänger anslutningar om förfrågningar som är större än 1 046 528 byte skickas.  *Det här värdet **måste** ändras och orsakar problem i scenarier med stora data flöden.*
 `retries` | > 0 | | Kan kräva ökande delivery.timeout.ms-värde, se dokumentationen.
@@ -39,7 +39,7 @@ Egenskap | Rekommenderade värden | Tillåtet intervall | Kommentarer
 ### <a name="consumer-configurations-only"></a>Endast konsument konfiguration
 Konsument konfiguration hittar du [här](https://kafka.apache.org/documentation/#consumerconfigs).
 
-Egenskap | Rekommenderade värden | Tillåtet intervall | Kommentarer
+Egenskap | Rekommenderade värden | Tillåtet intervall | Obs!
 ---|---:|-----:|---
 `heartbeat.interval.ms` | 3000 | | 3000 är standardvärdet och bör inte ändras.
 `session.timeout.ms` | 30000 |6000.. 300000| Börja med 30000, öka om du ser frekvent ombalansering på grund av missade pulsslag.
@@ -50,24 +50,24 @@ Huvud `librdkafka` konfigurations filen ([länk](https://github.com/edenhill/lib
 
 ### <a name="producer-and-consumer-configurations"></a>Tillverkare och konsument konfiguration
 
-Egenskap | Rekommenderade värden | Tillåtet intervall | Kommentarer
+Egenskap | Rekommenderade värden | Tillåtet intervall | Obs!
 ---|---:|-----:|---
 `socket.keepalive.enable` | true | | Krävs om anslutningen förväntas vara inaktiv.  Azure kommer att stänga inkommande TCP-inaktiv > 240 000 MS.
 `metadata.max.age.ms` | ~ 180000| < 240000 | Kan sänkas för att hämta metadata ändringar snart.
 
 ### <a name="producer-configurations-only"></a>Endast producerande konfigurationer
 
-Egenskap | Rekommenderade värden | Tillåtet intervall | Kommentarer
+Egenskap | Rekommenderade värden | Tillåtet intervall | Obs!
 ---|---:|-----:|---
 `retries` | > 0 | | Standardvärdet är 2. Vi rekommenderar att du behåller det här värdet. 
-`request.timeout.ms` | 30000.. 60000 | > 20000| HÄNDELSEHUBBNAMNOMRÅDE kommer internt att vara standard till minst 20 000 MS.  `librdkafka`Standardvärdet är 5000, vilket kan vara problematiskt. *När begär Anden med lägre timeout-värden godkänns, är klient beteendet inte garanterat.*
-`partitioner` | `consistent_random` | Se librdkafka-dokumentationen | `consistent_random`är standard och bästa.  Tomma och null-nycklar hanteras helst i de flesta fall.
+`request.timeout.ms` | 30000.. 60000 | > 20000| HÄNDELSEHUBBNAMNOMRÅDE kommer internt att vara standard till minst 20 000 MS.  `librdkafka` Standardvärdet är 5000, vilket kan vara problematiskt. *När begär Anden med lägre timeout-värden godkänns, är klient beteendet inte garanterat.*
+`partitioner` | `consistent_random` | Se librdkafka-dokumentationen | `consistent_random` är standard och bästa.  Tomma och null-nycklar hanteras helst i de flesta fall.
 `enable.idempotence` | falskt | | Idempotens stöds inte för närvarande.
 `compression.codec` | `none` || Komprimering stöds inte för närvarande.
 
 ### <a name="consumer-configurations-only"></a>Endast konsument konfiguration
 
-Egenskap | Rekommenderade värden | Tillåtet intervall | Kommentarer
+Egenskap | Rekommenderade värden | Tillåtet intervall | Obs!
 ---|---:|-----:|---
 `heartbeat.interval.ms` | 3000 || 3000 är standardvärdet och bör inte ändras.
 `session.timeout.ms` | 30000 |6000.. 300000| Börja med 30000, öka om du ser frekvent ombalansering på grund av missade pulsslag.

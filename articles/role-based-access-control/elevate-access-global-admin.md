@@ -10,10 +10,10 @@ ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
 ms.openlocfilehash: 343f6b7a78ca98615d512d31d7ac1c10d9de8f10
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88799340"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Utöka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper
@@ -330,4 +330,4 @@ När du anropar `elevateAccess` skapar du en roll tilldelning för dig själv, s
 ## <a name="next-steps"></a>Nästa steg
 
 - [Förstå de olika rollerna](rbac-and-directory-admin-roles.md)
-- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av REST API](role-assignments-rest.md)
+- [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av REST API](role-assignments-rest.md)

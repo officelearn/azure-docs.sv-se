@@ -9,10 +9,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
 ms.openlocfilehash: 0985afe3ddfd0d9de3c36ad6b030b6f259708c88
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87458355"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Skicka, ta emot och gruppera process meddelanden i Azure Logic Apps
@@ -29,7 +29,7 @@ Den här artikeln visar hur du skapar en batch-lösning genom att skapa två Log
 
 Din batch-mottagare och batch-avsändare måste dela samma Azure-prenumeration *och* Azure-region. Om de inte gör det kan du inte välja batch-mottagaren när du skapar batch-avsändaren eftersom de inte är synliga för varandra.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto och prenumeration. Om du inte har en prenumeration kan du [börja med ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Eller [Registrera dig för en prenumeration där du betalar per](https://azure.microsoft.com/pricing/purchase-options/)användning.
 
@@ -48,7 +48,7 @@ Din batch-mottagare och batch-avsändare måste dela samma Azure-prenumeration *
 
 Innan du kan skicka meddelanden till en batch måste den batch först finnas som mål där du skickar meddelandena. Först måste du skapa Logic-appen "batch-mottagare" som börjar med **batch** -utlösaren. På så sätt kan du välja Logic-appen för batch-mottagare när du skapar Logic-appen "batch-avsändare". Batch-mottagaren fortsätter att samla in meddelanden tills dina angivna kriterier är uppfyllda för att släppa och bearbeta dessa meddelanden. Även om batch-mottagare inte behöver känna till något om batch-avsändare måste batch-avsändare känna till målet där de skickar meddelandena.
 
-1. Skapa en logisk app med det här namnet i [Azure Portal](https://portal.azure.com) eller Visual Studio:`BatchReceiver`
+1. Skapa en logisk app med det här namnet i [Azure Portal](https://portal.azure.com) eller Visual Studio: `BatchReceiver`
 
 1. I Logic Apps designer lägger du till **batch** -utlösaren som startar ditt Logic app-arbetsflöde. I rutan Sök anger `batch` du och väljer den här utlösaren: **batch-meddelanden**
 
@@ -126,7 +126,7 @@ Skapa nu en eller flera Logic-appar för batch-avsändare som skickar meddelande
 
 * Se till att batch-mottagaren och batch-avsändaren delar samma Azure-region *och* Azure-prenumeration. Om de inte gör det kan du inte välja batch-mottagaren när du skapar batch-avsändaren eftersom de inte är synliga för varandra.
 
-1. Skapa en annan Logic-app med det här namnet:`BatchSender`
+1. Skapa en annan Logic-app med det här namnet: `BatchSender`
 
    1. I rutan Sök anger `recurrence` du som filter. Välj den här utlösaren i listan utlösare: **upprepning**
 

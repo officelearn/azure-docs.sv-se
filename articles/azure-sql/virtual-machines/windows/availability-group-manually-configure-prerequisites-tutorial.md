@@ -15,10 +15,10 @@ ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 278e5feb327c1376b7644050f414f680334d5c50
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91263240"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Krav för att skapa Always on-tillgänglighetsgrupper på SQL Server på Azure Virtual Machines
@@ -232,7 +232,7 @@ I följande steg konfigurerar du den **AD-primära DC-** datorn som en domänkon
     ![Dialog rutan Lägg till roller](./media/availability-group-manually-configure-prerequisites-tutorial-/23-addroles.png)
 
 7. Välj **Nästa** tills du kommer till **bekräftelse** avsnittet. Markera kryss rutan **starta om mål servern automatiskt vid behov** .
-8. Välj **Install** (Installera).
+8. Välj **installera**.
 9. När funktionerna har installerats går du tillbaka till instrument panelen för **Serverhanteraren** .
 10. Välj alternativet ny **AD DS** i rutan till vänster.
 11. Välj länken **mer** i det gula varnings fältet.
@@ -248,7 +248,7 @@ I följande steg konfigurerar du den **AD-primära DC-** datorn som en domänkon
     | **Alternativ för domänkontrollant** |**DSRM-lösenord** = contoso! 0000<br/>**Bekräfta lösen ord** = contoso! 0000 |
 
 14. Välj **Nästa** för att gå igenom de andra sidorna i guiden. På sidan **krav kontroll** kontrollerar du att följande meddelande visas: **alla nödvändiga kontroller lyckades**. Du kan granska tillämpliga varnings meddelanden, men det är möjligt att fortsätta med installationen.
-15. Välj **Install** (Installera). Den virtuella datorn för **AD-primär domänkontrollant** startas om automatiskt.
+15. Välj **installera**. Den virtuella datorn för **AD-primär domänkontrollant** startas om automatiskt.
 
 ### <a name="note-the-ip-address-of-the-primary-domain-controller"></a>Anteckna IP-adressen för den primära domänkontrollanten
 

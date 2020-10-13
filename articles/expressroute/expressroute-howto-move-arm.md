@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 460ea446fc6dfc43e81a1a57bbba032a61f3a72d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532553"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Flytta ExpressRoute-kretsar från klassisk till Resource Manager-distributions modell med PowerShell
@@ -92,7 +92,7 @@ Du är nu redo att flytta din ExpressRoute-krets från den klassiska distributio
 Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-I klassiskt läge har en ExpressRoute-krets inte konceptet att vara knuten till en region. I Resource Manager måste du dock mappas varje resurs till en Azure-region. Den region som anges i cmdleten Move-AzExpressRouteCircuit kan tekniskt vara vilken region som helst. I organisatoriskt syfte kanske du vill välja en region som står nära din peering-plats.
+I klassiskt läge har en ExpressRoute-krets inte konceptet att vara knuten till en region. I Resource Manager måste du dock mappas varje resurs till en Azure-region. Den region som anges i Move-AzExpressRouteCircuit cmdleten kan tekniskt vara vilken region som helst. I organisatoriskt syfte kanske du vill välja en region som står nära din peering-plats.
 
 > [!NOTE]
 > * När du har flyttat din klassiska ExpressRoute-krets till distributions modellen Resource Manager, kommer den att ha åtkomst till både klassiska distributions modeller för och Resource Manager som standard.

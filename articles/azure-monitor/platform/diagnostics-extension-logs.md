@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 095fd0b534c0dffaf80d2464fb9734f295335b84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87317186"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Samla in data från Azure Diagnostics-tillägget till Azure Monitor loggar
@@ -22,15 +22,15 @@ Tillägget Azure Diagnostics är en [agent i Azure Monitor](agents-overview.md) 
 ## <a name="supported-data-types"></a>Datatyper som stöds
 Azure Diagnostics-tillägget lagrar data i ett Azure Storage-konto. För att Azure Monitor loggar för att samla in dessa data måste de finnas på följande platser:
 
-| Loggtyp | Resurstyp | Position |
+| Loggtyp | Resurstyp | Location |
 | --- | --- | --- |
-| IIS-loggar |Virtuella datorer <br> Webb roller <br> Arbets roller |wad-IIS-loggfiler (Blob Storage) |
-| Syslog |Virtuella datorer |LinuxsyslogVer2v0 (Table Storage) |
+| IIS-loggar |Virtual Machines <br> Webb roller <br> Arbets roller |wad-IIS-loggfiler (Blob Storage) |
+| Syslog |Virtual Machines |LinuxsyslogVer2v0 (Table Storage) |
 | Service Fabric operativa händelser |Service Fabric noder |WADServiceFabricSystemEventTable |
 | Service Fabric pålitliga aktörs händelser |Service Fabric noder |WADServiceFabricReliableActorEventTable |
 | Service Fabric Reliable service Events |Service Fabric noder |WADServiceFabricReliableServiceEventTable |
-| Händelse loggar i Windows |Service Fabric noder <br> Virtuella datorer <br> Webb roller <br> Arbets roller |WADWindowsEventLogsTable (Table Storage) |
-| Windows ETW-loggar |Service Fabric noder <br> Virtuella datorer <br> Webb roller <br> Arbets roller |WADETWEventTable (Table Storage) |
+| Händelse loggar i Windows |Service Fabric noder <br> Virtual Machines <br> Webb roller <br> Arbets roller |WADWindowsEventLogsTable (Table Storage) |
+| Windows ETW-loggar |Service Fabric noder <br> Virtual Machines <br> Webb roller <br> Arbets roller |WADETWEventTable (Table Storage) |
 
 ## <a name="data-types-not-supported"></a>Data typer stöds inte
 
@@ -47,7 +47,7 @@ Använd följande procedur för att aktivera insamling av diagnostiska tilläggs
 
 1. I Azure Portal går du till **Log Analytics arbets ytor** och väljer din arbets yta.
 1. Klicka på **lagrings konto loggar** i avsnittet **data källor för arbets yta** på menyn.
-2. Klicka på **Lägg till**.
+2. Klicka på  **Lägg till**.
 3. Välj det **lagrings konto** som innehåller de data som ska samlas in.
 4. Välj den **datatyp som du vill** samla in.
 5. Värdet för källan fylls i automatiskt baserat på data typen.

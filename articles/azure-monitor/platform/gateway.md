@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
 ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87305218"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Ansluta datorer utan Internet åtkomst med hjälp av Log Analytics gateway i Azure Monitor
@@ -141,7 +141,7 @@ Följ dessa steg om du vill installera en gateway med installations guiden.
    ![Skärm bild av konfigurationen för Gateway-proxyn](./media/gateway/gateway-wizard02.png)
 
 1. Om du inte har Microsoft Update aktive rad visas sidan Microsoft Update och du kan välja att aktivera den. Gör ett val och välj sedan **Nästa**. Annars fortsätter du till nästa steg.
-1. På sidan **målmapp** lämnar du standardmappen C:\Program Files\OMS gateway eller anger den plats där du vill installera gatewayen. Välj sedan **Nästa**.
+1. På sidan **målmapp** lämnar du standardmappen C:\Program Files\OMS gateway eller anger den plats där du vill installera gatewayen. Välj **Nästa**.
 1. På sidan **klar att installera** väljer du **Installera**. Välj **Ja**om User Account Control begär behörighet att installera.
 1. När installationen är klar väljer du **Slutför**. Verifiera att tjänsten körs genom att öppna snapin-modulen Services. msc och kontrol lera att OMS- **gatewayen** visas i listan över tjänster och att dess status är **igång**.
 
@@ -306,7 +306,7 @@ Se avsnittet [Konfigurera ditt nätverk](../../automation/automation-hybrid-runb
 Om datorn är registrerad som en Hybrid Runbook Worker automatiskt, till exempel om Uppdateringshantering lösning är aktive rad för en eller flera virtuella datorer, följer du dessa steg:
 
 1. Lägg till URL: erna för jobb körnings data tjänsten i listan över tillåtna värdar på Log Analytics Gateway. Exempelvis: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-1. Starta om tjänsten Log Analytics Gateway med hjälp av följande PowerShell-cmdlet:`Restart-Service OMSGatewayService`
+1. Starta om tjänsten Log Analytics Gateway med hjälp av följande PowerShell-cmdlet: `Restart-Service OMSGatewayService`
 
 Följ dessa steg om datorn är ansluten till Azure Automation med hjälp av Hybrid Runbook Worker registrerings-cmdlet:
 
@@ -321,7 +321,7 @@ Du kan använda cmdlets för att slutföra aktiviteterna för att uppdatera konf
 
 1. Installera Log Analytics Gateway (Microsoft Windows Installer).
 1. Öppna ett fönster i PowerShell-konsolen.
-1. Importera modulen genom att skriva följande kommando:`Import-Module OMSGateway`
+1. Importera modulen genom att skriva följande kommando: `Import-Module OMSGateway`
 1. Om inget fel inträffade i föregående steg har modulen importer ATS och cmdletarna kan användas. Ange `Get-Module OMSGateway`
 1. När du har använt cmdlets för att göra ändringar startar du om OMS Gateway-tjänsten.
 
@@ -332,7 +332,7 @@ Ett fel i steg 3 innebär att modulen inte har importer ATS. Felet kan inträffa
 | `Get-OMSGatewayConfig` |Tangent |Hämtar konfigurationen för tjänsten |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Nyckel (obligatoriskt) <br> Värde |Ändrar konfigurationen för tjänsten |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Hämtar adressen för relä-proxyn (uppströms) |`Get-OMSGatewayRelayProxy` |  
-| `Set-OMSGatewayRelayProxy` |Adress<br> Användarnamn<br> Lösen ord (säker sträng) |Anger adressen (och autentiseringsuppgiften) för relä-proxyn (uppströms) |1. Ange en relä-proxy och autentiseringsuppgifter:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Ange en Relay proxy som inte behöver autentisering:`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Rensa proxyinställningar för relä:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Set-OMSGatewayRelayProxy` |Adress<br> Användarnamn<br> Lösen ord (säker sträng) |Anger adressen (och autentiseringsuppgiften) för relä-proxyn (uppströms) |1. Ange en relä-proxy och autentiseringsuppgifter:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Ange en Relay proxy som inte behöver autentisering: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Rensa proxyinställningar för relä:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |Hämtar den för tillfället tillåtna värden (endast lokalt konfigurerade tillåtna värdar, inte automatiskt hämtade tillåtna värdar) |`Get-OMSGatewayAllowedHost` | 
 | `Add-OMSGatewayAllowedHost` |Värd (krävs) |Lägger till värden i listan över tillåtna |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Värd (krävs) |Tar bort värden från listan över tillåtna |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  

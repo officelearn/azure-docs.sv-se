@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
 ms.openlocfilehash: b029fa246977dfe4210f6e8df242415f7e4103f1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081924"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Skapa Durable Functions med hjälp av Azure Portal
@@ -40,19 +40,12 @@ Om du skapar ett JavaScript-Durable Functions måste du installera [ `durable-fu
 
 3. I kudu-konsolen väljer du **Felsök konsol**och sedan **cmd**.
 
-   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu fel söknings konsol":::
-
-3. Din funktions programmets fil katalog struktur bör visas. Gå till mappen `site/wwwroot`. Därifrån kan du ladda upp en `package.json` fil genom att dra och släppa den i fönstret fil katalog. Ett exempel `package.json` är nedan:
-
-    ```json
-    {
-      "dependencies": {
-        "durable-functions": "^1.3.1"
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Funktions plattforms funktioner Välj kudu"
       }
     }
     ```
 
-   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu Ladda upp package.jspå":::
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Funktions plattforms funktioner Välj kudu":::
 
 4. När din `package.json` har överförts kör du `npm install` kommandot från kudu-konsolen för fjärrkörning.
 
@@ -64,7 +57,7 @@ Om du skapar ett JavaScript-Durable Functions måste du installera [ `durable-fu
 
 1. I Sök fältet på sidan **ny funktion** anger du `durable` och väljer sedan **Durable Functions http starter-** mall.
 
-   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Välj Durable Functions HTTP-startstarter":::
+   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Funktions plattforms funktioner Välj kudu":::
 
 1. För det **nya funktions** namnet anger du `HttpStart` och väljer sedan **skapa funktion**.
 

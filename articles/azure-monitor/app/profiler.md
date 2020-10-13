@@ -7,17 +7,17 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 4f5328bbe21bb5f4a7947d5a495f4a0c8759c8da
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87315645"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilera Live Azure App Service-appar med Application Insights
 
 Du kan köra profiler på ASP.NET och ASP.NET Core appar som körs på Azure App Service med hjälp av Basic Service Tier eller högre. Det går för närvarande bara att aktivera profiler på Linux via [den här metoden](profiler-aspnetcore-linux.md).
 
-## <a name="enable-profiler-for-your-app"></a><a id="installation"></a>Aktivera profiler för din app
+## <a name="enable-profiler-for-your-app"></a><a id="installation"></a> Aktivera profiler för din app
 Följ anvisningarna nedan om du vill aktivera profiler för en app. Om du kör en annan typ av Azure-tjänst, finns här instruktioner för att aktivera profiler på andra plattformar som stöds:
 * [Molntjänster](./profiler-cloudservice.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Service Fabric program](./profiler-servicefabric.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
@@ -50,7 +50,7 @@ Här är de inställningar som krävs för att aktivera profileraren:
 |DiagnosticServices_EXTENSION_VERSION | ~ 3 |
 
 
-Du kan ange dessa värden med hjälp av [Azure Resource Manager mallar](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure POWERSHELL](/powershell/module/az.websites/set-azwebapp), [Azure CLI](/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
+Du kan ange dessa värden med hjälp av [Azure Resource Manager mallar](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure POWERSHELL](/powershell/module/az.websites/set-azwebapp),  [Azure CLI](/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
 
 ### <a name="enabling-profiler-for-other-clouds-manually"></a>Aktivera profiler för andra moln manuellt
 

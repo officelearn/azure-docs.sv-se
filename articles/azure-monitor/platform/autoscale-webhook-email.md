@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 3b1f13fd1ce8bedcbe58385d4cee321f1d1405df
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86505527"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Använd åtgärder för autoskalning för att skicka aviseringar via e-post och webhook i Azure Monitor
@@ -56,15 +56,15 @@ När du använder REST API-eller Resource Manager-mallen inkluderar du meddeland
     ]
 ```
 
-| Fält | Erforderlig? | Beskrivning |
+| Field | Erforderlig? | Beskrivning |
 | --- | --- | --- |
-| reparation |yes |värdet måste vara "Scale" |
-| sendToSubscriptionAdministrator |yes |värdet måste vara "sant" eller "falskt" |
-| sendToSubscriptionCoAdministrators |yes |värdet måste vara "sant" eller "falskt" |
-| customEmails |yes |värdet kan vara null [] eller sträng mat ris med e-post |
-| Webhooks |yes |värdet kan vara null eller en giltig URI |
-| serviceUri |yes |en giltig https-URI |
-| properties |yes |värdet måste vara tomt {} eller innehålla nyckel/värde-par |
+| operation |ja |värdet måste vara "Scale" |
+| sendToSubscriptionAdministrator |ja |värdet måste vara "sant" eller "falskt" |
+| sendToSubscriptionCoAdministrators |ja |värdet måste vara "sant" eller "falskt" |
+| customEmails |ja |värdet kan vara null [] eller sträng mat ris med e-post |
+| Webhooks |ja |värdet kan vara null eller en giltig URI |
+| serviceUri |ja |en giltig https-URI |
+| properties |ja |värdet måste vara tomt {} eller innehålla nyckel/värde-par |
 
 ## <a name="authentication-in-webhooks"></a>Autentisering i Webhooks
 Webhooken kan autentiseras med hjälp av tokenbaserad autentisering, där du sparar webhook-URI: n med ett token-ID som frågeparameter. Till exempel https: \/ /mysamplealert/webcallback? tokenID = sometokenid&someparameter = someValue
@@ -99,12 +99,12 @@ När meddelandet för autoskalning skapas, ingår följande metadata i webhook-n
 ```
 
 
-| Fält | Erforderlig? | Beskrivning |
+| Field | Erforderlig? | Beskrivning |
 | --- | --- | --- |
-| status |yes |Status som anger att en åtgärd för autoskalning har genererats |
-| reparation |yes |För en ökning av instanser blir det "skala ut" och en minskning av instanserna blir "skala in" |
-| Edit |yes |Åtgärds kontext för autoskalning |
-| timestamp |yes |Tidstämpel när åtgärden för autoskalning utlöstes |
+| status |ja |Status som anger att en åtgärd för autoskalning har genererats |
+| operation |ja |För en ökning av instanser blir det "skala ut" och en minskning av instanserna blir "skala in" |
+| Edit |ja |Åtgärds kontext för autoskalning |
+| timestamp |ja |Tidstämpel när åtgärden för autoskalning utlöstes |
 | id |Ja |Resource Manager-ID för den automatiska skalnings inställningen |
 | name |Ja |Namnet på den automatiska skalnings inställningen |
 | information |Ja |Förklaring av åtgärden att AutoScale-tjänsten tog och ändringen i instans antalet |
@@ -116,4 +116,4 @@ När meddelandet för autoskalning skapas, ingår följande metadata i webhook-n
 | portalLink |Ja |Azure Portal länk till sidan Sammanfattning för mål resursen |
 | oldCapacity |Ja |Det aktuella (gamla) instans antalet när autoskalning vidtog en skalnings åtgärd |
 | newCapacity |Ja |Den nya instansen räknas som autoskalning som skalar resursen till |
-| properties |Nej |Valfritt. Uppsättning <nyckel, värde> par (till exempel ord lista <sträng, sträng>). Egenskaps fältet är valfritt. I ett anpassat användar gränssnitt eller ett logiskt app-baserat arbets flöde kan du ange nycklar och värden som kan skickas med nytto lasten. Ett annat sätt att skicka anpassade egenskaper tillbaka till utgående webhook-anrop är att använda webhook-URI: n (som frågeparametrar) |
+| properties |Inga |Valfritt. Uppsättning <nyckel, värde> par (till exempel ord lista <sträng, sträng>). Egenskaps fältet är valfritt. I ett anpassat användar gränssnitt eller ett logiskt app-baserat arbets flöde kan du ange nycklar och värden som kan skickas med nytto lasten. Ett annat sätt att skicka anpassade egenskaper tillbaka till utgående webhook-anrop är att använda webhook-URI: n (som frågeparametrar) |

@@ -4,10 +4,10 @@ description: Den här artikeln förklarar hur du använder Azure Monitor för at
 ms.topic: article
 ms.date: 09/30/2020
 ms.openlocfilehash: 169edb651a59302d0ea1245fd48787404dd3e555
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91598137"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Service Bus mått i Azure Monitor
@@ -128,7 +128,7 @@ Azure Service Bus stöder följande dimensioner för mått i Azure Monitor. Det 
     1. Välj **Service Bus namnrum** för fältet **Filtrera efter resurs typ** . 
     2. Välj din prenumeration för fältet **Filtrera efter prenumeration** .
     3. Välj **Service Bus-namnområdet** i listan. 
-    4. Välj **Klar**. 
+    4. Välj **Done** (Klar). 
     
         ![Välj namnrymd](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Välj **Lägg till kriterier**och utför följande åtgärder på sidan **Konfigurera signal logik** :
@@ -139,7 +139,7 @@ Azure Service Bus stöder följande dimensioner för mått i Azure Monitor. Det 
     1. Välj **större än** för **villkor**.
     2. Välj **Total** för **tids agg regering**. 
     3. Ange **5** som **tröskelvärde**. 
-    4. Välj **Klar**.    
+    4. Välj **Done** (Klar).    
 
         ![Ange villkor](./media/service-bus-metrics-azure-monitor/specify-condition.png)    
 1. På sidan **Skapa regel** expanderar du **definiera aviserings information**och utför följande åtgärder:

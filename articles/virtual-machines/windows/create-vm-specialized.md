@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: bce702873fc4e66f283a9785bb408bbfa7fda83c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3df7d3d01dcd5e5b097eba53ef0dae29e86fd0a5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87266902"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973265"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Skapa en virtuell Windows-dator från en specialiserad disk med PowerShell
 
@@ -27,7 +27,7 @@ I det syftet har du flera alternativ:
 
 Du kan också använda Azure Portal för att [skapa en ny virtuell dator från en specialiserad virtuell hård disk](create-vm-specialized-portal.md).
 
-Den här artikeln visar hur du använder hanterade diskar. Om du har en äldre distribution som kräver att ett lagrings konto används, se [skapa en virtuell dator från en specialiserad virtuell hård disk i ett lagrings konto](sa-create-vm-specialized.md).
+Den här artikeln visar hur du använder hanterade diskar. Om du har en äldre distribution som kräver att ett lagrings konto används, se [skapa en virtuell dator från en specialiserad virtuell hård disk i ett lagrings konto](/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized).
 
 Vi rekommenderar att du begränsar antalet samtidiga distributioner till 20 virtuella datorer från en enda virtuell hård disk eller en ögonblicks bild. 
 

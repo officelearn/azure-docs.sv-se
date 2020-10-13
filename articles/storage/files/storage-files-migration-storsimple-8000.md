@@ -8,10 +8,10 @@ ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: be61a6e75c4aa9b5714ffbf3b4f19656b347c493
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653255"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 och 8600-migrering till Azure File Sync
@@ -427,7 +427,7 @@ Läs igenom Robocopy-loggfilerna för att se om filerna är kvar bakom. Om det s
 
 Det krävs förmodligen att skapa SMB-resurser på den Windows-Server som du hade på StorSimple-data innan. Du kan läsa in det här steget och göra det tidigare för att inte förlora tiden här, men du måste se till att innan den här punkten är ändringar i filer som sker på Windows-servern.
 
-Om du har en DFS-N-distribution kan du peka DFN-namnområden till de nya mapparna för Server. Om du inte har en DFS-N-distribution, och du framförde 8100 8600-installationen lokalt med en Windows-Server, kan du ta bort servern från domänen och domän ansluta till din nya Windows Server med AFS till domänen, ge den samma server namn som den gamla servern och samma resurs namn, och sedan är övertagandet till den nya servern transparent för användarna , grup princip eller skript.
+Om du har en DFS-N-distribution kan du peka DFN-Namespaces till nya mappar för servermappar. Om du inte har en DFS-N-distribution, och du framförde 8100 8600-installationen lokalt med en Windows-Server, kan du ta bort servern från domänen och domän ansluta till din nya Windows Server med AFS till domänen, ge den samma server namn som den gamla servern och samma resurs namn, och sedan är övertagandet till den nya servern transparent för användarna , grup princip eller skript.
 
 ## <a name="phase-7-deprovision"></a>Fas 7: avetablering
 

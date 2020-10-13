@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
 ms.openlocfilehash: 1075cce9b9e3bc3267756bba84691788293fa8d2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116325"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Vägledning för utvecklare för funktionen Azure Active Directory villkorlig åtkomst
@@ -26,7 +26,7 @@ ms.locfileid: "88116325"
 
 Funktionen för villkorlig åtkomst i Azure Active Directory (Azure AD) erbjuder ett av flera sätt som du kan använda för att skydda din app och skydda en tjänst. Med villkorlig åtkomst kan utvecklare och företags kunder skydda tjänster på flera olika sätt:
 
-* Multi-Factor Authentication
+* Multifaktorautentisering
 * Tillåter endast att Intune-registrerade enheter får åtkomst till vissa tjänster
 * Begränsa användar platser och IP-intervall
 
@@ -153,9 +153,9 @@ I det här scenariot går vi igenom fallet när vi har en enda sida-app (SPA) so
 
 I ADAL.js finns det några funktioner som hämtar token: `login()` , `acquireToken(...)` , `acquireTokenPopup(…)` och `acquireTokenRedirect(…)` .
 
-* `login()`hämtar en ID-token via en interaktiv inloggnings förfrågan men får inte åtkomst-token för någon tjänst (inklusive ett skyddat webb-API för villkorlig åtkomst).
-* `acquireToken(…)`kan sedan användas för att tyst erhålla en åtkomsttoken, vilket innebär att den inte visar gränssnitt i någon omständighet.
-* `acquireTokenPopup(…)`och `acquireTokenRedirect(…)` båda används för att interaktivt begära en token för en resurs, vilket innebär att de alltid visar inloggnings gränssnittet.
+* `login()` hämtar en ID-token via en interaktiv inloggnings förfrågan men får inte åtkomst-token för någon tjänst (inklusive ett skyddat webb-API för villkorlig åtkomst).
+* `acquireToken(…)` kan sedan användas för att tyst erhålla en åtkomsttoken, vilket innebär att den inte visar gränssnitt i någon omständighet.
+* `acquireTokenPopup(…)` och `acquireTokenRedirect(…)` båda används för att interaktivt begära en token för en resurs, vilket innebär att de alltid visar inloggnings gränssnittet.
 
 När en app behöver en åtkomsttoken för att anropa ett webb-API, försöker den med `acquireToken(…)` . Om token-sessionen har upphört att gälla eller om vi måste följa en princip för villkorlig åtkomst, Miss lyckas *acquireToken* -funktionen och appen använder `acquireTokenPopup()` eller `acquireTokenRedirect()` .
 

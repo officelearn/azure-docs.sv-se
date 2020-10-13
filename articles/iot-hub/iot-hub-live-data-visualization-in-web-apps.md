@@ -12,10 +12,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 ms.openlocfilehash: 6a8f39ae5d73bade2c86a7e15efe75956c2aed24
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327573"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualisera real tids sensor data från din Azure IoT Hub i ett webb program
@@ -254,7 +254,7 @@ Om du kommer över eventuella problem med det här exemplet kan du prova stegen 
 
 * I Azure Portal går du till din webbapp. Under **övervakning** i den vänstra rutan väljer du **App Service loggar**. Aktivera **program loggning (fil system)** till på, ange **nivå** till fel och välj sedan **Spara**. Öppna sedan **logg strömmen** (under **övervakning**).
 
-* Från din webbapp i Azure Portal under **utvecklingsverktyg** väljer du **konsol** och validerar Node-och NPM-versioner med `node -v` och `npm -v` .
+* Från din webbapp i Azure Portal under **utvecklingsverktyg**  väljer du  **konsol** och validerar Node-och NPM-versioner med `node -v` och `npm -v` .
 
 * Om du ser ett fel om att det inte går att hitta ett paket kan du köra stegen i rätt ordning. När platsen distribueras (med `git push` ) körs App Service `npm install` , som körs baserat på den aktuella versionen av noden som den har kon figurer ATS. Om den ändras i konfigurationen senare, måste du göra en meningslös ändring av koden och skicka igen.
 

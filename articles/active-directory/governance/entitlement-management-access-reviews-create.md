@@ -17,17 +17,17 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 012eefe9140703a62d7bb1074ab763191a0976cb
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87798519"
 ---
 # <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Skapa en åtkomst granskning av ett Access-paket i hantering av Azure AD-rättigheter
 
 För att minska risken för föråldrad åtkomst bör du aktivera regelbunden granskning av användare som har aktiva tilldelningar till ett Access-paket i hantering av Azure AD-rättigheter. Du kan aktivera granskningar när du skapar ett nytt Access-paket eller redigerar ett befintligt Access-paket. I den här artikeln beskrivs hur du aktiverar åtkomst granskningar av Access-paket.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill aktivera granskningar av åtkomst paket måste du uppfylla kraven för att skapa ett Access-paket:
 - Azure AD Premium P2

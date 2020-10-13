@@ -11,10 +11,10 @@ ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1f363b8fc2fec659ee1b101c13d1ba6ac629f29d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87835500"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrera från Amazon Web Services (AWS) och andra plattformar som ska Managed Disks i Azure
@@ -91,6 +91,6 @@ Som standard är diskcachelagring *-principen skrivskyddad* för alla Premium-da
 Läs [om prissättningen för Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/). Priset för Premium-Managed Disks är detsamma som de Premium-ohanterade diskarna. Priser för standard Managed Disks skiljer sig dock från vanliga ohanterade diskar.
 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Innan du laddar upp en virtuell hård disk till Azure bör du följa [förbereda en Windows-VHD eller VHDX för uppladdning till Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

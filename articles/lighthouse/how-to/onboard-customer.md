@@ -3,12 +3,12 @@ title: Registrera en kund i Azure Lighthouse
 description: Lär dig hur du kan publicera en kund i Azure Lighthouse, så att deras resurser kan nås och hanteras via din egen klient med Azure-delegerad resurs hantering.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 2e404c471990575460ccda3a26e7cdcb3ec1cf1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6902fb787b14c4443e28852b9aaf2533da9b49d3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396679"
+ms.locfileid: "91873221"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Registrera en kund i Azure Lighthouse
 
@@ -19,7 +19,7 @@ Den här artikeln förklarar hur du, som en tjänst leverantör, kan publicera e
 
 Du kan upprepa onboarding-processen för flera kunder. När en användare med rätt behörighet loggar in till din hanterings klient kan den användaren auktoriseras mellan kundens hyres omfång för att utföra hanterings åtgärder, utan att behöva logga in på varje enskild kund klient.
 
-Om du vill spåra din påverkan på kund engagemang och få erkännande, associerar du ditt Microsoft Partner Network (MPN) ID med minst ett användar konto som har åtkomst till var och en av dina inbyggda prenumerationer. Du måste utföra den här associationen i din tjänst leverantörs klient. Vi rekommenderar att du skapar ett tjänst huvud konto i din klient som är associerat med ditt MPN-ID och sedan inkluderar tjänstens huvud namn varje gång du registrerar en kund. Mer information finns i [länka ditt partner-ID för att aktivera intjänad partner kredit på delegerade resurser.
+Om du vill spåra din påverkan på kund engagemang och få erkännande, associerar du ditt Microsoft Partner Network (MPN) ID med minst ett användar konto som har åtkomst till var och en av dina inbyggda prenumerationer. Du måste utföra den här associationen i din tjänst leverantörs klient. Vi rekommenderar att du skapar ett tjänst huvud konto i din klient som är associerat med ditt MPN-ID och sedan inkluderar tjänstens huvud namn varje gång du registrerar en kund. Mer information finns i [Länka ditt partner-ID för att aktivera intjänad partner kredit på delegerade resurser](partner-earned-credit.md).
 
 > [!NOTE]
 > Kunder kan också publiceras på Azure-Lighthouse när de köper ett hanterat tjänst erbjudande (offentligt eller privat) som du [publicerar på Azure Marketplace](publish-managed-services-offers.md). Du kan också använda onboarding-processen som beskrivs här tillsammans med erbjudanden som publicerats på Azure Marketplace.

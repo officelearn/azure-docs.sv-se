@@ -7,16 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
 ms.openlocfilehash: 4f14f006283b7430458d67d2bd3bee787c08411d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326026"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Agenthälsa lösning i Azure Monitor
 Agenthälsa lösning i Azure hjälper dig att förstå, för alla agenter som rapporterar direkt till arbets ytan Log Analytics i Azure Monitor eller en System Center Operations Manager hanterings grupp som är ansluten till Azure Monitor, som inte svarar och skickar drift data.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du distribuerar den här lösningen ska du kontrol lera att du för närvarande har stöd för [Windows-agenter](../platform/agent-windows.md) som rapporteras till Log Analytics arbets yta eller rapportering till en [Operations Manager hanterings grupp](../platform/om-agents.md) som är integrerad med arbets ytan
 
 ## <a name="solution-components"></a>Lösningskomponenter

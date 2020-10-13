@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: e87ddd243aa248b896a26e6389ac1a219579a06d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87325584"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor data plattform
@@ -32,7 +32,7 @@ Azure-resurser genererar en betydande mängd övervaknings data. Azure Monitor k
 
 
 ### <a name="metrics"></a>Mått
-[Mått](data-platform-metrics.md) är numeriska värden som beskriver någon aspekt av ett system vid en viss tidpunkt. De samlas in med jämna mellanrum och identifieras med en tidsstämpel, ett namn, ett värde och en eller flera definierade etiketter. Mått kan aggregeras med hjälp av olika algoritmer, jämfört med andra mått och analyseras för trender över tid. 
+[Mått](data-platform-metrics.md) är numeriska värden som beskriver någon aspekt av ett system vid en viss tidpunkt. De samlas in med jämna mellanrum och identifieras med en tidsstämpel, ett namn, ett värde samt en eller flera definierande etiketter. Mått kan aggregeras via en mängd olika algoritmer, jämföras med andra mått och analyseras för trender över tid. 
 
 Mått i Azure Monitor lagras i en databas för tids serier som är optimerad för att analysera tidsstämplade data. Detta gör mått som är särskilt lämpade för aviseringar och snabb identifiering av problem. De kan tala om för dig hur systemet presterar, men det måste vanligt vis kombineras med loggar för att identifiera rotor saken till problem.
 
@@ -41,7 +41,7 @@ Mått är tillgängliga för interaktiv analys i Azure Portal med [Azure Metrics
 Läs mer om Azure Monitor mått, inklusive deras data källor i [mått i Azure Monitor](data-platform-metrics.md).
 
 ### <a name="logs"></a>Loggar
-[Loggar](data-platform-logs.md) är händelser som inträffat i systemet. De kan innehålla olika typer av data och kan vara strukturerade eller kostnads fria formulär text med en tidsstämpel. De kan skapas sporadiskt när händelser i miljön genererar logg poster och ett system under hög belastning genererar vanligt vis mer logg volym.
+[Loggar](data-platform-logs.md) är händelser som inträffat i systemet. De kan innehålla olika typer av data och kan vara strukturerade eller kostnads fria formulär text med en tidsstämpel. De kan skapas sporadiskt när händelser i miljön genererar loggposter. System som är under hög belastning genererar vanligtvis större loggvolymer.
 
 Loggar i Azure Monitor lagras i en Log Analytics arbets yta som baseras på [Azure datautforskaren](/azure/data-explorer/) , vilket ger en kraftfull analys motor och ett [Avancerat frågespråk](/azure/kusto/query/). Loggarna ger vanligt vis tillräckligt med information för att tillhandahålla en komplett kontext för det problem som identifieras och är värdefullt för att identifiera problem med rot fall.
 

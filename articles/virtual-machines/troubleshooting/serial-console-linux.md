@@ -1,6 +1,6 @@
 ---
 title: Azures serie konsol för Linux | Microsoft Docs
-description: Dubbelriktad serie konsol för Azure Virtual Machines och Virtual Machine Scale Sets med ett Linux-exempel.
+description: Bi-Directional serie konsol för Azure Virtual Machines och Virtual Machine Scale Sets med ett Linux-exempel.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
 ms.openlocfilehash: 9a31a22a5b037162198f594d9bcf35c91a0a4654
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306879"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azure-seriekonsol för Linux
@@ -71,7 +71,7 @@ SUSE        | Nyare SLES-avbildningar som är tillgängliga i Azure har åtkomst
 Oracle Linux        | Seriell konsol åtkomst aktiverat som standard.
 
 ### <a name="custom-linux-images"></a>Anpassade Linux-avbildningar
-Om du vill aktivera en serie konsol för din anpassade Linux VM-avbildning aktiverar du konsol åtkomst i filen */etc/inittab* för att köra en terminal på `ttyS0` . Till exempel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Du kan också behöva skapa en Getty on ttyS0. Detta kan göras med `systemctl start serial-getty@ttyS0.service` .
+Om du vill aktivera en serie konsol för din anpassade Linux VM-avbildning aktiverar du konsol åtkomst i filen */etc/inittab* för att köra en terminal på `ttyS0` . Exempel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Du kan också behöva skapa en Getty on ttyS0. Detta kan göras med `systemctl start serial-getty@ttyS0.service` .
 
 Du ska också lägga till ttyS0 som mål för seriella utdata. Mer information om hur du konfigurerar en anpassad avbildning för att arbeta med serie konsolen finns i system krav för att [skapa och ladda upp en Linux-VHD i Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
 
@@ -99,7 +99,7 @@ Som standard har alla prenumerationer åtkomst till seriell konsol. Du kan inakt
 ### <a name="channel-security"></a>Kanal säkerhet
 Alla data som skickas fram och tillbaka krypteras i kabeln.
 
-### <a name="audit-logs"></a>Spårningsloggar
+### <a name="audit-logs"></a>Granskningsloggar
 All åtkomst till serie konsolen är för närvarande inloggad i [Start](./boot-diagnostics.md) -diagnostikloggar för den virtuella datorn. Åtkomst till dessa loggar ägs och kontrol leras av administratören för den virtuella Azure-datorn.
 
 > [!CAUTION]
@@ -109,7 +109,7 @@ All åtkomst till serie konsolen är för närvarande inloggad i [Start](./boot-
 Om en användare är ansluten till serie konsolen och en annan användare kan begära åtkomst till samma virtuella dator, kommer den första användaren att kopplas från och den andra användaren som är ansluten till samma session.
 
 > [!CAUTION]
-> Det innebär att en användare som är frånkopplad inte kommer att loggas ut. Möjligheten att genomdriva en utloggning vid från koppling (med SIGHUP eller liknande mekanism) finns fortfarande i översikten. För Windows finns en automatisk timeout som är aktive rad i SAC (administrations konsol). för Linux kan du dock konfigurera inställningen för timeout för Terminal. Det gör du genom att lägga till `export TMOUT=600` i din *. bash_profile* -eller *. Profile* -fil för den användare som du använder för att logga in i-konsolen. Den här inställningen tar bort sessionen efter 10 minuter.
+> Det innebär att en användare som är frånkopplad inte kommer att loggas ut. Möjligheten att genomdriva en utloggning vid från koppling (med SIGHUP eller liknande mekanism) finns fortfarande i översikten. För Windows finns en automatisk timeout som är aktive rad i SAC (administrations konsol). för Linux kan du dock konfigurera inställningen för timeout för Terminal. Det gör du genom att lägga till `export TMOUT=600` i *.bash_profile* -eller *. Profile* -filen för den användare som du använder för att logga in i-konsolen. Den här inställningen tar bort sessionen efter 10 minuter.
 
 ## <a name="accessibility"></a>Tillgänglighet
 Hjälpmedel är en viktig fokus för Azures serie konsol. Vi har därför säkerställt att serie konsolen är fullständigt tillgänglig.

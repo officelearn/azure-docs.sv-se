@@ -7,10 +7,10 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 3826019a19aa744cb03737ed7f0c985f8063a1aa
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88815614"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Tillgänglighetsalternativ för virtuella datorer i Azure
@@ -55,7 +55,7 @@ Skalnings uppsättningar för virtuella datorer fören klar designen för hög t
 
 
 ## <a name="availability-sets"></a>Tillgänglighetsuppsättningar
-En tillgänglighets uppsättning är en logisk gruppering av virtuella datorer i ett Data Center som gör det möjligt för Azure att förstå hur ditt program är utformat för att tillhandahålla redundans och tillgänglighet. Vi rekommenderar att två eller flera virtuella datorer skapas i en tillgänglighets uppsättning för att tillhandahålla ett program med hög tillgänglighet och uppfylla [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). För själva tillgänglighets uppsättningen kostar du bara att betala för varje VM-instans som du skapar. När en enskild virtuell dator använder [Azure Premium-SSD](./disks-types.md#premium-ssd)gäller Azure SLA för oplanerade underhålls händelser.
+En tillgänglighetsuppsättning är en logisk gruppering med virtuella datorer i ett datacenter som gör att Azure kan förstå hur ditt program är utformat och ge bästa möjliga redundans och tillgänglighet. Vi rekommenderar att två eller flera virtuella datorer skapas i en tillgänglighets uppsättning för att tillhandahålla ett program med hög tillgänglighet och uppfylla [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). För själva tillgänglighets uppsättningen kostar du bara att betala för varje VM-instans som du skapar. När en enskild virtuell dator använder [Azure Premium-SSD](./disks-types.md#premium-ssd)gäller Azure SLA för oplanerade underhålls händelser.
 
 I en tillgänglighets uppsättning distribueras virtuella datorer automatiskt mellan dessa fel domäner. På så sätt begränsas påverkan av potentiella fel på fysisk maskinvara, nätverksavbrott och strömavbrott.
 

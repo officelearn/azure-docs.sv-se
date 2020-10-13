@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 20add4859b272b6d121666cde9c56296119d41e4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836538"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Privat länk för Azure Database for MariaDB
@@ -22,7 +22,7 @@ Om du vill ha en lista över PaaS Services som stöder funktionen för privat l�
 > [!NOTE]
 > Funktionen privat länk är bara tillgänglig för Azure Database for MariaDB servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att databas servern är på någon av dessa pris nivåer.
 
-## <a name="data-exfiltration-prevention"></a>Data exfiltrering skydd
+## <a name="data-exfiltration-prevention"></a>Dataexfiltreringsskydd
 
 Data vid filtrering i Azure Database for MariaDB är när en behörig användare, till exempel en databas administratör, kan extrahera data från ett system och flytta det till en annan plats eller ett system utanför organisationen. Användaren kan till exempel flytta data till ett lagrings konto som ägs av en tredje part.
 
@@ -57,7 +57,7 @@ Med privat länk kan du aktivera åtkomst mellan platser till den privata slut p
 
 Privata slut punkter krävs för att aktivera privat länk. Detta kan göras med hjälp av följande instruktions guider.
 
-* [Azure-portalen](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal)
+* [Azure Portal](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal)
 * [CLI](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-cli)
 
 ### <a name="approval-process"></a>Godkännande process

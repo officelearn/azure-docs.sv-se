@@ -7,10 +7,10 @@ ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.openlocfilehash: dc03a74bfad5b1417eb9cc20b5f211718cc08646
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653714"
 ---
 # <a name="time-series-model-variables"></a>Variabler för tids serie modell
@@ -29,7 +29,7 @@ I följande tabell visas vilka egenskaper som är relevanta för varje variabel 
 
 ## <a name="numeric-variables"></a>Numeriska variabler
 
-| Variabel egenskap | Description |
+| Variabel egenskap | Beskrivning |
 | --- | ---|
 | Variabel filter | Filter är valfria villkorliga satser för att begränsa antalet rader som ska beaktas för beräkning. |
 | Variabel värde | Telemetri värden som används för beräkning som kommer från enheten eller sensorer eller omvandlas med hjälp av Time Series-uttryck. Variabler av typen numerisk typ måste vara av typen *Double*.|
@@ -59,7 +59,7 @@ Variabler följer följande JSON-exempel:
 
 ## <a name="categorical-variables"></a>Kategoriska-variabler
 
-| Variabel egenskap | Description |
+| Variabel egenskap | Beskrivning |
 | --- | ---|
 | Variabel filter | Filter är valfria villkorliga satser för att begränsa antalet rader som ska beaktas för beräkning. |
 | Variabel värde | Telemetridata som används för beräkning som kommer från enheten eller sensorer. Kategoriska-variabler måste vara antingen *långa* eller *strängar*. |
@@ -99,7 +99,7 @@ Variabler följer följande JSON-exempel:
 
 ## <a name="aggregate-variables"></a>Aggregera variabler
 
-| Variabel egenskap | Description |
+| Variabel egenskap | Beskrivning |
 | --- | ---|
 | Variabel filter | Filter är valfria villkorliga satser för att begränsa antalet rader som ska beaktas för beräkning. |
 | Variabel agg regering | Utför beräkningar genom de [agg regerings funktioner som stöds för mängd varierande typer](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
 ms.openlocfilehash: 8abbe575e855347714c19c40155d890af484d5d6
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91822331"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Vägar i för hands versionen av Azure statisk Web Apps
@@ -28,13 +28,13 @@ Routning i Azures statiska Web Apps definierar regler för Routning och auktoris
 
 Mer information finns i [exempel cirkulations filen](#example-route-file) .
 
-## <a name="location"></a>Location
+## <a name="location"></a>Plats
 
 _routes.js_ filen måste finnas i roten i appens version av programartefakt. Om din webbapp innehåller ett build-steg som kopierar skapade filer från en speciell mapp till din version av en artefakt, måste _routes.js_ filen finnas i den specifika mappen.
 
 I följande tabell visas en lista över lämpliga platser för att lägga _routes.jspå_ en fil för ett antal klient dels ramverk och bibliotek.
 
-|Ramverk/bibliotek | Location  |
+|Ramverk/bibliotek | Plats  |
 |---------|----------|
 | Angular | _till gångar_   |
 | React   | _public_  |

@@ -4,10 +4,10 @@ description: Använd Azure Portal för att exportera en Azure Resource Manager m
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.openlocfilehash: 0262517df11f0d91920fd7e44f96ff532ffbe63f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87423243"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportera en och flera resurser till en mall i Azure Portal
@@ -55,7 +55,7 @@ Om du vill exportera resurser som skapats via den klassiska distributions modell
 
 Om du får en varning när du exporterar en mall som anger att ingen resurs typ exporterades, kan du fortfarande identifiera egenskaperna för resursen. Läs mer om de olika alternativen för att Visa resurs egenskaper i [identifiera resurs egenskaper](view-resources.md). Du kan också titta på [Azure-REST API](/rest/api/azure/) för resurs typen.
 
-## <a name="export-template-from-a-resource-group"></a>Exportera mall från en resurs grupp
+## <a name="export-template-from-a-resource-group"></a>Exportera en mall från en resursgrupp
 
 Så här exporterar du en eller flera resurser från en resurs grupp:
 

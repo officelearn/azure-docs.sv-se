@@ -15,10 +15,10 @@ ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d845c1fbefd5c9a6119d089824eba6cc35228a3e
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055817"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD
@@ -322,7 +322,7 @@ Med Azure logg integrering kan du integrera obehandlade loggar från dina Azure-
 
 * Azure aktivitets loggar
 * Azure Security Center-aviseringar
-* Azure resurs loggar
+* Azure-resursloggar
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Ytterligare steg för organisationer som hanterar åtkomst till andra molnappar via Azure AD
 
@@ -358,8 +358,8 @@ Steg 4 i översikten bör implementeras på sex månader och mer. Slutför din �
 
 Att skydda privilegie rad åtkomst är viktigt för att upprätta säkerhets garantier för företagets till gångar. Det bör dock ingå i ett komplett säkerhets program som tillhandahåller säkerhets garantier som pågår. Det här programmet bör innehålla element som:
 
-* Policy
-* Operations
+* Princip
+* Åtgärder
 * Informations säkerhet
 * Servrar
 * Program

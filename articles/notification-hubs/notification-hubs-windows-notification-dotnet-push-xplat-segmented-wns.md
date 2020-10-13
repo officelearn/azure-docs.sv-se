@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 027bbebaaab0694cfa0157464d47ef2c8e08fbff
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88998228"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>Självstudie: skicka meddelanden till vissa enheter som kör Universell Windows-plattform program
@@ -47,7 +47,7 @@ I den här självstudien utför du följande uppgifter:
 > * Skicka taggade meddelanden
 > * Kör appen och generera meddelanden
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför [Självstudier: Skicka meddelanden till Universal Windows Platform-appar med hjälp av Azure Notification Hubs][get-started] innan du startar den här självstudiekursen.  
 

@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8324b82a05d7e78772e0b0b6de3a9bfaa183411
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265399"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Installera Azure AD Connect med en befintlig ADSync-databas
@@ -96,7 +96,7 @@ Använd tabellen nedan för att kontrol lera eventuella ytterligare steg som kr�
 |-----|-----|
 |Hash-synkronisering av lösen ord| inställningarna för synkronisering av lösen ord och tillbakaskrivning av lösen ord återställs helt för versioner av Azure AD Connect som börjar med 1.2.65.0.  Om du återställer med en äldre version av Azure AD Connect granskar du inställningarna för synkronisering för dessa funktioner för att se till att de matchar den aktiva synkroniseringstjänsten.  Inga andra konfigurations steg bör vara nödvändiga.|
 |Federation med AD FS|Azure-autentiseringar fortsätter att använda den AD FS principen som kon figurer ATS för den aktiva synkroniseringstjänsten.  Om du använder Azure AD Connect för att hantera AD FS-servergruppen kan du alternativt ändra inloggnings metoden till AD FS federationen som förberedelse för din standby-server som blir den aktiva synkroniseringsåtgärden.   Om enhets alternativ är aktiverade på den aktiva synkroniseringstjänsten konfigurerar du de alternativen på den här servern genom att köra aktiviteten "Konfigurera enhets alternativ".|
-|Direktautentisering och enkel inloggning med skriv bord|Uppdatera inloggnings metoden för att matcha konfigurationen på din aktiva synkroniseringstjänst.  Om detta inte följs innan du befordrar servern till primär, inaktive ras direktautentisering tillsammans med sömlös enkel inloggning och klienten kan vara utelåst om du inte har ett lösen ord för hash-synkronisering som reserv inloggnings alternativ. Observera också att när du aktiverar direktautentisering i mellanlagringsplatsen installeras en ny autentiseringstjänst, som är registrerad och körs som en agent med hög tillgänglighet som accepterar inloggnings förfrågningar.|
+|Direkt autentisering och skriv bords Sign-On|Uppdatera inloggnings metoden för att matcha konfigurationen på din aktiva synkroniseringstjänst.  Om detta inte följs innan du befordrar servern till primär, inaktive ras direktautentisering tillsammans med sömlös enkel inloggning och klienten kan vara utelåst om du inte har ett lösen ord för hash-synkronisering som reserv inloggnings alternativ. Observera också att när du aktiverar direktautentisering i mellanlagringsplatsen installeras en ny autentiseringstjänst, som är registrerad och körs som en agent med hög tillgänglighet som accepterar inloggnings förfrågningar.|
 |Federation med PingFederate|Azure-autentiseringar fortsätter att använda PingFederate-principen som kon figurer ATS för din aktiva synkroniseringstjänst.  Alternativt kan du ändra inloggnings metoden till PingFederate som förberedelse för att din vänte Server ska bli den aktiva synkroniseringsåtgärden.  Det här steget kan skjutas upp tills du behöver federera ytterligare domäner med PingFederate.|
 
 ## <a name="next-steps"></a>Nästa steg

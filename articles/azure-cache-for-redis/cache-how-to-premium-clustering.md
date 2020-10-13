@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
 ms.openlocfilehash: d37aa275a07586738bf7416cee6611bdc8284df3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88004766"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du Redis-klustring för en Premium Azure-cache för Redis
@@ -62,7 +62,7 @@ Om du vill ändra kluster storleken på en Premium-cache som körs med klustrad 
 
 Om du vill ändra kluster storleken använder du skjutreglaget eller skriver ett tal mellan 1 och 10 i text rutan **Shard Count** och klickar på **OK** för att spara.
 
-Att öka kluster storleken ökar det maximala data flödet och cache-storleken. Att öka kluster storleken ökar inte Max värdet. anslutningar tillgängliga för klienter.
+Att öka kluster storleken ökar det maximala data flödet och cache-storleken. Att öka kluster storleken ökar inte max. anslutningar som är tillgängliga för klienter.
 
 > [!NOTE]
 > Skalning av ett kluster kör kommandot [migrera](https://redis.io/commands/migrate) , vilket är ett dyrt kommando, så för minimal påverkan bör du överväga att köra den här åtgärden under låg belastnings tider. Under migreringsprocessen visas en ökning i Server belastningen. Att skala ett kluster är en tids krävande process och hur lång tid det tar beror på antalet nycklar och storleken på de värden som är associerade med dessa nycklar.

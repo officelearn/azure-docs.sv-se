@@ -4,10 +4,10 @@ description: Använd Azure Advisor för att optimera och mogna din operativa kom
 ms.topic: article
 ms.date: 10/24/2019
 ms.openlocfilehash: 036adb7e7d59bd78980c72b210ad41faea277d00
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88258485"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Få drifts kvalitet genom att använda Azure Advisor
@@ -57,7 +57,7 @@ Azure Policy är en tjänst i Azure som du kan använda för att skapa, tilldela
 ## <a name="no-validation-environment-enabled"></a>Ingen valideringsmiljö är aktiverad
 Azure Advisor anger att du inte har en validerings miljö aktive rad i den aktuella prenumerationen. När du skapar värd grupper har du valt \" Nej \" för \" validerings miljö \" på fliken Egenskaper. Att ha minst en adresspool med en validerings miljö aktive rad säkerställer affärs kontinuiteten genom distributioner av Windows Virtual Desktop-tjänster med tidig identifiering av potentiella problem. [Läs mer](https://docs.microsoft.com/azure/virtual-desktop/create-validation-host-pool)
 
-## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>Se till att produktions miljön (som inte är validering) kan dra nytta av stabila funktioner
+## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>Se till att produktionsmiljön (inte valideringsmiljö) kan dra nytta av stabila funktioner
 Azure Advisor upptäcker att för många av dina värdar har validerings miljön aktive rad. För att validerings miljöer ska fungera på bästa sätt bör du ha minst en, men aldrig fler än hälften av värd grupper i verifierings miljön. Genom att ha en felfri balans mellan värd-pooler med validerings miljö aktive rad och de med den inaktiverade, kommer du bäst att kunna använda fördelarna med de distributioner av multisteg som Windows Virtual Desktop erbjuder med vissa uppdateringar. Du kan åtgärda det här problemet genom att öppna värd poolens egenskaper och välja \" Nej \" bredvid \" validerings miljö \" inställningen.
 
 ## <a name="enable-traffic-analytics-to-view-insights-into-traffic-patterns-across-azure-resources"></a>Aktivera Trafikanalys för att visa insikter om trafikmönster i Azure-resurser

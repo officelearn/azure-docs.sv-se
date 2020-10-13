@@ -13,10 +13,10 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: System Architecture'
 ms.openlocfilehash: 2289ff37a0e524bc765163047608eb604c02372e
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90019809"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Enhetsautentisering med X.509-certifikatutfärdarcertifikat
@@ -86,7 +86,7 @@ En lyckad enhets anslutning till IoT Hub är klar med autentiseringsprocessen oc
 
 Lär dig här steg för att [slutföra den här enhets anslutningen](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om [värdet X. 509 ca-autentisering](iot-hub-x509ca-concept.md) i IoT.
 

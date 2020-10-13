@@ -1,18 +1,18 @@
 ---
 title: Utvärdera effekten av en ny Azure Policy-definition
 description: Förstå den process som ska följas när du introducerar en ny princip definition i din Azure-miljö.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 243f04cc20e1fb7167306b925a0e494b34cf1267
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d73d703c38dce1335a471bfad9171d8b30a83c5
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544710"
+ms.locfileid: "91873876"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Utvärdera effekten av en ny Azure Policy-definition
 
-Azure Policy är ett kraftfullt verktyg för att hantera dina Azure-resurser till företags standarder och uppfylla behoven för efterlevnad. När personer, processer eller pipeliner skapar eller uppdaterar resurser, granskar Azure Policy begäran. När princip definitions effekterna är [APPEND](./effects.md#deny) eller [DeployIfNotExists](./effects.md#deployifnotexists), ändrar principen begäran eller lägger till den. När princip definitions effekterna är [gransknings](./effects.md#audit) -eller [AuditIfNotExists](./effects.md#auditifnotexists)så gör principen att en aktivitets logg post skapas. När princip definitions resultatet är [nekat](./effects.md#deny), stoppar principen skapandet eller ändringen av begäran.
+Azure Policy är ett kraftfullt verktyg för att hantera dina Azure-resurser till företags standarder och uppfylla behoven för efterlevnad. När personer, processer eller pipeliner skapar eller uppdaterar resurser, granskar Azure Policy begäran. När princip definitions effekterna ändras, [läggs](./effects.md#deny) till eller [DeployIfNotExists](./effects.md#deployifnotexists) [, ändrar principen](./effects.md#modify)begäran eller lägger till den. När princip definitions effekterna är [gransknings](./effects.md#audit) -eller [AuditIfNotExists](./effects.md#auditifnotexists), gör principen att en aktivitets logg post skapas för nya och uppdaterade resurser. När princip definitions resultatet är [nekat](./effects.md#deny), stoppar principen skapandet eller ändringen av begäran.
 
 Dessa resultat är exakt så som du vill när du vet att principen är korrekt definierad. Det är dock viktigt att verifiera att en ny princip fungerar som avsett innan den gör det möjligt att ändra eller blockera arbete. Verifieringen måste se till att endast de avsedda resurserna bedöms vara icke-kompatibla och inga kompatibla resurser ingår felaktigt (kallas _falskt positiv_) i resultaten.
 

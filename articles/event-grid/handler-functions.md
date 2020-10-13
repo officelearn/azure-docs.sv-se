@@ -3,20 +3,29 @@ title: Azure Function som händelse hanterare för Azure Event Grid händelser
 description: Beskriver hur du kan använda Azure Functions som händelse hanterare för Event Grid händelser.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: db06962c020eb954bf0c595e5a4019b1df774898
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: cd500eed180096388eede96f768f08b896ca6456
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629696"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873735"
 ---
 # <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Azure Function som händelse hanterare för Event Grid händelser
 
 En händelse hanterare är den plats där händelsen skickas. Hanteraren vidtar en åtgärd för att bearbeta händelsen. Flera Azure-tjänster konfigureras automatiskt för att hantera händelser och **Azure Functions** är en av dem. 
 
-Använd **Azure Functions** i en server lös arkitektur för att svara på händelser från Event Grid. När du använder en Azure-funktion som hanterare använder du Event Grid-utlösaren i stället för den allmänna HTTP-utlösaren. Event Grid validerar automatiskt Event Grid-utlösare. Med allmänna HTTP-utlösare måste du implementera [verifierings svaret](webhook-event-delivery.md) själv.
 
-Mer information finns i [Event Grid utlösare för Azure Functions](../azure-functions/functions-bindings-event-grid.md) för en översikt över hur du använder Event Grid-utlösaren i functions.
+Följ någon av dessa metoder om du vill använda en Azure-funktion som hanterare för händelser: 
+
+-   Använd [Event Grid-utlösare](../azure-functions/functions-bindings-event-grid-trigger.md).  Ange **Azure Function** som **typ av slut punkt**. Ange sedan Azure Function-appen och funktionen som ska hantera händelser. 
+-   Använd [http-utlösare](../azure-functions/functions-bindings-http-webhook.md).  Ange **Web Hook** som **typ av slut punkt**. Ange sedan URL: en för den Azure-funktion som ska hantera händelser. 
+
+Vi rekommenderar att du använder den första metoden (Event Grid utlösare) eftersom den har följande fördelar jämfört med den andra metoden:
+-   Event Grid validerar automatiskt Event Grid-utlösare. Med allmänna HTTP-utlösare måste du implementera [verifierings svaret](webhook-event-delivery.md) själv.
+-   Event Grid justerar automatiskt den hastighet med vilken händelser levereras till en funktion som utlöses av en Event Grid händelse baserat på den uppskattade frekvens som funktionen kan bearbeta händelser för. Den här frekvensen matchar AVERTs leverans fel som härrör från oförmåga att en funktion bearbetar händelser som funktionens händelse bearbetnings takt kan variera över tid. Du kan förbättra effektiviteten vid hög genom strömning genom att aktivera batching av händelse prenumerationen. Mer information finns i [Aktivera batching](#enable-batching).
+
+    > [!NOTE]
+    > För närvarande kan du inte använda en Event Grid-utlösare för en Azure Functions-app när händelsen levereras i **CloudEvents** -schemat. Använd i stället en HTTP-utlösare.
 
 ## <a name="tutorials"></a>Självstudier
 

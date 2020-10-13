@@ -56,6 +56,8 @@
           href: dsvm-common-identity.md
         - name: Skydda autentiseringsuppgifter för resursåtkomst
           href: dsvm-secure-access-keys.md
+    - name: Uppgradera din Data Science Virtual Machine till Ubuntu 18.04
+      href: ubuntu-upgrade.md
 - name: Resurser
   items:
     - name: Frågesida på Microsoft Q&A

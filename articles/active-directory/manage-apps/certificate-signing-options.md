@@ -17,10 +17,10 @@ ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f2625698ae1d76dbae3ed8a8855b88dd6ac7bb17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763694"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Avancerade alternativ för certifikat signering i SAML-token för Galleri-appar i Azure Active Directory
@@ -62,10 +62,10 @@ Om du vill ändra ett programs signerings alternativ för SAML-certifikat och al
 Ändra sedan alternativen för certifikat signering i SAML-token för programmet:
 
 1. I det vänstra fönstret på sidan program översikt väljer du **enkel inloggning**.
-1. Om sidan **Konfigurera enkel inloggning med SAML-förhands granskning** visas går du till steg 5.
+1. Om sidan **Konfigurera en enda Sign-On med SAML-förhands granskning** visas går du till steg 5.
 1. Om sidan **Välj en enkel inloggnings metod** inte visas väljer du **ändra lägen för enkel inloggning** för att visa sidan.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML** om det är tillgängligt. (Om **SAML** inte är tillgängligt stöder programmet inte SAML, och du kan ignorera resten av den här proceduren och artikeln.)
-1. På sidan **Konfigurera enkel inloggning med SAML-förhands granskning** letar du upp certifikat rubriken för **SAML-signering** och väljer **redigerings** ikonen (en blyertspenna). Sidan **SAML-signerings certifikat** visas.
+1. På sidan **Konfigurera en enskild Sign-On med SAML-Preview** letar du upp certifikat rubriken för **SAML-signering** och väljer **redigerings** ikonen (en blyertspenna). Sidan **SAML-signerings certifikat** visas.
 
    ![Exempel: sidan för SAML-signerings certifikat](./media/certificate-signing-options/saml-signing-page.png)
 

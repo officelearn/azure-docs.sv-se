@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.openlocfilehash: 19e3f1a157ee2c042dfebfc96c9b51c3c4698ebc
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88163738"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Övervaka kluster tillgänglighet med Azure Monitor loggar i HDInsight
@@ -40,7 +40,7 @@ När Azure Monitor logg integrering har Aktiver ATS (det här kan ta några minu
 
 Loggar visar ett antal exempel frågor, till exempel:
 
-| Frågenamn                      | Description                                                               |
+| Frågenamn                      | Beskrivning                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
 | Tillgänglighet för datorer idag    | Rita ett diagram över antalet datorer som skickar loggar, varje timme                     |
 | Visa pulsslag                 | Visa en lista över alla dator pulsslag från den senaste timmen                           |
@@ -99,7 +99,7 @@ Då öppnas **Lägg till åtgärds grupp**. Välj ett **Åtgärds grupp namn**, 
 > [!NOTE]
 > Det finns flera andra åtgärder som en avisering kan utlösa förutom e-post/SMS/push/Voice, till exempel en Azure Function-, LogicApp-, webhook-, ITSM-och Automation-Runbook. [Lära sig mer.](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#action-specific-information)
 
-Då öppnas **e-post/SMS/push/röst**. Välj ett **namn** för mottagaren, **Markera** rutan **e-** postadress och skriv en e-postadress som du vill att aviseringen ska skickas till. Välj **OK** i **e-post/SMS/push/Voice**, sedan i **Lägg till åtgärds grupp** för att slutföra konfigurationen av åtgärds gruppen.
+Då öppnas **e-post/SMS/push/röst**. Välj ett **namn** för mottagaren, **Markera** rutan **e-** postadress och skriv en e-postadress som du vill att aviseringen ska skickas till. Välj **OK** i  **e-post/SMS/push/Voice**, sedan i **Lägg till åtgärds grupp** för att slutföra konfigurationen av åtgärds gruppen.
 
 ![Varnings regeln skapar Lägg till åtgärds grupp](media/cluster-availability-monitor-logs/portal-add-action-group.png)
 

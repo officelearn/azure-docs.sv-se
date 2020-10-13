@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
 ms.openlocfilehash: dfd7b3dcc7e27dd1251c35c6272b5aa7f8036006
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88942410"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Självstudie: lagra Azure Media Services händelser i Azure Log Analytics
@@ -38,7 +38,7 @@ Du lär dig hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > * En [Azure-prenumeration](how-to-set-azure-subscription.md)
 > * Ett [Media Services](create-account-howto.md) konto och en resurs grupp.
@@ -124,7 +124,7 @@ Nu när du prenumererar på händelse (r) skapar du en åtgärd.
     > [!div class="mx-imgBorder"]
     > ![Ämne valt](media/tutorial-events-log-analytics/topic-selected.png)
 
-1. Välj **kodvyn** för Logic app. Leta efter raderna indata och logg typ.
+1. Välj **kodvyn** för Logic app. Leta efter indata och Log-Type rader.
     > [!div class="mx-imgBorder"]
     > ![Kodvyn för två rader](media/tutorial-events-log-analytics/code-view-two-lines.png)
 
@@ -144,7 +144,7 @@ Nu när du prenumererar på händelse (r) skapar du en åtgärd.
     > [!div class="mx-imgBorder"]
     > ![Visa alla nya resurser i resurs gruppen](media/tutorial-events-log-analytics/contoso-rg-listing.png)
 
-## <a name="test"></a>Test
+## <a name="test"></a>Testa
 
 Du kan testa hur det fungerar genom att skapa en direkt sändnings händelse i Azure Media Services. Skapa en RTMP Live-händelse och Använd ffmpeg för att skicka en "Live"-ström baserat på en. mp4-exempel fil. Hämta RTMP-inmatnings-URL: en när händelsen har skapats.
 

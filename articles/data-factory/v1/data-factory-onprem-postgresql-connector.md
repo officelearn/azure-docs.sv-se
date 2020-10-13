@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082842"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Flytta data från PostgreSQL med hjälp av Azure Data Factory
@@ -72,14 +72,14 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Egenskapen Type måste anges till: **OnPremisesPostgreSql** |Yes |
-| server |Namnet på PostgreSQL-servern. |Yes |
-| databas |Namnet på PostgreSQL-databasen. |Yes |
-| schema |Namnet på schemat i databasen. Schema namnet är Skift läges känsligt. |No |
-| authenticationType |Typ av autentisering som används för att ansluta till PostgreSQL-databasen. Möjliga värden är: Anonym, Basic och Windows. |Yes |
-| användarnamn |Ange användar namn om du använder Basic-eller Windows-autentisering. |No |
-| password |Ange lösen ordet för det användar konto som du har angett för användar namnet. |No |
-| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala PostgreSQL-databasen. |Yes |
+| typ |Egenskapen Type måste anges till: **OnPremisesPostgreSql** |Ja |
+| server |Namnet på PostgreSQL-servern. |Ja |
+| databas |Namnet på PostgreSQL-databasen. |Ja |
+| schema |Namnet på schemat i databasen. Schema namnet är Skift läges känsligt. |Inga |
+| authenticationType |Typ av autentisering som används för att ansluta till PostgreSQL-databasen. Möjliga värden är: Anonym, Basic och Windows. |Ja |
+| användarnamn |Ange användar namn om du använder Basic-eller Windows-autentisering. |Inga |
+| password |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Inga |
+| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala PostgreSQL-databasen. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar samma för alla data uppsättnings typer.
@@ -97,9 +97,9 @@ De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten var
 
 När källan är av typen **RelationalSource** (som innehåller postgresql) är följande egenskaper tillgängliga i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
 
 > [!NOTE]
 > Schema-och tabell namn är Skift läges känsliga. Omge dem med `""` (dubbla citat tecken) i frågan.
@@ -339,7 +339,7 @@ När du flyttar data till PostgreSQL används följande mappningar från Postgre
 | pg_lsn | |Int64 |
 | pekaren | |Byte [], sträng |
 | Polygonlasso | |Byte [], sträng |
-| real |float4 |Enskilt |
+| real |float4 |Enkel |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | nummer |serial4 |Int32 |

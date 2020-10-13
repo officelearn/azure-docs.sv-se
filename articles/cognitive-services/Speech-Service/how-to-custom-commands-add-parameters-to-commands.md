@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 0ed237debc2395ed307658b2d57a541574f9478a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284157"
 ---
 # <a name="add-parameters-to-commands"></a>Lägga till parametrar till kommandon
 
 I den här artikeln får du lära dig hur du lägger till parametrar till anpassade kommandon. Parametrar är information som krävs av kommandona för att slutföra en uppgift. I komplexa scenarier kan parametrar också användas för att definiera villkor som utlöser anpassade åtgärder.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!div class="checklist"]
 > * [Så här: skapa program med enkla kommandon](./how-to-custom-commands-create-application-with-simple-commands.md)
@@ -36,7 +36,7 @@ Redigera det befintliga **TurnON** -kommandot för att aktivera och inaktivera f
    1. Välj **Byt namn**. Ändra **namnet** till **TurnOnOff**i **namn på kommando** fönster.
 
 1. Sedan lägger du till en ny parameter i det här kommandot som anger om användaren vill aktivera eller inaktivera enheten.
-   1. Välj **Lägg till** finns överst i den mellersta rutan. Välj **parameter**i list rutan.
+   1. Välj  **Lägg till** finns överst i den mellersta rutan. Välj **parameter**i list rutan.
    1. I den högra rutan, i avsnittet **parametrar** , lägger du till värdet i rutan **namn** som **mikrofonen**.
    1. Välj **obligatoriskt**. I fönstret **Lägg till svar för en obligatorisk parameter** väljer du **enkel redigerare**. I den **första varianten**lägger du till
         ```
@@ -55,13 +55,13 @@ Redigera det befintliga **TurnON** -kommandot för att aktivera och inaktivera f
        | Namn               | `OnOff`           | Ett beskrivande namn för parametern                                                                           |
        | Är global          | avmarkerat       | Kryss ruta som anger om ett värde för den här parametern används globalt för alla kommandon i programmet|
        | Krävs           | analysera         | Kryss ruta som anger om ett värde för den här parametern krävs innan kommandot slutförs |
-       | Svar för obligatorisk parameter      |Enkel redigerare >`On or Off?`      | En uppmaning om att fråga efter värdet för den här parametern när den inte är känd |
+       | Svar för obligatorisk parameter      |Enkel redigerare > `On or Off?`      | En uppmaning om att fråga efter värdet för den här parametern när den inte är känd |
        | Typ               | Sträng          | Typ av parameter, till exempel Number, String, datum tid eller geografi   |
        | Konfiguration      | Acceptera fördefinierade indatavärden från intern katalog | För strängar begränsar detta indata till en uppsättning möjliga värden |
        | Fördefinierade indatavärden     | `on`, `off`           | Uppsättning möjliga värden och deras alias         |
        
         
-   1. Om du vill lägga till fördefinierade indatavärden väljer du **Lägg till ett fördefinierat indata** och i fönstret **nytt objekt** , skriver in **namnet** enligt vad som anges i tabellen ovan. I det här fallet använder vi inte alias, så du kan lämna det tomt.
+   1. Om du vill lägga till fördefinierade indatavärden väljer du **Lägg till ett fördefinierat indata** och i fönstret **nytt objekt**  , skriver in **namnet** enligt vad som anges i tabellen ovan. I det här fallet använder vi inte alias, så du kan lämna det tomt.
    
       > [!div class="mx-imgBorder"]
       > ![Skapa parameter](media/custom-commands/create-on-off-parameter.png)
@@ -78,7 +78,7 @@ Redigera det befintliga **TurnON** -kommandot för att aktivera och inaktivera f
        | Namn               | `SubjectDevice`         |
        | Är global          | avmarkerat             |
        | Krävs           | analysera               |
-       | Svar för obligatorisk parameter     | Enkel redigerare >`Which device do you want to control?`    | 
+       | Svar för obligatorisk parameter     | Enkel redigerare > `Which device do you want to control?`    | 
        | Typ               | Sträng                |          |
        | Konfiguration      | Acceptera fördefinierade indatavärden från intern katalog | 
        | Fördefinierade indatavärden | `tv`, `fan`               |
@@ -88,11 +88,11 @@ Redigera det befintliga **TurnON** -kommandot för att aktivera och inaktivera f
 
 ### <a name="modify-example-sentences"></a>Ändra exempel meningar
 
-För kommandon med parametrar är det bra att lägga till exempel meningar som beskriver alla möjliga kombinationer. Till exempel:
+För kommandon med parametrar är det bra att lägga till exempel meningar som beskriver alla möjliga kombinationer. Exempel:
 
-* Fullständig parameter information –`turn {OnOff} the {SubjectDevice}`
-* Partiell parameter information –`turn it {OnOff}`
-* Ingen parameter information –`turn something`
+* Fullständig parameter information – `turn {OnOff} the {SubjectDevice}`
+* Partiell parameter information – `turn it {OnOff}`
+* Ingen parameter information – `turn something`
 
 Exempel på meningar med olika typer av information gör att de anpassade kommandona kan matcha både ensidiga lösningar och flera lösningar med delvis information.
 
@@ -109,7 +109,7 @@ turn something
 Välj **Spara**.
 
 > [!TIP]
-> I exempel menings redigeraren använder du klammerparenteser för att referera till dina parametrar. - `turn {OnOff} the {SubjectDevice}`Använd fliken för automatisk komplettering som backas upp av parametrarna som skapats tidigare.
+> I exempel menings redigeraren använder du klammerparenteser för att referera till dina parametrar. - `turn {OnOff} the {SubjectDevice}` Använd fliken för automatisk komplettering som backas upp av parametrarna som skapats tidigare.
 
 ### <a name="modify-completion-rules-to-include-parameters"></a>Ändra regler för slut för ande för att inkludera parametrar
 
@@ -126,7 +126,7 @@ Välj **Spara**.
     ```
 1. Välj **Spara**.
 
-### <a name="try-it-out"></a>Prova
+### <a name="try-it-out"></a>Prova nu
 1. Välj **träna** -ikonen överst i den högra rutan.
 
 1. När inlärningen är klar väljer du **test**. Ett **test av** programfönstret visas.
@@ -151,7 +151,7 @@ Lägg till ny parameter **temperatur** med följande konfiguration
 | ------------------ | ----------------|
 | Namn               | `Temperature`           |
 | Krävs           | analysera         |
-| Svar för obligatorisk parameter      | Enkel redigerare >`What temperature would you like?`
+| Svar för obligatorisk parameter      | Enkel redigerare > `What temperature would you like?`
 | Typ               | Antal          |
 
 
@@ -169,9 +169,9 @@ Redigera befintliga regler för slut för Ande enligt följande konfiguration.
 | Konfiguration      | Föreslaget värde     |
 | ------------------ | ----------------|
 | Villkor         | Obligatorisk parameter > temperatur           |
-| Åtgärder           | Skicka tal svar >`Ok, setting temperature to {Temperature} degrees` |
+| Åtgärder           | Skicka tal svar > `Ok, setting temperature to {Temperature} degrees` |
 
-### <a name="try-it-out"></a>Prova
+### <a name="try-it-out"></a>Prova nu
 
 **Träna** och **testa** ändringarna med några interaktioner.
 
@@ -188,7 +188,7 @@ Lägg till en parameter med namnet **datetime** med följande konfiguration.
    | --------------------------------- | ----------------------------------------|
    | Namn                              | `DateTime`                               |
    | Krävs                          | analysera                                 |
-   | Svar för obligatorisk parameter   | Enkel redigerare >`For what time?`            | 
+   | Svar för obligatorisk parameter   | Enkel redigerare > `For what time?`            | 
    | Typ                              | DateTime                                |
    | Standardinställningar för datum                     | Om datumet saknas används idag            |
    | Standardvärden                     | Om tiden saknas i början av dagen     |
@@ -210,10 +210,10 @@ Redigera befintliga regler för slut för Ande enligt följande konfiguration.
 
    | Inställning    | Föreslaget värde                               |
    | ---------- | ------------------------------------------------------- |
-   | Åtgärder    | Skicka tal svar –`Ok, alarm set for {DateTime}`  |
+   | Åtgärder    | Skicka tal svar – `Ok, alarm set for {DateTime}`  |
 
 
-### <a name="try-it-out"></a>Prova
+### <a name="try-it-out"></a>Prova nu
 
 **Träna** och **testa** ändringarna.
 - Inmatade: Ställ in alarm i morgon kl. 12.00

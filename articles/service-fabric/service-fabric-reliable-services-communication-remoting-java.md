@@ -7,10 +7,10 @@ ms.date: 06/30/2017
 ms.custom: devx-track-java
 ms.author: pakunapa
 ms.openlocfilehash: d53d20510db70d81aab796efab48de40c880bb3a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87316132"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>Fjärrhantering av tjänster i Java med Reliable Services
@@ -26,7 +26,7 @@ För tjänster som inte är knutna till ett visst kommunikations protokoll eller
 Att konfigurera fjärr kommunikation för en tjänst görs i två enkla steg:
 
 1. Skapa ett gränssnitt för tjänsten som ska implementeras. Det här gränssnittet definierar de metoder som är tillgängliga för ett fjärran rop på din tjänst. Metoderna måste vara en uppgift som returnerar asynkrona metoder. Gränssnittet måste implementera `microsoft.serviceFabric.services.remoting.Service` för att signalera att tjänsten har ett Remoting-gränssnitt.
-2. Använd en Remoting-lyssnare i din tjänst. Det här är en `CommunicationListener` implementering som tillhandahåller funktioner för fjärr kommunikation. `FabricTransportServiceRemotingListener`kan användas för att skapa en Remoting-lyssnare med hjälp av standard transport protokollet för fjärr kommunikation.
+2. Använd en Remoting-lyssnare i din tjänst. Det här är en `CommunicationListener` implementering som tillhandahåller funktioner för fjärr kommunikation. `FabricTransportServiceRemotingListener` kan användas för att skapa en Remoting-lyssnare med hjälp av standard transport protokollet för fjärr kommunikation.
 
 Till exempel visar följande tillstånds lösa tjänst en enda metod för att få "Hello World" över ett fjärran rop.
 
@@ -86,7 +86,7 @@ ServiceProxy-skapande är en förenklad åtgärd så att du kan skapa så många
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory livs längd
 [FabricServiceProxyFactory](/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) är en fabrik som skapar proxy för olika fjärr kommunikations gränssnitt. Om du använder API `ServiceProxyBase.create` för att skapa proxy skapar ramverket en `FabricServiceProxyFactory` .
 Det är praktiskt att skapa en manuellt när du behöver åsidosätta [ServiceRemotingClientFactory](/java/api/microsoft.servicefabric.services.remoting.client.serviceremotingclientfactory) -egenskaper.
-Fabriken är en dyr åtgärd. `FabricServiceProxyFactory`upprätthåller cacheminnet för kommunikations klienter.
+Fabriken är en dyr åtgärd. `FabricServiceProxyFactory` upprätthåller cacheminnet för kommunikations klienter.
 Bästa praxis är att cachelagra så `FabricServiceProxyFactory` länge som möjligt.
 
 ## <a name="remoting-exception-handling"></a>Undantags hantering för fjärr kommunikation

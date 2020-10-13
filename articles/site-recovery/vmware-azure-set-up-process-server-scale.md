@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
 ms.openlocfilehash: 40f912122e6ffb9cccbd32a747f6f0d46fd6c330
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292798"
 ---
 # <a name="scale-with-additional-process-servers"></a>Skala med ytterligare process servrar
@@ -37,11 +37,11 @@ Kontrol lera storleks kraven som sammanfattas i tabellen. I allmänhet behöver 
 | --- | --- | --- | --- |
 |4 virtuella processorer (2 Sockets * 2 kärnor \@ 2,5 GHz), 8 GB minne |300 GB |250 GB eller mindre |Replikera 85 eller färre datorer. |
 |8 virtuella processorer (2 Sockets * 4 kärnor \@ 2,5 GHz), 12 GB minne |600 GB |250 GB till 1 TB |Replikera mellan 85-150 datorer. |
-|12 virtuella processorer (2 Sockets * 6 kärnor \@ 2,5 GHz) 24 GB minne |1 TB |1 TB till 2 TB |Replikera mellan 150-225 datorer. |
+|12 virtuella processorer (2 Sockets * 6 kärnor \@ 2,5 GHz) 24 GB minne |1 TB |1 TB till 2 TB |Replikera mellan 150-225 datorer. |
 
 Var varje skyddad käll dator har kon figurer ATS med 3 diskar på 100 GB vardera.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Kraven för den ytterligare processervern sammanfattas i följande tabell.
 
@@ -81,7 +81,7 @@ Där kommando rads parametrarna är följande:
 
 [!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
 
-Till exempel:
+Exempel:
 
 ```
 MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted

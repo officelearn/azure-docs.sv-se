@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: cbcfddcd02a3998b3b35b01d386816735c59ae7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32759ed59e280980abdced46c29390e00ee7229c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526416"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973282"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optisk teckenläsning (OCR)
 
@@ -24,7 +24,7 @@ Azures API för visuellt innehåll innehåller OCR-funktioner (optisk tecken lä
 
 ## <a name="read-api"></a>Läs-API 
 
-Visuellt innehåll [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) är Azures senaste OCR-teknik ([Läs om vad som är nytt](./whats-new.md)) som extraherar utskriven text (på flera språk), handskriven text (endast engelska), siffror och valuta symboler från bilder och PDF-dokument med flera sidor. Det är optimerat för att extrahera text från text – tunga bilder och PDF-dokument med flera sidor med blandade språk. Det stöder identifiering av både skriven och handskriven text i samma bild eller dokument.
+Visuellt innehåll [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) är Azures senaste OCR-teknik ([Läs om vad som är nytt](./whats-new.md)) som extraherar utskriven text (på flera språk), handskriven text (endast engelska), siffror och valuta symboler från bilder och PDF-dokument med flera sidor. Det är optimerat för att extrahera text från text – tunga bilder och PDF-dokument med flera sidor med blandade språk. Det stöder identifiering av både skriven och handskriven text i samma bild eller dokument.
 
 ![Hur OCR konverterar bilder och dokument till strukturerade utdata med extraherad text](./Images/how-ocr-works.svg)
 
@@ -36,21 +36,21 @@ Visuellt innehåll [Read API](https://westcentralus.dev.cognitive.microsoft.com/
 * Fil storleken måste vara mindre än 50 MB (4 MB för den kostnads fria nivån) och dimensioner minst 50 x 50 bild punkter och högst 10000 x 10000 bild punkter. 
 * PDF-dimensionerna måste bestå av högst 17 × 17 tum, som motsvarar legal eller a3 pappers storlekar och mindre.
 
-### <a name="read-31-preview-allows-selecting-pages"></a>Läs 3,1 för hands version tillåter att du väljer sidor
-Med [läsa 3,1 för hands versions-API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005): t kan du ange ett visst sid nummer eller sid intervall som en indataparameter för att extrahera text från dessa sidor för stora dokument med flera sidor. Detta är en ny indataparameter förutom den valfria språk parametern.
+### <a name="read-32-preview-allows-selecting-pages"></a>Läs 3,2 för hands version tillåter att du väljer sidor
+Med [läsa 3,2 för hands versions-API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005): t kan du ange ett visst sid nummer eller sid intervall som en indataparameter för att extrahera text från dessa sidor för stora dokument med flera sidor. Detta är en ny indataparameter förutom den valfria språk parametern.
 
 > [!NOTE]
 > **Språk information** 
 >
-> [Read-anropet](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) har en valfri begär ande parameter för språk. Det här är språk koden BCP-47 för texten i dokumentet. Läs stöder automatisk språk identifiering och flerspråkiga dokument, så du behöver bara ange en språkkod om du vill tvinga dokumentet att bearbetas som det specifika språket.
+> [Read-anropet](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) har en valfri begär ande parameter för språk. Det här är språk koden BCP-47 för texten i dokumentet. Läs stöder automatisk språk identifiering och flerspråkiga dokument, så du behöver bara ange en språkkod om du vill tvinga dokumentet att bearbetas som det specifika språket.
 
 ## <a name="the-read-call"></a>Read-anropet
 
-Läsnings-API: s [Läs anrop](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) tar en bild eller ett PDF-dokument som indata och extraherar text asynkront. Anropet returnerar med ett svars huvud fält som kallas `Operation-Location` . `Operation-Location`Värdet är en URL som innehåller det åtgärds-ID som ska användas i nästa steg.
+Läsnings-API: s [Läs anrop](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) tar en bild eller ett PDF-dokument som indata och extraherar text asynkront. Anropet returnerar med ett svars huvud fält som kallas `Operation-Location` . `Operation-Location`Värdet är en URL som innehåller det åtgärds-ID som ska användas i nästa steg.
 
 |Svars huvud| Resultat-URL |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/vision/v3.0/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/vision/v3.2/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 > [!NOTE]
 > **Billing** 
@@ -59,7 +59,7 @@ Läsnings-API: s [Läs anrop](https://westcentralus.dev.cognitive.microsoft.com/
 
 ## <a name="the-get-read-results-call"></a>Anropet get Read result
 
-Det andra steget är att anropa åtgärden [Hämta Läs resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) . Den här åtgärden utförs som indatamängden för det åtgärds-ID som skapades av Läs åtgärden. Den returnerar ett JSON-svar som innehåller ett **status** fält med följande möjliga värden. Du anropar den här åtgärden iterativt tills den returnerar värdet **lyckades** . Använd ett intervall på 1 till 2 sekunder för att undvika att överskrida antalet begär Anden per sekund (RPS).
+Det andra steget är att anropa åtgärden [Hämta Läs resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) . Den här åtgärden utförs som indatamängden för det åtgärds-ID som skapades av Läs åtgärden. Den returnerar ett JSON-svar som innehåller ett **status** fält med följande möjliga värden. Du anropar den här åtgärden iterativt tills den returnerar värdet **lyckades** . Använd ett intervall på 1 till 2 sekunder för att undvika att överskrida antalet begär Anden per sekund (RPS).
 
 |Fält| Typ | Möjliga värden |
 |:-----|:----:|:----|
@@ -83,7 +83,7 @@ Se följande exempel på ett lyckat JSON-svar:
   "createdDateTime": "2020-05-28T05:13:21Z",
   "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
-    "version": "3.0.0",
+    "version": "3.1.0",
     "readResults": [
       {
         "page": 1,
@@ -128,8 +128,8 @@ Se följande exempel på ett lyckat JSON-svar:
   }
 }
 ```
-### <a name="read-31-preview-adds-text-line-style-latin-languages-only"></a>Läs 3,1 Preview lägger till text linje format (endast latinska språk)
-I [Read 3,1 Preview-API: et](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) visas ett **utseende** objekt som klassificerar om varje textrad är ett utskrifts-eller handstil, tillsammans med en förtroende poäng. Den här funktionen stöds bara för latinska språk.
+### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Läs 3,2 Preview lägger till text linje format (endast latinska språk)
+I [Read 3,2 Preview-API: et](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) visas ett **utseende** objekt som klassificerar om varje textrad är ett utskrifts-eller handstil, tillsammans med en förtroende poäng. Den här funktionen stöds bara för latinska språk.
 
 ```json
   "appearance": {
@@ -140,12 +140,12 @@ I [Read 3,1 Preview-API: et](https://westus2.dev.cognitive.microsoft.com/docs/se
 Kom igång med snabb starter för [visuellt innehåll OCR SDK](./quickstarts-sdk/client-library.md) och [Läs REST API snabb](./QuickStarts/CSharp-hand-text.md) Starter för att börja integrera OCR-funktioner i dina program.
 
 ## <a name="supported-languages-for-print-text"></a>Språk som stöds för utskrifts text
-[API: et Read 3,0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) stöder extrahering av utskriven text på engelska, spanska, tyska, franska, italienska, portugisiska och nederländska språk.
+[API: et Read 3,2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) stöder extrahering av utskriven text på engelska, spanska, tyska, franska, italienska, portugisiska och nederländska språk.
 
 Se de [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) för den fullständiga listan över språk som stöds av OCR.
 
-### <a name="read-31-preview-adds-simplified-chinese-and-japanese"></a>Läs 3,1 för hands version Lägg till förenklad kinesiska och japanska
-Den [offentliga för hands versionen av Read 3,1 API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) lägger till stöd för förenklad kinesiska och japanska. Om ditt scenario kräver stöd för fler språk, se avsnittet [OCR-API](#ocr-api) . 
+### <a name="read-32-preview-adds-simplified-chinese-and-japanese"></a>Läs 3,2 för hands version Lägg till förenklad kinesiska och japanska
+Den [offentliga för hands versionen av Read 3,2 API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) lägger till stöd för förenklad kinesiska och japanska. Om ditt scenario kräver stöd för fler språk, se avsnittet [OCR-API](#ocr-api) . 
 
 ## <a name="supported-languages-for-handwritten-text"></a>Språk som stöds för handskriven text
 Läs åtgärden stöder för närvarande extrahering av handskriven text exklusivt på engelska.
@@ -202,6 +202,6 @@ Precis som med alla kognitiva tjänster bör utvecklare som använder Läs-/OCR-
 ## <a name="next-steps"></a>Nästa steg
 
 - Kom igång med [visuellt innehåll Läs snabb starter för 3,0 SDK](./quickstarts-sdk/client-library.md) i C#, Java, java script eller python.
-- Använd [REST API snabb starter för att läsa 3,0](./QuickStarts/CSharp-hand-text.md) i C#, Java, java script eller python för att lära dig hur du använder REST-API: er.
-- Lär dig mer om att [läsa 3,0 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
-- Läs mer om den [offentliga för hands versionen av läs 3,1 REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) med stöd för förenklad kinesiska och japanska.
+- Använd [REST API snabb starter för att läsa 3,1](./QuickStarts/CSharp-hand-text.md) i C#, Java, java script eller python för att lära dig hur du använder REST-API: er.
+- Lär dig mer om att [läsa 3,1 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
+- Läs mer om den [offentliga för hands versionen av läs 3,2 REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) med stöd för förenklad kinesiska och japanska.

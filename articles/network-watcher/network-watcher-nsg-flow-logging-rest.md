@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 936501674fcf1d428de936174575440edad71de2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84738523"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Konfigurera flödes loggar för nätverks säkerhets grupper med hjälp av REST API
@@ -207,7 +207,7 @@ Följande är ett exempel på svaret som returneras:
 
 ## <a name="download-a-flow-log"></a>Hämta en flödes logg
 
-Lagrings platsen för en flödes logg definieras när den skapas. Ett användbart verktyg för att komma åt dessa flödes loggar som sparas till ett lagrings konto är Microsoft Azure Storage Explorer, som kan hämtas här:https://storageexplorer.com/
+Lagrings platsen för en flödes logg definieras när den skapas. Ett användbart verktyg för att komma åt dessa flödes loggar som sparas till ett lagrings konto är Microsoft Azure Storage Explorer, som kan hämtas här:  https://storageexplorer.com/
 
 Om ett lagrings konto anges sparas paket insamlings filer till ett lagrings konto på följande plats:
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: a69a58da85cf1ee03046626bb076c5cd44196279
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4ec7cd2b0f573a9a74f82546da2367edcf721539
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828718"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91441459"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Distribuera Azure Monitor i skala med Azure Policy
 Vissa Azure Monitor funktioner konfigureras en gång eller ett begränsat antal gånger, men andra måste upprepas för varje resurs som du vill övervaka. I den här artikeln beskrivs metoder för att använda Azure Policy för att implementera Azure Monitor i skala för att säkerställa att övervakningen är konsekvent och korrekt konfigurerad för alla dina Azure-resurser.
@@ -41,7 +41,7 @@ Om du vill visa de inbyggda princip definitionerna som är relaterade till över
 2. Välj **definitioner**.
 3. I **typ**väljer du *inbyggd* och för **kategori**och väljer *övervakning*.
 
-  ![Inbyggda princip definitioner](media/deploy-scale/builtin-policies.png)
+  ![Skärm bild av sidan Azure Policy definitioner i Azure Portal visar en lista över princip definitioner för övervaknings kategorin och den inbyggda typen.](media/deploy-scale/builtin-policies.png)
 
 
 ## <a name="diagnostic-settings"></a>Diagnostikinställningar
@@ -54,7 +54,7 @@ Det finns två inbyggda princip definitioner för varje resurs typ, en för att 
 
 Följande bild visar till exempel princip definitionerna för de inbyggda diagnostikinställningar för Data Lake Analytics.
 
-  ![Inbyggda princip definitioner](media/deploy-scale/builtin-diagnostic-settings.png)
+  ![Delvis skärm bild från sidan Azure Policy definitioner visar två inbyggda inställningar för inställnings principer för Data Lake Analytics.](media/deploy-scale/builtin-diagnostic-settings.png)
 
 ### <a name="custom-policy-definitions"></a>Anpassade princip definitioner
 För resurs typer som inte har en inbyggd princip måste du skapa en anpassad princip definition. Du kan göra detta manuellt i Azure Portal genom att kopiera en befintlig inbyggd princip och sedan ändra för resurs typen. Det är mer effektivt om du skapar principen program mässigt med ett skript i PowerShell-galleriet.
@@ -109,7 +109,7 @@ Se [skapa och tilldela en initiativ definition](../governance/policy/tutorials/c
 ### <a name="assignment"></a>Tilldelning 
 Tilldela initiativet till en hanterings grupp, prenumeration eller resurs grupp för Azure, beroende på omfånget för dina resurser som ska övervakas. En [hanterings grupp](../governance/management-groups/overview.md) är särskilt användbart för en princip som är särskilt användbar om din organisation har flera prenumerationer.
 
-![Initiativtilldelning](media/deploy-scale/initiative-assignment.png)
+![Skärm bild av inställningarna för fliken grundläggande i avsnittet Tilldela initiativ i diagnostikinställningar till Log Analytics arbets ytan i Azure Portal.](media/deploy-scale/initiative-assignment.png)
 
 Genom att använda initiativ parametrar kan du ange arbets ytan eller någon annan information en gång för alla princip definitioner i initiativet. 
 
@@ -146,7 +146,7 @@ Mer information om den här processen finns i [aktivera Azure Monitor for VMS me
 ### <a name="virtual-machine-scale-sets"></a>Skalningsuppsättningar för virtuella datorer
 Om du vill använda Azure Policy för att aktivera övervakning av skalnings uppsättningar för virtuella datorer, tilldelar du initiativet **aktivera Azure Monitor för Virtual Machine Scale set** till en hanterings grupp, prenumeration eller resurs grupp i Azure beroende på vilka resurser som ska övervakas. En [hanterings grupp](../governance/management-groups/overview.md) är särskilt användbart för en princip som är särskilt användbar om din organisation har flera prenumerationer.
 
-![Initiativtilldelning](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
+![Skärm bild av sidan tilldela initiativ i Azure Portal. Initiativ definitionen är inställd på att aktivera Azure Monitor för skalnings uppsättningar för virtuella datorer.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
 Välj arbets ytan som data ska skickas till. Den här arbets ytan måste ha *VMInsights* -lösningen installerad enligt beskrivningen i []() .
 

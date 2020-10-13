@@ -11,10 +11,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 4a923fd34391137f2064cb338ea180ae3782f5e2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88036852"
 ---
 # <a name="authentication-with-azure-maps"></a>Autentisering med Azure Maps
@@ -65,7 +65,7 @@ När programmet har tagit emot en åtkomsttoken skickar SDK: n och/eller program
 | Auktorisering  | Bearer eyJ0e….HNIVN |
 
 > [!NOTE]
-> `x-ms-client-id`är det Azure Maps kontobaserade GUID som visas på sidan Azure Maps autentisering.
+> `x-ms-client-id` är det Azure Maps kontobaserade GUID som visas på sidan Azure Maps autentisering.
 
 Här är ett exempel på en Azure Maps Route-begäran som använder en Azure AD OAuth Bearer-token:
 
@@ -133,7 +133,7 @@ Genom att tilldela en roll tilldelning till en resurs grupp kan du ge åtkomst t
 
 Mer information om RBAC finns i
 > [!div class="nextstepaction"]
-> [Rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/role-based-access-control/overview)
+> [Rollbaserad åtkomst kontroll](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 Mer information om hur du autentiserar ett program med Azure AD och Azure Maps finns i
 > [!div class="nextstepaction"]

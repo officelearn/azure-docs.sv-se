@@ -15,10 +15,10 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 3d4e45d1bf53bab4d1f9c45367f9d051f1668e2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76308947"
 ---
 ### <a name="authenticationresult-properties-in-msalnet"></a>AuthenticationResult-egenskaper i MSAL.NET
@@ -27,10 +27,10 @@ Metoderna för att hämta tokens returneras `AuthenticationResult` . För asynkr
 
 I MSAL.NET `AuthenticationResult` exponeras:
 
-- `AccessToken`för webb-API för att få åtkomst till resurser. Den här parametern är en sträng, vanligt vis en Base-64-kodad JWT. Klienten bör aldrig se ut i åtkomsttoken. Formatet är inte garanterat vara stabilt och kan krypteras för resursen. Att skriva kod som är beroende av innehåll i åtkomsttoken på klienten är en av de största källorna till fel och klient logiks brytningar. Mer information finns i åtkomsttoken [.](../articles/active-directory/develop/access-tokens.md)
-- `IdToken`för användaren. Den här parametern är en kodad JWT. Mer information finns i [ID-token](../articles/active-directory/develop/id-tokens.md).
-- `ExpiresOn`anger datum och tid när token upphör att gälla.
-- `TenantId`innehåller innehavaren där användaren hittades. För gäst användare i Azure Active Directory (Azure AD) B2B-scenarier är klient-ID: t gäst klienten, inte den unika klient organisationen.
+- `AccessToken` för webb-API för att få åtkomst till resurser. Den här parametern är en sträng, vanligt vis en Base-64-kodad JWT. Klienten bör aldrig se ut i åtkomsttoken. Formatet är inte garanterat vara stabilt och kan krypteras för resursen. Att skriva kod som är beroende av innehåll i åtkomsttoken på klienten är en av de största källorna till fel och klient logiks brytningar. Mer information finns i åtkomsttoken [.](../articles/active-directory/develop/access-tokens.md)
+- `IdToken` för användaren. Den här parametern är en kodad JWT. Mer information finns i [ID-token](../articles/active-directory/develop/id-tokens.md).
+- `ExpiresOn` anger datum och tid när token upphör att gälla.
+- `TenantId` innehåller innehavaren där användaren hittades. För gäst användare i Azure Active Directory (Azure AD) B2B-scenarier är klient-ID: t gäst klienten, inte den unika klient organisationen.
 När token levereras för en användare, `AuthenticationResult` innehåller även information om den här användaren. För konfidentiella klient flöden där tokens begärs utan användare för programmet, är denna användar information null.
 - `Scopes`För vilken token utfärdades.
 - Unikt ID för användaren.
@@ -48,7 +48,7 @@ Följande diagram visar `IAccount` Gränssnittets struktur.
 |----------|-------------|
 | `TenantId` | En sträng representation för ett GUID, som är ID: t för den klient där kontot finns. |
 | `ObjectId` | En sträng representation för ett GUID, vilket är ID: t för den användare som äger kontot i klient organisationen. |
-| `Identifier` | Unikt ID för kontot. `Identifier`är sammanfogningen av `ObjectId` och `TenantId` avgränsade med kommatecken. De är inte grundläggande 64-kodade. |
+| `Identifier` | Unikt ID för kontot. `Identifier` är sammanfogningen av `ObjectId` och `TenantId` avgränsade med kommatecken. De är inte grundläggande 64-kodade. |
 
 `IAccount`Gränssnittet representerar information om ett enda konto. Samma användare kan finnas i olika klienter, vilket innebär att en användare kan ha flera konton. Dess medlemmar visas i följande tabell.
 

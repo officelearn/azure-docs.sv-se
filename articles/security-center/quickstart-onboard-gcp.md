@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 71f1de7b4ff265a5740181a2bb2032f33a83abe3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448991"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Anslut dina GCP-konton till Azure Security Center
@@ -39,7 +39,7 @@ I skärm bilden nedan ser du GCP-projekt som visas på instrument panelen i Secu
 |Versions tillstånd:|Förhandsgranskning|
 |Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md)|
 |Nödvändiga roller och behörigheter:|**Ägare** eller **deltagare** på den aktuella Azure-prenumerationen|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Nej](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 ## <a name="connect-your-gcp-account"></a>Anslut ditt GCP-konto
@@ -73,7 +73,7 @@ Läs mer om [Security Command Center API](https://cloud.google.com/security-comm
 1. Välj **skapa tjänst konto**.
 1. Ange ett konto namn och välj **skapa**.
 1. Ange **rollen** som **Security Center admin Viewer**och välj **Fortsätt**.
-1. Avsnittet **bevilja användare åtkomst till det här tjänst kontot** är valfritt. Välj **Klar**.
+1. Avsnittet **bevilja användare åtkomst till det här tjänst kontot** är valfritt. Välj **Done** (Klar).
 1. Kopiera **e-postvärdet** för det skapade tjänst kontot och spara det för senare användning.
 1. I **navigerings menyn**under **IAM & admin** -alternativ väljer du **IAM**
     1. Växla till organisations nivå.

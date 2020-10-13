@@ -7,10 +7,10 @@ ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 90b4c574a03d8dee50beff60304fb5c1f3b52945
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008635"
 ---
 # <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Konfiguration av virtuell dator för virtuella Windows-datorer (klassisk)
@@ -114,7 +114,7 @@ Följ de här anvisningarna för att bekräfta att komponenterna är installerad
 
 När Windows-agenten för virtuella skriv bord installeras på en virtuell dator i Session Host (antingen manuellt eller via Azure Resource Manager-mallen och PowerShell DSC), innehåller den en registreringsbegäran. I följande avsnitt beskrivs fel söknings problem som är tillämpliga för Windows Virtual Desktop-agenten och token.
 
-### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Fel: statusen som har arkiverats i get-RdsSessionHost-cmdlet: en visar status som otillgänglig
+### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Fel: status som har arkiverats i Get-RdsSessionHost cmdlet visar status som ej tillgänglig
 
 > [!div class="mx-imgBorder"]
 > ![Get-RdsSessionHost-cmdlet: en visar status som ej tillgänglig.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
@@ -140,7 +140,7 @@ När Windows-agenten för virtuella skriv bord installeras på en virtuell dator
 2. Generera en ny token med RDS-NewRegistrationInfo.
 3. Bekräfta att parametern-ExpriationHours är inställd på 72 (max värdet är 99999).
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Fel: Windows Virtual Desktop-agenten rapporterar inget pulsslag vid körning av Get-RdsSessionHost
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Fel: Windows Virtual Desktop-agenten rapporterar inget pulsslag vid körning Get-RdsSessionHost
 
 **Orsak 1:** RDAgentBootLoader-tjänsten har stoppats.
 

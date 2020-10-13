@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.openlocfilehash: 036c40395e5da5ebc09a87e420893d7dbd2ec668
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116809"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Metod tips och rekommendationer för Microsoft Identity Platform
@@ -30,7 +30,7 @@ Använd följande check lista för att se till att programmet är effektivt inte
 > [!TIP]
 > *Integrations assistenten* i Azure Portal kan hjälpa dig att använda många av de rekommenderade metoderna och rekommendationerna. Välj någon av dina [app-registreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Portal och välj sedan meny alternativet **integration Assistant (förhands granskning)** för att komma igång med assistenten.
 
-## <a name="basics"></a>Grunder
+## <a name="basics"></a>Grundläggande inställningar
 
 ![kryss rutan ](./media/active-directory-integration-checklist/checkbox-two.svg) läsa och förstå [Microsofts plattforms principer](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Se till att ditt program följer de villkor som har utformats för att skydda användare och plattform.
 

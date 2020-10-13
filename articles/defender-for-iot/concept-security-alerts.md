@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/08/2020
 ms.author: v-ekrieg
 ms.openlocfilehash: c4c92bfa25d9c43d3c654fbd1f23e242effc7577
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91851211"
 ---
 # <a name="defender-for-iot-security-alerts"></a>Defender för IoT-säkerhetsaviseringar
@@ -32,7 +32,7 @@ Mer information finns i [anpassningsbara aviseringar](concept-customizable-secur
 
 ## <a name="built-in-alerts-for-iot-devices"></a>Inbyggda aviseringar för IoT-enheter
 
-| Name | Allvarlighetsgrad | Datakälla | Beskrivning | Föreslagna reparations steg|
+| Namn | Allvarlighetsgrad | Datakälla | Beskrivning | Föreslagna reparations steg|
 |----------|---------------|-------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |**Hög** allvarlighets grad|  |  |  |
 |   Binär kommando rad   | Hög | Agent | LA Linux Binary som anropas/körs från kommando raden upptäcktes. Den här processen kan vara en legitim aktivitet eller en indikation på att enheten har komprometterats.|   Granska kommandot med den användare som körde det och kontrol lera om det är något giltigt förväntat att köras på enheten. Annars eskalerar du aviseringen till ditt informations säkerhets team. |
@@ -79,7 +79,7 @@ Mer information finns i [anpassningsbara aviseringar](concept-customizable-secur
 
 ## <a name="built-in-alerts-for-iot-hub"></a>Inbyggda aviseringar för IoT Hub
 
-| Allvarlighetsgrad | Name                                                                         | Beskrivning | Rekommenderad reparation|
+| Allvarlighetsgrad | Namn                                                                         | Beskrivning | Rekommenderad reparation|
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 |**Medelhög** allvarlighets grad|  |  |  |
 |  Nytt certifikat har lagts till i en IoT Hub  | Medium                                     |Ett certifikat med namnet \' % {DescCertificateName} har \' lagts till i IoT Hub \' % {DescIoTHubName} \' . Om den här åtgärden har gjorts av en obehörig part kan det indikera skadlig aktivitet.| 1. kontrol lera att certifikatet har lagts till av en auktoriserad part. <br> 2. om den inte har lagts till av en auktoriserad part tar du bort certifikatet och eskalerar aviseringen till organisationens säkerhets team.  |

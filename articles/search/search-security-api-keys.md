@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.openlocfilehash: 60c5051b403d3072292a03c60d7cba95bd0cf1d7
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91740640"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Skapa och hantera API-nycklar för en Azure Kognitiv sökning-tjänst
@@ -29,7 +29,7 @@ En API-nyckel är en sträng som består av slumpmässigt genererade siffror och
 
 Två typer av nycklar används för att få åtkomst till din Sök tjänst: administratör (Läs-och Skriv behörighet) och fråga (skrivskyddad).
 
-|Nyckel|Beskrivning|Begränsningar|  
+|Tangent|Beskrivning|Begränsningar|  
 |---------|-----------------|------------|  
 |Administratör|Ger fullständig behörighet till alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och data källor.<br /><br /> Två administratörs nycklar, som kallas *primära* och *sekundära* nycklar i portalen, genereras när tjänsten skapas och kan återskapas individuellt på begäran. Med två nycklar kan du rulla över en nyckel när du använder den andra nyckeln för fortsatt åtkomst till tjänsten.<br /><br /> Administratörs nycklar anges bara i huvuden för HTTP-begäran. Du kan inte placera en Admin-API-nyckel i en URL.|Högst 2 per tjänst|  
 |Söka i data|Ger skrivskyddad åtkomst till index och dokument, och distribueras vanligt vis till klient program som utfärdar Sök begär Anden.<br /><br /> Frågeinställningar skapas på begäran. Du kan skapa dem manuellt i portalen eller via programmering via [hanterings REST API](/rest/api/searchmanagement/).<br /><br /> Du kan ange frågeinställningar i ett HTTP-begärandehuvuden för Sök-, förslags-eller söknings åtgärder. Du kan också skicka en sessionsnyckel som en parameter på en URL. Beroende på hur ditt klient program formulerar begäran kan det vara lättare att skicka nyckeln som en frågeparameter:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`|50 per tjänst|  
@@ -43,7 +43,7 @@ Två typer av nycklar används för att få åtkomst till din Sök tjänst: admi
 
 Du kan hämta åtkomst nycklar i portalen eller via [hanterings REST API](/rest/api/searchmanagement/). Mer information finns i [Hantera administratör och fråga API-nycklar](search-security-api-keys.md).
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Visa en lista över [Sök tjänsterna](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  för din prenumeration.
 3. Välj tjänsten och på sidan Översikt klickar du på **Inställningar**  > **nycklar** för att Visa administratörs-och frågeinställningar.
 
@@ -55,7 +55,7 @@ Frågeinställningar används för skrivskyddad åtkomst till dokument i ett ind
 
 Att begränsa åtkomsten och åtgärderna i klient program är viktigt för att skydda Sök resurserna på din tjänst. Använd alltid en nyckel i stället för en administratörs nyckel för en fråga som kommer från en klient app.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Visa en lista över [Sök tjänsterna](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  för din prenumeration.
 3. Välj tjänsten och på sidan Översikt klickar du på **Inställningar**  > **nycklar**.
 4. Klicka på **Hantera frågeinställningar**.

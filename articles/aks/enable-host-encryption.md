@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/10/2020
 ms.openlocfilehash: 4b5deeec0b76520952345e9b03135fa094a1f78e
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87986873"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Värdbaserad kryptering på Azure Kubernetes service (AKS) (för hands version)
@@ -29,7 +29,7 @@ Den här funktionen kan bara ställas in när klustret skapas eller när en nod 
 - Se till att du har `EncryptionAtHost` funktions flaggan under `Microsoft.Compute` aktive rad.
 - Se till att du har `EnableEncryptionAtHostPreview` funktions flaggan under `Microsoft.ContainerService` aktive rad.
 
-### <a name="register-encryptionathost--preview-features"></a>Registrera för `EncryptionAtHost` hands versions funktioner
+### <a name="register-encryptionathost--preview-features"></a>Registrera för `EncryptionAtHost`  hands versions funktioner
 
 Om du vill skapa ett AKS-kluster som använder värdbaserad kryptering måste du aktivera- `EnableEncryptionAtHostPreview` och- `EncryptionAtHost` funktions flaggorna i din prenumeration.
 

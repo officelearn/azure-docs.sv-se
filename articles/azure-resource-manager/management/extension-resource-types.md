@@ -4,10 +4,10 @@ description: Visar en lista över Azures resurs typer som används för att utö
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 8b80c63d361f3ad8199fd669178f7bf88dabe02e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90969739"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Resurs typer som utökar funktioner i andra resurser

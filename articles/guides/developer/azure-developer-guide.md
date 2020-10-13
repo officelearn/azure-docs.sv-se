@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
 ms.openlocfilehash: 9ed6244d8f5ecf18e89994c0c62af16290fb68c5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88120583"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Utvecklarens startguide för Azure
@@ -229,7 +229,7 @@ Azure innehåller en omfattande uppsättning upplevelser som du kan använda fö
 
 Azure tillhandahåller två sätt att hantera dina program och tjänster från kommando raden. Du kan använda verktyg som bash, Terminal, kommando tolken eller kommando rads verktyget som du väljer. Normalt kan du utföra samma uppgifter från kommando raden som i Azure Portal, till exempel skapa och konfigurera virtuella datorer, virtuella nätverk, webbappar och andra tjänster.
 
--   [Kommando rads gränssnitt för Azure (CLI)](../../xplat-cli-install.md): gör att du kan ansluta till en Azure-prenumeration och program olika uppgifter mot Azure-resurser från kommando raden.
+-   Med hjälp av [azure Command-Line Interface (CLI)](../../xplat-cli-install.md): kan du ansluta till en Azure-prenumeration och program olika uppgifter mot Azure-resurser från kommando raden.
 
 -   [Azure PowerShell](../../powershell-install-configure.md): innehåller en uppsättning moduler med cmdletar som gör att du kan hantera Azure-resurser med hjälp av Windows PowerShell.
 

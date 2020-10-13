@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 3891d1730648fea3c480cd03921a76fe005c308f
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91740062"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Använd Azure Portal för att konfigurera aviseringar för mått för Azure Database for MySQL 
@@ -25,7 +25,7 @@ Du kan konfigurera en avisering för att utföra följande åtgärder när den u
 * Anropa en webbhook
 
 Du kan konfigurera och hämta information om aviserings regler med hjälp av:
-* [Azure-portalen](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [REST-API:et för Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 

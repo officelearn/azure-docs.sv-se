@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: e7b24dd9cdbd11b56545f85ac233665f8fa4adfe
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91574287"
 ---
 # <a name="iot-plug-and-play-components-in-models"></a>IoT Plug and Play-komponenter i modeller
 
-I IoT Plug and Play-konventioner är en enhet en IoT Plug and Play-enhet om den presenterar sitt digitala DTDL-modell-ID när den ansluter till en IoT-hubb.
+Enligt IoT Plug and Play-konventionerna är en enhet en IoT Plug and Play-enhet om den presenterar ID:t för sin DTDL-modell (Digital Twins Definition Language) när den ansluter till en IoT-hubb.
 
-I följande kodfragment visas några exempel på modell-ID: n:
+Följande kodfragment innehåller exempel på några modell-ID:n:
 
 ```json
  "@id": "dtmi:com:example:TemperatureController;1"

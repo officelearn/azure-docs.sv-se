@@ -15,10 +15,10 @@ ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: f746cc654934464d907c6ad669eb7470e4dcaeeb
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88117744"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänst-till-tjänst-anrop som använder delegerad användar identitet i flödets räkning
@@ -144,8 +144,8 @@ En Tokenbegäran för tjänst-till-tjänst-begäran med ett certifikat innehåll
 | grant_type |krävs | Typ av Tokenbegäran. En OBO-begäran använder en JWT-åtkomsttoken så att värdet måste vara **urn: IETF: params: OAuth: Granting-Type: JWT-Bearer**. |
 | Assertion |krävs | Värdet för den token som används i begäran. |
 | client_id |krävs | App-ID som tilldelats den anropande tjänsten under registreringen med Azure AD. Om du vill hitta app-ID: t i Azure Portal väljer du **Active Directory**, väljer katalogen och väljer sedan program namnet. |
-| client_assertion_type |krävs |Värdet måste vara`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |krävs | En JSON Web Token som du skapar och signerar med det certifikat som du har registrerat som autentiseringsuppgifter för ditt program. Se [autentiseringsuppgifter för certifikat](../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) för att lära dig om intygs format och om hur du registrerar ditt certifikat.|
+| client_assertion_type |krävs |Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |krävs | En JSON Web Token som du skapar och signerar med det certifikat som du har registrerat som autentiseringsuppgifter för ditt program. Se  [autentiseringsuppgifter för certifikat](../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) för att lära dig om intygs format och om hur du registrerar ditt certifikat.|
 | resource |krävs | App-ID-URI för den mottagande tjänsten (skyddad resurs). Om du vill hitta app-ID-URI: n i Azure Portal väljer du **Active Directory** och väljer katalogen. Välj program namnet, Välj **alla inställningar**och välj sedan **Egenskaper**. |
 | requested_token_use |krävs | Anger hur begäran ska bearbetas. I flödets räkning måste värdet vara **on_behalf_of**. |
 | omfång |krävs | En blankstegsavgränsad lista över omfång för Tokenbegäran. För OpenID Connect måste omfångs- **OpenID** anges.|
@@ -282,10 +282,10 @@ Svaret innehåller en SAML-token som är kodad i UTF8 och Base64url.
 - expires_in: 3296
 - ext_expires_in: 0
 - expires_on: 1529627844
-- klusterresursen`https://api.contoso.com`
-- access_token:\<SAML assertion\>
+- klusterresursen `https://api.contoso.com`
+- access_token: \<SAML assertion\>
 - issued_token_type: urn: IETF: params: OAuth: token-Type: SAML2
-- refresh_token:\<Refresh token\>
+- refresh_token: \<Refresh token\>
 
 ## <a name="client-limitations"></a>Klient begränsningar
 

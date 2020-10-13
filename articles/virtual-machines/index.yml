@@ -11,12 +11,12 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 02/14/2020
-  ms.openlocfilehash: eb7d7c911fc099a5f3b5456d7fb77688e0b06af5
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 09e6d6400c9aa2fcdd54dbc568c4429c1b71497c
+  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88816481"
+  ms.lasthandoff: 10/13/2020
+  ms.locfileid: "91970069"
 highlightedContent:
   items:
   - title: Skapa en virtuell Linux-dator med Azure CLI
@@ -33,7 +33,7 @@ highlightedContent:
     url: ./spot-vms.md
   - title: Dedikerade värdar – fysiska servrar som ska vara värdar för en eller flera virtuella datorer.
     itemType: concept
-    url: ./linux/dedicated-hosts.md
+    url: ./dedicated-hosts.md
   - title: Placeringsgrupper för närhet – hämta virtuella datorer så nära som möjligt för kortare latens.
     itemType: how-to-guide
     url: ./linux/proximity-placement-groups.md

@@ -304,7 +304,7 @@
             - name: Flexibilitet för VM-instansstorlek
               href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Dedikerade värdar
-      href: dedicated-hosts.md
+      href: ../dedicated-hosts.md
     - name: Underhåll och uppdateringar
       href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Disklagring

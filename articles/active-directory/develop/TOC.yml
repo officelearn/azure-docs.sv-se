@@ -4,6 +4,8 @@
   items:
     - name: Vad är Microsofts identitetsplattform?
       href: v2-overview.md
+    - name: Nyheter i Docs
+      href: whats-new-docs.md
 - name: Snabbstarter
   expanded: true
   items:

@@ -241,9 +241,9 @@
 - name: Felsöka delade bildgallerier
   items:
     - name: Felsöka delade bildgallerier – Windows
-      href: ../windows/troubleshooting-shared-images.md
+      href: ../troubleshooting-shared-images.md
     - name: Felsöka delade bildgallerier – Linux
-      href: ../linux/troubleshooting-shared-images.md
+      href: ../troubleshooting-shared-images.md
 - name: Problem med VM-tillägg
   items:
     - name: Översikt över Azure-tillägg

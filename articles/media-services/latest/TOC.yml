@@ -61,6 +61,8 @@
           href: protect-with-aes128.md
         - name: Kryptera dynamiskt med DRM
           href: protect-with-drm.md
+        - name: Innehållsskydd med Azure Active Directory
+          href: azure-ad-content-protection.md
     - name: REST
       items:
         - name: Koda och strömma en fjärrfil – REST
@@ -188,8 +190,6 @@
           href: streaming-policy-concept.md
         - name: Principer för innehållsnycklar
           href: content-key-policy-concept.md
-        - name: Innehållsskydd med Azure Active Directory
-          href: azure-ad-content-protection.md
     - name: Övervakning
       items:
         - name: Händelser med Event Grid

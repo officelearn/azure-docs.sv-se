@@ -13,10 +13,10 @@ ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 0bd2002e8f6f233361dd85cc08cfbd97ca23ed60
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89291270"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Signals beskrivande ljud spår
@@ -27,7 +27,7 @@ Du kan lägga till en berättarröst i videon för att hjälpa visuellt synskada
 
 Den här artikeln visar hur du kodar en video, laddar upp en ljudfil med enbart ljudfiler (AAC-codec) som innehåller beskrivande ljud i utmatnings till gången och redigerar. ISM-filen för att inkludera det beskrivande ljudet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa ett Media Services-konto](./create-account-howto.md).
 - Följ stegen i [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) (Få åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du behöver använda dem för att få åtkomst till API.

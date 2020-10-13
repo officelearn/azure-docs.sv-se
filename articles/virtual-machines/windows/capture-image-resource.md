@@ -10,10 +10,10 @@ ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
 ms.openlocfilehash: 751fa9f9fe2ba17a982b71a6332be302804f0dcc
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89047300"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure
@@ -85,7 +85,7 @@ Följ dessa steg om du vill generalisera din virtuella Windows-dator:
 
 7. Om du vill kunna använda avbildningen i valfri [tillgänglighets zon](../../availability-zones/az-overview.md)väljer du **på** för **zon återhämtning**.
 
-8. Välj **skapa** för att skapa avbildningen.
+8. Välj **Skapa** för att skapa avbildningen.
 
 När avbildningen har skapats kan du hitta den som en **avbildnings** resurs i listan över resurser i resurs gruppen.
 

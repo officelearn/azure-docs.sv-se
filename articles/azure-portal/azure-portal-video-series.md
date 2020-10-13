@@ -9,12 +9,12 @@ ms.date: 08/17/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 3c34fd198164d7e3ae0851749cf51809df31ca19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42d9c418ee6feae7a763b1a2cc76d8edb2fec6ce
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88522954"
+ms.locfileid: "91873718"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Instruktionsvideoserie om Azure-portalen
 
@@ -22,18 +22,17 @@ I Azure Portal instruktions video serien lär du dig hur du arbetar med Azure-tj
 
 ## <a name="featured-video"></a>Aktuell video
 
-I den här aktuella videon visar vi hur du distribuerar en statisk Azure-webbapp.
+I den här aktuella videon visar vi hur du skapar och hanterar en App Service-domän.
 
-> [!VIDEO https://www.youtube.com/embed/H2MPsgujpNk]
+> [!VIDEO https://www.youtube.com/embed/b1kDT8-6a3g]
 
-[Så här distribuerar du en statisk Azure-webbapp](https://www.youtube.com/watch?v=H2MPsgujpNk)
+[Så här skapar och hanterar du en App Service-domän](https://www.youtube.com/watch?v=b1kDT8-6a3g)
 
 Kom igång med de senaste videor som du kanske har missat:
 
-| [Övervaka Azure Functions](https://www.youtube.com/watch?v=eVDZz8h0s00)  | [Så här använder du Blob-versioner](https://www.youtube.com/watch?v=b2oyxbSbLPA)  | [Ansluta till ett lagrings konto med hjälp av Azures privata länk](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
+| [Så här lägger du till och skyddar en anpassad domän i App Service-webbappen](https://www.youtube.com/watch?v=bXP6IvNYISw)  | [Förbättringar av upplevelsen för virtuella Linux-datorer](https://www.youtube.com/watch?v=obg6Fq2T898)  | [Så här använder du Blob-versioner](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
 | ------| ------ | ------ |
-| [![Bild av YouTube-video om hur du övervakar Azure Functions](https://i.ytimg.com/vi/eVDZz8h0s00/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=eVDZz8h0s00) | [![Bild av YouTube-video om hur du använder BLOB-versioner](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) | [![Bild av YouTube-video om att ansluta till ett lagrings konto med Azures privata länk](https://i.ytimg.com/vi/vM7yDwHSc_o/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?v=vM7yDwHSc_o) |
-
+| [![Bild av YouTube-video om hur du lägger till och skyddar en anpassad domän i din App Service-webbapp](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=bXP6IvNYISw) | [![Bild av YouTube-video om förbättringar av upplevelsen för virtuella Linux-datorer](https://i.ytimg.com/vi/obg6Fq2T898/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?obg6Fq2T898) | [![Bild av YouTube-video om hur du använder BLOB-versioner](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) |
 
 ## <a name="video-playlist"></a>Video spelnings lista
 

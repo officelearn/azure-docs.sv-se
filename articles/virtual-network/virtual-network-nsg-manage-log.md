@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
 ms.openlocfilehash: 221f7577b3181b1535ab9f544073dac4d031fe66
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89319453"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Resurs loggning för en nätverks säkerhets grupp
@@ -45,7 +45,7 @@ Du kan använda [Azure Portal](#azure-portal), [POWERSHELL](#powershell)eller [A
 
 5. Under **diagnostikinställningar**anger eller väljer du följande information och väljer sedan **Spara**:
 
-    | Inställningen                                                                                     | Värde                                                          |
+    | Inställning                                                                                     | Värde                                                          |
     | ---------                                                                                   |---------                                                       |
     | Namn                                                                                        | Ett namn som du väljer.  Till exempel: *myNsgDiagnostics*      |
     | **Arkivera till ett lagrings konto**, **strömma till en Event Hub**och **Skicka till Log Analytics** | Du kan välja så många destinationer du vill. Mer information om var och en finns i [logg destinationer](#log-destinations).                                                                                                                                           |

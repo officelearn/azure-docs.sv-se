@@ -1,5 +1,5 @@
 ---
-title: Jämför Active Directory Azure Active Directory
+title: Jämföra Active Directory och Azure Active Directory
 description: I det här dokumentet jämförs Active Directory Domain Services (läggs till) i Azure Active Directory (AD). Det beskriver viktiga begrepp i båda identitets lösningarna och förklarar hur det är annorlunda eller liknande.
 services: active-directory
 author: martincoetzer
@@ -12,13 +12,13 @@ ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
 ms.openlocfilehash: e71ed9655c7b195fea8a2eeeaa76d8a28717637f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89318564"
 ---
-# <a name="compare-active-directory-to-azure-active-directory"></a>Jämför Active Directory Azure Active Directory
+# <a name="compare-active-directory-to-azure-active-directory"></a>Jämföra Active Directory och Azure Active Directory
 
 Azure Active Directory är nästa utveckling av identitets-och åtkomst hanterings lösningar för molnet. Microsoft introducerade Active Directory Domain Services i Windows 2000 för att ge organisationer möjlighet att hantera flera lokala infrastruktur komponenter och system med hjälp av en enda identitet per användare.
 
@@ -36,12 +36,12 @@ De flesta IT-administratörer är bekanta med Active Directory Domain Services k
 | Hantering av autentiseringsuppgifter| Autentiseringsuppgifterna i Active Directory baseras på lösen ord, certifikatautentisering och autentisering med smartkort. Lösen ord hanteras med hjälp av lösen ords principer som baseras på lösen ords längd, förfallo datum och komplexitet.|Azure AD använder intelligent [lösen ords skydd](../authentication/concept-password-ban-bad.md) för molnet och lokalt. Skyddet omfattar Smart utelåsning och blockering av vanliga och anpassade lösen ords fraser och ersättningar. </br>Azure AD ökar avsevärt säkerheten [genom Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) och [lösen ords utan lösen ord](../authentication/concept-authentication-passwordless.md) , t. ex. FIDO2. </br>Azure AD minskar support kostnaderna genom att ge användarna ett [självbetjänings system för återställning av lösen ord](../authentication/concept-sspr-howitworks.md) . |
 | **Appar**|||
 | Infrastruktur program|Active Directory utgör grunden för många infrastruktur komponenter lokalt, till exempel DNS, DHCP, IPSec, WiFi, NPS och VPN-åtkomst|I en ny moln värld är Azure AD det nya kontroll planet för att få åtkomst till appar, jämfört med nätverks kontroller. När användare autentiseras kontrollerar[villkorlig åtkomst (ca)](../conditional-access/overview.md)vilka användare som har åtkomst till de appar som krävs under krav.|
-| Traditionella och äldre appar| De flesta lokala appar använder LDAP, Windows-integrerad autentisering (NTLM och Kerberos) eller en huvudbaserad autentisering för att kontrol lera åtkomsten till användare.| Azure AD kan ge åtkomst till dessa typer av lokala appar med hjälp av [Azure AD Application Proxy](../manage-apps/application-proxy.md) -agenter som körs lokalt. Med den här metoden kan Azure AD autentisera Active Directory användare lokalt med hjälp av Kerberos medan du migrerar eller behöver samverka med äldre appar. |
+| Traditionella och äldre appar| De flesta lokala appar använder LDAP, Windows-Integrated autentisering (NTLM och Kerberos) eller en huvud-baserad autentisering för att kontrol lera åtkomsten till användare.| Azure AD kan ge åtkomst till dessa typer av lokala appar med hjälp av [Azure AD Application Proxy](../manage-apps/application-proxy.md) -agenter som körs lokalt. Med den här metoden kan Azure AD autentisera Active Directory användare lokalt med hjälp av Kerberos medan du migrerar eller behöver samverka med äldre appar. |
 | SaaS-appar|Active Directory stöder inte SaaS-appar internt och kräver Federations system, till exempel AD FS.|SaaS appar som stöder OAuth2, SAML och WS- \* Authentication kan integreras för att använda Azure AD för autentisering. |
 | Branschspecifika appar (LOB) med modern autentisering|Organisationer kan använda AD FS med Active Directory för att stödja LOB-appar som kräver modern autentisering.| LOB-appar som kräver modern autentisering kan konfigureras att använda Azure AD för autentisering. |
 | Tjänster på mellan nivå/daemon|Tjänster som körs i lokala miljöer använder normalt AD-tjänst konton eller grupphanterade tjänst konton (gMSA) för att köra. Dessa appar ärver sedan behörigheter för tjänst kontot.| Azure AD tillhandahåller [hanterade identiteter](../managed-identities-azure-resources/index.yml) för att köra andra arbets belastningar i molnet. Livs cykeln för dessa identiteter hanteras av Azure AD och är knuten till resurs leverantören kan inte användas för andra ändamål för att få åtkomst till bakdörr.|
 | **Egenskaper**|||
-| Mobilt|Active Directory har inte inbyggt stöd för mobila enheter utan lösningar från tredje part.| Microsofts lösning för hantering av mobila enheter Microsoft Intune integreras med Azure AD. Microsoft Intune tillhandahåller enhets tillstånds information till identitets systemet för att utvärdera under autentisering. |
+| Mobil|Active Directory har inte inbyggt stöd för mobila enheter utan lösningar från tredje part.| Microsofts lösning för hantering av mobila enheter Microsoft Intune integreras med Azure AD. Microsoft Intune tillhandahåller enhets tillstånds information till identitets systemet för att utvärdera under autentisering. |
 | Windows-datorer|Active Directory ger möjlighet till domän anslutning till Windows-enheter för att hantera dem med hjälp av grupprincip, System Center Configuration Manager eller andra lösningar från tredje part.|Windows-enheter kan [anslutas till Azure AD](../devices/index.yml). Villkorlig åtkomst kan kontrol lera om en enhet är Azure AD-ansluten som en del av autentiseringsprocessen. Windows-enheter kan också hanteras med [Microsoft Intune](/intune/what-is-intune). I det här fallet kommer villkorlig åtkomst att överväga om en enhet är kompatibel (till exempel uppdaterade säkerhets korrigeringar och virus signaturer) innan åtkomst tillåts till apparna.|
 | Windows-servrar| Active Directory tillhandahåller kraftfulla hanterings funktioner för lokala Windows-servrar som använder grupprincip eller andra hanterings lösningar.| Virtuella Windows Server-datorer i Azure kan hanteras med [Azure AD Domain Services](../../active-directory-domain-services/index.yml). [Hanterade identiteter](../managed-identities-azure-resources/index.yml) kan användas när virtuella datorer behöver åtkomst till identitetens system katalog eller resurser.|
 | Linux/UNIX-arbetsbelastningar|Active Directory har inbyggt stöd för icke-Windows utan lösningar från tredje part, även om Linux-datorer kan konfigureras för autentisering med Active Directory som en Kerberos-sfär.|Virtuella Linux/UNIX-datorer kan använda [hanterade identiteter](../managed-identities-azure-resources/index.yml) för att få åtkomst till identitets systemet eller-resurserna. Vissa organisationer, migrera dessa arbets belastningar till moln behållar teknik, som också kan använda hanterade identiteter.|

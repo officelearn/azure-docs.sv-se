@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a04435b1e2feb537231bb80d2777b9ea2599c241
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6564804b7003b5e1c166868dae1bfaac7bd28fa5
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812411"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940472"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Utvecklarguide för Azure Key Vault
 
@@ -52,17 +52,27 @@ Mer information om Key Vault hanterings plan finns i [Key Vault hanterings plan]
 Key Vault använder Azure AD-autentisering som kräver att Azure AD säkerhets objekt beviljar åtkomst. Ett säkerhets objekt i Azure AD kan vara en användare, ett program tjänst objekt, en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md)eller en grupp av alla typer av säkerhets objekt.
 
 ### <a name="authentication-best-practices"></a>Metod tips för autentisering
+
 Vi rekommenderar att du använder hanterad identitet för program som distribueras till Azure. Om du använder Azure-tjänster, som inte stöder hanterad identitet eller om program distribueras lokalt, är [tjänstens huvud namn med ett certifikat](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) ett möjligt alternativ. I det scenariot ska certifikatet lagras i Key Vault och roteras ofta. Tjänstens huvud namn med hemlighet kan användas för utvecklings-och testnings miljöer, och lokalt eller i Cloud Shell med hjälp av användarens huvud namn rekommenderas.
 
-Scenarier med ovan autentisering stöds av klient biblioteket för Azure Identity och integreras med Key Vault SDK: er. Azure Identity Library kan användas i olika miljöer och plattformar utan att ändra koden. Azure-identiteten kan också automatiskt hämta autentiseringstoken från inloggad till Azure User med Azure CLI, Visual Studio, Visual Studio Code och andra. 
+Rekommenderade säkerhets objekt per miljö:
+- **Produktions miljö**:
+  - Hanterad identitet eller tjänstens huvud namn med ett certifikat
+- **Test-och utvecklings miljöer**:
+  - Hanterad identitet, tjänstens huvud namn med certifikat-eller tjänstens huvud namn med hemlighet
+- **Lokal utveckling**:
+  - Användarens huvud namn eller tjänstens huvud namn med hemlighet
 
-Mer information finns i: 
+Scenarier med ovan autentisering stöds av **klient biblioteket för Azure Identity** och integreras med Key Vault SDK: er. Azure Identity Library kan användas i olika miljöer och plattformar utan att ändra koden. Azure-identiteten kan också automatiskt hämta autentiseringstoken från inloggad till Azure User med Azure CLI, Visual Studio, Visual Studio Code och andra. 
 
+Mer information om Azure Identity client-Libarary finns i:
+
+### <a name="azure-identity-client-libraries"></a>Klient bibliotek för Azure Identity
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[Azure Identity SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[JavaScript-skript för Azure Identity SDK](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
 
-Autentisera till Key Vault i program:
+Självstudier om hur du autentiserar till Key Vault i program finns i:
 - [Autentisera till Key Vault i program som finns i en virtuell dator i .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
 - [Autentisera till Key Vault i program som finns på en virtuell dator i python](https://docs.microsoft.com/azure/key-vault/general/tutorial-python-virtual-machine)
 - [Autentisera till Key Vault med App Service](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app)

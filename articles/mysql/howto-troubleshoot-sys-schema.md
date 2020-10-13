@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
 ms.openlocfilehash: 62a34a2dba459c6f65729cd5c6804378ee7f8b52
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90902765"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Använda sys_schema för prestanda justering och databas underhåll i Azure Database for MySQL
@@ -33,50 +33,50 @@ Nu ska vi titta på några vanliga användnings mönster för sys_schema. För a
 
 ## <a name="performance-tuning"></a>Prestandajustering
 
-### <a name="sysuser_summary_by_file_io"></a>*sys. user_summary_by_file_io*
+### <a name="sysuser_summary_by_file_io"></a>*sys.user_summary_by_file_io*
 
-I/o är den dyraste åtgärden i-databasen. Vi kan ta reda på den genomsnittliga IO-svars tiden genom att fråga *sys. user_summary_by_file_io* -vyn. Med standard 125 GB allokerad lagring, är min IO-latens cirka 15 sekunder.
+I/o är den dyraste åtgärden i-databasen. Vi kan ta reda på den genomsnittliga IO-fördröjningen genom att fråga vyn *sys.user_summary_by_file_io* . Med standard 125 GB allokerad lagring, är min IO-latens cirka 15 sekunder.
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-125GB.png" alt-text="i/o-latens: 125 GB":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-125GB.png" alt-text="vyer av sys_schema":::
 
 Eftersom Azure Database for MySQL skalar IO med avseende på lagring, minskar min IO-fördröjning till 571 MS efter att ha ökat mitt allokerat lagrings utrymme till 1 TB.
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-1TB.png" alt-text="i/o-latens: 1 TB":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-1TB.png" alt-text="vyer av sys_schema":::
 
-### <a name="sysschema_tables_with_full_table_scans"></a>*sys. schema_tables_with_full_table_scans*
+### <a name="sysschema_tables_with_full_table_scans"></a>*sys.schema_tables_with_full_table_scans*
 
-Trots noggrann planering kan många frågor fortfarande resultera i fullständiga tabells ökningar. Mer information om typer av index och hur du optimerar dem finns i den här artikeln: [fel sökning av frågans prestanda](./howto-troubleshoot-query-performance.md). Fullständiga tabells ökningar är resurs krävande och försämrar databasens prestanda. Det snabbaste sättet att hitta tabeller med fullständig tabells ökning är att fråga *sys. schema_tables_with_full_table_scans* -vyn.
+Trots noggrann planering kan många frågor fortfarande resultera i fullständiga tabells ökningar. Mer information om typer av index och hur du optimerar dem finns i den här artikeln: [fel sökning av frågans prestanda](./howto-troubleshoot-query-performance.md). Fullständiga tabells ökningar är resurs krävande och försämrar databasens prestanda. Det snabbaste sättet att hitta tabeller med fullständig tabells ökning är att fråga vyn *sys.schema_tables_with_full_table_scans* .
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/full-table-scans.png" alt-text="fullständiga tabells ökningar":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/full-table-scans.png" alt-text="vyer av sys_schema":::
 
-### <a name="sysuser_summary_by_statement_type"></a>*sys. user_summary_by_statement_type*
+### <a name="sysuser_summary_by_statement_type"></a>*sys.user_summary_by_statement_type*
 
-För att felsöka problem med databas prestanda kan det vara bra att identifiera de händelser som händer i databasen, och med hjälp av *sys. user_summary_by_statement_type* -vyn kan det bara göra sticket.
+För att felsöka problem med databas prestanda kan det vara bra att identifiera de händelser som händer i databasen, och med hjälp av *sys.user_summary_by_statement_type* vyn kan du bara göra det.
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/summary-by-statement.png" alt-text="Sammanfattning per instruktion":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/summary-by-statement.png" alt-text="vyer av sys_schema":::
 
 I det här exemplet Azure Database for MySQL ägnade 53 minuter att tömma slog-händelseloggen 44579 gånger. Det är en lång tid och många IOs. Du kan minska den här aktiviteten genom att antingen inaktivera din långsamma fråga-logg eller minska frekvensen för långsam inloggning Azure Portal.
 
 ## <a name="database-maintenance"></a>Databas underhåll
 
-### <a name="sysinnodb_buffer_stats_by_table"></a>*sys. innodb_buffer_stats_by_table*
+### <a name="sysinnodb_buffer_stats_by_table"></a>*sys.innodb_buffer_stats_by_table*
 
 [!IMPORTANT]
 > Att fråga den här vyn kan påverka prestandan. Vi rekommenderar att du utför det här fel söknings arbetet under tider med låg belastning.
 
-InnoDB buffer finns i minnet och är den viktigaste cache-mekanismen mellan DBMS och lagring. Storleken på InnoDB-bufferten är kopplad till prestanda nivån och kan inte ändras om inte en annan produkt-SKU väljs. Precis som med minne i operativ systemet, växlas gamla sidor ut för att göra plats för mer information. Om du vill ta reda på vilka tabeller som använder merparten av InnoDB buffer buffer, kan du fråga *sys. innodb_buffer_stats_by_table* -vyn.
+InnoDB buffer finns i minnet och är den viktigaste cache-mekanismen mellan DBMS och lagring. Storleken på InnoDB-bufferten är kopplad till prestanda nivån och kan inte ändras om inte en annan produkt-SKU väljs. Precis som med minne i operativ systemet, växlas gamla sidor ut för att göra plats för mer information. För att ta reda på vilka tabeller som använder merparten av InnoDB buffer buffer, kan du fråga vyn *sys.innodb_buffer_stats_by_table* .
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/innodb-buffer-status.png" alt-text="Status för InnoDB-buffert":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/innodb-buffer-status.png" alt-text="vyer av sys_schema":::
 
 I bilden ovan är det uppenbart att andra än system tabeller och vyer, varje tabell i mysqldatabase033-databasen, som är värd för en av mina WordPress-webbplatser, upptar 16 KB eller 1 sida av data i minnet.
 
-### <a name="sysschema_unused_indexes--sysschema_redundant_indexes"></a>*Sys. schema_unused_indexes* & *sys. schema_redundant_indexes*
+### <a name="sysschema_unused_indexes--sysschema_redundant_indexes"></a>*Sys.schema_unused_indexes* & *sys.schema_redundant_indexes*
 
-Index är fantastiska verktyg för att förbättra Läs prestanda, men de medför ytterligare kostnader för infogningar och lagring. *Sys. schema_unused_indexes* och *sys. schema_redundant_indexes* ger insikter om oanvända eller dubbla index.
+Index är fantastiska verktyg för att förbättra Läs prestanda, men de medför ytterligare kostnader för infogningar och lagring. *Sys.schema_unused_indexes* och *sys.schema_redundant_indexes* ge insikter om oanvända eller dubbla index.
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/unused-indexes.png" alt-text="oanvända index":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/unused-indexes.png" alt-text="vyer av sys_schema":::
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/redundant-indexes.png" alt-text="redundanta index":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/redundant-indexes.png" alt-text="vyer av sys_schema":::
 
 ## <a name="conclusion"></a>Slutsats
 

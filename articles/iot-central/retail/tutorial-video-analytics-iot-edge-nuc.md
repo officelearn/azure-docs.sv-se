@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: 4ecce689e287673a3b08f8f90f87c28e021106d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d05ab19ff7fee43d91a9620f96699d73bc38a1a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88038388"
+ms.locfileid: "91873310"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Självstudie: skapa en IoT Edge-instans för video analys (Intel NUC)
 
@@ -33,9 +33,9 @@ I den här guiden får du lära dig att:
 > * Konfigurera IoT Edge Gateway
 > * Ansluta en lokal ONVIF-kompatibel kamera till din Intel NUC-enhet
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Innan du börjar bör du slutföra den tidigare steget [skapa ett video analys program i Azure IoT Central](./tutorial-video-analytics-create-app.md) själv studie kursen.
+* Innan du börjar bör du slutföra själv studie kursen [skapa ett video analys program i azure IoT Central (Yolo v3)](./tutorial-video-analytics-create-app-yolo-v3.md) eller [skapa en video analys i Azure IoT Central (openproduktion &trade; )](tutorial-video-analytics-create-app-openvino.md).
 * En enhet, till exempel en Intel-NUC, som kör Linux, som kan köra Docker-behållare och har tillräckligt med processor kraft för att köra video analys.
 * Den [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) som är installerad och körs på enheten.
 * För att kunna ansluta till den IoT Edge enheten från din Windows-dator behöver du den [SPARATILLFIL SSH-klienten](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) eller ett motsvarande verktyg.

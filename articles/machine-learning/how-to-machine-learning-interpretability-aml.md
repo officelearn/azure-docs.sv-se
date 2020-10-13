@@ -12,10 +12,10 @@ ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: 08981ad21c15b6fc375e2e0733564c40d54932ba
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708262"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Använd tolknings paketet till att förklara ML-modeller & förutsägelser i python (för hands version)
@@ -242,7 +242,7 @@ I följande exempel visas hur du kan använda- `ExplanationClient` klassen för 
     ```bash
     pip install azureml-interpret
     ```
-1. Skapa ett utbildnings skript i en lokal Jupyter-anteckningsbok. Till exempel `train_explain.py`.
+1. Skapa ett utbildnings skript i en lokal Jupyter-anteckningsbok. Exempelvis `train_explain.py`.
 
     ```python
     from azureml.interpret import ExplanationClient
@@ -302,7 +302,7 @@ När du har laddat ned förklaringarna i din lokala Jupyter-anteckningsbok kan d
 
 I följande områden finns en övergripande vy av den tränade modellen tillsammans med dess förutsägelser och förklaringar.
 
-|Basera|Description|
+|Basera|Beskrivning|
 |----|-----------|
 |Data utforskning| Visar en översikt över data uppsättningen tillsammans med förutsägelse värden.|
 |Global prioritet|Sammanställer funktions värden för enskilda Datapoints för att Visa modellens övergripande viktigaste K (konfigurerbara K) viktiga funktioner. Hjälper till att förstå den underliggande modellens övergripande beteende.|
@@ -316,7 +316,7 @@ I följande områden finns en övergripande vy av den tränade modellen tillsamm
 
 Du kan läsa in prioritets kurvan för enskilda funktioner för alla data punkter genom att klicka på någon av de enskilda data punkterna i de övergripande områdena.
 
-|Basera|Description|
+|Basera|Beskrivning|
 |----|-----------|
 |Lokal prioritet|Visar de viktigaste K (konfigurerbara K) viktiga funktioner för en enskild förutsägelse. Hjälper till att illustrera den underliggande modellens lokala beteende på en viss data punkt.|
 |Perturbation-utforskning (vad händer om-analys)|Tillåter ändringar av funktions värden för den valda data punkten och observerar resulterande ändringar i förutsägelse värde.|

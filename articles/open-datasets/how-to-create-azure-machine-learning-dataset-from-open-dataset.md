@@ -9,10 +9,10 @@ author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
 ms.openlocfilehash: a80559761c8a3eba6045db5cd99a7719dd041fa8
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704403"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Skapa Azure Machine Learning data uppsättningar från Azure Open data uppsättningar
@@ -37,7 +37,7 @@ Azure Open-datauppsättningar är granskade offentliga data uppsättningar som d
 Öppna data uppsättningar finns i molnet på Microsoft Azure och ingår i både [Azure Machine Learning python SDK](#create-datasets-with-the-sdk) och [Azure Machine Learning Studio](#create-datasets-with-the-studio).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här artikeln behöver du:
 

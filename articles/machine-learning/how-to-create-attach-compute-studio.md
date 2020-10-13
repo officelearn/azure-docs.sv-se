@@ -12,10 +12,10 @@ ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.openlocfilehash: c22593fbd1e1653efa98c760d5bbb73b03761059
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708403"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Skapa beräknings mål för modell utbildning och distribution i Azure Machine Learning Studio
@@ -24,13 +24,13 @@ I den här artikeln får du lära dig hur du skapar och hanterar Compute-mål i 
 
 * Azure Machine Learning Learning SDK eller CLI-tillägget för Azure Machine Learning
   * [Beräkninsinstans](how-to-create-manage-compute-instance.md)
-  * [Beräknings kluster](how-to-create-attach-compute-cluster.md)
+  * [Beräkningskluster](how-to-create-attach-compute-cluster.md)
   * [Azure Kubernetes service-kluster](how-to-create-attach-kubernetes.md)
   * [Andra beräknings resurser](how-to-attach-compute-targets.md)
 * [Vs Code-tillägget](how-to-manage-resources-vscode.md#compute-clusters) för Azure Machine Learning.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
 * En [Azure Machine Learning arbets yta](how-to-manage-workspace.md)

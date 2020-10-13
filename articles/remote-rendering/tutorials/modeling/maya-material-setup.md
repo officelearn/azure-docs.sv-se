@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
 ms.openlocfilehash: 56aa0d91372ac2d21a20f28b1044f0811c716b0c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91358040"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-maya"></a>Självstudie: Konfigurera fysiskt baserat åter givnings material i Maya
@@ -33,7 +33,7 @@ Exempel scenen i den här självstudien innehåller ett antal polygon-Box-objekt
 * **Normal**, som lägger till information på en yta utan att behöva lägga till fler polygoner. Exempel på Detaljer kan vara pitting och indrag på en metall yta eller kornig het i trä.
 * **Omgivande ocklusion**, som används för att lägga till mjuka skuggor och kontakt skuggor i en modell. Det är en grå Skale karta som visar vilka områden i en modell som får fullständig belysning (vit) eller en fullständig nyans (svart). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * Autodesk Maya 2017 eller senare
 
 ## <a name="set-up-materials-in-the-scene"></a>Konfigurera material i scenen

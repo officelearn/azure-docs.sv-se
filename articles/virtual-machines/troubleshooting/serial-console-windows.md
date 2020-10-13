@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: c5c139cb94358d70d1f23b68f2a369adb953da08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cf3f9a1cd933526c5e376d232fa5acbc97fad47
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325988"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969729"
 ---
 # <a name="azure-serial-console-for-windows"></a>Azures serie konsol för Windows
 
@@ -189,7 +189,7 @@ Endast hälso information visas när du ansluter till en virtuell Windows-dator|
 SAC tar inte upp hela det seriella konsol utrymmet i webbläsaren | Detta är ett känt problem med Windows och termin Ale mula torn. Vi spårar det här problemet med båda teamen men för närvarande finns det ingen minskning.
 Det går inte att skriva vid SAC-prompt om kernel-felsökning är aktiverat. | RDP till virtuell dator och köra `bcdedit /debug {current} off` från en upphöjd kommando tolk. Om du inte kan använda RDP kan du i stället koppla OS-disken till en annan virtuell Azure-dator och ändra den när den är ansluten som en datadisk genom att köra `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off` och sedan växla tillbaka till disken.
 När du klistrar in i PowerShell i SAC visas ett tredje steg om det ursprungliga innehållet hade ett upprepande. | Om du vill ha en lösning kan `Remove-Module PSReadLine` du köra för att ta bort PSReadLine-modulen från den aktuella sessionen. Denna åtgärd tar inte bort eller avinstallerar modulen.
-Vissa tangent bords inmatningar ger konstiga SAC-utdata (till exempel **[A**, **[3 ~**). | [VT100](https://aka.ms/vtsequences) escape-sekvenser stöds inte av SAC-prompten.
+Vissa tangent bords inmatningar ger konstiga SAC-utdata (till exempel **[A**, **[3 ~**). | [VT100](/windows/console/console-virtual-terminal-sequences) escape-sekvenser stöds inte av SAC-prompten.
 Att klistra in långa strängar fungerar inte. | Serie konsolen begränsar längden på strängar som klistras in i terminalen till 2048 tecken för att förhindra överbelastning av bandbredden för den seriella porten.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar

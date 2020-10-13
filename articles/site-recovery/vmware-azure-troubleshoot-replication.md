@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
 ms.openlocfilehash: 8b44a1d6119cc658b9460e0a52fa0629f759964a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336213"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Felsöka problem med replikering för virtuella VMware-datorer och fysiska servrar
@@ -146,7 +146,7 @@ Några av de vanligaste problemen visas nedan
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Orsak 3: kända problem i SQL Server 2016 och 2017
 **Så här åtgärdar du** : se KB- [artikel](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)
 
-#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Orsak 4: program konsekvens är inte aktiverat på Linux-servrar
+#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Orsak 4: App-Consistency inte aktiverat på Linux-servrar
 **Så här åtgärdar du** : Azure Site Recovery för Linux-åtgärds system har stöd för anpassade skript för program-konsekvens. Det anpassade skriptet med för-och-post-alternativen används av Azure Site Recovery Mobility-agenten för program konsekvens. Så [här](./site-recovery-faq.md#replication) aktiverar du det.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>Fler orsaker till följd av VSS-relaterade problem:

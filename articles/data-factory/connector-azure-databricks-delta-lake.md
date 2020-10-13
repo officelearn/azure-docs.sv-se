@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/28/2020
 ms.openlocfilehash: 4ff1a793b3e8c4fe642aa304f1aa59bd8edefb8c
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91405627"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Kopiera data till och från Azure Databricks delta Lake med hjälp av Azure Data Factory
@@ -37,7 +37,7 @@ I allmänhet stöder Azure Data Factory delta Lake med följande funktioner för
 - [Mappnings data flödet](concepts-data-flow-overview.md) stöder allmänt [delta-format](format-delta.md) på Azure Storage som källa och mottagare för att läsa och skriva delta-filer för kod fri ETL, och körs på hanterade Azure integration Runtime.
 - [Databricks-aktiviteter](transform-data-databricks-notebook.md) har stöd för att dirigera din kodbaserade ETL-eller Machine Learning-arbetsbelastning ovanpå delta Lake.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda den här Azure Databricks delta Lake Connector måste du konfigurera ett kluster i Azure Databricks.
 

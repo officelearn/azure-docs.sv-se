@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601323"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referens för Azure Active Directory General Operations Guide
@@ -156,7 +156,7 @@ Se följande tabell för att lära dig vilken typ av meddelanden som skickas och
 
 Organisationer, som konfigurerar program att autentisera direkt till Azure AD-förmånen från [Azure AD Smart utelåsning](../authentication/concept-sspr-howitworks.md). Om du använder AD FS i Windows Server 2012 R2 implementerar du AD FS [extra näts utelåsning-skydd](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Om du använder AD FS på Windows Server 2016 eller senare implementerar du [Smart utelåsning för extra nät](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Vi rekommenderar minst att du aktiverar extra näts utelåsning för att kunna innehålla risken för angrepp mot lokala Active Directory. Men om du har AD FS i Windows 2016 eller högre bör du även aktivera Smart utelåsning för extra nät som hjälper till att minimera angrepp vid [lösen ords spridning](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) .
 
-Om AD FS bara används för Azure AD Federation finns det några slut punkter som kan stängas av för att minimera attack ytan. Om AD FS till exempel bara används för Azure AD bör du inaktivera WS-Trust-slutpunkter som inte är aktiverade för **usernamemixed** och **windowstransport**.
+Om AD FS bara används för Azure AD Federation finns det några slut punkter som kan stängas av för att minimera attack ytan. Om AD FS till exempel bara används för Azure AD bör du inaktivera WS-Trust andra slut punkter än de slut punkter som är aktiverade för **usernamemixed** och **windowstransport**.
 
 ### <a name="access-to-machines-with-on-premises-identity-components"></a>Åtkomst till datorer med lokala identitets komponenter
 

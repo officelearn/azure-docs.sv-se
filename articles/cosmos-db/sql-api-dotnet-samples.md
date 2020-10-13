@@ -9,10 +9,10 @@ ms.date: 07/23/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: e9eeca39dfbbefd36c9662aa0fc8b16d2c804158
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91252994"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: .NET-exempel för SQL API
@@ -35,7 +35,7 @@ ms.locfileid: "91252994"
 
 För kod exempel för .NET SDK version 3,0 (för hands version), se de senaste exemplen i databasen [Azure-Cosmos-dotNet-v3](https://github.com/Azure/azure-cosmos-dotnet-v3) GitHub. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Visual Studio 2019 med arbets flödet Azure Development installerat
 - Du kan hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio. 

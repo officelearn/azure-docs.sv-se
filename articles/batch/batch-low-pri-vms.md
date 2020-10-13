@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: seodec18
 ms.openlocfilehash: bd5b73cf55110985a2e7eecbc161c77ca6d645cb
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89568463"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Använda lågprioriterade virtuella datorer med Batch
@@ -168,8 +168,8 @@ För konfigurations pooler för virtuella datorer gör batch också följande:
 
 Nya mått är tillgängliga i [Azure Portal](https://portal.azure.com) för noder med låg prioritet. Dessa mått är:
 
-- Antal noder med låg prioritet
-- Antal kärnor med låg prioritet
+- Antal Low-Priority noder
+- Antal Low-Priority kärnor
 - Antal misslyckade noder
 
 Visa mått i Azure Portal:

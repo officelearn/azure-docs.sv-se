@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279779"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: Functions reference
@@ -52,7 +52,7 @@ Funktionerna med typerna **mvbin**, **mvstr**och **mvref** kan bara användas me
 
 ## <a name="functions-reference"></a>Referens för funktioner
 
-* **Certifikatmallens**
+* **Certifikat**
   * [CertExtensionOids](#certextensionoids)
   * [CertFormat](#certformat)
   * [CertFriendlyName](#certfriendlyname)
@@ -98,7 +98,7 @@ Funktionerna med typerna **mvbin**, **mvstr**och **mvref** kan bara användas me
   * [DNComponent](#dncomponent)
   * [DNComponentRev](#dncomponentrev)
   * [EscapeDNComponent](#escapedncomponent)
-* **Version**
+* **Utvärdering**
   * [IsBitSet](#isbitset)
   * [IsDate](#isdate)
   * [IsEmpty](#isempty)
@@ -124,7 +124,7 @@ Funktionerna med typerna **mvbin**, **mvstr**och **mvref** kan bara användas me
   * [Fel](#error)
   * [IIF](#iif)
   * [Välj](#select)
-  * [Switch](#switch)
+  * [Byta](#switch)
   * [Vilken](#where)
   * [För](#with)
 * **Text**

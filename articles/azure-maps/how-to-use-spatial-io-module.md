@@ -10,17 +10,17 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 61ea102d0e020f7890da1ae86cdfbb5c3db8f51b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335304"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Använda den Azure Maps spatiala IO-modulen
 
 Azure Maps Web SDK tillhandahåller den **spatiala IO-modulen**, som integrerar spatialdata med Azure Maps webb-SDK med hjälp av Java Script eller typescript. Med robusta funktioner i den här modulen kan utvecklare:
 
-- [Läs och skriv filer för vanliga spatialdata](spatial-io-read-write-spatial-data.md). Fil format som stöds är: KML, KMZ, GPX, GeoRSS, GML, interjson-och CSV-filer som innehåller kolumner med spatial information. Stöder även välkänd text (well).
+- [Läs och skriv filer för vanliga spatialdata](spatial-io-read-write-spatial-data.md). Fil format som stöds är: KML, KMZ, GPX, GeoRSS, GML, interjson-och CSV-filer som innehåller kolumner med spatial information. Stöder också Well-Known text (well).
 - [Anslut till Open Geospatial Consortium-tjänster (OGC) och integrera med Azure Maps Web SDK. Täcka in webb kart tjänster (WMS) och webb kart panels tjänster (WMTS) som lager på kartan](spatial-io-add-ogc-map-layer.md).
 - [Fråga efter data i en webb funktions tjänst (WFS)](spatial-io-connect-wfs-service.md).
 - [Lägg till komplexa data uppsättningar som innehåller format information och återger dem automatiskt med minimal kod](spatial-io-add-simple-data-layer.md).

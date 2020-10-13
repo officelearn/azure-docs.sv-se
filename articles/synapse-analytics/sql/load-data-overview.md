@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: d96604cd23f49ff61dce2087fde2c13b8fa2069d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89483736"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Utforma en PolyBase data inläsnings strategi för Azure Synapse SQL-poolen
@@ -69,12 +69,12 @@ Om du exporterar från SQL Server kan du använda [kommando rads verktyget BCP](
 |        sträng         |                           varchar                            |
 |        binary         |                            binary                            |
 |        binary         |                          varbinary                           |
-|       timestamp       |                             datum                             |
+|       timestamp       |                             date                             |
 |       timestamp       |                        smalldatetime                         |
 |       timestamp       |                          datetime2                           |
 |       timestamp       |                           datetime                           |
 |       timestamp       |                             time                             |
-|       datum            |                             datum                             |
+|       date            |                             date                             |
 |        decimal        |                            decimal                           |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. landa data i Azure Blob Storage eller Azure Data Lake Store

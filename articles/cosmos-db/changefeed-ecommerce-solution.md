@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
 ms.openlocfilehash: b1de0fa2e6601e4350b52caea32f8bc379909f85
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91356374"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Använd Azure Cosmos DB ändra feed för att visualisera data analyser i real tid
@@ -170,7 +170,7 @@ Om du vill se hur ändrings flödet bearbetar nya åtgärder på en e-handelspla
 
 3. Lägg till i **samlings** -och **databas** namnen. (Dessa namn ska vara **changefeedlabcollection** och **changefeedlabdatabase** om du inte väljer att namnge ditt eget namn.)
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/update-connection-string.png" alt-text="Uppdatera anslutnings strängar":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/update-connection-string.png" alt-text="Visuellt projekt":::
  
 4. Spara ändringarna på alla filer som har redigerats.  
 
@@ -180,7 +180,7 @@ Om du vill se hur ändrings flödet bearbetar nya åtgärder på en e-handelspla
 
 7. Om du går till [Azure Portal](https://portal.azure.com/) och sedan till Cosmos DBS kontot i resurs gruppen, kommer du till **datautforskaren**att se de slumpmässiga data som importer ATS i din **changefeedlabcollection** .
  
-   :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="Data som genereras i portalen":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="Visuellt projekt":::
 
 ## <a name="set-up-a-stream-analytics-job"></a>Konfigurera ett Stream Analytics-jobb
 
@@ -190,7 +190,7 @@ Azure Stream Analytics är en helt hanterad moln tjänst för bearbetning av str
 
 2. Välj **indata** som visas nedan.  
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/create-input.png" alt-text="Skapa inmatade":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/create-input.png" alt-text="Visuellt projekt":::
 
 3. Välj **+ Lägg till strömmande data**. Välj sedan **Event Hub** i den nedrullningsbara menyn.  
 
@@ -222,20 +222,7 @@ Azure Stream Analytics är en helt hanterad moln tjänst för bearbetning av str
 
 8. Gå sedan tillbaka till **streamjob1** och välj **Redigera fråga**.
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/edit-query.png" alt-text="Redigera fråga":::
- 
-9. Klistra in följande fråga i frågefönstret. Den **genomsnittliga pris** frågan beräknar genomsnitts priset för alla objekt som visas av användarna, genomsnitts priset för alla objekt som läggs till i användarnas vagnar och det genomsnittliga priset för alla objekt som har köpts av användare. Det här måttet kan hjälpa e-handelsföretag att avgöra vilka priser som säljer artiklar till och vilka lager som ska investera i. Om till exempel genomsnitts priset för visade objekt är mycket högre än genomsnitts priset för de köpta objekten kan ett företag välja att lägga till mindre dyra artiklar i lagret.
-
-   ```sql
-   /*AVERAGE PRICE*/      
-   SELECT System.TimeStamp AS Time, Action, AVG(Price)  
-    INTO averagePriceOutput  
-    FROM input  
-    GROUP BY Action, TumblingWindow(second,5) 
-   ```
-10. Välj sedan **Spara** i det övre vänstra hörnet.  
-
-11. Gå tillbaka till **streamjob1** och välj knappen **Start** överst på sidan. Azure Stream Analytics kan ta några minuter att starta, men om du vill kan du se att den ändras från "starta" till "körs".
+   :::image type="content" source="./media/changefeed-ecommerce-solution/edit-query.png" alt-text="Visuellt projekt" till "körs".
 
 ## <a name="connect-to-power-bi"></a>Ansluta till Power BI
 
@@ -315,7 +302,7 @@ Power BI är en uppsättning verktyg för företagsanalys för att analysera och
 
    Så här ser ett exempel på en instrument panel ut med följande diagram:
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="Skärm bild som visar ett exempel på en instrument panel med diagram som heter genomsnitts pris för objekt per åtgärd, unika besökare, intäkter och topp 5 objekt som köpts.":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="Visuellt projekt":::
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Valfritt: visualisera med en E-handelswebbplats
 
@@ -329,13 +316,13 @@ Nu kommer du att se hur du kan använda det nya data analys verktyget för att a
 
 2. Välj samlingen **topItems** och under **skala och inställningar** anges **Time to Live** till **30 sekunder** så att topItems uppdateras var 30: e sekund.
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/time-to-live.png" alt-text="Time to live":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/time-to-live.png" alt-text="Visuellt projekt":::
 
 3. För att fylla i **topItems** -samlingen med de mest köpta objekten går du tillbaka till **streamjob1** och lägger till en ny **utmatning**. Välj **Cosmos DB**.
 
 4. Fyll i de obligatoriska fälten enligt bilden nedan.
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/cosmos-output.png" alt-text="Cosmos-utdata":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/cosmos-output.png" alt-text="Visuellt projekt":::
  
 5. Om du har lagt till den valfria översta 5 frågan i föregående del av labbet fortsätter du till del 5a. Fortsätt annars till del 5b.
 

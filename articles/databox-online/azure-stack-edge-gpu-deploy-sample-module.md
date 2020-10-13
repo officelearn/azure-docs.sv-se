@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: alkohli
 ms.openlocfilehash: 1f16ef0ede25f17acb915a7812ae5b15b45f78a4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90899723"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-pro-gpu-device"></a>Distribuera en GPU-aktiverad IoT-modul på Azure Stack Edge Pro GPU-enhet
@@ -162,6 +162,6 @@ Innan du börjar ska du kontrollera att du har:
 
         Du kan se att den tid det tar att köra samma uppsättning åtgärder (5000 iterationer av form Transformation) av GPU är mycket mindre än för CPU.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om hur du [konfigurerar GPU för att använda en modul](azure-stack-edge-j-series-configure-gpu-modules.md).

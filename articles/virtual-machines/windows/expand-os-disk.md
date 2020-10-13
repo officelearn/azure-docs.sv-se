@@ -16,10 +16,10 @@ ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
 ms.openlocfilehash: b739bb94911e24002b359aabfa23583ecfc9de85
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336011"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Utöka operativsystemenheten för en virtuell dator
@@ -45,11 +45,11 @@ När du skapar en ny virtuell dator i en resurs grupp genom att distribuera en a
  
 3. Under **disk namn**väljer du den disk som du vill ändra storlek på.
 
-    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Skärm bild som visar fönstret disks med ett disk namn valt.":::
+    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Skärm bild som visar alternativet diskar som marker ATS i avsnittet Inställningar på menyn.":::
 
 4. På den vänstra menyn under **Inställningar**väljer du **konfiguration**.
 
-    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Skärm bild som visar det konfigurations alternativ som valts i avsnittet Inställningar på menyn.":::
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Skärm bild som visar alternativet diskar som marker ATS i avsnittet Inställningar på menyn.":::
 
 5. I **storlek (GIB)** väljer du den disk storlek som du vill använda.
    
@@ -57,11 +57,11 @@ När du skapar en ny virtuell dator i en resurs grupp genom att distribuera en a
    > Den nya storleken måste vara större än den befintliga. Det högsta tillåtna antalet är 2 048 GB för OS-diskar. (Det är möjligt att expandera VHD-blobben utöver den storleken, men operativ systemet fungerar endast med de första 2 048 GB utrymme.)
    > 
 
-    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Skärm bild som visar konfigurations fönstret med den valda disk storleken.":::
+    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Skärm bild som visar alternativet diskar som marker ATS i avsnittet Inställningar på menyn.":::
 
 6. Välj **Spara**.
 
-    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Skärm bild som visar konfigurations fönstret med knappen Spara vald.":::
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Skärm bild som visar alternativet diskar som marker ATS i avsnittet Inställningar på menyn.":::
 
 
 ## <a name="resize-a-managed-disk-by-using-powershell"></a>Ändra storlek på en hanterad disk med hjälp av PowerShell

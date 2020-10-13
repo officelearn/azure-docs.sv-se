@@ -4,10 +4,10 @@ description: Lär dig hur du skapar scheman för klass rums labb i Azure Lab Ser
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 4eb4e2459069b61990f51f8d8de76522b736723e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326447"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Skapa och hantera scheman för klass rums labb i Azure Lab Services 
@@ -38,7 +38,7 @@ Skapa en schemalagd händelse för labbet så att virtuella datorer i labbet sta
     4. Ange **Start tiden** då du vill att de virtuella datorerna ska startas.
     5. Ange **stopp tiden** som de virtuella datorerna ska stängas av. 
     6. Ange **tids zonen** för start-och stopp tider som du har angett. 
-    2. Välj de dagar som du vill att schemat ska börja gälla. I följande exempel är måndag-torsdag markerat. 
+    2. Välj de dagar som du vill att schemat ska börja gälla. I följande exempel är Monday-Thursday markerat. 
     8. Välj **Spara**. 
 
         ![Ange upprepnings schema](./media/how-to-create-schedules/set-repeat-schedule.png)

@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: 125a823acc79143d9d6556e496f7728c718db089
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cb0d9ff1074ba1a309cf4f5a8cad12f34335e435
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91332597"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91989723"
 ---
 Kom igång med Azure Content Moderator-klient biblioteket för .NET. Följ dessa steg om du vill installera NuGet-paketet och prova exempel koden för grundläggande uppgifter. 
 
@@ -33,19 +33,24 @@ Använd Content Moderator klient bibliotek för .NET för att:
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
-* Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
+* [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) eller aktuell version av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
+* När du har en Azure-prenumeration <a href="https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account"  title=" skapar du en [produkt namn]-resurs genom "  target="_blank"> att skapa en Content moderator resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. Vänta tills den har distribuerats och klicka på knappen **gå till resurs** .
+    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Content Moderator. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
+    * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
 
-## <a name="create-a-content-moderator-resource"></a>Skapa en Content Moderator resurs
+## <a name="setting-up"></a>Konfigurera
 
-Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Content Moderator med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. Du kan även:
+### <a name="create-a-new-c-application"></a>Skapa ett nytt C#-program
 
-* Visa din resurs på [Azure Portal](https://portal.azure.com/)
+#### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
 
-När du har fått en nyckel från resursen [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en, med namnet respektive `CONTENT_MODERATOR_SUBSCRIPTION_KEY` `CONTENT_MODERATOR_ENDPOINT` .
+Skapa ett nytt .NET Core-program med Visual Studio. 
 
-## <a name="create-a-new-c-application"></a>Skapa ett nytt C#-program
+### <a name="install-the-client-library"></a>Installera klient biblioteket 
 
-Skapa ett nytt .NET Core-program i din önskade text redigerare eller IDE. 
+När du har skapat ett nytt projekt installerar du klient biblioteket genom att högerklicka på projekt lösningen i **Solution Explorer** och välja **Hantera NuGet-paket**. I paket hanteraren som öppnas väljer du **Bläddra**, markerar **ta med för hands version**och söker efter `Microsoft.Azure.CognitiveServices.ContentModerator` . Välj version `2.0.0` och **Installera**sedan. 
+
+#### <a name="cli"></a>[CLI](#tab/cli)
 
 I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet `content-moderator-quickstart` . Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda käll fil: *program.cs*.
 
@@ -69,18 +74,7 @@ Build succeeded.
 ...
 ```
 
-Från projekt katalogen öppnar du *program.cs* -filen i önskat redigerings program eller IDE. Lägg till följande `using`-uttryck:
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_using)]
-
-I **program** -klassen skapar du variabler för resursens slut punkts plats och nyckel som miljövariabler.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_creds)]
-
-> [!NOTE]
-> Om du har skapat miljövariablerna efter att du har startat programmet måste du stänga och öppna redigerings programmet, IDE eller gränssnittet som kör det för att få åtkomst till variablerna.
-
-## <a name="install-the-client-library"></a>Installera klient biblioteket
+### <a name="install-the-client-library"></a>Installera klient biblioteket 
 
 I program katalogen installerar du Content Moderator klient biblioteket för .NET med följande kommando:
 
@@ -88,7 +82,35 @@ I program katalogen installerar du Content Moderator klient biblioteket för .NE
 dotnet add package Microsoft.Azure.CognitiveServices.ContentModerator --version 2.0.0
 ```
 
-Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett nedladdnings Bart NuGet-paket.
+---
+
+> [!TIP]
+> Vill du Visa hela snabb starts kod filen samtidigt? Du kan hitta den på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ContentModerator/Program.cs), som innehåller kod exemplen i den här snabb starten.
+
+Från projekt katalogen öppnar du *program.cs* -filen i önskat redigerings program eller IDE. Lägg till följande `using`-uttryck:
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_using)]
+
+I **program** -klassen skapar du variabler för resursens nyckel och slut punkt.
+
+> [!IMPORTANT]
+> Gå till Azure-portalen. Om Content Moderator resursen som du skapade i avsnittet **krav** har distribuerats, klickar du på knappen **gå till resurs** under **Nästa steg**. Du hittar din nyckel och slut punkt i resursens **nyckel och slut punkts** sida under **resurs hantering**. 
+>
+> Kom ihåg att ta bort nyckeln från koden när du är klar och publicera den aldrig offentligt. För produktion bör du överväga att använda ett säkert sätt att lagra och komma åt dina autentiseringsuppgifter. Mer information finns i [säkerhets](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) artikeln Cognitive Services.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_creds)]
+
+
+I programmets `main()` metod lägger du till anrop för de metoder som används i den här snabb starten. Du kommer att skapa dessa senare.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_client)]
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_textmod_call)]
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_imagemod_call)]
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_review_call)]
+
 
 ## <a name="object-model"></a>Objekt modell
 
@@ -112,9 +134,9 @@ De här kodfragmenten visar hur du gör följande uppgifter med Content Moderato
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-I en ny metod instansierar du klient objekt med din slut punkt och nyckel. Du behöver inte en annan klient för varje scenario, men den kan hjälpa dig att hålla koden organiserad.
+I en ny metod instansierar du klient objekt med din slut punkt och nyckel.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_client)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_auth)]
 
 ## <a name="moderate-text"></a>Måttlig text
 
@@ -122,16 +144,13 @@ I följande kod används en Content Moderator-klient för att analysera text tex
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_text_vars)]
 
-I roten för ditt projekt och Lägg till en *TextFile.txt* -fil. Lägg till din egen text i filen eller Använd följande exempel text:
+Lägg sedan till en *TextFile.txt* -fil i projekt roten. Lägg till din egen text i filen eller Använd följande exempel text:
 
 ```
 Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
 Crap is the profanity here. Is this information PII? phone 4255550111
 ```
 
-Lägg till följande metod anrop till din `Main` metod:
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_textmod_call)]
 
 Definiera sedan text redigerings metoden någonstans i **program** klassen:
 
@@ -146,7 +165,7 @@ I följande kod används en Content Moderator-klient, tillsammans med ett [Image
 
 ### <a name="get-sample-images"></a>Hämta exempel bilder
 
-Definiera indata-och utdatafiler:
+Definiera indata-och utdatafiler i roten i **program** klassen:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_image_vars)]
 
@@ -156,10 +175,6 @@ Skapa sedan indatafilen *ImageFiles.txt*i roten för projektet. I den här filen
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 ```
-
-Skicka in dina indata-och utdatafiler till följande metod anrop i- `Main` metoden. Du definierar den här metoden i ett senare steg.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_imagemod_call)]
 
 ### <a name="define-helper-class"></a>Definiera hjälp klass
 
@@ -189,9 +204,7 @@ Mer information om bildattributen som Content Moderator skärmar för finns i ha
 
 Du kan använda Content Moderator .NET-klient biblioteket för att mata in innehåll i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com) så att de mänskliga moderatorerna kan granska det. Mer information om gransknings verktyget finns i [konceptuell guide för gransknings verktyget](../../review-tool-user-guide/human-in-the-loop.md).
 
-Metoden i det här avsnittet använder klassen [granskningar](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet) för att skapa en granskning, hämta dess ID och kontrol lera informationen efter att ha tagit emot mänsklig indata via gransknings verktygets webb Portal. Den loggar all den här informationen i en textfil med utdata. Anropa metoden från din `Main` metod:
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_review_call)]
+Metoden i det här avsnittet använder klassen [granskningar](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet) för att skapa en granskning, hämta dess ID och kontrol lera informationen efter att ha tagit emot mänsklig indata via gransknings verktygets webb Portal. Den loggar all den här informationen i en textfil med utdata. 
 
 ### <a name="get-sample-images"></a>Hämta exempel bilder
 
@@ -257,11 +270,19 @@ Om du har använt en callback-slutpunkt i det här scenariot, ska den ta emot en
 
 ## <a name="run-the-application"></a>Kör programmet
 
+#### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
+
+Kör programmet genom att klicka på knappen **Felsök** överst i IDE-fönstret.
+
+#### <a name="cli"></a>[CLI](#tab/cli)
+
 Kör programmet från program katalogen med `dotnet run` kommandot.
 
 ```dotnet
-dotnet run 
+dotnet run
 ```
+
+---
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

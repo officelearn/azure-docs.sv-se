@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar (FAQ)
+title: Vanliga frågor och svar
 titleSuffix: Azure Cognitive Search
 description: Få svar på vanliga frågor om Microsoft Azure Kognitiv sökning service, en tjänst som är värd för värd tjänster på Microsoft Azure.
 manager: nitinme
@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.openlocfilehash: 9d6acdcf9487b2d1a5964d4ec686cd23666275b0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88923100"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure-Kognitiv sökning
@@ -105,4 +105,4 @@ De flesta kunder väljer dedikerade fält över en samling när den kommer att s
 
  [StackOverflow: Azure Kognitiv sökning](https://stackoverflow.com/questions/tagged/azure-search)   
  [Så här fungerar fulltextsökning i Azure Cognitive Search](search-lucene-query-architecture.md)  
- [Vad är Azure Cognitive Search?](search-what-is-azure-search.md)
+ [Vad är Azure Kognitiv sökning?](search-what-is-azure-search.md)

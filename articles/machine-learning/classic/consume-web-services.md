@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.date: 05/29/2020
 ms.openlocfilehash: 66c9368d06960790c6dc960d2d95bd82be1a6e39
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91345962"
 ---
 # <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Använda en Machine Learning Studio (klassisk)-webb tjänst
@@ -36,7 +36,7 @@ Med Azure Machine Learning-webbtjänsten kommunicerar ett externt program med en
 
 Azure Machine Learning Studio (klassisk) har två typer av tjänster:
 
-* Request-Response service (resurs poster) – en låg fördröjning, hög skalbar tjänst som tillhandahåller ett gränssnitt för de tillstånds lösa modeller som skapas och distribueras från Machine Learning Studio (klassisk).
+* Request-Response tjänst (RR) – en tjänst med låg fördröjning och hög skalbarhet som tillhandahåller ett gränssnitt för de tillstånds lösa modeller som skapas och distribueras från Machine Learning Studio (klassisk).
 * BES (batch execution service) – en asynkron tjänst som poängs ätter en batch för data poster.
 
 Mer information om Machine Learning webb tjänster finns i [distribuera en Machine Learning-webbtjänst](deploy-a-machine-learning-web-service.md).
@@ -87,7 +87,7 @@ På [Azure Machine Learning Web Services-portalen](https://services.azureml.net/
 1. Klicka på **webb tjänster** på den översta menyn.
 2. Klicka på den webb tjänst som du vill hämta nyckeln för.
 
-Klicka på **Använd webb tjänst** för att hämta URI: er för Request-Response-och batch execution-tjänsterna och exempel kod i C#, R och python.
+Klicka på **Använd webb tjänst** för att hämta URI: er för Request-Response-och batch-körning och exempel kod i C#, R och python.
 
 Klicka på **Swagger API** för att hämta Swagger-baserad dokumentation för de API: er som anropas från angivna URI: er.
 

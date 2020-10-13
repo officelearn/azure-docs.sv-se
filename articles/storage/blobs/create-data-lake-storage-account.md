@@ -9,10 +9,10 @@ ms.service: storage
 ms.reviewer: stewu
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 6b63933fc625079bb490942cf3a32232a484fe38
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89270327"
 ---
 # <a name="create-a-storage-account-to-use-with-azure-data-lake-storage-gen2"></a>Skapa ett lagrings konto som ska användas med Azure Data Lake Storage Gen2
@@ -43,6 +43,6 @@ Om du har ett befintligt lagrings konto som du vill använda med Data Lake Stora
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över lagrings konto](../common/storage-account-overview.md)
+- [Översikt över lagringskonto](../common/storage-account-overview.md)
 - [Använda Azure Data Lake Storage Gen2 för Big data-krav](data-lake-storage-data-scenarios.md)
 - [Åtkomstkontroll i Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)

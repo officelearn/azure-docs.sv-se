@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 09/17/2020
+ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 6ef0791eeec169bb925b8f667523203beaacdd2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceb33a747b987898668e315518c3ba7a2b02efcc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91859187"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91989503"
 ---
 Kom igång med ansikts igenkänning med ansikts klient biblioteket för .NET. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Ansikts tjänsten ger dig till gång till avancerade algoritmer för att identifiera och identifiera mänskliga ansikten i bilder.
 
@@ -27,36 +27,44 @@ Använd ansikts klient biblioteket för .NET för att:
 
 [Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face)  |  [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1)  |  [Exempel](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
+
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
+* [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) eller aktuell version av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
 * När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" skapar du en ansikts resurs "  target="_blank"> skapa en ansikts resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Ansikts-API. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
     * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
-* När du har fått en nyckel och slut punkt [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en, med namnet respektive `FACE_SUBSCRIPTION_KEY` `FACE_ENDPOINT` .
 
 ## <a name="setting-up"></a>Konfigurera
 
 ### <a name="create-a-new-c-application"></a>Skapa ett nytt C#-program
 
-Skapa ett nytt .NET Core-program i önskat redigerings program eller IDE. 
+#### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
+
+Skapa ett nytt .NET Core-program med Visual Studio. 
+
+### <a name="install-the-client-library"></a>Installera klient biblioteket 
+
+När du har skapat ett nytt projekt installerar du klient biblioteket genom att högerklicka på projekt lösningen i **Solution Explorer** och välja **Hantera NuGet-paket**. I paket hanteraren som öppnas väljer du **Bläddra**, markerar **ta med för hands version**och söker efter `Microsoft.Azure.CognitiveServices.Vision.Face` . Välj version `2.6.0-preview.1` och **Installera**sedan. 
+
+#### <a name="cli"></a>[CLI](#tab/cli)
 
 I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet `face-quickstart` . Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda käll fil: *program.cs*. 
 
-```dotnetcli
+```console
 dotnet new console -n face-quickstart
 ```
 
 Ändra katalogen till mappen nyligen skapade appar. Du kan bygga programmet med:
 
-```dotnetcli
+```console
 dotnet build
 ```
 
 Build-utdata får inte innehålla varningar eller fel. 
 
-```output
+```console
 ...
 Build succeeded.
  0 Warning(s)
@@ -64,29 +72,43 @@ Build succeeded.
 ...
 ```
 
-Från projekt katalogen öppnar du *program.cs* -filen i önskat redigerings program eller IDE. Lägg till följande `using` direktiv:
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_using)]
-
-I programmets `Main` metod skapar du variabler för resursens Azure-slutpunkt och nyckel.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_mainvars)]
-
-### <a name="install-the-client-library"></a>Installera klient biblioteket
+### <a name="install-the-client-library"></a>Installera klient biblioteket 
 
 I program katalogen installerar du ansikts klient biblioteket för .NET med följande kommando:
 
-```dotnetcli
+```console
 dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.6.0-preview.1
 ```
 
-Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett nedladdnings Bart NuGet-paket.
+---
+
+> [!TIP]
+> Vill du Visa hela snabb starts kod filen samtidigt? Du kan hitta den på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/Face/FaceQuickstart.cs), som innehåller kod exemplen i den här snabb starten.
+
+
+Från projekt katalogen öppnar du filen *program.cs* och lägger till följande `using` direktiv:
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_using)]
+
+I programmets **program** klass skapar du variabler för resursens nyckel och slut punkt.
+
+
+> [!IMPORTANT]
+> Gå till Azure-portalen. Om resursen [produkt namn] som du skapade i avsnittet **krav** har distribuerats, klickar du på knappen **gå till resurs** under **Nästa steg**. Du hittar din nyckel och slut punkt i resursens **nyckel och slut punkts** sida under **resurs hantering**. 
+>
+> Kom ihåg att ta bort nyckeln från koden när du är klar och publicera den aldrig offentligt. För produktion bör du överväga att använda ett säkert sätt att lagra och komma åt dina autentiseringsuppgifter. Mer information finns i [säkerhets](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) artikeln Cognitive Services.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_creds)]
+
+I programmets **main** -metod lägger du till anrop för de metoder som används i den här snabb starten. Du kommer att implementera dessa senare.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_maincalls)]
 
 ## <a name="object-model"></a>Objekt modell
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i klient biblioteket Face .NET:
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) | Den här klassen representerar ditt tillstånd att använda ansikts tjänsten och du behöver den för alla ansikts funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser. |
 |[FaceOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperations?view=azure-dotnet)|Den här klassen hanterar de grundläggande identifierings-och igenkännings aktiviteter som du kan göra med människo ansikten. |
@@ -94,7 +116,6 @@ Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna 
 |[FaceListOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet)|Den här klassen hanterar molnbaserade **FaceList** -konstruktioner, som lagrar en stor uppsättning ansikten. |
 |[PersonGroupPersonExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongrouppersonextensions?view=azure-dotnet)| Den här klassen hanterar molnbaserade **person** konstruktioner, som lagrar en uppsättning ansikten som tillhör en enda person.|
 |[PersonGroupOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet)| Den här klassen hanterar de **PersonGroup** -konstruktioner i molnet som lagrar en uppsättning med utvalda **person** objekt. |
-|[ShapshotOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)|Den här klassen hanterar ögonblicks bild funktionen. Du kan använda den för att tillfälligt Spara alla dina molnbaserade ansikts data och migrera dessa data till en ny Azure-prenumeration. |
 
 ## <a name="code-examples"></a>Kodexempel
 
@@ -108,36 +129,25 @@ Kodfragmenten nedan visar hur du gör följande uppgifter med ansikts klient bib
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-> [!NOTE]
-> Den här snabb starten förutsätter att du har [skapat miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din ansikts nyckel och slut punkt, med namnet `FACE_SUBSCRIPTION_KEY` och `FACE_ENDPOINT` .
-
 I en ny metod instansierar du en klient med din slut punkt och nyckel. Skapa ett **[ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.apikeyserviceclientcredentials?view=azure-dotnet)** -objekt med din nyckel och Använd den med slut punkten för att skapa ett **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** -objekt.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_auth)]
 
-Du vill förmodligen anropa den här metoden i- `Main` metoden.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_client)]
-
 ### <a name="declare-helper-fields"></a>Deklarera hjälp programs fält
 
-Följande fält behövs för flera av de ansikts åtgärder som du kommer att lägga till senare. Definiera följande URL-sträng i roten för din klass. Den här URL: en pekar på en mapp med exempel bilder.
+Följande fält behövs för flera av de ansikts åtgärder som du kommer att lägga till senare. Definiera följande URL-sträng i roten i **program** klassen. Den här URL: en pekar på en mapp med exempel bilder.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_image_url)]
 
-Definiera strängar för att peka på olika typer av igenkännings modeller. Senare kan du ange vilken igenkännings modell som du vill använda för ansikts igenkänning. Se [Ange en igenkännings modell](../../Face-API-How-to-Topics/specify-recognition-model.md) för information om de här alternativen.
+I **huvud** metoden definierar du strängar för att peka på olika typer av igenkännings modeller. Senare kan du ange vilken igenkännings modell som du vill använda för ansikts igenkänning. Se [Ange en igenkännings modell](../../Face-API-How-to-Topics/specify-recognition-model.md) för information om de här alternativen.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_models)]
 
 ## <a name="detect-faces-in-an-image"></a>Identifiera ansikten i en bild
 
-Lägg till följande metod anrop till din **main** -metod. Du definierar metoden härnäst. Den sista identifiera-åtgärden tar ett **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** -objekt, en bild-URL och en igenkännings modell.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_call)]
-
 ### <a name="get-detected-face-objects"></a>Hämta identifierade ansikts objekt
 
-I nästa kodblock `DetectFaceExtract` identifierar metoden ansikten i tre av bilderna på den angivna URL: en och skapar en lista över **[DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)** -objekt i program minnet. Listan med **[FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** -värden anger vilka funktioner som ska extraheras. 
+Skapa en ny metod för att identifiera ansikten. `DetectFaceExtract`Metoden bearbetar tre av avbildningarna på den angivna URL: en och skapar en lista över **[DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)** -objekt i program minnet. Listan med **[FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** -värden anger vilka funktioner som ska extraheras. 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect)]
 
@@ -173,11 +183,9 @@ Följande kod skriver ut matchnings informationen i-konsolen:
 
 Identifiera-åtgärden tar en bild av en person (eller flera personer) och söker efter identiteten för varje ansikte i bilden (ansikts igenkännings sökning). Den jämför alla identifierade ansikte till en **PersonGroup**, en databas med olika **person** objekt vars ansikts funktioner är kända. Du måste först skapa och träna en **PersonGroup** för att kunna identifiera åtgärden
 
-### <a name="create-and-train-a-person-group"></a>Skapa och träna en person grupp
+### <a name="create-a-person-group"></a>Skapa en person grupp
 
 Följande kod skapar en **PersonGroup** med sex olika **person** objekt. Den associerar varje **person** med en uppsättning exempel bilder, och sedan är det tågen att identifiera varje person genom ansikts egenskaper. **Person** -och **PersonGroup** -objekt används i åtgärder för att verifiera, identifiera och gruppera.
-
-#### <a name="create-persongroup"></a>Skapa PersonGroup
 
 Deklarera en sträng variabel i roten av klassen för att representera ID: t för den **PersonGroup** som du skapar.
 
@@ -187,21 +195,19 @@ Lägg till följande kod i en ny metod. Den här metoden kommer att utföra iden
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_files)]
 
+Observera att den här koden definierar en variabel `sourceImageFileName` . Den här variabeln motsvarar käll bilden &mdash; för den bild som innehåller personer som ska identifieras.
+
 Lägg sedan till följande kod för att skapa ett **person** objekt för varje person i ord listan och Lägg till ansikts data från lämpliga avbildningar. Varje **person** objekt är associerat med samma **PersonGroup** via dess unika ID-sträng. Kom ihåg att skicka variablerna `client` , `url` och `RECOGNITION_MODEL1` till den här metoden.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_create)]
 
-#### <a name="train-persongroup"></a>Träna PersonGroup
+### <a name="train-the-persongroup"></a>Träna PersonGroup
 
 När du har extraherat ansikts data från dina avbildningar och sorterat dem i olika **person** objekt måste du träna **PersonGroup** för att identifiera de visuella funktioner som är associerade med vart och ett av dess **person** objekt. Följande kod anropar metoden för asynkrona **tåg** och avsöker resultaten, och skriver ut statusen till-konsolen.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_train)]
 
 Den här **person** gruppen och dess associerade **person** objekt är nu redo att användas i åtgärderna verifiera, identifiera eller gruppera.
-
-### <a name="get-a-test-image"></a>Hämta en test avbildning
-
-Observera att koden för att [skapa och träna en person grupp](#create-and-train-a-person-group) definierar en variabel `sourceImageFileName` . Den här variabeln motsvarar käll bilden &mdash; för den bild som innehåller personer som ska identifieras.
 
 ### <a name="identify-faces"></a>Identifiera ansikten
 
@@ -215,11 +221,19 @@ Nästa kodfragment anropar åtgärden **IdentifyAsync** och skriver ut resultate
 
 ## <a name="run-the-application"></a>Kör programmet
 
-Kör appen för ansikts igenkänning från program katalogen med `dotnet run` kommandot.
+#### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
 
-```dotnetcli
+Kör programmet genom att klicka på knappen **Felsök** överst i IDE-fönstret.
+
+#### <a name="cli"></a>[CLI](#tab/cli)
+
+Kör programmet från program katalogen med `dotnet run` kommandot.
+
+```dotnet
 dotnet run
 ```
+
+---
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

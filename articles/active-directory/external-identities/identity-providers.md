@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a61eca3340985886ef782b28a59a1283c5f473ce
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265722"
 ---
 # <a name="identity-providers-for-external-identities"></a>Identitets leverantörer för externa identiteter
@@ -30,7 +30,7 @@ Du kan dock göra det möjligt för användarna att logga in med olika identitet
 
 - **Facebook**: när du skapar en app kan du konfigurera registrering av självbetjäning och aktivera Facebook-Federation så att användarna kan registrera sig för din app med sina egna Facebook-konton. Facebook kan bara användas för självbetjänings registrering av användar flöden och är inte tillgängligt som ett inloggnings alternativ när användarna löser in inbjudningar från dig.
 
-- **Direkt Federation**: du kan också konfigurera direkt Federation med en extern identitetsprovider som stöder SAML-eller WS-utfodras protokoll. Med direkt Federation kan externa användare lösa in inbjudningar från dig genom att logga in på dina appar med sina befintliga sociala konton eller företags konton. 
+- **Direkt Federation**: du kan också konfigurera direkt Federation med en extern identitetsprovider som stöder SAML-eller WS-Fed protokoll. Med direkt Federation kan externa användare lösa in inbjudningar från dig genom att logga in på dina appar med sina befintliga sociala konton eller företags konton. 
    > [!NOTE]
    > Direkta Federations identitets leverantörer kan inte användas i dina självbetjänings registrerings användar flöden.
 
@@ -59,4 +59,4 @@ Information om hur du lägger till identitets leverantörer för inloggning till
 
 - [Lägg till Google](google-federation.md) i din lista över sociala identitets leverantörer
 - [Lägg till Facebook](facebook-federation.md) i listan över sociala identitets leverantörer
-- [Konfigurera direkt Federation](direct-federation.md) med en organisation vars IDENTITETSPROVIDER stöder SAML 2,0 eller WS-utfodras protokoll. Observera att direkt Federation inte är ett alternativ för självbetjänings registrering av användar flöden.
+- [Konfigurera direkt Federation](direct-federation.md) med en organisation vars IDENTITETSPROVIDER stöder SAML 2,0 eller WS-Fed-protokollet. Observera att direkt Federation inte är ett alternativ för självbetjänings registrering av användar flöden.

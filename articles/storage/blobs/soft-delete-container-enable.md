@@ -10,10 +10,10 @@ ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 4b25458cc934097b5477c174ae7ecc47762e2929
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91280308"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Aktivera och hantera mjuk borttagning för behållare (förhands granskning)
@@ -86,7 +86,7 @@ Följ dessa steg om du vill visa mjuka, borttagna behållare i Azure Portal:
 1. Navigera till ditt lagrings konto i Azure Portal och Visa listan över dina behållare.
 1. Aktivera växeln Visa borttagna behållare för att inkludera borttagna behållare i listan.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Skärm bild som visar hur du visar mjuka borttagna behållare i Azure Portal":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Skärm bild som visar hur du aktiverar mjuk borttagning av behållare i Azure Portal":::
 
 ## <a name="restore-a-soft-deleted-container"></a>Återställa en mjuk borttagnings behållare
 
@@ -95,7 +95,7 @@ Du kan återställa en mjuk, borttagen behållare och dess innehåll inom kvarh�
 1. Navigera till ditt lagrings konto i Azure Portal och Visa listan över dina behållare.
 1. Visa snabb menyn för den behållare som du vill återställa och välj **ångra borttagning** på menyn.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Skärm bild som visar hur du återställer en mjuk borttagnings behållare i Azure Portal":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Skärm bild som visar hur du aktiverar mjuk borttagning av behållare i Azure Portal":::
 
 ## <a name="next-steps"></a>Nästa steg
 

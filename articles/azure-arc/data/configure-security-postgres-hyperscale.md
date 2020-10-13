@@ -1,6 +1,6 @@
 ---
-title: Konfigurera säkerhet för din Azure-Arc-aktiverad PostgreSQL-Server grupp
-description: Konfigurera säkerhet för din Azure-Arc-aktiverad PostgreSQL-Server grupp
+title: Konfigurera säkerhet för din Azure-Arc-aktiverade PostgreSQL-hyperskala-servergrupp
+description: Konfigurera säkerhet för din Azure-Arc-aktiverade PostgreSQL-hyperskala-servergrupp
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -10,13 +10,13 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 4f89ace7130e95ba109edcf6becca1e15c8d32c1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273208"
 ---
-# <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Konfigurera säkerhet för din Azure-Arc-aktiverad PostgreSQL-Server grupp
+# <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Konfigurera säkerhet för din Azure-Arc-aktiverade PostgreSQL-hyperskala-servergrupp
 
 I det här dokumentet beskrivs olika aspekter relaterade till säkerheten i Server gruppen:
 - Kryptering i vila
@@ -150,7 +150,7 @@ Det här lilla exemplet visar att du kan kryptera data i vila (lagra krypterade 
 
 ## <a name="user-management"></a>Användarhantering
 ### <a name="general-perspectives"></a>Allmänna perspektiv
-Du kan använda standard metoden postgres för att skapa användare eller roller. Men om du gör det kommer de här artefakterna bara att vara tillgängliga i koordinator rollen. Under för hands versionen kommer dessa användare/roller inte att kunna komma åt data som distribueras utanför koordinator-noden och på arbetsnoder i Server gruppen. Orsaken är att användar definitionen inte replikeras till arbetsnoderna i för hands versionen.
+Du kan använda standard metoden postgres för att skapa användare eller roller. Men om du gör det kommer de här artefakterna bara att vara tillgängliga i koordinatorrollen. I förhandsversionen kommer dessa användare/roller inte ännu att kunna komma åt data som distribueras utanför koordinatornoden och i arbetsnoderna i din servergrupp. Orsaken är att användardefinitionen inte replikeras till arbetsnoderna i förhandsversionen.
 
 ### <a name="change-the-password-of-the-_postgres_-administrative-user"></a>Ändra lösen ordet för den administrativa användaren _postgres_
 Azure Arc Enabled PostgreSQL-skalning levereras med den postgres administrativa användar _postgres_ som du anger lösen ordet för när du skapar din server grupp.

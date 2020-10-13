@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 10/06/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 9d8776ba8e683cd14c766fead1e7238a6c24d000
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843455"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Kör behållar program på Azure Batch
@@ -21,7 +21,7 @@ I kod exemplen används batch .NET-och python SDK: er. Du kan också använda an
 
 Att använda behållare är ett enkelt sätt att köra batch-uppgifter utan att behöva hantera en miljö och beroenden för att köra program. Behållare distribuerar program som enkla, portabla, självpresterande enheter som kan köras i flera olika miljöer. Du kan till exempel bygga och testa en behållare lokalt och sedan ladda upp behållar avbildningen till ett register i Azure eller någon annan stans. Distributions modellen för behållare säkerställer att körnings miljön för ditt program alltid är korrekt installerad och konfigurerad oavsett var du är värd för programmet. Containerbaserade uppgifter i batch kan också dra nytta av funktioner i icke-container-aktiviteter, inklusive programpaket och hantering av resursfiler och utdatafiler.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du bör känna till behållar koncept och hur du skapar en batch-pool och ett jobb.
 

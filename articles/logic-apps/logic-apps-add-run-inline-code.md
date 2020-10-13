@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: f339ae4ff1ea90929ce7811efe002f5860f7b47d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91269343"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Lägga till och köra kodfragment med hjälp av infogad kod i Azure Logic Apps
@@ -129,7 +129,7 @@ I den här artikeln utlöses exempel Logic-appen när ett nytt e-postmeddelande 
 
 Den här tabellen innehåller mer information om de här under egenskaperna:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 |----------|------|-------|
 | `actions` | Objekt samling | Resultat objekt från åtgärder som körs innan kodfragmentet körs. Varje-objekt har ett *nyckel/värde-* par där nyckeln är namnet på en åtgärd och värdet motsvarar att anropa [funktionen Actions ()](../logic-apps/workflow-definition-language-functions-reference.md#actions) med `@actions('<action-name>')` . Åtgärdens namn använder samma åtgärds namn som används i den underliggande arbets flödes definitionen, som ersätter blank steg ("") i åtgärds namnet med under streck (_). Det här objektet ger åtkomst till egenskaps värden för åtgärden från den aktuella arbets flödes instansen. |
 | `trigger` | Objekt | Resultat objekt från utlösaren och motsvarar anrop av [funktionen trigger ()](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Det här objektet ger åtkomst till utlösarens egenskaps värden från den aktuella arbets flödes instansen. |

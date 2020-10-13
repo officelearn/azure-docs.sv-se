@@ -16,10 +16,10 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87068517"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Prestanda justering för TCP/IP för virtuella Azure-datorer
@@ -210,7 +210,7 @@ Du kan använda `Get-NetTCPSetting` PowerShell-kommandot för att visa värdena 
 Get-NetTCPSetting
 ```
 
-Du kan ställa in den inledande TCP-fönster storleken och TCP-skalnings faktorn i Windows med hjälp av `Set-NetTCPSetting` PowerShell-kommandot. Mer information finns i [set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
+Du kan ställa in den inledande TCP-fönster storleken och TCP-skalnings faktorn i Windows med hjälp av `Set-NetTCPSetting` PowerShell-kommandot. Mer information finns i  [set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
 
 ```powershell
 Set-NetTCPSetting
@@ -220,7 +220,7 @@ Detta är de effektiva TCP-inställningarna för `AutoTuningLevel` :
 
 | AutoTuningLevel | Skalnings faktor | Skalnings multiplikator | Formel för att<br/>beräkna maximal fönster storlek |
 | --------------- | -------------- | ------------------ | -------------------------------------------- |
-|Inaktiverad|Ingen|Ingen|Fönster storlek|
+|Inaktiverad|Inget|Inget|Fönster storlek|
 |Begränsade|4|2 ^ 4|Fönster storlek * (2 ^ 4)|
 |Hög begränsad|2|2 ^ 2|Fönster storlek * (2 ^ 2)|
 |Normal|8|2 ^ 8|Fönster storlek * (2 ^ 8)|

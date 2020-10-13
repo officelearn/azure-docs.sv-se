@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
 ms.openlocfilehash: 96603de7014419b142cc35714b891f9e4b15ec99
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91405094"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Kopiera data från HDFS-servern med hjälp av Azure Data Factory
@@ -42,7 +42,7 @@ Mer specifikt stöder HDFS-anslutningen:
 - Kopiera filer med hjälp av *webhdfs* -protokollet eller *inbyggt DistCp* -stöd.
 - Kopiera filer som de är eller genom att parsa eller generera filer med de [fil format och komprimerings-codec som stöds](supported-file-formats-and-compression-codecs.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -253,7 +253,7 @@ I det här avsnittet beskrivs det beteende som är resultatet av att använda en
 
 Kopierings aktiviteten stöder användning av DistCp för att kopiera filer som är i Azure Blob Storage (inklusive [mellanlagrad kopia](copy-activity-performance.md)) eller en Azure Data Lake Store. I det här fallet kan DistCp dra nytta av klustrets kraft i stället för att köras på den lokala integrerings körningen. Med DistCp får du bättre kopiering av data genom att i synnerhet om klustret är mycket kraftfullt. Baserat på konfigurationen i din data fabrik konstruerar kopierings aktiviteten automatiskt ett DistCp-kommando, skickar det till ditt Hadoop-kluster och övervakar kopierings statusen.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda DistCp för att kopiera filer från HDFS till Azure Blob Storage (inklusive mellanlagrad kopia) eller Azure Data Lake Store kontrollerar du att Hadoop-klustret uppfyller följande krav:
 
@@ -412,7 +412,7 @@ Kadmin> addprinc <username>@<REALM.COM>
     Kadmin> addprinc krbtgt/REALM.COM@AD.COM
     ```
 
-3. I konfigurations filen *Hadoop. Security. auth_to_local* HDFS-tjänsten lägger du till `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//` .
+3. I konfigurations filen för *Hadoop.Security.auth_to_local* HDFS-tjänsten lägger du till `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//` .
 
 **På domänkontrollanten:**
 

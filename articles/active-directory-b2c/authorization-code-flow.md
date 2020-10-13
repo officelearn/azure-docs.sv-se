@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 157f01008636c61d95d479c396cf82d833b3b44d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259670"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>OAuth 2,0 Authorization Code Flow i Azure Active Directory B2C
@@ -52,14 +52,14 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 ```
 
 
-| Parameter | Obligatoriskt? | Description |
+| Parameter | Obligatoriskt? | Beskrivning |
 | --- | --- | --- |
-|innehav| Obligatorisk | Namnet på din Azure AD B2C-klient|
-| politik | Obligatorisk | Det användar flöde som ska köras. Ange namnet på ett användar flöde som du har skapat i Azure AD B2C klient organisationen. Till exempel: `b2c_1_sign_in` , `b2c_1_sign_up` , eller `b2c_1_edit_profile` . |
-| client_id |Obligatorisk |Det program-ID som har tilldelats din app i [Azure Portal](https://portal.azure.com). |
-| response_type |Obligatorisk |Svars typen, som måste inkluderas `code` för flödets auktoriseringskod. |
-| redirect_uri |Obligatorisk |Omdirigerings-URI för appen, där autentiseringsbegäranden skickas och tas emot av din app. Det måste exakt matcha en av de omdirigerings-URI: er som du har registrerat i portalen, förutom att den måste vara URL-kodad. |
-| omfång |Obligatorisk |En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar att Azure Active Directory (Azure AD) båda de behörigheter som begärs. Med hjälp av klient-ID som omfånget anger att din app behöver en åtkomsttoken som kan användas för din egen tjänst eller ditt webb-API som representeras av samma klient-ID.  `offline_access`Omfånget indikerar att appen behöver en uppdateringstoken för att få åtkomst till resurser med lång livs längd. Du kan också använda `openid` omfånget för att begära en ID-token från Azure AD B2C. |
+|innehav| Krävs | Namnet på din Azure AD B2C-klient|
+| politik | Krävs | Det användar flöde som ska köras. Ange namnet på ett användar flöde som du har skapat i Azure AD B2C klient organisationen. Till exempel: `b2c_1_sign_in` , `b2c_1_sign_up` , eller `b2c_1_edit_profile` . |
+| client_id |Krävs |Det program-ID som har tilldelats din app i [Azure Portal](https://portal.azure.com). |
+| response_type |Krävs |Svars typen, som måste inkluderas `code` för flödets auktoriseringskod. |
+| redirect_uri |Krävs |Omdirigerings-URI för appen, där autentiseringsbegäranden skickas och tas emot av din app. Det måste exakt matcha en av de omdirigerings-URI: er som du har registrerat i portalen, förutom att den måste vara URL-kodad. |
+| omfång |Krävs |En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar att Azure Active Directory (Azure AD) båda de behörigheter som begärs. Med hjälp av klient-ID som omfånget anger att din app behöver en åtkomsttoken som kan användas för din egen tjänst eller ditt webb-API som representeras av samma klient-ID.  `offline_access`Omfånget indikerar att appen behöver en uppdateringstoken för att få åtkomst till resurser med lång livs längd. Du kan också använda `openid` omfånget för att begära en ID-token från Azure AD B2C. |
 | response_mode |Rekommenderas |Den metod som du använder för att skicka den resulterande auktoriseringskod tillbaka till din app. Det kan vara `query` , `form_post` eller `fragment` . |
 | state |Rekommenderas |Ett värde som ingår i begäran som kan vara en sträng med innehåll som du vill använda. Normalt används ett slumpmässigt genererat unikt värde för att förhindra förfalsknings attacker på begäran från en webbplats. Det här läget används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat. Till exempel sidan användaren var på eller det användar flöde som kördes. |
 | visas |Valfritt |Typ av användar interaktion som krävs. För närvarande är det enda giltiga värdet `login` , vilket tvingar användaren att ange sina autentiseringsuppgifter för begäran. Enkel inloggning träder inte i kraft. |
@@ -112,16 +112,16 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 ```
 
-| Parameter | Obligatoriskt? | Description |
+| Parameter | Obligatoriskt? | Beskrivning |
 | --- | --- | --- |
-|innehav| Obligatorisk | Namnet på din Azure AD B2C-klient|
-|politik| Obligatorisk| Det användar flöde som användes för att hämta auktoriseringskod. Du kan inte använda ett annat användar flöde i denna begäran. |
-| client_id |Obligatorisk |Det program-ID som har tilldelats din app i [Azure Portal](https://portal.azure.com).|
+|innehav| Krävs | Namnet på din Azure AD B2C-klient|
+|politik| Krävs| Det användar flöde som användes för att hämta auktoriseringskod. Du kan inte använda ett annat användar flöde i denna begäran. |
+| client_id |Krävs |Det program-ID som har tilldelats din app i [Azure Portal](https://portal.azure.com).|
 | client_secret | Ja, i Web Apps | Den program hemlighet som genererades i [Azure Portal](https://portal.azure.com/). Klient hemligheter används i det här flödet för scenarier med webb program, där klienten kan lagra en klient hemlighet på ett säkert sätt. För interna app-scenarier (offentliga klienter) kan inte klient hemligheter lagras på ett säkert sätt och används därför inte i det här anropet. Om du använder en klient hemlighet måste du ändra den regelbundet. |
-| grant_type |Obligatorisk |Typ av beviljande. För Authorization Code Flow måste anslags typen vara `authorization_code` . |
+| grant_type |Krävs |Typ av beviljande. För Authorization Code Flow måste anslags typen vara `authorization_code` . |
 | omfång |Rekommenderas |En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar Azure AD båda de behörigheter som begärs. Med hjälp av klient-ID som omfånget anger att din app behöver en åtkomsttoken som kan användas för din egen tjänst eller ditt webb-API som representeras av samma klient-ID.  `offline_access`Omfånget indikerar att appen behöver en uppdateringstoken för att få åtkomst till resurser med lång livs längd.  Du kan också använda `openid` omfånget för att begära en ID-token från Azure AD B2C. |
-| kod |Obligatorisk |Den auktoriseringskod som du förvärvade i den första delen av flödet. |
-| redirect_uri |Obligatorisk |Omdirigerings-URI för programmet där du fick auktoriseringskod. |
+| kod |Krävs |Den auktoriseringskod som du förvärvade i den första delen av flödet. |
+| redirect_uri |Krävs |Omdirigerings-URI för programmet där du fick auktoriseringskod. |
 | code_verifier | Valfritt | Samma code_verifier som användes för att hämta authorization_code. Krävs om PKCE användes i begäran om beviljande av auktoriseringskod. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 Ett lyckat token-svar ser ut så här:
@@ -179,16 +179,16 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| Parameter | Obligatoriskt? | Description |
+| Parameter | Obligatoriskt? | Beskrivning |
 | --- | --- | --- |
-|innehav| Obligatorisk | Namnet på din Azure AD B2C-klient|
-|politik |Obligatorisk |Det användar flöde som användes för att hämta den ursprungliga uppdateringstoken. Du kan inte använda ett annat användar flöde i denna begäran. |
-| client_id |Obligatorisk |Det program-ID som har tilldelats din app i [Azure Portal](https://portal.azure.com). |
+|innehav| Krävs | Namnet på din Azure AD B2C-klient|
+|politik |Krävs |Det användar flöde som användes för att hämta den ursprungliga uppdateringstoken. Du kan inte använda ett annat användar flöde i denna begäran. |
+| client_id |Krävs |Det program-ID som har tilldelats din app i [Azure Portal](https://portal.azure.com). |
 | client_secret | Ja, i Web Apps | Den program hemlighet som genererades i [Azure Portal](https://portal.azure.com/). Klient hemligheter används i det här flödet för scenarier med webb program, där klienten kan lagra en klient hemlighet på ett säkert sätt. För interna app-scenarier (offentliga klienter) kan inte klient hemligheter lagras på ett säkert sätt och används därför inte i det här anropet. Om du använder en klient hemlighet måste du ändra den regelbundet. |
-| grant_type |Obligatorisk |Typ av beviljande. För den här delen av koden för auktoriseringskod måste tilldelnings typen vara `refresh_token` . |
+| grant_type |Krävs |Typ av beviljande. För den här delen av koden för auktoriseringskod måste tilldelnings typen vara `refresh_token` . |
 | omfång |Rekommenderas |En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar Azure AD båda de behörigheter som begärs. Med hjälp av klient-ID som omfånget anger att din app behöver en åtkomsttoken som kan användas för din egen tjänst eller ditt webb-API som representeras av samma klient-ID.  `offline_access`Omfånget indikerar att appen behöver en uppdateringstoken för långvarig åtkomst till resurser.  Du kan också använda `openid` omfånget för att begära en ID-token från Azure AD B2C. |
 | redirect_uri |Valfritt |Omdirigerings-URI för programmet där du fick auktoriseringskod. |
-| refresh_token |Obligatorisk |Den ursprungliga uppdateringstoken som du förvärvade i den andra delen av flödet. |
+| refresh_token |Krävs |Den ursprungliga uppdateringstoken som du förvärvade i den andra delen av flödet. |
 
 Ett lyckat token-svar ser ut så här:
 

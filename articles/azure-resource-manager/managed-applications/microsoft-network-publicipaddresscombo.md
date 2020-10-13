@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 5def6db9d551b3882204c9f997f164a0df7ac223
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87063293"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>GRÄNSSNITTs element för Microsoft. Network. PublicIpAddressCombo
@@ -57,7 +57,7 @@ En grupp kontroller för att välja en ny eller befintlig offentlig IP-adress.
 }
 ```
 
-## <a name="sample-output"></a>Exempel på utdata
+## <a name="sample-output"></a>Exempelutdata
 
 Om användaren väljer ingen offentlig IP-adress, returnerar kontrollen följande utdata:
 

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
 ms.openlocfilehash: 2742a08d97d537e8a5e0670c40f0ab69b34a4d9f
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619601"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analys av flera klienter med extraherade data-multi-Apps-appen
@@ -157,7 +157,7 @@ I det här avsnittet av självstudien definierar och kör du ett jobb som samman
 2. I SSMS öppnar du *. ..\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.SQL*.
 3. Tryck på **F5** för att köra skriptet för att definiera ett jobb som anropar sp_ShredRawExtractedData lagrade proceduren i Analytics Store.
 4. Tillåt tillräckligt med tid för att jobbet ska kunna köras.
-    - Kontrol lera **livs cykel** kolumnen för jobb. jobs_execution tabell för jobb status. Kontrol lera att jobbet **har slutförts** innan du fortsätter. En lyckad körning visar data som liknar följande diagram:
+    - Kontrol lera **livs cykel** kolumnen i Jobs.jobs_execution tabell för jobb status. Kontrol lera att jobbet **har slutförts** innan du fortsätter. En lyckad körning visar data som liknar följande diagram:
 
 ![Skärm bild som visar resultatet av att sp_ShredRawExtractedData proceduren körs.](./media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
 

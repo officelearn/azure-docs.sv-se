@@ -12,10 +12,10 @@ ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 8406074933489e53e9235a8a6a05b68f1dd42a85
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259144"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera Saviynt med Azure Active Directory B2C
@@ -54,7 +54,7 @@ I följande arkitektur diagram visas implementeringen.
 
 ![Bild som visar saviynt-arkitektur diagram](./media/partner-saviynt/saviynt-architecture-diagram.png)
 
-|Steg | Description |
+|Steg | Beskrivning |
 |:-----| :-----------|
 | 1. | En delegerad administratör startar en Hantera Azure AD B2C användar åtgärd via Saviynt.
 | 2. | Saviynt verifieras med dess Authorization-motor om den delegerade administratören kan utföra den aktuella åtgärden.

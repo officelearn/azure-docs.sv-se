@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: cc09912bb0c9ab553d180ff5cc06fc52c4c5cc0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91261074"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Service Bus ämnena utdata från Azure Stream Analytics
@@ -20,7 +20,7 @@ Service Bus köer tillhandahåller en en-till-en-kommunikations metod från sän
 
 I följande tabell visas egenskaps namnen och deras beskrivningar för att skapa ett Service Bus avsnitts utdata.
 
-| Egenskapsnamn | Description |
+| Egenskapsnamn | Beskrivning |
 | --- | --- |
 | Utdataalias |Ett eget namn som används i frågor för att dirigera frågeresultatet till den här Service Bus ämnet. |
 | Service Bus namnrymd |En behållare för en uppsättning meddelande enheter. När du skapade en ny händelsehubben, skapade du också ett Service Bus-namnområde. |
@@ -61,7 +61,7 @@ I följande exempel `DeviceId` läggs fälten och till i `DeviceStatus` metadata
 
 Följande bild visar förväntade egenskaper för utmatnings meddelande som inspekterats i EventHub med hjälp av [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-:::image type="content" source="media/service-bus-topics-output/custom-properties.png" alt-text="Anpassade egenskaper för händelse":::
+:::image type="content" source="media/service-bus-topics-output/custom-properties.png" alt-text="Egenskaps kolumner":::
 
 ## <a name="system-properties"></a>Systemegenskaper
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.openlocfilehash: 1727193faa028a1d681f2a74df950afeb9570ec9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91270057"
 ---
 # <a name="tutorial-add-security-headers-with-rules-engine"></a>Självstudie: Lägg till säkerhets rubriker med regel motor
@@ -25,11 +25,11 @@ I den här självstudien visas hur du implementerar säkerhets rubriker för att
 
 I följande exempel visas hur du lägger till ett innehålls-säkerhets-princip-huvud till alla inkommande förfrågningar som matchar den sökväg som definierats i den väg som regel motor konfigurationen är associerad med. Här kan vi bara tillåta att skript från vår betrodda plats **https://apiphany.portal.azure-api.net** körs i vårt program.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > - Konfigurera en innehålls-säkerhets princip i regel motorn.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Innan du kan slutföra stegen i den här kursen behöver du skapa en Front Door. Mer information finns i [Snabbstart: Skapa en Front Door](quickstart-create-front-door.md).
 * Om det här är första gången du använder funktionen för regel motor, se så här [konfigurerar du en regel motor](front-door-tutorial-rules-engine.md).

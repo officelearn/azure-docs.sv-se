@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
 ms.openlocfilehash: b4d2b277eea85fb8a5c9eb733e5bfd64d66f392c
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91407834"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiera data från och till Oracle med hjälp av Azure Data Factory
@@ -53,7 +53,7 @@ Mer specifikt stöder den här Oracle-anslutningen:
 > [!Note]
 > Oracle-proxyservern stöds inte.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
 
@@ -84,7 +84,7 @@ Fler anslutnings egenskaper som du kan ange i anslutnings strängen per ärende:
 
 | Egenskap | Beskrivning | Tillåtna värden |
 |:--- |:--- |:--- |
-| ArraySize |Antalet byte som anslutningen kan hämta i en enda nätverks tur. T. ex., `ArraySize=‭10485760‬` .<br/><br/>Större värden ökar data flödet genom att minska antalet gånger för att hämta data över nätverket. Mindre värden ökar svars tiden eftersom det finns mindre fördröjning i väntan på att servern ska överföra data. | Ett heltal mellan 1 och 4294967296 (4 GB). Standardvärdet är `60000` . Värdet 1 definierar inte antalet byte, men indikerar att allokera utrymme för exakt en rad med data. |
+| ArraySize |Antalet byte som anslutningen kan hämta i en enda nätverks tur. T. ex., `ArraySize=‭10485760‬` .<br/><br/>Större värden ökar data flödet genom att minska antalet gånger för att hämta data över nätverket. Mindre värden ökar svars tiden eftersom det finns mindre fördröjning i väntan på att servern ska överföra data. | Ett heltal mellan 1 och 4294967296 (4 GB). Standardvärdet är `60000`. Värdet 1 definierar inte antalet byte, men indikerar att allokera utrymme för exakt en rad med data. |
 
 Om du vill aktivera kryptering på Oracle-anslutning har du två alternativ:
 
@@ -125,7 +125,7 @@ Om du vill aktivera kryptering på Oracle-anslutning har du två alternativ:
         ```
 
     3.  Placera `truststore` filen på IR-datorn med egen värd. Placera till exempel filen på C:\MyTrustStoreFile.
-    4.  I Azure Data Factory konfigurerar du Oracle-anslutningssträngen med `EncryptionMethod=1` och motsvarande `TrustStore` / `TrustStorePassword` värde. Till exempel `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
+    4.  I Azure Data Factory konfigurerar du Oracle-anslutningssträngen med `EncryptionMethod=1` och motsvarande `TrustStore` / `TrustStorePassword` värde. Exempelvis `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
 
 **Exempel:**
 
@@ -375,7 +375,7 @@ När du kopierar data från och till Oracle gäller följande mappningar. Inform
 | TIMESTAMP |DateTime |
 | TIDSSTÄMPEL MED LOKAL TIDSZON |Sträng |
 | TIDSSTÄMPEL MED TIDSZON |Sträng |
-| OSIGNERAT HELTAL |Tal |
+| OSIGNERAT HELTAL |Antal |
 | VARCHAR2 |Sträng |
 | XML |Sträng |
 

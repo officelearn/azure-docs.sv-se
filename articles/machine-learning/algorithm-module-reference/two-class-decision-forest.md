@@ -1,7 +1,7 @@
 ---
-title: 'Besluts skog med två klasser: modulreferens'
+title: 'Two-Class besluts skog: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen besluts skog i två klasser i Azure Machine Learning för att skapa en maskin inlärnings modell som baseras på algoritmen för besluts skogar.
+description: Lär dig hur du använder modulen Two-Class besluts skog i Azure Machine Learning för att skapa en Machine Learning-modell som baseras på algoritmen för besluts skogar.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/03/2020
 ms.openlocfilehash: 9870b5366ac629fe1b10cfde15a58b85c7c6fbc3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907724"
 ---
-# <a name="two-class-decision-forest-module"></a>Modul för besluts skog i två klass
+# <a name="two-class-decision-forest-module"></a>Two-Class modul för besluts skog
 
 I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 

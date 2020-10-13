@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb0147af559d9de4a8589344d61b06368086dd20
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91278795"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Aktivera externt B2B-samarbete och hantera vilka som kan bjuda in gäster
@@ -61,7 +61,7 @@ Som standard kan alla användare, inklusive gäster, bjuda in gäst användare.
 
    - **Gäster kan bjuda in**: om du vill tillåta gäster att bjuda in andra gäster ställer du in den här principen på **Ja**.
 
-   - **Aktivera e-post med eng ång slö sen ord för gäster (för hands version)**: Mer information om funktionen för eng ång slö sen ord finns i [e-mail Authentication eng ång slö sen ord (för hands version)](one-time-passcode.md).
+   - **Aktivera e-One-Time lösen ord för gäster (för hands version)**: Mer information om funktionen för eng ång slö sen ord finns i [e-mail Authentication eng ång slö sen ord (för hands version)](one-time-passcode.md).
 
    - Aktivera självbetjäning för **gäst registrering via användar flöden (för hands version)**: Mer information om den här inställningen finns i [lägga till ett självbetjänings registrerings användar flöde i en app (för hands version)](self-service-sign-up-user-flow.md).
 

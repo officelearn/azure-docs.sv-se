@@ -12,10 +12,10 @@ ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 4e5becdd026b0a1c9e848b183ebeee5833654461
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259279"
 ---
 # <a name="tutorial-for-configuring-jumio-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera Jumio med Azure Active Directory B2C
@@ -46,7 +46,7 @@ I följande arkitektur diagram visas implementeringen.
 
 ![Diagram över arkitekturen i en Azure AD B2C-integrering med Jumio.](./media/partner-jumio/jumio-architecture-diagram.png)
 
-|Steg | Description |
+|Steg | Beskrivning |
 |:-----| :-----------|
 | 1. | Användaren kommer till en sida för att antingen logga in eller registrera dig för att skapa ett konto. Azure AD B2C samlar in användarattribut.
 | 2. | Azure AD B2C anropar API: t i mitten och passerar användar attributen.
@@ -104,7 +104,7 @@ Använd följande PowerShell-skript för att skapa strängen:
 
 Du kan [Konfigurera program inställningar i Azure App Service](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Med den här metoden kan du konfigurera inställningar på ett säkert sätt utan att kontrol lera dem i en lagrings plats. Du måste ange följande inställningar för REST-API: et:
 
-| Programinställningar | Källa | Kommentarer |
+| Programinställningar | Källa | Obs! |
 | :-------- | :------------| :-----------|
 |JumioSettings:AuthUsername | Konfiguration av Jumio-konto |     |
 |JumioSettings:AuthPassword | Konfiguration av Jumio-konto |     |

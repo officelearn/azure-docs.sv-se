@@ -4,10 +4,10 @@ description: Lär dig mer om kluster versioner i Azure Service Fabric, inklusive
 ms.topic: troubleshooting
 ms.date: 06/15/2020
 ms.openlocfilehash: e3194a59607563656f6624dabf51e9369e9258ee
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843251"
 ---
 # <a name="supported-service-fabric-versions"></a>Service Fabric versioner som stöds
@@ -72,26 +72,26 @@ I följande tabell visas versions namnen för Service Fabric och deras motsvaran
 
 | Versions namn | Windows-versions nummer | Linux-versions nummer |
 | --- | --- | --- |
-| 5,3 RTO | 5.3.121.9494 | NA |
-| 5,3 CU1 | 5.3.204.9494 | NA |
-| 5,3 CU2 | 5.3.301.9590 | NA |
-| 5,3 CU3 | 5.3.311.9590 | NA |
-| 5,4 CU2 | 5.4.164.9494 | NA |
-| 5,5 CU1 | 5.5.216.0    | NA |
-| 5,5 CU2 | 5.5.219.0    | NA |
-| 5,5 CU3 | 5.5.227.0    | NA |
-| 5,5 CU4 | 5.5.232.0    | NA |
-| 5,6 RTO | 5.6.204.9494 | NA |
-| 5,6 CU2 | 5.6.210.9494 | NA |
-| 5,6 CU3 | 5.6.220.9494 | NA |
-| 5,7 RTO | 5.7.198.9494 | NA |
-| 5,7 CU4 | 5.7.221.9494 | NA |
+| 5,3 RTO | 5.3.121.9494 | Ej tillämpligt |
+| 5,3 CU1 | 5.3.204.9494 | Ej tillämpligt |
+| 5,3 CU2 | 5.3.301.9590 | Ej tillämpligt |
+| 5,3 CU3 | 5.3.311.9590 | Ej tillämpligt |
+| 5,4 CU2 | 5.4.164.9494 | Ej tillämpligt |
+| 5,5 CU1 | 5.5.216.0    | Ej tillämpligt |
+| 5,5 CU2 | 5.5.219.0    | Ej tillämpligt |
+| 5,5 CU3 | 5.5.227.0    | Ej tillämpligt |
+| 5,5 CU4 | 5.5.232.0    | Ej tillämpligt |
+| 5,6 RTO | 5.6.204.9494 | Ej tillämpligt |
+| 5,6 CU2 | 5.6.210.9494 | Ej tillämpligt |
+| 5,6 CU3 | 5.6.220.9494 | Ej tillämpligt |
+| 5,7 RTO | 5.7.198.9494 | Ej tillämpligt |
+| 5,7 CU4 | 5.7.221.9494 | Ej tillämpligt |
 | 6,0 RTO | 6.0.211.9494 | 6.0.120.1 |
 | 6,0 CU1 | 6.0.219.9494 | 6.0.127.1 |
 | 6,0 CU2 | 6.0.232.9494 | 6.0.133.1 |
 | 6,1 CU1 | 6.1.456.9494 | 6.1.183.1 |
 | 6,1 CU2 | 6.1.467.9494 | 6.1.185.1 |
-| 6,1 CU3 | 6.1.472.9494 | NA |
+| 6,1 CU3 | 6.1.472.9494 | Ej tillämpligt |
 | 6,1 CU4 | 6.1.480.9494 | 6.1.187.1 |
 | 6,2 RTO | 6.2.269.9494 | 6.2.184.1 | 
 | 6,2 CU1 | 6.2.274.9494 | 6.2.191.1 |
@@ -101,13 +101,13 @@ I följande tabell visas versions namnen för Service Fabric och deras motsvaran
 | 6,3 CU1 | 6.3.176.9494 | 6.3.124.1 |
 | 6,3 CU1 | 6.3.187.9494 | 6.3.129.1 |
 | 6,4 RTO | 6.4.617.9590 | 6.4.625.1 |
-| 6,4 CU2 | 6.4.622.9590 | NA |
+| 6,4 CU2 | 6.4.622.9590 | Ej tillämpligt |
 | 6,4 CU3 | 6.4.637.9590 | 6.4.634.1 |
 | 6,4 CU4 | 6.4.644.9590 | 6.4.639.1 |
 | 6,4 CU5 | 6.4.654.9590 | 6.4.649.1 |
-| 6,4 CU6 | 6.4.658.9590 | NA |
+| 6,4 CU6 | 6.4.658.9590 | Ej tillämpligt |
 | 6,4 CU7 | 6.4.664.9590 | 6.4.661.1 |
-| 6,4 CU8 | 6.4.670.9590 | NA |
+| 6,4 CU8 | 6.4.670.9590 | Ej tillämpligt |
 | 6,5 RTO | 6.5.639.9590 | 6.5.435.1 |
 | 6,5 CU1 | 6.5.641.9590 | 6.5.454.1 |
 | 6,5 CU2 | 6.5.658.9590 | 6.5.460.1 |

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: v-erkel
 ms.openlocfilehash: 9159807f55ae52393b8fccec339fcc94c3e4ebb0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87061374"
 ---
 # <a name="use-multiple-caches-for-regional-failover-recovery"></a>Använd flera cacheminnen för regional redundansväxling
@@ -55,6 +55,6 @@ Om de ursprungliga klienterna påverkas skapar du nya klienter i regionen USA, v
 
 Alla klienter måste montera det nya cacheminnet, även om klienterna inte påverkades av det här regions avbrottet. Den nya cachen har olika monterings adresser från den gamla.
 
-## <a name="learn-more"></a>Mer information
+## <a name="learn-more"></a>Läs mer
 
 Azure Application Architecture-guiden innehåller mer information om hur du [återställer från ett brett tjänst avbrott](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>).

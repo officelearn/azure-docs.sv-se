@@ -11,10 +11,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201369"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
@@ -66,12 +66,12 @@ PredicateValidationReference| 0:1 | En referens till ett **PredicateValidationsI
 
 Elementet **datatype** stöder följande värden:
 
-| Typ | Description |
+| Typ | Beskrivning |
 | ------- | ----------- |
 |boolean|Representerar ett booleskt `true` värde (eller `false` ).|
 |date| Representerar en omedelbar tid, vanligt vis uttrycks som ett datum på en dag. Värdet för datumet följer ISO 8601-konventionen.|
 |dateTime|Representerar en omedelbar tid, vanligt vis uttryckt som datum och tid på dagen. Värdet för datumet följer ISO 8601-konventionen.|
-|varaktighet|Representerar ett tidsintervall i år, månader, dagar, timmar, minuter och sekunder. Formatet är `PnYnMnDTnHnMnS` , där `P` anger positiv eller `N` för negativt värde. `nY`är antalet år följt av en literal `Y` . `nMo`är antalet månader följt av en literal `Mo` . `nD`är antalet dagar följt av en literal `D` . Exempel: `P21Y` representerar 21 år. `P1Y2Mo`representerar ett år och två månader. `P1Y2Mo5D`representerar ett år, två månader och fem dagar.  `P1Y2M5DT8H5M620S`representerar ett år, två månader, fem dagar, åtta timmar, fem minuter och tjugo sekunder.  |
+|varaktighet|Representerar ett tidsintervall i år, månader, dagar, timmar, minuter och sekunder. Formatet är `PnYnMnDTnHnMnS` , där `P` anger positiv eller `N` för negativt värde. `nY` är antalet år följt av en literal `Y` . `nMo` är antalet månader följt av en literal `Mo` . `nD` är antalet dagar följt av en literal `D` . Exempel: `P21Y` representerar 21 år. `P1Y2Mo` representerar ett år och två månader. `P1Y2Mo5D` representerar ett år, två månader och fem dagar.  `P1Y2M5DT8H5M620S` representerar ett år, två månader, fem dagar, åtta timmar, fem minuter och tjugo sekunder.  |
 |phoneNumber|Representerar ett telefonnummer. |
 |int| Representerar talet mellan-2 147 483 648 och 2 147 483 647|
 |long| Representerar talet mellan-9 och 9 223 372 036 854 775 807 |
@@ -128,7 +128,7 @@ Det innebär att JWT-token som utfärdas av Azure AD B2C, genererar i `family_na
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | `Type` | Ja | Typ av anspråks mask. Möjliga värden: `Simple` eller `Regex` . `Simple`Värdet anger att en enkel textmask används för den inledande delen av ett sträng anspråk. `Regex`Värdet anger att ett reguljärt uttryck används för sträng anspråket som helhet.  Om `Regex` värdet har angetts måste även ett valfritt attribut definieras med det reguljära uttrycket som ska användas. |
-| `Regex` | No | Om **`Type`** är inställt på `Regex` anger du det reguljära uttrycket som ska användas.
+| `Regex` | Inga | Om **`Type`** är inställt på `Regex` anger du det reguljära uttrycket som ska användas.
 
 I följande exempel konfigureras ett **telefonnummer för telefonnummer** till `Simple` masken:
 
@@ -167,7 +167,7 @@ I ramverket med identitets upplevelsen återges bara den första bokstaven i e-p
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| MergeBehavior | No | Den metod som används för att sammanfoga uppräknings värden med en ClaimType i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i bas principen. Möjliga värden: `Append` , `Prepend` , eller `ReplaceAll` . `Append`Värdet är en samling data som ska läggas till i slutet av den samling som anges i den överordnade principen. `Prepend`Värdet är en samling data som ska läggas till före den samling som anges i den överordnade principen. `ReplaceAll`Värdet är en samling data som anges i den överordnade principen som ska ignoreras. |
+| MergeBehavior | Inga | Den metod som används för att sammanfoga uppräknings värden med en ClaimType i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i bas principen. Möjliga värden: `Append` , `Prepend` , eller `ReplaceAll` . `Append`Värdet är en samling data som ska läggas till i slutet av den samling som anges i den överordnade principen. `Prepend`Värdet är en samling data som ska läggas till före den samling som anges i den överordnade principen. `ReplaceAll`Värdet är en samling data som anges i den överordnade principen som ska ignoreras. |
 
 **Begränsnings** elementet innehåller följande element:
 
@@ -186,7 +186,7 @@ I ramverket med identitets upplevelsen återges bara den första bokstaven i e-p
 | --------- | -------- | ----------- |
 | Text | Ja | Den visnings sträng som visas för användaren i användar gränssnittet för det här alternativet. |
 |Värde | Ja | Anspråks värde som är associerat med att välja det här alternativet. |
-| SelectByDefault | No | Anger om det här alternativet ska vara markerat som standard i användar gränssnittet. Möjliga värden: true eller false. |
+| SelectByDefault | Inga | Anger om det här alternativet ska vara markerat som standard i användar gränssnittet. Möjliga värden: true eller false. |
 
 I följande exempel konfigureras List rutan för en **stad** med ett standardvärde som är inställt på `New York` :
 
@@ -214,7 +214,7 @@ List rutan stad med ett standardvärde som är inställt på New York:
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Reguljärt uttryck | Ja | Det reguljära uttrycket som anspråk av den här typen måste matcha för att vara giltigt. |
-| HelpText | No | Ett fel meddelande för användare om den reguljära uttrycks kontrollen Miss lyckas. |
+| HelpText | Inga | Ett fel meddelande för användare om den reguljära uttrycks kontrollen Miss lyckas. |
 
 I följande exempel konfigureras ett **e-** postanspråk med text verifiering och hjälp text i reguljärt uttryck:
 

@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
 ms.openlocfilehash: b5ccd1281e50ca10b8edd7d7567a000b97107901
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907434"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Använd Azure Portal för att ställa in aviseringar för mått för Azure Database for PostgreSQL-storskalig skalning (citus)
@@ -26,7 +26,7 @@ Du kan konfigurera en avisering för att utföra följande åtgärder när den u
 * Anropa en webhook.
 
 Du kan konfigurera och hämta information om aviserings regler med hjälp av:
-* [Azure-portalen](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [REST-API:et för Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
@@ -41,13 +41,13 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av:
 
 4. Sidan **Skapa regel** öppnas som visas nedan. Fyll i nödvändig information:
 
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Lägg till mått aviserings formulär":::
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Välj aviserings regler":::
 
 5. I avsnittet **villkor** väljer du **Lägg till**.
 
 6. Välj ett mått i listan över signaler att bli aviserad om. I det här exemplet väljer du "lagrings procent".
    
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Välj mått":::
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Välj aviserings regler":::
 
 7. Konfigurera aviserings logiken:
 
@@ -58,25 +58,17 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av:
    
    Välj **klar** när du är klar.
 
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Välj mått":::
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Välj aviserings regler" med ett namn, ett kort namn, en prenumeration och en resurs grupp.
 
-8. I avsnittet **Åtgärds grupper** väljer du **Skapa nytt** för att skapa en ny grupp för att ta emot meddelanden på aviseringen.
-
-9. Fyll i formuläret "Lägg till åtgärds grupp" med ett namn, ett kort namn, en prenumeration och en resurs grupp.
-
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Åtgärdsgrupp":::
-
-10. Konfigurera en **e-post/SMS/push/röst** -åtgärds typ.
-    
-    Välj "e-Azure Resource Manager roll" om du vill skicka meddelanden till prenumerations ägare, deltagare och läsare.
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Välj aviserings regler" om du vill skicka meddelanden till prenumerations ägare, deltagare och läsare.
    
     Välj **OK** när du är klar.
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Åtgärdsgrupp":::
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Välj aviserings regler":::
 
 11. Ange ett namn, en beskrivning och en allvarlighets grad för varnings regeln.
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Åtgärdsgrupp"::: 
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Välj aviserings regler"::: 
 
 12. Välj **skapa aviserings regel** för att skapa aviseringen.
 

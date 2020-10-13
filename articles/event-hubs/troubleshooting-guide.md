@@ -4,10 +4,10 @@ description: Den här artikeln innehåller information om fel sökning av anslut
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: b85c0895d1c8f165f494d29013adea014187dd23
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87039335"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Felsöka anslutnings problem – Azure Event Hubs
@@ -86,7 +86,7 @@ När du skapar en tjänst slut punkt för ett virtuellt nätverk för ett namn o
 ### <a name="check-the-ip-firewall-settings-for-your-namespace"></a>Kontrol lera inställningarna för IP-brandväggen för ditt namn område
 Kontrol lera att den offentliga IP-adressen för den dator där programmet körs inte blockeras av IP-brandväggen.  
 
-Som standard är Event Hubs-namnrymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+Som standard är Event Hubs-namnrymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i [CIDR-notation (classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 
 IP-brandväggens regler tillämpas på Event Hubs namn områdes nivå. Reglerna gäller därför för alla anslutningar från klienter som använder ett protokoll som stöds. Eventuella anslutnings försök från en IP-adress som inte matchar en tillåten IP-regel på Event Hubs namn området nekas som obehörig. Svaret innehåller ingen IP-regel. IP filter regler tillämpas i ordning och den första regeln som matchar IP-adressen avgör vilken åtgärd som godkänns eller nekas.
 

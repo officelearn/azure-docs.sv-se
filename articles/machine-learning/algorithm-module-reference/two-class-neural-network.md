@@ -1,7 +1,7 @@
 ---
-title: 'Neurala nätverk med två klasser: modulreferens'
+title: 'Two-Class neurala nätverk: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder neurala-modulen i två klasser i Azure Machine Learning för att skapa en neurala-nätverks modell som kan användas för att förutsäga ett mål som bara har två värden.
+description: Lär dig hur du använder modulen Two-Class neurala-nätverk i Azure Machine Learning för att skapa en neurala-nätverks modell som kan användas för att förutsäga ett mål som bara har två värden.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 2ad4fc575a6e9d07e4e24c2d570f68edbbea46c3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907679"
 ---
-# <a name="two-class-neural-network-module"></a>Neurala-modul i två klasser
+# <a name="two-class-neural-network-module"></a>Two-Class neurala-nätverksmapp
 
 I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 

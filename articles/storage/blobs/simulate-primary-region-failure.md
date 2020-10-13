@@ -12,10 +12,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: devx-track-js
 ms.openlocfilehash: 5a0bef4fbfd4ee9aa720dab430a33bbfcd0b918b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91280359"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Självstudie: simulera ett problem med att läsa data från den primära regionen
@@ -33,7 +33,7 @@ I del två i serien lär du dig hur du:
 > * Simulera ett fel med [en ogiltig statisk väg](#simulate-a-failure-with-an-invalid-static-route) eller [Fiddler](#simulate-a-failure-with-fiddler)
 > * Simulerar en återställning av den primära slutpunkten
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar den här självstudien slutför du den föregående själv studie kursen: [gör dina program data hög tillgängliga med Azure Storage][previous-tutorial].
 

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.openlocfilehash: ff408f114784fa3f0b8fab49521b5ec7ec2be102
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797725"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Självstudie: publicera en Hugo-webbplats till Azures statiska Web Apps för hands version
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. Om du inte har någon kan du [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/).
 - Ett GitHub-konto. Om du inte har någon kan du [skapa ett konto kostnads fritt](https://github.com/join).
@@ -115,7 +115,7 @@ Följande steg visar hur du skapar en ny statisk plats-app och distribuerar den 
 
 1. För _SKU_väljer du **kostnads fri**.
 
-   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Information ifylld":::
+   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Skapa en statisk Azure Web Apps-resurs i portalen":::
 
 1. Klicka på knappen **Logga in med GitHub** .
 
@@ -125,7 +125,7 @@ Följande steg visar hur du skapar en ny statisk plats-app och distribuerar den 
 
 1. För _grenen_ Välj **huvud**.
 
-   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Slutförd GitHub-information":::
+   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Skapa en statisk Azure Web Apps-resurs i portalen":::
 
 ### <a name="build"></a>Skapa
 
@@ -149,7 +149,7 @@ Sedan lägger du till de konfigurations inställningar som bygg processen använ
 
 1. I fönstret Azure Portals _Översikt_ över nyligen skapade Azure static Web Apps-resurser klickar du på _URL_ -länken för att öppna det distribuerade programmet.
 
-   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Distribuerat program":::
+   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Skapa en statisk Azure Web Apps-resurs i portalen":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

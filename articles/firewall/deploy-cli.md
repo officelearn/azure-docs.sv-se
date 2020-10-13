@@ -8,10 +8,10 @@ ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
 ms.openlocfilehash: 7f00b57edb37cc5bb5c8340663d619e526c2eacb
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89075434"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Distribuera och konfigurera Azure-brandväggen med Azure CLI
@@ -48,7 +48,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -105,7 +105,7 @@ az network vnet subnet create \
 Skapa nu de virtuella hopp- och arbetsbelastningsdatorerna och placera dem i respektive undernät.
 När du uppmanas till det anger du ett lösen ord för den virtuella datorn.
 
-Skapa den virtuella datorn för SRV-hopp.
+Skapa den Srv-Jump virtuella datorn.
 
 ```azurecli-interactive
 az vm create \
@@ -121,7 +121,7 @@ az vm open-port --port 3389 --resource-group Test-FW-RG --name Srv-Jump
 
 
 
-Skapa ett nätverkskort för SRV-arbete med vissa DNS-Server-IP-adresser och ingen offentlig IP-adress att testa med.
+Skapa ett nätverkskort för Srv-Work med vissa DNS-Server-IP-adresser och ingen offentlig IP-adress att testa med.
 
 ```azurecli-interactive
 az network nic create \

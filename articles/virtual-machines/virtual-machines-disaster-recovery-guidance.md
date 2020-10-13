@@ -6,12 +6,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: 3c87c234e376cc8380afbb26edf63e1969243475
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d659f0bc65d3dbe7cbb656d505275a52a9742eb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87831149"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976631"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Vad händer om en Azure Service-störning påverkar virtuella Azure-datorer
 På Microsoft arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga när du behöver dem. Det kommer inte längre att påverka vår kontroll på sätt som orsakar oplanerade avbrott i tjänsten.
@@ -25,7 +25,7 @@ Den här artikeln beskriver ett verkligt haveri återställnings scenario, när 
 För att hjälpa dig att hantera dessa sällsynta förekomster ger vi följande vägledning för virtuella Azure-datorer om ett avbrott uppstår i hela regionen där ditt Azure Virtual Machine-program distribueras.
 
 ## <a name="option-1-initiate-a-failover-by-using-azure-site-recovery"></a>Alternativ 1: initiera en redundansväxling med hjälp av Azure Site Recovery
-Du kan konfigurera Azure Site Recovery för dina virtuella datorer så att du kan återställa ditt program med ett enda klick i flera minuter. Du kan replikera till en valfri Azure-region och inte begränsad till kopplade regioner. Du kan komma igång genom att [Replikera dina virtuella datorer](https://aka.ms/a2a-getting-started). Du kan [skapa en återställnings plan](../site-recovery/site-recovery-create-recovery-plans.md) så att du kan automatisera hela redundansväxlingen för ditt program. Du kan [testa redundansväxlingen i](../site-recovery/site-recovery-test-failover-to-azure.md) förväg utan att påverka produktions programmet eller den pågående replikeringen. Om det uppstår ett avbrott i den primära regionen initierar du bara [en redundansväxling](../site-recovery/site-recovery-failover.md) och tar ditt program i mål regionen.
+Du kan konfigurera Azure Site Recovery för dina virtuella datorer så att du kan återställa ditt program med ett enda klick i flera minuter. Du kan replikera till en valfri Azure-region och inte begränsad till kopplade regioner. Du kan komma igång genom att [Replikera dina virtuella datorer](../site-recovery/azure-to-azure-quickstart.md). Du kan [skapa en återställnings plan](../site-recovery/site-recovery-create-recovery-plans.md) så att du kan automatisera hela redundansväxlingen för ditt program. Du kan [testa redundansväxlingen i](../site-recovery/site-recovery-test-failover-to-azure.md) förväg utan att påverka produktions programmet eller den pågående replikeringen. Om det uppstår ett avbrott i den primära regionen initierar du bara [en redundansväxling](../site-recovery/site-recovery-failover.md) och tar ditt program i mål regionen.
 
 
 ## <a name="option-2-wait-for-recovery"></a>Alternativ 2: vänta på återställning
@@ -41,7 +41,7 @@ Det här är det bästa alternativet om du inte har konfigurerat Azure Site Reco
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Börja [skydda dina program som körs på virtuella Azure-datorer](https://aka.ms/a2a-getting-started) med Azure Site Recovery
+- Börja [skydda dina program som körs på virtuella Azure-datorer](../site-recovery/azure-to-azure-quickstart.md) med Azure Site Recovery
 
 - Mer information om hur du implementerar en strategi för haveri beredskap och hög tillgänglighet finns i [haveri beredskap och hög tillgänglighet för Azure-program](/azure/architecture/framework/resiliency/backup-and-recovery).
 

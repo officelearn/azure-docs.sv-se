@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: b1a23c01fdf8a0145c26b709f36709a7b710103f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87374311"
 ---
 # <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurera JVM args Java standalone agent för Azure Monitor Application Insights
@@ -43,7 +43,7 @@ ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -
 
 ## <a name="tomcat-8-linux"></a>Tomcat 8 (Linux)
 
-### <a name="tomcat-installed-via-apt-get-or-yum"></a>Tomcat installerat via `apt-get` eller`yum`
+### <a name="tomcat-installed-via-apt-get-or-yum"></a>Tomcat installerat via `apt-get` eller `yum`
 
 Om du har installerat Tomcat via `apt-get` eller `yum` , bör du ha en-fil `/etc/tomcat8/tomcat8.conf` .  Lägg till den här raden i slutet av filen:
 
@@ -139,12 +139,12 @@ Om du kör flera hanterade servrar på en enda värd måste du lägga till i `ap
 ...
 ```
 
-Det angivna `applicationinsights.agent.id` värdet måste vara unikt. Den används för att skapa en under katalog under katalogen applicationinsights, eftersom varje JVM-process behöver sin egen lokala applicationinsights config och den lokala applicationinsights-logg filen. Om du rapporterar till Central insamlaren `applicationinsights.properties` delas filen av de flera hanterade servrarna, och därför krävs det att du `applicationinsights.agent.id` åsidosätter `agent.id` inställningen i den delade filen. `applicationinsights.agent.rollup.id`kan anges på samma sätt i serverns `system-properties` om du behöver åsidosätta `agent.rollup.id` inställningen per hanterad server.
+Det angivna `applicationinsights.agent.id` värdet måste vara unikt. Den används för att skapa en under katalog under katalogen applicationinsights, eftersom varje JVM-process behöver sin egen lokala applicationinsights config och den lokala applicationinsights-logg filen. Om du rapporterar till Central insamlaren `applicationinsights.properties` delas filen av de flera hanterade servrarna, och därför krävs det att du `applicationinsights.agent.id` åsidosätter `agent.id` inställningen i den delade filen. `applicationinsights.agent.rollup.id` kan anges på samma sätt i serverns `system-properties` om du behöver åsidosätta `agent.rollup.id` inställningen per hanterad server.
 
 
 ## <a name="jetty-9"></a>Jetty 9
 
-Lägg till dessa rader i`start.ini`
+Lägg till dessa rader i `start.ini`
 
 ```
 --exec

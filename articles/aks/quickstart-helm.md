@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 07/28/2020
 ms.author: zarhoads
 ms.openlocfilehash: 0ca2d7ccc863e2208db1212ef3d3f10fa709d069
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87407123"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Snabb start: utveckla på Azure Kubernetes service (AKS) med Helm
@@ -131,10 +131,10 @@ helm create webfrontend
 
 Gör följande uppdateringar för *webfrontend/Values. yaml*. Ersätt namnet av registret som du antecknade i ett tidigare steg, t. ex. *myhelmacr.azurecr.io*:
 
-* Ändra `image.repository` till`<loginServer>/webfrontend`
-* Ändra `service.type` till`LoadBalancer`
+* Ändra `image.repository` till `<loginServer>/webfrontend`
+* Ändra `service.type` till `LoadBalancer`
 
-Ett exempel:
+Exempel:
 
 ```yml
 # Default values for webfrontend.
@@ -201,7 +201,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 Mer information om hur du använder Helm finns i Helm-dokumentationen.
 
 > [!div class="nextstepaction"]
-> [Dokumentation om Helm][helm-documentation]
+> [Helm-dokumentation][helm-documentation]
 
 [az-acr-create]: /cli/azure/acr#az-acr-create
 [az-acr-build]: /cli/azure/acr#az-acr-build

@@ -4,10 +4,10 @@ description: I den här självstudien använder du alternativen för resurs lås
 ms.date: 08/27/2020
 ms.topic: tutorial
 ms.openlocfilehash: 3ed75a1dee925f2a55ac46705a171bec5fc1d30e
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89048578"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Självstudie: skydda nya resurser med resurs lås för Azure-ritningar
@@ -111,9 +111,9 @@ Skiss definitionen har nu skapats i din miljö. Den skapas i **utkast** läge oc
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta ritnings definitionen **Locked-storageaccount** och markera den.
+1. Välj sidan **Skissdefinitioner** till vänster. Använd filtren för att hitta ritnings definitionen **Locked-storageaccount** och markera den.
 
-1. Välj **publicera skiss** överst på sidan. I det nya fönstret till höger anger du **1,0** som **version**. Den här egenskapen är användbar om du gör en ändring senare. Ange **ändrings anteckningar**, till exempel den **första versionen som publiceras för att låsa skissbaserade resurser**. Välj sedan **publicera** längst ned på sidan.
+1. Välj **Publicera skiss** överst på sidan. I det nya fönstret till höger anger du **1,0** som **version**. Den här egenskapen är användbar om du gör en ändring senare. Ange **ändrings anteckningar**, till exempel den **första versionen som publiceras för att låsa skissbaserade resurser**. Välj därefter **Publicera** längst ned på sidan.
 
 Det här steget gör det möjligt att tilldela skissen till en prenumeration. När skiss definitionen har publicerats kan du fortfarande göra ändringar. Om du gör ändringar måste du publicera definitionen med ett nytt versions värde för att spåra skillnader mellan versioner av samma skiss definition.
 
@@ -125,11 +125,11 @@ När skiss definitionen har publicerats kan du tilldela den till en prenumeratio
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta ritnings definitionen **Locked-storageaccount** och markera den.
+1. Välj sidan **Skissdefinitioner** till vänster. Använd filtren för att hitta ritnings definitionen **Locked-storageaccount** och markera den.
 
-1. Välj **tilldela skiss** överst på skiss definitions sidan.
+1. Välj **Tilldela skiss** överst på skissdefinitionssidan.
 
-1. Ange parameter värden för skiss tilldelningen:
+1. Ange parametervärden för skisstilldelningen:
 
    - **Grundläggande inställningar**
 
@@ -147,11 +147,11 @@ När skiss definitionen har publicerats kan du tilldela den till en prenumeratio
 
      Använd standard alternativet: **systemtilldelad**. Mer information finns i [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md).
 
-   - **Artefakt parametrar**
+   - **Artefaktparametrar**
 
      De parametrar som definieras i det här avsnittet gäller för den artefakt under vilken de har definierats. Dessa parametrar är [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. För varje artefakt anger du parametervärdet till det som visas i kolumnen **värde** .
 
-     |Artefakt namn|Artefakt typ|Parameternamn|Värde|Beskrivning|
+     |Artefaktnamn|Artefakttyp|Parameternamn|Värde|Beskrivning|
      |-|-|-|-|-|
      |Resurs grupp för RGtoLock|Resursgrupp|Name|TestingBPLocks|Definierar namnet på den nya resurs grupp som skissen ska användas på.|
      |Resurs grupp för RGtoLock|Resursgrupp|Location|USA, västra 2|Definierar platsen för den nya resurs gruppen som skissen ska användas i.|

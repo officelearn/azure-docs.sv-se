@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.openlocfilehash: f1f4320f0bfb924883eb7ae4807dcb714cd89983
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331938"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Åtkomst till diagnostikloggar för Azure Data Lake Analytics
@@ -126,7 +126,7 @@ Här är en exempel post i den JSON-formaterade begär ande loggen. Varje Blob h
 
 #### <a name="request-log-schema"></a>Begär logg schema
 
-| Namn | Typ | Description |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | time |Sträng |Tids stämplingen (i UTC) för loggen |
 | resourceId |Sträng |Identifieraren för resursen som åtgärden utfördes på |
@@ -140,7 +140,7 @@ Här är en exempel post i den JSON-formaterade begär ande loggen. Varje Blob h
 
 #### <a name="request-log-properties-schema"></a>Schema för begär ande logg egenskaper
 
-| Namn | Typ | Description |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | HttpMethod |Sträng |HTTP-metoden som används för åtgärden. Till exempel GET. |
 | Sökväg |Sträng |Den sökväg som åtgärden utfördes på |
@@ -149,7 +149,7 @@ Här är en exempel post i den JSON-formaterade begär ande loggen. Varje Blob h
 | StartTime |Sträng |Tiden då servern tog emot begäran |
 | EndTime |Sträng |Tiden då servern skickade ett svar |
 
-### <a name="audit-logs"></a>Spårningsloggar
+### <a name="audit-logs"></a>Granskningsloggar
 
 Här är en exempel post i den JSON-formaterade gransknings loggen. Varje Blob har ett rot objekt som kallas **poster** som innehåller en matris med logg objekt.
 
@@ -176,7 +176,7 @@ Här är en exempel post i den JSON-formaterade gransknings loggen. Varje Blob h
 
 #### <a name="audit-log-schema"></a>Schema för spårningslogg
 
-| Namn | Typ | Description |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | time |Sträng |Tids stämplingen (i UTC) för loggen |
 | resourceId |Sträng |Identifieraren för resursen som åtgärden utfördes på |
@@ -184,7 +184,7 @@ Här är en exempel post i den JSON-formaterade gransknings loggen. Varje Blob h
 | operationName |Sträng |Namnet på den åtgärd som loggas. Till exempel JobSubmitted. |
 | resultType |Sträng |En under status för jobb status (operationName). |
 | resultSignature |Sträng |Ytterligare information om jobb status (operationName). |
-| identity |Sträng |Användaren som begärde åtgärden. Till exempel susan@contoso.com. |
+| identity |Sträng |Användaren som begärde åtgärden. Exempelvis susan@contoso.com. |
 | properties |JSON |Mer information finns i nästa avsnitt (gransknings loggens egenskaps schema) |
 
 > [!NOTE]
@@ -194,7 +194,7 @@ Här är en exempel post i den JSON-formaterade gransknings loggen. Varje Blob h
 
 #### <a name="audit-log-properties-schema"></a>Schema för gransknings logg egenskaper
 
-| Namn | Typ | Description |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | JobId |Sträng |Det ID som tilldelats jobbet |
 | JobName |Sträng |Det namn som har angetts för jobbet |

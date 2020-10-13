@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
 ms.openlocfilehash: 99c5ff39820b652a33ab670e63ca709f8747c4cf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88751277"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – säkerhets-och DevOps metod tips
@@ -78,8 +78,8 @@ Säkerhet från slut punkt till slut punkt kan uppnås med hjälp av följande k
     - Visa och rapportera alla ändringar av principer för åtkomst kontroll.
 
 **Kryptering**
-    - Transparent kryptering på Server sidan med Microsoft-hanterade nycklar eller Kundhanterade nycklar.
-    - I överförings kryptering med kryptering på klient sidan, https och TLS.
+    - Transparent Server-Side kryptering med hjälp av Microsoft-hanterade nycklar eller kund hanterade nycklar.
+    - I överförings kryptering med hjälp av Client-Side kryptering, https och TLS.
 
 Mer information finns i följande artiklar:
 

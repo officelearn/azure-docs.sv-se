@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5423a61c8febee72f32935f3dee4e9f9e868630
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89049085"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Villkorlig åtkomst: användar risk-baserad villkorlig åtkomst
@@ -33,7 +33,7 @@ Det finns två platser där denna policy kan tilldelas. Organisationer bör väl
 1. Under **Tilldelningar** väljer du **Användare och grupper**.
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
-   1. Välj **Klar**.
+   1. Välj **Done** (Klar).
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **alla molnappar**.
 1. Under **villkor**  >  **användar risk**ställer du in **Konfigurera** på **Ja**. Under **Konfigurera de användar risk nivåer som krävs för att principen ska tillämpas väljer du** är **hög**och väljer sedan **slutförd**.
 1. Under **åtkomst kontroller**  >  **tilldelar**väljer du **bevilja åtkomst**, **kräver lösen ords ändring**och väljer **Välj**.
@@ -48,7 +48,7 @@ Det finns två platser där denna policy kan tilldelas. Organisationer bör väl
 1. Under **tilldelningar**väljer **du användare**.
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer du **Välj exkluderade användare**, väljer din organisations nödfalls åtkomst eller rast glass konton och väljer **Välj**.
-   1. Välj **Klar**.
+   1. Välj **Done** (Klar).
 1. Välj **användar risk**under **villkor**och välj sedan **hög**.
    1. Välj **Välj**och sedan **Slutför**.
 1. Under **kontroller**  >  **åtkomst**väljer du **Tillåt åtkomst**och väljer sedan **Kräv lösen ords ändring**.

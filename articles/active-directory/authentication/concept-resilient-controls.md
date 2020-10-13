@@ -13,10 +13,10 @@ ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89049578"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Skapa en elastisk strategi för hantering av åtkomst kontroll med Azure Active Directory
@@ -119,7 +119,7 @@ En princip för villkorlig åtkomst är en **säkerhets kopierings princip** som
 
 * Konfigurera en uppsättning återställnings principer om ett avbrott i en typ av autentiseringsuppgift eller en mekanism för åtkomst kontroll påverkar åtkomsten till dina appar. Konfigurera en princip i endast rapport tillstånd som kräver domän anslutning som en kontroll, som en säkerhets kopia för en aktiv princip som kräver en MFA-provider från tredje part.
 * Minska risken för dåliga aktörer som gissar lösen ord, om MFA inte krävs, genom att följa anvisningarna i guiden för [lösen Ords vägledning](https://aka.ms/passwordguidance) White Paper.
-* Distribuera [Azure AD-SSPR (Self-Service Password rereset)](./tutorial-enable-sspr.md) och [Azure AD Password Protection](./howto-password-ban-bad-on-premises-deploy.md) för att se till att användarna inte använder vanliga lösen ord och villkor som du väljer att förbjuda.
+* Distribuera [Azure ad Self-Service lösen ords återställning (SSPR)](./tutorial-enable-sspr.md) och [Azure AD Password Protection](./howto-password-ban-bad-on-premises-deploy.md) för att se till att användarna inte använder vanliga lösen ord och villkor som du väljer att förbjuda.
 * Använd principer som begränsar åtkomsten i apparna om en viss autentiseringsnivå inte uppnås i stället för att bara komma tillbaka till fullständig åtkomst. Exempel:
   * Konfigurera en säkerhets kopierings princip som skickar anspråk för begränsad session till Exchange och SharePoint.
   * Om din organisation använder Microsoft Cloud App Security bör du överväga att återgå till en princip som samverkar med MCAS och sedan MCAS tillåter skrivskyddad åtkomst men inte uppladdning.
@@ -215,13 +215,13 @@ Om du har distribuerat Azure AD MFA NPS-tillägget för att skydda lokal-resurse
 I det här fallet kan du inaktivera NPS-tillägget, vilket innebär att NPS-servern endast verifierar den primära autentiseringen och kommer inte att tillämpa MFA på användarna.
 
 Inaktivera NPS-tillägg: 
--   Exportera register nyckeln HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters som en säkerhets kopia. 
+-   Exportera register nyckeln HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters som en säkerhets kopia. 
 -   Ta bort registervärdena för "AuthorizationDLLs" och "ExtensionDLLs", inte parametrar-nyckeln. 
 -   Starta om tjänsten Network Policy Service (IAS) för att ändringarna ska börja gälla 
 -   Ta reda på om den primära autentiseringen för VPN har slutförts.
 
 När tjänsten har återställts och du är redo att tillämpa MFA på dina användare igen, aktiverar du NPS-tillägget: 
--   Importera register nyckeln från backup HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 
+-   Importera register nyckeln från säkerhets kopierings HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 
 -   Starta om tjänsten Network Policy Service (IAS) för att ändringarna ska börja gälla 
 -   Kontrol lera om den primära autentiseringen och den sekundära autentiseringen för VPN har slutförts.
 -   Granska NPS-servern och VPN-loggen för att avgöra vilka användare som har loggat in i nödfalls fönstret.

@@ -13,12 +13,12 @@ ms.date: 09/6/2019
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2a6722cfff392a18629c8bb47fad0ad5ac1a95b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77084050"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966006"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>ADAL till MSAL migration guide för Android
 
@@ -238,19 +238,16 @@ public interface SilentAuthenticationCallback {
 I ADAL finns en typ av undantag, `AuthenticationException` som innehåller en metod för att hämta `ADALError` Enum-värdet.
 I MSAL finns det en hierarki med undantag och var och en har en egen uppsättning av tillhör ande specifika felkoder.
 
-Lista över MSAL-undantag
-
-|Undantag  | Beskrivning  |
-|---------|---------|
-| `MsalException`     | Ett checkat standard undantag utlöstes av MSAL.  |
-| `MsalClientException`     | Genereras om felet är klient sidan. |
-| `MsalArgumentException`     | Utlöstes om ett eller flera argument för indata är ogiltiga. |
-| `MsalClientException`     | Genereras om felet är klient sidan. |
-| `MsalServiceException`     | Utlöstes om felet är Server sidan. |
-| `MsalUserCancelException`     | Utlöses om användaren avbröt verifierings flödet.  |
-| `MsalUiRequiredException`     | Genereras om token inte kan uppdateras tyst.  |
-| `MsalDeclinedScopeException`     | Utlöses om en eller flera begärda omfattningar nekades av servern.  |
-| `MsalIntuneAppProtectionPolicyRequiredException` | Utlöses om MAMCA Protection-princip är aktive rad i resursen. |
+| Undantag                                        | Beskrivning                                                         |
+|--------------------------------------------------|---------------------------------------------------------------------|
+| `MsalException`                                  | Ett checkat standard undantag utlöstes av MSAL.                           |
+| `MsalClientException`                            | Genereras om felet är klient sidan.                                 |
+| `MsalArgumentException`                          | Utlöstes om ett eller flera argument för indata är ogiltiga.                 |
+| `MsalServiceException`                           | Utlöstes om felet är Server sidan.                                 |
+| `MsalUserCancelException`                        | Utlöses om användaren avbröt verifierings flödet.                |
+| `MsalUiRequiredException`                        | Genereras om token inte kan uppdateras tyst.                    |
+| `MsalDeclinedScopeException`                     | Utlöses om en eller flera begärda omfattningar nekades av servern. |
+| `MsalIntuneAppProtectionPolicyRequiredException` | Utlöses om MAMCA Protection-princip är aktive rad i resursen.         |
 
 ### <a name="adalerror-to-msalexception-errorcode"></a>ADALError till MsalException-felkod
 

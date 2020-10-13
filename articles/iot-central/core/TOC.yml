@@ -170,9 +170,11 @@
             - name: Växla livechatt
               href: howto-show-hide-chat.md
     - name: Felsöka
-      items: null
-      '-name': Device connections
-      href: troubleshoot-connection.md
+      items:
+        - name: Enhetsanslutningar
+          href: troubleshoot-connection.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: howto-faq.md
 - name: Referens
   items:
     - name: Azure CLI

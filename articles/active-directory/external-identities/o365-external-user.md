@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 563d925aa3e0d6922756ab037226f5a86534b19f
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90705443"
 ---
 # <a name="microsoft-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Microsoft 365 extern delning och Azure Active Directory (Azure AD) B2B-samarbete
@@ -41,7 +41,7 @@ Om du vill hantera extern delning i OneDrive/SharePoint Online med Azure AD B2B-
 
 När du har aktiverat extern delning är möjligheten att söka efter befintliga gäst användare i användar väljaren för SharePoint Online (SPO) inaktive rad som standard för att matcha äldre beteende.
 
-Du kan aktivera den här funktionen genom att använda inställningen "ShowPeoplePickerSuggestionsForGuestUsers" på klient-och webbplats samlings nivå. Du kan ställa in funktionen med cmdletarna Set-SPOTenant och set-SPOSite, vilket gör det möjligt för medlemmar att söka igenom alla befintliga gäst användare i katalogen. Ändringar i klient omfånget påverkar inte redan etablerade SPO-webbplatser.
+Du kan aktivera den här funktionen genom att använda inställningen "ShowPeoplePickerSuggestionsForGuestUsers" på klient-och webbplats samlings nivå. Du kan ställa in funktionen med hjälp av Set-SPOTenant-och Set-SPOSite-cmdlet: ar, vilket gör det möjligt för medlemmar att söka igenom alla befintliga gäst användare i katalogen. Ändringar i klient omfånget påverkar inte redan etablerade SPO-webbplatser.
 
 ## <a name="next-steps"></a>Nästa steg
 

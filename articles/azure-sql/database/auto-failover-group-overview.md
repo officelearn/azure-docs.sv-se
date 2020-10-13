@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
 ms.openlocfilehash: 2035fa811ed6bb5760f2527f66e0f2ca48ccb2c9
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627235"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
@@ -33,7 +33,7 @@ Dessutom tillhandahåller grupper för automatisk redundans skrivskyddade och sk
 
 När du använder grupper för automatisk redundans med automatisk redundansväxling, resulterar alla avbrott som påverkar databaser på en server eller hanterad instans i automatisk redundans. Du kan hantera gruppen för automatisk redundans med:
 
-- [Azure-portalen](geo-distributed-application-configure-tutorial.md)
+- [Azure Portal](geo-distributed-application-configure-tutorial.md)
 - [Azure CLI: redundans grupp](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: redundans grupp](scripts/add-database-to-failover-group-powershell.md)
 - [REST API: grupp växling vid fel](/rest/api/sql/failovergroups).
@@ -184,7 +184,7 @@ Ett typiskt Azure-program använder flera Azure-tjänster och består av flera k
 Om ett avbrott upptäcks väntar Azure på den period som du har angett `GracePeriodWithDataLossHours` . Standardvärdet är 1 timme. Om du inte kan erbjuda data förlust, se till att ange `GracePeriodWithDataLossHours` ett tillräckligt stort antal, till exempel 24 timmar. Använd manuell grupp växling vid fel för att återställa från den sekundära till den primära.
 
 > [!IMPORTANT]
-> Elastiska pooler med 800 eller färre DTU: er och fler än 250 databaser som använder geo-replikering kan stöta på problem, inklusive längre planerade redundanser och försämrade prestanda.  De här problemen är mer sannolika för Skriv intensiva arbets belastningar när geo-replikeringens slut punkter är mycket åtskilda med geografi eller när flera sekundära slut punkter används för varje databas.  Symptom på de här problemen anges när fördröjningen för geo-replikering ökar med tiden.  Den här fördröjningen kan övervakas med hjälp av [sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Om dessa problem inträffar, kan du öka antalet DTU: er eller minska antalet geo-replikerade databaser i samma pool.
+> Elastiska pooler med 800 eller färre DTU: er och fler än 250 databaser som använder geo-replikering kan stöta på problem, inklusive längre planerade redundanser och försämrade prestanda.  De här problemen är mer sannolika för Skriv intensiva arbets belastningar när geo-replikeringens slut punkter är mycket åtskilda med geografi eller när flera sekundära slut punkter används för varje databas.  Symptom på de här problemen anges när fördröjningen för geo-replikering ökar med tiden.  Den här fördröjningen kan övervakas med hjälp av [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Om dessa problem inträffar, kan du öka antalet DTU: er eller minska antalet geo-replikerade databaser i samma pool.
 
 ### <a name="changing-secondary-region-of-the-failover-group"></a>Ändra sekundär region för redundans gruppen
 

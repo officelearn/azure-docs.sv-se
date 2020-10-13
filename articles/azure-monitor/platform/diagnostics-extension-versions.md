@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
 ms.openlocfilehash: 9fa0fbea9a6c0e95eb9bec2795ae12e5fae36bfb
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89568668"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Windows Azure-diagnostik Extension (WAD) konfigurations schema versioner och historik
@@ -21,8 +21,8 @@ Den här artikeln innehåller versions historiken för de [Azure-diagnostik-till
 
 |Azure SDK-version | Version för diagnostik-tillägg | Modell|  
 |------------------|-------------------------------|------|  
-|1.x               |1,0                            |plugin-program|  
-|2,0 – 2,4         |1,0                            |plugin-program|  
+|1.x               |1.0                            |plugin-program|  
+|2,0 – 2,4         |1.0                            |plugin-program|  
 |2,5               |1,2                            |utöka|  
 |2,6               |1.3                            |"|  
 |2.7               |1.4                            |"|  

@@ -12,10 +12,10 @@ ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: dbfe18c84217c741f8dd64481901747d068fcdd3
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604146"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Använda Azure AD-programproxy för att publicera lokala appar för fjärranslutna användare
@@ -97,7 +97,7 @@ App proxy stöder även följande autentiseringsprotokoll med integration från 
 
 * [**Rubrik baserad autentisering**](application-proxy-configure-single-sign-on-with-ping-access.md). Den här inloggnings metoden använder en tredjeparts autentiseringstjänst som kallas PingAccess och används när programmet använder rubriker för autentisering. I det här scenariot hanteras autentiseringen av PingAccess.
 * [**Formulär-eller lösenordsbaserad autentisering**](application-proxy-configure-single-sign-on-password-vaulting.md). Med den här autentiseringsmetoden loggar användare in på programmet med ett användar namn och lösen ord första gången de använder den. Efter den första inloggningen skickar Azure AD användar namn och lösen ord till programmet. I det här scenariot hanteras autentiseringen av Azure AD.
-* [**SAML-autentisering**](application-proxy-configure-single-sign-on-on-premises-apps.md). SAML-baserad enkel inloggning stöds för program som använder antingen SAML 2,0-eller WS-Federation-protokoll. Med enkel inloggning i SAML autentiserar Azure AD programmet med hjälp av användarens Azure AD-konto.
+* [**SAML-autentisering**](application-proxy-configure-single-sign-on-on-premises-apps.md). SAML-baserad enkel inloggning stöds för program som använder antingen SAML 2,0 eller WS-Federation protokoll. Med enkel inloggning i SAML autentiserar Azure AD programmet med hjälp av användarens Azure AD-konto.
 
 Mer information om metoder som stöds finns i [välja en metod för enkel inloggning](sso-options.md#choosing-a-single-sign-on-method).
 

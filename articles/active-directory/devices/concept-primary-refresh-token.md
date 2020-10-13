@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 000bc150b1a4addb4b68bd86b8d72524ec1015fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 457910f30830db06f148282a32551a400255f7e1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450423"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965921"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Vad är en primär uppdateringstoken?
 
-En Primary Refresh token (PRT) är en viktig artefakt i Azure AD-autentisering på Windows 10-, iOS-och Android-enheter. Det är en JSON Web Token (JWT) som utfärdats särskilt för token från Microsoft för att aktivera enkel inloggning (SSO) över de program som används på dessa enheter. I den här artikeln får du information om hur en PRT utfärdas, används och skyddas på Windows 10-enheter.
+En Primary Refresh token (PRT) är en viktig artefakt i Azure AD-autentisering i Windows 10, Windows Server 2016 och senare versioner, iOS och Android-enheter. Det är en JSON Web Token (JWT) som utfärdats särskilt för token från Microsoft för att aktivera enkel inloggning (SSO) över de program som används på dessa enheter. I den här artikeln får du information om hur en PRT utfärdas, används och skyddas på Windows 10-enheter.
 
 Den här artikeln förutsätter att du redan förstår de olika enhets tillstånd som är tillgängliga i Azure AD och hur enkel inloggning fungerar i Windows 10. Mer information om enheter i Azure AD finns i artikeln [Vad är enhets hantering i Azure Active Directory?](overview.md)
 

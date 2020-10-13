@@ -4,10 +4,10 @@ description: I den här artikeln beskrivs vilken distribution & HPA (horisontell
 ms.topic: conceptual
 ms.date: 08/09/2020
 ms.openlocfilehash: ee1f0d4849a8382a898aaca84956ff78166e138f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89570534"
 ---
 # <a name="deployment--hpa-metrics-with-azure-monitor-for-containers"></a>Distributions & HPA mått med Azure Monitor för behållare

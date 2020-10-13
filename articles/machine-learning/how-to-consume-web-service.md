@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 06/17/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 6aacc2778e02b96f31c633671da014ced30778fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ffdb7a3bb177092d728fbd469aa8cf95e93edb5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756678"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966108"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Konsumera en Azure Machine Learning-modell som distribuerats som en webbtjänst
 
@@ -46,7 +46,9 @@ Det allmänna arbets flödet för att skapa en klient som använder en Machine L
 * `scoring_uri` – REST API-adressen.
 * `swagger_uri` – Adressen till OpenAPI-specifikationen. Denna URI är tillgänglig om du har aktiverat automatiskt skapande av schema. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
-Det finns tre sätt att hämta den här informationen för distribuerade webb tjänster:
+Det finns flera sätt att hämta den här informationen för distribuerade webb tjänster:
+
+# <a name="python"></a>[Python](#tab/python)
 
 * När du distribuerar en modell returneras ett `Webservice` objekt med information om tjänsten:
 
@@ -72,6 +74,30 @@ Det finns tre sätt att hämta den här informationen för distribuerade webb tj
     print(service.scoring_uri)
     print(service.swagger_uri)
     ```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Om du känner till namnet på den distribuerade tjänsten använder du kommandot [AZ ml-tjänst show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) :
+
+```azurecli
+az ml service show -n <service-name>
+```
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Från Azure Machine Learning Studio väljer du __slut punkter__, __slut punkter i real tid__och sedan slut punktens namn. I information om slut punkten innehåller __rest-slutpunkts__ fältet poängsättnings-URI. __Swagger-URI__ : n innehåller Swagger-URI: n.
+
+---
+
+Följande tabell visar hur dessa URI: er ser ut så här:
+
+| URI-typ | Exempel |
+| ----- | ----- |
+| Bedömnings-URI | `http://104.214.29.152:80/api/v1/service/<service-name>/score` |
+| Swagger-URI | `http://104.214.29.152/api/v1/service/<service-name>/swagger.json` |
+
+> [!TIP]
+> IP-adressen kommer att skilja sig åt för din distribution. Varje AKS-kluster kommer att ha den egna IP-adress som delas av distributioner till det klustret.
 
 ### <a name="secured-web-service"></a>Skyddad webb tjänst
 
@@ -268,7 +294,7 @@ De resultat som returneras liknar följande JSON-dokument:
 
 ## <a name="call-the-service-go"></a>Anropa tjänsten (go)
 
-Det här exemplet visar hur du använder Go för att anropa webb tjänsten som skapats från [tåget i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb) -exemplet:
+Det här exemplet visar hur du använder Go för att anropa webb tjänsten som skapats från [tåget i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb) -exemplet:
 
 ```go
 package main
@@ -360,7 +386,7 @@ De resultat som returneras liknar följande JSON-dokument:
 
 ## <a name="call-the-service-java"></a>Anropa tjänsten (Java)
 
-Det här exemplet visar hur du använder Java för att anropa webb tjänsten som skapats från [tåget i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb) -exemplet:
+Det här exemplet visar hur du använder Java för att anropa webb tjänsten som skapats från [tåget i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb) -exemplet:
 
 ```java
 import java.io.IOException;
@@ -440,7 +466,7 @@ De resultat som returneras liknar följande JSON-dokument:
 
 ## <a name="call-the-service-python"></a>Anropa tjänsten (python)
 
-Det här exemplet visar hur du använder python för att anropa webb tjänsten som skapats från [tåget i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb) -exemplet:
+Det här exemplet visar hur du använder python för att anropa webb tjänsten som skapats från [tåget i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb) -exemplet:
 
 ```python
 import requests

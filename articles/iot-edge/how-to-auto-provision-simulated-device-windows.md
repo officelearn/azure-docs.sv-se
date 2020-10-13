@@ -8,12 +8,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c010fa4ea0289ed91f439a250f0b63703517f5bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1c679ca5a7ff08a4d2490f94548b34e4db49f4d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447778"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966193"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Skapa och etablera en simulerad IoT Edge enhet med en virtuell TPM i Windows
 
@@ -75,19 +75,18 @@ När du har skapat den enskilda registreringen sparar du värdet för **registre
 
 ## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge runtime
 
-IoT Edge-körningen distribueras på alla IoT Edge-enheter. Komponenterna körs i behållare och gör att du kan distribuera ytterligare behållare till enheten så att du kan köra kod i kanten.
+IoT Edge-körningen distribueras på alla IoT Edge-enheter. Komponenterna körs i behållare och gör att du kan distribuera ytterligare behållare till enheten så att du kan köra kod i kanten. Installera IoT Edge runtime på enheten som kör den simulerade TPM: en.
 
-Du behöver följande information när du konfigurerar din enhet:
-
-* DPS **-ID omfångs** värde
-* ID för enhets **registrering** som du har skapat
-
-Installera IoT Edge runtime på enheten som kör den simulerade TPM: en. Du konfigurerar IoT Edge runtime för automatisk, inte manuell, etablering.
+Följ stegen i [installera Azure IoT Edge runtime](how-to-install-iot-edge.md)och gå sedan tillbaka till den här artikeln för att etablera enheten.
 
 > [!TIP]
 > Behåll fönstret som kör TPM-simulatorn öppen under installationen och testningen.
 
-Mer detaljerad information om hur du installerar IoT Edge i Windows, inklusive krav och instruktioner för aktiviteter som hantering av behållare och uppdatering av IoT Edge, finns i [installera Azure IoT Edge runtime i Windows](how-to-install-iot-edge-windows.md).
+## <a name="configure-the-device-with-provisioning-information"></a>Konfigurera enheten med etablerings information
+
+När körningen har installerats på enheten konfigurerar du enheten med den information som används för att ansluta till enhets etablerings tjänsten och IoT Hub.
+
+1. Känna till ditt DPS **-ID-omfång** och enhets **registrerings-ID** som samlades in i föregående avsnitt.
 
 1. Öppna ett PowerShell-fönster i administratörs läge. Se till att använda en AMD64-session av PowerShell när du installerar IoT Edge, inte PowerShell (x86).
 
@@ -98,7 +97,7 @@ Mer detaljerad information om hur du installerar IoT Edge i Windows, inklusive k
    Deploy-IoTEdge
    ```
 
-1. I det här läget kan IoT core-enheter startas om automatiskt. Andra Windows 10-eller Windows Server-enheter kan bli ombedd att starta om. Om så är fallet startar du om enheten nu. När enheten är klar kör du PowerShell som administratör igen.
+1. I det här läget kan utdata bli ombedd att starta om. Om så är fallet startar du om enheten nu. När enheten är klar kör du PowerShell som administratör igen.
 
 1. Kommandot **Initialize-IoTEdge** konfigurerar IoT Edge runtime på din dator. Kommandot är standardvärdet för manuell etablering med Windows-behållare. Använd `-Dps` flaggan för att använda enhets etablerings tjänsten i stället för manuell etablering.
 

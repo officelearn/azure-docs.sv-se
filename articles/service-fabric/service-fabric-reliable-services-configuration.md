@@ -7,17 +7,17 @@ ms.date: 10/02/2017
 ms.author: sumukhs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cda0a9f988afae58a60bff051885a5eec8afe434
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89021977"
 ---
 # <a name="configure-stateful-reliable-services"></a>Konfigurera tillstånds känsliga Reliable Services
 Det finns två uppsättningar konfigurations inställningar för Reliable Services. En uppsättning är global för alla pålitliga tjänster i klustret medan den andra uppsättningen är specifik för en viss tillförlitlig tjänst.
 
 ## <a name="global-configuration"></a>Global konfiguration
-Den globala pålitliga tjänst konfigurationen anges i kluster manifestet för klustret under avsnittet KtlLogger. Den tillåter konfiguration av den delade logg platsen och storlek plus de globala minnes gränserna som används av loggaren. Kluster manifestet är en enskild XML-fil som innehåller inställningar och konfigurationer som gäller för alla noder och tjänster i klustret. Filen kallas vanligt vis för ClusterManifest.xml. Du kan se kluster manifestet för klustret med hjälp av PowerShell-kommandot Get-ServiceFabricClusterManifest.
+Den globala pålitliga tjänst konfigurationen anges i kluster manifestet för klustret under avsnittet KtlLogger. Den tillåter konfiguration av den delade logg platsen och storlek plus de globala minnes gränserna som används av loggaren. Kluster manifestet är en enskild XML-fil som innehåller inställningar och konfigurationer som gäller för alla noder och tjänster i klustret. Filen kallas vanligt vis för ClusterManifest.xml. Du kan se kluster manifestet för klustret med hjälp av kommandot Get-ServiceFabricClusterManifest PowerShell.
 
 ### <a name="configuration-names"></a>Konfigurations namn
 | Namn | Enhet | Standardvärde | Kommentarer |
@@ -106,7 +106,7 @@ ReplicatorConfig
 | Namn | Enhet | Standardvärde | Kommentarer |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Sekunder |0,015 |Den tids period som replikeraren på den sekundära väntar efter att ha tagit emot en åtgärd innan en bekräftelse skickas till den primära. Alla andra bekräftelser som ska skickas för åtgärder som bearbetas inom detta intervall skickas som ett svar. |
-| ReplicatorEndpoint |Ej tillämpligt |Ingen standard-obligatorisk parameter |IP-adress och port som den primära/sekundära replikeraren ska använda för att kommunicera med andra replikeringar i replik uppsättningen. Detta bör referera till en slut punkt för en TCP-resurs i tjänst manifestet. Se [tjänst manifest resurser](service-fabric-service-manifest-resources.md) för att läsa mer om hur du definierar slut punkts resurser i ett tjänst manifest. |
+| ReplicatorEndpoint |E.t. |Ingen standard-obligatorisk parameter |IP-adress och port som den primära/sekundära replikeraren ska använda för att kommunicera med andra replikeringar i replik uppsättningen. Detta bör referera till en slut punkt för en TCP-resurs i tjänst manifestet. Se [tjänst manifest resurser](service-fabric-service-manifest-resources.md) för att läsa mer om hur du definierar slut punkts resurser i ett tjänst manifest. |
 | MaxPrimaryReplicationQueueSize |Antal åtgärder |8192 |Maximalt antal åtgärder i den primära kön. En åtgärd frigörs efter att den primära replikeraren får en bekräftelse från alla sekundära replikeringar. Värdet måste vara större än 64 och en potens på 2. |
 | MaxSecondaryReplicationQueueSize |Antal åtgärder |16384 |Maximalt antal åtgärder i den sekundära kön. En åtgärd frigörs när den har gjort sitt tillstånd hög tillgängligt genom persistence. Värdet måste vara större än 64 och en potens på 2. |
 | CheckpointThresholdInMB |MB |50 |Mängden logg fils utrymme som används för att ange en kontroll punkt. |

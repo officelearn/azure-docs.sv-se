@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
 ms.openlocfilehash: 160d056447bd53ea01437acd372b5efeb15b4773
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87083165"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Skriv om URL: en med Azure Application Gateway – Azure Portal (för hands version)
@@ -21,7 +21,7 @@ Den här artikeln beskriver hur du använder Azure Portal för att konfigurera e
 >[!NOTE]
 > Funktionen för URL-omskrivning är i för hands version och är endast tillgänglig för Standard_v2 och WAF_v2 SKU för Application Gateway. Det rekommenderas inte för användning i produktions miljöer. Läs mer om för hands versionerna i [användnings villkor här](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -53,13 +53,13 @@ I exemplet nedan när URL: en för begäran innehåller */article*, skrivs URL-s
     
     c. Välj **Nästa**.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Associera till en regel":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Lägg till Skriv över uppsättning":::
 
 5. Skapa en omskrivnings regel:
 
     a. Välj **Lägg till omskrivning av regel**.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Lägg till omskrivnings regel":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Lägg till Skriv över uppsättning":::
     
     b. Ange ett namn för omarbetnings regeln i rutan **Skriv om regel namn** . Ange ett tal i rutan **regelmall** .
 
@@ -75,13 +75,13 @@ I exemplet nedan när URL: en för begäran innehåller */article*, skrivs URL-s
     
     e. I listan **operator** väljer du **lika med (=)**.
     
-    f. Ange ett mönster för reguljära uttryck. I det här exemplet ska vi använda mönstret`.*article/(.*)/(.*)`
+    f. Ange ett mönster för reguljära uttryck. I det här exemplet ska vi använda mönstret `.*article/(.*)/(.*)`
     
       () används för att avbilda del strängen för senare användning i att skriva uttrycket för att skriva om URL-sökvägen. Mer information finns [här](rewrite-http-headers-url.md#capturing).
 
     ex. Välj **OK**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Condition":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Lägg till Skriv över uppsättning":::
 
  
 
@@ -97,17 +97,17 @@ I exemplet nedan när URL: en för begäran innehåller */article*, skrivs URL-s
 
    e. I **URL-värdet för URL-fråga**anger du det nya värdet för URL-frågesträngen. I det här exemplet ska vi använda **ID = {var_uri_path_1} &title = {var_uri_path_2}**
     
-    `{var_uri_path_1}`och `{var_uri_path_1}` används för att hämta de del strängar som fångats när villkoret utvärderas i det här uttrycket`.*article/(.*)/(.*)`
+    `{var_uri_path_1}` och `{var_uri_path_1}` används för att hämta de del strängar som fångats när villkoret utvärderas i det här uttrycket `.*article/(.*)/(.*)`
     
    f. Välj **OK**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Åtgärd":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Lägg till Skriv över uppsättning":::
 
 8. Klicka på **skapa** för att skapa en omskrivnings uppsättning.
 
 9. Kontrol lera att den nya omarbetnings uppsättningen visas i listan över återskrivna uppsättningar
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Lägg till omskrivnings regel":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Lägg till Skriv över uppsättning":::
 
 ## <a name="verify-url-rewrite-through-access-logs"></a>Verifiera URL-omskrivning via åtkomst loggar
 

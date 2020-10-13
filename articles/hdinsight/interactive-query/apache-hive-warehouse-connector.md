@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.openlocfilehash: 24968511d038b2cea41a59187c0a361684c6720e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511899"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrera Apache Spark och Apache Hive med Hive Warehouse Connector i Azure HDInsight
@@ -78,7 +78,7 @@ Hive-lagerställen behöver separata kluster för Spark-och Interactive Query-ar
     |`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. <br> Ange en lämplig HDFS-kompatibel uppsamlings katalog. Om du har två olika kluster bör mellanlagringsplatsen vara en mapp i uppsamlings katalogen för LLAP-klustrets lagrings konto så att HiveServer2 har åtkomst till den.  Ersätt `STORAGE_ACCOUNT_NAME` med namnet på det lagrings konto som används av klustret och `STORAGE_CONTAINER_NAME` med namnet på lagrings behållaren. |
     |`spark.sql.hive.hiveserver2.jdbc.url`| Värdet som du hämtade tidigare från **HiveServer2-interaktiva JDBC-URL** |
     |`spark.datasource.hive.warehouse.metastoreUri`| Det värde som du hämtade tidigare från **Hive. metaarkiv. URI: er**. |
-    |`spark.security.credentials.hiveserver2.enabled`|`true`för garn kluster läge och `false` för garn klient läge. |
+    |`spark.security.credentials.hiveserver2.enabled`|`true` för garn kluster läge och `false` för garn klient läge. |
     |`spark.hadoop.hive.zookeeper.quorum`| Värdet som du hämtade tidigare från **Hive. Zookeeper. kvorum**. |
     |`spark.hadoop.hive.llap.daemon.service.hosts`| Värdet du hämtade tidigare från **Hive. LLAP. daemon. service. hosts**. |
 

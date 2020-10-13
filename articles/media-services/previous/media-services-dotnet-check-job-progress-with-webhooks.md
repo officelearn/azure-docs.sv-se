@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 24e4bf9940de0f7b0e851bdfdbd2d788757034e0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89267742"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Använd Azure Webhooks för att övervaka Media Services jobb meddelanden med .NET
@@ -45,7 +45,7 @@ Den här artikeln visar hur du
 
 Du hittar definitioner av olika Media Services .NET-Azure Functions (inklusive det som visas i den här artikeln) [här](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att kunna genomföra vägledningen:
 
@@ -64,7 +64,7 @@ När du utvecklar Media Services funktioner är det praktiskt att lägga till mi
 
 Avsnittet [program inställningar](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) definierar parametrar som används i webhooken som definieras i den här artikeln. Lägg också till följande parametrar i appens inställningar. 
 
-|Name|Definition|Exempel| 
+|Namn|Definition|Exempel| 
 |---|---|---|
 |SigningKey |En signerings nyckel.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | En webhook-slutpunkt. När din webhook-funktion har skapats kan du kopiera URL: en från länken **Hämta funktions webb adress** . | https: \/ /juliakofuncapp.azurewebsites.NET/API/Notification_Webhook_Function?Code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g = =.|

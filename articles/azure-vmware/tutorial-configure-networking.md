@@ -4,10 +4,10 @@ description: Lär dig att skapa och konfigurera de nätverk som behövs för att
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.openlocfilehash: 6aff39284f3ea786080055552ac001ac5dd7b394
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578366"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Självstudie: Konfigurera nätverk för ditt privata VMware-moln i Azure
@@ -22,7 +22,7 @@ I den här guiden får du lära dig att:
 > * Anslut din ExpressRoute-krets till gatewayen
 > * Leta upp URL: erna för vCenter och NSX Manager
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 Ett virtuellt nätverk som du har skapat ett [privat moln för Azure VMware-lösningen](tutorial-create-private-cloud.md). 
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
@@ -64,7 +64,7 @@ Nu när du har skapat ett virtuellt nätverk skapar du en virtuell nätverksgate
 
 1. På fliken grundläggande på sidan **Skapa virtuell nätverksgateway** anger du värden för fälten och väljer sedan **Granska + skapa**. 
 
-   | Fält | Värde |
+   | Field | Värde |
    | --- | --- |
    | **Prenumeration** | Förifyllt värde med den prenumeration som resurs gruppen tillhör. |
    | **Resursgrupp** | Ifyllt värde för den aktuella resurs gruppen. Värdet ska vara den resurs grupp som du skapade i ett tidigare test. |
@@ -109,4 +109,4 @@ I den här självstudiekursen lärde du dig att:
 Fortsätt till nästa självstudie och lär dig hur du skapar de NSX-T-datasegment som används för virtuella datorer i vCenter.
 
 > [!div class="nextstepaction"]
-> [Skapa ett NSX-T-nätverks segment](tutorial-nsx-t-network-segment.md)
+> [Skapa ett NSX-T-nätverkssegment](tutorial-nsx-t-network-segment.md)

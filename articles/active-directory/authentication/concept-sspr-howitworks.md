@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf03dffe82d611f10639af2a147bc2d9e9316621
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052782"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Självbetjäning av lösenordsåterställning i Azure AD

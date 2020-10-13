@@ -4,10 +4,10 @@ description: Lär dig att visa, underhålla, uppdatera och ta bort en hierarki f
 ms.date: 08/10/2020
 ms.topic: conceptual
 ms.openlocfilehash: 82eeb2520815ddac69d27ddccd58c842c3e33deb
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531046"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera dina resurser med hanterings grupper
@@ -127,7 +127,7 @@ Du kan visa en hanterings grupp som du har en direkt eller ärvd Azure-roll på.
 
 ### <a name="view-in-powershell"></a>Visa i PowerShell
 
-Du använder kommandot Get-AzManagementGroup för att hämta alla grupper. Se [AZ. Resources](/powershell/module/az.resources/Get-AzManagementGroup) -moduler för den fullständiga listan över hanterings grupper Hämta PowerShell-kommandon.  
+Du kan använda kommandot Get-AzManagementGroup för att hämta alla grupper. Se [AZ. Resources](/powershell/module/az.resources/Get-AzManagementGroup) -moduler för den fullständiga listan över hanterings grupper Hämta PowerShell-kommandon.  
 
 ```azurepowershell-interactive
 Get-AzManagementGroup
@@ -261,7 +261,7 @@ Om du vill flytta en prenumeration i PowerShell använder du kommandot New-AzMan
 New-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
-Om du vill ta bort länken mellan och-prenumerationen och hanterings gruppen använder du kommandot Remove-AzManagementGroupSubscription.
+Använd kommandot Remove-AzManagementGroupSubscription om du vill ta bort länken mellan och-prenumerationen och hanterings gruppen.
 
 ```azurepowershell-interactive
 Remove-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
@@ -304,7 +304,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ### <a name="move-management-groups-in-powershell"></a>Flytta hanterings grupper i PowerShell
 
-Använd kommandot Update-AzManagementGroup i PowerShell för att flytta en hanterings grupp under en annan grupp.
+Använd Update-AzManagementGroup kommando i PowerShell för att flytta en hanterings grupp under en annan grupp.
 
 ```azurepowershell-interactive
 $parentGroup = Get-AzManagementGroup -GroupName ContosoIT

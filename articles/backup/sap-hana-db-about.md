@@ -4,10 +4,10 @@ description: I den här artikeln lär du dig hur du säkerhetskopierar SAP HANA 
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: e30510817401fd8db23dc9f1d62fab495fac7ab2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022317"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Om SAP HANA Database Backup i virtuella Azure-datorer

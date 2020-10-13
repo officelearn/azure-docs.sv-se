@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: lagayhar
 ms.openlocfilehash: a815f4dcf7c76d4c11b4f2e227802b15f9c92a54
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89664761"
 ---
 # <a name="tree-visualizations"></a>Träd visualiseringar
@@ -56,7 +56,7 @@ Exemplet nedan visar hälso mått för behållare (storleken på arbets minnet) 
 
 ## <a name="tree-settings"></a>Träd inställningar
 
-| Inställningen | Förklaring |
+| Inställning | Förklaring |
 |:------------- |:-------------|
 | `Id Field` | Unikt ID för varje rad i rutnätet. |
 | `Parent Id Field` | ID: t för den överordnade raden för den aktuella raden. |

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: 7701fe91d0e3f78f9596687bf945ba4b11c2d199
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331700"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-the-azure-cli"></a>Hantera en Azure Database for MySQL-flexibel Server (för hands version) med Azure CLI
@@ -50,7 +50,7 @@ Här följer information om argument ovan:
 
 **Inställning** | **Exempelvärde** | **Beskrivning**
 ---|---|---
-namn | mydemoserver | Ange ett unikt namn för din Azure Database for MySQL-server. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
+name | mydemoserver | Ange ett unikt namn för din Azure Database for MySQL-server. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
 resource-group | myresourcegroup | Ange namnet på Azure-resursgruppen.
 sku-name|Standard_D4ds_v4|Ange namnet på beräknings nivån och storleken. Följ regel Standard_ {VM-storlek} i korthet. Mer information finns på [pris nivåerna](../concepts-pricing-tiers.md) .
 storage-size | 6144 | Serverns lagringskapacitet (enheten är megabyte). Lägsta 5120 och ökar i steg om 1024.
@@ -62,7 +62,7 @@ storage-size | 6144 | Serverns lagringskapacitet (enheten är megabyte). Lägsta
 ## <a name="manage-mysql-databases-on-a-server"></a>Hantera MySQL-databaser på en server.
 Du kan använda något av dessa kommandon för att skapa, ta bort, Visa och Visa databas egenskaper för en databas på servern
 
-| Cmdlet | Användning| Description |
+| Cmdlet | Användning| Beskrivning |
 | --- | ---| --- |
 |[AZ MySQL-databas skapa flexibelt-Server DB](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_create)|```az mysql flexible-server db create -g myresourcegroup -s mydemoserver -n mydatabasename``` |Skapar en databas|
 |[AZ MySQL-databas ta bort flexibelt Server DB](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_delete)|```az mysql flexible-server db delete -g myresourcegroup -s mydemoserver -n mydatabasename```|Ta bort databasen från servern. Det här kommandot tar inte bort servern. |

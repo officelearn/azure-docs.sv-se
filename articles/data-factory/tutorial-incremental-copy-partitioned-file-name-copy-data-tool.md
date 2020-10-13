@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 6/10/2020
 ms.openlocfilehash: 3a46c2024269affc06d18806aa186fb8b0feaafe
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91533765"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Kopiera nya filer stegvis baserat på partitionerat fil namn med hjälp av Kopiera data-verktyget

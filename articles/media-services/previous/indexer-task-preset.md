@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: f8daa25239b935a9e0092c6bf2e388c7cc3c6789
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264767"
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Uppgifts för inställning för Azure Media Indexer
@@ -32,7 +32,7 @@ I det här avsnittet beskrivs den uppgifts för inställning som du behöver ski
 
 I följande tabell beskrivs element och attribut för konfigurations-XML.
 
-|Name|Kräver|Beskrivning|
+|Namn|Kräver|Beskrivning|
 |---|---|---|
 |Indata|true|Till gångs fil (er) som du vill indexera.<br/>Azure Media Indexer stöder följande medie fil format: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Du kan ange fil namnen i **indata** -elementets **namn** eller **list** -attribut (se nedan). Om du inte anger vilken till gångs fil som ska indexeras, kommer den primära filen att plockas. Om ingen primär till gångs fil anges indexeras den första filen i indata till gången.<br/><br/>Om du uttryckligen vill ange namnet på till gångs filen gör du följande:<br/>```<input name="TestFile.wmv" />```<br/><br/>Du kan också indexera flera till gångs filer samtidigt (upp till 10 filer). Gör så här:<br/>– Skapa en textfil (manifest fil) och ge den fil tillägget LST.<br/>– Lägg till en lista över alla till gångs fil namn i din indata till gång till manifest filen.<br/>– Lägg till (överför) manifest filen till till gången.<br/>-Ange namnet på manifest filen i indatans List-attribut.<br/>```<input list="input.lst">```<br/><br/>**Obs:** Om du lägger till fler än 10 filer i manifest filen kommer indexerings jobbet att Miss 2006-felkoden.|
 |metadata|falskt|Metadata för de angivna till gångs fil (er).<br/>```<metadata key="..." value="..." />```<br/><br/>Du kan ange värden för fördefinierade nycklar. <br/><br/>För närvarande stöds följande nycklar:<br/><br/>**rubrik** och **Beskrivning** – används för att uppdatera språk modellen för att förbättra tal igenkännings precisionen.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**användar namn** och **lösen ord** – används för autentisering vid hämtning av Internet-filer via http eller https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>Värdena för användar namn och lösen ord gäller för alla media-URL: er i manifestet för indatamängden.|

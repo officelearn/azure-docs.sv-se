@@ -4,10 +4,10 @@ description: Azure Policy utvärderingar och effekter avgör efterlevnad. Lär d
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 2b4db7daf75f153cadb03e5dd028084e311bb874
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91596038"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Hämta efterlevnads data för Azure-resurser

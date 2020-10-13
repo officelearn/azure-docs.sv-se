@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 2205ab1115a66092ae6dd6d75ee7004ab281eec7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91263920"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
@@ -220,7 +220,7 @@ Vi rekommenderar inte att du uttryckligen anger att ditt program ska använda TL
 | Windows Server 2012-2016 | Stöds och är aktiverat som standard. | Bekräfta att du fortfarande använder [standardinställningarna](/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men är inte aktiverat som standard. | På sidan [Transport Layer Security (TLS) register inställningar](/windows-server/security/tls/tls-registry-settings) finns mer information om hur du aktiverar.  |
 | Windows Server 2008 SP2 | Stöd för TLS 1,2 kräver en uppdatering. | Se [Uppdatera för att lägga till stöd för TLS 1,2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) i Windows Server 2008 SP2. |
-|Windows Vista | Stöds inte. | Saknas
+|Windows Vista | Stöds inte. | E.t.
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Kontrol lera vilken version av OpenSSL som din Linux-distribution körs på
 
@@ -256,7 +256,7 @@ SDK: erna varierar mellan olika plattformar och det finns flera komponenter som 
 | --- | --- |
 | [Lägga till Application Insights SDK i ett .NET-webbprojekt][greenbrown] |ServerContext<br/>Härleda<br/>Prestandaräknare<br/>Begäranden<br/>**Undantag**<br/>Session<br/>användare |
 | [Installera Statusövervakare på IIS][redfield] |Beroenden<br/>ServerContext<br/>Härleda<br/>Prestandaräknare |
-| [Lägga till Application Insights SDK i en Java-webbapp][java] |ServerContext<br/>Härleda<br/>Begäran<br/>Session<br/>användare |
+| [Lägga till Application Insights SDK i en Java-webbapp][java] |ServerContext<br/>Härleda<br/>Förfrågan<br/>Session<br/>användare |
 | [Lägg till Java Script SDK på webb sidan][client] |ClientContext <br/>Härleda<br/>Sida<br/>ClientPerf<br/>Ajax |
 | [Definiera standard egenskaper][apiproperties] |**Egenskaper** för alla standard-och anpassade händelser |
 | [Anropa TrackMetric][api] |Numeriska värden<br/>**Egenskaper** |

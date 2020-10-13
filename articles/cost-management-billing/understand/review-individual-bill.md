@@ -1,24 +1,24 @@
 ---
-title: Granska din enskilda Azure-faktura
-description: Lär dig hur du förstår din fakturerings- och resursanvändning och kontrollera avgifterna för din enskilda Azure-prenumeration.
+title: Granska din enskilda Azure-prenumerationsfaktura
+description: Lär dig hur du förstår din faktura och resursanvändning samt kontrollerar avgifterna för din enskilda Azure-prenumeration, inklusive Betala per användning.
 author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 10/01/2020
 ms.author: banders
-ms.openlocfilehash: 0c93375abd57ff5e96906ef7befbbb546a3a1caf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 95af762e0ff1986f9d1395e787c73b3a886a7a2e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270533"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653289"
 ---
-# <a name="tutorial-review-your-individual-azure-bill"></a>Självstudier: Granska din enskilda Azure-faktura
+# <a name="tutorial-review-your-individual-azure-subscription-bill"></a>Självstudie: Granska din enskilda Azure-prenumerationsfaktura
 
-Den här artikeln hjälper dig att förstå och granska din Azure-faktura. För varje faktureringsperiod får du normalt en faktura via e-post. Fakturan är en representation av din Azure-räkning. Samma kostnadsinformation på fakturan är tillgänglig i Azure-portalen. I den här självstudien jämför du fakturan med filen med detaljerad daglig användning samt med kostnadsanalys i Azure-portalen.
+Den här artikeln hjälper dig att förstå och granska fakturan för din Betala per användning- eller Visual Studio Azure-prenumeration, inklusive Betala per användning och Visual Studio. För varje faktureringsperiod får du normalt en faktura via e-post. Fakturan är en representation av din Azure-räkning. Samma kostnadsinformation på fakturan är tillgänglig i Azure-portalen. I den här självstudien jämför du fakturan med filen med detaljerad daglig användning samt med kostnadsanalys i Azure-portalen.
 
 Den här självstudien gäller endast för Azure-kunder som har en enskild prenumeration. Vanliga enskilda prenumerationer är sådana som har Betala per användning-priser och har köpts direkt från Azure-webbplatsen.
 
@@ -42,7 +42,7 @@ Det måste ha gått mer än 30 dagar sedan du började prenumerera på Azure. Az
 
 - Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="compare-invoiced-charges-with-usage-file"></a>Jämföra fakturerade kostnader med användningsfilen
+## <a name="compare-billed-charges-with-your-usage-file"></a>Jämföra debiterade avgifter med din användningsfil
 
 <a name="charges"></a>
 
@@ -109,7 +109,7 @@ Värdet för summerad *Kostnad* ska exakt matcha kostnaden för *användningsavg
 
 Mer information finns i [Förstå din Azure-faktura](understand-invoice.md) och [Förstå din detaljerad Azure-användning](understand-usage.md).
 
-## <a name="compare-charges-and-usage-in-cost-analysis"></a>Jämföra avgifter och användning i kostnadsanalys
+## <a name="compare-billed-charges-and-usage-in-cost-analysis"></a>Jämföra debiterade avgifter och användning i kostnadsanalys
 
 Kostnadsanalys i Azure-portalen kan även hjälpa dig att verifiera dina avgifter. För att få en snabb överblick av din fakturerade användning och dina kostnader väljer du din prenumeration på sidan [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i Azure-portalen. Klicka sedan på **Kostnadsanalys**. I listan över vyer klickar du på **Fakturainformation**.
 
@@ -123,13 +123,15 @@ Kostnader som visas i kostnadsanalys ska exakt matcha kostnaden för *användnin
 
 ![Användningsavgifter på faktura](./media/review-individual-bill/invoice-usage-charges.png)
 
-## <a name="external-services-billed-separately"></a><a name="external"></a>Externa tjänster debiteras separat
+## <a name="external-marketplace-services-are-billed-separately"></a>Externa Marketplace-tjänster debiteras separat
+
+<a name="external"></a>
 
 Externa tjänster eller Marketplace-avgifter är för resurser som har skapats av programvaruleverantörer från tredje part. Dessa resurser är tillgängliga för användning från Azure Marketplace. Till exempel är Barracuda Firewall en Azure Marketplace-resurs som erbjuds av en tredje part. Alla avgifter för brandväggen och dess motsvarande mätare visas som avgifter för externa tjänster.
 
 Avgifter för externa tjänster debiteras separat. Avgifterna står inte på din Azure-faktura. Mer information finns i [Förstå dina avgifter för externa Azure-tjänster](understand-azure-marketplace-charges.md).
 
-### <a name="resources-billed-by-usage-meters"></a>Resurser debiteras per användningsmätare
+### <a name="resources-are-billed-by-usage-meters"></a>Resurser debiteras per användningsmätare
 
 Azure debiterar inte direkt baserat på resurskostnaden. Avgifter för en resurs beräknas med hjälp av en eller flera mätare. Mätare används för att spåra användningen av en resurs under hela dess livslängd. Dessa mätare används sedan för att beräkna fakturan.
 
@@ -152,7 +154,9 @@ När den virtuella datorn skapas börjar varje mätare att skicka användningspo
 
 Du kan se de mätare som användes för att beräkna din faktura i CSV-filen för användning, som i de tidigare exemplen.
 
-## <a name="pay-your-bill"></a><a name="payment"></a>Betala din faktura
+## <a name="pay-your-bill"></a>Betala din faktura
+
+<a name="payment"></a>
 
 Om du konfigurerar ett kreditkort som betalningsmetod debiteras betalningen automatiskt inom 10 dagar efter faktureringsperiodens slut. På ditt kreditkortsutdrag skulle det stå **MSFT Azure** på radobjektet.
 

@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 706770db4309d1a909bc1161ab9d6657b6c5310a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91533556"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Konfigurera säkerhets aviseringar för Azure AD-roller i Privileged Identity Management
@@ -120,7 +120,7 @@ I det här avsnittet visas alla säkerhets aviseringar för Azure AD-roller, til
 | **Varför får jag den här aviseringen?** | Flera aktiveringar till samma privilegierade roll av samma användare är ett tecken på ett angrepp. |
 | **Så här löser du?** | Granska användarna i listan och kontrol lera att [aktiverings tiden](pim-how-to-change-default-settings.md) för deras privilegierade roll är tillräckligt lång för att de ska kunna utföra sina uppgifter. |
 | **Prevention (Skydd)** | Kontrol lera att [aktiverings tiden](pim-how-to-change-default-settings.md) för privilegierade roller är tillräckligt lång för att användarna ska kunna utföra sina uppgifter.</br>[Kräv Multi-Factor Authentication](pim-how-to-change-default-settings.md) för privilegierade roller som har konton som delas av flera administratörer. |
-| **Åtgärd som åtgärdar åtgärder i portalen** | Saknas |
+| **Åtgärd som åtgärdar åtgärder i portalen** | E.t. |
 | **Utlösare** | Utlöses om en användare aktiverar samma privilegierade roll flera gånger inom en angiven period. Du kan konfigurera både tids perioden och antalet aktiveringar. |
 | **Tidsram för aktiverings förnyelse** | Den här inställningen anger i dagar, timmar, minuter och sekund den tids period som du vill använda för att spåra misstänkta förnyelser. |
 | **Antal aktiverings förnyelser** | Den här inställningen anger antalet aktiveringar från 2 till 100, där du vill bli meddelad inom den tidsram som du har valt. Du kan ändra den här inställningen genom att flytta skjutreglaget eller skriva ett tal i text rutan. |
@@ -219,7 +219,7 @@ I det här avsnittet visas alla säkerhets aviseringar för Azure AD-roller, til
 | **Varför får jag den här aviseringen?** | Flera aktiveringar till samma privilegierade roll av samma användare är ett tecken på ett angrepp. |
 | **Så här löser du?** | Granska användarna i listan och kontrol lera att [aktiverings tiden](pim-how-to-change-default-settings.md) för deras privilegierade roll är tillräckligt lång för att de ska kunna utföra sina uppgifter. |
 | **Prevention (Skydd)** | Kontrol lera att [aktiverings tiden](pim-how-to-change-default-settings.md) för privilegierade roller är tillräckligt lång för att användarna ska kunna utföra sina uppgifter.</br>[Kräv Multi-Factor Authentication](pim-how-to-change-default-settings.md) för privilegierade roller som har konton som delas av flera administratörer. |
-| **Åtgärd som åtgärdar åtgärder i portalen** | Saknas |
+| **Åtgärd som åtgärdar åtgärder i portalen** | E.t. |
 | **Utlösare** | Utlöses om en användare aktiverar samma privilegierade roll flera gånger inom en angiven period. Du kan konfigurera både tids perioden och antalet aktiveringar. |
 | **Tidsram för aktiverings förnyelse** | Den här inställningen anger i dagar, timmar, minuter och sekund den tids period som du vill använda för att spåra misstänkta förnyelser. |
 | **Antal aktiverings förnyelser** | Den här inställningen anger antalet aktiveringar från 2 till 100, där du vill bli meddelad inom den tidsram som du har valt. Du kan ändra den här inställningen genom att flytta skjutreglaget eller skriva ett tal i text rutan. |

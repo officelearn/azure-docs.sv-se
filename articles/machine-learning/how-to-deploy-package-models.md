@@ -1,5 +1,5 @@
 ---
-title: Paket modeller
+title: Paketmodeller
 titleSuffix: Azure Machine Learning
 description: Paketera en modell som en Dockerfile
 services: machine-learning
@@ -10,10 +10,10 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.openlocfilehash: d5fb2539d79c31de5a5e0196a7a4814c02a84602
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87544653"
 ---
 # <a name="how-to-package-a-registered-model-with-docker"></a>Paketera en registrerad modell med Docker
@@ -25,7 +25,7 @@ Den här artikeln visar hur du paketerar en registrerad Azure Machine Learning m
 Den här artikeln förutsätter att du redan har tränat och registrerat en modell i din Machine Learning-arbetsyta. Om du vill lära dig mer om att träna och registrera en scikit-modell kan du [följa den här självstudien](how-to-train-scikit-learn.md).
 
 
-## <a name="package-models"></a>Paket modeller
+## <a name="package-models"></a>Paketmodeller
 
 I vissa fall kanske du vill skapa en Docker-avbildning utan att distribuera modellen (om du till exempel planerar att [distribuera till Azure App Service](how-to-deploy-app-service.md)). Eller så kanske du vill ladda ned avbildningen och köra den på en lokal Docker-installation. Du kanske till och med vill ladda ned filerna som används för att bygga avbildningen, inspektera dem, ändra dem och bygga avbildningen manuellt.
 
@@ -52,7 +52,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Ett exempel: 
+När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Exempel: 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 
@@ -163,9 +163,9 @@ docker kill mycontainer
 * [Felsöka en misslyckad distribution](how-to-troubleshoot-deployment.md)
 * [Distribuera till Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Skapa klient program för att använda webb tjänster](how-to-consume-web-service.md)
-* [Uppdatera webb tjänst](how-to-deploy-update-web-service.md)
+* [Uppdatera webbtjänst](how-to-deploy-update-web-service.md)
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
-* [Använd TLS för att skydda en webb tjänst via Azure Machine Learning](how-to-secure-web-service.md)
+* [Använda TLS för att skydda en webbtjänst via Azure Machine Learning](how-to-secure-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
 * [Skapa händelse aviseringar och utlösare för modell distributioner](how-to-use-event-grid.md)

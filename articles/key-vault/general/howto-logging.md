@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 8a975673bec3b3579eaa699f873fe8c4b1481d38
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91744988"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Så här aktiverar du Key Vault loggning
@@ -183,7 +183,7 @@ $blobs = Get-AzStorageBlob -Container $container -Context $sa.Context | Get-AzSt
 
 När du kör den här andra cmdleten i PowerShell **/** skapar avgränsaren i BLOB-namnen en fullständig mappstruktur under målmappen. Du använder den här strukturen för att ladda ned och lagra Blobbarna som filer.
 
-Om du vill ladda ned blobbarna selektivt använder du jokertecken. Till exempel:
+Om du vill ladda ned blobbarna selektivt använder du jokertecken. Exempel:
 
 * Om du har flera nyckelvalv och bara vill hämta loggar för ett av dem, mer specifikt nyckelvalvet CONTOSOKEYVAULT3:
 

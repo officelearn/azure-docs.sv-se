@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: dba058dce09e958a2ae769d927a5569fb3e42113
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324564"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Avancerade agg regeringar i Azure Monitor logg frågor
@@ -38,7 +38,7 @@ Event
 | DATOR2 | [326 105 302 301 300 102] |
 | ... | ... |
 
-`makelist`genererar en lista i den ordning som data skickades till den. Om du vill sortera händelser från äldsta till nyaste använder du `asc` i order-instruktionen i stället för `desc` . 
+`makelist` genererar en lista i den ordning som data skickades till den. Om du vill sortera händelser från äldsta till nyaste använder du `asc` i order-instruktionen i stället för `desc` . 
 
 Det är också användbart att skapa en lista med enbart distinkta värden. Detta kallas för en _uppsättning_ och kan genereras med `makeset` :
 
@@ -163,7 +163,7 @@ Heartbeat
 
 
 
-## <a name="narrowing-results-to-a-set-of-elements-let-makeset-toscalar-in"></a>Begränsa resultaten till en uppsättning element:,, `let` `makeset` `toscalar` ,`in`
+## <a name="narrowing-results-to-a-set-of-elements-let-makeset-toscalar-in"></a>Begränsa resultaten till en uppsättning element:,, `let` `makeset` `toscalar` , `in`
 Ett vanligt scenario är att välja namnen på vissa entiteter baserat på en uppsättning villkor och sedan filtrera en annan data uppsättning till den uppsättningen entiteter. Du kan till exempel hitta datorer där uppdateringar saknas och identifiera IP-adresser som de här datorerna anropar för att:
 
 

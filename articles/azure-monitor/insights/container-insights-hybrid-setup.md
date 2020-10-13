@@ -4,10 +4,10 @@ description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor f
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 26846148f3212699cecd6db3318cd2da2d9aa783
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89398389"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare
@@ -34,7 +34,7 @@ Följande konfigurationer stöds officiellt med Azure Monitor för behållare.
 
 - Åtkomst kontroll som stöds: Kubernetes RBAC och icke-RBAC
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att du har följande innan du börjar:
 

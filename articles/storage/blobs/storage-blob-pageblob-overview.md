@@ -11,21 +11,21 @@ ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 542c9374b70cd765ed27dd4dd158ad81035269f0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89018849"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Översikt över Azure Page blobbar
 
 Azure Storage erbjuder tre typer av Blob Storage: block-Blobs, bifoga blobbar och Page blobbar. Block-blobar består av block och är idealiska för att lagra text eller binära filer, och för att ladda upp stora filer effektivt. Tillägg av blobbar består också av block, men de är optimerade för att lägga till åtgärder, vilket gör dem perfekta för loggnings scenarier. Page blobbar består av 512 byte-sidor upp till 8 TB i Total storlek och är utformade för frekventa slumpmässiga Läs/skriv-åtgärder. Page blobbar är grunden för Azure IaaS-diskar. Den här artikeln fokuserar på att förklara funktionerna och fördelarna med Page blobbar.
 
-Page blobbar är en samling med sidor på 512 byte, som ger möjlighet att läsa/skriva valfria intervall med byte. Därför är Page blobbar idealiska för lagring av indexbaserade och glesa data strukturer som operativ system och data diskar för Virtual Machines och databaser. Azure SQL DB använder till exempel sid-blobbar som underliggande beständig lagring för dess databaser. Dessutom används även sid-blobar ofta för filer med intervallbaserade uppdateringar.  
+Page blobbar är en samling med sidor på 512 byte, som ger möjlighet att läsa/skriva valfria intervall med byte. Därför är Page blobbar idealiska för lagring av indexbaserade och glesa data strukturer som operativ system och data diskar för Virtual Machines och databaser. Azure SQL DB använder till exempel sid-blobbar som underliggande beständig lagring för dess databaser. Dessutom används även sid-blobar ofta för filer med Range-Based uppdateringar.  
 
 Viktiga funktioner i Azure Page blobbar är dess REST-gränssnitt, hållbarheten hos det underliggande lagrings utrymmet och de sömlösa funktionerna för migrering till Azure. Dessa funktioner beskrivs närmare i nästa avsnitt. Dessutom stöds Azure Page blobbar för närvarande på två typer av lagring: Premium Storage och standard lagring. Premium Storage är särskilt utformad för arbets belastningar som kräver konsekvent hög prestanda och låg latens för att göra Premium-sid-blobar perfekta för högpresterande lagrings scenarier. Standard lagrings konton är mer kostnads effektiva för att köra svars känsliga arbets belastningar.
 
-## <a name="sample-use-cases"></a>Exempel på användnings fall
+## <a name="sample-use-cases"></a>Exempel på användningsfall
 
 Låt oss diskutera några användnings fall för sid-blobar som börjar med Azure IaaS-diskar. Azure Page blobbar är stamnätet för Virtual disks-plattformen för Azure IaaS. Både Azure OS och data diskar implementeras som virtuella diskar där data varaktigt bevaras i Azure Storage-plattformen och sedan levereras till de virtuella datorerna för högsta prestanda. Azure-diskar sparas i [VHD-format](https://technet.microsoft.com/library/dd979539.aspx) för Hyper-V och lagras som en [sid-BLOB](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) i Azure Storage. Förutom att använda virtuella diskar för virtuella Azure IaaS-datorer, aktiverar Page blobbar också PaaS-och DBaaS-scenarier som Azure SQL DB-tjänsten, som för närvarande använder Page blobbar för att lagra SQL-data, vilket möjliggör snabba, slumpmässiga Läs-och skriv åtgärder för-databasen. Ett annat exempel är om du har en PaaS-tjänst för delad medie åtkomst för samverkande video redigerings program, kan du använda Page blobbar för snabb åtkomst till slumpmässiga platser i mediet. Det ger också snabb och effektiv redigering och sammanfogning av samma media av flera användare. 
 

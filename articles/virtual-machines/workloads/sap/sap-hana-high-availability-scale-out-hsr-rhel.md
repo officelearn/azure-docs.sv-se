@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/02/2020
 ms.author: radeltch
 ms.openlocfilehash: edca4b44bd9e7aa9f100db3cea0bc69880a4c533
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91744854"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA skalbart system på Red Hat Enterprise Linux 
@@ -80,14 +80,14 @@ Läs följande SAP-anteckningar och dokument innan du börjar:
 * [Azure Virtual Machines DBMS-distribution för SAP på Linux][dbms-guide]
 * [SAP HANA nätverks krav](https://www.sap.com/documents/2016/08/1cd2c2fb-807c-0010-82c7-eda71af511fa.html)
 * Allmän dokumentation om RHEL
-  * [Översikt över hög tillgänglighets tillägg](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Administrations tillägg med hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Referens för hög tillgänglighets tillägg](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Översikt över Add-On med hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Add-On administration med hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Add-On referens för hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Guide för Red Hat Enterprise Linux nätverk](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide)
-  * [Hur gör jag för att konfigurera SAP HANA skalbar systemreplikering i ett pacemaker-kluster med HANA-fil system på NFS-resurser](https://access.redhat.com/solutions/5423971)
+  * [Hur gör jag för att konfigurera SAP HANA Scale-Out system replikering i ett pacemaker-kluster med HANA-filsystem på NFS-resurser](https://access.redhat.com/solutions/5423971)
 * Azure-speciell RHEL-dokumentation:
   * [Installera SAP HANA på Red Hat Enterprise Linux för användning i Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure)
-  * [Red Hat Enterprise Linux lösning för SAP HANA skalbarhet och systemreplikering](https://access.redhat.com/solutions/4386601)
+  * [Red Hat Enterprise Linux lösning för SAP HANA Scale-Out och systemreplikering](https://access.redhat.com/solutions/4386601)
 * [NetApp SAP-program på Microsoft Azure med Azure NetApp Files][anf-sap-applications-azure]
 * [Azure NetApp Files dokumentation][anf-azure-doc] 
 
@@ -836,7 +836,7 @@ Ta med alla virtuella datorer, inklusive majoriteten i klustret.
     ```
 
    > [!TIP]
-   > Om konfigurationen innehåller andra fil system, förutom/ `hana/shared` , som är NFS-monterade, ska du inkludera `sequential=false` alternativet, så att det inte finns några ordnings beroenden mellan fil systemen. Alla NFS-monterade fil system måste startas före motsvarande Attribute-resurs, men de behöver inte starta i någon ordning i förhållande till varandra. Mer information finns i [Hur gör jag för att konfigurera SAP HANA skalbar HSR i ett pacemaker-kluster när Hana-filsystemen är NFS-resurser](https://access.redhat.com/solutions/5423971).  
+   > Om konfigurationen innehåller andra fil system, förutom/ `hana/shared` , som är NFS-monterade, ska du inkludera `sequential=false` alternativet, så att det inte finns några ordnings beroenden mellan fil systemen. Alla NFS-monterade fil system måste startas före motsvarande Attribute-resurs, men de behöver inte starta i någon ordning i förhållande till varandra. Mer information finns i [Hur gör jag för att konfigurera SAP HANA Scale-Out HSR i ett pacemaker-kluster när Hana-filsystemen är NFS-resurser](https://access.redhat.com/solutions/5423971).  
 
 8. **[1]** placera pacemaker i underhålls läge, som förberedelse för att skapa Hana-klusterresurser.  
     ```

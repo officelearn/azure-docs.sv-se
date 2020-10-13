@@ -12,10 +12,10 @@ author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
 ms.openlocfilehash: 3b5698c782b691dd8ae91913115db184fc83a2eb
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91756627"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Skapa och hantera en Azure Machine Learning beräknings instans
@@ -34,7 +34,7 @@ I den här artikeln kan du se hur du:
 
 Beräknings instanser kan köra jobb på ett säkert sätt i en [virtuell nätverks miljö](how-to-secure-training-vnet.md), utan att företag behöver öppna SSH-portar. Jobbet körs i en behållare miljö och paketerar dina modell beroenden i en Docker-behållare. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 

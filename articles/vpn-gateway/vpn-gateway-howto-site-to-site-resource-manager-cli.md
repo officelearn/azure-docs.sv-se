@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: fb7afa9afb72ce16213fd15953b6c82d0fddfeb5
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401256"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Skapa ett virtuellt nätverk med en VPN-anslutning från plats till plats med CLI
@@ -20,7 +20,7 @@ ms.locfileid: "89401256"
 Den här artikeln visar hur du kan använda Azure CLI för att skapa en VPN-gatewayanslutning från plats till plats från ditt lokala nätverk till det virtuella nätverket. Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmodellen. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:<br>
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-site-to-site-classic-portal.md)

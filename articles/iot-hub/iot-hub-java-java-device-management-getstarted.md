@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt, devx-track-java
 ms.openlocfilehash: da108e5f4832b1b72f252803ca0f4bc93c011c9a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327641"
 ---
 # <a name="get-started-with-device-management-java"></a>Kom igång med enhets hantering (Java)
@@ -52,7 +52,7 @@ I slutet av den här självstudien har du två Java-konsol program:
 > [!NOTE]
 > Information om SDK: er som du kan använda för att skapa program som ska köras på enheter och Server delen av lösningen finns i [Azure IoT SDK](iot-hub-devguide-sdks.md): er.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Java se Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Se till att du väljer **Java 8** under **långsiktigt stöd** för att hämta hämtningar för JDK 8.
 
@@ -62,7 +62,7 @@ I slutet av den här självstudien har du två Java-konsol program:
 
 * Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -130,7 +130,7 @@ Den här konsolen ansluter till IoT Hub för att anropa den direkta metoden och 
     </build>
     ```
 
-6. Spara och Stäng **pom.xmls** filen.
+6. Spara och Stäng **pom.xmls ** filen.
 
 7. Öppna käll filen **trigger-reboot\src\main\java\com\mycompany\app\App.java** i en text redigerare.
 
@@ -290,7 +290,7 @@ I det här avsnittet ska du skapa en Java-konsol som simulerar en enhet. Appen l
     </build>
     ```
 
-6. Spara och Stäng **pom.xmls** filen.
+6. Spara och Stäng **pom.xmls ** filen.
 
 7. Öppna käll filen **Simulated-device\src\main\java\com\mycompany\app\App.java** i en text redigerare.
 

@@ -13,10 +13,10 @@ ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: 53e759b973a5d912474dd754876c5279cfb7bdab
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91596454"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Starta, övervaka och avbryta inlärnings körningar i python
@@ -34,7 +34,7 @@ Den här artikeln innehåller exempel på följande uppgifter:
 
 Du behöver följande objekt:
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * En [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 

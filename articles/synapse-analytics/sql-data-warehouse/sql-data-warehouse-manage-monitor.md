@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
 ms.openlocfilehash: 9eb1006bdba6c69136c972359bb13420a04f4180
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89048032"
 ---
 # <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Övervaka arbets belastningen för Azure Synapse Analytics SQL-poolen med DMV: er
@@ -32,7 +32,7 @@ GRANT VIEW DATABASE STATE TO myuser;
 
 ## <a name="monitor-connections"></a>Övervaka anslutningar
 
-Alla inloggningar till data lagret loggas till [sys. dm_pdw_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-sessions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Denna DMV innehåller de senaste 10 000 inloggningarna.  Session_id är den primära nyckeln och tilldelas sekventiellt för varje ny inloggning.
+Alla inloggningar till data lagret loggas till [sys.dm_pdw_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-sessions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Denna DMV innehåller de senaste 10 000 inloggningarna.  Session_id är den primära nyckeln och tilldelas sekventiellt för varje ny inloggning.
 
 ```sql
 -- Other Active Connections
@@ -41,7 +41,7 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <
 
 ## <a name="monitor-query-execution"></a>Övervaka frågekörningen
 
-Alla frågor som körs på SQL-poolen loggas till [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Denna DMV innehåller de senaste 10 000 frågorna som kördes.  Request_id identifierar unikt varje fråga och är den primära nyckeln för denna DMV.  Request_id tilldelas sekventiellt för varje ny fråga och föregås av QID, som står för fråge-ID.  Om du frågar denna DMV för en specifik session_id visas alla frågor för en specifik inloggning.
+Alla frågor som körs på SQL-poolen loggas till [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Denna DMV innehåller de senaste 10 000 frågorna som kördes.  Request_id identifierar unikt varje fråga och är den primära nyckeln för denna DMV.  Request_id tilldelas sekventiellt för varje ny fråga och föregås av QID, som står för fråge-ID.  Om du frågar denna DMV för en specifik session_id visas alla frågor för en specifik inloggning.
 
 > [!NOTE]
 > Lagrade procedurer använder flera ID: n för begäran.  ID för begäran tilldelas i sekventiell ordning.
@@ -67,9 +67,9 @@ ORDER BY total_elapsed_time DESC;
 
 I föregående frågeresultat **noterar du fråge-ID** för frågan som du vill undersöka.
 
-Frågor i tillståndet **Suspended** kan placeras i kö på grund av ett stort antal aktiva körnings frågor. Dessa frågor visas också i [sys. dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) väntar på fråga med en typ av UserConcurrencyResourceType. Information om samtidiga gränser finns i [minnes-och samtidiga gränser](memory-concurrency-limits.md) eller [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md). Frågor kan också vänta på andra orsaker till exempel för objekt lås.  Om din fråga väntar på en resurs, se [undersöka frågor som väntar på resurser](#monitor-waiting-queries) ytterligare i den här artikeln.
+Frågor i tillståndet **Suspended** kan placeras i kö på grund av ett stort antal aktiva körnings frågor. Dessa frågor visas också i [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) väntar på fråga med en typ av UserConcurrencyResourceType. Information om samtidiga gränser finns i [minnes-och samtidiga gränser](memory-concurrency-limits.md) eller [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md). Frågor kan också vänta på andra orsaker till exempel för objekt lås.  Om din fråga väntar på en resurs, se [undersöka frågor som väntar på resurser](#monitor-waiting-queries) ytterligare i den här artikeln.
 
-För att förenkla sökningen av en fråga i [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) -tabellen använder du [etikett](/sql/t-sql/queries/option-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att tilldela en kommentar till frågan, som kan visas i vyn sys. dm_pdw_exec_requests.
+För att förenkla sökningen av en fråga i [sys.dm_pdw_exec_requestss](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) tabellen använder du [etikett](/sql/t-sql/queries/option-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att tilldela en kommentar till frågan, som kan visas i vyn sys.dm_pdw_exec_requests.
 
 ```sql
 -- Query with Label
@@ -87,7 +87,7 @@ WHERE   [label] = 'My Query';
 
 ### <a name="step-2-investigate-the-query-plan"></a>STEG 2: Undersök frågeplan
 
-Använd förfrågnings-ID: t för att hämta frågans distribuerade SQL-plan (DSQL) från [sys. dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Använd förfrågnings-ID: t för att hämta frågans distribuerade SQL-plan (DSQL) från [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ```sql
 -- Find the distributed query plan steps for a specific query.
@@ -107,7 +107,7 @@ Om du vill undersöka ytterligare information om ett enda steg, *operation_type*
 
 ### <a name="step-3-investigate-sql-on-the-distributed-databases"></a>STEG 3: Undersök SQL på de distribuerade databaserna
 
-Använd förfrågnings-ID och steg index för att hämta information från [sys. dm_pdw_sql_requests](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), som innehåller körnings information för steget fråga på alla distribuerade databaser.
+Använd förfrågnings-ID och steg index för att hämta information från [sys.dm_pdw_sql_requests](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), som innehåller körnings information för steget fråga på alla distribuerade databaser.
 
 ```sql
 -- Find the distribution run times for a SQL step.
@@ -128,7 +128,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
 ### <a name="step-4-investigate-data-movement-on-the-distributed-databases"></a>STEG 4: Undersök data förflyttning på de distribuerade databaserna
 
-Använd förfrågnings-ID och steg index för att hämta information om ett steg för data förflyttning som körs på varje distribution från [sys. dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Använd förfrågnings-ID och steg index för att hämta information om ett steg för data förflyttning som körs på varje distribution från [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ```sql
 -- Find information about all the workers completing a Data Movement Step.
@@ -184,7 +184,7 @@ TempDB används för att lagra mellanliggande resultat under frågekörningen. H
 
 ### <a name="monitoring-tempdb-with-views"></a>Övervaka tempdb med vyer
 
-Om du vill övervaka tempdb-användningen installerar du först [Microsoft. vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) -vyn från [Microsoft Toolkit för SQL-poolen](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). Du kan sedan köra följande fråga för att se tempdb-användning per nod för alla utförda frågor:
+Om du vill övervaka tempdb-användningen installerar du först vyn [Microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) från [Microsoft Toolkit för SQL-poolen](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). Du kan sedan köra följande fråga för att se tempdb-användning per nod för alla utförda frågor:
 
 ```sql
 -- Monitor tempdb
@@ -216,7 +216,7 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-Om du har en fråga som förbrukar en stor mängd minne eller har fått ett fel meddelande som rör allokering av tempdb, kan det bero på en mycket stor [CREATE TABLE som Select (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) eller [insert Select](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) -instruktionen som körs och som inte fungerar i den slutliga data flytt åtgärden. Detta kan vanligt vis identifieras som en ShuffleMove-åtgärd i den distribuerade fråge planen direkt före den slutliga INFOGNINGen.  Använd [sys. dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att övervaka ShuffleMove-åtgärder.
+Om du har en fråga som förbrukar en stor mängd minne eller har fått ett fel meddelande som rör allokering av tempdb, kan det bero på en mycket stor [CREATE TABLE som Select (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) eller [insert Select](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) -instruktionen som körs och som inte fungerar i den slutliga data flytt åtgärden. Detta kan vanligt vis identifieras som en ShuffleMove-åtgärd i den distribuerade fråge planen direkt före den slutliga INFOGNINGen.  Använd [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att övervaka ShuffleMove-åtgärder.
 
 Den vanligaste lösningen är att bryta din CTAS eller infoga SELECT-instruktion i flera load-instruktioner så att data volymen inte överskrider tempdb-gränsen på 1 TB per nod. Du kan också skala klustret till en större storlek som kommer att sprida tempdb-storleken mellan fler noder som minskar tempdb på varje enskild nod.
 

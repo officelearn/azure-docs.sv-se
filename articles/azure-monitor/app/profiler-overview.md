@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 0d3074d58560df5cb5bd6bdc2c0437a4be828918
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499400"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilera produktions program i Azure med Application Insights
@@ -91,7 +91,7 @@ Metoder som **SqlCommand.Exesöta** anger att koden väntar på att en databas �
 
 ### <a name="unmanaged-async"></a>Ohanterad asynkron
 
-.NET Framework genererar ETW-händelser och skickar aktivitets-ID: n mellan trådar så att asynkrona anrop kan spåras över trådar. Ohanterad kod (inbyggd kod) och vissa äldre format för asynkron kod saknar dessa händelser och aktivitets-ID: t, så att profileraren inte kan avgöra vilken tråd och vilka funktioner som körs på tråden. Det här heter "ohanterad asynkron" i anrops stacken. Om du hämtar ETW-filen kan du kanske använda [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) för att få bättre insikt i vad som händer.
+.NET Framework genererar ETW-händelser och skickar aktivitets-ID: n mellan trådar så att asynkrona anrop kan spåras över trådar. Ohanterad kod (inbyggd kod) och vissa äldre format för asynkron kod saknar dessa händelser och aktivitets-ID: t, så att profileraren inte kan avgöra vilken tråd och vilka funktioner som körs på tråden. Det här heter "ohanterad asynkron" i anrops stacken. Om du hämtar ETW-filen kan du kanske använda [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md)  för att få bättre insikt i vad som händer.
 
 ### <a name="cpu-time"></a><a id="cpu"></a>CPU-tid
 

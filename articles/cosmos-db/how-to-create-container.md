@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 2362326bccd90af997aa9237ec5f14e39ae62c85
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89020005"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Skapa en Azure Cosmos-container
@@ -53,7 +53,7 @@ I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (s
    * Ange ett data flöde som ska tillhandahållas (till exempel 1000 ru: er).
    * Välj **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Skärm bild av dialog rutan Azure Cosmos DB-API för MongoDB, Lägg till behållare":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Skärm bild av Datautforskaren fönstret med en ny behållare markerad":::
 
 ### <a name="cassandra-api"></a><a id="portal-cassandra"></a>Cassandra-API
 
@@ -69,7 +69,7 @@ I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (s
    * Ange ett data flöde som ska tillhandahållas (till exempel 1000 ru: er).
    * Välj **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Skärmbild av API för Cassandra, dialogrutan Lägg till tabell":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Skärm bild av Datautforskaren fönstret med en ny behållare markerad":::
 
 > [!NOTE]
 > För API för Cassandra används den primära nyckeln som partitionsnyckel.
@@ -89,7 +89,7 @@ I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (s
    * Ange ett data flöde som ska tillhandahållas (till exempel 1000 ru: er).
    * Välj **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Skärmbild av API för Gremlin, dialogrutan Lägg till diagram":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Skärm bild av Datautforskaren fönstret med en ny behållare markerad":::
 
 ### <a name="table-api"></a><a id="portal-table"></a>Tabell-API
 
@@ -103,7 +103,7 @@ I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (s
    * Ange ett data flöde som ska tillhandahållas (till exempel 1000 ru: er).
    * Välj **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Skärmbild av Tabell-API, dialogrutan Lägg till tabell":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Skärm bild av Datautforskaren fönstret med en ny behållare markerad":::
 
 > [!Note]
 > För tabell-API anges partitionsnyckeln varje gång du lägger till en ny rad.

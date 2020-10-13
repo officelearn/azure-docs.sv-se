@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89669025"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Hantera certifikat på en IoT Edge enhet
 
-Alla IoT Edge enheter använder certifikat för att skapa säkra anslutningar mellan körningen och alla moduler som körs på enheten. IoT Edge enheter som fungerar som gateways använder samma certifikat för att ansluta till deras underordnade enheter också.
+Alla IoT Edge-enheter använder certifikat för att skapa säkra anslutningar mellan körningen och de moduler som körs på enheten. IoT Edge enheter som fungerar som gateways använder samma certifikat för att ansluta till deras underordnade enheter också.
 
 ## <a name="install-production-certificates"></a>Installera produktionscertifikat
 
@@ -31,7 +31,7 @@ Läs mer om de olika typerna av certifikat och deras roller i [förstå hur Azur
 >[!NOTE]
 >Termen "rot certifikat utfärdare" som används i den här artikeln refererar till det offentliga utfärdade certifikat kedjan för din IoT-lösning. Du behöver inte använda certifikat roten för en insyndikerad certifikat utfärdare eller roten för organisationens certifikat utfärdare. I många fall är det faktiskt ett offentligt certifikat för certifikat utfärdare.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * En IoT Edge enhet som körs antingen på [Windows](how-to-install-iot-edge-windows.md) eller [Linux](how-to-install-iot-edge-linux.md).
 * Ha ett certifikat från en rot certifikat utfärdare (CA), antingen självsignerat eller köpt från en betrodd kommersiell certifikat utfärdare som Baltimore, VeriSign, DigiCert eller GlobalSign.

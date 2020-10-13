@@ -4,10 +4,10 @@ description: Beskriver hur definitioner av policy initiativ används för att gr
 ms.date: 08/17/2020
 ms.topic: conceptual
 ms.openlocfilehash: d7b4adf15193e2cd1b9e516a04c7c989dc442ee9
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89048507"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Definitions struktur för Azure Policy initiativ
@@ -17,7 +17,7 @@ Med initiativ kan du gruppera flera relaterade princip definitioner för att fö
 Du använder JSON för att skapa en princip initiativ definition. Definitionen av policy initiativ innehåller element för:
 
 - visningsnamn
-- beskrivning
+- description
 - metadata
 - parametrar
 - princip definitioner

@@ -4,10 +4,10 @@ description: Konfigurera Application Insights övervakning manuellt för ett nyt
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: d2e367e84aed7abac70d803f28d26070f7b0a85e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323136"
 ---
 # <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
@@ -16,7 +16,7 @@ Azure Application Insights visar data om ditt program i en Microsoft Azure *resu
 
 ## <a name="sign-in-to-microsoft-azure"></a>Logga in på Microsoft Azure
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 
@@ -103,7 +103,7 @@ För att få åtkomst till för hands versionen Application Insights Azure CLI-k
  az extension add -n application-insights
 ```
 
-Om du inte kör `az extension add` kommandot visas ett fel meddelande som säger:`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+Om du inte kör `az extension add` kommandot visas ett fel meddelande som säger: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 Nu kan du köra följande för att skapa din Application Insights-resurs:
 

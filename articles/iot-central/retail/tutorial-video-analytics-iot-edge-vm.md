@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 0b39ec9c8cb70adac1474b2647ac1c9591b9d5cd
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: db3d4bb7f4b32c07e75487764acc5e7ba7d05915
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526399"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873286"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Självstudie: skapa en IoT Edge-instans för video analys (Linux VM)
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar bör du slutföra den tidigare guiden [skapa ett video analys program i Azure IoT Central](./tutorial-video-analytics-create-app.md) .
+Innan du börjar bör du slutföra självstudien för att [skapa ett video analys program i azure IoT Central](./tutorial-video-analytics-create-app-yolo-v3.md) eller [skapa en video analys i Azure IoT Central- &trade; ](tutorial-video-analytics-create-app-openvino.md) självstudier.
 
 Du behöver också en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa en kostnads fri på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
 
@@ -46,7 +46,7 @@ Om du vill skapa en virtuell Azure-dator med de senaste IoT Edge Runtime-och Liv
 
 Använd informationen i följande tabell för att slutföra det **anpassade distributions** formuläret:
 
-| Fält | Värde |
+| Field | Värde |
 | ----- | ----- |
 | Prenumeration | Välj din Azure-prenumeration. |
 | Resursgrupp | *lva-RG* – resurs gruppen du skapade i föregående självstudie. |

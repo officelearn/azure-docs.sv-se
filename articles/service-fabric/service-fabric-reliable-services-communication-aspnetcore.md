@@ -7,10 +7,10 @@ ms.date: 10/12/2018
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 69423e7545178fd74ad44f5cab7b37b6f24b3577
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022198"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core i Azure Service Fabric Reliable Services
@@ -471,11 +471,11 @@ Kestrel är den föreslagna webb servern för klient dels tjänster som exponera
  
 När de exponeras för Internet bör en tillstånds lös tjänst använda en välkänd och stabil slut punkt som kan kommas åt via en belastningsutjämnare. Du får den här URL: en till ditt programs användare. Vi rekommenderar följande konfiguration:
 
-| Typ | Rekommendation | Anteckningar |
+| Typ | Rekommendation | Obs! |
 | ---- | -------------- | ----- |
 | Webbserver | Kestrel | Kestrel är den önskade webb servern eftersom den stöds i Windows och Linux. |
 | Port konfiguration | statiskt | En välkänd statisk port bör konfigureras i `Endpoints` konfigurationen av ServiceManifest.xml, till exempel 80 för http eller 443 för https. |
-| ServiceFabricIntegrationOptions | Inga | Använd `ServiceFabricIntegrationOptions.None` alternativet när du konfigurerar Service Fabric integration mellanprogram, så att tjänsten inte försöker verifiera inkommande begär Anden för en unik identifierare. Externa användare av programmet vet inte den unika identifierings information som används i mellanprogram. |
+| ServiceFabricIntegrationOptions | Inget | Använd `ServiceFabricIntegrationOptions.None` alternativet när du konfigurerar Service Fabric integration mellanprogram, så att tjänsten inte försöker verifiera inkommande begär Anden för en unik identifierare. Externa användare av programmet vet inte den unika identifierings information som används i mellanprogram. |
 | Antal instanser | -1 | I vanliga användnings fall ska inställningen för instans antal anges till *-1*. Detta görs så att en instans är tillgänglig på alla noder som tar emot trafik från en belastningsutjämnare. |
 
 Om flera externt exponerade tjänster delar samma uppsättning noder, kan du använda HTTP.sys med en unik men stabil URL-sökväg. Du kan göra detta genom att ändra den URL som angavs när du konfigurerade IWebHost. Observera att detta endast gäller för HTTP.sys.
@@ -496,7 +496,7 @@ Om flera externt exponerade tjänster delar samma uppsättning noder, kan du anv
 ### <a name="internal-only-stateless-aspnet-core-service"></a>Endast internt ASP.NET Core tjänst med tillstånds skydd
 Tillstånds lösa tjänster som bara anropas från i klustret bör använda unika URL: er och dynamiskt tilldelade portar för att säkerställa samarbetet mellan flera tjänster. Vi rekommenderar följande konfiguration:
 
-| Typ | Rekommendation | Anteckningar |
+| Typ | Rekommendation | Obs! |
 | ---- | -------------- | ----- |
 | Webbserver | Kestrel | Även om du kan använda HTTP.sys för interna tillstånds lösa tjänster är Kestrel den bästa servern för att tillåta flera tjänst instanser att dela en värd.  |
 | Port konfiguration | dynamiskt tilldelad | Flera repliker av en tillstånds känslig tjänst kan dela en värd process eller ett värd operativ system, vilket kräver att unika portar krävs. |
@@ -506,7 +506,7 @@ Tillstånds lösa tjänster som bara anropas från i klustret bör använda unik
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Endast internt tillstånds känslig ASP.NET Core-tjänst
 Tillstånds känsliga tjänster som bara anropas från i klustret bör använda dynamiskt tilldelade portar för att säkerställa samarbetet mellan flera tjänster. Vi rekommenderar följande konfiguration:
 
-| Typ | Rekommendation | Anteckningar |
+| Typ | Rekommendation | Obs! |
 | ---- | -------------- | ----- |
 | Webbserver | Kestrel | Är `HttpSysCommunicationListener` inte avsedd att användas av tillstånds känsliga tjänster där repliker delar en värd process. |
 | Port konfiguration | dynamiskt tilldelad | Flera repliker av en tillstånds känslig tjänst kan dela en värd process eller ett värd operativ system, vilket kräver att unika portar krävs. |

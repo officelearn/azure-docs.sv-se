@@ -9,10 +9,10 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 09/15/2020
 ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331666"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox för Microsoft Azure
@@ -20,15 +20,15 @@ ms.locfileid: "91331666"
 > [!NOTE]
 > Din organisation måste ha ett support avtal för [Azure](https://azure.microsoft.com/support/plans/) med en minimal **utvecklings**nivå för att använda den här funktionen.
 
-Customer Lockbox för Microsoft Azure ger ett gränssnitt för kunder som kan granska och godkänna eller avvisa förfrågningar om kund data åtkomst. Den används i fall där en Microsoft-tekniker behöver åtkomst till kund information under en support förfrågan.
+Customer Lockbox för Microsoft Azure tillhandahåller ett gränssnitt med vilket kunderna kan granska och godkänna eller avvisa begäranden om kunddataåtkomst. Den används i fall där en Microsoft-tekniker behöver åtkomst till kundinformation under en supportförfrågan.
 
 Den här artikeln beskriver hur Customer Lockbox begär Anden initieras, spåras och lagras för senare granskningar och granskningar.
 
-Customer Lockbox är nu allmänt tillgänglig och för närvarande aktiverat för fjärr skrivbords åtkomst till virtuella datorer.
+Customer Lockbox är nu allmänt tillgängligt och för närvarande aktiverat för fjärrskrivbordsåtkomst till virtuella datorer.
 
 ## <a name="supported-services-and-scenarios-in-preview"></a>Tjänster och scenarier som stöds i för hands version
 
-Följande tjänster är nu i för hands version för Customer Lockbox:
+Följande tjänster är nu i förhandsversion för Customer Lockbox:
 
 - API Management
 - Azure App Service
@@ -46,9 +46,9 @@ Följande tjänster är nu i för hands version för Customer Lockbox:
 - Azure Monitor
 - Azure Storage
 - Azure SQL-databas
-- Azure-prenumerations överföringar
+- Azure-prenumerationsöverföringar
 - Azure Synapse Analytics
-- Virtuella datorer (nu omfattar även åtkomst till minnes dum par och hanterade diskar)
+- Virtuella datorer (omfattar nu även åtkomst till minnesdumpar och hanterade diskar)
 
 Om du vill aktivera Customer Lockbox för dessa förhands gransknings erbjudanden för din organisation kan du registrera dig för [Customer lockbox för offentlig för hands version av Azure](https://aka.ms/customerlockbox/insiderprogram)
 
@@ -56,19 +56,19 @@ Om du vill aktivera Customer Lockbox för dessa förhands gransknings erbjudande
 
 Följande tjänster och scenarier är för närvarande allmänt tillgängliga för Customer Lockbox.
 
-### <a name="remote-desktop-access-to-virtual-machines"></a>Fjärr skrivbords åtkomst till virtuella datorer
+### <a name="remote-desktop-access-to-virtual-machines"></a>Fjärrskrivbordsåtkomst till virtuella datorer
 
-Customer Lockbox är för närvarande aktiverat för förfrågningar om fjärr skrivbords åtkomst till virtuella datorer. Följande arbets belastningar stöds:
-- PaaS (Platform as a Service) – Azure Cloud Services (webb roll och arbets roll)
-- IaaS (Infrastructure as a Service) – Windows och Linux (endast Azure Resource Manager)
-- Skalnings uppsättning för virtuella datorer – Windows och Linux
+Customer Lockbox är för närvarande aktiverat för begäranden om fjärrskrivbordsåtkomst till virtuella datorer. Följande arbetsbelastningar stöds:
+- PaaS (plattform som en tjänst) – Azure Cloud Services (webbroll och arbetsroll)
+- IaaS (infrastruktur som en tjänst) – Windows och Linux (endast Azure Resource Manager)
+- Skaluppsättningar för virtuella datorer – Windows och Linux
 
 > [!NOTE]
-> IaaS klassiska instanser stöds inte av Customer Lockbox. Om du har arbets belastningar som körs på IaaS klassiska instanser rekommenderar vi att du migrerar dem från klassiska till Resource Manager-distributions modeller. Instruktioner finns i [plattforms stöd för migrering av IaaS-resurser från klassisk till Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+> IaaS klassiska instanser stöds inte av Customer Lockbox. Om du har arbets belastningar som körs på IaaS klassiska instanser rekommenderar vi att du migrerar dem från klassiska till Resource Manager-distributions modeller. Anvisningar finns i [Plattformsstödd migrering av IaaS-resurser från klassisk till Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
-#### <a name="detailed-audit-logs"></a>Detaljerade gransknings loggar
+#### <a name="detailed-audit-logs"></a>Detaljerade granskningsloggar
 
-För scenarier som involverar åtkomst till fjärr skrivbord kan du använda Windows-händelseloggen för att granska de åtgärder som vidtagits av Microsoft-teknikern. Överväg att använda Azure Security Center för att samla in dina händelse loggar och kopiera data till din arbets yta för analys. Mer information finns [i data insamling i Azure Security Center](../../security-center/security-center-enable-data-collection.md).
+För scenarier som involverar fjärrskrivbordsåtkomst kan du använda Windows-händelseloggar för att granska de åtgärder som vidtagits av Microsoft-teknikern. Överväg att använda Azure Security Center för att samla in dina händelseloggar och kopiera data till din arbetsyta för analys. Mer information finns i [Datainsamling i Azure Security Center](../../security-center/security-center-enable-data-collection.md).
 
 ## <a name="workflow"></a>Arbetsflöde
 
@@ -123,29 +123,29 @@ Följande steg beskriver ett typiskt arbets flöde för en Customer Lockbox beg�
 
 I gransknings syfte loggas de åtgärder som vidtas i det här arbets flödet i [Customer lockbox begär Anden](#auditing-logs).
 
-## <a name="auditing-logs"></a>Gransknings loggar
+## <a name="auditing-logs"></a>Granskning av loggar
 
-Customer Lockbox loggar lagras i aktivitets loggar. I Azure Portal väljer du **aktivitets loggar** för att Visa gransknings information som är relaterad till Customer lockbox begär Anden. Du kan filtrera efter vissa åtgärder, till exempel:
-- **Neka begäran om säker databas**
-- **Begäran om att skapa säker databas**
-- **Godkänn begäran om att säkra databasen**
+Customer Lockbox-loggar lagras i aktivitetsloggar. I Azure Portal väljer du **aktivitets loggar** för att Visa gransknings information som är relaterad till Customer lockbox begär Anden. Du kan filtrera på vissa åtgärder, till exempel:
+- **Neka Lockbox-begäran**
+- **Skapa Lockbox-begäran**
+- **Godkänn Lockbox-begäran**
 - **Förfallo datum för säker begäran**
 
 Som exempel:
 
 ![Azure Customer Lockbox-aktivitets loggar](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## <a name="customer-lockbox-integration-with-azure-security-benchmark"></a>Customer Lockbox integrering med Azures säkerhets prestanda
+## <a name="customer-lockbox-integration-with-azure-security-benchmark"></a>Customer Lockbox-integrering med Azure Security Benchmark
 
 Vi har lanserat en ny bas linje kontroll ([3,13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) i Azures säkerhets benchmark som täcker Customer lockbox tillämplighet. Kunderna kan nu dra nytta av benchmark för att granska Customer Lockbox tillämpligheten för en tjänst.
 
 ## <a name="exclusions"></a>Undantag
 
-Customer Lockbox förfrågningar utlöses inte i följande tekniska support scenarier:
+Customer Lockbox-begäranden utlöses inte i följande scenarier för teknisk support:
 
-- En Microsoft-tekniker måste utföra en aktivitet som ligger utanför standard drifts procedurer. Till exempel för att återställa eller återställa tjänster i oväntade eller oförutsägbara scenarier.
+- En Microsoft-tekniker måste utföra en aktivitet som ligger utanför standardprocedurerna för åtgärder. Till exempel att återställa tjänster i oväntade eller oförutsägbara scenarier.
 
-- En Microsoft-tekniker får åtkomst till Azure-plattformen som en del av fel sökning och oavsiktligt har åtkomst till kunddata. Till exempel kan Azures nätverks team utföra fel sökning som resulterar i en paket avbildning på en nätverks enhet. Men om kunden har krypterat data under överföringen, kan inte teknikern läsa data.
+- En Microsoft-tekniker får åtkomst till Azure-plattformen som en del av felsökning och får oavsiktligt åtkomst till kunddata. Till exempel kan Azures nätverksteam utföra felsökning som resulterar i en paketavbildning på en nätverksenhet. Men om kunden har krypterat data under överföringen, kan inte teknikern läsa data.
 
 ## <a name="next-steps"></a>Nästa steg
 

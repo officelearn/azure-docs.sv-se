@@ -13,7 +13,7 @@ ms.openlocfilehash: 5f43654b4ff7d0e1f73bd2d83df21d7277c570d1
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91854565"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
@@ -567,7 +567,7 @@ Om klient programmet försöker använda en SAS-nyckel som inte innehåller de n
 
 I följande tabell visas ett exempel på Server sidans logg meddelande från logg filen för lagrings loggning:
 
-| Name | Värde |
+| Namn | Värde |
 | --- | --- |
 | Start tid för begäran | 2014-05-30T06:17:48.4473697 Z |
 | Åtgärdstyp     | GetBlobProperties            |

@@ -8,16 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: c9277f510e71e4d6ecb6595aa2d67d16c2ac5695
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 730a29ff579ce6a1970ceafad5891611b52c059d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326036"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972296"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrera dina IaaS-resurser till Azure Resource Manager den 1 mars 2023 
 
-I 2014 lanserade vi infrastruktur som en tjänst (IaaS) på [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Vi har ökat funktionerna någonsin sedan. Eftersom Azure Resource Manager nu har fullständiga IaaS-funktioner och andra framsteg förbrukade vi hanteringen av virtuella datorer med IaaS (VM) via [Azure Service Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM) den 28 februari 2020. Den här funktionen kommer att dras tillbaka den 1 mars 2023. 
+I 2014 lanserade vi infrastruktur som en tjänst (IaaS) på [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Vi har ökat funktionerna någonsin sedan. Eftersom Azure Resource Manager nu har fullständiga IaaS-funktioner och andra framsteg förbrukade vi hanteringen av virtuella datorer med IaaS (VM) via [Azure Service Manager](./migration-classic-resource-manager-faq.md#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM) den 28 februari 2020. Den här funktionen kommer att dras tillbaka den 1 mars 2023. 
 
 Idag är cirka 90 procent av de virtuella IaaS-datorerna som använder Azure Resource Manager. Om du använder IaaS-resurser via ASM börjar du planera migreringen nu. Slutför den 1 mars 2023 för att dra nytta av [Azure Resource Manager](../azure-resource-manager/management/index.yml).
 
@@ -42,18 +42,18 @@ Börja planera migreringen till Azure Resource Manager, idag.
 1. Gör en lista över alla virtuella datorer som påverkas: 
 
    - De virtuella datorerna av typen **Virtual Machines (klassisk)** i [Azure portalens VM-fönster](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ClassicCompute%2FVirtualMachines) är alla berörda virtuella datorer i prenumerationen. 
-   - Du kan också fråga Azure Resource Graph genom att använda [portalen](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22) eller [PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) för att visa en lista över alla flaggade virtuella datorer (klassisk) och relaterad information för de valda prenumerationerna. 
+   - Du kan också fråga Azure Resource Graph genom att använda [portalen](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22) eller [PowerShell](../governance/resource-graph/concepts/work-with-data.md) för att visa en lista över alla flaggade virtuella datorer (klassisk) och relaterad information för de valda prenumerationerna. 
    - Den 8 februari och den 2 september 2020 skickade vi ut e-postmeddelanden till prenumerations ägare med en lista över alla prenumerationer som innehåller dessa virtuella datorer (klassisk). Använd dem för att bygga den här listan. 
 
 1. [Läs mer](./windows/migration-classic-resource-manager-overview.md) om hur du migrerar dina virtuella [Linux](./linux/migration-classic-resource-manager-plan.md) -och [Windows](./windows/migration-classic-resource-manager-plan.md) -datorer (klassisk) till Azure Resource Manager. Mer information finns i [vanliga frågor och svar om klassisk att Azure Resource Manager migrering](./migration-classic-resource-manager-faq.md).
 
-1. Vi rekommenderar att du startar planeringen genom att använda [verktyget Platform support migration](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview) för att migrera dina befintliga virtuella datorer med tre enkla steg: validera, Förbered och genomför. Verktyget är utformat för att migrera dina virtuella datorer inom minimalt till ingen stillestånds tid. 
+1. Vi rekommenderar att du startar planeringen genom att använda [verktyget Platform support migration](./windows/migration-classic-resource-manager-overview.md) för att migrera dina befintliga virtuella datorer med tre enkla steg: validera, Förbered och genomför. Verktyget är utformat för att migrera dina virtuella datorer inom minimalt till ingen stillestånds tid. 
 
    1. Det första steget, validera, har ingen inverkan på din befintliga distribution och innehåller en lista över alla scenarier som inte stöds för migrering. 
-   1. Gå igenom [listan med lösningar](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview#unsupported-features-and-configurations) för att åtgärda distributionen och gör den redo för migrering. 
+   1. Gå igenom [listan med lösningar](./windows/migration-classic-resource-manager-overview.md#unsupported-features-and-configurations) för att åtgärda distributionen och gör den redo för migrering. 
    1. Helst när alla verifierings fel har åtgärd ATS bör du inte stöta på några problem under förbereda och genomföra. När genomförandet har genomförts migreras distributionen till Azure Resource Manager och kan sedan hanteras via nya API: er som exponeras av Azure Resource Manager. 
 
-   Om migreringen inte är lämplig för migreringen kan du utforska [andra beräknings erbjudanden](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree) för migreringen. Eftersom det finns många Azure Compute-erbjudanden, och de skiljer sig från varandra, kan vi inte tillhandahålla en sökväg för migrering till plattformar som stöds.  
+   Om migreringen inte är lämplig för migreringen kan du utforska [andra beräknings erbjudanden](/azure/architecture/guide/technology-choices/compute-decision-tree) för migreringen. Eftersom det finns många Azure Compute-erbjudanden, och de skiljer sig från varandra, kan vi inte tillhandahålla en sökväg för migrering till plattformar som stöds.  
 
 1. [Kontakta supporten](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"})för tekniska frågor, problem och hjälp med att lägga till prenumerationer i listan över tillåtna.
 
@@ -61,11 +61,10 @@ Börja planera migreringen till Azure Resource Manager, idag.
 
 ## <a name="what-resources-are-available-for-this-migration"></a>Vilka resurser är tillgängliga för den här migreringen?
 
-- [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-virtual-machines-migration.html): Microsoft och community-support för migrering.
+- [Microsoft Q&A](/answers/topics/azure-virtual-machines-migration.html): Microsoft och community-support för migrering.
 
 - [Stöd för Azure migration](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"}): dedikerat support team för teknisk hjälp under migreringen.
 
 - [Microsoft fast track](https://www.microsoft.com/fasttrack): snabb spårning kan hjälpa kunder att planera & utföra migreringen. [Nominera själv](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0).  
 
-- Om företaget/organisationen har samarbetat med Microsoft eller fungerar med Microsoft-representanter (t. ex. Cloud Solution Architects (CSAs) eller tekniska konto hanterare (TAMs)), kan du arbeta med dem för ytterligare resurser för migrering. 
-
+- Om företaget/organisationen har samarbetat med Microsoft eller fungerar med Microsoft-representanter (t. ex. Cloud Solution Architects (CSAs) eller tekniska konto hanterare (TAMs)), kan du arbeta med dem för ytterligare resurser för migrering.

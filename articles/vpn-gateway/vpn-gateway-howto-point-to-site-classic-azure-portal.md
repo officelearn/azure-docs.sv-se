@@ -1,18 +1,18 @@
 ---
-title: 'Ansluta en dator till ett virtuellt nätverk med punkt-till-plats och certifikatautentisering: den klassiska Azure-portalen | Microsoft Docs'
+title: 'Ansluta en dator till ett virtuellt nätverk med punkt-till-plats-och certifikatautentisering: Azure Portal Classic | Microsoft Docs'
 description: Skapa en klassisk gatewayanslutning med en punkt-till-plats-VPN med Azure-portalen.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/09/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: f68631771b8f86d995108112b1243ab38bf826bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf0618c120a7fe572aa55b423d36dce3ef5656da
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84984783"
+ms.locfileid: "91876200"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Konfigurera en punkt-till-plats-anslutning med hjälp av certifikatautentisering (klassisk)
 
@@ -35,7 +35,7 @@ Du använder en VPN-gateway med P2S-konfiguration (punkt-till-plats) för att sk
 
 ![Punkt-till-plats-diagram](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Punkt-till-plats-anslutningar med certifikatautentisering kräver följande:
 
@@ -79,31 +79,11 @@ Innan du börjar kontrollerar du att du har en Azure-prenumeration. Om du inte h
 
 ### <a name="part-1-create-a-virtual-network"></a>Steg 1: Skapa ett virtuellt nätverk
 
-Om du inte redan har ett virtuellt nätverk (VNet) skapar du ett. Skärmbilderna anges som exempel. Se till att ersätta värdena med dina egna. Följ stegen nedan för att skapa ett VNet med Azure Portal:
+Om du redan har ett VNet, kontrollerar du att inställningarna är kompatibla med din VPN-gatewaydesign. Var särskilt noga med alla undernät som överlappar med andra nätverk.
 
-1. I menyn i [Azure-portalen](https://portal.azure.com) eller på sidan **Start** väljer du **Skapa en resurs**. Sidan **Nytt** öppnas.
+[!INCLUDE [basic classic vnet](../../includes/vpn-gateway-vnet-classic.md)]
 
-2. I fältet **Sök på Marketplace** anger du *virtuellt nätverk* och väljer **Virtuellt nätverk** i listan som returneras. Sidan **Virtuellt nätverk** öppnas.
-
-3. Välj **Klassisk** från **Välj en distributionsmodell** och välj sedan **Skapa**. Sidan **Skapa virtuellt nätverk** öppnas.
-
-4. Konfigurera VNet-inställningarna på sidan **Skapa virtuellt nätverk**. På den här sidan lägger du till ditt första adressutrymme och ett enda adressintervall för ett undernät. När du har skapat ditt VNet, kan du gå tillbaka och lägga till ytterligare undernät och adressutrymmen.
-
-   ![Sidan Skapa virtuellt nätverk](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vnet125.png)
-
-5. Välj den **prenumeration** som du vill använda i listrutan.
-
-6. Välj en befintlig **resursgrupp**. Alternativt skapar du en ny resursgrupp genom att välja **Skapa ny** och ange ett namn. Om du skapar en ny resursgrupp namnger du den baserat på dina planerade konfigurationsvärden. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
-
-7. Välj en **plats** för det virtuella nätverket. Den här inställningen avgör den geografiska platsen för de resurser som du distribuerar till det här virtuella nätverket.
-
-8. Skapa det virtuella nätverket genom att klicka på **Skapa**. På sidan **Meddelanden** visas ett meddelande som anger att en **distribution pågår**.
-
-8. När det virtuella nätverket har skapats ändras meddelandet på sidan **Meddelanden** till **Distributionen lyckades**. Välj **Fäst på instrumentpanelen** om du vill ha snabb åtkomst till det virtuella nätverket på instrumentpanelen. 
-
-10. Lägg till en DNS-server (valfritt). När du har skapat ditt virtuella nätverk kan du lägga till IP-adressen för en DNS-server för namnmatchning. Den ip-adress för DNS-server som du anger måste vara en adress till en DNS-server som kan matcha namn för resurserna i ditt virtuella nätverk.
-
-    Lägg till en DNS-server genom att välja **DNS-servrar** på sidan för det virtuella nätverket. Ange IP-adressen för DNS-servern som du vill använda och välj sedan **Spara**.
+[!INCLUDE [basic classic DNS](../../includes/vpn-gateway-dns-classic.md)]
 
 ### <a name="part-2-create-a-gateway-subnet-and-a-dynamic-routing-gateway"></a>Del 2: skapa ett Gateway-undernät och en dynamisk routning Gateway
 

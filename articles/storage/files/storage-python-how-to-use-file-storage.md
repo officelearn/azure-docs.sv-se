@@ -8,12 +8,12 @@ ms.date: 10/08/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-python
-ms.openlocfilehash: 11c31b9ce3c5a8d8fba18d8e7c46ac38b0559aec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bef69037fad8bf8ee9537e90f26ca967560b9d2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856321"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876105"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Utveckla för Azure Files med Python
 
@@ -95,7 +95,7 @@ Med [ShareServiceClient](/azure/developer/python/sdk/storage/azure-storage-file-
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-`FileService`Med objektet kan du arbeta med resurser, kataloger och filer. Följande kod skapar ett- `FileService` objekt med hjälp av lagrings kontots namn och konto nyckeln. Ersätt `<myaccount>` och `<mykey>` med kontonamnet och nyckeln.
+Med [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true) -objektet kan du arbeta med resurser, kataloger och filer. Följande kod skapar ett- `FileService` objekt med hjälp av lagrings kontots namn och konto nyckeln. Ersätt `<myaccount>` och `<mykey>` med kontonamnet och nyckeln.
 
 ```python
 file_service = FileService(account_name='myaccount', account_key='mykey')
@@ -113,7 +113,7 @@ I följande kod exempel används ett [ShareClient](/azure/developer/python/sdk/s
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-I följande kod exempel används ett `FileService` objekt för att skapa resursen om den inte finns.
+I följande kod exempel används ett [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true) -objekt för att skapa resursen om den inte finns.
 
 ```python
 file_service.create_share('myshare')
@@ -153,7 +153,7 @@ Följande metod överför innehållet i den angivna filen till den angivna katal
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-En Azure-filresurs innehåller minst en rot katalog där filer kan finnas. Använd `create_file_from_path` metoderna,,, eller för att skapa en fil och överföra data `create_file_from_stream` `create_file_from_bytes` `create_file_from_text` . De är avancerade metoder som utför den nödvändiga delningen när storleken på data överskrider 64 MB.
+En Azure-filresurs innehåller minst en rot katalog där filer kan finnas. Om du vill skapa en fil och överföra data använder du metoderna [create_file_from_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-path-share-name--directory-name--file-name--local-file-path--content-settings-none--metadata-none--validate-content-false--progress-callback-none--max-connections-2--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object---timeout-none-), [create_file_from_stream](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-stream-share-name--directory-name--file-name--stream--count--content-settings-none--metadata-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object--), [create_file_from_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-bytes-share-name--directory-name--file-name--file--index-0--count-none--content-settings-none--metadata-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object--)eller [create_file_from_text](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-text-share-name--directory-name--file-name--text--encoding--utf-8---content-settings-none--metadata-none--validate-content-false--timeout-none--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object--) . De är avancerade metoder som utför den nödvändiga delningen när storleken på data överskrider 64 MB.
 
 `create_file_from_path` överför innehållet i en fil från den angivna sökvägen och `create_file_from_stream` laddar upp innehållet från en redan öppnad fil/data ström. `create_file_from_bytes` laddar upp en matris med byte och `create_file_from_text` laddar upp det angivna textvärdet med den angivna kodningen (Standardvärdet är UTF-8).
 
@@ -181,7 +181,7 @@ Om du vill visa en lista över filer och kataloger i en under katalog använder 
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Om du vill visa en lista över filer och kataloger i en resurs använder du metoden **lista \_ kataloger \_ och \_ filer** . Den här metoden returnerar en generator. Följande kod matar ut **namnet** på varje fil och katalog i en resurs till-konsolen.
+Om du vill visa en lista över filer och kataloger i en resurs använder du metoden [list_directories_and_files](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#list-directories-and-files-share-name--directory-name-none--num-results-none--marker-none--timeout-none--prefix-none--snapshot-none-) . Den här metoden returnerar en generator. Följande kod matar ut **namnet** på varje fil och katalog i en resurs till-konsolen.
 
 ```python
 generator = file_service.list_directories_and_files('myshare')
@@ -203,7 +203,7 @@ I följande exempel visas hur `download_file` du hämtar innehållet i den angiv
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Använd,, eller för att hämta data från en fil `get_file_to_path` `get_file_to_stream` `get_file_to_bytes` `get_file_to_text` . De är avancerade metoder som utför den nödvändiga delningen när storleken på data överskrider 64 MB.
+Om du vill hämta data från en fil använder du [get_file_to_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-path-share-name--directory-name--file-name--file-path--open-mode--wb---start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-), [get_file_to_stream](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-stream-share-name--directory-name--file-name--stream--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-), [get_file_to_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-bytes-share-name--directory-name--file-name--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-)eller [get_file_to_text](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-text-share-name--directory-name--file-name--encoding--utf-8---start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-). De är avancerade metoder som utför den nödvändiga delningen när storleken på data överskrider 64 MB.
 
 I följande exempel visas hur `get_file_to_path` du hämtar innehållet i **filen i** filen och lagrar det i *out-sunset.png* -filen.
 
@@ -313,7 +313,7 @@ Anropa [delete_file](/azure/developer/python/sdk/storage/azure-storage-file-shar
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Anropa om du vill ta bort en fil `delete_file` .
+Anropa [delete_file](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#delete-file-share-name--directory-name--file-name--timeout-none-)om du vill ta bort en fil.
 
 ```python
 file_service.delete_file('myshare', None, 'myfile')

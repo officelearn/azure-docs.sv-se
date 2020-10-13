@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
-ms.date: 08/02/2020
+ms.date: 10/09/2020
 ms.author: guybo
-ms.openlocfilehash: f945c58b256c2a024a62b15a1bca1841483e1849
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1417635c0e510badd191e99786f49dfb509c8206
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279441"
+ms.locfileid: "91893415"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Signerade Linux-distributioner på Azure
 
@@ -37,7 +37,7 @@ Azure Linux-agenten är redan förinstallerad på Azure Marketplace-avbildningar
 | CentOS av falsk Wave-programvara |CentOS 6. x, 7. x, 8. x |CentOS 6,3: [Lis-hämtning](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 +: i kernel |Paket: i [lagrings platsen](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) under "WALinuxAgent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> Kärnan är [slut på livs längd](https://coreos.com/os/eol/) den 26 maj 2020. |Inte längre tillgänglig | | |
 | Debian av credativ |8.x, 9.x |I kernel |Paket: i lagrings platsen under "waagent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
-|Flatcar container Linux av Kinvolk| Stabil, beta| I kernel | WA – Linux-agenten har redan installerats i/usr/share/OEM/bin/waagent |
+|Flatcar container Linux av Kinvolk| Pro, stabil, beta| I kernel | WA – Linux-agenten har redan installerats i/usr/share/OEM/bin/waagent |
 | Oracle Linux av Oracle |6.x, 7.x, 8.x |I kernel |Paket: i lagrings platsen under "WALinuxAgent" <br/>Källkod: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | [Red Hat Enterprise Linux av Red Hat](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/overview) |6.x, 7.x, 8.x |I kernel |Paket: i lagrings platsen under "WALinuxAgent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise med SUSE |SLES/SLES för SAP 11. x, 12. x, 15. x <br/> [Bild livs cykel för SUSE offentlig moln bild](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |I kernel |Paketfilerna<p> för 11 i [molnet: verktyg](https://build.opensuse.org/project/show/Cloud:Tools) lagrings platsen<br>för 12 som ingår i modulen "offentligt moln" under "python-Azure-agent"<br/>Källkod: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
@@ -58,6 +58,7 @@ I de flesta fall kommer du att se dessa kernels förinstallerade på standard av
 - [Debian Cloud kernel – tillgängligt med Debian 10-och Debian 9 "backports"-avbildningen på Azure](https://wiki.debian.org/Cloud/MicrosoftAzure)
 - [SLES Azure-Tuned-kernel](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
 - [Ubuntu Azure-Tuned-kernel](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
+- [Flatcar container Linux Pro](https://azuremarketplace.microsoft.com/marketplace/apps/kinvolk.flatcar_pro)
 
 ## <a name="partners"></a>Partner
 

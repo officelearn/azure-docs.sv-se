@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 3826019a19aa744cb03737ed7f0c985f8063a1aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4009f3c132c76f6632d6bb706649befa746001f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815614"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972534"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Tillgänglighetsalternativ för virtuella datorer i Azure
 
@@ -51,7 +51,7 @@ Med skalnings uppsättningar för virtuella Azure-datorer kan du skapa och hante
 
 **Fel domäner och uppdaterings domäner**
 
-Skalnings uppsättningar för virtuella datorer fören klar designen för hög tillgänglighet genom att justera fel domäner och uppdatera domäner. Du behöver bara definiera antalet fel domäner för skalnings uppsättningen. Antalet fel domäner som är tillgängliga för skalnings uppsättningarna kan variera beroende på region. Se [Hantera tillgängligheten för virtuella datorer i Azure](./windows/manage-availability.md).
+Skalnings uppsättningar för virtuella datorer fören klar designen för hög tillgänglighet genom att justera fel domäner och uppdatera domäner. Du behöver bara definiera antalet fel domäner för skalnings uppsättningen. Antalet fel domäner som är tillgängliga för skalnings uppsättningarna kan variera beroende på region. Se [Hantera tillgängligheten för virtuella datorer i Azure](./manage-availability.md).
 
 
 ## <a name="availability-sets"></a>Tillgänglighetsuppsättningar
@@ -61,7 +61,7 @@ I en tillgänglighets uppsättning distribueras virtuella datorer automatiskt me
 
 För virtuella datorer som använder [Azure Managed Disks](./faq-for-disks.md) justeras de virtuella datorerna efter feldomänerna för hanterade diskar när en hanterad tillgänglighetsuppsättning används. På så sätt säkerställs att alla hanterade diskar som är kopplade till en virtuell dator finns i samma feldomän. 
 
-Endast virtuella datorer med hanterade diskar kan skapas i en hanterad tillgänglighetsuppsättning. Antalet feldomäner kan vara två eller tre, beroende på region. Du kan läsa mer om dessa hanterade disk fel domäner för virtuella [Linux-datorer](./linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) eller [virtuella Windows-datorer](./windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
+Endast virtuella datorer med hanterade diskar kan skapas i en hanterad tillgänglighetsuppsättning. Antalet feldomäner kan vara två eller tre, beroende på region. Du kan läsa mer om dessa hanterade disk fel domäner för virtuella [Linux-datorer](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) eller [virtuella Windows-datorer](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 ![Hanterad tillgänglighets uppsättning](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 

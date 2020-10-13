@@ -12,7 +12,7 @@ ms.openlocfilehash: f46ad0d45967f94191732f472b44a47de930a3a4
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91855361"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Självstudie: ansluta ett virtuellt nätverk till en ExpressRoute-krets med hjälp av portalen
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 > - Anslut ett virtuellt nätverk till en krets i en annan prenumeration.
 > - Ta bort länken mellan det virtuella nätverket och ExpressRoute-kretsen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Granska kraven [prerequisites](expressroute-prerequisites.md), kraven för [routning](expressroute-routing.md)och [arbets flöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
 

@@ -11,18 +11,22 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 33842707f04e55b311aeeabe2f1bbc83204ec0c9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 126df6e7f4d227c20c2173a1e2d4c0d7361b043f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83652275"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962453"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Snabbstart: Ställ in och hämta en hemlighet från Azure Key Vault med hjälp av Azure-portalen
 
 Azure Key Vault är en molntjänst som tillhandahåller ett säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Du kan skapa och hantera Azure-nyckelvalv via Azure Portal. I den här snabbstarten skapar du ett nyckelvalv och använder sedan det för att lagra en hemlighet. Mer information om nyckelvalv finns i [översikten](../general/overview.md).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Mer information om hemligheter finns i (about-secrets.md).
+
+## <a name="prerequisites"></a>Förutsättningar
+
+- En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -46,6 +50,9 @@ Anteckna de två egenskaperna som visas nedan:
 
 * **Valvnamn**: I det här exemplet är namnet **Contoso-vault2**. Du kommer att använda det här namnet i senare steg.
 * **Valvets URI**: I det här exemplet är det https://contoso-vault2.vault.azure.net/. Program som använder ditt valv via dess REST-API måste använda denna URI.
+
+Du kan också skapa Key Vault med Azure CLI och PowerShell: [skapa Key Vault med PowerShell](../general/quick-create-powershell.md) 
+ [skapa Key Vault med Azure CLI](../general/quick-create-cli.md)
 
 Nu är ditt Azure-konto det enda kontot med behörighet att utföra åtgärder i det nya valvet.
 
@@ -90,5 +97,8 @@ När du inte behöver resursgruppen längre så tar du bort den. Då tas även n
 I den här snabb starten har du skapat en Key Vault och lagrat en hemlighet i den. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
 
 - Läs en [Översikt över Azure Key Vault](../general/overview.md)
+- Läs [säker åtkomst till en Key Vault](../general/secure-your-key-vault.md)
+- Se [använda Key Vault med App Service-webbapp](../general/tutorial-net-create-vault-azure-web-app.md)
+- Se [använda Key Vault med program distribuerad till virtuell dator](../general/tutorial-net-virtual-machine.md)
 - Se [Azure Key Vault Developer ' s guide](../general/developers-guide.md)
 - Granska [Azure Key Vault bästa praxis](../general/best-practices.md)

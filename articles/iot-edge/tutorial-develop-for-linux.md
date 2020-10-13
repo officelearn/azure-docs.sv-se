@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7ec61bf4db949649c993fad4a3255b55626cb259
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ca4be9387754c84dc256dd72b131bd5b76b458
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056235"
+ms.locfileid: "91876472"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Självstudie: utveckla IoT Edge moduler för Linux-enheter
 
@@ -57,7 +57,7 @@ I följande tabell visas de utvecklings scenarier som stöds för **Linux-behål
 
 I den här självstudien får du lära dig utvecklings stegen för Visual Studio Code. Om du hellre vill använda Visual Studio läser du instruktionerna i [använda Visual studio 2019 för att utveckla och felsöka moduler för Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En utvecklings dator:
 
@@ -177,19 +177,19 @@ I lösnings mal len som du skapade ingår exempel kod för en IoT Edge-modul. De
 
 Varje modul kan ha flera *indata* -och *utmatnings* köer som deklareras i koden. IoT Edge hubben som körs på enheten dirigerar meddelanden från utdata från en modul till indata för en eller flera moduler. Den speciella koden för att deklarera indata och utdata varierar mellan olika språk, men begreppet är detsamma i alla moduler. Mer information om routning mellan moduler finns i [deklarera vägar](module-composition.md#declare-routes).
 
-C#-koden som medföljer projekt mal len använder [klassen ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) från IoT Hub SDK för .net.
+C#-koden som medföljer projekt mal len använder [klassen ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) från IoT Hub SDK för .net.
 
 1. Öppna filen **program.cs** , som finns i **modulerna/SampleModule/** Folder.
 
 2. I program.cs hittar du **SetInputMessageHandlerAsync** -metoden.
 
-3. Metoden [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) konfigurerar en inkommande kö för att ta emot inkommande meddelanden. Granska den här metoden och se hur den initierar en indatakö med namnet **INPUT1**.
+3. Metoden [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) konfigurerar en inkommande kö för att ta emot inkommande meddelanden. Granska den här metoden och se hur den initierar en indatakö med namnet **INPUT1**.
 
    ![Hitta indatamängden i SetInputMessageCallback-konstruktorn](./media/tutorial-develop-for-linux/declare-input-queue.png)
 
 4. Leta sedan reda på **SendEventAsync** -metoden.
 
-5. [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) -metoden bearbetar mottagna meddelanden och konfigurerar en utgående kö för att skicka dem vidare. Granska den här metoden och se att den initierar en utgående kö med namnet **output1**.
+5. [SendEventAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync) -metoden bearbetar mottagna meddelanden och konfigurerar en utgående kö för att skicka dem vidare. Granska den här metoden och se att den initierar en utgående kö med namnet **output1**.
 
    ![Hitta utdatafilens namn i SendEventToOutputAsync](./media/tutorial-develop-for-linux/declare-output-queue.png)
 

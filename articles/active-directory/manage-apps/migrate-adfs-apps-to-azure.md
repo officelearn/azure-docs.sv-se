@@ -15,10 +15,10 @@ ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57d66c844b7e73f1e3326d628f854a9811ca96fd
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91802709"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Flytta programautentisering från Active Directory Federation Services (AD FS) till Azure Active Directory
@@ -94,7 +94,7 @@ Uppdatera konfigurationen av ditt produktions program så att den pekar på din 
 
 LOB-appar utvecklas internt av din organisation eller är tillgängliga som en standard paketerad produkt som installeras i ditt data Center. Exempel är appar som bygger på Windows Identity Foundation och SharePoint-appar (inte SharePoint Online).
 
-LOB-appar som använder OAuth 2,0, OpenID Connect eller WS-Federation kan integreras med Azure AD som [app-registreringar](../develop/quickstart-register-app.md). Integrera anpassade appar som använder SAML 2,0 eller WS-Federation som [icke-Gallery-program](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app) på sidan företags program i [Azure Portal](https://portal.azure.com/).
+LOB-appar som använder OAuth 2,0, OpenID Connect eller WS-Federation kan integreras med Azure AD som [app-registreringar](../develop/quickstart-register-app.md). Integrera anpassade appar som använder SAML 2,0 eller WS-Federation som [ej Galleri program](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app) på sidan företags program i [Azure Portal](https://portal.azure.com/).
 
 ## <a name="saml-based-single-sign-on"></a>SAML-baserad enkel inloggning
 
@@ -171,7 +171,7 @@ Appar som kräver följande funktioner kan inte migreras idag.
 
 **Protokoll funktioner**
 
-* Stöd för ActAs-mönstret WS-Trust
+* Stöd för WS-Trust ActAs-mönstret
 
 * SAML-artefaktmatchning
 
@@ -198,13 +198,13 @@ I följande tabell beskrivs några av de vanligaste mappningen av inställningar
 
 | Konfigurationsuppsättning| AD FS| Konfigurera i Azure AD| SAML-token |
 | - | - | - | - |
-| **Inloggnings-URL för appen** <p>URL: en som användaren kan använda för att logga in på appen i ett SP-initierat SAML-flöde (Service Provider).| Ej tillämpligt| Öppna en grundläggande SAML-konfiguration från SAML-baserad inloggning| Ej tillämpligt |
+| **Inloggnings-URL för appen** <p>URL: en som användaren kan använda för att logga in på appen i ett SP-initierat SAML-flöde (Service Provider).| E.t.| Öppna en grundläggande SAML-konfiguration från SAML-baserad inloggning| E.t. |
 | **Appens svars-URL** <p>Appens URL från identitets leverantörens (IdP) perspektiv. IdP skickar användaren och token hit när användaren har loggat in på IdP.  Detta kallas även för **slut punkt för SAML Assertion-konsumenten**.| Välj fliken **slut punkter**| Öppna en grundläggande SAML-konfiguration från SAML-baserad inloggning| Mål element i SAML-token. Exempelvärde: `https://contoso.my.salesforce.com` |
-| **Appens webbadress för utloggning** <p>Det här är URL: en till vilken "utloggnings rensning"-begär Anden skickas när en användare loggar ut från en app. IdP skickar begäran om att logga ut användaren från alla andra appar också.| Välj fliken **slut punkter**| Öppna en grundläggande SAML-konfiguration från SAML-baserad inloggning| Ej tillämpligt |
+| **Appens webbadress för utloggning** <p>Det här är URL: en till vilken "utloggnings rensning"-begär Anden skickas när en användare loggar ut från en app. IdP skickar begäran om att logga ut användaren från alla andra appar också.| Välj fliken **slut punkter**| Öppna en grundläggande SAML-konfiguration från SAML-baserad inloggning| E.t. |
 | **Appidentifierare** <p>Detta är app-ID: n från IdP perspektiv. Inloggnings-URL-värdet används ofta för identifieraren (men inte alltid).  Ibland anropar appen detta "entitets-ID".| Välj fliken **identifierare**|Öppna en grundläggande SAML-konfiguration från SAML-baserad inloggning| Mappar till **Audience** -ELEMENTET i SAML-token. |
-| **Federationsmetadata för appen** <p>Det här är platsen för appens federationsmetadata. IdP:n använder den till att automatiskt uppdatera specifika konfigurationsinställningar, som t.ex. slutpunkter eller krypteringscertifikat.| Välj fliken **övervakning**| Ej tillämpligt. Azure AD stöder inte användning av program federationens metadata direkt. Du kan importera federationsmetadata manuellt.| Ej tillämpligt |
+| **Federationsmetadata för appen** <p>Det här är platsen för appens federationsmetadata. IdP:n använder den till att automatiskt uppdatera specifika konfigurationsinställningar, som t.ex. slutpunkter eller krypteringscertifikat.| Välj fliken **övervakning**| Ej tillämpligt. Azure AD stöder inte användning av program federationens metadata direkt. Du kan importera federationsmetadata manuellt.| E.t. |
 | **Användar identifierare/namn-ID** <p>Attribut som används för att unikt ange användarens identitet från Azure AD eller AD FS till din app.  Det här attributet är vanligt vis antingen UPN eller e-postadress för användaren.| Anspråks regler. I de flesta fall utfärdar anspråks regeln ett anspråk med en typ som slutar med NameIdentifier.| Du kan hitta identifieraren under rubriken **användarattribut och anspråk**. Som standard används UPN| Mappar till **NameID** -ELEMENTET i SAML-token. |
-| **Andra anspråk** <p>Exempel på annan anspråks information som ofta skickas från IdP till appen inkluderar förnamn, efter namn, e-postadress och grupp medlemskap.| I AD FS finns detta som övriga anspråksregler hos den förlitande parten.| Du kan hitta identifieraren under rubriken **användarattribut & anspråk**. Välj **Visa** och redigera alla andra användarattribut.| Ej tillämpligt |
+| **Andra anspråk** <p>Exempel på annan anspråks information som ofta skickas från IdP till appen inkluderar förnamn, efter namn, e-postadress och grupp medlemskap.| I AD FS finns detta som övriga anspråksregler hos den förlitande parten.| Du kan hitta identifieraren under rubriken **användarattribut & anspråk**. Välj **Visa** och redigera alla andra användarattribut.| E.t. |
 
 
 ### <a name="map-identity-provider-idp-settings"></a>IdP-inställningar (Map Identity Provider)
@@ -458,7 +458,7 @@ Beroende på hur du konfigurerar din app, kontrol lera att SSO fungerar korrekt.
 ‎ |
 | SAML-baserad SSO| Använd knappen [testa SAML-inställningar](https://docs.microsoft.com/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) under **enkel inloggning**.
 ‎ |
-| Lösenordsbaserad SSO| Ladda ned och installera [säkerhets inloggnings](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [tillägget](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)för Mina appar. Med det här tillägget kan du starta valfri organisations molnappar som kräver att du använder en SSO-process.
+| Password-Based SSO| Ladda ned och installera [säkerhets inloggnings](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [tillägget](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)för Mina appar. Med det här tillägget kan du starta valfri organisations molnappar som kräver att du använder en SSO-process.
 ‎ |
 | Programproxy| Se till att din anslutning körs och är tilldelad till ditt program. Besök [fel söknings guiden för programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) för ytterligare hjälp.
 ‎ |
@@ -484,7 +484,7 @@ När distributionen är klar kan du skicka kommunikation som informerar använda
 
 * Påminn användarna att de kan behöva uppdatera sina MFA-inställningar.
 
-* Om lösen ords återställning via självbetjäning distribueras kan användarna behöva uppdatera eller verifiera sina autentiseringsmetoder. Se [MFA](https://aka.ms/mfatemplates) -och [SSPR](https://aka.ms/ssprtemplates) för slut användar kommunikation.
+* Om Self-Service återställning av lösen ord har distribuerats kan användarna behöva uppdatera eller verifiera sina autentiseringsmetoder. Se [MFA](https://aka.ms/mfatemplates) -och [SSPR](https://aka.ms/ssprtemplates) för slut användar kommunikation.
 
 Kommunikation till externa användare: den här användar gruppen är vanligt vis den mest kritiska i händelse av problem. Detta gäller särskilt om din säkerhets position dikterar en annan uppsättning regler för villkorlig åtkomst eller risk profiler för externa partner. Se till att externa partners är medvetna om schemat för moln migrering och har en tidsram under vilken de uppmuntras att delta i en pilot distribution som testar alla flöden som är unika för det externa samarbetet. Se slutligen till att de har ett sätt att få åtkomst till supportavdelningen vid eventuella problem.
 

@@ -180,6 +180,12 @@
           href: basic-age-gating.md
         - name: Definiera anpassade attribut
           href: user-flow-custom-attributes.md
+        - name: API-anslutningsprogram
+          items:
+            - name: Översikt
+              href: api-connectors-overview.md
+            - name: Lägg till ett API-anslutningsprogram
+              href: add-api-connector.md
         - name: Skicka externa IdP-token
           href: idp-pass-through-user-flow.md
     - name: Identitetsskydd och villkorsstyrd åtkomst

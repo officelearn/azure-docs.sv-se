@@ -12,14 +12,14 @@ ms.openlocfilehash: 45170e9df7082e277c445a2dab6d617eb208cd44
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91855641"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Ladda upp data för Apache Hadoop jobb i HDInsight
 
 HDInsight tillhandahåller ett Hadoop-distribuerat fil system (HDFS) över Azure Storage och Azure Data Lake Storage. Den här lagringen innehåller gen1 och Gen2. Azure Storage-och Data Lake Storage Gen1-och Gen2 har utformats som HDFS-tillägg. De gör det möjligt för den fullständiga uppsättningen komponenter i Hadoop-miljön att arbeta direkt med de data som hanteras. Azure Storage, Data Lake Storage Gen1 och Gen2 är distinkta fil system. Systemen är optimerade för lagring av data och beräkningar av dessa data. Information om fördelarna med att använda Azure Storage finns i [använda Azure Storage med HDInsight](hdinsight-hadoop-use-blob-storage.md). Se även [använda data Lake Storage gen1 med HDInsight](hdinsight-hadoop-use-data-lake-storage-gen1.md)och [Använd data Lake Storage Gen2 med HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Observera följande krav innan du börjar:
 

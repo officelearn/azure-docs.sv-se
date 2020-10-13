@@ -8,10 +8,10 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
 ms.openlocfilehash: 69bee753c2134b6eebe9c5df0a554c965208ad7c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91366231"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>Självstudie: Anslut till ett lagrings konto med hjälp av en privat Azure-slutpunkt
@@ -55,7 +55,7 @@ Skydds-värden kommer att användas för att ansluta säkert till den virtuella 
 
 4. På fliken **IP-adresser** anger du den här informationen:
 
-    | Inställning            | Värde                      |
+    | Inställningen            | Värde                      |
     |--------------------|----------------------------|
     | IPv4-adressutrymme | Ange **10.1.0.0/16** |
 
@@ -63,7 +63,7 @@ Skydds-värden kommer att användas för att ansluta säkert till den virtuella 
 
 6. I **Redigera undernät**anger du den här informationen:
 
-    | Inställning            | Värde                      |
+    | Inställningen            | Värde                      |
     |--------------------|----------------------------|
     | Namn på undernät | Ange **undernät** |
     | Adressintervall för undernätet | Ange **10.1.0.0/24** |
@@ -74,7 +74,7 @@ Skydds-värden kommer att användas för att ansluta säkert till den virtuella 
 
 9. Under **BastionHost**väljer du **Aktivera**. Ange den här informationen:
 
-    | Inställning            | Värde                      |
+    | Inställningen            | Värde                      |
     |--------------------|----------------------------|
     | Skydds namn | Ange **myBastionHost** |
     | AzureBastionSubnet-adressutrymme | Ange **10.1.1.0/24** |
@@ -94,7 +94,7 @@ I det här avsnittet ska du skapa en virtuell dator som ska användas för att t
    
 2. I **skapa en virtuell dator**skriver eller väljer du värdena på fliken **grundläggande** :
 
-    | Inställning | Värde                                          |
+    | Inställningen | Värde                                          |
     |-----------------------|----------------------------------|
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
@@ -108,14 +108,14 @@ I det här avsnittet ska du skapa en virtuell dator som ska användas för att t
     | Storlek | Välj storlek på virtuell dator eller Ställ in standardinställningen |
     | **Administratörs konto** |  |
     | Användarnamn | Ange ett användar namn |
-    | Lösenord | Ange ett lösen ord |
+    | lösenordsinställning | Ange ett lösen ord |
     | Bekräfta lösenordet | Ange lösenordet igen |
 
 3. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
   
 4. På fliken nätverk väljer eller anger du:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     |-|-|
     | **Nätverksgränssnitt** |  |
     | Virtuellt nätverk | **myVNet** |
@@ -136,14 +136,14 @@ I det här avsnittet ska du skapa ett lagrings konto och konfigurera den privata
 
 2. På fliken **grundläggande** i **skapa lagrings konto** anger eller väljer du följande information:
 
-    | Inställning | Värde                                          |
+    | Inställningen | Värde                                          |
     |-----------------------|----------------------------------|
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
     | Resursgrupp | Välj **myResourceGroup** |
     | **Instansinformation** |  |
     | Lagringskontonamn | Ange **mystorageaccount**. Om namnet inte är tillgängligt anger du ett unikt namn. |
-    | Plats | Välj **USA, östra** |
+    | Location | Välj **USA, östra** |
     | Prestanda | Lämna **standard standard** |
     | Typ av konto | Lämna standard **lagrings utrymmet (generell användning v2)** |
     | Replikering| Lämna standard **Geo-redundant lagring med Läs behörighet (RA-GRS)** |
@@ -156,11 +156,11 @@ I det här avsnittet ska du skapa ett lagrings konto och konfigurera den privata
 
 6. I **skapa privat slut punkt** anger eller väljer du följande information:
 
-    | Inställning | Värde                                          |
+    | Inställningen | Värde                                          |
     |-----------------------|----------------------------------|
     | Prenumeration | Välj din Azure-prenumeration |
     | Resursgrupp | Välj **myResourceGroup** |
-    | Plats | Välj **USA, östra** |
+    | Location | Välj **USA, östra** |
     | Name | Ange **myPrivateEndpoint** |
     | Lagrings under resurs | Lämna standard- **bloben** |
     | **Nätverk** |  |

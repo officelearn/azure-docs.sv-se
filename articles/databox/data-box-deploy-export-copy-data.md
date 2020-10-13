@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 1d39b29ba340b34d6f0add8ff5da473408bd6360
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 204e89bdf8c660a7e96438f8cb3b8a18aeaec306
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259135"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742391"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Självstudier: Kopiera data från Azure Data Box via SMB (förhandsversion)
 
@@ -50,7 +50,7 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
 
 1. Det första steget är att autentisera och starta en session. Gå till **Anslut och kopiera**. Välj **Hämta autentiseringsuppgifter** för att få autentiseringsuppgifter för de resurser som är associerade med ditt lagringskonto. 
 
-    ![Hämta resursautentiseringsuppgifter 1](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
+    ![Hämta resursautentiseringsuppgifter](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
 
 2. I dialogrutan Få åtkomst till resursen och kopiera data kopierar du **användarnamnet** och **lösenordet** som motsvarar resursen. Välj **OK**.
     
@@ -75,7 +75,7 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
 
 4. Tryck på Windows + R. I fönstret **Kör** anger du `\\<device IP address>`. Öppna Utforskaren genom att välja **OK**.
     
-    ![Ansluta till resursen via Utforskaren 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
+    ![Ansluta till resurs via Utforskaren](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 
     Du bör nu se resurserna som mappar.
     

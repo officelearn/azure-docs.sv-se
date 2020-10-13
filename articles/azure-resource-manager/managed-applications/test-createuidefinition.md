@@ -5,18 +5,18 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: e2d075a58872f9337c7d1faa642a48047e2f9ddf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f45e8435ea26e575398801471904b5038a518a44
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78250184"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948841"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Testa Portal gränssnittet för Azure Managed Applications
 
 När du har [skapat createUiDefinition.jsfilen](create-uidefinition-overview.md) för det hanterade programmet måste du testa användar upplevelsen. För att förenkla testningen använder du en sandbox-miljö som läser in din fil i portalen. Du behöver inte distribuera ditt hanterade program. Sand boxen visar ditt användar gränssnitt i den aktuella, kompletta Portal upplevelsen. Eller så kan du använda ett skript för att testa gränssnittet. Båda metoderna visas i den här artikeln. Sand boxen är det rekommenderade sättet att förhandsgranska gränssnittet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En **createUiDefinition.jspå** filen. Om du inte har den här filen kopierar du [exempel filen](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
 
@@ -104,4 +104,4 @@ Nu när du har kontrollerat att ditt Portal gränssnitt fungerar som förväntat
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har verifierat ditt Portal gränssnitt kan du läsa om hur du gör ditt [Azure-hanterade program tillgängligt på Marketplace](publish-marketplace-app.md).
+När du har verifierat ditt Portal gränssnitt kan du läsa om hur du gör ditt [Azure-hanterade program tillgängligt på Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).

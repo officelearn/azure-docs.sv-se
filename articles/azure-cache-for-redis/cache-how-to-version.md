@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.openlocfilehash: ed0f486afe466d31388fa99b4ce5f5754210533f
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91571507"
 ---
 # <a name="set-redis-version-for-azure-cache-for-redis-preview"></a>Ange Redis-version för Azure cache för Redis (för hands version)
@@ -54,7 +54,7 @@ Följ dessa steg om du vill skapa en cache:
     > För närvarande går det inte att ändra Redis-versionen när en cache har skapats.
     >
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Läs mer om Azure cache för Redis-funktioner.
 
 > [!div class="nextstepaction"]

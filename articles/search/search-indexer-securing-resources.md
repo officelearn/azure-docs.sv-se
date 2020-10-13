@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 5075c4858f9584cb19442e19d9009d46d0e00ff8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85446847e8ad77bc83eea657ab17268839e0b231
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89463718"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949828"
 ---
 # <a name="indexer-access-to-data-sources-using-azure-network-security-features"></a>Indexerare får åtkomst till data källor med hjälp av funktioner i Azure Network Security
 
@@ -41,16 +41,16 @@ Kunder kan skydda dessa resurser via flera nätverks isolerings mekanismer som e
 | Azure Cosmos DB-SQL API | Stöds | Stöds |
 | Azure Cosmos DB-Cassandra, Mongo och Gremlin API | Stöds | Stöd saknas |
 | Azure SQL Database | Stöds | Stöds |
-| SQL Server på virtuella Azure IaaS-datorer | Stöds | E.t. |
-| SQL-hanterade instanser | Stöds | E.t. |
+| SQL Server på virtuella Azure IaaS-datorer | Stöds | Saknas |
+| SQL-hanterade instanser | Stöds | Saknas |
 | Azure Functions | Stöds | Stöds endast för vissa SKU: er för Azure Functions |
 
 > [!NOTE]
-> Utöver de alternativ som anges ovan kan kunder för skyddade Azure Storage-konton i nätverket utnyttja det faktum att Azure Kognitiv sökning är en [betrodd Microsoft-tjänst](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). Det innebär att en bestämd Sök tjänst kan kringgå virtuella nätverk eller IP-begränsningar på lagrings kontot och kan komma åt data i lagrings kontot, om lämplig rollbaserad åtkomst kontroll har Aktiver ATS på lagrings kontot. Information finns i [guiden How to](search-indexer-howto-access-trusted-service-exception.md). Det här alternativet kan användas i stället för IP-begränsning, om lagrings kontot eller Sök tjänsten inte kan flyttas till en annan region.
+> Utöver de alternativ som anges ovan kan kunder för skyddade Azure Storage-konton i nätverket utnyttja det faktum att Azure Kognitiv sökning är en [betrodd Microsoft-tjänst](../storage/common/storage-network-security.md#trusted-microsoft-services). Det innebär att en bestämd Sök tjänst kan kringgå virtuella nätverk eller IP-begränsningar på lagrings kontot och kan komma åt data i lagrings kontot, om lämplig rollbaserad åtkomst kontroll har Aktiver ATS på lagrings kontot. Information finns i [guiden How to](search-indexer-howto-access-trusted-service-exception.md). Det här alternativet kan användas i stället för IP-begränsning, om lagrings kontot eller Sök tjänsten inte kan flyttas till en annan region.
 
 När du väljer vilken säker åtkomst mekanism som en indexerare ska använda, bör du tänka på följande begränsningar:
 
-- [Tjänst slut punkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) stöds inte för någon Azure-resurs.
+- [Tjänst slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md) stöds inte för någon Azure-resurs.
 - Det går inte att tillhandahålla en Sök tjänst till ett enskilt virtuellt nätverk – den här funktionen erbjuds inte av Azure Kognitiv sökning.
 - Om indexerarna använder (utgående) privata slut punkter för att få åtkomst till resurser kan ytterligare [avgifter för privata länkar](https://azure.microsoft.com/pricing/details/search/) tillkomma.
 
@@ -68,31 +68,31 @@ För att det ska gå att köra en indexerare, fastställer Azure Kognitiv sökni
 Om resursen som indexeraren försöker komma åt är begränsad till endast en viss uppsättning IP-intervall, måste du expandera uppsättningen för att inkludera möjliga IP-intervall som en indexerare-begäran kan ha sitt ursprung i. Som anges ovan finns det två möjliga miljöer där indexerare körs och från vilka åtkomst begär Anden kan komma från. Du måste lägga till IP-adresserna för __båda__ miljöerna för att indexerings åtkomsten ska fungera.
 
 - För att hämta IP-adressen för Sök tjänstens särskilda privata miljö, `nslookup` (eller `ping` ) det fullständigt kvalificerade domän namnet (FQDN) för Sök tjänsten. FQDN för en Sök tjänst i det offentliga molnet är till exempel `<service-name>.search.windows.net` . Den här informationen finns på Azure Portal.
-- IP-adresserna för flera klient miljöer är tillgängliga via `AzureCognitiveSearch` tjänst tag gen. [Azure Service-Taggar](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) har ett publicerat intervall med IP-adresser för varje tjänst – detta är tillgängligt via ett [identifierings-API (för hands version)](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview) eller en [nedladdnings bar JSON-fil](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). I båda fallen uppdelas IP-intervall efter region – du kan bara välja de IP-adressintervall som tilldelats den region där Sök tjänsten är etablerad.
+- IP-adresserna för flera klient miljöer är tillgängliga via `AzureCognitiveSearch` tjänst tag gen. [Azure Service-Taggar](../virtual-network/service-tags-overview.md) har ett publicerat intervall med IP-adresser för varje tjänst – detta är tillgängligt via ett [identifierings-API (för hands version)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) eller en [nedladdnings bar JSON-fil](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). I båda fallen uppdelas IP-intervall efter region – du kan bara välja de IP-adressintervall som tilldelats den region där Sök tjänsten är etablerad.
 
-För vissa data källor kan själva tjänst tag gen användas direkt i stället för att räkna upp listan över IP-intervall (IP-adressen för Sök tjänsten måste fortfarande användas explicit). Dessa data källor begränsar åtkomsten genom att ställa in en [regel för nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview), som inbyggt stöder tillägg av en tjänst tagg, till skillnad från IP-regler som de som erbjuds av Azure Storage, CosmosDB, Azure SQL osv., data källorna som stöder möjligheten att använda `AzureCognitiveSearch` tjänst tag gen direkt utöver Sök tjänstens IP-adress:
+För vissa data källor kan själva tjänst tag gen användas direkt i stället för att räkna upp listan över IP-intervall (IP-adressen för Sök tjänsten måste fortfarande användas explicit). Dessa data källor begränsar åtkomsten genom att ställa in en [regel för nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md), som inbyggt stöder tillägg av en tjänst tagg, till skillnad från IP-regler som de som erbjuds av Azure Storage, CosmosDB, Azure SQL osv., data källorna som stöder möjligheten att använda `AzureCognitiveSearch` tjänst tag gen direkt utöver Sök tjänstens IP-adress:
 
-- [SQL Server på virtuella IaaS-datorer](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers#restrict-access-to-the-azure-cognitive-search)
+- [SQL Server på virtuella IaaS-datorer](./search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md#restrict-access-to-the-azure-cognitive-search)
 
-- [SQL-hanterade instanser](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers#verify-nsg-rules)
+- [SQL-hanterade instanser](./search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md#verify-nsg-rules)
 
 Information beskrivs i [guiden How to guide](search-indexer-howto-access-ip-restricted.md).
 
 ## <a name="granting-access-via-private-endpoints"></a>Bevilja åtkomst via privata slut punkter
 
-Indexerare kan använda [privata slut punkter](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) för att få åtkomst till resurser, åtkomst till vilka är låsta för att välja virtuella nätverk eller inte ha någon offentlig åtkomst aktive rad.
+Indexerare kan använda [privata slut punkter](../private-link/private-endpoint-overview.md) för att få åtkomst till resurser, åtkomst till vilka är låsta för att välja virtuella nätverk eller inte ha någon offentlig åtkomst aktive rad.
 Den här funktionen är endast tillgänglig för betalda tjänster, med gränser för antalet privata slut punkter som skapas. Information om gränserna dokumenteras på [sidan Azure Search gränser](search-limits-quotas-capacity.md).
 
 ### <a name="step-1-create-a-private-endpoint-to-the-secure-resource"></a>Steg 1: skapa en privat slut punkt för den säkra resursen
 
-Kunderna bör anropa Sök hanterings åtgärden, [skapa eller uppdatera *Shared Private Link* -API](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) för att skapa en privat slut punkts anslutning till en säker resurs (till exempel ett lagrings konto). Trafik som går över den här (utgående) privata slut punkts anslutningen kommer endast från det virtuella nätverk som är i Sök tjänstens aktuella "privata" index körnings miljö.
+Kunderna bör anropa Sök hanterings åtgärden, [skapa eller uppdatera *Shared Private Link* -API](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) för att skapa en privat slut punkts anslutning till en säker resurs (till exempel ett lagrings konto). Trafik som går över den här (utgående) privata slut punkts anslutningen kommer endast från det virtuella nätverk som är i Sök tjänstens aktuella "privata" index körnings miljö.
 
 Azure Kognitiv sökning verifierar att anroparna i detta API har behörighet att godkänna privata slut punkts anslutnings begär anden till den säkra resursen. Om du till exempel begär en privat slut punkts anslutning till ett lagrings konto som du inte har åtkomst till, kommer anropet att avvisas.
 
 ### <a name="step-2-approve-the-private-endpoint-connection"></a>Steg 2: Godkänn anslutningen till den privata slut punkten
 
 När den (asynkrona) åtgärd som skapar en delad privat länk-resurs slutförs, skapas en privat slut punkts anslutning i ett "väntande" läge. Ingen trafik flödar över anslutningen än.
-Kunden förväntas sedan hitta denna begäran på sin säkra resurs och godkänna. Detta kan vanligt vis göras via portalen eller via [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/privatelinkservices/updateprivateendpointconnection).
+Kunden förväntas sedan hitta denna begäran på sin säkra resurs och godkänna. Detta kan vanligt vis göras via portalen eller via [REST API](/rest/api/virtualnetwork/privatelinkservices/updateprivateendpointconnection).
 
 ### <a name="step-3-force-indexers-to-run-in-the-private-environment"></a>Steg 3: tvinga indexerare att köras i den privata miljön
 

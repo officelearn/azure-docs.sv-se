@@ -5,12 +5,12 @@ author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: b6984bfdf7ec078d02999bccf77f3592cfbcab27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e11e08d861538ddf395f522495798546e04ca7c
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75649990"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948960"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Konfigurera Azure Functions för Azure-anpassade leverantörer
 
@@ -51,7 +51,7 @@ Konfigurera Azure-funktionen så att den inkluderar den anpassade providern REST
 > [!NOTE]
 > Om projekt filen C# saknas i projekt katalogen kan du lägga till den manuellt. Eller så kommer det att visas efter att Microsoft. Azure. WebJobs. Extensions. Storage-tillägget har installerats i Function-appen.
 
-Uppdatera sedan C#-projektfilen för att inkludera användbara NuGet-bibliotek. De här biblioteken gör det lättare att parsa inkommande begär Anden från anpassade providers. Följ stegen för att [lägga till tillägg från portalen](../../azure-functions/install-update-binding-extensions-manual.md) och uppdatera C#-projekt filen så att den innehåller följande paket referenser:
+Uppdatera sedan C#-projektfilen för att inkludera användbara NuGet-bibliotek. De här biblioteken gör det lättare att parsa inkommande begär Anden från anpassade providers. Följ stegen för att [lägga till tillägg från portalen](../../azure-functions/functions-bindings-register.md) och uppdatera C#-projekt filen så att den innehåller följande paket referenser:
 
 ```xml
 <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />
@@ -80,4 +80,3 @@ Följande XML-element är ett exempel på en C#-projekt fil:
 I den här självstudien skapar du en Azure Function-app som fungerar som en Azure-anpassad Provider-slutpunkt.
 
 Information om hur du skapar en RESTful anpassad Provider-slutpunkt finns i [Självstudier: skapa en RESTful anpassad Provider-slutpunkt](./tutorial-custom-providers-function-authoring.md).
-

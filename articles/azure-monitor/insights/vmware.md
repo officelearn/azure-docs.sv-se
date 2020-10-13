@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
 ms.openlocfilehash: be50deb836082354db899e84ef24d75c4d403432
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450406"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>VMware-övervakning (inaktuell) lösning i Azure Monitor
@@ -42,7 +42,7 @@ Skapa en virtuell Linux-operativ system version för att ta emot alla syslog-dat
 ### <a name="configure-syslog-collection"></a>Konfigurera syslog-samling
 1. Konfigurera syslog-vidarebefordran för VSphere. Detaljerad information om hur du konfigurerar syslog-vidarebefordran finns i [Konfigurera syslog på ESXi 5,0 och högre (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Gå till **ESXi för värd konfiguration**  >  **program**  >  **Avancerade inställningar**  >  **syslog**.
    ![vsphereconfig](./media/vmware/vsphere1.png)  
-1. I fältet *syslog. global. logHost* lägger du till Linux-servern och port numret *1514*. Till exempel `tcp://hostname:1514` eller `tcp://123.456.789.101:1514`
+1. I fältet *syslog. global. logHost* lägger du till Linux-servern och port numret *1514*. Det kan till exempel vara `tcp://hostname:1514` eller `tcp://123.456.789.101:1514`
 1. Öppna ESXi-värd brand väggen för syslog. Konfiguration av ESXi- **värd**  >  **Program vara**  >  **Säkerhets profil**  >  **Brand vägg** och öppna **Egenskaper**.  
 
     ![vspherefw](./media/vmware/vsphere2.png)  

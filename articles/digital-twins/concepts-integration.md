@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4fcad5798d421939717a6beae01ae9930cfcb117
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 118b02ab694d27dbe4e13cbfa1a617a56b052772
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015029"
+ms.locfileid: "92043076"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrera Azure Digitals dubbla med andra tjänster
 
@@ -20,7 +20,7 @@ Azure Digitals, används vanligt vis tillsammans med andra tjänster för att sk
 
 Med hjälp av [**händelse vägar**](concepts-route-events.md)kan Azure Digitals dubbla, ta emot data från överordnade tjänster som [IoT Hub](../iot-hub/about-iot-hub.md) eller [Logic Apps](../logic-apps/logic-apps-overview.md)som används för att leverera telemetri och meddelanden. 
 
-Digitala Azure-enheter kan också dirigera data till underordnade tjänster, till exempel [Azure Maps](../azure-maps/about-azure-maps.md) och [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md), för lagring, arbets flödes integrering, analys med mera. 
+Digitala Azure-enheter kan också dirigera data till underordnade tjänster, till exempel [Azure Maps](../azure-maps/about-azure-maps.md) och [Time Series Insights](../time-series-insights/overview-what-is-tsi.md), för lagring, arbets flödes integrering, analys med mera. 
 
 ## <a name="data-ingress"></a>Inkommande data
 
@@ -41,7 +41,7 @@ Azure Digitals dubbla, kan skicka data till anslutna **slut punkter**. Slut punk
 
 Slut punkter är kopplade till Azure Digitals dubbla med hanterings-API: er eller Azure Portal. Lär dig mer om hur du ansluter en slut punkt till Azure Digitals dubbla i [*anvisningar: hantera slut punkter och vägar*](how-to-manage-routes-apis-cli.md).
 
-Det finns många andra tjänster där du kanske vill dirigera dina data i slut ändan, till exempel [Azure Storage](../storage/common/storage-introduction.md), [Azure Maps](../azure-maps/about-azure-maps.md)eller [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). Om du vill skicka dina data till tjänster som de här kan du koppla mål tjänsten till en slut punkt.
+Det finns många andra tjänster där du kanske vill dirigera dina data i slut ändan, till exempel [Azure Storage](../storage/common/storage-introduction.md), [Azure Maps](../azure-maps/about-azure-maps.md)eller [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). Om du vill skicka dina data till tjänster som de här kan du koppla mål tjänsten till en slut punkt.
 
 Om du till exempel också använder Azure Maps och vill korrelera platsen med dina Azure Digitals dubbla [grafer](concepts-twins-graph.md)kan du använda Azure Functions med event Grid för att upprätta kommunikation mellan alla tjänster i din distribution. Lär dig mer om det här i [ *How-to: använda Azure Digitals flätas för att uppdatera en Azure Maps inomhus karta*](how-to-integrate-maps.md)
 

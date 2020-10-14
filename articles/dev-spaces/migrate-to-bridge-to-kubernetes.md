@@ -5,12 +5,12 @@ ms.date: 10/12/2020
 ms.topic: conceptual
 description: Beskriver migreringsprocessen från Azure dev Spaces till Bridge till Kubernetes
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänsten, behållare, bro till Kubernetes
-ms.openlocfilehash: 209776be80f2814dc8e4d347c0eea273017f70ad
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 008cb90c172d8106115e4424956d82d026dbcee0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019944"
+ms.locfileid: "92044708"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrera till Bridge to Kubernetes
 
@@ -108,7 +108,6 @@ Brygga till Kubernetes har flexibiliteten att arbeta med program som körs i Kub
 
 1. Migrera manuellt anpassningar, till exempel miljövariabel inställningar, i *azds. yaml* till projektets *Values. yml* -fil.
 1. valfritt Ta bort `azds.yaml` filen från projektet.
-1. Distribuera om ditt program.
 1. Konfigurera brygga till Kubernetes i det distribuerade programmet. Mer information om hur du använder Bridge för att Kubernetes i Visual Studio finns i [använda Bridge för att Kubernetes i Visual Studio][use-btk-vs]. För VS Code, se [Använd Bridge för att Kubernetes i vs Code][use-btk-vsc].
 1. Starta fel sökningen med den nyskapade bryggan för att Kubernetes fel söknings-/start profil.
 1. Du kan köra skriptet igen om det behövs för att distribuera om till klustret.

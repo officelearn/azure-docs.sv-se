@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 165f83e0f021d23c26333a294ffe992838bda6b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caaa4499cbed1dce1a858c33a9488650649a5a44
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577721"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042923"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Använda IoT Plug and Play-modeller i en IoT-lösning
 
@@ -40,10 +40,10 @@ En lösning kan hämta modell-ID: t för IoT Plug and Play-enheten genom att anv
 
 ### <a name="get-device-twin-api"></a>Hämta enhetens dubbla API
 
-Lösningen kan använda [enhetens dubbla](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable&preserve-view=true) API för att hämta modell-ID för IoT plug and Play-enheten.
+Lösningen kan använda [enhetens dubbla](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?preserve-view=true&view=azure-java-stable) API för att hämta modell-ID för IoT plug and Play-enheten.
 
 > [!TIP]
-> För moduler och IoT Edge moduler använder du [ModuleClient. getTwin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?view=azure-java-stable&preserve-view=true).
+> För moduler och IoT Edge moduler använder du [ModuleClient. getTwin](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?preserve-view=true&view=azure-java-stable).
 
 I följande enhet med dubbla svars kodfragment `modelId` innehåller modell-ID: t för en IoT plug and Play-enhet:
 
@@ -71,7 +71,7 @@ I följande enhet med dubbla svars kodfragment `modelId` innehåller modell-ID: 
 
 ### <a name="get-digital-twin-api"></a>Hämta digital, dubbla API
 
-Lösningen kan använda det [digitala dubbla](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) API: t för att hämta modell-ID: t för modellen som implementeras av IoT plug and Play-enheten.
+Lösningen kan använda det [digitala dubbla](/rest/api/iothub/service/digitaltwin/getdigitaltwin) API: t för att hämta modell-ID: t för modellen som implementeras av IoT plug and Play-enheten.
 
 I följande digitala dubbla svar-kodfragment `$metadata.$model` innehåller modell-ID: t för en IoT plug and Play-enhet:
 
@@ -121,7 +121,7 @@ Lösningar kan använda [modell databasen](concepts-model-repository.md) för at
 
 Följ dessa steg när du har identifierat modell-ID för en ny enhets anslutning:
 
-1. Hämta modell definitionen med modell-ID från modell databasen. Mer information finns i [Hämta modeller](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
+1. Hämta modell definitionen med modell-ID från modell databasen. Mer information finns i [Hämta modeller](/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
 
 1. Med hjälp av modell definitionen för den anslutna enheten kan du räkna upp enhetens funktioner.
 
@@ -144,5 +144,5 @@ Följ dessa steg när du har identifierat modell-ID för en ny enhets anslutning
 Nu när du har lärt dig hur du integrerar IoT Plug and Play-modeller i en IoT-lösning är några förslag på nästa steg:
 
 - [Interagera med en enhet från din lösning](quickstart-service-node.md)
-- [IoT Digital, dubbla REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [IoT Digital, dubbla REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT Explorer](howto-use-iot-explorer.md)

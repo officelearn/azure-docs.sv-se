@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
-ms.openlocfilehash: 8cbfc374a5964983c43594fef5d97986e51c0d83
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4e4895b227bfc699e94155515e829d0bf33aaf9b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971701"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043059"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Förstå Azure IoT Edge Runtime och dess arkitektur
 
@@ -71,7 +71,7 @@ Om du vill ta emot ett meddelande registrerar du ett återanrop som bearbetar me
    await client.SetInputMessageHandlerAsync("input1", messageProcessor, userContext);
    ```
 
-Mer information om klassen ModuleClient och dess kommunikations metoder finns i API-referensen för ditt prioriterade SDK-språk: [C#](/dotnet/api/microsoft.azure.devices.client.moduleclient), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [python](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient), [Java](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)eller [Node.js](/javascript/api/azure-iot-device/moduleclient).
+Mer information om klassen ModuleClient och dess kommunikations metoder finns i API-referensen för ditt prioriterade SDK-språk: [C#](/dotnet/api/microsoft.azure.devices.client.moduleclient), [C](/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [python](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient), [Java](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)eller [Node.js](/javascript/api/azure-iot-device/moduleclient).
 
 Lösnings utvecklaren ansvarar för att ange regler som avgör hur IoT Edge Hub skickar meddelanden mellan moduler. Routningsregler definieras i molnet och flyttas ned till IoT Edge Hub i sin modul. Samma syntax för IoT Hub vägar används för att definiera vägar mellan moduler i Azure IoT Edge. Mer information finns i [Lär dig hur du distribuerar moduler och etablerar vägar i IoT Edge](module-composition.md).
 
@@ -126,15 +126,15 @@ Mer information om säkerhets ramverket Azure IoT Edge finns i [IoT Edge Securit
 
 ## <a name="runtime-quality-telemetry"></a>Telemetri för körnings kvalitet
 
-IoT Edge samlar in anonymiserats telemetri från värd körning och systemmoduler för att förbättra produkt kvaliteten. Den här informationen kallas telemetri för körnings kvalitet (RQT). RQT skickas regelbundet som "enhet till molnet"-meddelanden till IoT Hub från IoT Edge-agenten. RQT-meddelanden visas inte i kundens vanliga telemetri och använder inte någon meddelande kvot.
+IoT Edge samlar in anonym telemetri från värd körningen och systemmodulerna för att förbättra produkt kvaliteten. Den här informationen kallas telemetri för körnings kvalitet. Den insamlade Telemetrin skickas regelbundet som "enhet till molnet"-meddelanden till IoT Hub från IoT Edge agenten. Dessa meddelanden visas inte i kundens vanliga telemetri och använder inte någon meddelande kvot.
 
-En fullständig lista över de mått som samlas in av edgeAgent och edgeHub finns i [avsnittet tillgängliga mått i artikeln åtkomst IoT Edge körnings statistik](how-to-access-built-in-metrics.md#available-metrics). En delmängd av dessa mått samlas in av den IoT Edge agenten som en del av RQT. Mått som samlas in som en del av RQT inkluderar taggen `ms_telemetry` .
+IoT Edge agenten och hubben genererar mått som du kan samla in för att förstå enhetens prestanda. En delmängd av dessa mått samlas in av den IoT Edge agenten som en del av telemetri för körnings kvalitet. Måtten som samlas in för telemetri för körnings kvalitet är märkta med taggen `ms_telemetry` . Information om alla tillgängliga mått finns i [använda inbyggda mått](how-to-access-built-in-metrics.md).
 
-Som en del av anonymisering tas all personlig eller organisations identifierbar information, till exempel enhets-och Modulnamn, bort före uppladdning.
+All personligt identifierbar information, till exempel enhets-och Modulnamn, tas bort före uppladdning för att säkerställa den anonyma typen av telemetri för körnings kvalitet.
 
-Standard frekvensen RQT är ett meddelande som skickas till IoT Hub var 24: e timme och lokal samling med edgeAgent varje timme.
+IoT Edge agent samlar in Telemetrin varje timme och skickar ett meddelande till IoT Hub var 24: e timme.
 
-Om du vill välja bort från RQT kan du göra det på två sätt:
+Om du inte vill avanmäla körnings telemetri från dina enheter kan du göra det på två sätt:
 
 * Ange `SendRuntimeQualityTelemetry` miljövariabeln till `false` för **edgeAgent**, eller
 * Avmarkera alternativet i Azure Portal under distributionen.

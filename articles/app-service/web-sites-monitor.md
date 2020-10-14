@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 888118d227529110c209d7c8d5a3bb79cfcf3a9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 327abb2e67f21c2893fc652b0e30c640980914c2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88959799"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044538"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Övervaka appar i Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) innehåller inbyggda övervaknings funktioner för webbappar, mobil-och API-appar i [Azure Portal](https://portal.azure.com).
@@ -58,7 +58,7 @@ Du kan öka eller ta bort kvoter från din app genom att uppgradera din App Serv
 ## <a name="understand-metrics"></a>Förstå mått
 
 > [!NOTE]
-> **Användning av fil system** är ett nytt mått som distribueras globalt, inga data förväntas såvida du inte har beviljats åtkomst för privat för hands version.
+> **Användning av fil system** är ett nytt mått som distribueras globalt, inga data förväntas om inte din app finns i en app service-miljön.
 > 
 
 > [!IMPORTANT]

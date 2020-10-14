@@ -3,12 +3,12 @@ title: Använda funktionen för offentliga IP-funktioner i virtuella WAN-nätver
 description: Den här artikeln förklarar hur du använder funktionen för offentliga IP-funktioner i Azure Virtual WAN.
 ms.topic: how-to
 ms.date: 10/30/2020
-ms.openlocfilehash: ec8af45a98e82a7c1c657776c4fee2c3ef068dca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61ed6487bc000a35fd25cabde2b562b6eb08da46
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91745004"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048312"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-virtual-wan"></a>Använda funktionen för offentliga IP-funktioner i Azure Virtual WAN
 
@@ -27,11 +27,11 @@ Som en del av distributionen av privata moln i Azure VMware-lösningen, vid akti
 
 Den här artikeln beskriver hur du kan använda funktionen för offentliga IP-funktioner i virtuella WAN-nätverk för att göra resurser, till exempel webb servrar, virtuella datorer och värdar, tillgängliga via ett offentligt nätverk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
--   Azure VMware-lösnings miljö
-
--   En-server som körs i Azure VMware-lösnings miljö.
+- Azure VMware-lösnings miljö
+- En-server som körs i Azure VMware-lösnings miljö.
+- Ett nytt icke överlappande IP-intervall för den virtuella WAN Hub-distributionen, vanligt vis a `/24` .
 
 ## <a name="reference-architecture"></a>Referensarkitektur
 
@@ -62,15 +62,15 @@ I det här scenariot måste du publicera IIS-webbservern på Internet. Använd f
 
    :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Diagram över arkitektur för offentliga IP-adresser" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
 
-2.  Acceptera standardvärdena eller ändra dem och välj sedan **skapa**.
+1. Acceptera standardvärdena eller ändra dem och välj sedan **skapa**.
 
-   -  Resurs grupp för virtuell Wide Area Network
+   - Resurs grupp för virtuell Wide Area Network
 
-   -  Namn på virtuell Wide Area Network
+   - Namn på virtuell Wide Area Network
 
-   -  Adress block för virtuellt nav
+   - Adress block för virtuellt nav (med nytt IP-intervall som inte överlappar)
 
-   -  Antal offentliga IP-adresser (1-100)
+   - Antal offentliga IP-adresser (1-100)
 
 Det tar ungefär en timme att slutföra distributionen av alla komponenter. Den här distributionen måste bara ske en gång för att stödja alla framtida offentliga IP-adresser för den här Azure VMware-lösningen.  
 
@@ -120,7 +120,7 @@ När alla komponenter har distribuerats kan du se dem i den tillagda resurs grup
 
 1. Välj **Lägg till en regel samling**, ange informationen nedan och välj **Lägg till** och välj sedan **Nästa: Hot information**.
 
-   -  Namn
+   -  Name
    -  Typ av regel samling – DNAT
    -  Prioritet
    -  Regel samlings åtgärd – Tillåt

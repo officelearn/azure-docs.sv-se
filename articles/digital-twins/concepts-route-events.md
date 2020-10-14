@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d41518b1fc0d8cdda3ded1e8036bd29e24e2b34a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02b977a7b6abdb77deec3973bd94b82fae9c2af5
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541364"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044300"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Dirigera händelser inom och utanför Azures digitala dubbla
 
@@ -21,7 +21,7 @@ Azure Digitals dubbla använder **händelse vägar** för att skicka data till k
 Under för hands versionen finns det två viktiga fall för att skicka Azure Digitals dubbla data:
 * Skicka data från en mitt i det digitala Azure-diagrammet till en annan. Om du till exempel har en egenskap på en digital, dubbla ändringar kanske du vill meddela och uppdatera en annan digital i enlighet med detta.
 * Skicka data till underordnade data tjänster för ytterligare lagring eller bearbetning (kallas även *utgående data*). Till exempel,
-  - Ett sjukhus kan vilja skicka data för Azure Digitals dubbla data till [Time Series Insights (TSD)](../time-series-insights/time-series-insights-update-overview.md)för att registrera Time Series-data för handwashing-relaterade händelser för Mass analys.
+  - Ett sjukhus kan vilja skicka data för Azure Digitals dubbla data till [Time Series Insights (TSD)](../time-series-insights/overview-what-is-tsi.md)för att registrera Time Series-data för handwashing-relaterade händelser för Mass analys.
   - En verksamhet som redan använder [Azure Maps](../azure-maps/about-azure-maps.md) kanske vill använda Azure Digital-dubbla för att förbättra sin lösning. De kan snabbt aktivera en Azure-karta när du har konfigurerat Azure Digitals-enheter, ta Azure Map-entiteter i Azure Digitals-enheter som [digitala](concepts-twins-graph.md) delar i den dubbla grafen eller kör kraftfulla frågor som använder sina Azure Maps och Azure Digitals sammanställda data tillsammans.
 
 Händelse vägar används för båda dessa scenarier.

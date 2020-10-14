@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 483c29d4aed4102440b09f26fe6778709836145f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b449913c9d1abbbec84f0ff77f7a1c1bc5321bf
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629836"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048465"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -154,7 +154,7 @@ Mer information om regional tillgänglighet finns i [regioner](regions.md#standa
 | `en-CA` | Engelska (Kanada) | Kvinna | `en-CA-ClaraNeural` | Allmänt |
 | `en-GB` | Engelska (Storbritannien) | Kvinna | `en-GB-LibbyNeural` | Allmänt |
 | `en-GB` | Engelska (Storbritannien) | Kvinna | `en-GB-MiaNeural` | Allmänt |
-| `en-GB` <sup>Nytt</sup> | Engelska (Storbritannien) | Man | `En-GB-RyanNeural` | Allmänt |
+| `en-GB` <sup>Nytt</sup> | Engelska (Storbritannien) | Man | `en-GB-RyanNeural` | Allmänt |
 | `en-IE` <sup>Nytt</sup> | Irländsk engelska (Irland) | Kvinna | `en-IE-EmilyNeural` | Allmänt |
 | `en-IN` | Engelska (Indien) | Kvinna | `en-IN-NeerjaNeural` | Allmänt |
 | `en-US` | Engelska (USA) | Kvinna | `en-US-AriaNeural` | Allmänt, flera röst format är tillgängliga |

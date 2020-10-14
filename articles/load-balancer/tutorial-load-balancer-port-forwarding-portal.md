@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: dcb151c8be0ab3a2393d0659b75985a92ac60507
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63d1a08dc588f0303ccb1ae13bd4c28af2a393c7
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82207895"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043661"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Självstudie: Konfigurera vidarebefordran av portar i Azure Load Balancer med hjälp av portalen
 
@@ -36,9 +36,13 @@ I den här självstudien får du ställa in portvidarebefordran i Azure Load Bal
 > * Skapa inkommande NAT-portvidarebefordringsregler för en lastbalanserare.
 > * Installera och konfigurera IIS på de virtuella datorerna för att visa belastningsutjämning och portvidarebefordran i praktiken.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 För alla steg i den här självstudien loggar du in på Azure Portal på [https://portal.azure.com](https://portal.azure.com) .
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* En Azure-prenumeration.
 
 ## <a name="create-a-standard-load-balancer"></a>Skapa en standardlastbalanserare
 

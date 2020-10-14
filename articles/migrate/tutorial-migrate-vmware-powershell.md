@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
 ms.author: rahugup
-ms.openlocfilehash: ea2768c22aeaab3dabb546df5aced0f2a5b35e41
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: eed10f13b9495ab2cccfd9c57ae14ccc5d8e4a63
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92002679"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043552"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migrera virtuella VMware-datorer till Azure (utan agent) – PowerShell
 
@@ -33,7 +33,7 @@ Lär dig att:
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar de här självstudierna bör du:
 
@@ -43,7 +43,7 @@ Innan du börjar de här självstudierna bör du:
 
 ## <a name="install-azure-migrate-powershell-module"></a>Installera Azure Migrate PowerShell-modul
 
-Azure Migrate PowerShell-modulen finns i offentlig för hands version. Du måste installera PowerShell-modulen med hjälp av följande kommando. 
+Azure Migrate PowerShell-modulen är tillgänglig som för hands version. Du måste installera PowerShell-modulen med hjälp av följande kommando. 
 
 ```azurepowershell
 Install-Module -Name Az.Migrate 
@@ -424,7 +424,7 @@ $StopReplicationJob = Remove-AzMigrateServerReplication -InputObject $Replicatin
     - Distribuera [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) för att säkra diskar och skydda data från stöld och obehörig åtkomst.
     - Läs mer om [ att skydda IaaS-resurser](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) och besök [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - För övervakning och hantering:
--  Överväg att distribuera Azure Cost Management för att övervaka användning och utgifter.
+-  Överväg att distribuera [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) för att övervaka användning och utgifter.
 
 
 

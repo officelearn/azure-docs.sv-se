@@ -11,18 +11,22 @@ ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another resource group.
-ms.openlocfilehash: fe8051d551077666c06ac033f22303fd643ac602
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea152e1d78ab1ea610eee5420394c89524673993
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585741"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042390"
 ---
 # <a name="moving-an-azure-key-vault-across-resource-groups"></a>Flytta en Azure Key Vault över resurs grupper
 
 ## <a name="overview"></a>Översikt
 
 Att flytta ett nyckel valv över resurs grupper är en nyckel valvs funktion som stöds. Att flytta ett nyckel valv mellan resurs grupper påverkar inte konfiguration av Key Vault-brandvägg eller åtkomst principer. Anslutna program och tjänstens huvud namn bör fortsätta att fungera som avsett.
+
+> [!IMPORTANT]
+> **Det går inte att flytta nyckel valv som används för disk kryptering.**
+> Om du använder Key Vault med disk kryptering för en virtuell dator kan nyckel valvet inte flyttas till en annan resurs grupp eller en prenumeration när disk kryptering är aktiverat. Du måste inaktivera disk kryptering innan du flyttar nyckel valvet till en ny resurs grupp eller prenumeration. 
 
 ## <a name="design-considerations"></a>Designanmärkningar
 

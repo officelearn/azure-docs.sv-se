@@ -7,16 +7,16 @@ ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c259e913a8ee5181bc58aea651af62324cf01fcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61779527d4b855f4327ad4b77a1e22207a94b8c0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87439409"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048380"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Självstudie: Distribuera Azure Stream Analytics som en IoT Edge modul
 
-Många IoT-lösningar använder analys tjänster för att få insikt om data när de tas emot i molnet från IoT-enheter. Med Azure IoT Edge kan du använda logik från [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) och flytta den till själva enheten. Du kan minska hur mycket data som överförs och minska tiden det tar att reagera på insikter genom att bearbeta telemetriströmmar på gränsen.
+Många IoT-lösningar använder analys tjänster för att få insikt om data när de tas emot i molnet från IoT-enheter. Med Azure IoT Edge kan du använda logik från [Azure Stream Analytics](../stream-analytics/index.yml) och flytta den till själva enheten. Du kan minska hur mycket data som överförs och minska tiden det tar att reagera på insikter genom att bearbeta telemetriströmmar på gränsen.
 
 Azure IoT Edge och Azure Stream Analytics är integrerade för att förenkla din arbets belastnings utveckling. Du kan skapa ett Azure Stream Analytics jobb i Azure Portal och sedan distribuera det som en IoT Edge modul utan ytterligare kod.  
 
@@ -24,7 +24,7 @@ Azure Stream Analytics ger en omfattande strukturerad frågesyntax för data ana
 
 Stream Analytics-modulen i den här självstudien beräknar medeltemperaturen över ett rullande 30-sekundersschema. När medeltemperaturen når 70 grader skickar modulen en varning så att enheten kan vidta en åtgärd. I det här fallet är åtgärden att återställa den simulerade temperatursensorn. Du kan till exempel använda den här funktionen för att stänga av en dator eller vidta förebyggande åtgärder när temperaturen når farliga nivåer i en produktionsmiljö.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 >
 > * Skapa ett Azure Stream Analytics-jobb för bearbetning av data på gränsen.
@@ -64,12 +64,12 @@ När du skapar ett Azure Stream Analytics-jobb som ska köras på en IoT Edge-en
 
 1. Skapa lagringskontot genom att ange följande värden:
 
-   | Field | Värde |
+   | Fält | Värde |
    | ----- | ----- |
    | Prenumeration | Välj samma prenumeration som din IoT-hubb. |
    | Resursgrupp | Vi rekommenderar att du använder samma resurs grupp för alla test resurser för IoT Edge snabb starter och självstudier. Till exempel **IoTEdgeResources**. |
    | Name | Ange ett unikt namn för lagringskontot. |
-   | Location | Välj en plats i närheten av dig. |
+   | Plats | Välj en plats i närheten av dig. |
 
 1. Behåll standardvärdena för de andra fälten och välj **Granska + skapa**.
 
@@ -81,12 +81,12 @@ När du skapar ett Azure Stream Analytics-jobb som ska köras på en IoT Edge-en
 
 1. Skapa jobbet genom att ange följande värden:
 
-   | Field | Värde |
+   | Fält | Värde |
    | ----- | ----- |
    | Jobbnamn | Ange ett namn för ditt jobb. Till exempel **IoTEdgeJob** |
    | Prenumeration | Välj samma prenumeration som din IoT-hubb. |
    | Resursgrupp | Vi rekommenderar att du använder samma resursgrupp för alla testresurser som du skapar i snabbstarterna och självstudierna om IoT Edge. Till exempel **IoTEdgeResources**. |
-   | Location | Välj en plats i närheten av dig. |
+   | Plats | Välj en plats i närheten av dig. |
    | Värdmiljö | Välj **Gräns**. |
 
 1. Välj **Skapa**.

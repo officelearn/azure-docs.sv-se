@@ -7,16 +7,16 @@ ms.date: 09/23/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: edcfcda8de1fade605c409537155231d90d5849e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d61ca10612a0935f8483745d164835d7498280c0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91610083"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042821"
 ---
 # <a name="implement-iot-plug-and-play-on-constrained-devices"></a>Implementera IoT Plug and Play på begränsade enheter
 
-Om du utvecklar för *begränsade enheter*kan du använda IoT plug and Play med [Azure SDK: n för inbäddade klient bibliotek för C IoT](https://aka.ms/embeddedcsdk) eller med [Azure återställnings tider](https://docs.microsoft.com/azure/rtos/overview-rtos). Den här artikeln innehåller länkar och resurser för dessa begränsade scenarier.
+Om du utvecklar för *begränsade enheter*kan du använda IoT plug and Play med [Azure SDK: n för inbäddade klient bibliotek för C IoT](https://aka.ms/embeddedcsdk) eller med [Azure återställnings tider](/azure/rtos/overview-rtos). Den här artikeln innehåller länkar och resurser för dessa begränsade scenarier.
 
 ## <a name="use-the-sdk-for-embedded-c"></a>Använd SDK för Embedded C
 
@@ -39,7 +39,7 @@ SDK för Embedded C-lagringsplatsen innehåller [flera exempel](https://github.c
 
 ## <a name="using-azure-rtos"></a>Använda Azure-återställnings tider
 
-Azure återställnings tider innehåller ett lätt lager som lägger till inbyggd anslutning till Azure IoT Cloud Services. Det här lagret är en enkel mekanism för att ansluta begränsade enheter till Azure IoT samtidigt som du använder avancerade funktioner i Azure återställnings tider. Läs mer i [Microsoft Azure återställnings tider](https://docs.microsoft.com/azure/rtos/overview-rtos).
+Azure återställnings tider innehåller ett lätt lager som lägger till inbyggd anslutning till Azure IoT Cloud Services. Det här lagret är en enkel mekanism för att ansluta begränsade enheter till Azure IoT samtidigt som du använder avancerade funktioner i Azure återställnings tider. Läs mer i [Microsoft Azure återställnings tider](/azure/rtos/overview-rtos).
 
 ### <a name="toolchains"></a>Verktygs kedjor
 

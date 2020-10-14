@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 082e05bddd4fe12b279368e44b2d986bd4fa91a7
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 7ff1e2f00b20344fc19d797ed5bafdfbc2113b66
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945336"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044674"
 ---
 # <a name="what-is-azure-digital-twins"></a>Vad är Azure Digital Twins?
 
@@ -38,13 +38,13 @@ Modeller definieras i ett JSON-liknande språk som kallas för [digitala DTDL (E
 * Modeller definierar semantiska **relationer** mellan dina entiteter så att du kan ansluta dina delar till ett kunskaps diagram som återspeglar deras interaktioner. Du kan tänka dig att modeller som Substantiv i en beskrivning av din värld och relationerna som verb.
 * Du kan också specialisera dig på att använda modell arv. En modell kan ärva från en annan.
 
-DTDL används för data modeller i andra Azure IoT-tjänster, inklusive [IoT plug and Play (PNP)](../iot-pnp/overview-iot-plug-and-play.md) och [Time Series Insights (TSD)](../time-series-insights/time-series-insights-update-overview.md). Detta hjälper dig att hålla din Azure digital-lösning ansluten och kompatibel med andra delar av Azure-eko systemet.
+DTDL används för data modeller i andra Azure IoT-tjänster, inklusive [IoT plug and Play (PNP)](../iot-pnp/overview-iot-plug-and-play.md) och [Time Series Insights (TSD)](../time-series-insights/overview-what-is-tsi.md). Detta hjälper dig att hålla din Azure digital-lösning ansluten och kompatibel med andra delar av Azure-eko systemet.
 
 ### <a name="live-execution-environment"></a>Miljö för Live-körning
 
 Digitala modeller i digitala Azure-sändningar är Live, uppdaterade representationer av den verkliga världen. Med hjälp av relationerna i dina anpassade DTDL-modeller kan du ansluta dubbla till en **levande graf** som representerar din miljö.
 
-Du kan visa en visualisering av ditt Azure Digitals-diagram genom att använda ett exempel program, en [**Azure Digital-Utforskare**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+Du kan visa en visualisering av ditt Azure Digitals-diagram genom att använda ett exempel program, en [**Azure Digital-Utforskare**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 Så här ser exempel visualiseringen ut:
 

@@ -11,28 +11,28 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 7e5dd5d8ddf8df507cebaaeba4a544f58250a891
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 65cd35dd60ed05da51b6da56882af4522b1b7573
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975241"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043465"
 ---
 # <a name="distributed-transactions-across-cloud-databases-preview"></a>Distribuerade transaktioner över moln databaser (förhands granskning)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Elastic Database-transaktioner för Azure SQL Database och Azure SQL-hanterad instans gör att du kan köra transaktioner som sträcker sig över flera databaser. Elastic Database-transaktioner är tillgängliga för .NET-program med ADO.NET och integreras med den välbekanta programmerings upplevelsen med [system. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) -klasser. Information om hur du hämtar biblioteket finns i [.NET Framework 4.6.1 (webb installations program)](https://www.microsoft.com/download/details.aspx?id=49981).
-Dessutom är distribuerade Azure SQL-hanterade instanser tillgängliga i [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql).
+Dessutom finns distribuerade distribuerade instanser av hanterade instanser i [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql).
 
 I ett sådant scenario kräver det vanligt vis att du kör Microsoft koordinator för distribuerad transaktion (MSDTC). Eftersom MSDTC inte är tillgängligt för plattforms-som-tjänstprogram i Azure är möjligheten att koordinera distribuerade transaktioner nu direkt integrerad med SQL Database eller hanterad instans. Program kan ansluta till en databas för att starta distribuerade transaktioner och en av databaserna eller servrarna översätts transparent till den distribuerade transaktionen, som visas i följande bild.
 
-I det här dokumentet betraktas "distribuerade transaktioner" och "Elastic Database Transactions" som synonymer och kommer att användas interchangably.
+I det här dokumentet betraktas "distribuerade transaktioner" och "Elastic Database Transactions" som synonymer och kommer att användas utbytbart.
 
   ![Distribuerade transaktioner med Azure SQL Database med Elastic Database-transaktioner ][1]
 
 ## <a name="common-scenarios"></a>Vanliga scenarier
 
-Transaktioner i Elastic Database gör det möjligt för program att göra atomiska ändringar av data som lagras i flera olika databaser. Förhands granskningen fokuserar på utvecklings upplevelser på klient sidan i C# och .NET. En server sida (kod skriven i lagrade procedurer eller Server skript) med hjälp av [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) är endast tillgänglig för hanterad instans och för SQL Database den planeras för en senare tidpunkt.
+Transaktioner i Elastic Database gör det möjligt för program att göra atomiska ändringar av data som lagras i flera olika databaser. Förhands granskningen fokuserar på utvecklings upplevelser på klient sidan i C# och .NET. En upplevelse på Server sidan (kod skriven i lagrade procedurer eller Server skript) med hjälp av [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) är endast tillgänglig för hanterade instanser.
 > [!IMPORTANT]
 > I för hands versionen stöds inte körning av Elastic Database-transaktioner mellan Azure SQL Database och Azure SQL Managed instance för tillfället. Transaktionen för Elastic Database kan bara omfatta över en uppsättning SQL-databaser eller uppsättningar med hanterade instanser.
 
@@ -40,13 +40,13 @@ Transaktioner i Elastic Database riktar sig mot följande scenarier:
 
 * Program med flera databaser i Azure: med det här scenariot partitioneras data lodrätt över flera databaser i SQL Database eller en hanterad instans, så att olika typer av data finns på olika databaser. Vissa åtgärder kräver data ändringar, som lagras i två eller flera databaser. Programmet använder elastiska databas transaktioner för att samordna ändringarna mellan databaser och säkerställa Atomicitet.
 * Shardade Database-program i Azure: med det här scenariot använder data nivån [Elastic Database klient bibliotek](elastic-database-client-library.md) eller självhorisontell partitionering för att vågrätt partitionera data över flera databaser i SQL Database eller en hanterad instans. Ett framträdande användnings fall är behovet av att utföra atomiska ändringar i ett shardade program för flera klient organisationer när du ändrar intervallet för klienter. Tänk på en överföring från en klient till en annan, både på olika databaser. Ett andra fall är en detaljerad horisontell partitionering för att tillgodose kapacitets behoven för en stor klient, vilket i sin tur innebär att vissa atomiska åtgärder måste sträckas över flera databaser som används för samma klient organisation. Ett tredje fall är atomiska uppdateringar av referens data som replikeras mellan databaser. Atomiska, överförda åtgärder längs dessa rader kan nu samordnas över flera databaser med hjälp av för hands versionen.
-  Elastic Database-transaktioner använder en incheckning i två faser för att säkerställa transaktions atomicning mellan databaser. Det passar bra för transaktioner som inbegriper färre än 100 databaser i taget inom en enda transaktion. Dessa gränser tillämpas inte, men en bör förvänta sig prestanda och framgång för att Elastic Database-transaktioner ska bli lidande när gränserna överskrids.
+  Elastiska databas transaktioner använder två fas genomförande för att säkerställa transaktions atomicning mellan databaser. Det passar bra för transaktioner som inbegriper färre än 100 databaser i taget inom en enda transaktion. Dessa gränser tillämpas inte, men en bör förvänta sig prestanda och framgång för att Elastic Database-transaktioner ska bli lidande när gränserna överskrids.
 
 ## <a name="installation-and-migration"></a>Installation och migrering
 
 Funktionerna för Elastic Database-transaktioner tillhandahålls via uppdateringar till .NET-biblioteken System.Data.dll och System.Transactions.dll. DLL: erna säkerställer att genomförande i två faser används vid behov för att säkerställa atomication. Om du vill börja utveckla program med Elastic Database-transaktioner installerar du [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) eller en senare version. När den körs på en tidigare version av .NET Framework kan transaktionerna inte befordras till en distribuerad transaktion och ett undantag aktive ras.
 
-Efter installationen kan du använda API: erna för distribuerade transaktioner i system. Transactions med anslutningar till SQL Database och hanterad instans. Om du har befintliga MSDTC-program som använder dessa API: er, behöver du bara återskapa dina befintliga program för .NET 4,6 när du har installerat 4.6.1-ramverket. Om dina projekt är riktade till .NET 4,6, kommer de automatiskt att använda de uppdaterade DLL-filerna från den nya Ramverks versionen och API-anrop för distribuerade transaktioner i kombination med anslutningar till SQL Database eller en hanterad instans kommer nu att lyckas.
+Efter installationen kan du använda API: erna för distribuerade transaktioner i system. Transactions med anslutningar till SQL Database och hanterad instans. Om du har befintliga MSDTC-program som använder dessa API: er kan du återskapa dina befintliga program för .NET 4,6 efter att ha installerat 4.6.1-ramverket. Om dina projekt är riktade till .NET 4,6, kommer de automatiskt att använda de uppdaterade DLL-filerna från den nya Ramverks versionen och API-anrop för distribuerade transaktioner i kombination med anslutningar till SQL Database eller en hanterad instans kommer nu att lyckas.
 
 Kom ihåg att elastiska databas transaktioner inte kräver installation av MSDTC. I stället hanteras elastiska databas transaktioner direkt av och inom tjänsten. Detta fören klar moln scenarier avsevärt eftersom en distribution av MSDTC inte är nödvändig för att använda distribuerade transaktioner med SQL Database eller hanterad instans. Avsnitt 4 innehåller mer information om hur du distribuerar elastiska databas transaktioner och det nödvändiga .NET Framework tillsammans med dina moln program till Azure.
 
@@ -136,7 +136,7 @@ I följande kod exempel visas den här metoden. Det förutsätter att en variabe
 
 ## <a name="transact-sql-development-experience"></a>Utvecklings miljö för Transact-SQL
 
-Distribuerade transaktioner på Server sidan med T-SQL är bara tillgängliga för Azure SQL-hanterade instanser. Distribuerad transaktion kan bara köras mellan hanterade instanser som tillhör samma [Server förtroende grupp](https://aka.ms/mitrusted-groups). I det här scenariot måste hanterade instanser använda den [länkade servern](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#TsqlProcedure) för att referera till varandra.
+Distribuerade transaktioner på Server sidan med hjälp av Transact-SQL är bara tillgängliga för Azure SQL-hanterade instanser. Distribuerad transaktion kan bara köras mellan hanterade instanser som tillhör samma [Server förtroende grupp](https://aka.ms/mitrusted-groups). I det här scenariot måste hanterade instanser använda den [länkade servern](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#TsqlProcedure) för att referera till varandra.
 
 I följande exempel Transact-SQL-kod används starta distribuerad [transaktion](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) för att starta distribuerad transaktion.
 
@@ -174,8 +174,8 @@ I följande exempel Transact-SQL-kod används starta distribuerad [transaktion](
 
 ## <a name="combining-net-and-transact-sql-development-experience"></a>Kombinera .NET och Transact-SQL-utvecklings miljö
 
-.NET-program som använder system. Transaction-klasser kan kombinera TransactionScope-klassen med Transact-SQL-instruktionen starta DISTRIBUERAd transaktion. I TransactionScope kommer den inre transaktion som kör BEGIN DITRIBUTED-transaktionen att befordras till en distribuerad transaktion. När andra SqlConnecton öppnas i TransactionScope kommer det också att befordras implicit till distribuerad transaktion. När den distribuerade transaktionen har startats kommer alla efterföljande transaktioner som begärs, oavsett om de kommer från .NET eller Transact-SQL, att ansluta till den överordnade distribuerade transaktionen. Eftersom alla kapslade transaktions omfattningar som initieras av BEGIN-instruktionen kommer att upphöra i samma transaktion och genomförande/återställnings uttryck kommer att ha följande påverkan på det övergripande resultatet:
- * COMMIT-instruktionen har ingen inverkan på transaktions omfånget som initieras av BEGIN-instruktionen, dvs. inga resultat genomförs innan metoden Complete () anropas för TransactionScope-objektet. Om TransactionScope-objektet förstörs innan det slutförs, återställs alla ändringar som gjorts inom omfånget.
+.NET-program som använder system. Transaction-klasser kan kombinera TransactionScope-klassen med Transact-SQL-instruktionen starta DISTRIBUERAd transaktion. I TransactionScope befordras den inre transaktion som kör BEGIN DITRIBUTED-transaktionen till distribuerad transaktion. När andra SqlConnecton öppnas i TransactionScope kommer det också att befordras implicit till distribuerad transaktion. När den distribuerade transaktionen har startats kommer alla efterföljande transaktioner som begärs, oavsett om de kommer från .NET eller Transact-SQL, att ansluta till den överordnade distribuerade transaktionen. Eftersom alla kapslade transaktions omfattningar som initieras av BEGIN-instruktionen kommer att upphöra i samma transaktion och genomförande/återställnings uttryck kommer att ha följande påverkan på det övergripande resultatet:
+ * GENOMFÖRANDE instruktionen har ingen påverkan på transaktions omfånget som initieras av BEGIN-instruktionen, det vill säga att inga resultat genomförs innan metoden Complete () anropas för TransactionScope-objektet. Om TransactionScope-objektet förstörs innan det slutförs, återställs alla ändringar som gjorts inom omfånget.
  * Återställnings instruktionen leder till att hela TransactionScope återställs. Försök att registrera nya transaktioner i TransactionScope Miss lyckas efteråt, och försöker anropa Complete () på TransactionScope-objektet.
 
 Här är ett exempel där transaktionen explicit befordras till distribuerad transaktion med Transact-SQL.
@@ -203,7 +203,7 @@ Här är ett exempel där transaktionen explicit befordras till distribuerad tra
     }
 ```
 
-I följande exempel visas en transaktion som implicit kan delas in i en distribuerad transaktion när den andra SqlConnecton startades i TransactionScope.
+I följande exempel visas en transaktion som implicit befordras till distribuerad transaktion när den andra SqlConnecton startades i TransactionScope.
 
 ```csharp
     using (TransactionScope s = new TransactionScope())
@@ -244,7 +244,7 @@ Använd följande PowerShell-cmdletar för att hantera kommunikation mellan serv
 
 ## <a name="transactions-across-multiple-servers-for-azure-sql-managed-instance"></a>Transaktioner över flera servrar för Azure SQL-hanterad instans
 
-Distribuerade transaktioner stöds på olika servrar i Azure SQL-hanterad instans. När transaktionerna korsar hanterade instans gränser måste de deltagande instanserna anges först i en ömsesidig säkerhets-och kommunikations relation. Detta görs genom att konfigurera en [Server förtroende grupp](https://aka.ms/mitrusted-groups) som kan göras på Azure Portal.
+Distribuerade transaktioner stöds på olika servrar i Azure SQL-hanterad instans. När transaktionerna korsar hanterade instans gränser måste de deltagande instanserna anges först i en ömsesidig säkerhets-och kommunikations relation. Detta görs genom att konfigurera [Server förtroende grupp](https://aka.ms/mitrusted-groups), som kan göras på Azure Portal.
 
   ![Server förtroende grupper på Azure Portal][3]
 
@@ -258,9 +258,9 @@ Använd DMV: er (Dynamic Management views) för att övervaka status och förlop
 
 Dessa DMV: er är särskilt användbara:
 
-* **sys.DM för att \_ omlasta \_ aktiva \_ transaktioner**: Visar aktiva transaktioner och deras status. I kolumnen UOW (enhets arbete) kan du identifiera de olika underordnade transaktioner som tillhör samma distribuerade transaktion. Alla transaktioner inom samma distribuerade transaktion bär samma UOW-värde. Mer information finns i [DMV-dokumentationen](https://msdn.microsoft.com/library/ms174302.aspx) .
-* **sys.DM \_ : \_ \_ **ger ytterligare information om transaktioner, till exempel placering av transaktionen i loggen. Mer information finns i [DMV-dokumentationen](https://msdn.microsoft.com/library/ms186957.aspx) .
-* **sys.DM \_ - \_ startlås**: innehåller information om de lås som för närvarande innehas av pågående transaktioner. Mer information finns i [DMV-dokumentationen](https://msdn.microsoft.com/library/ms190345.aspx) .
+* **sys.DM för att \_ omlasta \_ aktiva \_ transaktioner**: Visar aktiva transaktioner och deras status. I kolumnen UOW (enhets arbete) kan du identifiera de olika underordnade transaktioner som tillhör samma distribuerade transaktion. Alla transaktioner inom samma distribuerade transaktion bär samma UOW-värde. Mer information finns i dokumentationen för [DMV](https://msdn.microsoft.com/library/ms174302.aspx).
+* **sys.DM \_ : \_ \_ **ger ytterligare information om transaktioner, till exempel placering av transaktionen i loggen. Mer information finns i dokumentationen för [DMV](https://msdn.microsoft.com/library/ms186957.aspx).
+* **sys.DM \_ - \_ startlås**: innehåller information om de lås som för närvarande innehas av pågående transaktioner. Mer information finns i dokumentationen för [DMV](https://msdn.microsoft.com/library/ms190345.aspx).
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -274,14 +274,14 @@ Följande begränsningar gäller för närvarande för distribuerade transaktion
 
 * Endast transaktioner mellan databaser i en hanterad instans stöds. Andra [X/Open XA-](https://en.wikipedia.org/wiki/X/Open_XA) resursposter och databaser utanför Azure SQL Managed instance kan inte delta i distribuerade transaktioner. Det innebär att distribuerade transaktioner inte kan sträckas ut över lokalt SQL Server och Azure SQL-hanterad instans. Fortsätt att använda MSDTC för distribuerade transaktioner lokalt.
 * Transaktioner över WCF-tjänster stöds inte. Du kan till exempel ha en WCF-tjänst metod som kör en transaktion. Omslutning av anrop inom ett transaktions omfång Miss fungerar som [system. ServiceModel. ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
-* Azure SQL-hanterad instans måste vara en del av en [Server förtroende grupp](https://aka.ms/mitrusted-groups) för att kunna delta i en distribuerad transaktion.
+* Azure SQL Managed instance måste vara en del av en [Server förtroende grupp](https://aka.ms/mitrusted-groups) för att kunna delta i en distribuerad transaktion.
 * Begränsningar i [Server förtroende grupper](https://aka.ms/mitrusted-groups) påverkar distribuerade transaktioner.
-* Hanterade instanser som deltar i distribuerade transaktioner måste ha anslutning via privat slut punkt (med hjälp av privat IP-adress från det virtuella nätverket där de distribueras) och måste kunna refereras samtidigt med privata FQDN. Klient program som är beroende av Transact-SQL kan använda antingen privata eller offentliga slut punkter för att köra transaktioner mot alla instanser i gruppen Server förtroende. Den här begränsningen beskrivs i följande diagram.
+* Hanterade instanser som deltar i distribuerade transaktioner måste ha anslutning över privata slut punkter (med hjälp av privat IP-adress från det virtuella nätverket där de distribueras) och måste kunna refereras samtidigt med privata FQDN. Klient program kan använda distribuerade transaktioner på privata slut punkter. Om Transact-SQL utnyttjar länkade servrar som refererar till privata slut punkter kan även klient program använda distribuerade transaktioner på offentliga slut punkter. Den här begränsningen beskrivs i följande diagram.
   ![Begränsning för privat slut punkts anslutning][4]
 ## <a name="next-steps"></a>Nästa steg
 
-* För frågor kan du kontakta oss på [sidan Microsoft Q&en fråga för SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html).
-* För funktions förfrågningar kan du lägga till dem i forumen [SQL Database feedback](https://feedback.azure.com/forums/217321-sql-database/) eller i en [hanterad instans](https://feedback.azure.com/forums/915676-sql-managed-instance).
+* För frågor, kontakta oss på [sidan Microsoft Q&en fråga för SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html).
+* Om du vill ha funktions förfrågningar lägger du till dem i forumen [SQL Database feedback](https://feedback.azure.com/forums/217321-sql-database/) eller [hanterad instans](https://feedback.azure.com/forums/915676-sql-managed-instance).
 
 
 
@@ -289,5 +289,5 @@ Följande begränsningar gäller för närvarande för distribuerade transaktion
 [1]: ./media/elastic-transactions-overview/distributed-transactions.png
 [2]: ./media/elastic-transactions-overview/sql-mi-distributed-transactions.png
 [3]: ./media/elastic-transactions-overview/server-trust-groups-azure-portal.png
-[4]: ./media/elastic-transactions-overview/sql-mi-private-endpoint-limitation.png
+[4]: ./media/elastic-transactions-overview/managed-instance-distributed-transactions-private-endpoint-limitations.png
  

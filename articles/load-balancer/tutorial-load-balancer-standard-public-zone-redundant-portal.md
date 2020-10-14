@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 4deab6fcadda36ad729096ff2f38e40ce81c7ae9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f165064ed5b0583ebb469c47426a2b6403307971
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446104"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048363"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Självstudiekurs: Lastbalansera virtuella datorer i flera tillgänglighetszoner med Standard Load Balancer med hjälp av Azure Portal
 
@@ -39,7 +39,11 @@ Mer information om hur du använder tillgänglighetszoner med standardlastbalans
 
 Om du vill kan du slutföra den här självstudien med [Azure CLI](load-balancer-standard-public-zone-redundant-cli.md).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* En Azure-prenumeration
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -231,8 +235,10 @@ Om du vill se lastbalanseraren fördela trafik på de virtuella datorer som är 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, lastbalanseraren och alla relaterade resurser när de inte längre behövs. Gör det genom att markera den resursgrupp som innehåller lastbalanseraren och sedan klicka på **Ta bort**.
+Ta bort resursgruppen, lastbalanseraren och alla relaterade resurser när de inte längre behövs. Det gör du genom att markera den resurs grupp som innehåller belastningsutjämnaren och välja **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [Standard Load Balancer](load-balancer-standard-overview.md).
+Läs mer om belastnings utjämning för en virtuell dator i en bestämd tillgänglighets zon..
+> [!div class="nextstepaction"]
+> [Belastningsutjämna virtuella datorer i en tillgänglighets zon](tutorial-load-balancer-standard-public-zonal-portal.md)

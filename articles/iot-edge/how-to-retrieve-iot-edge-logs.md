@@ -10,18 +10,18 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: b5d2156707d8a4c308ed577b7407d5eae30edc65
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f5f2a9800d3796d217294e757076d6ff706281d1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979689"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044206"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Hämta loggar från IoT Edge-distributioner
 
 Hämta loggar från dina IoT Edge-distributioner utan att behöva fysisk eller SSH-åtkomst till enheten med hjälp av de direkta metoderna som ingår i modulen för IoT Edge agent. Direkta metoder implementeras på enheten och kan sedan anropas från molnet. IoT Edge agenten innehåller direkta metoder som hjälper dig att övervaka och hantera dina IoT Edge-enheter via fjärr anslutning. De direkta metoder som beskrivs i den här artikeln är allmänt tillgängliga i 1.0.10-versionen.
 
-Mer information om direkta metoder, hur du använder dem och hur du implementerar dem i dina egna moduler finns i [förstå och anropa direkt metoder från IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods).
+Mer information om direkta metoder, hur du använder dem och hur du implementerar dem i dina egna moduler finns i [förstå och anropa direkt metoder från IoT Hub](../iot-hub/iot-hub-devguide-direct-methods.md).
 
 Namnen på dessa direkta metoder hanteras Skift läges känsliga.
 
@@ -67,13 +67,13 @@ Den här metoden accepterar en JSON-nyttolast med följande schema:
 |-|-|-|
 | Schema | sträng | Ange till `1.0` |
 | objekt | JSON-matris | En matris med `id` och `filter` tupler. |
-| ID | sträng | Ett reguljärt uttryck som tillhandahåller modulnamnet. Den kan matcha flera moduler på en Edge-enhet. [Reguljära uttrycks](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) format för .NET förväntas. |
+| ID | sträng | Ett reguljärt uttryck som tillhandahåller modulnamnet. Den kan matcha flera moduler på en Edge-enhet. [Reguljära uttrycks](/dotnet/standard/base-types/regular-expressions) format för .NET förväntas. |
 | filter | JSON-avsnitt | Logg filter som ska tillämpas på de moduler som matchar det `id` reguljära uttrycket i tuppeln. |
 | slutet | heltal | Antal logg rader tidigare att hämta från den senaste. Valfritt. |
 | Starta | heltal | Returnera bara loggar sedan den här tiden, som varaktighet (1 d, 90 m, 2 dagar 3 timmar 2 minuter), rfc3339 tidsstämpel eller UNIX-tidsstämpel.  Om både `tail` och `since` anges, hämtas loggarna med `since` värdet först. Sedan `tail` tillämpas värdet på resultatet och det slutliga resultatet returneras. Valfritt. |
 | tills | heltal | Returnera endast loggar före den angivna tiden, som rfc3339-tidsstämpel, UNIX-tidsstämpel eller varaktighet (1 d, 90 m, 2 dagar 3 timmar 2 minuter). Valfritt. |
 | loggnings nivå | heltal | Filtrera logg rader som är mindre än eller lika med den angivna logg nivån. Logg rader ska följa det rekommenderade loggnings formatet och använda [syslog-allvarlighets nivå](https://en.wikipedia.org/wiki/Syslog#Severity_level) standard. Valfritt. |
-| verifiering | sträng | Filtrera logg rader som har innehåll som matchar det angivna reguljära uttrycket med .net-format för [reguljära uttryck](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) . Valfritt. |
+| verifiering | sträng | Filtrera logg rader som har innehåll som matchar det angivna reguljära uttrycket med .net-format för [reguljära uttryck](/dotnet/standard/base-types/regular-expressions) . Valfritt. |
 | inställning | sträng | Antingen `gzip` eller `none`. Standardvärdet är `none`. |
 | Innehålls | sträng | Antingen `json` eller `text`. Standardvärdet är `text`. |
 
@@ -82,7 +82,7 @@ Den här metoden accepterar en JSON-nyttolast med följande schema:
 
 En lyckad hämtning av loggar returnerar **"status": 200** följt av en nytto last som innehåller de loggar som hämtats från modulen, filtrerat efter de inställningar som du anger i din begäran.
 
-Till exempel:
+Exempel:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetModuleLogs' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -123,7 +123,7 @@ Anropa metoden med metod namnet `GetModuleLogs` och följande JSON-nyttolast i A
 
 ![Anropa Direct-metoden ' GetModuleLogs ' i Azure Portal](./media/how-to-retrieve-iot-edge-logs/invoke-get-module-logs.png)
 
-Du kan också skicka CLI-utdata till Linux-verktyg som [gzip](https://en.wikipedia.org/wiki/Gzip), för att bearbeta ett komprimerat svar. Till exempel:
+Du kan också skicka CLI-utdata till Linux-verktyg som [gzip](https://en.wikipedia.org/wiki/Gzip), för att bearbeta ett komprimerat svar. Exempel:
 
 ```azurecli
 az iot hub invoke-module-method \
@@ -166,7 +166,7 @@ Den här metoden godkänner en JSON-nyttolast som liknar **GetModuleLogs**, med 
 
 | Namn | Typ | Beskrivning |
 |-|-|-|
-| sasURL | sträng (URI) | [URL för signatur för delad åtkomst med skriv åtkomst till Azure Blob Storage-behållare](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/). |
+| sasURL | sträng (URI) | [URL för signatur för delad åtkomst med skriv åtkomst till Azure Blob Storage-behållare](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
 
 En lyckad begäran om att ladda upp loggar returnerar **"status": 200** följt av en nytto last med följande schema:
 
@@ -184,7 +184,7 @@ En lyckad begäran om att ladda upp loggar returnerar **"status": 200** följt a
 | meddelande | sträng | Meddelande om fel, tom sträng annars. |
 | correlationId | sträng   | ID för att fråga efter status för uppladdnings förfrågan. |
 
-Till exempel:
+Exempel:
 
 Följande anrop överför de senaste 100-logg raderna från alla moduler i komprimerat JSON-format:
 
@@ -259,7 +259,7 @@ I Azure Portal startar du metoden med metod namnet `UploadModuleLogs` och följa
 
 ## <a name="upload-support-bundle-diagnostics"></a>Ladda upp support pakets diagnostik
 
-Använd metoden **UploadSupportBundle** Direct för att paketera och överföra en zip-fil med IoT Edge modul loggar till en tillgänglig Azure Blob Storage-behållare. Den här direkta metoden kör [`iotedge support-bundle`](https://docs.microsoft.com/azure/iot-edge/troubleshoot#gather-debug-information-with-support-bundle-command) kommandot på din IoT Edge enhet för att hämta loggarna.
+Använd metoden **UploadSupportBundle** Direct för att paketera och överföra en zip-fil med IoT Edge modul loggar till en tillgänglig Azure Blob Storage-behållare. Den här direkta metoden kör [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) kommandot på din IoT Edge enhet för att hämta loggarna.
 
 Den här metoden accepterar en JSON-nyttolast med följande schema:
 
@@ -276,7 +276,7 @@ Den här metoden accepterar en JSON-nyttolast med följande schema:
 | Namn | Typ | Beskrivning |
 |-|-|-|
 | Schema | sträng | Ange till `1.0` |
-| sasURL | sträng (URI) | [URL för signatur för delad åtkomst med skriv åtkomst till Azure Blob Storage container](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/) |
+| sasURL | sträng (URI) | [URL för signatur för delad åtkomst med skriv åtkomst till Azure Blob Storage container](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
 | Starta | heltal | Returnera bara loggar sedan den här tiden, som varaktighet (1 d, 90 m, 2 dagar 3 timmar 2 minuter), rfc3339 tidsstämpel eller UNIX-tidsstämpel. Valfritt. |
 | tills | heltal | Returnera endast loggar före den angivna tiden, som rfc3339-tidsstämpel, UNIX-tidsstämpel eller varaktighet (1 d, 90 m, 2 dagar 3 timmar 2 minuter). Valfritt. |
 | edgeRuntimeOnly | boolean | Om värdet är true returneras bara loggar från Edge agent, Edge Hub och Edge Security daemon. Standard: falskt.  Valfritt. |
@@ -300,7 +300,7 @@ En lyckad begäran om att ladda upp loggar returnerar **"status": 200** följt a
 | meddelande | sträng | Meddelande om fel, tom sträng annars. |
 | correlationId | sträng   | ID för att fråga efter status för uppladdnings förfrågan. |
 
-Till exempel:
+Exempel:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'UploadSupportBundle' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -358,7 +358,7 @@ En lyckad begäran om att ladda upp loggar returnerar **"status": 200** följt a
 | meddelande | sträng | Meddelande om fel, tom sträng annars. |
 | correlationId | sträng   | ID för att fråga efter status för uppladdnings förfrågan. |
 
-Till exempel:
+Exempel:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetTaskStatus' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \

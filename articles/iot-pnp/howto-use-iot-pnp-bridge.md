@@ -7,18 +7,18 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4c84fbb131809c92d597b46d18c53e46b636f8ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6670f654685f8d5cdcaf55d2b1679738a57ecab4
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613483"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042804"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Så här ansluter du ett IoT Plug and Play Bridge-exempel som körs på Linux eller Windows till IoT Hub
 
 Den här instruktionen visar hur du skapar IoT Plug and Play Bridges exempel miljö kort, ansluter det till din IoT-hubb och använder Azure IoT Explorer-verktyget för att Visa telemetri som skickas. IoT Plug and Play-bryggan är skriven i C och innehåller Azure IoT-enhetens SDK för C. I slutet av den här själv studie kursen ska du kunna köra IoT Plug and Play-bryggan och se den rapportera telemetri i Azure IoT Explorer: :::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-explorer-telemetry.png" alt-text="en skärm bild som visar Azure IoT Explorer med en tabell med rapporterade telemetri (fuktighet, temperatur) från IoT plug and Play Bridge.":::
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du kan köra den här snabb starten på Linux eller Windows. Shell-kommandona i den här instruktions guiden följer Windows-konventionen för Sök vägs avgränsare `\` , om du följer med i Linux, se till att byta avgränsare för `/` .
 
@@ -48,7 +48,7 @@ gcc --version
 
 För att slutföra den här snabb starten på Windows installerar du följande program vara i din lokala Windows-miljö:
 
-* [Visual Studio (community, Professional eller Enterprise)](https://visualstudio.microsoft.com/downloads/) – se till att du inkluderar **Skriv bords utveckling med C++** -arbetsbelastning när du [installerar](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) Visual Studio.
+* [Visual Studio (community, Professional eller Enterprise)](https://visualstudio.microsoft.com/downloads/) – se till att du inkluderar **Skriv bords utveckling med C++** -arbetsbelastning när du [installerar](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) Visual Studio.
 * [Git](https://git-scm.com/download/).
 * [Cmake](https://cmake.org/download/).
 
@@ -149,7 +149,7 @@ För `root-_interface_model_id` fältet måste du kopiera IoT-plug and Play mode
 
 Navigera till mappen *pnpbridge* i katalogen för lagrings platsen.
 
-För Windows kör du följande i en [kommando tolk för utvecklare för Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs):
+För Windows kör du följande i en [kommando tolk för utvecklare för Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs):
 
 ```cmd
 cd scripts\windows

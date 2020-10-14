@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 084a823571281c91419a56b6212ddf6c44dd80bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db4383526874c98f717c5f166b296d814724184a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322639"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044643"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Felsöka Azure Digitals dubbla: mått
 
@@ -70,7 +70,7 @@ Mått som måste utföras med fakturering:
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Fakturerings-API-åtgärder (för hands version) | Antal | Totalt | Fakturerings mått för antalet API-begäranden som gjorts mot tjänsten Azure Digitals dubbla. | Mätar-ID |
 | BillingMessagesProcessed | Bearbetade fakturerings meddelanden (för hands version) | Antal | Totalt | Fakturerings mått för antalet meddelanden som skickas ut från Azure Digitals dubbla till externa slut punkter.<br><br>För att kunna betraktas som ett enda meddelande i fakturerings syfte får en nytto last inte vara större än 1 KB. Nytto laster som är större än detta räknas som ytterligare meddelanden i steg om 1 KB (så att ett meddelande mellan 1 och 2 KB räknas som två meddelanden, mellan 2 och 3 KB är 3 meddelanden och så vidare).<br>Den här begränsningen gäller även för svar, så ett anrop som returnerar 1,5 KB i svars texten faktureras till exempel som två åtgärder. | Mätar-ID |
-| BillingQueryUnits | Fakturerings frågans enheter (förhands granskning) | Antal | Totalt | Antalet fråge enheter, internt beräknade mått på användning av tjänst resurser som används för att köra frågor. Det finns också ett hjälp-API som är tillgängligt för att mäta fråge enheter: [QueryChargeHelper-klass](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview&preserve-view=true) | Mätar-ID |
+| BillingQueryUnits | Fakturerings frågans enheter (förhands granskning) | Antal | Totalt | Antalet fråge enheter, internt beräknade mått på användning av tjänst resurser som används för att köra frågor. Det finns också ett hjälp-API som är tillgängligt för att mäta fråge enheter: [QueryChargeHelper-klass](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | Mätar-ID |
 
 #### <a name="ingress-metrics"></a>Ingresss mått
 

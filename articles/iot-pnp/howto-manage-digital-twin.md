@@ -7,16 +7,16 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: a0fa8c1c3d897ce65c70b6097dd323139716b8c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f1c52b764634f8086763aca67dfc32b507d2edd
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613398"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042855"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Hantera IoT Plug and Play digitala dubbla
 
-IoT Plug and Play har stöd för att **skapa** digitala dubbla och **Uppdatera** digitala dubbla åtgärder för att hantera digitala dubbla. Du kan antingen använda [REST-API: erna](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) eller något av [tjänst-SDK](libraries-sdks.md): erna.
+IoT Plug and Play har stöd för att **skapa** digitala dubbla och **Uppdatera** digitala dubbla åtgärder för att hantera digitala dubbla. Du kan antingen använda [REST-API: erna](/rest/api/iothub/service/digitaltwin) eller något av [tjänst-SDK](libraries-sdks.md): erna.
 
 Vid tidpunkten för skrivning är den digitala dubbla API-versionen `2020-09-30` .
 
@@ -194,5 +194,5 @@ Uppdateringar kan inte utföras om en enhets rapporterade värden inte följer [
 Nu när du har lärt dig om digitala dubbla, finns här några ytterligare resurser:
 
 - [Interagera med en enhet från din lösning](quickstart-service-node.md)
-- [IoT Digital, dubbla REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [IoT Digital, dubbla REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT Explorer](howto-use-iot-explorer.md)

@@ -8,18 +8,20 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/05/2020
-ms.openlocfilehash: cb3a8c1c6df61a4a20ce596e3ff1118c2870033a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8584d1b64191cc5258c6eeeef9ae4125bf1a2c65
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716534"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044742"
 ---
 # <a name="rank-transformation-in-mapping-data-flow"></a>Ranknings omvandling i data flöde för mappning 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Använd rankning-omvandlingen för att generera en ordnad rangordning baserat på sorterings villkor som anges av användaren. 
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GGJo]
 
 ## <a name="configuration"></a>Konfiguration
 

@@ -9,12 +9,12 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: e06c3720e180c1dc4fa2f227fd86d15cbbb0ff33
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: a9c33fad6d376c2f568f4eefbb0379486b5c40f3
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756911"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044776"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Snabb start: Hämta ett telefonnummer med hjälp av Azure Portal
 
@@ -103,7 +103,7 @@ Välj bladet telefonnummer på menyn för att hantera dina telefonnummer.
 > [!NOTE]
 > Det kan ta några minuter innan de etablerade talen visas på den här sidan.
 
-### <a name="customizing-phone-number-plans"></a>Anpassa telefon nummer planer
+### <a name="customizing-phone-number-features"></a>Anpassa funktioner för telefonnummer
 På `Numbers` sidan kan du välja telefonnumret genom att klicka på det nummer som du vill anpassa planen för.
 
 :::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Skärm bild som visar huvud sidan för en kommunikations tjänst resurs.":::

@@ -3,19 +3,19 @@ title: Publicera din datafeed till Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: Hur du kommer igång med att registrera dina datafeeds till Metrics Advisor.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 83ff710804b43837657ea0da7c8f44c245017c7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: fe3b87c733f54d8bd52c4d973977e3c8cbfefe19
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941925"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043227"
 ---
 # <a name="how-to-onboard-your-metric-data-to-metrics-advisor"></a>Anvisningar: publicera dina mått data till Metrics Advisor
 
@@ -72,7 +72,7 @@ När data schemat har lästs in väljer du lämpliga fält.
 
 Om tidsstämpeln för en data punkt utelämnas, använder Metric Advisor tidsstämpeln när data punkten matas in i stället. För varje datafeed kan du ange högst en kolumn som en tidsstämpel. Om du får ett meddelande om att en kolumn inte kan anges som en tidsstämpel, kontrollerar du din fråga eller data källa och om det finns flera tidsstämplar i frågeresultatet – inte bara i för hands versions data. När du utför data inmatningen kan mått Advisor bara förbruka ett segment (till exempel en dag, en timme-enligt granularitet) för tids serie data från den aktuella källan varje gång.
 
-|Urval  |Beskrivning  |Obs!  |
+|Urval  |Beskrivning  |Kommentarer  |
 |---------|---------|---------|
 | **Visnings namn** | Namn som ska visas i din arbets yta i stället för det ursprungliga kolumn namnet. | |
 |**Timestamp**     | Tidsstämpeln för en data punkt. Om detta utelämnas använder Metric Advisor tidsstämpeln när data punkten matas in i stället. För varje datafeed kan du ange högst en kolumn som tidstämpel.        | Valfritt. Ska anges med högst en kolumn. Om du får en **kolumn som inte kan anges som tidsstämpel** -fel, kontrollerar du frågan eller data källan för dubbla tidsstämplar.      |

@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: d5cfa16196a8815b711fd5277a80f6eb67d3a388
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d50ff37c3d29ae8e9e25d8759ef3c55787a58047
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76548704"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043008"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge Security Manager
 
@@ -75,7 +75,7 @@ IoT Edge Security daemon drar nytta av alla tillgängliga maskin varu roten för
 
 #### <a name="cloud-interface"></a>Cloud Interface
 
-Cloud Interface gör det möjligt för IoT Edge Security daemon att komma åt moln tjänster som till exempel molnet till enhets säkerhet som säkerhets förnyelse.  Till exempel använder IoT Edge Security daemon för närvarande det här gränssnittet för att komma åt Azure IoT Hub [Device Provisioning-tjänsten](https://docs.microsoft.com/azure/iot-dps/) för livs cykel hantering av enhetens identitet.  
+Cloud Interface gör det möjligt för IoT Edge Security daemon att komma åt moln tjänster som till exempel molnet till enhets säkerhet som säkerhets förnyelse.  Till exempel använder IoT Edge Security daemon för närvarande det här gränssnittet för att komma åt Azure IoT Hub [Device Provisioning-tjänsten](../iot-dps/index.yml) för livs cykel hantering av enhetens identitet.  
 
 #### <a name="management-api"></a>Hanterings-API
 

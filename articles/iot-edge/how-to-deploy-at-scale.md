@@ -5,20 +5,20 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/21/2020
+ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0c1d83c2dac0163cd9b9cbc07969103381e85471
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d03b6f4a512c22564480405ec0f0e0c0e62a958
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855383"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048431"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuera IoT Edge moduler i skala med hjälp av Azure Portal
 
-Skapa en **IoT Edge automatisk distribution** i Azure Portal för att hantera pågående distributioner för många enheter samtidigt. Automatiska distributioner för IoT Edge ingår i funktionen [Automatisk enhets hantering](/azure/iot-hub/iot-hub-automatic-device-management) i IoT Hub. Distributioner är dynamiska processer som gör att du kan distribuera flera moduler till flera enheter, spåra status och hälsa för modulerna och göra ändringar när det behövs.
+Skapa en **IoT Edge automatisk distribution** i Azure Portal för att hantera pågående distributioner för många enheter samtidigt. Automatiska distributioner för IoT Edge ingår i funktionen [Automatisk enhets hantering](../iot-hub/iot-hub-automatic-device-management.md) i IoT Hub. Distributioner är dynamiska processer som gör att du kan distribuera flera moduler till flera enheter, spåra status och hälsa för modulerna och göra ändringar när det behövs.
 
 Mer information finns i [förstå IoT Edge automatiska distributioner för enskilda enheter eller i skala](module-deployment-monitoring.md).
 
@@ -53,6 +53,11 @@ Stegen för att skapa en distribution och en lager distribution är mycket lika.
 
 Det finns fem steg för att skapa en distribution. Följande avsnitt beskriver var och en.
 
+>[!NOTE]
+>Stegen i den här artikeln visar den senaste schema versionen av IoT Edge agent och hubb. Schema version 1,1 släpptes tillsammans med IoT Edge version 1.0.10, och aktiverar modulens start ordning och väg prioritets funktioner.
+>
+>Om du distribuerar till en enhet som kör version 1.0.9 eller tidigare kan du redigera **körnings inställningarna** i **moduler** -steget i guiden för att använda schema version 1,0.
+
 ### <a name="step-1-name-and-label"></a>Steg 1: namn och etikett
 
 1. Ge din distribution ett unikt namn som består av upp till 128 små bokstäver. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /` .
@@ -65,55 +70,19 @@ Du kan lägga till upp till 50 moduler i en distribution. Om du skapar en distri
 
 I distributioner kan du hantera inställningarna för IoT Edge agent och IoT Edge Hub-moduler. Välj **körnings inställningar** för att konfigurera de två körnings modulerna. I skiktad distribution inkluderas inte runtime-modulerna så att de inte kan konfigureras.
 
-Du kan lägga till tre typer av moduler:
-
-* IoT Edge modul
-* Marketplace-modul
-* Azure Stream Analytics modul
-
-#### <a name="add-an-iot-edge-module"></a>Lägg till en IoT Edge-modul
-
 Följ dessa steg om du vill lägga till anpassad kod som en modul eller lägga till en Azure Service-modul manuellt:
 
-1. I avsnittet **container Registry autentiseringsuppgifter** på sidan anger du namn och autentiseringsuppgifter för alla privata behållar register som innehåller modulens avbildningar för den här distributionen. IoT Edge-agenten rapporterar fel 500 om den inte kan hitta autentiseringsuppgifterna för behållar registret för en Docker-avbildning.
-1. I avsnittet **IoT Edge moduler** på sidan klickar du på **Lägg till**.
-1. Välj **IoT Edge modul** på den nedrullningsbara menyn.
-1. Ge modulen ett **IoT Edge modulens namn**.
-1. I fältet **bild-URI** anger du behållar avbildningen för modulen.
-1. Använd den nedrullningsbara menyn för att välja en **princip för omstart**. Välj bland följande alternativ:
-   * **Always** -modulen startar alltid om den stängs av av någon anledning.
-   * **aldrig** -modulen startar aldrig om, om den stängs av av någon anledning.
-   * **vid fel** – modulen startas om om den kraschar, men inte om den stängs av på ett säkert sätt.
-   * **on-ohälsosamt** -modulen startar om om den kraschar eller returnerar en felaktig status. Det är upp till varje modul att implementera hälso status funktionen.
-1. Använd den nedrullningsbara menyn för att välja **önskad status** för modulen. Välj bland följande alternativ:
-   * **körning** – körs är standard alternativet. Modulen börjar köras direkt efter att den har distribuerats.
-   * **stoppad** – när modulen har distribuerats förblir modulen inaktiv tills den anropas av dig eller någon annan modul.
-1. Ange eventuella **skapande alternativ för behållare** som ska skickas till behållaren. Mer information finns i [Docker skapa](https://docs.docker.com/engine/reference/commandline/create/).
-1. Välj **modul, dubbla inställningar** om du vill lägga till taggar eller andra egenskaper i modulen.
-1. Ange **miljövariabler** för den här modulen. Miljövariabler ger konfigurations information till en modul.
-1. Välj **Lägg till** för att lägga till modulen i distributionen.
+1. I avsnittet **container Registry inställningar** på sidan anger du autentiseringsuppgifterna för åtkomst till alla privata behållar register som innehåller dina modulblad.
+1. I avsnittet **IoT Edge moduler** på sidan väljer du **Lägg till**.
+1. Välj en av de tre typerna av moduler på den nedrullningsbara menyn:
 
-#### <a name="add-a-module-from-the-marketplace"></a>Lägg till en modul från Marketplace
+   * **IoT Edge modul** – du anger modulens namn och URI för behållar avbildningen. Till exempel är avbildnings-URI: n för exempel SimulatedTemperatureSensor-modulen `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` . Om modulens avbildning lagras i ett privat behållar register, lägger du till autentiseringsuppgifterna på den här sidan för att få åtkomst till avbildningen.
+   * **Marketplace-modul** – moduler som finns på Azure Marketplace. Vissa Marketplace-moduler kräver ytterligare konfiguration, så granska informationen i modulen i listan med [IoT Edge moduler för Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) .
+   * **Azure Stream Analytics modul** – moduler som genereras från en Azure Stream Analytics arbets belastning.
 
-Följ dessa steg om du vill lägga till en modul från Azure Marketplace:
+1. Om det behövs upprepar du steg 2 och 3 för att lägga till ytterligare moduler i distributionen.
 
-1. I avsnittet **IoT Edge moduler** på sidan klickar du på **Lägg till**.
-1. Välj **Marketplace-modul** på den nedrullningsbara menyn.
-1. Välj en modul på sidan **IoT Edge modul Marketplace** . Den modul du väljer konfigureras automatiskt för din prenumeration, resurs grupp och enhet. Den visas sedan i listan med IoT Edge moduler. Vissa moduler kan kräva ytterligare konfiguration. Mer information finns i [distribuera moduler från Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace).
-
-#### <a name="add-a-stream-analytics-module"></a>Lägg till en Stream Analytics-modul
-
-Följ dessa steg om du vill lägga till en modul från Azure Stream Analytics:
-
-1. I avsnittet **IoT Edge moduler** på sidan klickar du på **Lägg till**.
-1. Välj **Azure Stream Analytics modul** på den nedrullningsbara menyn.
-1. Välj din **prenumeration**i den högra rutan.
-1. Välj ditt IoT **Edge-jobb**.
-1. Välj **Spara** för att lägga till modulen i distributionen.
-
-#### <a name="configure-module-settings"></a>Konfigurera inställningar för modul
-
-När du har lagt till en modul i en distribution kan du välja dess namn för att öppna sidan **uppdatera IoT Edge-modul** . På den här sidan kan du redigera inställningarna för modulen, miljövariabler, skapa alternativ och modulens dubbla. Om du har lagt till en modul från Marketplace kanske den redan har en del av de här parametrarna ifyllda.
+När du har lagt till en modul i en distribution kan du välja dess namn för att öppna sidan **uppdatera IoT Edge-modul** . På den här sidan kan du redigera inställningarna för modulen, miljövariabler, skapa alternativ, start ordning och modul. Om du har lagt till en modul från Marketplace kanske den redan har en del av de här parametrarna ifyllda. Mer information om de tillgängliga inställningarna för modulen finns i [konfiguration och hantering av moduler](module-composition.md#module-configuration-and-management).
 
 Om du skapar en lager distribution kan du konfigurera en modul som finns i andra distributioner som riktar sig mot samma enheter. Om du vill uppdatera modulen dubbla utan att skriva över andra versioner öppnar du fliken med **dubbla inställningar** . Skapa en ny **modul med dubbla** egenskaper med ett unikt namn för ett underavsnitt i modulens två önskade egenskaper, till exempel `properties.desired.settings` . Om du definierar egenskaper inom bara `properties.desired` fältet skrivs de önskade egenskaperna för modulen som definierats i eventuella distributioner med lägre prioritet.
 
@@ -125,9 +94,13 @@ När du har konfigurerat alla moduler för en konfigurerad distribution väljer 
 
 ### <a name="step-3-routes"></a>Steg 3: vägar
 
-Vägar definierar hur moduler kommunicerar med varandra i en distribution. Som standard ger guiden en väg som heter **överströms** och definieras som **från/Messages/ \* till $upstream**, vilket innebär att alla meddelanden som skickas av alla moduler skickas till din IoT-hubb.  
+På fliken **vägar** definierar du hur meddelanden ska skickas mellan moduler och IoT Hub. Meddelanden skapas med hjälp av namn/värde-par.
 
-Lägg till eller uppdatera vägarna med information från [deklarera vägar](module-composition.md#declare-routes), och välj sedan **Nästa** för att fortsätta till gransknings avsnittet.
+Till exempel skulle en väg med en namn **väg** och ett värde **från/Messages/ \* till $upstream** ta emot meddelanden från alla moduler och skicka dem till din IoT-hubb.  
+
+Parametrarna för **prioritet** och **tid till Live** är valfria parametrar som du kan ta med i en flödes definition. Med prioritets parametern kan du välja vilka vägar som ska bearbetas först eller vilka vägar som ska bearbetas sist. Prioriteten bestäms genom att ange ett nummer 0-9, där 0 är högsta prioritet. Med parametern Time to Live kan du deklarera hur länge meddelanden i den vägen ska vara kvar tills de bearbetas eller tas bort från kön.
+
+Mer information om hur du skapar vägar finns i [deklarera vägar](module-composition.md#declare-routes).
 
 Välj **Nästa: mått**.
 

@@ -5,14 +5,14 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/13/2020
 ms.author: daperlov
-ms.openlocfilehash: 483e26cf4044b909c8d7923cfd74bd6fcf871e2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e846ed02d1a0ac22c9c9479f3367800d1dc9dd2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905313"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042600"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Gemensamt data modell format i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -35,7 +35,7 @@ Den gemensamma data modellen är tillgänglig som en [infogad data uppsättning]
 
 I tabellen nedan visas de egenskaper som stöds av en common data service-källa. Du kan redigera dessa egenskaper på fliken **käll alternativ** .
 
-| Namn | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
+| Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Formatet måste vara `cdm` | ja | `cdm` | format |
 | Format för metadata | Där enhets referensen till data finns. Om du använder common data service version 1,0 väljer du manifest. Om du använder en common data service-version före 1,0 väljer du model.jspå. | Ja | `'manifest'` eller `'model'` | manifestType |
@@ -51,6 +51,8 @@ I tabellen nedan visas de egenskaper som stöds av en common data service-källa
 | Sökkorpus-mapp | sökkorpus rot plats | Ja, om du använder manifest | Sträng | corpusPath |
 | Sökkorpus-entitet | Sökväg till entitetsreferens | ja | Sträng | entitetsrelation |
 | Det gick inte att hitta några filer | Om värdet är true uppstår ett fel inte om inga filer hittas | nej | `true` eller `false` | ignoreNoFilesFound |
+
+Om den enhets definition som du vill använda i din käll omvandling finns i samma katalog som din datamapp, kan du avmarkera kryss rutan Använd entitet från sökkorpus och bara skriva in entiteten för entiteten som du vill använda som enhets referens.
 
 ### <a name="sink-settings"></a>Mottagar inställningar
 
@@ -112,7 +114,7 @@ source(output(
 
 I tabellen nedan visas de egenskaper som stöds av en common data service-mottagare. Du kan redigera dessa egenskaper på fliken **Inställningar** .
 
-| Namn | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
+| Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Formatet måste vara `cdm` | ja | `cdm` | format |
 | Rot plats: behållare | Behållarens namn på mappen common data service | ja | Sträng | Fil Systems |

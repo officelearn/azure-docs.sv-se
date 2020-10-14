@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 960f76b06644a86ebaaaed40b57db95bdb350833
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 8ffdcac61a3ab0d27fec7602e8625c0367f6c33b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945523"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048499"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Självstudie: utforska digitala Azure-enheter med ett exempel på en klient
 
@@ -79,7 +79,7 @@ Se till att spara filen innan du fortsätter.
 > Om du vill prova att skapa en egen modell kan du klistra in *rums* modell koden i en ny fil som du sparar med tillägget *. JSON* i mappen *AdtSampleApp\SampleClientApp\Models* . Sedan kan du experimentera med att lägga till egenskaper och relationer som representerar vad du vill. Du kan också titta på de andra exempel modellerna i den här mappen för idéer.
 
 > [!TIP] 
-> Det finns ett språk-oberoende [DTDL-verifierings exempel](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) som du kan använda för att kontrol lera modell dokument för att kontrol lera att DTDL är giltig. Det bygger på DTDL parser-biblioteket, som du kan läsa mer om i [*instruktion: parsa och validera modeller*](how-to-parse-models.md).
+> Det finns ett språk-oberoende [DTDL-verifierings exempel](/samples/azure-samples/dtdl-validator/dtdl-validator) som du kan använda för att kontrol lera modell dokument för att kontrol lera att DTDL är giltig. Det bygger på DTDL parser-biblioteket, som du kan läsa mer om i [*instruktion: parsa och validera modeller*](how-to-parse-models.md).
 
 ### <a name="get-started-with-the-command-line-app"></a>Kom igång med kommando rads appen
 

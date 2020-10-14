@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: fd345f0eed5bd7140047b12a3c1a7471872c8bb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 371afbd9380ed1ecf28d0b26e2b4c5cd16ae6317
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270448"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044079"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Sök aktivitet i Azure Data Factory
 
@@ -31,7 +31,7 @@ Lookup-aktiviteten läser och returnerar innehållet i en konfigurations fil ell
 
 Följande data källor stöds för lookup-aktivitet. 
 
-Sök aktiviteten kan returnera upp till 5000 rader. om resultat uppsättningen innehåller fler poster returneras de första 5000 raderna. Utdata för uppslags aktivitet har stöd för upp till ungefär 4 MB och det går inte att utföra aktiviteten om storleken överskrider gränsen. För närvarande är den längsta varaktigheten för uppslags aktivitet före timeout en timme.
+Sök aktiviteten kan returnera upp till 5000 rader. om resultat uppsättningen innehåller fler poster returneras de första 5000 raderna. Utdata för uppslags aktivitet har stöd för upp till ungefär 4 MB och det går inte att utföra aktiviteten om storleken överskrider gränsen. För närvarande är den längsta varaktigheten för uppslags aktivitet före timeout 24 timmar.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -56,7 +56,7 @@ Sök aktiviteten kan returnera upp till 5000 rader. om resultat uppsättningen i
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Namn | Beskrivning | Typ | Obligatoriskt?
+Name | Beskrivning | Typ | Obligatoriskt?
 ---- | ----------- | ---- | --------
 data uppsättning | Tillhandahåller data uppsättnings referensen för sökningen. Hämta information från avsnittet **Egenskaper för data mängd** i varje motsvarande kopplings artikel. | Nyckel/värde-par | Ja
 källa | Innehåller data uppsättnings bara käll egenskaper, samma som för kopierings aktivitets källan. Hämta information från avsnittet **Kopiera aktivitets egenskaper** i varje motsvarande kopplings artikel. | Nyckel/värde-par | Ja

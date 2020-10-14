@@ -1,0 +1,383 @@
+---
+title: Log Analytics arbets ytans data export i Azure Monitor (förhands granskning)
+description: Med Log Analytics data export kan du kontinuerligt exportera data för markerade tabeller från din Log Analytics arbets yta till ett Azure Storage-konto eller Azure-Event Hubs som det samlas in.
+ms.subservice: logs
+ms.topic: conceptual
+ms.custom: references_regions
+author: bwren
+ms.author: bwren
+ms.date: 10/13/2020
+ms.openlocfilehash: 59febbac1a83e45c8b2bf9c233c3772f561eb111
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92050047"
+---
+# <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics arbets ytans data export i Azure Monitor (förhands granskning)
+Med Log Analytics data export för arbets yta i Azure Monitor kan du kontinuerligt exportera data från valda tabeller i din Log Analytics arbets yta till ett Azure Storage-konto eller Azure-Event Hubs som det samlas in. Den här artikeln innehåller information om den här funktionen och hur du konfigurerar data export i dina arbets ytor.
+
+## <a name="overview"></a>Översikt
+När data export har kon figurer ATS för Log Analytics arbets ytan exporteras alla nya data som skickas till de valda tabellerna i arbets ytan automatiskt till ditt lagrings konto varje timme eller till händelsehubben i nästan i real tid.
+
+![Översikt över data export](media/logs-data-export/data-export-overview.png)
+
+Alla data från inkluderade tabeller exporteras utan filter. När du till exempel konfigurerar en data export regel för *SecurityEvent* -tabellen, exporteras alla data som skickas till *SecurityEvent* -tabellen från konfigurations tiden.
+
+
+## <a name="other-export-options"></a>Andra export alternativ
+Log Analytics data export för arbets ytan exporterar kontinuerligt data från en Log Analytics arbets yta. Andra alternativ för att exportera data för specifika scenarier är följande:
+
+- Schemalagd export från en logg fråga med hjälp av en Logic app. Detta liknar data export funktionen, men du kan skicka filtrerade eller aggregerade data till Azure Storage. Den här metoden kan vara beroende av [loggnings frågans gränser](../service-limits.md#log-analytics-workspaces)  se [arkivera data från Log Analytics arbets yta till Azure Storage med hjälp av Logic app](logs-export-logic-app.md).
+- Exportera med hjälp av en logisk app. Se [Azure Monitor logs Connector för Logic Apps och energi automatisering](logicapp-flow-connector.md).
+- Exportera till en lokal dator med hjälp av PowerShell-skript. Se [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
+
+
+## <a name="current-limitations"></a>Aktuella begränsningar
+
+- Konfigurationen kan för närvarande endast utföras med CLI-eller REST-begäranden. Du kan inte använda Azure Portal eller PowerShell.
+- Tabeller som stöds är för närvarande begränsade i avsnittet (#supported-tabes) nedan. Om data export regeln innehåller en tabell som inte stöds kommer åtgärden att lyckas, men inga data exporteras för tabellen. Om data export regeln innehåller en tabell som inte finns kommer den inte att fungera, men fel *tabellen <tableName> finns inte i arbets ytan.*
+- Din Log Analytics arbets yta kan finnas i vilken region som helst, förutom följande:
+  - Schweiz, norra
+  - Schweiz, västra
+  - Regioner i Azure myndigheter
+- Mål lagrings kontot eller händelsehubben måste finnas i samma region som Log Analytics-arbetsytan.
+- Namn på tabeller som ska exporteras får inte vara längre än 60 tecken för ett lagrings konto och högst 47 tecken till en Event Hub. Tabeller med längre namn exporteras inte.
+
+> [!NOTE]
+> Log Analytics data export skriver data som en bifogad blob som för närvarande är en för hands version av Azure Data Lake Storage Gen2. Du måste öppna en supportbegäran innan du konfigurerar export till den här lagringen. Använd följande information för den här begäran.
+> - Ärendetyp: Teknisk
+> - Prenumeration: din prenumeration
+> - Tjänst: Data Lake Storage Gen2
+> - Resurs: ditt resurs namn
+> - Sammanfattning: begär prenumerations registrering för att acceptera data från Log Analytics data export.
+> - Problem typ: anslutning
+> - Problem under typ: anslutnings problem
+
+## <a name="data-completeness"></a>Data fullständighet
+Data exporten kommer att fortsätta att försöka skicka data i upp till 30 minuter om målet inte är tillgängligt. Om det fortfarande inte är tillgängligt efter 30 minuter tas data bort tills målet blir tillgängligt.
+
+## <a name="cost"></a>Cost
+Det finns för närvarande inga ytterligare avgifter för data export funktionen. Prissättningen för data export kommer att meddelas i framtiden och ett meddelande som tillhandahålls innan faktureringen påbörjas. Om du väljer att fortsätta använda data export efter meddelande perioden debiteras du enligt tillämplig taxa.
+
+## <a name="export-destinations"></a>Exportera mål
+
+### <a name="storage-account"></a>Lagringskonto
+Data skickas till lagrings konton varje timme. Konfigurationen för data export skapar en behållare för varje tabell i lagrings kontot med namnet *am-* följt av namnet på tabellen. Tabellen *SecurityEvent* skulle till exempel skickas till en behållare med namnet *am-SecurityEvent*.
+
+Lagrings kontots BLOB-sökväg är *WorkspaceResourceId =/Subscriptions/Subscription-ID/ResourceGroups/ \<resource-group\> /providers/Microsoft.operationalinsights/workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.jspå*. Eftersom bifogade blobbar är begränsade till 50 000 skrivningar i lagringen kan antalet exporterade blobbar utökas om antalet tillägg är högt. Namngivnings mönstret för blobbar i sådana fall är PT1H_ #. JSON, där # är det stegvisa antalet blobar.
+
+Data formatet lagrings konto är [JSON-linjer](diagnostic-logs-append-blobs.md). Det innebär att varje post avgränsas med en ny rad, utan matris för yttre poster och inga kommatecken mellan JSON-poster. 
+
+[![Exempel data för lagring](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
+
+Log Analytics data export kan skriva till att lägga till blobar till oföränderliga lagrings konton när tidsbaserade bevarande principer har inställningen *allowProtectedAppendWrites* aktive rad. Detta gör det möjligt att skriva nya block till en append-BLOB, samtidigt som oföränderlighets skydd och efterlevnad upprätthålls. Se [Tillåt skyddade bifogade BLOB-skrivningar](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+
+### <a name="event-hub"></a>Händelsehubb
+Data skickas till händelsehubben i nära real tid när den når Azure Monitor. En Event Hub skapas för varje datatyp som du exporterar med namnet *am –* följt av namnet på tabellen. Tabellen *SecurityEvent* skulle till exempel skickas till en Event Hub med namnet ' *am-SecurityEvent*'. Om du vill att exporterade data ska uppnå en speciell händelsehubben, eller om du har en tabell med ett namn som överskrider tecken gränsen på 47, kan du ange ett eget namn på händelsehubben och exportera alla tabeller till den.
+
+Volymen för exporterade data ökar ofta med tiden och skalningen av Event Hub måste ökas för att hantera större överföringshastigheter och undvika begränsnings scenarier och data fördröjning. Du bör använda funktionen för automatisk ökning i Event Hubs för att automatiskt skala upp och öka antalet data flödes enheter och uppfylla användnings behoven. Mer information finns i [skala upp Azure Event Hubs data flödes enheter automatiskt](../../event-hubs/event-hubs-auto-inflate.md) .
+
+
+## <a name="prerequisites"></a>Krav
+Följande är förutsättningar som måste slutföras innan du konfigurerar Log Analytics data export.
+
+- Lagrings kontot och händelsehubben måste redan skapas och måste finnas i samma region som Log Analytics-arbetsytan. Om du behöver replikera dina data till andra lagrings konton kan du använda något av [alternativen för Azure Storage redundans](../../storage/common/storage-redundancy.md).  
+- Lagrings kontot måste vara StorageV1 eller StorageV2. Klassisk lagring stöds inte  
+- Om du har konfigurerat ditt lagrings konto för att tillåta åtkomst från valda nätverk måste du lägga till ett undantag i inställningarna för ditt lagrings konto så att Azure Monitor kan skriva till lagringen.
+
+## <a name="enable-data-export"></a>Aktivera data export
+Följ stegen måste utföras för att aktivera Log Analytics data export. Se följande avsnitt för mer information om var och en.
+
+- Registrera resurs leverantör.
+- Tillåt betrodda Microsoft-tjänster.
+- Skapa en eller flera data export regler som definierar de tabeller som ska exporteras och deras mål.
+
+### <a name="register-resource-provider"></a>Registrera resursprovider
+Följande Azure-adressresurs måste vara registrerad för din prenumeration för att aktivera Log Analytics data export. 
+
+- Microsoft. Insights
+
+Den här resurs leverantören är antagligen redan registrerad för de flesta Azure Monitor användare. För att verifiera går du till **prenumerationer** i Azure Portal. Välj din prenumeration och klicka sedan på **resurs leverantörer** i avsnittet **Inställningar** på menyn. Leta upp **Microsoft. Insights**. Om dess status är **registrerad**är den redan registrerad. Annars klickar du på **Registrera** för att registrera den.
+
+Du kan också använda någon av de tillgängliga metoderna för att registrera en resurs leverantör enligt beskrivningen i [Azure Resource providers och-typer](../../azure-resource-manager/management/resource-providers-and-types.md). Följande är ett exempel kommando som använder PowerShell:
+
+```PowerShell
+Register-AzResourceProvider -ProviderNamespace Microsoft.insights
+```
+
+### <a name="allow-trusted-microsoft-services"></a>Tillåt betrodda Microsoft-tjänster
+Om du har konfigurerat ditt lagrings konto för att tillåta åtkomst från valda nätverk måste du lägga till ett undantag för att tillåta Azure Monitor att skriva till kontot. Från **brand väggar och virtuella nätverk** för ditt lagrings konto väljer **du Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot**.
+
+[![Lagrings kontots brand väggar och virtuella nätverk](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
+
+
+### <a name="create-or-update-data-export-rule"></a>Skapa eller uppdatera data export regel
+En data export regel definierar data som ska exporteras från alla tabeller eller en viss uppsättning tabeller till ett enda mål. Skapa flera regler om du behöver skicka till flera mål.
+
+Använd följande kommando för att skapa en data export regel till ett lagrings konto med hjälp av CLI.
+
+```azurecli
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $storageAccountId
+```
+
+Använd följande kommando för att skapa en data export regel till en händelsehubben med hjälp av CLI.
+
+```azurecli
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesId
+```
+
+Använd följande begäran för att skapa en data export regel med hjälp av REST API. Begäran bör använda token token-auktorisering och innehålls typ Application/JSON.
+
+```rest
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
+```
+
+Bröd texten i begäran anger mål för tabellen. Följande är en exempel text för REST-begäran för ett lagrings konto.
+
+```json
+{
+    "properties": {
+        "destination": {
+            "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name"
+        },
+        "tablenames": [
+"table1",
+    "table2" 
+        ],
+        "enable": true
+    }
+}
+```
+
+Följande är en exempel text för REST-begäran för en Event Hub.
+
+```json
+{
+    "properties": {
+        "destination": {
+            "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.EventHub/namespaces/eventhub-namespaces-name"
+        },
+        "tablenames": [
+            "table1",
+            "table2"
+        ],
+        "enable": true
+    }
+}
+
+```
+
+
+## <a name="view-data-export-configuration"></a>Visa data export konfiguration
+Använd följande kommando för att visa konfigurationen av en data export regel med hjälp av CLI.
+
+```azurecli
+az monitor log-analytics workspace data-export show --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
+```
+
+Använd följande begäran om du vill visa konfigurationen av en data export regel med hjälp av REST API. Begäran bör använda token token-auktorisering.
+
+```rest
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
+```
+
+## <a name="disable-an-export-rule"></a>Inaktivera en export regel
+Export regler kan inaktive ras så att du kan stoppa exporten när du inte behöver spara data under en viss period, till exempel när testningen utförs. Använd följande kommando för att inaktivera en data export regel med CLI.
+
+```azurecli
+az monitor log-analytics workspace data-export update --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --enable false
+```
+
+Använd följande begäran om du vill inaktivera en data export regel med hjälp av REST API. Begäran bör använda token token-auktorisering.
+
+```rest
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
+Authorization: Bearer <token>
+Content-type: application/json
+
+{
+    "properties": {
+        "destination": {
+            "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name"
+        },
+        "tablenames": [
+"table1",
+    "table2" 
+        ],
+        "enable": false
+    }
+}
+```
+
+## <a name="delete-an-export-rule"></a>Ta bort en export regel
+Använd följande kommando för att ta bort en data export regel med CLI.
+
+```azurecli
+az monitor log-analytics workspace data-export delete --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
+```
+
+Använd följande begäran om du vill ta bort en data export regel med hjälp av REST API. Begäran bör använda token token-auktorisering.
+
+```rest
+DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
+```
+
+## <a name="view-all-data-export-rules-in-a-workspace"></a>Visa alla data export regler i en arbets yta
+Använd följande kommando för att visa alla data export regler i en arbets yta med CLI.
+
+```azurecli
+az monitor log-analytics workspace data-export list --resource-group resourceGroupName --workspace-name workspaceName
+```
+
+Använd följande begäran om du vill visa alla data export regler i en arbets yta med hjälp av REST API. Begäran bör använda token token-auktorisering.
+
+```rest
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports?api-version=2020-08-01
+```
+
+## <a name="unsupported-tables"></a>Tabeller som inte stöds
+Om data export regeln innehåller en tabell som inte stöds kommer konfigurationen att lyckas, men inga data exporteras för tabellen. Om tabellen senare stöds, kommer dess data att exporteras vid denna tidpunkt.
+
+Om data export regeln innehåller en tabell som inte finns kommer den inte att fungera, men fel *tabellen <tableName> finns inte i arbets ytan*.
+
+
+## <a name="supported-tables"></a>Tabeller som stöds
+Tabeller som stöds är för närvarande begränsade till dem som anges nedan. Alla data från tabellen exporteras om inte begränsningar anges. Den här listan kommer att uppdateras när stöd för ytterligare tabeller läggs till.
+
+
+| Tabell | Begränsningar |
+|:---|:---|:---|
+| AADDomainServicesAccountLogon | |
+| AADDomainServicesAccountManagement | |
+| AADDomainServicesDirectoryServiceAccess | |
+| AADDomainServicesLogonLogoff | |
+| AADDomainServicesPolicyChange | |
+| AADDomainServicesPrivilegeUse | |
+| ADAssessmentRecommendation | |
+| ADFActivityRun | |
+| ADFPipelineRun | |
+| ADFTriggerRun | |
+| ADReplicationResult | |
+| ADSecurityAssessmentRecommendation | |
+| ADTDigitalTwinsOperation | |
+| ADTEventRoutesOperation | |
+| ADTModelsOperation | |
+| ADTQueryOperation | |
+| ADXCommand | |
+| ADXQuery | |
+| AegDeliveryFailureLogs | |
+| AegPublishFailureLogs | |
+| Varning | En del av informationen i den här tabellen matas in via lagrings kontot. Den här delen saknas i export för närvarande. |
+| ApiManagementGatewayLogs | |
+| AppCenterError | |
+| AppPlatformSystemLogs | |
+| AppServiceAppLogs | |
+| AppServiceAuditLogs | |
+| AppServiceConsoleLogs | |
+| AppServiceFileAuditLogs | |
+| AppServiceHTTPLogs | |
+| AppServicePlatformLogs | |
+| AuditLogs | |
+| AutoscaleEvaluationsLog | |
+| AutoscaleScaleActionsLog | |
+| AWSCloudTrail | |
+| AzureAssessmentRecommendation | |
+| AzureDevOpsAuditing | |
+| BehaviorAnalytics | |
+| BlockchainApplicationLog | |
+| BlockchainProxyLog | |
+| BlockchainProxyLog | |
+| CommonSecurityLog | |
+| CommonSecurityLog | |
+| ComputerGroup | |
+| ConfigurationData | Vissa data matas in via interna tjänster som inte stöds för export. Den här delen saknas i export för närvarande. |
+| ContainerImageInventory | |
+| ContainerInventory | |
+| ContainerLog | |
+| ContainerLog | |
+| ContainerNodeInventory | |
+| ContainerServiceLog | |
+| CoreAzureBackup | |
+| DatabricksAccounts | |
+| DatabricksClusters | |
+| DatabricksDBFS | |
+| DatabricksInstancePools | |
+| DatabricksJobs | |
+| DatabricksNotebook | |
+| DatabricksSecrets | |
+| DatabricksSQLPermissions | |
+| DatabricksSSH | |
+| DatabricksWorkspace | |
+| DnsEvents | |
+| DnsInventory | |
+| Dynamics365Activity | |
+| Händelse | En del av informationen i den här tabellen matas in via lagrings kontot. Den här delen saknas i export för närvarande. |
+| ExchangeAssessmentRecommendation | |
+| ExchangeAssessmentRecommendation | |
+| FailedIngestion | |
+| FunctionAppLogs | |
+| Pulsslag | Stöds | |
+| HuntingBookmark | |
+| InsightsMetrics | Vissa data matas in via interna tjänster som inte stöds för export. Den här delen saknas i export för närvarande. |
+| IntuneAuditLogs | |
+| IntuneOperationalLogs | |
+| KubeEvents | |
+| KubeHealth | |
+| KubeMonAgentEvents | |
+| KubeNodeInventory | |
+| KubePodInventory | |
+| KubeServices | |
+| KubeServices | |
+| McasShadowItReporting | |
+| MicrosoftAzureBastionAuditLogs | |
+| MicrosoftDataShareReceivedSnapshotLog | |
+| MicrosoftDataShareSentSnapshotLog | |
+| MicrosoftDataShareShareLog | |
+| MicrosoftHealthcareApisAuditLogs | |
+| NWConnectionMonitorPathResult | |
+| NWConnectionMonitorTestResult | |
+| OfficeActivity | Några av de data som matas in via Webhooks från O365 till LA. Den här delen saknas i export för närvarande. |
+| Åtgärd | Vissa data matas in via interna tjänster som inte stöds för export. Den här delen saknas i export för närvarande. |
+| Prest | Stöds | |
+| SCCMAssessmentRecommendation | | 
+| SCOMAssessmentRecommendation | |
+| SecurityAlert | |
+| SecurityBaseline | |
+| SecurityBaselineSummary | |
+| SecurityDetection | |
+| SecurityEvent | Stöds | |
+| Säkerhets incident | |
+| SecurityIoTRawEvent | |
+| SecurityNestedRecommendation | |
+| SecurityRecommendation | |
+| SfBAssessmentRecommendation | |
+| SfBOnlineAssessmentRecommendation | |
+| SharePointOnlineAssessmentRecommendation | |
+| SignalRServiceDiagnosticLogs | |
+| SigninLogs | |
+| SPAssessmentRecommendation | |
+| SQLAssessmentRecommendation | |
+| SucceededIngestion | |
+| Syslog |Delvis | En del av informationen i den här tabellen matas in via lagrings kontot. Den här delen saknas i export för närvarande. |
+| ThreatIntelligenceIndicator | |
+| Uppdatera |Delvis | Vissa data matas in via interna tjänster som inte stöds för export. Den här delen saknas i export för närvarande. |
+| UpdateRunProgress | |
+| UpdateSummary | |
+| Användning | |
+| UserAccessAnalytics | |
+| UserPeerAnalytics | |
+| WindowsEvent | |
+| WindowsFirewall | |
+| WireData |Delvis | Vissa data matas in via interna tjänster som inte stöds för export. Den här delen saknas i export för närvarande. |
+| WorkloadMonitoringPerf | |
+| WorkloadMonitoringPerf | |
+| WVDCheckpoints | |
+| WVDConnections | |
+| WVDErrors | |
+| WVDFeeds | |
+| WVDManagement | |
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Fråga exporterade data från Azure datautforskaren](azure-data-explorer-query-storage.md).

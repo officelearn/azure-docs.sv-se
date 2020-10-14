@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c68cb8cc0ecf759b9af0e313e09663cdbc327917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d50c273e50a7faf2d8c24982fbd39cecdff0bf7f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89067713"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044385"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Fråga enheter i digitala Azure-enheter 
 
-En Azure Digitals **qu-enhet (** Digital enhets fråga) är en enhet med beräkning på begäran som används för att köra [Azures digitala dubbla frågor](how-to-query-graph.md) med hjälp av [fråge-API](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query). 
+En Azure Digitals **qu-enhet (** Digital enhets fråga) är en enhet med beräkning på begäran som används för att köra [Azures digitala dubbla frågor](how-to-query-graph.md) med hjälp av [fråge-API](/rest/api/digital-twins/dataplane/query). 
 
 Den sammanfattar de system resurser som processor, IOPS och minne som krävs för att utföra frågor som stöds av digitala Azure-enheter, så att du kan spåra användningen i Query units i stället.
 
@@ -28,7 +28,7 @@ Den här artikeln förklarar hur du förstår enhets enheter och hur du spårar 
 
 ## <a name="find-the-query-unit-consumption-in-azure-digital-twins"></a>Hitta användnings enheten för frågekörning i Azure Digitals, dubbla 
 
-När du kör en fråga med hjälp av [API: t](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query)för Azure Digitals dubbla frågor kan du undersöka svars huvudet för att spåra antalet QUs som frågan har använt. Sök efter "fråga-avgift" i svaret som skickas tillbaka från Azure Digitals. 
+När du kör en fråga med hjälp av [API: t](/rest/api/digital-twins/dataplane/query)för Azure Digitals dubbla frågor kan du undersöka svars huvudet för att spåra antalet QUs som frågan har använt. Sök efter "fråga-avgift" i svaret som skickas tillbaka från Azure Digitals. 
 
 Med Azure Digitals- [SDK](how-to-use-apis-sdks.md) : er kan du extrahera frågans tilläggs rubrik från det växlade svaret. Det här avsnittet visar hur du frågar efter digitala dubbla och hur du itererar över det växlade svaret för att extrahera frågans avgifts huvud. 
 
@@ -68,6 +68,6 @@ await foreach (Page<string> page in asyncPageableResponseWithCharge.AsPages())
 Mer information om hur du frågar Azure Digital-dubbla finns på:
 * [*Begrepp: frågespråk*](concepts-query-language.md)
 * [*Anvisningar: fråga det dubbla diagrammet*](how-to-query-graph.md)
-* [Dokumentation om API-referens för frågor](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query/querytwins)
+* [Dokumentation om API-referens för frågor](/rest/api/digital-twins/dataplane/query/querytwins)
 
 Du kan hitta frågor relaterade till Azure Digitals-relaterade gränser i [*referensen: tjänst gränser i offentlig för hands version*](reference-service-limits.md).

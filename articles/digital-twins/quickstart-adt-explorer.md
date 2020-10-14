@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 9531a812d60c6e5a60ff0a0936fafde4a77e5a67
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0d6d543e1f7d68f1312b6531b798cf7f9a0cf3b8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017054"
+ms.locfileid: "92048516"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Snabb start – utforska ett exempel på Azure Digitals dubbla scenarier med ADT Explorer
 
 Med Azure Digitals dubbla, kan du skapa och interagera med Live-modeller i dina verkliga miljöer. Det gör du genom att utforma enskilda element som **digitala**delar och sedan ansluta dem till ett kunskaps **diagram** som kan svara på direktsända händelser och frågas efter information.
 
-I den här snabb starten ska du utforska ett förbyggt Azure Digital-diagram med hjälp av ett exempel program som kallas [**Azure Digitals dubblare (ADT) Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Med ADT Explorer kan du ladda upp en digital representation av en miljö, Visa visuella bilder av de dubbla och grafer som skapas för att representera miljön i Azure Digitals, och utföra andra hanterings aktiviteter via en webbläsarbaserad, visuell upplevelse.
+I den här snabb starten ska du utforska ett förbyggt Azure Digital-diagram med hjälp av ett exempel program som kallas [**Azure Digitals dubblare (ADT) Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Med ADT Explorer kan du ladda upp en digital representation av en miljö, Visa visuella bilder av de dubbla och grafer som skapas för att representera miljön i Azure Digitals, och utföra andra hanterings aktiviteter via en webbläsarbaserad, visuell upplevelse.
 
 Snabb starten innehåller följande viktiga steg:
 
@@ -31,15 +31,15 @@ Det exempel diagram som du kommer att arbeta med representerar en byggnad med tv
 
 :::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna.":::
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver en Azure-prenumeration för att slutföra den här snabb starten. Om du inte redan har en, kan du **[skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** nu.
 
 Du behöver också **Node.js** på din dator. Du kan hämta den senaste versionen på den här länken: [Node.js](https://nodejs.org/).
 
 Slutligen måste du också ladda ned två exempel som ska användas under snabb starten:
-* Exempel programmet för **ADT Explorer** . Det här exemplet innehåller den huvud-app som du använder i snabb starten för att läsa in och utforska ett Azure Digital-scenario. Om du vill hämta appen navigerar du hit: [Azure Digitals-ADT (Azure Digitals flätas)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden på din dator. Då hämtas en. ZIP-mapp på din dator som _**Azure_Digital_Twins__ADT__explorer.zip**_. Zippa upp mappen och extrahera filerna.
-* **Exempel scenariot för Azure Digitals sammanflätade**. Detta inkluderar ett fördefinierat Azure Digital-diagram som du kommer att läsa in i ADT Explorer för att arbeta med. För att få scenariot, navigera här: [Azure Digitals dubbla exempel](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden på din dator. Då hämtas en. ZIP-mapp på din dator som _**Azure_Digital_Twins_samples.zip**_. Zippa upp mappen och extrahera filerna.
+* Exempel programmet för **ADT Explorer** . Det här exemplet innehåller den huvud-app som du använder i snabb starten för att läsa in och utforska ett Azure Digital-scenario. Om du vill hämta appen navigerar du hit: [Azure Digitals-ADT (Azure Digitals flätas)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden på din dator. Då hämtas en. ZIP-mapp på din dator som _**Azure_Digital_Twins__ADT__explorer.zip**_. Zippa upp mappen och extrahera filerna.
+* **Exempel scenariot för Azure Digitals sammanflätade**. Detta inkluderar ett fördefinierat Azure Digital-diagram som du kommer att läsa in i ADT Explorer för att arbeta med. För att få scenariot, navigera här: [Azure Digitals dubbla exempel](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden på din dator. Då hämtas en. ZIP-mapp på din dator som _**Azure_Digital_Twins_samples.zip**_. Zippa upp mappen och extrahera filerna.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Konfigurera Azure Digital-och ADT Explorer
 

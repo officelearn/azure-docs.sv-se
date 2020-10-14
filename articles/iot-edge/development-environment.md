@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bee1f95e1f56b65912895fec8af2512c6cd7b85a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17531c6e38447fba7fe8761a963be39ecfc8f489
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300382"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044164"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Förbered din utvecklings-och test miljö för IoT Edge
 
@@ -49,7 +49,7 @@ Mer information och hämtning finns i [Azure IoT Tools för Visual Studio Code](
 
 Förutom IoT Edge tillägg kan det vara bra att installera ytterligare tillägg för utveckling. Du kan till exempel använda [Docker-stöd för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) för att hantera dina avbildningar, behållare och register. Alla språk som stöds har dessutom tillägg för Visual Studio-kod som kan hjälpa dig när du utvecklar moduler.
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 Mallarna för vissa språk och tjänster har förutsättningar som krävs för att bygga projektmappen på din utvecklings dator med Visual Studio Code.
 
@@ -58,7 +58,7 @@ Mallarna för vissa språk och tjänster har förutsättningar som krävs för a
 | Azure Functions | [.NET Core 2,1 SDK](https://www.microsoft.com/net/download) |
 | C | [Git](https://git-scm.com/) |
 | C# | [.NET Core 2,1 SDK](https://www.microsoft.com/net/download) |
-| Java | <ul><li>[Java SE Development Kit 10](https://aka.ms/azure-jdks) <li> [Ange JAVA_HOME miljö variabel](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
+| Java | <ul><li>[Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) <li> [Ange JAVA_HOME miljö variabel](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Azure IoT Edge Node.js modul Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
 | Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 06/16/2020
-ms.openlocfilehash: d724ef463d7c7ad237b5fd023e9c15f50de96f04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 1a8dbbb42a548a8c4e9a1117166aa621e8734208
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803474"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044504"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Vanliga problem vid certifiering av avbildningar av virtuella datorer för Azure Marketplace
 
@@ -372,6 +372,61 @@ Utgivare måste kontakta supporten på [Marketplace Publisher-stöd](https://aka
    7. Tids linje – datum till vilket detta undantag har begärts 
    8.   Bifogade filer – bifoga alla dokument med viktig bevisning. För låsta virtuella datorer, koppla test rapporten och för anpassade mallar, anger du den anpassade ARM-mallen som bilaga. Det gick inte att bifoga rapporten för låsta virtuella datorer och en anpassad ARM-mall för anpassade mallar, vilket leder till att begäran nekas
 
+## <a name="how-to-address-a-vulnerability-or-exploit-in-a-vm-offer"></a>Så här åtgärdar du ett sårbarhets-eller sårbarhets erbjudande i ett virtuellt dator erbjudande
+
+Med den här vanliga frågor och svar kan du ange en virtuell dator avbildning (VM) när en sårbarhet eller sårbarhet identifieras med en av dina VM-avbildningar. Vanliga frågor och svar gäller bara för virtuella Azure-datorer som publiceras på Azure Marketplace.
+
+> [!NOTE]
+> Du kan inte ta bort den sista virtuella dator avbildningen från en plan och du kan inte sluta sälja den sista planen för ett erbjudande.
+
+Gör något av följande:
+
+1. Om du har en ny VM-avbildning för att ersätta den sårbara VM-avbildningen går du till [så här anger du en fast VM-avbildning](#how-to-provide-a-fixed-vm-image).
+1. Om du inte har en ny VM-avbildning för att ersätta den enda avbildningen av den virtuella datorn i en plan och om du är klar med planen kan du [sluta sälja planen](update-existing-offer.md#stop-selling-an-offer-or-plan).
+1. Om du inte planerar att ersätta den enda avbildningen av den virtuella datorn i erbjudandet rekommenderar vi att du [slutar att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan).
+
+### <a name="how-to-provide-a-fixed-vm-image"></a>Så här anger du en fast VM-avbildning
+
+För att tillhandahålla en fast VM-avbildning för att ersätta en VM-avbildning som har sårbarhet eller sårbarhet, måste du göra följande:
+
+1. Ange en ny VM-avbildning för att lösa säkerhets risker eller sårbarhet.
+1. Ta bort den virtuella dator avbildningen som har säkerhets risk eller sårbarhet.
+1. Publicera om erbjudandet.
+
+#### <a name="provide-a-new-vm-image-to-address-the-security-vulnerability-or-exploit"></a>Skapa en ny avbildning av virtuella datorer för att lösa säkerhets risker eller sårbarhet
+
+För att slutföra de här stegen måste du förbereda den tekniska till gången för den VM-avbildning som du vill lägga till. Mer information finns i [skapa tekniska till gångar för ett erbjudande för virtuella Azure Marketplace-datorer](create-azure-vm-technical-asset.md) och [få en SAS-URI för din VM-avbildning](get-sas-uri.md).
+
+1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
+1. På den vänstra navigerings menyn väljer du **kommersiell Marketplace**-  >  **Översikt**.
+1. I kolumnen **erbjudande alias** väljer du erbjudandet.
+1. På fliken **plan översikt** i kolumnen **namn** väljer du den plan som du vill lägga till den virtuella datorn i.
+1. På fliken **teknisk konfiguration** , under **VM-avbildningar**, väljer du **+ Lägg till avbildning av virtuell dator**.
+   > [!NOTE]
+   > Du kan bara lägga till en avbildning av en virtuell dator till en plan i taget. Om du vill lägga till flera VM-avbildningar publicerar du den första och väntar tills den når _utgivarens signerings_ steg innan du lägger till nästa avbildning av virtuella datorer.
+1. I rutorna som visas anger du en ny disk version och avbildningen av den virtuella datorn.
+1. Välj **Spara utkast**.
+1. Fortsätt till nästa avsnitt för att ta bort den virtuella dator avbildningen med säkerhets risken.
+
+#### <a name="remove-the-vm-image-that-has-the-security-vulnerability-or-exploit"></a>Ta bort den virtuella dator avbildningen som har säkerhets risker eller utnyttjar
+
+Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
+1. På den vänstra navigerings menyn väljer du **kommersiell Marketplace**-  >  **Översikt**.
+1. I kolumnen **erbjudande alias** väljer du erbjudandet.
+1. På fliken **plan översikt** i kolumnen **namn** väljer du den plan med den virtuella dator som du vill ta bort.
+1. På fliken **teknisk konfiguration** , under **VM-avbildningar**, bredvid den VM-avbildning som du vill ta bort, väljer du **ta bort avbildning av virtuell dator**.
+1. I dialog rutan som visas väljer du **Fortsätt**.
+1. Välj **Spara utkast**.
+1. Fortsätt till nästa avsnitt för att publicera om erbjudandet.
+
+#### <a name="republish-the-offer"></a>Publicera om erbjudandet
+
+När du har tagit bort eller ersatt avbildningen av den virtuella datorn måste du publicera om erbjudandet.
+1. Välj **Granska och publicera**.
+1. Om du behöver ange någon information till certifierings teamet lägger du till den i rutan **kommentarer för certifiering** .
+1. Välj **Publicera**.
+
+Mer information om publicerings processen finns i [Granska och publicera ett erbjudande på den kommersiella Marketplace](../review-publish-offer.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

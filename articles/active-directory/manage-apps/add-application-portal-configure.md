@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: d2a538cac1e8bcf9c67c88b206cacd928bfb73c8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 50c1cd62f52583a005e6e7fe8fb29ee8eafd1af9
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91448233"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044470"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: konfigurera egenskaper för ett program i din Azure Active Directory (Azure AD)-klient
 
 I den tidigare snabb starten lade du till ett program till din Azure Active Directory-klient (Azure AD). När du lägger till ett program kan du låta din Azure AD-klient veta det är identitets leverantören för appen. Nu ska du konfigurera några av egenskaperna för appen.
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera egenskaperna för ett program i din Azure AD-klient behöver du:
 
@@ -41,10 +41,7 @@ Redigera program egenskaperna:
 
 1. I Azure AD-portalen väljer du **företags program**. Hitta och välj sedan det program som du vill konfigurera.
 2. I avsnittet **Hantera** väljer du **Egenskaper** för att öppna fönstret **Egenskaper** för redigering.
-
-    ![Skärm bild av sidan egenskaper som visar egenskaper för redigerbara appar.](media/add-application-portal/edit-properties.png)
-
-3. Ägna en stund åt att förstå alternativen som är tillgängliga för konfiguration:
+3. Ägna en stund åt att förstå tillgängliga alternativ. Vilka alternativ som är tillgängliga beror på hur appen är integrerad med Azure AD. Till exempel kommer en app som använder SAML-baserad enkel inloggning att ha fält som *användar åtkomst-URL* , medan en app som använder OIDC-baserad enkel inloggning inte är det. Observera också att appar som läggs till via **Azure Active Directory > Appregistreringar** är som standard OIDC-baserade appar. Appar som läggs till via **Azure Active Directory > företags program** kan använda ett antal enkla inloggnings standarder. Alla appar har fält för att konfigurera när en app visas och kan användas. Dessa fält är:
     - **Aktiverat för användare att logga in?** Anger om användare som är tilldelade till programmet kan logga in.
     - **Krävs användar tilldelning?** Anger om användare som inte är tilldelade till programmet kan logga in.
     - **Synlig för användarna?** Anger om användare som är tilldelade till en app kan se den i [Mina appar](https://myapps.microsoft.com) och Microsoft 365 App Launcher. (Se rutmärket-menyn i det övre vänstra hörnet på en Microsoft 365 webbplats.)
@@ -57,13 +54,13 @@ Redigera program egenskaperna:
     | Aktiverat för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Beteende för användare som antingen har tilldelats till appen eller inte. |
     |---|---|---|---|
     | Ja | Ja | Ja | Tilldelade användare kan se appen och logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
-    | Ja | Ja | Nej  | Tilldelad använder kan inte se appen, men de kan logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
-    | Ja | Nej  | Ja | Tilldelade användare kan se appen och logga in.<br>Otilldelade användare kan inte se appen men kan logga in. |
-    | Ja | Nej  | Nej  | Tilldelade användare kan inte se appen men kan logga in.<br>Otilldelade användare kan inte se appen men kan logga in. |
-    | Nej  | Ja | Ja | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
-    | Nej  | Ja | Nej  | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
-    | Nej  | Nej  | Ja | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
-    | Nej  | Nej  | Nej  | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Ja | Ja | Inga  | Tilldelad använder kan inte se appen, men de kan logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Ja | Inga  | Ja | Tilldelade användare kan se appen och logga in.<br>Otilldelade användare kan inte se appen men kan logga in. |
+    | Ja | Inga  | Inga  | Tilldelade användare kan inte se appen men kan logga in.<br>Otilldelade användare kan inte se appen men kan logga in. |
+    | Inga  | Ja | Ja | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Inga  | Ja | Inga  | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Inga  | Inga  | Ja | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Inga  | Inga  | Inga  | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
 
 4. När du är klar väljer du **Spara**.
 

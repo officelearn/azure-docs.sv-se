@@ -7,19 +7,63 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 10/01/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bc25a2ada3052689bc9dc4585c238fe19cb2a341
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c375defe5fd8356d64879a65d6f09f40ea30271d
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087407"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042481"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurera Azure Key Vault brand väggar och virtuella nätverk
 
-Den här artikeln innehåller stegvisa instruktioner för att konfigurera Azure Key Vault brand väggar och virtuella nätverk för att begränsa åtkomsten till ditt nyckel valv. Med [tjänst slut punkter för virtuella nätverk för Key Vault](overview-vnet-service-endpoints.md) kan du begränsa åtkomsten till ett angivet virtuellt nätverk och en uppsättning adress intervall för IPv4 (Internet Protocol version 4).
+I den här artikeln får du vägledning om hur du konfigurerar Azure Key Vault brand väggen. Det här dokumentet innehåller de olika konfigurationerna för Key Vault brand väggen i detalj, och innehåller stegvisa instruktioner för hur du konfigurerar Azure Key Vault att arbeta med andra program och Azure-tjänster.
+
+## <a name="firewall-settings"></a>Brand Väggs inställningar
+
+Det här avsnittet beskriver de olika sätt som Azure Key Vault brand väggen kan konfigureras på.
+
+### <a name="key-vault-firewall-disabled-default"></a>Key Vault brand väggen är inaktive rad (standard)
+
+När du skapar ett nytt nyckel valv är Azure Key Vault brand väggen som standard inaktive rad. Alla program och Azure-tjänster har åtkomst till nyckel valvet och skickar begär anden till nyckel valvet. OBS! den här konfigurationen innebär inte att alla användare kommer att kunna utföra åtgärder i nyckel valvet. Nyckel valvet begränsar fortfarande till hemligheter, nycklar och certifikat som lagras i Key Vault genom att kräva Azure Active Directory autentiserings-och åtkomst princip behörigheter. Om du vill veta mer om Key Vault-autentisering mer detaljerat kan du läsa grunderna i Key Vault Authentication-dokumentet [här](https://docs.microsoft.com/azure/key-vault/general/authentication-fundamentals).
+
+### <a name="key-vault-firewall-enabled-trusted-services-only"></a>Key Vault brand vägg aktive rad (endast betrodda tjänster)
+
+När du aktiverar Key Vault brand vägg får du ett alternativ för att tillåta att betrodda Microsoft-tjänster kringgår den här brand väggen. Listan över betrodda tjänster omfattar inte varje enskild Azure-tjänst. Till exempel finns inte Azure-DevOps på listan över betrodda tjänster. **Detta innebär inte att tjänster som inte finns med i listan över betrodda tjänster inte är betrodda eller oskyddade.** Listan över betrodda tjänster omfattar tjänster där Microsoft kontrollerar all kod som körs på tjänsten. Eftersom användarna kan skriva anpassad kod i Azure-tjänster som Azure DevOps, ger Microsoft inte möjlighet att skapa ett RAM godkännande för tjänsten. Dessutom är det inte tillåtet att använda en tjänst i listan över betrodda tjänster, men det är inte tillåtet för alla scenarier.
+
+Om du vill ta reda på om en tjänst som du försöker använda finns i listan över betrodda tjänster kan du läsa följande dokument [här](https://docs.microsoft.com/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services).
+
+### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Key Vault brand vägg aktive rad (IPv4-adresser och intervall – statiska IP-adresser)
+
+Om du vill auktorisera en viss tjänst för att få åtkomst till Key Vault via Key Vault brand väggen kan du lägga till dess IP-adress i listan över tillåtna brand vägg för nyckel valv. Den här konfigurationen är bäst för tjänster som använder statiska IP-adresser eller välkända intervall.
+
+Utför följande steg för att tillåta en IP-adress eller ett intervall av en Azure-resurs, till exempel en webbapp eller en Logic app.
+
+1. Logga in på Azure Portal
+1. Välj resurs (en speciell instans av tjänsten)
+1. Klicka på bladet "egenskaper" under "Inställningar"
+1. Leta efter fältet "IP-adress".
+1. Kopiera det här värdet eller området och ange det i listan över tillåtna i Key Vault-brandväggen.
+
+Om du vill tillåta en hel Azure-tjänst går du till Key Vault brand väggen med hjälp av listan över offentligt dokumenterade IP-adresser för data Center för Azure [här](https://www.microsoft.com/download/details.aspx?id=41653). Hitta de IP-adresser som är kopplade till den tjänst som du vill ha i den region som du vill använda och Lägg till dessa IP-adresser i Key Vault-brand väggen med hjälp av stegen ovan.
+
+### <a name="key-vault-firewall-enabled-virtual-networks---dynamic-ips"></a>Key Vault brand vägg aktive rad (virtuella nätverk – dynamiska IP-adresser)
+
+Om du försöker tillåta en Azure-resurs, till exempel en virtuell dator via Key Vault, kanske du inte kan använda statiska IP-adresser och du kanske inte vill att alla IP-adresser för Azure Virtual Machines ska få åtkomst till ditt nyckel valv.
+
+I det här fallet bör du skapa resursen i ett virtuellt nätverk och sedan tillåta trafik från det angivna virtuella nätverket och under nätet att komma åt ditt nyckel valv. Det gör du genom att utföra följande steg.
+
+1. Logga in på Azure Portal
+1. Välj det nyckel valv som du vill konfigurera
+1. Välj bladet nätverk
+1. Välj "+ Lägg till befintligt virtuellt nätverk"
+1. Välj det virtuella nätverk och undernät som du vill tillåta via nyckel valvs brand väggen.
+
+### <a name="key-vault-firewall-enabled-private-link"></a>Key Vault brand vägg aktive rad (privat länk)
+
+Information om hur du konfigurerar en privat länk anslutning i ditt nyckel valv finns i dokumentet [här](https://docs.microsoft.com/azure/key-vault/general/private-link-service).
 
 > [!IMPORTANT]
 > När brand Väggs reglerna är aktiva kan användarna bara utföra Key Vault [data Plans](secure-your-key-vault.md#data-plane-access-control) åtgärder när deras begär Anden härstammar från tillåtna virtuella nätverk eller IPv4-adress intervall. Detta gäller även för att komma åt Key Vault från Azure Portal. Även om användarna kan bläddra till ett nyckel valv från Azure Portal, kanske de inte kan lista nycklar, hemligheter eller certifikat om deras klient dator inte finns i listan över tillåtna. Detta påverkar också Key Vault väljare från andra Azure-tjänster. Användarna kanske kan se en lista över nyckel valv, men inte lista nycklar, om brand Väggs reglerna förhindrar sin klient dator.

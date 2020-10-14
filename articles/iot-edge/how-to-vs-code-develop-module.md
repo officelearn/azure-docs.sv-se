@@ -9,12 +9,12 @@ ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
-ms.openlocfilehash: 2fcb389736df8bedb2602919e986f7d65e8f3024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebc12e6d64d015267497497bebc22c8586adf999
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296917"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043739"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka moduler för Azure IoT Edge
 
@@ -29,7 +29,7 @@ Den här artikeln innehåller instruktioner för att utveckla och felsöka modul
 >[!NOTE]
 >Att utveckla och felsöka stöd för Linux ARM64-enheter finns i [offentlig för hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Mer information finns i [utveckla och FELSÖKA ARM64 IoT Edge moduler i Visual Studio Code (för hands version)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du kan använda en dator eller en virtuell dator som kör Windows, macOS eller Linux som utvecklings dator. På Windows-datorer kan du utveckla antingen Windows-eller Linux-moduler. Om du vill utveckla Windows-moduler använder du en Windows-dator som kör version 1809/build 17763 eller senare. Om du vill utveckla Linux-moduler använder du en Windows-dator som uppfyller [kraven för Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
@@ -51,13 +51,13 @@ Du måste också installera ytterligare språkbaserade verktyg för att utveckla
 
 - Node.js: [Node.js](https://nodejs.org). Du vill också installera [Yeoman](https://www.npmjs.com/package/yo) och [Azure IoT Edge Node.js modul Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
-- Java: [Java se Development Kit 10](https://aka.ms/azure-jdks) och [maven](https://maven.apache.org/). Du måste [ställa in `JAVA_HOME` miljövariabeln](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) så att den pekar på din JDK-installation.
+- Java: [Java se Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) och [maven](https://maven.apache.org/). Du måste [ställa in `JAVA_HOME` miljövariabeln](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) så att den pekar på din JDK-installation.
 
 Om du vill bygga och distribuera din modul-avbildning behöver Docker du för att bygga modul avbildningen och ett behållar register för att lagra modulens avbildning:
 
 - [Docker Community Edition](https://docs.docker.com/install/) på din utvecklings dator.
 
-- [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) -eller [Docker-hubb](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
+- [Azure Container Registry](../container-registry/index.yml) -eller [Docker-hubb](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
     > [!TIP]
     > Du kan använda ett lokalt Docker-register för prototyp-och testnings ändamål i stället för ett moln register.

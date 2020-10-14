@@ -7,14 +7,14 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: be3cf7d946e7502147942fa8954ade70dd47bedf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2850f831100533908d55c4aab372338e07b3807f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839936"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042498"
 ---
-# <a name="configure-database-settings"></a>Konfigurera databas inställningar 
+# <a name="configure-database-settings"></a>Konfigurera databasinställningarna 
 
 Azure API för FHIR använder databasen för att lagra data. Prestanda för den underliggande databasen beror på antalet enheter för programbegäran (RU) som valts under tjänst etableringen eller i databas inställningarna när tjänsten har etablerats.
 
@@ -41,7 +41,7 @@ Om databas data flödet är större än 10 000 RU/s eller om data som lagras i d
 I den här artikeln har du lärt dig hur du uppdaterar din ru: er för Azure API för FHIR. Lär dig mer om hur du konfigurerar Kundhanterade nycklar som en databas inställning:
 
 >[!div class="nextstepaction"]
->[Konfigurera kundhanterade nycklar](bring-your-own-key.md)
+>[Konfigurera kundhanterade nycklar](customer-managed-key.md)
 
 Eller så kan du distribuera ett fullständigt hanterat Azure API för FHIR:
  

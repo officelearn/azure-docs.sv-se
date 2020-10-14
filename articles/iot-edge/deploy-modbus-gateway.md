@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: kgremban
-ms.openlocfilehash: 23fbbd87230ea0a0147dc9d90c77729f4d531e98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d07a1d1ab0d3b1f4315c09f1c403126139b34612
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76511152"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043909"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Ansluta Modbus TCP-enheter via en IoT Edge enhets-Gateway
 
@@ -35,7 +35,7 @@ Den här artikeln förutsätter att du använder Modbus TCP-protokollet. Mer inf
 
 Om du vill testa Modbus-gatewayens funktioner har Microsoft en exempelmodul som du kan använda. Du kan komma åt modulen från Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview)eller med avbildnings-URI: n `mcr.microsoft.com/azureiotedge/modbus:1.0` .
 
-Om du vill skapa en egen modul och anpassa den för din miljö finns det ett projekt med öppen källkod [Azure IoT Edge Modbus-modul](https://github.com/Azure/iot-edge-modbus) på GitHub. Följ vägledningarna i projektet för att skapa en egen containeravbildning. Information om hur du skapar en behållar avbildning finns i [utveckla C#-moduler i Visual Studio](how-to-visual-studio-develop-csharp-module.md) eller [utveckla moduler i Visual Studio Code](how-to-vs-code-develop-module.md). Dessa artiklar innehåller instruktioner om hur du skapar nya moduler och publicerar behållar avbildningar till ett register.
+Om du vill skapa en egen modul och anpassa den för din miljö finns det ett projekt med öppen källkod [Azure IoT Edge Modbus-modul](https://github.com/Azure/iot-edge-modbus) på GitHub. Följ vägledningarna i projektet för att skapa en egen containeravbildning. Information om hur du skapar en behållar avbildning finns i [utveckla C#-moduler i Visual Studio](./how-to-visual-studio-develop-module.md) eller [utveckla moduler i Visual Studio Code](how-to-vs-code-develop-module.md). Dessa artiklar innehåller instruktioner om hur du skapar nya moduler och publicerar behållar avbildningar till ett register.
 
 ## <a name="try-the-solution"></a>Testa lösningen
 

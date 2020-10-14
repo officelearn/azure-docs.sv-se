@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/01/2020
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ef7599441cbfa11c555453adea0ca135569524b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f88548b57cee9b5f637247fda1536488382ae2f6
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91459837"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042634"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för villkorlig åtkomst i en Azure Active Directory B2C anpassad princip
 
@@ -59,7 +59,7 @@ För varje inloggning utvärderar Azure AD B2C alla principer och säkerställer
 
 **InputClaims** -elementet innehåller en lista över anspråk att skicka till villkorlig åtkomst. Du kan också mappa namnet på ditt anspråk till namnet som definierats i den tekniska profilen för villkorlig åtkomst.
 
-| ClaimReferenceId | Krävs | Datatyp | Beskrivning |
+| ClaimReferenceId | Obligatorisk | Datatyp | Beskrivning |
 | --------- | -------- | ----------- |----------- |
 | UserId | Ja | sträng | Identifieraren för den användare som loggar in. |
 | AuthenticationMethodsUsed | Ja |stringCollection | Listan med metoder som användaren använde för att logga in. Möjliga värden: `Password` , och `OneTimePasscode` . |
@@ -73,7 +73,7 @@ För varje inloggning utvärderar Azure AD B2C alla principer och säkerställer
 
 **OutputClaims** -elementet innehåller en lista över anspråk som genererats av ConditionalAccessProtocolProvider. Du kan också mappa namnet på ditt anspråk till namnet som anges nedan.
 
-| ClaimReferenceId | Krävs | Datatyp | Beskrivning |
+| ClaimReferenceId | Obligatorisk | Datatyp | Beskrivning |
 | --------- | -------- | ----------- |----------- |
 | Utmaningar | Ja |stringCollection | Lista med åtgärder för att åtgärda det identifierade hotet. Möjliga värden: `block` |
 | MultiConditionalAccessStatus | Ja | stringCollection |  |
@@ -121,7 +121,7 @@ I följande exempel visas en teknisk profil för villkorlig åtkomst som använd
 
 **InputClaims** -elementet innehåller en lista över anspråk att skicka till villkorlig åtkomst. Du kan också mappa namnet på ditt anspråk till namnet som definierats i den tekniska profilen för villkorlig åtkomst.
 
-| ClaimReferenceId | Krävs | Datatyp | Beskrivning |
+| ClaimReferenceId | Obligatorisk | Datatyp | Beskrivning |
 | --------- | -------- | ----------- |----------- |
 | ChallengesSatisfied | Ja | stringCollection| Listan över uppfyllda utmaningar för att åtgärda det identifierade hotet som en återgång från utvärderings läget, utmaningarna är anspråk på.|
 
@@ -521,3 +521,7 @@ Följande är ett exempel på en förlitande parts fil som hänvisar till den h�
   </RelyingParty>
 </TrustFrameworkPolicy>
 ```
+
+## <a name="next-steps"></a>Nästa steg
+
+- Du kan hitta ett exempel på en princip för villkorlig åtkomst på [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).

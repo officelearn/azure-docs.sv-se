@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 3950cc16cd8661ee4e509cf14d12f561cb29c4ea
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 4328d1da8c82bc09aa8353838d08c31ea77f58aa
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940713"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043399"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Vad är nytt i Azure SQL Database & SQL-hanterad instans?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ Den här tabellen ger en snabb jämförelse mellan ändringen i terminologin:
 |**Azure SQL Database**|Azure SQL Database *enskild databas*| Om inget annat uttryckligen anges innehåller produkt namnet Azure SQL Database både enkla databaser och databaser som distribueras till en elastisk pool. |
 |**Azure SQL Database**|Azure SQL Database *elastisk pool*| Om inget annat uttryckligen anges innehåller produkt namnet Azure SQL Database både enkla databaser och databaser som distribueras till en elastisk pool.  |
 |**Azure SQL Database** |Azure SQL Database | Även om villkoret förblir detsamma gäller det nu bara för distributioner av en enskild databas och elastisk pool, och omfattar inte hanterade instanser. |
-| **Azure SQL**| E.t. | Detta avser en familj av SQL Server databas motor produkter som är tillgängliga i Azure: Azure SQL Database, Azure SQL-hanterad instans och SQL Server på virtuella Azure-datorer. | 
+| **Azure SQL**| Saknas | Detta avser en familj av SQL Server databas motor produkter som är tillgängliga i Azure: Azure SQL Database, Azure SQL-hanterad instans och SQL Server på virtuella Azure-datorer. | 
 
 ## <a name="features-in-public-preview"></a>Funktioner i offentlig för hands version
 
@@ -64,6 +64,7 @@ Den här tabellen ger en snabb jämförelse mellan ändringen i terminologin:
 
 | Funktion | Information |
 | ---| --- |
+| <a href="/azure/azure-sql/database/elastic-transactions-overview">Distribuerade transaktioner</a> | Distribuerade transaktioner över hanterade instanser. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Instanspooler</a> | Ett bekvämt och kostnads effektivt sätt att migrera mindre SQL-instanser till molnet. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Azure AD server-huvudobjekt på instans nivå (inloggningar)</a> | Skapa inloggningar på instans nivå med hjälp av instruktionen <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Skapa inloggning från extern provider</a> . |
 | [Transaktionell replikering](../managed-instance/replication-transactional-overview.md) | Replikera ändringarna från dina tabeller till andra databaser i SQL-hanterad instans, SQL Database eller SQL Server. Eller uppdatera dina tabeller när några rader ändras i andra instanser av SQL-hanterad instans eller SQL Server. Mer information finns i [Konfigurera replikering i Azure SQL-hanterad instans](../managed-instance/replication-between-two-instances-configure-tutorial.md). |

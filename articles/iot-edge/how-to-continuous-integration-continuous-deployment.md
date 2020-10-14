@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d29a5a6d0d4745655ce5b6d0cead3eaba77ed423
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57031d4ccdfdba73b8b36c8dc943280a8280ffcc
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281634"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048533"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge enheter
 
@@ -21,7 +21,7 @@ Du kan enkelt införa DevOps med dina Azure IoT Edge-program med de inbyggda Azu
 
 ![Diagram – CI-och CD-grenar för utveckling och produktion](./media/how-to-continuous-integration-continuous-deployment/model.png)
 
-I den här artikeln får du lära dig hur du använder de inbyggda [Azure IoT Edge uppgifterna](https://docs.microsoft.com/azure/devops/pipelines/tasks/build/azure-iot-edge) för Azure-pipelines för att skapa build-och release-pipeliner för din IoT Edge-lösning. Varje Azure IoT Edge aktivitet som läggs till i din pipeline implementerar någon av följande fyra åtgärder:
+I den här artikeln får du lära dig hur du använder de inbyggda [Azure IoT Edge uppgifterna](/azure/devops/pipelines/tasks/build/azure-iot-edge) för Azure-pipelines för att skapa build-och release-pipeliner för din IoT Edge-lösning. Varje Azure IoT Edge aktivitet som läggs till i din pipeline implementerar någon av följande fyra åtgärder:
 
  | Åtgärd | Beskrivning |
  | --- | --- |
@@ -32,25 +32,25 @@ I den här artikeln får du lära dig hur du använder de inbyggda [Azure IoT Ed
 
 Om inget annat anges utforskar procedurerna i den här artikeln inte alla funktioner som är tillgängliga via aktivitets parametrar. Mer information finns i följande:
 
-* [Uppgifts version](https://docs.microsoft.com/azure/devops/pipelines/process/tasks?view=azure-devops&tabs=classic#task-versions)
+* [Uppgifts version](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-versions)
 * **Avancerat** – om tillämpligt, anger du moduler som du inte vill ska skapas.
-* [Kontroll alternativ](https://docs.microsoft.com/azure/devops/pipelines/process/tasks?view=azure-devops&tabs=classic#task-control-options)
-* [Miljövariabler](https://docs.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#environment-variables)
-* [Variabler för utdata](https://docs.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#use-output-variables-from-tasks)
+* [Kontroll alternativ](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-control-options)
+* [Miljövariabler](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#environment-variables)
+* [Variabler för utdata](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#use-output-variables-from-tasks)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Azure databaser-lagringsplats. Om du inte har någon kan du [skapa en ny git-lagrings platsen i projektet](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav). I den här artikeln har vi skapat ett lagrings lager med namnet **IoTEdgeRepo**.
-* En IoT Edge lösning har allokerats och skickas till din lagrings plats. Om du vill skapa en ny exempel lösning för att testa den här artikeln följer du stegen i [utveckla och felsöka moduler i Visual Studio Code](how-to-vs-code-develop-module.md) eller [utveckla och felsöka C#-moduler i Visual Studio](how-to-visual-studio-develop-csharp-module.md). I den här artikeln har vi skapat en lösning i vårt lagrings lager som kallas **IoTEdgeSolution**, som har koden för en modul med namnet **filtermodule**.
+* En Azure databaser-lagringsplats. Om du inte har någon kan du [skapa en ny git-lagrings platsen i projektet](/azure/devops/repos/git/create-new-repo?tabs=new-nav&view=vsts). I den här artikeln har vi skapat ett lagrings lager med namnet **IoTEdgeRepo**.
+* En IoT Edge lösning har allokerats och skickas till din lagrings plats. Om du vill skapa en ny exempel lösning för att testa den här artikeln följer du stegen i [utveckla och felsöka moduler i Visual Studio Code](how-to-vs-code-develop-module.md) eller [utveckla och felsöka C#-moduler i Visual Studio](./how-to-visual-studio-develop-module.md). I den här artikeln har vi skapat en lösning i vårt lagrings lager som kallas **IoTEdgeSolution**, som har koden för en modul med namnet **filtermodule**.
 
    Allt du behöver i den här artikeln är mappen Solution som skapats av IoT Edge mallar i antingen Visual Studio Code eller Visual Studio. Du behöver inte bygga, skicka, distribuera eller Felsöka den här koden innan du fortsätter. Du konfigurerar dessa processer i Azure-pipeliner.
 
    Om du skapar en ny lösning ska du klona din lagrings plats lokalt först. När du sedan skapar lösningen kan du välja att skapa den direkt i databasmappen. Du kan enkelt bekräfta och skicka de nya filerna därifrån.
 
-* Ett behållar register där du kan push-modul avbildningar. Du kan använda [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) eller ett register från en tredje part.
+* Ett behållar register där du kan push-modul avbildningar. Du kan använda [Azure Container Registry](../container-registry/index.yml) eller ett register från en tredje part.
 * En aktiv Azure [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) med minst två IoT Edge enheter för att testa de separata distributions faserna för test och produktion. Du kan följa snabb starts artiklarna för att skapa en IoT Edge-enhet i [Linux](quickstart-linux.md) eller [Windows](quickstart.md)
 
-Mer information om hur du använder Azure-databaser finns i [dela din kod med Visual Studio och Azure databaser](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts)
+Mer information om hur du använder Azure-databaser finns i [dela din kod med Visual Studio och Azure databaser](/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts)
 
 ## <a name="create-a-build-pipeline-for-continuous-integration"></a>Skapa en pipeline för att skapa en kontinuerlig integrering
 
@@ -112,13 +112,13 @@ I det här avsnittet skapar du en ny versions pipeline. Du konfigurerar pipeline
        | --- | --- |
        | Källmapp | Källmappen att kopiera från. Tom är roten i lagrings platsen. Använd variabler om filerna inte finns i lagrings platsen. Exempel: `$(agent.builddirectory)`.
        | Innehåll | Lägg till två rader: `deployment.template.json` och `**/module.json` . |
-       | Målmapp | Ange variabeln `$(Build.ArtifactStagingDirectory)` . Se [build-variabler](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) för att lära dig mer om beskrivningen. |
+       | Målmapp | Ange variabeln `$(Build.ArtifactStagingDirectory)` . Se [build-variabler](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) för att lära dig mer om beskrivningen. |
 
    * Uppgift: **publicera Bygg artefakter**
 
        | Parameter | Beskrivning |
        | --- | --- |
-       | Sökväg för att publicera | Ange variabeln `$(Build.ArtifactStagingDirectory)` . Se [build-variabler](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) för att lära dig mer om beskrivningen. |
+       | Sökväg för att publicera | Ange variabeln `$(Build.ArtifactStagingDirectory)` . Se [build-variabler](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) för att lära dig mer om beskrivningen. |
        | Artefaktnamn | Ange standard namnet: `drop` |
        | Plats för artefakt publicering | Använd standard platsen: `Azure Pipelines` |
 

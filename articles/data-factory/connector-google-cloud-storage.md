@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 24f9b7655398cbd6a2621edb61d67d4fc4edfb52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a916da121c8ffee1729ede6dd700ca4f6872fbf7
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332040"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043518"
 ---
 # <a name="copy-data-from-google-cloud-storage-by-using-azure-data-factory"></a>Kopiera data från Google Cloud Storage med hjälp av Azure Data Factory
 
@@ -34,7 +34,7 @@ Den här Google Cloud Storage-anslutningen stöds för följande aktiviteter:
 
 Mer specifikt stöder den här Google Cloud Storage Connector kopiering av filer som är eller parsar filer med [fil format och komprimerings-codec som stöds](supported-file-formats-and-compression-codecs.md). Det drar nytta av GC generationer: s S3-kompatibla interoperabilitet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande inställningar krävs på ditt Google Cloud Storage-konto:
 
@@ -47,7 +47,11 @@ Följande inställningar krävs på ditt Google Cloud Storage-konto:
 
 ## <a name="required-permissions"></a>Behörigheter som krävs
 
-Om du vill kopiera data från Google Cloud Storage kontrollerar du att du har beviljat de behörigheter som krävs. Behörigheterna som definieras i tjänst kontot kan innehålla `storage.buckets.get` , `storage.buckets.list` eller `storage.objects.get` för objekt åtgärder.
+Om du vill kopiera data från Google Cloud Storage kontrollerar du att du har beviljats följande behörigheter för objekt åtgärder: ` storage.objects.get` och ` storage.objects.list` .
+
+Om du använder Data Factory gränssnittet för att redigera ` storage.buckets.list` krävs ytterligare behörighet för åtgärder som att testa anslutningen till den länkade tjänsten och surfa från roten. Om du inte vill tilldela den här behörigheten kan du välja alternativen "Testa anslutning till fil Sök väg" eller "Bläddra från angiven sökväg" från användar gränssnittet.
+
+En fullständig lista över Google Cloud Storage-roller och tillhör ande behörigheter finns i [IAM-roller för moln lagring](https://cloud.google.com/storage/docs/access-control/iam-roles) på Google Cloud-webbplatsen.
 
 ## <a name="getting-started"></a>Komma igång
 

@@ -9,18 +9,18 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: b9451bcf6f67eb6afc6d06f4aa0cbec83ce75d6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1e34bacb905bf48fc5f7cd44e66cf4a4326de91
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855267"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044657"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudie: utveckla en C# IoT Edge-modul för Windows-enheter
 
 Använd Visual Studio för att utveckla C#-kod och distribuera den till en Windows-enhet som kör Azure IoT Edge.
 
-Du kan använda Azure IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. I den här guiden får du lära dig att:
+Du kan använda Azure IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -50,8 +50,8 @@ Innan du påbörjar den här självstudien bör du ha gått igenom föregående 
 
 * En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på kostnadsfri nivå eller standardnivå i Azure.
 * En [Windows-enhet som kör Azure IoT Edge](quickstart.md).
-* Ett behållar register som [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) konfigurerat med [Azure IoT Edge tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) -tillägget.
+* Ett behållar register som [Azure Container Registry](../container-registry/index.yml).
+* [Visual Studio 2019](/visualstudio/install/install-visual-studio) konfigurerat med [Azure IoT Edge tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) -tillägget.
 * [Docker Desktop](https://docs.docker.com/docker-for-windows/install/) konfigurerat för att köra Windows-behållare.
 
 > [!TIP]
@@ -77,7 +77,7 @@ Azure IoT Edge-verktygen tillhandahåller projektmallar för alla språk som st�
 
 4. Konfigurera ditt projekt med följande värden:
 
-   | Field | Värde |
+   | Fält | Värde |
    | ----- | ----- |
    | Välj en mall | Välj **C#-modul**. |
    | Modulnamn projekt namn | Ge modulen namnet **CSharpModule**. |

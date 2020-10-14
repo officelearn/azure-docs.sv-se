@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: c78cfd2a453a082ce3f352504719a7fb8cc2b8ec
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: f8f5d41b7f4df3cd82a388bc24ccc8fa5a9a91f6
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875962"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044113"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor-loggar    
 
@@ -102,7 +102,7 @@ Prenumerationer som hade en Log Analytics arbets yta eller Application Insights 
 
 Användningen på den fristående pris nivån debiteras av den inmatade data volymen. Den rapporteras i **log Analyticss** tjänsten och mätaren heter "data analysed". 
 
-Pris nivå avgifter per nod per övervakad virtuell dator (nod) på en tids kornig het. För varje övervakad nod allokeras arbets ytan 500 MB data per dag som inte faktureras. Den här allokeringen sammanställs på arbets ytans nivå. Data som matats in ovanför den sammanställda dagliga data tilldelningen faktureras per GB som överanvändning av data. Observera att tjänsten **Insight and Analytics** för att Log Analytics användning om arbets ytan finns på pris nivån per nod på din faktura. Användningen rapporteras enligt tre meter:
+Pris nivå avgifter per nod per övervakad virtuell dator (nod) på en tids kornig het. För varje övervakad nod allokeras arbets ytan 500 MB data per dag som inte faktureras. Den här allokeringen beräknas med Tim kornig het och sammanställs på arbets ytans nivå varje dag. Data som matats in ovanför den sammanställda dagliga data tilldelningen faktureras per GB som överanvändning av data. Observera att tjänsten **Insight and Analytics** för att Log Analytics användning om arbets ytan finns på pris nivån per nod på din faktura. Användningen rapporteras enligt tre meter:
 
 1. Nod: det här är användning för antalet övervakade noder (VM: ar) i antal noder * månader.
 2. Överanvändning per nod: Detta är antalet GB data som matas in utöver den aggregerade data tilldelningen.
@@ -125,6 +125,10 @@ Ingen av de äldre pris nivåerna har regional-baserade priser.
 
 > [!NOTE]
 > Om du vill använda rättigheterna som kommer från inköp av OMS E1 Suite, OMS E2 Suite eller OMS Add-On för System Center väljer du pris nivån Log Analytics *per nod* .
+
+## <a name="log-analytics-and-security-center"></a>Log Analytics och Security Center
+
+[Azure Security Center](https://docs.microsoft.com/azure/security-center/) faktureringen är nära knuten till Log Analytics fakturering. Security Center ger 500 MB/nod/dag-allokering mot en uppsättning [säkerhets data typer](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) och data typerna Update och UpdateSummary när uppdateringshantering-lösningen inte körs på arbets ytan eller lösnings målet har Aktiver ATS. Om arbets ytan är på pris nivån bakåtkompatibelt per nod, kombineras Security Center-och Log Analytics tilldelningarna gemensamt för alla fakturerbara inmatade data.  
 
 ## <a name="change-the-data-retention-period"></a>Ändra kvarhållningsperioden för data
 
@@ -284,6 +288,24 @@ find where TimeGenerated > ago(24h) project _BilledSize, Computer
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
+### <a name="nodes-billed-by-the-legacy-per-node-pricing-tier"></a>Noder debiteras av pris nivån Legacy per nod
+
+Den [bakåtkompatibla pris nivån per nod](#legacy-pricing-tiers) faktureras för noder med timkostnad och räknar inte bara noder som bara skickar en uppsättning säkerhets data typer. Det dagliga antalet noder är nära följande fråga:
+
+```kusto
+find where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now()) project Computer, _IsBillable, Type, TimeGenerated
+| where Type !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| where _IsBillable == true
+| summarize billableNodesPerHour=dcount(computerName) by bin(TimeGenerated, 1h)
+| summarize billableNodesPerDay = sum(billableNodesPerHour)/24., billableNodeMonthsPerDay = sum(billableNodesPerHour)/24./31.  by day=bin(TimeGenerated, 1d)
+| sort by day asc
+```
+
+Antalet enheter på fakturan är i antal noder * månader som representeras av `billableNodeMonthsPerDay` i frågan. Om den Uppdateringshantering lösningen är installerad på arbets ytan lägger du till data typerna Update och UpdateSummary i listan i WHERE-satsen i ovanstående fråga. Slutligen finns det ytterligare komplexitet i den faktiska fakturerings algoritmen när lösnings mål används som inte representeras i ovanstående fråga. 
+
+
 > [!TIP]
 > Använd dessa `find` frågor sparsamt eftersom genomsökningar över data typer är [resurs krävande](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) att köra. Om du inte behöver några resultat **per dator** frågar du efter användnings data typen (se nedan).
 
@@ -338,7 +360,7 @@ Usage
 | where TimeGenerated > ago(32d)
 | where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000 by Solution, DataType
+| summarize BillableDataGB = sum(Quantity) by Solution, DataType
 | sort by Solution asc, DataType asc
 ```
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f2cef34413f46608e8bc35a009a29212af5ddf20
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: bb35b81a287179900485c7190a57c492cfc39203
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893602"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043042"
 ---
 # <a name="write-client-app-authentication-code"></a>Skriv kod för klientautentisering för klient program
 
@@ -22,7 +22,7 @@ Azure Digitals dubblare utför autentisering med [Azure AD-säkerhetstoken baser
 
 I den här artikeln beskrivs hur du hämtar autentiseringsuppgifter med hjälp av `Azure.Identity` klient biblioteket. Även om den här artikeln visar kod exempel i C#, till exempel vad du skriver för [.net (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core), kan du använda en version av `Azure.Identity` oavsett vilken SDK du använder (mer information om SDK: er som är tillgängliga för Azure Digitals finns i [*How-to: använda Azures digitala dubbla API: er och SDK: er*](how-to-use-apis-sdks.md)).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför först installations stegen i [*anvisningar: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md). På så sätt ser du till att du har en Azure Digitals-instans, att användaren har åtkomst behörighet och att du har konfigurerat behörigheter för klient program. När du har konfigurerat den här konfigurationen är du redo att skriva kod för klient program.
 
@@ -31,15 +31,15 @@ Om du vill fortsätta måste du ha ett klient-app-projekt där du skriver koden.
 ## <a name="common-authentication-methods-with-azureidentity"></a>Vanliga autentiseringsmetoder med Azure. Identity
 
 `Azure.Identity` är ett klient bibliotek som tillhandahåller flera olika autentiseringsuppgifter för att hämta metoder som du kan använda för att hämta en Bearer-token och autentisera med ditt SDK. Även om den här artikeln innehåller exempel i C#, kan du Visa `Azure.Identity` för flera språk, inklusive...
-* [.NET (C#)](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)
-* [Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true)
-* [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true)
-* [Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true)
+* [.NET (C#)](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet)
+* [Java](/java/api/overview/azure/identity-readme?preserve-view=true&view=azure-java-stable)
+* [JavaScript](/javascript/api/overview/azure/identity-readme?preserve-view=true&view=azure-node-latest)
+* [Python](/python/api/overview/azure/identity-readme?preserve-view=true&view=azure-python)
 
 Tre vanliga autentiseringsuppgifter för att hämta metoder i `Azure.Identity` är:
-* [DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) tillhandahåller ett standard `TokenCredential` flöde för autentisering för program som ska distribueras till Azure och är **det rekommenderade alternativet för lokal utveckling**. Den kan också aktive ras för att prova de andra två metoderna som rekommenderas i den här artikeln. den radbryts `ManagedIdentityCredential` och kan komma åt `InteractiveBrowserCredential` med en konfigurations variabel.
-* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) fungerar bra i de fall där du behöver [hanterade identiteter (MSI)](../active-directory/managed-identities-azure-resources/overview.md)och är en bra kandidat för att arbeta med Azure Functions och distribuera till Azure-tjänster.
-* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) är avsett för interaktiva program och kan användas för att skapa en autentiserad SDK-klient
+* [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) tillhandahåller ett standard `TokenCredential` flöde för autentisering för program som ska distribueras till Azure och är **det rekommenderade alternativet för lokal utveckling**. Den kan också aktive ras för att prova de andra två metoderna som rekommenderas i den här artikeln. den radbryts `ManagedIdentityCredential` och kan komma åt `InteractiveBrowserCredential` med en konfigurations variabel.
+* [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) fungerar bra i de fall där du behöver [hanterade identiteter (MSI)](../active-directory/managed-identities-azure-resources/overview.md)och är en bra kandidat för att arbeta med Azure Functions och distribuera till Azure-tjänster.
+* [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) är avsett för interaktiva program och kan användas för att skapa en autentiserad SDK-klient
 
 I följande exempel visas hur du använder var och en av dessa med .NET (C#) SDK.
 
@@ -60,7 +60,7 @@ Lägg sedan till kod för att hämta autentiseringsuppgifter med någon av metod
 
 ### <a name="defaultazurecredential-method"></a>DefaultAzureCredential-metod
 
-[DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) tillhandahåller ett standard `TokenCredential` flöde för autentisering för program som ska distribueras till Azure och är **det rekommenderade alternativet för lokal utveckling**.
+[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) tillhandahåller ett standard `TokenCredential` flöde för autentisering för program som ska distribueras till Azure och är **det rekommenderade alternativet för lokal utveckling**.
 
 Om du vill använda Azures standard inloggnings uppgifter behöver du Azure Digital-instansen URL ([instruktioner för att hitta](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
@@ -86,7 +86,7 @@ try
 
 ### <a name="managedidentitycredential-method"></a>ManagedIdentityCredential-metod
 
-Metoden [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) fungerar bra i de fall där du behöver [hanterade identiteter (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), till exempel när du arbetar med Azure Functions.
+Metoden [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) fungerar bra i de fall där du behöver [hanterade identiteter (MSI)](../active-directory/managed-identities-azure-resources/overview.md), till exempel när du arbetar med Azure Functions.
 
 Det innebär att du kan använda `ManagedIdentityCredential` i samma projekt som `DefaultAzureCredential` eller `InteractiveBrowserCredential` , för att autentisera en annan del av projektet.
 
@@ -103,7 +103,7 @@ client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 
 ### <a name="interactivebrowsercredential-method"></a>InteractiveBrowserCredential-metod
 
-[InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) -metoden är avsedd för interaktiva program och kommer att hämta en webbläsare för autentisering. Du kan använda det här i stället för `DefaultAzureCredential` i fall där du kräver interaktiv autentisering.
+[InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) -metoden är avsedd för interaktiva program och kommer att hämta en webbläsare för autentisering. Du kan använda det här i stället för `DefaultAzureCredential` i fall där du kräver interaktiv autentisering.
 
 Om du vill använda autentiseringsuppgifter för den interaktiva webbläsaren behöver du en **registrerad app-registrering** som har behörighet till Azure Digitals dubbla API: er. Anvisningar om hur du konfigurerar den här appen finns i avsnittet [*Konfigurera åtkomst behörigheter för klient program*](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) i *anvisningar: Konfigurera en instans och autentisering*. När appens registrering har kon figurer ATS behöver du...
 * app-programmets registrerings *program (klient) ID*
@@ -142,8 +142,8 @@ try
 Se [*anvisningar: Konfigurera en Azure-funktion för att bearbeta data*](how-to-create-azure-function.md) för ett mer komplett exempel som förklarar några av de viktiga konfigurations alternativen i kontexten för functions.
 
 Om du vill använda autentisering i en funktion måste du också komma ihåg att:
-* [Aktivera hanterad identitet](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
-* Använd [miljövariabler](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables?tabs=csharp) efter behov
+* [Aktivera hanterad identitet](../app-service/overview-managed-identity.md?tabs=dotnet)
+* Använd [miljövariabler](/sandbox/functions-recipes/environment-variables?tabs=csharp) efter behov
 * Tilldela behörigheter till Functions-appen som möjliggör åtkomst till digitala dubbla API: er. Mer information om Azure Functions-processer finns i [*instruktion: Konfigurera en Azure-funktion för bearbetning av data*](how-to-create-azure-function.md).
 
 ## <a name="other-credential-methods"></a>Andra autentiseringsmetoder

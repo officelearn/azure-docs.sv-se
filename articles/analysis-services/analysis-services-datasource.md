@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 174ad4692d043390e6773a98e31f0985d75c8e2e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749082"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018822"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
 
@@ -24,12 +24,12 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Ja      |    Ja      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
 |Azure Synapse Analytics (SQL DW)      |   Ja      |   Ja       |<sup>[11.2](#azprovider)</sup>|
-|Azure Blob Storage      |   Ja       |    Inga      | <sup>[1](#tab1400a)</sup> |
-|Azure Table Storage     |   Ja       |    Inga      | <sup>[1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  Ja        |  Inga        |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen1      |   Ja       |    Inga      |<sup>[1](#tab1400a)</sup> |
+|Azure Blob Storage      |   Ja       |    Inga      | <sup>[81.1](#tab1400a)</sup> |
+|Azure Table Storage     |   Ja       |    Inga      | <sup>[81.1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  Ja        |  Inga        |<sup>[81.1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen1      |   Ja       |    Inga      |<sup>[81.1](#tab1400a)</sup> |
 |Azure Data Lake Store Gen2       |   Ja       |    Inga      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
-|Azure HDInsight HDFS    |     Ja     |   Inga       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight HDFS    |     Ja     |   Inga       |<sup>[81.1](#tab1400a)</sup> |
 |Azure HDInsight Spark     |   Ja       |   Inga       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
 
@@ -43,7 +43,7 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 
 ## <a name="other-data-sources"></a>Andra datakällor
 
-|Datakälla | Minnesintern | DirectQuery |Obs!   |
+|Datakälla | Minnesintern | DirectQuery |Kommentarer   |
 |  --- | --- | --- | --- |
 |Access-databas     |  Ja | Inga |  |
 |Active Directory     |  Ja | Inga | <sup>[3-6](#tab1400b)</sup>  |
@@ -79,7 +79,7 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 **Anteckningar:**  
 <a name="tab1400b">6</a> -tabell 1400 och högre modeller.  
 <a name="sqlim">7</a> – när du har angett som en *Provider* -datakälla i tabell 1200 och högre modeller, anger du Microsoft OLE DB driv rutin för SQL Server MSOLEDBSQL (rekommenderas), SQL Server Native Client 11,0 eller .NET Framework Data Provider för SQL Server.  
-<a name="instgw">8</a> – om du anger MSOLEDBSQL som dataprovider kan det vara nödvändigt att ladda ned och installera [Microsoft OLE DB-drivrutinen för SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) på samma dator som den lokala datagatewayen.  
+<a name="instgw">8</a> – om du anger MSOLEDBSQL som dataprovider kan det vara nödvändigt att ladda ned och installera [Microsoft OLE DB-drivrutinen för SQL Server](/sql/connect/oledb/oledb-driver-for-sql-server) på samma dator som den lokala datagatewayen.  
 <a name="oracle">9</a> – för tabell 1200-modeller, eller som en *Provider* -datakälla i tabell 1400 +-modeller, anger du Oracle Data Provider för .net. Om det har angetts som en strukturerad data källa, se till att [Aktivera Oracle-Hanterad provider](#enable-oracle-managed-provider).   
 <a name="teradata">10</a> – för tabell 1200-modeller, eller som en *Provider* -datakälla i tabell 1400 +-modeller, anger du Teradata-dataprovider för .net.  
 <a name="filesSP">11</a> -filer i lokala SharePoint-versioner stöds inte.

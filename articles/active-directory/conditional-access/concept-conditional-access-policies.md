@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ab632010ec2bbbc19ac71cbeccab2ff6b3565f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a79b046170a5a3f3574895490aa649fd02da082
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948393"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016135"
 ---
 # <a name="building-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
@@ -126,6 +126,8 @@ En princip för villkorlig åtkomst måste innehålla minst följande för att k
 Artikeln [vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md) innehåller vissa principer som vi tror är användbara för de flesta organisationer.
 
 ## <a name="next-steps"></a>Nästa steg
+
+[Skapa en princip för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json#create-a-conditional-access-policy)
 
 [Simulera inloggnings beteende med hjälp av What If verktyget för villkorlig åtkomst](troubleshoot-conditional-access-what-if.md)
 

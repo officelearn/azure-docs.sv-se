@@ -7,23 +7,23 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d6b737985bc19aa09b26bb0d4a65696a364a903a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45ea75b65e75f9bac4d6d4839ffe7fa095e3b25d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83697591"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018784"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Distribuera en modell från Visual Studio
 
 När du har skapat en server i din Azure-prenumeration är du redo att distribuera en tabellmodelldatabas till den. Du kan använda Visual Studio med Analysis Services projekt för att bygga och distribuera ett tabell modell projekt som du arbetar med. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att komma igång:
 
 * **Analysis Services-server** i Azure. Läs mer i [Skapa en Azure Analysis Services-server](analysis-services-create-server.md).
-* **Tabell modell projekt** i Visual Studio eller en befintlig tabell modell på kompatibilitetsnivån 1200 eller högre. Har du aldrig skapat någon? Testa [Självstudier för Adventure Works Internetförsäljning – tabellmodell ](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial).
+* **Tabell modell projekt** i Visual Studio eller en befintlig tabell modell på kompatibilitetsnivån 1200 eller högre. Har du aldrig skapat någon? Testa [Självstudier för Adventure Works Internetförsäljning – tabellmodell ](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial).
 * **Lokala gateway** – Om en eller flera datakällor finns lokalt i din organisations nätverk måste du installera en [lokal datagateway](analysis-services-gateway.md). Gatewayen är nödvändig för att din server i molnet ska kunna ansluta till dina lokala datakällor för att bearbeta och uppdatera data i modellen.
 
 > [!TIP]
@@ -63,7 +63,4 @@ Om distributionen misslyckas för en tabell beror det förmodligen på att serve
 
 Nu när du har distribuerat en tabellmodell till servern är du redo att ansluta till den. Du kan [ansluta till den med SQL Server Management Studio (SSMS)](analysis-services-manage.md) för att hantera den. Och du kan [ansluta till den med ett klientverktyg](analysis-services-connect.md), till exempel Power BI, Power BI Desktop eller Excel, och börja skapa rapporter.   
 
-Mer information om avancerade distributions metoder finns i [distribution av tabell modell lösning](https://docs.microsoft.com/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current).
-
-
-
+Mer information om avancerade distributions metoder finns i [distribution av tabell modell lösning](/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current).

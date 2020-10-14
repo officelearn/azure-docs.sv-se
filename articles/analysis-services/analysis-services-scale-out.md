@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 33f42b1d01bd0a39a268d9425a8406f976534634
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24ee31b941d836d296c30927cfb9636f3023fa89
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90007714"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019449"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Utskalning för Azure Analysis Services
 
@@ -46,9 +46,9 @@ När du utför en efterföljande skalnings åtgärd, till exempel ökar antalet 
 
 * Synkronisering tillåts även när det inte finns några repliker i frågesyntaxen. Om du skalar bort från noll till en eller flera repliker med nya data från en bearbetnings åtgärd på den primära servern, ska du först utföra synkroniseringen utan repliker i frågesyntaxen och sedan skala ut. Om du synkroniserar innan du skalar ut undviker du redundanta hydrering av de nyligen tillagda replikerna.
 
-* När du tar bort en modell databas från den primära servern tas den inte automatiskt bort från repliker i frågesyntaxen. Du måste utföra en synkroniseringsåtgärd med hjälp av PowerShell [-kommandot Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) som tar bort filen/erna för databasen från replikens delade Blob Storage-plats och sedan tar bort modell databasen på replikerna i frågesyntaxen. För att avgöra om en modell databas finns på repliker i frågesyntaxen men inte på den primära servern, kontrollerar du att inställningen för att **bearbeta servern från fråga pool** är **Ja**. Använd sedan SSMS för att ansluta till den primära servern med hjälp av `:rw` kvalificeraren för att se om databasen finns. Anslut sedan till repliker i lagringspoolen genom att ansluta utan `:rw` kvalificeraren för att se om samma databas också finns. Om databasen finns på repliker i frågesyntaxen, men inte på den primära servern, kör du en synkronisering.   
+* När du tar bort en modell databas från den primära servern tas den inte automatiskt bort från repliker i frågesyntaxen. Du måste utföra en synkroniseringsåtgärd med hjälp av PowerShell [-kommandot Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) som tar bort filen/erna för databasen från replikens delade Blob Storage-plats och sedan tar bort modell databasen på replikerna i frågesyntaxen. För att avgöra om en modell databas finns på repliker i frågesyntaxen men inte på den primära servern, kontrollerar du att inställningen för att **bearbeta servern från fråga pool** är **Ja**. Använd sedan SSMS för att ansluta till den primära servern med hjälp av `:rw` kvalificeraren för att se om databasen finns. Anslut sedan till repliker i lagringspoolen genom att ansluta utan `:rw` kvalificeraren för att se om samma databas också finns. Om databasen finns på repliker i frågesyntaxen, men inte på den primära servern, kör du en synkronisering.   
 
-* När du byter namn på en databas på den primära servern finns det ett ytterligare steg som krävs för att säkerställa att databasen är korrekt synkroniserad med alla repliker. När du har bytt namn utför du en synkronisering genom att använda kommandot [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) `-Database` och ange parametern med det gamla databas namnet. Den här synkroniseringen tar bort databasen och filerna med det gamla namnet från alla repliker. Utför sedan en annan synkronisering som anger `-Database` parametern med det nya databas namnet. Den andra synkroniseringen kopierar den nyligen namngivna databasen till den andra uppsättningen filer och dehydratiserar alla repliker. De här Synkroniseringarna kan inte utföras med kommandot Synchronize Model i portalen.
+* När du byter namn på en databas på den primära servern finns det ett ytterligare steg som krävs för att säkerställa att databasen är korrekt synkroniserad med alla repliker. När du har bytt namn utför du en synkronisering genom att använda kommandot [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) `-Database` och ange parametern med det gamla databas namnet. Den här synkroniseringen tar bort databasen och filerna med det gamla namnet från alla repliker. Utför sedan en annan synkronisering som anger `-Database` parametern med det nya databas namnet. Den andra synkroniseringen kopierar den nyligen namngivna databasen till den andra uppsättningen filer och dehydratiserar alla repliker. De här Synkroniseringarna kan inte utföras med kommandot Synchronize Model i portalen.
 
 ### <a name="synchronization-mode"></a>Synkroniseringstillstånd
 
@@ -138,7 +138,7 @@ Retur status koder:
 |-1     |  Ogiltig       |
 |0     | Replikera        |
 |1     |  Återuppväcks       |
-|2     |   Slutfört       |
+|2     |   Slutförd       |
 |3     |   Misslyckades      |
 |4     |    Slutför     |
 |||
@@ -150,11 +150,11 @@ Retur status koder:
 
 [Installera eller uppdatera den senaste Azure PowerShell-modulen innan du](/powershell/azure/install-az-ps)använder PowerShell. 
 
-Om du vill köra synkronisering använder du [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
+Om du vill köra synkronisering använder du [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
 
-Använd [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)för att ange antalet repliker i frågan. Ange den valfria `-ReadonlyReplicaCount` parametern.
+Använd [set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver)för att ange antalet repliker i frågan. Ange den valfria `-ReadonlyReplicaCount` parametern.
 
-Om du vill separera bearbetnings servern från frågesyntaxen använder du [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Ange den valfria `-DefaultConnectionMode` parametern som ska användas `Readonly` .
+Om du vill separera bearbetnings servern från frågesyntaxen använder du [set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver). Ange den valfria `-DefaultConnectionMode` parametern som ska användas `Readonly` .
 
 Läs mer i [använda ett huvud namn för tjänsten med modulen AZ. AnalysisServices](analysis-services-service-principal.md#azmodule).
 
@@ -183,4 +183,4 @@ Du kan ändra pris nivån på en server med flera repliker. Samma pris nivå gä
 ## <a name="related-information"></a>Relaterad information
 
 [Övervaka Server mått](analysis-services-monitor.md)   
-[Hantera Azure Analysis Services](analysis-services-manage.md) 
+[Hantera Azure Analysis Services](analysis-services-manage.md)

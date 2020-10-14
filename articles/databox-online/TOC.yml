@@ -57,6 +57,8 @@
               href: azure-stack-edge-gpu-kubernetes-rbac.md
             - name: Kubernetes-arbetsbelastningar
               href: azure-stack-edge-gpu-kubernetes-workload-management.md
+        - name: Visa Key Vault-integrering
+          href: azure-stack-edge-gpu-activation-key-vault.md
     - name: Gör så här för att
       items:
         - name: Distribuera IoT Edge-exempel

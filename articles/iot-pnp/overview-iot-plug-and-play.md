@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 984977d7cef1a923bf7f17de0c503bddeeebcd82
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3a5d0ba92ab976f9ea3aa2722f92865f06d5a70e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998389"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045048"
 ---
 # <a name="what-is-iot-plug-and-play"></a>Vad är IoT Plug and Play?
 
@@ -26,7 +26,7 @@ IoT Plug and Play gör det möjligt för lösnings byggare att integrera smarta 
 
 Du kan gruppera dessa element i gränssnitt för att kunna använda olika modeller för att förenkla samarbetet och påskynda utvecklingen.
 
-Om du vill att IoT Plug and Play fungerar med [Azure Digitals](../digital-twins/about-digital-twins.md), definierar du modeller och gränssnitt med hjälp av [DTDL (Digitals Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl). IoT Plug and Play och DTDL är öppna för communityn och Microsoft välkomnar samarbetet med kunder, partner och branschen. Båda baseras på öppna W3C-standarder som JSON-LD och RDF, vilket gör det enklare att införa tjänster och verktyg.
+Om du vill att IoT Plug and Play fungerar med [Azure Digitals](../digital-twins/overview.md), definierar du modeller och gränssnitt med hjälp av [DTDL (Digitals Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl). IoT Plug and Play och DTDL är öppna för communityn och Microsoft välkomnar samarbetet med kunder, partner och branschen. Båda baseras på öppna W3C-standarder som JSON-LD och RDF, vilket gör det enklare att införa tjänster och verktyg.
 
 Det kostar inget extra att använda IoT Plug and Play och DTDL. Standardpriserna för [azure IoT Hub](../iot-hub/about-iot-hub.md) och andra Azure-tjänster förblir desamma.
 
@@ -74,4 +74,3 @@ Nu när du har en översikt över IoT Plug and Play är det föreslagna nästa s
 
 - [Anslut en enhet till IoT Hub (C)](./quickstart-connect-device-c.md)
 - [Interagera med en enhet från din lösning (Node.js)](./quickstart-service-node.md)
-

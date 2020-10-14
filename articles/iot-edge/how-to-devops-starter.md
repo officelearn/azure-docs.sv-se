@@ -7,12 +7,12 @@ ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f0f0452854ef7456d1bdf7caf0674fab5bd14557
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d57c1828b9456851d37a65b88eb5f8ea860a80fe
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297138"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045864"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Skapa en CI/CD-pipeline för IoT Edge med Azure DevOps starter
 
@@ -81,7 +81,7 @@ DevOps starter skapade en git-lagringsplats för ditt projekt i Azure databaser.
 
    ![Öppna module.jspå filen i Azure databaser](./media/how-to-devops-starter/open-module-json.png)
 
-3. Observera att den här filen använder [Azure DevOps build-variabler](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) i **versions** parametern. Den här konfigurationen säkerställer att en ny version av modulen skapas varje gång en ny version körs.
+3. Observera att den här filen använder [Azure DevOps build-variabler](/azure/devops/pipelines/build/variables?view=vsts#build-variables) i **versions** parametern. Den här konfigurationen säkerställer att en ny version av modulen skapas varje gång en ny version körs.
 
 ## <a name="examine-the-cicd-pipeline"></a>Granska CI/CD-pipelinen
 

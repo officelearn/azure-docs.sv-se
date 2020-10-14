@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 06/19/2020
 ms.author: alkohli
 ms.openlocfilehash: 526b3ad89e128d264b5d14d8cc87d9a81d431a9c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86210471"
 ---
-Innan du påbörjar data kopieringen:
+Innan du påbörjar datakopieringen:
 
-1. Hämta *kopierings loggen*. På sidan **Anslut och kopiera** väljer du **Kopiera logg**. När du uppmanas till det sparar du loggen på systemet. 
+1. Ladda ned *kopieringsloggen*. På sidan **Anslut och kopiera** väljer du **Kopieringslogg**. När du uppmanas till det sparar du loggen på systemet. 
 
-    ![Hämta kopierings logg 1](../articles/databox/media/data-box-deploy-export-copy-data/download-copy-log-1.png)
+    ![Ladda ned kopieringslogg 1](../articles/databox/media/data-box-deploy-export-copy-data/download-copy-log-1.png)
 
   
-    Upprepa stegen för att ladda ned *utförlig loggen*. 
+    Upprepa stegen för att ladda ned den *utförliga loggen*. 
 
-2. Granska *utförlig loggen*. *Utförlig logg* innehåller en lista över alla filer som har exporter ats från Azure Storage-kontot. Loggen innehåller också fil storlek och beräkning av kontroll summa.
+2. Granska den *utförliga loggen*. Den *utförliga loggen* innehåller en lista över alla filer som exporterades från Azure Storage-kontot. Loggen innehåller även filstorlek och beräkning av kontrollsumma.
 
     ```powershell
     <File CloudFormat="BlockBlob" Path="validblobdata/test1.2.3.4" Size="1024" crc64="7573843669953104266">
@@ -52,9 +52,9 @@ Innan du påbörjar data kopieringen:
     </File>
     ``````
 
-3. Granska *kopierings loggen* för eventuella fel. Den här loggen anger de filer som inte kunde kopieras på grund av fel.
+3. Granska *kopieringsloggen* för att se om det finns eventuella fel. Den här loggen anger de filer som inte kunde kopieras på grund av fel.
 
-    Här är ett exempel på utdata från kopierings loggen när det inte fanns några fel och alla filer kopierades under data kopieringen från Azure till Data Box-enhet enheten.
+    Här är exempelutdata från kopieringsloggen när det inte fanns några fel och alla filer kopierades under datakopieringen från Azure till Data Box-enheten.
 
     ```powershell
     <CopyLog Summary="Summary">
@@ -63,7 +63,7 @@ Innan du påbörjar data kopieringen:
       <FilesErrored>0</FilesErrored>
     </CopyLog>
     ``` 
-    Här är ett exempel på utdata när kopierings loggen innehåller fel och vissa av filerna inte kunde kopieras från Azure.
+    Här är exempelutdata när kopieringsloggen innehöll fel och vissa av filerna inte kunde kopieras från Azure.
 
     ```powershell
     <ErroredEntity CloudFormat="AppendBlob" Path="export-ut-appendblob/wastorage.v140.3.0.2.nupkg">
@@ -90,5 +90,5 @@ Innan du påbörjar data kopieringen:
 
     Du har följande alternativ för att exportera dessa filer: 
 
-    - Du kan överföra filerna som inte kunde kopieras över nätverket. 
-    - Om din data storlek är större än den användbara enhets kapaciteten, sker en partiell kopia och alla filer som inte kopierades visas i den här loggen. Du kan använda den här loggen som en XML-indata för att skapa en ny Data Box-enhets ordning och sedan kopiera över dessa filer.
+    - Du kan överföra de filer som inte kunde kopieras över nätverket. 
+    - Om datastorleken var större än den användbara enhetskapaciteten sker en partiell kopiering, och alla filer som inte kopierades visas i den här loggen. Du kan använda den här loggen som indata-XML för att skapa en ny Data Box-order och sedan kopiera över dessa filer.

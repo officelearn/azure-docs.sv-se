@@ -3,19 +3,19 @@ title: Vanliga frågor och svar om mått rådgivare
 titleSuffix: Azure Cognitive Services
 description: Vanliga frågor och svar om Metrics Advisor-tjänsten.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.author: aahi
-ms.openlocfilehash: e4a75bdd6147ee2189660c37062c5bec9d55d512
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: 42b23876761afa213b07f07b3a61e125dcf0824b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631755"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046816"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Vanliga frågor och svar om mått rådgivare
 
@@ -109,7 +109,7 @@ Om det inte finns några tröskelvärden kan du använda "Smart identifiering" s
 Om dina data normalt är instabila och varierar mycket, och du vill bli aviserad om det blir för stabilt eller till och med en plan, kan "ändra tröskel" konfigureras för att identifiera sådana data punkter när ändringen är för liten.
 Mer information finns i [konfigurationer för avvikelse identifiering](how-tos/configure-metrics.md#anomaly-detection-methods) .
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 - [Översikt över Metrics Advisor](overview.md)
 - [Prova demo webbplatsen](quickstarts/explore-demo.md)
 - [Använda webbportalen](quickstarts/web-portal.md)

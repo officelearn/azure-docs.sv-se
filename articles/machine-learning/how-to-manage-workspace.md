@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: d2885c6cc259cba74ab991ecf5046856984824f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0b5d3678c3d9c7e55eede13c630510df89d5128
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631262"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045575"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Skapa och hantera Azure Machine Learning arbets ytor i Azure Portal
 
@@ -24,7 +24,7 @@ I den här artikeln skapar du, visar och tar bort [**Azure Machine Learning arbe
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
-Du behöver en Azure-prenumeration för att skapa en arbets yta. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+Du behöver en Azure-prenumeration för att skapa en arbets yta. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) med hjälp av autentiseringsuppgifterna för din Azure-prenumeration. 
 
@@ -40,15 +40,12 @@ Du behöver en Azure-prenumeration för att skapa en arbets yta. Om du inte har 
 
 1. Ange följande information för att konfigurera din nya arbets yta:
 
-   Field|Beskrivning 
+   Fält|Beskrivning 
    ---|---
    Namn på arbetsyta |Ange ett unikt namn som identifierar din arbets yta. I det här exemplet använder vi **dokument-WS**. Namn måste vara unika i resurs gruppen. Använd ett namn som är enkelt att återkalla och särskilja från arbets ytor som skapats av andra. Namnet på arbets ytan är Skift läges okänsligt.
    Prenumeration |Välj den Azure-prenumeration som du vill använda.
    Resursgrupp | Använd en befintlig resursgrupp i din prenumeration eller ange ett namn för att skapa en ny resursgrupp. En resurs grupp innehåller relaterade resurser för en Azure-lösning. I det här exemplet använder vi **AML-dokument**. Du behöver *deltagar* -eller *ägar* rollen för att använda en befintlig resurs grupp.  Mer information om åtkomst finns i [Hantera åtkomst till en Azure Machine Learning-arbetsyta](how-to-assign-roles.md).
    Region | Välj den Azure-region som är närmast dina användare och data resurserna för att skapa din arbets yta.
-   Arbetsyte version | Välj **Basic** eller **Enterprise**.  Den här arbets ytans utgåva avgör vilka funktioner du kommer att ha åtkomst till och prissättning på. Läs mer om [Azure Machine Learning](overview-what-is-azure-ml.md). 
-
-    ![Konfigurera din arbets yta](./media/how-to-manage-workspace/select-edition.png)
 
 1. När du är klar med konfigurationen av arbets ytan väljer du **Granska + skapa**. Du kan också använda avsnitten [nätverk](#networking) och [Avancerat](#advanced) för att konfigurera fler inställningar för arbets ytan.
 

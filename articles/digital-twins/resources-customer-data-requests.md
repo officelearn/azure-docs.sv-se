@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 31da6a6b5375571f53cd7b478e957cc350ef591c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60aa6ed3f1b66d88d05751fdee2444120705f8d2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522354"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047700"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Azure Digitals dubbla funktioner för förfrågan om kund information
 
@@ -35,7 +35,7 @@ Azure Digitals innehåller [Azure Active Directory](../active-directory/fundamen
 
 ## <a name="deleting-customer-data"></a>Tar bort kund information
 
-Azure Digitals dubbla administratörer kan använda Azure Portal för att ta bort data som rör användare. Det går också att utföra borttagnings åtgärder på enskilda digitala delar med hjälp av Azure Digitals REST-API: er. Mer information om tillgängliga API: er finns i [dokumentationen om Azure Digitals REST-API: er](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
+Azure Digitals dubbla administratörer kan använda Azure Portal för att ta bort data som rör användare. Det går också att utföra borttagnings åtgärder på enskilda digitala delar med hjälp av Azure Digitals REST-API: er. Mer information om tillgängliga API: er finns i [dokumentationen om Azure Digitals REST-API: er](/rest/api/azure-digitaltwins/).
 
 ## <a name="exporting-customer-data"></a>Exportera kund information
 
@@ -45,4 +45,4 @@ Kund information, inklusive användar roller och roll tilldelningar, kan väljas
 
 ## <a name="links-to-additional-documentation"></a>Länkar till ytterligare dokumentation
 
-En fullständig lista över API: er för Azure Digitals dubbla tjänster finns i [dokumentationen för Azure Digitals REST-API: er](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
+En fullständig lista över API: er för Azure Digitals dubbla tjänster finns i [dokumentationen för Azure Digitals REST-API: er](/rest/api/azure-digitaltwins/).

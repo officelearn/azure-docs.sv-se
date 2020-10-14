@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 95dc5b70174cd738104260aac2e175c0657d9c90
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c69e919c76c0aecb6cf8a3ee5e9b7e5d286c168a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966210"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046051"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Skapa och etablera en IoT Edge enhet med en TPM på Linux
 
@@ -31,9 +31,9 @@ Uppgifterna är följande:
 >
 > Om du använder en fysisk enhet kan du gå vidare till avsnittet [Hämta etablerings information från en fysisk enhet](#retrieve-provisioning-information-from-a-physical-device) i den här artikeln.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Windows-utvecklings dator med [Hyper-V aktiverat](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). Den här artikeln använder Windows 10 som kör en virtuell Ubuntu-Server.
+* En Windows-utvecklings dator med [Hyper-V aktiverat](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). Den här artikeln använder Windows 10 som kör en virtuell Ubuntu-Server.
 * En aktiv IoT Hub.
 
 > [!NOTE]
@@ -174,7 +174,7 @@ När du skapar en registrering i DPS har du möjlighet att deklarera en **först
 
 Nu när en registrering finns för den här enheten kan IoT Edge runtime automatiskt etablera enheten under installationen.
 
-## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge runtime
+## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge-körningen
 
 IoT Edge-körningen distribueras på alla IoT Edge-enheter. Komponenterna körs i behållare och gör att du kan distribuera ytterligare behållare till enheten så att du kan köra kod i kanten. Installera IoT Edge runtime på den virtuella datorn.
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 496ca7edfbfb81d8d8838d704b128701a5960e5b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c9e489d58b2c4bee0cd9551d15bfa59c3610d959
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974931"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047207"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Parsa och validera modeller med DTDL parser-biblioteket
 
@@ -20,11 +20,11 @@ ms.locfileid: "91974931"
 
 För att du ska kunna göra detta finns ett .NET-bibliotek för DTDL-parsning på NuGet: [**Microsoft. Azure. DigitalTwins. parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). 
 
-Du kan använda parser-biblioteket direkt i C#-koden eller använda det oberoende kod exempel projekt som bygger på avsnittet parser-bibliotek: [**DTDL-verifiering**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+Du kan använda parser-biblioteket direkt i C#-koden eller använda det oberoende kod exempel projekt som bygger på avsnittet parser-bibliotek: [**DTDL-verifiering**](/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 ## <a name="use-the-dtdl-validator-sample"></a>Använda DTDL-verifierings exemplet
 
-[**DTDL-verifieraren**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) är ett exempel projekt som kan validera modell dokument för att kontrol lera att DTDL är giltigt. Det bygger på .NET parser-biblioteket och är språk-oberoende. Du kan hämta den med hjälp av *hämtnings zip* -knappen i exempel länken.
+[**DTDL-verifieraren**](/samples/azure-samples/dtdl-validator/dtdl-validator) är ett exempel projekt som kan validera modell dokument för att kontrol lera att DTDL är giltigt. Det bygger på .NET parser-biblioteket och är språk-oberoende. Du kan hämta den med hjälp av *hämtnings zip* -knappen i exempel länken.
 
 Käll koden visar exempel för hur du använder parsar-biblioteket. Du kan använda validator-exemplet som ett kommando rads verktyg för att validera ett katalog träd med DTDL-filer. Det ger också ett interaktivt läge.
 

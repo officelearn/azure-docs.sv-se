@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.custom: references_regions
 author: bwren
 ms.author: bwren
-ms.date: 10/13/2020
-ms.openlocfilehash: 59febbac1a83e45c8b2bf9c233c3772f561eb111
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 10/14/2020
+ms.openlocfilehash: 6b94b6d66046c29de99339887d5c5c87d6c5bb5f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92050047"
+ms.locfileid: "92055944"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics arbets ytans data export i Azure Monitor (förhands granskning)
 Med Log Analytics data export för arbets yta i Azure Monitor kan du kontinuerligt exportera data från valda tabeller i din Log Analytics arbets yta till ett Azure Storage-konto eller Azure-Event Hubs som det samlas in. Den här artikeln innehåller information om den här funktionen och hur du konfigurerar data export i dina arbets ytor.
@@ -79,7 +79,7 @@ Data skickas till händelsehubben i nära real tid när den når Azure Monitor. 
 Volymen för exporterade data ökar ofta med tiden och skalningen av Event Hub måste ökas för att hantera större överföringshastigheter och undvika begränsnings scenarier och data fördröjning. Du bör använda funktionen för automatisk ökning i Event Hubs för att automatiskt skala upp och öka antalet data flödes enheter och uppfylla användnings behoven. Mer information finns i [skala upp Azure Event Hubs data flödes enheter automatiskt](../../event-hubs/event-hubs-auto-inflate.md) .
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Följande är förutsättningar som måste slutföras innan du konfigurerar Log Analytics data export.
 
 - Lagrings kontot och händelsehubben måste redan skapas och måste finnas i samma region som Log Analytics-arbetsytan. Om du behöver replikera dina data till andra lagrings konton kan du använda något av [alternativen för Azure Storage redundans](../../storage/common/storage-redundancy.md).  
@@ -254,6 +254,10 @@ Tabeller som stöds är för närvarande begränsade till dem som anges nedan. A
 | AADDomainServicesLogonLogoff | |
 | AADDomainServicesPolicyChange | |
 | AADDomainServicesPrivilegeUse | |
+| AADManagedIdentitySignInLogs | |
+| AADNonInteractiveUserSignInLogs | |
+| AADProvisioningLogs | |
+| AADServicePrincipalSignInLogs | |
 | ADAssessmentRecommendation | |
 | ADFActivityRun | |
 | ADFPipelineRun | |
@@ -268,7 +272,8 @@ Tabeller som stöds är för närvarande begränsade till dem som anges nedan. A
 | ADXQuery | |
 | AegDeliveryFailureLogs | |
 | AegPublishFailureLogs | |
-| Varning | En del av informationen i den här tabellen matas in via lagrings kontot. Den här delen saknas i export för närvarande. |
+| Varning |Delvis stöd. En del av informationen i den här tabellen matas in via lagrings kontot. Dessa data exporteras inte för tillfället. |
+| Avvikelser | |
 | ApiManagementGatewayLogs | |
 | AppCenterError | |
 | AppPlatformSystemLogs | |
@@ -277,6 +282,7 @@ Tabeller som stöds är för närvarande begränsade till dem som anges nedan. A
 | AppServiceConsoleLogs | |
 | AppServiceFileAuditLogs | |
 | AppServiceHTTPLogs | |
+| AppServiceIPSecAuditLogs | |
 | AppServicePlatformLogs | |
 | AuditLogs | |
 | AutoscaleEvaluationsLog | |
@@ -291,7 +297,7 @@ Tabeller som stöds är för närvarande begränsade till dem som anges nedan. A
 | CommonSecurityLog | |
 | CommonSecurityLog | |
 | ComputerGroup | |
-| ConfigurationData | Vissa data matas in via interna tjänster som inte stöds för export. Den här delen saknas i export för närvarande. |
+| ConfigurationData | Delvis stöd. Vissa data matas in via interna tjänster som inte stöds för export. Dessa data exporteras inte för tillfället. |
 | ContainerImageInventory | |
 | ContainerInventory | |
 | ContainerLog | |
@@ -312,15 +318,43 @@ Tabeller som stöds är för närvarande begränsade till dem som anges nedan. A
 | DnsEvents | |
 | DnsInventory | |
 | Dynamics365Activity | |
-| Händelse | En del av informationen i den här tabellen matas in via lagrings kontot. Den här delen saknas i export för närvarande. |
+| Händelse | Delvis stöd. En del av informationen i den här tabellen matas in via lagrings kontot. Dessa data exporteras inte för tillfället. |
 | ExchangeAssessmentRecommendation | |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |
-| Pulsslag | Stöds | |
+| HDInsightAmbariClusterAlerts | |
+| HDInsightAmbariSystemMetrics | |
+| HDInsightGatewayAuditLogs | |
+| HDInsightHadoopAndYarnLogs | |
+| HDInsightHadoopAndYarnMetrics | |
+| HDInsightHBaseLogs | |
+| HDInsightHBaseMetrics | |
+| HDInsightHiveAndLLAPLogsSample | |
+| HDInsightKafkaLogs | |
+| HDInsightKafkaMetrics | |
+| HDInsightOozieLogs | |
+| HDInsightSecurityLogs | |
+| HDInsightSparkApplicationEvents | |
+| HDInsightSparkBlockManagerEvents | |
+| HDInsightSparkEnvironmentEvents | |
+| HDInsightSparkEventsLog | |
+| HDInsightSparkExecutorEvents | |
+| HDInsightSparkExtraEvents | |
+| HDInsightSparkJobEvents | |
+| HDInsightSparkLogs | |
+| HDInsightSparkSQLExecutionEvents | |
+| HDInsightSparkStageEvents | |
+| HDInsightSparkStageTaskAccumulables | |
+| HDInsightSparkTaskEvents | |
+| HDInsightStormLogs | |
+| HDInsightStormMetrics | |
+| HDInsightStormTopologyMetrics | |
+| Pulsslag | |
 | HuntingBookmark | |
-| InsightsMetrics | Vissa data matas in via interna tjänster som inte stöds för export. Den här delen saknas i export för närvarande. |
+| InsightsMetrics | Delvis stöd. Vissa data matas in via interna tjänster som inte stöds för export. Den här delen saknas i export för närvarande. |
 | IntuneAuditLogs | |
+| IntuneDeviceComplianceOrg | |
 | IntuneOperationalLogs | |
 | KubeEvents | |
 | KubeHealth | |
@@ -329,24 +363,30 @@ Tabeller som stöds är för närvarande begränsade till dem som anges nedan. A
 | KubePodInventory | |
 | KubeServices | |
 | KubeServices | |
+| LAQueryLogs | |
 | McasShadowItReporting | |
 | MicrosoftAzureBastionAuditLogs | |
 | MicrosoftDataShareReceivedSnapshotLog | |
 | MicrosoftDataShareSentSnapshotLog | |
 | MicrosoftDataShareShareLog | |
 | MicrosoftHealthcareApisAuditLogs | |
+| NWConnectionMonitorDestinationListenerResult | |
+| NWConnectionMonitorDNSResult | |
+| NWConnectionMonitorPathResult | |
 | NWConnectionMonitorPathResult | |
 | NWConnectionMonitorTestResult | |
-| OfficeActivity | Några av de data som matas in via Webhooks från O365 till LA. Den här delen saknas i export för närvarande. |
-| Åtgärd | Vissa data matas in via interna tjänster som inte stöds för export. Den här delen saknas i export för närvarande. |
-| Prest | Stöds | |
-| SCCMAssessmentRecommendation | | 
+| NWConnectionMonitorTestResult | |
+| OfficeActivity | Delvis stöd. Några av de data som matas in via Webhooks från Office 365 till Log Analytics. Dessa data exporteras inte för tillfället. |
+| Åtgärd | Delvis stöd. Vissa data matas in via interna tjänster som inte stöds för export. Dessa data exporteras inte för tillfället. |
+| Prest | Delvis stöd. Endast prestanda data för Windows stöds för närvarande. Linux-prestanda data exporteras inte för tillfället. |
+| ProtectionStatus | |
+| SCCMAssessmentRecommendation | |
 | SCOMAssessmentRecommendation | |
 | SecurityAlert | |
 | SecurityBaseline | |
 | SecurityBaselineSummary | |
 | SecurityDetection | |
-| SecurityEvent | Stöds | |
+| SecurityEvent | |
 | Säkerhets incident | |
 | SecurityIoTRawEvent | |
 | SecurityNestedRecommendation | |
@@ -359,24 +399,29 @@ Tabeller som stöds är för närvarande begränsade till dem som anges nedan. A
 | SPAssessmentRecommendation | |
 | SQLAssessmentRecommendation | |
 | SucceededIngestion | |
-| Syslog |Delvis | En del av informationen i den här tabellen matas in via lagrings kontot. Den här delen saknas i export för närvarande. |
+| SynapseGatewayEvents | |
+| SynapseRBACEvents | |
+| Syslog | Delvis stöd. En del av informationen i den här tabellen matas in via lagrings kontot. Dessa data exporteras inte för tillfället. |
 | ThreatIntelligenceIndicator | |
-| Uppdatera |Delvis | Vissa data matas in via interna tjänster som inte stöds för export. Den här delen saknas i export för närvarande. |
+| Uppdatera | Delvis stöd. Vissa data matas in via interna tjänster som inte stöds för export. Dessa data exporteras inte för tillfället. |
 | UpdateRunProgress | |
 | UpdateSummary | |
 | Användning | |
 | UserAccessAnalytics | |
 | UserPeerAnalytics | |
+| Visnings lista | |
 | WindowsEvent | |
 | WindowsFirewall | |
-| WireData |Delvis | Vissa data matas in via interna tjänster som inte stöds för export. Den här delen saknas i export för närvarande. |
+| WireData | Delvis stöd. Vissa data matas in via interna tjänster som inte stöds för export. Dessa data exporteras inte för tillfället. |
 | WorkloadMonitoringPerf | |
 | WorkloadMonitoringPerf | |
+| WVDAgentHealthStatus | |
 | WVDCheckpoints | |
 | WVDConnections | |
 | WVDErrors | |
 | WVDFeeds | |
 | WVDManagement | |
+
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,12 +3,12 @@ title: Svar på vanliga frågor
 description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 26d833dfea214c5f29b77c2ac34a5f8863c7fbc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50cbd1d28ca3f04b8963c58b443765d4280b14ed
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986421"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058088"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Vanliga frågor och svar
 
@@ -79,7 +79,7 @@ Ja.
 
 Azure Backup stöder dessa operativsystem för säkerhetskopiering av filer och mappar samt appar som skyddas av Azure Backup Server och SCDPM.
 
-**Operativsystem** | **SKU** | **Information**
+**Operativsystem** | **SKU** | **Detaljer**
 --- | --- | ---
 Arbetsstation | |
 Windows 10 64-bitars | Enterprise, Pro, Home | Datorerna ska köra de senaste Service Packs och uppdateringarna.
@@ -117,7 +117,7 @@ Azure VM | Se [support mat ris för säkerhets kopiering av virtuella Azure-dato
 
 Följande tabell beskriver hur datakällans storlek bestäms.
 
-**Datakälla** | **Information**
+**Datakälla** | **Detaljer**
 --- | ---
 Volym |Den mängd data som säkerhetskopieras från en virtuell dator med en enskild volym som säkerhetskopieras.
 SQL Server-databas |Storlek på den enkla databas storleken som säkerhets kopie ras.
@@ -174,7 +174,7 @@ Typiska produkter för långsiktiga kvarhållningspunkter lagrar säkerhetskopie
 - De fullständiga punkterna är *ineffektiva* ur lagringssynvinkel men är enklare och snabbare att återställa.
 - Inkrementella kopior är *lagringseffektiva* men kräver att du återställer en kedja med data, vilket påverkar återställningstiden
 
-Azure Backup-lagringsarkitekturen ger dig det bästa av två världar genom att lagra data för snabb återställning till låga lagringskostnader. Detta säkerställer att den ingående och utgående bandbredden används effektivt. Mängden datalagring och den tid som krävs för att återställa data hålls till ett minimum. Läs mer om [inkrementella säkerhetskopieringar](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
+Azure Backup-lagringsarkitekturen ger dig det bästa av två världar genom att lagra data för snabb återställning till låga lagringskostnader. Detta säkerställer att den ingående och utgående bandbredden används effektivt. Mängden datalagring och den tid som krävs för att återställa data hålls till ett minimum. Läs mer om [inkrementella säkerhetskopieringar](backup-architecture.md#backup-types).
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>Finns det någon gräns för antalet återställningspunkter som kan skapas?
 

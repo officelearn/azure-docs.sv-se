@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker fel som påt
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 39bc6178d0cabf6c0220d2c54e0c532a6f9a5aa2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 908c7e4bc0ca15d952ef1d4d969c5bf686e0bdc3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316740"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058122"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
 
@@ -31,8 +31,7 @@ Det här avsnittet beskriver felet vid säkerhets kopiering av virtuella Azure-d
 * **Händelse loggen** kan visa säkerhets kopierings problem som kommer från andra säkerhets kopierings produkter, t. ex. Windows Server Backup, och inte på grund av Azure Backup. Använd följande steg för att fastställa om problemet är med Azure Backup:
   * Om det uppstår ett fel med **säkerhets kopian** av posten i händelse källan eller meddelandet kontrollerar du om säkerhets kopieringen av Azure IaaS VM-säkerhetskopiering lyckades och om en återställnings punkt skapades med den önskade ögonblicks bild typen.
   * Om Azure Backup fungerar är problemet troligt vis en annan lösning för säkerhets kopiering.
-  * Här är ett exempel på ett Loggboken fel 517 där Azure Backup fungerade bra men "Windows Server Backup" misslyckades:<br>
-    ![Windows Server Backup att fungera](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
+  * Här är ett exempel på ett Loggboken fel 517 där Azure Backup fungerade bra men "Windows Server Backup" misslyckades: ![ Windows Server Backup misslyckades](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * Om Azure Backup inte fungerar söker du efter motsvarande felkod i avsnittet Vanliga fel vid säkerhets kopiering av virtuella datorer i den här artikeln.
 
 ## <a name="common-issues"></a>Vanliga problem
@@ -106,31 +105,33 @@ Fel meddelande: ögonblicks bild åtgärden misslyckades eftersom VSS-skrivare b
 Felet beror på att VSS-skribenterna är i ett felaktigt tillstånd. Azure Backup-tilläggen interagerar med VSS-skrivare för att ta ögonblicks bilder av diskarna. Följ dessa anvisningar för att lösa problemet:
 
 Steg 1: starta om VSS-skrivare som är i ett felaktigt tillstånd.
-- Kör i en upphöjd kommando tolk ```vssadmin list writers``` .
-- Utdata innehåller alla VSS-skrivare och deras tillstånd. Starta om respektive VSS-skrivare för varje VSS-skrivare med ett tillstånd som inte är **[1] stabilt**. 
-- Starta om tjänsten genom att köra följande kommandon från en upphöjd kommando tolk:
+
+* Kör i en upphöjd kommando tolk ```vssadmin list writers``` .
+* Utdata innehåller alla VSS-skrivare och deras tillstånd. Starta om respektive VSS-skrivare för varje VSS-skrivare med ett tillstånd som inte är **[1] stabilt**.
+* Starta om tjänsten genom att köra följande kommandon från en upphöjd kommando tolk:
 
  ```net stop serviceName``` <br>
  ```net start serviceName```
 
 > [!NOTE]
 > Att starta om vissa tjänster kan påverka produktions miljön. Se till att godkännande processen följs och att tjänsten startas om vid schemalagd stillestånds tid.
- 
-   
+
 Steg 2: om problemet inte löstes med att starta om VSS-skrivare kör du följande kommando från en upphöjd kommando tolk (som administratör) för att förhindra att trådarna skapas för BLOB-ögonblicksbilder.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
+
 Steg 3: om det inte gick att lösa problemet med steg 1 och 2 kan felet bero på att tids gränsen för VSS-skrivare orsakade timeout på grund av begränsade IOPS.<br>
 
 Kontrol lera genom att gå till ***system-och Loggboken program loggar*** och kontrol lera följande fel meddelande:<br>
 *Tids gränsen nåddes för skuggkopieprovidern vid lagring av skrivningar till den volym som skugg kopie ras. Detta beror troligen på överdriven aktivitet på volymen av ett program eller en system tjänst. Försök igen senare när aktivitet på volymen minskas.*<br>
 
 Lösning:
-- Sök efter möjligheter att distribuera belastningen på de virtuella dator diskarna. Detta minskar belastningen på enskilda diskar. Du kan [kontrol lera IOPS-begränsningen genom att aktivera diagnostiska mått på lagrings nivå](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
-- Ändra säkerhets kopierings policyn för att utföra säkerhets kopieringar under låg belastnings tider, när belastningen på den virtuella datorn är den lägsta.
-- Uppgradera Azure-diskarna för att stödja högre IOPs. [Läs mer här](https://docs.microsoft.com/azure/virtual-machines/disks-types)
+
+* Sök efter möjligheter att distribuera belastningen på de virtuella dator diskarna. Detta minskar belastningen på enskilda diskar. Du kan [kontrol lera IOPS-begränsningen genom att aktivera diagnostiska mått på lagrings nivå](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
+* Ändra säkerhets kopierings policyn för att utföra säkerhets kopieringar under låg belastnings tider, när belastningen på den virtuella datorn är den lägsta.
+* Uppgradera Azure-diskarna för att stödja högre IOPs. [Läs mer här](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
 ### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState – Det gick inte att ta en ögonblicksbild eftersom VSS-tjänsten (Volume Shadow Copy) är i felaktigt tillstånd
 
@@ -140,31 +141,32 @@ Fel meddelande: det gick inte att utföra ögonblicks bilder på grund av att tj
 Felet beror på att VSS-tjänsten har ett felaktigt tillstånd. Azure Backup tilläggen interagerar med VSS-tjänsten för att ta ögonblicks bilder av diskarna. Följ dessa anvisningar för att lösa problemet:
 
 Starta om VSS-tjänsten (Volume Shadow Copy).
-- Gå till Services. msc och starta om tjänsten Volume Shadow Copy.<br>
-eller<br>
-- Kör följande kommandon från en upphöjd kommando tolk:
+
+* Gå till Services. msc och starta om tjänsten Volume Shadow Copy.<br>
+(eller)<br>
+* Kör följande kommandon från en upphöjd kommando tolk:
 
  ```net stop VSS``` <br>
  ```net start VSS```
 
- 
 Om problemet kvarstår startar du om den virtuella datorn vid schemalagd stillestånds tid.
 
 ### <a name="usererrorskunotavailable---vm-creation-failed-as-vm-size-selected-is-not-available"></a>UserErrorSkuNotAvailable-det gick inte att skapa den virtuella datorn eftersom den valda virtuella dator storleken inte är tillgänglig
 
-Felkod: UserErrorSkuNotAvailable-fel meddelande: det gick inte att skapa en virtuell dator eftersom den valda virtuella dator storleken inte är tillgänglig. 
- 
+Felkod: UserErrorSkuNotAvailable-fel meddelande: det gick inte att skapa en virtuell dator eftersom den valda virtuella dator storleken inte är tillgänglig.
+
 Felet beror på att storleken på den virtuella datorn som valts under återställnings åtgärden inte stöds. <br>
 
 Lös problemet genom att använda alternativet för att [återställa diskar](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) under återställnings åtgärden. Använd diskarna för att skapa en virtuell dator i listan över [tillgängliga VM-storlekar som stöds](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) med hjälp av PowerShell- [cmdletar](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks).
 
 ### <a name="usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present"></a>UserErrorMarketPlaceVMNotSupported-det gick inte att skapa den virtuella datorn på grund av att begäran om marknads plats köp saknas
 
-Felkod: UserErrorMarketPlaceVMNotSupported-fel meddelande: det gick inte att skapa en virtuell dator på grund av att begäran om marknads plats köp saknas. 
- 
+Felkod: UserErrorMarketPlaceVMNotSupported-fel meddelande: det gick inte att skapa en virtuell dator på grund av att begäran om marknads plats köp saknas.
+
 Azure Backup stöder säkerhets kopiering och återställning av virtuella datorer som är tillgängliga i Azure Marketplace. Det här felet uppstår när du försöker återställa en virtuell dator (med en angiven inställning för plan/utgivare) som inte längre är tillgänglig på Azure Marketplace. [Läs mer här](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal).
-- Lös problemet genom att använda alternativet för att [återställa diskar](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) under återställningen och sedan använda [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) -eller [Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) -CMDLETAR för att skapa den virtuella datorn med den senaste Marketplace-informationen som motsvarar den virtuella datorn.
-- Om utgivaren inte har någon Marketplace-information kan du använda data diskarna för att hämta dina data och du kan koppla dem till en befintlig virtuell dator.
+
+* Lös problemet genom att använda alternativet för att [återställa diskar](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) under återställningen och sedan använda [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) -eller [Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) -CMDLETAR för att skapa den virtuella datorn med den senaste Marketplace-informationen som motsvarar den virtuella datorn.
+* Om utgivaren inte har någon Marketplace-information kan du använda data diskarna för att hämta dina data och du kan koppla dem till en befintlig virtuell dator.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure – det gick inte att parsa konfigurationen för säkerhets kopierings tillägget
 
@@ -244,7 +246,7 @@ Detta säkerställer att ögonblicksbilderna tas via värden i stället för gä
 
 **Steg 2**: försök att ändra schemat för säkerhets kopiering till en tidpunkt då den virtuella datorn är under mindre belastning (t. ex. mindre processor eller IOps)
 
-**Steg 3**: försök att [öka storleken på den virtuella datorn](https://azure.microsoft.com/blog/resize-virtual-machines/) och försök igen
+**Steg 3**: försök att [öka storleken på den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm) och försök igen
 
 ### <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound-det gick inte att utföra åtgärden eftersom den virtuella datorn inte längre finns/400094, BCMV2VMNotFound-den virtuella datorn finns inte/ingen virtuell Azure-dator hittades
 
@@ -315,12 +317,12 @@ Om du har en Azure Policy som [styr Taggar i din miljö](../governance/policy/tu
 
 ## <a name="restore"></a>Återställ
 
-#### <a name="disks-appear-offline-after-file-restore"></a>Diskar visas offline efter fil återställning
+### <a name="disks-appear-offline-after-file-restore"></a>Diskar visas offline efter fil återställning
 
-Om du efter att ha återställt ser du till att diskarna är offline. 
+Om du efter att ha återställt ser du till att diskarna är offline.
+
 * Kontrol lera att datorn där skriptet körs uppfyller operativ system kraven. [Läs mer](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
 * Se till att du inte återställer till samma källa, [Läs mer](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
-
 
 | Felinformation | Lösning |
 | --- | --- |

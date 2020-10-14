@@ -9,19 +9,19 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6f4dd0836ba04d0e07ada8aced964317498b1f22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c326aed172bb8159185829f80d66e8e00496aad2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757603"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057815"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Fråga Azure Cosmos DB data med SQL Server utan i Azure Synapse Link (för hands version)
 
 Med Synapse SQL Server (tidigare SQL på begäran) kan du analysera data i dina Azure Cosmos DB behållare som är aktiverade med [Azure Synapse-länken](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) i nära real tid utan att påverka prestandan för dina transaktions arbets belastningar. Den erbjuder en välkänd T-SQL-syntax för att fråga data från [analys lagret](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) och integrerad anslutning till en mängd olika bi-och ad hoc-frågemeddelanden via T-SQL-gränssnittet.
 
 > [!NOTE]
-> Stöd för att skicka frågor till Azure Cosmos DB analys lager med SQL Server lös är för närvarande en för hands version av gated. 
+> Stöd för att skicka frågor till Azure Cosmos DB analys lager med SQL Server lös är för närvarande en för hands version av gated. Öppen offentlig för hands version kommer att visas på sidan [uppdateringar av Azure-tjänsten](https://azure.microsoft.com/updates/?status=nowavailable&category=databases) .
 
 För att skicka frågor till Azure Cosmos DB stöds det fullständiga [Select](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) -området via funktionen [OpenRowSet](develop-openrowset.md) , inklusive majoriteten av [SQL Functions och operatorer](overview-features.md). Du kan också lagra resultat från frågan som läser data från Azure Cosmos DB tillsammans med data i Azure Blob Storage eller Azure Data Lake Storage med hjälp av [skapa extern tabell som Välj](develop-tables-cetas.md#cetas-in-sql-on-demand). Du kan för närvarande inte spara SQL Server-frågeresultat för att Azure Cosmos DB med [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
@@ -36,10 +36,15 @@ OPENROWSET(
        'CosmosDB',
        '<Azure Cosmos DB connection string>',
        <Container name>
-    )  [ < with clause > ]
+    )  [ < with clause > ] AS alias
 ```
 
-Anslutnings strängen Azure Cosmos DB anger Azure Cosmos DB konto namnet, databas namnet, databas kontots huvud nyckel och ett valfritt region namn som ska `OPENROWSET` fungera. Anslutnings strängen har följande format:
+Anslutnings strängen Azure Cosmos DB anger Azure Cosmos DB konto namnet, databas namnet, databas kontots huvud nyckel och ett valfritt region namn som ska `OPENROWSET` fungera. 
+
+> [!IMPORTANT]
+> Se till att du använder alias efter `OPENROWSET` . Det finns ett [känt problem](#known-issues) som orsakar anslutnings problem till Synapse-server utan SQL-slutpunkt om du inte anger aliaset efter `OPENROWSET` funktion.
+
+Anslutnings strängen har följande format:
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
 ```
@@ -252,6 +257,13 @@ Azure Cosmos DB konton av SQL-API (Core) stöder JSON-egenskapsvärde av typen N
 | Kapslat objekt eller matris | varchar (max) (sortering av UTF8-databas), serialiserad som JSON-text |
 
 Om du vill fråga Azure Cosmos DB konton i Mongo DB API-typ kan du lära dig mer om schema representationen full Fidelity i analys lagret och de utökade egenskaps namn som ska användas [här](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
+
+## <a name="known-issues"></a>Kända problem
+
+- Alias **måste** anges efter `OPENROWSET` funktion (till exempel `OPENROWSET (...) AS function_alias` ). Att utelämna alias kan orsaka anslutnings problem och Synapse SQL-slutpunkt kan vara tillfälligt otillgängligt. Det här problemet kommer att lösas i nov 2020.
+- Synapse-server utan SQL stöder för närvarande inte [Azure Cosmos DB full Fidelity schema](../../cosmos-db/analytical-store-introduction.md#schema-representation). Använd endast Synapse server utan SQL för att få åtkomst till Cosmos DB väldefinierat schema.
+
+Du kan rapportera förslag och problem på [feedback-sidan för Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 
 ## <a name="next-steps"></a>Nästa steg
 

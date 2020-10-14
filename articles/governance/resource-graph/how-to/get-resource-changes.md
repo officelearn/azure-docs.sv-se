@@ -1,14 +1,14 @@
 ---
 title: Hämta resursändringar
 description: Lär dig hur du hittar när en resurs har ändrats, hämta en lista över de egenskaper som har ändrats och utvärdera differenserna.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 02dfd2b8b66cd09be39a44166a0fd62bb13c8395
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bab51ac7b55e2a838d98b46a09289f2cc19bfde3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056575"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057577"
 ---
 # <a name="get-resource-changes"></a>Hämta resursändringar
 
@@ -279,7 +279,7 @@ Svaret ser ut ungefär som i det här exemplet:
 }
 ```
 
-**beforeSnapshot** och **afterSnapshot** var och en anger tiden då ögonblicks bilden togs och egenskaperna vid denna tidpunkt. Ändringen skedde mellan dessa ögonblicks bilder. I exemplet ovan kan vi se att egenskapen som ändrades var **supportsHttpsTrafficOnly**.
+**beforeSnapshot** och **afterSnapshot** var och en anger tiden då ögonblicks bilden togs och egenskaperna vid denna tidpunkt. Ändringen skedde mellan dessa ögonblicks bilder. Titta på det föregående exemplet. vi kan se att egenskapen som ändrades var **supportsHttpsTrafficOnly**.
 
 Jämför resultaten genom att antingen använda egenskapen **ändringar** i **resourceChanges** eller utvärdera **innehålls** delen av varje ögonblicks bild i **resourceChangeDetails** för att fastställa skillnaden. Om du jämför ögonblicks bilderna visas alltid **tidsstämpeln** som en differens trots att den förväntas.
 

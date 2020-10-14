@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: e1ea0a43783fb7abdc17655e3a3431d125d426f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bdf6015ca5633c77280111a55055a7394cee5bd
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291287"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057662"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Strömma innehåll med CDN-integrering
 
@@ -40,7 +40,7 @@ Generellt är det säkert att uppskatta maximalt antal samtidiga data strömmar 
 
 I det här avsnittet beskrivs hur du aktiverar [CDN-integrering](#enable-azure-cdn-integration). Den förklarar också för hämtning (aktiv cachelagring) och [ursprunget-Assist CDN-prefetch](#origin-assist-cdn-prefetch) .
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 - [Slut punkten för direkt uppspelning](streaming-endpoint-concept.md) `hostname` och STRÖMNINGS-URL: en är oförändrad oavsett om du aktiverar CDN eller inte.
 - Om du behöver kunna testa ditt innehåll med eller utan CDN, skapar du en annan slut punkt för direkt uppspelning som inte är CDN-aktiverad.
@@ -54,7 +54,7 @@ I det här avsnittet beskrivs hur du aktiverar [CDN-integrering](#enable-azure-c
 
 När en slut punkt för direkt uppspelning har tillhandahållits med CDN aktiverat har en definierad vänte tid på Media Services innan DNS-uppdateringen görs för att mappa slut punkten för direkt uppspelning till CDN-slutpunkten.
 
-Om du senare vill inaktivera/aktivera CDN måste slut punkten för direkt uppspelning vara i **stoppat** tillstånd. När slut punkten för direkt uppspelning har startats kan det ta upp till två timmar innan Azure CDN-integrering aktive ras och för att ändringarna ska vara aktiva över alla CDN pop. Du kan dock starta slut punkten för direkt uppspelning och strömma utan avbrott från slut punkten för direkt uppspelning. När integrationen är klar levereras strömmen från CDN. Under etablerings perioden kommer slut punkten för direkt uppspelning att vara i **Start** läge och du kan observera försämrade prestanda.
+Om du senare vill inaktivera/aktivera CDN måste slut punkten för direkt uppspelning vara i **stoppat** tillstånd. När slut punkten för direkt uppspelning har startats kan det ta upp till fyra timmar innan Azure CDN-integrering aktive ras och för att ändringarna ska vara aktiva över alla CDN pop. Du kan dock starta slut punkten för direkt uppspelning och strömma utan avbrott från slut punkten för direkt uppspelning. När integrationen är klar levereras strömmen från CDN. Under etablerings perioden kommer slut punkten för direkt uppspelning att vara i **Start** läge och du kan observera försämrade prestanda.
 
 När standard slut punkten för direkt uppspelning skapas, konfigureras den som standard med standard-Verizon. Du kan konfigurera Premium Verizon-eller standard Akamai-providers med hjälp av REST API: er.
 

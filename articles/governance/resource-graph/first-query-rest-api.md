@@ -1,14 +1,14 @@
 ---
 title: 'Snabb start: din första REST API fråga'
 description: I den här snabb starten följer du stegen för att anropa resurs diagram slut punkten för REST API och kör din första fråga.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 8776a107484691ffab72f2e1622ed5837375b7fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8be0556b6aa2fd234c0f3e25d83c0239c8f674bb
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85802745"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057238"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Snabb start: kör din första resurs diagram fråga med hjälp av REST API
 
@@ -49,7 +49,8 @@ $restUri = 'https://management.azure.com/subscriptions/{subscriptionId}?api-vers
 $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
-Ersätt `{subscriptionId}` i variabeln **$restUri** ovan för att få information om din prenumeration. Variabeln $response innehåller resultatet från cmdleten `Invoke-RestMethod`, som kan parsas med cmdletar som [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). Om REST API-tjänstslutpunkten förväntar sig en **begärandetext** lägger du till en JSON-formaterad variabel till `-Body`-parametern för `Invoke-RestMethod`.
+Ersätt `{subscriptionId}` i `$restUri` variabeln för att få information om din prenumeration.
+`$response`Variabeln innehåller resultatet av `Invoke-RestMethod` cmdleten, som kan parsas med cmdlet: ar, till exempel [ConvertFrom-JSON](/powershell/module/microsoft.powershell.utility/convertfrom-json). Om REST API-tjänstslutpunkten förväntar sig en **begärandetext** lägger du till en JSON-formaterad variabel till `-Body`-parametern för `Invoke-RestMethod`.
 
 ## <a name="run-your-first-resource-graph-query"></a>Köra din första Resource Graph-fråga
 

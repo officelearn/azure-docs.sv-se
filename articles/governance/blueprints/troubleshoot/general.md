@@ -1,14 +1,14 @@
 ---
 title: Felsöka vanliga fel
 description: Lär dig hur du felsöker problem med att skapa, tilldela och ta bort ritningar, till exempel princip överträdelser och skiss parameter funktioner.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e8362e2a22317d73e0fd392bd497cd9f2c5ffe4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1689141f95aaac9183391af79edb0cabf5343b6
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651318"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058292"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Felsöka fel med Azure-ritningar
 
@@ -59,7 +59,7 @@ Att skicka en skiss parameter som använder en funktion, till exempel `[resource
 
 #### <a name="resolution"></a>Lösning
 
-Om du vill skicka en funktion via som en parameter, kan du undanta hela strängen med `[` så att skiss parametern ser ut som `[[resourceGroup().tags.myTag]` . Escape-tecken gör att ritningar hanterar värdet som en sträng när skissen bearbetas. Ritningar placerar sedan funktionen på artefakten så att den kan vara dynamisk som förväntat. Mer information finns [i syntax och uttryck i Azure Resource Manager mallar](../../../azure-resource-manager/templates/template-expressions.md).
+Om du vill skicka en funktion via som en parameter, kan du undanta hela strängen med `[` så att skiss parametern ser ut som `[[resourceGroup().tags.myTag]` . Escape-tecken gör att ritningar hanterar värdet som en sträng när skissen bearbetas. Skiss tjänsten placerar sedan funktionen på artefakten så att den kan vara dynamisk som förväntat. Mer information finns [i syntax och uttryck i Azure Resource Manager mallar](../../../azure-resource-manager/templates/template-expressions.md).
 
 ## <a name="delete-errors"></a>Ta bort fel
 
@@ -75,7 +75,7 @@ En skiss tilldelning kan bli fastnat i ett icke-terminal-tillstånd när den tas
 
 #### <a name="resolution"></a>Lösning
 
-Skiss tilldelningar i ett icke-terminal-tillstånd markeras automatiskt som **misslyckade** efter en tids gräns på _6 timmar_ . När tids gränsen har justerats för skiss tilldelningens tillstånd kan borttagningen göras om.
+Skiss tilldelningar i ett icke-terminal-tillstånd markeras automatiskt som **misslyckade** efter en tids gräns på _sex timmar_ . När tids gränsen har justerats för skiss tilldelningens tillstånd kan borttagningen göras om.
 
 ## <a name="next-steps"></a>Nästa steg
 

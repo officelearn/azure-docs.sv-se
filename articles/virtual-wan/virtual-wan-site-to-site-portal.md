@@ -1,5 +1,5 @@
 ---
-title: 'Azure Virtual WAN: skapa plats-till-plats-anslutningar'
+title: 'Självstudie: Använd Azure Virtual WAN för att skapa plats-till-plats-anslutningar'
 description: I den här självstudien förklarar vi hur du skapar en plats-till-plats-VPN-anslutning till Azure med Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 191c1d88654cd13ce88e522e6c617d2b39ce9f5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a25ead5983e56f56ba0daea23c2775b3332fb8b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856744"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057917"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Självstudie: Skapa en plats-till-plats-anslutning med Azure Virtual WAN
 
@@ -37,7 +37,7 @@ I den här guiden får du lära du dig hur man:
 
 ![Virtual WAN-diagram](./media/virtual-wan-about/virtualwan.png)
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurationen:
 
@@ -242,6 +242,17 @@ På sidan **redigera VPN gateway** kan du se följande inställningar:
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Skärm bild som visar sidan &quot;VPN (plats-till-plats)&quot; med en pil som pekar på åtgärden &quot;Visa/konfigurera&quot;." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Rensa resurser
+
+Du kan använda [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) för att ta bort resursgruppen och alla resurser den innehåller när du inte längre behöver dem. Ersätt myResourceGroup med namnet på resursgruppen och kör följande PowerShell-kommando:
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
-Du hittar mer information om virtuellt WAN i [översikten om virtuellt WAN](virtual-wan-about.md).
+Sedan kan du läsa mer om virtuellt WAN-nätverk i:
+
+> [!div class="nextstepaction"]
+> * [Vanliga frågor om Virtual WAN](virtual-wan-faq.md)

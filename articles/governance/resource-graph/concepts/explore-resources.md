@@ -1,18 +1,18 @@
 ---
 title: Utforska dina Azure-resurser
 description: Lär dig att använda det aktuella resurs diagrammets frågespråk för att utforska dina resurser och identifiera hur de är anslutna.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2dcd27380cb67213c3c2c7a5776243b5e9a2e37f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b0ef3935d865618a9d4dda2825f7d4383baf772
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056592"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056250"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Utforska dina Azure-resurser med resursgrafer
 
-Azure Resource Graph ger möjlighet att utforska och upptäcka dina Azure-resurser snabbt och i stor skala. Utformad för snabba svar är det ett bra sätt att lära dig om din miljö och även om de egenskaper som utgör dina Azure-resurser.
+Azure Resource Graph ger möjlighet att utforska och upptäcka dina Azure-resurser snabbt och i stor skala. Utformad för snabba svar är det ett bra sätt att lära dig om din miljö och även om de egenskaper som finns på dina Azure-resurser.
 
 ## <a name="explore-virtual-machines"></a>Utforska virtuella datorer
 
@@ -104,7 +104,7 @@ JSON-resultatet är strukturerat på samma sätt som i följande exempel:
 ]
 ```
 
-Egenskaperna anger ytterligare information om den virtuella dator resursen, allt från SKU, OS, diskar, taggar och resurs gruppen och prenumerationen som den är medlem i.
+Egenskaperna anger ytterligare information om den virtuella dator resursen. Dessa egenskaper är: operativ system, diskar, taggar och resurs gruppen och prenumerationen som den är medlem i.
 
 ### <a name="virtual-machines-by-location"></a>Virtuella datorer efter plats
 
@@ -165,7 +165,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ### <a name="virtual-machines-connected-to-premium-managed-disks"></a>Virtuella datorer som är anslutna till Premium-hanterade diskar
 
-Om vi ville hämta information om Premium-hanterade diskar som är kopplade till dessa **Standard_B2s** virtuella datorer kan vi utöka frågan så att den ger oss resurs-ID för de hanterade diskarna.
+För att få information om Premium-hanterade diskar som är anslutna till dessa **Standard_B2s** virtuella datorer expanderar vi frågan för att returnera resurs-ID för de hanterade diskarna.
 
 ```kusto
 Resources

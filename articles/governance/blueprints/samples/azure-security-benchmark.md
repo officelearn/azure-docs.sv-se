@@ -1,14 +1,14 @@
 ---
 title: Översikt över Azure Security Benchmark-skissexempel
 description: Översikt över Azure Security Benchmark-skissexempel. Det här skissexemplet hjälper kunderna att utvärdera specifika kontroller.
-ms.date: 06/02/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 4113f350c21087dbda5f69d9c3981e2d169ffc00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b147ffd4efbf814b6119f5d7e90dc7af2ea2687
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651909"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057594"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Exempel på Azure Security benchmark-skiss
 
@@ -46,7 +46,7 @@ Börja först med att implementera skissexemplet genom att skapa en ny skiss i d
 
 1. Välj fliken _Artefakter_ överst på sidan eller **Nästa: Artefakter** längst ned på sidan.
 
-1. Granska listan med artefakter som utgör skissexemplet. Många av artefakterna innehåller parametrar som vi definierar senare. Välj **Spara utkast** när du har granskat skissexemplet.
+1. Granska listan över artefakter som ingår i skiss exemplet. Många av artefakterna innehåller parametrar som vi definierar senare. Välj **Spara utkast** när du har granskat skissexemplet.
 
 ### <a name="publish-the-sample-copy"></a>Publicera exempelkopian
 

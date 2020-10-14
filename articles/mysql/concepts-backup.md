@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: b3cc70eadfaa1295cd67fa3f2b36c97f107b4bad
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 51c177af10713dfb35857097b267638156f0cc5d
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047003"
+ms.locfileid: "92057543"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Säkerhets kopiering och återställning i Azure Database for MySQL
 
@@ -29,19 +29,19 @@ Säkerhets kopieringens typ och frekvens beror på Server serverns lagrings utry
 
 #### <a name="basic-storage-servers"></a>Grundläggande lagrings servrar
 
-De grundläggande lagrings servrarna är Server dels lagring för [grundläggande SKU-servrar](concepts-pricing-tiers.md). Säkerhets kopior på Basic Storage-servrar är Snapshot-baserade. En fullständig ögonblicks bild av databasen utförs dagligen. Det finns inga differentiella säkerhets kopieringar för grundläggande lagrings servrar och alla säkerhets kopior av ögonblicks bilder är bara fullständiga databas säkerhets kopieringar. 
+Basic Storage är Server dels lagringen med stöd för [grundläggande nivå servrar](concepts-pricing-tiers.md). Säkerhets kopior på Basic Storage-servrar är Snapshot-baserade. En fullständig ögonblicks bild av databasen utförs dagligen. Det finns inga differentiella säkerhets kopieringar för grundläggande lagrings servrar och alla säkerhets kopior av ögonblicks bilder är bara fullständiga databas säkerhets kopieringar. 
 
 Säkerhetskopieringar av transaktionsloggar sker var femte minut. 
 
 #### <a name="general-purpose-storage-servers-with-up-to-4-tb-storage"></a>Generella lagrings servrar med upp till 4 TB lagring
 
-För servrar som har stöd för upp till 4 TB maximalt lagrings utrymme för generell användning sker fullständiga säkerhets kopieringar varje vecka. Differentiella säkerhets kopieringar sker två gånger om dagen. Säkerhets kopieringar av transaktions loggar sker var femte minut. Säkerhets kopieringarna i generell användning av lagrings utrymme på 4 TB är inte ögonblicks bilder och förbrukar IO-bandbredd vid tidpunkten för säkerhets kopieringen. För stora databaser (> 1 TB) på 4 TB-lagring rekommenderar vi att du 
+Det allmänna lagrings utrymmet är den server dels lagring som stöder [generell användning](concepts-pricing-tiers.md) och minnesoptimerade [nivå](concepts-pricing-tiers.md) Server. För servrar med generell lagring upp till 4 TB sker fullständiga säkerhets kopieringar varje vecka. Differentiella säkerhets kopieringar sker två gånger om dagen. Säkerhets kopieringar av transaktions loggar sker var femte minut. Säkerhets kopieringarna i generell användning av lagrings utrymme på 4 TB är inte ögonblicks bilder och förbrukar IO-bandbredd vid tidpunkten för säkerhets kopieringen. För stora databaser (> 1 TB) på 4 TB-lagring rekommenderar vi att du 
 
-- Etablering av mer IOPs till konto för säkerhets kopiering av IOs  
-- Du kan också migrera till allmän lagring som stöder upp till 16 TB lagrings utrymme om lagrings utrymmet är tillgängligt i dina önskade [Azure-regioner](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage). Det kostar inget extra att tillhandahålla lagring med upp till 16 TB. Om du vill ha hjälp med migrering till 16 TB-lagring öppnar du ett support ärende från Azure Portal. 
+- Etablering av mer IOPs till konto för säkerhets kopiering av IOs eller
+- Du kan också migrera till allmän lagring som stöder upp till 16 TB lagrings utrymme om den underliggande lagrings infrastruktur är tillgänglig i dina önskade [Azure-regioner](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage). Det kostar inget extra att tillhandahålla lagring med upp till 16 TB. Om du vill ha hjälp med migrering till 16 TB-lagring öppnar du ett support ärende från Azure Portal. 
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Generella lagrings servrar med upp till 16 TB lagring
-I en delmängd av [Azure-regioner](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)har alla nyligen etablerade servrar stöd för generell användning av lagrings utrymme på 16 TB. Säkerhets kopieringar på dessa 16-TB-lagrings servrar är ögonblicks bilds-baserade. Den första fullständiga säkerhetskopieringen schemaläggs omedelbart efter att en server har skapats. Den första fullständiga säkerhets kopieringen behålls som serverns grundläggande säkerhets kopiering. Efterföljande säkerhetskopieringar av ögonblicksbilder är bara differentiella säkerhetskopieringar. 
+I en delmängd av [Azure-regioner](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)har alla nyligen etablerade servrar stöd för generell användning av lagrings utrymme på 16 TB. Med andra ord är lagring upp till 16 TB lagrings utrymme standard lagring för alla [regioner](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage) där det stöds. Säkerhets kopieringar på dessa 16-TB-lagrings servrar är ögonblicks bilds-baserade. Den första fullständiga säkerhetskopieringen schemaläggs omedelbart efter att en server har skapats. Den första fullständiga säkerhets kopieringen behålls som serverns grundläggande säkerhets kopiering. Efterföljande säkerhetskopieringar av ögonblicksbilder är bara differentiella säkerhetskopieringar. 
 
 Differentiella säkerhetskopieringar av ögonblicksbilder görs minst en gång per dag. Differentiella säkerhetskopieringar av ögonblicksbilder sker inte enligt ett fast schema. Säkerhets kopiering av differentiella ögonblicks bilder sker var 24: e timme om transaktions loggen (BinLog i MySQL) överskrider 50 GB sedan den senaste differentiella säkerhets kopieringen. Högst sex differentiella ögonblicksbilder tillåts under samma dag. 
 

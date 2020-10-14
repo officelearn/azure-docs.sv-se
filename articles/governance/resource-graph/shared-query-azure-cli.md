@@ -1,14 +1,14 @@
 ---
 title: 'Snabb start: skapa en delad fråga med Azure CLI'
 description: I den här snabb starten följer du stegen för att aktivera resurs diagram tillägget för Azure CLI och skapa en delad fråga.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: c888cee5899c45747db1775ffdfbc0d0c78e00c7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: daaa0dc4039c37094330148f839fadf7b4013276
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667664"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057203"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Snabb start: skapa en resurs diagram delad fråga med Azure CLI
 
@@ -84,7 +84,7 @@ När Azure CLI-tillägget har lagts till i din miljö väljer du en delad fråga
    ```
 
 1. Kör den delade frågan i Azure CLI med `{{shared-query-uri}}` syntaxen i ett [AZ Graph Query](/cli/azure/ext/resource-graph/graph#ext-resource-graph-az-graph-query) -kommando.
-   Kopiera först `id` fältet från resultatet av `show` kommandot ovan. Ersätt `shared-query-uri` text i exemplet med värdet från `id` fältet, men lämna omgivande `{{` `}}` tecken och tecken.
+   Kopiera först `id` fältet från resultatet från föregående `show` kommando. Ersätt `shared-query-uri` text i exemplet med värdet från `id` fältet, men lämna omgivande `{{` `}}` tecken och tecken.
 
    ```azurecli-interactive
    # Run a Azure Resource Graph shared query

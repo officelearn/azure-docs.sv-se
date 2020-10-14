@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 4328d1da8c82bc09aa8353838d08c31ea77f58aa
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: ebbdd103350e1de36d45ecf84acf15d477fa34db
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043399"
+ms.locfileid: "92058139"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Vad är nytt i Azure SQL Database & SQL-hanterad instans?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -98,6 +98,8 @@ Följande funktioner är aktiverade i distributions modellen SQL-hanterad instan
 
 |Problem  |Datum identifierat  |Status  |Åtgärds datum  |
 |---------|---------|---------|---------|
+|[Distribuerade transaktioner kan utföras efter borttagning av hanterade instanser från Server förtroende grupp](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Sep 2020|Har en lösning||
+|[Distribuerade transaktioner kan inte utföras efter skalnings åtgärden för hanterade instanser](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Sep 2020|Har en lösning||
 |[Bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) i Azure SQL och `BACKUP` / `RESTORE` instruktionen i en hanterad instans kan inte använda Azure AD-hantera identitet för att autentisera till Azure Storage|Sep 2020|Har en lösning||
 |[Tjänstens huvud namn kan inte komma åt Azure AD och AKV](#service-principal-cannot-access-azure-ad-and-akv)|Aug 2020|Har en lösning||
 |[Återställning av manuell säkerhets kopiering utan kontroll summa kan Miss kopie ras](#restoring-manual-backup-without-checksum-might-fail)|Maj 2020|Matchat|Juni 2020|
@@ -127,6 +129,14 @@ Följande funktioner är aktiverade i distributions modellen SQL-hanterad instan
 |Funktionen Database mail med externa (icke-Azure) e-postservrar som använder säker anslutning||Matchat|Okt 2019|
 |Inneslutna databaser stöds inte i SQL-hanterad instans||Matchat|Aug 2019|
 
+### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>Distribuerade transaktioner kan utföras efter borttagning av hanterade instanser från Server förtroende grupp
+
+[Server förtroende grupper](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) används för att upprätta förtroende mellan hanterade instanser som är nödvändiga för att köra [distribuerade transaktioner](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). När du har tagit bort hanterade instanser från gruppen Server förtroende eller tagit bort gruppen kan du fortfarande köra distribuerade transaktioner. Det finns en lösning som du kan använda för att se till att distribuerade transaktioner är inaktiverade och att manuell redundansväxling på den hanterade instansen har [startats](https://docs.microsoft.com/azure/azure-sql/managed-instance/user-initiated-failover) .
+
+### <a name="distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation"></a>Distribuerade transaktioner kan inte utföras efter skalnings åtgärden för hanterade instanser
+
+Skalnings åtgärder för hanterade instanser som inkluderar ändring av tjänst nivå eller antal virtuella kärnor kommer att återställa grupp inställningar för Server förtroende på Server delen och inaktivera [distribuerade transaktioner](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). Som en lösning kan du ta bort och skapa en ny [Server förtroende grupp](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) på Azure Portal.
+
 ### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>BULK INSERT-och BACKUP/Restore-instruktioner kan inte använda hanterad identitet för att komma åt Azure Storage
 
 Bulk INSERT-instruktionen kan inte använda `DATABASE SCOPED CREDENTIAL` med hanterad identitet för att autentisera till Azure Storage. Som en lösning kan du växla till autentisering med delad åtkomst-signatur. Följande exempel fungerar inte på Azure SQL (både databasen och den hanterade instansen):
@@ -146,7 +156,7 @@ BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzur
 
 I vissa fall kan det finnas ett problem med tjänstens huvud namn som används för att få åtkomst till Azure AD-och Azure Key Vault-tjänster (AKV). Därför påverkar det här problemet användningen av Azure AD-autentisering och transparent databas kryptering (TDE) med SQL-hanterad instans. Detta kan uppstå som ett tillfälligt anslutnings problem eller inte kan köra instruktioner som till exempel skapa inloggning/användare från extern PROVIDER eller köra som inloggning/användare. Att ställa in TDE med kundhanterad nyckel på en ny Azure SQL-hanterad instans kanske inte fungerar i vissa fall.
 
-**Lösning**: förhindra att det här problemet uppstår på SQL-hanterad instans innan du kör några uppdaterings kommandon, eller om du redan har drabbats av det här problemet efter uppdaterings kommandon, gå till Azure Portal, gå till SQL-hanterad instans [Active Directory administratörs bladet](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal). Kontrol lera om du kan se fel meddelandet "en hanterad instans behöver ett tjänst huvud namn för att få åtkomst till Azure Active Directory. Klicka här om du vill skapa ett huvud namn för tjänsten. Om du har påträffat det här fel meddelandet klickar du på det och följer instruktionerna för steg för steg som tillhandahölls tills felet har åtgärd ATS.
+**Lösning**: förhindra att det här problemet uppstår på SQL-hanterad instans innan du kör några uppdaterings kommandon, eller om du redan har drabbats av det här problemet efter uppdaterings kommandon, går du till Azure Portal, åtkomst till SQL Managed instance [Active Directory admin-bladet](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal). Kontrol lera om du kan se fel meddelandet "en hanterad instans behöver ett tjänst huvud namn för att få åtkomst till Azure Active Directory. Klicka här om du vill skapa ett huvud namn för tjänsten. Om du har påträffat det här fel meddelandet klickar du på det och följer instruktionerna för steg för steg som tillhandahölls tills felet har åtgärd ATS.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>Återställning av manuell säkerhets kopiering utan kontroll summa kan Miss kopie ras
 

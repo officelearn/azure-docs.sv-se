@@ -3,12 +3,12 @@ title: Skapa ett labb i Azure DevTest Labs | Microsoft Docs
 description: Den här artikeln vägleder dig genom processen att skapa ett labb med hjälp av Azure Portal och Azure DevTest Labs.
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: 962997bcc66188c66fd9db856fe44e4926f8e70c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 9fa33a59dd35bfe3469f30f2349f8a08c45bd5e3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019655"
+ms.locfileid: "92058351"
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Skapa ett labb i Azure DevTest Labs
 
@@ -35,7 +35,11 @@ På sidan **skapa en DevTest labb** fyller du i följande inställningar.
 
 ### <a name="basic-settings"></a>Grundläggande inställningar
 
-Som standard visas fliken **grundläggande inställningar** . Fyll i följande värden:
+Som standard visas fliken **grundläggande inställningar** . 
+
+![grundläggande inställningar](./media/devtest-lab-create-lab/basic-settings.png)
+
+Fyll i följande värden:
 
 |Name|Beskrivning|
 |---|---|
@@ -49,29 +53,41 @@ Som standard visas fliken **grundläggande inställningar** . Fyll i följande v
 
 Växla till sidan för **Automatisk avstängning** för att se dess inställningar. Med automatisk avstängning kan du automatiskt stänga av alla datorer i ett labb vid en schemalagd tidpunkt varje dag.
 
+![Fliken Automatisk avstängning](./media/devtest-lab-create-lab/auto-shutdown.png)
+
 På sidan kan du aktivera **Automatisk avstängning** och definiera parametrarna för automatisk avstängning av alla Labbets virtuella datorer. Funktionen automatisk avstängning är främst en kostnadfunktion där du kan ange om du vill att den virtuella datorn ska stängas automatiskt. Du kan ändra inställningarna för automatisk avstängning när du har skapat labbet genom att följa stegen som beskrivs i artikeln [hantera alla principer för ett labb i Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
 
 ### <a name="networking"></a>Nätverk
 
-När du skapar ett labb skapas ett standard nätverk åt dig.
+När du skapar ett labb skapas ett standard nätverk åt dig. Växla till fliken **nätverk** om du vill ändra/konfigurera inställningen som du vill. Välj till exempel ett befintligt virtuellt nätverk.
 
-Växla till fliken **nätverk** om du vill ändra/konfigurera inställningen som du vill. Välj till exempel ett befintligt virtuellt nätverk.
+![Fliken nätverk ](./media/devtest-lab-create-lab/networking.png)
 
 ### <a name="tags"></a>Taggar
 
 Ange **NAME** (namn) och **VALUE** (värde) för **Tags** (taggar) om du vill skapa anpassade taggar som läggs till i alla resurser som du skapar i labbet. Taggar är användbara för att hantera och ordna labbresurser efter kategori. Mer information om taggar, inklusive hur du lägger till taggar när du har skapat labbet, finns i [Lägga till taggar i ett labb](devtest-lab-add-tag.md).
 
+![Fliken Taggar ](./media/devtest-lab-create-lab/tags.png)
+
 ### <a name="review-and-create"></a>Granska och skapa
 
 När du är färdig väljer du **skapa**. Du kan övervaka statusen för processen för att skapa labb genom att titta i **meddelande** fältet längst upp till höger på Portal sidan. 
+
+![Fliken Skapa](./media/devtest-lab-create-lab/create-1.png)
 
 ## <a name="completed-the-creation"></a>Skapandet har slutförts
 
 När du är klar visas knappen **gå till resurs** längst ned på sidan och i meddelande fönstret. Du kan också uppdatera **DevTest Labs** -sidan om du vill se det nyligen skapade labbet i listan över labb.  
 
+![Skapar tjänsten](./media/devtest-lab-create-lab/create-2.png)
+
 Tryck på knappen **gå till resurs** så kommer du till start sidan för ditt nya DevTest Labs-konto.
 
+![Resurs](./media/devtest-lab-create-lab/go-to-resource.png)
+
 Du kan också söka efter **DevTest Labs** i Azure Portal. Välj det nya kontot i listan och gå till start sidan. 
+
+![Tjänsten har skapats](./media/devtest-lab-create-lab/created.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

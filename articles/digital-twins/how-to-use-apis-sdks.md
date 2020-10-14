@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1cf7bd744870b9f0a04d63445268b2ccd3134a66
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: bfeafdea149cd41ea35562c2ff4b9e67a99b95d0
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046765"
+ms.locfileid: "92058530"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
 
@@ -26,12 +26,12 @@ Den här artikeln ger en översikt över de API: er som är tillgängliga och me
 
 API: er för kontroll plan är [arm](../azure-resource-manager/management/overview.md) -API: er som används för att hantera din Azure Digital-instansen som helhet, så att de täcker åtgärder som att skapa eller ta bort hela instansen. Du kan också använda dessa för att skapa och ta bort slut punkter.
 
-Den mest aktuella API-versionen för kontroll plan för den offentliga för hands versionen är _**2020-03-01 – för hands**_ version.
+Den mest aktuella API-versionen för kontroll plan för den offentliga för hands versionen är _**2020-10-31**_.
 
 Använda API: er för kontroll plan:
 * Du kan anropa API: erna direkt genom att referera till de senaste Swagger i [mappen Control plan Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Den här lagrings platsen innehåller också en mapp med exempel som visar användningen.
 * Du kan för närvarande komma åt SDK: er för kontroll-API: er i...
-  - [.Net (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) ([källa](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([referens [genereras automatiskt]](/dotnet/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-dotnet-preview))
+  - [.Net (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([källa](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([referens [genereras automatiskt]](/dotnet/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-dotnet-preview))
   - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([källa](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)) ([referens [automatiskt genererad]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview))
   - [Java Script](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([källa](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([källa](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins))
@@ -47,7 +47,7 @@ Data Plans-API: erna är Azure Digitals dubbla API: er som används för att han
 * **Fråga** – kategorin fråga gör det möjligt [för utvecklare att hitta uppsättningar digitala delar i det dubbla diagrammet](how-to-query-graph.md) mellan relationer.
 * **EventRoutes** – EventRoutes-kategorin innehåller API: er för att [dirigera data](concepts-route-events.md)genom systemet och till underordnade tjänster.
 
-Den mest aktuella data planet API-versionen för den offentliga för hands versionen är _**2020-05-31 – för hands**_ version. API _-versionen 2020-03-01-Preview_ för data Plans åtgärder har nu blivit föråldrad.
+Den mest aktuella data planet API-versionen för den offentliga för hands versionen är _**2020-10-31**_.
 
 Använda data Plans-API: er:
 * Du kan anropa API: erna direkt, efter...
@@ -112,8 +112,8 @@ try {
     Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
 }
 // Read a list of models back from the service
-AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
-await foreach (DigitalTwinsModelData md in modelDataList)
+AsyncPageable<ModelData> modelDataList = client.GetModelsAsync();
+await foreach (ModelData md in modelDataList)
 {
     Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
 }

@@ -4,15 +4,15 @@ description: Lär dig hur du distribuerar Azure File Sync, från början till sl
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/19/2018
+ms.date: 10/14/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: eda6e6b5ef2b68c55bf1f7f6ceb30bb6aea21d67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 012b5c76a025e6dc6ae1fbd5aedddf9ea3d2a4f0
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856355"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057832"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -418,6 +418,7 @@ I fönstret **Lägg till serverslutpunkt** anger du följande information för a
 - **Sökväg**: Windows Server-sökvägen som ska synkroniseras som en del av Sync-gruppen.
 - **Moln nivå**: en växel för att aktivera eller inaktivera moln nivåer. Med moln nivåer kan använda filer som används sällan eller som används i nivå till Azure Files.
 - **Ledigt utrymme på volym**: mängden ledigt utrymme som ska reserveras på den volym där Server slut punkten finns. Om till exempel volym ledigt utrymme är inställt på 50% på en volym som har en enda server slut punkt, är ungefär hälften av data i nivå till Azure Files. Oavsett om moln nivån är aktive rad, har Azure-filresursen alltid en fullständig kopia av data i Sync-gruppen.
+- **Inledande nedladdnings läge**: Detta är ett valfritt val, från och med agent version 11, som kan vara till hjälp när det finns filer i Azure-filresursen men inte på servern. En sådan situation kan till exempel inträffa om du skapar en server slut punkt för att lägga till en annan avdelnings kontors server i en Sync-grupp eller när du gör en katastrof återställning av en misslyckad Server. Om moln nivån är aktive rad är standardvärdet att endast återkalla namn området, inget fil innehåll inlednings vis. Det är användbart om du tror att i stället för förfrågningar om användar åtkomst bör bestämma vilket fil innehåll som återkallas till servern. Om moln skiktning är inaktive rad är standardvärdet att namn området hämtas först och sedan kommer filerna att återkallas baserat på den senast ändrade tidsstämpeln tills den lokala kapaciteten har nåtts. Du kan dock bara ändra det inledande nedladdnings läget till namn område. Ett tredje läge kan bara användas om moln nivåer har inaktiverats för den här server slut punkten. Det här läget förhindrar att namn området anropas först. Filerna visas bara på den lokala servern om de hade chans att laddas ned helt. Det här läget är användbart om till exempel ett program kräver att fullständiga filer finns och inte kan tolerera filer med nivåer i namn området.
 
 Välj **skapa**om du vill lägga till Server slut punkten. Filerna hålls nu synkroniserade över Azure-filresursen och Windows Server. 
 
@@ -428,6 +429,8 @@ Kör följande PowerShell-kommandon för att skapa server slut punkten och se ti
 $serverEndpointPath = "<your-server-endpoint-path>"
 $cloudTieringDesired = $true
 $volumeFreeSpacePercentage = <your-volume-free-space>
+# Optional property. Choose from: [NamespaceOnly] default when cloud tiering is enabled. [NamespaceThenModifiedFiles] default when cloud tiering is disabled. [AvoidTieredFiles] only available when cloud tiering is disabled.
+$initialDownloadPolicy = NamespaceOnly
 
 if ($cloudTieringDesired) {
     # Ensure endpoint path is not the system volume
@@ -444,14 +447,16 @@ if ($cloudTieringDesired) {
         -ServerResourceId $registeredServer.ResourceId `
         -ServerLocalPath $serverEndpointPath `
         -CloudTiering `
-        -VolumeFreeSpacePercent $volumeFreeSpacePercentage
+        -VolumeFreeSpacePercent $volumeFreeSpacePercentage `
+        -InitialDownloadPolicy $initialDownloadPolicy
 } else {
     # Create server endpoint
     New-AzStorageSyncServerEndpoint `
         -Name $registeredServer.FriendlyName `
         -SyncGroup $syncGroup `
         -ServerResourceId $registeredServer.ResourceId `
-        -ServerLocalPath $serverEndpointPath
+        -ServerLocalPath $serverEndpointPath `
+        -InitialDownloadPolicy $initialDownloadPolicy
 }
 ```
 
@@ -478,6 +483,7 @@ az storagesync sync-group server-endpoint create --resource-group myResourceGrou
                                                  --cloud-tiering on \
                                                  --volume-free-space-percent 85 \
                                                  --tier-files-older-than-days 15 \
+                                                 --initial-download-policy NamespaceOnly [OR] NamespaceThenModifiedFiles [OR] AvoidTieredFiles
                                                  --offline-data-transfer on \
                                                  --offline-data-transfer-share-name myfilesharename \
 
@@ -569,6 +575,40 @@ Standardvärdet för maximalt antal VSS-ögonblicksbilder per volym (64) och sta
 
 Om max. 64 VSS-ögonblicksbilder per volym inte är rätt inställning kan du [ändra värdet via en register nyckel](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 För att den nya gränsen ska träda i kraft måste du köra cmdleten igen för att aktivera kompatibilitet med tidigare versioner på varje volym som den tidigare var aktive rad, med flaggan-Force att ta det nya maximala antalet VSS-ögonblicksbilder per volym i kontot. Detta leder till ett nyligen beräknat antal kompatibla dagar. Observera att den här ändringen bara träder i kraft på nyligen nivåbaserade filer och skriver över eventuella anpassningar av VSS-schemat som du kan ha gjort.
+
+<a id="proactive-recall"></a>
+## <a name="proactively-recall-new-and-changed-files-from-an-azure-file-share"></a>Återkalla nya och ändrade filer proaktivt från en Azure-filresurs
+
+Med agent version 11 blir ett nytt läge tillgängligt på en server slut punkt. Med det här läget kan globalt distribuerade företag ha serverns cacheminne i en fjärrregion som är förifyllt, även innan lokala användare får åtkomst till några filer. När det är aktiverat på en server slut punkt kommer det här läget orsaka att den här servern återkallar filer som har skapats eller ändrats i Azure-filresursen.
+
+### <a name="scenario"></a>Scenario
+
+Ett globalt distribuerat företag har avdelnings kontor i USA och i Indien. I morgon (oss tid) informations anställda skapar du en ny mapp och nya filer för ett helt nytt projekt och arbetar hela dagen på den. Azure File Sync synkroniserar mapp och filer med Azure-filresursen (moln slut punkten). Informations anställda i Indien fortsätter att arbeta med projektet i sin tidszon. När de anländer till morgon måste den lokala Azure File Sync-aktiverade servern i Indien ha dessa nya filer tillgängliga lokalt, så att Indien-teamet kan arbeta effektivt från en lokal cache. Att aktivera det här läget förhindrar att den initiala fil åtkomsten går långsammare på grund av återkallande på begäran och gör att servern kan återkalla filerna proaktivt så fort de har ändrats eller skapats i Azure-filresursen.
+
+> [!IMPORTANT]
+> Det är viktigt att du inser att spårnings ändringar i Azure-filresursen som är nära servern kan öka den utgående trafiken och fakturera från Azure. Om filer som har återkallats till servern inte behövs lokalt, kan onödig återkallning till servern få negativa konsekvenser. Använd det här läget när du vet att förkonfigurera cachen på en server med de senaste ändringarna i molnet kommer att ha en positiv inverkan på användare eller program som använder filerna på den servern.
+
+### <a name="enable-a-server-endpoint-to-proactively-recall-what-changed-in-an-azure-file-share"></a>Aktivera en server slut punkt för att proaktivt återkalla vad som ändrats i en Azure-filresurs
+
+# <a name="portal"></a>[Portal](#tab/proactive-portal)
+
+1. I [Azure Portal](https://portal.azure.com/)går du till tjänsten Storage Sync, väljer rätt Sync-grupp och identifierar sedan Server slut punkten för vilken du vill spåra ändringar i Azure-filresursen (moln slut punkt).
+1. I avsnittet Cloud tierion letar du upp avsnittet "Azure File Share Download". Du ser det valda läget och kan ändra det för att spåra ändringar i Azure-filresursen och på så sätt återställa dem till servern.
+
+:::image type="content" source="media/storage-sync-files-deployment-guide/proactive-download.png" alt-text="En bild som visar hämtnings beteendet för Azure File-resurser för en server slut punkt som för närvarande används och en knapp för att öppna en meny som gör det möjligt att ändra den.":::
+
+# <a name="powershell"></a>[PowerShell](#tab/proactive-powershell)
+
+Du kan ändra egenskaperna för Server slut punkten i PowerShell genom cmdleten [set-AzStorageSyncServerEndpoint](https://docs.microsoft.com/powershell/module/az.storagesync/set-azstoragesyncserverendpoint) .
+
+```powershell
+# Optional parameter. Default: "UpdateLocallyCachedFiles", alternative behavior: "DownloadNewAndModifiedFiles"
+$recallBehavior = "DownloadNewAndModifiedFiles"
+
+Set-AzStorageSyncServerEndpoint -InputObject <PSServerEndpoint> -LocalCacheMode $recallBehavior
+```
+
+---
 
 ## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migrera en DFS Replication-distribution (DFS-R) till Azure File Sync
 Så här migrerar du en DFS-R-distribution till Azure File Sync:

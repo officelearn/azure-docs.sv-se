@@ -1,14 +1,14 @@
 ---
 title: 'Självstudie: hantera frågor i Azure Portal'
 description: I den här självstudien skapar du en resurs diagram fråga och delar den nya frågan med andra i Azure Portal.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: tutorial
-ms.openlocfilehash: f602a6ed26f467f2d3395bdf5e3346c83684b108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98d4c7d0493686a45bdfef9d85823432cb637a66
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88005181"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057934"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Självstudie: skapa och dela en Azure Resource Graph-fråga i Azure Portal
 
@@ -24,7 +24,7 @@ I den här självstudien utför du följande aktiviteter:
 > - Identifiera delade frågor
 > - Ta bort en delad fråga
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen. Om du inte har ett konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -60,8 +60,7 @@ Privata frågor är tillgängliga och endast synliga för det konto som skapar d
 
 ## <a name="create-a-shared-query"></a>Skapa en delad fråga
 
-Till skillnad från en privat fråga är en delad fråga en Resource Manager-resurs. Detta faktum innebär att frågan sparas i en resurs grupp, kan hanteras och kontrol leras med Azure RBAC och kan även skyddas med resurs lås. Som en resurs kan alla som har rätt behörigheter Se och använda den.
-Följ dessa steg om du vill skapa en ny delad fråga:
+Till skillnad från en privat fråga är en delad fråga en Resource Manager-resurs. Detta faktum innebär att frågan sparas i en resurs grupp, kan hanteras och kontrol leras med Azure RBAC och kan även skyddas med resurs lås. Som en resurs kan alla som har rätt behörigheter Se och använda den. Följ dessa steg om du vill skapa en ny delad fråga:
 
 1. Välj **alla tjänster**på menyn portal eller Använd Azure Search-rutan längst upp på alla sidor för att söka efter och välja **resurs diagram Utforskaren**.
 
@@ -107,7 +106,7 @@ Följ dessa steg om du vill skapa en ny delad fråga:
 
 Eftersom en delad fråga är en Resource Manager-resurs finns det flera sätt att hitta en:
 
-- I resurs diagram Utforskaren väljer du **öppna en fråga** och anger typen till **delad fråga**.
+- Från resurs diagram Utforskaren. Välj **öppna en fråga** och ange typen till en **delad fråga**.
 - Från Portal sidan resurs diagram frågor.
 - Från resurs gruppen som den delade frågan sparades i.
 - Via en fråga till resurs diagram.

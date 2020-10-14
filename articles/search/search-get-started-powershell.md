@@ -3,19 +3,19 @@ title: 'Snabb start: skapa ett Sök index i PowerShell med hjälp av REST API: e
 titleSuffix: Azure Cognitive Search
 description: 'I den här REST API snabb starten lär du dig att skapa ett index, läsa in data och köra frågor med PowerShell: s Invoke-RestMethod och Azure Kognitiv sökning-REST API.'
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/17/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f803532e7d08d0de21541cb5d1b52639b623bb90
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ad5c73fee93d935ad050cea8feca2754649a61f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89078307"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058513"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i PowerShell med REST API: er
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "89078307"
 
 Den här artikeln vägleder dig genom processen att skapa, läsa in och skicka frågor mot ett Azure Kognitiv sökning-index med PowerShell och [Azure KOGNITIV sökning REST-API: er](/rest/api/searchservice/). Den här artikeln förklarar hur du kör PowerShell-kommandon interaktivt. Du kan också [Hämta och köra ett PowerShell-skript](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) som utför samma åtgärder.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

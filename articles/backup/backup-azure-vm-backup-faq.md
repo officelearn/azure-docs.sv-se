@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om hur du s�
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 8813794d44803a32bc6e156d3ca76360d84604c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51c54aa732259180a5393488891b21956553f581
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370835"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056726"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
 
@@ -21,7 +21,7 @@ I den här artikeln besvaras vanliga frågor om säkerhets kopiering av virtuell
 
 När du skapar en virtuell dator kan du aktivera säkerhets kopiering för virtuella datorer som kör [operativ system som stöds](backup-support-matrix-iaas.md#supported-backup-actions).
 
-### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Varför är det mycket tid att slutföra den första säkerhets kopieringen?
+### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Varför tar det så lång tid att slutföra den första säkerhetskopieringen?
 
 Den första säkerhets kopieringen är alltid en fullständig säkerhets kopia och den kommer att vara beroende av storleken på data och när säkerhets kopieringen bearbetas. <br>
 För att förbättra prestanda för säkerhets kopiering, se [metod tips för säkerhets kopiering](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices); [Säkerhets kopierings överväganden](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) och [säkerhets kopierings prestanda](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
@@ -79,7 +79,7 @@ Ta bort låset och rensa återställnings punkt samlingen från resurs gruppen f
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Stöder Azure Backup Standard SSD-hanterade diskar?
 
-Ja, Azure Backup stöder [standard-SSD Managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
+Ja, Azure Backup stöder [standard-SSD Managed disks](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Kan vi säkerhetskopiera en virtuell dator med en Skrivningsaccelerator (WA)-aktiverad disk?
 
@@ -161,7 +161,7 @@ När du har ändrat nyckel valvs inställningarna för den krypterade virtuella 
 
 Ja, du får åtkomst till den virtuella datorn när den återställts på grund av en virtuell dator med en bruten relation med domänkontrollanten. Mer information finns i den här [artikeln](./backup-azure-arm-restore-vms.md#post-restore-steps)
 
-### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>Varför tar det lång tid att slutföra återställningen?
+### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>Varför tar det så lång tid att återställa?
 
 Den totala återställnings tiden beror på antalet in-/utdata-åtgärder per sekund (IOPS) och data flödet för lagrings kontot. Den totala återställnings tiden kan påverkas om mål lagrings kontot har lästs in med andra program Läs-och skriv åtgärder. Om du vill förbättra återställnings åtgärden väljer du ett lagrings konto som inte har lästs in med andra program data.
 

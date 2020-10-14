@@ -1,6 +1,6 @@
 ---
-title: Azure Stream Analytics integration med Azure Machine Learning
-description: Den här artikeln beskriver hur du snabbt skapar ett enkelt Azure Stream Analytics jobb som integrerar Azure Machine Learning med hjälp av en användardefinierad funktion.
+title: Azure Stream Analytics integration med Azure Machine Learning Studio (klassisk)
+description: Den här artikeln beskriver hur du snabbt skapar ett enkelt Azure Stream Analytics jobb som integrerar Azure Machine Learning Studio (klassisk) med hjälp av en användardefinierad funktion.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -8,16 +8,16 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 26a1208131f1d9d3df7dccd8e27bda37992f043f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 529b1ce8026d9880bbc8caf87ab59148baf92df3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88236688"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019468"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Gör sentiment-analys med Azure Stream Analytics och Azure Machine Learning Studio (klassisk)
 
-Den här artikeln visar hur du konfigurerar ett enkelt Azure Stream Analytics jobb som använder Azure Machine Learning Studio (klassisk) för sentiment-analys. Du kan använda en Machine Learning sentiment Analytics-modell från Cortana Intelligence Gallery för att analysera strömmande text data och fastställa sentiment poäng.
+Den här artikeln visar hur du konfigurerar ett enkelt Azure Stream Analytics jobb som använder Azure Machine Learning Studio (klassisk) för sentiment-analys. Du använder en Studio (klassisk) sentiment Analytics-modell från Cortana Intelligence Gallery för att analysera strömmande text data och fastställa sentiment poäng.
 
 > [!TIP]
 > Vi rekommenderar starkt att du använder [Azure Machine Learning UDF: er](machine-learning-udf.md) i stället för Azure Machine Learning Studio (klassisk) UDF för bättre prestanda och tillförlitlighet.
@@ -47,7 +47,7 @@ I det här steget laddar du upp en CSV-fil till din lagrings behållare.
 
 2. Fyll i fliken *grundläggande* med följande information och lämna standardvärdena för de återstående fälten:
 
-   |Field  |Värde  |
+   |Fält  |Värde  |
    |---------|---------|
    |Prenumeration|Välj din prenumeration.|
    |Resursgrupp|Välj din resurs grupp.|
@@ -79,31 +79,31 @@ Nu när exempel data finns i en BLOB kan du aktivera sentiment analys modell i C
 
 2. Välj **Öppna i Studio (klassisk)**.  
    
-   ![Stream Analytics Machine Learning, öppna Machine Learning Studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
+   ![Stream Analytics Azure Machine Learning Studio (klassisk), öppna Studio (klassisk)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
 
 3. Logga in för att gå till arbets ytan. Välj en plats.
 
 4. Välj **Kör** längst ned på sidan. Processen körs, som tar ungefär en minut.
 
-   ![köra experiment i Machine Learning Studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-run-experiment.png)  
+   ![Köra experiment i Studio (klassisk)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-run-experiment.png)  
 
 5. När processen har körts väljer du **distribuera webb tjänst** längst ned på sidan.
 
-   ![distribuera experiment i Machine Learning Studio som en webb tjänst](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-deploy-web-service.png)  
+   ![Distribuera experiment i Studio (klassisk) som en webb tjänst](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-deploy-web-service.png)  
 
 6. Om du vill kontrol lera att sentiment Analytics-modellen är redo att använda väljer du knappen **test** . Ange text ingångs värde, till exempel "Jag älskar Microsoft".
 
-   ![testa experiment i Machine Learning Studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test.png)  
+   ![Testa experiment i Studio (klassisk)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test.png)  
 
    Om testet fungerar ser du ett resultat som liknar följande exempel:
 
-   ![test resultat i Machine Learning Studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test-results.png)  
+   ![Test resultat i Studio (klassisk)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test-results.png)  
 
 7. I kolumnen **appar** väljer du länken **Excel 2010 eller föregående arbets bok** för att ladda ned en Excel-arbetsbok. Arbets boken innehåller API-nyckeln och den URL som du behöver senare för att kunna konfigurera Stream Analytics jobbet.
 
-    ![Stream Analytics Machine Learning, snabbt och enkelt](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
+    ![Stream Analytics Azure Machine Learning Studio (klassisk), snabbt och enkelt](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
-## <a name="create-a-stream-analytics-job-that-uses-the-machine-learning-model"></a>Skapa ett Stream Analytics jobb som använder Machine Learnings modellen
+## <a name="create-a-stream-analytics-job-that-uses-the-studio-classic-model"></a>Skapa ett Stream Analytics jobb som använder Studio-modellen (klassisk)
 
 Nu kan du skapa ett Stream Analytics jobb som läser exempel-tweets från CSV-filen i Blob Storage.
 
@@ -119,7 +119,7 @@ Jobbet hämtar indata från den CSV-fil som du överförde tidigare till Blob St
 
 2. Fyll i **Blob Storage** information med följande värden:
 
-   |Field  |Värde  |
+   |Fält  |Värde  |
    |---------|---------|
    |Inmatat alias|Ge dina inmatade namn. Kom ihåg det här aliaset när du skriver frågan.|
    |Prenumeration|Välj din prenumeration.|
@@ -137,7 +137,7 @@ Jobbet skickar resultat till samma blob-lagring där det matas in.
 
 2. Fyll i formuläret **Blob Storage** med följande värden:
 
-   |Field  |Värde  |
+   |Fält  |Värde  |
    |---------|---------|
    |Inmatat alias|Ge dina inmatade namn. Kom ihåg det här aliaset när du skriver frågan.|
    |Prenumeration|Välj din prenumeration.|
@@ -147,9 +147,9 @@ Jobbet skickar resultat till samma blob-lagring där det matas in.
 
 3. Välj **Spara**.
 
-### <a name="add-the-machine-learning-function"></a>Lägg till funktionen Machine Learning
+### <a name="add-the-studio-classic-function"></a>Lägg till Studio-funktionen (klassisk)
 
-Tidigare publicerade du en Machine Learning-modell till en webb tjänst. I det här scenariot, när Stream-analys jobbet körs, skickas varje exempel tweet från indata till webb tjänsten för sentiment-analys. Machine Learning-webbtjänsten returnerar en sentiment ( `positive` , `neutral` eller `negative` ) och en sannolikhet för att tweeten ska vara positiv.
+Tidigare publicerade du en Studio-modell (klassisk) till en webb tjänst. I det här scenariot, när Stream-analys jobbet körs, skickas varje exempel tweet från indata till webb tjänsten för sentiment-analys. Den Studio (klassiska) webb tjänsten returnerar en sentiment ( `positive` , `neutral` eller `negative` ) och en sannolikhet för att tweeten är positiv.
 
 I det här avsnittet definierar du en funktion i Stream Analysis-jobbet. Funktionen kan anropas för att skicka en tweet till webb tjänsten och få tillbaka svaret.
 
@@ -159,17 +159,17 @@ I det här avsnittet definierar du en funktion i Stream Analysis-jobbet. Funktio
 
 3. Fyll i formuläret för **Azure Machine Learning funktion** med följande värden:
 
-   |Field  |Värde  |
+   |Fält  |Värde  |
    |---------|---------|
    | Funktions Ali Aset | Använd namnet `sentiment` och välj **Ange Azure Machine Learning funktions inställningar manuellt**, vilket ger dig ett alternativ för att ange URL och nyckel.      |
    | URL| Klistra in webb tjänstens URL.|
-   |Tangent | Klistra in API-nyckeln. |
+   |Nyckel | Klistra in API-nyckeln. |
 
 4. Välj **Spara**.
 
 ### <a name="create-a-query-to-transform-the-data"></a>Skapa en fråga för att transformera data
 
-Stream Analytics använder en deklarativ, SQL-baserad fråga för att undersöka inmatade och bearbeta dem. I det här avsnittet skapar du en fråga som läser varje tweet från indatamängden och sedan anropar funktionen Machine Learning för att utföra sentiment-analys. Frågan skickar sedan resultatet till utdata som du har definierat (Blob Storage).
+Stream Analytics använder en deklarativ, SQL-baserad fråga för att undersöka inmatade och bearbeta dem. I det här avsnittet skapar du en fråga som läser varje tweet från indatamängden och sedan anropar funktionen Studio (klassisk) för att utföra sentiment analys. Frågan skickar sedan resultatet till utdata som du har definierat (Blob Storage).
 
 1. Gå tillbaka till Stream Analytics jobb översikt.
 
@@ -215,18 +215,18 @@ Nu kan du starta Stream Analytics jobbet.
 
 3. Öppna den genererade CSV-filen. Du ser något som liknar följande exempel:  
 
-   ![Stream Analytics Machine Learning, CSV-vy](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
+   ![Stream Analytics Azure Machine Learning Studio (klassisk), vyn CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
 
 ### <a name="view-metrics"></a>Visa mått
 
-Du kan också Visa Azure Machine Learning Function-relaterade mått. Följande funktions relaterade mått visas i rutan **övervakning** i jobb översikten:
+Du kan också Visa funktions relaterade mått för Studio (klassisk). Följande funktions relaterade mått visas i rutan **övervakning** i jobb översikten:
 
-* **Funktions begär Anden** anger antalet begär Anden som skickats till en Machine Learning-webbtjänst.  
-* **Funktions händelser** anger antalet händelser i begäran. Som standard innehåller varje begäran till en Machine Learning-webbtjänsten upp till 1 000 händelser.
+* **Funktions begär Anden** anger antalet begär Anden som skickats till en Studio-webbtjänst (klassisk).  
+* **Funktions händelser** anger antalet händelser i begäran. Varje begäran till en Studio-webbtjänst (klassisk) innehåller som standard upp till 1 000 händelser.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Integrera REST API och Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
+* [Integrera REST API och Machine Learning Studio (klassisk)](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 * [Referens för Azure Stream Analytics Management REST-API:et](https://msdn.microsoft.com/library/azure/dn835031.aspx)

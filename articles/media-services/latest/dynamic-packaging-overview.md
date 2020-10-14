@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: 797ba00820e7ff9d96868acdfc1dddfff3d21623
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7941d542ca2cab1637b9edaef057f740a9a1b7ef
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598286"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016833"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamisk paketering i Media Services v3
 
@@ -30,7 +30,7 @@ Microsoft Azure Media Services kan användas för att koda många fil format fö
 I Media Services representerar en [strömmande slut punkt](streaming-endpoint-concept.md) (ursprung) en dynamisk (just-in-Time)-paketering och ursprungs tjänst som kan leverera Live och innehåll på begäran direkt till en app i klient spelaren. Det använder ett av de vanliga protokollen för strömmande media som anges i följande avsnitt. *Dynamisk paketering* är en funktion som levereras som standard på alla slut punkter för direkt uppspelning.
 
 > [!NOTE]
-> Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 [Live-händelser](live-events-outputs-concept.md), Visa v3- [till gångar](assets-concept.md), hämta information om åtkomst till API: er. För alla andra hanterings uppgifter (t. ex. transformationer och jobb) använder du [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
+> Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 [Live-händelser](live-events-outputs-concept.md), Visa v3- [till gångar](assets-concept.md), hämta information om åtkomst till API: er. För alla andra hanterings uppgifter (t. ex. transformationer och jobb) använder du [REST API](/rest/api/media/), [CLI](/cli/azure/ams)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Förbereda dina källfiler för leverans
 
@@ -88,7 +88,7 @@ Följande steg visar ett vanligt Media Services strömnings arbets flöde där d
 1. [Ladda upp en indatafil](job-input-from-http-how-to.md) , till exempel en MP4-, QuickTime-/MOV-fil eller ett annat fil format som stöds. Den här filen kallas även för mezzaninfil eller käll filen. En lista över format som stöds finns i [format som stöds av Standard-kodaren](media-encoder-standard-formats.md).
 1. [Koda](#encode-to-adaptive-bitrate-mp4s) din mezzaninfil-fil till en inställd H. 264/AAC MP4 anpassad bit hastighet.
 
-    Om du redan har kodade filer och bara vill kopiera och strömma filerna använder du: [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) -och [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio) -API: er. En ny MP4-fil med ett strömmande manifest (. ISM-fil) skapas som ett resultat.
+    Om du redan har kodade filer och bara vill kopiera och strömma filerna använder du: [CopyVideo](/rest/api/media/transforms/createorupdate#copyvideo) -och [CopyAudio](/rest/api/media/transforms/createorupdate#copyaudio) -API: er. En ny MP4-fil med ett strömmande manifest (. ISM-fil) skapas som ett resultat.
 1. Publicera den utgående till gången som innehåller MP4-uppsättningen med anpassad bit hastighet. Du publicerar genom att skapa en [strömmande Locator](streaming-locators-concept.md).
 1. Bygg webb adresser som riktar sig mot olika format (HLS, MPEG-streck och Smooth Streaming). *Slut punkten för direkt uppspelningen* tar hand om att betjäna rätt manifest och begär Anden för alla dessa olika format.
     

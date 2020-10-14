@@ -3,12 +3,12 @@ title: HTTP-tillägg-protokollet – Azure
 description: I den här artikeln får du lära dig att använda HTTP-tilläggsprogram för att skicka meddelanden mellan Live Video Analytics-modulen och AI-eller CV-modulen.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: bfc8672185d284abc8f2985b44cea92000bc73db
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f1e1fb0e8fe63b3a83c59a4ec48abdac7f22096a
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89448368"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016662"
 ---
 # <a name="http-extension-protocol"></a>Protokoll för HTTP-tillägg
 
@@ -100,4 +100,4 @@ Om din modul returnerar ett svar med innehålls typen "Application/JSON", men JS
 
 ## <a name="next-steps"></a>Nästa steg
 
-[gRPC-dataavtal](grpc-data-contract.md)
+[gRPC-dataavtal](./grpc-extension-protocol.md)

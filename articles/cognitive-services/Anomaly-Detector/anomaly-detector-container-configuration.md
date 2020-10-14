@@ -3,19 +3,19 @@ title: Så här konfigurerar du en behållare för avvikelse detektor API
 titleSuffix: Azure Cognitive Services
 description: Körnings miljön för avvikelse detektorns API-behållare konfigureras med hjälp av `docker run` kommando argumenten. Den här behållaren har flera inställningar som krävs, tillsammans med några valfria inställningar.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.author: aahi
-ms.openlocfilehash: c0bf08ae0b2d26b2f4992181d2e300e9dbeed818
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: ae987a4239f478162e1e1f251e0d6607d63e02c5
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903534"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019757"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Konfigurera avvikelseidentifieringscontainrar
 
@@ -25,7 +25,7 @@ Körnings miljön för **avvikelse detektor** behållare konfigureras med hjälp
 
 Den här behållaren har följande konfigurations inställningar:
 
-|Krävs|Inställning|Syfte|
+|Obligatorisk|Inställning|Syfte|
 |--|--|--|
 |Ja|[ApiKey](#apikey-configuration-setting)|Används för att spåra fakturerings information.|
 |Inga|[ApplicationInsights](#applicationinsights-setting)|Gör att du kan lägga till stöd för [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) -telemetri till din behållare.|
@@ -59,7 +59,7 @@ Du hittar den här inställningen på följande plats:
 
 * Azure Portal: **avvikelse detektorns** översikt, märkt `Endpoint`
 
-|Krävs| Namn | Datatyp | Beskrivning |
+|Obligatorisk| Name | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Sträng | URI för fakturerings slut punkt. Mer information om hur du skaffar fakturerings-URI: n finns i [samla in obligatoriska parametrar](anomaly-detector-container-howto.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
@@ -88,7 +88,7 @@ De avvikande detektor behållarna använder inte indata eller utdata monteras f�
 
 Den exakta syntaxen för värd monterings platsen varierar beroende på värd operativ systemet. Dessutom kanske [värd datorns](anomaly-detector-container-howto.md#the-host-computer)monterings plats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värd monterings platsens behörigheter. 
 
-|Valfritt| Namn | Datatyp | Beskrivning |
+|Valfritt| Name | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
 |Inte tillåtet| `Input` | Sträng | Avvikelse detektor behållare använder inte detta.|
 |Valfritt| `Output` | Sträng | Målet för utmatnings monteringen. Standardvärdet är `/output`. Detta är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|

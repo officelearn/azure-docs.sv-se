@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3e64ffe5007d27a44167f08807a9694875fe48c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28f414c5eaaea7b987f2c3694cb8fc73b70838e9
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050447"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018788"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Hantera Azure Analysis Services med PowerShell
 
@@ -46,21 +46,21 @@ Dokumentation – [SQLServer-referens](/powershell/module/sqlserver)
 
 |Cmdlet|Beskrivning|
 |------------|-----------------| 
-|[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Lägg till en medlem i en databas roll.| 
-|[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Säkerhetskopiera en Analysis Services databas.|  
-|[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Ta bort en medlem från en databas roll.|   
-|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Kör ett TMSL-skript.|
-|[Invoke-ProcessASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|Bearbeta en databas.|  
-|[Invoke-ProcessPartition](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processpartition)|Bearbeta en partition.| 
-|[Invoke-ProcessTable](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|Bearbetar en tabell.|  
-|[Sammanslagning-partition](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|Sammanfoga en partition.|  
-|[Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|Återställa en Analysis Services databas.| 
+|[Add-RoleMember](/powershell/module/sqlserver/Add-RoleMember)|Lägg till en medlem i en databas roll.| 
+|[Backup-ASDatabase](/powershell/module/sqlserver/backup-asdatabase)|Säkerhetskopiera en Analysis Services databas.|  
+|[Remove-RoleMember](/powershell/module/sqlserver/remove-rolemember)|Ta bort en medlem från en databas roll.|   
+|[Invoke-ASCmd](/powershell/module/sqlserver/invoke-ascmd)|Kör ett TMSL-skript.|
+|[Invoke-ProcessASDatabase](/powershell/module/sqlserver/invoke-processasdatabase)|Bearbeta en databas.|  
+|[Invoke-ProcessPartition](/powershell/module/sqlserver/invoke-processpartition)|Bearbeta en partition.| 
+|[Invoke-ProcessTable](/powershell/module/sqlserver/invoke-processtable)|Bearbetar en tabell.|  
+|[Sammanslagning-partition](/powershell/module/sqlserver/merge-partition)|Sammanfoga en partition.|  
+|[Restore-ASDatabase](/powershell/module/sqlserver/restore-asdatabase)|Återställa en Analysis Services databas.| 
   
 
 ## <a name="related-information"></a>Relaterad information
 
-* [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell)      
-* [Ladda ned SQL Server PowerShell-modul](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
-* [Ladda ned SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
+* [SQL Server PowerShell](/sql/powershell/sql-server-powershell)      
+* [Ladda ned SQL Server PowerShell-modul](/sql/ssms/download-sql-server-ps-module)   
+* [Ladda ned SSMS](/sql/ssms/download-sql-server-management-studio-ssms)   
 * [SqlServer-modul i PowerShell-galleriet](https://www.powershellgallery.com/packages/SqlServer)    
-* [Tabell modell programmering för kompatibilitetsnivå 1200 och högre](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)
+* [Tabell modell programmering för kompatibilitetsnivå 1200 och högre](/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)

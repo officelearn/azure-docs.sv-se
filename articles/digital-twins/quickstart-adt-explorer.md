@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 2022a7448767b7ffea7baa70606a7f59e6d93951
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 9531a812d60c6e5a60ff0a0936fafde4a77e5a67
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952036"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017054"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Snabb start – utforska ett exempel på Azure Digitals dubbla scenarier med ADT Explorer
 
 Med Azure Digitals dubbla, kan du skapa och interagera med Live-modeller i dina verkliga miljöer. Det gör du genom att utforma enskilda element som **digitala**delar och sedan ansluta dem till ett kunskaps **diagram** som kan svara på direktsända händelser och frågas efter information.
 
-I den här snabb starten ska du utforska ett förbyggt Azure Digital-diagram med hjälp av ett exempel program som kallas [**Azure Digitals dubblare (ADT) Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Med ADT Explorer kan du ladda upp ett scenario, Visa visuella representationer av dina artister och grafer och utföra andra hanterings aktiviteter via en webbläsarbaserad, visuell upplevelse.
+I den här snabb starten ska du utforska ett förbyggt Azure Digital-diagram med hjälp av ett exempel program som kallas [**Azure Digitals dubblare (ADT) Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Med ADT Explorer kan du ladda upp en digital representation av en miljö, Visa visuella bilder av de dubbla och grafer som skapas för att representera miljön i Azure Digitals, och utföra andra hanterings aktiviteter via en webbläsarbaserad, visuell upplevelse.
 
 Snabb starten innehåller följande viktiga steg:
 
@@ -307,7 +307,7 @@ I den här snabb starten skapade du en Azure Digital-instansen, anslöt den till
 Du utforskar sedan grafen, efter...
 1. Använda en fråga för att besvara en fråga om scenariot.
 2. Redigera en egenskap på en digital, dubbel.
-    * Kör frågan igen för att se hur svaret ändrades till följd av din uppdatering.
+3. Kör frågan igen för att se hur svaret ändrades till följd av din uppdatering.
 
 Syftet med den här övningen är att demonstrera hur du kan använda Azure Digitals grafer för att besvara frågor om din miljö, även om miljön fortsätter att ändras. 
 

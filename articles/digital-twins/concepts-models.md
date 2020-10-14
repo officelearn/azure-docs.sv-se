@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7da19ddd96c15ff5688d6e153d1859ed8c11ec8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b404d05f512449c99e60c0bfdc93aab22c399ef
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616558"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019026"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Förstå dubbla modeller i Azure Digitals flätas
 
@@ -57,7 +57,7 @@ Här följer några ytterligare anvisningar om hur du skiljer mellan DTDL- **Ege
 
 Skillnaden mellan egenskaper och telemetri för Azures digitala dubbla modeller är följande:
 * **Egenskaper** förväntas ha lagrings utrymme. Det innebär att du kan läsa en egenskap när som helst och hämta dess värde. Om egenskapen är skrivbar kan du också lagra ett värde i egenskapen.  
-* **Telemetri** är mer som en data ström med händelser. Det är en uppsättning data meddelanden som har korta lifespans. Om du inte konfigurerar att lyssna efter händelsen och åtgärder som ska vidtas, finns det ingen spårning av händelsen vid ett senare tillfälle. Du kan inte komma tillbaka och läsa det senare. 
+* **Telemetri** är mer som en data ström med händelser. Det är en uppsättning data meddelanden som har korta lifespans. Om du inte konfigurerar att lyssna efter händelsen och åtgärder som ska vidtas, finns det ingen spårning av händelsen vid ett senare tillfälle. Du kan inte komma tillbaka till den och läsa den senare. 
   - I C#-termer är telemetri som en C#-händelse. 
   - I IoT-termer är telemetri vanligt vis ett enda mått som skickas av en enhet.
 
@@ -138,7 +138,7 @@ Tänk på att planeterna också kan samverka med **måne** som är deras satelli
 
 Fälten i modellen är:
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | --- | --- |
 | `@id` | En identifierare för modellen. Måste vara i formatet `dtmi:<domain>:<unique model identifier>;<model version number>` . |
 | `@type` | Identifierar vilken typ av information som beskrivs. För ett gränssnitt är typen *gränssnitt*. |

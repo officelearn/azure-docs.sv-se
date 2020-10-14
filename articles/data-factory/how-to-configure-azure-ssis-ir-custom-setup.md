@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/28/2020
-ms.openlocfilehash: 4ef569864b27eff7f57aa2b0a922034fa28f587c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: e4708e49ebd45210e381a1b58752bbfa287a9eeb
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91405249"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019876"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Anpassa installations programmet för en Azure-SSIS Integration Runtime
 
@@ -127,7 +127,7 @@ Utför följande steg för att etablera eller konfigurera om Azure-SSIS IR med a
 
 #### <a name="running-cmdkey-command"></a>Kör cmdkey-kommando
 
-Om du väljer **Kör cmdkey-kommando** typen för den anpassade snabb installationen kan du köra Windows cmdkey-kommandot på Azure-SSIS IR. Det gör du genom att ange namnet på din dator eller ditt domän namn, användar namn, konto namn och lösen ord eller konto nyckel i text rutorna **/Add**, **/User**och **/pass** . Detta gör att du kan spara autentiseringsuppgifter för SQL-servrar, fil resurser eller Azure Files på Azure-SSIS IR. Om du till exempel vill komma åt Azure Files kan du ange `YourAzureStorageAccountName.file.core.windows.net` , `azure\YourAzureStorageAccountName` och `YourAzureStorageAccountKey` för **/Add**, **/User**respektive **/pass**. Detta påminner om att köra Windows [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) -kommandot på den lokala datorn.
+Om du väljer **Kör cmdkey-kommando** typen för den anpassade snabb installationen kan du köra Windows cmdkey-kommandot på Azure-SSIS IR. Det gör du genom att ange namnet på din dator eller ditt domän namn, användar namn, konto namn och lösen ord eller konto nyckel i text rutorna **/Add**, **/User**och **/pass** . Detta gör att du kan spara autentiseringsuppgifter för SQL-servrar, fil resurser eller Azure Files på Azure-SSIS IR. Om du till exempel vill komma åt Azure Files kan du ange `YourAzureStorageAccountName.file.core.windows.net` , `azure\YourAzureStorageAccountName` och `YourAzureStorageAccountKey` för **/Add**, **/User**respektive **/pass**. Detta påminner om att köra Windows [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) -kommandot på den lokala datorn. Endast en Express anpassad installation för att köra cmdkey-kommandot stöds för tillfället. Om du vill köra flera cmdkey-kommandon använder du i stället en standard anpassad installation.
 
 #### <a name="adding-environment-variables"></a>Lägga till miljövariabler
 
@@ -143,7 +143,7 @@ Om du väljer alternativet **Installera licensierad komponent** för den anpassa
 
    * Om du väljer **uppgifts fabriks komponenten SentryOne** kan du installera [Task Factory](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) Suite-komponenter från SentryOne på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **2020.1.3**.
 
-   * Om du väljer **oh22's-Hedda. I/o** -komponenten kan du installera [Hedda. IO](https://hedda.io/ssis-component/) -datakvalitet/rengörings komponent från oh22 på din Azure-SSIS IR. För att göra det måste du köpa sin tjänst i förväg. Den aktuella integrerade versionen är **1.0.14**.
+   * Om du väljer **oh22's-Hedda. I/o** -komponenten kan du installera [Hedda. IO](https://github.com/oh22is/HEDDA.IO/tree/master/SSIS-IR) -datakvalitet/rengörings komponent från oh22 på din Azure-SSIS IR. För att göra det måste du köpa sin tjänst i förväg. Den aktuella integrerade versionen är **1.0.14**.
 
    * Om du väljer komponenten **oh22's SQLPhonetics.net** kan du installera [SQLPhonetics.net](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) Data Quality/Matching-komponenten från oh22 på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **1.0.45**.
 
@@ -175,7 +175,7 @@ Utför följande steg för att etablera eller konfigurera om Azure-SSIS IR med a
    $AzureSSISName = "[your Azure-SSIS IR name]"
    # Custom setup info: Standard/express custom setups
    $SetupScriptContainerSasUri = "" # OPTIONAL to provide a SAS URI of blob container for standard custom setup where your script and its associated files are stored
-   $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService or leave it empty]" # OPTIONAL to configure an express custom setup without script
+   $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService|CData.Standard|CData.Extended or leave it empty]" # OPTIONAL to configure an express custom setup without script
 
    # Add custom setup parameters if you use standard/express custom setups
    if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
@@ -242,6 +242,16 @@ Utför följande steg för att etablera eller konfigurera om Azure-SSIS IR med a
            $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
            $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
        }
+       if($ExpressCustomSetup -eq "CData.Standard")
+       {
+           $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+       }
+       if($ExpressCustomSetup -eq "CData.Extended")
+       {
+           $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+       }    
        # Create an array of one or more express custom setups
        $setups = New-Object System.Collections.ArrayList
        $setups.Add($setup)
@@ -288,6 +298,8 @@ Utför följande steg om du vill visa och återanvända några exempel på vanli
       * En *.net FRAMEWORK 3,5* -mapp som innehåller ett anpassat installations skript (*main. cmd*) för att installera en tidigare version av .NET Framework på varje nod i Azure-SSIS IR. Den här versionen kan krävas av vissa anpassade komponenter.
 
       * En *BCP* -mapp som innehåller ett anpassat installations skript (*main. cmd*) för att installera SQL Server kommando rads verktyg (*MsSqlCmdLnUtils.msi*) på varje nod i Azure-SSIS IR. Ett av dessa verktyg är*BCP*(Mass kopierings program).
+
+      * En mapp för *DNS-suffix* som innehåller ett anpassat installations skript (*main. cmd*) för att lägga till ditt eget DNS-suffix (till exempel *test.com*) till valfritt okvalificerat domän namn och omvandla det till ett fullständigt kvalificerat domän namn (FQDN) innan det används i DNS-frågor från din Azure-SSIS IR.
 
       * En *Excel* -mapp som innehåller ett anpassat installations skript (*main. cmd*) för att installera vissa C#-sammansättningar och-bibliotek på varje nod i Azure-SSIS IR. Du kan använda dem i skript uppgifter för att dynamiskt läsa och skriva Excel-filer. 
       

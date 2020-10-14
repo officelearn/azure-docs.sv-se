@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6df53e3a8d9330c9628e04a1c3ff50534d443ab2
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78251895"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019672"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Självstudiekurs: Lastbalansera virtuella datorer i en tillgänglighetszon med Standard Load Balancer med hjälp av Azure Portal
 
@@ -38,6 +38,10 @@ I den här kursen skapar du en offentlig [Azure Standard Load Balancer-instans](
 Mer information om hur du använder tillgänglighets zoner med Standard Load Balancer finns [standard Load Balancer och Tillgänglighetszoner](load-balancer-standard-availability-zones.md).
 
 Om du vill kan du använda [Azure CLI](load-balancer-standard-public-zonal-cli.md) till att slutföra den här kursen.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* En Azure-prenumeration
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -228,5 +232,6 @@ Ta bort resursgruppen, lastbalanseraren och alla relaterade resurser när de int
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information finns i [Standard Load Balancer](load-balancer-standard-overview.md).
-- [Belastningsutjämna virtuella datorer i tillgänglighets zoner](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
+Gå vidare till nästa artikel om du vill lära dig att belastningsutjämna virtuella datorer i tillgänglighets zoner.
+> [!div class="nextstepaction"]
+> [Belastningsutjämna virtuella datorer mellan tillgänglighetszoner](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

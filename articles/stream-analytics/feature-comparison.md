@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 2ba7dc3b0f2bc4f62234c480da0af1061dea1f91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fbaaac0095622f14d5bc0033b7787bec8ec2fa2
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885569"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018295"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Jämförelse av Azure Stream Analyticss funktion
 
@@ -44,7 +44,7 @@ Med Azure Stream Analytics kan du skapa strömmande lösningar i molnet och på 
 |Anpassad kod funktion i C# och deserialiserare|Skrivskyddat läge|Ja|Inga|
 |JavaScript UDF och UDA     |Ja         |Ja         |Endast Windows         |
 |Machine Learning Service     |Ja        |Ja         |Inga         |
-|Machine Learning Studio     |Ja, men det går inte att testa frågan        |Ja |Inga         |
+|Azure Machine Learning Studio (klassisk)|Ja, men det går inte att testa frågan        |Ja |Inga         |
 |Efterlevnadsnivå     |1.0</br>1,1</br>1,2 (standard)         |1.0</br>1,1</br>1,2 (standard)           |1.0</br>1,1</br>1,2 (standard)           |
 |Inbyggda ML-baserade avvikelse identifierings funktioner     |Ja         |Ja         |Ja         |
 |Inbyggda GeoSpatiala funktioner     |Ja         |Ja         |Ja         |

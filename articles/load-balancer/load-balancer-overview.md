@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 602a36964d4a6d5f3660499570327db3479c980e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4a397a67c0e40de8be1d42ee56618357cf36c55f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89299209"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017734"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
@@ -80,10 +80,8 @@ Se [SLA för Load Balancer](https://aka.ms/lbsla). Basic Load Balancer har inget
 Prenumerera på RSS-flödet och Visa de senaste Azure Load Balancer funktions uppdateringarna på sidan [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=load%20balancer) .
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns i [uppgradera en Basic-Load Balancer](upgrade-basic-standard.md) för att uppgradera Basic Load Balancer till standard Load Balancer.
 
-Se [skapa en offentlig standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) för att komma igång med att använda en Load Balancer.
+Se [skapa en offentlig standard belastningsutjämnare](quickstart-load-balancer-standard-public-portal.md) för att komma igång med att använda en belastningsutjämnare.
 
 Mer information om Azure Load Balancer begränsningar och komponenter finns [Azure Load Balancer komponenter](./components.md) och [Azure Load Balancer koncept](./concepts.md)
 
-En jämförelse mellan alternativen för belastnings utjämning i Azure finns i [Översikt över alternativ för belastnings utjämning i Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).

@@ -2,29 +2,29 @@
 title: Skapa en skydds-värd med hjälp av Azure CLI | Azure-skydds
 description: I den här artikeln lär du dig hur du skapar och tar bort en skydds-värd
 services: bastion
-author: mialdrid
+author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 03/26/2020
-ms.author: mialdrid
-ms.openlocfilehash: 8ee90d80230f9115946525ede325e874e98e358e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.author: cherylmc
+ms.openlocfilehash: 851ec86feb5244ff43759a7aef2b80876dcfa734
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90024340"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018550"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-cli"></a>Skapa en Azure skydds-värd med Azure CLI
 
-Den här artikeln visar hur du skapar en Azure skydds-värd med Azure CLI. När du etablerar Azure skydds-tjänsten i det virtuella nätverket är den sömlösa RDP/SSH-upplevelsen tillgänglig för alla virtuella datorer i samma virtuella nätverk. Azure skydds-distributionen är per virtuellt nätverk, inte per prenumeration/konto eller virtuell dator.
+Den här artikeln visar hur du skapar en Azure skydds-värd med Azure CLI. När du har distribuerat skydds kan du ansluta till en virtuell dator via dess privata IP-adress via webbläsaren med hjälp av Azure Portal. Din virtuella dator behöver ingen offentlig IP-adress, en ytterligare klient eller en särskild program vara. Azure skydds-distributionen är per virtuellt nätverk, inte per prenumeration/konto eller virtuell dator. Den sömlösa RDP/SSH-upplevelsen är tillgänglig för alla virtuella datorer i samma virtuella nätverk.
 
-Du kan också skapa en Azure skydds-värd med hjälp av [Azure Portal](bastion-create-host-portal.md)eller genom att använda [Azure PowerShell](bastion-create-host-powershell.md).
+Du kan också skapa en Azure skydds-värd med hjälp av [Azure Portal](tutorial-create-host-portal.md)eller genom att använda [Azure PowerShell](bastion-create-host-powershell.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Kontrollera att du har en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial).
 
-[!INCLUDE [cloudshell cli](../../includes/vpn-gateway-cloud-shell-cli.md)]
+[!INCLUDE [Cloud Shell CLI](../../includes/vpn-gateway-cloud-shell-cli.md)]
 
 ## <a name="create-a-bastion-host"></a><a name="createhost"></a>Skapa en skydds-värd
 
@@ -53,6 +53,7 @@ Det här avsnittet hjälper dig att skapa en ny Azure skydds-resurs med hjälp a
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information finns i [vanliga frågor och svar om skydds](bastion-faq.md) .
+* Anslut till en virtuell dator.
+   * [Virtuell Linux-dator](bastion-connect-vm-ssh.md)
+   * [Virtuell Windows-dator](bastion-connect-vm-rdp.md)
 
-* Information om hur du använder nätverks säkerhets grupper med Azure skydds-undernätet finns i [arbeta med NSG: er](bastion-nsg.md).

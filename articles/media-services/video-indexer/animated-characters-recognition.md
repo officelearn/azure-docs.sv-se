@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 3b449f68b25fce19dc034d2a0db0ae5ce8a28ec7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d304767cf28c0e9230c93d5b9e7504b03ed25d4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87047497"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018890"
 ---
 # <a name="animated-character-detection-preview"></a>Identifiering av animerade karaktärer (förhandsversion)
 
@@ -55,7 +55,7 @@ Eftersom Custom Vision-integrering hanteras av Video Indexer i utvärderings kon
 
 ### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>Anslut ditt Custom Vision konto (endast betalda konton)
 
-Om du äger ett Video Indexer betalt konto måste du först ansluta ett Custom Vision-konto. Om du inte redan har ett Custom Vision konto kan du skapa ett. Mer information finns i [Custom vision](../../cognitive-services/custom-vision-service/home.md).
+Om du äger ett Video Indexer betalt konto måste du först ansluta ett Custom Vision-konto. Om du inte redan har ett Custom Vision konto kan du skapa ett. Mer information finns i [Custom vision](../../cognitive-services/custom-vision-service/overview.md).
 
 > [!NOTE]
 > Båda kontona måste finnas i samma region. Custom Vision-integration stöds för närvarande inte i regionen Japan.
@@ -160,7 +160,7 @@ Följ dessa steg för att ansluta dig Custom Vision konto till Video Indexer ell
 1. Anslut ett Custom Vision-konto.
 
     Om du äger ett Video Indexer betalt konto måste du först ansluta ett Custom Vision-konto. <br/>
-    Om du inte redan har ett Custom Vision konto kan du skapa ett. Mer information finns i [Custom vision](../../cognitive-services/custom-vision-service/home.md).
+    Om du inte redan har ett Custom Vision konto kan du skapa ett. Mer information finns i [Custom vision](../../cognitive-services/custom-vision-service/overview.md).
 
     [Anslut ditt Custom vision-konto med hjälp av API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
 1. Skapa en animerad tecken modell.

@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: b11cd602850d23ac6ec37a9be51912adceb9afbc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 58a142f0be87bb56f9ded9ace5a5143931740e93
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89267623"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019872"
 ---
 # <a name="azure-media-services-v3-overview"></a>Översikt över Azure Media Services v3
 
@@ -33,7 +33,7 @@ Azure Media Services är en molnbaserad plattform för att skapa lösningar för
 Media Services v3-SDK: er baseras på [Media Services v3 openapi-specifikation (Swagger)](https://aka.ms/ams-v3-rest-sdk).
 
 > [!NOTE]
-> För närvarande kan du använda [Azure Portal](https://portal.azure.com/) för att: Hantera Media Services v3 [Live-händelser](live-events-outputs-concept.md), Visa (inte hantera) v3- [till gångar](assets-concept.md), [få information om åtkomst till API: er](./access-api-howto.md). För alla andra hanterings uppgifter (t. ex. [transformationer och jobb](transforms-jobs-concept.md) och [innehålls skydd](content-protection-overview.md)) använder du [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
+> För närvarande kan du använda [Azure Portal](https://portal.azure.com/) för att: Hantera Media Services v3 [Live-händelser](live-events-outputs-concept.md), Visa (inte hantera) v3- [till gångar](assets-concept.md), [få information om åtkomst till API: er](./access-api-howto.md). För alla andra hanterings uppgifter (t. ex. [transformationer och jobb](transforms-jobs-concept.md) och [innehålls skydd](content-protection-overview.md)) använder du [REST API](/rest/api/media/), [CLI](/cli/azure/ams)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

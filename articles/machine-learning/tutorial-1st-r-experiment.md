@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: fe9b0e9d2e2e46c7c4d04549777a5c27df6bdf18
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: bf89e99842efa726e6ca05a08998c9d058dc02e3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940114"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019383"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Självstudie: Använd R för att skapa en Machine Learning-modell (för hands version)
 
@@ -38,7 +38,7 @@ I den här självstudien utför du följande åtgärder:
 > * Distribuera en förutsägelse slut punkt
 > * Testa modellen från R
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
@@ -72,7 +72,7 @@ Klona https://github.com/Azure/azureml-sdk-for-r GitHub-lagringsplatsen för en 
 
 1. I RStudio navigerar du till fliken "Terminal" och CD: n till den katalog där du vill klona lagrings platsen.
 
-1. Kör "git-kloning https://github.com/Azure/azureml-sdk-for-r " i terminalen för att klona lagrings platsen.
+1. Kör `git clone https://github.com/Azure/azureml-sdk-for-r` i terminalen för att klona lagrings platsen.
 
 1. I RStudio navigerar du till mappen *vignettes* i mappen klonad *azureml-SDK-for-r* .  Under *vignettes*väljer du *först modellen träna-och-Deploy-First. RMD* -fil för att hitta Vignette som används i den här självstudien. De ytterligare filer som används för Vignette finns i undermappen *träna-och-distribuera-First-Model* . När du har öppnat Vignette anger du arbets katalogen till filens plats via **Session > anger arbets katalog > till käll filens plats**. 
 

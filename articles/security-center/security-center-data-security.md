@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: 8e92c893d97ce9fadfa2d40476631c2b9ba5d177
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: d829ffb9d3a264052e3f688018acd7afa854578e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999268"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018278"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center data säkerhet
 
@@ -57,19 +57,19 @@ Om du inte använder Azure Defender kan du också inaktivera data insamling frå
 
 Du kan ange arbets ytan och regionen där data som samlas in från dina datorer lagras. Standardvärdet är att lagra data som samlas in från datorerna på den närmaste arbets ytan som visas i följande tabell:
 
-| Region för virtuell dator                              | Region för arbetsyta |
-|-------------------------------------|---------------|
-| USA, Brasilien, Sydafrika | USA |
-| Kanada                              | Kanada        |
-| Europa (exklusive Storbritannien)   | Europa        |
-| Storbritannien                      | Storbritannien |
-| Asien (exklusive Indien, Japan, Korea, Kina)   | Asien och stillahavsområdet  |
-| Korea                              | Asien och stillahavsområdet  |
-| Indien                               | Indien         |
-| Japan                               | Japan         |
-| Kina                               | Kina         |
-| Australien                           | Australien     |
-|||
+| Region för virtuell dator                                      | Region för arbetsyta  |
+|---------------------------------------------|----------------|
+| USA, Brasilien, Sydafrika         | USA  |
+| Kanada                                      | Kanada         |
+| Europa (exklusive Storbritannien)           | Europa         |
+| Storbritannien                              | Storbritannien |
+| Asien (exklusive Indien, Japan, Korea, Kina) | Asien och stillahavsområdet   |
+| Korea                                       | Asien och stillahavsområdet   |
+| Indien                                       | Indien          |
+| Japan                                       | Japan          |
+| Kina                                       | Kina          |
+| Australien                                   | Australien      |
+|                                             |                |
 
 > [!NOTE]
 > **Azure Defender för lagring** lagrar artefakter i regionalt enligt platsen för den relaterade Azure-resursen. Läs mer i [Introduktion till Azure Defender för lagring](defender-for-storage-introduction.md).
@@ -80,18 +80,16 @@ Du kan ange arbets ytan och regionen där data som samlas in från dina datorer 
 Kunder kan komma åt Security Center relaterade data från följande data strömmar:
 
 
-|Dataström  |Datatyper  |
-|---------|---------|
-|[Azure-aktivitetslogg](../azure-monitor/platform/activity-log.md)| Alla säkerhets aviseringar, godkända Security Center [just-in-Time-](security-center-just-in-time.md) begäranden och alla aviseringar som genereras av [adaptiva program kontroller](security-center-adaptive-application.md) |
-|[Azure Monitor loggar](../azure-monitor/platform/data-platform.md)|Alla säkerhets aviseringar.|
-|[Azure Resource Graph](../governance/resource-graph/overview.md)|Säkerhets aviseringar, säkerhets rekommendationer, sårbarhets bedömnings resultat, säker Poäng information, status för kontroll av efterlevnad och mycket annat.|
-|[REST API för Azure Security Center](https://docs.microsoft.com/rest/api/securitycenter/)|Säkerhets aviseringar, säkerhets rekommendationer med mera. .|
-|||
+| Dataström                                                                                | Datatyper                                                                                                                                                                                                          |
+|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Azure-aktivitetslogg](../azure-monitor/platform/activity-log.md)                       | Alla säkerhets aviseringar, godkända Security Center [just-in-Time-](security-center-just-in-time.md) begäranden och alla aviseringar som genereras av [adaptiva program kontroller](security-center-adaptive-application.md).|
+| [Azure Monitor loggar](../azure-monitor/platform/data-platform.md)                      | Alla säkerhets aviseringar.                                                                                                                                                                                                |
+| [Azure Resource Graph](../governance/resource-graph/overview.md)                      | Säkerhets aviseringar, säkerhets rekommendationer, sårbarhets bedömnings resultat, säker Poäng information, status för kontroll av efterlevnad och mycket annat.                                                                       |
+| [REST API för Azure Security Center](https://docs.microsoft.com/rest/api/securitycenter/) | Säkerhets aviseringar, säkerhets rekommendationer med mera.                                                                                                                                                                |
+|                                                                                       |                                                                                                                                                                                                                     |
 
 ## <a name="next-steps"></a>Nästa steg
 
 I det här dokumentet har du lärt dig hur data hanteras och skyddas i Azure Security Center. 
 
-Mer information om Azure Security Center finns här:
-
-- [Vad är Azure Security Center?](security-center-introduction.md)
+Mer information om Azure Security Center finns i [Vad är Azure Security Center?](security-center-introduction.md)

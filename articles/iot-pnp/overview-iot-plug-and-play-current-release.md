@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: c7ebcdac3174f7eb497ae3e976386ab92212e1ba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5b682e371a341c8dbd707652acc60773663326dc
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715557"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019128"
 ---
 # <a name="whats-in-the-current-iot-plug-and-play-release"></a>Vad finns i den aktuella IoT Plug and Play-versionen
 
@@ -41,10 +41,7 @@ Läs mer om hur IoT Plug and Play-enheter fungerar med DTDL i [IoT plug and Play
 
 - 0.10.0 för Azure CLI IoT-tillägg.
 
-    Mer information finns i [Installera och använda Azure IoT-tillägget för Azure CLI](howto-use-iot-pnp-cli.md).
-
-    > [!TIP]
-    > Azure IoT-tillägget innehåller kommandon som hjälper dig att certifiera enheter. Se `az iot product -h`.
+    Azure IoT-tillägget innehåller kommandon som hjälper dig att certifiera enheter. Se `az iot product -h`.
 
 ## <a name="libraries-and-sdks"></a>Bibliotek och SDK:er
 

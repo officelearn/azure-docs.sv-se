@@ -13,12 +13,12 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: b8935b9f2c3c598aee7c5d0eb37f21d8114dac42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8cd72d34535ac3a2aec60aa3d2369da34dd7194
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997463"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017411"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Använd anpassade aktiviteter i en Azure Data Factory version 1-pipeline
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -31,7 +31,7 @@ ms.locfileid: "88997463"
 Det finns två typer av aktiviteter som du kan använda i en Azure Data Factory pipeline.
 
 - [Data förflyttnings aktiviteter](data-factory-data-movement-activities.md) för att flytta data mellan [käll-och mottagar data lager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
-- [Data omvandlings aktiviteter](data-factory-data-transformation-activities.md) för att transformera data med hjälp av beräknings tjänster som Azure HDInsight, Azure Batch och Azure Machine Learning.
+- [Data omvandlings aktiviteter](data-factory-data-transformation-activities.md) för att transformera data med hjälp av beräknings tjänster som Azure HDInsight, Azure Batch och Azure Machine Learning Studio (klassisk).
 
 Om du vill flytta data till/från ett data lager som Data Factory inte stöder, skapar du en **anpassad aktivitet** med din egen data förflyttnings logik och använder aktiviteten i en pipeline. På samma sätt kan du skapa en anpassad aktivitet med din egen data omvandlings logik och använda aktiviteten i en pipeline för att transformera/bearbeta data på ett sätt som inte stöds av Data Factory.
 
@@ -50,7 +50,7 @@ Följande genom gång innehåller stegvisa instruktioner för hur du skapar en a
 ### <a name="azure-batch-prerequisites"></a>Azure Batch förutsättningar
 I genom gången kör du dina anpassade .NET-aktiviteter med Azure Batch som en beräknings resurs. **Azure Batch** är en plattformstjänst för effektiv körning av storskaliga parallella program och HPC-program (databehandling med höga prestanda) i molnet. Azure Batch schemalägger beräknings intensiva arbete som ska köras på en hanterad **samling virtuella datorer**och kan automatiskt skala beräknings resurser för att uppfylla jobbens behov. En detaljerad översikt över tjänsten Azure Batch finns i artikeln [Azure Batch grundläggande][batch-technical-overview] information.
 
-För självstudien skapar du ett Azure Batch-konto med en pool med virtuella datorer. Här är stegen:
+För självstudien skapar du ett Azure Batch-konto med en pool med virtuella datorer. Gör så här:
 
 1. Skapa ett **Azure Batch konto** med hjälp av [Azure Portal](https://portal.azure.com). Instruktioner finns i artikeln [skapa och hantera en Azure Batch konto][batch-create-account] .
 2. Anteckna Azure Batch konto namn, konto nyckel, URI och poolnamn. Du behöver dem för att skapa en Azure Batch länkad tjänst.
@@ -1025,7 +1025,7 @@ Exemplet [Azure Data Factory-lokal miljö](https://github.com/gbrueckl/Azure.Dat
 | Exempel | Vad anpassad aktivitet gör |
 | --- | --- |
 | [Http-Datahämtare](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample). |Hämtar data från en HTTP-slutpunkt till Azure Blob Storage använder anpassad C#-aktivitet i Data Factory. |
-| [Exempel på Twitter-Attitydanalys](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Anropar en Azure Machine Learning Studio-modell och utför sentiment analys, bedömning, förutsägelse osv. |
+| [Exempel på Twitter-Attitydanalys](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Anropar en Azure Machine Learning Studio (klassisk) modell och utför sentiment analys, poängsättning, förutsägelser osv. |
 | [Kör R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). |Anropar R-skript genom att köra RScript.exe på ditt HDInsight-kluster som redan har R installerat. |
 | [Aktivitet i Cross AppDomain .NET](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Använder olika sammansättnings versioner än de som används i Data Factory starta |
 | [Ombearbeta en modell i Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample) |  Ombearbeta en modell i Azure Analysis Services. |

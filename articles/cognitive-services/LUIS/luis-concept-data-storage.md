@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.openlocfilehash: b74621f357613bc60457ab4846b58f6f85009401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: 12693fb11556380e62df277be093ce20c02ff372
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541891"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018040"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Data lagring och borttagning i Language Understanding (LUIS) Cognitive Services
 LUIS lagrar data som krypterats i ett Azure-datalager som motsvarar den region som anges av nyckeln. Dessa data lagras i 30 dagar. 
@@ -50,9 +50,14 @@ Om du [inaktiverar aktiv inlärning](luis-how-to-review-endpoint-utterances.md#d
 <a name="accounts"></a>
 
 ## <a name="delete-an-account"></a>Ta bort ett konto
-Om du tar bort ett konto tas alla appar bort, tillsammans med deras exempel yttranden och loggar. Data bevaras i 60 dagar innan kontot och data tas bort permanent.
+Om du inte migreras kan du ta bort ditt konto så tas alla appar bort tillsammans med deras exempel yttranden och loggar. Data bevaras i 90 dagar innan kontot och data tas bort permanent.
 
 Det går inte att ta bort kontot från sidan **Inställningar** . Välj ditt konto namn i det övre högra navigerings fältet för att komma till sidan **Inställningar** .
+
+## <a name="delete-an-authoring-resource"></a>Ta bort en redigerings resurs
+Om du har [migrerat till en redigerings resurs](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring), tar borttagning av resursen från Azure Portal bort alla program som är associerade med den resursen, tillsammans med deras exempel yttranden och loggar. Data bevaras i 90 dagar innan de tas bort permanent.    
+
+Om du vill ta bort din resurs går du till [Azure Portal](https://ms.portal.azure.com/#home) och väljer din Luis Authoring-resurs. Gå till fliken **Översikt** och klicka på knappen **ta bort** högst upp på sidan. Bekräfta sedan att din resurs har tagits bort. 
 
 ## <a name="data-inactivity-as-an-expired-subscription"></a>Data inaktivitet som en utgången prenumeration
 I syfte att kvarhålla och ta bort data kan en inaktiv LUIS-app hanteras på _Microsofts eget_ sätt som en utgången prenumeration. En app anses vara inaktiv om den uppfyller följande kriterier under de senaste 90 dagarna: 

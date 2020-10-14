@@ -5,12 +5,12 @@ ms.date: 10/12/2020
 ms.topic: conceptual
 description: Beskriver migreringsprocessen från Azure dev Spaces till Bridge till Kubernetes
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänsten, behållare, bro till Kubernetes
-ms.openlocfilehash: 2b923e87e1eefe9cb0ba4afc018eed728ee6aaba
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 209776be80f2814dc8e4d347c0eea273017f70ad
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993933"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019944"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrera till Bridge to Kubernetes
 
@@ -80,9 +80,9 @@ Brygga till Kubernetes har flexibiliteten att arbeta med program som körs i Kub
 > [!TIP]
 > Med [Microsoft Kubernetes-tillägget][kubernetes-extension] kan du snabbt utveckla Kubernetes-manifest med IntelliSense och hjälpa Autogenerera Helm-diagram.  
 
-### <a name="use-visual-studio-to-transition-to-bridge-to-kubernetes-from-azure-dev-spaces"></a>Använda Visual Studio för att gå över till Bridge till Kubernetes från Azure dev Spaces
+### <a name="transition-to-bridge-to-kubernetes-from-azure-dev-spaces"></a>Över gång till Bridge till Kubernetes från Azure dev Spaces
 
-1. Uppdatera Visual Studio IDE till version 16,7 eller senare och installera bryggan till Kubernetes-tillägget från [Visual Studio Marketplace][vs-marketplace].
+1. Om du använder Visual Studio uppdaterar du Visual Studio IDE till version 16,7 eller senare och installerar bryggan till Kubernetes-tillägget från [Visual Studio Marketplace][vs-marketplace]. Om du använder Visual Studio Code installerar du [bryggan till Kubernetes-tillägget][vsc-marketplace].
 1. Inaktivera Azure dev Spaces-styrenheten med hjälp av Azure Portal eller [Azure dev Spaces CLI][azds-delete].
 1. Använd [Azure Cloud Shell](https://shell.azure.com). Eller på Mac, Linux eller Windows med bash installerat öppnar du en bash shell-prompt. Se till att följande verktyg är tillgängliga i din kommando rads miljö: Azure CLI, Docker, kubectl, sväng, tjära och gunzip.
 1. Skapa ett behållar register eller Använd ett befintligt. Du kan skapa ett behållar register i Azure med [Azure Container Registry](../container-registry/index.yml) eller med hjälp av [Docker Hub](https://hub.docker.com/).
@@ -109,18 +109,9 @@ Brygga till Kubernetes har flexibiliteten att arbeta med program som körs i Kub
 1. Migrera manuellt anpassningar, till exempel miljövariabel inställningar, i *azds. yaml* till projektets *Values. yml* -fil.
 1. valfritt Ta bort `azds.yaml` filen från projektet.
 1. Distribuera om ditt program.
-1. Konfigurera brygga till Kubernetes i det distribuerade programmet. Mer information om hur du använder Bridge för att Kubernetes i Visual Studio finns i [använda Bridge till Kubernetes][use-btk-vs].
-1. Starta fel sökning i Visual Studio med den nyskapade bryggan för att Kubernetes fel söknings profil.
+1. Konfigurera brygga till Kubernetes i det distribuerade programmet. Mer information om hur du använder Bridge för att Kubernetes i Visual Studio finns i [använda Bridge för att Kubernetes i Visual Studio][use-btk-vs]. För VS Code, se [Använd Bridge för att Kubernetes i vs Code][use-btk-vsc].
+1. Starta fel sökningen med den nyskapade bryggan för att Kubernetes fel söknings-/start profil.
 1. Du kan köra skriptet igen om det behövs för att distribuera om till klustret.
-
-### <a name="use-visual-studio-code-to-transition-to-bridge-to-kubernetes-from-azure-dev-spaces"></a>Använd Visual Studio Code för att övergå till Bridge till Kubernetes från Azure dev Spaces
-
-1. Installera [bryggan till Kubernetes-tillägget][vsc-marketplace].
-1. Inaktivera Azure dev Spaces-styrenheten med hjälp av Azure Portal eller [Azure dev Spaces CLI][azds-delete].
-1. Ta bort `azds.yaml` filen från projektet.
-1. Distribuera om ditt program.
-1. Konfigurera brygga till Kubernetes i det distribuerade programmet. Mer information om hur du använder Bridge för att Kubernetes i Visual Studio Code finns i [använda Bridge till Kubernetes][use-btk-vsc].
-1. Starta fel sökning i Visual Studio Code med den nyskapade bryggan för att Kubernetes start profil.
 
 ## <a name="team-development-in-a-shared-cluster"></a>Grupp utveckling i ett delat kluster
 

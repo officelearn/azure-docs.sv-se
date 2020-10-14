@@ -3,12 +3,12 @@ title: Analysera direktsänd video med real tids video analys på IoT Edge och A
 description: Lär dig hur du använder Custom Vision för att bygga en behållar modell som kan identifiera en leksaks Truck och använda AI-utöknings möjligheter för video analys på IoT Edge (LVA) för att distribuera modellen på gränsen för att identifiera leksaks truckar från en real tids video ström.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 7989b3636fe953b8110e356506a5867fefd2d8b6
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: e77521765156a13f0675602ffd0b39f78d8957bb
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940182"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016815"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Självstudie: analysera direktsänd video med real tids video analys på IoT Edge och Azure Custom Vision
 
@@ -32,12 +32,12 @@ Självstudien visar hur du:
 Vi rekommenderar att du läser igenom följande artiklar innan du börjar: 
 
 * [Real tids analys av video i IoT Edge översikt](overview.md)
-* [Översikt över Azure Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home)
+* [Översikt över Azure Custom Vision](../../cognitive-services/custom-vision-service/overview.md)
 * [Video analys i real tid med IoT Edge terminologi](terminology.md)
 * [Media Graph-begrepp](media-graph-concept.md)
 * [Videoanalys i realtid utan videoinspelning](analyze-live-video-concept.md)
 * [Köra Live Video Analytics med din egen modell](use-your-model-quickstart.md)
-* [Självstudie: utveckla en IoT Edge-modul](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
+* [Självstudie: utveckla en IoT Edge-modul](../../iot-edge/tutorial-develop-for-linux.md)
 * [Så här redigerar du Deployment. * .template.jspå](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -64,17 +64,17 @@ I den här självstudien används en video fil för [leksaks bilar](https://lvam
 > :::image type="content" source="./media/custom-vision-tutorial/topology-custom-vision.svg" alt-text="Översikt över Custom Vision":::
 
 Det här diagrammet visar hur signal flödet i den här självstudien. En [Edge-modul](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulerar en IP-kamera som är värd för en RTSP-server (Real-Time Streaming Protocol). En [RTSP-källmapp](media-graph-concept.md#rtsp-source) hämtar videofeeden från den här servern och skickar video bild rutor till den [RAM hastighet filter processor](media-graph-concept.md#frame-rate-filter-processor) noden. Den här processorn begränsar bild hastigheten för video strömmen som når noden för [http-tilläggsbegäranden](media-graph-concept.md#http-extension-processor) .
-Noden HTTP-tillägg spelar rollen för en proxy. Den konverterar video bild rutorna till den angivna bild typen. Sedan vidarebefordrar avbildningen över REST till en annan Edge-modul som kör en AI-modell bakom en HTTP-slutpunkt. I det här exemplet är den Edge-modulen leksakens detektor modell som skapats med hjälp av Custom Vision. Noden för HTTP-tilläggsbegäranden samlar in identifierings resultaten och publicerar händelser till noden [IoT Hub mottagare](media-graph-concept.md#iot-hub-message-sink) . Noden skickar sedan händelserna till [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-glossary#iot-edge-hub).
+Noden HTTP-tillägg spelar rollen för en proxy. Den konverterar video bild rutorna till den angivna bild typen. Sedan vidarebefordrar avbildningen över REST till en annan Edge-modul som kör en AI-modell bakom en HTTP-slutpunkt. I det här exemplet är den Edge-modulen leksakens detektor modell som skapats med hjälp av Custom Vision. Noden för HTTP-tilläggsbegäranden samlar in identifierings resultaten och publicerar händelser till noden [IoT Hub mottagare](media-graph-concept.md#iot-hub-message-sink) . Noden skickar sedan händelserna till [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 
 ## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Bygg och distribuera en identifierings modell för Custom Vision leksak 
 
 Som namnet Custom Vision föreslår kan du utnyttja det för att bygga en egen anpassad objekt detektor eller klassificerare i molnet. Det ger ett enkelt, användarvänligt och intuitivt gränssnitt för att bygga anpassade vision modeller som kan distribueras i molnet eller på gränsen via behållare. 
 
-För att skapa en leksaks Last bils detektor rekommenderar vi att du följer den här anpassade insikten skapa en objekt detektor via [snabb starts artikeln](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector) för webb portalen.
+För att skapa en leksaks Last bils detektor rekommenderar vi att du följer den här anpassade insikten skapa en objekt detektor via [snabb starts artikeln](../../cognitive-services/custom-vision-service/get-started-build-detector.md) för webb portalen.
 
 Ytterligare kommentarer:
  
-* I den här självstudien ska du inte använda de exempel bilder som finns i [avsnittet om förutsättningar](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#prerequisites)för snabb start. I stället har vi använt en viss avbildnings uppsättning för att skapa en anpassad vision modell för leksaks igenkänning, vi rekommenderar att du använder [de här avbildningarna](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) när du uppmanas att [välja dina utbildnings avbildningar](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#choose-training-images) i snabb starten.
+* I den här självstudien ska du inte använda de exempel bilder som finns i [avsnittet om förutsättningar](../../cognitive-services/custom-vision-service/get-started-build-detector.md#prerequisites)för snabb start. I stället har vi använt en viss avbildnings uppsättning för att skapa en anpassad vision modell för leksaks igenkänning, vi rekommenderar att du använder [de här avbildningarna](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) när du uppmanas att [välja dina utbildnings avbildningar](../../cognitive-services/custom-vision-service/get-started-build-detector.md#choose-training-images) i snabb starten.
 * I avsnittet tagga avbildning i snabb start ser du till att du taggar leksaks bilen som visas i bilden med taggen – "leverans Last bil".
 
 När den är klar kan du exportera den till en Docker-behållare med hjälp av knappen Exportera på fliken prestanda om modellen är klar. Kontrol lera att du väljer Linux som behållar plattforms typ. Detta är den plattform som containern ska köras på. Datorn som du hämtar behållaren på kan vara antingen Windows eller Linux. Anvisningarna nedan baseras på den behållar fil som hämtats till en Windows-dator.
@@ -176,7 +176,7 @@ Nästa serie anrop rensar resurser:
     
 ## <a name="interpret-the-results"></a>Tolka resultaten
 
-När du kör medie diagrammet passerar resultatet från noden för HTTP-tillägget processor genom noden IoT Hub mottagare till IoT Hub. De meddelanden som visas i fönstret utdata innehåller ett text avsnitt och ett applicationProperties-avsnitt. Mer information finns i [skapa och läsa IoT Hub meddelanden](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+När du kör medie diagrammet passerar resultatet från noden för HTTP-tillägget processor genom noden IoT Hub mottagare till IoT Hub. De meddelanden som visas i fönstret utdata innehåller ett text avsnitt och ett applicationProperties-avsnitt. Mer information finns i [skapa och läsa IoT Hub meddelanden](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 I följande meddelanden definierar modulen live video analys program egenskaperna och innehållet i bröd texten.
 
@@ -312,7 +312,6 @@ Om du avser att testa de andra självstudierna eller snabb starterna, bör du h�
 Granska ytterligare utmaningar för avancerade användare:
 
 * Använd en [IP-kamera](https://en.wikipedia.org/wiki/IP_camera) som har stöd för RTSP i stället för att använda RTSP-simulatorn. Du kan söka efter IP-kameror som stöder RTSP på sidan [ONVIF](https://www.onvif.org/conformant-products/) -produkter. Sök efter enheter som uppfyller profilerna G, S eller T.
-* Använd en AMD64-eller x64 Linux-enhet i stället för en virtuell Azure Linux-dator. Enheten måste finnas i samma nätverk som IP-kameran. Du kan följa anvisningarna i [installera Azure IoT Edge runtime på Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). 
+* Använd en AMD64-eller x64 Linux-enhet i stället för en virtuell Azure Linux-dator. Enheten måste finnas i samma nätverk som IP-kameran. Du kan följa anvisningarna i [installera Azure IoT Edge runtime på Linux](../../iot-edge/how-to-install-iot-edge-linux.md). 
 
-Registrera sedan enheten med Azure IoT Hub genom att följa anvisningarna i [distribuera din första IoT Edge-modul till en virtuell Linux-enhet](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).
-
+Registrera sedan enheten med Azure IoT Hub genom att följa anvisningarna i [distribuera din första IoT Edge-modul till en virtuell Linux-enhet](../../iot-edge/quickstart-linux.md).

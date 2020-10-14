@@ -3,12 +3,12 @@ title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb5eb3de1723ab75b2585c2fe62c395231455f37
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7b6cb1b9e9a57fb3278ec931364bc355258d649d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949385"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019961"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -306,6 +306,9 @@ Följande fält stöds:
 - `type`
 - `location`
   - Använd **Global** för resurser som är plats oberoende.
+- `id`
+  - Returnerar resurs-ID för den resurs som utvärderas.
+  - Exempel: `/subscriptions/06be863d-0996-4d56-be22-384767287aa2/resourceGroups/myRG/providers/Microsoft.KeyVault/vaults/myVault`
 - `identity.type`
   - Returnerar typen av [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md) som är aktive rad på resursen.
 - `tags`

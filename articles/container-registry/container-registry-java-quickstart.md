@@ -6,12 +6,12 @@ ms.custom: devx-track-java, devx-track-azurecli
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: 42200fe61b0ac73a63b9f8a3317687fac60c5c02
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9e400ee0bae2690a84f9cfd3f6a76359e08eabc2
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88078588"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018346"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Snabb start: bygga och skicka Java-behållar avbildningar till Azure Container Registry
 
@@ -20,7 +20,7 @@ Den här snabb starten visar hur du skapar en Java-app i behållare och push-öv
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte redan har en Azure-prenumeration kan du aktivera din [MSDN-prenumerantförmån](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) eller registrera dig för ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/pricing/free-trial).
-* [Kommando rads gränssnittet för Azure (CLI)](/cli/azure/overview).
+* [Azure Command-Line Interface (CLI)](/cli/azure/overview).
 * Ett Java Development Kit (JDK) som stöds. Mer information om vilka JDK:s som är tillgängliga för användning när du utvecklar på Azure finns i <https://aka.ms/azure-jdks>.
 * Apache: s [maven](http://maven.apache.org) build-verktyg (version 3 eller senare).
 * En [Git](https://git-scm.com)-klient.
@@ -177,5 +177,5 @@ Mer information finns i följande resurser:
 * [Arbeta med Azure DevOps och Java](/azure/devops/java)
 * [Spring Boot on Docker Getting Started](https://spring.io/guides/gs/spring-boot-docker)
 * [Spring Initializr](https://start.spring.io)
-* [Distribuera ett Spring Boot-program till Azure App Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin)
+* [Distribuera ett Spring Boot-program till Azure App Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-linux#configure-maven-to-build-image-to-your-azure-container-registry)
 * [Använda en anpassad Docker-avbildning för Azure Web App i Linux](../app-service/tutorial-custom-container.md)

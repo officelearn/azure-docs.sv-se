@@ -8,12 +8,12 @@ ms.date: 06/09/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 4844f3e34a6b49559affbb4d4ed7bc5b5e38e538
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f7ecf960ae94fae4d829e73daf051b9062e478d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050363"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018202"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Flytta Analysis Services till en annan region
 
@@ -88,7 +88,7 @@ Så här exporterar du en mall med Azure-portalen:
 
 Exportera en mall med hjälp av PowerShell:
 
-1. Logga in på din Azure-prenumeration med kommandot [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) och följ anvisningarna på skärmen:
+1. Logga in på din Azure-prenumeration med kommandot [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) och följ anvisningarna på skärmen:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -177,7 +177,7 @@ Använd en text redigerare för att ändra template.jspå filen som du har expor
 
 #### <a name="regions"></a>Regioner
 
-Information om hur du skaffar Azure-regioner finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/). Kör kommandot [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) för att hämta regioner med hjälp av PowerShell.
+Information om hur du skaffar Azure-regioner finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/). Kör kommandot [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) för att hämta regioner med hjälp av PowerShell.
 
 ```azurepowershell-interactive
    Get-AzLocation | format-table 
@@ -301,4 +301,4 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 ---
 
 > [!NOTE]
-> När du har flyttat en region rekommenderar vi att den nya mål servern använder en lagrings behållare i samma region för säkerhets kopiering, i stället för lagrings behållaren i käll Server regionen. 
+> När du har flyttat en region rekommenderar vi att den nya mål servern använder en lagrings behållare i samma region för säkerhets kopiering, i stället för lagrings behållaren i käll Server regionen.

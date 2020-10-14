@@ -3,12 +3,12 @@ title: Distribuera video analys i real tid på en IoT Edge enhet – Azure
 description: Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din IoT Edge-enhet. Du skulle göra detta, till exempel om du har åtkomst till en lokal Linux-dator och/eller om du tidigare har skapat ett Azure Media Services-konto.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 211dd0d61bbca39c4f4ec2f388d950c4615bb023
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a64fc11d7afa70d5200fdbd24bd3facdb8a95a7e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90887228"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019587"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuera video analys i real tid på en IoT Edge enhet
 
@@ -20,7 +20,7 @@ Den här artikeln innehåller de steg som hjälper dig att distribuera video ana
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En x86-64-eller ARM64-enhet som kör ett av de [Linux-operativsystem som stöds](https://docs.microsoft.com/azure/iot-edge/support#operating-systems)
+* En x86-64-eller ARM64-enhet som kör ett av de [Linux-operativsystem som stöds](../../iot-edge/support.md#operating-systems)
 * Azure-prenumeration som du har [ägar behörighet](../../role-based-access-control/built-in-roles.md#owner) till
 * [Skapa och konfigurera IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
 * [Registrera IoT Edge enhet](../../iot-edge/how-to-register-device.md)

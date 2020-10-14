@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 10/13/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 50abe5071ef424b03d92522e01477d1152930b2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69ec30a14d4c04e1f47c909e829f7388132e64d6
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187820"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018224"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure SSIS-integreringskörning till ett virtuellt nätverk
 
@@ -151,7 +151,7 @@ En rekommenderad metod är nedan:
 Mer information finns i [namn matchning som använder din egen DNS-Server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). 
 
 > [!NOTE]
-> Använd ett fullständigt kvalificerat domän namn (FQDN) för det privata värd namnet, t. ex. i `<your_private_server>.contoso.com` stället för `<your_private_server>` , eftersom Azure-SSIS IR inte automatiskt lägger till ditt eget DNS-suffix.
+> Använd ett fullständigt kvalificerat domän namn (FQDN) för ditt privata värdnamn (till exempel använda `<your_private_server>.contoso.com` i stället för `<your_private_server>` ). Alternativt kan du använda en anpassad standard installation på din Azure-SSIS IR för att automatiskt lägga till ett eget DNS-suffix (till exempel `contoso.com` ) till ett icke-kvalificerat domän namn för en domän och omvandla det till ett fullständigt domän namn innan det används i DNS-frågor, se [vanliga anpassade installations exempel](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup#standard-custom-setup-samples). 
 
 ### <a name="set-up-an-nsg"></a><a name="nsg"></a> Konfigurera en NSG
 Om du behöver implementera en NSG för under nätet som används av din Azure-SSIS IR ska du tillåta inkommande och utgående trafik via följande portar: 

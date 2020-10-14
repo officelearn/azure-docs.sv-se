@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 030b41e086d700c527107d2246bc7f7df07e860f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e9804eb2af28108572688244d6d7b513454e375b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977722"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019009"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
 
@@ -269,10 +269,7 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 ## <a name="general-apisdk-usage-notes"></a>Allmän information om API/SDK-användning
 
 > [!NOTE]
-> Tänk på att under för hands versionen stöder inte Azure Digitals dubbla, **resurs delning över ursprung (CORS)**. Det innebär att om du anropar en REST API från en webbapp, ett [API Management (APIM)](../api-management/api-management-key-concepts.md) -gränssnitt eller en [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) -anslutning kan du se ett princip fel.
-> För att lösa det här felet kan du göra något av följande:
-> * Remsans CORS-rubrik `Access-Control-Allow-Origin` från meddelandet. Den här rubriken anger om svaret kan delas. 
-> * Du kan också skapa en CORS-proxy och göra Azures digitala dubblare REST API begäran via den. 
+> Observera att Azure Digital-dubbla är för närvarande inte stöder **CORS (Cross-Origin resurs delning)**. Mer information om påverkan och lösnings strategier finns i avsnittet om [*resurs delning mellan ursprung (CORS)*](concepts-security.md#cross-origin-resource-sharing-cors) i *begrepp: säkerhet för Azure Digitals dubbla lösningar*.
 
 Följande lista innehåller ytterligare information och allmänna rikt linjer för att använda API: er och SDK: er.
 

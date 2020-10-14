@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 10/06/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python
-ms.openlocfilehash: df4b94702d14278a3279c504f52f46b922859db8
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: b489f7daebc9232088020948752c3792dca65095
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91822809"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018754"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurera en Linux python-app för Azure App Service
 
@@ -92,6 +92,19 @@ Mer information om hur App Service kör och skapar python-appar i Linux finns i 
 > [!NOTE]
 > Använd alltid relativa sökvägar i alla pre-och post-build-skript eftersom den Bygg behållare i vilken Oryx körs skiljer sig från kör tids behållaren som appen körs i. Förlita dig aldrig på den exakta placeringen av projektmappen i behållaren (till exempel att den är placerad under *plats/wwwroot*).
 
+## <a name="production-settings-for-django-apps"></a>Produktions inställningar för django-appar
+
+För en produktions miljö som Azure App Service bör django-appar följa django: s [distribution check lista](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/) (djangoproject.com).
+
+I följande tabell beskrivs de produktions inställningar som är relevanta för Azure. De här inställningarna definieras i appens *Setting.py* -fil.
+
+| Django-inställning | Instruktioner för Azure |
+| --- | --- |
+| `SECRET_KEY` | Lagra värdet i en App Service-inställning enligt beskrivningen i [åtkomst till appinställningar som miljövariabler](#access-app-settings-as-environment-variables). Du kan också [lagra värdet som en "hemlighet" i Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
+| `DEBUG` | Skapa en `DEBUG` inställning på App Service med värdet 0 (falskt) och Läs in värdet som en miljö variabel. I utvecklings miljön skapar du en `DEBUG` miljö variabel med värdet 1 (sant). |
+| `ALLOWED_HOSTS` | I produktion kräver django att du inkluderar appens URL i `ALLOWED_HOSTS` matrisen *Settings.py*. Du kan hämta den här URL: en vid körning med koden `os.environ['WEBSITE_HOSTNAME']` . App Service ställer automatiskt in `WEBSITE_HOSTNAME` miljövariabeln till appens URL. |
+| `DATABASES` | Definiera inställningarna i App Service för databas anslutningen och Läs in dem som miljövariabler för att fylla i [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) ord listan. Du kan också lagra värdena (särskilt användar namn och lösen ord) som [Azure Key Vault hemligheter](/azure/key-vault/secrets/quick-create-python). |
+
 ## <a name="container-characteristics"></a>Containeregenskaper
 
 När du distribuerar till App Service körs python-appar i en Linux Docker-behållare som definieras i [App Service python GitHub-lagringsplatsen](https://github.com/Azure-App-Service/python). Du kan hitta bildkonfigurationerna i de versions bara katalogerna.
@@ -109,6 +122,8 @@ Den här containern har följande egenskaper:
 
     Den *requirements.txt* filen *måste* finnas i projekt roten för att beroenden ska kunna installeras. Annars rapporterar build-processen felet: "Det gick inte att hitta setup.py eller requirements.txt; Kör inte pip-installation. " Om det här felet uppstår kontrollerar du platsen för din krav fil.
 
+- App Service definierar automatiskt en miljö variabel med namnet `WEBSITE_HOSTNAME` med webbappens webb adress, till exempel `msdocs-hello-world.azurewebsites.net` . Den definierar också `WEBSITE_SITE_NAME` med namnet på din app, till exempel `msdocs-hello-world` . 
+   
 ## <a name="container-startup-process"></a>Startprocessen för container
 
 Under starten kör App Service i Linux-containern följande steg:

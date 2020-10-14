@@ -3,12 +3,12 @@ title: Distribuera video analys i real tid på Azure Stack Edge
 description: Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din Azure Stack Edge.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: b13bb779a5a780b21f2d5d96ed8831ef5c26564d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f33b6fb0f0dc5c5b733a0fcb021e2792ce9c6ec6
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937719"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019604"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Distribuera video analys i real tid på Azure Stack Edge
 
@@ -21,27 +21,27 @@ För video analys i real tid distribuerar vi via IoT Hub, men Azure Stack kant r
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Azure-prenumeration som du har [ägar behörighet](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)till.
-* En [Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep) -resurs
+* Azure-prenumeration som du har [ägar behörighet](../../role-based-access-control/built-in-roles.md#owner)till.
+* En [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) -resurs
    
-* [En IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
-* Ett [tjänst huvud namn](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/create-custom-azure-resource-manager-role-how-to#create-service-principal) för modulen för video analys i real tid.
+* [En IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
+* Ett [tjänst huvud namn](./create-custom-azure-resource-manager-role-how-to.md#create-service-principal) för modulen för video analys i real tid.
 
    Använd någon av dessa regioner där IoT Hub är tillgängligt: USA, östra 2, centrala USA, norra centrala USA, Östra Japan, västra USA 2, västra centrala USA, Östra Kanada, Storbritannien, södra, Frankrike Central, Frankrike, södra, Schweiz, norra, Schweiz, västra och Japan, västra.
 * Lagringskonto
 
     Vi rekommenderar att du använder GPv2-lagrings konton (General-Purpose v2).  
-    Läs mer om ett [Allmänt-syfte v2-lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade?tabs=azure-portal).
+    Läs mer om ett [Allmänt-syfte v2-lagrings konto](../../storage/common/storage-account-upgrade.md?tabs=azure-portal).
 * [Visual Studio Code](https://code.visualstudio.com/) på din utvecklings dator. Kontrol lera att du har [tillägget Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Kontrol lera att nätverket som utvecklings datorn är anslutet till tillåter Avancerat meddelandekö-protokoll över Port 5671. Med den här inställningen kan Azure IoT-verktyg kommunicera med Azure IoT Hub.
 
 ## <a name="configuring-azure-stack-edge-for-using-live-video-analytics"></a>Konfigurera Azure Stack Edge för att använda live video analys
 
-Azure Stack Edge är en maskinvaru-som-tjänst-lösning och en AI-aktiverad Edge-baserad data behandlings enhet med funktioner för nätverks data överföring. Läs mer om [Azure Stack Edge och detaljerade installations anvisningar](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep). Kom igång genom att följa anvisningarna i länkarna nedan:
+Azure Stack Edge är en maskinvaru-som-tjänst-lösning och en AI-aktiverad Edge-baserad data behandlings enhet med funktioner för nätverks data överföring. Läs mer om [Azure Stack Edge och detaljerade installations anvisningar](../../databox-online/azure-stack-edge-deploy-prep.md). Kom igång genom att följa anvisningarna i länkarna nedan:
 
-* [Azure Stack Edge/Data Box Gateway-resurs skapas](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep)
-* [Installera och konfigurera](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-install)
-* [Anslutning och aktivering](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate)
+* [Azure Stack Edge/Data Box Gateway-resurs skapas](../../databox-online/azure-stack-edge-deploy-prep.md)
+* [Installera och konfigurera](../../databox-online/azure-stack-edge-deploy-install.md)
+* [Anslutning och aktivering](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md)
 
 ### <a name="attach-an-iot-hub-to-azure-stack-edge"></a>Koppla en IoT Hub till Azure Stack kant
 
@@ -52,10 +52,10 @@ Azure Stack Edge är en maskinvaru-som-tjänst-lösning och en AI-aktiverad Edge
 1. På panelen Konfigurera Edge Compute väljer du konfigurera beräkning.
 1. Ange följande på bladet konfigurera Edge Compute:
     
-    | Field|Värde|
+    | Fält|Värde|
     |---|---|
     |IoT Hub|Välj från ny eller befintlig.<br/>Som standard används nivån Standard (S1) till att skapa en IoT-resurs. Om du vill använda en IoT-resurs på kostnadsfri nivå skapar du en sådan och väljer sedan den befintliga resursen.<br/>I varje fall använder IoT Hub resursen samma prenumeration och resurs grupp som används för Azure Stack Edge-resursen.|
-    |Namn|Ange ett namn för din IoT Hub-resurs.|
+    |Name|Ange ett namn för din IoT Hub-resurs.|
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Azure Stack Edge":::
@@ -80,7 +80,7 @@ Innan du fortsätter bör du kontrol lera att:
 
 * Du har aktiverat din Azure Stack Edge-resurs.
 * Du har åtkomst till ett Windows-klientsystem som kör PowerShell 5,0 eller senare för att få åtkomst till Azure Stack Edge-resursen.
-* Om du vill distribuera ett Kubernetes-kluster måste du konfigurera din Azure Stack Edge-resurs via det [lokala webb gränssnittet](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate#connect-to-the-local-web-ui-setup). 
+* Om du vill distribuera ett Kubernetes-kluster måste du konfigurera din Azure Stack Edge-resurs via det [lokala webb gränssnittet](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup). 
     
     * Om du vill aktivera beräkningen går du till beräknings sidan i det lokala webb gränssnittet på enheten.
     

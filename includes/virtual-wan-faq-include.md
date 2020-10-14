@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6fac71572446a80ff00368991d6cb80c572864ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38aea30c5f716df927b5924754eb07e7f94c7ebc
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91859485"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92038645"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Är Azure Virtual WAN i GA?
 
@@ -228,7 +228,7 @@ En virtuell hubb kan sprida en inlärd standard väg till en VPN-/ExpressRoute-a
 Om en virtuell hubb lär sig samma väg från flera fjärrhubbar, är ordningen i vilken den bestämmer sig enligt följande:
 
 1. Längsta prefix matchning.
-2. Lokala vägar över interhub.
+2. Lokala vägar över interhub (virtuell hubb tilldelar 65520-65520 för interhub som)
 3. Statiska vägar över BGP: Detta är i kontext till besluts fattandet av en virtuell hubb-router. Om besluts fattaren däremot är VPN-gatewayen där en plats meddelar vägar via BGP eller tillhandahåller statiska adressprefix, kan statiska vägar prioriteras framför BGP-vägar.
 4. ExpressRoute (ER) via VPN: ER föredras över VPN när kontexten är en lokal hubb. Överförings anslutningar mellan ExpressRoute-kretsar är bara tillgängliga via Global Reach. I scenarier där ExpressRoute-kretsen är ansluten till en hubb och det finns en annan ExpressRoute-krets som är ansluten till en annan hubb med VPN-anslutning, kan VPN vara ett alternativ för scenarier mellan olika nav.
 5. SOM sökväg längd.

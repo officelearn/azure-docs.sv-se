@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 515379a4207a582b441d132b1c28ff11bc83c714
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23baa6ed92aa01251b4c7ccf34ef784910a0321f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651760"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019842"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services v2 vs. v3
 
@@ -74,7 +74,7 @@ Den här artikeln beskriver ändringar som introducerades i Azure Media Services
 
 V3-API: et har följande funktions luckor i relation till v2-API: et. Att stänga luckorna är pågående arbete.
 
-* [Premium-kodaren](../previous/media-services-premium-workflow-encoder-formats.md) och de äldre [Media Analytics-processorerna](../previous/media-services-analytics-overview.md) (Azure Media Services indexerare 2 för hands version, ansikts bortredigering osv.) är inte tillgängliga via v3.<br/>Kunder som vill migrera från Media Indexer 1 eller 2 för hands versionen kan omedelbart använda AudioAnalyzer-förvalet i v3-API: et.  Den här nya för inställningen innehåller fler funktioner än den äldre Media Indexer 1 eller 2. 
+* [Premium-kodaren](../previous/media-services-encode-asset.md) och de äldre [Media Analytics-processorerna](../previous/legacy-components.md) (Azure Media Services indexerare 2 för hands version, ansikts bortredigering osv.) är inte tillgängliga via v3.<br/>Kunder som vill migrera från Media Indexer 1 eller 2 för hands versionen kan omedelbart använda AudioAnalyzer-förvalet i v3-API: et.  Den här nya för inställningen innehåller fler funktioner än den äldre Media Indexer 1 eller 2. 
 * Många av de [avancerade funktionerna i Media Encoder Standard i v2](../previous/media-services-advanced-encoding-with-mes.md) API: er är för närvarande inte tillgängliga i v3, till exempel:
   
     * Häftning av till gångar

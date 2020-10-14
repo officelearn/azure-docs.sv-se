@@ -7,16 +7,16 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 0a19a0ed359cae61778866303d864d60e0e7606e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aea2196671a136145671b977a6d925849b635b73
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229369"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018703"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Självstudie: Konfigurera serveradministratörs- och användarroller
 
- I den här självstudien använder du SQL Server Management Studio (SSMS) för att ansluta till din server i Azure och konfigurera serveradministratörs- och modelldatabasroller. Du får också en introduktion till [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL är ett JSON-baserat skriptspråk för tabellmodeller på kompatibilitetsnivå 1 200 och högre. Det kan användas för att automatisera många tabellmodelleringsuppgifter. TMSL används ofta med PowerShell, men i den här kursen använder du XMLA-frågeredigeraren i SSMS. I den här självstudien får du utföra följande uppgifter: 
+ I den här självstudien använder du SQL Server Management Studio (SSMS) för att ansluta till din server i Azure och konfigurera serveradministratörs- och modelldatabasroller. Du får också en introduktion till [TMSL (Tabular Model Scripting Language)](/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL är ett JSON-baserat skriptspråk för tabellmodeller på kompatibilitetsnivå 1 200 och högre. Det kan användas för att automatisera många tabellmodelleringsuppgifter. TMSL används ofta med PowerShell, men i den här kursen använder du XMLA-frågeredigeraren i SSMS. I den här självstudien får du utföra följande uppgifter: 
   
 > [!div class="checklist"]
 > * Hämta servernamnet från Portal
@@ -27,13 +27,13 @@ ms.locfileid: "89229369"
 
 Mer information om användarsäkerhet i Azure Analysis Services finns i [Autentisering och användarbehörigheter](../analysis-services-manage-users.md). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure Active Directory i din prenumeration.
 - Du måste ha skapat en [Azure Analysis Services-server](../analysis-services-create-server.md) i din prenumeration.
 - Du måste ha [serveradministratörsbehörigheter](../analysis-services-server-admins.md).
 - [Lägg till exempelmodellen adventureworks](../analysis-services-create-sample-model.md) på din server.
-- [Installera den senaste versionen av SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+- [Installera den senaste versionen av SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -52,7 +52,7 @@ För de återstående uppgifterna använder du SSMS för att ansluta till och ha
 
 1. I SSMS > **Object Explorer** klickar du på **Anslut** > **Analysis Services**.
 
-    ![Ansluta](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
+    ![Anslut](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
 
 2. I **Server name** (Servernamn) i dialogrutan **Connect to Server** (Anslut till server) klistrar du in servernamnet som du kopierade från Portal. I **Authentication** (Autentisering) väljer du **Active Directory Universal with MFA Support** (Active Directory Universal med MFA-stöd). Ange ditt användarkonto och tryck sedan på **Connect** (Anslut).
    
@@ -82,7 +82,7 @@ I den här uppgiften lägger du till ett användarkonto eller gruppkonto från A
 
 ## <a name="add-a-user-to-the-model-database-administrator-role"></a>Lägga till en användare i modelldatabasadministratörsrollen
 
-I den här uppgiften lägger du till ett användarkonto eller gruppkonto i rollen ”Internet Sales Administrator” (Administratör för Internetförsäljning) som redan finns i modellen. Den här rollen har fullständig behörighet (administratör) för exempelmodelldatabasen adventureworks. I uppgiften används TMSL-kommandot [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) i ett skript som skapats åt dig.
+I den här uppgiften lägger du till ett användarkonto eller gruppkonto i rollen ”Internet Sales Administrator” (Administratör för Internetförsäljning) som redan finns i modellen. Den här rollen har fullständig behörighet (administratör) för exempelmodelldatabasen adventureworks. I uppgiften används TMSL-kommandot [CreateOrReplace](/analysis-services/tmsl/createorreplace-command-tmsl) i ett skript som skapats åt dig.
 
 1. Expandera **Databases (Databaser)** > **adventureworks** > **Roles (Roller)** i **Object Explorer**. 
 2. Högerklicka på **Internet Sales Administrator** (Administratör för Internetförsäljning) och klicka sedan på **Script Role as (Skriptroll som)** > **CREATE OR REPLACE To (SKAPA ELLER ERSÄTT till)** > **New Query Editor Window (Nytt frågeredigerarfönster)**.
@@ -98,7 +98,7 @@ I den här uppgiften lägger du till ett användarkonto eller gruppkonto i rolle
 
 ## <a name="add-a-new-model-database-role-and-add-a-user-or-group"></a>Lägga till en ny modelldatabasroll och lägga till en användare eller grupp
 
-I den här uppgiften använder du kommandot [Create](https://docs.microsoft.com/analysis-services/tmsl/create-command-tmsl) i ett TMSL-skript för att skapa en ny Internet Sales Global-roll (Global Internetförsäljning), anger *läsbehörighet* för rollen och lägger till ett användarkonto eller gruppkonto från Azure AD.
+I den här uppgiften använder du kommandot [Create](/analysis-services/tmsl/create-command-tmsl) i ett TMSL-skript för att skapa en ny Internet Sales Global-roll (Global Internetförsäljning), anger *läsbehörighet* för rollen och lägger till ett användarkonto eller gruppkonto från Azure AD.
 
 1. I **Object Explorer** högerklickar du på **adventureworks** och klickar sedan på **New Query (Ny fråga)** > **XMLA**. 
 2. Kopiera och klistra in följande TMSL-skript i frågeredigeraren:
@@ -144,4 +144,3 @@ I den här självstudien fick du lära dig hur du ansluter till en Azure AS-serv
 
 > [!div class="nextstepaction"]
 > [Självstudie: Ansluta med Power BI Desktop](analysis-services-tutorial-pbid.md)
-

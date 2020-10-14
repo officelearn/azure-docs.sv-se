@@ -1,44 +1,46 @@
 ---
-title: Länka ditt partner-ID för att aktivera intjänad partner kredit på delegerade resurser
+title: Länka ditt partner-ID för att spåra påverkan på delegerade resurser
 description: Lär dig hur du associerar ditt partner-ID för att få partner intjänad kredit (PEC) för kund resurser som du hanterar via Azure Lighthouse.
-ms.date: 10/05/2020
+ms.date: 10/13/2020
 ms.topic: how-to
-ms.openlocfilehash: d9d80a94e52f6f6a8aef5f5284659750084b0b5e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 95483cfabb7632182a7c23ae4963f2d38a2bd2c3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974455"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019925"
 ---
-# <a name="link-your-partner-id-to-enable-partner-earned-credit-on-delegated-resources"></a>Länka ditt partner-ID för att aktivera intjänad partner kredit på delegerade resurser
+# <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Länka ditt partner-ID för att spåra påverkan på delegerade resurser 
 
-Om du är medlem i [Microsoft Partner Network](https://partner.microsoft.com/)kan du länka ditt partner-ID med de autentiseringsuppgifter som används för att hantera delegerade kund resurser. På så sätt kan du spåra din påverkan på kund engagemang och få [partner intjänade krediter för hanterade tjänster (PEC)](/partner-center/partner-earned-credit).
+Om du är medlem i [Microsoft Partner Network](https://partner.microsoft.com/)kan du länka ditt partner-ID med de autentiseringsuppgifter som används för att hantera delegerade kund resurser. Partner admin-länken (PAL) gör det möjligt för Microsoft att identifiera och identifiera partner som driver Azures kund framgång. Med den här länken kan du också använda CSP-partner [(Cloud Solution Provider)](/partner-center/csp-overview) för att få [partner intjänade kredit för hanterade tjänster (PEC)](/partner-center/partner-earned-credit) för kunder som har [undertecknat Microsofts kund avtal (MCA)](/partner-center/confirm-customer-agreement) och som följer [Azure-prenumerationen](/partner-center/azure-plan-get-started).
 
-Om du registrerar [kunder med hanterade tjänst erbjudanden i Azure Marketplace](publish-managed-services-offers.md)sker den här länken automatiskt med hjälp av det MPN-ID som är kopplat till det Partner Center-konto som används för att publicera erbjudandena. Ingen ytterligare åtgärd krävs för att kunna ta emot PEC för dessa kunder.
+Om du registrerar [kunder med hanterade tjänst erbjudanden i Azure Marketplace](publish-managed-services-offers.md)sker länkning automatiskt med MPN-ID: t som är kopplat till det Partner Center-konto som används för att publicera erbjudandena. Ingen ytterligare åtgärd krävs för att kunna spåra dina konsekvenser för de här kunderna.
 
 Om du registrerar [kunder med hjälp av Azure Resource Management-mallar](onboard-customer.md)måste du vidta åtgärder för att skapa den här länken. Detta görs genom att [du länkar ditt MPN-ID](../../cost-management-billing/manage/link-partner-id.md) med minst ett användar konto i din hanterings klient som har åtkomst till var och en av dina inbyggda prenumerationer.
 
 ## <a name="associate-your-partner-id-when-you-onboard-new-customers"></a>Associera ditt partner-ID när du har publicerat nya kunder
 
-När du registrerar kunder genom Azure Resource Manager mallar (ARM-mallar) använder du följande process för att länka ditt partner-ID och aktivera partner intjänad kredit. Du måste känna till ditt [MPN-partner-ID](/partner-center/partner-center-account-setup#locate-your-mpn-id) för att kunna utföra dessa steg. Se till att använda **associerat MPN-ID** som visas i din partnerprofil.
+När du registrerar kunder genom Azure Resource Manager mallar (ARM-mallar) använder du följande process för att länka ditt partner-ID (och aktiverar partner intjänad kredit, om tillämpligt). Du måste känna till ditt [MPN-partner-ID](/partner-center/partner-center-account-setup#locate-your-mpn-id) för att kunna utföra dessa steg. Se till att använda **associerat MPN-ID** som visas i din partnerprofil.
 
 För enkelhetens skull rekommenderar vi att du skapar ett tjänst huvud namns konto i din klient organisation, länkar det till ditt **associerade MPN-ID**och sedan beviljar åtkomst till varje kund som du har registrerat med en [inbyggd Azure-roll som är berättigad till PEC](/partner-center/azure-roles-perms-pec).
 
-1. [Skapa ett tjänst huvud konto](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) i hanterings klienten. I det här exemplet ska vi namnge det här tjänstens huvud konto för PEC-Automation.
+1. [Skapa ett tjänst huvud konto](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) i hanterings klienten. I det här exemplet använder vi *Automation-kontot namn Provider* för detta tjänst objekt.
 1. Med hjälp av kontot för tjänstens huvud namn [länkar du till ditt associerade MPN-ID](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) i hanterings klienten. Du behöver bara göra detta en gången.
-1. När du registrerar [en kund med ARM-mallar](onboard-customer.md)måste du ta med en auktorisering som innehåller PEC Automation-kontot som en användare med en [inbyggd Azure-roll som är berättigad till PEC](/partner-center/azure-roles-perms-pec).
+1. När du registrerar [en kund som använder arm-mallar](onboard-customer.md)måste du ta med en auktorisering som innehåller ett Automation-konto för providern som en användare med en [inbyggd Azure-roll som är berättigad till PEC](/partner-center/azure-roles-perms-pec).
 
-Genom att följa dessa steg associeras alla kund innehavare som du hanterar med ditt partner-ID, så att du kan få PEC för dessa kunder. PEC Automation-kontot behöver inte autentisera eller utföra några åtgärder i kundens klient organisation.
+Genom att följa dessa steg associeras alla kund innehavare som du hanterar med ditt partner-ID. Providerns Automation-konto behöver inte autentisera eller utföra några åtgärder i kundens klient organisation.
+
+:::image type="content" source="../media/lighthouse-pal.jpg" alt-text="Diagram över PAL-processen med Azure Lighthouse.":::
 
 ## <a name="add-your-partner-id-to-previously-onboarded-customers"></a>Lägg till ditt partner-ID till tidigare registrerade kunder
 
-Om du redan har registrerat en kund kanske du inte vill utföra en annan distribution för att lägga till tjänstens huvud namn för PEC Automation-kontot. I stället kan du länka ditt **associerade MPN-ID** till ett användar konto som redan har åtkomst till arbete i den kundens klient organisation. Se till att kontot har fått en [inbyggd Azure-roll som är berättigad till PEC](/partner-center/azure-roles-perms-pec).
+Om du redan har registrerat en kund kanske du inte vill utföra en annan distribution för att lägga till providerns Automation-kontots tjänst huvud namn. I stället kan du länka ditt **associerade MPN-ID** till ett användar konto som redan har åtkomst till arbete i den kundens klient organisation. Se till att kontot har fått en [inbyggd Azure-roll som är berättigad till PEC](/partner-center/azure-roles-perms-pec).
 
-När kontot har [länkats till ditt associerade MPN-ID](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) i hanterings klienten kan du få PEC för kunden.
+När kontot har [länkats till ditt associerade MPN-ID](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) i hanterings klienten kan du spåra igenkänningen av din kunds påverkan.
 
 ## <a name="confirm-partner-earned-credit"></a>Bekräfta den intjänade partner krediten
 
-Du kan [Visa PEC-information i Azure Portal](/partner-center/partner-earned-credit-explanation#azure-cost-management) och bekräfta vilka kostnader som har fått fördelen med PEC.
+Du kan [Visa PEC-information i Azure Portal](/partner-center/partner-earned-credit-explanation#azure-cost-management) och bekräfta vilka kostnader som har fått fördelen med PEC. Kom ihåg att PEC endast gäller för CSP-kunder som har signerat MCA och som finns i Azure-planen.
 
 Om du har följt stegen ovan och inte ser associationen öppnar du en supportbegäran i Azure Portal.
 

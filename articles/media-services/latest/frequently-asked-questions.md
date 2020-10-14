@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: d34b5aaaa12a3d296f92e0d7be34ae76931d8506
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa33319f146ac57ab4d253696c94308a43b5db2e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268493"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019621"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Vanliga frågor och svar om Media Services v3
 
@@ -28,7 +28,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure Media Services v
 
 ### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Vilka Azure Portal begränsningar för Media Services v3?
 
-Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 Live-händelser, Visa v3-till gångar och jobb, hämta information om åtkomst till API: er, Kryptera innehåll. <br/>För alla andra hanterings aktiviteter (till exempel hantering av transformeringar och jobb eller analys av v3-innehåll) använder du [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
+Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 Live-händelser, Visa v3-till gångar och jobb, hämta information om åtkomst till API: er, Kryptera innehåll. <br/>För alla andra hanterings aktiviteter (till exempel hantering av transformeringar och jobb eller analys av v3-innehåll) använder du [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
 Om din video tidigare har laddats upp till Media Services kontot med hjälp av Media Services v3 API eller om innehållet genererades baserat på Live-utdata, visas inte knapparna **koda**, **analysera**eller **kryptera** i Azure Portal. Använd Media Services v3-API: erna för att utföra dessa uppgifter.  
 
@@ -163,7 +163,7 @@ För närvarande kan du använda [Azure Portal](https://portal.azure.com/) för 
 * Visa (inte hantera) v3- [till gångar](assets-concept.md). 
 * [Hämta information om att komma åt API: er](./access-api-howto.md). 
 
-För alla andra hanterings uppgifter (t. ex. [transformationer och jobb](transforms-jobs-concept.md) och [innehålls skydd](content-protection-overview.md)) använder du [REST API](/rest/api/media/), [Azure CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
+För alla andra hanterings uppgifter (t. ex. [transformationer och jobb](transforms-jobs-concept.md) och [innehålls skydd](content-protection-overview.md)) använder du [REST API](/rest/api/media/), [Azure CLI](/cli/azure/ams)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Finns det ett AssetFile-koncept i v3?
 

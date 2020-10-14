@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 2f18f830b690acdca67058da6ed6a0907406e66c
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 1e27ee2c045404d13b10945ac65484281b0cd967
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945975"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019723"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Minnesoptimerade storlekar för virtuella datorer
 
@@ -36,7 +36,7 @@ Minnesoptimerade VM-storlekar erbjuder ett högt förhållande mellan minne och 
 
 - [Ev4 och Esv4-serien](ev4-esv4-series.md) körs på andra generationen Intel &reg; Xeon &reg; platina-processorer (Cascade Lake) i en Hyper-threadd konfiguration, är idealiska för olika minnes intensiva företags program och funktioner upp till 504 GIB RAM-minne. Den har [Intel &reg; Turbo Boost-tekniken 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) och [Intel &reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Ev4 och Esv4-serien inkluderar inte en lokal temporär disk. Mer information finns i storlekar för  [virtuella Azure-datorer utan en lokal temporär disk](azure-vms-no-temp-disk.md).
 
-- [Edv4 och Edsv4-serien](edv4-edsv4-series.md) körs på andra generationens Intel &reg; Xeon &reg; platina 8272CL-processorer (Cascade Lake), idealiska för extremt stora databaser eller andra program som drar nytta av höga vCPU-antal och stora mängder minne. Dessutom omfattar dessa VM-storlekar snabb, större lokal SSD-lagring för program som har nytta av låg latens, lokal lagring med hög hastighet. Den innehåller alla kärnor för Turbo klock frekvens på 3,4 GHz, [Intel &reg; Turbo Boost-teknik 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) och [Intel &reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
+- [Edv4 och Edsv4-serien](edv4-edsv4-series.md) körs på andra generationens Intel &reg; Xeon &reg; platina 8272CL-processorer (Cascade Lake), idealiska för extremt stora databaser eller andra program som drar nytta av höga vCPU-antal och stora mängder minne. Dessutom omfattar dessa VM-storlekar snabb, större lokal SSD-lagring för program som har nytta av låg latens, lokal lagring med hög hastighet. Den har en central Turbo klock hastighet på 3,4 GHz, [Intel &reg; Turbo Boost-teknik 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) och [Intel &reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
 
 - [M-serien](m-series.md) erbjuder ett högt antal vCPU (upp till 128 virtuella processorer) och en stor mängd minne (upp till 3,8 TIB). Det är också idealiskt för extremt stora databaser eller andra program som drar nytta av höga vCPU-räkningar och stora mängder minne.
 

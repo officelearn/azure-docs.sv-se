@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: c34eb87cfc43bbdab051bf4c2527bfa75295cf6c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: b171688fa4dbff8d05b3ba03e4e4bd29028983be
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825041"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016152"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Snabb start: Logga in användare och anropa Microsoft Graph API från en iOS-eller macOS-app
 
@@ -180,7 +180,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 > |Där: | Beskrivning |
 > |---------|---------|
 > | `clientId` | Program-ID från den app som registrerats i *portal.azure.com* |
-> | `authority` | Slut punkten för Microsoft Identity Platform. I de flesta fall är detta *https://login.microsoftonline.com/common* |
+> | `authority` | Slut punkten för Microsoft Identity Platform. I de flesta fall är detta `https://login.microsoftonline.com/common` |
 > | `redirectUri` | Omdirigerings-URI för programmet. Du kan skicka Nil om du vill använda standardvärdet eller din anpassade omdirigerings-URI. |
 
 ### <a name="for-ios-only-additional-app-requirements"></a>För endast iOS, ytterligare krav för appar

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: e64586ced7a619de02ae3a9d6beda35660ca04a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf68bdafbb8b6fde187a2d787bb5464e5ece4cb2
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577585"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019162"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installera och använda Azure IoT Explorer
 
@@ -28,7 +28,7 @@ Den här artikeln visar hur du:
 
 Om du vill använda Azure IoT Explorer-verktyget behöver du:
 
-- En Azure IoT-hubb. Det finns många sätt att lägga till en IoT-hubb i din Azure-prenumeration, till exempel [skapa en IoT-hubb med hjälp av Azure CLI](../iot-hub/iot-hub-create-using-cli.md). Du behöver den IoT Hub-anslutningssträngen för att köra Azure IoT Explorer-verktyget. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- En Azure IoT-hubb. Det finns många sätt att lägga till en IoT-hubb i din Azure-prenumeration, till exempel [skapa en IoT-hubb med hjälp av Azure CLI](../iot-hub/iot-hub-create-using-cli.md). Du behöver den IoT Hub-anslutningssträngen för att köra Azure IoT Explorer-verktyget. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - En enhet som är registrerad i IoT Hub. Du kan använda IoT Explorer för att skapa och hantera enhets registreringar i IoT Hub.
 
 ## <a name="install-azure-iot-explorer"></a>Installera Azure IoT Explorer
@@ -36,7 +36,7 @@ Om du vill använda Azure IoT Explorer-verktyget behöver du:
 Gå till [Azure IoT Explorer-versioner](https://github.com/Azure/azure-iot-explorer/releases) och expandera listan med till gångar för den senaste versionen. Hämta och installera den senaste versionen av programmet.
 
 >[!Important]
->Från version 0.11.0 IoT Explorer stöder endast IoT Plug and Play GA-versionen (från september 2020). Om du vill använda de funktioner som är tillgängliga i den tidigare för hands versionen från aug 2019 installerar du en 0,10. x-version.
+> Uppdatera till version 0.13. x för att lösa modeller från valfri lagrings plats baserat på [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models)
 
 ## <a name="use-azure-iot-explorer"></a>Använda Azure IoT Explorer
 
@@ -136,4 +136,4 @@ Om du vill visa telemetri för det valda gränssnittet går du till fliken **tel
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här instruktions artikeln har du lärt dig hur du installerar och använder Azure IoT Explorer för att interagera med IoT Plug and Play-enheter. Ett förslag till nästa steg är att lära dig att använda [Azure CLI IoT plug and Play-kommandon](./howto-use-iot-pnp-cli.md).
+I den här instruktions artikeln har du lärt dig hur du installerar och använder Azure IoT Explorer för att interagera med IoT Plug and Play-enheter. Ett förslag till nästa steg är att lära dig hur du [installerar och använder redigerings verktygen för DTDL](howto-use-dtdl-authoring-tools.md).

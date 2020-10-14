@@ -1,23 +1,23 @@
 ---
 title: 'Snabb start: skapa en skydds-värd från en virtuell dator och Anslut via privat IP-adress'
 titleSuffix: Azure Bastion
-description: I den här artikeln lär du dig hur du skapar en Azure skydds-värd från en virtuell dator och ansluter på ett säkert sätt med en privat IP-adress.
+description: I den här snabb starts artikeln lär du dig hur du skapar en Azure skydds-värd från en virtuell dator och ansluter på ett säkert sätt med en privat IP-adress.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
 ms.date: 10/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0ff85e6ceb6867db417d8d8202ff3281478e5687
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6f451e7b115c00bc7b2cf350e00b9f704ab1d29f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996997"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019060"
 ---
 # <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>Snabb start: ansluta till en virtuell dator med en privat IP-adress och Azure skydds
 
-Den här snabb starts artikeln visar hur du ansluter till en virtuell dator med en privat IP-adress via webbläsaren med hjälp av Azure skydds och Azure Portal. Stegen i den här artikeln hjälper dig att distribuera skydds till ditt virtuella nätverk från den virtuella datorn och sedan ansluta till den virtuella datorn. En fördel med att skapa en skydds-värd för ditt VNet direkt från din virtuella dator är att många av inställningarna fylls i automatiskt.
+Den här snabb starts artikeln visar hur du ansluter till en virtuell dator via webbläsaren med hjälp av Azure skydds och Azure Portal. I Azure Portal, från din virtuella Azure-dator, kan du distribuera skydds till det virtuella nätverket. När du har distribuerat skydds kan du ansluta till den virtuella datorn via dess privata IP-adress med hjälp av Azure Portal. Din virtuella dator behöver ingen offentlig IP-adress eller speciell program vara. En fördel med att skapa en skydds-värd för ditt VNet direkt från din virtuella dator är att många av inställningarna fylls i automatiskt.
 
 När tjänsten har tillhandahållits är RDP/SSH-upplevelsen tillgänglig för alla virtuella datorer i samma virtuella nätverk. Mer information om Azure skydds finns i [Vad är Azure skydds?](bastion-overview.md).
 
@@ -96,7 +96,7 @@ När du är klar med det virtuella nätverket och de virtuella datorerna tar du 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du en skydds-värd för ditt virtuella nätverk och anslöt sedan till en virtuell dator på ett säkert sätt via skydds-värden.
+I den här snabb starten skapade du en skydds-värd för ditt virtuella nätverk och anslöt sedan till en virtuell dator på ett säkert sätt via skydds-värden. Sedan kan du fortsätta med följande steg om du vill ansluta till en skalnings uppsättning för virtuella datorer.
 
-* Mer information om Azure skydds finns i [Vad är Azure skydds?](bastion-overview.md) och [vanliga frågor och svar om skydds](bastion-faq.md).
-* Om du vill ansluta till en skalnings uppsättning för virtuella datorer läser du [Anslut till en skalnings uppsättning för virtuella datorer med hjälp av Azure skydds](bastion-connect-vm-scale-set.md).
+> [!div class="nextstepaction"]
+> [Ansluta till en skalnings uppsättning för virtuella datorer med hjälp av Azure skydds](bastion-connect-vm-scale-set.md)

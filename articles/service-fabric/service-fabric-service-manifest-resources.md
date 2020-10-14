@@ -3,12 +3,13 @@ title: Ange Service Fabric tjänst slut punkter
 description: Så här beskriver du slut punkts resurser i ett tjänst manifest, inklusive hur du konfigurerar HTTPS-slutpunkter
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: c0c3c45c47447390901e5e0d60e77ab6b85a6a0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperfq1
+ms.openlocfilehash: 775e554128b9828915ce7dafaf4bccf597911912
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91354767"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017598"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Ange resurser i ett tjänst manifest
 ## <a name="overview"></a>Översikt
@@ -198,7 +199,7 @@ I parametrarna lägger du till nedan:
   </Parameters>
 ```
 
-När du distribuerar programmet kan du skicka dessa värden som ApplicationParameters.  Exempel:
+När du distribuerar programmet kan du skicka dessa värden som ApplicationParameters.  Till exempel:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
@@ -206,7 +207,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 Obs! Om värdet som angetts för en angiven ApplicationParameter är tomt går vi tillbaka till det standardvärde som anges i ServiceManifest för motsvarande EndPointName.
 
-Exempel:
+Till exempel:
 
 Om du har angett i ServiceManifest
 
@@ -222,7 +223,7 @@ Antag att värdet PORT1 och Protocol1 för program parametrarna är null eller t
 
 Anta att du anger ett felaktigt värde. Anta att du har angett ett sträng värde "foo" i stället för en int.  New-ServiceFabricApplication kommandot Miss fungerar med ett fel: `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 I den här artikeln förklaras hur du definierar slut punkter i Service Fabric tjänst manifest. Mer detaljerade exempel finns i:
 

@@ -6,18 +6,18 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 61679e1ee3843ed866ef12138a0edeff8877b1e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe811c81d0774393f40dc5c8403d1af8b22da109
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448590"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019145"
 ---
 # <a name="refresh-with-azure-automation"></a>Uppdatera med Azure Automation
 
 Med hjälp av Azure Automation-och PowerShell-Runbooks kan du utföra automatiserade data uppdaterings åtgärder på tabell modeller i Azure Analysis.  
 
-Exemplet i den här artikeln använder [SQLServer PowerShell-modulen](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps). En PowerShell-PowerShell-Runbook som visar hur du uppdaterar en modell finns längre fram i den här artikeln.  
+Exemplet i den här artikeln använder [SQLServer PowerShell-modulen](/powershell/module/sqlserver/?view=sqlserver-ps). En PowerShell-PowerShell-Runbook som visar hur du uppdaterar en modell finns längre fram i den här artikeln.  
 
 ## <a name="authentication"></a>Autentisering
 
@@ -226,4 +226,4 @@ else
 ## <a name="next-steps"></a>Nästa steg
 
 [Exempel](analysis-services-samples.md)  
-[REST-API](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[REST-API](/rest/api/analysisservices/servers)

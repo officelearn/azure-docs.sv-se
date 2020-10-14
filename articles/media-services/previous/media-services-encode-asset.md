@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: 5d5a00488321c9c67dd1469b1d8476636675aa8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e841d1922beb3f0276ff94cacbbdf566b23cdf6e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281022"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017292"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Översikt över Azure on-demand Media Encoder
 
@@ -53,7 +53,7 @@ Som standard kan varje Media Services konto ha en aktiv kodnings aktivitet i tag
 [Format och codecenheter](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>Hands
-Media Encoder Standard konfigureras med hjälp av en av kodarens för inställningar som beskrivs [här](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard konfigureras med hjälp av en av kodarens för inställningar som beskrivs [här](./media-services-mes-presets-overview.md).
 
 ### <a name="input-and-output-metadata"></a>Metadata för indata och utdata
 Kodarens indata-metadata beskrivs [här](media-services-input-metadata-schema.md).

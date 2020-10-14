@@ -3,19 +3,19 @@ title: Metodtips när du använder API:et för avvikelseidentifiering
 titleSuffix: Azure Cognitive Services
 description: 'Lär dig mer om metod tips när du identifierar avvikelser med API: t för avvikelse identifiering.'
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 03/26/2019
-ms.author: aahi
-ms.openlocfilehash: 9407f2fc9375765efb6eb9688b3ebfeef24ba90a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: 6bf00d8b5327ddd539190b6e990c7edb35c876f7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67721620"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018397"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Metod tips för att använda API: t för avvikelse detektor
 

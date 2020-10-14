@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/25/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 6ed382e88700e4ecd7f8de20a2c8da7ed3c13566
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43565e812abcf0b7dbb992ac4d25a62a4d08df2b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77925935"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018652"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Brand vägg för webbaserade program (WAF) med undantags listor för front dörr tjänsten 
 
@@ -45,6 +45,17 @@ Du kan ange en exakt matchning av rubrik, brödtext, cookie eller frågesträng 
 Rubrik-och cookie-namn är Skift läges känsliga.
 
 Du kan använda undantags listan för alla regler i den hanterade regel uppsättningen, för regler för en viss regel grupp eller till en enskild regel som visas i föregående exempel. 
+
+## <a name="define-exclusion-based-on-web-application-firewall-logs"></a>Definiera undantag baserat på brand Väggs loggar för webb program
+ [Övervakning och loggning av Azure Web Application-brandvägg](waf-front-door-monitor.md) visar matchad information om en blockerad begäran. Om ett värde för rubrik, cookie-värde, post argument eller fråge argument ger falska positiva identifieringar för vissa regler kan du undanta den delen av begäran från att beaktas av regeln. I följande tabell visas exempel värden från WAF-loggar och motsvarande undantags villkor.
+
+|matchVariableName från WAF-loggar    |Regel undantag i portalen|
+|--------|------|
+|CookieValue: SOME_NAME  |Namnet på cookien för begäran är lika med SOME_NAME|
+|HeaderValue: SOME_NAME  |Namn på begär ande huvud är lika med SOME_NAME|
+|PostParamValue: SOME_NAME|  Begär ande brödtext post argument namn är lika med SOME_NAME|
+|QueryParamValue: SOME_NAME| Argument namnet för frågesträngen är lika med SOME_NAME|
+
 
 ## <a name="next-steps"></a>Nästa steg
 

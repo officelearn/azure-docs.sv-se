@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 9d0bfdf4719b4c3a92a0632a1edda63324d700e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7323ae611431e1d91fd1a8471914be388fcc4712
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87072041"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019519"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services-specifikation för fragmenterad MP4 Live 
 
@@ -39,7 +39,7 @@ Följande diagram visar den övergripande arkitekturen i Live streaming service 
 ![inmatnings flöde][image1]
 
 ## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. Bitstream-format – ISO 14496-12-fragmenterad MP4
-Överförings formatet för direktsänd strömning som beskrivs i det här dokumentet baseras på [ISO-14496-12]. En detaljerad förklaring av det fragmenterade MP4-formatet och tillägg för både video-on-demand-filer och Live streaming-inmatning finns i [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
+Överförings formatet för direktsänd strömning som beskrivs i det här dokumentet baseras på [ISO-14496-12]. En detaljerad förklaring av det fragmenterade MP4-formatet och tillägg för både video-on-demand-filer och Live streaming-inmatning finns i [[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251).
 
 ### <a name="live-ingest-format-definitions"></a>Format definitioner för Live-intag
 I följande lista beskrivs särskilda format definitioner som gäller för Live-inmatning i Azure Media Services:
@@ -70,7 +70,7 @@ Här följer de detaljerade kraven:
 1. Om HTTP POST-begäran upphör eller tar slut under ett TCP-fel innan data strömmen avslutas, måste kodaren utfärda en ny POST-begäran med en ny anslutning och följa föregående krav. Dessutom måste kodaren skicka de föregående två MP4-fragmenten för varje spår i strömmen och återuppta utan att införa en avvikelse i medie tids linjen. Att skicka de senaste två MP4-fragmenten för varje spår ser till att det inte finns någon data förlust. Med andra ord, om en data ström innehåller både ett ljud och ett video spår och den aktuella POST-begäran Miss lyckas, måste kodaren återansluta och skicka de sista två fragmenten för ljud spåret, som tidigare har skickats, och de sista två fragmenten för video spåret, som tidigare har skickats, för att säkerställa att det inte finns någon data förlust. Kodaren måste ha en "Forward"-buffert för medie fragment, som den återsänder när den återansluter.
 
 ## <a name="5-timescale"></a>5. tids skala
-[[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) beskriver användningen av tids skala för **SmoothStreamingMedia** (section 2.2.2.1), **StreamElement** (avsnitt 2.2.2.3), **StreamFragmentElement** (section 2.2.2.6) och **LiveSMIL** (section 2.2.7.3.1). Om tids Skale svärdet inte finns används standardvärdet 10 000 000 (10 MHz). Även om Smooth Streaming format specifikationen inte blockerar användning av andra tids skals värden, använder de flesta kodarens standardvärden (10 MHz) för att generera Smooth Streaming inmatnings data. På grund av funktionen [Azure Media Dynamic packning](./previous/media-services-dynamic-packaging-overview.md) rekommenderar vi att du använder en 90-kHz-tidsskala för video strömmar och 44,1 khz eller 48,1 kHz för ljud strömmar. Om olika tids skaliga värden används för olika strömmar måste data strömmen på ström nivån skickas. Mer information finns i [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
+[[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) beskriver användningen av tids skala för **SmoothStreamingMedia** (section 2.2.2.1), **StreamElement** (avsnitt 2.2.2.3), **StreamFragmentElement** (section 2.2.2.6) och **LiveSMIL** (section 2.2.7.3.1). Om tids Skale svärdet inte finns används standardvärdet 10 000 000 (10 MHz). Även om Smooth Streaming format specifikationen inte blockerar användning av andra tids skals värden, använder de flesta kodarens standardvärden (10 MHz) för att generera Smooth Streaming inmatnings data. På grund av funktionen [Azure Media Dynamic packning](./previous/media-services-dynamic-packaging-overview.md) rekommenderar vi att du använder en 90-kHz-tidsskala för video strömmar och 44,1 khz eller 48,1 kHz för ljud strömmar. Om olika tids skaliga värden används för olika strömmar måste data strömmen på ström nivån skickas. Mer information finns i [[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251).     
 
 ## <a name="6-definition-of-stream"></a>6. definition av "Stream"
 Stream är den grundläggande enhet som används i Live-inmatningen för att skapa live-presentationer, hantering av strömmande redundans och redundans scenarier. Stream definieras som en unik, fragmenterad MP4-Bitstream som kan innehålla ett enda spår eller flera spår. En fullständig live-presentation kan innehålla en eller flera strömmar, beroende på konfigurationen av Live-kodarna. I följande exempel visas olika alternativ för att använda strömmar för att skapa en fullständig live-presentation.

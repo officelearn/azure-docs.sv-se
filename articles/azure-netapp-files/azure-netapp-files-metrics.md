@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 80746d7cef4bb0a70c6bb9eb6ff2e053ea6c7a0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c79586703c49fe37d4d0915f49b69e6aa842083e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91824691"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017530"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Mått för Azure NetApp Files
 
@@ -86,6 +86,9 @@ Azure NetApp Files tillhandahåller mått för allokerat lagrings utrymme, fakti
 
 
 ## <a name="volume-replication-metrics"></a><a name="replication"></a>Mått för volym replikering
+
+> [!NOTE] 
+> Nätverks överförings storleken (till exempel *volym replikeringens totala överförings* mått) kan skilja sig från käll-eller mål volymerna för en replikering mellan regioner. Det här beteendet är ett resultat av en effektiv replikeringstopologi som används för att minimera nätverks överförings kostnaden.
 
 - *Är Volume Replication-status felfri*   
     Villkoret för replikeringsrelationen. Ett felfritt tillstånd betecknas av `1` . Ett ohälsosamt tillstånd betecknas av `0` .

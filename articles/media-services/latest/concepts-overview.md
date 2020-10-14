@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: dec0503ec369ae473fb592db958c0e30a27a4268
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 897df7f07a349457c49929b69993c75345f52241
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297441"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017819"
 ---
 # <a name="media-services-terminology-and-concepts"></a>Media Services terminologi och koncept
 
@@ -30,7 +30,7 @@ De grundläggande begreppen som beskrivs i dessa avsnitt bör granskas innan du 
 
 > [!NOTE]
 > För närvarande kan du använda [Azure Portal](https://portal.azure.com/) för att: Hantera Media Services v3 [Live-händelser](live-events-outputs-concept.md), Visa (inte hantera) v3- [till gångar](assets-concept.md)och [få information om åtkomst till API: er](./access-api-howto.md).
-> För alla andra hanterings uppgifter (t. ex. [transformationer och jobb](transforms-jobs-concept.md) och [innehålls skydd](content-protection-overview.md)) använder du [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
+> För alla andra hanterings uppgifter (t. ex. [transformationer och jobb](transforms-jobs-concept.md) och [innehålls skydd](content-protection-overview.md)) använder du [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

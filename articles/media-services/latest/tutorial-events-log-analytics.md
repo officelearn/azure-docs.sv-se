@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: dfd7b3dcc7e27dd1251c35c6272b5aa7f8036006
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc3060c9253b23b97089ea35625aceb26737baba
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88942410"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017003"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Självstudie: lagra Azure Media Services händelser i Azure Log Analytics
 
@@ -38,16 +38,16 @@ Du lär dig hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > * En [Azure-prenumeration](how-to-set-azure-subscription.md)
 > * Ett [Media Services](create-account-howto.md) konto och en resurs grupp.
 > * En installation av [ffmpeg](https://ffmpeg.org/download.html) för ditt operativ system.
-> * En [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) arbets yta
+> * En [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) arbets yta
 
 ## <a name="subscribe-to-a-media-services-event-with-logic-app"></a>Prenumerera på en Media Services-händelse med Logic app
 
-1. I Azure Portal, om du inte redan har gjort det, skapar du en [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) arbets yta. Du behöver arbetsyte-ID: t och en av nycklarna, så se till att webbläsarfönstret är öppet. Öppna sedan portalen på en annan flik eller i ett fönster.
+1. I Azure Portal, om du inte redan har gjort det, skapar du en [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) arbets yta. Du behöver arbetsyte-ID: t och en av nycklarna, så se till att webbläsarfönstret är öppet. Öppna sedan portalen på en annan flik eller i ett fönster.
 
 1. Navigera till ditt Azure Media Services konto och välj **händelser**. Då visas alla metoder för att prenumerera på Azure Media Services händelser.
     > [!div class="mx-imgBorder"]
@@ -140,7 +140,7 @@ Nu när du prenumererar på händelse (r) skapar du en åtgärd.
     > [!div class="mx-imgBorder"]
     > ![Verifiera bröd text-och funktions steg](media/tutorial-events-log-analytics/verify-changes-to-json.png)
 
-1. När du granskar alla resurser i resurs gruppen kommer det att finnas en Logic app och två Logic app API-kopplingar i listan, en för händelserna och en för Log Analytics. Mer information om Event Grid Systems ämnen finns i [avsnittet Event Grid system](https://docs.microsoft.com/azure/event-grid/system-topics).
+1. När du granskar alla resurser i resurs gruppen kommer det att finnas en Logic app och två Logic app API-kopplingar i listan, en för händelserna och en för Log Analytics. Mer information om Event Grid Systems ämnen finns i [avsnittet Event Grid system](../../event-grid/system-topics.md).
     > [!div class="mx-imgBorder"]
     > ![Visa alla nya resurser i resurs gruppen](media/tutorial-events-log-analytics/contoso-rg-listing.png)
 
@@ -231,4 +231,4 @@ Om du inte vill fortsätta att använda de resurser som du skapade under den hä
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan skapa olika frågor och spara dem. Dessa kan läggas till på [Azure-instrumentpanelen](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards).
+Du kan skapa olika frågor och spara dem. Dessa kan läggas till på [Azure-instrumentpanelen](../../azure-monitor/learn/tutorial-logs-dashboards.md).

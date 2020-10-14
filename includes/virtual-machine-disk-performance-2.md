@@ -5,15 +5,15 @@ services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/25/2020
+ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: e5a6dae98e786bf55dc17d8fabe42f84e9927442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5ac97812f973a20f6ee4c2dea34baaeb91203af
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91605906"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016557"
 ---
 ![Dokumentation om Dsv3](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -129,4 +129,21 @@ Mått som hjälper till att diagnostisera VM-IO-capping:
 - **VM cachelagrad bandbredd i procent** – den procent andel som beräknas av det totala disk data flödet som slutförts via det maximala data flödet för cachelagrade virtuella datorer. Om den här mängden är på 100% blir ditt program i/o-gräns från den virtuella datorns cachelagrade bandbredds gräns.
 - **VM Uncached IOPS förbrukad procent** – den procent andel som beräknats av den totala IOPS på en virtuell dator som har slutförts via den maximala IOPS-gränsen på den virtuella datorn. Om den här mängden är på 100% kommer ditt program att köras vara i/o-gräns från den virtuella datorns ej cachelagrade IOPS-gräns.
 - **Virtuell dator i cacheminnet för förbrukad bandbredd** i procent – den procent andel som beräknas av den totala disk data flödet på en virtuell dator som har slutförts via det högsta allokerade virtuella dator data flödet. Om den här mängden är på 100% kommer ditt program att köras vara i/o-gräns från den virtuella datorns ej cachelagrade bandbredds gräns.
+
+## <a name="storage-io-utilization-metrics-example"></a>Exempel på användnings mått för lagrings-i/o
+Nu ska vi köra ett exempel på hur du använder dessa nya mått för lagrings-i/o-användning för att hjälpa oss att felsöka där en Flask hals är i systemet. Systemet har kon figurer ATS precis som vi hade i föregående exempel, förutom den här gången kommer vår OS-disk som vi har anslutit **inte** att cachelagras.
+
+Konfigurera:
+- Standard_D8s_v3 
+    - Cachelagrad IOPS: 16 000
+    - Ej cachelagrad IOPS: 12 800
+- P30 OS-disk 
+    - IOPS: 5 000
+    - Cachelagring av värd: inaktiverat
+- 2 P30 data diskar X 2
+    - IOPS: 5 000
+    - Cachelagring av värd: läsa/skriva
+- 2 P30 data diskar X 2
+    - IOPS: 5 000
+    - Cachelagring av värd: inaktiverat
 

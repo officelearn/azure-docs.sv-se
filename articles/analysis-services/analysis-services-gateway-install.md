@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1d090070dd7b2afe5ea1ece9b5da8b8b5b7b0780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed13111584e7e9621ec2ccde16efb3cdf2eef50c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87438962"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016186"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installera och konfigurera lokal datagateway
 
@@ -132,7 +132,7 @@ När du har installerat och registrerat din gateway måste du skapa en gateway-r
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Använd [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) för att hämta Gateway-ResourceID. Anslut sedan Gateway-resursen till en befintlig eller ny server genom att ange **-GatewayResourceID** i [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) eller [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver).
+Använd [Get-AzResource](/powershell/module/az.resources/get-azresource) för att hämta Gateway-ResourceID. Anslut sedan Gateway-resursen till en befintlig eller ny server genom att ange **-GatewayResourceID** i [set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver) eller [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver).
 
 Hämta gatewayens resurs-ID:
 

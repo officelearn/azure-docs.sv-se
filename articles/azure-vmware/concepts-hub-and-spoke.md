@@ -3,12 +3,12 @@ title: Koncept – integrera en Azure VMware-lösning distribution i en hubb och
 description: Lär dig mer om rekommendationer för att integrera en Azure VMware-lösnings distribution i en befintlig eller ny hubb och eker-arkitektur på Azure.
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: bfd0da4f03eedaf215ddb55facffc2296a9d0b85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1bbb2a771ac6f7981460b1e81881725a11299242
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580629"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019277"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrera Azure VMware-lösningen i en hubb och eker-arkitektur
 
@@ -28,7 +28,7 @@ Trafik mellan det lokala data centret, Azure VMware-lösningens privata moln och
 
 Diagrammet visar ett exempel på en distribution av hubb och ekrar i Azure som är ansluten till en lokal och Azure VMware-lösning via ExpressRoute Global Reach.
 
-:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Azure VMware-lösning hubb och eker-integrering" border="false":::
+:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Azure VMware-lösning hubb och eker-integrering" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png":::
 
 Arkitekturen har följande huvud komponenter:
 
@@ -65,12 +65,12 @@ Eftersom en ExpressRoute-Gateway inte tillhandahåller transitiv routning mellan
 
 * **Trafik flöde för lokala Azure VMware-lösningar**
 
-  :::image type="content" source="media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Azure VMware-lösning hubb och eker-integrering" border="false":::
+  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Azure VMware-lösning hubb och eker-integrering" border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
 
 
 * **Azure VMware-lösning till hubben för VNET-trafikflöde**
 
-  :::image type="content" source="media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware-lösning hubb och eker-integrering" border="false":::
+  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware-lösning hubb och eker-integrering" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
 Du hittar mer information om nätverks-och anslutnings metoder för Azure VMware-lösningar i [produkt dokumentationen för Azure VMware-lösningen](./concepts-networking.md).

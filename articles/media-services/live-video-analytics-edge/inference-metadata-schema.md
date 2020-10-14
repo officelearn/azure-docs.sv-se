@@ -3,12 +3,12 @@ title: Schema för härledning av metadata – Azure
 description: I den här artikeln får du lära dig mer om schema för data härlednings metadata.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 6239713fc92b75b8ed026a8f04953e92a24c4596
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2de437577dc00692fb98c46fec32bfaa6612dc99
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88691951"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019502"
 ---
 # <a name="inference-metadata-schema"></a>Schema för slutsatsdragning av metadata 
 
@@ -29,7 +29,7 @@ Varje Härlednings objekt oavsett om du använder HTTP-baserat kontrakt eller gR
 |Händelse|Händelse upptäcktes i exemplet. När en händelse identifieras i exemplet returneras namnet på händelsen och de speciella egenskaperna för händelsen.|
 |Sig|Rörelse upptäcktes i exemplet. När motion identifieras i exemplet returneras samkoordinaterna för en rektangulär avgränsnings ruta där rörelse har identifierats.|
 |Text|Text som är associerad med exemplet tillsammans med textens start-och slut-tidstämpel returneras.|
-|Annat|Returnerar annan allmän nytto Last information.|
+|Övrigt|Returnerar annan allmän nytto Last information.|
 
 Exemplet nedan innehåller en enskild händelse med vissa typer av härlednings typer som stöds:
 
@@ -123,5 +123,5 @@ Exemplet nedan innehåller en enskild händelse med vissa typer av härlednings 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [gRPC-dataavtal](grpc-data-contract.md)
-- [HTTP-dataavtal](http-data-contract.md)
+- [gRPC-dataavtal](./grpc-extension-protocol.md)
+- [HTTP-dataavtal](./http-extension-protocol.md)

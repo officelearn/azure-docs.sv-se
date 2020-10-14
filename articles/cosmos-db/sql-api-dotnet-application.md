@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6772150338dd0d172f2f100c2aa8cae7175b18d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd659ebd74b67a036c189cae763205e6b0371f7c
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051310"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058173"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Självstudie: utveckla ett ASP.NET Core MVC-webbprogram med Azure Cosmos DB med hjälp av .NET SDK
 
@@ -43,11 +43,11 @@ Den här självstudiekursen omfattar:
 > [!TIP]
 > Den här självstudien förutsätter att du har tidigare erfarenhet av att använda ASP.NET Core MVC och Azure App Service. Om du är nybörjare på ASP.NET Core eller de [verktyg](#prerequisites)som krävs, rekommenderar vi att du hämtar det fullständiga exempelprojektet från [GitHub][GitHub], lägger till de nödvändiga NuGet-paketen och kör det. När du skapar projektet kan du läsa den här artikeln för att få information om koden i projektets sammanhang.
 
-## <a name="prerequisites"></a><a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a><a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande resurser innan du följer anvisningarna i den här artikeln:
 
-* Ett aktivt Azure-konto. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* Ett aktivt Azure-konto. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -214,19 +214,19 @@ När du har slutfört de här stegen stänger du alla *cshtml* -dokument i Visua
 
 ### <a name="declare-and-initialize-services"></a><a name="initialize-services"></a>Deklarera och initiera tjänster
 
-Först lägger vi till en klass som innehåller logiken för att ansluta till och använda Azure Cosmos DB. I den här självstudien kommer vi att kapsla in den här logiken i en klass `CosmosDBService` som kallas och ett gränssnitt som kallas `ICosmosDBService` . Den här tjänsten utför CRUD-åtgärderna. Den läser också feed-åtgärder, till exempel att inte Visa ofullständiga objekt, skapa, redigera och ta bort objekt.
+Först lägger vi till en klass som innehåller logiken för att ansluta till och använda Azure Cosmos DB. I den här självstudien kommer vi att kapsla in den här logiken i en klass `CosmosDbService` som kallas och ett gränssnitt som kallas `ICosmosDbService` . Den här tjänsten utför CRUD-åtgärderna. Den läser också feed-åtgärder, till exempel att inte Visa ofullständiga objekt, skapa, redigera och ta bort objekt.
 
 1. I **Solution Explorer**högerklickar du på projektet och väljer **Lägg till**  >  **ny mapp**. Namnge mappen *Services*.
 
-1. Högerklicka på mappen **tjänster** , Välj **Lägg till**  >  **klass**. Ge den nya klassen namnet *CosmosDBService* och välj **Lägg till**.
+1. Högerklicka på mappen **tjänster** , Välj **Lägg till**  >  **klass**. Ge den nya klassen namnet *CosmosDbService* och välj **Lägg till**.
 
-1. Ersätt innehållet i *CosmosDBService.cs* med följande kod:
+1. Ersätt innehållet i *CosmosDbService.cs* med följande kod:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
 
-1. Högerklicka på mappen **tjänster** , Välj **Lägg till**  >  **klass**. Ge den nya klassen namnet *ICosmosDBService* och välj **Lägg till**.
+1. Högerklicka på mappen **tjänster** , Välj **Lägg till**  >  **klass**. Ge den nya klassen namnet *ICosmosDbService* och välj **Lägg till**.
 
-1. Lägg till följande kod i *ICosmosDBService* -klassen:
+1. Lägg till följande kod i *ICosmosDbService* -klassen:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 

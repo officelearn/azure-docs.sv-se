@@ -3,17 +3,17 @@ title: Begrepp för att felsöka sessioner (för hands version)
 titleSuffix: Azure Cognitive Search
 description: Felsök sessioner, som nås via Azure Portal, tillhandahåller en IDE som miljö där du kan identifiera och åtgärda fel, verifiera ändringar och skicka ändringar till färdighetsuppsättningar i AI-pipeline. Debug-sessioner är i för hands version.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 941d7f54bcb44653280abe264ff1cffbeae33679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f666cc2f9d11b1e05d11ba266897e6fca3cd287e
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743190"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057628"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Felsöka sessioner i Azure Kognitiv sökning
 

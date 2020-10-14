@@ -1,15 +1,15 @@
 ---
 title: 'Snabb start: skapa en delad fråga med mallar'
 description: I den här snabb starten använder du en Azure Resource Manager mall (ARM-mall) för att skapa en delad resurs diagram fråga som räknar virtuella datorer av operativ systemet.
-ms.date: 07/06/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: cc9da201b10b697f125e8ffe7402f23f5eaa8362
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a629dd5325fc20d6f173d9f4e0524885af8fdf49
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88685535"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057016"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Snabb start: skapa en delad fråga med en ARM-mall
 
@@ -48,14 +48,14 @@ Den resurs som definierats i mallen är:
 
 1. Välj eller ange följande värden:
 
-   | Namn | Värde |
+   | Name | Värde |
    |------|-------|
    | Prenumeration | Välj din Azure-prenumeration. |
    | Resursgrupp | Välj **Skapa ny**, ange ett namn och välj sedan **OK**. |
    | Plats | Välj en region. Välj till exempel **USA, centrala**. |
-   | Frågenamn | Lämna standardvärdet **antal virtuella datorer per operativ system**. |
-   | Fråga kod | Låt standardvärdet vara kvar `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
-   | Beskrivning av fråga | Lämna standardvärdet **den här delade frågan räknar alla virtuella dator resurser och sammanfattar av OS-typen.** |
+   | Frågenamn | Lämna standardvärdet: **antal virtuella datorer per operativ system**. |
+   | Fråga kod | Låt standardvärdet vara kvar: `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
+   | Beskrivning av fråga | Lämna standardvärdet: **den här delade frågan räknar alla virtuella dator resurser och sammanfattar efter OS-typ.** |
    | Jag samtycker till de villkor som anges ovan | Select |
 
 1. Välj **Köp**.
@@ -75,7 +75,7 @@ Följ dessa steg om du vill köra den nya delade frågan:
 
 1. Välj den delade frågan **antal virtuella datorer per operativ system**och välj sedan fliken **resultat** på sidan **Översikt** .
 
-Du kan också öppna den delade frågan från resurs diagram Utforskaren:
+Den delade frågan kan också öppnas från resursens diagram Utforskaren:
 
 1. I Portal Sök fältet söker du efter **resurs diagram Utforskaren** och markerar den.
 
@@ -83,7 +83,7 @@ Du kan också öppna den delade frågan från resurs diagram Utforskaren:
 
 1. Ändra **typ** till _delade frågor_. Om du inte ser **antalet virtuella datorer per operativ system** i listan använder du rutan filter för att begränsa resultaten. När **antalet virtuella datorer efter delad operativ Systems** fråga visas väljer du dess namn.
 
-1. När frågan har lästs in väljer du knappen **Kör fråga** . Resultaten visas på fliken **resultat** nedan.
+1. När frågan har lästs in väljer du knappen **Kör fråga** . Resultaten visas på fliken **resultat** .
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

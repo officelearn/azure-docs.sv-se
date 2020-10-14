@@ -1,6 +1,6 @@
 ---
 title: Konfigurera Transaktionsreplikering mellan Azure SQL-hanterad instans och SQL Server
-description: En själv studie kurs som konfigurerar replikering mellan en hanterad utgivar instans, en distributörs hanterad instans och en SQL Server prenumerant på en virtuell Azure-dator, tillsammans med nödvändiga nätverks komponenter som privat DNS-zon och VPN-peering.
+description: En själv studie kurs som konfigurerar replikering mellan en hanterad utgivar instans, en distributörs hanterad instans och en SQL Server prenumerant på en virtuell Azure-dator, tillsammans med nödvändiga nätverks komponenter som privat DNS-zon och VNet-peering.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
@@ -10,12 +10,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 11/21/2019
-ms.openlocfilehash: 9d6592ccfb3ba5236a660d689d8b5d2cd1600c48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff29e93149c618bb7d6df6b4477cc79fcf4b53d2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283198"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058564"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Självstudie: Konfigurera Transaktionsreplikering mellan Azure SQL-hanterad instans och SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -24,7 +24,7 @@ Med Transaktionsreplikering kan du replikera data från en databas till en annan
 
 Transaktionell replikering är för närvarande en offentlig för hands version för SQL-hanterad instans. 
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -38,9 +38,9 @@ Den här självstudien är avsedd för en erfaren mål grupp och förutsätter a
 
 
 > [!NOTE]
-> I den här artikeln beskrivs användningen av [transaktionell replikering](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) i Azure SQL-hanterad instans. Den är inte relaterad till [redundansväxlingen](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), en funktion för Azure SQL-hanterad instans som gör att du kan skapa kompletta läsbara repliker av enskilda instanser. Det finns ytterligare överväganden när du konfigurerar [transaktionell replikering med grupper för växling vid fel](replication-transactional-overview.md#with-failover-groups).
+> I den här artikeln beskrivs användningen av [transaktionell replikering](/sql/relational-databases/replication/transactional/transactional-replication) i Azure SQL-hanterad instans. Den är inte relaterad till [redundansväxlingen](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), en funktion för Azure SQL-hanterad instans som gör att du kan skapa kompletta läsbara repliker av enskilda instanser. Det finns ytterligare överväganden när du konfigurerar [transaktionell replikering med grupper för växling vid fel](replication-transactional-overview.md#with-failover-groups).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -48,10 +48,10 @@ För att kunna slutföra den här självstudien behöver du följande:
 - Erfarenhet av distribution av två hanterade instanser i samma virtuella nätverk.
 - En SQL Server prenumerant, antingen lokalt eller på en virtuell Azure-dator. I den här självstudien används en virtuell Azure-dator.  
 - [SQL Server Management Studio (SSMS) 18,0 eller senare](/sql/ssms/download-sql-server-management-studio-ssms).
-- Den senaste versionen av [Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0).
+- Den senaste versionen av [Azure PowerShell](/powershell/azure/install-az-ps).
 - Portarna 445 och 1433 tillåter SQL-trafik både i Azure-brandväggen och Windows-brandväggen.
 
-## <a name="1---create-the-resource-group"></a>1 – Skapa resurs gruppen
+## <a name="create-the-resource-group"></a>Skapa resursgruppen
 
 Använd följande PowerShell-kodfragment för att skapa en ny resurs grupp:
 
@@ -64,7 +64,7 @@ $Location = "East US 2"
 New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 ```
 
-## <a name="2---create-two-managed-instances"></a>2 – skapa två hanterade instanser
+## <a name="create-two-managed-instances"></a>Skapa två hanterade instanser
 
 Skapa två hanterade instanser i den här nya resurs gruppen med hjälp av [Azure Portal](https://portal.azure.com).
 
@@ -76,9 +76,9 @@ Skapa två hanterade instanser i den här nya resurs gruppen med hjälp av [Azur
 Mer information om hur du skapar en hanterad instans finns i [skapa en hanterad instans i portalen](instance-create-quickstart.md).
 
   > [!NOTE]
-  > För enkelhetens skull, och eftersom det är den vanligaste konfigurationen, föreslår den här självstudien placeringen av den hanterade instansen av distributör i samma virtuella nätverk som utgivaren. Det är dock möjligt att skapa distributören i ett separat virtuellt nätverk. För att göra det måste du konfigurera VPN-peering mellan virtuella nätverk för utgivaren och distributören och sedan konfigurera VPN-peering mellan distributörens virtuella nätverk och prenumerant.
+  > För enkelhetens skull, och eftersom det är den vanligaste konfigurationen, föreslår den här självstudien placeringen av den hanterade instansen av distributör i samma virtuella nätverk som utgivaren. Det är dock möjligt att skapa distributören i ett separat virtuellt nätverk. För att göra det måste du konfigurera VNet-peering mellan virtuella nätverk för utgivaren och distributören och sedan konfigurera VNet-peering mellan distributörens virtuella nätverk och prenumerant.
 
-## <a name="3---create-a-sql-server-vm"></a>3 – skapa en SQL Server VM
+## <a name="create-a-sql-server-vm"></a>Skapa en SQL Server VM
 
 Skapa en virtuell SQL Server virtuell dator med hjälp av [Azure Portal](https://portal.azure.com). Den SQL Server virtuella datorn måste ha följande egenskaper:
 
@@ -89,9 +89,9 @@ Skapa en virtuell SQL Server virtuell dator med hjälp av [Azure Portal](https:/
 
 Mer information om hur du distribuerar en SQL Server VM till Azure finns i [snabb start: skapa en SQL Server VM](../virtual-machines/windows/sql-vm-create-portal-quickstart.md).
 
-## <a name="4---configure-vpn-peering"></a>4 – Konfigurera VPN-peering
+## <a name="configure-vnet-peering"></a>Konfigurera VNet-peering
 
-Konfigurera VPN-peering för att aktivera kommunikation mellan det virtuella nätverket för de två hanterade instanserna och det virtuella nätverket för SQL Server. Det gör du genom att använda det här PowerShell-kodfragmentet:
+Konfigurera VNet-peering för att aktivera kommunikation mellan det virtuella nätverket för de två hanterade instanserna och det virtuella nätverket för SQL Server. Det gör du genom att använda det här PowerShell-kodfragmentet:
 
 ```powershell-interactive
 # Set variables
@@ -110,13 +110,13 @@ $virtualNetwork1 = Get-AzVirtualNetwork `
   -ResourceGroupName $resourceGroup `
   -Name $subvNet  
 
-# Configure VPN peering from publisher to subscriber
+# Configure VNet peering from publisher to subscriber
 Add-AzVirtualNetworkPeering `
   -Name $pubsubName `
   -VirtualNetwork $virtualNetwork1 `
   -RemoteVirtualNetworkId $virtualNetwork2.Id
 
-# Configure VPN peering from subscriber to publisher
+# Configure VNet peering from subscriber to publisher
 Add-AzVirtualNetworkPeering `
   -Name $subpubName `
   -VirtualNetwork $virtualNetwork2 `
@@ -136,11 +136,11 @@ Get-AzVirtualNetworkPeering `
 
 ```
 
-När VPN-peering har upprättats kan du testa anslutningen genom att starta SQL Server Management Studio (SSMS) på SQL Server och ansluta till båda hanterade instanserna. Mer information om hur du ansluter till en hanterad instans med hjälp av SSMS finns i [använda SSMS för att ansluta till SQL-hanterad instans](point-to-site-p2s-configure.md#connect-with-ssms).
+När VNet-peering har upprättats kan du testa anslutningen genom att starta SQL Server Management Studio (SSMS) på SQL Server och ansluta till båda hanterade instanserna. Mer information om hur du ansluter till en hanterad instans med hjälp av SSMS finns i [använda SSMS för att ansluta till SQL-hanterad instans](point-to-site-p2s-configure.md#connect-with-ssms).
 
 ![Testa anslutningen till de hanterade instanserna](./media/replication-two-instances-and-sql-server-configure-tutorial/test-connectivity-to-mi.png)
 
-## <a name="5---create-a-private-dns-zone"></a>5 – skapa en privat DNS-zon
+## <a name="create-a-private-dns-zone"></a>Skapa en privat DNS-zon
 
 En privat DNS-zon tillåter DNS-routning mellan de hanterade instanserna och SQL Server.
 
@@ -180,7 +180,7 @@ En privat DNS-zon tillåter DNS-routning mellan de hanterade instanserna och SQL
 1. Välj **OK** för att länka ditt virtuella nätverk.
 1. Upprepa de här stegen för att lägga till en länk till det virtuella prenumeranten för prenumerant, med ett namn som `Sub-link` .
 
-## <a name="6---create-an-azure-storage-account"></a>6 – skapa ett Azure Storage-konto
+## <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
 
 [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) för arbets katalogen och skapa sedan en [fil resurs](../../storage/files/storage-how-to-create-file-share.md) i lagrings kontot.
 
@@ -194,7 +194,7 @@ Exempel: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5
 
 Mer information finns i [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
 
-## <a name="7---create-a-database"></a>7 – skapa en databas
+## <a name="create-a-database"></a>Skapa en databas
 
 Skapa en ny databas på utgivarens hanterade instans. Det gör du på följande sätt:
 
@@ -242,7 +242,7 @@ SELECT * FROM ReplTest
 GO
 ```
 
-## <a name="8---configure-distribution"></a>8 – konfigurera distribution
+## <a name="configure-distribution"></a>Konfigurera distribution
 
 När anslutningen har upprättats och du har en exempel databas kan du konfigurera distributionen på din `sql-mi-distributor` hanterade instans. Det gör du på följande sätt:
 
@@ -277,7 +277,7 @@ När anslutningen har upprättats och du har en exempel databas kan du konfigure
    EXEC sys.sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.windows.net', @password = '<distributor_admin_password>'
    ```
 
-## <a name="9---create-the-publication"></a>9 – skapa publikationen
+## <a name="create-the-publication"></a>Skapa publikationen
 
 När distributionen har kon figurer ATS kan du nu skapa publikationen. Det gör du på följande sätt:
 
@@ -298,7 +298,7 @@ När distributionen har kon figurer ATS kan du nu skapa publikationen. Det gör 
 1. På sidan **Slutför guiden** namnger du publikationen `ReplTest` och väljer **Nästa** för att skapa publikationen.
 1. När publikationen har skapats uppdaterar du noden **replikering** i **Object Explorer** och expanderar **lokala publikationer** för att se din nya publikation.
 
-## <a name="10---create-the-subscription"></a>10 – skapa prenumerationen
+## <a name="create-the-subscription"></a>Skapa prenumerationen
 
 När publikationen har skapats kan du skapa prenumerationen. Det gör du på följande sätt:
 
@@ -331,7 +331,7 @@ exec sp_addpushsubscription_agent
 GO
 ```
 
-## <a name="11---test-replication"></a>11-testa replikering
+## <a name="test-replication"></a>Testa replikering
 
 När replikeringen har kon figurer ATS kan du testa den genom att infoga nya objekt i utgivaren och titta på ändringarna Sprid till prenumeranten.
 
@@ -393,7 +393,7 @@ Möjliga lösningar:
 - Bekräfta att DNS-namnet användes när prenumeranten skapades.
 - Kontrol lera att de virtuella nätverken är korrekt länkade i den privata DNS-zonen.
 - Verifiera att en post är korrekt konfigurerad.
-- Kontrol lera att din VPN-peering är korrekt konfigurerad.
+- Kontrol lera att din VNet-peering är korrekt konfigurerad.
 
 ### <a name="no-publications-to-which-you-can-subscribe"></a>Det går inte att prenumerera på några publikationer
 

@@ -2,18 +2,18 @@
 title: 'Självstudie: Använd debug-sessioner för att diagnostisera, åtgärda och genomföra ändringar i din färdigheter'
 titleSuffix: Azure Cognitive Search
 description: Fel söknings sessioner (för hands version) tillhandahåller ett Portal-baserat gränssnitt för att utvärdera och reparera problem/fel i din färdighetsuppsättningar
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 8bbd0b1979da69e5d4d18009100a7caee5a3d722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33c26af86bfcf2f748a0fa68ee4f3d0da1f132e1
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397410"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057560"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Självstudie: diagnostisera, reparera och genomför ändringar i din färdigheter
 
@@ -23,7 +23,7 @@ I den här artikeln ska du använda Azure Portal för att få åtkomst till fel 
 > Debug-sessioner är en förhands gransknings funktion utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

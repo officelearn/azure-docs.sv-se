@@ -1,14 +1,14 @@
 ---
 title: 'Snabb start: din första portal fråga'
 description: I den här snabb starten följer du stegen för att köra din första fråga från Azure Portal med Azure Resource Graph Explorer.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4d68366005ad6379669d29fb8264f78d1b8f4972
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b5f5203b3842ebc3edbd97bca1ca3c101f47e397
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88056388"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057390"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Snabb start: kör din första resurs diagram fråga med Azure Resource Graph Explorer
 
@@ -51,7 +51,7 @@ Schema läsaren är ett bra sätt att identifiera egenskaper för användning i 
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Skapa ett diagram från resurs diagram frågan
 
-När du har kört den sista frågan ovan får du ett meddelande om att resultat uppsättningen inte är kompatibel med ett cirkel diagram visualisering om du väljer fliken **diagram** . Frågor som visar resultat kan inte göras i ett diagram, men frågor som tillhandahåller resurser kan räknas. Med hjälp av [typen fråga-Count Virtual Machines by OS](./samples/starter.md#count-os)kan vi skapa en visualisering från resurs diagram frågan.
+Om du har kört föregående fråga och väljer fliken **diagram** visas ett meddelande om att resultat uppsättningen inte är kompatibel med ett cirkel diagram visualisering. Frågor som visar resultat kan inte göras i ett diagram, men frågor som tillhandahåller resurser kan räknas. Med hjälp av [typen fråga-Count Virtual Machines by OS](./samples/starter.md#count-os)kan vi skapa en visualisering från resurs diagram frågan.
 
 1. Ange följande fråga i delen med **frågan 1** i fönstret och välj **Kör fråga**.
 
@@ -67,7 +67,7 @@ När du har kört den sista frågan ovan får du ett meddelande om att resultat 
 
 ## <a name="pin-the-query-visualization-to-a-dashboard"></a>Fästa frågans visualisering på en instrument panel
 
-När du har resultat från en fråga som kan visualiseras kan data visualiseringen fästas på en av dina instrument paneler. Följ dessa steg när du har kört frågan ovan:
+När du har resultat från en fråga som kan visualiseras kan data visualiseringen fästas på en av dina instrument paneler. Följ de här stegen när du har kört föregående fråga:
 
 1. Välj **Spara** och ange namnet "virtuella datorer efter OS-typ". Välj sedan **Spara** längst ned i den högra rutan.
 

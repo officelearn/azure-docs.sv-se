@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ab60cb83e68a0c325ec1e2ac102870493016b57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a48a72aa021a17c59adb86bece66cec966e234bd
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231239"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056148"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analysera Azure AD-aktivitets loggar med Azure Monitor loggar
 
@@ -100,16 +100,13 @@ Du kan också ställa in aviseringar på din fråga. Om du till exempel vill kon
 
 5. När du har konfigurerat aviseringen väljer du **skapa avisering** för att aktivera den. 
 
-## <a name="install-and-use-pre-built-views-for-azure-ad-activity-logs"></a>Installera och använda förskapade vyer för Azure AD-aktivitets loggar
+## <a name="use-pre-built-workbooks-for-azure-ad-activity-logs"></a>Använda färdiga arbets böcker för Azure AD-aktivitets loggar
 
-Du kan också hämta de förinställda vyerna i Log Analytics för Azure AD-aktivitets loggar. Vyerna innehåller flera rapporter relaterade till vanliga scenarier som rör gransknings-och inloggnings händelser. Du kan också varna för någon av de data som anges i rapporterna med hjälp av stegen som beskrivs i föregående avsnitt.
+Arbets böckerna innehåller flera rapporter om vanliga scenarier som rör granskning, inloggning och etablering av händelser. Du kan också varna för någon av de data som anges i rapporterna med hjälp av stegen som beskrivs i föregående avsnitt.
 
-* **Azure AD-kontots etablerings händelser**: i den här vyn visas rapporter om etablerings aktiviteter, till exempel antalet nya användare som har skapats och etablerings felen, antalet användare som har uppdaterats och uppdaterings felen och antalet användare som har upprättat och motsvarande problem.    
-* **Inloggnings händelser**: i den här vyn visas de mest relevanta rapporterna om övervakning av inloggnings aktivitet, till exempel inloggningar av program, användare, enhet, samt en sammanfattningsvy som spårar antalet inloggningar över tid.
-* **Användare som utför medgivande**: i den här vyn visas rapporter om användar medgivande, t. ex. medgivande som beviljats av användare, inloggningar av användare som har beviljat medgivande samt inloggningar efter program för alla medgivandebaserade program. 
-
-Lär dig att [installera och använda logganalysvyer för Azure AD-aktivitetsloggar](howto-install-use-log-analytics-views.md). 
-
+* **Etablerings analys**: i den här [arbets boken](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) visas rapporter som rör etablering av etablerings aktiviteter, till exempel antalet nya användare som har skapats och etablerings felen, antalet användare som har uppdaterats och uppdaterings felen samt antalet användare som har upprättat och motsvarande problem.    
+* **Inloggnings händelser**: den här arbets boken visar de mest relevanta rapporterna som rör övervakning av inloggnings aktiviteter, till exempel inloggningar av program, användare, enhet, samt en sammanfattningsvy som spårar antalet inloggningar över tid.
+* **Villkorlig åtkomst insikter**: med [arbets boken](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) villkorlig åtkomst insikter och rapportering kan du förstå effekten av principer för villkorlig åtkomst i organisationen över tid. 
 
 ## <a name="next-steps"></a>Nästa steg
 

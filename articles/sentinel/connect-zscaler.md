@@ -14,18 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: cc784afe5db64ccc4aad13fae7a2fa748e4befa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef6677b6f1103c26bd719a3585800765a029f7fb
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77587999"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056846"
 ---
 # <a name="connect-zscaler-internet-access-to-azure-sentinel"></a>Anslut Zscaler Internet åtkomst till Azure Sentinel
-
-> [!IMPORTANT]
-> Zscaler data Connector i Azure Sentinel är för närvarande en offentlig för hands version.
-> Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Den här artikeln förklarar hur du ansluter din Zscaler-enhet med Internet åtkomst till Azure Sentinel. Med Zscaler data Connector kan du enkelt ansluta dina ZIA-loggar (Zscaler Internet Access) med Azure Sentinel, om du vill visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Genom att använda Zscaler på Azure Sentinel får du mer insikter om din organisations Internet användning och förbättrar säkerhets åtgärdens funktioner. 
 

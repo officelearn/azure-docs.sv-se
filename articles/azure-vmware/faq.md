@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: bd75e3d708ddfb9d5545111e7bc4935c8dd50141
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: bdfe3956d8c715e391270aab6b3c589430c91593
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045235"
+ms.locfileid: "92058037"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Vanliga frågor och svar om Azure VMware-lösningen
 
@@ -76,6 +76,11 @@ Nej, Använd de [instruktioner som tillhandahålls av VMware](https://docs.vmwar
 #### <a name="is-vmware-hcx-supported-on-vpns"></a>Stöds VMware HCX i VPN-nätverk?
 Nej.
 
+#### <a name="can-azure-bastion-be-used-for-connecting-to-avs-vms"></a>Kan Azure-skydds användas för att ansluta till virtuella datorer i AVS?
+Azure skydds är den tjänst som rekommenderas för att ansluta till hopp rutan för att förhindra att Azure VMware-lösningen exponeras för Internet. Du kan inte använda Azure-skydds för att ansluta till virtuella Azure VMware-lösningar eftersom de inte är Azure IaaS-objekt.
+
+#### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>Kan en befintlig ExpressRoute-Gateway användas för att ansluta till Azure VMware-lösningen?
+Ja, du kan använda en befintlig ExpressRoute-Gateway för att ansluta till Azure VMware-lösningen så länge den inte överskrider gränsen på fyra ExpressRoute-kretsar per virtuellt nätverk.  Men för att få åtkomst till Azure VMware-lösningen från lokala platser via ExpressRoute måste du ha ExpressRoute Global Reach eftersom ExpressRoute-gatewayen inte tillhandahåller transitiv routning mellan dess anslutna kretsar.
 
 ## <a name="compute-network-storage-and-backup"></a>Beräkning, nätverk, lagring och säkerhets kopiering
 

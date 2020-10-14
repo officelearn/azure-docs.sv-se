@@ -1,15 +1,15 @@
 ---
 title: 'Snabb start: din första JavaScript-fråga'
 description: I den här snabb starten följer du stegen för att aktivera resurs biblioteks biblioteket för Java Script och köra din första fråga.
-ms.date: 06/23/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: cdc0589829f250851212ad990dde99eb6dcc958f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 194097594340e2f34433c07185c6132f8a13c845
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91251974"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057424"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>Snabb start: kör din första resurs diagram fråga med hjälp av Java Script
 
@@ -23,11 +23,11 @@ I slutet av den här processen har du lagt till biblioteken i JavaScript-install
 
 - **Node.js**: [Node.js](https://nodejs.org/) version 12 eller högre krävs.
 
-## <a name="application-setup"></a>Programkonfiguration
+## <a name="application-initialization"></a>Programinitiering
 
 Om du vill aktivera Java Script för att fråga Azure Resource Graph måste miljön konfigureras. Den här installationen fungerar där Java Script kan användas, inklusive [bash i Windows 10](/windows/wsl/install-win10).
 
-1. Skapa ett nytt Node.js-projekt genom att köra följande kommando.
+1. Initiera ett nytt Node.js-projekt genom att köra följande kommando.
 
    ```bash
    npm init -y

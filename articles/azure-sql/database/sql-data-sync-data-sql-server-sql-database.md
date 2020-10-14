@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 7bdb2c6ba6717624b19184ca3bcb47ee9b3da367
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 268455e582e54dfa8eb73fe81eaad19f453e303b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856117"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057900"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
 
@@ -136,7 +136,7 @@ Etablering och avetablering när du skapar, uppdaterar och tar bort grupper kan 
 - Var försiktig när du använder följande data typer som primär nyckel, eftersom den precision som stöds endast är för den andra: Time, DateTime, datetime2, DateTimeOffset.
 - Namn på objekt (databaser, tabeller och kolumner) får inte innehålla de utskrivbara tecken perioderna (.), vänster hak paren tes ([) eller höger hak paren tes (]).
 - Azure Active Directory autentisering stöds inte.
-- Tabeller med samma namn men olika schema (till exempel dbo. kunder och Sales. Customers) stöds inte.
+- Om det finns tabeller med samma namn men olika schema (till exempel dbo. kunder och försäljning. kunder) kan endast en av tabellerna läggas till i Sync.
 - Kolumner med User-Defined data typer stöds inte
 - Det finns inte stöd för att flytta servrar mellan olika prenumerationer. 
 
@@ -250,7 +250,7 @@ Behöver du uppdatera schemat för en databas i en Sync-grupp? Schema ändringar
 - [Automatisera replikeringen av schema ändringar med SQL Data Sync i Azure](../../sql-database/sql-database-update-sync-schema.md)
 - [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](scripts/update-sync-schema-in-sync-group.md)
 
-### <a name="monitor-and-troubleshoot"></a>Övervaka och felsök
+### <a name="monitor-and-troubleshoot"></a>Övervaka och felsöka
 
 Är SQL Data Sync att göra som det ska? Information om hur du övervakar aktiviteter och felsöker problem finns i följande artiklar:
 

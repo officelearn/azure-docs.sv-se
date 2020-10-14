@@ -12,16 +12,16 @@ ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv, marsma
 ms.custom: aaddev
-ms.openlocfilehash: 23ab8c5092a546a7b66b93900c6c083ac8e84394
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3a631a80e7ac5eed3c3239cb79e35b87c70ab1b0
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88117778"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055468"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Utvecklingen av Microsofts identitetsplattform
 
-Microsofts identitetsplattform är en vidareutveckling av utvecklarplattformen för Azure Active Directory (Azure AD). Det gör det möjligt för utvecklare att skapa program som loggar in användare, Hämta token för att anropa API: er, till exempel Microsoft Graph eller API: er som utvecklare har skapat. Det består av en autentiseringstjänst, bibliotek med öppen källkod, program registrering och konfiguration (via en utvecklings Portal och ett program-API), fullständig dokumentation om utvecklare, snabb starts exempel, kod exempel, självstudier, instruktions guider och annat innehåll i utvecklare. Microsoft Identity-plattformen stöder branschstandardprotokoll som OAuth 2.0 och OpenID Connect.
+[Microsoft Identity Platform](../develop/index.yml) är en utveckling av Azure Active Directory (Azure AD) Developer Platform. Det gör det möjligt för utvecklare att skapa program som loggar in användare, Hämta token för att anropa API: er, till exempel Microsoft Graph eller API: er som utvecklare har skapat. Det består av en autentiseringstjänst, bibliotek med öppen källkod, program registrering och konfiguration (via en utvecklings Portal och ett program-API), fullständig dokumentation om utvecklare, snabb starts exempel, kod exempel, självstudier, instruktions guider och annat innehåll i utvecklare. Microsoft Identity-plattformen stöder branschstandardprotokoll som OAuth 2.0 och OpenID Connect.
 
 Många utvecklare har tidigare arbetat med Azure AD v 1.0-plattformen för att autentisera arbets-och skol konton (etablerade av Azure AD) genom att begära token från Azure AD v 1.0-slutpunkten, med hjälp av Azure AD Authentication Library (ADAL), Azure Portal för program registrering och konfiguration och Microsoft Graph API för program konfiguration.
 
@@ -49,7 +49,7 @@ Den Azure Portal **[Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2
 
 För integration med Azure AD B2C (vid autentisering av sociala eller lokala identiteter) måste du registrera ditt program i en Azure AD B2C-klient. Den här upplevelsen är också en del av Azure Portal.
 
-Använd [Application API](/graph/api/resources/application?view=graph-rest-1.0) för att program mässigt konfigurera dina program som är integrerade med Microsoft Identity Platform för att autentisera alla Microsoft-identiteter.
+Använd [Application API](/graph/api/resources/application) för att program mässigt konfigurera dina program som är integrerade med Microsoft Identity Platform för att autentisera alla Microsoft-identiteter.
 
 ### <a name="msal-libraries"></a>MSAL-bibliotek
 
@@ -57,15 +57,10 @@ Du kan använda MSAL-biblioteket för att bygga program som autentiserar alla Mi
 
 Du kan också använda MSAL-biblioteken för att integrera ditt program med Azure AD B2C.
 
-Bibliotek på Server sidan för att skapa webb program och webb-API: er är allmänt tillgängliga: [ASP.net](/aspnet/overview) och [ASP.net Core](/aspnet/core/?view=aspnetcore-2.2)
-
 ### <a name="microsoft-identity-platform-endpoint"></a>Microsoft Identity Platform-slutpunkt
 
-Slut punkten för Microsoft Identity Platform (v 2.0) är nu OIDC certifierad. Det fungerar med Microsoft Authentication libraries (MSAL) eller andra standardkompatibla bibliotek. Den implementerar människo läsliga områden, i enlighet med bransch standarder.
+Slut punkten för Microsoft Identity Platform (v 2.0) är OIDC-certifierad. Det fungerar med Microsoft Authentication libraries (MSAL) eller andra standardkompatibla bibliotek. Den implementerar människo läsliga områden, i enlighet med bransch standarder.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om v1.0 och v2.0.
-
-* Översikt över [Microsoft Identity Platform (v 2.0)](../develop/v2-overview.md)
-* Översikt över [Azure Active Directory för utvecklare (v 1.0)](v1-overview.md)
+Läs mer i [dokumentationen för Microsoft Identity Platform](../develop/index.yml).

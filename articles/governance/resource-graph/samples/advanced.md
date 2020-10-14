@@ -1,14 +1,14 @@
 ---
 title: Exempel på avancerade frågor
 description: Använd Azure Resource Graph för att köra vissa avancerade frågor, inklusive arbeta med kolumner, list etiketter som används och matchande resurser med reguljära uttryck.
-ms.date: 08/13/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 8463880189a76f299ce5552fff2b7bccddfa8dec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dff4b06cc5cf4385820c7f6251efaae792d9c22d
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89425304"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057152"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Exempel på avancerade resurs diagram frågor
 
@@ -34,7 +34,7 @@ Vi går igenom följande avancerade frågor:
 - [Fråga efter information om tilldelnings rapporter för gäst konfiguration](#query-gcreports)
 - [Hitta alla orsaker till att en dator inte är kompatibel för gäst konfigurations tilldelningar](#query-gcmachinedetails)
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 ## <a name="language-support"></a>Stöd för språk
 
@@ -625,9 +625,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="query-details-of-guest-configuration-assignment-reports"></a><a name="query-gcreports"></a>Fråga efter information om tilldelnings rapporter för gäst konfiguration
 
-Visa rapport från information om [tilldelning av gäst konfiguration](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) .
-I exemplet nedan returnerar frågan bara resultat där gäst tilldelningens namn är `installed_application_linux` och utdata innehåller strängen `Python` för att visa en lista över alla Linux-datorer där ett paket är installerat som innehåller namnet **python**.
-Om du vill fråga efter kompatibiliteten för alla datorer för en angiven tilldelning tar du bort den andra `where` satsen.
+Visa rapport från information om [tilldelning av gäst konfiguration](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) . I följande exempel returnerar frågan bara resultat där gäst tilldelningens namn är `installed_application_linux` och utdata innehåller strängen `Python` för att visa en lista över alla Linux-datorer där ett paket är installerat som innehåller namnet **python**. Ta bort den andra satsen för att fråga om kompatibiliteten för alla datorer för en angiven tilldelning `where` .
 
 ```kusto
 GuestConfigurationResources
@@ -666,8 +664,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="find-all-reasons-a-machine-is-non-compliant-for-guest-configuration-assignments"></a><a name="query-gcmachinedetails"></a>Hitta alla orsaker till att en dator inte är kompatibel för gäst konfigurations tilldelningar
 
-Visa alla [orsaker till gäst konfigurations tilldelning](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) för en speciell dator.
-Ta bort den första `where` satsen för att även inkludera revisioner där datorn är kompatibel.
+Visa alla [orsaker till gäst konfigurations tilldelning](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) för en speciell dator. Ta bort den första `where` satsen för att även inkludera revisioner där datorn är kompatibel.
 
 ```kusto
 GuestConfigurationResources

@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f40c91672310d5963dab01180ea92633e970c5c
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706259"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055382"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Gör så här: Migrera från Azure-Access Control Service
 
@@ -214,7 +214,7 @@ På hög nivå *är Azure Active Directory förmodligen det bästa valet för di
 
 Om du bestämmer att Azure AD är den bästa sökvägen för migrering för dina program och tjänster, bör du vara medveten om två sätt att integrera din app med Azure AD.
 
-Om du vill använda WS-Federation eller WIF för att integrera med Azure AD rekommenderar vi att du följer metoden som beskrivs i [Konfigurera federerad enkel inloggning för ett program som inte är ett galleri program](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md). Artikeln handlar om hur du konfigurerar Azure AD för SAML-baserad enkel inloggning, men som även fungerar för att konfigurera WS-Federation. Följande metod kräver en Azure AD Premium-licens. Den här metoden har två fördelar:
+Om du vill använda WS-Federation eller WIF för att integrera med Azure AD rekommenderar vi att du följer metoden som beskrivs i [Konfigurera federerad enkel inloggning för ett program som inte är ett galleri program](../manage-apps/configure-saml-single-sign-on.md). Artikeln handlar om hur du konfigurerar Azure AD för SAML-baserad enkel inloggning, men som även fungerar för att konfigurera WS-Federation. Följande metod kräver en Azure AD Premium-licens. Den här metoden har två fördelar:
 
 - Du får fullständig flexibilitet för Azure AD-token-anpassning. Du kan anpassa de anspråk som utfärdas av Azure AD för att matcha de anspråk som utfärdas av Access Control. Detta omfattar särskilt användar-ID eller namn-ID-anspråk. Om du vill fortsätta att ta emot konsekventa användar identifierare för användarna när du har ändrat teknik kontrollerar du att de användar-ID: n som utfärdats av Azure AD matchar de som utfärdats av Access Control.
 - Du kan konfigurera ett certifikat för tokensignering som är specifika för ditt program och med en livs längd som du styr.
@@ -226,7 +226,7 @@ En annan metod är att följa [det här kod exemplet](https://github.com/Azure-S
 
 Om du väljer den här metoden måste du förstå [förnyelse av signerings nyckel i Azure AD](../develop/active-directory-signing-key-rollover.md). I den här metoden används den globala Azure AD-signerings nyckeln för att utfärda token. Som standard uppdaterar WIF inte signerings nycklar automatiskt. När Azure AD roterar sina globala signerings nycklar måste din WIF-implementering förberedas för att godkänna ändringarna. Mer information finns i [viktig information om förnyelse av signerings nyckel i Azure AD](/previous-versions/azure/dn641920(v=azure.100)).
 
-Om du kan integrera med Azure AD via OpenID Connect eller OAuth-protokoll rekommenderar vi att du gör det. Vi har omfattande dokumentation och vägledning om hur du integrerar Azure AD i ditt webb program i [Azure AD Developer Guide](https://aka.ms/aaddev).
+Om du kan integrera med Azure AD via OpenID Connect eller OAuth-protokoll rekommenderar vi att du gör det. Vi har omfattande dokumentation och vägledning om hur du integrerar Azure AD i ditt webb program i [Azure AD Developer Guide](../develop/index.yml).
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Migrera till Azure Active Directory B2C
 
@@ -332,7 +332,7 @@ Du kan också använda Azure AD för server-till-Server-autentisering med hjälp
 
 Vägledning om hur du implementerar server-till-Server-scenarier finns i följande resurser:
 
-- Avsnittet tjänst-till-tjänst i [Azure AD Developer Guide](https://aka.ms/aaddev)
+- Avsnittet tjänst-till-tjänst i [Azure AD Developer Guide](../develop/index.yml)
 - [Bakgrunds exempel kod exempel med hjälp av enkla lösen ord klientens autentiseringsuppgifter](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Bakgrunds exempel kod exempel med certifikat klientens autentiseringsuppgifter](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 

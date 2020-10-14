@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: b856381e8d085c6839effd1de6d9867b214d24ee
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 04d53dc213d5e992dc79e322b071025bdb447b1b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89020396"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057509"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Snabb start: samla in data från en Linux-dator i en hybrid miljö med Azure Monitor
 
@@ -26,7 +26,7 @@ ms.locfileid: "89020396"
 
 Information om vilka konfigurationer som stöds finns i konfiguration av [operativ system](../platform/agents-overview.md#supported-operating-systems) och [nätverks brand vägg](../platform/log-analytics-agent.md#network-requirements)som stöds.
  
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -62,13 +62,11 @@ Innan du installerar Log Analytics-agenten för Linux behöver du arbetsytans id
 
 2. I listan med Log Analytics arbets ytor väljer du den arbets yta som du skapade tidigare. (Du kan ha namngett det **DefaultLAWorkspace**.)
 
-3. Välj **Avancerade inställningar**:
-
-    ![Menyn Avancerade inställningar för Log Analytics i Azure Portal](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
+3. Välj **agent hantering**:
  
-4. Välj **Anslutna källor** och välj sedan **Linux-servrar**.
+4. Välj sedan **Linux-servrar**.
 
-5. Värdet till höger om **Id för arbetsyta** och **Primär nyckel**. Kopiera och klistra in båda två i det redigeringsprogram du föredrar.
+5. Värdet till höger om **arbetsyte-ID** och **primär nyckel**. Kopiera och klistra in båda två i det redigeringsprogram du föredrar.
 
 ## <a name="install-the-agent-for-linux"></a>Installera agenten för Linux
 

@@ -1,15 +1,15 @@
 ---
 title: Vägledning för begränsade begäranden
 description: Lär dig att gruppera, sprida, ta sid brytning och fråga parallellt för att undvika att förfrågningar begränsas av Azure Resource Graph.
-ms.date: 08/03/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c8576fe38433026a28a3fb09a03332b5dd756bab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a8ba991d13b9be221e67f2ff1e393fb01f8a2d4
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006014"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056182"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Vägledning för begränsade begär anden i Azure Resource Graph
 
@@ -132,7 +132,7 @@ På grund av hur begränsningen upprätthålls rekommenderar vi att frågor öve
   |---------------------|-----|------|-------|-------|
   | Tidsintervall (SEK) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-Nedan visas ett exempel på hur du kan följa upp begränsnings rubriker när du frågar Azure Resource Graph:
+Här är ett exempel på att respektera begränsnings rubriker när du frågar Azure Resource Graph:
 
 ```csharp
 while (/* Need to query more? */)
@@ -156,7 +156,7 @@ while (/* Need to query more? */)
 
 ### <a name="query-in-parallel"></a>Fråga parallellt
 
-Även om gruppering rekommenderas över parallellisering, finns det tillfällen där frågor inte kan grupperas. I dessa fall kanske du vill fråga Azure Resource Graph genom att skicka flera frågor på ett parallellt sätt. Nedan visas ett exempel på hur du _backoff_ baserat på begränsnings rubriker i sådana scenarier:
+Även om gruppering rekommenderas över parallellisering, finns det tillfällen där frågor inte kan grupperas. I dessa fall kanske du vill fråga Azure Resource Graph genom att skicka flera frågor på ett parallellt sätt. Här är ett exempel på hur du _backoff_ baserat på begränsnings rubriker i sådana scenarier:
 
 ```csharp
 IEnumerable<IEnumerable<string>> queryGroup = /* Groups of queries  */
@@ -219,7 +219,7 @@ Eftersom Azure Resource Graph returnerar högst 1000 poster i ett enda fråge sv
 
 - Azure CLI/Azure PowerShell
 
-  När du använder antingen Azure CLI eller Azure PowerShell, fylls frågor till Azure Resource Graph automatiskt i för att hämta högst 5000 poster. Frågeresultaten returnerar en kombinerad lista med poster från alla sid brytnings anrop. I det här fallet, beroende på antalet poster i frågeresultatet, kan en enskild sid brytnings fråga förbruka mer än en fråga-kvot. I exemplet nedan kan till exempel en enskild körning av frågan använda upp till fem frågesträng:
+  När du använder antingen Azure CLI eller Azure PowerShell, fylls frågor till Azure Resource Graph automatiskt i för att hämta högst 5000 poster. Frågeresultaten returnerar en kombinerad lista med poster från alla sid brytnings anrop. I det här fallet, beroende på antalet poster i frågeresultatet, kan en enskild sid brytnings fråga förbruka mer än en fråga-kvot. I följande exempel kan till exempel en enskild körning av frågan förbruka upp till fem frågesträng:
 
   ```azurecli-interactive
   az graph query -q 'Resources | project id, name, type' --first 5000

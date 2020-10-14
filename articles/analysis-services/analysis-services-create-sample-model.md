@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5b84c2e50ae7f5038cf9cb8a96c0c51d6537c929
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f882a40940a5c7202e9cf1f5c8b8927f008f4a39
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230915"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013618"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Självstudiekurs: Lägga till en exempelmodell från portalen
 
@@ -24,13 +24,13 @@ I den här självstudiekursen får du lägga till en exempeldatabas för Adventu
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
 - En Analysis Services-server i Azure. Läs mer i [Skapa en server – portalen](analysis-services-create-server.md).
 - Administratörsbehörighet för servern
-- [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
@@ -74,5 +74,3 @@ I den här självstudiekursen har du lärt dig hur du lägger till en grundlägg
 
 > [!div class="nextstepaction"]
 > [Självstudiekurs: Konfigurera roller för serveradministratör och användare](tutorials/analysis-services-tutorial-roles.md)
-
-

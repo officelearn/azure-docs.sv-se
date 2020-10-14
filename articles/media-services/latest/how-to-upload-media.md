@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0bdb2c36bc895c9229e4c04e9e0d76aa852bd139
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3040369e655ab91f56f271313dc4d2613f02be06
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297314"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015863"
 ---
 # <a name="upload-media-for-streaming-or-encoding"></a>Ladda upp media för strömning eller kodning
 
@@ -47,7 +47,7 @@ När du har [skapat en till gång med Postman eller andra REST-metoder och fått
 
 ---
 <!-- add these to the tabs when available -->
-Andra metoder finns i [Azure Storage dokumentationen](https://docs.microsoft.com/azure/storage/blobs/) för att arbeta med blobbar i [.net](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet), [Java](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-java), [python](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python)och [Java Script (Node.js)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-nodejs).
+Andra metoder finns i [Azure Storage dokumentationen](../../storage/blobs/index.yml) för att arbeta med blobbar i [.net](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [Java](../../storage/blobs/storage-quickstart-blobs-java.md), [python](../../storage/blobs/storage-quickstart-blobs-python.md)och [Java Script (Node.js)](../../storage/blobs/storage-quickstart-blobs-nodejs.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

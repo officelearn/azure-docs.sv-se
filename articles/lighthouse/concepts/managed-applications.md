@@ -3,12 +3,12 @@ title: Azure Lighthouse och Azure Managed Applications
 description: Förstå hur Azure-Lighthouse och Azure-hanterade program kan hjälpa dig att aktivera olika scenarier och hur de kan användas tillsammans.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 078361ba3cff80a5fff03e3d9ca767afcc3ca029
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 144917716da38cc99078f663cc2f4cb8ba0199c8
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970766"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014995"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse och Azure Managed Applications
 
@@ -23,7 +23,7 @@ Både Azure-hanterade program och Azure Lighthouse fungerar genom att tillhandah
 
 Med [Azure Lighthouse](../overview.md)kan en tjänst leverantör utföra en mängd olika hanterings uppgifter direkt på en kunds prenumeration (eller resurs grupp). Den här åtkomsten uppnås via en logisk projektion som gör det möjligt för tjänst leverantörer att logga in på sin egen klient organisation och få åtkomst till resurser som tillhör kundens klient organisation. Kunden kan avgöra vilka prenumerationer eller resurs grupper som ska delegeras till tjänst leverantören och kunden behåller fullständig åtkomst till dessa resurser. De kan också ta bort tjänst leverantörens åtkomst när som helst.
 
-För att kunna använda Azure-Lighthouse, registreras kunder för [Azure-delegerad resurs hantering](azure-delegated-resource-management.md) , antingen genom att [distribuera arm-mallar](../how-to/onboard-customer.md) eller via ett [hanterat tjänst erbjudande i Azure Marketplace](managed-services-offers.md). Du kan spåra din påverkan på kund engagemang och få partner intjänad kredit genom [att länka ditt partner-ID](../how-to/partner-earned-credit.md).
+För att kunna använda Azure-Lighthouse, registreras kunder för [Azure-delegerad resurs hantering](azure-delegated-resource-management.md) , antingen genom att [distribuera arm-mallar](../how-to/onboard-customer.md) eller via ett [hanterat tjänst erbjudande i Azure Marketplace](managed-services-offers.md). Du kan spåra din påverkan på kund engagemang genom [att länka ditt partner-ID](../how-to/partner-earned-credit.md).
 
 Azure-Lighthouse används vanligt vis när en tjänst leverantör utför hanterings uppgifter för en kund kontinuerligt.
 

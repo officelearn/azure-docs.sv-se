@@ -12,18 +12,18 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 9cf65b2fdeb7faa03b950593db86dd32a4ef91a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea4038e88d41a089958d4199e4c5a00f0d2acabd
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86495850"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015574"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analysera data med Azure Machine Learning
 
 Den här självstudien använder [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) för att bygga en förutsägelse maskin inlärnings modell. Modellen baseras på de data som lagras i Azure dataSynapses. Scenariot för självstudien är att förutsäga om en kund sannolikt kommer att köpa en cykel eller inte så att Adventure Worker, Bike Shop, kan bygga en riktad marknadsförings kampanj.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att gå igenom de här självstudierna, behöver du:
 
@@ -56,7 +56,7 @@ FROM [dbo].[vTargetMail]
 
 När data är tillgängliga i Azure Data Lake Storage används data lager i Azure Machine Learning för att [ansluta till Azure Storage-tjänster](https://docs.microsoft.com/azure/machine-learning/how-to-access-data). Följ stegen nedan för att skapa ett data lager och en motsvarande data uppsättning:
 
-1. Starta Azure Machine Learning Studio antingen från Azure Portal eller logga in på [Azure Machine Learning Studio](https://ml.azure.com/).
+1. Starta Azure Machine Learning Studio antingen från Azure Portal eller logga in i [Azure Machine Learning Studio](https://ml.azure.com/).
 
 1. Klicka på **data lager** i det vänstra fönstret i avsnittet **Hantera** och klicka sedan på **nytt data lager**.
 

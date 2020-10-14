@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 4414dc86ff318cfff5d224ce7aa064c31f3df460
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61233173452bb45162c7b254203e0ff2922a9784
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294537"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013754"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installera Log Analytics agent på Linux-datorer
 Den här artikeln innehåller information om hur du installerar Log Analytics-agenten på Linux-datorer med följande metoder:
@@ -184,7 +184,7 @@ Log Analytics agenten för Linux finns i ett självextraherande och installerbar
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    Om autentisering krävs måste du ange användar namn och lösen ord. Exempel: 
+    Om autentisering krävs måste du ange användar namn och lösen ord. Till exempel: 
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
@@ -215,7 +215,7 @@ Att uppgradera från en tidigare version, från och med version 1.0.0-47, stöds
 ## <a name="cache-information"></a>Cachelagra information
 Data från Log Analytics agent för Linux cachelagras på den lokala datorn på *% STATE_DIR_WS%/out_oms_common*. Buffer * innan den skickas till Azure Monitor. Anpassade loggdata buffras i *% STATE_DIR_WS%/out_oms_blob*. Buffer *. Sökvägen kan vara olika för vissa [lösningar och data typer](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=).
 
-Agenten försöker ladda upp var 20: e sekund. Om det Miss lyckas väntar det en exponentiellt ökande tid tills det lyckas. Det kommer att vänta 30 sekunder innan det andra försöket, 60 sekunder före nästa, 120 sekunder och så vidare till högst 9 minuter mellan återförsök tills den har anslutit igen. Agenten kommer bara att försöka igen 10 gånger för ett angivet data segment innan det tas bort och flyttas till nästa. Detta fortsätter tills agenten kan laddas upp igen. Innebär att data kan buffras upp till 8,5 timmar innan de tas bort.
+Agenten försöker ladda upp var 20: e sekund. Om det Miss lyckas väntar det en exponentiellt ökande tid tills det lyckas: 30 sekunder före det andra försöket, 60 sekunder före den tredje, 120 sekunder... och så på upp till högst 16 minuter mellan återförsök tills anslutningen har upprättats igen. Agenten kommer att försöka igen till 6 gånger för ett angivet data segment innan det tas bort och flyttas till nästa. Detta fortsätter tills agenten kan laddas upp igen. Det innebär att data kan buffras upp till cirka 30 minuter innan de tas bort.
 
 Standardvärdet för cacheminnet är 10 MB men kan ändras i [filen omsagent. conf](https://github.com/microsoft/OMS-Agent-for-Linux/blob/e2239a0714ae5ab5feddcc48aa7a4c4f971417d4/installer/conf/omsagent.conf).
 

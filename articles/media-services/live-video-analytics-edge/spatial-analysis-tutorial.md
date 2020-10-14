@@ -3,12 +3,12 @@ title: Analysera direktsänd video med Visuellt innehåll för rums analys – A
 description: Den här självstudien visar hur du använder real tids analys tillsammans med Visuellt innehåll AI-funktionen för spatial analys från Azure Cognitive Services för att analysera en Live-videofeed från en (simulerad) IP-kamera.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: cad96847d6fbf682f1d694b0c8c255b3725e96d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dc89eaddf5cabc3063744dfe2c9f0236c70438c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91824127"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015693"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analysera direktsänd video med Visuellt innehåll för rums analys (för hands version)
 
@@ -32,10 +32,10 @@ Läs de här artiklarna innan du börjar:
 * [Video analys i real tid med IoT Edge terminologi](terminology.md)
 * [Media Graph-begrepp](media-graph-concept.md)
 * [Händelsebaserad videoinspelning](event-based-video-recording-concept.md)
-* [Självstudie: utveckla en IoT Edge-modul](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
+* [Självstudie: utveckla en IoT Edge-modul](../../iot-edge/tutorial-develop-for-linux.md)
 * [Distribuera video analys i real tid på Azure Stack Edge](deploy-azure-stack-edge-how-to.md) 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande är förutsättningar för att ansluta modulen för spatial analys till modulen för video analys i real tid.
 
@@ -55,12 +55,12 @@ Det här diagrammet visar hur signal flödet i den här självstudien. En [Edge-
 
 MediaGraphCognitiveServicesVisionExtension-noden spelar rollen för en proxy. Den konverterar video bild rutorna till den angivna bild typen. Sedan vidarebefordrar den avbildningen över **delat minne** till en annan Edge-modul som kör AI-åtgärder bakom en gRPC-slutpunkt. I det här exemplet är modulen för spatial analys. MediaGraphCognitiveServicesVisionExtension processor-noden gör två saker:
 
-* Den samlar in resultaten och publicerar händelser till noden [IoT Hub mottagare](media-graph-concept.md#iot-hub-message-sink) . Noden skickar sedan händelserna till [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-glossary#iot-edge-hub). 
+* Den samlar in resultaten och publicerar händelser till noden [IoT Hub mottagare](media-graph-concept.md#iot-hub-message-sink) . Noden skickar sedan händelserna till [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). 
 * Det fångar också ett 30 sekunders videoklipp från RTSP-källan med en [signal grind processor](media-graph-concept.md#signal-gate-processor) och lagrar den som en Media Services till gång.
 
 ## <a name="create-the-computer-vision-resource"></a>Skapa Visuellt innehåll resursen
 
-Du måste skapa en Azure-resurs av typen Visuellt innehåll antingen på [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal) eller via Azure CLI. Du kommer att kunna skapa resursen när din begäran om åtkomst till behållaren har godkänts och ditt Azure-prenumerations-ID har registrerats. Gå till https://aka.ms/csgate för att skicka in ditt användnings fall och ditt Azure-prenumerations-ID.  Du måste skapa Azure-resursen med samma Azure-prenumeration som har angetts i formuläret för begäran om åtkomst.
+Du måste skapa en Azure-resurs av typen Visuellt innehåll antingen på [Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) eller via Azure CLI. Du kommer att kunna skapa resursen när din begäran om åtkomst till behållaren har godkänts och ditt Azure-prenumerations-ID har registrerats. Gå till https://aka.ms/csgate för att skicka in ditt användnings fall och ditt Azure-prenumerations-ID.  Du måste skapa Azure-resursen med samma Azure-prenumeration som har angetts i formuläret för begäran om åtkomst.
 
 ### <a name="gathering-required-parameters"></a>Nödvändiga parametrar samlas in
 
@@ -75,7 +75,7 @@ En nyckel används för att starta behållaren för spatial analys och är tillg
 
 ## <a name="set-up-azure-stack-edge"></a>Konfigurera Azure Stack Edge
 
-Följ [dessa steg](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep) för att ställa in Azure Stack Edge och fortsätta följa stegen nedan för att distribuera video analys och moduler för spatial analys.
+Följ [dessa steg](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) för att ställa in Azure Stack Edge och fortsätta följa stegen nedan för att distribuera video analys och moduler för spatial analys.
 
 ## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
 
@@ -136,7 +136,7 @@ Det finns några saker som du måste tänka på när du ska betala i mallen för
 1. `IpcMode` i lvaEdge-och spatial Analysis-modulen createOptions ska vara samma och inställd på Host.
 1. Se till att du har konfigurerat volym gränserna för att RTSP-simulatorn ska fungera. Mer information finns i [Konfigurera Docker volym monteringar](deploy-azure-stack-edge-how-to.md#optional-setup-docker-volume-mounts).
 
-    1. [Anslut till SMB-resursen](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-add-shares#connect-to-an-smb-share) och kopiera [exempel filen bulldozer video](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) till den lokala resursen.
+    1. [Anslut till SMB-resursen](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) och kopiera [exempel filen bulldozer video](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) till den lokala resursen.
     1. Se att rtspsim-modulen har följande konfiguration:
         
         ```json

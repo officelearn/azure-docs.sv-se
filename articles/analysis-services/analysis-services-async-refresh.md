@@ -8,18 +8,18 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 0a5a7ac7d830cb03b1370c31d7e854f3b2a5a2fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9fd20fd42e9fe1eb0e98766798e5c759c974c97
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86507190"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013907"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
 
 Genom att använda valfritt programmeringsspråk som stöder REST-anrop kan du utföra asynkrona data uppdaterings åtgärder på dina Azure Analysis Services tabell modeller. Detta inkluderar synkronisering av skrivskyddade repliker för utskalning av frågor. 
 
-Data uppdaterings åtgärder kan ta lite tid beroende på flera faktorer, inklusive data volym, optimerings nivå med partitioner osv. Dessa åtgärder har traditionellt anropats med befintliga metoder som att använda [Tom](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (tabell objekts modell), [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) -cmdletar eller [TMSL](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (tabell modell skript språk). Dessa metoder kan dock kräva en ofta otillförlitlig, tids krävande HTTP-anslutningar.
+Data uppdaterings åtgärder kan ta lite tid beroende på flera faktorer, inklusive data volym, optimerings nivå med partitioner osv. Dessa åtgärder har traditionellt anropats med befintliga metoder som att använda [Tom](/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (tabell objekts modell), [PowerShell](/analysis-services/powershell/analysis-services-powershell-reference) -cmdletar eller [TMSL](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (tabell modell skript språk). Dessa metoder kan dock kräva en ofta otillförlitlig, tids krävande HTTP-anslutningar.
 
 REST API för Azure Analysis Services gör att data uppdaterings åtgärder kan utföras asynkront. Genom att använda den REST API är tids krävande HTTP-anslutningar från klient program inte nödvändiga. Det finns även andra inbyggda funktioner för tillförlitlighet, till exempel automatiska återförsök och batch-incheckningar.
 
@@ -100,9 +100,9 @@ Du behöver inte ange parametrar. Standardvärdet används.
 
 | Namn             | Typ  | Beskrivning  |Default  |
 |------------------|-------|--------------|---------|
-| `Type`           | Enum  | Typ av bearbetning som ska utföras. Typerna justeras med kommando typerna TMSL [Refresh](https://docs.microsoft.com/analysis-services/tmsl/refresh-command-tmsl) : full, clearValues, beräkning, dataOnly, Automatic och defragmentering. Det finns inte stöd för att lägga till typen.      |   automatiskt      |
+| `Type`           | Enum  | Typ av bearbetning som ska utföras. Typerna justeras med kommando typerna TMSL [Refresh](/analysis-services/tmsl/refresh-command-tmsl) : full, clearValues, beräkning, dataOnly, Automatic och defragmentering. Det finns inte stöd för att lägga till typen.      |   automatiskt      |
 | `CommitMode`     | Enum  | Anger om objekt ska allokeras i batchar eller bara när de är slutförda. Lägena är: standard, transaktionell, partialBatch.  |  transaktions       |
-| `MaxParallelism` | Int   | Det här värdet anger det maximala antalet trådar som bearbetnings kommandon ska köras parallellt för. Det här värdet justeras med egenskapen MaxParallelism som kan anges i kommandot TMSL [Sequence](https://docs.microsoft.com/analysis-services/tmsl/sequence-command-tmsl) eller med andra metoder.       | 10        |
+| `MaxParallelism` | Int   | Det här värdet anger det maximala antalet trådar som bearbetnings kommandon ska köras parallellt för. Det här värdet justeras med egenskapen MaxParallelism som kan anges i kommandot TMSL [Sequence](/analysis-services/tmsl/sequence-command-tmsl) eller med andra metoder.       | 10        |
 | `RetryCount`     | Int   | Anger hur många gånger åtgärden ska försöka utföras innan fel.      |     0    |
 | `Objects`        | Matris | En matris med objekt som ska bearbetas. Varje-objekt innehåller: "Tabell" när hela tabellen eller "table" och "partition" bearbetas vid bearbetning av en partition. Om inga objekt anges uppdateras hela modellen. |   Bearbeta hela modellen      |
 
@@ -226,6 +226,4 @@ Se [skapa tjänstens huvud namn – Azure Portal](../active-directory/develop/ho
 ## <a name="see-also"></a>Se även
 
 [Stickprov](analysis-services-samples.md)   
-[REST-API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
-
-
+[REST-API](/rest/api/analysisservices/servers)

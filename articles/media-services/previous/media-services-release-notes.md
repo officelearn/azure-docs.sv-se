@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d335affa5a06bdb8e5c733c871654cf58947581
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd4f50365ced61e35ae6d10a9763a0f9815098d7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652966"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014111"
 ---
 # <a name="azure-media-services-release-notes"></a>Viktig information om Azure Media Services
 
@@ -53,8 +53,8 @@ Information om Media Services REST API versions historik finns i [Azure Media Se
 
 Följande v2-egenskaper kommer inte längre att fyllas i med historiska jobb förlopps data:
 
-* [HistoricalEvents](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
-* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+* [HistoricalEvents](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
 
 Om du vill hämta aktivitets historiken ska du använda v2-jobb meddelanden via Webhooks eller Kömeddelanden med aviserings slut punkter. Mer information finns i:
 
@@ -81,7 +81,7 @@ Se även [Migrera från Azure Media Indexer och Azure Media Indexer 2 för att A
 
 Vi presenterar utfasningen av medie processorerna för *Windows Azure Media Encoder* (WAME) och *Azure Media Encoder* (amn). Se det här avsnittet om [äldre komponenter](legacy-components.md) för datum för indragningen.
 
-Mer information finns i [MIGRERA WAME till Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) och [migrera amn till Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+Mer information finns i [MIGRERA WAME till Media Encoder Standard](./migrate-windows-azure-media-encoder.md) och [migrera amn till Media Encoder Standard](./migrate-azure-media-encoder.md).
 
 ## <a name="march-2019"></a>Mars 2019
 
@@ -198,7 +198,7 @@ Vissa klienter kan komma över ett problem med upprepad tagg i Smooth Streaming 
 
 ## <a name="april-2016-release"></a><a id="apr_changes16"></a>Version från april 2016
 ### <a name="media-analytics"></a>Medieanalys
- Media Services introducerade Medieanalys för kraftfull video information. Mer information finns i [Översikt över Media Services Analytics](media-services-analytics-overview.md).
+ Media Services introducerade Medieanalys för kraftfull video information. Mer information finns i [Översikt över Media Services Analytics](./legacy-components.md).
 
 ### <a name="apple-fairplay-preview"></a>Apple-FairPlay (för hands version)
 Nu kan du använda Media Services för att dynamiskt Kryptera ditt HTTP Live Streaming (HLS)-innehåll med Apple FairPlay. Du kan också använda leverans tjänsten Media Services licens för att leverera FairPlay-licenser till klienter. Mer information finns i "använda Azure Media Services för att strömma ditt HLS-innehåll som skyddas med Apple FairPlay".
@@ -275,7 +275,7 @@ Mer information finns i [det här blogginlägget](https://azure.microsoft.com/bl
 ## <a name="july-2015-release"></a><a id="july_changes_15"></a>Version juli 2015
 * Den allmänna tillgängligheten för Media Encoder Standard annonserades. Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
   
-    Media Encoder Standard använder för inställningar enligt beskrivningen i [det här avsnittet](https://go.microsoft.com/fwlink/?LinkId=618336). När du använder en för inställning för 4K-kodningar hämtar du den reserverade enhets typen Premium. Mer information finns i [skala kodning](media-services-scale-media-processing-overview.md).
+    Media Encoder Standard använder för inställningar enligt beskrivningen i [det här avsnittet](./media-services-mes-presets-overview.md). När du använder en för inställning för 4K-kodningar hämtar du den reserverade enhets typen Premium. Mer information finns i [skala kodning](media-services-scale-media-processing-overview.md).
 * Real tids textning i real tid användes med Media Services och Media Player. Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK-uppdateringar

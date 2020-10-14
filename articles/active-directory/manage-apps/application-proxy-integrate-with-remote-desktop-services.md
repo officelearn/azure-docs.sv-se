@@ -1,27 +1,22 @@
 ---
-title: Publicera fjärr skrivbord med Azure AD App proxy | Microsoft Docs
-description: Beskriver hur du konfigurerar app proxy med RDS
+title: Publicera fjärr skrivbord med Azure Active Directory-programproxy
+description: Beskriver hur du konfigurerar app proxy med Fjärrskrivbordstjänster (RDS)
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: kenwith
-ms.custom: it-pro
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ffdccf9cf3b6de4ba15d6076d7a5b9e0a93f464
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83d7ed6c937d515520058819636bc23c8de173fd
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89396768"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015284"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicera Fjärrskrivbord med Azure AD-programproxy
 
@@ -101,7 +96,7 @@ Anslut till RDS-distributionen som administratör och ändra Server namnet för 
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
    ```
 
-   **Exempel:**
+   **Till exempel:**
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
@@ -146,6 +141,6 @@ Om du vill använda passthrough-autentisering finns det bara två ändringar av 
 2. I [direkt fjärr skrivbords trafik till Application Proxy hoppar du](#direct-rds-traffic-to-application-proxy)över steg 8 helt.
 
 ## <a name="next-steps"></a>Nästa steg
-
-[Aktivera fjärråtkomst till SharePoint med Azure AD-programproxy](application-proxy-integrate-with-sharepoint-server.md) 
- [Säkerhets överväganden för att få åtkomst till appar via en fjärr anslutning med hjälp av Azure AD-programproxy](application-proxy-security.md)
+- [Aktivera fjärråtkomst till SharePoint med Azure AD-programproxy](application-proxy-integrate-with-sharepoint-server.md)
+- [Säkerhets överväganden för att få åtkomst till appar via en fjärr anslutning med hjälp av Azure AD-programproxy](application-proxy-security.md)
+- [Metod tips för belastnings utjämning för flera App-servrar](application-proxy-high-availability-load-balancing.md#best-practices-for-load-balancing-among-multiple-app-servers)

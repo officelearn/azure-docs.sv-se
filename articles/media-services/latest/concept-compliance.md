@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: e4c0ee0b1a049a7e82cbd1fac8e261fff5fdf375
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 884b1b85da5b52101ae5a0053003d47260a1134d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269734"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015829"
 ---
 # <a name="media-services-regulatory-compliance"></a>Media Services regelefterlevnad
 
@@ -33,11 +33,11 @@ Media Services myndighets tjänster är kompatibla med DoD CC SRG IL 2, DoD CC S
 
 En granskning av Media Services av 3PAO och JAB har inte planer ATS för 2020.
 
-Läs mer om Azure-tjänster som följer [Azure-tjänster av FedRAMP och DoD CC SRG audit omfångs](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope) artikel.
+Läs mer om Azure-tjänster som följer [Azure-tjänster av FedRAMP och DoD CC SRG audit omfångs](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) artikel.
 
 ## <a name="azure-compliance-documentation"></a>Dokumentation om Azure-efterlevnad
 
-Om din organisation behöver följa lagar eller reglerings standarder för global, amerikanska myndigheter, regionala, finansiella tjänster, hälso tillstånd, medier och tillverkning, börjar du med [Azure Compliance-dokumentationen](https://docs.microsoft.com/azure/compliance/).
+Om din organisation behöver följa lagar eller reglerings standarder för global, amerikanska myndigheter, regionala, finansiella tjänster, hälso tillstånd, medier och tillverkning, börjar du med [Azure Compliance-dokumentationen](../../compliance/index.yml).
 
 Du hittar också ytterligare resurser för efterlevnad som gransknings rapporter, en check lista för sekretess och allmän dataskyddsförordning (GDPR), uppfyllande ritningar, land och regionala rikt linjer, implementeringar och mappningar samt fakta blad och analys rapporter.
 

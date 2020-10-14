@@ -10,12 +10,12 @@ ms.workload: media
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b636d1cdf2e4b9bd137768e22240d8a47d724a97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 363bb5389eda8336d04b1ff457f8246e89a042d8
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266042"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014400"
 ---
 # <a name="deliver-content-to-customers"></a>Leverera innehåll till kunder
 
@@ -69,7 +69,7 @@ Positionerare har förfallo datum. Azure Portal anger ett förfallo datum 100 å
 > 
 > 
 
-Du uppdaterar ett utgångsdatum för en lokaliserare med [REST](/rest/api/media/operations/locator#update_a_locator)- eller [.NET](https://go.microsoft.com/fwlink/?LinkID=533259)-API:er. Observera att URL:en ändras när du uppdaterar en SAS-lokaliserare.
+Du uppdaterar ett utgångsdatum för en lokaliserare med [REST](/rest/api/media/operations/locator#update_a_locator)- eller [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator)-API:er. Observera att URL:en ändras när du uppdaterar en SAS-lokaliserare.
 
 Lokaliserare är inte utformade för att hantera åtkomst kontroll per användare. Du kan ge olika åtkomst rättigheter till enskilda användare med hjälp av DRM-lösningar (Digital Rights Management). Mer information finns i [skydda Media](/previous-versions/azure/dn282272(v=azure.100)).
 
@@ -154,7 +154,7 @@ En slut punkt för direkt uppspelning representerar en strömmande tjänst som k
 
 ## <a name="known-issues"></a>Kända problem
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Ändringar av Smooth Streaming manifest version
-Innan den 2016 Service Release – när till gångar som produceras av Media Encoder Standard, Media Encoder Premium Workflow eller tidigare Azure Media Encoder strömmas med hjälp av dynamisk paketering--Smooth Streaming manifestet som returnerades uppfyller version 2,0. I version 2,0 använder Fragmentets varaktighet inte den så kallade REPEAT-Taggar (r). Exempel:
+Innan den 2016 Service Release – när till gångar som produceras av Media Encoder Standard, Media Encoder Premium Workflow eller tidigare Azure Media Encoder strömmas med hjälp av dynamisk paketering--Smooth Streaming manifestet som returnerades uppfyller version 2,0. I version 2,0 använder Fragmentets varaktighet inte den så kallade REPEAT-Taggar (r). Till exempel:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -169,7 +169,7 @@ Innan den 2016 Service Release – när till gångar som produceras av Media Enc
 </SmoothStreamingMedia>
 ```
 
-I 2016-versionen från juli är det genererade Smooth Streaming manifestet som överensstämmer med version 2,2, med fragmenterade varaktigheter med hjälp av upprepade taggar. Exempel:
+I 2016-versionen från juli är det genererade Smooth Streaming manifestet som överensstämmer med version 2,2, med fragmenterade varaktigheter med hjälp av upprepade taggar. Till exempel:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

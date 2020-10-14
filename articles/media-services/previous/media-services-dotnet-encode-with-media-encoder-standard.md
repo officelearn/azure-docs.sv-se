@@ -16,12 +16,12 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90b4680c725f3b5b7fcb6b988e52410c572b2cfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f49b951473db4b331bc42de3fb72829270822d5
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262418"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014393"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Koda en till gång med Media Encoder Standard med hjälp av .NET
 
@@ -29,7 +29,7 @@ ms.locfileid: "89262418"
 
 Kodnings jobb är en av de vanligaste bearbetnings åtgärderna i Media Services. Du skapar kodnings jobb för att konvertera mediefiler från en kodning till en annan. När du kodar kan du använda den inbyggda medie kodare Media Services. Du kan också använda en kodare som tillhandahålls av en Media Services-partner. kodare från tredje part är tillgängliga via Azure Marketplace. 
 
-Den här artikeln visar hur du använder .NET för att koda dina till gångar med Media Encoder Standard (marknads status). Media Encoder Standard konfigureras med hjälp av någon av de förinställda kodare som beskrivs [här](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Den här artikeln visar hur du använder .NET för att koda dina till gångar med Media Encoder Standard (marknads status). Media Encoder Standard konfigureras med hjälp av någon av de förinställda kodare som beskrivs [här](./media-services-mes-presets-overview.md).
 
 Vi rekommenderar att alltid koda källfilerna till en MP4-uppsättning med anpassad bit hastighet och sedan konvertera uppsättningen till önskat format med hjälp av den [dynamiska packningen](media-services-dynamic-packaging-overview.md). 
 
@@ -44,7 +44,7 @@ Om din utgående till gång är krypterad, måste du konfigurera till gångs lev
 [Format och codecenheter](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>MES-förinställningar
-Media Encoder Standard konfigureras med hjälp av någon av de förinställda kodare som beskrivs [här](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard konfigureras med hjälp av någon av de förinställda kodare som beskrivs [här](./media-services-mes-presets-overview.md).
 
 ### <a name="input-and-output-metadata"></a>Metadata för indata och utdata
 När du kodar en inmatnings till gång (eller till gångar) med hjälp av aktiviteter får du en utmatnings till gång när du har slutfört åtgärden. Utmatnings till gången innehåller video, ljud, miniatyrer, manifest osv. baserat på den kodnings inställning som du använder.
@@ -215,4 +215,3 @@ namespace MediaEncoderStandardSample
 ## <a name="next-steps"></a>Nästa steg
 Så [här skapar du en miniatyr med Media Encoder Standard med .net](media-services-dotnet-generate-thumbnail-with-mes.md) 
  [Översikt över Media Services kodning](media-services-encode-asset.md)
-

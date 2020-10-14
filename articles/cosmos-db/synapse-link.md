@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 9b36f4e292eb4bcae424d463f76e8a69eefd2968
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 97f24537f2fa68f1a9be83e2c9abdc8101edb8d0
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995532"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014553"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Vad är Azure Synapse-länk för Azure Cosmos DB (för hands version)?
 
@@ -116,13 +116,13 @@ Synapse-länk rekommenderas inte om du söker efter traditionella informations l
 
 ## <a name="limitations"></a>Begränsningar
 
-* Idag Azure Synapse-länk för Azure Cosmos DB stöds för SQL API och Azure Cosmos DB API för MongoDB. Det stöds inte för Gremlin-API och Tabell-API. Stöd för API för Cassandra finns i privat för hands version. mer information finns i Azure Synapse Link-teamet på cosmosdbsynapselink@microsoft.com .  
+* Idag Azure Synapse-länk för Azure Cosmos DB stöds för SQL API och Azure Cosmos DB API för MongoDB. Det stöds inte för Gremlin-API och Tabell-API. Stöd för API för Cassandra finns i privat för hands version. mer information finns i [Azure Synapse Link-teamet](mailto:cosmosdbsynapselink@microsoft.com).  
 
 * För närvarande kan analys lagret bara aktive ras för nya behållare. Om du vill använda analytisk lagring för befintliga behållare migrerar du data från dina befintliga behållare till nya behållare med hjälp av [Azure Cosmos DB Migreringsverktyg](cosmosdb-migrationchoices.md). Du kan aktivera Synapse-länk på nya och befintliga Azure Cosmos DB-konton.
 
-* Att komma åt Azure Cosmos DB analys lager med SQL Server utan Synapse är för närvarande överbelastad för hands version. Om du vill begära åtkomst, e-posta [Azure Cosmos DBS teamet](mailto:cosmosdbsynapselink@microsoft.com).
+* Att komma åt Azure Cosmos DB analys lager med SQL Server utan Synapse är för närvarande överbelastad för hands version. Om du vill begära åtkomst skickar du [Azure Synapse Link-teamet](mailto:cosmosdbsynapselink@microsoft.com).
 
-* I för hands versionen stöds inte säkerhets kopiering och återställning av behållare för Synapse-länk aktiverade databas konton. Om du har arbets belastningar som kräver säkerhets kopierings-och återställnings funktioner rekommenderar vi inte att du aktiverar Synapse-länken för dessa databas konton. 
+* Automatisk säkerhets kopiering och återställning av dina data i det analytiska arkivet stöds inte för närvarande för behållarna med analytisk lagring aktiverat. När Synapse-länken är aktive rad på ett databas konto kommer Azure Cosmos DB fortsätta att automatiskt [ta säkerhets kopior](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) av dina data i transaktions arkivet (endast) i behållare vid schemalagd säkerhets kopierings intervall, som alltid. Det är viktigt att Observera att när en behållare med ett analytiskt arkiv som är aktive rad återställs till ett nytt konto, kommer behållaren att återställas med enbart transaktions lagring och inget analytiskt Arkiv har Aktiver ATS. 
 
 * Det går inte att komma åt Azure Cosmos DB Analytics Store med SQL-etableringen för Synapse.
 

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7e1eab20a8e315b977c21de46dd4f6ea2fec9f5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5537079341823275ba521c9d44139a0e0305286
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83701490"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014961"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurera diagnostisk loggning
 
-En viktig del av en Analysis Services lösning är att övervaka hur servrarna presterar. Azure Analysis Services är integrerat med Azure Monitor. Med [Azure Monitor resurs loggar](../azure-monitor/platform/platform-logs-overview.md)kan du övervaka och skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)och exportera dem till [Azure Monitor loggar](../azure-monitor/azure-monitor-log-hub.md).
+En viktig del av en Analysis Services lösning är att övervaka hur servrarna presterar. Azure Analysis Services är integrerat med Azure Monitor. Med [Azure Monitor resurs loggar](../azure-monitor/platform/platform-logs-overview.md)kan du övervaka och skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)och exportera dem till [Azure Monitor loggar](../azure-monitor/overview.md).
 
 ![Resurs loggning till lagring, Event Hubs eller Azure Monitor loggar](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -28,7 +28,7 @@ Du kan välja **motor**-, **tjänst**-och **mått** kategorier.
 
 ### <a name="engine"></a>Motor
 
-Om du väljer **motor** loggar alla [xEvents](https://docs.microsoft.com/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Du kan inte välja enskilda händelser. 
+Om du väljer **motor** loggar alla [xEvents](/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Du kan inte välja enskilda händelser. 
 
 |XEvent-kategorier |Händelse namn  |
 |---------|---------|
@@ -46,7 +46,7 @@ Om du väljer **motor** loggar alla [xEvents](https://docs.microsoft.com/analysi
 |Identifiera     |   Identifiera slut      |
 |Meddelande     |    Meddelande     |
 |Session     |  Sessionsinitiering       |
-|Lås    |  Hamn       |
+|Lås    |  Dödläge       |
 |Fråga bearbetning     |   VertiPaq SE-fråga börjar      |
 |Fråga bearbetning     |   VertiPaq SE-end-fråga      |
 |Fråga bearbetning     |   VertiPaq SE fråga cache-matchning      |
@@ -80,7 +80,7 @@ Mått kategorin loggar samma [Server mått](analysis-services-monitor.md#server-
 
     * **Namn**. Ange ett namn för loggarna som ska skapas.
 
-    * **Arkivera till ett lagrings konto**. Om du vill använda det här alternativet behöver du ett befintligt lagrings konto för att ansluta till. Se [skapa ett lagrings konto](../storage/common/storage-create-storage-account.md). Följ instruktionerna för att skapa en resurs hanterare, ett allmänt konto och välj sedan ditt lagrings konto genom att gå tillbaka till den här sidan i portalen. Det kan ta några minuter innan nyligen skapade lagringskonton visas i den nedrullningsbara menyn.
+    * **Arkivera till ett lagrings konto**. Om du vill använda det här alternativet behöver du ett befintligt lagrings konto för att ansluta till. Se [skapa ett lagrings konto](../storage/common/storage-account-create.md). Följ instruktionerna för att skapa en resurs hanterare, ett allmänt konto och välj sedan ditt lagrings konto genom att gå tillbaka till den här sidan i portalen. Det kan ta några minuter innan nyligen skapade lagringskonton visas i den nedrullningsbara menyn.
     * **Strömma till en händelsehubben**. Om du vill använda det här alternativet behöver du en befintlig Event Hub-namnrymd och händelsehubben för att ansluta till. Mer information finns i [Skapa en namnrymd för en händelsehubb och en händelsehubb med Azure-portalen](../event-hubs/event-hubs-create.md). Gå sedan tillbaka till den här sidan i portalen för att välja namn området för Händelsehubben och princip namnet.
     * **Skicka till Azure Monitor (Log Analytics arbets yta)**. Om du vill använda det här alternativet använder du antingen en befintlig arbets yta eller [skapar en ny arbets ytans](../azure-monitor/learn/quick-create-workspace.md) resurs i portalen. Mer information om hur du visar loggarna finns i [Visa loggar i Log Analytics arbets yta](#view-logs-in-log-analytics-workspace) i den här artikeln.
 
@@ -90,7 +90,7 @@ Mått kategorin loggar samma [Server mått](analysis-services-monitor.md#server-
 
 3. Klicka på **Spara**.
 
-    Om du får ett fel meddelande om att diagnostiken inte kunde uppdateras för \<workspace name> . Prenumerationen \<subscription id> är inte registrerad för att använda Microsoft. Insights. " Följ anvisningarna i [fel söknings Azure-diagnostik](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) för att registrera kontot och gör sedan om proceduren.
+    Om du får ett fel meddelande om att diagnostiken inte kunde uppdateras för \<workspace name> . Prenumerationen \<subscription id> är inte registrerad för att använda Microsoft. Insights. " Följ anvisningarna i [fel söknings Azure-diagnostik](../azure-monitor/platform/resource-logs.md) för att registrera kontot och gör sedan om proceduren.
 
     Om du vill ändra hur dina resurs loggar sparas när som helst i framtiden kan du gå tillbaka till den här sidan om du vill ändra inställningarna.
 
@@ -136,11 +136,11 @@ Du kan kombinera dessa parametrar om du vill aktivera flera utdataalternativ.
 
 ### <a name="rest-api"></a>REST-API
 
-Lär dig hur du [ändrar diagnostikinställningar med hjälp av REST-API i Azure Monitor](https://docs.microsoft.com/rest/api/monitor/). 
+Lär dig hur du [ändrar diagnostikinställningar med hjälp av REST-API i Azure Monitor](/rest/api/monitor/). 
 
 ### <a name="resource-manager-template"></a>Resource Manager-mall
 
-Lär dig hur du [aktiverar diagnostikinställningar när resursen skapas med hjälp av en Resource Manager-mall](../azure-monitor/platform/diagnostic-settings-template.md). 
+Lär dig hur du [aktiverar diagnostikinställningar när resursen skapas med hjälp av en Resource Manager-mall](../azure-monitor/samples/resource-manager-diagnostic-settings.md). 
 
 ## <a name="manage-your-logs"></a>Hantera dina loggar
 
@@ -215,7 +215,7 @@ Det finns hundratals frågor som du kan använda. Mer information om frågor fin
 
 I den här snabb självstudien skapar du ett lagrings konto i samma prenumeration och resurs grupp som Analysis Services-servern. Du använder sedan Set-AzDiagnosticSetting för att aktivera diagnostikloggning och skicka utdata till det nya lagrings kontot.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här självstudien måste du ha följande resurser:
 
 * En befintlig Azure Analysis Services-server. Anvisningar om hur du skapar en server resurs finns [i skapa en server i Azure Portal](analysis-services-create-server.md)eller [skapa en Azure Analysis Services-server med hjälp av PowerShell](analysis-services-create-powershell.md).
@@ -328,4 +328,4 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 Läs mer om hur du [Azure Monitor resurs loggning](../azure-monitor/platform/platform-logs-overview.md).
 
-Se [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) i PowerShell-hjälpen.
+Se [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) i PowerShell-hjälpen.

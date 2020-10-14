@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4dc768b92a9ffbeafc31ef81d065237f47fb645e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b9fae8f32f9d7ffeee53df8e5a888394572cbd7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331887"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015012"
 ---
 # <a name="secure-azure-digital-twins"></a>Skydda digitala Azure-dubbla
 
@@ -80,6 +80,14 @@ Om en användare försöker utföra en åtgärd som inte tillåts av deras roll,
 ## <a name="encryption-of-data-at-rest"></a>Kryptering av data i vila
 
 Azure Digitals-enheter tillhandahåller kryptering av data i vila och under överföring som de skrivs i våra data Center och dekrypterar dem åt dig när du har åtkomst till den. Krypteringen sker med hjälp av en Microsoft-hanterad krypterings nyckel.
+
+## <a name="cross-origin-resource-sharing-cors"></a>Resursdelning för korsande ursprung (CORS)
+
+Azure Digitals-korsningar stöder för närvarande inte **resurs delning mellan ursprung (CORS)**. Det innebär att om du anropar en REST API från en webbapp, ett [API Management (APIM)](../api-management/api-management-key-concepts.md) -gränssnitt eller en [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) -anslutning kan du se ett princip fel.
+
+För att lösa det här felet kan du göra något av följande:
+* Remsans CORS-rubrik `Access-Control-Allow-Origin` från meddelandet. Den här rubriken anger om svaret kan delas. 
+* Du kan också skapa en CORS-proxy och göra Azures digitala dubblare REST API begäran via den. 
 
 ## <a name="next-steps"></a>Nästa steg
 

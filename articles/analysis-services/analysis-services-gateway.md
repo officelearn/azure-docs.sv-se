@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee332eb7dea86e07c2d8f9b75a0e152dc7482a41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fed184c349789dc38f12f62567acc0d0500ca94c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87438830"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016101"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ansluta till lokala data källor med lokal datagateway
 
@@ -91,11 +91,11 @@ Du kan tvinga gatewayen att kommunicera med Azure Service Bus genom att använda
 
 Följande artiklar ingår i den lokala datagatewayens allmänna innehåll som gäller för alla tjänster som gatewayen stöder:
 
-* [Vanliga frågor och svar om lokal datagateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)   
-* [Använda appen för lokal datagateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-app)   
-* [Administration på klientorganisationsnivå](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)
-* [Konfigurera proxyinställningar](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)   
-* [Justera kommunikationsinställningar](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)   
-* [Konfigurera loggfiler](https://docs.microsoft.com/data-integration/gateway/service-gateway-log-files)   
-* [Felsöka](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [Övervaka och optimera gatewayprestanda](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [Vanliga frågor och svar om lokal datagateway](/data-integration/gateway/service-gateway-onprem-faq)   
+* [Använda appen för lokal datagateway](/data-integration/gateway/service-gateway-app)   
+* [Administration på klientorganisationsnivå](/data-integration/gateway/service-gateway-tenant-level-admin)
+* [Konfigurera proxyinställningar](/data-integration/gateway/service-gateway-proxy)   
+* [Justera kommunikationsinställningar](/data-integration/gateway/service-gateway-communication)   
+* [Konfigurera loggfiler](/data-integration/gateway/service-gateway-log-files)   
+* [Felsöka](/data-integration/gateway/service-gateway-tshoot)
+* [Övervaka och optimera gatewayprestanda](/data-integration/gateway/service-gateway-performance)

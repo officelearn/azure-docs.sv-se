@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a5dce5b53df817bd365d4ce9670ffd556ce365f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 697e5484c007c095201344fb4829a92eb642a6e3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84015510"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014859"
 ---
 # <a name="manage-analysis-services"></a>Manage Analysis Services
 När du har skapat en Analysis Services-server i Azure kan det finnas några administrations-och hanterings uppgifter som du behöver utföra direkt eller vid en stund. Du kan till exempel köra bearbetning av uppdatera data, kontrol lera vem som har åtkomst till modellerna på servern eller övervaka serverns hälsa. Vissa hanterings uppgifter kan endast utföras i Azure Portal, andra i SQL Server Management Studio (SSMS) och vissa uppgifter kan göras i båda.
@@ -30,7 +30,7 @@ Att ansluta till din server i Azure är precis som att ansluta till en Server in
 ### <a name="download-and-install-ssms"></a>Ladda ned och installera SSMS
 Se till att du använder den senaste versionen av SSMS för att få alla de senaste funktionerna och den smidigaste upplevelsen vid anslutning till din Azure Analysis Services-server. 
 
-[Ladda ned SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+[Ladda ned SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
 ### <a name="to-connect-with-ssms"></a>Så här ansluter du till SSMS
@@ -66,4 +66,3 @@ Om du stöter på problem när du ansluter med SSMS kan du behöva rensa inloggn
 Om du inte redan har distribuerat en tabell modell till den nya servern, är det nu en lämplig tid. Läs mer i [Distribuera till Azure Analysis Services](analysis-services-deploy.md).
 
 Om du har distribuerat en modell till servern är du redo att ansluta till den med hjälp av en klient eller webbläsare. Läs mer i [Hämta data från Azure Analysis Services server](analysis-services-connect.md).
-

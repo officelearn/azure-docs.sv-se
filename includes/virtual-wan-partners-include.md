@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4bf53561e7788b1d4ce9789c3b555cb1e089545b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70a8ee78bbc90725346edbb7c83c247d48d86c4c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267315"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014041"
 ---
 Du kan kontrol lera länkarna i det här avsnittet om du vill ha mer information om tjänster som erbjuds av partner. Om din grenen hets partner inte visas i avsnittet nedan, måste du kontakta oss på din avdelnings enhets leverantör. De kan kontakta oss genom att skicka ett e-postmeddelande till azurevirtualwan@microsoft.com .
 
@@ -27,7 +27,7 @@ Du kan kontrol lera länkarna i det här avsnittet om du vill ha mer information
 | [Fortinet](https://www.fortinet.com/azure-vwan) |[Distributions guide för Fortigate och Microsoft Azure virtuell WAN-integration](https://www.fortinet.com/content/dam/fortinet/assets/deployment-guides/dg-fortigate-azure-wan-integration.pdf),[blogg om routningslänkar ](https://www.fortinet.com/blog/business-and-technology/fortinet-secure-sd-wan-enhances-azure-virtual-wan-integrations)|
 |[HPE Aruba]( https://www.arubanetworks.com/microsoft-vwan/)|[Aruba SD – WAN och Microsoft Azure virtuell WAN-distributions guide](https://www.arubanetworks.com/assets/tg/DG_Using-Aruba-SD-WAN-with-Microsoft-Azure-Virtual-WAN.pdf)|
 | [Netfound](https://netfoundry.io/solutions/netfoundry-for-microsoft-azure-virtual-wan/)|[Support hubb för netfound: Azure Virtual WAN](https://support.netfoundry.io/hc/en-us/articles/360018137891-Introduction-to-Azure-Virtual-WAN-sites)|
-|[Nuage/Nokia (tillhandahålls via endast brittisk telekom)](https://www.nuagenetworks.net/our-partners/nuage-networks-virtualized-cloud-interconnect-for-azure/)|* |
+|[Nuage/Nokia (tillhandahålls via endast brittisk telekom)](https://www.nuagenetworks.net/our-partners/nuage-networks-virtualized-cloud-interconnect-for-azure/)|[Distributions guide för Nuage och Azure Virtual WAN](https://onestore.nokia.com/asset/210073)|
 |[Öppna system]( https://open-systems.com/solutions/microsoft-azure-virtual-wan)|[Distributions guide för öppna system och Azure Virtual WAN](https://open-systems.com/wp-content/uploads/2020/07/Azure-Virtual-WAN-UserGuide.pdf)|
 |[Palo Alto Networks](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |* |
 |[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|* |

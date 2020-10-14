@@ -8,12 +8,12 @@ ms.date: 09/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 10e091ed58146d992d7b9c1f65b8b64f881a41b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b1e9a2ea052a39e891cf9084b632f434c341df
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400289"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013703"
 ---
 # <a name="connecting-to-servers"></a>Ansluta till servrar
 
@@ -21,7 +21,7 @@ Den här artikeln beskriver hur du ansluter till en server med hjälp av data mo
 
 ## <a name="client-libraries"></a>Klientbibliotek
 
-[Hämta de senaste klient biblioteken](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
+[Hämta de senaste klient biblioteken](/analysis-services/client-libraries?view=azure-analysis-services-current)
 
 Alla anslutningar till en server, oavsett typ, kräver uppdaterade AMO-, ADOMD.NET-och OLEDB-klientcertifikat för att ansluta till och gränssnitt med en Analysis Services-server. För SSMS, Visual Studio, Excel 2016 och senare och Power BI, installeras eller uppdateras de senaste klient biblioteken med månads versioner. Men i vissa fall är det möjligt att ett program kanske inte har det senaste. Till exempel när principer fördröjer uppdateringar eller Microsoft 365 uppdateringar finns på den uppskjutna kanalen.
 
@@ -79,7 +79,7 @@ Med äldre versioner av Excel kan användarna ansluta till en Azure Analysis Ser
 
 ## <a name="connect-as-a-linked-server-from-sql-server"></a>Anslut som en länkad server från SQL Server
 
-SQL Server kan ansluta till en Azure Analysis Services resurs som en [länkad server](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) genom att ange MSOLAP som Provider för data källa. Innan du konfigurerar en länkad server anslutning måste du installera det senaste [MSOLAP-klient biblioteket](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) (Provider). 
+SQL Server kan ansluta till en Azure Analysis Services resurs som en [länkad server](/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) genom att ange MSOLAP som Provider för data källa. Innan du konfigurerar en länkad server anslutning måste du installera det senaste [MSOLAP-klient biblioteket](/analysis-services/client-libraries?view=azure-analysis-services-current) (Provider). 
 
 För att länkade Server anslutningar ska Azure Analysis Services, måste MSOLAP-providern instansieras utanför SQL Server processen. När du konfigurerar alternativ för länkad server kontrollerar du att alternativet **Tillåt InProcess** **inte är markerat**.
 
@@ -100,5 +100,4 @@ Cannot initialize the data source object of OLE DB provider "MSOLAP" for linked 
 
 [Anslut till Excel](analysis-services-connect-excel.md)    
 [Anslut till Power BI](analysis-services-connect-pbi.md)   
-[Hantera servern](analysis-services-manage.md)   
-
+[Hantera servern](analysis-services-manage.md)

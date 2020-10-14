@@ -7,16 +7,18 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7e360c158c7887109684d13f774cbbda1813373e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fcad5798d421939717a6beae01ae9930cfcb117
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729142"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015029"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrera Azure Digitals dubbla med andra tjänster
 
-Azures digitala dubblare används vanligt vis tillsammans med andra tjänster. Med hjälp av [**händelse vägar**](concepts-route-events.md)tar Azure Digitals dubbla data från överordnade tjänster som [IoT Hub](../iot-hub/about-iot-hub.md) eller [Logic Apps](../logic-apps/logic-apps-overview.md)som används för att leverera telemetri och meddelanden. 
+Azure Digitals, används vanligt vis tillsammans med andra tjänster för att skapa flexibla, anslutna lösningar som använder dina data på flera olika sätt.
+
+Med hjälp av [**händelse vägar**](concepts-route-events.md)kan Azure Digitals dubbla, ta emot data från överordnade tjänster som [IoT Hub](../iot-hub/about-iot-hub.md) eller [Logic Apps](../logic-apps/logic-apps-overview.md)som används för att leverera telemetri och meddelanden. 
 
 Digitala Azure-enheter kan också dirigera data till underordnade tjänster, till exempel [Azure Maps](../azure-maps/about-azure-maps.md) och [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md), för lagring, arbets flödes integrering, analys med mera. 
 
@@ -24,7 +26,7 @@ Digitala Azure-enheter kan också dirigera data till underordnade tjänster, til
 
 Azures digitala dubblare kan drivas med data och händelser från vilken tjänst som helst –[IoT Hub](../iot-hub/about-iot-hub.md), [Logic Apps](../logic-apps/logic-apps-overview.md), din egen anpassade tjänst och mer. På så sätt kan du samla in telemetri från fysiska enheter i din miljö och bearbeta dessa data med hjälp av Azures digitala dubbla diagram i molnet.
 
-Azure Digital-dubbla har inte någon inbyggd IoT Hub. Du kan använda en befintlig IoT Hub som du för närvarande har i produktions miljön eller distribuera en ny. Detta ger dig fullständig åtkomst till alla enhets hanterings funktioner i IoT Hub.
+I stället för att ha en inbyggd IoT Hub bakom kulisserna kan du med hjälp av Azure Digitals med hjälp av att "ta med din egen" IoT Hub att använda med tjänsten. Du kan använda en befintlig IoT Hub som du för närvarande har i produktion eller distribuera en ny som ska användas för detta ändamål. Detta ger dig fullständig åtkomst till alla enhets hanterings funktioner i IoT Hub.
 
 Använd en [**Azure-funktion**](../azure-functions/functions-overview.md)för att mata in data från vilken källa som helst i Azure Digitals dubbla. Lär dig mer om det här mönstret i [*How-to: intag av telemetri från IoT Hub*](how-to-ingest-iot-hub-data.md)eller prova själv i självstudien om Azure Digitals dubblare [*: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md). 
 

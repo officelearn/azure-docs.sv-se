@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 17c9797935612c8697d30455e28cc91321b84772
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: f79152dbfa5a0576cd13484f9b3704eaed3901ea
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999678"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015932"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Vad är nytt i API:et för textanalys?
 
@@ -24,6 +24,7 @@ API för textanalys uppdateras regelbundet. Den här artikeln innehåller inform
 ## <a name="october-2020"></a>Oktober 2020
 
 * Stöd för hindi för Attitydanalys v3. x, från och med modell version `2020-04-01` . 
+* Modell `2020-09-01` -version för v3/languages-slutpunkten som lägger till förbättrade språk identifierings-och precisions förbättringar.
 
 ## <a name="september-2020"></a>September 2020
 
@@ -191,9 +192,9 @@ Ytterligare entitetstyper är nu tillgängliga i den namngivna enhets igenkänni
 
 #### <a name="named-entity-recognition-ner"></a>Igenkänning av namngivna enheter (NER)
 
-* En [ny slut punkt](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) för att identifiera entitets typer för personlig information (endast engelska)
+* En [ny slut punkt](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii) för att identifiera entitets typer för personlig information (endast engelska)
 
-* Separata slut punkter för [entitets igenkänning](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) och [entitet länkning](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
+* Separata slut punkter för [entitets igenkänning](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral) och [entitet länkning](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking).
 
 * [Modell version](concepts/model-versioning.md) `2019-10-01` , som innehåller:
     * Utökad identifiering och kategorisering av entiteter som finns i text. 
@@ -205,7 +206,7 @@ Enhets länkning stöder engelska och spanska. Språk stöd för NER varierar be
 
 #### <a name="sentiment-analysis-v3-public-preview"></a>Attitydanalys v3 offentlig för hands version
 
-* En [ny slut punkt](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) för att analysera sentiment.
+* En [ny slut punkt](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Sentiment) för att analysera sentiment.
 * [Modell version](concepts/model-versioning.md) `2019-10-01` , som innehåller:
 
     * Betydande förbättringar av precisionen och detaljerna i API: ns text kategorisering och poängsättning.

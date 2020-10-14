@@ -5,20 +5,18 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: e4f8bc38a79fdbb84624e126c84d679a906a701b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c5361a777b2fdab20fab70214ddcb3bbf5248acb
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91980173"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015267"
 ---
-# <a name="tutorial-create-an-azure-bastion-host-and-connect-to-a-windows-vm"></a>Självstudie: skapa en Azure skydds-värd och Anslut till en virtuell Windows-dator
+# <a name="tutorial-create-an-azure-bastion-host-and-connect-to-a-windows-vm-through-a-browser"></a>Självstudie: skapa en Azure skydds-värd och Anslut till en virtuell Windows-dator via en webbläsare
 
-Du kan ansluta till en virtuell Windows-dator (VM) via en webbläsare via Azure Portal. Anslut till din virtuella dator direkt via webbläsaren via TLS med en privat IP-adress. Du behöver inte installera och konfigurera klient programmet lokalt.
-
-Om du vill ansluta till en virtuell dator med skydds måste du etablera Azure skydds-tjänsten i ditt virtuella nätverk (VNet). När tjänsten har tillhandahållits är den här typen av anslutning tillgänglig för alla virtuella datorer som finns i det virtuella nätverket, beroende på den virtuella datorns säkerhets konfiguration. Azure skydds-distributionen är per virtuellt nätverk, inte per prenumeration/konto eller virtuell dator.
+Den här självstudien visar hur du ansluter till en virtuell dator via webbläsaren med hjälp av Azure skydds och Azure Portal. I Azure Portal distribuerar du skydds till det virtuella nätverket. När du har distribuerat skydds ansluter du till en virtuell dator via dess privata IP-adress med hjälp av Azure Portal. Din virtuella dator behöver ingen offentlig IP-adress eller speciell program vara. När tjänsten har tillhandahållits är RDP/SSH-upplevelsen tillgänglig för alla virtuella datorer i samma virtuella nätverk. Mer information om Azure skydds finns i [Vad är Azure skydds?](bastion-overview.md).
 
 I den här självstudien får du lära dig att:
 

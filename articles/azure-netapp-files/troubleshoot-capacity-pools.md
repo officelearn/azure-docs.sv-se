@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/22/2020
+ms.date: 10/13/2020
 ms.author: b-juche
-ms.openlocfilehash: e7e3c2eb058d3549f2e1a10ffacf01fd354fbd47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54e6f4abd5ca6d15a4cc5a7bc9015abb005296a0
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651062"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013652"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Felsök problem med kapacitets pooler
 
-I den här artikeln beskrivs lösningar på problem som du kan ha när du hanterar kapacitets grupper. 
+I den här artikeln beskrivs lösningar på problem som du kan ha när du hanterar kapacitets grupper, inklusive ändrings åtgärden för poolen. 
 
-## <a name="error-conditions-and-resolutions"></a>Fel tillstånd och lösningar 
+## <a name="issues-managing-a-capacity-pool"></a>Problem med att hantera en pool för kapacitet 
 
 |     Feltillstånd    |     Lösning    |
 |-|-|
@@ -33,7 +33,17 @@ I den här artikeln beskrivs lösningar på problem som du kan ha när du hanter
 | Problem med att ta bort en pool med kapacitet  |  Se till att du tar bort alla Azure NetApp Files volymer och ögonblicks bilder i prenumerationen där du försöker ta bort kapacitets gruppen. <br> Om du redan har tagit bort alla volymer och ögonblicks bilder och du fortfarande inte kan ta bort kapacitets gruppen kan det fortfarande finnas referenser till resurser utan att visas i portalen. I det här fallet, File a Support Ticket och ange att du har utfört ovanstående rekommenderade steg. |
 | Det går inte att skapa eller ändra volym med `Requested throughput not available` fel | Tillgängligt data flöde för en volym bestäms av poolens storlek och tjänst nivå. Om du inte har tillräckligt med data flöde bör du öka Poolens storlek eller justera det befintliga volym data flödet. | 
 
+## <a name="issues-moving-a-capacity-pool"></a>Problem med att flytta en pool med kapacitet 
+|     Feltillstånd    |     Lösning    |
+|-|-|
+| Det är inte tillåtet att ändra kapacitets gruppen för en volym. | Du kanske inte har behörighet att använda den här funktionen. <br> Funktionen för att flytta en volym till en annan kapacitets pool är för närvarande en för hands version. Om du använder den här funktionen för första gången måste du registrera funktionen först och ange `-FeatureName ANFTierChange` . Se registrerings stegen i [dynamisk ändring av Service nivån för en volym](dynamic-change-volume-service-level.md). |
+| Storleken på kapacitets poolen är för liten för total volym storlek. |  Felet är ett resultat av att mål kapacitets gruppen inte har den tillgängliga kapaciteten för volymen som flyttas.  <br> Öka storleken på måldomänkontrollanten eller Välj en annan pool som är större.  Se [ändra storlek på en kapacitets grupp eller en volym](azure-netapp-files-resize-capacity-pools-or-volumes.md).   |
+| Det går inte att flytta en volym när poolen för mål kapacitet har en annan krypterings typ än den ursprungliga kapacitets gruppen.  Du kan till exempel flytta från Double Encryption till Single Encryption eller vice versa.  | Välj en pool för mål kapacitet med samma krypterings typ som käll kapacitets pool.   |
+|  Det går inte att slutföra ändringen av poolen eftersom det `'{source pool name}'` redan finns en volym med namnet i mål-poolen `'{target pool name}'` | Felet beror på att det redan finns en volym med samma namn i poolen för mål kapacitet.  Välj en annan kapacitets pool som inte har en volym med samma namn.   | 
+
 ## <a name="next-steps"></a>Nästa steg  
 
 * [Konfigurera en kapacitetspool](azure-netapp-files-set-up-capacity-pool.md)
 * [Hantera en manuell QoS-kapacitetspool](manage-manual-qos-capacity-pool.md)
+* [Ändra tjänstnivå för en volym dynamiskt](dynamic-change-volume-service-level.md)
+* [Ändra storlek på en kapacitetspool eller en volym](azure-netapp-files-resize-capacity-pools-or-volumes.md)

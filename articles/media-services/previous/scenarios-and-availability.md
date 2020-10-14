@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: eb9d901a32d558f676ba10eaf65b54c51bfbcda8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99604092ea901458062abd6423d74ad8f1f2c8d7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89259191"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014417"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
 
@@ -89,10 +89,10 @@ Information om tillgänglighet i datacenter finns i avsnittet [Tillgänglighet](
 
 ## <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Använd Media Analytics för att härleda insikter som går att åtgärda från dina videor
 
-Media Analytics är en samling tal- och visionskomponenter som gör det enklare för organisationer och företag att härleda insikter som går att åtgärda från sina videofiler. Mer information finns i [Översikt över Azure Media Services Analytics](media-services-analytics-overview.md).
+Media Analytics är en samling tal- och visionskomponenter som gör det enklare för organisationer och företag att härleda insikter som går att åtgärda från sina videofiler. Mer information finns i [Översikt över Azure Media Services Analytics](./legacy-components.md).
 
 1. Överför en mediefil av hög kvalitet till en tillgång.
-2. Bearbeta videor med någon av de medieanalystjänster som beskrivs i [översikten över medieanalys](media-services-analytics-overview.md).
+2. Bearbeta videor med någon av de medieanalystjänster som beskrivs i [översikten över medieanalys](./legacy-components.md).
 3. Media Analytics-medieprocessorer producerar MP4-filer eller JSON-filer. Om en medieprocessor har producerat en MP4-fil kan du hämta filen progressivt. Om en medieprocessor har producerat en JSON-fil kan du hämta filen från Azure Blob Storage.
 
 Information om tillgänglighet i datacenter finns i avsnittet [Tillgänglighet](#availability).
@@ -169,7 +169,7 @@ Det här avsnittet innehåller information om tillgängligheten för Media Servi
 
 ### <a name="ams-accounts"></a>AMS-konton
 
-#### <a name="availability"></a>Tillgänglighet
+#### <a name="availability"></a>Tillgängligt
 
 Använd [Azure-produkter per region](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) för att avgöra om Media Services är tillgängligt i ett särskilt data Center.
 
@@ -177,16 +177,16 @@ Använd [Azure-produkter per region](https://azure.microsoft.com/global-infrastr
 
 Media Services-kunder kan antingen välja en **Standard**-slutpunkt för direktuppspelning eller en **Premium**-slutpunkt för direktuppspelning. Mer information finns i avsnittet om [skalning](#scaling).
 
-#### <a name="availability"></a>Tillgänglighet
+#### <a name="availability"></a>Tillgängligt
 
-|Namn|Status|Datacenter
+|Name|Status|Datacenter
 |---|---|---|
 |Standard|Allmän tillgänglighet (GA)|Alla|
 |Premium|Allmän tillgänglighet (GA)|Alla|
 
 ### <a name="live-encoding"></a>Live Encoding
 
-#### <a name="availability"></a>Tillgänglighet
+#### <a name="availability"></a>Tillgängligt
 
 Tillgängligt i alla data Center förutom: Tyskland, södra Brasilien, västra Indien, södra Indien och centrala Indien. 
 
@@ -194,7 +194,7 @@ Tillgängligt i alla data Center förutom: Tyskland, södra Brasilien, västra I
 
 AMS erbjuder två kodare på begäran: **Media Encoder Standard** och **Media Encoder Premium Workflow**. Mer information finns i [Overview and comparison of Azure on-demand media encoders](media-services-encode-asset.md) (Översikt och jämförelse av Azures mediekodare på begäran). 
 
-#### <a name="availability"></a>Tillgänglighet
+#### <a name="availability"></a>Tillgängligt
 
 |Namn på mediebearbetare|Status|Datacenter
 |---|---|---|
@@ -203,12 +203,12 @@ AMS erbjuder två kodare på begäran: **Media Encoder Standard** och **Media En
 
 ### <a name="analytics-media-processors"></a>Mediebearbetare för analys
 
-Media Analytics är en samling tal- och visionskomponenter som gör det enklare för organisationer och företag att härleda insikter som det går att direkt agera utifrån från sina videofiler. Mer information finns i [Översikt över Azure Media Services Analytics](media-services-analytics-overview.md).
+Media Analytics är en samling tal- och visionskomponenter som gör det enklare för organisationer och företag att härleda insikter som det går att direkt agera utifrån från sina videofiler. Mer information finns i [Översikt över Azure Media Services Analytics](./legacy-components.md).
 
 > [!NOTE]
 > Vissa analys medie processorer kommer att dras tillbaka. Information om datum för indragning finns i avsnittet om [äldre komponenter](legacy-components.md) .
 
-#### <a name="availability"></a>Tillgänglighet
+#### <a name="availability"></a>Tillgängligt
 
 |Namn på mediebearbetare|Status|Datacenter
 |---|---|---|
@@ -223,7 +223,7 @@ Media Analytics är en samling tal- och visionskomponenter som gör det enklare 
 
 Med Microsoft Azure Media Services kan du skydda dina mediefiler från att filerna lämnar din dator och medan de lagras, bearbetas och levereras. Mer information finns i avsnittet om att [skydda AMS-innehåll](media-services-content-protection-overview.md).
 
-#### <a name="availability"></a>Tillgänglighet
+#### <a name="availability"></a>Tillgängligt
 
 |Kryptering|Status|Datacenter|
 |---|---|---| 
@@ -239,7 +239,7 @@ Antalet etablerade reserverade enheter anger antalet medieuppgifter som kan bear
 
 Mer information finns i avsnittet om [skalning](#scaling).
 
-#### <a name="availability"></a>Tillgänglighet
+#### <a name="availability"></a>Tillgängligt
 
 Tillgängligt i alla datacenter.
 
@@ -249,7 +249,7 @@ Ett Media Services-konto är kopplat till en typ av reserverad enhet som bestäm
 
 Mer information finns i avsnittet om [skalning](#scaling).
 
-#### <a name="availability"></a>Tillgänglighet
+#### <a name="availability"></a>Tillgängligt
 
 |Namn på RU-typ|Status|Datacenter
 |---|---|---|

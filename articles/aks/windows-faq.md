@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Se vanliga frågor och svar när du kör Windows Server-nodkonfigurationer och program arbets belastningar i Azure Kubernetes service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/29/2020
-ms.openlocfilehash: df9a4dd546ddc5944d9a282e74c2444a5161b862
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 00e749a8b066f72518b38685dd7a7779e406cf74
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927573"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013975"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Vanliga frågor och svar om Windows Server Node-pooler i AKS
 
@@ -113,6 +113,49 @@ Ja du kan dock Azure Monitor finns i en offentlig för hands version för att sa
 
 Ett kluster med Windows-noder kan ha ungefär 500 tjänster innan det påträffar port överbelastning.
 
+## <a name="can-i-use-azure-hybrid-benefit-with-windows-nodes"></a>Kan jag använda Azure Hybrid-förmån med Windows-noder?
+
+Ja. Azure Hybrid-förmån för Windows Server minskar drifts kostnaderna genom att låta dig ta din lokala Windows Server-licens till AKS Windows-noder.
+
+Azure Hybrid-förmån kan användas på hela AKS-klustret eller på enskilda noder. För enskilda noder måste du navigera till [resurs gruppen för noden][resource-groups] och tillämpa Azure Hybrid-förmån på noderna direkt. Mer information om hur du tillämpar Azure Hybrid-förmån på enskilda noder finns i [Azure Hybrid-förmån för Windows Server][hybrid-vms]. 
+
+Använd argumentet för att använda Azure Hybrid-förmån på ett nytt AKS-kluster `--enable-ahub` .
+
+```azurecli
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-sku Standard \
+    --windows-admin-password 'Password1234$' \
+    --windows-admin-username azure \
+    --network-plugin azure
+    --enable-ahub
+```
+
+Om du vill använda Azure Hybrid-förmån på ett befintligt AKS-kluster uppdaterar du klustret med hjälp av `--enable-ahub` argumentet.
+
+```azurecli
+az aks update \
+    --resource-group myResourceGroup
+    --name myAKSCluster
+    --enable-ahub
+```
+
+Om du vill kontrol lera om Azure Hybrid-förmån har angetts för klustret använder du följande kommando:
+
+```azurecli
+az vmss show --name myAKSCluster --resource-group MC_CLUSTERNAME
+```
+
+Om klustret har Azure Hybrid-förmån aktiverat, ser utdata ut `az vmss show` ungefär så här:
+
+```console
+"platformFaultDomainCount": 1,
+  "provisioningState": "Succeeded",
+  "proximityPlacementGroup": null,
+  "resourceGroup": "MC_CLUSTERNAME"
+```
+
 ## <a name="can-i-use-the-kubernetes-web-dashboard-with-windows-containers"></a>Kan jag använda Kubernetes-webbinstrumentpanelen med Windows-behållare?
 
 Ja, du kan använda [Kubernetes-webbinstrumentpanelen][kubernetes-dashboard] för att få åtkomst till information om Windows-behållare, men för tillfället kan du inte köra *kubectl exec* i en Windows-behållare direkt från Kubernetes-webbinstrumentpanelen. Mer information om hur du ansluter till en Windows-behållare finns i [ansluta med RDP till Azure Kubernetes service (AKS) Cluster Windows Server-noder för underhåll eller fel sökning][windows-rdp].
@@ -152,3 +195,5 @@ Kom igång med Windows Server-behållare i AKS genom att [skapa en noduppsättni
 [windows-rdp]: rdp.md
 [upgrade-node-image]: node-image-upgrade.md
 [managed-identity]: use-managed-identity.md
+[hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
+[resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks

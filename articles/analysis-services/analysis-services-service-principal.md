@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d114017d5e5dfecfe20afc69849763a87aadd41
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86077379"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015344"
 ---
 # <a name="automation-with-service-principals"></a>Automatisering med tjänstens huvudnamn
 
@@ -33,8 +33,8 @@ Tjänstens huvud namn kan skapas i Azure Portal eller med hjälp av PowerShell. 
 
 Autentiseringsuppgifter och certifikat för tjänstens huvud namn kan lagras på ett säkert sätt i Azure Automation för Runbook-åtgärder. Mer information finns i:
 
-[Inloggnings till gångar i Azure Automation](../automation/automation-credentials.md)   
-[Certifikattillgångar i Azure Automation](../automation/automation-certificates.md)
+[Inloggnings till gångar i Azure Automation](../automation/shared-resources/credentials.md)   
+[Certifikattillgångar i Azure Automation](../automation/shared-resources/certificates.md)
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Lägg till tjänstens huvud namn i rollen Server administratör
 
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO och ADOMD 
 
-När du ansluter med klientprogram och webbappar har [AMO- och ADOMD-klientbibliotek](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) version 15.0.2 och senare installerbara paket från NuGet stöd för tjänstens huvudnamn i anslutningssträngar med hjälp av följande syntax: `app:AppID` och lösenord eller `cert:thumbprint`. 
+När du ansluter med klientprogram och webbappar har [AMO- och ADOMD-klientbibliotek](/analysis-services/client-libraries?view=azure-analysis-services-current) version 15.0.2 och senare installerbara paket från NuGet stöd för tjänstens huvudnamn i anslutningssträngar med hjälp av följande syntax: `app:AppID` och lösenord eller `cert:thumbprint`. 
 
 I följande exempel används `appID` och `password` för att utföra en uppdateringsåtgärd för modelldatabasen:
 
@@ -109,8 +109,8 @@ db.Model.SaveChanges();
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-[Logga in med Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
+[Logga in med Azure PowerShell](/powershell/azure/authenticate-azureps)   
 [Uppdatera med Logic Apps](analysis-services-refresh-logic-app.md)  
 [Uppdatera med Azure Automation](analysis-services-refresh-azure-automation.md)  
 [Lägg till ett huvud namn för tjänsten i Server administratörs rollen](analysis-services-addservprinc-admins.md)  
-[Automatisera Power BI Premium arbets ytan och data mängds aktiviteter med tjänstens huvud namn](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 
+[Automatisera Power BI Premium arbets ytan och data mängds aktiviteter med tjänstens huvud namn](/power-bi/admin/service-premium-service-principal)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 5457730494d509a2923ce929f41e397cb6064126
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 236c24ac63aef6b802edf53f9c414a522c2308e4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88550095"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015165"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cylanceprotect"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med CylancePROTECT
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar CylancePROTECT med 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -144,7 +144,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-cylanceprotect-sso"></a>Konfigurera CylancePROTECT SSO
 
-Om du vill konfigurera enkel inloggning på **CylancePROTECT** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för CylancePROTECT](https://www.cylance.com/en-us/resources/support/support-overview.html). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna. Om du vill ha mer information använder du Cylance-dokumentationen: [https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4](https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4) .
+Om du vill konfigurera enkel inloggning på **CylancePROTECT** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för CylancePROTECT](https://www.cylance.com/en-us/resources/support/support-overview.html). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna. Om du vill ha mer information använder du Cylance-dokumentationen: [https://support.cylance.com/s/](https://support.cylance.com/s/) .
 
 ### <a name="create-cylanceprotect-test-user"></a>Skapa CylancePROTECT-testanvändare
 

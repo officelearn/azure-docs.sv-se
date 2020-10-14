@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 123e271ae1b83603d599b9ef0381e25b3c963def
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4658a4c05aac7932d8a99c3511f21024f19fbe47
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85361565"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013737"
 ---
 # <a name="connect-with-excel"></a>Anslut med Excel
 
@@ -42,7 +42,5 @@ Att ansluta till en server i Excel stöds med hämta data i Excel 2016 och senar
 
 ## <a name="see-also"></a>Se även
 
-[Klient bibliotek](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
-[Hantera servern](analysis-services-manage.md)     
-
-
+[Klient bibliotek](/analysis-services/client-libraries?view=azure-analysis-services-current)   
+[Hantera servern](analysis-services-manage.md)

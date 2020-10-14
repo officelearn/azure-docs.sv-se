@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 4b7f596d2184d25229cc1a8e496d0d78eaaabdb6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 180490dc79554efa072311e9a2b7f5df348b432b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994670"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014247"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -401,7 +401,7 @@ Varje objekt som överförs har en `itemCount` egenskap som visar hur många urs
 
 Det finns **för närvarande inte stöd för**att flytta befintliga Application Insights-resurser från en region till en annan. Historiska data som du har samlat in **kan inte migreras** till en ny region. Den enda delvis lösningen är att:
 
-1. Skapa en helt ny Application Insights resurs ([klassisk](app/create-new-resource.md) eller [arbets yta baserad](/app/create-workspace-resource.md)) i den nya regionen.
+1. Skapa en helt ny Application Insights resurs ([klassisk](app/create-new-resource.md) eller [arbets yta baserad](/azure/azure-monitor/app/create-workspace-resource)) i den nya regionen.
 2. Återskapa alla unika anpassningar som är specifika för den ursprungliga resursen i den nya resursen.
 3. Ändra ditt program till att använda den nya region resursens [instrument nyckel](app/create-new-resource.md#copy-the-instrumentation-key) eller [anslutnings sträng](app/sdk-connection-string.md).  
 4. Test för att bekräfta att allt fortsätter att fungera som förväntat med din nya Application Insights-resurs. 
@@ -414,7 +414,7 @@ Unika anpassningar som ofta behöver återskapas manuellt eller uppdateras för 
 - Återskapa tillgänglighets aviseringar.
 - Återskapa eventuella anpassade inställningar för Role-Based Access Control (RBAC) som krävs för att användarna ska kunna komma åt den nya resursen. 
 - Replikera inställningar som omfattar provtagning, data kvarhållning, dagligt tak och anpassad mått aktivering. De här inställningarna styrs via fönstret **användning och uppskattade kostnader** .
-- All integrering som förlitar sig på API-nycklar som [versions anteckningar](/app/annotations.md), [real tids mått skydda kontroll kanal](app/live-stream.md#secure-the-control-channel) osv. Du måste generera nya API-nycklar och uppdatera associerad integrering. 
+- All integrering som förlitar sig på API-nycklar som [versions anteckningar](/azure/azure-monitor/app/annotations), [real tids mått skydda kontroll kanal](app/live-stream.md#secure-the-control-channel) osv. Du måste generera nya API-nycklar och uppdatera associerad integrering. 
 - Kontinuerlig export i klassiska resurser måste konfigureras igen.
 - Diagnostikinställningar i arbets ytans baserade resurser måste konfigureras igen.
 

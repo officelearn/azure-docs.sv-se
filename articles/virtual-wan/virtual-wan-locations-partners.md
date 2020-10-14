@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: d1655b42b57edaeeaaaada802a248f56e0ba1470
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c689c83e50a42885900f62d1a65d0aa75f36f2ec
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801468"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014042"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Virtuella WAN-partner och platser för virtuella hubbar
 
@@ -40,7 +40,7 @@ Vissa anslutnings partner kan utöka automatiseringen så att du kan ta med att 
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-Följande partner är planerad i vår översikt för en nära framtid: 128-teknik, Arista, Cisco Systems (Viptela), F5-nätverk, Oracle SD-WAN och SharpLink.
+Följande partner är planerad på vår översikt som baseras på en avtals rapport som är signerad mellan företag som visar omfattningen av arbete för att automatisera IPsec-anslutningen mellan partner enheten och Azure Virtual WAN VPN-gatewayer: 128 Technologies, Arista, F5-nätverk, Oracle SD-WAN (Talari) och SharpLink.
 
 ## <a name="partners-with-integrated-virtual-hub-offerings"></a>Partner med integrerade virtuella Hubbs erbjudanden
 Förutom att ha automatiserad IPSec-anslutning för avdelnings kontor, erbjuder vissa partners **virtuella nätverks installationer (NVA)** som kan integreras direkt i Azure Virtual WAN-hubben.  Detta gör att kunderna kan välja att avsluta sina filial anslutningar till en kompatibel tredjeparts-enhet i den virtuella hubben.  

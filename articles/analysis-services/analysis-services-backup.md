@@ -8,16 +8,16 @@ ms.date: 07/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 66d09c2faa52cee3e94402be708d654b548c0de1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1850f77c1d13c761bfc2a143074b5067b349b4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86507003"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014060"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Säkerhets kopiering och återställning av Analysis Services databasen
 
-Att säkerhetskopiera tabell modell databaser i Azure Analysis Services är ungefär samma som för lokala Analysis Services. Den främsta skillnaden är den plats där du lagrar dina säkerhets kopior. Säkerhetskopierade filer måste sparas i en behållare i ett [Azure Storage-konto](../storage/common/storage-create-storage-account.md). Du kan använda ett lagrings konto och en behållare som du redan har, eller så kan de skapas när du konfigurerar lagrings inställningar för servern.
+Att säkerhetskopiera tabell modell databaser i Azure Analysis Services är ungefär samma som för lokala Analysis Services. Den främsta skillnaden är den plats där du lagrar dina säkerhets kopior. Säkerhetskopierade filer måste sparas i en behållare i ett [Azure Storage-konto](../storage/common/storage-account-create.md). Du kan använda ett lagrings konto och en behållare som du redan har, eller så kan de skapas när du konfigurerar lagrings inställningar för servern.
 
 > [!NOTE]
 > Att skapa ett lagrings konto kan resultera i en ny fakturerbar tjänst. Mer information finns i [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -75,10 +75,10 @@ Innan du säkerhetskopierar måste du konfigurera lagrings inställningarna för
 
 
 ### <a name="powershell"></a>PowerShell
-Använd [backup-databas-](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase) cmdlet.
+Använd [backup-databas-](/powershell/module/sqlserver/backup-asdatabase) cmdlet.
 
 ## <a name="restore"></a>Återställ
-När du återställer måste säkerhets kopian finnas i det lagrings konto som du har konfigurerat för servern. Om du behöver flytta en säkerhets kopia från en lokal plats till ditt lagrings konto använder du [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) eller kommando rads verktyget [AzCopy](../storage/common/storage-use-azcopy.md) . 
+När du återställer måste säkerhets kopian finnas i det lagrings konto som du har konfigurerat för servern. Om du behöver flytta en säkerhets kopia från en lokal plats till ditt lagrings konto använder du [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) eller kommando rads verktyget [AzCopy](../storage/common/storage-use-azcopy-v10.md) . 
 
 
 
@@ -102,11 +102,11 @@ När du återställer måste säkerhets kopian finnas i det lagrings konto som d
 
 ### <a name="powershell"></a>PowerShell
 
-Använd [restore-Database-](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase) cmdlet.
+Använd [restore-Database-](/powershell/module/sqlserver/restore-asdatabase) cmdlet.
 
 
 ## <a name="related-information"></a>Relaterad information
 
-[Azure-lagringskonton](../storage/common/storage-create-storage-account.md)  
+[Azure-lagringskonton](../storage/common/storage-account-create.md)  
 [Hög tillgänglighet](analysis-services-bcdr.md)      
 [Vanliga frågor och svar om nätverks anslutning Analysis Services](analysis-services-network-faq.md)

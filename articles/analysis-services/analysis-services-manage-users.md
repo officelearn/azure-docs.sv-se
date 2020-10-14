@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c44ac820349973240328fbb92dea14668b019a12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 032b63700f2842826de916a8f077975689d56911
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400799"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014910"
 ---
 # <a name="authentication-and-user-permissions"></a>Autentisering och användarbehörigheter
 
-Azure Analysis Services använder Azure Active Directory (Azure AD) för identitets hantering och användarautentisering. Alla användare som skapar, hanterar eller ansluter till en Azure Analysis Services-server måste ha en giltig användar identitet i en [Azure AD-klient](../active-directory/fundamentals/active-directory-administer.md) i samma prenumeration.
+Azure Analysis Services använder Azure Active Directory (Azure AD) för identitets hantering och användarautentisering. Alla användare som skapar, hanterar eller ansluter till en Azure Analysis Services-server måste ha en giltig användar identitet i en [Azure AD-klient](../active-directory/fundamentals/active-directory-whatis.md) i samma prenumeration.
 
-Azure Analysis Services stöder [Azure AD B2B-samarbete](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). Med B2B kan användare utanför en organisation bjudas in som gäst användare i en Azure AD-katalog. Gäster kan vara från en annan Azure AD-innehavaradministratör eller en giltig e-postadress. När du har bjudit in och användaren accepterar den inbjudan som skickas via e-post från Azure läggs användar identiteten till i klient katalogen. Dessa identiteter kan läggas till i säkerhets grupper eller som medlemmar i en Server administratör eller databas roll.
+Azure Analysis Services stöder [Azure AD B2B-samarbete](../active-directory/external-identities/what-is-b2b.md). Med B2B kan användare utanför en organisation bjudas in som gäst användare i en Azure AD-katalog. Gäster kan vara från en annan Azure AD-innehavaradministratör eller en giltig e-postadress. När du har bjudit in och användaren accepterar den inbjudan som skickas via e-post från Azure läggs användar identiteten till i klient katalogen. Dessa identiteter kan läggas till i säkerhets grupper eller som medlemmar i en Server administratör eller databas roll.
 
 ![Arkitektur för Azure Analysis Services-autentisering](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
 ## <a name="authentication"></a>Autentisering
 
-Alla klient program och verktyg använder ett eller flera av de Analysis Services [klient biblioteken](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) (AMO, MSOLAP, ADOMD) för att ansluta till en server. 
+Alla klient program och verktyg använder ett eller flera av de Analysis Services [klient biblioteken](/analysis-services/client-libraries?view=azure-analysis-services-current) (AMO, MSOLAP, ADOMD) för att ansluta till en server. 
 
 Alla tre klient biblioteken stöder både det interaktiva flödet i Azure AD och icke-interaktiva autentiseringsmetoder. De två icke-interaktiva metoderna, Active Directory lösen ord och Active Directory integrerade autentiseringsmetoder kan användas i program som använder AMOMD och MSOLAP. Dessa två metoder resulterar aldrig i popup-dialogrutor.
 
@@ -34,11 +34,11 @@ Beroende på vilket klient program eller verktyg du använder kan typen av auten
 
 Power BI Desktop-, Visual Studio-och SSMS-support Active Directory Universal Authentication, en interaktiv metod som också stöder Azure-Multi-Factor Authentication (MFA). Azure MFA hjälper till att skydda åtkomsten till data och program samtidigt som du ger en enkel inloggnings process. Den ger stark autentisering med flera verifierings alternativ (telefonsamtal, textmeddelande, smartkort med PIN-kod eller meddelande om mobilapp). Interaktiv MFA med Azure AD kan resultera i en popup-dialogruta för verifiering. **Universal Authentication rekommenderas**.
 
-Om du loggar in på Azure med hjälp av ett Windows-konto och universell autentisering inte är markerat eller tillgängligt (Excel) krävs [Active Directory Federation Services (AD FS) (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) . Med Federation autentiseras Azure AD-och Microsoft 365-användare med lokala autentiseringsuppgifter och kan komma åt Azure-resurser.
+Om du loggar in på Azure med hjälp av ett Windows-konto och universell autentisering inte är markerat eller tillgängligt (Excel) krävs [Active Directory Federation Services (AD FS) (AD FS)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) . Med Federation autentiseras Azure AD-och Microsoft 365-användare med lokala autentiseringsuppgifter och kan komma åt Azure-resurser.
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 
-Azure Analysis Services-servrar stöder anslutningar från [SSMS v 17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och högre genom att använda Windows-autentisering, Active Directory lösenordsautentisering och Active Directory Universal Authentication. I allmänhet rekommenderar vi att du använder Active Directory Universal Authentication eftersom:
+Azure Analysis Services-servrar stöder anslutningar från [SSMS v 17.1](/sql/ssms/download-sql-server-management-studio-ssms) och högre genom att använda Windows-autentisering, Active Directory lösenordsautentisering och Active Directory Universal Authentication. I allmänhet rekommenderar vi att du använder Active Directory Universal Authentication eftersom:
 
 *  Stöder interaktiva och icke-interaktiva autentiseringsmetoder.
 
@@ -81,4 +81,4 @@ Roller på den här nivån gäller för användare eller konton som behöver utf
 [Hantera åtkomst till resurser med Azure Active Directory grupper](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Hantera databas roller och användare](analysis-services-database-users.md)  
 [Hantera serveradministratörer](analysis-services-server-admins.md)  
-[Azure RBAC (rollbaserad åtkomstkontroll)](../role-based-access-control/overview.md)  
+[Azure RBAC (rollbaserad åtkomstkontroll)](../role-based-access-control/overview.md)

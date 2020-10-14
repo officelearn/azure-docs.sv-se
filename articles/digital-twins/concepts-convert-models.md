@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/28/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 76d1fd91053216103ef6ace0e56979c57eca569f
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: bf39bd0c787ed64d573cc2a257442b4d3bb8ab7d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92002653"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015122"
 ---
 # <a name="convert-industry-standard-models-to-dtdl-for-azure-digital-twins"></a>Omvandla bransch standard modeller till DTDL för Azure Digitals, dubbla
 
@@ -31,8 +31,8 @@ Några vanliga bransch modeller är:
 | Bransch vertikal | Modell |
 | --- | --- | 
 | Utveckling/hantering av anläggningar | [RealEstateCore](https://www.realestatecore.io/)<br>[BRICK schema](https://brickschema.org/ontology/1.1/)<br>[Skapa topologi Ontology (BOT)](https://w3c-lbd-cg.github.io/bot/)<br>[Semantisk sensor nätverk](https://www.w3.org/TR/vocab-ssn/)<br>[buildingSmart Industry Foundation-klasser (IFC)](https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/) |
-| Smarta städer | [ETSI NGSI – LD](https://www.etsi.org/deliver/etsi_gr/CIM/001_099/008/01.01.01_60/gr_CIM008v010101p.pdf)<br>[Smart Applications-referens (SAREF)](https://saref.etsi.org/) |
-| Energi rutnät | [CIM](https://cimug.ucaiug.org/) / [IEC 61968](https://en.wikipedia.org/wiki/IEC_61968) | 
+| Smarta städer | [ETSI NGSI – LD](https://www.etsi.org/deliver/etsi_gr/CIM/001_099/008/01.01.01_60/gr_CIM008v010101p.pdf)<br>[Smart Applications-referens (SAREF)](https://saref.etsi.org/)<br>[Fiware](https://www.fiware.org/)<br>[Öppna & Agile Smart städer (OASC)](https://oascities.org/) |
+| Energi rutnät | [CIM](https://cimug.ucaiug.org/) / [IEC 61968](https://en.wikipedia.org/wiki/IEC_61968)<br>[ADRM-modeller](http://www.adrm.com/) för energi-och råvaru handel | 
 
 Beroende på dina behov kan du också använda DTDL för att anpassa eller utöka bransch modeller eller utveckla en egen anpassad modell från grunden. 
 

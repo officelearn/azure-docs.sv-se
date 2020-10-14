@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: dc6abc51fd0e5669126f1d2f1a977194479db5f5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: df1db5467dadcd127141708fa33147769f1f50a7
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91269887"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047887"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Snabb start: skapa en intern belastningsutjämnare för att belastningsutjämna virtuella datorer med Azure CLI
 
 Kom igång med Azure Load Balancer med hjälp av Azure CLI och skapa en offentlig belastningsutjämnare och tre virtuella datorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure CLI installerat lokalt eller Azure Cloud Shell
@@ -865,6 +865,6 @@ I den här snabb starten
 * Konfigurerat trafik regel för belastnings utjämning och hälso avsökning.
 * Belastnings utjämning har testats.
 
-Om du vill veta mer om Azure Load Balancer kan du fortsätta till [Azure Load Balancer?](load-balancer-overview.md) och [Load Balancer vanliga frågor och svar](load-balancer-faqs.md).
-
-Läs mer om [Load Balancer-och tillgänglighets zoner](load-balancer-standard-availability-zones.md).
+Om du vill veta mer om Azure Load Balancer fortsätter du till 
+> [!div class="nextstepaction"]
+> [Vad är Azure Load Balancer?](load-balancer-overview.md)

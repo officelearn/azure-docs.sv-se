@@ -7,12 +7,12 @@ ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea523045875e0abc9e14924c7bb388ea2cfcc2db
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578061"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046476"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Lär dig mer om digitala tvillingar i IoT Plug and Play
 
@@ -307,7 +307,7 @@ I följande kodfragment visas en sida-vid-sida-JSON-representation av `thermosta
 
 ## <a name="digital-twin-apis"></a>Digitala dubbla API: er
 
-Azure Digitals-enheter är utrustade med **skapa digitala dubbla**, **Uppdatera digitala dubbla**, **anropa komponent** -och **Invoke-kommando** för att hantera enhetens digitala dubbla. Du kan antingen använda [REST-API: erna](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) direkt eller via ett [service SDK](../iot-pnp/libraries-sdks.md).
+Azure Digitals-enheter är utrustade med **skapa digitala dubbla**, **Uppdatera digitala dubbla**, **anropa komponent** -och **Invoke-kommando** för att hantera enhetens digitala dubbla. Du kan antingen använda [REST-API: erna](/rest/api/iothub/service/digitaltwin) direkt eller via ett [service SDK](../iot-pnp/libraries-sdks.md).
 
 ## <a name="digital-twin-change-events"></a>Ändringshändelser för digitala tvillingar
 
@@ -383,5 +383,5 @@ Nu när du har lärt dig om digitala dubbla, finns här några ytterligare resur
 
 - [Använda IoT Plug and Play digitala dubbla API: er](howto-manage-digital-twin.md)
 - [Interagera med en enhet från din lösning](quickstart-service-node.md)
-- [IoT Digital, dubbla REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [IoT Digital, dubbla REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT Explorer](howto-use-iot-explorer.md)

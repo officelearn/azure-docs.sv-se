@@ -8,12 +8,12 @@ ms.author: kgremban
 ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 823b16dcaf113136b10fdaa054da20840b99f02d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1883ffdff20bbbef8efec1440854f01a21a281dc
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297053"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045728"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Använd Visual Studio 2019 för att utveckla och felsöka moduler för Azure IoT Edge
 
@@ -28,11 +28,11 @@ Azure IoT Edge Tools för Visual Studio ger följande fördelar:
 
 Den här artikeln visar hur du använder Azure IoT Edge verktyg för Visual Studio 2019 för att utveckla dina IoT Edge-moduler. Du lär dig också hur du distribuerar projektet till din Azure IoT Edge-enhet. För närvarande tillhandahåller Visual Studio 2019 stöd för moduler som skrivits i C och C#. De enhets arkitekturer som stöds är Windows x64 och Linux x64 eller ARM32. Mer information om operativ system, språk och arkitekturer som stöds finns i [stöd för språk och arkitektur](module-development.md#language-and-architecture-support).
   
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du använder en dator eller en virtuell dator som kör Windows som utvecklings dator. På Windows-datorer kan du utveckla antingen Windows-eller Linux-moduler. Om du vill utveckla Windows-moduler använder du en Windows-dator som kör version 1809/build 17763 eller senare. Om du vill utveckla Linux-moduler använder du en Windows-dator som uppfyller [kraven för Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
-Eftersom den här artikeln använder Visual Studio 2019 som huvud utvecklings verktyg, installerar du Visual Studio. Se till att du inkluderar **Azure-utveckling** och **Skriv bords utveckling med C++** -arbetsbelastningar i Visual Studio 2019-installationen. Du kan [ändra Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2019) för att lägga till de nödvändiga arbets belastningarna.
+Eftersom den här artikeln använder Visual Studio 2019 som huvud utvecklings verktyg, installerar du Visual Studio. Se till att du inkluderar **Azure-utveckling** och **Skriv bords utveckling med C++** -arbetsbelastningar i Visual Studio 2019-installationen. Du kan [ändra Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019) för att lägga till de nödvändiga arbets belastningarna.
 
 När Visual Studio 2019 är klar behöver du även följande verktyg och komponenter:
 
@@ -62,7 +62,7 @@ När Visual Studio 2019 är klar behöver du även följande verktyg och kompone
   vcpkg.exe --triplet x64-windows integrate install
   ```
 
-- [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) -eller [Docker-hubb](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags).
+- [Azure Container Registry](../container-registry/index.yml) -eller [Docker-hubb](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags).
 
   > [!TIP]
   > Du kan använda ett lokalt Docker-register för prototyp-och testnings ändamål i stället för ett moln register.

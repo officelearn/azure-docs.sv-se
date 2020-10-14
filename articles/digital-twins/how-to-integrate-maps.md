@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 8f739982ac9193c80cae23d91b77091f75c3fd13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6c6c1cfdfef864be17adfed2d115150c4fbede0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564372"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045133"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Använd Azure Digitals flätas för att uppdatera en Azure Maps inomhus karta
 
@@ -25,7 +25,7 @@ Den här instruktionen kommer att avse:
 2. Skapa en Azure-funktion för att uppdatera en Azure Maps inomhus Maps-funktion stateset.
 3. Så här lagrar du ditt Maps-ID och funktions stateset-ID i Azure Digitals grafen.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 * Följ självstudien om Azure Digitals dubbla [*steg: Anslut en lösning från slut punkt till slut punkt*](./tutorial-end-to-end.md).
     * Du kommer att utöka den här dubbla med en ytterligare slut punkt och väg. Du kommer även att lägga till en annan funktion i din Function-app från den självstudien. 
@@ -64,7 +64,7 @@ Det här mönstret läser från rummet direkt, i stället för IoT-enheten, vilk
     >[!NOTE]
     >Det finns för närvarande ett **känt problem** i Cloud Shell som påverkar dessa kommando grupper: `az dt route` , `az dt model` , `az dt twin` .
     >
-    >Du kan lösa problemet genom att antingen köra `az login` i Cloud Shell innan du kör kommandot eller använda den [lokala CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) : en i stället för Cloud Shell. Mer information finns i [*fel sökning: kända problem i Azure Digitals*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >Du kan lösa problemet genom att antingen köra `az login` i Cloud Shell innan du kör kommandot eller använda den [lokala CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) : en i stället för Cloud Shell. Mer information finns i [*fel sökning: kända problem i Azure Digitals*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
@@ -74,7 +74,7 @@ Det här mönstret läser från rummet direkt, i stället för IoT-enheten, vilk
 
 Du ska skapa en Event Grid utlöst funktion i din Function-app från slut punkt till slut punkt ([*Självstudier: Anslut en lösning från slut punkt till slut punkt*](./tutorial-end-to-end.md)). Den här funktionen kommer att packa upp dessa meddelanden och skicka uppdateringar till en Azure Maps funktion stateset för att uppdatera temperaturen för ett rum. 
 
-Se följande dokument som referens information: [*Azure Event Grid utlösare för Azure Functions*](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger).
+Se följande dokument som referens information: [*Azure Event Grid utlösare för Azure Functions*](../azure-functions/functions-bindings-event-grid-trigger.md).
 
 Ersätt funktions koden med följande kod. Den filtrerar bara uppdateringar till utrymmes visare, läser den uppdaterade temperaturen och skickar informationen till Azure Maps.
 

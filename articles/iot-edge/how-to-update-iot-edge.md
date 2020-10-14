@@ -9,12 +9,12 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e16e7fa5ecc2fb947f9f82c1cdd27af6758d6bda
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7cde23372f6a3af0320e2d48c78a0d7fe69a2600
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971757"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045711"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Uppdatera IoT Edge-säkerhetsdaemon och runtime
 
@@ -108,7 +108,7 @@ På Windows-enheter använder du PowerShell-skriptet för att uppdatera Security
 
 Att köra kommandot Update-IoTEdge tar bort och uppdaterar säkerhets daemonen från enheten, tillsammans med de två behållar avbildningarna. Config. yaml-filen sparas på enheten, samt data från Moby container Engine (om du använder Windows-behållare). Att behålla konfigurations informationen innebär att du inte behöver ange anslutnings strängen eller enhets etablerings tjänstens information för enheten igen under uppdaterings processen.
 
-Om du vill uppdatera till en speciell version av Security daemon, letar du upp den version som du vill använda för [IoT Edge-versioner](https://github.com/Azure/azure-iotedge/releases). I den versionen hämtar du **Microsoft-Azure-IoTEdge.cab** -filen. Använd sedan `-OfflineInstallationPath` parametern för att peka på den lokala fil platsen. Till exempel:
+Om du vill uppdatera till en speciell version av Security daemon, letar du upp den version som du vill använda för [IoT Edge-versioner](https://github.com/Azure/azure-iotedge/releases). I den versionen hämtar du **Microsoft-Azure-IoTEdge.cab** -filen. Använd sedan `-OfflineInstallationPath` parametern för att peka på den lokala fil platsen. Exempel:
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux> -OfflineInstallationPath <absolute path to directory>
@@ -194,7 +194,7 @@ Två komponenter används för att uppdatera en IoT Edge enhet:
 
 3. Om CAB-filen som du laddade ned har ett arkitektur-suffix, byter du namn på filen till bara **Microsoft-Azure-IoTEdge.cab**.
 
-4. Om du vill uppdatera med offline-komponenter kan du [punkt källa](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) den lokala kopian av PowerShell-skriptet. Använd sedan `-OfflineInstallationPath` parametern som en del av `Update-IoTEdge` kommandot och ange den absoluta sökvägen till fil katalogen. Exempel:
+4. Om du vill uppdatera med offline-komponenter kan du [punkt källa](/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) den lokala kopian av PowerShell-skriptet. Använd sedan `-OfflineInstallationPath` parametern som en del av `Update-IoTEdge` kommandot och ange den absoluta sökvägen till fil katalogen. Exempel:
 
    ```powershell
    . <path>\IoTEdgeSecurityDaemon.ps1

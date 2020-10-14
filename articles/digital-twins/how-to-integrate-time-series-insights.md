@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 636332c52ea71c7f84cca2f7ef526bc31200e11c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eef56bd19ed9912625c8ddca3cbf9ff46a59309
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822169"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048074"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integrera Azure Digitals dubbla med Azure Time Series Insights
 
@@ -20,7 +20,7 @@ I den här artikeln får du lära dig hur du integrerar Azure Digitals dubbla me
 
 Lösningen som beskrivs i den här artikeln gör att du kan samla in och analysera historiska data om din IoT-lösning. Azure digitala multipler är en bra plats för att mata in data i Time Series Insights, eftersom det gör att du kan korrelera flera data strömmar och standardisera din information innan du skickar den till Time Series Insights. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan skapa en relation med Time Series Insights måste du ha en **digital Azure-instans**. Den här instansen bör konfigureras med möjlighet att uppdatera Digital dubbel information baserat på data, eftersom du behöver uppdatera dubbel information några gånger för att se att dessa data spåras i Time Series Insights. 
 
@@ -58,7 +58,7 @@ Självstudien om Azure Digitals sammanhållen [*: Anslut en lösning från slut 
     az eventhubs eventhub create --name <name for your Twins event hub> --resource-group <resource group name> --namespace-name <Event Hubs namespace from above>
     ```
 
-3. Skapa en [auktoriseringsregel](https://docs.microsoft.com/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) med behörigheter för att skicka och ta emot.
+3. Skapa en [auktoriseringsregel](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) med behörigheter för att skicka och ta emot.
 
     ```azurecli
     # Create an authorization rule. Specify a name for the rule.
@@ -76,7 +76,7 @@ Självstudien om Azure Digitals sammanhållen [*: Anslut en lösning från slut 
     >[!NOTE]
     >Det finns för närvarande ett **känt problem** i Cloud Shell som påverkar dessa kommando grupper: `az dt route` , `az dt model` , `az dt twin` .
     >
-    >Du kan lösa problemet genom att antingen köra `az login` i Cloud Shell innan du kör kommandot eller använda den [lokala CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) : en i stället för Cloud Shell. Mer information finns i [*fel sökning: kända problem i Azure Digitals*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >Du kan lösa problemet genom att antingen köra `az login` i Cloud Shell innan du kör kommandot eller använda den [lokala CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) : en i stället för Cloud Shell. Mer information finns i [*fel sökning: kända problem i Azure Digitals*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli
     az dt route create -n <your Azure Digital Twins instance name> --endpoint-name <Event Hub endpoint from above> --route-name <name for your route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
@@ -159,7 +159,7 @@ Om du vill skapa den andra händelsehubben kan du antingen använda Azure CLI-in
     # Create an event hub. Specify a name for the event hub. 
     az eventhubs eventhub create --name <name for your TSI event hub> --resource-group <resource group name from earlier> --namespace-name <Event Hubs namespace from earlier>
     ```
-3. Skapa en [auktoriseringsregel](https://docs.microsoft.com/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) med behörigheter för att skicka och ta emot
+3. Skapa en [auktoriseringsregel](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) med behörigheter för att skicka och ta emot
     ```azurecli
     # Create an authorization rule. Specify a name for the rule.
     az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
@@ -203,7 +203,7 @@ Därefter ställer du in en Time Series Insights-instans för att ta emot data f
 
 1. I Azure Portal börjar du skapa en Time Series Insights resurs. 
     1. Välj pris nivå för **PAYG (för hands version)** .
-    2. Du måste välja ett **Time Series-ID** för den här miljön. Tids serie-ID: t kan innehålla upp till tre värden som du kan använda för att söka efter data i Time Series Insights. I den här självstudien kan du använda **$dtId**. Läs mer om att välja ett ID-värde i [*metod tips för att välja ett Time Series-ID*](https://docs.microsoft.com/azure/time-series-insights/how-to-select-tsid).
+    2. Du måste välja ett **Time Series-ID** för den här miljön. Tids serie-ID: t kan innehålla upp till tre värden som du kan använda för att söka efter data i Time Series Insights. I den här självstudien kan du använda **$dtId**. Läs mer om att välja ett ID-värde i [*metod tips för att välja ett Time Series-ID*](../time-series-insights/how-to-select-tsid.md).
     
         :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="En vy över Azure-tjänster i ett scenario från slut punkt till slut punkt, som markerar Time Series Insights":::
 
@@ -213,7 +213,7 @@ Därefter ställer du in en Time Series Insights-instans för att ta emot data f
 
 ## <a name="begin-sending-iot-data-to-azure-digital-twins"></a>Börja skicka IoT-data till Azure Digitals, dubbla
 
-För att kunna börja skicka data till Time Series Insights måste du börja uppdatera de digitala dubbla egenskaperna i Azure Digitals med ändra data värden. Använd kommandot [AZ DT dubbla Update](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext-azure-iot-az-dt-twin-update) .
+För att kunna börja skicka data till Time Series Insights måste du börja uppdatera de digitala dubbla egenskaperna i Azure Digitals med ändra data värden. Använd kommandot [AZ DT dubbla Update](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext-azure-iot-az-dt-twin-update) .
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 

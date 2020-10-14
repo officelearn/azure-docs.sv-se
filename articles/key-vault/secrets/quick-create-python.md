@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: b5159ce623c03d1158bf719611c158067fdd5b9e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 751e4dbace2b61f53ef9b8d9bef45aa6ce17f9ca
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019111"
+ms.locfileid: "92047879"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Snabb start: Azure Key Vault hemligt klient bibliotek för python
 
@@ -21,7 +21,7 @@ Kom igång med klient biblioteket Azure Key Vault Secret för python. Följ steg
 
 [API-referens dokumentation](/python/api/overview/azure/keyvault-secrets-readme)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets)  |  [Paket (python-paket index)](https://pypi.org/project/azure-keyvault-secrets/)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 2.7 + eller 3.5.3 +](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment)
@@ -31,7 +31,7 @@ Den här snabb starten förutsätter att du kör [Azure CLI](/cli/azure/install-
 
 
 ## <a name="set-up-your-local-environment"></a>Konfigurera din lokala miljö
-Den här snabb starten använder Azure Identity Library med Azure CLI för att autentisera användare till Azure-tjänster. Utvecklare kan också använda Visual Studio eller Visual Studio Code för att autentisera sina anrop. mer information finns i [autentisera klienten med klient biblioteket för Azure Identity](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
+Den här snabb starten använder Azure Identity Library med Azure CLI för att autentisera användare till Azure-tjänster. Utvecklare kan också använda Visual Studio eller Visual Studio Code för att autentisera sina anrop. mer information finns i [autentisera klienten med klient biblioteket för Azure Identity](https://docs.microsoft.com/java/api/overview/azure/identity-readme).
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -49,7 +49,7 @@ Den här snabb starten använder Azure Identity Library med Azure CLI för att a
 
 ### <a name="install-the-packages"></a>Installera paketen
 
-1. I en terminal-eller kommando tolk skapar du en lämplig projektmapp och skapar och aktiverar sedan en virtuell python-miljö enligt beskrivningen i [använda python-virtuella miljöer](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments)
+1. I en terminal-eller kommando tolk skapar du en lämplig projektmapp och skapar och aktiverar sedan en virtuell python-miljö enligt beskrivningen i [använda python-virtuella miljöer](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments).
 
 1. Installera Azure Active Directory identitets bibliotek:
 
@@ -70,7 +70,7 @@ Den här snabb starten använder Azure Identity Library med Azure CLI för att a
 
 ### <a name="grant-access-to-your-key-vault"></a>Bevilja åtkomst till ditt nyckel valv
 
-Skapa en åtkomst princip för nyckel valvet som ger hemliga behörigheter till ditt användar konto
+Skapa en åtkomst princip för nyckel valvet som beviljar hemliga behörigheter till ditt användar konto.
 
 ```console
 az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set

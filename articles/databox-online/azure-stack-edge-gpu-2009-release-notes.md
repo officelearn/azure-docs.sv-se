@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 10/13/2020
 ms.author: alkohli
-ms.openlocfilehash: c43f7ba52ed0f6018ee32583011bb92786708119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ddc83874526a99383f94491771a81da2cde86d8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460483"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047309"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-general-availability-ga-release-notes"></a>Viktig information om Azure Stack Edge Pro med GPU allmän tillgänglighet (GA)
 
@@ -21,11 +21,11 @@ I följande versions information identifieras kritiska öppnings problem och lö
 
 Viktig information uppdateras kontinuerligt och eftersom kritiska problem som kräver en lösning upptäcks, läggs de till. Läs igenom informationen i viktig information innan du distribuerar din Azure Stack Edge Pro-enhet.
 
-Den här artikeln gäller för **Azure Stack Edge Pro 2009** -versionen som mappar till program versions nummer **2.1.1364.2110**.
+Den här artikeln gäller för **Azure Stack Edge Pro 2010** -versionen som mappar till program versions nummer **2.1.1377.2170**.
 
 ## <a name="whats-new"></a>Nyheter
 
-Följande nya funktioner är tillgängliga i Azure Stack Edge 2009-versionen. 
+Följande nya funktioner är tillgängliga i Azure Stack Edge 2010-versionen. 
 
 - **Lagrings klasser** – i den här versionen finns det tillgängliga lagrings klasser som gör det möjligt att etablera lagringen dynamiskt. Mer information finns i [Kubernetes Storage Management på Azure Stack Edge Pro GPU-enhet](azure-stack-edge-gpu-kubernetes-storage.md#dynamicprovisioning). 
 - **Kubernetes-instrumentpanel med mått Server** – i den här versionen läggs en Kubernetes-instrumentpanel till med ett mått Server tillägg. Du kan använda instrument panelen för att få en översikt över de program som körs på din Azure Stack Edge Pro-enhet, Visa status för Kubernetes kluster resurser och se eventuella fel som har inträffat på enheten. Mått servern sammanställer processor-och minnes användningen mellan Kubernetes resurser på enheten. Mer information finns i [använda Kubernetes-instrumentpanelen för att övervaka din Azure Stack Edge Pro GPU-enhet](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).

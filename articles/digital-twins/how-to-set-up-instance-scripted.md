@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 83741f5bc55eb222b379a274ef403f766553b21f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e8e26f73aef155e4194ca7a4178827b6a7366fb
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328655"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047428"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurera en digital Azure-instans och autentisering (skript)
 
@@ -20,7 +20,7 @@ ms.locfileid: "91328655"
 
 Den här artikeln beskriver steg för steg hur du **konfigurerar en ny Azure Digital-instansen**, inklusive hur du skapar instansen och konfigurerar autentisering. När du har slutfört den här artikeln har du en Azure Digital-instansen som är redo att starta programmering mot.
 
-Den här versionen av den här artikeln slutför de här stegen genom att köra ett [ **skript exempel för automatiserad distribution** ](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) som effektiviserar processen. 
+Den här versionen av den här artikeln slutför de här stegen genom att köra ett [ **skript exempel för automatiserad distribution** ](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) som effektiviserar processen. 
 * Om du vill visa de manuella CLI-stegen som skriptet körs genom i bakgrunden, se CLI-versionen av den här artikeln: [*anvisningar: Konfigurera en instans och autentisering (CLI)*](how-to-set-up-instance-cli.md).
 * Om du vill visa de manuella stegen enligt Azure Portal, se Portal versionen av den här artikeln: [*anvisningar: Konfigurera en instans och autentisering (portal)*](how-to-set-up-instance-portal.md).
 
@@ -28,7 +28,7 @@ Den här versionen av den här artikeln slutför de här stegen genom att köra 
 
 ## <a name="prerequisites-download-the-script"></a>Krav: Hämta skriptet
 
-Exempel skriptet skrivs i PowerShell. Den är en del av [**Azures digitala dubbla exempel**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), som du kan ladda ned till datorn genom att gå till den exempel länken och välja hämtnings knappen för att *Ladda ned ZIP* under rubriken.
+Exempel skriptet skrivs i PowerShell. Den är en del av [**Azures digitala dubbla exempel**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), som du kan ladda ned till datorn genom att gå till den exempel länken och välja hämtnings knappen för att *Ladda ned ZIP* under rubriken.
 
 Detta kommer att ladda ned exempelprojektet till datorn som _**Azure_Digital_Twins_samples.zip**_. Navigera till mappen på din dator och packa upp den för att extrahera filerna.
 
@@ -165,7 +165,7 @@ Om ett eller båda av dessa verifierings steg Miss lyckas kan du försöka skapa
 ## <a name="next-steps"></a>Nästa steg
 
 Testa enskilda REST API-anrop på din instans med hjälp av Azure Digitals flätat CLI-kommandon: 
-* [AZ DT-referens](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
+* [AZ DT-referens](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Anvisningar: använda Azure Digitals flätat CLI*](how-to-use-cli.md)
 
 Du kan också se hur du ansluter klient programmet till din instans genom att skriva klient appens autentiseringsnyckel:

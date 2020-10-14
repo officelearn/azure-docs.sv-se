@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 22628af5b3e62edfc96699ad051b6a00cf9c1429
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99a0805239ee2437ad6ec9ceb40cf45496a07850
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078949"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047666"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Självstudie: Konfigurera en miljö för maskin inlärning på IoT Edge
 
@@ -26,7 +26,7 @@ Den här artikeln hjälper dig att förbereda din miljö för utveckling och dis
 
 Det här steget utförs vanligt vis av en molnbaserad utvecklare. En del program vara kan också vara till hjälp för en data expert.
 
-Vi har skapat ett PowerShell-skript som skapar en virtuell Azure-dator med många av de krav som redan har kon figurer ATS. Den virtuella dator som vi skapar måste kunna hantera [kapslad virtualisering](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), vilket är anledningen till att vi valde en [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) dator storlek.
+Vi har skapat ett PowerShell-skript som skapar en virtuell Azure-dator med många av de krav som redan har kon figurer ATS. Den virtuella dator som vi skapar måste kunna hantera [kapslad virtualisering](../virtual-machines/windows/nested-virtualization.md), vilket är anledningen till att vi valde en [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) dator storlek.
 
 Den virtuella utvecklings datorn kommer att konfigureras med:
 
@@ -38,7 +38,7 @@ Den virtuella utvecklings datorn kommer att konfigureras med:
 * [.NET Core SDK](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.1.0)
+* [Azure PowerShell](/powershell/azure/?view=azps-1.1.0)
 * [VS Code-tillägg](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
@@ -82,7 +82,7 @@ Det tar cirka 30 minuter att skapa och konfigurera den virtuella datorn.
 
    Skriptet körs i flera minuter eftersom det utför följande steg:
 
-    1. Installerar [modulen för Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
+    1. Installerar [modulen för Azure PowerShell AZ](/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
     1. Du blir ombedd att logga in på Azure.
     1. Bekräftar informationen för att skapa den virtuella datorn. Tryck på **j** eller **RETUR** för att fortsätta.
     1. Skapar resurs gruppen om den inte finns.
@@ -215,7 +215,7 @@ I den här artikeln har vi skapat en IoT Hub och konfigurerat en väg till ett A
 
 Mer information om de steg som beskrivs i den här delen av Machine Learning i IoT Edge själv studie kursen finns i:
 
-* [Grunderna i Azure IoT](https://docs.microsoft.com/azure/iot-fundamentals/)
+* [Grunderna i Azure IoT](../iot-fundamentals/index.yml)
 * [Konfigurera meddelandedirigering med IoT Hub](../iot-hub/tutorial-routing.md)
 * [Skapa en IoT-hubb med hjälp av Azure Portal](../iot-hub/iot-hub-create-through-portal.md)
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 409d4195a8c0a4b41996274f68ec74864bebe208
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 0728e5d12b13164d127941a49603836ff92fd515
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873361"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045809"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Självstudie: utveckla IoT Edge moduler för Windows-enheter
 
@@ -24,7 +24,7 @@ I snabb starten skapade du en IoT Edge-enhet med en virtuell Windows-dator och d
 
 I den här självstudien använder vi exemplet på att distribuera en **C#-modul till en Windows-enhet**. Det här exemplet valdes eftersom det är det vanligaste utvecklings scenariot. Om du är intresse rad av att utveckla på ett annat språk, eller om du planerar att distribuera Azure-tjänster som moduler, kommer den här kursen fortfarande att vara användbar för att lära dig mer om utvecklingsverktyg. När du förstår utvecklings koncepten kan du välja önskat språk eller Azure-tjänst för att få information.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -51,7 +51,7 @@ I följande tabell visas de utvecklings scenarier som stöds för **Windows-beh�
 | **Språk** | C# (fel sökning stöds inte) | C <br> C# |
 | **Mer information** | [Azure IoT Edge för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge verktyg för Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Azure IoT Edge verktyg för Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En utvecklings dator:
 
@@ -87,13 +87,13 @@ I den här självstudien får du lära dig utvecklings stegen för Visual Studio
 
 1. Förbered Visual Studio 2019 på din utvecklings dator.
 
-   * Om du inte redan har Visual Studio på utvecklings datorn installerar du [Visual studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) med följande arbets belastningar:
+   * Om du inte redan har Visual Studio på utvecklings datorn installerar du [Visual studio 2019](/visualstudio/install/install-visual-studio) med följande arbets belastningar:
 
       * Azure Development
       * Skriv bords utveckling med C++
       * .NET Core plattformsoberoende utveckling
 
-   * Om du redan har Visual Studio 2019 på utvecklings datorn följer du stegen i [ändra Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) för att lägga till de nödvändiga arbets belastningarna.
+   * Om du redan har Visual Studio 2019 på utvecklings datorn följer du stegen i [ändra Visual Studio](/visualstudio/install/modify-visual-studio) för att lägga till de nödvändiga arbets belastningarna.
 
 2. Hämta och installera tillägget [Azure IoT Edge-verktyg](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) för Visual Studio 2019.
 
@@ -129,7 +129,7 @@ Tillägget Azure IoT Edge-verktyg innehåller projektmallar för alla språk som
 
 4. I fönstret Lägg till modul konfigurerar du ditt projekt med följande värden:
 
-   | Field | Värde |
+   | Fält | Värde |
    | ----- | ----- |
    | Visual Studio-mall | Välj **C#-modul**. |
    | Modulnamn | Godkänn standard- **IotEdgeModule1**. |

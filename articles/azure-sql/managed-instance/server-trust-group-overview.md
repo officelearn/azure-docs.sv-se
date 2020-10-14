@@ -12,18 +12,18 @@ author: sasapopo
 ms.author: sasapopo
 ms.reviewer: sstein, bonova
 ms.date: 10/08/2020
-ms.openlocfilehash: 911d7ffa2b1d313147ca73d0ceb285ea2e84b1f7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6154625f1e943007d0ed4c3341dc1265657f3bfc
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979629"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046374"
 ---
-# <a name="use-server-trust-groups-to-setup-and-manage-trust-between-sql-managed-instances"></a>Använd Server förtroende grupper för att konfigurera och hantera förtroende mellan SQL-hanterade instanser
+# <a name="use-server-trust-groups-to-set-up-and-manage-trust-between-sql-managed-instances"></a>Använd Server förtroende grupper för att konfigurera och hantera förtroende mellan SQL-hanterade instanser
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Gruppen Server förtroende är ett begrepp som används för att hantera förtroende mellan Azure SQL-hanterade instanser. Genom att skapa en grupp och lägga till instanser till det certifikatbaserade förtroendet upprättas mellan alla medlemmar och kan användas för olika scenarier i flera instanser. Om du tar bort servrar från gruppen eller tar bort grupp resultatet tas förtroendet mellan servrarna bort. Om du vill skapa eller ta bort en server förtroende grupp måste användaren ha Skriv behörighet för en hanterad instans.
-[Server förtroende grupp](https://aka.ms/mi-server-trust-group-arm) är ett Azure Resource Manager-objekt som motsvarar Azure Portal entiteten med namnet **SQL Trust Group**.
+Gruppen Server förtroende är ett begrepp som används för att hantera förtroende mellan Azure SQL-hanterade instanser. Genom att skapa en grupp upprättas ett certifikat baserat förtroende mellan medlemmarna. Detta förtroende kan användas för olika scenarier i flera instanser. Om du tar bort servrar från gruppen eller tar bort gruppen tas förtroendet mellan servrarna bort. Om du vill skapa eller ta bort en server förtroende grupp måste användaren ha Skriv behörighet för en hanterad instans.
+[Server förtroende grupp](https://aka.ms/mi-server-trust-group-arm) är ett Azure Resource Manager-objekt som har märkts som **SQL-förtroende grupp** i Azure Portal.
 
 > [!NOTE]
 > Gruppen Server förtroende introduceras i en offentlig för hands version av distribuerade transaktioner mellan Azure SQL Managed instances och har för närvarande vissa begränsningar som beskrivs längre fram i den här artikeln.
@@ -38,31 +38,32 @@ I följande avsnitt beskrivs hur du installerar Server förtroende grupp.
 
 3. Välj fliken **SQL-förtroende grupper** på **säkerhets** inställningarna.
 
-   :::image type="content" source="./media/server-trust-group-overview/security-sql-trust-groups.png" alt-text="Server förtroende grupper":::
+   :::image type="content" source="./media/server-trust-group-overview/security-sql-trust-groups.png" alt-text="Serverförtroendegrupper":::
 
 4. På sidan konfiguration av Server förtroende grupp väljer du ikonen **ny grupp** .
 
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="Server förtroende grupper":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="Serverförtroendegrupper":::
 
-5. Ange **grupp namnet**i bladet **SQL Trust Group** Create. Det måste vara unikt i alla regioner där grupp medlemmarna finns. **Förtroende omfång** definierar typen av kors instans scenario som aktive ras med Server förtroende gruppen och i för hands versionen är endast tillämpligt förtroende omfång **distribuerade transaktioner**, så det är förvalt och kan inte ändras. Alla **grupp medlemmar** måste tillhöra samma **prenumeration** , men de kan vara under olika resurs grupper. Välj **resurs grupp** och **SQL Server/instans** för att välja den Azure SQL-hanterade instans som ska vara medlem i gruppen.
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="Server förtroende grupper":::
+5. Ange **grupp namnet**i bladet **SQL Trust Group** Create. Det måste vara unikt i alla regioner där grupp medlemmarna finns. **Förtroende omfång** definierar typen av kors instans scenario som aktive ras med Server förtroende gruppen. I för hands versionen är endast tillämpligt förtroende omfång **distribuerade transaktioner**, så det är förvalt och kan inte ändras. Alla **grupp medlemmar** måste tillhöra samma **prenumeration** , men de kan vara under olika resurs grupper. Välj **resurs grupp** och **SQL Server/instans** för att välja den Azure SQL-hanterade instans som ska vara medlem i gruppen.
+
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="Serverförtroendegrupper":::
 
 6. När alla obligatoriska fält har fyllts i klickar du på **Spara**.
 
 ## <a name="server-trust-group-maintenance-and-deletion"></a>Underhåll och borttagning av Server förtroende grupp
 
-Det går inte att redigera gruppen över betrodda servrar. Om du vill ta bort en hanterad instans från en grupp måste du ta bort gruppen och skapa en ny.
+Det går inte att redigera Server förtroende gruppen. Om du vill ta bort en hanterad instans från en grupp måste du ta bort gruppen och skapa en ny.
 
 I följande avsnitt beskrivs borttagnings processen för en server betrodd grupp. 
 1. Gå till Azure-portalen.
 2. Navigera till en hanterad instans som tillhör förtroende gruppen.
 3. Välj fliken **SQL-förtroende grupper** på **säkerhets** inställningarna.
 4. Välj den förtroende grupp som du vill ta bort.
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="Server förtroende grupper":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="Serverförtroendegrupper":::
 5. Klicka på **ta bort grupp**.
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete.png" alt-text="Server förtroende grupper":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete.png" alt-text="Serverförtroendegrupper":::
 6. Skriv in namnet på Server förtroende gruppen för att bekräfta borttagningen och klicka på **ta bort**.
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Server förtroende grupper":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Serverförtroendegrupper":::
 
 > [!NOTE]
 > Att ta bort Server förtroende gruppen kanske inte omedelbart tar bort förtroendet mellan de två hanterade instanserna. Borttagning av förtroenden kan verkställas genom att anropa en [redundansväxling](https://docs.microsoft.com/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) av hanterade instanser. Kontrol lera de [kända problemen](https://docs.microsoft.com/azure/azure-sql/database/doc-changes-updates-release-notes?tabs=managed-instance#known-issues) för de senaste uppdateringarna på detta.
@@ -72,14 +73,14 @@ I följande avsnitt beskrivs borttagnings processen för en server betrodd grupp
 Under den offentliga för hands versionen gäller följande begränsningar för Server förtroende grupper.
  * Namnet på Server förtroende gruppen måste vara unikt i alla regioner där dess medlemmar finns.
  * Gruppen får bara innehålla Azure SQL-hanterade instanser och de måste vara under samma Azure-prenumeration.
- * Gruppen kan ha exakt två hanterade instanser. Om du behöver köra distribuerade transaktioner över fler än två hanterade instanser som kan göras genom att skapa en server förtroende grupp för varje par av de hanterade instanserna.
+ * I för hands versionen kan gruppen ha exakt två hanterade instanser. Om du vill köra distribuerade transaktioner över fler än två hanterade instanser måste du skapa en server förtroende grupp för varje par av de hanterade instanserna.
  * Distribuerade transaktioner är det enda giltiga omfånget för Server förtroende grupper.
  * Server förtroende gruppen kan bara hanteras från Azure Portal. PowerShell-och CLI-stödet kommer senare.
  * Det går inte att redigera Server förtroende gruppen på Azure Portal. Den kan bara skapas eller släppas.
- * Ytterligare begränsningar för distribuerade transaktioner kan vara relaterade till ditt scenario. Det viktigaste är att SQL-hanterade instanser som deltar i Server förtroende gruppen måste kunna kontaktas via privata slut punkter eller i andra anslutningar måste de arbeta på den virtuella nätverks nivån. Se till att du är medveten om de aktuella [begränsningarna för distribuerade transaktioner för Azure SQL-hanterad instans](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview#limitations).
+ * Ytterligare begränsningar för distribuerade transaktioner kan vara relaterade till ditt scenario. Det viktigaste är att det måste finnas en anslutning mellan hanterade instanser via privata slut punkter, via VNET eller VNET-peering. Se till att du är medveten om de aktuella [begränsningarna för distribuerade transaktioner för en hanterad instans](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview#limitations).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om distribuerade transaktioner i Azure SQL-hanterad instans finns i [distribuerade transaktioner](../database/elastic-transactions-overview.md).
 * Information om versions uppdateringar och kända problem finns i [viktig information om Managed instance](../database/doc-changes-updates-release-notes.md).
-* Om du vill ha funktions förfrågningar lägger du till dem i [forumet för hanterad instans](https://feedback.azure.com/forums/915676-sql-managed-instance).
+* Om du har funktions förfrågningar kan du lägga till dem i [forumen för hanterade instanser](https://feedback.azure.com/forums/915676-sql-managed-instance).

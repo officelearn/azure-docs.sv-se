@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: efc507cb69b3368a2102b6de0b905657d5806ef2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a2345dce542f941df0122acd12b4acedd3b49a3
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90561439"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047242"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Hantera enheter automatiskt i Azure Digitals med hjälp av enhets etablerings tjänsten (DPS)
 
@@ -22,7 +22,7 @@ Lösningen som beskrivs i den här artikeln gör att du kan automatisera process
 
 Mer information om hur du _etablerar_ och drar _tillbaka_ faser och för att bättre förstå de allmänna enhets hanterings faser som är gemensamma för alla Enterprise IoT-projekt finns i [avsnittet *enhets livs cykel* ](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) i IoT Hub enhets hanteringens dokumentation.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan konfigurera etableringen måste du ha en **digital Azure-instans** som innehåller modeller och dubbla. Den här instansen bör också konfigureras med möjlighet att uppdatera Digital dubbel information baserat på data. 
 
@@ -32,7 +32,7 @@ Du behöver följande värden senare i den här artikeln när du konfigurerar di
 * Azure Digitals dubbla instans **_värd namn_** ([Sök i portalen](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 * **_Anslutnings sträng_** för Azure Event Hubs-anslutningssträng ([Sök i portalen](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
 
-I det här exemplet används även en **enhets Simulator** som inkluderar etablering med Device Provisioning-tjänsten. Enhets simulatorn finns här: [Azure Digitals, dubbla och IoT Hub integrations exempel](https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Hämta exempelprojektet på datorn genom att gå till exempel länken och välja *Hämta zip* -knappen under rubriken. Zippa upp den hämtade mappen.
+I det här exemplet används även en **enhets Simulator** som inkluderar etablering med Device Provisioning-tjänsten. Enhets simulatorn finns här: [Azure Digitals, dubbla och IoT Hub integrations exempel](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Hämta exempelprojektet på datorn genom att gå till exempel länken och välja *Hämta zip* -knappen under rubriken. Zippa upp den hämtade mappen.
 
 Enhets simulatorn baseras på **Node.js**, version 10.0. x eller senare. [*Förbereda utvecklings miljön*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) beskriver hur du installerar Node.js för den här själv studie kursen på antingen Windows eller Linux.
 
@@ -69,7 +69,7 @@ När en ny enhet tillhandahålls med enhets etablerings tjänsten kan en ny enhe
 
 Skapa en instans av Device Provisioning-tjänsten som ska användas för att etablera IoT-enheter. Du kan antingen använda Azure CLI-instruktionerna nedan eller använda Azure Portal: [*snabb start: konfigurera IoT Hub Device Provisioning service med Azure Portal*](../iot-dps/quick-setup-auto-provision.md).
 
-Följande Azure CLI-kommando skapar en enhets etablerings tjänst. Du måste ange ett namn, en resurs grupp och en region. Kommandot kan köras i [Cloud Shell](https://shell.azure.com)eller lokalt om du har Azure CLI [installerat på datorn](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Följande Azure CLI-kommando skapar en enhets etablerings tjänst. Du måste ange ett namn, en resurs grupp och en region. Kommandot kan köras i [Cloud Shell](https://shell.azure.com)eller lokalt om du har Azure CLI [installerat på datorn](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ```azurecli
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
@@ -258,7 +258,7 @@ När du går igenom flödet länkar du registreringen till funktionen som du nys
 
 ### <a name="set-up-the-device-simulator"></a>Konfigurera enhets simulatorn
 
-I det här exemplet används en enhets simulator som inkluderar etablering med enhets etablerings tjänsten. Enhets simulatorn finns här: [Azure Digitals, dubbla och IoT Hub integrations exempel](https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Om du inte redan har hämtat exemplet hämtar du det nu genom att gå till exempel länken och välja *Hämta zip* -knappen under rubriken. Zippa upp den hämtade mappen.
+I det här exemplet används en enhets simulator som inkluderar etablering med enhets etablerings tjänsten. Enhets simulatorn finns här: [Azure Digitals, dubbla och IoT Hub integrations exempel](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Om du inte redan har hämtat exemplet hämtar du det nu genom att gå till exempel länken och välja *Hämta zip* -knappen under rubriken. Zippa upp den hämtade mappen.
 
 Öppna ett kommando fönster och navigera till den hämtade mappen och sedan till *Device Simulator-* katalogen. Installera beroenden för projektet med följande kommando:
 
@@ -447,7 +447,7 @@ Spara projektet och publicera sedan Function-appen igen. Anvisningar om hur du p
 
 Därefter måste du ställa in miljövariabler i din Function-app från tidigare, som innehåller referensen till den Azure Digital-instans som du har skapat och Event Hub. Om du använde självstudien från slut punkt till slut punkt ([*Självstudier: ansluta en slut punkt till slut punkt*](./tutorial-end-to-end.md)) är den första inställningen redan konfigurerad.
 
-Lägg till inställningen med detta Azure CLI-kommando. Kommandot kan köras i [Cloud Shell](https://shell.azure.com)eller lokalt om du har Azure CLI [installerat på datorn](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Lägg till inställningen med detta Azure CLI-kommando. Kommandot kan köras i [Cloud Shell](https://shell.azure.com)eller lokalt om du har Azure CLI [installerat på datorn](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
@@ -480,7 +480,7 @@ Om du vill utlösa processen för pensionering måste du manuellt ta bort enhete
 
 I den [första halvan av den här artikeln](#auto-provision-device-using-device-provisioning-service)skapade du en enhet i IoT Hub och en motsvarande digital enhet. 
 
-Gå nu till IoT Hub och ta bort enheten (du kan göra detta med ett [Azure CLI-kommando](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) eller i [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
+Gå nu till IoT Hub och ta bort enheten (du kan göra detta med ett [Azure CLI-kommando](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) eller i [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
 
 Enheten tas bort automatiskt från digitala Azure-enheter. 
 
@@ -497,7 +497,7 @@ Du bör se att enhetens enhets enhet inte kan hittas på Azures digitala dubbla 
 
 Om du inte längre behöver resurserna som skapats i den här artikeln följer du stegen nedan för att ta bort dem.
 
-Med hjälp av Azure Cloud Shell eller lokalt Azure CLI kan du ta bort alla Azure-resurser i en resurs grupp med kommandot [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) . Detta tar bort resurs gruppen. Azure Digitals dubbla instanser, IoT-hubben och nav enhets registreringen. avsnittet Event Grid och associerade prenumerationer. Event Hub-namnområdet och båda Azure Functions appar, inklusive tillhör ande resurser som lagring.
+Med hjälp av Azure Cloud Shell eller lokalt Azure CLI kan du ta bort alla Azure-resurser i en resurs grupp med kommandot [AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) . Detta tar bort resurs gruppen. Azure Digitals dubbla instanser, IoT-hubben och nav enhets registreringen. avsnittet Event Grid och associerade prenumerationer. Event Hub-namnområdet och båda Azure Functions appar, inklusive tillhör ande resurser som lagring.
 
 > [!IMPORTANT]
 > Att ta bort en resursgrupp kan inte ångras. Resursgruppen och alla resurser som ingår i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. 

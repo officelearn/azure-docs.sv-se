@@ -38,15 +38,17 @@
 - name: Självstudier
   items:
     - name: 1 – Etablera uppsättningar av enheter med registreringsgrupper
-      href: how-to-legacy-device-symm-key.md
+      items:
+        - name: Etablera enheter med symmetriska nycklar
+          href: how-to-legacy-device-symm-key.md
+        - name: Använd anpassade allokeringsprinciper
+          href: tutorial-custom-allocation-policies.md
     - name: 2 – Etablera enheter till flera hubbar
       items:
         - name: Länka flera hubbar till DPS
           href: tutorial-provision-multiple-hubs.md
         - name: Etablera för flera innehavare
           href: how-to-provision-multitenant.md
-        - name: Använd anpassade allokeringsprinciper
-          href: tutorial-custom-allocation-policies.md
 - name: Exempel
   items:
     - name: Exempel på attestering för en simulerad TPM-enhet

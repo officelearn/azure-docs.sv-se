@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9fa3c27f9cc35b31fc78b2a09bea725934093e63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e53a7f5e76a6161016cbbb6b3566de4cad923f6a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983322"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048057"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Mata in IoT Hub telemetri i Azure Digitals, dubbla
 
@@ -22,7 +22,7 @@ Processen för att mata in data i Azure Digitals, är att konfigurera en extern 
 
 Det här dokumentet vägleder dig genom processen för att skriva en Azure-funktion som kan mata in telemetri från IoT Hub.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du fortsätter med det här exemplet måste du konfigurera följande resurser som krav:
 * **En IoT-hubb**. Anvisningar finns i avsnittet *skapa en IoT Hub* i [den här IoT Hub snabb](../iot-hub/quickstart-send-telemetry-cli.md)starten.
@@ -129,7 +129,7 @@ await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
 
 ### <a name="update-your-azure-function-code"></a>Uppdatera din Azure Function-kod
 
-Nu när du förstår koden från de tidigare exemplen öppnar du Azure-funktionen från avsnittet [*krav*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) i Visual Studio. (Om du inte har en Azure-funktion kan du gå till länken i förutsättningarna för att skapa en nu).
+Nu när du förstår koden från de tidigare exemplen öppnar du Azure-funktionen från avsnittet [*krav*](#prerequisites) i Visual Studio. (Om du inte har en Azure-funktion kan du gå till länken i förutsättningarna för att skapa en nu).
 
 Ersätt din Azure Function-kod med den här exempel koden.
 
@@ -193,7 +193,7 @@ namespace IotHubtoTwins
     }
 }
 ```
-Spara funktions koden och publicera Function-appen till Azure. Du kan göra detta genom att läsa avsnittet om att [*publicera Funktionsapp*](https://docs.microsoft.com/azure/digital-twins/how-to-create-azure-function#publish-the-function-app-to-azure) avsnittet i [*How-to: Konfigurera en Azure-funktion för bearbetning av data*](how-to-create-azure-function.md).
+Spara funktions koden och publicera Function-appen till Azure. Du kan göra detta genom att läsa avsnittet om att [*publicera Funktionsapp*](./how-to-create-azure-function.md#publish-the-function-app-to-azure) avsnittet i [*How-to: Konfigurera en Azure-funktion för bearbetning av data*](how-to-create-azure-function.md).
 
 Efter en lyckad publicering visas utdata i Visual Studio-kommando fönstret som visas nedan:
 
@@ -214,7 +214,7 @@ Du kan också kontrol lera status för publicerings processen i [Azure Portal](h
 ## <a name="connect-your-function-to-iot-hub"></a>Anslut din funktion till IoT Hub
 
 Konfigurera ett händelse mål för Hub-data.
-I [Azure Portal](https://portal.azure.com/)navigerar du till IoT Hub-instansen som du skapade i avsnittet [*krav*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) . Under **händelser**skapar du en prenumeration för Azure-funktionen.
+I [Azure Portal](https://portal.azure.com/)navigerar du till IoT Hub-instansen som du skapade i avsnittet [*krav*](#prerequisites) . Under **händelser**skapar du en prenumeration för Azure-funktionen.
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Ett diagram som visar ett flödes diagram. I diagrammet skickar en IoT Hub enhet temperatur telemetri via IoT Hub till en Azure-funktion som uppdaterar en temperatur egenskap på en enhet i en digital i Azure Digitals.":::
 
@@ -242,7 +242,7 @@ Klicka på _skapa_ om du vill skapa en händelse prenumeration.
 
 ## <a name="send-simulated-iot-data"></a>Skicka simulerade IoT-data
 
-Testa din nya ingångs funktion genom att använda enhets simulatorn från [*självstudien: Anslut en lösning från slut punkt till slut punkt*](./tutorial-end-to-end.md). Den själv studie kursen drivs av ett exempel projekt som skrivits i C#. Exempel koden finns här: [Azure Digitals dubbla exempel](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Du kommer att använda **DeviceSimulator** -projektet på den lagrings platsen.
+Testa din nya ingångs funktion genom att använda enhets simulatorn från [*självstudien: Anslut en lösning från slut punkt till slut punkt*](./tutorial-end-to-end.md). Den själv studie kursen drivs av ett exempel projekt som skrivits i C#. Exempel koden finns här: [Azure Digitals dubbla exempel](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Du kommer att använda **DeviceSimulator** -projektet på den lagrings platsen.
 
 I självstudierna från slut punkt till slut punkt utför du följande steg:
 1. [*Registrera den simulerade enheten med IoT Hub*](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)

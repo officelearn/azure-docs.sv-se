@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: f33d5ff37cbc9923262963b3e59b9266ea6760a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33d1be493cba9fd9f01ecdbad10afb5330256aa0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006422"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045354"
 ---
 # <a name="move-vms-to-another-azure-region"></a>Flytta virtuella datorer till en annan Azure-region
 
@@ -21,7 +21,7 @@ Det finns scenarier där du vill flytta dina befintliga virtuella Azure IaaS-dat
 
 Du kan använda [Azure Site Recovery](site-recovery-overview.md) tjänst för att flytta virtuella Azure-datorer till en sekundär region.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > 
@@ -84,7 +84,7 @@ I den här guiden får du lära dig att:
     Information om hur du skapar de vanligaste nätverks resurserna som är relevanta för dig baserat på konfigurationen av den virtuella käll datorn finns i följande dokumentation:
     - [Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md)
     - [Lastbalanserare](../load-balancer/index.yml)
-    -  [Offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md)
+    -  [Offentlig IP](../virtual-network/virtual-network-public-ip-address.md)
     - Information om andra nätverks komponenter finns i [dokumentationen till nätverket](../index.yml?pivot=products&panel=network).
 
 
@@ -100,8 +100,8 @@ Följande steg visar hur du förbereder den virtuella datorn för flytt med Azur
 1. I **Namn** anger du det egna namnet **ContosoVMVault**. Om du har mer än en prenumeration väljer du den lämpligaste.
 1. Skapa resurs gruppen **conto sorg**.
 1. Ange en Azure-region. Om du vill kontrol lera regioner som stöds, se geografisk tillgänglighet i [Azure Site Recovery pris information](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. I **Recovery Services valv**väljer du **Översikt**  >  **ContosoVMVault**  >  **replikerade objekt**  >  **+ Replikera**.
-1. I **Källa** väljer du **Azure**.
+1. Välj **ContosoVMVault** **Recovery Services vaults**  >  **replikerade objekt**  >  **+ Replikera**i Recovery Services valv.
+1. I list rutan väljer du **Azure Virtual Machines**.
 1. I **Källplats** väljer du den Azure källregion där de virtuella datorerna körs just nu.
 1. Välj Resource Manager-distributionsmodellen. Välj sedan **källprenumerationen** och **källresursgruppen**.
 1. Spara inställningarna genom att klicka på **OK** .

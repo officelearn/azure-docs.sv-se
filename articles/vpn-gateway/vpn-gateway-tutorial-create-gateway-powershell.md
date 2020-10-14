@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 34aa805e6af68933326325587c0a442fe5e3652c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e4c0174e9f5e1a15fe85d5744ddcb6ee21c4a86
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420664"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048278"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Självstudie: skapa och hantera en VPN-gateway med PowerShell
 
@@ -28,7 +28,7 @@ Följande diagram visar det virtuella nätverket och den VPN-gateway som skapats
 
 ![Virtuella nätverk och VPN-gateway](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
 
-### <a name="working-with-azure-cloud-shell-and-azure-powershell"></a>Arbeta med Azure Cloud Shell och Azure PowerShell
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
@@ -184,9 +184,7 @@ I den här självstudien har du lärt dig om grundläggande skapande av VPN-gate
 > * Ändra storlek på en VPN-gateway
 > * Återställ en VPN gateway
 
-Gå vidare till följande självstudier för att lära dig mer om anslutningar mellan servrar och mellan virtuella nätverk, samt P2S-anslutningar.
+Fortsätt sedan med följande självstudie:
 
 > [!div class="nextstepaction"]
-> * [Skapa anslutningar mellan servrar](vpn-gateway-tutorial-vpnconnection-powershell.md)
-> * [Skapa anslutningar mellan virtuella nätverk](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Skapa P2S-anslutningar](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Skapa en anslutning](vpn-gateway-tutorial-vpnconnection-powershell.md)

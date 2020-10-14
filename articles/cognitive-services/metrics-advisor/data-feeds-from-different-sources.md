@@ -3,19 +3,19 @@ title: Så här lägger du till datafeeds från olika källor i mått Advisor
 titleSuffix: Azure Cognitive Services
 description: Lägg till olika data matningar i mått Advisor
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.author: aahi
-ms.openlocfilehash: 11b75bcadc6292c17ef7e1e0f482d0c53bd9f8f5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: mbullwin
+ms.openlocfilehash: a37f3cfd250d152129245395680dbd847359e869
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971956"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046918"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Lägg till datafeeds från olika data källor i mått Advisor
 
@@ -43,7 +43,7 @@ Använd den här artikeln för att hitta inställningar och krav för att anslut
 |[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>ManagedIdentity|
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>Tjänstens huvudnamn<br>Tjänstens huvud namn från Key Vault<br> |
 |[**Azure SQL Database/SQL Server**](#sql) | Basic<br>ManagedIdentity<br>Tjänstens huvudnamn<br>Tjänstens huvud namn från Key Vault<br>AzureSQLConnectionString
-|[**Azure-Table Storage**](#table) | Basic | 
+|[**Azure Table Storage**](#table) | Basic | 
 |[**ElasticSearch**](#es) | Basic |
 |[**Http-begäran**](#http) | Basic | 
 |[**InfluxDB (InfluxQL)**](#influxdb) | Basic |
@@ -93,7 +93,7 @@ Skapa en **entitet för autentiseringsuppgifter** och Använd den för autentise
   
   * v1 (standardvärde)
 
-      Endast måtten *Name* och *Value* accepteras. Till exempel:
+      Endast måtten *Name* och *Value* accepteras. Exempel:
     
       ``` JSON
       {"count":11, "revenue":1.23}
@@ -101,7 +101,7 @@ Skapa en **entitet för autentiseringsuppgifter** och Använd den för autentise
 
   * v2
 
-      *Mått och* *tidsstämpel* godkänns också. Till exempel:
+      *Mått och* *tidsstämpel* godkänns också. Exempel:
       
       ``` JSON
       [
@@ -159,7 +159,7 @@ Endast en tidstämpel tillåts per JSON-fil.
   * `%h` är timmen formaterad som `HH`
   * `%M` är minuten formaterad som `mm`
 
-För närvarande stöder Metric Advisor data schemat i JSON-filerna enligt följande. Till exempel:
+För närvarande stöder Metric Advisor data schemat i JSON-filerna enligt följande. Exempel:
 
 ``` JSON
 [
@@ -210,7 +210,7 @@ The timestamp field must match one of these two formats:
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = '2019-12-12 00:00:00'
     ```
 
-## <a name="span-idtableazure-table-storagespan"></a><span id="table">Azure-Table Storage</span>
+## <a name="span-idtableazure-table-storagespan"></a><span id="table">Azure Table Storage</span>
 
 * **Anslutnings sträng**: Mer information om hur du hämtar anslutnings strängen från Azure Table Storage finns i [Visa och kopiera en anslutnings sträng](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=azure-portal#view-account-access-keys) .
 

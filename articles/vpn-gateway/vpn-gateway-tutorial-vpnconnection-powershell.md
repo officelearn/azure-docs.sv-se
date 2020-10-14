@@ -5,15 +5,15 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 10/13/2020
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 9b712c1b2e8ac33ec189542bf6f60929ac59858d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e03f539f000b55ae00d90afa769ca9c1c30dc1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420565"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048295"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Självstudie: skapa och hantera S2S VPN-anslutningar med hjälp av PowerShell
 
@@ -33,7 +33,7 @@ Följande diagram visar topologin för den här självstudien:
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-## <a name="requirements"></a>Krav
+## <a name="prerequisites"></a>Krav
 
 Slutför den första självstudien: [skapa en VPN-gateway med Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) för att skapa följande resurser:
 
@@ -242,8 +242,7 @@ I den här självstudien har du lärt dig att skapa och hantera VPN-anslutningar
 > * Lägga till flera VPN-anslutningar
 > * Ta bort en VPN-anslutning
 
-Gå vidare till följande självstudier för att lära dig mer om anslutningar mellan servrar och mellan virtuella nätverk, samt P2S-anslutningar.
+Sedan kan du lägga till en P2S-anslutning:
 
 > [!div class="nextstepaction"]
-> * [Skapa anslutningar mellan virtuella nätverk](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Skapa P2S-anslutningar](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

@@ -4,17 +4,16 @@ description: Använd din IoT Hub i Azure Portal för att skicka en IoT Edge-modu
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/30/2019
+ms.date: 10/13/2020
 ms.topic: conceptual
-ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 67c7c71e1f1f3eb9e76aa4938cb4a0a15ca405c8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ef3f09648e0d9101d07c6d8941ee7f79ae97b2b8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978806"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048040"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuera Azure IoT Edge moduler från Azure Portal
 
@@ -22,7 +21,7 @@ När du skapar IoT Edge-moduler med din affärs logik vill du distribuera dem ti
 
 Den här artikeln visar hur Azure Portal vägleder dig genom att skapa ett distributions manifest och distribuera distributionen till en IoT Edge enhet. Information om hur du skapar en distribution som riktar sig till flera enheter baserat på deras delade taggar finns i [distribuera och övervaka IoT Edge moduler i stor skala](how-to-deploy-at-scale.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) i din Azure-prenumeration.
 * En IoT Edge enhet.
@@ -35,6 +34,11 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
 
 Azure Portal har en guide som vägleder dig genom att skapa distributions manifestet, i stället för att skapa JSON-dokumentet manuellt. Det finns tre steg: **Lägg till moduler**, **Ange vägar**och **Granska distribution**.
 
+>[!NOTE]
+>Stegen i den här artikeln visar den senaste schema versionen av IoT Edge agent och hubb. Schema version 1,1 släpptes tillsammans med IoT Edge version 1.0.10, och aktiverar modulens start ordning och väg prioritets funktioner.
+>
+>Om du distribuerar till en enhet som kör version 1.0.9 eller tidigare kan du redigera **körnings inställningarna** i **moduler** -steget i guiden för att använda schema version 1,0.
+
 ### <a name="select-device-and-add-modules"></a>Välj enhet och Lägg till moduler
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din IoT-hubb.
@@ -43,21 +47,30 @@ Azure Portal har en guide som vägleder dig genom att skapa distributions manife
 1. I den övre stapeln väljer du **Ange moduler**.
 1. I avsnittet **container Registry inställningar** på sidan anger du autentiseringsuppgifterna för åtkomst till alla privata behållar register som innehåller dina modulblad.
 1. I avsnittet **IoT Edge moduler** på sidan väljer du **Lägg till**.
-1. Titta på olika typer av moduler på den nedrullningsbara menyn:
+1. Välj en av de tre typerna av moduler på den nedrullningsbara menyn:
 
    * **IoT Edge modul** – du anger modulens namn och URI för behållar avbildningen. Till exempel är avbildnings-URI: n för exempel SimulatedTemperatureSensor-modulen `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` . Om modulens avbildning lagras i ett privat behållar register, lägger du till autentiseringsuppgifterna på den här sidan för att få åtkomst till avbildningen.
    * **Marketplace-modul** – moduler som finns på Azure Marketplace. Vissa Marketplace-moduler kräver ytterligare konfiguration, så granska informationen i modulen i listan med [IoT Edge moduler för Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) .
    * **Azure Stream Analytics modul** – moduler som genereras från en Azure Stream Analytics arbets belastning.
 
-1. När du har lagt till en modul väljer du modulnamnet i listan för att öppna inställningarna för modulen. Fyll i de valfria fälten om det behövs. För ytterligare information om behållar skapande alternativ, starta om princip och önskad status, se [EdgeAgent önskade egenskaper](module-edgeagent-edgehub.md#edgeagent-desired-properties). Mer information om modulen finns i [definiera eller uppdatera önskade egenskaper](module-composition.md#define-or-update-desired-properties).
-1. Om det behövs upprepar du steg 5 till 8 för att lägga till ytterligare moduler i distributionen.
+1. När du har lagt till en modul väljer du modulnamnet i listan för att öppna inställningarna för modulen. Fyll i de valfria fälten om det behövs.
+
+   Mer information om de tillgängliga inställningarna för modulen finns i [konfiguration och hantering av moduler](module-composition.md#module-configuration-and-management).
+
+   Mer information om modulen finns i [definiera eller uppdatera önskade egenskaper](module-composition.md#define-or-update-desired-properties).
+
+1. Upprepa steg 6 till 8 för att lägga till ytterligare moduler i distributionen.
 1. Välj **Nästa: vägar** för att fortsätta till avsnittet vägar.
 
 ### <a name="specify-routes"></a>Ange vägar
 
-På fliken **vägar** definierar du hur meddelanden ska skickas mellan moduler och IoT Hub. Meddelanden skapas med hjälp av namn/värde-par. Som standard kallas en väg **routning** och definieras som **från/Messages/ \* till $upstream**, vilket innebär att alla meddelanden som skickas av alla moduler skickas till din IoT-hubb.  
+På fliken **vägar** definierar du hur meddelanden ska skickas mellan moduler och IoT Hub. Meddelanden skapas med hjälp av namn/värde-par. Den första distributionen för en ny enhet innehåller som standard en väg som kallas **väg** och definieras som **från/Messages/ \* till $upstream**, vilket innebär att alla meddelanden som skickas av alla moduler skickas till IoT-hubben.  
 
-Lägg till eller uppdatera vägarna med information från [deklarera vägar](module-composition.md#declare-routes)och välj sedan **Nästa: granska + skapa** för att fortsätta till nästa steg i guiden.
+Parametrarna för **prioritet** och **tid till Live** är valfria parametrar som du kan ta med i en flödes definition. Med prioritets parametern kan du välja vilka vägar som ska bearbetas först eller vilka vägar som ska bearbetas sist. Prioriteten bestäms genom att ange ett nummer 0-9, där 0 är högsta prioritet. Med parametern Time to Live kan du deklarera hur länge meddelanden i den vägen ska vara kvar tills de bearbetas eller tas bort från kön.
+
+Mer information om hur du skapar vägar finns i [deklarera vägar](module-composition.md#declare-routes).
+
+När vägarna har angetts väljer du **Nästa: granska + skapa** för att fortsätta till nästa steg i guiden.
 
 ### <a name="review-deployment"></a>Granska distribution
 

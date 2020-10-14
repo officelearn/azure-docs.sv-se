@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 224f86a40fa812003463301f97bcae07de907f3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0435fe3946118d59d786dd3e6cec350a5ab4eee4
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580722"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046459"
 ---
 # <a name="iot-plug-and-play-bridge"></a>IoT Plug and Play-brygga
 
@@ -39,7 +39,7 @@ IoT Plug and Play Bridge stöder följande typer av kring utrustning som standar
 >[!Important]
 >Utvecklare kan utöka IoT Plug and Play-bryggan till att stödja ytterligare enhets protokoll via instruktionerna i **[IoT plug and Play Bridge Developer-dokumentationen här](https://aka.ms/iot-pnp-bridge-dev-doc)**.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="os-platform"></a>OS-plattform
 
@@ -67,7 +67,7 @@ För att skapa, utöka och utveckla IoT Plug and Play-bryggan behöver du:
 
 ### <a name="azure-iot-products-and-tools"></a>Azure IoT-produkter och-verktyg
 
-- **Azure-IoT Hub** – du behöver en [Azure IoT-hubb](https://docs.microsoft.com/azure/iot-hub/) i din Azure-prenumeration för att ansluta enheten till. Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar. Om du inte har en IoT-hubb [följer du de här anvisningarna för att skapa en](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-using-cli).
+- **Azure-IoT Hub** – du behöver en [Azure IoT-hubb](../iot-hub/index.yml) i din Azure-prenumeration för att ansluta enheten till. Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar. Om du inte har en IoT-hubb [följer du de här anvisningarna för att skapa en](../iot-hub/iot-hub-create-using-cli.md).
 
 > [!Note]
 > IoT Plug and Play är för närvarande tillgängligt på IoT-hubbar som skapats i de centrala regionerna USA, norra Europa och Östra Japan. IoT Plug and Play-support ingår inte i IoT-hubbar på Basic-nivå. Om du vill interagera med din IoT Plug and Play-enhet kan du använda Azure IoT Explorer-verktyget. [Hämta och installera den senaste versionen av Azure IoT Explorer](./howto-use-iot-explorer.md) för ditt operativ system.

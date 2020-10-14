@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: 8cfb7c5a0821bd030252a105b98b1c138b9ef820
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b1aa12bd73772b5d6332a36d749ec4d7d10d4026
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979726"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048193"
 ---
 # <a name="set-up-an-azure-iot-edge-device-with-x509-certificate-authentication"></a>Konfigurera en Azure IoT Edge-enhet med X. 509 certifikatautentisering
 
@@ -36,7 +36,7 @@ För manuell etablering har du två alternativ för att autentisera IoT Edge enh
 
 Den här artikeln beskriver registrerings-och etablerings processen med X. 509 certifikatautentisering. Om du vill lära dig hur du konfigurerar en enhet med symmetriska nycklar kan du läsa [Konfigurera en Azure IoT Edge enhet med symmetrisk nyckel autentisering](how-to-manual-provision-symmetric-key.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du följer anvisningarna i den här artikeln bör du ha en enhet med IoT Edge runtime installerad. Annars följer du stegen i [Installera eller avinstallera Azure IoT Edge runtime](how-to-install-iot-edge.md).
 
@@ -91,12 +91,12 @@ Alla Edge-aktiverade enheter som ansluter till din IoT Hub visas på sidan **IoT
 ### <a name="prerequisites-for-the-azure-cli"></a>Krav för Azure CLI
 
 * En [IoT-hubb](../iot-hub/iot-hub-create-using-cli.md) i din Azure-prenumeration.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Som minst måste din Azure CLI-version vara 2.0.70 eller högre. Validera med `az --version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack.
+* [Azure CLI](/cli/azure/install-azure-cli) i din miljö. Som minst måste din Azure CLI-version vara 2.0.70 eller högre. Validera med `az --version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack.
 * [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ### <a name="create-an-iot-edge-device-with-the-azure-cli"></a>Skapa en IoT Edge-enhet med Azure CLI
 
-Använd kommandot [AZ IoT Hub Device-Identity Create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) för att skapa en ny enhets identitet i din IoT-hubb. Till exempel:
+Använd kommandot [AZ IoT Hub Device-Identity Create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) för att skapa en ny enhets identitet i din IoT-hubb. Exempel:
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled --auth-method x509_thumbprint --primary-thumbprint [SHA thumbprint] --secondary-thumbprint [SHA thumbprint]
@@ -113,7 +113,7 @@ Det här kommandot innehåller flera parametrar:
 
 ### <a name="view-iot-edge-devices-with-the-azure-cli"></a>Visa IoT Edge enheter med Azure CLI
 
-Använd kommandot [AZ IoT Hub Device-Identity List](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) för att visa alla enheter i din IoT Hub. Till exempel:
+Använd kommandot [AZ IoT Hub Device-Identity List](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) för att visa alla enheter i din IoT Hub. Exempel:
 
    ```azurecli
    az iot hub device-identity list --hub-name [hub name]

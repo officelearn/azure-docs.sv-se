@@ -11,12 +11,12 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 1b73b82b4367d50cc5fbe9881a67e0afa041db86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af3eb828e1fd2c4aa14467e5afc18f1b5a0b7fa1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201166"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047717"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Strategier för att läsa in data till en Synapse SQL-pool
 
@@ -28,10 +28,6 @@ SQL-poolen har stöd för många inläsnings metoder, inklusive populära SQL Se
 
 Med PolyBase och KOPIERINGs instruktionen kan du komma åt externa data som lagras i Azure Blob Storage eller Azure Data Lake Store via T-SQL-språket. Vi rekommenderar att du använder COPY-instruktionen för största möjliga flexibilitet vid inläsning.
 
-> [!NOTE]  
-> KOPIERINGs instruktionen är för närvarande en offentlig för hands version. Skicka e-post till följande distributions lista för att ge feedback: sqldwcopypreview@service.microsoft.com .
-
-> [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
 ## <a name="what-is-elt"></a>Vad är ELT?
 

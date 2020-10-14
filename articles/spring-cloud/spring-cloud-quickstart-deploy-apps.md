@@ -8,19 +8,19 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 0e80f866aa7affb07b13847b44658e33c7044da6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d368c938e805164b70c7d3a22f9229b5efd89dde
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976903"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045412"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Snabb start: bygga och distribuera appar till Azure våren Cloud
 
 ::: zone pivot="programming-language-csharp"
 I den här snabb starten skapar och distribuerar du mikrotjänstprogram till Azure våren-molnet med hjälp av Azure CLI.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slutför föregående snabb starter i den här serien:
 
@@ -162,7 +162,7 @@ Testa programmet genom att skicka en HTTP GET-begäran till `solar-system-weathe
 
 ## <a name="test-the-application"></a>Testa programmet
 
-Skicka en GET-begäran till `solar-system-weather` appen. I en webbläsare navigerar du till den offentliga URL: en som har `/weatherforecast` lagts till i slutet av den. Till exempel:
+Skicka en GET-begäran till `solar-system-weather` appen. I en webbläsare navigerar du till den offentliga URL: en som har `/weatherforecast` lagts till i slutet av den. Exempel:
 
 ```
 https://servicename-solar-system-weather.azuremicroservices.io/weatherforecast
@@ -185,7 +185,7 @@ Det här dokumentet beskriver hur du skapar och distribuerar program för mikrot
 
 Innan du distribuerar med Azure CLI eller Maven ska du slutföra exemplen som [etablerar en instans av Azure våren Cloud](spring-cloud-quickstart-provision-service-instance.md) och [konfigurerar konfigurations servern](spring-cloud-quickstart-setup-config-server.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Installera JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
 * [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/free/)
@@ -261,7 +261,7 @@ Vi behöver ett sätt att komma åt programmet via en webbläsare. Vårt Gateway
 1. Klona git-lagringsplatsen genom att köra följande kommando:
 
     ```
-    git clone https://github.com/Azure-Samples/PiggyMetrics
+    git clone https://github.com/Azure-Samples/piggymetrics
     ```
   
 1. Ändra katalog och bygg projektet genom att köra följande kommando:

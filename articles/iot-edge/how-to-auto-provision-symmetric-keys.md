@@ -9,12 +9,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 791aadf349654e1e62c3ac2b98a955de7b46c0b7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 10ed546e8f05f4a93e4523c7870f79d41aa1f622
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966125"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046000"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Skapa och etablera en IoT Edge enhet med hjälp av symmetrisk nyckel attestering
 
@@ -26,9 +26,9 @@ Den här artikeln visar hur du skapar en individuell registrering av enhets etab
 * Skapa en enskild registrering för enheten.
 * Installera IoT Edge Runtime och Anslut till IoT Hub.
 
-Symmetrisk nyckel attestering är en enkel metod för att autentisera en enhet med en enhets etablerings tjänst instans. Den här attesterings metoden representerar en "Hello World"-upplevelse för utvecklare som är nya för enhets etablering eller som inte har strikta säkerhets krav. Enhets attestering med hjälp av [TPM](../iot-dps/concepts-tpm-attestation.md) -eller [X. 509-certifikat](../iot-dps/concepts-security.md#x509-certificates) är säkrare och bör användas för mer långtgående säkerhets krav.
+Symmetrisk nyckel attestering är en enkel metod för att autentisera en enhet med en enhets etablerings tjänst instans. Den här attesterings metoden representerar en "Hello World"-upplevelse för utvecklare som är nya för enhets etablering eller som inte har strikta säkerhets krav. Enhets attestering med hjälp av [TPM](../iot-dps/concepts-tpm-attestation.md) -eller [X. 509-certifikat](../iot-dps/concepts-x509-attestation.md) är säkrare och bör användas för mer långtgående säkerhets krav.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En aktiv IoT Hub
 * En fysisk eller virtuell enhet
@@ -81,7 +81,7 @@ När du skapar en registrering i DPS har du möjlighet att deklarera en **först
 
    1. Välj **hur du vill att enhets data ska hanteras vid ny etablering** när enheter begär etablering efter första gången.
 
-   1. Lägg till ett tagg-värde till den **första enheten** i ett läge om du vill. Du kan använda taggar för att ange mål grupper för enheter för modul distribution. Till exempel:
+   1. Lägg till ett tagg-värde till den **första enheten** i ett läge om du vill. Du kan använda taggar för att ange mål grupper för enheter för modul distribution. Exempel:
 
       ```json
       {
@@ -152,7 +152,7 @@ echo "`n$derivedkey`n"
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
-## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge runtime
+## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge-körningen
 
 IoT Edge-körningen distribueras på alla IoT Edge-enheter. Komponenterna körs i behållare och gör att du kan distribuera ytterligare behållare till enheten så att du kan köra kod i kanten.
 

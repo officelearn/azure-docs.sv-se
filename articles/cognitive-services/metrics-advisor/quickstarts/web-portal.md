@@ -3,19 +3,19 @@ title: 'Snabb start: webb portalen för Metrics Advisor'
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du börjar använda Metrics Advisor-webbportalen.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/30/2020
-ms.author: aahi
-ms.openlocfilehash: 65542ca88d055af2c537907d7ae801250943ed0b
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.author: mbullwin
+ms.openlocfilehash: 0afd8fab6072e1563d2b2f277e8a53b56a8161c2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930381"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048244"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Snabb start: övervaka ditt första mått med hjälp av webb portalen
 
@@ -27,7 +27,7 @@ När du etablerar en Metric Advisor-instans kan du använda API: erna och den we
 * Utforska diagnostiska insikter
 * Skapa och prenumerera på avvikelse aviseringar
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * När du har en Azure-prenumeration kan du <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title=" skapa en Metrics Advisor-resurs "  target="_blank"> som skapar en Metric Advisor-resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att distribuera din Metric Advisor-instans.  
@@ -89,7 +89,7 @@ När anslutnings strängen och frågesträngen har skapats väljer du **Verifier
 När data schemat har lästs in och visas som nedan väljer du lämpliga fält.
 
 
-|Urval  |Beskrivning  |Obs!  |
+|Urval  |Beskrivning  |Kommentarer  |
 |---------|---------|---------|
 |**Timestamp**     | Tidsstämpeln för en data punkt. Om detta utelämnas använder Metric Advisor tidsstämpeln när data punkten matas in i stället. För varje datafeed kan du ange högst en kolumn som tidstämpel.        | Valfritt. Ska anges med högst en kolumn.       |
 |**Mått**     |  De numeriska värdena i datafeeden. För varje datafeed kan du ange flera mått, men minst en kolumn ska vara markerad som mått.        | Måste anges med minst en kolumn.        |

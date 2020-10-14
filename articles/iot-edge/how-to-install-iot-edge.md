@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kgremban
-ms.openlocfilehash: e5dc5601be5bd6d8003b196b5e7768e66bc48478
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3a02459f5b92aa7d708c29c737ed9428ed14215a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979900"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045694"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>Installera eller avinstallera Azure IoT Edge runtime
 
@@ -24,7 +24,7 @@ Det finns två steg för att konfigurera en IoT Edge enhet. Det första steget �
 
 Den här artikeln beskriver stegen för att installera Azure IoT Edge runtime på Linux-eller Windows-enheter. För Windows-enheter har du ytterligare möjlighet att använda Linux-behållare eller Windows-behållare. För närvarande rekommenderas Windows-behållare i Windows för produktions scenarier. Linux-behållare i Windows är användbara för utvecklings-och testnings scenarier, särskilt om du utvecklar på en Windows-dator för att distribuera till Linux-enheter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den senaste informationen om vilka operativ system som för närvarande stöds för produktions scenarier finns i [Azure IoT Edge system som stöds](support.md#operating-systems)
 
@@ -267,7 +267,7 @@ Om enheten ska vara offline under installationen, eller om du vill installera en
 
 4. Du kan också hämta ett installations program för Visual C++ Redistributable. PowerShell-skriptet använder till exempel den här versionen: [vc_redist.x64.exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe). Spara installations programmet i samma mapp på din IoT-enhet som IoT Edge-filer.
 
-5. Om du vill installera med offline-komponenter kan du [punkt källa](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) den lokala kopian av PowerShell-skriptet. 
+5. Om du vill installera med offline-komponenter kan du [punkt källa](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) den lokala kopian av PowerShell-skriptet. 
 
 6. Kör kommandot [Deploy-IoTEdge](reference-windows-scripts.md#deploy-iotedge) med `-OfflineInstallationPath` parametern. Ange den absoluta sökvägen till fil katalogen. Exempel:
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: be79f7bd6687b2e53e6abe19dc0a20999942071d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a7fcd32335b5d9e04986355adeea473cf77b970e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974981"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048210"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Hantera Azure Digitals dubbla modeller
 
@@ -84,7 +84,7 @@ I följande avsnitt visas hur du utför olika modell hanterings åtgärder med h
 När modeller har skapats kan du ladda upp dem till Azure Digitals-instansen.
 
 > [!TIP]
-> Vi rekommenderar att du validerar dina modeller offline innan du laddar upp dem till din Azure Digital-instansen. Du kan använda [DTDL för klient sidans parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) och [DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) som beskrivs i [*instruktionen att parsa och validera modeller*](how-to-parse-models.md) för att kontrol lera dina modeller innan du överför dem till tjänsten.
+> Vi rekommenderar att du validerar dina modeller offline innan du laddar upp dem till din Azure Digital-instansen. Du kan använda [DTDL för klient sidans parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) och [DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) som beskrivs i [*instruktionen att parsa och validera modeller*](how-to-parse-models.md) för att kontrol lera dina modeller innan du överför dem till tjänsten.
 
 När du är redo att ladda upp en modell kan du använda följande kodfragment:
 
@@ -113,7 +113,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-Model-filer kan innehålla mer än en enskild modell. I det här fallet måste modellerna placeras i en JSON-matris. Till exempel:
+Model-filer kan innehålla mer än en enskild modell. I det här fallet måste modellerna placeras i en JSON-matris. Exempel:
 
 ```json
 [

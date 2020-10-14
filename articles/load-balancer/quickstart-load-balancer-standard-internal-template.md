@@ -1,6 +1,6 @@
 ---
-title: Skapa en intern belastningsutjämnare med hjälp av en Azure Resource Manager mall (ARM-mall)
-description: Lär dig hur du skapar en intern Azure Load Balancer med hjälp av en Azure Resource Manager-mall (ARM-mall).
+title: 'Snabb start: skapa en intern belastningsutjämnare med hjälp av en mall'
+description: Den här snabb starten visar hur du skapar en intern Azure Load Balancer med hjälp av en Azure Resource Manager mall (ARM-mall).
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: allensu
 ms.date: 09/14/2020
-ms.openlocfilehash: 287afc51aa15ed4cadba7e2d6cd389e4869d7d61
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa68dad2f8f018a9f3f70f2f02fd5e989ccbad4e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90532861"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047768"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Snabb start: skapa en intern belastningsutjämnare för att belastningsutjämna virtuella datorer genom att använda en ARM-mall
 
@@ -62,7 +62,7 @@ az deployment group create \
 
 ## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. Välj **resurs grupper** i det vänstra fönstret.
 

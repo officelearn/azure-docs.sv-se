@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: cynthn
-ms.openlocfilehash: dd2d42bb83afa5a97bd5bd71d7b1a4bcc506d93e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 73a7090afe771eef82523753c4067399d9f5dd5e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976172"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048091"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>För hands version: Använd Kundhanterade nycklar för att kryptera avbildningar
 
@@ -23,7 +23,7 @@ Du kan förlita dig på plattforms hanterade nycklar för kryptering av dina avb
 
 Kryptering på Server sidan med Kundhanterade nycklar använder Azure Key Vault. Du kan antingen importera [dina RSA-nycklar](../key-vault/keys/hsm-protected-keys.md) till Key Vault eller generera nya RSA-nycklar i Azure Key Vault.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln kräver att du redan har en disk krypterings uppsättning som ska användas för avbildningen.
 
@@ -41,7 +41,7 @@ Det finns flera begränsningar när du använder Kundhanterade nycklar för att 
 
 - Krypterings nyckel uppsättningar är regionala resurser så att varje region kräver en annan krypterings nyckel uppsättning.
 
-- Du kan inte dela avbildningar som använder Kundhanterade nycklar. 
+- Du kan inte kopiera eller dela bilder som använder Kundhanterade nycklar. 
 
 - När du har använt dina egna nycklar för att kryptera en disk eller avbildning kan du inte gå tillbaka till med hjälp av plattforms hanterade nycklar för kryptering av diskarna eller avbildningarna.
 
@@ -201,7 +201,7 @@ az sig image-version create \
 Du kan skapa en virtuell dator från ett delat avbildnings galleri och använda Kundhanterade nycklar för att kryptera diskarna. Syntaxen är densamma som när du skapar en [generaliserad](vm-generalized-image-version-cli.md) eller [specialiserad](vm-specialized-image-version-cli.md) virtuell dator från en avbildning. du behöver bara lägga till `--os-disk-encryption-set` parametern med ID: t för krypterings uppsättningen. För data diskar lägger du till `--data-disk-encryption-sets` med en blankstegsavgränsad lista över disk krypterings uppsättningar för data diskarna.
 
 
-## <a name="portal"></a>Portal
+## <a name="portal"></a>Portalen
 
 När du skapar din avbildnings version i portalen kan du använda fliken **kryptering** för att ange tillämpa dina lagrings krypterings uppsättningar.
 

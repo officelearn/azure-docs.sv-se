@@ -8,25 +8,25 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: d1288f117a6b6c9fb05fd29578be35c676453177
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4e9b9a7fb6e739b3bd288557457d1c152e372e26
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975169"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045303"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrera med Logic Apps med hjälp av en anpassad anslutning
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) är en moln tjänst som hjälper dig att automatisera arbets flöden i appar och tjänster. Genom att ansluta Logic Apps till Azures digitala dubbla API: er, kan du skapa sådana automatiserade flöden kring Azures digitala dubbla och deras data.
 
-Azure Digitals dubbla är för närvarande inte en certifierad (fördefinierad) anslutning för Logic Apps. I stället är den aktuella processen för att använda Logic Apps med Azure Digitals dubbla, att skapa en [**anpassad Logic Apps anslutning**](../logic-apps/custom-connector-overview.md)med hjälp av en [anpassad Azure Digital-Swagger](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) som har ändrats för att fungera med Logic Apps.
+Azure Digitals dubbla är för närvarande inte en certifierad (fördefinierad) anslutning för Logic Apps. I stället är den aktuella processen för att använda Logic Apps med Azure Digitals dubbla, att skapa en [**anpassad Logic Apps anslutning**](../logic-apps/custom-connector-overview.md)med hjälp av en [anpassad Azure Digital-Swagger](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) som har ändrats för att fungera med Logic Apps.
 
 > [!NOTE]
 > Det finns flera versioner av Swagger som finns i det anpassade Swagger-exemplet som är länkat ovan. Den senaste versionen finns i undermappen med det senaste datumet, men tidigare versioner som finns i exemplet stöds också fortfarande.
 
 I den här artikeln ska du använda [Azure Portal](https://portal.azure.com) för att **skapa en anpassad anslutning** som kan användas för att ansluta Logic Apps till en digital Azure-instans. Sedan skapar du **en Logic-app** som använder den här anslutningen för ett exempel scenario, där händelser som utlöses av en timer automatiskt uppdaterar en dubbla i din Azure Digital-instansen. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du **skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ** innan du börjar.
 Logga in på [Azure Portal](https://portal.azure.com) med det här kontot. 
@@ -93,7 +93,7 @@ Du kommer till distributions sidan för anslutningen. När distributionen är f�
 
 Sedan konfigurerar du den anslutning som du har skapat för att komma åt Azure Digital-dubbla.
 
-Börja med att ladda ned en anpassad Azure Digital-Swagger som har ändrats för att fungera med Logic Apps. Hämta det **anpassade Azure Digital-swaggers** -exemplet från [**den här länken**](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) genom att trycka på *Hämta zip* -knappen. Navigera till den hämtade *Azure_Digital_Twins_Custom_Swaggers.zip* -mappen och packa upp den. 
+Börja med att ladda ned en anpassad Azure Digital-Swagger som har ändrats för att fungera med Logic Apps. Hämta det **anpassade Azure Digital-swaggers** -exemplet från [**den här länken**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) genom att trycka på *Hämta zip* -knappen. Navigera till den hämtade *Azure_Digital_Twins_Custom_Swaggers.zip* -mappen och packa upp den. 
 
 Den anpassade Swagger för den här självstudien finns i mappen _**Azure_Digital_Twins_Custom_Swaggers \logicapps**_ . Den här mappen innehåller undermappar med namnet *stabil* och för *hands version*, som båda har olika versioner av Swagger organiserade efter datum. Mappen med det senaste datumet kommer att innehålla den senaste kopian av Swagger. Oavsett vilken version du väljer heter Swagger-filen _**digitaltwins.jspå**_.
 
@@ -213,7 +213,7 @@ Du kan välja andra åtgärder genom att välja _+ nytt steg_ i samma fönster.
 
 Nu när din Logi Kap par har skapats, bör den dubbla uppdaterings händelsen som du definierade i Logic Apps designer inträffa vid en upprepning var tredje sekund. Det innebär att du i tre sekunder kan fråga din dubbla och se dina nya korrigerade värden.
 
-Du kan fråga din dubbla via din metod för val (till exempel en [anpassad klient app](tutorial-command-line-app.md), [exempel program för Azure Digitals Utforskare](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), SDK: [er och API: er](how-to-use-apis-sdks.md)eller [CLI](how-to-use-cli.md)). 
+Du kan fråga din dubbla via din metod för val (till exempel en [anpassad klient app](tutorial-command-line-app.md), [exempel program för Azure Digitals Utforskare](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), SDK: [er och API: er](how-to-use-apis-sdks.md)eller [CLI](how-to-use-cli.md)). 
 
 Mer information om hur du frågar din Azure Digital-instansen finns i [*How-to: fråga den dubbla grafen*](how-to-query-graph.md).
 

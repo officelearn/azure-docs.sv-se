@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/31/2020
-ms.openlocfilehash: b010a90929a5eb905f21ebe23aa971f05d210941
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: f9907b746c1dceb0b0e847c09ea4a549138f0064
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282705"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047734"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Kopiera data från tjänsten Amazon Simple Storage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -47,10 +47,9 @@ Mer specifikt stöder den här Amazon S3-anslutaren kopiering av filer som är e
 
 ## <a name="required-permissions"></a>Behörigheter som krävs
 
-Om du vill kopiera data från Amazon S3 ser du till att du har beviljats följande behörigheter:
+Om du vill kopiera data från Amazon S3 ser du till att du har beviljats följande behörigheter för Amazon S3-objekt åtgärder: `s3:GetObject` och `s3:GetObjectVersion` .
 
-- **För kopierings aktivitets körning**: `s3:GetObject` och `s3:GetObjectVersion` för Amazon S3-objekt åtgärder.
-- **För Data Factory GUI-redigering**: `s3:ListAllMyBuckets` och `s3:ListBucket` / `s3:GetBucketLocation` för Amazon S3-Bucket-åtgärder. Behörigheter krävs också för åtgärder som att testa anslutningar och bläddra till fil Sök vägar. Om du inte vill bevilja dessa behörigheter hoppar du över test anslutningen på sidan Skapa länkad tjänst och anger sökvägen direkt i inställningar för data uppsättning.
+Om du använder Data Factory gränssnittet för att redigera `s3:ListAllMyBuckets` krävs ytterligare och `s3:ListBucket` / `s3:GetBucketLocation` behörigheter för åtgärder som att testa anslutningen till den länkade tjänsten och surfa från roten. Om du inte vill bevilja dessa behörigheter kan du välja alternativen "Testa anslutning till fil Sök väg" eller "Bläddra från angiven sökväg" från användar gränssnittet.
 
 En fullständig lista över Amazon S3-behörigheter finns i [Ange behörigheter i en princip](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) på AWS-webbplatsen.
 

@@ -2,21 +2,21 @@
 title: Mått övervakare REST API snabb start
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/23/2020
-ms.author: aahi
-ms.openlocfilehash: 603668f5bd4bb3909c895c3b2816b7521312ab59
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: mbullwin
+ms.openlocfilehash: 416f28f51a3ebe00e7227503f189898406229c8a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91253758"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047477"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * När du har en Azure-prenumeration kan du <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title=" skapa en Metrics Advisor-resurs "  target="_blank"> som skapar en Metric Advisor-resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att distribuera din Metric Advisor-instans.  

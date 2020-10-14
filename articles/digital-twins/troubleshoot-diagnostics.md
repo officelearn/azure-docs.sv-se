@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: fc397b6d6beb719e11dc3959bbcf4d75c08a8dda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4abf78c153bd3d61068e4b7607794d6ccf1ed04
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723936"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047683"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Felsöka Azure Digitals sammanflätade: diagnostikloggning
 
@@ -71,9 +71,9 @@ Varje logg kategori består av åtgärder av Skriv-, Läs-, borttagnings-och åt
 | Skriva | PLACERING och korrigering |
 | Läs | GET |
 | Ta bort | DELETE |
-| Action | POST |
+| Åtgärd | POST |
 
-Här är en omfattande lista över åtgärderna och motsvarande [Azure Digital-meddelanden REST API samtal](https://docs.microsoft.com/rest/api/azure-digitaltwins/) som loggas i varje kategori. 
+Här är en omfattande lista över åtgärderna och motsvarande [Azure Digital-meddelanden REST API samtal](/rest/api/azure-digitaltwins/) som loggas i varje kategori. 
 
 >[!NOTE]
 > Varje logg kategori innehåller flera åtgärder/REST API-anrop. I tabellen nedan mappas varje logg kategori till alla åtgärder/REST API samtal under den tills nästa logg kategori visas. 

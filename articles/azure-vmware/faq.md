@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 67309aafe5c1bc841399006285a9862f711e4296
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: bd75e3d708ddfb9d5545111e7bc4935c8dd50141
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018567"
+ms.locfileid: "92045235"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Vanliga frågor och svar om Azure VMware-lösningen
 
@@ -73,6 +73,9 @@ Ja, förutsatt att det system som är installerat på kan komma åt det privata 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Finns det särskilda instruktioner för att installera och använda VMRC med virtuella Azure VMware-lösningar?
 Nej, Använd de [instruktioner som tillhandahålls av VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) och uppfylla de VM-krav som anges i dessa instruktioner. 
 
+#### <a name="is-vmware-hcx-supported-on-vpns"></a>Stöds VMware HCX i VPN-nätverk?
+Nej.
+
 
 ## <a name="compute-network-storage-and-backup"></a>Beräkning, nätverk, lagring och säkerhets kopiering
 
@@ -111,6 +114,10 @@ Som de här säkerhets kopierings lösningarna installeras och hanteras av kunde
 #### <a name="what-is-the-correct-storage-policy-for-the-dedup-set-up"></a>Vad är rätt lagrings princip för Deduplicerings inställningen?
 
 Använd *thin_provision* lagrings princip för din VM-mall.  Standardvärdet är *thick_provision*.
+
+#### <a name="are-the-snmp-infrastructure-logs-shared"></a>Loggar SNMP-infrastrukturen delade?
+
+Nej.
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Värdar, kluster och privata moln
 

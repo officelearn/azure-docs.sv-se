@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 1725c3ff162e4f6b7ac3a5ea1ede6976c827b510
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c7f9ed9558adc9d129d1df767a05aff1fa4c66c
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328504"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047394"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Flytta en digital Azure-instans till en annan Azure-region
 
@@ -30,7 +30,7 @@ Den här processen omfattar följande steg:
     - Länka anslutna resurser på nytt.
 4. Rensa käll resurser: ta bort ursprunglig instans.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du försöker återskapa din Azure Digital-instansen är det en bra idé att gå igenom komponenterna i den ursprungliga instansen och få en tydlig uppfattning om alla delar som måste återskapas.
 
@@ -49,18 +49,18 @@ Här är några frågor som du kanske vill tänka på:
     - Enhets etablerings tjänst (DPS)
 * Vilka andra **personliga appar eller företags program** har jag som ansluter till min instans?
 
-Du kan samla in den här informationen med hjälp av [Azure Portal](https://portal.azure.com), [Azure Digitals dubbla API: er och SDK: er](how-to-use-apis-sdks.md), [Azure Digitals CLI-kommandon](how-to-use-cli.md)eller [Azure Digitals-Utforskaren (ADT)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
+Du kan samla in den här informationen med hjälp av [Azure Portal](https://portal.azure.com), [Azure Digitals dubbla API: er och SDK: er](how-to-use-apis-sdks.md), [Azure Digitals CLI-kommandon](how-to-use-cli.md)eller [Azure Digitals-Utforskaren (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
 
 ## <a name="prepare"></a>Förbereda
 
-I det här avsnittet ska du förbereda för att återskapa instansen genom att **Ladda ned dina ursprungliga modeller, dubbla och grafer** från den ursprungliga instansen. Den här artikeln gör detta med hjälp av exempel på [Azure Digitals ADT-Utforskaren](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
+I det här avsnittet ska du förbereda för att återskapa instansen genom att **Ladda ned dina ursprungliga modeller, dubbla och grafer** från den ursprungliga instansen. Den här artikeln gör detta med hjälp av exempel på [Azure Digitals ADT-Utforskaren](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
 
 >[!NOTE]
 >Du kanske redan har filer som innehåller modellerna och/eller grafen i din instans. I så fall behöver du inte hämta allting igen, bara de delar som du saknar eller saker som kan ha ändrats sedan du ursprungligen laddade upp dessa filer (till exempel dubbla objekt som kan ha uppdaterats med nya data).
 
 ### <a name="limitations-of-adt-explorer"></a>Begränsningar för ADT Explorer
 
-[ADT-Utforskaren (Azure Digitals)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) är ett exempel på en app för klient program som har stöd för visuell representation av grafen och ger visuell interaktion med din instans. Den här artikeln visar hur du kan använda den för att ladda ned och senare Ladda upp igen, modeller, dubbla och grafer.
+[ADT-Utforskaren (Azure Digitals)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) är ett exempel på en app för klient program som har stöd för visuell representation av grafen och ger visuell interaktion med din instans. Den här artikeln visar hur du kan använda den för att ladda ned och senare Ladda upp igen, modeller, dubbla och grafer.
 
 Observera dock att det här är ett **exempel** och inte ett komplett verktyg. Den har inte testats och har inte skapats för att hantera diagram av stor storlek. Tänk därför på följande exempel begränsningar som är färdiga:
 * Exemplet har för närvarande endast testats i diagram storlekar upp till 1000 noder och 2000 relationer
@@ -76,7 +76,7 @@ Om exemplet inte kan hantera diagrammets storlek, kan du exportera och importera
 
 Om du vill fortsätta med ADT Explorer laddar du först ned exempel koden och konfigurerar den så att den körs på din dator. 
 
-Navigera till exemplet här: [Azure Digitals flätar (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden till din dator som _**ADT_Explorer.zip**_. Zippa upp filen.
+Navigera till exemplet här: [Azure Digitals flätar (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden till din dator som _**ADT_Explorer.zip**_. Zippa upp filen.
 
 Konfigurera sedan behörigheter för ADT Explorer att köras på datorn. Det gör du genom att följa stegen i avsnittet [*Ange behörigheter för ADT Explorer*](quickstart-adt-explorer.md#set-adt-explorer-permissions) i snabb starten för Azure Digital.
 
@@ -219,7 +219,7 @@ När du har slutfört det här steget ska den nya instansen i mål regionen vara
 Du kan använda följande verktyg för att kontrol lera att den nya instansen har kon figurer ATS korrekt:
 * [**Azure Portal**](https://portal.azure.com) (passar för att verifiera att den nya instansen finns och är i rätt mål region, även för att verifiera slut punkter och vägar, och anslutningar till andra Azure-tjänster)
 * [Azure Digitals flätat **CLI-kommandon** ](how-to-use-cli.md) (passar för att verifiera att din nya instans finns och är i rätt mål region, kan också användas för att verifiera instans data)
-* [**ADT Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (passar för att verifiera instans data som modeller, dubbla och grafer)
+* [**ADT Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (passar för att verifiera instans data som modeller, dubbla och grafer)
 * [Azure Digitals dubbla API: er och SDK: er](how-to-use-apis-sdks.md) (passar för att verifiera instans data, t. ex. modeller, dubbla och grafer, också lämpligt för att verifiera slut punkter och vägar)
 
 Du kan också prova att köra anpassade appar eller slut punkt till slut punkt som du har kört med din ursprungliga instans, för att hjälpa dig att kontrol lera att de arbetar med den nya instansen korrekt.

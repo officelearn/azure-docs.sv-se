@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 10/13/2020
 ms.author: alkohli
-ms.openlocfilehash: 3ec89b897b4ea2e802188e3aefe9b830d7ff1cf8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b0377d7b209da76b03a115dc82831eeb00e1ff95
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969185"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047088"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Uppdatera Azure Stack Edge Pro GPU 
 
@@ -22,7 +22,7 @@ I den här artikeln beskrivs de steg som krävs för att installera uppdateringe
 Proceduren som beskrivs i den här artikeln har utförts med en annan version av program varan, men processen är densamma för den aktuella program versionen.
 
 > [!IMPORTANT]
-> - Uppdatering **2009** motsvarar **2.1.1364.2110** program varu version på enheten. Information om den här uppdateringen finns i [viktig information](azure-stack-edge-gpu-2009-release-notes.md).
+> - Uppdatering **2010** motsvarar **2.1.1377.2170** program varu version på enheten. Information om den här uppdateringen finns i [viktig information](azure-stack-edge-gpu-2009-release-notes.md).
 >
 > - Kom ihåg enheten startas om när du installerar en uppdatering eller korrigering. Den här uppdateringen kräver att du installerar två uppdateringar i tur och ordning. Först installerar du enhetens program uppdateringar och sedan Kubernetes-uppdateringar. Med tanke på att Azure Stack Edge Pro är en enda Node-enhet avbryts alla i/O-åtgärder och enheten upplever en stillestånds tid på upp till 30 minuter för enhetens program uppdatering.
 
@@ -163,9 +163,9 @@ Utför följande steg för att ladda ned uppdateringen från Microsoft Update ka
 
 2. I rutan Sök i Microsoft Updates katalogen anger du Knowledge Base-numret för snabb korrigeringen eller villkoren för den uppdatering som du vill ladda ned. Ange till exempel **Azure Stack Edge Pro**och klicka sedan på **Sök**.
    
-    Uppdaterings listan visas som **Azure Stack Edge Pro 2006**.
+    Uppdaterings listan visas som **Azure Stack Edge update 2010**.
    
-    ![Sök katalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)
+    <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)-->
 
 4. Välj **Hämta**. Det finns två filer att ladda ned med *SoftwareUpdatePackage.exe* och *Kubernetes_Package.exe* suffix som motsvarar enhets program uppdateringar respektive Kubernetes uppdateringar. Ladda ned filerna till en mapp på det lokala systemet. Du kan också kopiera mappen till en nätverks resurs som kan kontaktas från enheten.
 
@@ -198,9 +198,9 @@ Den här proceduren tar cirka 20 minuter att slutföra. Utför följande steg f�
 
 5. Uppdateringen startar. När enheten har uppdaterats startas den om. Det lokala användar gränssnittet är inte tillgängligt under denna varaktighet.
    
-6. När omstarten är klar tas du till **inloggnings** sidan. Kontrol lera att enhetens program vara har uppdaterats genom att gå till **Underhåll**  >  **program uppdatering**i det lokala webb gränssnittet. Den program varu version som visas i det här exemplet är **2.0.1257.1591**.
+6. När omstarten är klar tas du till **inloggnings** sidan. Kontrol lera att enhetens program vara har uppdaterats genom att gå till **Underhåll**  >  **program uppdatering**i det lokala webb gränssnittet. Den program varu version som visas ska vara **2.1.1377.2170**för den aktuella versionen.
 
-   ![uppdatera enhet 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png) 
+   <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)--> 
 
 7. Du kommer nu att uppdatera Kubernetes-program versionen. Upprepa stegen ovan. Ange en sökväg till Kubernetes-uppdaterings filen med *Kubernetes_Package.exe* suffixet.  
 

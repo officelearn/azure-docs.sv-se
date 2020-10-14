@@ -3,18 +3,21 @@ title: Azure Lab Services i Microsoft Teams
 description: Ger en översikt över hur du använder Azure Lab Services i Microsoft Teams.
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 8b70ab3cbf1a342646f6a2897550c4bf8f7601a7
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 0c7defdb6f801a10c5fadfdca805381a31f39378
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946850"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047836"
 ---
 # <a name="azure-lab-services-within-microsoft-teams"></a>Azure Lab Services i Microsoft Teams
 
-Azure Lab Services ägare/skapare kan nu skapa labb i Microsoft Teams.
+Azure Lab Services kan utnyttjas i Microsoft Teams med hjälp av **Azure Lab Services** Teams-appen. Alla team ägare med behörigheten ägare/deltagare/skapare till labb kontona kan skapa labb och etablera virtuella datorer till alla i teamet.
 
-Den här artikeln beskriver fördelarna med team integrering och innehåller länkar till andra artiklar för instruktioner om hur du hanterar Azure Lab Services i team. 
+Den här artikeln beskriver fördelarna med att använda Azure Lab Services i team och innehåller länkar till andra artiklar för instruktioner om hur du skapar och hanterar labb i team. 
+
+> [!NOTE]
+>**Azure Lab Services** Team-appen kan bara läggas till i ett team, den kan inte läggas till i enskilda chattar eller gruppchattar.
 
 ## <a name="benefits"></a>Fördelar
 
@@ -31,8 +34,8 @@ Azure Lab Services integrering med Microsoft Teams hjälper lärare att ställa 
 
 Se följande artiklar:
 
-- [Kom igång och skapa ett labb tjänst labb från team](how-to-get-started-create-lab-within-teams.md)
-- [Hantera användar listor i labb tjänster från team](how-to-manage-user-lists-within-teams.md)
-- [Hantera en VM-pool i labb tjänster från team](how-to-manage-vm-pool-within-teams.md)
-- [Skapa scheman för labb tjänster från team](how-to-create-schedules-within-teams.md)
-- [Åtkomst till en virtuell dator (elev visning) i labb tjänster från team](how-to-access-vm-for-students-within-teams.md)
+- [Kom igång och skapa ett labb i Teams](how-to-get-started-create-lab-within-teams.md)
+- [Hantera användar listor för labb i team](how-to-manage-user-lists-within-teams.md)
+- [Hantera Labbets VM-pool i Teams](how-to-manage-vm-pool-within-teams.md)
+- [Skapa och hantera labb scheman i team](how-to-create-schedules-within-teams.md)
+- [Åtkomst till en virtuell dator i Teams – elev visning](how-to-access-vm-for-students-within-teams.md)

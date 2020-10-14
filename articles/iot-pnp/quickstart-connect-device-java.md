@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b63e1c0bba4d6ac250119c2ac0d9a1cd0e4ee362
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6dfd63f92b8c420a3c5281ee2962b211b8779dd1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91577024"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045065"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-windows-to-iot-hub-java"></a>Snabb start: ansluta ett exempel på IoT Plug and Play Device-program som körs på Windows till IoT Hub (Java)
 
@@ -20,13 +20,13 @@ ms.locfileid: "91577024"
 
 Den här snabb starten visar hur du skapar ett exempel på IoT Plug and Play Device-program, ansluter det till din IoT-hubb och använder Azure IoT Explorer-verktyget för att Visa telemetri som skickas. Exempel programmet är skrivet i Java och ingår i Azure IoT-enhetens SDK för Java. Ett Solution Builder kan använda Azure IoT Explorer-verktyget för att förstå funktionerna i en IoT Plug and Play-enhet utan att behöva visa någon enhets kod.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 För att slutföra den här snabb starten på Windows installerar du följande program vara i din lokala Windows-miljö:
 
-* Java SE Development Kit 8. I [Java långsiktigt stöd för Azure och Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true), under **långsiktig support**, väljer du **Java 8**.
+* Java SE Development Kit 8. I [Java långsiktigt stöd för Azure och Azure Stack](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), under **långsiktig support**, väljer du **Java 8**.
 * [Apache maven 3](https://maven.apache.org/download.cgi).
 
 ## <a name="download-the-code"></a>Ladda ned koden
@@ -119,4 +119,4 @@ Date since = new Gson().fromJson(jsonRequest, Date.class);
 I den här snabb starten har du lärt dig hur du ansluter en IoT Plug and Play-enhet till en IoT-hubb. Mer information om hur du skapar en lösning som interagerar med din IoT Plug and Play-enheter finns i:
 
 > [!div class="nextstepaction"]
-> [Anvisningar: ansluta till och interagera med en enhet](howto-develop-solution.md)
+> [Anvisningar: ansluta till och interagera med en enhet](./quickstart-service-node.md)

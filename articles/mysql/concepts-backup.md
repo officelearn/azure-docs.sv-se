@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: f64b5a186c026bf752d7975ac4337535ca64458e
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: b3cc70eadfaa1295cd67fa3f2b36c97f107b4bad
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876540"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047003"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Säkerhets kopiering och återställning i Azure Database for MySQL
 
@@ -19,18 +19,29 @@ Azure Database for MySQL skapar automatiskt Server säkerhets kopior och lagrar 
 
 ## <a name="backups"></a>Säkerhetskopior
 
-Azure Database for MySQL säkerhetskopierar datafilerna och transaktions loggen. Beroende på den maximala lagrings storleken som stöds tar vi antingen fullständiga och differentiella säkerhets kopieringar (4 TB max lagrings servrar) eller säkerhets kopior av ögonblicks bilder (upp till 16 TB max lagrings servrar). Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan [också konfigurera det](howto-restore-server-portal.md#set-backup-configuration) upp till 35 dagar. Alla säkerhetskopior krypteras med AES 256-bitars kryptering.
+Azure Database for MySQL säkerhetskopierar datafilerna och transaktions loggen. Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan [också konfigurera det](howto-restore-server-portal.md#set-backup-configuration) upp till 35 dagar. Alla säkerhetskopior krypteras med AES 256-bitars kryptering.
 
 De här säkerhetskopierade filerna är inte användare-exponerade och kan inte exporteras. Dessa säkerhets kopior kan bara användas för återställnings åtgärder i Azure Database for MySQL. Du kan använda [mysqldump](concepts-migrate-dump-restore.md) för att kopiera en databas.
 
-### <a name="backup-frequency"></a>Säkerhetskopieringsfrekvens
+Säkerhets kopieringens typ och frekvens beror på Server serverns lagrings utrymme.
 
-#### <a name="servers-with-up-to-4-tb-storage"></a>Servrar med upp till 4 TB lagrings utrymme
+### <a name="backup-type-and-frequency"></a>Typ av säkerhets kopiering och frekvens
 
-För servrar som har stöd för upp till 4 TB högsta lagrings utrymme sker fullständiga säkerhets kopieringar varje vecka. Differentiella säkerhets kopieringar sker två gånger om dagen. Säkerhetskopieringar av transaktionsloggar sker var femte minut.
+#### <a name="basic-storage-servers"></a>Grundläggande lagrings servrar
 
-#### <a name="servers-with-up-to-16-tb-storage"></a>Servrar med upp till 16 TB lagring
-I en delmängd av [Azure-regioner](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)kan alla nyligen etablerade servrar stödja upp till 16 TB lagring. Säkerhets kopieringar på dessa stora lagrings servrar är Snapshot-baserade. Den första fullständiga säkerhetskopieringen schemaläggs omedelbart efter att en server har skapats. Den första fullständiga säkerhets kopieringen behålls som serverns grundläggande säkerhets kopiering. Efterföljande säkerhetskopieringar av ögonblicksbilder är bara differentiella säkerhetskopieringar. 
+De grundläggande lagrings servrarna är Server dels lagring för [grundläggande SKU-servrar](concepts-pricing-tiers.md). Säkerhets kopior på Basic Storage-servrar är Snapshot-baserade. En fullständig ögonblicks bild av databasen utförs dagligen. Det finns inga differentiella säkerhets kopieringar för grundläggande lagrings servrar och alla säkerhets kopior av ögonblicks bilder är bara fullständiga databas säkerhets kopieringar. 
+
+Säkerhetskopieringar av transaktionsloggar sker var femte minut. 
+
+#### <a name="general-purpose-storage-servers-with-up-to-4-tb-storage"></a>Generella lagrings servrar med upp till 4 TB lagring
+
+För servrar som har stöd för upp till 4 TB maximalt lagrings utrymme för generell användning sker fullständiga säkerhets kopieringar varje vecka. Differentiella säkerhets kopieringar sker två gånger om dagen. Säkerhets kopieringar av transaktions loggar sker var femte minut. Säkerhets kopieringarna i generell användning av lagrings utrymme på 4 TB är inte ögonblicks bilder och förbrukar IO-bandbredd vid tidpunkten för säkerhets kopieringen. För stora databaser (> 1 TB) på 4 TB-lagring rekommenderar vi att du 
+
+- Etablering av mer IOPs till konto för säkerhets kopiering av IOs  
+- Du kan också migrera till allmän lagring som stöder upp till 16 TB lagrings utrymme om lagrings utrymmet är tillgängligt i dina önskade [Azure-regioner](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage). Det kostar inget extra att tillhandahålla lagring med upp till 16 TB. Om du vill ha hjälp med migrering till 16 TB-lagring öppnar du ett support ärende från Azure Portal. 
+
+#### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Generella lagrings servrar med upp till 16 TB lagring
+I en delmängd av [Azure-regioner](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)har alla nyligen etablerade servrar stöd för generell användning av lagrings utrymme på 16 TB. Säkerhets kopieringar på dessa 16-TB-lagrings servrar är ögonblicks bilds-baserade. Den första fullständiga säkerhetskopieringen schemaläggs omedelbart efter att en server har skapats. Den första fullständiga säkerhets kopieringen behålls som serverns grundläggande säkerhets kopiering. Efterföljande säkerhetskopieringar av ögonblicksbilder är bara differentiella säkerhetskopieringar. 
 
 Differentiella säkerhetskopieringar av ögonblicksbilder görs minst en gång per dag. Differentiella säkerhetskopieringar av ögonblicksbilder sker inte enligt ett fast schema. Säkerhets kopiering av differentiella ögonblicks bilder sker var 24: e timme om transaktions loggen (BinLog i MySQL) överskrider 50 GB sedan den senaste differentiella säkerhets kopieringen. Högst sex differentiella ögonblicksbilder tillåts under samma dag. 
 

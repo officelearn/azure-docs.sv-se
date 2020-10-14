@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: sample
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: 15393a0e618c14fbaff46a51a300284d8afb4b77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15f8e424529513b2932dcb18de941a8fe1867c1d
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90889755"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045456"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Exempel på pipelines & data uppsättningar för Azure Machine Learning designer
 
@@ -86,9 +86,7 @@ Utforska de här inbyggda klassificerings exemplen. Du kan lära dig mer om exem
 
 Utforska de här inbyggda exemplen för dator vision. Du kan lära dig mer om exemplen utan dokumentations länkar genom att öppna exemplen och Visa kommentarer i modulen i stället.
 
-| Exempelrubrik | Beskrivning | 
-| --- | --- |
-| Wide & djupgående rekommendation – restaurang betygs förutsägelse | Bygg en restaurang rekommenderar-motor från restaurang/användar funktioner och klassificeringar.|
+| Bild klassificering med DenseNet | Använd moduler för visuellt innehåll för att bygga en bild klassificerings modell baserad på PyTorch DenseNet. | 
 
 ## <a name="recommender"></a>Rekommenderare
 
@@ -96,7 +94,8 @@ Utforska de här inbyggda rekommendations exemplen. Du kan lära dig mer om exem
 
 | Exempelrubrik | Beskrivning | 
 | --- | --- |
-| Bild klassificering med DenseNet | Använd moduler för visuellt innehåll för att bygga en bild klassificerings modell baserad på PyTorch DenseNet.| 
+| Wide & djupgående rekommendation – restaurang betygs förutsägelse | Bygg en restaurang rekommenderar-motor från restaurang/användar funktioner och klassificeringar.|
+| Rekommendation – film klassificering tweets | Bygg en Movie rekommenderar-motor från filmer/användar funktioner och klassificeringar.|
 
 ## <a name="utility"></a>Verktyg
 
@@ -119,7 +118,7 @@ Exempel data uppsättningarna finns i kategorin **data uppsättnings** - **exemp
 | Data uppsättnings &nbsp; namn&nbsp;&nbsp;&nbsp;&nbsp;| Beskrivning av data uppsättning |
 |-------------|:--------------------|
 | Data uppsättning för binära sammanräknings inkomst | En delmängd av databasen för 1994-inventering, med hjälp av att arbeta vuxna under 16 med ett justerat inkomst index på > 100.<br/>**Användning**: klassificera personer som använder demografiska till att förutsäga om en person får över 50 000 per år.<br/> **Relaterad forskning**: Kohavi, R., Becker, B., (1996). [Machine Learning-lagringsplats för](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornien, skol information och dator vetenskap|
-|Bil pris data (RAW)|Information om mobila enheter med märke och modeller, inklusive pris, funktioner, till exempel antalet cylindrar och MPG, samt en försäkrings risk poäng.<br/> Risk poängen är inlednings vis kopplad till automatiskt pris. Den justeras sedan för faktisk risk i en process som är känd för aktuarier som symbol. Värdet + 3 anger att det automatiska är riskabelt och att värdet-3 förmodligen är säkert.<br/>**Användning**: </b> förutsäga risk poängen med hjälp av funktioner, med regression eller multivarierad klassificering.<br/>**Relaterad forskning**: </b> Schlimmer, J.C. (1987). [Machine Learning-lagringsplats för](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornien, skol information och dator vetenskap. |
+|Bil pris data (RAW)|Information om mobila enheter med märke och modeller, inklusive pris, funktioner, till exempel antalet cylindrar och MPG, samt en försäkrings risk poäng.<br/> Risk poängen är inlednings vis kopplad till automatiskt pris. Den justeras sedan för faktisk risk i en process som är känd för aktuarier som symbol. Värdet + 3 anger att det automatiska är riskabelt och att värdet-3 förmodligen är säkert.<br/>**Användning**: förutsäga risk poängen med hjälp av funktioner, med regression eller multivarierad klassificering.<br/>**Relaterad forskning**: Schlimmer, J.C. (1987). [Machine Learning-lagringsplats för](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornien, skol information och dator vetenskap. |
 | CRM begär-etiketter delade |Etiketter från KDD-bägaren 2009-förfrågan om kund Relations förutsägelse ([orange_small_train_appetency. labels](http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels)).|
 |CRM omsättnings etiketter delade|Etiketter från KDD-bägaren 2009-förfrågan om kund Relations förutsägelse ([orange_small_train_churn. labels](http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels)).|
 |CRM-datauppsättning delad | Dessa data kommer från KDD-bägaren 2009 kund Relations förutsägelse kontroll ([orange_small_train.data.zip](http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip)). <br/>Data uppsättningen innehåller 50 000-kunder från det franska telekom-företaget orange. Varje kund har 230 anonymiserats-funktioner, men 190 av som är numeriska och 40 är kategoriska. Funktionerna är mycket glesa. |
@@ -130,7 +129,9 @@ Exempel data uppsättningarna finns i kategorin **data uppsättnings** - **exemp
 |Film klassificeringar|Data uppsättningen är en utökad version av data uppsättningen för film tweeter. Data uppsättningen har 170K klassificeringar för filmer som extraheras från välstrukturerade tweets på Twitter. Varje instans representerar en tweet och är en tupel: användar-ID, IMDB-film-ID, klassificering, tidsstämpel, antal favoriter för den här tweeten och antalet retweetar för den här tweeten. Data uppsättningen gjordes tillgänglig av A. S. Dooms, B. Loni och D. Tikk för rekommenderade system Challenge 2014.|
 |Data uppsättning väder|Varje timmes markbaserade väderleks observationer från NOAA ([sammanfogade data från 201304 till 201310](https://az754797.vo.msecnd.net/data/WeatherDataset.csv)).<br/>Väder data täcker observationer som gjorts från flyg platsens väder stationer, som omfattar tids perioden April-October 2013. Innan du överför till designern bearbetades data uppsättningen enligt följande:    <br/> -Väderleks Stations-ID mappas till motsvarande flyg plats-ID    <br/> – Väder stationer som inte är kopplade till 70 vanligaste-flyg platserna filtrerades bort    <br/> – Datum kolumnen delades upp i separata kolumner för år, månad och dag    <br/> – Följande kolumner valdes: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, altimeter,,,,|
 |Wikipedia SP 500-datauppsättning|Data härleds från Wikipedia ( https://www.wikipedia.org/) baserat på artiklarna i varje S&P 500-företag, lagrade som XML-data.    <br/>Innan du överför till designern bearbetades data uppsättningen enligt följande:    <br/> – Extrahera text innehåll för varje enskilt företag    <br/> – Ta bort wiki-format    <br/> -Ta bort icke-alfanumeriska tecken    <br/> -Konvertera all text till gemener    <br/> -Kända företags kategorier har lagts till    <br/>Observera att för vissa företag gick det inte att hitta en artikel, så antalet poster är mindre än 500.|
-
+|Restaurang funktions data| En uppsättning metadata om restauranger och deras funktioner, till exempel livsmedels typ, matsal och plats. <br/>**Användning**: Använd den här data uppsättningen, i kombination med de andra två restaurang data uppsättningarna, för att träna och testa ett rekommenderat system.<br/> **Relaterad forskning**: Bache, K. och Lichman, M. (2013). [Machine Learning-lagringsplats för](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornien, skol information och dator vetenskap.|
+|Restaurang värderingar| Innehåller omdömen från användare till restauranger på en skala från 0 till 2.<br/>**Användning**: Använd den här data uppsättningen, i kombination med de andra två restaurang data uppsättningarna, för att träna och testa ett rekommenderat system. <br/>**Relaterad forskning**: Bache, K. och Lichman, M. (2013). [Machine Learning-lagringsplats för](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornien, skol information och dator vetenskap.|
+|Restaurang kund information| En uppsättning metadata om kunder, inklusive demografiska och preferenser. <br/>**Användning**: Använd den här data uppsättningen, i kombination med de andra två restaurang data uppsättningarna, för att träna och testa ett rekommenderat system. <br/> **Relaterad forskning**: Bache, K. och Lichman, M. (2013). [Machine Learning-lagringsplats för](https://archive.ics.uci.edu/ml) Irvine, CA: University of Kalifornien, skol information och dator vetenskap.|
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

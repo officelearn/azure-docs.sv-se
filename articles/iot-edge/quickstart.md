@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: eae7a44d77d63641ba9ad062c504aaf624582668
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: acd2f12150155efbccc668b99dcc4683d81b87e0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969236"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047054"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Windows-enhet
 
@@ -45,7 +45,7 @@ Lägg till Azure IoT-tillägget till Cloud Shell-instansen.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Molnresurser:
 
@@ -74,7 +74,7 @@ IoT Edge-enhet:
   Öppna den här filen med Anslutning till fjärrskrivbord för att ansluta till din virtuella Windows-dator med hjälp av det administratörs namn och lösen ord som du angav med `az vm create` kommandot.
 
 > [!NOTE]
-> Din virtuella Windows-dator startar med Windows version 1809 (build 17763), som är den senaste [versionen av Windows långsiktig support](https://docs.microsoft.com/windows/release-information/). Windows söker automatiskt efter uppdateringar var 22: e timme som standard. Efter en kontroll på den virtuella datorn push-överför Windows en versions uppdatering som är inkompatibel med IoT Edge för Windows, vilket förhindrar ytterligare användning av IoT Edge för Windows-funktioner. Vi rekommenderar att du begränsar användningen av den virtuella datorn till inom 22 timmar eller [tillfälligt pausar Windows-uppdateringar](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
+> Din virtuella Windows-dator startar med Windows version 1809 (build 17763), som är den senaste [versionen av Windows långsiktig support](/windows/release-information/). Windows söker automatiskt efter uppdateringar var 22: e timme som standard. Efter en kontroll på den virtuella datorn push-överför Windows en versions uppdatering som är inkompatibel med IoT Edge för Windows, vilket förhindrar ytterligare användning av IoT Edge för Windows-funktioner. Vi rekommenderar att du begränsar användningen av den virtuella datorn till inom 22 timmar eller [tillfälligt pausar Windows-uppdateringar](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
 >
 > Den här snabb starten använder en virtuell Windows Desktop-dator för enkelhetens skull. Information om vilka Windows-operativsystem som är allmänt tillgängliga för produktions scenarier finns i [Azure IoT Edge system som stöds](support.md).
 >

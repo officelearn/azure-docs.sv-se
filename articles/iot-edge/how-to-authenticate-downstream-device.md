@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d2f189adf198a7e04edd3900a1e6da134329857e
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 73584353d0d003588ef7de6131d3c3c4bbfcff59
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932149"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046731"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autentisera en underordnad enhet på Azure IoT Hub
 
@@ -29,7 +29,7 @@ Underordnade enheter kan autentiseras med IoT Hub med hjälp av någon av tre me
 
 Stegen i den här artikeln visar manuell enhets etablering. Automatisk etablering av underordnade enheter med Azure-IoT Hub Device Provisioning Service (DPS) stöds inte.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför stegen i [Konfigurera en IoT Edge-enhet så att den fungerar som en transparent Gateway](how-to-create-transparent-gateway.md).
 
@@ -110,7 +110,7 @@ För X. 509-självsignerad autentisering, som ibland kallas tumavtryck, måste d
 
 4. Kopiera både de primära och sekundära enhets certifikaten och deras nycklar till valfri plats på den underordnade enheten. Flytta också en kopia av det delade rot certifikat utfärdarens certifikat som skapade både gateway-enhetens certifikat och de efterföljande enhets certifikaten.
 
-   Du refererar till dessa certifikatfiler i alla program på den underordnade enheten som ansluter till IoT Hub. Du kan använda en tjänst som [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) eller en funktion som [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) för att flytta certifikatfiler.
+   Du refererar till dessa certifikatfiler i alla program på den underordnade enheten som ansluter till IoT Hub. Du kan använda en tjänst som [Azure Key Vault](../key-vault/index.yml) eller en funktion som [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) för att flytta certifikatfiler.
 
 5. Beroende på vilket språk du föredrar kan du läsa exempel på hur X. 509-certifikat kan refereras i IoT-program:
 
@@ -156,7 +156,7 @@ Det här avsnittet baseras på instruktionerna som beskrivs i IoT Hub artikel ko
 
 5. Kopiera enhetens certifikat och nycklar till valfri plats på den underordnade enheten. Flytta också en kopia av det delade rot certifikat utfärdarens certifikat som skapade både gateway-enhetens certifikat och de efterföljande enhets certifikaten.
 
-   Du refererar till de här filerna i alla program på den underordnade enheten som ansluter till IoT Hub. Du kan använda en tjänst som [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) eller en funktion som [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) för att flytta certifikatfiler.
+   Du refererar till de här filerna i alla program på den underordnade enheten som ansluter till IoT Hub. Du kan använda en tjänst som [Azure Key Vault](../key-vault/index.yml) eller en funktion som [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) för att flytta certifikatfiler.
 
 6. Beroende på vilket språk du föredrar kan du läsa exempel på hur X. 509-certifikat kan refereras i IoT-program:
 

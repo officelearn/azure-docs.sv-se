@@ -284,6 +284,8 @@
           href: backup-azure-alternate-dpm-server.md
         - name: Återställa virtuella VMware-datorer med Azure Backup Server
           href: restore-azure-backup-server-vmware.md
+        - name: Säkerhetskopiera MABS-servern
+          href: backup-the-mabs-server.md
     - name: Azure Backup Server på Azure Stack
       items:
         - name: Installera Azure Backup Server

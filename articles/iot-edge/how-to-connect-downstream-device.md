@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 78db26318fc95adec1b31799ed143b3e4a6b3acc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4faec8f79d856b86052745ad530e17b9b25634e8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281464"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045847"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ansluta en underordnad enhet till en Azure IoT Edge-gateway
 
@@ -37,7 +37,7 @@ I den här artikeln beskrivs vanliga problem med underordnade enhets anslutninga
 
 I den här artikeln hänvisar termerna *Gateway* och *IoT Edge gateway* till en IoT Edge enhet som kon figurer ATS som en transparent Gateway.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ha rot certifikat utfärdarens certifikat fil som användes för att generera enhetens CA-certifikat i [Konfigurera en IoT Edge-enhet så att den fungerar som en transparent gateway som](how-to-create-transparent-gateway.md) är tillgänglig på din underordnade enhet. Den underordnade enheten använder det här certifikatet för att verifiera identiteten för gateway-enheten. Om du använde demonstrations certifikaten kallas rot certifikat UTFÄRDARens certifikat **Azure-IoT-test-Only. root. ca. cert. pem**.
 * Ha den ändrade anslutnings strängen som pekar på gateway-enheten, enligt beskrivningen i [autentisera en underordnad enhet till Azure IoT Hub](how-to-authenticate-downstream-device.md).
@@ -77,7 +77,7 @@ Mer information om IoT Edge certifikat och vissa konsekvenser för produktion fi
 
 ## <a name="provide-the-root-ca-certificate"></a>Ange rot certifikat utfärdarens certifikat
 
-För att verifiera gateway-enhetens certifikat behöver den underordnade enheten en egen kopia av rot certifikat utfärdarens certifikat. Om du använde skripten som tillhandahölls i IoT Edge git-lagringsplatsen för att skapa test certifikat, kallas rot certifikat utfärdarens certifikat **Azure-IoT-test-Only. root. ca. cert. pem**. Om du inte redan har en del av de andra stegen för att förbereda enheten i den andra enheten flyttar du den här certifikat filen till valfri katalog på den underordnade enheten. Du kan använda en tjänst som [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) eller en funktion som [säker kopierings protokoll](https://www.ssh.com/ssh/scp/) för att flytta certifikat filen.
+För att verifiera gateway-enhetens certifikat behöver den underordnade enheten en egen kopia av rot certifikat utfärdarens certifikat. Om du använde skripten som tillhandahölls i IoT Edge git-lagringsplatsen för att skapa test certifikat, kallas rot certifikat utfärdarens certifikat **Azure-IoT-test-Only. root. ca. cert. pem**. Om du inte redan har en del av de andra stegen för att förbereda enheten i den andra enheten flyttar du den här certifikat filen till valfri katalog på den underordnade enheten. Du kan använda en tjänst som [Azure Key Vault](../key-vault/index.yml) eller en funktion som [säker kopierings protokoll](https://www.ssh.com/ssh/scp/) för att flytta certifikat filen.
 
 ## <a name="install-certificates-in-the-os"></a>Installera certifikat i operativ systemet
 
@@ -98,7 +98,7 @@ Du bör se ett meddelande som säger "uppdaterar certifikat i/etc/ssl/certs... 1
 
 Följande steg är ett exempel på hur du installerar ett CA-certifikat på en Windows-värd. I det här exemplet förutsätter vi att du använder certifikatet **Azure-IoT-test-Only. root. ca. cert. pem** från de nödvändiga artiklarna och att du har kopierat certifikatet till en plats på den underordnade enheten.
 
-Du kan installera certifikat med hjälp av PowerShell: s [import-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) som administratör:
+Du kan installera certifikat med hjälp av PowerShell: s [import-Certificate](/powershell/module/pkiclient/import-certificate?view=win10-ps) som administratör:
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
@@ -113,7 +113,7 @@ Du kan också installera certifikat med **certlm** -verktyget:
 
 Du kan också installera certifikat program mässigt med .NET-API: er, som du ser i .NET-exemplet senare i den här artikeln.
 
-Normalt använder programmen Windows-TLS-stacken som kallas [Schannel](https://docs.microsoft.com/windows/desktop/com/schannel) för att ansluta säkert via TLS. Schannel *kräver* att alla certifikat installeras i certifikat arkivet i Windows innan du försöker upprätta en TLS-anslutning.
+Normalt använder programmen Windows-TLS-stacken som kallas [Schannel](/windows/desktop/com/schannel) för att ansluta säkert via TLS. Schannel *kräver* att alla certifikat installeras i certifikat arkivet i Windows innan du försöker upprätta en TLS-anslutning.
 
 ## <a name="use-certificates-with-azure-iot-sdks"></a>Använda certifikat med Azure IoT SDK: er
 

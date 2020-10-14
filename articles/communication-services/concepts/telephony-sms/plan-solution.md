@@ -10,12 +10,12 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: eb698cf3c4cf2bdc47e3df57c65847f499d8760c
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: b25ac36bc0b424a9d6f76b37b532e52dc56e19e3
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893670"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048227"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>Planera din telefoni- och SMS-lösning
 
@@ -74,7 +74,7 @@ I följande tabell visas var du kan hämta olika typer av telefonnummer tillsamm
 
 ## <a name="azure-subscriptions-eligibility"></a>Azure-prenumerationer berättigar
 
-För att skaffa ett telefonnummer måste du vara på en betald Azure-prenumeration. Det går inte att hämta telefonnummer för utvärderings konton. 
+För att skaffa ett telefonnummer måste du vara på en betald Azure-prenumeration. Det går inte att hämta telefonnummer för utvärderings konton eller kostnads fria Azure-krediter. 
 
 För närvarande är telefonnumret för tillgänglighet begränsat till Azure-prenumerationer som har en fakturerings adress i USA.
 

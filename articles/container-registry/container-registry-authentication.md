@@ -3,12 +3,12 @@ title: Alternativ för autentisering av registret
 description: Autentiseringsalternativ för ett privat Azure Container Registry, inklusive att logga in med en Azure Active Directory identitet, med hjälp av tjänstens huvud namn och med valfria administratörs behörighet.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 7c8176d0cdca5d74ed3201071f83ed1181d94b8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1747dfa0664778283d0cea06940ea95982c269a2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657084"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048023"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Autentisera med ett Azure Container Registry
 
@@ -20,7 +20,7 @@ Rekommenderade sätt är att autentisera till ett register direkt via [enskild i
 
 I följande tabell visas tillgängliga autentiseringsmetoder och typiska scenarier. Mer information finns i länkat innehåll.
 
-| Metod                               | Så här autentiserar du                                           | Scenarier                                                            | RBAC                             | Begränsningar                                |
+| Metod                               | Så här autentiserar du                                           | Scenarier                                                            | Rollbaserad åtkomstkontroll (RBAC)                             | Begränsningar                                |
 |---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
 | [Individuell AD-identitet](#individual-login-with-azure-ad)                | `az acr login` i Azure CLI                             | Interaktiva push/pull från utvecklare, testare                                    | Ja                              | AD-token måste förnyas var 3: e timme     |
 | [AD-tjänstens huvud namn](#service-principal)                  | `docker login`<br/><br/>`az acr login` i Azure CLI<br/><br/> Inloggnings inställningar för registret i API: er eller verktyg<br/><br/> [Kubernetes pull-hemlighet](container-registry-auth-kubernetes.md)                                           | Obevakad push från CI/CD-pipeline<br/><br/> Obevakad hämtning till Azure eller externa tjänster  | Ja                              | SP lösen ordets standard utgångs datum är 1 år       |                                                           
@@ -31,13 +31,14 @@ I följande tabell visas tillgängliga autentiseringsmetoder och typiska scenari
 
 ## <a name="individual-login-with-azure-ad"></a>Individuell inloggning med Azure AD
 
-När du arbetar med ditt register direkt, till exempel hämta bilder till och skicka bilder från en utvecklings arbets station till ett register som du har skapat, autentiserar du med hjälp av din enskilda Azure-identitet. Kör kommandot [AZ ACR login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) i [Azure CLI](/cli/azure/install-azure-cli):
+När du arbetar med ditt register direkt, till exempel hämta bilder till och skicka bilder från en utvecklings arbets station till ett register som du har skapat, autentiserar du med hjälp av din enskilda Azure-identitet. Logga in på [Azure CLI](/cli/azure/install-azure-cli) med [AZ-inloggning](/cli/azure/reference-index#az-login)och kör sedan kommandot [AZ ACR login](/cli/azure/acr#az-acr-login) :
 
 ```azurecli
+az login
 az acr login --name <acrName>
 ```
 
-När du loggar in med `az acr login` använder CLI den token som skapades när du körde [AZ-inloggningen](/cli/azure/reference-index#az-login) för att sömlöst autentisera din session med ditt register. För att slutföra det här autentiseringsschemat måste Docker CLI och Docker daemon vara installerat och köras i din miljö. `az acr login` använder Docker-klienten för att ange en Azure Active Directory token i `docker.config` filen. När du har loggat in på det här sättet cachelagras dina autentiseringsuppgifter och efterföljande `docker` kommandon i din session kräver inte något användar namn eller lösen ord.
+När du loggar in med `az acr login` använder CLI den token som skapades när du körde `az login` för att enkelt autentisera din session med ditt register. För att slutföra det här autentiseringsschemat måste Docker CLI och Docker daemon vara installerat och köras i din miljö. `az acr login` använder Docker-klienten för att ange en Azure Active Directory token i `docker.config` filen. När du har loggat in på det här sättet cachelagras dina autentiseringsuppgifter och efterföljande `docker` kommandon i din session kräver inte något användar namn eller lösen ord.
 
 > [!TIP]
 > Används också `az acr login` för att autentisera en enskild identitet när du vill skicka eller ta emot andra artefakter än Docker-avbildningar till registret, till exempel [OCI-artefakter](container-registry-oci-artifacts.md).  
@@ -105,7 +106,7 @@ docker login myregistry.azurecr.io
 
 Metod tips för att hantera inloggnings uppgifter finns i kommando referensen [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
 
-Om du vill aktivera administratörs användaren för ett befintligt register kan du använda `--admin-enabled` parametern för kommandot [AZ ACR Update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) i Azure CLI:
+Om du vill aktivera administratörs användaren för ett befintligt register kan du använda `--admin-enabled` parametern för kommandot [AZ ACR Update](/cli/azure/acr#az-acr-update) i Azure CLI:
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

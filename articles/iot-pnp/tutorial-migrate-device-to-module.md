@@ -7,18 +7,18 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: bdf7a46dec6f4ea766d5d5a039109022755bc3fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ccc450242c50f82d4215f6b172f72d8eceab7c52
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761285"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046344"
 ---
 # <a name="tutorial-how-to-convert-an-iot-plug-and-play-device-to-a-module-c"></a>Självstudie: så här konverterar du en IoT Plug and Play-enhet till en modul (C#)
 
 Den här självstudien visar hur du konverterar IoT Plug and Play enhets kod till att köras som en generisk modul.
 
-En enhet är en IoT Plug and Play-enhet om den publicerar sitt modell-ID när den ansluter till en IoT-hubb och implementerar de egenskaper och metoder som beskrivs i DTDL-modellen (Digital-definitions språk) som identifieras av modell-ID: t. Mer information om hur enheter använder ett DTDL och modell-ID finns i [IoT plug and Play Developer Guide](concepts-developer-guide.md). Moduler använder modell-ID: n och DTDL modeller på samma sätt.
+En enhet är en IoT Plug and Play-enhet om den publicerar sitt modell-ID när den ansluter till en IoT-hubb och implementerar de egenskaper och metoder som beskrivs i DTDL-modellen (Digital-definitions språk) som identifieras av modell-ID: t. Mer information om hur enheter använder ett DTDL och modell-ID finns i [IoT plug and Play Developer Guide](./concepts-developer-guide-device-csharp.md). Moduler använder modell-ID: n och DTDL modeller på samma sätt.
 
 För att demonstrera hur du implementerar en IoT Plug and Play-modul visar den här självstudien hur du konverterar termostat C#-enhets exemplet till en allmän modul.
 
@@ -224,7 +224,7 @@ Om du vill konvertera det här exemplet så att det fungerar som en IoT-Plug and
 Information om hur du distribuerar en container-modul finns i:
 
 * [Kör Azure IoT Edge på Ubuntu Virtual Machines](../iot-edge/how-to-install-iot-edge-ubuntuvm.md).
-* [Installera Azure IoT Edge runtime på Debian-baserade Linux-system](../iot-edge/how-to-install-iot-edge-linux.md).
+* [Installera Azure IoT Edge runtime på Debian-baserade Linux-system](../iot-edge/how-to-install-iot-edge.md).
 
 Du kan använda Azure IoT Explorer-verktyget för att se:
 
@@ -238,4 +238,4 @@ Du kan använda Azure IoT Explorer-verktyget för att se:
 I den här självstudien har du lärt dig hur du ansluter en IoT Plug and Play-enhet med moduler till en IoT-hubb. Mer information om IoT Plug and Play enhets modeller finns i:
 
 > [!div class="nextstepaction"]
-> [IoT Plug and Play Modeling Developer Guide](concepts-developer-guide.md)
+> [IoT Plug and Play Modeling Developer Guide](./concepts-developer-guide-device-csharp.md)

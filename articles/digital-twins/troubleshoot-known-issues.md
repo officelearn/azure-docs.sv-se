@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: e152c0227008dd12088660b2390a8d0a5f54de96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f57f801f2270819d4a67a49590f5ba61b32afcb
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89290786"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047649"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Kända problem i Azure Digitals, dubbla
 
@@ -30,7 +30,7 @@ För Azure Digitals sammanflätade påverkar detta följande kommando grupper:
 
 Detta kan lösas genom att köra `az login` kommandot i Cloud Shell och slutföra efterföljande inloggnings steg. Därefter ska du kunna köra kommandot igen.
 
-En alternativ lösning är att [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) på din dator så att du kan köra Azure CLI-kommandon lokalt. Den lokala CLI: en drabbas inte av det här problemet.
+En alternativ lösning är att [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) på din dator så att du kan köra Azure CLI-kommandon lokalt. Den lokala CLI: en drabbas inte av det här problemet.
 
 ### <a name="possible-causes"></a>Möjliga orsaker
 
@@ -60,7 +60,7 @@ För användare som är inloggade med en personlig [Microsoft-konto (MSA)](https
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problem med interaktiv webb läsar autentisering
 
-När du skriver authentication code i dina Azure Digital-program med version **1.2.0** av ** [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) -biblioteket**kan det uppstå problem med [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) -metoden.
+När du skriver authentication code i dina Azure Digital-program med version **1.2.0** av ** [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet) -biblioteket**kan det uppstå problem med [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) -metoden.
 
 Detta är inte den senaste versionen av biblioteket. Den senaste versionen är **1.2.2**.
 

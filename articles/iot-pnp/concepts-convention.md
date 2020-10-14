@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 8b5492a737b733f486455507a8a813b5d583d453
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a58fa45f47ee8dce4ec96591551abad76c1218ee
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91573845"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045490"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Konventioner för IoT Plug and Play
 
@@ -343,6 +343,6 @@ På en enhet eller modul använder flera komponent gränssnitt kommando namn med
 Nu när du har lärt dig om IoT Plug and Play-konventioner finns här några ytterligare resurser:
 
 - [Digitalt flätat definitions språk (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
-- [C (enhets-SDK)](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
-- [IoT-REST API](https://docs.microsoft.com/rest/api/iothub/device)
+- [C (enhets-SDK)](/azure/iot-hub/iot-c-sdk-ref/)
+- [IoT-REST API](/rest/api/iothub/device)
 - [Modell komponenter](./concepts-components.md)

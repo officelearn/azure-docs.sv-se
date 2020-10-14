@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d8782bf6cab85b1b87c0cfc418a4731cc134db8f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e490171fd533783aab9fd44798a9c81c55faf89f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91577075"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047938"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>Snabb start: ansluta ett exempel på IoT Plug and Play Device-program som körs på Linux eller Windows till IoT Hub (C)
 
@@ -20,7 +20,7 @@ ms.locfileid: "91577075"
 
 Den här snabb starten visar hur du skapar ett exempel på IoT Plug and Play Device-program, ansluter det till din IoT-hubb och använder Azure IoT Explorer-verktyget för att Visa telemetri som skickas. Exempel programmet skrivs i C och ingår i Azure IoT-enhetens SDK för C. Ett Solution Builder kan använda Azure IoT Explorer-verktyget för att förstå funktionerna i en IoT Plug and Play-enhet utan att behöva visa någon enhets kod.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
@@ -52,7 +52,7 @@ gcc --version
 
 För att slutföra den här snabb starten på Windows installerar du följande program vara i din lokala Windows-miljö:
 
-* [Visual Studio (community, Professional eller Enterprise)](https://visualstudio.microsoft.com/downloads/) – se till att du inkluderar **Skriv bords utveckling med C++** -arbetsbelastning när du [installerar](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) Visual Studio.
+* [Visual Studio (community, Professional eller Enterprise)](https://visualstudio.microsoft.com/downloads/) – se till att du inkluderar **Skriv bords utveckling med C++** -arbetsbelastning när du [installerar](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) Visual Studio.
 * [Git](https://git-scm.com/download/).
 * [Cmake](https://cmake.org/download/).
 
@@ -159,4 +159,4 @@ I koden används Parson-biblioteket för att parsa JSON-objekt i de nytto laster
 I den här snabb starten har du lärt dig hur du ansluter en IoT Plug and Play-enhet till en IoT-hubb. Mer information om hur du skapar en lösning som interagerar med din IoT Plug and Play-enheter finns i:
 
 > [!div class="nextstepaction"]
-> [Anvisningar: ansluta till och interagera med en enhet](howto-develop-solution.md)
+> [Anvisningar: ansluta till och interagera med en enhet](./quickstart-service-node.md)

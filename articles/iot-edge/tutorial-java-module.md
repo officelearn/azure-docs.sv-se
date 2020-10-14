@@ -12,16 +12,16 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: ce9de630af5854b965db27487379cd9eea4cfd1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d68522d92409cfcba38abeb86f2db7c4b78869e6
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857409"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045609"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Självstudie: utveckla en Java IoT Edge-modul för Linux-enheter
 
-Du kan använda Azure IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. Du använder den simulerade IoT Edge enheten som du skapade i distributions Azure IoT Edge på en simulerad enhet i [Linux](quickstart-linux.md) -snabb starten. I den här guiden får du lära dig att:
+Du kan använda Azure IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. Du använder den simulerade IoT Edge enheten som du skapade i distributions Azure IoT Edge på en simulerad enhet i [Linux](quickstart-linux.md) -snabb starten. I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -51,14 +51,14 @@ Innan du påbörjar den här självstudien bör du ha gått igenom den föregåe
 
 * En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på kostnadsfri nivå eller standardnivå i Azure.
 * En [Linux-enhet som kör Azure IoT Edge](quickstart-linux.md)
-* Ett behållar register som [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+* Ett behållar register som [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio-kod](https://code.visualstudio.com/) som kon figurer ATS med [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) konfigurerat för att köra Linux-behållare.
 
 Om du vill utveckla en IoT Edge-modul i Java installerar du följande ytterligare krav på utvecklings datorn: 
 
 * [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) för Visual Studio Code.
-* [Java SE Development Kit 10](https://aka.ms/azure-jdks), och [ange `JAVA_HOME`miljövariabeln](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) så att den pekar mot din JDK-installation.
+* [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support), och [ange `JAVA_HOME`miljövariabeln](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) så att den pekar mot din JDK-installation.
 * [Maven](https://maven.apache.org/)
 
    >[!TIP]
@@ -76,7 +76,7 @@ Skapa en Java-lösningsmall som du kan anpassa med din egen kod.
 
 2. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) på kommandopaletten. Skapa lösningen genom att följ anvisningarna på kommandopaletten.
 
-   | Field | Värde |
+   | Fält | Värde |
    | ----- | ----- |
    | Välj mapp | Välj den plats på utvecklingsdatorn där Visual Studio Code ska skapa lösningsfilerna. |
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen eller acceptera standardnamnet **EdgeSolution**. |

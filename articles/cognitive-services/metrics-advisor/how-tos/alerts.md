@@ -3,19 +3,19 @@ title: Konfigurera mått klassificerings aviseringar
 titleSuffix: Azure Cognitive Services
 description: Hur du konfigurerar dina Metrics Advisor-aviseringar med hjälp av hookar för e-post, webb-och Azure-DevOps.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 870b412a1fa5d362ac7b5be1df6c92d95c2936ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: ab1c07bd7814afb054bb20b77bbc84c1ee9df017
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90977794"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046799"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Anvisningar: Konfigurera aviseringar och få meddelanden med hjälp av en Hook
 
@@ -36,7 +36,7 @@ En e-posthook är kanalen för avvikelse aviseringar som skickas till e-postadre
 
 |Parameter |Beskrivning  |
 |---------|---------|
-| Namn | Namn på e-posthooken |
+| Name | Namn på e-posthooken |
 | E-postmeddelande till| E-postadresser som skickar aviseringen till|
 | Extern länk | Valfritt fält som möjliggör en anpassad omdirigering, t. ex. för fel söknings anteckningar. |
 | Anpassad avvikelse aviserings rubrik | Rubrik mal len stöder `${severity}` , `${alertSettingName}` , `${datafeedName}` ,, `${metricName}` `${detectConfigName}` `${timestamp}` , `${topDimension}` `${incidentCount}` ,, `${anomalyCount}`
@@ -75,7 +75,7 @@ Om du vill skapa en Azure DevOps-Hook måste du lägga till följande informatio
 
 |Parameter |Beskrivning  |
 |---------|---------|
-| Namn | Ett namn för hooken |
+| Name | Ett namn för hooken |
 | Organisation | Organisationen som din DevOps tillhör |
 | Project | Det aktuella projektet i DevOps. |
 | Åtkomsttoken |  En token för autentisering till DevOps. | 
@@ -132,7 +132,7 @@ Klicka på **+ Lägg till inställningar för kors mått** på sidan aviserings 
 |Operator  |Beskrivning  |
 |---------|---------|
 |AND     | Skicka bara en avisering om en serie matchar varje aviserings avsnitt och alla data punkter är avvikelser. Om måtten har olika dimensions namn utlöses aldrig en avisering.         |
-|ELLER     | Skicka aviseringen om minst ett avsnitt innehåller avvikelser.         |
+|OR     | Skicka aviseringen om minst ett avsnitt innehåller avvikelser.         |
 
 :::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="fönstret Skapa webb-Hook.":::
 

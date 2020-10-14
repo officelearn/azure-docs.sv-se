@@ -8,16 +8,16 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 07da9316ea76e609948eed586f776be33c91b4bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6de96b9913b70dd1b2d423e00c58b95ccb8dcb07
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287258"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048159"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Lagra data på gränsen med Azure Blob Storage på IoT Edge
 
-Azure Blob Storage på IoT Edge tillhandahåller en [Block-Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) och [lägger till en BLOB](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) Storage-lösning på gränsen. En Blob Storage-modul på din IoT Edge-enhet fungerar som en Azure blob-tjänst, förutom att blobbar lagras lokalt på IoT Edge enheten. Du kan komma åt dina blobar med samma Azure Storage SDK-metoder eller BLOB-API-anrop som du redan använder. I den här artikeln beskrivs begreppen för Azure Blob Storage på IoT Edge behållare som kör en blob-tjänst på din IoT Edge enhet.
+Azure Blob Storage på IoT Edge tillhandahåller en [Block-Blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) och [lägger till en BLOB](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) Storage-lösning på gränsen. En Blob Storage-modul på din IoT Edge-enhet fungerar som en Azure blob-tjänst, förutom att blobbar lagras lokalt på IoT Edge enheten. Du kan komma åt dina blobar med samma Azure Storage SDK-metoder eller BLOB-API-anrop som du redan använder. I den här artikeln beskrivs begreppen för Azure Blob Storage på IoT Edge behållare som kör en blob-tjänst på din IoT Edge enhet.
 
 Den här modulen är användbar i scenarier:
 
@@ -53,7 +53,7 @@ Om en oväntad process terminering (t. ex. strömavbrott) sker under en BLOB-upp
 * Ange tiden i minuter (deleteAfterMinutes) efter vilken Blobbarna ska tas bort automatiskt.
 * Välj möjligheten att behålla blobben när den laddas upp om deleteAfterMinutes-värdet upphör att gälla.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En Azure IoT Edge-enhet:
 
@@ -160,7 +160,7 @@ sudo chmod -R 700 <blob-dir>
 
 ## <a name="configure-log-files"></a>Konfigurera loggfiler
 
-Information om hur du konfigurerar loggfiler för modulen finns i [metod tips för produktion](https://docs.microsoft.com/azure/iot-edge/production-checklist#set-up-logs-and-diagnostics).
+Information om hur du konfigurerar loggfiler för modulen finns i [metod tips för produktion](./production-checklist.md#set-up-logs-and-diagnostics).
 
 ## <a name="connect-to-your-blob-storage-module"></a>Ansluta till din Blob Storage-modul
 

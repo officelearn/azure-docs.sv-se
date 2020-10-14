@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7ee7d9e1756d24b24a3fd24c8ec51a9cfad4bc2
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ed5d3e96310f089221af09c4a11d2a139e8548f3
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013193"
+ms.locfileid: "92047921"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>Snabb start: Azure Key Vault hemligt klient bibliotek för .NET (SDK v4)
 
@@ -21,7 +21,7 @@ Kom igång med det Azure Key Vault hemliga klient biblioteket för .NET. Följ s
 
 [API-referens dokumentation](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet&preserve-view=true)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)  |  [Paket (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/dotnet)
 * [.NET Core 3,1 SDK eller senare](https://dotnet.microsoft.com/download/dotnet-core)
@@ -31,7 +31,7 @@ Den här snabb starten använder `dotnet` och Azure CLI
 
 ## <a name="setup"></a>Installation
 
-Den här snabb starten använder Azure Identity Library med Azure CLI för att autentisera användare till Azure-tjänster. Utvecklare kan också använda Visual Studio eller Visual Studio Code för att autentisera sina anrop. mer information finns i [autentisera klienten med klient biblioteket för Azure Identity](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true)
+Den här snabb starten använder Azure Identity Library med Azure CLI för att autentisera användare till Azure-tjänster. Utvecklare kan också använda Visual Studio eller Visual Studio Code för att autentisera sina anrop. mer information finns i [autentisera klienten med klient biblioteket för Azure Identity](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true).
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 

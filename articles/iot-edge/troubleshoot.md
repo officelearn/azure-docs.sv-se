@@ -8,12 +8,12 @@ ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0e4ec7127df288ec1818df307da1ea9824141309
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 540c4394a73ceff1f68a613561c034ca3bc7efc5
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87902464"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046578"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Felsöka IoT Edge-enheten
 
@@ -251,7 +251,7 @@ iotedge restart edgeAgent && iotedge restart edgeHub
 
 ## <a name="check-your-firewall-and-port-configuration-rules"></a>Kontrol lera brand Väggs-och port konfigurations reglerna
 
-Azure IoT Edge tillåter kommunikation från en lokal server till Azure-molnet med IoT Hub protokoll som stöds, se [välja ett kommunikations protokoll](../iot-hub/iot-hub-devguide-protocols.md). För förbättrad säkerhet är kommunikations kanaler mellan Azure IoT Edge och Azure-IoT Hub alltid konfigurerade att vara utgående. Den här konfigurationen baseras på [kommunikations mönstret tjänster](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), som minimerar angrepps ytan för en skadlig entitet att utforska. Inkommande kommunikation krävs endast för vissa scenarier där Azure IoT Hub behöver skicka meddelanden till Azure IoT Edge-enheten. Meddelanden från moln till enhet skyddas med hjälp av säkra TLS-kanaler och kan skyddas ytterligare med X. 509-certifikat och TPM-enhets moduler. Azure IoT Edge Security Manager styr hur kommunikationen kan upprättas, se [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
+Azure IoT Edge tillåter kommunikation från en lokal server till Azure-molnet med IoT Hub protokoll som stöds, se [välja ett kommunikations protokoll](../iot-hub/iot-hub-devguide-protocols.md). För förbättrad säkerhet är kommunikations kanaler mellan Azure IoT Edge och Azure-IoT Hub alltid konfigurerade att vara utgående. Den här konfigurationen baseras på [kommunikations mönstret tjänster](/archive/blogs/clemensv/service-assisted-communication-for-connected-devices), som minimerar angrepps ytan för en skadlig entitet att utforska. Inkommande kommunikation krävs endast för vissa scenarier där Azure IoT Hub behöver skicka meddelanden till Azure IoT Edge-enheten. Meddelanden från moln till enhet skyddas med hjälp av säkra TLS-kanaler och kan skyddas ytterligare med X. 509-certifikat och TPM-enhets moduler. Azure IoT Edge Security Manager styr hur kommunikationen kan upprättas, se [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
 
 Även om IoT Edge ger förbättrad konfiguration för att skydda Azure IoT Edge Runtime och distribuerade moduler, är det fortfarande beroende av den underliggande datorn och nätverks konfigurationen. Därför är det absolut nödvändigt att se till att rätt nätverks-och brand Väggs regler har kon figurer ATS för säker Edge till moln kommunikation. Följande tabell kan användas som en rikt linje när du konfigurerar brand Väggs regler för de underliggande servrarna där Azure IoT Edge runtime finns:
 

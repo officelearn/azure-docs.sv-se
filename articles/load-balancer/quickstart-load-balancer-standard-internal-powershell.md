@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 08/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 15609435c7bc099d0ffe40759ea0f323b58a4545
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee7c1c57c271a6173f4ee978a10ff37526c04c33
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89088423"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047861"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Snabb start: skapa en intern belastningsutjämnare för att belastningsutjämna virtuella datorer med Azure PowerShell
 
 Kom igång med Azure Load Balancer genom att använda Azure PowerShell för att skapa en intern belastningsutjämnare och två virtuella datorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installerat lokalt eller Azure Cloud Shell
@@ -911,7 +911,7 @@ Det tar några minuter att skapa och konfigurera de tre virtuella datorerna.
 
 Använd [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension?view=latest) för att installera Anpassat skripttillägg. 
 
-Tillägget kör PowerShell Add-WindowsFeature-webbservern för att installera IIS-webbservern och uppdaterar sedan sidan Default.htm för att Visa värd namnet för den virtuella datorn:
+Tillägget kör PowerShell Add-WindowsFeature Web-Server för att installera IIS-webbservern och uppdaterar sedan Default.htm sidan för att Visa värd namnet för den virtuella datorn:
 
 ### <a name="vm1"></a>VM1 
 
@@ -1066,8 +1066,8 @@ I den här snabb starten
 * Konfigurerat trafik regel för belastnings utjämning och hälso avsökning.
 * Belastnings utjämning har testats.
 
-Om du vill veta mer om Azure Load Balancer kan du fortsätta till [Azure Load Balancer?](load-balancer-overview.md) och [Load Balancer vanliga frågor och svar](load-balancer-faqs.md).
-
-* Läs mer om [Load Balancer-och tillgänglighets zoner](load-balancer-standard-availability-zones.md).
+Om du vill veta mer om Azure Load Balancer fortsätter du till...
+> [!div class="nextstepaction"]
+> [Vad är Azure Load Balancer?](load-balancer-overview.md)
 
 

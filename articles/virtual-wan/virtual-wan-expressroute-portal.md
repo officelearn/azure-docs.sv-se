@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Skapa ExpressRoute-anslutningar med Azure Virtual WAN
+title: 'Självstudie: skapa ExpressRoute-anslutningar med Azure Virtual WAN'
 description: I den här självstudien lär du dig att använda Azure Virtual WAN för att skapa ExpressRoute-anslutningar till Azure och lokala miljöer.
 services: virtual-wan
 author: cherylmc
@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 50b86c4c86391b6ffdee18cdadbdddbdff8642a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d880be6cbc37b273258075e6efc7a98d3478384
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841143"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054822"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Självstudie: skapa en ExpressRoute-Association med Azure Virtual WAN
 
 Den här självstudien visar hur du använder Virtual WAN för att ansluta till dina resurser i Azure över en ExpressRoute-krets. Mer information om virtuella WAN-och virtuella WAN-resurser finns i [Översikt över virtuella WAN-nätverk](virtual-wan-about.md).
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa ett virtuellt WAN
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Ändra en gateway-storlek
 > * Annonsera en standard väg
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurationen:
 
@@ -153,6 +153,17 @@ Om du vill att den virtuella Azure-hubben ska annonsera standard vägen 0.0.0.0/
 
    ![Sprid standard väg](./media/virtual-wan-expressroute-portal/defaultroute2.png "Sprid standard väg")
 
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Rensa resurser
+
+Du kan använda [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) för att ta bort resursgruppen och alla resurser den innehåller när du inte längre behöver dem. Ersätt myResourceGroup med namnet på resursgruppen och kör följande PowerShell-kommando:
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
-Du hittar mer information om virtuellt WAN i [översikten om virtuellt WAN](virtual-wan-about.md).
+Sedan kan du läsa mer om virtuellt WAN-nätverk i:
+
+> [!div class="nextstepaction"]
+> * [Vanliga frågor om Virtual WAN](virtual-wan-faq.md)

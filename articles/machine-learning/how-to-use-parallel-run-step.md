@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 08/14/2020
+ms.date: 10/13/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 8e8d0a13bc01e95311345154648ecb00b624c4bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e55a8e8dd78a6093c875cd20dd8b240816e7426
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905603"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055111"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Kör batch-härledning på stora mängder data med hjälp av Azure Machine Learning
 
@@ -26,6 +26,9 @@ Den här artikeln beskriver hur du kör din Azure Machine Learning-modell parall
 Inferencing över stora data mängder eller med komplicerade modeller kan vara tids krävande. Med `ParallelRunStep` klassen kan du utföra bearbetning parallellt, vilket kan leda till övergripande resultat snabbare. Även om det är ganska snabbare att köra en enda utvärdering, kan många scenarier (objekt identifiering, video bearbetning, naturligt språk bearbetning osv.) köra många utvärderingar. 
 
 Med är `ParallelRunStep` det enkelt att skala batch-inferences till stora kluster datorer. Sådana kluster kan hantera terabyte av strukturerade eller ostrukturerade data med förbättrad produktivitet och optimerad kostnad.
+
+> [!NOTE]
+> ParallelRunStep har utformats för köras-parallella arbets belastningar, men det kan också användas för att träna många modeller samtidigt eller bearbeta stora data.
 
 I den här artikeln får du lära dig följande uppgifter:
 
@@ -37,7 +40,7 @@ I den här artikeln får du lära dig följande uppgifter:
 > 1. Skicka en ny körnings härledning igen med nya indata och parametrar. 
 > 1. Granska resultaten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 

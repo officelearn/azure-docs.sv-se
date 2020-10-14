@@ -13,19 +13,16 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f6170de65ae5e1ca8ecb5f7cc8a78f4f194ac41
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116401"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055298"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Varför uppdatera till Microsoft-identitetsplattformen (v2.0)?
 
 När du utvecklar ett nytt program är det viktigt att känna till skillnaderna mellan Microsoft Identity Platform (v 2.0) och Azure Active Directory (v 1.0) slut punkter. Den här artikeln beskriver de viktigaste skillnaderna mellan slut punkterna och några befintliga begränsningar för Microsoft Identity Platform.
-
-> [!NOTE]
-> Slut punkten för Microsoft Identity Platform stöder inte alla Azure AD-scenarier och-funktioner. För att avgöra om du ska använda Microsoft Identity Platform-slutpunkten läser du om [begränsningar för Microsoft Identity Platform](#limitations).
 
 ## <a name="who-can-sign-in"></a>Vem kan logga in
 
@@ -35,7 +32,7 @@ När du utvecklar ett nytt program är det viktigt att känna till skillnaderna 
 * Med Microsoft Identity Platform-slutpunkten kan du logga in med arbets-och skol konton från Azure AD och personliga Microsoft-konton (MSA), till exempel hotmail.com, outlook.com och msn.com.
 * Båda slut punkterna accepterar också inloggnings program för *[gäst användare](../external-identities/what-is-b2b.md)* i en Azure AD-katalog för program som kon figurer ATS som *[en enskild klient](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* eller för program *med flera klienter* som kon figurer ATS för att peka på den klient-/regionsspecifika slut punkten ( `https://login.microsoftonline.com/{TenantId_or_Name}` ).
 
-Med slut punkten för Microsoft Identity Platform kan du skriva appar som accepterar inloggningar från personliga Microsoft-konton och arbets-och skol konton. Det ger dig möjlighet att skriva appens fullständigt konto-oberoende. Om din app till exempel anropar [Microsoft Graph](https://graph.microsoft.io), kommer vissa ytterligare funktioner och data att vara tillgängliga för arbets konton, till exempel SharePoint-webbplatser eller katalog data. Men för många åtgärder, till exempel [läsning av en användares e-post](/graph/api/user-list-messages?view=graph-rest-1.0), kan samma kod komma åt e-postmeddelandet för både personliga konton och arbets-och skol konton.
+Med slut punkten för Microsoft Identity Platform kan du skriva appar som accepterar inloggningar från personliga Microsoft-konton och arbets-och skol konton. Det ger dig möjlighet att skriva appens fullständigt konto-oberoende. Om din app till exempel anropar [Microsoft Graph](https://graph.microsoft.io), kommer vissa ytterligare funktioner och data att vara tillgängliga för arbets konton, till exempel SharePoint-webbplatser eller katalog data. Men för många åtgärder, till exempel [läsning av en användares e-post](/graph/api/user-list-messages), kan samma kod komma åt e-postmeddelandet för både personliga konton och arbets-och skol konton.
 
 För Microsoft Identity Platform-slutpunkten kan du använda Microsoft Authentication Library (MSAL) för att få till gång till konsument-, utbildnings-och företags världar. Azure AD v 1.0-slutpunkten accepterar bara inloggningar från arbets-och skol konton.
 
@@ -114,7 +111,7 @@ Med de här omfången kan du koda din app på ett minimalt sätt så att du bara
 Slut punkten för Microsoft Identity Platform utfärdar en mindre uppsättning anspråk i sina tokens som standard för att bevara nytto laster små. Om du har appar och tjänster som har ett beroende på ett visst anspråk i en v 1.0-token som inte längre anges som standard i en Microsoft Identity Platform-token, bör du överväga att använda funktionen [valfria anspråk](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) för att ta med detta anspråk.
 
 > [!IMPORTANT]
-> v 1.0-och v 2.0-token kan utfärdas av både v 1.0-och v 2.0-slutpunkter! id_tokens *alltid* matcha den slut punkt som de begär från, och åtkomsttoken matchar *alltid* det format som förväntas av webb-API: et som klienten anropar med denna token.  Så om din app använder v 2.0-slutpunkten för att hämta en token för att anropa Microsoft Graph, vilket förväntar sig ett token för v 1.0-format, får appen en token i formatet v 1.0.  
+> v 1.0-och v 2.0-token kan utfärdas av både v 1.0-och v 2.0-slutpunkter! id_tokens *alltid* matcha den slut punkt som de begär från, och åtkomsttoken matchar *alltid* det format som förväntas av webb-API: et som klienten anropar med denna token.  Så om din app använder v 2.0-slutpunkten för att hämta en token för att anropa Microsoft Graph, vilket förväntar sig ett token för v 1.0-format, får appen en token i formatet v 1.0.
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -153,18 +150,22 @@ Biblioteks stöd för Microsoft Identity Platform-slutpunkten är för närvaran
 * Om du skapar ett skriv bord eller ett mobilt program kan du använda något av Microsoft-MSAL (Authentication Libraries). Dessa bibliotek är allmänt tillgängliga eller i en för hands version som stöds för produktion, så det är säkert att använda dem i produktions program. Du kan läsa mer om villkoren i för hands versionen och de tillgängliga biblioteken i [autentiserings biblioteks referensen](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 * För plattformar som inte omfattas av Microsoft-bibliotek kan du integrera med Microsoft Identity Platform-slutpunkten genom att skicka och ta emot protokoll meddelanden direkt i program koden. OpenID Connect-och OAuth-protokollen [är uttryckligen dokumenterade](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) för att hjälpa dig att göra en sådan integrering.
 * Slutligen kan du använda OpenID Connect och OAuth-bibliotek med öppen källkod för att integrera med Microsoft Identity Platform-slutpunkten. Microsoft Identity Platform-slutpunkten bör vara kompatibel med många protokoll bibliotek med öppen källkod utan ändringar. Tillgängligheten för de här typerna av bibliotek varierar beroende på språk och plattform. [OpenID Connect](https://openid.net/connect/) och [OAuth 2,0](https://oauth.net/2/) -webbplatser har en lista över populära implementeringar. Mer information finns i [Microsoft Identity Platform and Authentication libraries](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)och i listan över klient bibliotek med öppen källkod och exempel som har testats med Microsoft Identity Platform-slutpunkten.
-* För referens `.well-known` är slut punkten för den vanliga slut punkten för Microsoft Identity Platform `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . Ersätt `common` med klient-ID: t för att hämta data som är speciella för din klient.  
+* För referens `.well-known` är slut punkten för den vanliga slut punkten för Microsoft Identity Platform `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . Ersätt `common` med klient-ID: t för att hämta data som är speciella för din klient.
 
 ### <a name="protocol-changes"></a>Protokoll ändringar
 
-Slut punkten för Microsoft Identity Platform stöder inte SAML eller WS-Federation; den stöder bara OpenID Connect och OAuth 2,0.  De viktiga ändringarna i OAuth 2,0-protokollen från v 1.0-slut punkten är: 
+Slut punkten för Microsoft Identity Platform stöder inte SAML eller WS-Federation; den stöder bara OpenID Connect och OAuth 2,0.  De viktiga ändringarna i OAuth 2,0-protokollen från v 1.0-slut punkten är:
 
-* `email`Anspråket returneras om ett valfritt anspråk har kon figurer ATS **eller** om scope = email angavs i begäran. 
-* `scope`Parametern stöds nu i stället för `resource` parametern.  
-* Många svar har ändrats för att göra dem mer kompatibla med OAuth 2,0-specifikationen, till exempel korrekt returneras `expires_in` som en int-sträng i stället för en sträng.  
+* `email`Anspråket returneras om ett valfritt anspråk har kon figurer ATS **eller** om scope = email angavs i begäran.
+* `scope`Parametern stöds nu i stället för `resource` parametern.
+* Många svar har ändrats för att göra dem mer kompatibla med OAuth 2,0-specifikationen, till exempel korrekt returneras `expires_in` som en int-sträng i stället för en sträng.
 
 För att bättre förstå omfattningen av de protokoll funktioner som stöds i Microsoft Identity Platform-slutpunkten, se [OpenID Connect och OAuth 2,0-protokoll referens](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
-#### <a name="saml-restrictions"></a>SAML-begränsningar
+#### <a name="saml-usage"></a>SAML-användning
 
-Om du har använt Active Directory-autentiseringsbibliotek (ADAL) i Windows-program kan du ha nytta av Windows-integrerad autentisering, som använder den beviljade SAML-kontrollen (Security Assertion Markup Language). Med det här bidraget kan användare av federerade Azure AD-klienter obevakat autentisera med sina lokala Active Directory-instanser utan att ange autentiseringsuppgifter. SAML Assertion-tilldelningen stöds inte på Microsoft Identity Platform-slutpunkten.
+Om du har använt Active Directory-autentiseringsbibliotek (ADAL) i Windows-program kan du ha nytta av Windows-integrerad autentisering, som använder den beviljade SAML-kontrollen (Security Assertion Markup Language). Med det här bidraget kan användare av federerade Azure AD-klienter obevakat autentisera med sina lokala Active Directory-instanser utan att ange autentiseringsuppgifter. Även om [SAML fortfarande är ett protokoll som stöds](../develop/active-directory-saml-protocol-reference.md) för användning med företags användare, är v 2.0-slutpunkten endast för användning med OAuth 2,0-program.
+
+## <a name="next-steps"></a>Nästa steg
+
+Läs mer i [dokumentationen för Microsoft Identity Platform](../develop/index.yml).

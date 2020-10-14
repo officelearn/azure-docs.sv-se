@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e701ac8cee15a338c363ec2697e02e82bb4f4e68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4db3c58da791a5cad5fc3b9c98f245202d8119e2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396441"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054771"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: vanliga frågor och svar
 
@@ -149,7 +149,6 @@ Du kan använda vår nya enhetlig **Appregistreringar** upplevelse eller äldre 
 1. Välj varje användare i tur (exkludera den *prenumerations administratörs* användare som du för närvarande är inloggad som). Välj **ta bort** längst ned på sidan och välj **Ja** när du uppmanas till det.
 1. Välj **Azure Active Directory** på menyn till vänster.
 1. Under **Hantera**väljer du **användar inställningar**.
-1. Om det är tillgängligt väljer du **Nej**under **LinkedIn-konto anslutningar**och väljer sedan **Spara**.
 1. Under **Hantera**, väljer du **Egenskaper**
 1. Under **Åtkomsthantering för Azure-resurser** väljer du **Ja** och väljer sedan **Spara**.
 1. Logga ut från Azure Portal och logga sedan in igen för att uppdatera åtkomsten.

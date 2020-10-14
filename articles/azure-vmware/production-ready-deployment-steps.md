@@ -3,12 +3,12 @@ title: Planera distributionen av Azure VMware-lösningen
 description: Den här artikeln beskriver ett arbets flöde för distribution av Azure VMware-lösningar.  Det slutliga resultatet är en miljö som är redo för generering och migrering av virtuella datorer (VM).
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: e279f14406d464171f0879d85cc33f9844d22ec3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe1396c8f256ba8374208febad2afe03a453e5f5
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802216"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055094"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planera distributionen av Azure VMware-lösningen
 
@@ -104,7 +104,7 @@ För att få åtkomst till ditt privata moln i Azure VMware-lösningen måste Ex
 ExpressRoute-kretsen från Azure VMware-lösningen ansluter till en ExpressRoute-gateway i Azure-Virtual Network som du definierar i det här steget.  
 
 >[!IMPORTANT]
->Om du väljer ett befintligt virtuellt nätverk måste du välja ett som inte har ett redan befintligt Gateway-undernät.  
+>Du kan använda en befintlig ExpressRoute-Gateway för att ansluta till Azure VMware-lösningen så länge den inte överskrider gränsen på fyra ExpressRoute-kretsar per virtuellt nätverk.  Men för att få åtkomst till Azure VMware-lösningen från lokala platser via ExpressRoute måste du ha ExpressRoute Global Reach eftersom ExpressRoute-gatewayen inte tillhandahåller transitiv routning mellan dess anslutna kretsar.  
 
 Om du vill ansluta ExpressRoute-kretsen från Azure VMware-lösningen till en befintlig ExpressRoute-Gateway kan du göra det efter distributionen.  
 

@@ -4,16 +4,16 @@ description: Översikt över hur du exponerar ett API som finns i App Service ti
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.reviewer: sunayv
-ms.openlocfilehash: 7d968c62afbfc92952f747e1e7627c98fe07436d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 359f19598d5f1dff6cda4b303d33ed721ed72d97
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015093"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054805"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportera en Azure-värdbaserad API till PowerApps och Microsoft Flow
 
-[PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/) är en tjänst för att skapa och använda anpassade affärsappar som ansluter till dina data och arbetar på olika plattformar. [Microsoft Flow](/learn/modules/get-started-with-flow/index) är det enkelt att automatisera arbets flöden och affärs processer mellan dina favorit program och-tjänster. Både PowerApps och Microsoft Flow levereras med en mängd inbyggda anslutningar till data källor som Office 365, Dynamics 365, Salesforce med mera. I vissa fall vill app-och flödes byggare också ansluta till data källor och API: er som skapats av organisationen.
+[PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/) är en tjänst för att skapa och använda anpassade affärsappar som ansluter till dina data och arbetar på olika plattformar. Med automatisk [energi förbrukning](/learn/modules/get-started-with-flow/index) blir det enkelt att automatisera arbets flöden och affärs processer mellan dina favorit program och-tjänster. Både PowerApps och Microsoft Flow levereras med en mängd inbyggda anslutningar till data källor som Office 365, Dynamics 365, Salesforce med mera. I vissa fall vill app-och flödes byggare också ansluta till data källor och API: er som skapats av organisationen.
 
 På samma sätt kan utvecklare som vill exponera sina API: er mer brett inom en organisation göra sina API: er tillgängliga för app-och flödes byggare. Den här artikeln visar hur du exporterar ett API som skapats med [Azure Functions](../azure-functions/functions-overview.md) eller [Azure App Service](../app-service/overview.md). Det exporterade API: et blir en *anpassad anslutning*som används i PowerApps och Microsoft Flow precis som en inbyggd koppling.
 

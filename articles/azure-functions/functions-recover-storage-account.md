@@ -3,12 +3,12 @@ title: 'Fel söknings fel: Körmiljö för Azure Functions kan inte kontaktas'
 description: Lär dig hur du felsöker ett ogiltigt lagrings konto.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: c46ca214ab6c0798fdc39ead575fb2873b8c51c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 094f4f45be0ae4173af434be178f2eae2b21b6be
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385865"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054737"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Fel söknings fel: "Körmiljö för Azure Functions kan inte kontaktas"
 
@@ -36,7 +36,7 @@ I föregående steg, om du inte kan hitta någon anslutnings sträng för lagrin
 
 * Kunna
     * [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage)
-* Krävs för förbruknings plan funktioner:
+* Krävs för förbruknings-och Premium plan-funktioner:
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](./functions-app-settings.md)
     * [`WEBSITE_CONTENTSHARE`](./functions-app-settings.md)
 

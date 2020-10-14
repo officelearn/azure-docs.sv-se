@@ -3,12 +3,12 @@ title: Hög tillgänglighet och haveriberedskap
 description: Lär dig hur du utformar ditt batch-program för ett regionalt avbrott.
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 1e22cb19aba1dcedc4ece7ddc2d1de0ab3233238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c77e6fa672d26545af47b262a982a7d0d7303eec
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83725745"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058020"
 ---
 # <a name="design-your-application-for-high-availability"></a>Utforma ditt program för hög tillgänglighet
 
@@ -39,5 +39,5 @@ Tänk på följande när du skapar en lösning som kan redundansväxla:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om att skapa batch-konton med [Azure Portal](batch-account-create-portal.md), [Azure CLI](cli-samples.md), [PowerShell](batch-powershell-cmdlets-get-started.md)eller [batch Management-API: et](batch-management-dotnet.md).
+- Lär dig mer om att skapa batch-konton med [Azure Portal](batch-account-create-portal.md), [Azure CLI](./scripts/batch-cli-sample-create-account.md), [PowerShell](batch-powershell-cmdlets-get-started.md)eller [batch Management-API: et](batch-management-dotnet.md).
 - Standard kvoter är associerade med ett batch-konto. [den här artikeln](batch-quota-limit.md) beskriver standardvärdena för kvot och beskriver hur kvoterna kan ökas.

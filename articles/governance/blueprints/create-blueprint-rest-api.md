@@ -1,14 +1,14 @@
 ---
 title: 'Snabb start: skapa en skiss med REST API'
 description: I den här snabb starten använder du Azure-ritningar för att skapa, definiera och distribuera artefakter med hjälp av REST API.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: e3cdf28cfe523e52aceefe20294042d28b98e1e2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa25a65b20b295045b52a49c8c47fb8849c3cba3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85971206"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056999"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Snabb start: definiera och tilldela en Azure Blueprint med REST API
 
@@ -329,7 +329,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
 - `{YourMG}` – Ersätt med ID för din hanteringsgrupp
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
-1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. AppId är static ( `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` ), men tjänstens huvud namns-ID varierar av klienten. Information kan begäras för din klientorganisation med hjälp av följande REST API. Det använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) som har en annan auktorisering.
+1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. AppId är static ( `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` ), men tjänstens huvud namns-ID varierar av klienten. Information kan begäras för din klientorganisation med hjälp av följande REST API. Den använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md), som har olika auktorisering.
 
    - REST API-URI
 

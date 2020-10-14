@@ -4,12 +4,12 @@ description: Instruktioner om hur du flyttar ett Recovery Services valv över Az
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 19b1c930ffc0e4b519c25f421662547a4d8dcde6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55c906585e6f6d4a2ae3f2279b2c3ffbaaccb025
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91773373"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056437"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Flytta ett Recovery Services valv över Azure-prenumerationer och resurs grupper
 
@@ -34,7 +34,7 @@ Frankrike, centrala, södra Frankrike, Tyskland nordöstra, Tyskland, centrala, 
 - Om en virtuell dator inte flyttas med Recovery Services valvet över prenumerationer, eller till en ny resurs grupp, förblir den aktuella återställnings punkten för virtuella datorer intakt i valvet tills den upphör att gälla.
 - Oavsett om den virtuella datorn har flyttats med valvet eller inte, kan du alltid återställa den virtuella datorn från den sparade säkerhets kopierings historiken i valvet.
 - Azure Disk Encryption kräver att nyckel valvet och de virtuella datorerna finns i samma Azure-region och prenumeration.
-- Information om hur du flyttar en virtuell dator med hanterade diskar finns i den här [artikeln](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
+- Information om hur du flyttar en virtuell dator med hanterade diskar finns i den här [artikeln](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription).
 - Alternativen för att flytta resurser som distribueras via den klassiska modellen varierar beroende på om du flyttar resurserna i en prenumeration eller till en ny prenumeration. Mer information finns i den här [artikeln](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Säkerhets kopierings principer som definierats för valvet behålls när valvet flyttas över prenumerationer eller till en ny resurs grupp.
 - Du kan bara flytta ett valv som innehåller någon av följande typer av säkerhets kopierings objekt. Alla säkerhets kopierings objekt av typer som inte anges nedan måste stoppas och data tas bort permanent innan du flyttar valvet.

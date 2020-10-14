@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: b0f2a6fcd888afd7eb99a810fad6e876fe6ff4ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8049df552c9754a1674c9e38e6d9b9b2cea3bd85
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617068"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058224"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Självstudie: Konfigurera replikering mellan två hanterade instanser
 
@@ -27,7 +27,7 @@ Med Transaktionsreplikering kan du replikera data från en databas till en annan
 
 Transaktionell replikering är för närvarande en offentlig för hands version för SQL-hanterad instans. 
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -48,7 +48,7 @@ Den här självstudien är avsedd för en erfaren mål grupp och förutsätter a
 
 Att konfigurera SQL-hanterad instans så att den fungerar som en utgivare och/eller en distributör kräver:
 
-- Att utgivarens hanterade instans finns i samma virtuella nätverk som distributören och prenumeranten, eller att [peering för virtuellt nätverk](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) har kon figurer ATS mellan de virtuella nätverken i alla tre entiteter. 
+- Att utgivarens hanterade instans finns i samma virtuella nätverk som distributören och prenumeranten, eller [VPN-gatewayer](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) har kon figurer ATS mellan de virtuella nätverken i alla tre entiteter. 
 - Anslutningen använder SQL-autentisering mellan replikeringsdeltagare.
 - En Azure Storage-konto resurs för replikeringens arbets katalog.
 - Port 445 (TCP utgående) är öppen i säkerhets reglerna för NSG för de hanterade instanserna för åtkomst till Azure-filresursen.  Om felet uppstår `failed to connect to azure storage \<storage account name> with os error 53` måste du lägga till en utgående regel i NSG för rätt undernät för SQL-hanterad instans.

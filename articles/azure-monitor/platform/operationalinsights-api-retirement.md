@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: cf48e26133326d43754b38df6f3b2caaf7a587ab
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c9a7ba63246f747a132c315e22452ca9c7144448
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978096"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058190"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>Borttagning av OperationalInsights-API-version
 Microsoft tillhandahåller ett meddelande minst 12 månader i förväg för att dra tillbaka ett API för att utjämna över gången till en nyare/version som stöds. Vi har släppt en ny version (2020-08-01) för **OperationalInsights** Resource Provider-API: er och kommer att dra tillbaka alla tidigare API-versioner den 31 oktober 2023. Eftersom nya funktioner och funktioner och optimeringar bara läggs till i aktuellt API bör du uppgradera till den senaste API-versionen så tidigt som möjligt.
@@ -67,4 +67,4 @@ Beroende på vilken konfigurations metod du använder bör du uppdatera den nya 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [referensen för OperationalInsights-API: et](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/allversions).
+- Se [referensen för OperationalInsights-arbetsyte-API: et](https://docs.microsoft.com/rest/api/loganalytics/workspaces).

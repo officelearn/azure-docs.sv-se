@@ -6,18 +6,18 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 57a9186033b8df71d1972289fe33b0fe654690f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8d6481bdf3476f8f91c437138f4b6f1ebd1f1de
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316434"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058207"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Självstudie: använda en Web App-robot som är aktive rad med Language Understanding i C #
 
 Använd C# för att bygga en chatt-robot integrerad med språk förståelse (LUIS). Roboten är byggd med Azure [Web App bot-](https://docs.microsoft.com/azure/bot-service/) resursen och [bot Framework version](https://github.com/Microsoft/botbuilder-dotnet) v4.
 
-**I den här guiden får du lära dig att:**
+**I de här självstudierna får du lära dig att**
 
 > [!div class="checklist"]
 > * Skapa en webbappsrobot. Den här processen skapar en ny LUIS-app.
@@ -25,9 +25,9 @@ Använd C# för att bygga en chatt-robot integrerad med språk förståelse (LUI
 > * Starta roboten och emulatorn lokalt på datorn
 > * Visa uttrycksresultat i roboten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* [Robotemulator](https://aka.ms/abs/build/emulatordownload)
+* [Bot Framework-emulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
 ## <a name="create-a-web-app-bot-resource"></a>Skapa en bot-resurs för webb program
@@ -43,7 +43,7 @@ Använd C# för att bygga en chatt-robot integrerad med språk förståelse (LUI
     |Robot referens|Resursnamn|`luis-csharp-bot-` + `<your-name>`, till exempel `luis-csharp-bot-johnsmith`|
     |Prenumeration|Prenumeration där roboten ska skapas.|Din primära prenumeration.
     |Resursgrupp|Logisk grupp med Azure-resurser|Skapa en ny grupp för att lagra alla resurser som används med den här roboten och ge gruppen namnet `luis-csharp-bot-resource-group`.|
-    |Location|Azure-region – Det här behöver inte vara samma som redigerings- eller publiceringsregionen för LUIS.|`westus`|
+    |Plats|Azure-region – Det här behöver inte vara samma som redigerings- eller publiceringsregionen för LUIS.|`westus`|
     |Prisnivå|Används för begränsningar och fakturering av tjänstbegäranden.|`F0` är den kostnadsfria nivån.
     |Appnamn|Namnet används som underdomänen när din robot distribueras till molnet (exempelvis humanresourcesbot.azurewebsites.net).|`luis-csharp-bot-` + `<your-name>`, till exempel `luis-csharp-bot-johnsmith`|
     |Robotmall|Bot Framework-inställningar – se nästa tabell|
@@ -314,18 +314,18 @@ Starta bot i Visual Studio 2019. Ett webbläsarfönster öppnas med webbappsrobo
 
 ![En start sida visas med information om din robot.](./media/bfv4-csharp/running-bot-web-home-page-success.png)
 
-## <a name="use-the-bot-emulator-to-test-the-bot"></a>Använd bot-emulatorn för att testa roboten
+## <a name="use-the-bot-framework-emulator-to-test-the-bot"></a>Använd bot Framework-emulatorn för att testa bot
 
-1. Starta bot-emulatorn och välj **Öppna bot**.
+1. Starta bot Framework-emulatorn och välj **Öppna bot**.
 1. Ange din robot-URL i dialog rutan **öppna en robot** -pop, till exempel `http://localhost:3978/api/messages` . `/api/messages`Vägen är webb adressen för bot.
 1. Ange **Microsoft app-ID** och **Microsoft app-lösenordet**, som finns i **appsettings.jspå** filen i roten för den robot kod som du laddade ned och välj sedan **Anslut**.
 
-1. I bot-emulatorn anger `Book a flight from Seattle to Berlin tomorrow` du och får samma svar för den grundläggande roboten som du fick i **testet i Web Chat** i ett tidigare avsnitt.
+1. I bot Framework-emulatorn anger `Book a flight from Seattle to Berlin tomorrow` du och får samma svar för den grundläggande roboten som du fick i **testet i Web Chat** i ett tidigare avsnitt.
 
     [![Skärm bild som visar bot Framework-emulatorn med ett grundläggande robot svar.](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 1. Välj **Ja**. Roboten svarar med en sammanfattning av dess åtgärder.
-1. Från loggen för bot-emulatorn väljer du den rad som innehåller `<- trace LuisV3 Trace` . Detta visar JSON-svaret från LUIS för avsikten och entiteten i uttryck.
+1. Från loggen för bot Framework-emulatorn väljer du den rad som innehåller `<- trace LuisV3 Trace` . Detta visar JSON-svaret från LUIS för avsikten och entiteten i uttryck.
 
     [![Skärm bild som visar ett grundläggande robot svar med LuisV3-spåret markerat och JSON-svaret markerat.](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 

@@ -3,12 +3,12 @@ title: Använda Azure Backup Server för att säkerhetskopiera arbets belastning
 description: I den här artikeln lär du dig hur du förbereder din miljö för att skydda och säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 6fe03260cc1759929e7ff9886b1b232a37056866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1be2af43f4d923a27fd96c5c0888a234725775a3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975507"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056709"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -78,9 +78,9 @@ Oavsett om du skickar säkerhets kopierings data till Azure eller om du behålle
 
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
-### <a name="set-storage-replication"></a>Konfigurera lagringsreplikering
+### <a name="set-storage-replication"></a>Ange Storage-replikering
 
-Med alternativet för lagringsreplikering kan du välja mellan geo-redundant lagring och lokalt redundant lagring. Som standard använder Recovery Services-valv Geo-redundant lagring. Om valvet är ditt primära valv lämnar du lagrings alternativet inställt på Geo-redundant lagring. Välj lokalt redundant lagring om du vill använda ett billigare alternativ som inte är lika beständigt. Läs mer om [geo-redundanta](../storage/common/storage-redundancy.md#geo-redundant-storage), [lokalt redundanta](../storage/common/storage-redundancy.md#locally-redundant-storage) och [zon redundanta](../storage/common/storage-redundancy.md#zone-redundant-storage) lagrings alternativ i [Översikt över Azure Storage replikering](../storage/common/storage-redundancy.md).
+Med alternativet för lagringsreplikering kan du välja mellan geo-redundant lagring och lokalt redundant lagring. Som standard använder Recovery Services-valv Geo-redundant lagring. Om valvet är ditt primära valv lämnar du lagrings alternativet inställt på Geo-redundant lagring. Välj lokalt redundant lagring om du vill använda ett billigare alternativ som inte är lika beständigt. Läs mer om alternativ för [Geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage), [lokalt redundant](../storage/common/storage-redundancy.md#locally-redundant-storage)lagring och [zon-redundant](../storage/common/storage-redundancy.md#zone-redundant-storage) lagring i [Översikt över Azure Storage replikering](../storage/common/storage-redundancy.md).
 
 Så här redigerar du inställningen för lagringsreplikering:
 
@@ -200,6 +200,9 @@ När extraherings processen har slutförts markerar du kryss rutan för att star
     ![Ange plats för installation av filer](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
     Arbets platsen är ett krav för säkerhets kopiering till Azure. Se till att arbets platsen är minst 5% av de data som planeras att säkerhets kopie ras till molnet. För disk skydd måste separata diskar konfigureras när installationen är klar. Mer information om lagringspooler finns i [förbereda data lagring](/system-center/dpm/plan-long-and-short-term-data-storage).
+
+    Kapacitets kraven för disk lagring beror främst på storleken på skyddade data, storleken på den dagliga återställnings punkten, förväntad volym data tillväxt och mål för kvarhållning av intervall. Vi rekommenderar att du gör disk lagringen dubbelt så stor som skyddade data. Detta förutsätter en storlek på den dagliga återställningspunkten som är 10 % av storleken på skyddade data och ett kvarhållningsintervall på 10 dagar. Granska [DPM-Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301)för att få en korrekt uppskattning av storleken. 
+
 5. Ange ett starkt lösen ord för begränsade lokala användar konton och välj **Nästa**.
 
     ![Ange ett starkt lösen ord](./media/backup-azure-microsoft-azure-backup/security-screen.png)

@@ -13,12 +13,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: 831af87159b909ca744839d2997aa2b70cbc72e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e63d2cac97a16674c4e2e880f94373b0af1510de
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91627133"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056420"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>Vad är Microsofts identitetsplattform?
 
@@ -74,8 +74,7 @@ Lär dig hur grundläggande autentisering och Azure AD-koncept gäller för Micr
 
 [Azure AD B2B](../external-identities/what-is-b2b.md) – Bjud in externa användare i Azure AD-klienten som "gäst användare" och tilldela behörigheter för auktorisering medan de använder sina befintliga autentiseringsuppgifter för autentisering.
 
-> [!TIP]
-> Letar du efter dokumentation om *Azure Active Directory Developer Platform (v 1.0)* ? Se [Översikt över Azure Active Directory för utvecklare (v 1.0)](../azuread-dev/v1-overview.md).
+[Azure Active Directory för utvecklare (v 1.0)](../azuread-dev/v1-overview.md) – visas här för utvecklare med befintliga appar som använder den äldre v 1.0-slutpunkten. Använd **inte** v 1.0 för nya projekt.
 
 ## <a name="next-steps"></a>Nästa steg
 

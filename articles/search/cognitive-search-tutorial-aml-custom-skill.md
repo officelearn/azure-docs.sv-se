@@ -3,17 +3,17 @@ title: 'Självstudie: skapa och distribuera en anpassad kunskap med Azure Machin
 titleSuffix: Azure Cognitive Search
 description: Den här självstudien visar hur du använder Azure Machine Learning för att bygga och distribuera en anpassad färdighet för Azure Kognitiv söknings pipeline för AI-anrikning.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 3ecef629e38e2823bea101af47899f9b7d6845f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa961a5a6d3a3b827a082fbac2acc3431ac40949
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399847"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057611"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Självstudie: bygga och distribuera en anpassad kunskap med Azure Machine Learning 
 
@@ -33,7 +33,7 @@ Det finns två angivna data uppsättningar. Om du vill träna modellen själv, k
 > [!IMPORTANT] 
 > Den här kunskapen är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Det finns för närvarande inget stöd för .NET SDK.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – hämta en [kostnads fri prenumeration](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Kognitiv sökning tjänst](./search-get-started-arm.md)

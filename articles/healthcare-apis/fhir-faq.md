@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 35b59fb0583911b5b9faee96276d1bb09a8d6679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c32ebef16750954f3df1a1d1b379bf42853f2b3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269717"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056863"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Vanliga frågor och svar om Azure API för FHIR
 
@@ -43,6 +43,10 @@ Azure API för FHIR är en värdbaserad och hanterad version av Microsoft FHIR-s
 När du kör FHIR Server för Azure har du direkt åtkomst till de underliggande tjänsterna. Men du ansvarar också för att underhålla och uppdatera servern och all nödvändig kompatibilitet om du lagrar PHI-data.
 
 Från en utvecklings synpunkt distribueras alla funktioner till Microsoft FHIR-servern med öppen källkod för Azure först. När den har verifierats i öppen källkod kommer den att lanseras till PaaS Azure API för FHIR-lösningen. Tiden mellan versionen i öppen källkod och PaaS beror på komplexiteten i funktionen och andra prioriteringar för prioriteringar. 
+
+### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>Var kan jag se vad som släpps i Azure API för FHIR?
+
+Om du vill se en del av vad som är lanserat i Azure API för FHIR, se [lanseringen](https://github.com/microsoft/fhir-server/releases) av FHIR-servern med öppen källkod. Vi har arbetat med att tagga objekt med Azure-API-for-FHIR om de kommer att lanseras till den hanterade tjänsten och är vanligt vis tillgängliga två veckor efter att de finns på sidan release i öppen källkod. Vi har också inkluderat instruktioner om hur du testar build [här](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) om du vill testa i din egen miljö. Vi utvärderar hur du bäst delar ytterligare hanterade tjänst uppdateringar.
 
 ### <a name="what-is-smart-on-fhir"></a>Vad är SMART på FHIR?
 

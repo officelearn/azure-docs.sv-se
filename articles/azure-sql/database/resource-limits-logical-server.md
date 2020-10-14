@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 09/15/2020
-ms.openlocfilehash: 6589211839a5c1667a6b5cef22220fd917f7e4af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e70897825dfebe03e920ff5948ad597b57bdd7d7
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618970"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058258"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Resurs gränser för Azure SQL Database-och Azure Synapse Analytics-servrar
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -59,7 +59,7 @@ När databas beräknings processor användningen blir hög ökar svars tiden fö
 När du räknar med hög beräknings användning är följande alternativ för minskning:
 
 - Öka beräknings storleken för databasen eller den elastiska poolen för att tillhandahålla databasen med fler beräknings resurser. Se [skala resurser för enkel databas](single-database-scale.md) och [skala elastiska pooler](elastic-pool-scale.md).
-- Optimera frågor för att minska användningen av CPU-resurser för varje fråga. Mer information finns i [fråga om justering/tips](performance-guidance.md#query-tuning-and-hinting).
+- Optimera frågor för att minska användningen av CPU-resurser för varje fråga. Mer information finns i avsnittet om [frågeoptimering och frågetips](performance-guidance.md#query-tuning-and-hinting).
 
 ### <a name="storage"></a>Storage
 
@@ -78,7 +78,7 @@ Det högsta antalet sessioner och arbets tagare bestäms av tjänst nivån och b
 När du räknar med hög arbets belastning eller arbets belastning, är alternativ för minskning följande:
 
 - Öka tjänst nivån eller beräknings storleken för databasen eller den elastiska poolen. Se [skala resurser för enkel databas](single-database-scale.md) och [skala elastiska pooler](elastic-pool-scale.md).
-- Optimering av frågor för att minska resursutnyttjande för varje fråga om orsaken till ökad arbets belastning beror på konkurrens för beräknings resurser. Mer information finns i [fråga om justering/tips](performance-guidance.md#query-tuning-and-hinting).
+- Optimering av frågor för att minska resursutnyttjande för varje fråga om orsaken till ökad arbets belastning beror på konkurrens för beräknings resurser. Mer information finns i avsnittet om [frågeoptimering och frågetips](performance-guidance.md#query-tuning-and-hinting).
 - Minska inställningen för [MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (maximal grad av parallellitet).
 - Optimera fråge arbets belastningen för att minska antalet förekomster och varaktighet för frågans blockering.
 
@@ -137,11 +137,11 @@ Om en fråga till exempel genererar 1000 IOPS utan någon IO-resurs styrning, me
 
 Värdena för IOPS och data flöde som returnerades av [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) Visa fungerar som gränser/versaler, inte som garantier. Dessutom garanterar resurs styrningen inte någon speciell lagrings fördröjning. Den bästa tillgängliga svars tiden, IOPS och data flödet för en specifik användar arbets belastning är beroende inte bara av gränser för i/o-resursens styrning, utan även på den kombination av IO-storlek som används och på funktionerna i det underliggande lagrings utrymmet. SQL Database använder IOs som varierar i storlek mellan 512 KB och 4 MB. I syfte att framtvinga IOPS-gränser redovisas varje IO oavsett storlek, med undantag för databaser med datafiler i Azure Storage. I så fall redovisas IOs som är större än 256 KB som flera 256-KB-IOs för att justera med Azure Storage IO-redovisning.
 
-För Basic-, standard-och Generell användning-databaser, som använder datafiler i Azure Storage, `primary_group_max_io` kan det hända att värdet inte kan nås om en databas inte har tillräckligt med datafiler för att ackumulera antalet IOPS, eller om data inte fördelas jämnt över filer, eller om prestanda nivån för underliggande blobbar begränsar IOPS/data flödet under resurs styrnings gränsen. På samma sätt `primary_max_log_rate` kan det hända att värdet inte kan nås av en arbets belastning på grund av IOPS-gränsen för den underliggande Azure Storage-blobben, med en liten logg-iOS som genererats av frekvent transaktions genomförande.
+För Basic-, standard-och Generell användning-databaser, som använder datafiler i Azure Storage, `primary_group_max_io` kan det hända att värdet inte kan nås om en databas inte har tillräckligt med datafiler för att ackumulera antalet IOPS, eller om data inte fördelas jämnt över filer, eller om prestanda nivån för underliggande blobbar begränsar IOPS/data flödet under resurs styrnings gränserna. På samma sätt `primary_max_log_rate` kan det hända att värdet inte kan nås av en arbets belastning på grund av IOPS-gränsen på den underliggande Azure Storage-blobben, med en liten logg-iOS som genereras av frekventa transaktions skrivningar. För databaser som använder Azure Premium Storage använder Azure SQL Database tillräckligt stora lagrings blobbar för att få nödvändiga IOPS/data flöden, oavsett databas storlek. För större databaser skapas flera datafiler för att öka total IOPS/data flödes kapacitet.
 
 Värdena för resursutnyttjande, till exempel `avg_data_io_percent` och `avg_log_write_percent` , som rapporteras i vyerna [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database),  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)och [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) , beräknas som procent andelar av maximala resurs styrnings gränser. När andra faktorer än resurs styrningen begränsar IOPS/data flödet, är det möjligt att se att utökningar av IOPS/genom strömning och fördröjning ökar när arbets belastningen ökar, även om rapporterat resursutnyttjande är lägre än 100%.
 
-Om du vill se läsa och skriva IOPS, data flöde och svars tid per databas fil använder du funktionen [sys.dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Den här funktionen delar alla IO: t i databasen, inklusive Background IO som inte redovisas mot `avg_data_io_percent` , men använder IOPS och data flödet för den underliggande lagringen och kan påverka den observerade lagrings fördröjningen. Funktionen hämtar också ytterligare svars tid som kan införas av i/o-resursens styrning för läsningar och skrivningar, i `io_stall_queued_read_ms` `io_stall_queued_write_ms` respektive kolumner.
+Om du vill se läsa och skriva IOPS, data flöde och svars tid per databas fil använder du funktionen [sys.dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Den här funktionen delar alla IO: t i databasen, inklusive Background IO som inte redovisas mot `avg_data_io_percent` , men använder IOPS och data flödet för den underliggande lagringen och kan påverka den observerade lagrings fördröjningen. Funktions ytorna ytterligare svars tid som kan introduceras av i/o-resursens styrning för läsningar och skrivningar, i `io_stall_queued_read_ms` `io_stall_queued_write_ms` respektive kolumner.
 
 ### <a name="transaction-log-rate-governance"></a>Hastighets styrning för transaktions logg
 
@@ -158,7 +158,7 @@ De faktiska taxan för logg skapande som påförs vid körning kan också påver
 
 Trafikstyrningen för logg takts trafik sker via följande vänte lägen (visas i [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) och [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) vyer):
 
-| Wait-typ | Obs! |
+| Wait-typ | Kommentarer |
 | :--- | :--- |
 | LOG_RATE_GOVERNOR | Databas begränsning |
 | POOL_LOG_RATE_GOVERNOR | Begränsning av pool |

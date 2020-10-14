@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 6c88a1eaee50676cfe6bb9589779d7156b805e30
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 77dc64d9660f9a0bf66559c4a5a976362cf1acd0
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920984"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951646"
 ---
 ::: zone target = "docs"
 
@@ -97,11 +97,11 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
 
 1. Det första steget är att autentisera och starta en session. Gå till **Anslut och kopiera**. Klicka på **Hämta autentiseringsuppgifter** för att få autentiseringsuppgifter för de resurser som är associerade med ditt lagringskonto.
 
-    ![Hämta resursautentiseringsuppgifter 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-1.png)
+    ![Hämta resursautentiseringsuppgifter](media/data-box-heavy-deploy-copy-data/get-share-credentials-1.png)
 
 2. I dialogrutan Få åtkomst till resursen och kopiera data kopierar du **användarnamnet** och **lösenordet** som motsvarar resursen. Klicka på **OK**.
     
-    ![Hämta resursautentiseringsuppgifter 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-2.png)
+    ![Hämta resursautentiseringsuppgifter 2](media/data-box-heavy-deploy-copy-data/get-share-credentials-2.png)
 
 3. För att komma åt resurser som är associerade med ditt lagringskonto (*databoxe2etest* i följande exempel) från värddatorn öppnar du ett kommandofönster. Skriv följande i kommandotolken:
 
@@ -122,7 +122,7 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
 
 4. Tryck på Windows + R. I fönstret **Kör** anger du `\\<device IP address>`. Öppna Utforskaren genom att klicka på **OK**.
     
-    ![Ansluta till resursen via Utforskaren 2](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
+    ![Ansluta till resurs via Utforskaren](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
 
     Du bör nu se resurserna som mappar.
     

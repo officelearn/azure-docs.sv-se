@@ -4,12 +4,12 @@ description: Få en snabb introduktion till Batch-kommandon i Azure CLI för att
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 048dbad89893354ae78c03fc522f8ebeeb6a80f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d5e60f549855b39185564f7f6d2902b765cf76
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87531685"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055519"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Hantera Batch-resurser med Azure CLI
 
@@ -107,7 +107,7 @@ Genom att installera Azure Batch CLI-tillägget kan du använda Azure CLI för a
 
 ## <a name="script-examples"></a>Skriptexempel
 
-Se [CLI-skriptexemplen](cli-samples.md) för att utföra vanliga uppgifter med Batch. De här exemplen omfattar många av de kommandon som är tillgängliga i Azure CLI för att skapa och hantera konton, pooler, jobb och uppgifter med Batch. 
+Se [CLI-skriptexemplen](./scripts/batch-cli-sample-create-account.md) för att utföra vanliga uppgifter med Batch. De här exemplen omfattar många av de kommandon som är tillgängliga i Azure CLI för att skapa och hantera konton, pooler, jobb och uppgifter med Batch.
 
 ## <a name="json-files-for-resource-creation"></a>JSON-filer för resursskapande
 

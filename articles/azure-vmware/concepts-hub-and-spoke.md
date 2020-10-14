@@ -2,17 +2,18 @@
 title: Koncept – integrera en Azure VMware-lösning distribution i en hubb och eker-arkitektur
 description: Lär dig mer om rekommendationer för att integrera en Azure VMware-lösnings distribution i en befintlig eller ny hubb och eker-arkitektur på Azure.
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: 1bbb2a771ac6f7981460b1e81881725a11299242
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.date: 10/14/2020
+ms.openlocfilehash: 66c6cc4841b4b36775fda89b29dc588100c3ad87
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019277"
+ms.locfileid: "92058479"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrera Azure VMware-lösningen i en hubb och eker-arkitektur
 
 I den här artikeln ger vi rekommendationer för att integrera en Azure VMware-lösnings distribution i en befintlig eller ny [hubb och eker-arkitektur](/azure/architecture/reference-architectures/hybrid-networking/shared-services) på Azure. 
+
 
 NAV-och eker-scenariot förutsätter en hybrid moln miljö med arbets belastningar på:
 
@@ -25,6 +26,9 @@ NAV-och eker-scenariot förutsätter en hybrid moln miljö med arbets belastning
 *Hubben* är en Azure-Virtual Network som fungerar som en central punkt för anslutningen till ditt lokala och Azure VMware-lösningens privata moln. *Ekrarna* är virtuella nätverk som peer-kopplas med hubben för att aktivera kommunikation mellan virtuella nätverk.
 
 Trafik mellan det lokala data centret, Azure VMware-lösningens privata moln och navet går via Azure ExpressRoute-anslutningar. Eker-virtuella nätverk innehåller vanligt vis IaaS-baserade arbets belastningar, men kan ha PaaS-tjänster som [App Service-miljön](../app-service/environment/intro.md), som har direkt integrering med Virtual Network eller andra PaaS-tjänster med [Azure Private Link](../private-link/index.yml) aktive rad.
+
+>[!IMPORTANT]
+>Du kan använda en befintlig ExpressRoute-Gateway för att ansluta till Azure VMware-lösningen så länge den inte överskrider gränsen på fyra ExpressRoute-kretsar per virtuellt nätverk.  Men för att få åtkomst till Azure VMware-lösningen från lokala platser via ExpressRoute måste du ha ExpressRoute Global Reach eftersom ExpressRoute-gatewayen inte tillhandahåller transitiv routning mellan dess anslutna kretsar.
 
 Diagrammet visar ett exempel på en distribution av hubb och ekrar i Azure som är ansluten till en lokal och Azure VMware-lösning via ExpressRoute Global Reach.
 
@@ -105,14 +109,17 @@ Mer information och krav hittar du i artikeln om Azure VMware-lösningar på [Ap
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Azure VMware-lösning hubb och eker-integrering" border="false":::
 
 
-### <a name="jumpbox-and-azure-bastion"></a>Hopp och Azure-skydds
+### <a name="jump-box-and-azure-bastion"></a>Hopp Box och Azure-skydds
 
-Få åtkomst till Azure VMwares lösnings miljö med hopp, som är en virtuell Windows 10-eller Windows Server-dator som har distribuerats i det delade tjänst under nätet i det virtuella hubb nätverket.
+Få åtkomst till Azure VMware-lösningen miljö med hopp Box, som är en virtuell Windows 10-eller Windows Server-dator som har distribuerats i det delade tjänst under nätet i det virtuella Hubbs nätverket.
 
-Av säkerhets skäl bör du distribuera [Microsoft Azure skydds](../bastion/index.yml) -tjänsten i det virtuella hubb nätverket. Azure skydds ger sömlös RDP-och SSH-åtkomst till virtuella datorer som distribueras i Azure utan att behöva etablera offentliga IP-adresser till dessa resurser. När du har etablerat Azure skydds-tjänsten kan du komma åt den valda virtuella datorn från Azure Portal. När du har upprättat anslutningen öppnas en ny flik med hjälp av Skriv bordet och från det Skriv bordet kan du komma åt Azure VMware-lösningens privata moln hanterings plan.
+>[!IMPORTANT]
+>Azure skydds är den tjänst som rekommenderas för att ansluta till hopp rutan för att förhindra att Azure VMware-lösningen exponeras för Internet. Du kan inte använda Azure-skydds för att ansluta till virtuella Azure VMware-lösningar eftersom de inte är Azure IaaS-objekt.  
+
+Av säkerhets skäl bör du distribuera [Microsoft Azure skydds](../bastion/index.yml) -tjänsten i det virtuella hubb nätverket. Azure skydds ger sömlös RDP-och SSH-åtkomst till virtuella datorer som distribueras i Azure utan att behöva etablera offentliga IP-adresser till dessa resurser. När du har etablerat Azure skydds-tjänsten kan du komma åt den valda virtuella datorn från Azure Portal. När du har upprättat anslutningen öppnas en ny flik som visar rutan Skriv bord och du kan komma åt Azure VMware-lösningens privata moln hanterings plan.
 
 > [!IMPORTANT]
-> Ge inte en offentlig IP-adress till den virtuella datorn i hoppet eller exponera port 3389/TCP på det offentliga Internet. 
+> Ge inte en offentlig IP-adress till den virtuella hopp rutan eller exponera port 3389/TCP på det offentliga Internet. 
 
 
 :::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Azure VMware-lösning hubb och eker-integrering" border="false":::

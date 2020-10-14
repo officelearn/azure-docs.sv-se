@@ -1,14 +1,14 @@
 ---
 title: 'Snabb start: skapa en skiss med Azure CLI'
 description: I den här snabb starten använder du Azure-ritningar för att skapa, definiera och distribuera artefakter med hjälp av Azure CLI.
-ms.date: 06/02/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3dfb74469bc186c25b918bfe87c7ce6f1930f2e1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 790e23897a24ea06565572163b8226af88e0bb7c
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667732"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057968"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Snabb start: definiera och tilldela en Azure Blueprint med Azure CLI
 

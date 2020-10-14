@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61a143d4294359249bffceac12e65c36ea9e5fb9
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812564"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056165"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Etablering av rapporter i Azure Active Directory portal (för hands version)
 
@@ -42,7 +42,7 @@ I det här avsnittet får du en översikt över etablerings rapporten.
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="who-can-access-the-data"></a>Vem som kan komma åt data?
-* Program ägare
+* Program ägare kan visa loggar för program som de äger
 * Användare i rollerna säkerhets administratör, säkerhets läsare, rapport läsare, program administratör och moln program administratör
 * Globala administratörer
 
@@ -56,7 +56,7 @@ Din klient organisation måste ha en Azure AD Premium licens kopplad till sig f�
 Etablerings loggarna ger svar på följande frågor:
 
 * Vilka grupper har skapats i ServiceNow?
-* Hur roller importerades från Amazon Web Services?
+* Vilka roller har importer ATS från Amazon Web Services?
 * Vad användarna inte kunde skapa i DropBox?
 
 Du kan komma åt etablerings loggarna genom att välja **etablerings loggar** i avsnittet **övervakning** på bladet **Azure Active Directory** i [Azure Portal](https://portal.azure.com). Det kan ta upp till två timmar för vissa etablerings poster att visas i portalen.
@@ -86,7 +86,7 @@ På så sätt kan du visa ytterligare fält eller ta bort fält som redan visas.
 
 Välj ett objekt i listvyn om du vill ha mer detaljerad information.
 
-![Detaljerad information](./media/concept-provisioning-logs/steps.png "Filter")
+![Detaljerad information](./media/concept-provisioning-logs/steps.png "Filtrera")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrera etablerings aktiviteter
@@ -97,10 +97,10 @@ I standardvyn kan du välja följande filter:
 - Identitet
 - Date
 - Status
-- Action
+- Åtgärd
 
 
-![Lägg till filter](./media/concept-provisioning-logs/default-filter.png "Filter")
+![Lägg till filter](./media/concept-provisioning-logs/default-filter.png "Filtrera")
 
 Med filtret **identitet** kan du ange namnet eller identiteten som du bryr dig om. Den här identiteten kan vara en användare, grupp, roll eller något annat objekt. Du kan söka efter objektets namn eller ID. ID varierar beroende på scenario. När ett objekt till exempel konfigureras från Azure AD till SalesForce, är käll-ID: t objekt-ID för användaren i Azure AD medan TargetID är användarens ID i Salesforce. Vid etablering från arbets dagar till Active Directory, är käll-ID: t arbets dagen anställdas anställnings-ID. Observera att namnet på användaren kanske inte alltid finns i identitets kolumnen. Det kommer alltid att finnas ett ID. 
 
@@ -191,7 +191,7 @@ På fliken **steg** beskrivs de steg som vidtas för att etablera ett objekt. Et
 
 
 
-![Skärm bild som visar fliken steg som visar etablerings stegen.](./media/concept-provisioning-logs/steps.png "Filter")
+![Skärm bild som visar fliken steg som visar etablerings stegen.](./media/concept-provisioning-logs/steps.png "Filtrera")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Felsöka och rekommendationer
@@ -211,7 +211,7 @@ Fliken **Sammanfattning** ger en översikt över vad som hände och identifierar
 
 ## <a name="what-you-should-know"></a>Det här bör du veta
 
-- Azure Portal lagrar rapporterade etablerings data i 30 dagar om du har en Premium-version och 7 dagar om du har en kostnads fri version. Etablerings loggarna kan publiceras i Log Analytics för kvarhållning bortom 30 dagar. 
+- Azure Portal lagrar rapporterade etablerings data i 30 dagar om du har en Premium-version och 7 dagar om du har en kostnads fri version. Etablerings loggarna kan publiceras i [Log Analytics](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) för kvarhållning bortom 30 dagar. 
 
 - Du kan använda attributet ändra ID som unik identifierare. Detta är till exempel användbart när du interagerar med produkt supporten.
 

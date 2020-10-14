@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f70d1caacfd655c956d4fcc36e3f0d3848d8f0fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f762ef1fa3a997c01873df02abf87362b8c06f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230576"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055961"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrera Azure AD-loggar med Azure Monitor loggar
 
@@ -46,6 +46,7 @@ Du kan dirigera gransknings aktivitets loggar och inloggnings aktivitets loggar 
 
 * **Spårningsloggar**: [Rapporten om spårningsloggaktivitet](concept-audit-logs.md) ger dig åtkomst till historiken för varje uppgift som utförs i din klientorganisation.
 * **Inloggningsloggar**: Med [rapporten om inloggningsaktivitet](concept-sign-ins.md) kan du se vem som har utfört de uppgifter som rapporteras i spårningsloggarna.
+* **Etablerings loggar**: med [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics)kan du övervaka vilka användare som har skapats, uppdaterats och tagits bort i alla program från tredje part. 
 
 > [!NOTE]
 > B2C-relaterade spårnings- och inloggningsaktivitetsloggar stöds inte just nu.

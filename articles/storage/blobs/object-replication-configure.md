@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 10/14/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0e42c8e22d004b574e65442f0fbdfce1c9bcabd7
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: bca960100ee0c9d7e2a779dc86030fc59949dca5
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939432"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055978"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Konfigurera objekt replikering för block-blobar
 
@@ -45,7 +45,7 @@ Om du har åtkomst till både käll-och mål lagrings kontona kan du konfigurera
 
 Innan du konfigurerar objekt replikering i Azure Portal skapar du käll-och mål behållare i deras respektive lagrings konton, om de inte redan finns. Aktivera också BLOB-versioner och ändra feed på käll kontot och aktivera BLOB-versioner på mål kontot.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 Azure Portal skapar automatiskt principen på käll kontot när du har konfigurerat det för mål kontot.
 
@@ -272,7 +272,7 @@ I följande exempel definieras en replikeringsprincip på mål kontot med en end
 }
 ```
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 Följ dessa steg om du vill konfigurera objekt replikering på mål kontot med en JSON-fil i Azure Portal:
 
@@ -353,7 +353,7 @@ az storage account or-policy create \
 
 Du kan kontrol lera replikeringsstatus för en BLOB i käll kontot med hjälp av Azure Portal, PowerShell eller Azure CLI. Egenskaperna för objektet Replication har inte fyllts i förrän replikeringen har slutförts eller misslyckats.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 Följ dessa steg om du vill kontrol lera replikeringsstatus för en BLOB i käll kontot i Azure Portal:
 
@@ -365,7 +365,16 @@ Följ dessa steg om du vill kontrol lera replikeringsstatus för en BLOB i käll
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-E.t.
+Om du vill kontrol lera replikeringsstatus för en BLOB i käll kontot med PowerShell hämtar du värdet för **ReplicationStatus** -egenskapen för objekt replikering, som du ser i följande exempel. Kom ihåg att ersätta värden inom vinkelparenteser med dina egna värden:
+
+```powershell
+$ctxSrc = (Get-AzStorageAccount -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName).Context
+$blobSrc = Get-AzStorageBlob -Container $srcContainerName1 `
+    -Context $ctxSrc `
+    -Blob <blob-name>
+$blobSrc.BlobProperties.ObjectReplicationSourceProperties[0].Rules[0].ReplicationStatus
+```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -387,7 +396,7 @@ az storage blob show \
 
 Om du vill ta bort en replikeringsprincip och dess associerade regler använder du Azure Portal, PowerShell eller CLI.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 Följ dessa steg om du vill ta bort en replikeringsprincip i Azure Portal:
 

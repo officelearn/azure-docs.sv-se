@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: f57163b3d17877f7f8c66fa57fc8a0736c6affb7
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: d1dc843ff676429f202c0b9077057d067294f738
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767703"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076172"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Snabb start: Lägg till funktions flaggor i en Azure Functions app
 
@@ -21,7 +21,7 @@ I den här snabb starten skapar du en implementering av funktions hantering i en
 
 Biblioteken för .NET-funktions hantering utökar ramverket med stöd för funktions flagga. Dessa bibliotek skapas ovanpå .NET-konfigurations systemet. De integreras med app-konfiguration via dess .NET-Konfigurationsprovider.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) med arbets belastningen **Azure Development** .
@@ -149,7 +149,7 @@ Biblioteken för .NET-funktions hantering utökar ramverket med stöd för funkt
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du en funktions flagga och använde den med en Azure Functions app via [appens Konfigurationsprovider](https://go.microsoft.com/fwlink/?linkid=2074664).
+I den här snabb starten skapade du en funktions flagga och använde den med en Azure Functions app via [appens Konfigurationsprovider](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 - Läs mer om [funktions hantering](./concept-feature-management.md).
 - [Hantera funktions flaggor](./manage-feature-flags.md).

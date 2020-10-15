@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: apimpm
-ms.openlocfilehash: 99bf1068042eb7ab0c43e2a683ca7116d2e426f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e38d92a13c9a66defc2d5090990b44a889cfd21c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75442488"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076240"
 ---
 # <a name="authorize-requests-using-external-authorizer"></a>Auktorisera begäran med extern auktoriserare
 
-Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du skyddar API-åtkomst genom att använda en extern auktoriserare som kapslar in anpassad autentisering/auktoriserings logik. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
+Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du skyddar API-åtkomst genom att använda en extern auktoriserare som kapslar in anpassad autentisering/auktoriserings logik. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-reference.md).
 
-## <a name="policy"></a>Princip
+## <a name="policy"></a>Policy
 
 Klistra in koden i det **inkommande** blocket.
 
@@ -35,4 +35,4 @@ Klistra in koden i det **inkommande** blocket.
 Läs mer om APIM-principer:
 
 + [Principer för åtkomst begränsningar](../api-management-access-restriction-policies.md)
-+ [Princip exempel](../policy-samples.md)
++ [Princip exempel](../policy-reference.md)

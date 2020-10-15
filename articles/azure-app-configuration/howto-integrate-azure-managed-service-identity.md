@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 02d9407766930f02c70d580112136b50b6036e11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d71f0396f453ceb7113d724b113fe5aacdc60e21
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029876"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078178"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Använda hanterade identiteter för att få åtkomst till App Configuration
 
@@ -39,7 +39,7 @@ I den här artikeln kan du se hur du:
 Du behöver följande för att kunna slutföra den här självstudiekursen:
 
 * [.Net Core SDK](https://www.microsoft.com/net/download/windows).
-* [Azure Cloud Shell kon figurer ATS](https://docs.microsoft.com/azure/cloud-shell/quickstart).
+* [Azure Cloud Shell kon figurer ATS](../cloud-shell/quickstart.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -73,7 +73,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
 
     ![Lägga till en hanterad identitet](./media/add-managed-identity.png)
 
-1. Valfritt: om du vill ge åtkomst till Key Vault också följer du anvisningarna i [tilldela en Key Vault åtkomst princip](/azure/key-vault/general/assign-access-policy-portal).
+1. Valfritt: om du vill ge åtkomst till Key Vault också följer du anvisningarna i [tilldela en Key Vault åtkomst princip](../key-vault/general/assign-access-policy-portal.md).
 
 ## <a name="use-a-managed-identity"></a>Använda en hanterad identitet
 
@@ -185,7 +185,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
     Du kan nu komma åt Key Vault referenser precis som andra konfigurations nycklar för appar. Config-providern kommer att använda den `KeyVaultClient` som du konfigurerade för att autentisera till Key Vault och hämta värdet.
 
 > [!NOTE]
-> `ManagedIdentityCredential` har endast stöd för hanterad identitets autentisering. Den fungerar inte i lokala miljöer. Om du vill köra koden lokalt kan du överväga att använda `DefaultAzureCredential` , som även stöder tjänstens huvud namns autentisering. Mer information finns i [länken](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) .
+> `ManagedIdentityCredential` har endast stöd för hanterad identitets autentisering. Den fungerar inte i lokala miljöer. Om du vill köra koden lokalt kan du överväga att använda `DefaultAzureCredential` , som även stöder tjänstens huvud namns autentisering. Mer information finns i [länken](/dotnet/api/azure.identity.defaultazurecredential) .
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 

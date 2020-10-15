@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 2de6c07395a559085db237eb1bc7f885998860d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dcbb2567b9a92ea7d806acedb5d1cc6a31a966e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235085"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069814"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Självstudie: rapportering om automatisk etablering av användar konton
 
@@ -29,7 +29,7 @@ Den här artikeln beskriver hur du kontrollerar status för etablerings jobb nä
 Etablerings anslutningar konfigureras och konfigureras med hjälp av [Azure Portal](https://portal.azure.com), genom att följa den [angivna dokumentationen](../saas-apps/tutorial-list.md) för programmet som stöds. När du har konfigurerat och kört kan etablerings jobb rapporteras på ett av två sätt:
 
 * **Azure Portal** – den här artikeln beskriver främst hämtning av rapportinformation från [Azure Portal](https://portal.azure.com), vilket ger både en sammanfattnings rapport för etablering och detaljerade etablerings loggar för ett angivet program.
-* **Gransknings-API** – Azure Active Directory innehåller också ett gransknings-API som möjliggör program mässig hämtning av detaljerade gransknings loggar för etablering. Se [Azure Active Directory audit API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) för dokumentation som är särskilt för att använda detta API. Även om den här artikeln inte särskilt beskriver hur du använder API: et, innehåller den information om vilka typer av etablerings händelser som registreras i gransknings loggen.
+* **Gransknings-API** – Azure Active Directory innehåller också ett gransknings-API som möjliggör program mässig hämtning av detaljerade gransknings loggar för etablering. Se [Azure Active Directory audit API-referens](/graph/api/resources/directoryaudit) för dokumentation som är särskilt för att använda detta API. Även om den här artikeln inte särskilt beskriver hur du använder API: et, innehåller den information om vilka typer av etablerings händelser som registreras i gransknings loggen.
 
 ### <a name="definitions"></a>Definitioner
 

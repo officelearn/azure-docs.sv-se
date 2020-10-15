@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: a58b00018f6ac89f024661d8d3f50ea5249e620b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 414ae3b2adb60b9442a69e3ebcc8b13b29c67cb7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182130"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070511"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en offentlig Standard Load Balancer i Azure Kubernetes service (AKS)
 
@@ -322,7 +322,7 @@ Nedan visas en lista över anteckningar som stöds för Kubernetes-tjänster med
 | `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` eller `false`                     | Ange om belastningsutjämnaren ska vara intern. Den är som standard offentlig om den inte har angetts.
 | `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | Namn på under nätet                    | Ange vilket undernät som den interna belastningsutjämnaren ska bindas till. Det är standard under nätet som kon figurer ATS i moln konfigurations filen om det inte har angetts.
 | `service.beta.kubernetes.io/azure-dns-label-name`                 | Namnet på DNS-etiketten på offentliga IP-adresser   | Ange namnet på DNS-etiketten för den **offentliga** tjänsten. Om den är inställd på en tom sträng kommer DNS-posten i den offentliga IP-adressen inte att användas.
-| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` eller `false`                     | Ange att tjänsten ska exponeras med hjälp av en Azure-säkerhetsregel som kan delas med en annan tjänst, handels specificitet för regler för en ökning av antalet tjänster som kan exponeras. Den här anteckningen förlitar sig på funktionen Azure- [förstärkta säkerhets regler](../virtual-network/security-overview.md#augmented-security-rules) i nätverks säkerhets grupper. 
+| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` eller `false`                     | Ange att tjänsten ska exponeras med hjälp av en Azure-säkerhetsregel som kan delas med en annan tjänst, handels specificitet för regler för en ökning av antalet tjänster som kan exponeras. Den här anteckningen förlitar sig på funktionen Azure- [förstärkta säkerhets regler](../virtual-network/network-security-groups-overview.md#augmented-security-rules) i nätverks säkerhets grupper. 
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Namnet på resurs gruppen            | Ange resurs gruppen för offentliga IP-adresser i belastningsutjämnaren som inte finns i samma resurs grupp som kluster infrastrukturen (resurs grupp för resurs).
 | `service.beta.kubernetes.io/azure-allowed-service-tags`           | Lista över tillåtna service märken          | Ange en lista över tillåtna [service märken][service-tags] avgränsade med kommatecken.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | Timeout för TCP-inaktivitet på några minuter          | Ange efter hur lång tid i minuter som TCP-anslutningens tids gräns ska ske i belastningsutjämnaren. Standard och minimalt värde är 4. Högsta värdet är 30. Måste vara ett heltal.
@@ -426,4 +426,4 @@ Läs mer om hur du använder interna Load Balancer för inkommande trafik i [AKS
 [requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
-[service-tags]: ../virtual-network/security-overview.md#service-tags
+[service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags

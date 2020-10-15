@@ -3,12 +3,12 @@ title: Förbättra tillförlitligheten för ditt program med Advisor
 description: Använd Azure Advisor för att säkerställa och förbättra tillförlitligheten i affärs kritiska Azure-distributioner.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 1e256d99f8d78ddff318f963dcb21e9b4537f110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ced690ae735a281fdf8b1c3a020ff8c63ce469b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91405198"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078042"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Förbättra tillförlitligheten för ditt program genom att använda Azure Advisor
 
@@ -44,7 +44,7 @@ Om en Traffic Manager profil har kon figurer ATS för geografisk routning dirige
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Använd mjuk borttagning på ditt Azure Storage-konto för att spara och återställa data efter oavsiktlig överskrivning eller borttagning
 
-Aktivera [mjuk borttagning](../storage/blobs/soft-delete-overview.md) på ditt lagrings konto så att borttagna blobar övergår till ett mjukt borttaget tillstånd i stället för att tas bort permanent. När data skrivs över skapas en mjukt borttagen ögonblicksbild för att spara läget för den överskrivna informationen. Med hjälp av mjuk borttagning kan du återställa från oavsiktliga borttagningar eller Skriv över. Advisor identifierar Azure Storage-konton som inte har mjuk borttagning aktiverat och föreslår att du aktiverar det.
+Aktivera [mjuk borttagning](../storage/blobs/soft-delete-blob-overview.md) på ditt lagrings konto så att borttagna blobar övergår till ett mjukt borttaget tillstånd i stället för att tas bort permanent. När data skrivs över skapas en mjukt borttagen ögonblicksbild för att spara läget för den överskrivna informationen. Med hjälp av mjuk borttagning kan du återställa från oavsiktliga borttagningar eller Skriv över. Advisor identifierar Azure Storage-konton som inte har mjuk borttagning aktiverat och föreslår att du aktiverar det.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Konfigurera din VPN-gateway till aktiv-aktiv för anslutnings återhämtning
 
@@ -80,23 +80,23 @@ Azure Advisor identifierar logg aviserings regler som har ogiltiga frågor angiv
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Konfigurera konsekvent indexerings läge på din Azure Cosmos DB-samling
 
-Att konfigurera Azure Cosmos DB behållare med Lazy indexerings läge kan påverka uppdatering av frågeresultat. Advisor identifierar behållare som kon figurer ATS på det här sättet och rekommenderar att du växlar till konsekvent läge. [Läs mer om att indexera principer i Azure Cosmos DB.](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+Att konfigurera Azure Cosmos DB behållare med Lazy indexerings läge kan påverka uppdatering av frågeresultat. Advisor identifierar behållare som kon figurer ATS på det här sättet och rekommenderar att du växlar till konsekvent läge. [Läs mer om att indexera principer i Azure Cosmos DB.](../cosmos-db/how-to-manage-indexing-policy.md)
 
 ## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>Ställ in Azure Cosmos DB-containrarna med en partitionsnyckel
 
-Azure Advisor identifierar Azure Cosmos DB icke-partitionerade samlingar som närmar sig den etablerade lagrings kvoten. Vi rekommenderar att du migrerar samlingarna till nya samlingar med en partitionsnyckel så att de kan skalas ut automatiskt av tjänsten. [Läs mer om hur du väljer en partitionsnyckel.](https://aka.ms/cosmosdb/choose-partitionkey)
+Azure Advisor identifierar Azure Cosmos DB icke-partitionerade samlingar som närmar sig den etablerade lagrings kvoten. Vi rekommenderar att du migrerar samlingarna till nya samlingar med en partitionsnyckel så att de kan skalas ut automatiskt av tjänsten. [Läs mer om hur du väljer en partitionsnyckel.](../cosmos-db/partitioning-overview.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Uppgradera Azure Cosmos DB .NET SDK till den senaste versionen från NuGet
 
-Azure Advisor identifierar Azure Cosmos DB konton som använder gamla versioner av .NET SDK. Vi rekommenderar att du uppgraderar till den senaste versionen från NuGet för de senaste korrigeringarna, prestanda förbättringarna och funktionerna. [Läs mer om Azure Cosmos DB .NET SDK.](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor identifierar Azure Cosmos DB konton som använder gamla versioner av .NET SDK. Vi rekommenderar att du uppgraderar till den senaste versionen från NuGet för de senaste korrigeringarna, prestanda förbättringarna och funktionerna. [Läs mer om Azure Cosmos DB .NET SDK.](../cosmos-db/sql-api-sdk-dotnet-standard.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Uppgradera Azure Cosmos DB Java-SDK till den senaste versionen från Maven
 
-Azure Advisor identifierar Azure Cosmos DB konton som använder gamla versioner av Java SDK. Vi rekommenderar att du uppgraderar till den senaste versionen från Maven för de senaste korrigeringarna, prestanda förbättringarna och funktionerna. [Läs mer om Azure Cosmos DB Java SDK.](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
+Azure Advisor identifierar Azure Cosmos DB konton som använder gamla versioner av Java SDK. Vi rekommenderar att du uppgraderar till den senaste versionen från Maven för de senaste korrigeringarna, prestanda förbättringarna och funktionerna. [Läs mer om Azure Cosmos DB Java SDK.](../cosmos-db/sql-api-sdk-java-v4.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Uppgradera din Azure Cosmos DB Spark-anslutning till den senaste versionen från maven
 
-Azure Advisor identifierar Azure Cosmos DB konton som använder tidigare versioner av Azure Cosmos DB Spark-anslutningsprogrammet. Vi rekommenderar att du uppgraderar till den senaste versionen från Maven för de senaste korrigeringarna, prestanda förbättringarna och funktionerna. [Läs mer om Azure Cosmos DB Spark-anslutning.](https://aka.ms/cosmosdb/spark-connector)
+Azure Advisor identifierar Azure Cosmos DB konton som använder tidigare versioner av Azure Cosmos DB Spark-anslutningsprogrammet. Vi rekommenderar att du uppgraderar till den senaste versionen från Maven för de senaste korrigeringarna, prestanda förbättringarna och funktionerna. [Läs mer om Azure Cosmos DB Spark-anslutning.](../cosmos-db/spark-connector.md)
 
 ## <a name="consider-moving-to-kafka-21-on-hdinsight-40"></a>Överväg att flytta till Kafka 2,1 på HDInsight 4,0
 
@@ -110,10 +110,10 @@ Från den 1 juli 2020 kommer du inte att kunna skapa nya Spark-kluster med Spark
 Virtuella datorer som inte har någon replikering aktive rad till en annan region är inte flexibla till regionala avbrott. Att replikera virtuella datorer minskar eventuell negativ inverkan på verksamheten under drifts avbrott i Azure. Advisor identifierar virtuella datorer där replikering inte är aktiverat och rekommenderar att du aktiverar den. Om du aktiverar replikering kan du snabbt ta fram dina virtuella datorer i en fjärran sluten Azure-region om det uppstår ett avbrott. [Läs mer om replikering av virtuella datorer.](../site-recovery/azure-to-azure-quickstart.md)
 
 ## <a name="upgrade-to-the-latest-version-of-the-azure-connected-machine-agent"></a>Uppgradera till den senaste versionen av Azure Connected Machine-agenten
-Den [Azure-anslutna dator agenten](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) uppdateras regelbundet med fel korrigeringar, stabilitets förbättringar och nya funktioner. Vi har identifierat resurser som inte fungerar med den senaste versionen av dator agenten och den här rekommendationen föreslår att du uppgraderar din agent till den senaste versionen för den bästa Azure Arc-upplevelsen.
+Den [Azure-anslutna dator agenten](../azure-arc/servers/manage-agent.md) uppdateras regelbundet med fel korrigeringar, stabilitets förbättringar och nya funktioner. Vi har identifierat resurser som inte fungerar med den senaste versionen av dator agenten och den här rekommendationen föreslår att du uppgraderar din agent till den senaste versionen för den bästa Azure Arc-upplevelsen.
 
 ## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>Upprätthåll webbplatsens integritet genom att inte åsidosätta värdnamnet
-Advisor rekommenderar att du försöker undvika att åsidosätta värd namnet när du konfigurerar Application Gateway. Undvik att använda en annan domän på Application Gateway-klientdelen än den som används för att komma åt serverdelen eftersom det kan göra så att cookies eller omdirigerings-URL:er bryts. Observera att detta kanske inte gäller alla situationer och att vissa typer av serverdelar (t.ex. REST-API:er) i allmänhet är mindre känsliga för detta. Försäkra dig om att serverdelen kan hantera detta, eller uppdatera Application Gateway-konfigurationen så att värddatornamnet inte behöver skrivas över mot serverdelen. När du använder med App Service ska du ansluta ett anpassat domän namn till webbappen och undvika att använda *. azurewebsites.net-värdnamnet mot Server delen.* [Läs mer om den anpassade domänen](https://aka.ms/appgw-advisor-usecustomdomain).
+Advisor rekommenderar att du försöker undvika att åsidosätta värd namnet när du konfigurerar Application Gateway. Undvik att använda en annan domän på Application Gateway-klientdelen än den som används för att komma åt serverdelen eftersom det kan göra så att cookies eller omdirigerings-URL:er bryts. Observera att detta kanske inte gäller alla situationer och att vissa typer av serverdelar (t.ex. REST-API:er) i allmänhet är mindre känsliga för detta. Försäkra dig om att serverdelen kan hantera detta, eller uppdatera Application Gateway-konfigurationen så att värddatornamnet inte behöver skrivas över mot serverdelen. När du använder med App Service ska du ansluta ett anpassat domän namn till webbappen och undvika att använda *. azurewebsites.net-värdnamnet mot Server delen.* [Läs mer om den anpassade domänen](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md).
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Få åtkomst till rekommendationer för hög tillgänglighet i Advisor
 

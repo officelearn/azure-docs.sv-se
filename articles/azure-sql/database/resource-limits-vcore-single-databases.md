@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 07/21/2020
-ms.openlocfilehash: 1d9fc9f50ac21e2ea621e26ad2b1fe0f146116de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: d6936d6c72855bc22e3fc9323028fd0b8cd0fb29
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618496"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097583"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Resursbegränsningar för enskilda databaser med hjälp av vCore-inköpsmodellen
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -50,7 +50,7 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings utrym
 |Lagringstyp|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|
 |I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
 |Max data IOPS *|320|640|1280|1920|2560|
-|Högsta logg frekvens (Mbit/s)|3,8|7.5|15|22,5|30|
+|Högsta logg frekvens (Mbit/s)|4,5|9|18|27|36|
 |Maximalt antal samtidiga arbetare (begär Anden)|75|150|300|450|600|
 |Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|
 |Antal repliker|1|1|1|1|1|
@@ -76,7 +76,7 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings utrym
 |Lagringstyp|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|
 |I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
 |Max data IOPS *|3200|3840|4480|5120|
-|Högsta logg frekvens (Mbit/s)|30|30|30|30|
+|Högsta logg frekvens (Mbit/s)|36|36|36|36|
 |Maximalt antal samtidiga arbetare (begär Anden)|750|900|1050|1200|
 |Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|
 |Antal repliker|1|1|1|1|
@@ -102,7 +102,7 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings utrym
 |Lagringstyp|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|
 |I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
 |Max data IOPS *|5760|6400|7680|10240|12800|
-|Högsta logg frekvens (Mbit/s)|30|30|30|30|30|
+|Högsta logg frekvens (Mbit/s)|36|36|36|36|36|
 |Maximalt antal samtidiga arbetare (begär Anden)|1350|1500|1800|2400|3000|
 |Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|
 |Antal repliker|1|1|1|1|1|
@@ -225,7 +225,7 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings utrym
 
 \* Förutom lokal SSD i/o kommer arbets belastningarna att använda [fjärrsidas serverns](service-tier-hyperscale.md#page-server) IO. Effektiv IOPS är beroende av arbets belastning. Mer information finns i [data IO-styrning](resource-limits-logical-server.md#resource-governance)och [data-i/o i statistik över resursutnyttjande](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
-#### <a name="notes"></a>Obs!
+#### <a name="notes"></a>Kommentarer
 
 **Anmärkning 1**: storskalig är en arkitektur med flera nivåer med separata beräknings-och lagrings komponenter: [storskalig arkitektur för tjänst nivå](service-tier-hyperscale.md#distributed-functions-architecture)
 
@@ -251,7 +251,7 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings utrym
 |Lagringstyp|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|
 |I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
 |Max data IOPS *|320|640|960|1280|1600|1920|
-|Högsta logg frekvens (Mbit/s)|3.75|7.5|11,25|15|18,75|22,5|
+|Högsta logg frekvens (Mbit/s)|4,5|9|13,5|18|22,5|27|
 |Maximalt antal samtidiga arbetare (begär Anden)|200|400|600|800|1000|1200|
 |Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|30 000|
 |Antal repliker|1|1|1|1|1|1|
@@ -276,7 +276,7 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings utrym
 |Lagringstyp|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|
 |I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)
 |Max data IOPS *|2240|2560|2880|3200|5120|7680|
-|Högsta logg frekvens (Mbit/s)|26,3|30|30|30|30|30|
+|Högsta logg frekvens (Mbit/s)|31,5|36|36|36|36|36|
 |Maximalt antal samtidiga arbetare (begär Anden)|1400|1600|1800|2000|3200|4800|
 |Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|30 000|
 |Antal repliker|1|1|1|1|1|1|
@@ -303,7 +303,7 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings utrym
 |Lagringstyp|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|
 |I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
 |Max data IOPS *|640|1280|1920|2560|3200|3840|4480|
-|Högsta logg frekvens (Mbit/s)|7.5|15|22,5|30|30|30|30|
+|Högsta logg frekvens (Mbit/s)|9|18|27|36|36|36|36|
 |Maximalt antal samtidiga arbetare (begär Anden)|200|400|600|800|1000|1200|1400|
 |Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
 |Antal repliker|1|1|1|1|1|1|1|
@@ -328,7 +328,7 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings utrym
 |Lagringstyp|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|
 |I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
 |Max data IOPS *|5120|5760|6400|7680|10240|12800|12800|
-|Högsta logg frekvens (Mbit/s)|30|30|30|30|30|30|30|
+|Högsta logg frekvens (Mbit/s)|36|36|36|36|36|36|36|
 |Maximalt antal samtidiga arbetare (begär Anden)|1600|1800|2000|2400|3200|4000|8000|
 |Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
 |Antal repliker|1|1|1|1|1|1|1|
@@ -355,7 +355,7 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings utrym
 |Lagringstyp|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|
 |I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
 |Max data IOPS *|2560|3200|3840|4480|5120|
-|Högsta logg frekvens (Mbit/s)|30|30|30|30|30|
+|Högsta logg frekvens (Mbit/s)|36|36|36|36|36|
 |Maximalt antal samtidiga arbetare (begär Anden)|400|500|600|700|800|
 |Maximalt antal samtidiga inloggningar|800|1000|1200|1400|1600|
 |Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|
@@ -381,7 +381,7 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings utrym
 |Lagringstyp|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|
 |I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
 |Max data IOPS *|5760|6400|7680|10240|11520|23040|
-|Högsta logg frekvens (Mbit/s)|30|30|30|30|30|30|
+|Högsta logg frekvens (Mbit/s)|36|36|36|36|36|36|
 |Maximalt antal samtidiga arbetare (begär Anden)|900|1000|1200|1600|1800|3600|
 |Maximalt antal samtidiga inloggningar|1800|2000|2400|3200|3600|7200|
 |Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|30 000|
@@ -525,7 +525,7 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings utrym
 |Maximalt antal samtidiga inloggningar|800|1 000|1 200|1400|1600|1800|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|4|4|4|4|4|4|
-|Multi-AZ|Inga|Inga|Inga|Inga|Inga|Inga|
+|Multi-AZ|Nej|Nej|Nej|Nej|Nej|Nej|
 |Lässkalning|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
@@ -554,7 +554,7 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings utrym
 |Maximalt antal samtidiga inloggningar|2 000|2 400|3 200|6 400|12 800|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|
 |Antal repliker|4|4|4|4|4|
-|Multi-AZ|Inga|Inga|Inga|Inga|Inga|
+|Multi-AZ|Nej|Nej|Nej|Nej|Nej|
 |Lässkalning|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 710f023a64f66e486bb2db9c08807af3431d0016
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43d5c1ae03c359dcbef21f8e7ba3205bc6ab0004
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87812341"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096121"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-cwinrt-hololens-project"></a>Konfigurera Azure spatiala ankare i ett C++/WinRT HoloLens-projekt
 
@@ -25,7 +25,7 @@ ms.locfileid: "87812341"
 
 Azures spatiala ankare för HoloLens-och C++-/WinRT distribueras med hjälp av [Microsoft. Azure. SpatialAnchors. WinRT](https://www.nuget.org/packages/Microsoft.Azure.SpatialAnchors.WinRT/) NuGet-paketet.
 
-Följ anvisningarna [här](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio) för att använda Visual Studios NuGet Package Manager för att installera [Microsoft. Azure. SpatialAnchors. WinRT](https://www.nuget.org/packages/Microsoft.Azure.SpatialAnchors.WinRT/) NuGet-paketet i projektet.
+Följ anvisningarna [här](/nuget/consume-packages/install-use-packages-visual-studio) för att använda Visual Studios NuGet Package Manager för att installera [Microsoft. Azure. SpatialAnchors. WinRT](https://www.nuget.org/packages/Microsoft.Azure.SpatialAnchors.WinRT/) NuGet-paketet i projektet.
 
 ## <a name="next-steps"></a>Nästa steg
 

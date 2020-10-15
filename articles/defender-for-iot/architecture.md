@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: rkarlin
-ms.openlocfilehash: ea62592ed155215b14666d0d56e09dbb1a83ed6e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 4189cb8628db58343c816535836af82825014b7e
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093471"
+ms.locfileid: "92096325"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Azure Defender för IoT-arkitektur
 
@@ -29,12 +29,19 @@ I den här artikeln beskrivs den funktionella system arkitekturen i Defender for
 Defender för IoT ansluter både till Azure-molnet och lokala komponenter. Lösningen är utformad för skalbarhet i stora och geografiskt distribuerade miljöer med flera fjärranslutna platser. Den här lösningen möjliggör en distribuerad arkitektur med flera lager efter land, region, affär senhet eller zon. 
 
 Azure Defender för IoT innehåller följande komponenter: 
-- Azure Defender för IoT-sensorer
-- Hanterings konsoler:
-    - Sensor konsol
-    - Lokal hanterings konsol
-    - Azure Portal
-- Inbäddad säkerhets agent (säkerhetsmodulen och IoT SDK)
+
+**Moln anslutna distributioner**
+
+- Azure Defender för IoT sensor VM eller-installation
+- Azure Portal för moln hantering och integrering till Azure Sentinel
+- Lokal hanterings konsol för lokal plats hantering
+- En inbäddad säkerhets agent (valfritt)
+
+**Air – gapped (offline) distributioner**
+
+- Azure Defender för IoT sensor VM eller-installation
+- Lokal hanterings konsol för lokal plats hantering
+
 
 ![Defender för IoT-arkitektur](./media/architecture/defender-iot-security-architecture.png)
 

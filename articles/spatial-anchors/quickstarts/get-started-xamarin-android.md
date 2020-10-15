@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b7f9a83a3972ed0a5a635826b40e15c437da16b8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ab414b877bd2d098c6e340267ff579fb58aec9d9
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91540378"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097328"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Snabb start: skapa en Xamarin Android-app med Azures spatiala ankare
 
@@ -28,7 +28,7 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 - En Windows-eller macOS-dator:
@@ -37,10 +37,10 @@ Kontrollera att du har följande så att du kan utföra den här snabbstarten:
     - <a href="https://git-scm.com/download/win" target="_blank">Git för Windows</a>.
     - <a href="https://git-lfs.github.com/">Git-LF</a>.
   - Om du använder macOS:
-    - En uppdaterad version av <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio för Mac 8.1 +</a>.
+    - En uppdaterad version av <a href="/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio för Mac 8.1 +</a>.
     - <a href="https://git-scm.com/download/mac" target="_blank">Git för MacOS</a>.
     - <a href="https://git-lfs.github.com/">Git-LF</a>.
-- Den senaste versionen av Xamarin. Android är installerad och körs på valfri plattform. En guide för att installera Xamarin. Android finns i installations guiderna för [Xamarin. Android](https://docs.microsoft.com/xamarin/android/get-started/installation/index) .
+- Den senaste versionen av Xamarin. Android är installerad och körs på valfri plattform. En guide för att installera Xamarin. Android finns i installations guiderna för [Xamarin. Android](/xamarin/android/get-started/installation/index) .
 - En <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">utvecklaraktiverad</a> och <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore-kapabel</a> Android-enhet.
   - Ytterligare enhets driv rutiner kan krävas för att datorn ska kunna kommunicera med din Android-enhet. Mer information finns [här](https://developer.android.com/studio/run/device.html).
 - Din app måste vara mål ARCore **1,8**.

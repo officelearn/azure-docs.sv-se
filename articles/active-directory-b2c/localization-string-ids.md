@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/14/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 87d56f32877fbe5b817dab5d9ad98e1f1f71386c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f75fbf286741fcc122332574332a30ad7fa23644
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054754"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096206"
 ---
 # <a name="localization-string-ids"></a>Sträng-ID för lokalisering
 
@@ -37,7 +37,7 @@ Följande ID: n används för en innehålls definition med ID `api.signuporsigni
 | **local_intro_username** | Logga in med ditt användar namn |
 | **logonIdentifier_username** | Användarnamn |
 | **requiredField_username** | Ange ditt användar namn |
-| **lösenord** | lösenordsinställning |
+| **lösenord** | Lösenord |
 | **requiredField_password** | Ange ditt lösen ord |
 | **invalid_password** | Det angivna lösen ordet har inte det förväntade formatet. |
 | **forgotpassword_link** | Glömt ditt lösenord? |
@@ -143,7 +143,7 @@ Följande är ID: n för en innehålls definition med ID för `api.localaccounts
 | **cancel_message** | Användaren har avbrutit registrering av självkontrollerad information |
 | **preloader_alt** | Vänta |
 | **ver_but_send** | Skicka verifierings kod |
-| **alert_yes** | Yes |
+| **alert_yes** | Ja |
 | **error_fieldIncorrect** | Ett eller flera fält har fyllts i felaktigt. Kontrol lera dina poster och försök igen. |
 | **år** | Year |
 | **verifying_blurb** | Vänta medan vi bearbetar din information. |
@@ -161,7 +161,7 @@ Följande är ID: n för en innehålls definition med ID för `api.localaccounts
 | **ver_incorrect_format** | Felaktigt format. |
 | **ver_but_edit** | Ändra e-post |
 | **ver_but_verify** | Verifiera koden |
-| **alert_no** | No |
+| **alert_no** | Nej |
 | **ver_info_msg** | Verifierings koden har skickats till din inkorg. Kopiera den till inmatade rutan nedan. |
 | **dagen** | Dag |
 | **ver_fail_throttled** | Det finns för många begär Anden att verifiera den här e-postadressen. Vänta en stund och försök sedan igen. |
@@ -343,7 +343,42 @@ I följande exempel visas användningen av vissa användar gränssnitts element 
 
 ## <a name="verification-display-control-user-interface-elements"></a>Verifiering Visa kontroll element för användar gränssnitt
 
-Följande är ID: n för en [verifierings visnings kontroll](display-control-verification.md)
+Följande är ID: n för en [verifierings visnings kontroll](display-control-verification.md) med version 2.1.0 eller högre i [sidlayouten](page-layout.md) .
+
+| ID | Standardvärde |
+| -- | ------------- |
+|intro_msg| Verifiering är nödvändig. Klicka på knappen Skicka.|
+|success_send_code_msg | Verifierings koden har skickats till din inkorg. Kopiera den till inmatade rutan nedan.|
+|failure_send_code_msg | Vi har problem med att verifiera din e-postadress. Ange en giltig e-postadress och försök igen.|
+|success_verify_code_msg | E-postadress verifierad. Nu kan du fortsätta.|
+|failure_verify_code_msg | Vi har problem med att verifiera din e-postadress. Försök igen.|
+|but_send_code | Skicka verifierings kod|
+|but_verify_code | Verifiera koden|
+|but_send_new_code | Skicka ny kod|
+|but_change_claims | Ändra e-post|
+
+### <a name="verification-display-control-example"></a>Exempel på verifiering av visnings kontroll
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+   <!-- Display control UI elements-->
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="intro_msg">Verification is necessary. Please click Send button.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_send_code_msg">Verification code has been sent to your inbox. Please copy it to the input box below.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_send_code_msg">We are having trouble verifying your email address. Please enter a valid email address and try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_verify_code_msg">E-mail address verified. You can now continue.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_verify_code_msg">We are having trouble verifying your email address. Please try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="verification-display-control-user-interface-elements-deprecated"></a>Verifiering Visa kontroll element för användar gränssnitt (inaktuellt)
+
+Följande är ID: n för en [verifierings visnings kontroll](display-control-verification.md) med [Page Layout version](page-layout.md) 2.0.0.
 
 | ID | Standardvärde |
 | -- | ------------- |
@@ -355,7 +390,7 @@ Följande är ID: n för en [verifierings visnings kontroll](display-control-ver
 |verification_control_but_verify_code |Verifiera kod |
 |verification_control_code_sent| Verifierings koden har skickats. Kopiera den till inmatade rutan nedan. |
 
-### <a name="verification-display-control-example"></a>Exempel på verifiering av visnings kontroll
+### <a name="verification-display-control-example-deprecated"></a>Exempel på verifiering av visnings kontroll (inaktuell)
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -468,8 +503,8 @@ Följande är ID: n för ett [eng ång slö sen ord –](one-time-password-techn
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>

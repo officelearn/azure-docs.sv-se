@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: f0a3ac0c81291a1231ef660481d8e31b38c0e212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 622f0d66f2c8a9f7cf0539d14499897acf7b68e6
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631349"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096342"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Om nätverk i haveri beredskap för virtuella Azure-datorer
 
@@ -40,15 +40,15 @@ Normalt skyddas nätverk med brand väggar och nätverks säkerhets grupper (NSG
 >[!IMPORTANT]
 > Att använda en autentiserad proxy för att kontrol lera nätverks anslutningen stöds inte av Site Recovery, och det går inte att aktivera replikering.
 
+>[!NOTE]
+> Filtrering av IP-adresser ska inte utföras för att kontrol lera utgående anslutningar.
+> Det går inte att lägga till Azure Site Recovery IP-adresser i Azure vägvals tabell för att kontrol lera utgående anslutningar.
 
 ## <a name="outbound-connectivity-for-urls"></a>Utgående anslutning för webbadresser
 
 Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgående anslutningar kan du tillåta följande Site Recovery webb adresser:
 
->[!NOTE]
-> Filtrering av IP-adresser ska inte utföras för att kontrol lera utgående anslutningar.
-
-**URL** | **Information**
+**URL** | **Detaljer**
 --- | ---
 *.blob.core.windows.net | Krävs så att data kan skrivas till cache-lagrings kontot i käll regionen från den virtuella datorn. Om du känner till alla cache-lagrings konton för dina virtuella datorer kan du tillåta åtkomst till de angivna URL: erna för lagrings konton (t. ex.: cache1.blob.core.windows.net och cache2.blob.core.windows.net) i stället för *. blob.core.windows.net
 login.microsoftonline.com | Krävs för auktorisering och autentisering till Site Recovery tjänst-URL: er.
@@ -59,7 +59,7 @@ login.microsoftonline.com | Krävs för auktorisering och autentisering till Sit
 
 ## <a name="outbound-connectivity-using-service-tags"></a>Utgående anslutning med service märken
 
-Om du använder en NSG för att kontrol lera utgående anslutningar måste dessa service märken vara tillåtna.
+När du använder NSG för att kontrol lera utgående anslutningar måste dessa service märken vara tillåtna.
 
 - För lagrings kontona i käll regionen:
     - Skapa en NSG-regel för [lagrings tjänst](../virtual-network/security-overview.md#service-tags) som är baserad på käll regionen.

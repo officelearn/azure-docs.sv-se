@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 05/14/2020
-ms.openlocfilehash: 0c3fa3e61f3e35bcd29e923b87ddf68f0860486e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17831f06d4176ae6666bbc7b05a11ee689b842fc
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483141"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096699"
 ---
 # <a name="built-in-and-preinstalled-components-on-azure-ssis-integration-runtime"></a>Inbyggda och förinstallerade komponenter på Azure-SSIS Integration Runtime
 
@@ -29,7 +29,7 @@ Den här artikeln innehåller alla inbyggda och förinstallerade komponenter, ti
 
 | Typ | Name-version-Platform |
 |------|---------------------------|
-| **Inbyggda klienter/driv rutiner/providrar** | *Access Database Engine 2016 Redistributable* -RTM-x64<br/><br/>*Microsoft Analysis Management Objects* -15.0.1000.81-x64<br/><br/>*Microsoft Analysis Services OLEDB-Provider* -15.0.1000.81-x64<br/><br/>*Microsoft ODBC driver 13 för SQL Server* -14.0.900.902-x64<br/><br/>*Microsoft OLEDB-drivrutin 18 för SQL Server* -18.1.0.0-x64<br/><br/>*Microsoft OLEDB-Provider för DB2* -6,0-x64<br/><br/>*SharePoint Online-klient komponenter SDK* -15.4711.1001-x64 |
+| **Inbyggda klienter/driv rutiner/providrar** | *Access Database Engine 2016 Redistributable* -RTM-x64<br/><br/>*Microsoft Analysis Management Objects* -15.0.1000.81-x64<br/><br/>*Microsoft Analysis Services OLEDB-Provider* -15.0.1000.81-x64<br/><br/>*Microsoft SQL Server 2012 Native Client* -11.4.7462.6-x64<br/><br/>*Microsoft ODBC driver 13 för SQL Server* -14.0.900.902-x64<br/><br/>*Microsoft OLEDB-drivrutin 18 för SQL Server* -18.1.0.0-x64<br/><br/>*Microsoft OLEDB-Provider för DB2* -6,0-x64<br/><br/>*SharePoint Online-klient komponenter SDK* -15.4711.1001-x64 |
 
 ## <a name="built-in-and-preinstalled-connection-managers-on-azure-ssis-ir"></a>Inbyggda och förinstallerade anslutnings hanterare på Azure-SSIS IR
 

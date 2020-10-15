@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84e92cbac064106ca95277288eb773e311798930
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 817267414555ea0641e8fb8a8392976a4789c780
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203460"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096223"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en egen kontrollerad teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -191,22 +191,24 @@ Du kan också anropa en REST API teknisk profil med din affärs logik, skriva ö
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| inställningen. operatingMode <sup>1</sup>| Inga | För en inloggnings sida styr den här egenskapen beteendet för fältet username, till exempel indatatyps verifiering och fel meddelanden. Förväntade värden: `Username` eller `Email` .  |
-| AllowGenerationOfClaimsWithNullValues| Inga| Tillåt att ett anspråk skapas med null-värde. Till exempel, i ett fall kan användaren inte markera en kryss ruta.|
+| inställningen. operatingMode <sup>1</sup>| Nej | För en inloggnings sida styr den här egenskapen beteendet för fältet username, till exempel indatatyps verifiering och fel meddelanden. Förväntade värden: `Username` eller `Email` .  |
+| AllowGenerationOfClaimsWithNullValues| Nej| Tillåt att ett anspråk skapas med null-värde. Till exempel, i ett fall kan användaren inte markera en kryss ruta.|
 | ContentDefinitionReferenceId | Ja | Identifieraren för den [innehålls definition](contentdefinitions.md) som är associerad med den här tekniska profilen. |
-| EnforceEmailVerification | Inga | För registrering eller profil redigering tvingas e-postverifiering. Möjliga värden: `true` (standard) eller `false` . |
-| anger. retryLimit | Inga | Styr antalet gånger som en användare kan försöka tillhandahålla data som kontrol leras mot en teknisk verifierings profil. En användare kan till exempel Logga in med ett konto som redan finns och fortsätter tills gränsen har uppnåtts.
-| SignUpTarget <sup>1</sup>| Inga | ID för registrerings målets Exchange. När användaren klickar på registrerings knappen Azure AD B2C kör den angivna Exchange-identifieraren. |
-| anger. showCancelButton | Inga | Visar knappen Avbryt. Möjliga värden: `true` (standard) eller `false` |
-| anger. showContinueButton | Inga | Visar knappen Fortsätt. Möjliga värden: `true` (standard) eller `false` |
-| Setting. showSignupLink <sup>2</sup>| Inga | Visar registrerings knappen. Möjliga värden: `true` (standard) eller `false` |
-| Setting. forgotPasswordLinkLocation <sup>2</sup>| Inga| Visar länken Glömt lösen ord. Möjliga värden: `AfterInput` (standard) länken visas längst ned på sidan eller `None` tar bort länken Glömt lösen ord.|
-| Setting. enableRememberMe <sup>2</sup>| Inga| Visar kryss rutan [Håll mig inloggad](custom-policy-keep-me-signed-in.md) . Möjliga värden: `true` , eller `false` (standard). |
-| IncludeClaimResolvingInClaimsHandling  | Inga | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true` , eller `false`   (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true` . |
+| EnforceEmailVerification | Nej | För registrering eller profil redigering tvingas e-postverifiering. Möjliga värden: `true` (standard) eller `false` . |
+| anger. retryLimit | Nej | Styr antalet gånger som en användare kan försöka tillhandahålla data som kontrol leras mot en teknisk verifierings profil. En användare kan till exempel Logga in med ett konto som redan finns och fortsätter tills gränsen har uppnåtts.
+| SignUpTarget <sup>1</sup>| Nej | ID för registrerings målets Exchange. När användaren klickar på registrerings knappen Azure AD B2C kör den angivna Exchange-identifieraren. |
+| anger. showCancelButton | Nej | Visar knappen Avbryt. Möjliga värden: `true` (standard) eller `false` |
+| anger. showContinueButton | Nej | Visar knappen Fortsätt. Möjliga värden: `true` (standard) eller `false` |
+| Setting. showSignupLink <sup>2</sup>| Nej | Visar registrerings knappen. Möjliga värden: `true` (standard) eller `false` |
+| Setting. forgotPasswordLinkLocation <sup>2</sup>| Nej| Visar länken Glömt lösen ord. Möjliga värden: `AfterInput` (standard) länken visas längst ned på sidan eller `None` tar bort länken Glömt lösen ord.|
+| Setting. enableRememberMe <sup>2</sup>| Nej| Visar kryss rutan [Håll mig inloggad](custom-policy-keep-me-signed-in.md) . Möjliga värden: `true` , eller `false` (standard). |
+| Setting. inputVerificationDelayTimeInMilliseconds <sup>3</sup>| Nej| Förbättrar användar upplevelsen genom att vänta på att användaren slutar att skriva och sedan validera värdet. Standardvärde 2000 millisekunder. |
+| IncludeClaimResolvingInClaimsHandling  | Nej | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true` , eller `false`   (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true` . |
 
 Obs!
 1. Tillgängligt för innehålls definitionens [DataUri](contentdefinitions.md#datauri) `unifiedssp` -typ, eller `unifiedssd` .
 1. Tillgängligt för innehålls definitionens [DataUri](contentdefinitions.md#datauri) `unifiedssp` -typ, eller `unifiedssd` . [Sidlayout version](page-layout.md) 1.1.0 och senare.
+1. Tillgängligt för sidlayouten [version](page-layout.md) 1.2.0 och senare.
 
 ## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 

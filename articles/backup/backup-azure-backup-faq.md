@@ -3,12 +3,12 @@ title: Svar på vanliga frågor
 description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 50cbd1d28ca3f04b8963c58b443765d4280b14ed
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 72a4f805b34ba8a536cd398efd5e6809bd66f0d4
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058088"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096631"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Vanliga frågor och svar
 
@@ -57,6 +57,10 @@ Om du redan har konfigurerat säkerhets kopian och måste gå från GRS till LRS
 
 - ILR stöds för virtuella Azure-datorer som säkerhetskopieras av säkerhetskopiering av virtuella Azure-datorer. Mer information finns i [artikeln](backup-azure-restore-files-from-vm.md)
 - ILR stöds inte för online-återställnings punkter för lokala virtuella datorer som säkerhets kopie ras av Azure Backup Server (MABS) eller System Center DPM.
+
+### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Hur kan jag flytta data från Recovery Services-valvet till lokalt?
+
+Export av data direkt från Recovery Services-valvet till lokalt med hjälp av Data Box-enhet stöds inte. Data måste återställas till ett lagrings konto och kan sedan flyttas till lokalt via [data Box-enhet](https://docs.microsoft.com/azure/databox/data-box-overview) eller [Importera/exportera](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
 
 ## <a name="azure-backup-agent"></a>Azure Backup-agent
 

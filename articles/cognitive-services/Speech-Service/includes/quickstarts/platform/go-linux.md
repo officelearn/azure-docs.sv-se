@@ -2,14 +2,14 @@
 author: glecaros
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/30/2020
+ms.date: 10/15/2020
 ms.author: gelecaro
-ms.openlocfilehash: a1bc980f8334ca815a1805f33f3572cded4ba0ef
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 29433e7ecaa4135c790f7cafb36d56c4c07ac684
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86156634"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097005"
 ---
 Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för Linux
 
@@ -19,7 +19,7 @@ Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-servic
 
 Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabb starten behöver du:
 

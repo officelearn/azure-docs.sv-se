@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e39548a923e76fc118dec4158398d02577ec20c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 300b9b6279231079807f8c923570bddab657ff56
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91610066"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095916"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Initiera redundans för lagrings konto
 
@@ -29,7 +29,7 @@ Den här artikeln visar hur du startar en konto redundansväxling för ditt lagr
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan utföra en redundansväxling på ditt lagrings konto kontrollerar du att ditt lagrings konto har kon figurer ATS för geo-replikering. Ditt lagrings konto kan använda något av följande alternativ för redundans:
 
@@ -45,13 +45,13 @@ Mer information om Azure Storage redundans finns [Azure Storage redundans](stora
 Följ dessa steg om du vill starta en redundansväxling av ett konto från Azure Portal:
 
 1. Navigera till ditt lagringskonto.
-1. Under **Inställningar**väljer du **geo-replikering**. Följande bild visar geo-replikering och redundans status för ett lagrings konto.
+1. Under **Inställningar** väljer du **Geo-replikering**. Följande bild visar geo-replikering och redundans status för ett lagrings konto.
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare.png" alt-text="Skärm bild som visar geo-replikering och redundans status":::
 
 1. Kontrol lera att ditt lagrings konto har kon figurer ATS för Geo-redundant lagring (GRS) eller Geo-redundant lagring med Läs behörighet (RA-GRS). Om den inte är det väljer du **konfiguration** under **Inställningar** för att uppdatera ditt konto till Geo-redundant.
 1. Egenskapen **tid för senaste synkronisering** anger hur långt den sekundära ligger bakom från den primära. **Tid för senaste synkronisering** ger en uppskattning av omfattningen av data förlust som du kommer att stöta på När redundansväxlingen har slutförts. Mer information om hur du kontrollerar den **senaste synkroniseringstid** -egenskapen finns i [kontrol lera den senaste synkroniseringstid-egenskapen för ett lagrings konto](last-sync-time-get.md).
-1. Välj **Förbered för redundans**.
+1. Välj **Förbered för redundansväxling**.
 1. Läs igenom bekräftelse dialog rutan. När du är klar anger du **Ja** för att bekräfta och initiera redundansväxlingen.
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Skärm bild som visar geo-replikering och redundans status":::
@@ -107,6 +107,8 @@ az storage account failover \ --name accountName
 När du initierar ett konto för redundans för ditt lagrings konto uppdateras DNS-posterna för den sekundära slut punkten så att den sekundära slut punkten blir den primära slut punkten. Se till att du förstår de potentiella konsekvenserna av ditt lagrings konto innan du påbörjar en redundansväxling.
 
 Om du vill beräkna omfattningen av sannolik data förlust innan du påbörjar en redundansväxling, kontrollerar du den **senaste synkroniseringstid** -egenskapen. Mer information om hur du kontrollerar den **senaste synkroniseringstid** -egenskapen finns i [kontrol lera den senaste synkroniseringstid-egenskapen för ett lagrings konto](last-sync-time-get.md).
+
+Hur lång tid det tar att redundansväxla när initieringen kan variera, men vanligt vis mindre än en timme.
 
 Efter redundansväxlingen konverteras lagrings konto typen automatiskt till lokalt redundant lagring (LRS) i den nya primära regionen. Du kan återaktivera Geo-redundant lagring (GRS) eller Geo-redundant lagring med Läs behörighet (RA-GRS) för kontot. Observera att konvertering från LRS till GRS eller RA-GRS ådrar sig en ytterligare kostnad. Mer information finns i [pris information om bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/).
 

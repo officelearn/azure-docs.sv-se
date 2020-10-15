@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 17b8fc3824fb1c7e6cfcfc3d4333dc226b51724d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18ee64e6866764e250cfa08a1d4721674bb66e5a
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653646"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097345"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute för Cloud Solution Providers (CSP)
 Microsoft tillhandahåller storskaliga tjänster för traditionella återförsäljare och distributörer (CSP), för att de snabbt ska kunna etablera nya tjänster och lösningar för sina kunder utan att behöva investera i att utveckla dessa nya tjänster. Om du vill ge CSP:n (Cloud Solution Provider) möjlighet att direkt hantera dessa nya tjänster, erbjuder Microsoft program och API:er som tillåter CSP:n att hantera Microsoft Azure-resurser åt dina kunder. En av resurserna är ExpressRoute. Med ExpressRoute kan CSP:n ansluta befintliga kundresurser till Azure-tjänster. ExpressRoute är en höghastighets anslutning med privat kommunikation till tjänster i Azure. 
@@ -21,7 +21,7 @@ Microsoft tillhandahåller storskaliga tjänster för traditionella återförsä
 ExpressRoute består av ett par kretsar för hög tillgänglighet som är kopplade till en enskild kunds prenumeration (er) och inte kan delas av flera kunder. Varje krets bör avslutas i en annan router för att bibehålla den höga tillgängligheten.
 
 > [!NOTE]
-> Det finns bandbredds- och anslutningsfunktioner i ExpressRoute, vilket innebär att stora/komplexa implementeringar kräver flera ExpressRoute-kretsar för en enda kund.
+> Det finns gränser för bandbredden och antalet möjliga anslutningar på varje ExpressRoute-krets. Om en enskild kunds behov överskrider de här gränserna, kräver de flera ExpressRoute-kretsar för att implementera hybrid nätverk.
 > 
 > 
 
@@ -75,30 +75,30 @@ ExpressRoute stöder nätverks hastigheter från 50 MB/s till 10 GB/s. Detta inn
 ExpressRoute stöder anslutning av flera vNets till en enda ExpressRoute-krets för att uppnå bättre användning av snabbare anslutningar. En enda ExpressRoute-krets kan delas av flera Azure-prenumerationer som ägs av samma kund.
 
 ## <a name="configuring-expressroute"></a>Konfigurera ExpressRoute
-ExpressRoute kan konfigureras för att stödja tre typer av trafik ([routningsdomäner](#expressroute-routing-domains)) över en enskild ExpressRoute-krets. Den här trafiken är indelad i Microsoft-peering, offentlig Azure-peering och privat peering. Du kan välja att en eller alla typer av trafik skickas via en enda ExpressRoute-krets eller använda flera ExpressRoute-kretsar, beroende på storleken på ExpressRoute-kretsen och den isolering som krävs av kunden. Kundens säkerhetsposition kanske inte tillåter offentlig och privat trafik som passerar över samma krets.
+ExpressRoute kan konfigureras för att stödja tre typer av trafik ([routningsdomäner](#expressroute-routing-domains)) över en enskild ExpressRoute-krets. Trafiken är åtskiljd i privat peering, Microsoft-peering och offentlig peering (inaktuell). Du kan välja att en eller alla typer av trafik skickas via en enda ExpressRoute-krets eller använda flera ExpressRoute-kretsar, beroende på storleken på ExpressRoute-kretsen och den isolering som krävs av kunden. Kundens säkerhetsposition kanske inte tillåter offentlig och privat trafik som passerar över samma krets.
 
 ### <a name="connect-through-model"></a>Anslut via-modellen
-I en anslutnings konfiguration är du ansvarig för alla nätverks underfästningar för att ansluta dina kund Data Center resurser till de prenumerationer som finns i Azure. Varje kund som vill använda Azure-funktioner måste ha sin egen ExpressRoute-anslutning, som kommer att hanteras av dig. Du använder samma metoder som kunden skulle använda för att skaffa ExpressRoute-kretsen. Du kan följa samma steg som beskrivs i artikeln [ExpressRoute-arbetsflöden](expressroute-workflows.md) för kretsetablering och kretstillstånd. Du kommer sedan konfigurera BGP-vägar (Border Gateway Protocol) för att styra den trafik som passerar mellan det lokala nätverket och Azure vNet.
+I en anslutnings konfiguration är du ansvarig för alla nätverks underfästningar för att ansluta kundens Data Center resurser till de prenumerationer som finns i Azure. Var och en av dina kunder som vill använda Azure-funktionerna behöver sin egen ExpressRoute-anslutning, som kommer att hanteras av dig. Du kommer att använda samma metoder som kunden skulle använda för att köpa ExpressRoute-kretsen. Du kommer att följa samma steg som beskrivs i artikeln ExpressRoute- [arbetsflöden](expressroute-workflows.md) för krets etablering och krets tillstånd. Du konfigurerar sedan Border Gateway Protocol (BGP)-vägarna för att styra trafiken som flödar mellan det lokala nätverket och Azure vNet.
 
 ### <a name="connect-to-model"></a>Anslut till-modellen
-I en Anslut till-konfiguration har kunden redan en befintlig anslutning till Azure eller kommer att initiera en anslutning till Internetleverantören med en länk till ExpressRoute från kundens eget datacenter direkt till Azure, i stället för ditt datacenter. För att påbörja etableringen kommer kunden följa stegen som beskrivs i Anslut via-modellen ovan. När kretsen har upprättats måste kunden konfigurera de lokala routrarna för att få åtkomst till både nätverket och Azure vNets.
+I en anslutnings-till-konfiguration har kunden redan en befintlig anslutning till Azure eller initierar en anslutning till Internet tjänst leverantören som länkar ExpressRoute från sitt eget Data Center direkt till Azure, i stället för ditt data Center. För att påbörja etableringen kommer kunden följa stegen som beskrivs i Anslut via-modellen ovan. När kretsen har etablerats måste kunden konfigurera de lokala routrarna så att de kan komma åt både nätverket och Azure-virtuella nätverk.
 
 Du kan hjälpa till med att konfigurera anslutningen och vägarna så att resurserna i ditt datacenter kan kommunicera med klientens resurser i ditt datacenter, eller med de resurser som finns i Azure.
 
 ## <a name="expressroute-routing-domains"></a>ExpressRoute-routningsdomäner
-ExpressRoute erbjuder tre routningsdomäner: offentliga, privata och Microsoft-peering. Varje routningsdomän konfigureras med identiska routrar i en aktiv-aktiv konfiguration för hög tillgänglighet. Mer information om ExpressRoute-routningsdomänerna finns [här](expressroute-circuit-peerings.md).
+ExpressRoute erbjuder två routningsdomäner för nya kretsar: privat peering och Microsoft-peering. Varje routningsdomän konfigureras med identiska routrar i en aktiv-aktiv konfiguration för hög tillgänglighet. Mer information om ExpressRoute-routningsdomänerna finns [här](expressroute-circuit-peerings.md).
 
 Du kan definiera anpassade vägfilter för att endast tillåta de vägar som du vill tillåta eller som du behöver. Mer information eller om du vill se hur du gör dessa ändringar finns i artikeln: [Skapa och ändra routning för en ExpressRoute-krets med PowerShell](expressroute-howto-routing-classic.md) för mer information om routningsfilter.
 
 > [!NOTE]
-> Anslutningar med Microsoft-peering och offentlig peering måste ske via en offentlig IP-adress som ägs av kunden eller CSP:n och som följer alla definierade regler. Mer information finns på sidan [ExpressRoute-förutsättningar](expressroute-prerequisites.md).  
+> För Microsoft-peering måste anslutning ske trots att en offentlig IP-adress ägs av kunden eller KRYPTOGRAFIPROVIDERn och måste följa alla definierade regler. Mer information finns på sidan [ExpressRoute-förutsättningar](expressroute-prerequisites.md).  
 > 
 > 
 
 ## <a name="routing"></a>Routning
 ExpressRoute ansluter till Azure-nätverk via Azures virtuella nätverksgateway. Nätverksgateways innehåller routning för Azures virtuella nätverk.
 
-När virtuella Azure-nätverk skapas, skapas även en standardroutningstabell för vNet som dirigerar trafiken till och från undernäten i vNet. Om standardvägtabellen inte är tillräcklig för lösningen kan anpassade vägar skapas för att dirigera utgående trafik till anpassad utrustning, eller för att blockera vägar till specifika undernät eller externa nätverk.
+När virtuella Azure-nätverk skapas, skapas även en standardroutningstabell för vNet som dirigerar trafiken till och från undernäten i vNet. Om standard väg tabellen inte räcker för lösningen kan anpassade vägar skapas för att dirigera utgående trafik till anpassade enheter eller blockera vägar till vissa undernät eller externa nätverk.
 
 ### <a name="default-routing"></a>Standardroutning
 Standardvägtabellen innehåller följande vägar:

@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8239d037d6bd68638998cbb36c47c7dac4bce30d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13a88b327b5ba56b52cd4f08d9c7fae5d653ed38
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537624"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095950"
 ---
 # <a name="train-a-model-using-a-custom-docker-image"></a>Träna en modell med en anpassad Docker-avbildning
 
@@ -25,11 +25,11 @@ Exempel skripten i den här artikeln används för att klassificera PET-bilder g
 
 Även om Azure Machine Learning tillhandahåller en standard-Docker-basadress, kan du också använda Azure Machine Learning miljöer för att ange en bestämd bas avbildning, till exempel en uppsättning med [Azure ml](https://github.com/Azure/AzureML-Containers) -grundavbildningar eller din egen [anpassade avbildning](how-to-deploy-custom-docker-image.md#create-a-custom-base-image). Med anpassade bas avbildningar kan du noggrant hantera dina beroenden och upprätthålla bättre kontroll över komponent versioner när du kör utbildnings jobb. 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 Kör den här koden i någon av följande miljöer:
 * Azure Machine Learning beräknings instans – inga hämtningar eller installationer behövs
     * Slutför [självstudien: installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md) för att skapa en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats.
-    * Leta upp en slutförd antecknings bok i Azure Machine Learning [exempel lagrings plats](https://github.com/Azure/azureml-examples)genom att gå till den här katalogen: **How-to-use-azureml > ml framework > fastai > träna-with-Custom-Docker** 
+    * Leta upp en slutförd antecknings bok i Azure Machine Learning [exempel lagrings plats](https://github.com/Azure/azureml-examples)genom att gå till den här katalogen: **Notebooks > fastai > träna – sällskaps resnet34. ipynb** 
 
 * Din egen Jupyter Notebook Server
     * Skapa en [konfigurations fil för arbets ytor](how-to-configure-environment.md#workspace).

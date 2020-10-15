@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 440d8af17bccaf8d3fcb92f65e5d91ed969aec31
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b29873e161b64c52abbfdf3f2611714f6b012361
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971418"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097294"
 ---
 # <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>Självstudie: dela spatiala ankare mellan sessioner och enheter
 
@@ -86,7 +86,7 @@ Välj **OK**.
 
 Öppna Visual Studio Code och öppna sedan projektet i *Sharing\SharingServiceSample* -mappen. 
 
-Om du vill distribuera delnings tjänsten via Visual Studio Code följer du anvisningarna i <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">publicera ett ASP.net Core-program till Azure med Visual Studio Code</a>. Börja med avsnittet "öppna med Visual Studio Code". Skapa inte ett annat ASP.NET-projekt enligt beskrivningen i föregående steg eftersom du redan har ett projekt som ska distribueras och publiceras: SharingServiceSample.
+Om du vill distribuera delnings tjänsten via Visual Studio Code följer du anvisningarna i <a href="/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">publicera ett ASP.net Core-program till Azure med Visual Studio Code</a>. Börja med avsnittet "öppna med Visual Studio Code". Skapa inte ett annat ASP.NET-projekt enligt beskrivningen i föregående steg eftersom du redan har ett projekt som ska distribueras och publiceras: SharingServiceSample.
 
 ---
 
@@ -104,4 +104,3 @@ Du kan förbättra din ASP.NET Core webbapp så att den använder Azure Cosmos D
 
 > [!div class="nextstepaction"]
 > [Använd Azure Cosmos DB för att lagra ankare](./tutorial-use-cosmos-db-to-store-anchors.md)
-

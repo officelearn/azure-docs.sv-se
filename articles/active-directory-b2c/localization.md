@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84850b7d44033a2759c51c5c6b9c53d1c945a99d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27a00c69a4423e45b46b9c3d0340bb7cd1a35d65
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005386"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095908"
 ---
 # <a name="localization-element"></a>Lokaliserings element
 
@@ -41,7 +41,7 @@ ms.locfileid: "87005386"
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Enabled | Inga | Möjliga värden: `true` eller `false` . |
+| Enabled | Nej | Möjliga värden: `true` eller `false` . |
 
 **Lokaliserings** elementet innehåller följande XML-element
 
@@ -57,7 +57,7 @@ ms.locfileid: "87005386"
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | DefaultLanguage | Ja | Det språk som ska användas som standard för lokaliserade resurser. |
-| MergeBehavior | Inga | Ett uppräknings värde för värden som slås samman med en ClaimType som finns i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i bas principen. Möjliga värden: `Append` , `Prepend` , eller `ReplaceAll` . `Append`Värdet anger att data uppsättningen som finns ska läggas till i slutet av den samling som anges i den överordnade principen. `Prepend`Värdet anger att data uppsättningen som finns ska läggas till innan den samling som anges i den överordnade principen. `ReplaceAll`Värdet anger att data uppsättningen som definieras i den överordnade principen ska ignoreras, med i stället de data som definierats i den aktuella principen. |
+| MergeBehavior | Nej | Ett uppräknings värde för värden som slås samman med en ClaimType som finns i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i bas principen. Möjliga värden: `Append` , `Prepend` , eller `ReplaceAll` . `Append`Värdet anger att data uppsättningen som finns ska läggas till i slutet av den samling som anges i den överordnade principen. `Prepend`Värdet anger att data uppsättningen som finns ska läggas till innan den samling som anges i den överordnade principen. `ReplaceAll`Värdet anger att data uppsättningen som definieras i den överordnade principen ska ignoreras, med i stället de data som definierats i den aktuella principen. |
 
 ### <a name="supportedlanguages"></a>SupportedLanguages
 
@@ -112,7 +112,7 @@ Elementet **item** innehåller följande attribut:
 | --------- | -------- | ----------- |
 | Text | Ja | Den användarvänliga visnings strängen som ska visas för användaren i användar gränssnittet för det här alternativet. |
 | Värde | Ja | Det sträng anspråks värde som är associerat med att välja det här alternativet. |
-| SelectByDefault | Inga | Anger om det här alternativet ska vara markerat som standard i användar gränssnittet. Möjliga värden: true eller false. |
+| SelectByDefault | Nej | Anger om det här alternativet ska vara markerat som standard i användar gränssnittet. Möjliga värden: true eller false. |
 
 I följande exempel visas användningen av **LocalizedCollections** -elementet. Den innehåller två **LocalizedCollection** -element, ett för engelska och ett för spanska. Båda anger **begränsnings** samlingen för anspråket `Gender` med en lista över objekt för engelska och spanska.
 
@@ -163,6 +163,7 @@ ElementType-referensen till en anspråks typ, en anspråks omvandling eller ett 
 |Predikat användar meddelande|`Predicate`|Namnet på predikatet| Attributet för predikatet som ska lokaliseras. Möjliga värden: `HelpText` .|
 |Användar meddelande för predika grupp|`InputValidation`|ID för PredicateValidation-elementet.|ID för PredicateGroup-elementet. Predikatet-gruppen måste vara underordnat predikatet predikat som definieras i ElementId.|
 |Element för användargränssnitt |`UxElement` | | ID för det användar gränssnitts element som ska lokaliseras.|
+|[Visa kontroll](display-controls.md) |`DisplayControl` |ID för visnings kontrollen. | ID för det användar gränssnitts element som ska lokaliseras.|
 
 ## <a name="examples"></a>Exempel
 
@@ -330,6 +331,23 @@ UxElement-värdet används för att lokalisera ett av användar gränssnitts ele
 ```xml
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
 <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
+```
+
+### <a name="displaycontrol"></a>Visa
+
+Värdet visnings värde används för att lokalisera ett av användar gränssnitts elementen för [visnings kontroll](display-controls.md) . I följande exempel visas hur du kan lokalisera knapparna skicka och verifiera. 
+
+```xml
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+```
+
+I avsnittet metadata i en självkontrollerad teknisk profil måste det refererade ContentDefinition ha DataUri inställt på [Page Layout version](page-layout.md) 2.1.0 eller högre. Exempel:
+
+```xml
+<ContentDefinition Id="api.selfasserted">
+  <DataUri>urn:com:microsoft:aad:b2c:elements:selfasserted:2.1.0</DataUri>
+  ...
 ```
 
 ## <a name="next-steps"></a>Nästa steg

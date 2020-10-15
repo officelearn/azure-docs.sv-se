@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 084058edca59eda776c47a3e20bb49178de78681
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c11e87934ee3ba2af97ee8d885b87d087a1c531
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74790079"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096427"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cwinrt"></a>Skapa och hitta ankare med hjälp av Azure spatiala ankare i C++/WinRT
 
@@ -38,11 +38,11 @@ Se till att du har följande för att slutföra den här guiden:
 
 - Läs igenom [översikten över Azures spatiala ankare](../overview.md).
 - Slutfört ett av [snabb starterna på fem minuter](../index.yml).
-- Grundläggande kunskaper om C++ och <a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">Windows Runtime API: er</a>.
+- Grundläggande kunskaper om C++ och <a href="/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">Windows Runtime API: er</a>.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
-Läs mer om klassen [CloudSpatialAnchorSession](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession) .
+Läs mer om klassen [CloudSpatialAnchorSession](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession) .
 
 ```cpp
     CloudSpatialAnchorSession m_cloudSession{ nullptr };
@@ -52,7 +52,7 @@ Läs mer om klassen [CloudSpatialAnchorSession](https://docs.microsoft.com/cpp/a
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
 
-Läs mer om klassen [SessionConfiguration](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/sessionconfiguration) .
+Läs mer om klassen [SessionConfiguration](/cpp/api/spatial-anchors/winrt/sessionconfiguration) .
 
 ```cpp
     auto configuration = m_cloudSession.Configuration();
@@ -68,7 +68,7 @@ Läs mer om klassen [SessionConfiguration](https://docs.microsoft.com/cpp/api/sp
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
 
-Läs mer om [TokenRequiredDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/tokenrequireddelegate) -delegaten.
+Läs mer om [TokenRequiredDelegate](/cpp/api/spatial-anchors/winrt/tokenrequireddelegate) -delegaten.
 
 ```cpp
     m_accessTokenRequiredToken = m_cloudSession.TokenRequired(winrt::auto_revoke, [](auto&&, auto&& args) {
@@ -117,7 +117,7 @@ Läs mer om [TokenRequiredDelegate](https://docs.microsoft.com/cpp/api/spatial-a
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
-Lär dig mer om [Start](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#start) metoden.
+Lär dig mer om [Start](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#start) metoden.
 
 ```cpp
     m_cloudSession.Start();
@@ -125,7 +125,7 @@ Lär dig mer om [Start](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
-Läs mer om [ProcessFrame](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession) -metoden.
+Läs mer om [ProcessFrame](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession) -metoden.
 
 ```cpp
     m_cloudSession->ProcessFrame(ar_frame_);
@@ -133,7 +133,7 @@ Läs mer om [ProcessFrame](https://docs.microsoft.com/cpp/api/spatial-anchors/wi
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
-Läs mer om [SessionUpdatedDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/sessionupdateddelegate) -delegaten.
+Läs mer om [SessionUpdatedDelegate](/cpp/api/spatial-anchors/winrt/sessionupdateddelegate) -delegaten.
 
 ```cpp
     m_sessionUpdatedToken = m_cloudSession.SessionUpdated(winrt::auto_revoke, [this](auto&&, auto&& args)
@@ -147,7 +147,7 @@ Läs mer om [SessionUpdatedDelegate](https://docs.microsoft.com/cpp/api/spatial-
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
 
-Läs mer om klassen [CloudSpatialAnchor](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor) .
+Läs mer om klassen [CloudSpatialAnchor](/cpp/api/spatial-anchors/winrt/cloudspatialanchor) .
 
 ```cpp
     // Initialization
@@ -183,7 +183,7 @@ Läs mer om klassen [CloudSpatialAnchor](https://docs.microsoft.com/cpp/api/spat
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
-Läs mer om [GetSessionStatusAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#getsessionstatusasync) -metoden.
+Läs mer om [GetSessionStatusAsync](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#getsessionstatusasync) -metoden.
 
 ```cpp
     SessionStatus status = co_await m_cloudSession.GetSessionStatusAsync();
@@ -193,7 +193,7 @@ Läs mer om [GetSessionStatusAsync](https://docs.microsoft.com/cpp/api/spatial-a
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
-Läs mer om [AppProperties](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor#appproperties) -metoden.
+Läs mer om [AppProperties](/cpp/api/spatial-anchors/winrt/cloudspatialanchor#appproperties) -metoden.
 
 ```cpp
     CloudSpatialAnchor cloudAnchor = CloudSpatialAnchor();
@@ -206,7 +206,7 @@ Läs mer om [AppProperties](https://docs.microsoft.com/cpp/api/spatial-anchors/w
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
-Läs mer om [UpdateAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#updateanchorpropertiesasync) -metoden.
+Läs mer om [UpdateAnchorPropertiesAsync](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#updateanchorpropertiesasync) -metoden.
 
 ```cpp
     CloudSpatialAnchor anchor = /* locate your anchor */;
@@ -216,7 +216,7 @@ Läs mer om [UpdateAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spa
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
 
-Läs mer om [GetAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#getanchorpropertiesasync) -metoden.
+Läs mer om [GetAnchorPropertiesAsync](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#getanchorpropertiesasync) -metoden.
 
 ```cpp
     CloudSpatialAnchor anchor = co_await m_cloudSession.GetAnchorPropertiesAsync(LR"(anchorId)");
@@ -229,7 +229,7 @@ Läs mer om [GetAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatia
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
-Läs mer om [förfallo](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor#expiration) metoden.
+Läs mer om [förfallo](/cpp/api/spatial-anchors/winrt/cloudspatialanchor#expiration) metoden.
 
 ```cpp
     const int64_t oneWeekFromNowInHours = 7 * 24;
@@ -239,7 +239,7 @@ Läs mer om [förfallo](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
-Läs mer om [CreateWatcher](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#createwatcher) -metoden.
+Läs mer om [CreateWatcher](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#createwatcher) -metoden.
 
 ```cpp
     AnchorLocateCriteria criteria = AnchorLocateCriteria();
@@ -249,7 +249,7 @@ Läs mer om [CreateWatcher](https://docs.microsoft.com/cpp/api/spatial-anchors/w
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
 
-Läs mer om [AnchorLocatedDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/anchorlocateddelegate) -delegaten.
+Läs mer om [AnchorLocatedDelegate](/cpp/api/spatial-anchors/winrt/anchorlocateddelegate) -delegaten.
 
 ```cpp
     m_anchorLocatedToken = m_cloudSession.AnchorLocated(winrt::auto_revoke, [this](auto&&, auto&& args)
@@ -279,7 +279,7 @@ Läs mer om [AnchorLocatedDelegate](https://docs.microsoft.com/cpp/api/spatial-a
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
-Läs mer om [DeleteAnchorAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#deleteanchorasync) -metoden.
+Läs mer om [DeleteAnchorAsync](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#deleteanchorasync) -metoden.
 
 ```cpp
     co_await m_cloudSession.DeleteAnchorAsync(cloudAnchor);
@@ -288,7 +288,7 @@ Läs mer om [DeleteAnchorAsync](https://docs.microsoft.com/cpp/api/spatial-ancho
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
-Läs mer om [stopp](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#stop) metoden.
+Läs mer om [stopp](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#stop) metoden.
 
 ```cpp
     m_cloudSession.Stop();
@@ -296,7 +296,7 @@ Läs mer om [stopp](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/clo
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
-Läs mer om [Reset](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#reset) -metoden.
+Läs mer om [Reset](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#reset) -metoden.
 
 ```cpp
     m_cloudSession.Reset();

@@ -6,14 +6,14 @@ ms.service: virtual-machines-linux
 ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 10/14/2020
 ms.author: danis
-ms.openlocfilehash: a87c2b571027e0304909e69b252c9e080c4da9c1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 87cb4a233470fadc9cde616790aff0d5cd7b151b
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978636"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096665"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-Init-stöd för virtuella datorer i Azure
 Den här artikeln beskriver det stöd som finns för [Cloud-Init](https://cloudinit.readthedocs.io) för att konfigurera en virtuell dator (VM) eller skalnings uppsättningar för virtuella datorer vid etablerings tiden i Azure. Dessa Cloud-Init-konfigurationer körs vid första start när resurserna har etablerats av Azure.  
@@ -97,10 +97,10 @@ Dessa SLES-avbildningar har uppdaterats för att etableras med Cloud-Init, men G
 ### <a name="debian"></a>Debian
 | Utgivare/version | Erbjudande | SKU | Version | avbildnings moln – init Ready | stöd för Cloud-Init-paket i Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| Debian (gen1) |Debian-10 | 10-cloudinit |Cloud-Init-för hands version| Ja (endast för hands version) | Nej, i för hands versionen. |
-| Debian (Gen2) |Debian-10 | 10-cloudinit-Gen2 |Cloud-Init-för hands version| Ja (endast för hands version) | Nej, i för hands versionen. |
-
-
+| Debian (gen1) |Debian-10 | 10-cloudinit |Cloud-Init-för hands version| Ja (Obs! det här är en förhands gransknings bild och **får** inte användas längre. Detta kommer att tas bort 1 januari 2021) | Nej, i för hands versionen. |
+| Debian (Gen2) |Debian-10 | 10-cloudinit-Gen2 |Cloud-Init-för hands version| Ja (Obs! det här är en förhands gransknings bild och **får** inte användas längre. Detta kommer att tas bort 1 januari 2021) | Nej, i för hands versionen. |
+| Debian (gen1) |Debian-10 | 10-cloudinit |10:0.20201013.422| ja | Ja-support från paket version: `20.2-2~deb10u1` |
+| Debian (Gen2) |Debian-10 | 10-cloudinit-Gen2 |0.20201013.422| ja | Ja-support från paket version: `20.2-2~deb10u1` |
 
 
 För närvarande har Azure Stack stöd för etablering av moln-init-aktiverade avbildningar.

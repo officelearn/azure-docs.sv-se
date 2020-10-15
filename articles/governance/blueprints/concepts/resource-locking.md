@@ -3,12 +3,12 @@ title: Förstå resurs låsning
 description: Lär dig mer om låsnings alternativen i Azure-ritningar för att skydda resurser när du tilldelar en skiss.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8ac5c918a3c370b9d8e88800e05f83e585550e3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f69cbfebe203407287392c2433181396b541b2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744023"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096002"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resurs låsning i Azure-ritningar
 
@@ -39,7 +39,7 @@ Detta säkerhets mått skyddar konsekvensen för den definierade skissen och mil
 
 ### <a name="assign-at-management-group"></a>Tilldela i hanterings grupp
 
-Ett ytterligare alternativ för att förhindra prenumerations ägare från att ta bort en skiss tilldelning är att tilldela skissen till en hanterings grupp. I det här scenariot har endast **ägare** av hanterings gruppen de behörigheter som krävs för att ta bort skiss tilldelningen.
+Det enda alternativet för att förhindra prenumerations ägare från att ta bort en skiss tilldelning är att tilldela skissen till en hanterings grupp. I det här scenariot har endast **ägare** av hanterings gruppen de behörigheter som krävs för att ta bort skiss tilldelningen.
 
 Om du vill tilldela skissen till en hanterings grupp i stället för en prenumeration ändras REST API anropet så att det ser ut så här:
 

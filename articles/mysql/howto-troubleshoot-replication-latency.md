@@ -1,116 +1,123 @@
 ---
 title: Felsöka replikeringsfördröjning – Azure Database for MySQL
-description: Lär dig hur du felsöker replikeringsfördröjning med Azure Database for MySQL Läs repliker
+description: Lär dig hur du felsöker replikeringsfördröjning genom att använda Azure Database for MySQL Läs repliker.
 keywords: MySQL, felsöka, replikeringsfördröjning i sekunder
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/08/2020
-ms.openlocfilehash: 16a502a53b4441faf68ea342e0bc865731d38b1a
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: cb02b29c100da7b8d63f214acc78906a757344c0
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877165"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096104"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Felsöka replikeringsfördröjning i Azure Database for MySQL
 
-Med funktionen [Läs replik](concepts-read-replicas.md) kan du replikera data från en Azure Database for MySQL-server till en skrivskyddad replik Server. Läs repliker används för att skala ut arbets belastning genom att dirigera Läs-/rapporterings frågor från programmet till replik servrar. Detta minskar belastningen på den primära servern och förbättrar programmets övergripande prestanda och svars tid när den skalas. Replikerna uppdateras asynkront med MySQL-motorns interna replikeringsteknik som utgår från replikernas position i en binär loggfil (binlog). Mer information om BinLog-replikering finns i [Översikt över MySQL BinLog-replikering](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
+Med funktionen [Läs replik](concepts-read-replicas.md) kan du replikera data från en Azure Database for MySQL-server till en skrivskyddad replik Server. Du kan skala ut arbets belastningar genom att dirigera Läs-och rapporterings frågor från programmet till replik servrar. Den här installationen minskar belastningen på käll servern. Det förbättrar också programmets övergripande prestanda och svars tid när den skalas. 
 
-Fördröjningen för replikering på sekundär Läs repliker beror på antalet faktorer, inklusive men inte begränsat till 
+Repliker uppdateras asynkront med hjälp av MySQL-motorns interna binära logg (BinLog) teknik för filplacering-baserad replikering. Mer information finns i [Översikt över MySQL BinLog File position-based Replication Configuration](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
 
-- Svarstid för nätverk
-- Transaktions volym på käll servern
-- Beräknings nivå för källa och sekundär Läs replik Server
-- Frågor som körs på den primära och den sekundära servern. 
+Fördröjningen för replikering på sekundär Läs repliker är beroende av flera faktorer. Dessa faktorer omfattar men är inte begränsade till: 
 
-I det här dokumentet får du lära dig hur du felsöker replikeringsfördröjning i Azure Database for MySQL. Dessutom kan du också förstå några av de vanligaste orsakerna till ökad replikeringsfördröjning på replik servrar.
+- Nätverks fördröjning.
+- Transaktions volym på käll servern.
+- Compute-nivån för käll servern och den sekundära Läs replik servern.
+- Frågor som körs på käll servern och den sekundära servern. 
+
+I den här artikeln får du lära dig hur du felsöker replikeringsfördröjning i Azure Database for MySQL. Du kommer också att förstå några vanliga orsaker till ökad replikeringsfördröjning på replik servrar.
 
 ## <a name="replication-concepts"></a>Metoder för replikering
 
-När binär logg har Aktiver ATS skriver käll servern en genomförd transaktion till den binära loggen, som används för replikering. Den binära loggen är aktive rad som standard för alla nyligen etablerade servrar som har stöd för upp till 16 TB lagring. På replik servrar finns det två trådar som körs per replik Server, en som kallas IO-tråden och den andra som kallas för SQL-tråden.
+När en binär logg aktive ras skriver käll servern genomförda transaktioner till den binära loggen. Den binära loggen används för replikering. Den är aktive rad som standard för alla nyligen etablerade servrar som har stöd för upp till 16 TB lagrings utrymme. På replik servrar körs två trådar på varje replik Server. En tråd är *IO-tråden*och den andra är SQL- *tråden*:
 
-- **IO-tråden** ansluter till käll servern och begär uppdaterade binära loggar. När den här tråden tar emot de binära logg uppdateringarna sparas de på en replik server i en lokal logg som kallas relä loggen.
-- **SQL-tråden** läser relä loggen och tillämpar data ändringarna på replik servrarna.
+- IO-tråden ansluter till käll servern och begär uppdaterade binära loggar. Den här tråden tar emot de binära logg uppdateringarna. Uppdateringarna sparas på en replik server i en lokal logg som kallas *relä loggen*.
+- SQL-tråden läser relä loggen och tillämpar sedan data ändringarna på replik servrarna.
 
 ## <a name="monitoring-replication-latency"></a>Övervaka replikeringsfördröjning
 
-Azure Database for MySQL anger måttet för replikeringsfördröjning i sekunder i [Azure Monitor](concepts-monitoring.md). Detta mått är endast tillgängligt på skrivskyddade replik servrar. Det här måttet beräknas med seconds_behind_master måttet som är tillgängligt i MySQL. Om du vill förstå rotor saken med ökad replikeringsfördröjning ansluter du till replik servern med [MySQL Workbench](connect-workbench.md) eller [Azure Cloud Shell](https://shell.azure.com) och kör följande kommando:
+Azure Database for MySQL tillhandahåller mått för replikerings fördröjning i sekunder i [Azure Monitor](concepts-monitoring.md). Detta mått är bara tillgängligt på Läs replik servrar. Den beräknas av seconds_behind_master mått som är tillgängligt i MySQL. 
 
- Ersätt värden med namnet på den faktiska replik servern och inloggnings namnet för administratörs användaren. Administratörens användar namn kräver @ \<servername> för Azure Database for mysql:
+Om du vill förstå orsaken till en ökad replikeringsfördröjning ansluter du till replik servern med hjälp av [MySQL Workbench](connect-workbench.md) eller [Azure Cloud Shell](https://shell.azure.com). Kör sedan följande kommando.
 
-  ```azurecli-interactive
-  mysql --host=myreplicademoserver.mysql.database.azure.com --user=myadmin@mydemoserver -p 
-  ```
+>[!NOTE] 
+> I din kod ersätter du exempel värden med replik serverns namn och administratörens användar namn. Administratörens användar namn kräver `@\<servername>` för Azure Database for MySQL.
 
-  Så här ser upplevelsen ut som i Cloud Shell terminalen
-  ```
-  Requesting a Cloud Shell.Succeeded.
-  Connecting terminal...
+```azurecli-interactive
+mysql --host=myreplicademoserver.mysql.database.azure.com --user=myadmin@mydemoserver -p 
+```
 
-  Welcome to Azure Cloud Shell
+Så här ser upplevelsen ut i Cloud Shell terminalen:
 
-  Type "az" to use Azure CLI
-  Type "help" to learn about Cloud Shell
+```
+Requesting a Cloud Shell.Succeeded.
+Connecting terminal...
 
-  user@Azure:~$mysql -h myreplicademoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
-  Enter password:
-  Welcome to the MySQL monitor.  Commands end with ; or \g.
-  Your MySQL connection id is 64796
-  Server version: 5.6.42.0 Source distribution
+Welcome to Azure Cloud Shell
 
-  Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+Type "az" to use Azure CLI
+Type "help" to learn about Cloud Shell
 
-  Oracle is a registered trademark of Oracle Corporation and/or its
-  affiliates. Other names may be trademarks of their respective
-  owners.
+user@Azure:~$mysql -h myreplicademoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 64796
+Server version: 5.6.42.0 Source distribution
 
-  Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-  mysql>
-  ```
-  Kör följande kommando i samma Azure Cloud Shell terminal
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
 
-  ```
-  mysql> SHOW SLAVE STATUS;
-  ```
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
 
-  En typisk utmatning kommer att se ut så här:
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+mysql>
+```
+
+Kör följande kommando i samma Cloud Shell terminal:
+
+```
+mysql> SHOW SLAVE STATUS;
+```
+
+Här är en typisk utmatning:
   
 >[!div class="mx-imgBorder"]
 > :::image type="content" source="./media/howto-troubleshoot-replication-latency/show-status.png" alt-text="Övervaka replikeringsfördröjning&quot;:::
 
 
-Utdata innehåller mycket information, men vanligt vis är det bara viktigt att fokusera på följande kolumner:
+Utdata innehåller mycket information. Normalt behöver du bara fokusera på de rader som visas i följande tabell.
 
 |Mått|Beskrivning|
 |---|---|
-|Slave_IO_State| Aktuell status för IO-tråden. Normalt är statusen &quot;väntar på att huvud datorn ska skickas&quot; om den synkroniseras. Men om du ser en status som &quot;anslutning till Master&quot;, har repliken förlorat anslutningen till huvud servern. Kontrol lera om huvud servern körs eller om en brand vägg blockerar anslutningen.|
-|Master_Log_File| Den binära logg filen som originalet skrivs till.|
-|Read_Master_Log_Pos| Representerar positionen i den binära logg filen där originalet skrivs.|
-|Relay_Master_Log_File| Angiven representerar den binära logg filen som replik servern läser från huvud servern.|
-|Slave_IO_Running| Anger om IO-tråden körs. Det bör vara &quot;Ja&quot;. Om nej, är det troligare att replikeringen är bruten.|
-|Slave_SQL_Running| Indikerar om SQL-tråden körs. Det bör vara &quot;Ja&quot;. Om nej, är det troligare att replikeringen är bruten.|
-|Exec_Master_Log_Pos| Visar positionen för Relay_Master_Log_File som repliken gäller. Om det finns en fördröjning bör den här positions ordningen vara mindre än Read_Master_Log_Pos.|
-|Relay_Log_Space|Visar den övre gränsen för storleken på relä loggen. Du kan kontrol lera storleken genom att fråga Visa globala variabler som relay_log_space_limit.|
+|Slave_IO_State| Representerar IO-trådens aktuella status. Normalt är statusen &quot;väntar på att huvud servern ska skickas&quot; om käll servern (huvud servern) synkroniseras. En status som &quot;anslutning till Master" anger att repliken förlorade anslutningen till käll servern. Se till att käll servern körs eller kontrol lera om en brand vägg blockerar anslutningen.|
+|Master_Log_File| Representerar den binära logg filen som käll servern skriver till.|
+|Read_Master_Log_Pos| Anger var käll servern skriver i den binära logg filen.|
+|Relay_Master_Log_File| Representerar den binära logg filen som replik servern läser från käll servern.|
+|Slave_IO_Running| Anger om IO-tråden körs. Värdet ska vara `Yes` . Om värdet är är `NO` replikeringen troligen bruten.|
+|Slave_SQL_Running| Indikerar om SQL-tråden körs. Värdet ska vara `Yes` . Om värdet är är `NO` replikeringen troligen bruten.|
+|Exec_Master_Log_Pos| Anger positionen för Relay_Master_Log_File som repliken använder. Om det finns en svars tid bör den här positions ordningen vara mindre än Read_Master_Log_Pos.|
+|Relay_Log_Space|Anger den övre gränsen för relä logg storleken. Du kan kontrol lera storleken genom att fråga `SHOW GLOBAL VARIABLES` till exempel `relay_log_space_limit` .|
 |Seconds_Behind_Master| Visar replikeringsfördröjning i sekunder.|
-|Last_IO_Errno|Visar fel koden för IO-tråden, om sådan finns. Mer information om dessa koder finns i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-error-reference.html).|
+|Last_IO_Errno|Visar fel koden för IO-tråden, om sådan finns. Mer information om dessa koder finns i [referensen till MySQL-serverns fel meddelande](https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html).|
 |Last_IO_Error| Visar fel meddelandet i IO-tråden, om det finns några.|
-|Last_SQL_Errno|Visar SQL-trådens felkod, om sådan finns. Mer information om dessa koder finns i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-error-reference.html).|
+|Last_SQL_Errno|Visar SQL-trådens felkod, om sådan finns. Mer information om dessa koder finns i [referensen till MySQL-serverns fel meddelande](https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html).|
 |Last_SQL_Error|Visar fel meddelandet om SQL-tråd, om det finns några.|
-|Slave_SQL_Running_State| Anger den aktuella SQL-trådens status. Observera att &quot;system lås" som visas i det här läget är ett normalt beteende. Det är normalt att se status som "väntar på att en beroende transaktion ska genomföras". Det anger att repliken väntar på att huvud servern ska uppdatera genomförda transaktioner.|
+|Slave_SQL_Running_State| Anger den aktuella SQL-trådens status. I det här läget `System lock` är normal. Det är också normalt att se status för `Waiting for dependent transaction to commit` . Denna status anger att repliken väntar på att käll servern ska uppdatera genomförda transaktioner.|
 
-Om Slave_IO_Running är ja och Slave_SQL_Running är ja fungerar replikeringen bra. 
+Om Slave_IO_Running är `Yes` och Slave_SQL_Running är `Yes` , fungerar replikeringen bra. 
 
-Sedan måste du kontrol lera Last_IO_Errno, Last_IO_Error, Last_SQL_Errno och Last_SQL_Error.  Dessa fält innehåller fel numret och ett fel meddelande om det senaste felet som orsakade att SQL-tråden stoppades. Felet 0 och det tomma meddelandet betyder att det inte finns något fel. Ett värde som inte är noll i felet måste undersökas ytterligare genom att leta upp fel koden i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-error-reference.html).
+Sedan kontrollerar du Last_IO_Errno, Last_IO_Error, Last_SQL_Errno och Last_SQL_Error.  I dessa fält visas fel numret och ett fel meddelande om det senaste felet som orsakade att SQL-tråden stoppades. Ett fel antal `0` och ett tomt meddelande betyder att det inte finns något fel. Undersök eventuella felvärden som inte är noll genom att kontrol lera felkoden i [fel meddelande referensen MySQL server](https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html).
 
 ## <a name="common-scenarios-for-high-replication-latency"></a>Vanliga scenarier för svars tider med hög replikering
 
-### <a name="network-latency-or-high-cpu-on-source-server"></a>Nätverks fördröjning eller hög processor på käll servern
+I följande avsnitt beskrivs scenarier där svars tiderna för hög replikering är vanliga.
 
-Om du observerar följande värden, är den vanligaste orsaken till fördröjningen för replikering hög nätverks fördröjning eller hög processor förbrukning på käll servern. I det här fallet körs IO-tråden och väntar på huvud servern. Huvud servern (käll servern) har redan skrivits till den binära logg filen #20, medan repliken bara har fått upp till fil #10. De primära bidrags faktorerna för svars tider med hög replikering i det här scenariot är nätverks hastighet eller hög processor användning på käll servern.  I Azure kan nätverks fördröjningen inom en region vanligt vis vara i millisekunder och över region kan gå upp till sekunder. I de flesta fall orsakas fördröjningen i IO-tråden för att ansluta till käll servern på grund av hög processor användning på käll servern, vilket ledde till att IO-trådens bearbetning blir långsam. Detta kan identifieras genom att övervaka CPU-belastningen och att observera antalet samtidiga anslutningar på käll servern med Azure Monitor.
+### <a name="network-latency-or-high-cpu-consumption-on-the-source-server"></a>Nätverks fördröjning eller hög processor förbrukning på käll servern
 
-Om du inte ser hög processor användning på käll servern kan möjliga orsaker vara nätverks fördröjning. Om du ser hög nätverks fördröjning onormalt av en plötslig rekommenderar vi att du kontrollerar [sidan Azure-status](https://status.azure.com/status) för att se till att det inte finns några kända problem eller avbrott. 
+Om du ser följande värden, orsakas replikeringsfördröjning troligt vis av hög nätverks fördröjning eller hög processor förbrukning på käll servern. 
 
 ```
 Slave_IO_State: Waiting for master to send event
@@ -118,9 +125,17 @@ Master_Log_File: the binary file sequence is larger then Relay_Master_Log_File, 
 Relay_Master_Log_File: the file sequence is smaller than Master_Log_File, e.g. mysql-bin.00010
 ```
 
-### <a name="heavy-burst-of-transactions-on-source-server"></a>Tung burst för transaktioner på käll servern
+I det här fallet körs IO-tråden och väntar på käll servern. Käll servern har redan skrivit till binär logg fils nummer 20. Repliken har endast mottagit upp till fil nummer 10. De primära faktorerna för svars tider med hög replikering i det här scenariot är nätverks hastighet eller hög processor användning på käll servern.  
 
-Om du observerar följande värden är den vanligaste orsaken till replikeringsfördröjning är, tung överföring av transaktioner på käll servern. I utdata nedan, även om repliken kan hämta den binära loggen bakom bakgrunden, indikerar repliken i/o att relä logg utrymmet är fullt. Därför orsakar nätverks hastigheten inte fördröjningen eftersom repliken redan har försökt komma igång så snabbt som möjligt. I stället överskrider den uppdaterade binära logg storleken den övre gränsen för relä logg utrymmet. Om du vill felsöka det här problemet ytterligare ska den [långsamma frågans logg](concepts-server-logs.md) vara aktive rad på huvud servern. Med långsamma Query-loggar kan du identifiera tids krävande transaktioner på käll servern. De identifierade frågorna måste vara justerade för att minska svars tiden på servern. 
+I Azure kan nätverks svars tiden inom en region vanligt vis mätas i millisekunder. Mellan regioner är latens från millisekunder till sekunder. 
+
+I de flesta fall orsakas anslutnings fördröjningen mellan IO-trådar och käll servern av hög processor användning på käll servern. IO-trådarna bearbetas långsamt. Du kan identifiera det här problemet genom att använda Azure Monitor för att kontrol lera CPU-belastningen och antalet samtidiga anslutningar på käll servern.
+
+Om du inte ser hög processor användning på käll servern kan problemet vara nätverks fördröjning. Om nätverks fördröjningen plötsligt är onormalt hög, kontrollerar du [sidan Azure-status](https://status.azure.com/status) för kända problem eller avbrott. 
+
+### <a name="heavy-bursts-of-transactions-on-the-source-server"></a>Tung burst-överföring av transaktioner på käll servern
+
+Om du ser följande värden, orsakar en tung överföring av transaktioner på käll servern sannolikt replikeringsfördröjning. 
 
 ```
 Slave_IO_State: Waiting for the slave SQL thread to free enough relay log space
@@ -128,15 +143,18 @@ Master_Log_File: the binary file sequence is larger then Relay_Master_Log_File, 
 Relay_Master_Log_File: the file sequence is smaller then Master_Log_File, e.g. mysql-bin.00010
 ```
 
-Här följer vanliga orsaker till svars tiden i den här kategorin:
+Utdata visar att repliken kan hämta den binära loggen bakom käll servern. Men replikeringens IO-tråd indikerar att relä logg utrymmet redan är fullt. 
 
-#### <a name="replication-latency-due-to-data-load-on-source-server"></a>Replikeringsfördröjning på grund av data belastning på käll servern
-I vissa fall finns det veckovis eller månatlig data belastning på käll servrar. Svars tiden för replikering kan tyvärr undvikas i det här fallet. I det här scenariot fångas replik servrarna slutligen efter att data belastningen på käll servern har slutförts.
+Nätverks hastigheten orsakar inte fördröjningen. Repliken försöker fånga upp. Men den uppdaterade binära logg storleken överskrider den övre gränsen för relä logg utrymmet. 
+
+Om du vill felsöka det här problemet aktiverar du den [långsamma frågans logg](concepts-server-logs.md) på käll servern. Använd långsamma Query-loggar för att identifiera tids krävande transaktioner på käll servern. Justera sedan de identifierade frågorna för att minska svars tiden på servern. 
+
+Replikeringsfördröjning för den här sorteringen orsakas vanligt vis av data belastningen på käll servern. När käll servrar har data inläsningar varje vecka eller månatlig, går det tyvärr inte att undvika svar på replikering. Replik servrarna kommer slutligen att fångas upp efter att data belastningen på käll servern har slutförts.
 
 
 ### <a name="slowness-on-the-replica-server"></a>Långsamma på replik servern
 
-Om du observerar följande värden kan den vanligaste orsaken vara problem på den replik server som behöver ytterligare undersökning. I det här scenariot, som visas i utdata, körs både IO-och SQL-trådarna och repliken läser samma binära loggfil som huvud skrivningen. En viss fördröjning inträffar dock på replik servern för att avspegla samma transaktion från käll servern. 
+Om du observerar följande värden kan problemet vara på replik servern. 
 
 ```
 Slave_IO_State: Waiting for master to send event
@@ -149,15 +167,19 @@ Exec_Master_Log_Pos: The position of slave reads from master binary log file is 
 Seconds_Behind_Master: There is latency and the value here is greater than 0
 ```
 
-Här följer vanliga orsaker till svars tiden i den här kategorin:
+I det här scenariot visar utdata att både IO-tråden och SQL-tråden fungerar bra. Repliken läser samma binära loggfil som käll servern skriver. En viss fördröjning på replik servern återspeglar dock samma transaktion från käll servern. 
 
-#### <a name="no-primary-or-unique-key-on-a-table"></a>Ingen primär eller unik nyckel för en tabell
+I följande avsnitt beskrivs vanliga orsaker till den här typen av svars tid.
 
-Azure Database for MySQL använder Row-baserad replikering. Med en diskbaserad replikering skriver huvud servern händelser till den binära loggen om enskilda tabell rads ändringar. SQL-tråden i-Turn kör ändringarna till motsvarande tabell rader på replik servern. Ingen primär eller unik nyckel för en tabell är en av de vanligaste orsakerna till replikeringsfördröjning. Brist på primär eller unik nyckel leder till genomsökning av alla rader i mål tabellen efter SQL-tråd för att tillämpa ändringarna.
+#### <a name="no-primary-key-or-unique-key-on-a-table"></a>Ingen primär nyckel eller unik nyckel för en tabell
 
-I MySQL är primär nyckeln ett associerat index som säkerställer snabba prestanda i frågor eftersom det inte får innehålla NULL-värden. Med InnoDB Storage Engine är tabell data fysiskt organiserade för att göra extremt snabba sökningar och sorteras baserat på den primära nyckeln. Vi rekommenderar därför att du lägger till en primär nyckel för tabeller på käll servern innan du skapar replik servern. I det här scenariot måste du lägga till primära nycklar på käll servern och återskapa Läs repliker för att hjälpa till att förbättra replikeringens svars tid.
+Azure Database for MySQL använder Row-baserad replikering. Käll servern skriver händelser till den binära loggen och registrerar ändringar i enskilda tabell rader. SQL-tråden replikerar sedan ändringarna till motsvarande tabell rader på replik servern. När en tabell saknar primär nyckel eller unik nyckel genomsöker SQL-tråden alla rader i mål tabellen för att tillämpa ändringarna. Den här genomsökningen kan orsaka replikeringsfördröjning.
 
-Du kan använda följande fråga för att fastställa vilka tabeller som saknar primär nyckel på käll servern:
+I MySQL är primär nyckeln ett associerat index som säkerställer snabba frågeresultat eftersom det inte får innehålla NULL-värden. Om du använder InnoDB lagrings motor är tabell data fysiskt organiserade för att göra extremt snabba sökningar och sorteras baserat på den primära nyckeln. 
+
+Vi rekommenderar att du lägger till en primär nyckel för tabeller i käll servern innan du skapar replik servern. Lägg till primära nycklar på käll servern och återskapa sedan Läs repliker för att hjälpa till att förbättra replikeringens svars tid.
+
+Använd följande fråga för att ta reda på vilka tabeller som saknar primär nyckel på käll servern:
 
 ```sql 
 select tab.table_schema as database_name, tab.table_name 
@@ -173,29 +195,47 @@ order by tab.table_schema, tab.table_name;
 
 ```
 
-#### <a name="replication-latency-due-to-long-running-queries-on-replica-server"></a>Replikeringsfördröjning på grund av tids krävande frågor på replik servern
+#### <a name="long-running-queries-on-the-replica-server"></a>Tids krävande frågor på replik servern
 
-Det är möjligt att arbets belastningen på replik servern kan förhindra att SQL-tråden hålls igång med IO-tråden. Detta är en av de vanligaste orsakerna till fördröjning vid hög replikering om det finns en tids krävande fråga på replik servern. I det här fallet ska den [långsamma fråg logg](concepts-server-logs.md) filen vara aktive rad på replik servern för att hjälpa till att felsöka problemet. Långsamma frågor kan öka resurs förbrukningen eller sakta ned servern, vilket innebär att repliken inte kan fångas upp med huvud servern. I det här scenariot måste du finjustera långsamma frågor. Snabbare frågor förhindrar blockering av SQL-tråd och förbättrar replikeringens fördröjning avsevärt.
+Arbets belastningen på replik servern kan göra SQL-trådens fördröjning bakom IO-tråden. Tids krävande frågor på replik servern är en av de vanligaste orsakerna till svars tiden för hög replikering. Om du vill felsöka det här problemet aktiverar du den [långsamma frågans logg](concepts-server-logs.md) på replik servern. 
+
+Långsamma frågor kan öka resurs användningen eller sakta ned servern så att repliken inte kan fångas upp med käll servern. I det här scenariot kan du justera de långsamma frågorna. Snabbare frågor förhindrar blockering av SQL-tråden och förbättrar replikeringens fördröjning avsevärt.
 
 
-#### <a name="replication-latency-due-to-ddl-queries-on-source-server"></a>Replikeringsfördröjning på grund av DDL-frågor på käll servern
-Om det finns ett tids krävande DDL-kommando, t. ex. [Alter Table](https://dev.mysql.com/doc/refman/5.7/en/alter-table.html) , som körs på käll servern och anta att det tog 1 timme att köra. Under den tiden kan det finnas tusentals andra frågor som körs parallellt på käll servern. När DDL: en replikeras till repliken måste MySQL-motorn köra DDL: en i en enda replikeringsrelation för att säkerställa konsekvens på databasen. Därför kommer alla andra replikerade frågor att blockeras och måste vänta i en timme eller mer tills DDL-åtgärden har slutförts på replik servern. Detta gäller oavsett om DDL-åtgärden är online eller inte. Med DDL-åtgärder förväntas replikeringen se en ökad replikeringsfördröjning.
+#### <a name="ddl-queries-on-the-source-server"></a>DDL-frågor på käll servern
+På käll servern kan ett Data Definition Language-kommando (DDL) som [`ALTER TABLE`](https://dev.mysql.com/doc/refman/5.7/en/alter-table.html) kan ta lång tid. Medan DDL-kommandot körs kan tusentals andra frågor köras parallellt på käll servern. 
 
-Om du har aktiverat [långsam frågekörning](concepts-server-logs.md) på käll servern kan du identifiera det här scenariot genom att titta på långsamma fråge loggar för att se om ett DDL-kommando kördes på käll servern. Även om det går att ta bort index, byta namn på och skapa, bör du använda InPlace-algoritmen för ALTER-tabellen som kan innebära att kopiera tabell data och återskapa tabellen. Det finns vanligt vis stöd för samplacering av algoritmen för samtidig DML, men ett exklusivt lås av metadata i tabellen kan fattas kort under bearbetnings-och körnings faserna i åtgärden. För CREATE INDEX-instruktionen kan därför ALGORITMen och låset användas för att påverka tabell kopierings metoden och nivån av samtidighet för att läsa och skriva, men om du lägger till ett full text-eller RUMS index kommer det fortfarande att förhindra DML-åtgärder. Nedan visas ett exempel på hur du skapar ett index med ALGORITMer och lås satser:
+När DDL replikeras, för att säkerställa databas konsekvens, kör MySQL-motorn DDL: en i en enda replikeringsrelation. Under den här uppgiften blockeras alla andra replikerade frågor och måste vänta tills DDL-åtgärden har slutförts på replik servern. Även DDL-åtgärder online orsakar denna fördröjning. DDL-åtgärder ökar replikeringsfördröjning.
+
+Om du har aktiverat den [långsamma frågans logg](concepts-server-logs.md) på käll servern kan du identifiera fördröjnings problemet genom att söka efter ett DDL-kommando som kördes på käll servern. Genom att indexera, byta namn på och skapa, kan du använda den inplacerade algoritmen för ALTER TABLE. Du kan behöva kopiera tabell data och återskapa tabellen. 
+
+Vanligt vis stöds samtidig DML för den inplacerade algoritmen. Men du kan ta ett exklusivt lås för metadata i tabellen när du förbereder och kör åtgärden. För CREATE INDEX-instruktionen kan du använda-ALGORITMen och låsa för att påverka metoden för tabell kopiering och nivån av samtidighet för läsning och skrivning. Du kan fortfarande förhindra DML-åtgärder genom att lägga till ett full text index eller RUMS index. 
+
+I följande exempel skapas ett index med hjälp av algoritm-och lås satser.
 
 ```sql
 ALTER TABLE table_name ADD INDEX index_name (column), ALGORITHM=INPLACE, LOCK=NONE;
 ```
 
-För DDL-instruktion som kräver en låsning kan du tyvärr inte undvika replikeringsfördröjning, i stället för att dessa typer av DDL-åtgärder ska utföras under låg belastnings tider, till exempel under Nighttime för att minska potentiell påverkan.
+För en DDL-instruktion som kräver ett lås kan du tyvärr inte undvika replikeringsfördröjning. Du kan minska de potentiella effekterna genom att göra dessa typer av DDL-åtgärder under låg belastnings tider, till exempel under natten.
 
-#### <a name="replication-latency-due-to-replica-server-lower-sku"></a>Replikeringsfördröjning på grund av en replik servers lägre SKU
+#### <a name="downgraded-replica-server"></a>Degraderad replik Server
 
-I Azure Database for MySQL Läs repliker skapas med samma server konfiguration som huvud servern. Replik Server konfigurationen kan ändras efter att den har skapats. Men om replik servern kommer att nedgraderas kan arbets belastningen orsaka högre resursförbrukning som i sin tur kan leda till replikeringsfördröjning. Detta kan observeras genom övervakning av processor-och minnes förbrukningen för replik servern från Azure Monitor. I det här scenariot rekommenderar vi att replik serverns konfiguration ska vara lika med eller större värden än källan för att säkerställa att repliken kan hållas kvar med huvud servern.
+I Azure Database for MySQL använder Läs repliker samma server konfiguration som käll servern. Du kan ändra replik Server konfigurationen när den har skapats. 
 
-#### <a name="improving-replication-latency-using-server-parameter-tuning-on-source-server"></a>Förbättra replikeringsfördröjning med Server parameter justering på käll servern
+Om replik servern är nedgraderad kan arbets belastningen förbruka fler resurser, vilket i sin tur kan leda till replikeringsfördröjning. Identifiera det här problemet genom att använda Azure Monitor för att kontrol lera replik serverns processor-och minnes användning. 
 
-I Azure Database for MySQL optimeras replikeringen så att den körs med parallella trådar på repliker som standard. För hög concurrency-arbetsbelastningar på käll servern där replik servern inte kan fångas upp, kan replikeringsfördröjning förbättras genom att parameter binlog_group_commit_sync_delay på käll servern konfigureras. Den här parametern styr hur många mikrosekunder den binära loggen ska vänta innan den binära logg filen synkroniseras. Förmånen är att i stället för att omedelbart tillämpa varje transaktion som har allokerats skickar Master de binära logg uppdateringarna i bulk. Detta minskar IO på repliken och hjälper till att förbättra prestandan. I det här scenariot kan det vara praktiskt att ange binlog_group_commit_sync_delay till 1000 eller så och övervaka svars tiden för replikeringen. Den här parametern ska anges försiktigt och utnyttjas endast för höga samtidiga arbets belastningar. För låga samtidiga scenarion med många singleton-transaktioner kan du ange binlog_group_commit_sync_delay kan läggas till i svars tiden eftersom IO-tråden väntar på Mass binära logg uppdateringar medan bara några transaktioner kan allokeras. 
+I det här scenariot rekommenderar vi att du behåller replik serverns konfiguration på värden som är lika med eller större än käll serverns värden. Med den här konfigurationen kan repliken hållas på käll servern.
+
+#### <a name="improving-replication-latency-by-tuning-the-source-server-parameters"></a>Förbättra replikeringsfördröjning genom att justera käll serverns parametrar
+
+I Azure Database for MySQL optimeras replikeringen som standard för att köras med parallella trådar på repliker. När hög concurrency-arbetsbelastningar på käll servern gör att replik servern hamnar bakom, kan du förbättra replikeringens fördröjning genom att konfigurera parametern binlog_group_commit_sync_delay på käll servern. 
+
+Parametern binlog_group_commit_sync_delay styr hur många mikrosekunder den binära loggen ska vänta innan den binära logg filen synkroniseras. Fördelen med den här parametern är att i stället för att omedelbart tillämpa varje genomförd transaktion skickar käll servern de binära logg uppdateringarna i bulk. Den här fördröjningen minskar IO på repliken och förbättrar prestandan. 
+
+Det kan vara praktiskt att ange binlog_group_commit_sync_delay parametern till 1000 eller så. Övervaka sedan replikeringsfördröjning. Ange den här parametern försiktigt och Använd den endast för arbets belastningar med hög samtidighet. 
+
+För arbets belastningar med låg concurrency som innehåller många singleton-transaktioner kan binlog_group_commit_sync_delays inställningen öka svars tiden. Svars tiden kan öka eftersom IO-tråden väntar på Mass binära logg uppdateringar, även om bara några få transaktioner har genomförts. 
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [Översikt över MySQL BinLog-replikering](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+Kolla in [Översikt över MySQL BinLog-replikering](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).

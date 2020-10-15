@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 4e9b9a7fb6e739b3bd288557457d1c152e372e26
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: cbd8c91391cc1e3afe930094f34e5015ea3c3450
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045303"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097532"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrera med Logic Apps med hjälp av en anpassad anslutning
 
@@ -93,9 +93,9 @@ Du kommer till distributions sidan för anslutningen. När distributionen är f�
 
 Sedan konfigurerar du den anslutning som du har skapat för att komma åt Azure Digital-dubbla.
 
-Börja med att ladda ned en anpassad Azure Digital-Swagger som har ändrats för att fungera med Logic Apps. Hämta det **anpassade Azure Digital-swaggers** -exemplet från [**den här länken**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) genom att trycka på *Hämta zip* -knappen. Navigera till den hämtade *Azure_Digital_Twins_Custom_Swaggers.zip* -mappen och packa upp den. 
+Börja med att ladda ned en anpassad Azure Digital-Swagger som har ändrats för att fungera med Logic Apps. Ladda ned **Azure Digitals, anpassade swaggers-exemplet (Logic Apps Connector)** från [**den här länken**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) genom att trycka på *Hämta zip* -knappen. Navigera till den hämtade *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* -mappen och packa upp den. 
 
-Den anpassade Swagger för den här självstudien finns i mappen _**Azure_Digital_Twins_Custom_Swaggers \logicapps**_ . Den här mappen innehåller undermappar med namnet *stabil* och för *hands version*, som båda har olika versioner av Swagger organiserade efter datum. Mappen med det senaste datumet kommer att innehålla den senaste kopian av Swagger. Oavsett vilken version du väljer heter Swagger-filen _**digitaltwins.jspå**_.
+Den anpassade Swagger för den här självstudien finns i mappen _* * Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps **_ _. Den här mappen innehåller undermappar med namnet *stabil* och för *hands version*, som båda har olika versioner av Swagger organiserade efter datum. Mappen med det senaste datumet kommer att innehålla den senaste kopian av Swagger. Oavsett vilken version du väljer heter Swagger-filen _** digitaltwins.jspå * * _.
 
 > [!NOTE]
 > Om du inte arbetar med en förhands gransknings funktion rekommenderar vi vanligt vis att du använder den senaste *stabila* versionen av Swagger. Tidigare versioner och för hands versioner av Swagger stöds dock också fortfarande. 
@@ -108,7 +108,7 @@ På sidan *redigera Logic Apps anpassad anslutning* som följer konfigurerar du 
 * **Anpassade anslutningar**
     - API-slut punkt: REST (lämna standard)
     - Import läge: OpenAPI-fil (lämna standard)
-    - Fil: det här är den anpassade Swagger-fil som du laddade ned tidigare. Tryck på *Importera*, leta upp filen på din dator (*Azure_Digital_Twins_Custom_Swaggers \logicapps \...\digitaltwins.jspå*) och tryck på *Öppna*.
+    - Fil: det här är den anpassade Swagger-fil som du laddade ned tidigare. Tryck på *Importera*, leta upp filen på din dator (*Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_ \LogicApps \...\digitaltwins.jspå*) och tryck på *Öppna*.
 * **Allmän information**
     - Ikon: Ladda upp en ikon som du gillar
     - Bakgrunds färg för ikon: Ange hexadecimal kod i formatet #xxxxxx för din färg.

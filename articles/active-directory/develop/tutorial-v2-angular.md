@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: ae486ac8ddd233487bb10c897a155337aa815fe5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c93704130e150a7ca26144d4895e82756657fae2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611256"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096257"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Självstudie: Logga in användare och anropa Microsoft Graph-API: et från ett särskilt program på en sida
 
@@ -194,7 +194,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 }
 ```
 
-Sedan anger du en karta över skyddade resurser till `MsalModule.forRoot()` som `protectedResourceMap` och inkluderar de här omfattningarna i `consentScopes` :
+Sedan anger du en karta över skyddade resurser till `MsalModule.forRoot()` som `protectedResourceMap` och inkluderar de här omfattningarna i `consentScopes` . De URL: er som du anger i `protectedResourceMap` samlingen är Skift läges känsliga.
 
 ```javascript
 @NgModule({

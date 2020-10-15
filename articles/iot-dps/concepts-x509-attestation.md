@@ -7,16 +7,16 @@ ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 911f819343f675ebe0a2604d912e6e26aa646eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e06c79b9cbd5643d119974a4ed8628ea1b1cd4f
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90533092"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096767"
 ---
 # <a name="x509-certificate-attestation"></a>X.509-certifikatattestering
 
-Den här artikeln ger en översikt över de begrepp som ingår vid etablering av enheter med hjälp av 509-certifikat för certifikat. Den här artikeln är relevant för alla personer som ingår i att få en enhet redo för distribution.
+Den här artikeln ger en översikt över de koncept för enhets etablerings tjänsten (DPS) som ingår när du konfigurerar enheter med X. 509 certifikat attestering. Den här artikeln är relevant för alla personer som ingår i att få en enhet redo för distribution.
 
 X. 509-certifikat kan lagras i en maskinvaru-säkerhetsmodul HSM.
 
@@ -44,6 +44,12 @@ Ett rot certifikat är ett självsignerat X. 509-certifikat som representerar en
 
 Ett mellanliggande certifikat är ett X. 509-certifikat som har signerats av rot certifikatet (eller ett annat mellanliggande certifikat med rot certifikatet i kedjan). Det sista mellanliggande certifikatet i en kedja används för att signera löv certifikatet. Ett mellanliggande certifikat kan också kallas ett mellanliggande CA-certifikat.
 
+##### <a name="why-are-intermediate-certs-useful"></a>Varför är mellanliggande certifikat användbara?
+Mellanliggande certifikat används på flera olika sätt. Mellanliggande certifikat kan till exempel användas för att gruppera enheter efter produkt rader, kunder som köper enheter, företags divisioner eller fabriker. 
+
+Tänk dig att contoso är ett stort företag med sin egen offentliga nyckel infrastruktur (PKI) med hjälp av rot certifikatet med namnet *ContosoRootCert*. Varje dotter bolag i Contoso har sitt eget mellanliggande certifikat som är signerat av *ContosoRootCert*. Varje dotter bolag använder sedan sitt mellanliggande certifikat för att signera sina löv certifikat för varje enhet. I det här scenariot kan Contoso använda en enda DPS-instans där *ContosoRootCert* har verifierats med [proof-of-](./how-to-verify-certificates.md)Drive. De kan ha en registrerings grupp för varje dotter bolag. På så sätt kommer varje enskilt dotter bolag inte att behöva oroa sig för att verifiera certifikat.
+
+
 ### <a name="end-entity-leaf-certificate"></a>"Löv"-certifikat för slutanvändare
 
 Löv certifikatet eller certifikatet för slutentiteten identifierar certifikat innehavaren. Den har rot certifikatet i sin certifikat kedja samt noll eller flera mellanliggande certifikat. Löv certifikatet används inte för att signera andra certifikat. Den identifierar enheten unikt för etablerings tjänsten och kallas ibland för enhets certifikatet. Vid autentiseringen använder enheten den privata nyckel som är kopplad till det här certifikatet för att svara på ett bevis på innehav av en utmaning från tjänsten.
@@ -54,11 +60,41 @@ Mer information finns i [autentisera enheter som är signerade med X. 509 CA-cer
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Kontrol lera enhets åtkomst till etablerings tjänsten med X. 509-certifikat
 
-Etablerings tjänsten exponerar två typer av registrerings poster som du kan använda för att kontrol lera åtkomsten för enheter som använder mekanismen för 509-attestering i X.:  
+Etablerings tjänsten visar två registrerings typer som du kan använda för att styra enhets åtkomst med mekanismen för 509-attestering i X.:  
 
 - [Enskilda registrerings](./concepts-service.md#individual-enrollment) poster konfigureras med enhets certifikatet som är associerat med en viss enhet. Dessa poster styr registreringar för vissa enheter.
 - [Registrerings grupps](./concepts-service.md#enrollment-group) poster är associerade med ett angivet mellanliggande eller rotcertifikatutfärdarcertifikat. Dessa poster styr registreringar för alla enheter som har samma mellanliggande eller rot certifikat i certifikat kedjan. 
 
+#### <a name="dps-device-chain-requirements"></a>Krav för DPS-enhets kedja
+
+När en enhet försöker registrera sig via DPS med hjälp av en registrerings grupp, måste enheten skicka certifikat kedjan från löv certifikatet till ett certifikat som verifierats med hjälp av sin egen [identitet](how-to-verify-certificates.md). Annars Miss kommer autentiseringen.
+
+Om till exempel bara rot certifikatet verifieras och ett mellanliggande certifikat laddas upp till registrerings gruppen bör enheten presentera certifikat kedjan från löv certifikatet på hela vägen till det verifierade rot certifikatet. Den här certifikat kedjan innehåller alla mellanliggande certifikat. Autentiseringen Miss fungerar om DPS inte kan passera certifikat kedjan till ett verifierat certifikat.
+
+Anta till exempel att ett företag använder följande enhets kedja för en enhet.
+
+![Exempel på enhets certifikat kedja](./media/concepts-x509-attestation/example-device-cert-chain.png) 
+
+Endast rot certifikatet verifieras och *intermediate2* -certifikatet överförs till registrerings gruppen.
+
+![Exempel roten verifierades](./media/concepts-x509-attestation/example-root-verified.png) 
+
+Autentiseringen Miss kommer om enheten bara skickar följande enhets kedja under etableringen. Eftersom DPS inte kan försöka autentisera sig förutsatt att *intermediate1* -certifikatet är giltigt
+
+![Exempel på felaktig certifikat kedja](./media/concepts-x509-attestation/example-fail-cert-chain.png) 
+
+Om enheten skickar hela enhets kedjan enligt följande under etableringen, kan DPS försöka autentisera enheten.
+
+![Exempel på enhets certifikat kedja](./media/concepts-x509-attestation/example-device-cert-chain.png) 
+
+
+
+
+> [!NOTE]
+> Mellanliggande certifikat kan också verifieras med [sitt eget skydd](how-to-verify-certificates.md)..
+
+
+#### <a name="dps-order-of-operations-with-certificates"></a>DPS-ordning för åtgärder med certifikat
 När en enhet ansluter till etablerings tjänsten prioriterar tjänsten mer detaljerade registrerings poster över mindre angivna registrerings poster. Det vill säga, om det finns en enskild registrering för enheten, använder etablerings tjänsten den posten. Om det inte finns någon individuell registrering för enheten och en registrerings grupp för det första mellanliggande certifikatet i enhetens certifikat kedja finns, tillämpar tjänsten den posten och så vidare, så att kedjan placeras i roten. Tjänsten använder den första tillämpliga posten som den hittar, till exempel:
 
 - Om den första registrerings posten som hittas är aktive rad, etablerar enheten enheten.

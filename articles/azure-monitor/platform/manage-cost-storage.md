@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: f8f5d41b7f4df3cd82a388bc24ccc8fa5a9a91f6
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0f71b1e75ecb60a53a004b7bf1bf0bd0c7522cc9
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044113"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096529"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor-loggar    
 
@@ -46,9 +46,9 @@ Observera också att vissa lösningar, till exempel [Azure Security Center](http
 
 ### <a name="log-analytics-dedicated-clusters"></a>Log Analytics dedikerade kluster
 
-Log Analytics dedikerade kluster är samlingar av arbets ytor i ett enda hanterat Azure Datautforskaren-kluster för att stödja avancerade scenarier, till exempel [Kundhanterade nycklar](customer-managed-keys.md).  Log Analytics dedikerade kluster använder en pris modell för kapacitets reservationer som måste konfigureras till minst 1000 GB/dag. Den här kapacitets nivån har 25% rabatt jämfört med priset för betala per användning. All användning ovanför reservations nivån debiteras enligt priset för betala per användning. Kluster kapacitets reservationen har en 31-dagars åtagande period efter att reservations nivån har ökat. Under åtagande perioden går det inte att minska kapacitets reservations nivån, men den kan ökas när som helst. När arbets ytor är kopplade till ett kluster görs data inmatnings faktureringen för dessa arbets ytor på kluster nivå med den konfigurerade kapacitets reservations nivån. Lär dig mer om hur du [skapar ett Log Analytics kluster](customer-managed-keys.md#create-cluster-resource) och [kopplar arbets ytor till den](customer-managed-keys.md#workspace-association-to-cluster-resource). Pris informationen för kapacitets reservationen finns på [sidan Azure Monitor priser]( https://azure.microsoft.com/pricing/details/monitor/).  
+Log Analytics dedikerade kluster är samlingar av arbets ytor i ett enda hanterat Azure Datautforskaren-kluster för att stödja avancerade scenarier, till exempel [Kundhanterade nycklar](customer-managed-keys.md).  Log Analytics dedikerade kluster använder en pris modell för kapacitets reservationer som måste konfigureras till minst 1000 GB/dag. Den här kapacitets nivån har 25% rabatt jämfört med priset för betala per användning. All användning ovanför reservations nivån debiteras enligt priset för betala per användning. Kluster kapacitets reservationen har en 31-dagars åtagande period efter att reservations nivån har ökat. Under åtagande perioden går det inte att minska kapacitets reservations nivån, men den kan ökas när som helst. När arbets ytor är kopplade till ett kluster görs data inmatnings faktureringen för dessa arbets ytor på kluster nivå med den konfigurerade kapacitets reservations nivån. Lär dig mer om hur du [skapar ett Log Analytics kluster](customer-managed-keys.md#create-cluster) och [kopplar arbets ytor till den](customer-managed-keys.md#link-workspace-to-cluster). Pris informationen för kapacitets reservationen finns på [sidan Azure Monitor priser]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-Reservations nivån för kluster kapaciteten konfigureras via programmering med Azure Resource Manager med hjälp av `Capacity` parametern under `Sku` . `Capacity`Anges i enheter om GB och kan ha värden på 1000 GB/dag eller mer i steg om 100 GB/dag. Detta beskrivs i [Azure Monitor kundhanterad nyckel](customer-managed-keys.md#create-cluster-resource). Om ditt kluster behöver en reservation över 2000 GB/dag kontaktar du oss på [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com) .
+Reservations nivån för kluster kapaciteten konfigureras via programmering med Azure Resource Manager med hjälp av `Capacity` parametern under `Sku` . `Capacity`Anges i enheter om GB och kan ha värden på 1000 GB/dag eller mer i steg om 100 GB/dag. Detta beskrivs i [Azure Monitor kundhanterad nyckel](customer-managed-keys.md#create-cluster). Om ditt kluster behöver en reservation över 2000 GB/dag kontaktar du oss på [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com) .
 
 Det finns två fakturerings lägen för användning i ett kluster. Dessa kan anges av- `billingType` parametern när [du konfigurerar klustret](customer-managed-keys.md#cmk-management). De två lägena är: 
 

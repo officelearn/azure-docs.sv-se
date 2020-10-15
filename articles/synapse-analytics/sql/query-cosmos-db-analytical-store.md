@@ -9,19 +9,16 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: c326aed172bb8159185829f80d66e8e00496aad2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0cc2c04208c4800a883848896a0f1659e8bf72e9
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057815"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097260"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Fråga Azure Cosmos DB data med SQL Server utan i Azure Synapse Link (för hands version)
 
 Med Synapse SQL Server (tidigare SQL på begäran) kan du analysera data i dina Azure Cosmos DB behållare som är aktiverade med [Azure Synapse-länken](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) i nära real tid utan att påverka prestandan för dina transaktions arbets belastningar. Den erbjuder en välkänd T-SQL-syntax för att fråga data från [analys lagret](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) och integrerad anslutning till en mängd olika bi-och ad hoc-frågemeddelanden via T-SQL-gränssnittet.
-
-> [!NOTE]
-> Stöd för att skicka frågor till Azure Cosmos DB analys lager med SQL Server lös är för närvarande en för hands version av gated. Öppen offentlig för hands version kommer att visas på sidan [uppdateringar av Azure-tjänsten](https://azure.microsoft.com/updates/?status=nowavailable&category=databases) .
 
 För att skicka frågor till Azure Cosmos DB stöds det fullständiga [Select](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) -området via funktionen [OpenRowSet](develop-openrowset.md) , inklusive majoriteten av [SQL Functions och operatorer](overview-features.md). Du kan också lagra resultat från frågan som läser data från Azure Cosmos DB tillsammans med data i Azure Blob Storage eller Azure Data Lake Storage med hjälp av [skapa extern tabell som Välj](develop-tables-cetas.md#cetas-in-sql-on-demand). Du kan för närvarande inte spara SQL Server-frågeresultat för att Azure Cosmos DB med [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
@@ -262,6 +259,15 @@ Om du vill fråga Azure Cosmos DB konton i Mongo DB API-typ kan du lära dig mer
 
 - Alias **måste** anges efter `OPENROWSET` funktion (till exempel `OPENROWSET (...) AS function_alias` ). Att utelämna alias kan orsaka anslutnings problem och Synapse SQL-slutpunkt kan vara tillfälligt otillgängligt. Det här problemet kommer att lösas i nov 2020.
 - Synapse-server utan SQL stöder för närvarande inte [Azure Cosmos DB full Fidelity schema](../../cosmos-db/analytical-store-introduction.md#schema-representation). Använd endast Synapse server utan SQL för att få åtkomst till Cosmos DB väldefinierat schema.
+
+Lista över möjliga fel och fel söknings åtgärder visas i följande tabell:
+
+| Fel | Rotorsak |
+| --- | --- |
+| Syntaxfel:<br/> -Felaktig syntax nära OpenRowSet<br/> - `...` är inte ett känt alternativ för OpenRowSet-providern.<br/> -Felaktig syntax nära `...` | Möjliga rotor orsaker<br/> – Använder inte ' CosmosDB ' som första parameter,<br/> – Använder sträng litteral i stället för identifierare i den tredje parametern,<br/> -Ange inte tredje parameter (container namn) |
+| Ett fel uppstod i CosmosDB-anslutningssträngen | -Konto, databas, nyckel har inte angetts <br/> -Det finns ett alternativ i anslutnings strängen som inte känns igen.<br/> -Semikolon `;` placeras i slutet av anslutnings strängen |
+| Det gick inte att matcha CosmosDB-sökvägen med felet "felaktigt konto/databas namn" | Det angivna konto namnet eller databas namnet kan inte hittas. |
+| Det gick inte att lösa CosmosDB-sökvägen, fel meddelandets hemliga värde är null eller tomt | Konto nyckeln är inte giltig eller saknas. |
 
 Du kan rapportera förslag och problem på [feedback-sidan för Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 

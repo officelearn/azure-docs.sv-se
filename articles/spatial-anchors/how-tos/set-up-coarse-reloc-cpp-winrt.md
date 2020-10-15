@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6d2bb4c563bd7bae186ce9832ff0472f17a8afd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eace1ee1f97acaf04608d37c9edba482622bd59
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76548296"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097379"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-cwinrt"></a>Skapa och hitta ankare med grov omlokalisering i C++/WinRT
 
@@ -31,7 +31,7 @@ Molnbaserade ankare kan associeras på enheten, placera sensor data med de ankar
 
 Se till att du har följande för att slutföra den här guiden:
 
-- Grundläggande kunskaper om C++ och <a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">Windows Runtime API: er</a>.
+- Grundläggande kunskaper om C++ och <a href="/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">Windows Runtime API: er</a>.
 - Läs igenom [översikten över Azures spatiala ankare](../overview.md).
 - Slutfört ett av [snabb starterna på fem minuter](../index.yml).
 - Läs igenom [instruktionen skapa och hitta ankare](../create-locate-anchors-overview.md).

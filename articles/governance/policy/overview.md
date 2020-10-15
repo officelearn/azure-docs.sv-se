@@ -3,18 +3,20 @@ title: Översikt över Azure Policy
 description: Azure Policy är en tjänst i Azure som används för att skapa, tilldela och hantera principdefinitioner i Azure-miljön.
 ms.date: 10/05/2020
 ms.topic: overview
-ms.openlocfilehash: 54dce519bfaa8c42afa967fc5c0579f31986aefb
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 8a32e32afb544588bb033cc64ede5ecbe6e2bac2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873922"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097396"
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure Policy?
 
 Azure Policy hjälper till att framtvinga organisationsstandarder och utvärdera efterlevnad i stor skala. Med hjälp av instrument panelen för efterlevnad får du en sammanställd vy som utvärderar miljöns övergripande tillstånd, med möjlighet att öka detalj nivån till per-resurs-granularitet per princip. Det hjälper också till att se till att dina resurser efterlevs genom Mass reparation av befintliga resurser och automatisk reparation av nya resurser.
 
 Vanliga användnings fall för Azure Policy inkluderar implementering av styrning för resurs konsekvens, regelefterlevnad, säkerhet, kostnad och hantering. Princip definitioner för dessa vanliga användnings fall är redan tillgängliga i din Azure-miljö som inbyggda moduler för att hjälpa dig att komma igång.
+
+Alla Azure Policy data och objekt krypteras i vila. Mer information finns i [Azure Data Encryption i vila](../../security/fundamentals/encryption-atrest.md).
 
 ## <a name="overview"></a>Översikt
 
@@ -143,7 +145,7 @@ Precis som principparametrar underlättar initiativparametrar initiativhantering
 
 Ta till exempel scenariot där du har en initiativdefinition, **initiativeC**, med principdefinitionerna **policyA** och **policyB** som vardera förväntar sig olika typer av parametrar:
 
-| Princip | Parameternamn |Parametertyp  |Obs! |
+| Princip | Parameternamn |Parametertyp  |Anteckning |
 |---|---|---|---|
 | principA | allowedLocations | matris  |Den här parametern förväntar sig en lista med strängar för ett värde eftersom parametertypen har definierats som en matris |
 | principB | allowedSingleLocation |sträng |Den här parametern förväntar sig ett ord som värde eftersom parametertypen har definierats som en sträng |

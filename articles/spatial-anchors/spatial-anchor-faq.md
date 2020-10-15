@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 05/18/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9457836a3048ff08b228bf9d5b84400af15d6cc5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eb02de25cfcb0dde01699c1169d03f0d822c4ae2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88854950"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097413"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Vanliga frågor om Azure Spatial Anchors
 
@@ -33,7 +33,7 @@ Mer information finns i [Översikt över Azure Spatial Anchors](overview.md).
 
 **F: vilka är anslutnings kraven för Azure spatiala ankare?**
 
-**A:** Molnbaserade ankare fungerar med Wi-Fi och mobila bredbands anslutningar.
+**A:** Avstånds ankare i Azure fungerar med Wi-Fi och mobila bredbands anslutningar.
 
 **F: hur exakt kan Azure spatiala ankare hitta ankare?**
 
@@ -128,4 +128,4 @@ Kom igång med [utveckling här](index.yml).
 
 **F: vilka portar och protokoll använder Azure spatiala ankare?**
 
-**A:** De spatiala Ankarena i Azure kommunicerar via TCP-port 443 med hjälp av ett krypterat protokoll. För autentisering används [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), som kommunicerar med https via port 443.
+**A:** De spatiala Ankarena i Azure kommunicerar via TCP-port 443 med hjälp av ett krypterat protokoll. För autentisering används [Azure Active Directory](../active-directory/index.yml), som kommunicerar med https via port 443.

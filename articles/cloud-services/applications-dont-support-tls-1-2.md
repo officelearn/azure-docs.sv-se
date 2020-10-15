@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
-ms.openlocfilehash: 9338ad86595771c1c70d243250c2d57af5eb7858
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae284a6afa1f2e396aef8177229c344b569be6ec
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83683786"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075679"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Felsöka program som inte stöder TLS 1,2
 I den här artikeln beskrivs hur du aktiverar de äldre TLS-protokollen (TLS 1,0 och 1,1) samt tillämpar äldre chiffersviter för att stödja ytterligare protokoll i webb-och arbets roller för Windows Server 2019 Cloud service. 
@@ -25,7 +25,7 @@ I den här artikeln beskrivs hur du aktiverar de äldre TLS-protokollen (TLS 1,0
 Vi är införstådd med att vi vidtar åtgärder för att föråldra TLS 1,0 och TLS 1,1, men våra kunder kan behöva stödja de äldre protokollen och chiffersviter för att kunna planera för deras utfasning.  Vi rekommenderar att du inte aktiverar de här äldre värdena igen, men vi ger vägledning för att hjälpa kunderna. Vi uppmuntrar kunderna att utvärdera risken för regression innan du implementerar de ändringar som beskrivs i den här artikeln. 
 
 > [!NOTE]
-> Gäst operativ system familj 6 version 6 aktiverar TLS 1,2 genom att uttryckligen inaktivera TLS 1,0 och 1,1 och definiera en specifik uppsättning chiffersviter. Mer information om gäst operativ system familjer finns i [gäst operativ system version nyheter](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases)
+> Gäst operativ system familj 6 version 6 aktiverar TLS 1,2 genom att uttryckligen inaktivera TLS 1,0 och 1,1 och definiera en specifik uppsättning chiffersviter. Mer information om gäst operativ system familjer finns i [gäst operativ system version nyheter](./cloud-services-guestos-update-matrix.md#family-6-releases)
 
 
 ## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Släpper stöd för TLS 1,0, TLS 1,1 och äldre chiffersviter 
@@ -362,4 +362,3 @@ Nu när du har slutfört ovanstående steg kan du publicera uppdateringen till d
 
 Du kan använda [SSLLabs](https://www.ssllabs.com/) för att validera TLS-statusen för dina slut punkter 
 
- 

@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: d77cc4cc65eb73aa85a1d54202627cd18d5747b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3110e02c2c4cb8b254e80a55997577db95ba1be0
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595996"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075662"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Felsöka problem med åtkomst principer för Azure Key Vault
 
@@ -53,6 +53,8 @@ Programmet behöver också minst en roll för identitets-och åtkomst hantering 
 
 För närvarande Key Vault omdistribution tar bort alla åtkomst principer i Key Vault och ersätter dem med åtkomst principen i ARM-mallen. Det finns inget stegvist alternativ för Key Vault åtkomst principer. Om du vill bevara åtkomst principerna i Key Vault behöver du läsa befintliga åtkomst principer i Key Vault och fylla ARM-mallen med dessa principer för att undvika eventuella åtkomst avbrott.
 
+Ett annat alternativ som kan hjälpa till med det här scenariot är att använda RBAC-roller som ett alternativ till att komma åt principer. Med RBAC kan du distribuera nyckel valvet igen utan att ange principen igen. Du kan läsa mer om den här lösningen [här](https://docs.microsoft.com/azure/key-vault/general/rbac-guide).
+
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Rekommenderade fel söknings steg för följande feltyper
 
 * HTTP 401: Oautentiserad begäran – [felsökningssteg](rest-error-codes.md#http-401-unauthenticated-request)
@@ -64,6 +66,6 @@ För närvarande Key Vault omdistribution tar bort alla åtkomst principer i Key
 ### <a name="what-are-the-best-practices-i-should-implement-when-key-vault-is-getting-throttled"></a>Vilka är de bästa metoderna jag bör implementera när Key Vault får en begränsning?
 Följ de bästa metoderna, dokumenterade [här](overview-throttling.md#how-to-throttle-your-app-in-response-to-service-limits)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Lär dig hur du felsöker Key Vault-autentiseringsfel: [Key Vault fel söknings guide](rest-error-codes.md).

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2bec6667ea44e195ea1fccb5313b45ed060312a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35c4875ca9bf3165fff84164eb3bb7ebe44cf932
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000115"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093403"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Felsöka ditt Service Fabric-program med Visual Studio
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ Du kan spara tid och pengar genom att distribuera och felsöka ditt Azure Servic
 1. Starta ett lokalt utvecklings kluster genom att följa stegen i Konfigurera [din Service Fabric utvecklings miljö](service-fabric-get-started.md).
 2. Tryck på **F5** eller klicka på **Felsök**  >  **Starta fel sökning**.
    
-    ![Starta fel sökning av ett program][startdebugging]
+    ![Skärm bild som visar fel söknings menyn.][startdebugging]
 3. Ange Bryt punkter i koden och gå igenom programmet genom att klicka på kommandon på **fel söknings** menyn.
    
    > [!NOTE]

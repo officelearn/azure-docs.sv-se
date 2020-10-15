@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: e488f2ddc44f1339d648cd6fe6b1aae18b748679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f84201de1f63704fefcf5de4041b95ed8c2122cd
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892647"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094066"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Förstå mått för Azure våren Cloud
 
@@ -90,13 +90,13 @@ I följande tabeller visas tillgängliga mått och information.
 
 ### <a name="error"></a>Fel
 >[!div class="mx-tdCol2BreakAll"]
->| Namn | Mått namn för våren-motstånd | Enhet | Information |
+>| Name | Mått namn för våren-motstånd | Enhet | Information |
 >|----|----|----|------------|
->| tomcat. global. error | tomcat. global. error | Antal | Antal fel som inträffade i bearbetade begär Anden |
+>| tomcat. global. error | tomcat. global. error | Count | Antal fel som inträffade i bearbetade begär Anden |
 
 ### <a name="performance"></a>Prestanda
 >[!div class="mx-tdCol2BreakAll"]
->| Namn | Mått namn för våren-motstånd | Enhet | Information |
+>| Name | Mått namn för våren-motstånd | Enhet | Information |
 >|----|----|----|------------|
 >| system. CPU. Usage | system. CPU. Usage | Procent | Senaste CPU-användning för hela systemet. Det här värdet är ett dubbelt i [0,0, 1,0]-intervallet. Värdet 0,0 innebär att alla processorer var inaktiva under den senaste tids perioden, medan värdet 1,0 innebär att alla processorer kördes aktivt 100% av tiden under den senaste perioden.|
 >| process. CPU. Usage | Procent andel CPU-användning för app | Procent | Senaste CPU-användning för Java Virtual Machine processen. Det här värdet är ett dubbelt i [0,0, 1,0]-intervallet. Värdet 0,0 innebär att ingen av processorerna körde trådar från JVM-processen under den senaste tids perioden, medan värdet 1,0 innebär att alla processorer aktivt körde trådar från JVM 100% av tiden under den senaste perioden. Trådar från JVM omfattar både program trådar och JVM interna trådar.|
@@ -107,81 +107,81 @@ I följande tabeller visas tillgängliga mått och information.
 >| JVM. gc. live. data. size | JVM. gc. live. data. size | Byte | Storleken på den gamla generationens lagringspool efter en fullständig GC. |
 >| JVM. gc. Memory. upphöjt | JVM. gc. Memory. upphöjt | Byte | Antalet positiva ökningar i storleken på den gamla generationens minnesallokering innan GC till efter GC. |
 >| JVM. gc. Memory. allokerat | JVM. gc. Memory. allokerat | Byte | Ökas för en ökning av storleken på den unga generationens minnesbuffert efter en GC till innan nästa. |
->| JVM. gc. Pause. total. Count | JVM. gc. PAUSE (totalt antal) | Antal | Totalt antal GC efter att denna JMV har startats, inklusive unga och gamla GC. |
+>| JVM. gc. Pause. total. Count | JVM. gc. PAUSE (totalt antal) | Count | Totalt antal GC efter att denna JMV har startats, inklusive unga och gamla GC. |
 >| JVM. gc. Pause. total. Time | JVM. gc. PAUSE (total tid) | Millisekunder | Totalt antal GC-tid som förbrukas efter att denna JMV startades, inklusive unga och gamla GC. |
 
 ::: zone pivot="programming-language-csharp"
 ### <a name="performance-net"></a>Prestanda (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
->| Namn | Mått namn för våren-motstånd | Enhet | Information |
+>| Name | Mått namn för våren-motstånd | Enhet | Information |
 >|------|-----------------------------|------|---------|
 >| CPU-användning       | CPU-användning      | Millisekunder | Den tid som processen har använt processorn. |
 >| Arbets minne     | arbets uppsättning    | Megabyte    | Mängden arbets minne som används av processen. |
 >| Storlek på GC-heap    | GC – Heap-storlek   | Megabyte    | Total Heap-storlek som rapporteras av skräp insamlaren. |
->| Antal start0 GC  | gen-0-GC-Count | Antal        | Antal skräp insamlingar av generation 0 per sekund. |
->| Antal för gen 1 GC  | gen-1-GC-antal | Antal        | Antalet skräp insamlingar av generation 1 per sekund. |
->| Antal gen 2 GC  | gen-2-GC – antal | Antal        | Antal skräp insamlingar i generation 2 per sekund. |
+>| Antal start0 GC  | gen-0-GC-Count | Count        | Antal skräp insamlingar av generation 0 per sekund. |
+>| Antal för gen 1 GC  | gen-1-GC-antal | Count        | Antalet skräp insamlingar av generation 1 per sekund. |
+>| Antal gen 2 GC  | gen-2-GC – antal | Count        | Antal skräp insamlingar i generation 2 per sekund. |
 >| Heap-storlek för generation 0 | gen-0-storlek     | Byte        | Heap-storlek för generation 0. |
 >| Heap-storlek för generation 1 | gen-1-storlek     | Byte        | Heap-storlek för generation 1. |
 >| Heap-storlek för generation 2 | gen-2-storlek     | Byte        | Heap-storlek för generation 2. |
 >| LOH Heap-storlek   | Loh-storlek       | Byte        | Heap-storlek för stora objekt. |
 >| Tilldelnings takt | tilldelnings pris     | Byte        | Antal allokerade byte per sekund. |
->| Antal sammansättningar  | antal sammansättningar | Antal        | Antal inlästa sammansättningar. |
->| Antal undantag | undantag – antal | Antal       | Antal undantag per sekund. |
->| Antal trådar i trådar      | trådpool-tråd antal              | Antal | Antal trådar i trådpoolen. |
->| Övervaka antal lås i lås | övervaka-låser-Contents-Count        | Antal | Antalet gånger per sekund som det uppstod en konkurrens vid försök att ta en skärms lås. |
->| Kölängd för trådpoolen      | trådpool-Kölängd              | Antal | Kölängd för arbets objekt i trådpoolen. |
->| Antal slutförda objekt i trådpoolen för tråd pool | trådpool-slutfört-objekt-antal | Antal | Antal slutförda arbets objekt i trådpoolen. |
->| Antal aktiva timers               | Antal aktiva timers               | Antal | Antalet timers som är aktiva för närvarande. En aktiv timer är en som är registrerad för att ticka vid någon tidpunkt i framtiden och ännu inte har avbrutits. |
+>| Antal sammansättningar  | antal sammansättningar | Count        | Antal inlästa sammansättningar. |
+>| Antal undantag | undantag – antal | Count       | Antal undantag per sekund. |
+>| Antal trådar i trådar      | trådpool-tråd antal              | Count | Antal trådar i trådpoolen. |
+>| Övervaka antal lås i lås | övervaka-låser-Contents-Count        | Count | Antalet gånger per sekund som det uppstod en konkurrens vid försök att ta en skärms lås. |
+>| Kölängd för trådpoolen      | trådpool-Kölängd              | Count | Kölängd för arbets objekt i trådpoolen. |
+>| Antal slutförda objekt i trådpoolen för tråd pool | trådpool-slutfört-objekt-antal | Count | Antal slutförda arbets objekt i trådpoolen. |
+>| Antal aktiva timers               | Antal aktiva timers               | Count | Antalet timers som är aktiva för närvarande. En aktiv timer är en som är registrerad för att ticka vid någon tidpunkt i framtiden och ännu inte har avbrutits. |
 
 Mer information finns i [dotNet-räknare](/dotnet/core/diagnostics/dotnet-counters).
 ::: zone-end
 
 ### <a name="request"></a>Förfrågan
 >[!div class="mx-tdCol2BreakAll"]
->| Namn | Mått namn för våren-motstånd | Enhet | Information |
+>| Name | Mått namn för våren-motstånd | Enhet | Information |
 >|----|----|----|------------|
 >| tomcat. global. skickat | tomcat. global. skickat | Byte | Mängden data Tomcat-webbserver som skickats |
 >| tomcat. global. mottagen | tomcat. global. mottagen | Byte | Mängden data Tomcat-webb servern tog emot |
->| tomcat. global. Request. total. Count | tomcat. global. Request (totalt antal) | Antal | Totalt antal behandlade Tomcat webb server begär Anden |
+>| tomcat. global. Request. total. Count | tomcat. global. Request (totalt antal) | Count | Totalt antal behandlade Tomcat webb server begär Anden |
 >| tomcat. global. Request. Max | tomcat. global. Request. Max | Millisekunder | Maximal tid som Tomcat webb server kan bearbeta en begäran |
 
 ::: zone pivot="programming-language-csharp"
 ### <a name="request-net"></a>Begäran (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
->| Namn | Mått namn för våren-motstånd | Enhet | Information |
+>| Name | Mått namn för våren-motstånd | Enhet | Information |
 >|------|-----------------------------|------|---------|
->| Förfrågningar per sekund | begär Anden per sekund | Antal | Begär ande frekvens. |
->| Totalt antal förfrågningar | Totalt-begär Anden | Antal | Totalt antal begär Anden. |
->| Aktuella begär Anden | aktuella begär Anden | Antal | Antal aktuella begär Anden. |
->| Misslyckade förfrågningar | misslyckade-begär Anden | Antal | Antal misslyckade förfrågningar. |
+>| Förfrågningar per sekund | begär Anden per sekund | Count | Begär ande frekvens. |
+>| Totalt antal förfrågningar | Totalt-begär Anden | Count | Totalt antal begär Anden. |
+>| Aktuella begär Anden | aktuella begär Anden | Count | Antal aktuella begär Anden. |
+>| Misslyckade förfrågningar | misslyckade-begär Anden | Count | Antal misslyckade förfrågningar. |
 
 Mer information finns i [dotNet-räknare](/dotnet/core/diagnostics/dotnet-counters).
 ::: zone-end
 
 ### <a name="session"></a>Session
 >[!div class="mx-tdCol2BreakAll"]
->| Namn | Mått namn för våren-motstånd | Enhet | Information |
+>| Name | Mått namn för våren-motstånd | Enhet | Information |
 >|----|----|----|------------|
->| tomcat. sessions. Active. Max | tomcat. sessions. Active. Max | Antal | Maximalt antal sessioner som har varit aktiva samtidigt |
+>| tomcat. sessions. Active. Max | tomcat. sessions. Active. Max | Count | Maximalt antal sessioner som har varit aktiva samtidigt |
 >| tomcat. sessions. Alive. Max | tomcat. sessions. Alive. Max | Millisekunder | Längsta tid (i sekunder) som en utgången session var Alive |
->| tomcat. sessions. created | tomcat. sessions. created | Antal | Antal sessioner som har skapats |
->| tomcat. sessions. har gått ut | tomcat. sessions. har gått ut | Antal | Antal sessioner som har upphört att gälla |
->| tomcat. sessions. avvisad | tomcat. sessions. avvisad | Antal | Antal sessioner som inte skapades eftersom det maximala antalet aktiva sessioner har uppnåtts. |
->| tomcat. sessions. Active. Current | tomcat. sessions. Active. Current | Antal | Aktivt antal Tomcat-sessioner |
+>| tomcat. sessions. created | tomcat. sessions. created | Count | Antal sessioner som har skapats |
+>| tomcat. sessions. har gått ut | tomcat. sessions. har gått ut | Count | Antal sessioner som har upphört att gälla |
+>| tomcat. sessions. avvisad | tomcat. sessions. avvisad | Count | Antal sessioner som inte skapades eftersom det maximala antalet aktiva sessioner har uppnåtts. |
+>| tomcat. sessions. Active. Current | tomcat. sessions. Active. Current | Count | Aktivt antal Tomcat-sessioner |
 
 ## <a name="see-also"></a>Se även
 
 * [Snabb start: övervaka Azure våren Cloud-appar med loggar, mått och spårning](spring-cloud-quickstart-logs-metrics-tracing.md)
 
-* [Komma igång med Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
+* [Komma igång med Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md)
 
-* [Analysera loggar och mått med diagnostikinställningar](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
+* [Analysera loggar och mått med diagnostikinställningar](./diagnostic-services.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudie: övervaka våren moln resurser med hjälp av aviseringar och åtgärds grupper](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
+* [Självstudie: övervaka våren moln resurser med hjälp av aviseringar och åtgärds grupper](./spring-cloud-tutorial-alerts-action-groups.md)
 
-* [Kvoter och service planer för Azure våren Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)
+* [Kvoter och service planer för Azure våren Cloud](./spring-cloud-quotas.md)

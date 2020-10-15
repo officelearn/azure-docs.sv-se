@@ -7,18 +7,18 @@ ms.topic: overview
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b03bedd9abbe59ed3bc1b0ec1439aa27af57e6da
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 159851f5b1ca38cc34da785b39229a6a91e1e4dd
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758905"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090700"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Vad är Azure Spring Cloud?
 
 Azure våren Cloud gör det enkelt att distribuera våren Boot-baserade mikroservice-program till Azure utan kod ändringar.  Azure våren Cloud hanterar infrastrukturen i våren Cloud-program, så att utvecklare kan fokusera på sin kod.  Våren Cloud tillhandahåller livs cykel hantering med omfattande övervakning och diagnostik, konfigurations hantering, tjänst identifiering, CI/CD-integrering, blå-grön distributioner med mera.
 
-Azure våren Cloud stöder både Java [våren start](https://spring.io/projects/spring-boot) och ASP.net Core [Steeltoe](https://steeltoe.io/) -appar. Steeltoe-stöd erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan du experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Mer information finns i [vanliga frågor och svar](https://azure.microsoft.com/support/faq/) om fil [supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Azure våren Cloud stöder både Java [våren start](https://spring.io/projects/spring-boot) och ASP.net Core [Steeltoe](https://steeltoe.io/) -appar. Steeltoe-stöd erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan du experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Mer information finns i [vanliga frågor och svar](https://azure.microsoft.com/support/faq/) om fil [supportbegäran](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 Som en del av Azures eko system gör Azure våren Cloud enkel bindning till andra Azure-tjänster, inklusive lagring, databaser, övervakning och mycket annat.
 

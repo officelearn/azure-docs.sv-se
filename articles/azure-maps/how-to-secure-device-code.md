@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 7e61a881470b206981b65e175c1f7f40b161ebf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e62a5c984afb434b8c47b5ee8c5c66c61485dbfc
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319766"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090445"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Skydda en inmatad begränsad enhet med Azure AD och Azure Maps REST-API: er
 
@@ -55,7 +55,7 @@ Skapa ett enhets baserat program i Azure AD för att aktivera Azure AD-inloggnin
     > [!div class="mx-imgBorder"]
     > ![Välj API-behörigheter för app](./media/how-to-manage-authentication/select-app-permissions.png)
 
-6. Konfigurera rollbaserad åtkomst kontroll i Azure för användare eller grupper. Se [Grant-rollbaserad åtkomst för användare till Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
+6. Konfigurera rollbaserad åtkomst kontroll i Azure (Azure RBAC) för användare eller grupper. Se [bevilja rollbaserad åtkomst för användare att Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
 
 7. Lägg till kod för att hämta token Flow i programmet, för implementerings information, se [enhetens kod flöde](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-acquire-token#device-code-flow). När du hämtar token refererar du till omfånget: `user_impersonation` som valdes i tidigare steg.
 
@@ -110,7 +110,7 @@ Brödtext
 }
 ```
 
-[!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
+[!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

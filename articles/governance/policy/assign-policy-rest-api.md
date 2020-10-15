@@ -1,14 +1,14 @@
 ---
 title: 'Snabb start: ny princip tilldelning med REST API'
 description: I den här snabb starten använder du REST API för att skapa en Azure Policy tilldelning för att identifiera icke-kompatibla resurser.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 04880ef013060bc5ff12618af6a9156295a26a88
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ab05079c5bb319f0808a743a1d668649df51b1b3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88136530"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074013"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med REST API
 

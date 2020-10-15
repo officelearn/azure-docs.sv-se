@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: ed371cf230df3070ce1a545895831ae56d320d99
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 22025e7be9a0ff276336511a906055dc31a67230
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92000163"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089731"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure cache för Redis
 I det här avsnittet beskrivs de konfigurationer som är tillgängliga för Azure-cachen för Redis-instanser. Det här avsnittet beskriver också standard konfigurationen för Redis-servern för Azure cache för Redis-instanser.
@@ -72,7 +72,7 @@ Klicka på **aktivitets logg** för att Visa åtgärder som utförts i cacheminn
 
 ### <a name="access-control-iam"></a>Åtkomstkontroll (IAM)
 
-Avsnittet **åtkomst kontroll (IAM)** ger stöd för rollbaserad åtkomst kontroll (RBAC) i Azure Portal. Den här konfigurationen hjälper organisationer att uppfylla sina åtkomst hanterings krav enkelt och exakt. Mer information finns i [rollbaserad åtkomst kontroll i Azure Portal](../role-based-access-control/role-assignments-portal.md).
+Avsnittet **åtkomst kontroll (IAM)** ger stöd för rollbaserad åtkomst kontroll i Azure (Azure RBAC) i Azure Portal. Den här konfigurationen hjälper organisationer att uppfylla sina åtkomst hanterings krav enkelt och exakt. Mer information finns i [rollbaserad åtkomst kontroll i Azure i Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="tags"></a>Taggar
 
@@ -386,7 +386,7 @@ Nya Azure cache för Redis-instanser konfigureras med följande standard konfigu
 >
 >
 
-| Inställningen | Standardvärde | Beskrivning |
+| Inställning | Standardvärde | Beskrivning |
 | --- | --- | --- |
 | `databases` |16 |Standard antalet databaser är 16 men du kan konfigurera ett annat nummer baserat på pris nivån. <sup>1</sup> standard databasen är dB 0, du kan välja en annan per-anslutnings-basis med `connection.GetDatabase(dbid)` där `dbid` är ett tal mellan `0` och `databases - 1` . |
 | `maxclients` |Är beroende av pris nivå<sup>2</sup> |Det här värdet är det maximala antalet anslutna klienter som tillåts på samma gång. När gränsen har nåtts stänger Redis alla nya anslutningar och returnerar ett "maximalt antal klienter har nåtts"-felet. |

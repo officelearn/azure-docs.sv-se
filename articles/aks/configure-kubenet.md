@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: c30b82e44833e413c1576bf64e8fef263c58b246
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bc245fa02f57a433a76a316caac67ed5d884fe9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264617"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072755"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använda Kubernetes-nätverk med dina egna IP-adressintervall i Azure Kubernetes service (AKS)
 
@@ -56,7 +56,7 @@ Med *Azure cni*får varje Pod en IP-adress i IP-undernätet och kan kommunicera 
 * Till skillnad från Azure CNI-kluster kan flera Kubernetes-kluster inte dela ett undernät.
 * Funktioner som **inte stöds i Kubernetes** är:
    * Nätverks [principer i Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), men Calico nätverks principer stöds på Kubernetes
-   * [Windows-noder i pooler](windows-node-limitations.md)
+   * [Windows-noder i pooler](./windows-faq.md)
    * [Tillägg för virtuella noder](virtual-nodes-portal.md#known-limitations)
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Tillgänglighet och utbelastning för IP-adress

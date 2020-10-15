@@ -8,16 +8,16 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: efec40e4236c00fd4792e9d6aa51943cf43838ca
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 434093df3465e363d95fb79342d1854b99583d08
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001424"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091431"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Snabb start: klient biblioteket för Azure Blob Storage-V11 för .NET
 
-Kom igång med Azure-Blob Storage klient bibliotek V11 för .NET. Azure Blob Storage är Microsofts objekt lagrings lösning för molnet. Följ stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Blob Storage är optimerad för lagring av enorma mängder ostrukturerade data.
+Kom igång med Azure-Blob Storage klient bibliotek V11 för .NET. Azure Blob Storage är Microsofts objekt lagrings lösning för molnet. Följ stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Blobblagring är optimerat för att lagra stora mängder ostrukturerade data.
 
 > [!NOTE]
 > I den här snabb starten används en äldre version av klient biblioteket för Azure Blob Storage. Information om hur du kommer igång med den senaste versionen finns i [snabb start: Azure Blob Storage klient bibliotek V12 för .net](storage-quickstart-blobs-dotnet.md).
@@ -33,7 +33,7 @@ Använd Azure Blob Storage-klient biblioteket för .NET för att:
 
 Ytterligare resurser:
 
-* [Referensdokumentation för API](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)
+* [Referensdokumentation för API](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 * [Biblioteks käll kod](https://github.com/Azure/azure-storage-net/tree/master/Blob)
 * [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 * [Exempel](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
@@ -205,7 +205,7 @@ I de här exempel kods tycken visas hur du gör följande med klient biblioteket
 
 ### <a name="authenticate-the-client"></a>Autentisera klienten
 
-Koden nedan kontrollerar att miljövariabeln innehåller en anslutnings sträng som kan parsas för att skapa ett [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet) -objekt som pekar på lagrings kontot. Kontrollera att anslutningssträngen är giltig med hjälp av [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse?view=azure-dotnet)-metoden. Om `TryParse` är lyckad initierar den `storageAccount` variabeln och returnerar `true` .
+Koden nedan kontrollerar att miljövariabeln innehåller en anslutnings sträng som kan parsas för att skapa ett [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount) -objekt som pekar på lagrings kontot. Kontrollera att anslutningssträngen är giltig med hjälp av [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse)-metoden. Om `TryParse` är lyckad initierar den `storageAccount` variabeln och returnerar `true` .
 
 Lägg till den här koden i- `ProcessAsync` metoden:
 

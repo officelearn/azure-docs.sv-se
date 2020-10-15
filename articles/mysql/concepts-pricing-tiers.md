@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 163f440c9f98a1d53793fddab2590f7345944fda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 7cc19adcc4769baaf34a75ef7217de639d0a357c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87171017"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079045"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL pris nivåer
 
@@ -21,7 +21,7 @@ Du kan skapa en Azure Database for MySQL-server på en av tre olika pris nivåer
 |:---|:----------|:--------------------|:---------------------|
 | Beräknings generation | Gen 4, gen 5 | Gen 4, gen 5 | Gen 5 |
 | Virtuella kärnor | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| Minne per vCore | 2 GB | 5 GB | 10 GB |
+| Minne per vCore | 2 GB | 5 GB | 10 GB |
 | Lagrings storlek | 5 GB till 1 TB | 5 GB till 16 TB | 5 GB till 16 TB |
 | Kvarhållningsperiod för databas säkerhets kopior | 7 till 35 dagar | 7 till 35 dagar | 7 till 35 dagar |
 
@@ -47,11 +47,11 @@ Lagrings utrymmet du tillhandahåller är mängden lagrings kapacitet som är ti
 |:---|:----------|:--------------------|:---------------------|
 | Lagringstyp | Basic Storage | Generell användning lagring | Generell användning lagring |
 | Lagrings storlek | 5 GB till 1 TB | 5 GB till 16 TB | 5 GB till 16 TB |
-| Öknings storlek för lagring | 1 GB | 1 GB | 1 GB |
+| Öknings storlek för lagring | 1 GB | 1 GB | 1 GB |
 | IOPS | Variabel |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS |
 
 > [!NOTE]
-> Det finns stöd för lagring på upp till 16TB och 20 000 IOPS i följande regioner: östra USA, östra USA 2, centrala USA, västra USA, norra centrala USA, södra centrala USA, norra Europa, västra Europa, Storbritannien, södra, Storbritannien, västra Sydostasien, Asien, östra, Östra Japan, västra Japan, centrala Korea, södra Australien, östra Australien, västra USA 2 och västra centrala USA.
+> Det finns stöd för lagring på upp till 16TB och 20 000 IOPS i följande regioner: östra USA, östra USA 2, centrala USA, västra USA, norra centrala USA, södra centrala USA, norra Europa, västra Europa, Storbritannien, södra, Storbritannien, västra Sydostasien, Asien, östra, Östra Japan, västra Japan, centrala Korea, södra Australien, östra USA, västra USA 2, västra centrala USA, Östra Kanada och Kanada, centrala.
 >
 > Alla andra regioner stöder upp till 4 TB lagring och upp till 6000 IOPS.
 >

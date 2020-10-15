@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 47fdf445fa11693dd3a998b8c73ac0c3ed8452a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9093872b2a5e069aef43ae2230b08447eea602
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85389368"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069865"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till anspråk och anpassa användarindata med anpassade principer i Azure Active Directory B2C
 
@@ -35,7 +35,7 @@ Du kan samla in inledande data från dina användare med hjälp av användar res
 1. Läs Orts anspråket från Azure AD B2C-katalogen vid varje inloggning.
 1. Returnera staden till ditt förlitande parts program efter inloggning eller registrering.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med sociala och lokala konton.
 
@@ -95,12 +95,12 @@ Om du vill samla in Orts anspråk under registreringen måste det läggas till s
    </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
-<ClaimsProvider>
 ```
 
 Om du vill samla in Orts anspråk efter första inloggningen med ett federerat konto måste det läggas till som ett utgående anspråk till den `SelfAsserted-Social` tekniska profilen. För lokala och federerade konto användare ska kunna redigera sina profil data senare genom att lägga till utgående anspråk i den `SelfAsserted-ProfileUpdate` tekniska profilen. Åsidosätt dessa tekniska profiler i tilläggs filen. Ange hela listan med de utgående anspråken för att kontrol lera i vilken ordning anspråken visas på skärmen. Hitta **ClaimsProviders** -elementet. Lägg till en ny ClaimsProviders enligt följande:
 
 ```xml
+<ClaimsProvider>
   <DisplayName>Self Asserted</DisplayName>
   <TechnicalProfiles>
     <!--Federated account first-time sign-in page-->

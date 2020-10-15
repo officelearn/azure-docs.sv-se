@@ -2,21 +2,21 @@
 title: 'Azure-skydds: Visa virtuell dator-session: hel skärms läge'
 description: Lär dig hur du ändrar vyn för virtuella datorer till full skärm och tillbaka i webbläsaren för en RDP-eller SSH-anslutning i Azure skydds.
 services: bastion
-author: charwen
+author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
-ms.author: charwen
-ms.openlocfilehash: fa795d7b066733aba54f8612bbabecf264a11c70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: cherylmc
+ms.openlocfilehash: 7db85c5e1d5f67c30adf08969c51bb4c57838fb5
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88270299"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079147"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Ändra till hel skärms läge för en VM-session: Azure skydds
 
-Den här artikeln hjälper dig att ändra den virtuella datorns vy till full skärm och tillbaka i webbläsaren. Innan du arbetar med en virtuell dator bör du kontrol lera att du har följt stegen för att [skapa en skydds-värd](bastion-create-host-portal.md). Anslut sedan till den virtuella dator som du vill arbeta med via [RDP](bastion-connect-vm-rdp.md) eller [SSH](bastion-connect-vm-ssh.md).
+Den här artikeln hjälper dig att ändra den virtuella datorns vy till full skärm och tillbaka i webbläsaren. Innan du arbetar med en virtuell dator bör du kontrol lera att du har följt stegen för att [skapa en skydds-värd](./tutorial-create-host-portal.md). Anslut sedan till den virtuella dator som du vill arbeta med via [RDP](bastion-connect-vm-rdp.md) eller [SSH](bastion-connect-vm-ssh.md).
 
 ## <a name="launch-the-clipboard-tool"></a>Starta urklipps verktyget
 

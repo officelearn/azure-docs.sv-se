@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6a4b65195488f101d36aaf73956f1422bfccbbf9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7d6581a1892ebd74a1adba5c09c0af9d3cf9d43
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282144"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079011"
 ---
 # <a name="run-opc-publisher"></a>Köra OPC Publisher
 
@@ -370,7 +370,7 @@ Kontrol lera [Docker-hubben](https://hub.docker.com/_/microsoft-iotedge-opc-publ
 
 ## <a name="run-as-an-azure-iot-edge-module"></a>Kör som en Azure IoT Edge modul
 
-OPC Publisher är redo att användas som en [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge) modul. När du använder OPC-utgivare som IoT Edge-modul, är de enda transport protokoll som stöds **Amqp_Tcp_Only** och **Mqtt_Tcp_Only**.
+OPC Publisher är redo att användas som en [Azure IoT Edge](../iot-edge/index.yml) modul. När du använder OPC-utgivare som IoT Edge-modul, är de enda transport protokoll som stöds **Amqp_Tcp_Only** och **Mqtt_Tcp_Only**.
 
 Om du vill lägga till OPC-utgivare som modul till din IoT Edge-distribution går du till IoT Hub inställningarna i Azure Portal och utför följande steg:
 

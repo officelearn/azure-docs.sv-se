@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: bed2a4ccbe87aef9afa395ed789da393e885cc89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368c594352b59f7ec6d04b12ca44e0cd492dc907
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779160"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082113"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -58,7 +58,7 @@ dependencies {
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Azure Communication Services som anropar klient biblioteket:
 
-| Namn                                  | Beskrivning                                                  |
+| Name                                  | Beskrivning                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | CallClient| CallClient är den huvudsakliga start punkten för det anropande klient biblioteket.|
 | CallAgent | CallAgent används för att starta och hantera samtal. |
@@ -517,7 +517,7 @@ boolean availability = remoteVideoStream.getIsAvailable();
 // Create a view for a video stream
 renderer.createView()
 ```
-* Ta bort åter givning och alla `RendererView` associerade med den här åter givningen
+* Ta bort åter givning och alla `RendererView` associerade med den här åter givningen. Anropas när du har tagit bort alla associerade vyer från användar gränssnittet.
 ```java
 renderer.dispose()
 ```

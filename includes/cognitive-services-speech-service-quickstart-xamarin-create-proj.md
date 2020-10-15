@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 35133b64e43ca3814410d7bbf2ac1be9f760b369
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e8837bf7a7196eb5ac86bd7634560c52d1da6c05
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91654456"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92082229"
 ---
 Om du vill skapa ett Visual Studio-projekt för plattforms oberoende mobil program .NET-utveckling med Xamarin måste du:
 - Konfigurera alternativ för Visual Studio-utveckling.
@@ -50,7 +50,7 @@ Starta genom att kontrol lera att du är korrekt konfigurerad i Visual Studio f�
 
 1. Välj **skapa** för att gå till **projekt fönstret nytt Xamarin formulär i Mobile App** .
 
-   ![Skärm bild som visar dialog rutan nytt Universell Windows-plattform projekt i Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
+   ![Skärm bild som visar dialog rutan nytt Xamarin Forms-projekt i mobilapp i Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
 
 1. Välj den **tomma** mallen.
 

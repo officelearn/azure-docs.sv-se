@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 37189df6b1c9bf3f9fca185226f2ee3eeb3ddd7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 012801d0aada8ee55bb0eb05eaf75caa95878765
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092736"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069933"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurera ett anpassat domän namn för en Azure-moln tjänst
 När du skapar en moln tjänst tilldelar Azure den till en under domän till **cloudapp.net**. Om din moln tjänst till exempel heter Contoso, kommer användarna att kunna komma åt ditt program på en URL som `http://contoso.cloudapp.net` . Azure tilldelar också en virtuell IP-adress.
@@ -119,7 +119,7 @@ Följande A-post vidarebefordrar exempelvis all trafik från **contoso.com** til
 Det här exemplet visar hur du skapar en A-post för rot domänen. Om du vill skapa en post för jokertecken för alla under domäner anger du "* * * * *" som under domän.
 
 > [!WARNING]
-> IP-adresser i Azure är dynamiska som standard. Du bör förmodligen använda en [reserverad IP-adress](../virtual-network/virtual-networks-reserved-public-ip.md) för att se till att din IP-adress inte ändras.
+> IP-adresser i Azure är dynamiska som standard. Du bör förmodligen använda en [reserverad IP-adress](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) för att se till att din IP-adress inte ändras.
 > 
 > 
 
@@ -135,9 +135,6 @@ Det här exemplet visar hur du skapar en A-post för rot domänen. Om du vill sk
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
-
-
-

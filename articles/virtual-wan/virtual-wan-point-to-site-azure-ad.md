@@ -2,17 +2,17 @@
 title: 'Konfigurera Azure AD-autentisering för användares VPN-anslutning: virtuellt WAN'
 description: Lär dig hur du konfigurerar Azure Active Directory autentisering för användar-VPN.
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/17/2020
+ms.date: 10/14/2020
 ms.author: alzam
-ms.openlocfilehash: 21c2cba1d67ba415849b20dedf9ba157ca191d05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1102e2dafcf1a78bc9c243f27549b13793ec5408
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832526"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079181"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Konfigurera Azure Active Directory autentisering för användar-VPN
 
@@ -22,15 +22,14 @@ Den här typen av anslutning kräver att en klient konfigureras på klientdatorn
 
 I den här artikeln kan du se hur du:
 
-> [!div class="checklist"]
-> * Skapa ett virtuellt WAN
-> * Skapa en virtuell hubb
-> * Skapa en VPN-konfiguration för användare
-> * Hämta en VPN-profil för virtuella WAN-användare
-> * Använd VPN-konfiguration för användare till en virtuell hubb
-> * Ansluta ett VNet till en virtuell hubb
-> * Hämta och Använd konfigurationen för VPN-klienten för användare
-> * Visa ditt virtuella WAN
+* Skapa ett virtuellt WAN
+* Skapa en virtuell hubb
+* Skapa en VPN-konfiguration för användare
+* Hämta en VPN-profil för virtuella WAN-användare
+* Använd VPN-konfiguration för användare till en virtuell hubb
+* Ansluta ett VNet till en virtuell hubb
+* Hämta och Använd konfigurationen för VPN-klienten för användare
+* Visa ditt virtuella WAN
 
 ![Virtual WAN-diagram](./media/virtual-wan-about/virtualwanp2s.png)
 

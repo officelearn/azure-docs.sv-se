@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 8cef989ca7ce8ee649c4f4aeb579c43bf8a8d6ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7782af3c8a533ceb3a6d2bd3b412c21469f9a021
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75442411"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078824"
 ---
 # <a name="send-request-context-information-to-the-backend-service"></a>Skicka begäran om sammanhangsinformation till serverdelstjänsten
 
-Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du skickar kontext information för begäran till backend-tjänsten. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
+Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du skickar kontext information för begäran till backend-tjänsten. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-reference.md).
 
-## <a name="policy"></a>Princip
+## <a name="policy"></a>Policy
 
 Klistra in koden i det **inkommande** blocket.
 
@@ -35,5 +35,4 @@ Klistra in koden i det **inkommande** blocket.
 Läs mer om APIM-principer:
 
 + [Omvandlingsprinciper](../api-management-transformation-policies.md)
-+ [Princip exempel](../policy-samples.md)
-
++ [Princip exempel](../policy-reference.md)

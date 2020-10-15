@@ -194,7 +194,7 @@
     - name: Utbildningsväg
       href: /learn/paths/azure-fundamentals/
     - name: Frågesida på Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-cloud-services.html'
+      href: /answers/topics/azure-cloud-services.html
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
     - name: Priskalkylator

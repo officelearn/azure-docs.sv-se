@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 32e4658af48a0ae3bde08de18cf1d8204878d671
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6054fe5f71f54794d4974a71cdfd61a7959534ff
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91024924"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082103"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Stöds BGP på alla Azure VPN Gateway-SKU:er?
 BGP stöds på alla Azure VPN Gateway SKU: er förutom Basic SKU.
@@ -108,3 +108,6 @@ Ja.
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>Vad bör jag lägga till på min lokala VPN-enhet för BGP-peeringsessionen?
 Du bör lägga till en värdrutt för Azure BGP-peer-IP-adressen på din VPN-enhet som pekar på IPsec S2S VPN-tunneln. Om Azure VPN-peer-IP-adressen är "10.12.255.30", bör du till exempel lägga till en värdrutt för "10.12.255.30" med ett nexthop-gränssnitt för det matchande IPSec-tunnelgränssnittet på din VPN-enheten.
+
+### <a name="does-the-virtual-network-gateway-support-bidirectional-forwarding-detection-bfd-for-site-to-site-connections-with-bgp"></a>Stöder Virtual Network Gateway BFD (dubbelriktad vidarebefordring) för plats-till-plats-anslutningar med BGP?
+Nej. Upptäckt av dubbelriktad vidarebefordran (BFD) är ett protokoll som kan användas tillsammans med BGP för att identifiera intilliggande nedtid snabbare än att använda standard-BGP-keepalive. BFD använder andra timers som utformats för att fungera i LAN-miljöer, men inte över det offentliga Internet eller Wide Area Network-anslutningar. För anslutningar via offentliga Internet är vissa paket fördröjda eller till och med släppta inte ovanliga, så vi skulle kunna lägga till instabilitet som kan orsaka att vägar dämpas av BGP. Som ett alternativ kan du konfigurera den lokala enheten med timers som är lägre än standard intervallet på 60-sekunder och den 180-sekund som väntar på en snabbare konvergens tid.

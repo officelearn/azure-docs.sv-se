@@ -3,12 +3,12 @@ title: Distribuera Horisont på Azure VMware-lösning
 description: Lär dig hur du distribuerar VMware-Horisont på Azure VMware-lösningen.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: bda4be049e360670cb7038bfbb3070c2a5f262c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f8951c1c346eb15ac981b99a4dbf1541f3e3eed
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729057"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078892"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Distribuera Horisont på Azure VMware-lösning 
 
@@ -197,11 +197,14 @@ Arbeta med din VMware EUC-säljteam för att fastställa Horisont licens kostnad
 
 Utifrån standard distributions arkitekturen består de virtuella datorerna för Horisont infrastruktur av anslutnings servrar, UAGs, program volym hanterare och distribueras i kundens Azure-Virtual Network. Ytterligare Azure Native-instanser krävs för att stödja hög tillgänglighet (HA), Microsoft SQL-eller Microsoft Active Directory-tjänster (AD) i Azure. Följande är en lista över Azure-instanser baserade på ett exempel på en 2 000-Skriv bords distribution. 
 
+>[!NOTE]
+>För att kunna hantera problem kan du distribuera en server som krävs för antalet anslutningar (n + 1). Det minsta rekommenderade antalet instanser av anslutnings servern, UAG och app Volume Manager är 2 och antalet som krävs kommer att växa baserat på mängden användare som miljön kommer att ha stöd för.  En enda anslutnings Server stöder högst 4 000 sessioner, även om 2 000 rekommenderas som bästa praxis. Upp till sju anslutnings servrar stöds per POD med en rekommendation på 12 000 aktiva sessioner totalt per POD. De mest aktuella talen finns i [VMware Knowledge Base-artikeln VMware Horisont 7 storleks gränser och rekommendationer](https://kb.vmware.com/s/article/2150348).
+
 | Komponent för Horisont infrastruktur | Azure-instans | Antal instanser som behövs (för 2 000-datorer)    | Kommentar  |
 |----------------------------------|----------------|----------------------------------------------------|----------|
-| Anslutnings Server                | D4sv3          | 2       | *Innehåller 1 instans för HA*             |    
-| UAG                              | F2sv2          | 2       | *Innehåller 1 instans för HA*             |
-| App Volumes-hanteraren              | D4sv3          | 2       | *Innehåller 1 instans för HA*             |
+| Anslutnings Server                | D4sv3          | 2       | *Se anmärkning ovan*                         |    
+| UAG                              | F2sv2          | 2       | *Se anmärkning ovan*                         |
+| App Volumes-hanteraren              | D4sv3          | 2       | *Se anmärkning ovan*                         |
 | Cloud Connector                  | D4sv3          | 1       |                                          |
 | AD-styrenhet                    | D4sv3          | 2       | *Alternativ för att använda MSFT AD-tjänsten på Azure* |
 | MS-SQL Database                  | D4sv3          | 2       | *Alternativ för att använda SQL-tjänsten på Azure*     |

@@ -493,6 +493,8 @@
                   items:
                     - name: Generaliserade
                       href: ../vm-generalized-image-version-cli.md
+                    - name: Specialiserade
+                      href: ../vm-specialized-image-version-cli.md
                 - name: Uppdatera avbildningsresurser
                   href: ../update-image-resources-cli.md
                 - name: Appregistrering för delning
@@ -577,6 +579,8 @@
           href: build-image-with-packer.md
         - name: Ladda ned befintlig disk
           href: download-vhd.md
+        - name: Hanterad disk från avbildningsversion
+          href: ../managed-disk-from-image-version.md
     - name: Säkra virtuella datorer
       items:
         - name: Rekommendationer

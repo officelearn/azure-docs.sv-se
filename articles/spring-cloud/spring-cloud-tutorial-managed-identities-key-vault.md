@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 646b95e7e106b8657f8aeec2426b88cd6da20357
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f54139bc22ef85b016aabd2512bdf030efee91c
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885650"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088592"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Självstudie: använda en hanterad identitet för att ansluta Key Vault till en Azure våren Cloud-App
 
@@ -22,10 +22,10 @@ Den här artikeln visar hur du skapar en hanterad identitet för en Azure våren
 
 Azure Key Vault kan användas för säker lagring och strikt kontroll av åtkomst till token, lösen ord, certifikat, API-nycklar och andra hemligheter för din app. Du kan skapa en hanterad identitet i Azure Active Directory (AAD) och autentisera till en tjänst som stöder AAD-autentisering, inklusive Key Vault, utan att behöva Visa autentiseringsuppgifter i din kod.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/free/)
-* [Installera Azure CLI-versionen 2.0.67 eller högre](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
+* [Installera Azure CLI-versionen 2.0.67 eller högre](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
 * [Installera maven 3,0 eller senare](https://maven.apache.org/download.cgi)
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
@@ -167,7 +167,7 @@ Den här appen kommer att ha åtkomst till att hämta hemligheter från Azure Ke
 
 ## <a name="build-sample-spring-boot-app-with-java-sdk"></a>Bygg exempel på våren Boot-appen med Java SDK
 
-Det här exemplet kan ställa in och hämta hemligheter från Azure Key Vault. [Klient biblioteket för Azure Key Vault Secret för Java](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-secrets-readme?view=azure-java-stablelibrary&preserve-view=true) tillhandahåller stöd för Azure Active Directory token-autentisering i Azure SDK. Den innehåller en uppsättning **TokenCredential** -implementeringar som kan användas för att skapa Azure SDK-klienter för att stödja AAD-token-autentisering.
+Det här exemplet kan ställa in och hämta hemligheter från Azure Key Vault. [Klient biblioteket för Azure Key Vault Secret för Java](/java/api/overview/azure/security-keyvault-secrets-readme?preserve-view=true&view=azure-java-stablelibrary) tillhandahåller stöd för Azure Active Directory token-autentisering i Azure SDK. Den innehåller en uppsättning **TokenCredential** -implementeringar som kan användas för att skapa Azure SDK-klienter för att stödja AAD-token-autentisering.
 
 Med Azure Key Vault Secrets klient bibliotek kan du lagra och kontrol lera åtkomsten till token, lösen ord, API-nycklar och andra hemligheter på ett säkert sätt. I biblioteket finns åtgärder för att skapa, Hämta, uppdatera, ta bort, rensa, säkerhetskopiera, återställa och visa en lista över hemligheter och dess versioner.
 
@@ -191,7 +191,7 @@ Med Azure Key Vault Secrets klient bibliotek kan du lagra och kontrol lera åtko
     azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
     ```
 
-3. Ta med [ManagedIdentityCredentialBuilder](https://docs.microsoft.com/java/api/com.azure.identity.managedidentitycredentialbuilder?view=azure-java-stable&preserve-view=true) för att hämta token från Azure Active Directory och [SecretClientBuilder](https://docs.microsoft.com/java/api/com.azure.security.keyvault.secrets.secretclientbuilder?view=azure-java-stable&preserve-view=true) för att ange eller hämta hemligheter från Key Vault i din kod.
+3. Ta med [ManagedIdentityCredentialBuilder](/java/api/com.azure.identity.managedidentitycredentialbuilder?preserve-view=true&view=azure-java-stable) för att hämta token från Azure Active Directory och [SecretClientBuilder](/java/api/com.azure.security.keyvault.secrets.secretclientbuilder?preserve-view=true&view=azure-java-stable) för att ange eller hämta hemligheter från Key Vault i din kod.
 
     Hämta exemplet från [MainController. java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/managed-identity-keyvault/src/main/java/com/microsoft/azure/MainController.java#L28) för det klonade exempelprojektet.
 
@@ -230,7 +230,6 @@ Med Azure Key Vault Secrets klient bibliotek kan du lagra och kontrol lera åtko
 ## <a name="next-steps"></a>Nästa steg
 
 * [Så här kommer du åt Storage BLOB med hanterad identitet i Azure våren Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/managed-identity-storage-blob)
-* [Så här aktiverar du systemtilldelad hanterad identitet för Azure våren Cloud Application](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity)
+* [Så här aktiverar du systemtilldelad hanterad identitet för Azure våren Cloud Application](./spring-cloud-howto-enable-system-assigned-managed-identity.md)
 * [Lär dig mer om hanterade identiteter för Azure-resurser](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
-* [Autentisera Azure våren Cloud med Key Vault i GitHub-åtgärder](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-github-actions-key-vault)
-
+* [Autentisera Azure våren Cloud med Key Vault i GitHub-åtgärder](./spring-cloud-github-actions-key-vault.md)

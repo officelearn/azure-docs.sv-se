@@ -8,16 +8,16 @@ ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 97926d5bdf3123ae50714d36ad0234872f67aa96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30eb19e418292e74989be81d94ed684c917f6971
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908295"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088643"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Använd distribuerad spårning med Azure våren Cloud
 
-Med de distribuerade spårnings verktygen i Azure våren-molnet kan du enkelt felsöka och övervaka komplexa problem. Azure våren Cloud integrerar [våren Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) med azures [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Den här integrationen ger kraftfull, distribuerad spårnings funktion från Azure Portal.
+Med de distribuerade spårnings verktygen i Azure våren-molnet kan du enkelt felsöka och övervaka komplexa problem. Azure våren Cloud integrerar [våren Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) med azures [Application Insights](../azure-monitor/app/app-insights-overview.md). Den här integrationen ger kraftfull, distribuerad spårnings funktion från Azure Portal.
 
 ::: zone pivot="programming-language-csharp"
 I den här artikeln får du lära dig hur du aktiverar en .NET Core Steeltoe-app för att använda distribuerad spårning.
@@ -144,15 +144,15 @@ Om du redan har skapat och distribuerat ett program kan du ändra samplings frek
 
 ## <a name="view-the-application-map"></a>Visa program kartan
 
-Gå tillbaka till sidan **distribuerad spårning** och välj **Visa program karta**. Granska den visuella representationen av dina program och övervaknings inställningar. Information om hur du använder program kartan finns i [program karta: prioritering distribuerade program](https://docs.microsoft.com/azure/azure-monitor/app/app-map).
+Gå tillbaka till sidan **distribuerad spårning** och välj **Visa program karta**. Granska den visuella representationen av dina program och övervaknings inställningar. Information om hur du använder program kartan finns i [program karta: prioritering distribuerade program](../azure-monitor/app/app-map.md).
 
 ## <a name="use-search"></a>Använd Sök
 
-Använd Sök funktionen för att fråga efter andra speciella telemetri-objekt. På sidan **distribuerad spårning** väljer du **Sök**. Mer information om hur du använder Sök funktionen finns i [använda Sök i Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search).
+Använd Sök funktionen för att fråga efter andra speciella telemetri-objekt. På sidan **distribuerad spårning** väljer du **Sök**. Mer information om hur du använder Sök funktionen finns i [använda Sök i Application Insights](../azure-monitor/app/diagnostic-search.md).
 
 ## <a name="use-application-insights"></a>Använd Application Insights
 
-Application Insights tillhandahåller övervaknings funktioner utöver program kartan och Sök funktionen. Sök i Azure Portal efter programmets namn och öppna sedan en Application Insights sida för att hitta övervaknings information. Mer information om hur du använder dessa verktyg finns i [Azure Monitor logg frågor](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+Application Insights tillhandahåller övervaknings funktioner utöver program kartan och Sök funktionen. Sök i Azure Portal efter programmets namn och öppna sedan en Application Insights sida för att hitta övervaknings information. Mer information om hur du använder dessa verktyg finns i [Azure Monitor logg frågor](/azure/data-explorer/kusto/query/).
 
 ## <a name="disable-application-insights"></a>Inaktivera Application Insights
 

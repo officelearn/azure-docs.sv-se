@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: c1dc3b5fe4eecea42baf7073b9c806eea1648cff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1e47c61977d0bc5d03f8cdb87393ed2014e736
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056174"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072313"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagera på IoT Hub händelser genom att använda Event Grid för att utlösa åtgärder
 
@@ -73,6 +73,8 @@ I följande exempel visas schemat för en enhets ansluten händelse:
   "metadataVersion": "1"
 }]
 ```
+
+
 
 ### <a name="device-telemetry-schema"></a>Schema för telemetri av enhet
 
@@ -163,6 +165,10 @@ I följande exempel visas schemat för en enhet som skapar en händelse:
   "metadataVersion": "1"
 }]
 ```
+
+
+> [!WARNING]
+> *Dubbla data* som är associerade med en enhets skapande händelse är en standard konfiguration och *bör* inte förlitas på för faktiska `authenticationType` och andra enhets egenskaper på en nyligen skapad enhet. För `authenticationType` och andra enhets egenskaper i en nyligen skapad enhet använder du API: t för register hanteraren som finns i Azure IoT SDK: er.
 
 En detaljerad beskrivning av varje egenskap finns i [Azure Event Grid händelse schema för IoT Hub](../event-grid/event-schema-iot-hub.md).
 

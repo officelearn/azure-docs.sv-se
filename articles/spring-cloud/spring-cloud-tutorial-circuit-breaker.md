@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: fa66f17c6f96ac7f70188c5a28c0b180ed2f03e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c189411b13baf2497f0752c15550dd419f88f754
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906891"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088609"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Använda krets brytarens instrument panel med Azure våren Cloud
 
@@ -42,7 +42,7 @@ mvn clean package -D skipTests -f recommendation-service/pom.xml
 mvn clean package -D skipTests -f hystrix-turbine/pom.xml
 ```
 ## <a name="provision-your-azure-spring-cloud-instance"></a>Etablera din Azure våren Cloud-instans
-Följ proceduren och [etablera en tjänst instans i Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli).
+Följ proceduren och [etablera en tjänst instans i Azure CLI](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud).
 
 ## <a name="deploy-your-applications-to-azure-spring-cloud"></a>Distribuera dina program till Azure våren Cloud
 Dessa appar använder inte **konfigurations servern**, så du behöver inte konfigurera **konfigurations servern** för Azure våren Cloud.  Skapa och distribuera på följande sätt:
@@ -82,6 +82,6 @@ Hystrixs mått strömmar är också tillgängliga från `test-endpoint` . Som en
 Hystrix-instrumentpanelen bör fungera på som en webbapp `test-endpoint` . Om den inte fungerar som den ska kan det finnas två anledningar: första, med `test-endpoint` ändrade bas-URL: en från `/ to /<APP-NAME>/<DEPLOYMENT-NAME>` , eller andra, webbappen använder en absolut sökväg för statisk resurs. Om du vill att det ska fungera kan `test-endpoint` du behöva redigera <base> i klientens filer manuellt.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Etablera en tjänst instans på Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli)
-* [Förbereda ett Java våren-program för distribution i Azure våren Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
+* [Etablera en tjänst instans på Azure CLI](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud)
+* [Förbereda ett Java våren-program för distribution i Azure våren Cloud](./spring-cloud-tutorial-prepare-app-deployment.md)
 ::: zone-end

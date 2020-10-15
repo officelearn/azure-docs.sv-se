@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 365cb0912d84f0664b2a5432cd54cd553df62466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98dc9345d2c8b392fd094458b612857d6d454739
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282031"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071497"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Bygga och distribuera certifikat hanterings tjänsten för OPC Vault
 
@@ -31,7 +31,7 @@ Den här artikeln förklarar hur du distribuerar OPC-valvet för certifikat hant
 
 För närvarande är åtgärden för att bygga och distribuera begränsad till Windows.
 Exemplen är skrivna för C# .NET standard, som du behöver för att bygga tjänsten och exempel för distribution.
-Alla verktyg du behöver för .NET standard levereras med .NET Core-verktyg. Se [Kom igång med .net Core](https://docs.microsoft.com/dotnet/articles/core/getting-started).
+Alla verktyg du behöver för .NET standard levereras med .NET Core-verktyg. Se [Kom igång med .net Core](/dotnet/articles/core/getting-started).
 
 1. [Installera .net Core 2.1 +][dotnet-install].
 2. [Installera Docker][docker-url] (valfritt, endast om den lokala Docker-versionen krävs).

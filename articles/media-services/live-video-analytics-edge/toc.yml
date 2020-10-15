@@ -115,3 +115,5 @@
       href: faq.md
     - name: Produktionsberedskap och bästa praxis
       href: production-readiness.md
+    - name: Transparens och principer för ansvarsfull AI
+      href: 'https://azure.microsoft.com/resources/transparency-note-live-video-analytics-lva/'

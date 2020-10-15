@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: dc8dffb12dcd205671e2219dbef45ac14f9f7df7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c706f38dabbe21e5bafb096bf406e70af0855aa3
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892539"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089986"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Självstudie: så här övervakar du våren Cloud-resurser med hjälp av aviseringar och åtgärds grupper
 
@@ -24,7 +24,7 @@ Det finns två steg för att konfigurera en aviserings pipeline:
 1. Konfigurera en åtgärds grupp med åtgärder som ska vidtas när en avisering utlöses, till exempel e-post, SMS, Runbook eller webhook. Åtgärds grupper kan återanvändas mellan olika aviseringar.
 2. Ställ in aviserings regler. Reglerna binder mått mönster med åtgärds grupper baserat på mål resurs, mått, villkor, tids agg regering osv.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Förutom Azures våren-krav fungerar procedurerna i den här självstudien med en distribuerad Azure våren Cloud-instans.  Kom igång genom att följa en [snabb start](spring-cloud-quickstart.md) .
 
@@ -113,7 +113,7 @@ Du kan också skapa en regel med hjälp av sidan **mått** :
 I den här självstudien har du lärt dig hur du konfigurerar aviseringar och åtgärds grupper för ett Azure våren Cloud-program. Mer information om åtgärds grupper finns i:
 
 > [!div class="nextstepaction"]
-> [Skapa och hantera åtgärdsgrupper i Azure-portalen](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+> [Skapa och hantera åtgärdsgrupper i Azure-portalen](../azure-monitor/platform/action-groups.md)
 
 > [!div class="nextstepaction"]
-> [Aviserings beteende i SMS i åtgärds grupper](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
+> [Aviserings beteende i SMS i åtgärds grupper](../azure-monitor/platform/alerts-sms-behavior.md)

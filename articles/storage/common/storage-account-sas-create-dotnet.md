@@ -11,18 +11,18 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 102248882e1ec123ee74eedd74730c12a991fb86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2c21d85d1b88f33ff696ba1d230d34bbd6945d1
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021195"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091686"
 ---
 # <a name="create-an-account-sas-with-net"></a>Skapa ett konto säkerhets associationer med .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Den här artikeln visar hur du använder lagrings konto nyckeln för att skapa en konto säkerhets Association med [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Den här artikeln visar hur du använder lagrings konto nyckeln för att skapa en konto säkerhets Association med [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage).
 
 ## <a name="create-an-account-sas"></a>Skapa en konto-SAS
 

@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 0ba2e23e8121a76ec281b5e411819ee7d450cbe0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfd38f03601f7c4ebfbb5dde4fd7587e78df9efc
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319698"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090292"
 ---
 # <a name="secure-a-single-page-application-with-user-sign-in"></a>Skydda ett enda sid program med användar inloggning
 
@@ -67,7 +67,7 @@ Skapa webb programmet i Azure AD för användare för att logga in. Webb program
         </script>   
     ```
 
-7. Konfigurera rollbaserad åtkomst kontroll i Azure för användare eller grupper. Se [följande avsnitt för att aktivera RBAC](#grant-role-based-access-for-users-to-azure-maps).
+7. Konfigurera rollbaserad åtkomst kontroll i Azure (Azure RBAC) för användare eller grupper. Se [följande avsnitt för att aktivera Azure RBAC](#grant-role-based-access-for-users-to-azure-maps).
    
 [!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
 

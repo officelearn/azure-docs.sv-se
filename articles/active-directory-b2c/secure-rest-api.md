@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 206768604c6d08a32c0caaf9b53a1417cfa1344b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adb9bf48800062d2cc6976a88ec48c1993858dec
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385339"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089544"
 ---
 # <a name="secure-your-restful-services"></a>Skydda dina RESTful-tjänster 
 
@@ -28,7 +28,7 @@ Lär dig hur du integrerar en REST API inom Azure AD B2C användar resa i artikl
 
 I den här artikeln får du lära dig hur du skyddar REST API med antingen HTTP Basic, klient certifikat eller OAuth2-autentisering. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen i någon av följande rikt linjer:
 
@@ -312,7 +312,7 @@ När du har lagt till ovanstående kodfragment bör din tekniska profil se ut so
 
 ### <a name="add-the-oauth2-bearer-token-policy-key"></a>Lägg till princip nyckeln OAuth2 Bearer token
 
-Skapa en princip nyckel för att lagra värdet för Bearer-token.
+Om du vill konfigurera en REST API teknisk profil med en OAuth2 Bearer-token hämtar du en åtkomsttoken från REST API-ägaren. Skapa sedan följande kryptografiska nyckel för att lagra Bearer-token.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj din Azure AD B2C katalog.

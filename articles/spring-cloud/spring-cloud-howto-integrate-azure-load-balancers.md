@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 02772f153cdda7e3f3c866c727d589e755e19033
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd0b9d1369fb1c0e662de83b7056da0ff7c83bd1
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906933"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090836"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integrera Azure Spring Cloud med Azure Load Balance Solutions
 
@@ -28,10 +28,10 @@ Azure tillhandahåller redan olika belastnings Utjämnings lösningar. Det finns
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Azure våren Cloud: [så här skapar du en moln tjänst för Azure våren](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart)
-* Azure Traffic Manager: [så här skapar du en Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
-* Azure App Gateway: [så här skapar du en Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-* Azure-front dörr: [så här skapar du en front dörr](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
+* Azure våren Cloud: [så här skapar du en moln tjänst för Azure våren](./spring-cloud-quickstart.md)
+* Azure Traffic Manager: [så här skapar du en Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md)
+* Azure App Gateway: [så här skapar du en Application Gateway](../application-gateway/quick-create-portal.md)
+* Azure-front dörr: [så här skapar du en front dörr](../frontdoor/quickstart-create-front-door.md)
 
 ## <a name="integrate-azure-spring-cloud-with-azure-traffic-manager"></a>Integrera Azure våren Cloud med Azure Traffic Manager
 
@@ -92,6 +92,6 @@ För att integrera med Azure våren Cloud service och konfigurera backend-poolen
     ![Front dörr 2](media/spring-cloud-load-balancers/front-door-2.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* [Så här skapar du en Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
-* [Så här skapar du en Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-* [Så här skapar du en front dörr](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
+* [Så här skapar du en Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md)
+* [Så här skapar du en Application Gateway](../application-gateway/quick-create-portal.md)
+* [Så här skapar du en front dörr](../frontdoor/quickstart-create-front-door.md)

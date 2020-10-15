@@ -10,18 +10,18 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f54b91ab1ea4521c17a3b40c88214f5637ab47a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cf137eae9e026f4854034efe1565dc8f7f0b35d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021620"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091669"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client-Side kryptering och Azure Key Vault för Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Översikt
-[Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet) stöder kryptering av data i klient program innan du laddar upp till Azure Storage och dekrypterar data vid hämtning till klienten. Biblioteket har även stöd för integrering med [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av lagrings konto nycklar.
+[Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage) stöder kryptering av data i klient program innan du laddar upp till Azure Storage och dekrypterar data vid hämtning till klienten. Biblioteket har även stöd för integrering med [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av lagrings konto nycklar.
 
 En stegvis självstudie som vägleder dig genom processen för att kryptera blobbar med kryptering på klient sidan och Azure Key Vault finns i [kryptera och dekryptera blobbar i Microsoft Azure Storage med Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 

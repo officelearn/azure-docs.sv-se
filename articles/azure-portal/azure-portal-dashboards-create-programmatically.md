@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: c7fcced1833cb5f4ccb9c2c2fd44dd84a9abb3cb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7f52bd94a0286ea50d09ab7c77dce339e8a3ebf3
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077872"
+ms.locfileid: "92089374"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Skapa Azure-instrumentpaneler program mässigt
 
@@ -55,7 +55,7 @@ När du har konfigurerat instrument panelen är nästa steg att publicera instru
 
 ![Dela en instrument panel](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Om du väljer **dela** blir du ombedd att välja vilken prenumeration och resurs grupp som ska publiceras. Du måste ha Skriv behörighet till den prenumeration och resurs grupp som du väljer. Mer information finns i [lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure Portal](../role-based-access-control/role-assignments-portal.md).
+Om du väljer **dela** blir du ombedd att välja vilken prenumeration och resurs grupp som ska publiceras. Du måste ha Skriv behörighet till den prenumeration och resurs grupp som du väljer. Mer information finns i [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure-portalen](../role-based-access-control/role-assignments-portal.md).
 
 ![gör ändringar i delning och åtkomst](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

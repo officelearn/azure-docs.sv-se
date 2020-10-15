@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: d3ce7318266f3fbaf818e5bcfa245ce5f64d74ba
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4241ba55c464169257ec0a4b2d20eaa5e76534d5
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076937"
+ms.locfileid: "92092706"
 ---
 # <a name="edit-an-api"></a>Redigera ett API
 
@@ -35,7 +35,7 @@ Stegen i den här självstudien visar hur du använder API Management (APIM) fö
 
 ## <a name="edit-an-api-in-apim"></a>Redigera ett API i APIM
 
-![Redigera ett API](./media/edit-api/edit-api001.png)
+![Skärm bild som visar hur du redigerar ett API i APIM.](./media/edit-api/edit-api001.png)
 
 1. Klicka på fliken **API:er**.
 2. Välj ett av de API:er som du tidigare har importerat.
@@ -50,7 +50,7 @@ Du kan uppdatera ditt serverdels-API från Azure Portal genom att följa dessa s
 1. Välj **Alla åtgärder**
 2. Klicka på penna i **klientdel**-fönstret.
 
-    ![Redigera ett API](./media/edit-api/edit-api002.png)
+    ![Skärm bild som visar Penn ikonen på klient dels skärmen.](./media/edit-api/edit-api002.png)
 
     Ditt API:s swagger visas.
 

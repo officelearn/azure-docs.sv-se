@@ -8,19 +8,19 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8100914e9a1d1489cb80de55a689e17f6d28a941
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 266e31ae9865c8fb427e06e89cd755e7ff38b27f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61443453"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073877"
 ---
 # <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>Importera ett automatiskt enhets hanterings paket till din lösnings Accelerator för fjärr styrning
 
 En automatisk enhets hanterings konfiguration definierar de konfigurations ändringar som ska distribueras till en grupp av enheter. Den här artikeln förutsätter att en utvecklare i din organisation redan har skapat en automatisk enhets hanterings konfiguration. Information om hur en utvecklare skapar en konfiguration finns i något av följande IoT Hub instruktions artiklar:
 
-- [Konfigurera och övervaka IoT-enheter i skala med hjälp av Azure Portal](../iot-hub/iot-hub-auto-device-config.md)
-- [Konfigurera och övervaka IoT-enheter i skala med Azure CLI](../iot-hub/iot-hub-auto-device-config-cli.md)
+- [Konfigurera och övervaka IoT-enheter i skala med hjälp av Azure Portal](../iot-hub/iot-hub-automatic-device-management.md)
+- [Konfigurera och övervaka IoT-enheter i skala med Azure CLI](../iot-hub/iot-hub-automatic-device-management-cli.md)
 
 En utvecklare skapar och testar en automatisk enhets hanterings konfiguration i en utvecklings miljö. När du är klar kan du importera konfigurationen till din lösnings Accelerator för fjärr styrning.
 

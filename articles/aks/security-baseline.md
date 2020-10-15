@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d3adc3dd0e0b7e9f964326f5e637b0fefb2cd173
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 306b70fb08622d161ab8f150dc5eec3fdbacaeeb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938467"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072874"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Azures säkerhets bas linje för Azure Kubernetes-tjänsten
 
@@ -165,7 +165,7 @@ Använd också inbyggda princip definitioner som är relaterade till AKS, till e
 
 - [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy exempel för nätverk](/azure/governance/policy/samples/#network)
+- [Azure Policy exempel för nätverk](../governance/policy/samples/built-in-policies.md#network)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -178,9 +178,9 @@ Använd någon av de inbyggda definitionerna för Azure Policy taggar, till exem
 
 Välj att tillåta eller neka vissa nätverks Sök vägar i klustret baserat på namn områden och etikett väljare med nätverks principer. Använd dessa namn rymder och etiketter som beskrivningar för trafik konfigurations regler. Använd Azure PowerShell eller Azure kommando rads gränssnitt (CLI) för att söka efter eller utföra åtgärder på resurser baserat på deras taggar.
 
-- [Azure Policy med CLI](https://docs.microsoft.com/cli/azure/policy?view=azure-cli-latest)
+- [Azure Policy med CLI](/cli/azure/policy?view=azure-cli-latest)
 
-- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 - [Så här skapar du en NSG med en säkerhets konfiguration](../virtual-network/tutorial-filter-network-traffic.md)
 
@@ -196,7 +196,7 @@ Skapa aviseringar inom Azure Monitor som ska utlösas när ändringar av kritisk
 
 Använd Azure Monitor loggar för att aktivera och skicka frågor till loggarna från AKS huvud komponenter, Kube-apiserver och Kube-Controller Manager. Skapa och hantera noderna som kör kubelet med container Runtime och distribuera sina program via den hanterade Kubernetes API-servern. 
 
-- [Visa och hämta Azure aktivitets logg händelser](/azure/azure-monitor/platform/activity-log-view)
+- [Visa och hämta Azure aktivitets logg händelser](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Så här skapar du aviseringar i Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -322,7 +322,7 @@ Se de loggar som genereras av AKS Master Components (Kube-apiserver och Kube-con
 
 **Vägledning**: Använd Azure Kubernetes service (AKS) tillsammans med Security Center för att få djupare insyn i AKS-noder. Granska Security Center aviseringar om hot och skadlig aktivitet som identifierats på värden och på kluster nivå. Security Center implementerar kontinuerlig analys av rå säkerhets händelser som inträffar i ett AKS-kluster, till exempel nätverks data, process skapande och Kubernetes Gransknings logg. Avgöra om den här aktiviteten är förväntad eller om programmet är felgenererat. Använd mått och loggar i Azure Monitor för att styrka dina resultat. 
 
-- [Förstå Azure Kubernetes Services-integrering med Security Center](/azure/security-center/azure-kubernetes-service-integration)
+- [Förstå Azure Kubernetes Services-integrering med Security Center](../security-center/defender-for-kubernetes-introduction.md)
 
 - [Så här aktiverar du Azure Security Center standard nivån](../security-center/security-center-get-started.md)
 
@@ -380,9 +380,9 @@ Utför ad hoc-frågor för att identifiera konton som är medlemmar i AKS admini
 
 Använd Azure CLI för åtgärder som "Hämta autentiseringsuppgifter för ett hanterat Kubernetes-kluster" för att hjälpa till med att stämma av åtkomsten med jämna mellanrum. Implementera den här processen för att behålla en uppdaterad inventering av tjänst kontona, som är en annan primär användar typ i AKS. Använd Security Centers rekommendationer för identitets-och åtkomst hantering.
 
-- [Integrera AKS med Azure AD](/azure/aks/azure-ad-integration)
+- [Integrera AKS med Azure AD](./azure-ad-integration-cli.md)
 
-- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 - [Övervaka identitet och åtkomst med Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -457,7 +457,7 @@ Aktivera Azure AD Multi-Factor Authentication (MFA) och följ rekommendationerna
 
 **Vägledning**: använda Azure Active Directory (Azure AD) säkerhets rapporter med Azure AD-integrerad autentisering för Azure Kubernetes service (AKS). Aviseringar kan genereras när misstänkt eller osäker aktivitet inträffar i miljön. Använd Security Center för att övervaka identitets-och åtkomst aktiviteter.
 
-- [Så här identifierar du Azure AD-användare som har flaggats för riskfylld aktivitet](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Så här identifierar du Azure AD-användare som har flaggats för riskfylld aktivitet](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Övervaka användarnas identitets-och åtkomst aktiviteter i Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -487,7 +487,7 @@ Använd de inbyggda rollerna AKS med rollbaserad åtkomst kontroll i Azure (Azur
 
 - [Översikt över Azure Policy](../governance/policy/overview.md)
 
-- [Så här integrerar du Azure AD med AKS](/azure/aks/azure-ad-integration) 
+- [Så här integrerar du Azure AD med AKS](./azure-ad-integration-cli.md) 
 
 - [Integrera AKS-hanterad Azure AD](managed-aad.md)
 
@@ -528,7 +528,7 @@ Tänk på vilka roller som används för support eller fel söknings syfte. Till
 
 **Vägledning**: integrera användarautentisering för Azure Kubernetes service (AKS) med Azure Active Directory (Azure AD). Använd Azure ADs funktion för identifiering av risker och identitets skydd för att konfigurera automatiserade svar på identifierade misstänkta åtgärder som rör användar identiteter. Mata in data i Azure Sentinel för ytterligare undersökningar baserat på affärs behov.
 
-- [Visa Azure AD-riskfyllda inloggningar](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Visa Azure AD-riskfyllda inloggningar](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Så här konfigurerar och aktiverar du risk principer för identitets skydd](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -555,7 +555,7 @@ Tänk på vilka roller som används för support eller fel söknings syfte. Till
 
 **Vägledning**: Använd taggar för resurser som är relaterade till AKS-distributioner (Azure Kubernetes service) som hjälper dig att spåra Azure-resurser som lagrar eller bearbetar känslig information.
 
-- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 - [Uppdatera taggar för hanterade kluster](/rest/api/aks/managedclusters/updatetags)
 
@@ -573,7 +573,7 @@ Implementera separata prenumerationer och/eller hanterings grupper för utveckli
 
 - [Lär dig mer om metod tips för kluster isolering i AKS](operator-best-practices-cluster-isolation.md)
 
-- [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
+- [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
 - [Förstå metod tips för nätverks anslutning och säkerhet i AKS](operator-best-practices-network.md)
 
@@ -589,7 +589,7 @@ Microsoft hanterar den underliggande plattformen och hanterar allt kund innehål
 
 - [Lista över obligatoriska portar, adresser och domän namn för AKS-funktioner](limit-egress-traffic.md)
 
-- [Konfigurera diagnostikinställningar för Azure-brandväggen](/azure/firewall/tutorial-diagnostics)
+- [Konfigurera diagnostikinställningar för Azure-brandväggen](../firewall/firewall-diagnostics.md)
 
 - [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -677,7 +677,7 @@ Använd Azure aktivitets logg för att övervaka AKS-kluster och relaterade resu
 
 - [Aktivera Azure Monitor för behållare](../azure-monitor/insights/container-insights-onboard.md)
 
-- [Visa och hämta Azure aktivitets logg händelser](/azure/azure-monitor/platform/activity-log-view)
+- [Visa och hämta Azure aktivitets logg händelser](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 **Azure Security Center övervakning**: Ja
 
@@ -695,11 +695,11 @@ Bli informerad i Security Center instrument panelen när problem upptäcks när 
 
 Använd Security Center för åtgärds bara rekommendationer för varje sårbarhet. Dessa rekommendationer innehåller en allvarlighets grad och vägledning för reparation. 
 
-- [Metod tips för hantering av behållar avbildningar och säkerhet i Azure Kubernetes service (AKS)](/azure/security-center/azure-container-registry-integration)
+- [Metod tips för hantering av behållar avbildningar och säkerhet i Azure Kubernetes service (AKS)](../security-center/defender-for-container-registries-introduction.md)
 
 - [Lär dig metod tips för hantering av behållar avbildningar och säkerhet i AKS](operator-best-practices-container-image-management.md)
 
-- [Förstå behållar register integrering med Azure Security Center](/azure/security-center/azure-container-registry-integration)
+- [Förstå behållar register integrering med Azure Security Center](../security-center/defender-for-container-registries-introduction.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -735,7 +735,7 @@ Observera att processen att behålla Windows Server-noderna skiljer sig från no
 
 Använd PowerShell-cmdleten "Get-AzSecurityTask" för att automatisera hämtningen av säkerhets uppgifter som Security Center rekommenderar att du utför för att förbättra din säkerhets position och korrigerings genomsöknings resultat.
 
-- [Så här använder du PowerShell för att Visa sårbarheter som identifierats av Azure Security Center](https://docs.microsoft.com/powershell/module/az.security/get-azsecuritytask?view=azps-3.3.0)
+- [Så här använder du PowerShell för att Visa sårbarheter som identifierats av Azure Security Center](/powershell/module/az.security/get-azsecuritytask?view=azps-3.3.0)
 
 **Azure Security Center övervakning**: Ja
 
@@ -763,7 +763,7 @@ Använd vanliga CVSS (sårbarhets bedömnings system) (eller ett annat bedömnin
 
 - [Så här skapar du frågor med Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Så här visar du dina Azure-prenumerationer](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Så här visar du dina Azure-prenumerationer](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Förstå Azure RBAC](../role-based-access-control/overview.md)
 
@@ -775,7 +775,7 @@ Använd vanliga CVSS (sårbarhets bedömnings system) (eller ett annat bedömnin
 
 **Vägledning**: Använd taggar till Azure-resurser med metadata för att logiskt organisera dem i en taxonomi.
 
-- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -789,11 +789,11 @@ Använd utsmaker, etiketter eller taggar när du skapar en Azure Kubernetes serv
 
 Bismakar, etiketter eller taggar kan användas för att stämma av inventeringen regelbundet och se till att obehöriga resurser tas bort från prenumerationer inom rimlig tid.
 
-- [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
+- [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-- [Så här skapar du Hanteringsgrupper](/azure/governance/management-groups/create)
+- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
-- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 - [Hanterade kluster – uppdatera Taggar](/rest/api/aks/managedclusters/updatetags)
 
@@ -894,7 +894,7 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i dina prenume
 
 - [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Så här nekar du en speciell resurs typ med Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Så här nekar du en speciell resurs typ med Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -927,15 +927,15 @@ Bevilja användare eller grupper åtkomst till Kubernetes-resurser inom ett namn
 
 Använd Azure AD PowerShell-modulen för att utföra ad hoc-frågor för att identifiera konton som är medlemmar i dina AKS-administrativa grupper; Stäm av åtkomst med jämna mellanrum. Använd Azure CLI för åtgärder som till exempel get Access-autentiseringsuppgifter för ett hanterat Kubernetes-kluster. Implementera rekommendationer för Security Center identitets-och åtkomst hantering.
 
-- [Hantera AKS med Azure CLI](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest)
+- [Hantera AKS med Azure CLI](/cli/azure/aks?view=azure-cli-latest)
 
 - [Förstå AKS och Azure AD-integrering](concepts-identity.md)
 
-- [Integrera AKS med Azure AD](/azure/aks/azure-ad-integration)
+- [Integrera AKS med Azure AD](./azure-ad-integration-cli.md)
 
-- [Så här hämtar du en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Så här hämtar du en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 - [Övervaka identitet och åtkomst med Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -953,9 +953,9 @@ Granska och implementera ytterligare Kubernetes-funktioner och överväganden f�
 
 - [Lär dig mer om metod tips för kluster isolering i AKS](operator-best-practices-cluster-isolation.md)
 
-- [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
+- [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-- [Så här skapar du Hanteringsgrupper](/azure/governance/management-groups/create)
+- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
 - [Förstå metod tips för nätverks anslutning och säkerhet i AKS](operator-best-practices-network.md)
 
@@ -1055,7 +1055,7 @@ Säkerhets härdning för AKS-nodens värd operativ system
 
 security-hardened-vm-host-image.md
 
-- [Så här lagrar du kod i Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1113,7 +1113,7 @@ Se listan över Center for Internet Security (CIS)-kontroller som är inbyggda i
 
 **Vägledning**: Använd Security Center container rekommendationer under avsnittet "Compute &amp; Apps" för att utföra bas linje genomsökningar för dina Azure Kubernetes service-kluster (AKS). Få ett meddelande i Security Center-instrumentpanelen när det finns konfigurations problem eller säkerhets problem. Detta kräver att du aktiverar de valfria paketen för behållar register som gör det möjligt att Security Center Skanna avbildningen.  
 
-- [Förstå rekommendationer för Azure Security Center-container](/azure/security-center/security-center-container-recommendations)
+- [Förstå rekommendationer för Azure Security Center-container](../security-center/container-security.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1187,7 +1187,7 @@ Begränsa exponering av autentiseringsuppgifter genom att inte definiera autenti
 
 **Vägledning**: för skanning av filer som laddas upp till dina AKS-resurser. Använd Security Center s hot identifiering för data tjänster för att identifiera skadlig kod som laddats upp till lagrings konton om ett Azure Storage konto används som ett data lager eller för att spåra terraform tillstånd för ditt AKS-kluster. 
 
-- [Förstå Azure Security Centers hot identifiering för data tjänster](/azure/security-center/security-center-alerts-data-services)
+- [Förstå Azure Security Centers hot identifiering för data tjänster](../security-center/azure-defender.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -1235,7 +1235,7 @@ Ta bort tillstånd från dina program innan du säkerhetskopierar. I de fall dä
 
 Utföra vanliga automatiserade säkerhets kopieringar av Key Vault certifikat, nycklar, hanterade lagrings konton och hemligheter med PowerShell-kommandon. 
 
-Till exempel:
+Exempel:
 
 Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
@@ -1247,7 +1247,7 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 - [Säkerhetskopiera Key Vault hemligheter](/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret)
 
-- [Så här aktiverar du Azure Backup](/azure/backup)
+- [Så här aktiverar du Azure Backup](../backup/index.yml)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1259,19 +1259,19 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 Regelbundet utföra Data återställning av Key Vault certifikat, nycklar, hanterade lagrings konton och hemligheter med PowerShell-kommandon. 
 
-Till exempel:
+Exempel:
 
 Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
 
-- [Återställa Key Vault-certifikat](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
+- [Återställa Key Vault-certifikat](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
 
-- [Återställa Key Vault nycklar](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Återställa Key Vault nycklar](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 - [Återställa Key Vault hanterade lagrings konton](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
-- [Så här återställer du Key Vault hemligheter](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0)
+- [Så här återställer du Key Vault hemligheter](/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0)
 
-- [Återställa filer från säkerhets kopiering av virtuella Azure-datorer](/azure/backup/backup-azure-restore-files-from-vm)
+- [Återställa filer från säkerhets kopiering av virtuella Azure-datorer](../backup/backup-azure-restore-files-from-vm.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1285,7 +1285,7 @@ Aktivera Soft-Delete i Key Vault för att skydda nycklar mot oavsiktlig eller sk
 
 - [Förstå Azure Storage tjänst kryptering](../storage/common/storage-service-encryption.md)
 
-- [Så här aktiverar du Soft-Delete i Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Så här aktiverar du Soft-Delete i Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1379,5 +1379,5 @@ Se NIST: guide för test, utbildning och övnings program för IT
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Azures säkerhets benchmark](/azure/security/benchmarks/overview)
-- Läs mer om [Azures säkerhets bas linjer](/azure/security/benchmarks/security-baselines-overview)
+- Se [Azures säkerhets benchmark](../security/benchmarks/overview.md)
+- Läs mer om [Azures säkerhets bas linjer](../security/benchmarks/security-baselines-overview.md)

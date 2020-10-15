@@ -1,6 +1,6 @@
 ---
-title: Dela Azure Portal instrument paneler med Role-Based Access Control
-description: I den här artikeln förklaras hur du delar en instrument panel i Azure Portal med Role-Based Access Control.
+title: Dela Azure Portal instrument paneler med hjälp av rollbaserad åtkomst kontroll i Azure
+description: Den här artikeln förklarar hur du delar en instrument panel i Azure Portal med hjälp av rollbaserad åtkomst kontroll i Azure.
 services: azure-portal
 documentationcenter: ''
 author: mgblythe
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 89c2b90b12a4fc16dd48571c00ff46dc62168d42
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b74cae439ce351a4d720f215679cc0802eebe898
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077889"
+ms.locfileid: "92092213"
 ---
-# <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Dela Azure-instrumentpaneler med hjälp av rollbaserad åtkomstkontroll
+# <a name="share-azure-dashboards-by-using-azure-role-based-access-control"></a>Dela Azure-instrumentpaneler med hjälp av rollbaserad åtkomst kontroll i Azure
 
 När du har konfigurerat en instrument panel kan du publicera den och dela den med andra användare i din organisation. Du låter andra Visa din instrument panel med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Tilldela en användare eller grupp av användare till en roll. Rollen definierar om dessa användare kan visa eller ändra den publicerade instrument panelen.
 
@@ -33,7 +33,7 @@ Alla publicerade instrument paneler implementeras som Azure-resurser. De finns s
 
 ## <a name="understanding-access-control-for-dashboards"></a>Förstå åtkomst kontroll för instrument paneler
 
-Med Role-Based Access Control (RBAC) kan du tilldela användare till roller på tre olika nivåer:
+Med rollbaserad åtkomst kontroll i Azure (Azure RBAC) kan du tilldela användare till roller på tre olika nivåer:
 
 * prenumeration
 * Resursgrupp

@@ -1,7 +1,7 @@
 ---
 title: Så här skyddar du ett enda sid program med icke-interaktiv inloggning
 titleSuffix: Azure Maps
-description: Så här konfigurerar du ett enda webb program med icke-interaktiv Azure AD-rollbaserad åtkomst kontroll och Azure Maps Web SDK.
+description: Så här konfigurerar du ett enda webb program med icke-interaktiv rollbaserad åtkomst kontroll i Azure (Azure RBAC) och Azure Maps Web SDK.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: e49954065f8a4ec03eb54d7333a3fff34bafb143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 000f6a80a2cee14abc3d954de479dd87b1edf876
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319664"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090258"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Så här skyddar du ett enda sid program med icke-interaktiv inloggning
 
@@ -36,7 +36,7 @@ Skapa ett skyddat webb tjänst program som ansvarar för autentisering till Azur
 
 3. [Lägg till en systemtilldelad identitet](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) i Azure-funktionen för att skapa ett huvud namn för tjänsten för att autentisera till Azure AD.  
 
-4. Bevilja rollbaserad åtkomst för den systemtilldelade identiteten till Azure Maps kontot. Se [Grant-rollbaserad åtkomst](#grant-role-based-access) för mer information.
+4. Bevilja rollbaserad åtkomst för den systemtilldelade identiteten till Azure Maps kontot. Mer information finns i [bevilja rollbaserad åtkomst](#grant-role-based-access) .
 
 5. Skriv kod för Azure-funktionen för att hämta Azure Maps åtkomsttoken med hjälp av systemtilldelad identitet med en av de mekanismer som stöds eller REST-protokollet. Se [Hämta token för Azure-resurser](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
 

@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: 0d00db9909f05028b55505400d0810b00e0114c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4598cb1d54fbbeb09e3bc5f58f0cce949b3c848
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932550"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073809"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
 
@@ -33,7 +33,7 @@ Programmet är en anslagstavla för annonser. Användare skapar en annons genom 
 Programmet använder det [köcentriska arbetsmönstret](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) för att avlasta det processorintensiva arbetet med att skapa miniatyrbilder till en serverdelsprocess.
 
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>Alternativ arkitektur: App Service och WebJobs
-Under den här kursen får du lära dig hur du kör både klient- och serverdelen i en Azure-molntjänst. Ett alternativ är att köra klientdelen i en [Azure App Service](/azure/app-service/) och använda [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226)-funktionen för serverdelen. Om du vill följa en kurs som använder WebJobs går du till [Kom igång med Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). Mer information om hur du väljer de tjänster som bäst passar din situation finns i [Jämförelse mellan Azure App Service, Cloud Services och Virtual Machines](/azure/architecture/guide/technology-choices/compute-decision-tree).
+Under den här kursen får du lära dig hur du kör både klient- och serverdelen i en Azure-molntjänst. Ett alternativ är att köra klientdelen i en [Azure App Service](../app-service/index.yml) och använda [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226)-funktionen för serverdelen. Om du vill följa en kurs som använder WebJobs går du till [Kom igång med Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). Mer information om hur du väljer de tjänster som bäst passar din situation finns i [Jämförelse mellan Azure App Service, Cloud Services och Virtual Machines](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## <a name="what-youll-learn"></a>Det här lär du dig
 * Hur du aktiverar datorn för Azure-utveckling genom att installera Azure SDK.
@@ -169,7 +169,7 @@ I ett riktigt program skapar du vanligtvis separata konton för programdata jäm
 
 4. Välj **Locally redundant storage** (Lokalt redundant) i listrutan **Replication** (Replikering).
 
-    När geo-replikering har aktiverats för ett lagringskonto, replikeras det lagrade innehållet till ett sekundärt datacenter för att aktivera redundans om det skulle inträffa en större katastrof på den primära platsen. Geo-replikering kan medföra ytterligare kostnader. När det gäller test- och utvecklingskonton ska du vanligtvis inte betala för geo-replikering. Mer information finns i [Skapa, hantera eller ta bort ett lagringskonto](../storage/common/storage-create-storage-account.md).
+    När geo-replikering har aktiverats för ett lagringskonto, replikeras det lagrade innehållet till ett sekundärt datacenter för att aktivera redundans om det skulle inträffa en större katastrof på den primära platsen. Geo-replikering kan medföra ytterligare kostnader. När det gäller test- och utvecklingskonton ska du vanligtvis inte betala för geo-replikering. Mer information finns i [Skapa, hantera eller ta bort ett lagringskonto](../storage/common/storage-account-create.md).
 
 5. I **resursgruppen** klickar du på **använd befintliga** och markerar den resursgrupp som används för molntjänsten.
 6. Ställ in rullgardinsmenyn **Plats** i samma region som du skulle välja för en molntjänst.
@@ -290,7 +290,7 @@ Inställningen `<Instances>` anger det antal virtuella datorer som Azure kommer 
 
     ![Inställningssteg](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    Standardinställningarna på fliken **Advanced** (Avancerat) fungerar bra för den här kursen. Mer information om fliken Advanced (Avancerat) finns i [Publiceringsguide för Azure-program](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard).
+    Standardinställningarna på fliken **Advanced** (Avancerat) fungerar bra för den här kursen. Mer information om fliken Advanced (Avancerat) finns i [Publiceringsguide för Azure-program](/visualstudio/azure/vs-azure-tools-publish-azure-application-wizard).
 4. Klicka på **Publish** (Publicera) i **sammanfattningssteget**.
 
     ![Sammanfattningssteg](./media/cloud-services-dotnet-get-started/pubsummary.png)
@@ -776,5 +776,5 @@ Mer information finns i följande resurser:
 
 * [Azure Cloud Services, del 1: Inledning](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Hantera molntjänster](cloud-services-how-to-manage-portal.md)
-* [Azure Storage](https://docs.microsoft.com/azure/storage/)
+* [Azure Storage](../storage/index.yml)
 * [Hur man väljer molntjänstleverantör](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

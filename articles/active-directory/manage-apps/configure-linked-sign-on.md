@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 67cb8d6bf6dd61fb5ba7aec70a79078cbe2b8b13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49191ffc0033559f0668a5330b8c91643dee39d3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597837"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073979"
 ---
 # <a name="understand-linked-sign-on"></a>Förstå länkad inloggning
 
@@ -35,7 +35,7 @@ Några vanliga scenarier där länk alternativet är värdefullt är:
 
 Om du vill öka kunskapen snabbt kan du gå igenom [snabb starts serien](view-applications-portal.md) för program hantering. I snabb starten, där du konfigurerar enkel inloggning, hittar du också det **länkade** alternativet. 
 
-Det **länkade** alternativet ger inte inloggnings funktioner via Azure AD. Alternativet anger bara de plats användare som ska skickas till när de väljer appen i [Mina appar](https://myapps.microsoft.com/) eller Microsoft 365 App Launcher.
+Det **länkade** alternativet ger inte inloggnings funktioner via Azure AD. Alternativet anger bara de plats användare som ska skickas till när de väljer appen i [Mina appar](https://myapps.microsoft.com/) eller Microsoft 365 App Launcher.  Eftersom inloggningen inte tillhandahåller inloggnings funktioner via Azure AD är villkorlig åtkomst inte tillgänglig för program som kon figurer ATS med länkad enkel inloggning.
 
 > [!IMPORTANT] 
 > Det finns vissa scenarier där alternativet för **enkel inloggning** inte kommer att ingå i navigeringen för ett program i **företags program**. 

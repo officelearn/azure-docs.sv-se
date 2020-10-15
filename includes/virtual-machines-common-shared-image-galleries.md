@@ -1,18 +1,18 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/08/2020
-ms.author: akjosh
+ms.date: 10/14/2020
+ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: 662afb902c97e164cc24bc664b854db118904210
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5c06d0beeb76193c2b8ddba9413878dbf428819
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89494337"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071786"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina avbildningar. Delade avbildnings gallerier ger:
 
@@ -56,19 +56,36 @@ Det finns tre parametrar för varje avbildnings definition som används i kombin
 
 Alla tre av dessa har unika uppsättningar med värden. Formatet liknar hur du för närvarande kan ange utgivare, erbjudande och SKU för [Azure Marketplace-avbildningar](../articles/virtual-machines/windows/cli-ps-findimage.md) i Azure PowerShell för att hämta den senaste versionen av en Marketplace-avbildning. Varje bild definition måste ha en unik uppsättning av dessa värden.
 
+Bild definitionerna måste definiera följande parametrar som avgör vilka typer av avbildnings versioner de kan innehålla:
+-   Operativ system tillstånd – du kan ange operativ systemets tillstånd till [generaliserad eller specialiserad](#generalized-and-specialized-images).
+- Operativ system – kan vara antingen Windows eller Linux.
+
+
+
 Följande är andra parametrar som kan ställas in på din avbildnings definition så att du enkelt kan spåra dina resurser:
 
-* Operativ system tillstånd – du kan ange operativ systemets tillstånd till [generaliserad eller specialiserad](#generalized-and-specialized-images).
-* Operativ system – kan vara antingen Windows eller Linux.
-* Beskrivning – Använd beskrivning för att ge mer detaljerad information om varför avbildnings definitionen finns. Du kan till exempel ha en avbildnings definition för din klient server som har programmet förinstallerat.
-* EULA – kan användas för att peka på ett licens avtal för slutanvändare som är speciellt för avbildnings definitionen.
-* Sekretess policy och viktig information – Store viktig information och sekretess policys i Azure Storage och ange en URI för att få åtkomst till dem som en del av avbildnings definitionen.
-* Datum för livs längd – koppla ett livs cykel datum till din bild definition för att kunna använda Automation för att ta bort gamla avbildnings definitioner.
-* Tagg – du kan lägga till taggar när du skapar din avbildnings definition. Mer information om taggar finns i [använda taggar för att organisera resurser](../articles/azure-resource-manager/management/tag-resources.md)
-* Lägsta och högsta vCPU och minnes rekommendationer – om avbildningen har vCPU och minnes rekommendationer kan du koppla informationen till din avbildnings definition.
-* Otillåtna disk typer – du kan ange information om lagrings behoven för den virtuella datorn. Om bilden till exempel inte är lämplig för standard diskar för hård diskar lägger du till dem i listan Tillåt inte.
-* Hyper-V-generering – du kan ange om avbildningen har skapats från en gen 1-eller generation 2 Hyper-V-VHD.
-* Information om inköps plan för Marketplace-avbildningar – `-PurchasePlanPublisher ` , `-PurchasePlanName` och `-PurchasePlanProduct` . Mer information om inköps Plans information finns i [hitta avbildningar på Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) och [leverera information om inköps plan för Azure Marketplace när du skapar avbildningar](../articles/virtual-machines/marketplace-images.md).
+- Beskrivning – Använd beskrivning för att ge mer detaljerad information om varför avbildnings definitionen finns. Du kan till exempel ha en avbildnings definition för din klient server som har programmet förinstallerat.
+- EULA – kan användas för att peka på ett licens avtal för slutanvändare som är speciellt för avbildnings definitionen.
+- Sekretess policy och viktig information – Store viktig information och sekretess policys i Azure Storage och ange en URI för att få åtkomst till dem som en del av avbildnings definitionen.
+- Datum för livs längd – koppla ett livs cykel datum till din bild definition för att kunna använda Automation för att ta bort gamla avbildnings definitioner.
+- Tagg – du kan lägga till taggar när du skapar din avbildnings definition. Mer information om taggar finns i [använda taggar för att organisera resurser](../articles/azure-resource-manager/management/tag-resources.md)
+- Lägsta och högsta vCPU och minnes rekommendationer – om avbildningen har vCPU och minnes rekommendationer kan du koppla informationen till din avbildnings definition.
+- Otillåtna disk typer – du kan ange information om lagrings behoven för den virtuella datorn. Om bilden till exempel inte är lämplig för standard diskar för hård diskar lägger du till dem i listan Tillåt inte.
+-   Hyper-V-generering – ange om avbildningen skapades från en virtuell Hyper-V-hårddisk på generation 1 eller [generation 2](../articles/virtual-machines/generation-2.md) . Standardvärdet är generation 1.
+- Information om inköps plan för Marketplace-avbildningar – `-PurchasePlanPublisher` , `-PurchasePlanName` och `-PurchasePlanProduct` . Mer information om inköps Plans information finns i [hitta avbildningar på Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) och [leverera information om inköps plan för Azure Marketplace när du skapar avbildningar](../articles/virtual-machines/marketplace-images.md).
+
+
+## <a name="image-versions"></a>Avbildnings versioner
+
+En **avbildnings version** är det du använder för att skapa en virtuell dator. Du kan ha flera versioner av en avbildning efter behov för din miljö. När du använder en **avbildnings version** för att skapa en virtuell dator används avbildnings versionen för att skapa nya diskar för den virtuella datorn. Avbildnings versioner kan användas flera gånger.
+
+Egenskaperna för en avbildnings version är:
+
+- Versions nummer. Detta används som namn på avbildnings versionen. Den har alltid formatet: Major version. MinorVersion. patch. När du väljer att använda **senaste** när du skapar en virtuell dator väljs den senaste avbildningen baserat på den högsta Major version, sedan MinorVersion och sedan patch. 
+- Källicensservern. Källan kan vara en virtuell dator, hanterad disk, ögonblicks bild, hanterad avbildning eller en annan avbildnings version. 
+- Exkludera från senaste. Du kan behålla en version som används som den senaste avbildnings versionen. 
+- Slut på livs längd. Det datum då det inte går att skapa virtuella datorer från den här avbildningen.
+
 
 ## <a name="generalized-and-specialized-images"></a>Generaliserade och specialiserade avbildningar
 
@@ -85,7 +102,7 @@ Specialiserade virtuella datorer har inte genomgått någon process för att ta 
 
 Alla offentliga regioner kan vara mål regioner, men för att replikera till Australien, centrala och Australien, Central 2 måste din prenumeration läggas till i listan över tillåtna. Om du vill begära att en prenumeration läggs till i listan över tillåtna går du till: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-## <a name="limits"></a>Begränsningar 
+## <a name="limits"></a>Gränser 
 
 Det finns gränser per prenumeration för att distribuera resurser med hjälp av delade avbildnings gallerier:
 - 100 delade avbildnings gallerier, per prenumeration, per region

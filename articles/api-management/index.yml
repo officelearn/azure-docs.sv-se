@@ -10,12 +10,12 @@ metadata:
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: db35ab98c2e53246fddc26d724b24fda71eee6dc
-  ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+  ms.openlocfilehash: 6813a3cb284f83c599344c7673f1a5d148adef0b
+  ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91932625"
+  ms.lasthandoff: 10/15/2020
+  ms.locfileid: "92071174"
 landingContent:
 - title: Om API Management
   linkLists:
@@ -35,7 +35,7 @@ landingContent:
       url: get-started-create-service-instance.md
     - text: Azure PowerShell
       url: powershell-create-service-instance.md
-    - text: Visual Studio-koden
+    - text: Visuell Studio-kod
       url: vscode-create-service-instance.md
     - text: ARM-mall
       url: quickstart-arm-template.md
@@ -70,7 +70,7 @@ landingContent:
     - text: Azure PowerShell
       url: powershell-samples.md
     - text: Inbyggda Azure Policy-program
-      url: ./policy-samples.md
+      url: ./policy-reference.md
 - title: Arkitektur
   linkLists:
   - linkListType: architecture

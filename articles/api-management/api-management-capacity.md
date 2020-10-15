@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f4eb90cc0e8867230c7fb1a2a169b5ba0126e46a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e907a3ec2e2521524cdf23e1403ae38a19275aa6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86205887"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071327"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Kapacitet hos en Azure API Management-instans
 
@@ -28,7 +28,7 @@ Den här artikeln förklarar vad **kapaciteten** är och hur den beter sig. Den 
 > [!IMPORTANT]
 > Den här artikeln beskriver hur du kan övervaka och skala Azure API Management-instansen baserat på dess kapacitets mått. Det är dock lika viktigt att förstå vad som händer när en enskild API Management instans faktiskt har *nått* sin kapacitet. Azure API Management tillämpar inte någon begränsning på service nivå för att förhindra en fysisk överbelastning av instanserna. När en instans når sin fysiska kapacitet kommer den att fungera på samma sätt som alla överbelastade webb servrar som inte kan bearbeta inkommande begär Anden: fördröjningen ökar, anslutningar tas bort, timeout-fel uppstår osv. Det innebär att API-klienterna bör förberedas för att hantera den här risken på samma sätt som med andra externa tjänster (t. ex. genom att tillämpa principer för återförsök).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa stegen i den här artikeln måste du ha:
 
@@ -107,4 +107,4 @@ Låg **kapacitets mått** innebär inte nödvändigt vis att API Management inst
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skala eller uppgradera en Azure API Management-tjänstinstans](upgrade-and-scale.md)
-- [Optimera och Spara på dina moln utgifter](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Optimera och Spara på dina moln utgifter](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

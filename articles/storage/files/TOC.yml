@@ -310,10 +310,10 @@
       href: 'https://azure.microsoft.com/updates/?category=storage'
     - name: Viktig information om Azure File Sync
       href: storage-files-release-notes.md
-    - name: Azure Storage på Microsoft Q&A
+    - name: Azure Files på Microsoft Q&A
       href: 'https://docs.microsoft.com/answers/topics/azure-files.html'
-    - name: Azure Storage på Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
+    - name: Azure Files på Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-files'
     - name: Prissättning för Azure Files
       href: 'https://azure.microsoft.com/pricing/details/storage/files/'
     - name: Priskalkylator för Azure

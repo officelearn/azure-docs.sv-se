@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 19e022073f43548a91fad76cb380a75205237bbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e18193b40bb7c59a21a279f451673dc7d11140e4
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892552"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092910"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Haveri beredskap för Azure våren Cloud
 
@@ -50,7 +50,7 @@ Du behöver två tjänst instanser av Azure våren Cloud som distribueras i två
 
 2. Konfigurera anpassad domän för tjänst följ det [anpassade domän dokumentet](spring-cloud-tutorial-custom-domain.md) för att konfigurera en anpassad domän för dessa två befintliga tjänst instanser. När den har kon figurer ATS kommer båda tjänst instanserna att bindas till den anpassade domänen: bcdr-test.contoso.com
 
-3. Skapa en Traffic Manager och två slut punkter: [skapa en Traffic Manager profil med hjälp av Azure Portal](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
+3. Skapa en Traffic Manager och två slut punkter: [skapa en Traffic Manager profil med hjälp av Azure Portal](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 Här är Traffic Manager-profilen:
 * Traffic Manager DNS-namn: `http://asc-bcdr.trafficmanager.net`
@@ -68,4 +68,3 @@ Här är Traffic Manager-profilen:
 ## <a name="next-steps"></a>Nästa steg
 
 * [Snabb start: Distribuera ditt första Azure våren Cloud-program](spring-cloud-quickstart.md)
- 

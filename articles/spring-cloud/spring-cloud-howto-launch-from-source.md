@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: ee64343a040f4ed3288f8c4addb64c1ef2437cc1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d6c9bea3d0ff95a3cb9d8fcce41eaa6f8bbfed21
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91326192"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093947"
 ---
 # <a name="how-to-launch-your-spring-cloud-application-from-source-code"></a>Så här startar du ditt våren Cloud-program från käll koden
 
@@ -37,7 +37,7 @@ Innan du börjar ska du se till att din Azure-prenumeration har de nödvändiga 
 1. [Installera Git](https://git-scm.com/)
 2. [Installera JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 3. [Installera maven 3,0 eller senare](https://maven.apache.org/download.cgi)
-4. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+4. [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/free/)
 
 > [!TIP]

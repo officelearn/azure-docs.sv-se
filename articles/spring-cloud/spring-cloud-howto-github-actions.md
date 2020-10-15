@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 9e635d606870d09e9aac82de7da32e074b124159
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fd792684150598449deabd14c0e19f266597bd9
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906952"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093981"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Azure våren Cloud CI/CD med GitHub-åtgärder
 
 GitHub-åtgärder har stöd för ett arbets flöde för automatisk program varu utvecklings livs cykel. Med GitHub-åtgärder för Azure våren Cloud kan du skapa arbets flöden i din lagrings plats för att skapa, testa, paketera, lansera och distribuera dem till Azure. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Det här exemplet kräver [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+Det här exemplet kräver [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 ::: zone pivot="programming-language-csharp"
 ## <a name="set-up-github-repository-and-authenticate"></a>Konfigurera GitHub-lagringsplatsen och autentisera
@@ -289,7 +289,7 @@ jobs:
 ```
 
 ## <a name="deploy-with-maven-plugin"></a>Distribuera med maven-plugin-programmet
-Ett annat alternativ är att använda [maven-plugin-programmet](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart) för att distribuera jar-och uppdaterings inställningarna för appen. Kommandot `mvn azure-spring-cloud:deploy` är idempotenta och kommer automatiskt att skapa appar om det behövs. Du behöver inte skapa motsvarande appar i förväg.
+Ett annat alternativ är att använda [maven-plugin-programmet](./spring-cloud-quickstart.md) för att distribuera jar-och uppdaterings inställningarna för appen. Kommandot `mvn azure-spring-cloud:deploy` är idempotenta och kommer automatiskt att skapa appar om det behövs. Du behöver inte skapa motsvarande appar i förväg.
 
 ```
 name: AzureSpringCloud
@@ -340,5 +340,5 @@ Om åtgärden körs som ett fel, till exempel om du inte har angett Azure-autent
 ## <a name="next-steps"></a>Nästa steg
 
 * [Key Vault för GitHub-åtgärder för våren Cloud](./spring-cloud-github-actions-key-vault.md)
-* [Azure Active Directory tjänstens huvud namn](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest&preserve-view=true#az-ad-sp-create-for-rbac)
+* [Azure Active Directory tjänstens huvud namn](/cli/azure/ad/sp?preserve-view=true&view=azure-cli-latest#az-ad-sp-create-for-rbac)
 * [GitHub-åtgärder för Azure](https://github.com/Azure/actions/)

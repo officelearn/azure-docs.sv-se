@@ -8,19 +8,19 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: df59d944a15e22e9884b0d177deedb9968ea1aef
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6bdf008c13a1466ec47134c303902a1f9d19545b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994993"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072772"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Utvecklarguide för Azure Key Vault
 
 Med Key Vault kan du på ett säkert sätt komma åt känslig information i dina program:
 
 - Nycklar, hemligheter och certifikat skyddas utan att du behöver skriva koden själv och du kan enkelt använda dem från dina program.
-- Du kan låta kunderna äga och hantera egna nycklar, hemligheter och certifikat så att du kan koncentrera dig på att tillhandahålla viktiga program varu funktioner. På så sätt kommer dina program inte att äga ansvar eller potentiella ansvar för kundernas klient nycklar, hemligheter och certifikat.
+- Du låter kunderna äga och hantera sina egna nycklar, hemligheter och certifikat så att du kan koncentrera dig på att tillhandahålla viktiga program varu funktioner. På så sätt kommer dina program inte att äga ansvar eller potentiella ansvar för kundernas klient nycklar, hemligheter och certifikat.
 - Ditt program kan använda nycklar för signering och kryptering och samtidigt behålla nyckel hanteringen som är extern från ditt program. Mer information om nycklar finns i [om nycklar](../keys/about-keys.md)
 - Du kan hantera autentiseringsuppgifter, t. ex. lösen ord, åtkomst nycklar, SAS-token som lagrar dem i Key Vault som hemligheter, se [om hemligheter](../secrets/about-secrets.md)
 - Hantera certifikat. Mer information finns i [om certifikat](../certificates/about-certificates.md)

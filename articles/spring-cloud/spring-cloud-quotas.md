@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 7c4c832819f61d208d0722823d0a74354960f182
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 496f2e812a102e85fea92a535552daaaadf5f31e
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904270"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093437"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Kvoter och service planer för Azure våren Cloud
 
@@ -32,4 +32,4 @@ Beständiga volymer | 1 GB/app x 10-appar | 50 GB/app x 10-appar
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vissa standard gränser kan ökas. Om installationen kräver en ökning skapar du [en support förfrågan](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Vissa standard gränser kan ökas. Om installationen kräver en ökning skapar du [en support förfrågan](../azure-portal/supportability/how-to-create-azure-support-request.md).

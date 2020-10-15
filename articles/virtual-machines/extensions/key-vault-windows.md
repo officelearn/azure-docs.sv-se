@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1e7a58ba5e858b44f137834b2e1ab5472b9d0965
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2595c79c024ea7583f6c6a263dcf4f6034ba6df9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970086"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072296"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Key Vault tillägg för virtuell dator för Windows
 
@@ -85,7 +85,7 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Namn | Värde/exempel | Datatyp |
+| Name | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | utgivare | Microsoft.Azure.KeyVault | sträng |
@@ -106,6 +106,10 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 Azure VM-tillägg kan distribueras med Azure Resource Manager mallar. Mallar är idealiska när du distribuerar en eller flera virtuella datorer som kräver uppdatering av certifikat. Tillägget kan distribueras till enskilda virtuella datorer eller skalnings uppsättningar för virtuella datorer. Schemat och konfigurationen är gemensamma för båda typerna av mallar. 
 
 JSON-konfigurationen för ett tillägg för virtuell dator måste kapslas i den virtuella datorns resurs fragment, särskilt `"resources": []` objekt för mallen för den virtuella datorn och i händelse av skalnings uppsättning för virtuella datorer under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` objekt.
+
+ > [!NOTE]
+> VM-tillägget kräver att system-eller användarens hanterade identitet tilldelas till autentisering till Key Vault.  Se [hur du autentiserar till Key Vault och tilldelar en Key Vault åtkomst princip.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+> 
 
 ```json
     {
@@ -201,9 +205,9 @@ Azure CLI kan användas för att distribuera Key Vault VM-tillägget till en bef
 
    ```azurecli
         # Start the deployment
-        az vmss extension set -n "KeyVaultForWindows" `
+        az vmss extension set -name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         -g "<resourcegroup>" `
+         -resource-group "<resourcegroup>" `
          --vmss-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```

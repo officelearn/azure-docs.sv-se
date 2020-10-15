@@ -3,12 +3,12 @@ title: Översikt över säkerhetsfunktioner
 description: Lär dig mer om säkerhetsfunktioner i Azure Backup som hjälper dig att skydda dina säkerhets kopierings data och uppfylla verksamhetens säkerhets behov.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 62f4e6783d4c2c2e09b7b4cbb41ae98ac2779ebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c4d3af9205df43c3596da64d7fcad2a9eb82500
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012559"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093352"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Översikt över säkerhetsfunktioner i Azure Backup
 
@@ -16,7 +16,7 @@ Ett av de viktigaste stegen som du kan vidta för att skydda dina data är att h
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Hantering och kontroll av identitets-och användar åtkomst
 
-De lagrings konton som används av Recovery Services-valven är isolerade och kan inte användas av användare i något skadligt syfte. Åtkomst tillåts endast via Azure Backup hanterings åtgärder, till exempel Restore. Med Azure Backup kan du styra de hanterade åtgärderna genom detaljerad åtkomst med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](./backup-rbac-rs-vault.md). Med RBAC kan du åtskilja uppgifter i ditt team och bara ge åtkomst till de användare som krävs för att utföra sina jobb.
+De lagrings konton som används av Recovery Services-valven är isolerade och kan inte användas av användare i något skadligt syfte. Åtkomst tillåts endast via Azure Backup hanterings åtgärder, till exempel Restore. Med Azure Backup kan du styra de hanterade åtgärderna genom detaljerad åtkomst med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](./backup-rbac-rs-vault.md). Med Azure RBAC kan du åtskilja uppgifter i ditt team och endast bevilja åtkomst till de användare som krävs för att utföra sina jobb.
 
 Azure Backup innehåller tre [inbyggda roller](../role-based-access-control/built-in-roles.md) för att kontrol lera säkerhets kopierings hanterings åtgärder:
 
@@ -24,7 +24,7 @@ Azure Backup innehåller tre [inbyggda roller](../role-based-access-control/buil
 * Ansvarig för säkerhets kopiering – allt en deltagare gör, förutom att ta bort säkerhets kopiering och hantera säkerhets kopierings principer
 * Säkerhets kopierings läsare – behörigheter för att visa alla säkerhets kopierings hanterings åtgärder
 
-Lär dig mer om [rollbaserad åtkomst kontroll för att hantera Azure Backup](./backup-rbac-rs-vault.md).
+Lär dig mer om [rollbaserad åtkomst kontroll i Azure för att hantera Azure Backup](./backup-rbac-rs-vault.md).
 
 Azure Backup har flera säkerhets kontroller som är inbyggda i tjänsten för att förhindra, identifiera och reagera på säkerhets risker. Läs mer om [säkerhets kontroller för Azure Backup](./backup-security-controls.md).
 
@@ -64,7 +64,7 @@ Azure Backup innehåller [inbyggda övervaknings-och aviserings funktioner](./ba
 
 ## <a name="security-features-to-help-protect-hybrid-backups"></a>Säkerhetsfunktioner som hjälper dig att skydda hybrid säkerhets kopieringar
 
-Azure Backup tjänsten använder MARS-agenten (Microsoft Azure Recovery Services) för att säkerhetskopiera och återställa filer, mappar och volym eller system tillstånd från en lokal dator till Azure. MARS innehåller nu säkerhetsfunktioner som hjälper dig att skydda hybrid säkerhets kopieringar. Dessa funktioner omfattar bland annat:
+Azure Backup tjänsten använder MARS-agenten (Microsoft Azure Recovery Services) för att säkerhetskopiera och återställa filer, mappar och volym eller system tillstånd från en lokal dator till Azure. MARS innehåller nu säkerhetsfunktioner som hjälper dig att skydda hybrid säkerhets kopieringar. Här är några av funktionerna:
 
 * Ytterligare ett lager med autentisering läggs till när en kritisk åtgärd som att ändra en lösen fras utförs. Den här verifieringen är till för att säkerställa att sådana åtgärder bara kan utföras av användare som har giltiga autentiseringsuppgifter för Azure. [Läs mer om de funktioner som förhindrar attacker](./backup-azure-security-feature.md#prevent-attacks).
 

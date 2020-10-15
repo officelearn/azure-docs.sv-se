@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: f501eb55f72811063ddf1d8e02a0ce2137d598f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9477b11b52431211dc91a0ea6ff0767a9d495be
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80546316"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073605"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Översikt över acceleratorn för fjärrövervakningslösning
 
@@ -106,7 +106,7 @@ Tjänsten tillhandahåller en RESTful-slutpunkt för CRUD-åtgärder i nyckel/v�
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Distributioner av Solution Accelerator använder [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) för att lagra regler, aviseringar, konfigurations inställningar och all annan kall lagring.
+Distributioner av Solution Accelerator använder [Azure Cosmos DB](../cosmos-db/index.yml) för att lagra regler, aviseringar, konfigurations inställningar och all annan kall lagring.
 
 ### <a name="azure-stream-analytics-manager-microservice"></a>Mikrotjänst för Azure Stream Analytics Manager
 
@@ -120,11 +120,11 @@ ASA-jobben levererar Telemetrin från de anslutna enheterna till Time Series Ins
 
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
-[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) är en händelse bearbetnings motor som gör att du kan undersöka stora mängder data som strömmas från enheter.
+[Azure Stream Analytics](../stream-analytics/index.yml) är en händelse bearbetnings motor som gör att du kan undersöka stora mängder data som strömmas från enheter.
 
 ### <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
-[Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) lagrar Telemetrin från de enheter som är anslutna till Solution Accelerator. Det möjliggör också visualisering och frågekörning av enhets telemetri i lösningens webb gränssnitt.
+[Azure Time Series Insights](../time-series-insights/index.yml) lagrar Telemetrin från de enheter som är anslutna till Solution Accelerator. Det möjliggör också visualisering och frågekörning av enhets telemetri i lösningens webb gränssnitt.
 
 ### <a name="configuration-microservice"></a>Konfigurations mikrotjänst
 
@@ -136,7 +136,7 @@ ASA-jobben levererar Telemetrin från de anslutna enheterna till Time Series Ins
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Vid distributioner av Solution Accelerator används [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) som OpenID Connect-Provider. Azure Active Directory lagrar användar information och innehåller certifikat för att validera JWT-token-signaturer.
+Vid distributioner av Solution Accelerator används [Azure Active Directory](../active-directory/index.yml) som OpenID Connect-Provider. Azure Active Directory lagrar användar information och innehåller certifikat för att validera JWT-token-signaturer.
 
 ## <a name="presentation"></a>Presentation
 

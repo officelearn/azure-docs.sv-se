@@ -3,12 +3,12 @@ title: Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 description: Beskriver hur du säkerhetskopierar och återställer virtuella Azure-datorer med hjälp av Azure Backup med PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 87d655652d0207a50f8980f18d18e76fea0b1e21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ded2bc8a71bf564e31f40ca9f0d6c8049188768b
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975094"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094100"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 
@@ -529,7 +529,7 @@ När du har återställt diskarna kan du använda följande steg för att skapa 
 > [!NOTE]
 >
 > 1. AzureAz-modulen 3.0.0 eller högre krävs. <br>
-> 2. För att skapa krypterade virtuella datorer från återställda diskar måste din Azure-roll ha behörighet att utföra åtgärden, **Microsoft. nyckel valv/valv/distribuera/åtgärd**. Om rollen inte har den här behörigheten skapar du en anpassad roll med den här åtgärden. Mer information finns i [anpassade roller i Azure RBAC](../role-based-access-control/custom-roles.md). <br>
+> 2. För att skapa krypterade virtuella datorer från återställda diskar måste din Azure-roll ha behörighet att utföra åtgärden, **Microsoft. nyckel valv/valv/distribuera/åtgärd**. Om rollen inte har den här behörigheten skapar du en anpassad roll med den här åtgärden. Mer information finns i [Azure-anpassade roller](../role-based-access-control/custom-roles.md). <br>
 > 3. När du har återställt diskarna kan du nu hämta en distributionsmall som du kan använda direkt för att skapa en ny virtuell dator. Du behöver inte andra PowerShell-cmdletar för att skapa hanterade/ohanterade virtuella datorer som är krypterade/okrypterade.<br>
 > <br>
 

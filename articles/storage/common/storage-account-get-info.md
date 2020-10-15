@@ -10,16 +10,16 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8fa1e258b07ab98040cbbc5217be789e0bb1b783
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17f18f84ac1c1738f8c248bb0071c748e15dacf3
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020141"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090938"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>Hämta lagrings konto typ och SKU-namn med .NET
 
-Den här artikeln visar hur du hämtar Azure Storage konto typ och SKU-namn för en blob med hjälp av [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Den här artikeln visar hur du hämtar Azure Storage konto typ och SKU-namn för en blob med hjälp av [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage).
 
 Konto information finns på tjänst versioner som börjar med version 2018-03-28.
 
@@ -27,11 +27,11 @@ Konto information finns på tjänst versioner som börjar med version 2018-03-28
 
 **Kontotyp**: giltiga konto typer är,,,, `BlobStorage` `BlockBlobStorage` `FileStorage` `Storage` och `StorageV2` . [Översikt över Azure Storage-kontot](storage-account-overview.md) innehåller mer information, inklusive beskrivningar av de olika lagrings kontona.
 
-**SKU-namn**: giltiga SKU-namn är,,,,,, `Premium_LRS` `Premium_ZRS` `Standard_GRS` `Standard_GZRS` `Standard_LRS` `Standard_RAGRS` `Standard_RAGZRS` och `Standard_ZRS` . SKU-namn är Skift läges känsliga och är sträng fält i [klassen SkuName](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet).
+**SKU-namn**: giltiga SKU-namn är,,,,,, `Premium_LRS` `Premium_ZRS` `Standard_GRS` `Standard_GZRS` `Standard_LRS` `Standard_RAGRS` `Standard_RAGZRS` och `Standard_ZRS` . SKU-namn är Skift läges känsliga och är sträng fält i [klassen SkuName](/dotnet/api/microsoft.azure.management.storage.models.skuname).
 
 ## <a name="retrieve-account-information"></a>Hämta konto information
 
-Om du vill hämta lagrings konto typen och det SKU-namn som är associerat med en BLOB anropar du metoden [GetAccountProperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties?view=azure-dotnet) eller [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync?view=azure-dotnet) .
+Om du vill hämta lagrings konto typen och det SKU-namn som är associerat med en BLOB anropar du metoden [GetAccountProperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties) eller [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync) .
 
 I följande kod exempel hämtas och visas de skrivskyddade konto egenskaperna.
 

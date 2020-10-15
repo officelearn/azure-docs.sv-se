@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 3c5084ff770f27438c85b7bc57cef0145182abb4
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 4a66db34adb4eb751abc741964b740b3b6f48c69
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873157"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073741"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Felsöka verifiering av utgivare
 Om du inte kan slutföra processen eller har oväntad funktion med [utgivar verifieringen](publisher-verification-overview.md), bör du börja med att göra följande om du får fel eller om du får oväntade beteenden: 
@@ -33,7 +33,7 @@ Om du inte kan slutföra processen eller har oväntad funktion med [utgivar veri
 ## <a name="common-issues"></a>Vanliga problem
 Nedan visas några vanliga problem som kan uppstå under processen. 
 
-- **Jag känner inte till mitt Microsoft Partner Network-ID (MPN-ID) eller jag vill inte vem den primära kontakten för kontot är** 
+- **Jag känner inte till mitt Microsoft Partner Network-ID (MPN-ID) eller jag vet inte vem den primära kontakten för kontot är** 
     1. Gå till [sidan för MPN-registrering](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)
     1. Logga in med ett användar konto i organisationens primära Azure AD-klient 
     1. Om det redan finns ett MPN-konto kommer detta att identifieras och du kommer att läggas till i kontot 

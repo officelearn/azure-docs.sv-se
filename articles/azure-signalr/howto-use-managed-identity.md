@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: abe7503e7eb73d533ae901af21de001960173fb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7082744bc43baad2e26d09a83907540cf6a1df
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85559416"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094083"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Hanterade identiteter för Azure SignalR service
 
@@ -65,7 +65,7 @@ Azure SignalR service är en fullständigt hanterad tjänst, så du kan inte anv
     - [Resurs-ID för en Azure-tjänst](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication)
 
     > [!NOTE]
-    > Om du validerar en åtkomsttoken själv i tjänsten kan du välja något av resurs formaten. Se bara till att **resurs** svärdet i **autentiseringsinställningarna** och verifieringen är konsekventa. Om du använder rollbaserad åtkomst kontroll (RBAC) för ett data plan måste du använda den resurs som tjänst leverantören begär.
+    > Om du validerar en åtkomsttoken själv i tjänsten kan du välja något av resurs formaten. Se bara till att **resurs** svärdet i **autentiseringsinställningarna** och verifieringen är konsekventa. Om du använder rollbaserad åtkomst kontroll i Azure (Azure RBAC) för ett data plan måste du använda resursen som tjänst leverantören begär.
 
 ### <a name="validate-access-tokens"></a>Verifiera åtkomsttoken
 

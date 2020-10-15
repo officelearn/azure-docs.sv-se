@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 02/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: f9bc06e58fcbd93fba0c92e91b51503239b5a951
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2af63997f9ea74dfce184639d2fedb42d354fb39
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980780"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077583"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion"></a>Ansluta med SSH till en virtuell Linux-dator med Azure skydds
 
@@ -25,9 +25,9 @@ Du kan använda Azure-skydds för att ansluta till en virtuell Linux-dator med S
 
 Den privata SSH-nyckeln måste vara i ett format som börjar med  `"-----BEGIN RSA PRIVATE KEY-----"` och slutar med `"-----END RSA PRIVATE KEY-----"` .
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="prerequisites"></a>Förutsättningar
 
-Kontrol lera att du har konfigurerat en Azure skydds-värd för det virtuella nätverk där den virtuella datorn finns. Mer information finns i [skapa en Azure skydds-värd](bastion-create-host-portal.md). När skydds-tjänsten har tillhandahållits och distribuerats i det virtuella nätverket kan du använda den för att ansluta till en virtuell dator i det här virtuella nätverket. 
+Kontrol lera att du har konfigurerat en Azure skydds-värd för det virtuella nätverk där den virtuella datorn finns. Mer information finns i [skapa en Azure skydds-värd](./tutorial-create-host-portal.md). När skydds-tjänsten har tillhandahållits och distribuerats i det virtuella nätverket kan du använda den för att ansluta till en virtuell dator i det här virtuella nätverket. 
 
 När du använder skydds för att ansluta antar det att du använder RDP för att ansluta till en virtuell Windows-dator och SSH för att ansluta till dina virtuella Linux-datorer. Information om hur du ansluter till en virtuell Windows-dator finns i [ansluta till en VM-Windows](bastion-connect-vm-rdp.md).
 
@@ -50,7 +50,7 @@ För att kunna ansluta till den virtuella Linux-datorn via SSH måste du ha föl
 1. Öppna [Azure-portalen](https://portal.azure.com). Navigera till den virtuella dator som du vill ansluta till och klicka sedan på **Anslut** och välj **skydds** i list rutan.
 
    ![Skärm bild som visar en översikt över en virtuell dator i Azure Portal med Anslut valt.](./media/bastion-connect-vm-ssh/connect.png)
-1. När du klickar på skydds visas ett sido fält med tre flikar – RDP, SSH och skydds. Om skydds etablerades för det virtuella nätverket är fliken skydds aktiv som standard. Om du inte etablerar skydds för det virtuella nätverket, se [Konfigurera skydds](bastion-create-host-portal.md).
+1. När du klickar på skydds visas ett sido fält med tre flikar – RDP, SSH och skydds. Om skydds etablerades för det virtuella nätverket är fliken skydds aktiv som standard. Om du inte etablerar skydds för det virtuella nätverket, se [Konfigurera skydds](./tutorial-create-host-portal.md).
 
    ![Skärm bild som visar dialog rutan Anslut till virtuell dator med skydds valt.](./media/bastion-connect-vm-ssh/bastion.png)
 1. Ange användar namn och lösen ord för SSH till den virtuella datorn.
@@ -61,7 +61,7 @@ För att kunna ansluta till den virtuella Linux-datorn via SSH måste du ha föl
 1. Öppna [Azure-portalen](https://portal.azure.com). Navigera till den virtuella dator som du vill ansluta till och klicka sedan på **Anslut** och välj **skydds** i list rutan.
 
    ![Skärm bild som visar en översikt över en virtuell dator i Azure Portal med Anslut valt.](./media/bastion-connect-vm-ssh/connect.png)
-1. När du klickar på skydds visas ett sido fält med tre flikar – RDP, SSH och skydds. Om skydds etablerades för det virtuella nätverket är fliken skydds aktiv som standard. Om du inte etablerar skydds för det virtuella nätverket, se [Konfigurera skydds](bastion-create-host-portal.md).
+1. När du klickar på skydds visas ett sido fält med tre flikar – RDP, SSH och skydds. Om skydds etablerades för det virtuella nätverket är fliken skydds aktiv som standard. Om du inte etablerar skydds för det virtuella nätverket, se [Konfigurera skydds](./tutorial-create-host-portal.md).
 
    ![Skärm bild som visar dialog rutan Anslut till virtuell dator med skydds valt.](./media/bastion-connect-vm-ssh/bastion.png)
 1. Ange användar namnet och välj **privat SSH-nyckel**.
@@ -73,7 +73,7 @@ För att kunna ansluta till den virtuella Linux-datorn via SSH måste du ha föl
 1. Öppna [Azure-portalen](https://portal.azure.com). Navigera till den virtuella dator som du vill ansluta till och klicka sedan på **Anslut** och välj **skydds** i list rutan.
 
    ![Skärm bild som visar en översikt över en virtuell dator i Azure Portal med Anslut valt.](./media/bastion-connect-vm-ssh/connect.png)
-1. När du klickar på skydds visas ett sido fält med tre flikar – RDP, SSH och skydds. Om skydds etablerades för det virtuella nätverket är fliken skydds aktiv som standard. Om du inte etablerar skydds för det virtuella nätverket, se [Konfigurera skydds](bastion-create-host-portal.md).
+1. När du klickar på skydds visas ett sido fält med tre flikar – RDP, SSH och skydds. Om skydds etablerades för det virtuella nätverket är fliken skydds aktiv som standard. Om du inte etablerar skydds för det virtuella nätverket, se [Konfigurera skydds](./tutorial-create-host-portal.md).
 
    ![Skärm bild som visar dialog rutan Anslut till virtuell dator med skydds valt.](./media/bastion-connect-vm-ssh/bastion.png)
 1. Ange användar namnet och välj **SSH privat nyckel från lokal fil**.

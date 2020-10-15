@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: kenwith
-ms.openlocfilehash: e789810240b1a537e8cc3a18351f0b2a066cb4e1
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 159a473b2b164d1f0692864e26f6127d9faf8287
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018873"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069882"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attribut för användar etablering för SaaS-program i Azure Active Directory
 
@@ -129,7 +129,7 @@ När du redigerar listan över attribut som stöds anges följande egenskaper:
 - **Flera värden?** – Anger om attributet stöder flera värden.
 - **Exakt fall?** – Om attributvärdena utvärderas på ett skift läges känsligt sätt.
 - **API-uttryck** – Använd inte, om det inte instrueras att göra det i dokumentationen för en speciell etablerings anslutning (till exempel Workday).
-- **Refererat objektattribut** – om det är ett attribut för referens typ kan du välja tabell och attribut i mål programmet som innehåller värdet som är kopplat till attributet. Om du till exempel har ett attribut med namnet "avdelning" vars lagrade värde refererar till ett objekt i en separat "avdelnings tabell" väljer du "Departments.Name". Referens tabellerna och de primära ID-fälten som stöds för ett angivet program är förkonfigurerade och kan för närvarande inte redige ras med hjälp av Azure Portal, men det går att redigera med hjälp av [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+- **Refererat objektattribut** – om det är ett attribut för referens typ kan du välja tabell och attribut i mål programmet som innehåller värdet som är kopplat till attributet. Om du till exempel har ett attribut med namnet "avdelning" vars lagrade värde refererar till ett objekt i en separat "avdelnings tabell" väljer du "Departments.Name". Referens tabellerna och de primära ID-fälten som stöds för ett angivet program är förkonfigurerade och kan för närvarande inte redige ras med hjälp av Azure Portal, men det går att redigera med hjälp av [Microsoft Graph API](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Etablering av ett anpassat tilläggs-attribut för ett SCIM-kompatibelt program
 SCIM RFC definierar en kärn användare och ett grupp schema, samtidigt som tilläggen till schemat kan uppfylla ditt programs behov. Så här lägger du till ett anpassat attribut i ett SCIM-program:

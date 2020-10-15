@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: d606d29d84cd5917c74efe188ae02627ad55d4ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f6c9fe2146414f78e90d6ade1a00045cdf3a04f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75442378"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078025"
 ---
 # <a name="authorize-access-using-google-oauth-token"></a>Auktorisera åtkomst med hjälp av Google OAuth-token
 
-Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du auktoriserar åtkomst till dina slut punkter med Google som en OAuth-token-Provider. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
+Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du auktoriserar åtkomst till dina slut punkter med Google som en OAuth-token-Provider. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-reference.md).
 
-## <a name="policy"></a>Princip
+## <a name="policy"></a>Policy
 
 Klistra in koden i det **inkommande** blocket.
 
@@ -35,5 +35,4 @@ Klistra in koden i det **inkommande** blocket.
 Läs mer om APIM-principer:
 
 + [Omvandlingsprinciper](../api-management-transformation-policies.md)
-+ [Princip exempel](../policy-samples.md)
-
++ [Princip exempel](../policy-reference.md)

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: a83532e2dd6fc8e83206a3b4a055170b40d131fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec043c97da8056fee4af8f6ead84f4df05c0f304
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803525"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079028"
 ---
 # <a name="create-technical-assets-for-an-azure-marketplace-virtual-machine-offer"></a>Skapa tekniska till gångar för ett erbjudande för virtuella Azure Marketplace-datorer
 
@@ -146,7 +146,7 @@ Den här artikeln beskriver hur du använder det inbyggda Windows RDP-stödet f�
 
 ### <a name="connect-to-a-linux-based-vm"></a>Ansluta till en Linux-baserad virtuell dator
 
-Om du vill ansluta till en Linux-baserad virtuell dator behöver du en SSH-klient (Secure Shell Protocol). I följande steg används den kostnads fria SHH-terminalen för [SparaTillFil](https://www.ssh.com/ssh/putty/) .
+Om du vill ansluta till en Linux-baserad virtuell dator behöver du en SSH-klient (Secure Shell Protocol). I följande steg används den kostnads fria filen för [SparaTillFil](https://www.ssh.com/ssh/putty/) -SSH.
 
 1. Gå till [Azure-portalen](https://ms.portal.azure.com/).
 2. Sök efter och välj virtuella datorer.

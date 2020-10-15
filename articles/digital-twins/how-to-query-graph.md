@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 24229c331d0c7c4b2327e8e609e9d75b6654868f
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 127fd9a9e47a85479018524998e33f44b0a65ba8
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931995"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078484"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Skicka frågor till Azure Digitals dubbla grafer
 
@@ -75,6 +75,64 @@ JOIN LightBulb RELATED LightPanel.contains
 WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')  
 AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')  
 AND Room.$dtId IN ['room1', 'room2'] 
+```
+
+### <a name="specify-return-set-with-projections"></a>Ange retur uppsättning med projektioner
+
+Med hjälp av projektioner kan du välja vilka kolumner som en fråga ska returnera. 
+
+>[!NOTE]
+>För tillfället stöds inte komplexa egenskaper. För att se till att projektions egenskaperna är giltiga kombinerar du projektionerna med en `IS_PRIMITIVE` bock. 
+
+Här är ett exempel på en fråga som använder projektion för att returnera dubbla och relationer. Följande fråga projekterar *konsumenten*, *fabriken* och *Edge* från ett scenario där en *fabrik* med ID: t *ABC* är relaterad till *konsumenten* via en relation av *fabriken. kunden*och relationen presenteras som en *gräns*.
+
+```sql
+SELECT Consumer, Factory, Edge 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+```
+
+Du kan också använda projektion för att returnera en dubbels egenskap. I följande fråga visas *namn* egenskapen för de *konsumenter* som är relaterade till *fabriken* med ID: t *ABC* via en relation av *Factory. Custom*. 
+
+```sql
+SELECT Consumer.name 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Consumer.name)
+```
+
+Du kan också använda projektion för att returnera en egenskap för en relation. Som i föregående exempel projekt i följande fråga projektets *namn* egenskap för de *konsumenter* som är relaterade till *fabriken* med ID: t *ABC* genom en relation mellan *fabrik. kund*; men nu returnerar den även två egenskaper för relationen, *prop1* och *prop2*. Det gör detta genom att namnge Relations *kanten* och samla in dess egenskaper.  
+
+```sql
+SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)
+```
+
+Du kan också använda alias för att förenkla frågor med projektion.
+
+Följande fråga utför samma åtgärder som i föregående exempel, men ger alias för egenskaps namnen till `consumerName` , `first` `second` och `factoryArea` . 
+ 
+```sql
+SELECT Consumer.name AS consumerName, Edge.prop1 AS first, Edge.prop2 AS second, Factory.area AS factoryArea 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)" 
+```
+
+Här är en liknande fråga som frågar samma uppsättning som ovan, men projekterar endast egenskapen *Consumer.name* som `consumerName` , och projekterar hela *fabriken* som en dubbel. 
+
+```sql
+SELECT Consumer.name AS consumerName, Factory 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) 
 ```
 
 ### <a name="query-by-property"></a>Fråga efter egenskap
@@ -230,7 +288,7 @@ Följande operatorer stöds:
 | Jämförelse |=,! =, <, >, <=, >= |
 | Innehåller | I, NOM |
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>Funktioner
 
 Följande typ av kontroll och data typs funktioner stöds:
 

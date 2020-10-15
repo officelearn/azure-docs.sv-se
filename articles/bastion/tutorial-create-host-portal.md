@@ -1,5 +1,5 @@
 ---
-title: 'Skapa en Azure skydds-värd: virtuell Windows-dator: Portal'
+title: 'Självstudie: skapa en Azure skydds-värd: virtuell Windows-dator: Portal'
 description: I den här artikeln får du lära dig hur du skapar en Azure skydds-värd och ansluter till en virtuell Windows-dator.
 services: bastion
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: c5361a777b2fdab20fab70214ddcb3bbf5248acb
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: daf3b6c36b191f52f0d7ac7638ef59695325f541
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015267"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078552"
 ---
 # <a name="tutorial-create-an-azure-bastion-host-and-connect-to-a-windows-vm-through-a-browser"></a>Självstudie: skapa en Azure skydds-värd och Anslut till en virtuell Windows-dator via en webbläsare
 
@@ -87,4 +87,7 @@ Om du inte kommer att fortsätta att använda det här programmet tar du bort di
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du skapat en skydds-värd och kopplat den till ett virtuellt nätverk och anslutit till en virtuell Windows-dator. Du kan välja att använda nätverks säkerhets grupper med ditt Azure skydds-undernät. För att göra det, se [arbeta med NSG: er](bastion-nsg.md).
+I den här självstudien har du skapat en skydds-värd och kopplat den till ett virtuellt nätverk, sedan ansluten till en virtuell Windows-dator. Du kan välja att använda nätverks säkerhets grupper med ditt Azure skydds-undernät. För att göra det, se:
+
+> [!div class="nextstepaction"]
+> [Arbeta med nätverkssäkerhetsgrupper](bastion-nsg.md)

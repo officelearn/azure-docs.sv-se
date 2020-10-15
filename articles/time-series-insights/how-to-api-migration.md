@@ -10,18 +10,21 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: shresha
-ms.openlocfilehash: 30c3fa837f84ff318e9a03a8a11ef6259890f4bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1effb62619f9767cc90c99e037445e7a95981460
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653748"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078246"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrera till nya Azure Time Series Insights Gen2 API-versioner
 
 ## <a name="overview"></a>Översikt
 
-Om du har skapat en Azure Time Series Insights Gen2-miljö när den var i en offentlig för hands version (före den 16 juli 2020) kan du uppdatera din TSD-miljö för att använda de nya allmänt tillgängliga versionerna av API: er genom att följa stegen som beskrivs i den här artikeln.
+Om du har skapat en Azure Time Series Insights Gen2-miljö när den var i en offentlig för hands version (före den 16 juli 2020) kan du uppdatera din TSD-miljö för att använda de nya allmänt tillgängliga versionerna av API: er genom att följa stegen som beskrivs i den här artikeln. Den här ändringen påverkar inte användare som använder gen1-versionen av Azure Time Series Insights.
+
+> [!IMPORTANT]
+> Uppdateringarna som beskrivs i den här artikeln uppgraderar bara de API-versioner som används i TSD-miljön. Den här ändringen är inte relaterad till nya [JSON-förenklingar och undantags regler](https://docs.microsoft.com/azure/time-series-insights/concepts-json-flattening-escaping-rules) som introduceras i Gen2-miljöer.
 
 Den nya API-versionen är `2020-07-31` och använder en uppdaterad [syntax för Time Series-uttryck](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
@@ -382,6 +385,6 @@ Om du ser följande fel använder du den nya API-versionen (), `2020-07-31` men 
 }
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Testa din miljö via [Azure Time Series Insights Explorer](./concepts-ux-panels.md) eller via ditt anpassade program.

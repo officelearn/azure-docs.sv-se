@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: article
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: 5ec06960e695abfa4bf004633b1f171214a5d29a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbd274f6b039ef4492068d939c755ab279c2830a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91286658"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070000"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Självstudie: konfigurera attributet Skriv-back från Azure AD till SAP SuccessFactors
 Syftet med den här självstudien är att Visa stegen för att skriva tillbaka attribut från Azure AD till SAP SuccessFactors personal Central. 
@@ -324,13 +324,23 @@ När SuccessFactors-konfigurationen har slutförts kan du aktivera etablerings t
 
 1. På fliken **etablering** ställer du in **etablerings status** på **på**.
 
-2. Klicka på **Spara**.
+1. Välj **omfång**. Du kan välja något av följande alternativ: 
+   * **Synkronisera alla användare och grupper**: Välj det här alternativet om du planerar att skriva tillbaka mappade attribut för alla användare från Azure AD till SuccessFactors, enligt de definitions regler som definierats under **mappningar**  ->  **käll objekt omfånget**. 
+   * **Synkronisera endast tilldelade användare och grupper**: Välj det här alternativet om du planerar att skriva tillbaka mappade attribut för endast användare som du har tilldelat till **Application**det här programmet i  ->  **Manage**  ->  meny alternativet hantera**användare och grupper** i programmet. Dessa användare omfattas också av de definitions regler som definierats under **mappningar**  ->  **käll objekt omfånget**.
 
-3. Den här åtgärden startar den inledande synkroniseringen, vilket kan ta ett variabelt antal timmar beroende på hur många användare som finns i SuccessFactors-klienten. Du kan kontrol lera förlopps indikatorn för att följa synkroniseringens förlopp. 
+   > [!div class="mx-imgBorder"]
+   > ![Välj intervall för tillbakaskrivning](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
 
-4. Gå till fliken **gransknings loggar** i Azure Portal för att se vilka åtgärder som etablerings tjänsten har utfört. I gransknings loggarna visas alla enskilda synkroniseringsfel som utförs av etablerings tjänsten, t. ex. vilka användare som läses från personal centralen och sedan läggs till eller uppdateras till Active Directory. 
+   > [!NOTE]
+   > SuccessFactors tillbakaskrivning-appen stöder inte grupp tilldelning. Endast användar tilldelning stöds. 
 
-5. När den inledande synkroniseringen har slutförts skrivs en gransknings sammanfattnings rapport på fliken **etablering** , som visas nedan.
+1. Klicka på **Spara**.
+
+1. Den här åtgärden startar den inledande synkroniseringen, vilket kan ta ett variabelt antal timmar beroende på hur många användare som finns i Azure AD-klienten och omfattningen som definierats för åtgärden. Du kan kontrol lera förlopps indikatorn för att följa synkroniseringens förlopp. 
+
+1. Gå till fliken **etablerings loggar** i Azure Portal för att se vilka åtgärder som etablerings tjänsten har utfört. I etablerings loggarna visas alla enskilda synkroniseringsfel som utförs av etablerings tjänsten. 
+
+1. När den inledande synkroniseringen har slutförts skrivs en gransknings sammanfattnings rapport på fliken **etablering** , som visas nedan.
 
    > [!div class="mx-imgBorder"]
    > ![Förlopps indikator för etablering](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 2e5f3357baa774c9690e079a82b11d2c651ebe9b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 816cf8d385c12046a5363cf94ab5fa60e5d77e48
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87078881"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078875"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>Snabb start: Azure Key Vault klient bibliotek för .NET (SDK v3)
 
@@ -21,15 +21,7 @@ Kom igång med Azure Key Vault klient biblioteket för .NET. Följ stegen nedan 
 > [!NOTE]
 > Den här snabb starten använder v 3.0.4-versionen av klient biblioteket Microsoft. Azure. nyckel valv. Om du vill använda den senaste versionen av Key Vault klient biblioteket, se [Azure Key Vault klient bibliotek för .net (SDK v4)](quick-create-net.md). 
 
-Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Använd Key Vault klient bibliotek för .NET för att:
-
-- Öka säkerheten och kontrollen över nycklar och lösen ord.
-- Skapa och importera krypterings nycklar på några minuter.
-- Minska svars tiden med moln skalning och global redundans.
-- Förenkla och automatisera uppgifter för TLS/SSL-certifikat.
-- Använd FIPS 140-2 nivå 2-verifierade HSM: er.
-
-[API-referens dokumentation](/dotnet/api/overview/azure/key-vault?view=azure-dotnet)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)  |  [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
+[API-referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/keyvault/v3)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault/Microsoft.Azure.KeyVault)  |  [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
 
 > [!NOTE]
 > Varje nyckel valv måste ha ett unikt namn. Ersätt <ditt-unika-nyckel-valv> med namnet på nyckel valvet i följande exempel.
@@ -39,11 +31,25 @@ Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som a
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [.Net Core 3,1 SDK eller senare](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller [Azure PowerShell](/powershell/azure/)
+* [Azure CLI](/cli/azure/install-azure-cli)
 
-Den här snabb starten förutsätter att du kör `dotnet` , [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)och Windows-kommandon i en Windows Terminal (till exempel [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6)eller [Azure Cloud Shell](https://shell.azure.com/)).
+Den här snabb starten använder `dotnet` och Azure CLI
 
 ## <a name="setting-up"></a>Konfigurera
+
+### <a name="sign-in-to-azure"></a>Logga in på Azure
+
+1. Kör kommandot `login`.
+
+    ```azurecli-interactive
+    az login
+    ```
+
+    Om CLI kan öppna din standard webbläsare så gör den det och läser in en Azure-inloggnings sida.
+
+    Annars öppnar du en webb sida på [https://aka.ms/devicelogin](https://aka.ms/devicelogin) och anger den auktoriseringskod som visas i din terminal.
+
+2. Logga in med dina autentiseringsuppgifter för kontot i webbläsaren.
 
 ### <a name="create-new-net-console-app"></a>Skapa ny .NET-konsol program
 
@@ -70,10 +76,11 @@ Build succeeded.
 
 ### <a name="install-the-package"></a>Installera paketet
 
-I konsol fönstret installerar du Azure Key Vault klient biblioteket för .NET:
+I konsol fönstret installerar du Azure Key Vault klient biblioteket för .NET och [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) -biblioteket:
 
 ```console
 dotnet add package Microsoft.Azure.KeyVault
+dotnet add package Microsoft.Azure.Services.AppAuthentication
 ```
 
 I den här snabb starten behöver du även installera följande paket:
@@ -88,19 +95,17 @@ dotnet add package Microsoft.Azure.Management.ResourceManager.Fluent
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
-### <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
+#### <a name="grant-access-to-your-key-vault"></a>Bevilja åtkomst till ditt nyckel valv
 
-[!INCLUDE [Create a service principal](../../../includes/key-vault-sp-creation.md)]
+Skapa en åtkomst princip för nyckel valvet som ger hemliga behörigheter till ditt användar konto
 
-#### <a name="give-the-service-principal-access-to-your-key-vault"></a>Ge tjänstens huvud namn åtkomst till ditt nyckel valv
-
-[!INCLUDE [Give the service principal access to your key vault](../../../includes/key-vault-sp-kv-access.md)]
+```console
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+```
 
 ## <a name="object-model"></a>Objekt modell
 
 Med Azure Key Vault klient biblioteket för .NET kan du hantera nycklar och relaterade till gångar som certifikat och hemligheter. I kod exemplen nedan visas hur du ställer in en hemlighet och hämtar en hemlighet.
-
-Hela konsol programmet finns på https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet .
 
 ## <a name="code-examples"></a>Kodexempel
 
@@ -108,38 +113,26 @@ Hela konsol programmet finns på https://github.com/Azure-Samples/key-vault-dotn
 
 Lägg till följande direktiv överst i koden:
 
-[!code-csharp[Directives](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=directives)]
+```csharp
+using System;
+using System.Threading.Tasks;
+using Microsoft.Azure.KeyVault;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Azure.Management.ResourceManager.Fluent;
+using Microsoft.Azure.Management.ResourceManager.Fluent.Authentication;
+using Microsoft.Azure.Services.AppAuthentication;
+```
 
 ### <a name="authenticate-to-your-key-vault"></a>Autentisera till ditt nyckel valv
 
-Den här .NET-snabb starten använder miljövariabler för att lagra autentiseringsuppgifter som inte ska placeras i kod. 
+Konfigurera autentisering för programmet i [KeyVaultClient-klass](/dotnet/api/microsoft.azure.keyvault.keyvaultclient). I vårt exempel kommer den att använda token som tillhandahålls av `AzureServiceTokenProvider` från den inloggade användaren:
 
-Innan du skapar och kör din app använder du `setx` kommandot för att ställa in `akvClientId` `akvClientSecret` `akvTenantId` variablerna,,, och `akvSubscriptionId` för miljövariablerna i de värden som du antecknade ovan.
-
-**Windows**
-
-```console
-setx akvClientId "<your-clientID>"
-setx akvClientSecret "<your-clientSecret>"
+```csharp
+var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
+var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
 ```
 
-**Linux**
-
-```bash
-export akvClientId = "<your-clientID>"
-export akvClientSecret = "<your-clientSecret>"
-```
-
-**MacOS**
-
-```bash
-export akvClientId = "<your-clientID>"
-export akvClientSecret = "<your-clientSecret>"
-```
-
-Tilldela de här miljövariablerna till strängar i din kod och autentisera sedan ditt program genom att skicka dem till [klassen KeyVaultClient](/dotnet/api/microsoft.azure.keyvault.keyvaultclient):
-
-[!code-csharp[Authentication](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=authentication)]
+Mer information `AzureServiceTokenProvider` finns i [autentisera till Azure-tjänster](https://docs.microsoft.com/azure/key-vault/general/service-to-service-authentication#authenticating-to-azure-services)
 
 ### <a name="save-a-secret"></a>Spara en hemlighet
 
@@ -147,7 +140,7 @@ Nu när ditt program är autentiserat kan du ange en hemlighet i ditt nyckel val
 
 [!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=setsecret)]
 
-Du kan kontrol lera att hemligheten har angetts med kommandot [AZ-valvets hemliga show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) :
+Du kan kontrol lera att hemligheten har angetts med kommandot [AZ-valvets hemliga show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) :
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
@@ -173,9 +166,68 @@ az group delete -g "myResourceGroup"
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="sample-code"></a>Exempelkod
 
-I den här snabb starten skapade du ett nyckel valv, lagrat en hemlighet och hämtat hemligheten. Se [hela konsol programmet i GitHub](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet).
+Ändra .NET Core-konsolens app för att interagera med Key Vault genom att utföra följande steg:
+
+1. Ersätt koden i *Program.cs* med följande kod:
+```csharp
+using System;
+using System.Threading.Tasks;
+using Microsoft.Azure.KeyVault;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Azure.Services.AppAuthentication;
+using Microsoft.Azure.Management.ResourceManager.Fluent;
+using Microsoft.Azure.Management.ResourceManager.Fluent.Authentication;
+// </directives>
+
+namespace akvdotnet
+{
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+            Program P = new Program();
+            string secretName = "mySecret";
+
+            // kvURL must be updated to the URL of your key vault
+            string kvURL = "https://myKV.vault.azure.net";
+
+            // <authentication>
+
+            var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
+            var kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));        
+            // </authentication>
+
+
+            Console.Write("Input the value of your secret > ");
+            string secretValue = Console.ReadLine();
+
+            Console.WriteLine("Your secret is '" + secretValue + "'.");
+
+            Console.Write("Saving the value of your secret to your key vault ...");
+
+            //set secret
+            await kvClient.SetSecretAsync($"{kvURL}", secretName, secretValue);
+
+            Console.WriteLine("done.");
+
+            Console.WriteLine("Forgetting your secret.");
+            secretValue = "";
+            Console.WriteLine("Your secret is '" + secretValue + "'.");
+            Console.WriteLine("Retrieving your secret from key vault.");
+
+            //retrieve secret
+            var keyvaultSecret = await kvClient.GetSecretAsync($"{kvURL}", secretName).ConfigureAwait(false);
+
+            secretValue = keyvaultSecret.Result;
+            Console.WriteLine("Your secret is " + secretValue);
+        }
+    }
+}
+```
+
+## <a name="next-steps"></a>Nästa steg
 
 Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
 

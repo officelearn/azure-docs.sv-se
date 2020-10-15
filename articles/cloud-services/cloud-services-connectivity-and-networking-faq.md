@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 2a27161ca9a218b1f7c0e3fb51c9935438d9778e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8f57cc16cad4c0b081478932f820c983e4bbdc7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533425"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070035"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Anslutnings-och nätverks problem för Azure Cloud Services: vanliga frågor och svar
 
@@ -40,7 +40,7 @@ Nej, inte med det normala "ping"/ICMP-protokollet. ICMP-protokollet tillåts int
 
 För att testa anslutningen rekommenderar vi att du gör ett port-ping. Medan Ping.exe använder ICMP kan du använda andra verktyg, till exempel PSPing, nmap och Telnet, för att testa anslutningen till en angiven TCP-port.
 
-Mer information finns i [använda ping i Port i stället för ICMP för att testa Azure VM-anslutning](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/).
+Mer information finns i [använda ping i Port i stället för ICMP för att testa Azure VM-anslutning](/archive/blogs/mast/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity).
 
 ## <a name="how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service"></a>Hur gör jag för att inte ta emot tusentals träffar från okända IP-adresser som kan tyda på en skadlig attack till moln tjänsten?
 Azure implementerar en Multilayer nätverks säkerhet för att skydda dess plattforms tjänster mot distribuerade DDoS-attacker (Denial-of-Service). Azure DDoS försvar-systemet är en del av Azures kontinuerliga övervaknings process, som kontinuerligt förbättras genom inträngande tester. Det här DDoSt försvars systemet är utformat för att motstå inte bara angrepp från utsidan utan även från andra Azure-klienter. Mer information finns i [säkerhet för Azure-nätverk](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf).
@@ -67,7 +67,7 @@ Den distributionsmapp som används är en 5-tupel (käll-IP, källport, mål-IP,
 
 URL-modulen för att skriva över IIS kan användas för att omdirigera trafik som kommer till standard-URL: en för moln tjänsten (till exempel \* . cloudapp.net) till en viss anpassad namn/URL. Eftersom modulen URL-omskrivning är aktive rad på webb roller som standard och dess regler har kon figurer ATS i programmets web.config, är den alltid tillgänglig på den virtuella datorn oavsett omstarter/avbildningar. Mer information finns i:
 
-- [Skapa omskrivnings regler för modulen för att skriva över URL](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
+- [Skapa omskrivnings regler för modulen för att skriva över URL](/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Ta bort en standard länk](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Hur kan jag blockera/inaktivera inkommande trafik till standard-URL: en för min moln tjänst?

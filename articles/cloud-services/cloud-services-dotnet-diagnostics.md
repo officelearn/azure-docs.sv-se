@@ -11,15 +11,15 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: tagore
-ms.openlocfilehash: 397239f92e3b07669a22481b07a67d9859176b7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a015a8d56cf3991d04b212db73d5b752c13a793
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932346"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077549"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Aktivera Azure-diagnostik i Azure Cloud Services
-Se [Azure-diagnostik översikt](../azure-diagnostics.md) för en bakgrund på Azure-diagnostik.
+Se [Azure-diagnostik översikt](../azure-monitor/platform/diagnostics-extension-overview.md) för en bakgrund på Azure-diagnostik.
 
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Så här aktiverar du diagnostik i en arbets roll
 Den här genom gången beskriver hur du implementerar en Azure Worker-roll som utvärderar telemetridata med hjälp av .NET EventSource-klassen. Azure-diagnostik används för att samla in telemetri data och lagra dem i ett Azure Storage-konto. När du skapar en arbets roll aktiverar Visual Studio automatiskt diagnostik 1,0 som en del av lösningen i Azure SDK: er för .NET 2,4 och tidigare. Följande anvisningar beskriver processen för att skapa arbets rollen, inaktivera diagnostik 1,0 från lösningen och distribuera diagnostik 1,2 eller 1,3 till din arbets roll.
@@ -188,20 +188,17 @@ I Visual Studio- **Server Explorer**navigerar du till lagrings kontot för wadex
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## <a name="configuration-file-schema"></a>Konfigurations filens schema
-Konfigurations filen för diagnostik definierar värden som används för att initiera konfigurations inställningar för diagnostik när diagnostik-agenten startar. Se den [senaste schema referensen](/azure/azure-monitor/platform/diagnostics-extension-schema) för giltiga värden och exempel.
+Konfigurations filen för diagnostik definierar värden som används för att initiera konfigurations inställningar för diagnostik när diagnostik-agenten startar. Se den [senaste schema referensen](../azure-monitor/platform/diagnostics-extension-versions.md) för giltiga värden och exempel.
 
 ## <a name="troubleshooting"></a>Felsökning
-Om du har problem kan du läsa [fel sökning Azure-diagnostik](../azure-diagnostics-troubleshooting.md) för att få hjälp med vanliga problem.
+Om du har problem kan du läsa [fel sökning Azure-diagnostik](../azure-monitor/platform/diagnostics-extension-troubleshooting.md) för att få hjälp med vanliga problem.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 [Se en lista över relaterade Azure Virtual-Machine-diagnostiska artiklar](../azure-monitor/platform/diagnostics-extension-overview.md) för att ändra de data som du samlar in, felsöka problem eller Lär dig mer om diagnostik i allmänhet.
 
-[EventSource Class]: https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+[EventSource Class]: /dotnet/api/system.diagnostics.tracing.eventsource
 
 [Debugging an Azure Application]: https://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
-[Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
+[Collect Logging Data by Using Azure Diagnostics]: /previous-versions/azure/gg433048(v=azure.100)
 [Free Trial]: https://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: /powershell/azure/
-
-
-

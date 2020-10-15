@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 306a4773563b829ecad09a021f6763192e8246f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adac0d460753f24d06bffc72f9b2b38c2a3306d7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445859"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078110"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Anpassa uppsättningen standarder i din instrument panel för regelefterlevnad
 
@@ -84,6 +84,31 @@ Följande steg beskriver hur du lägger till ett paket för att övervaka efterl
     > Det kan ta några timmar innan en nyligen tillagd standard visas på instrument panelen för efterlevnad.
 
     [![Instrument panelen för kontroll av efterlevnad visar gamla och nya Azure CIS](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
+
+
+## <a name="removing-a-standard-from-your-dashboard"></a>Ta bort en standard från din instrument panel
+
+Om någon av de angivna regel standarderna inte är relevanta för din organisation, är det enkelt att ta bort dem från användar gränssnittet. På så sätt kan du ytterligare anpassa instrument panelen för kontroll av efterlevnad och bara fokusera på de standarder som gäller för dig.
+
+Så här tar du bort en standard:
+
+1. Från Security Center menyn väljer du **säkerhets princip**.
+
+1. Välj den relevanta prenumeration som du vill ta bort en standard från.
+
+    > [!NOTE]
+    > Du kan ta bort en standard från en prenumeration, men inte från en hanterings grupp. 
+
+    Sidan säkerhets princip öppnas. För den valda prenumerationen visas standard principen, branscherna och regel standarderna och eventuella anpassade initiativ som du har skapat.
+
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Ta bort en reglerande standard från instrument panelen för regler för efterlevnad i Azure Security Center":::
+
+1. Välj **inaktivera**för den standard som du vill ta bort. Ett bekräftelse fönster visas.
+
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Ta bort en reglerande standard från instrument panelen för regler för efterlevnad i Azure Security Center":::
+
+1. Välj **Ja**. Standard kommer att tas bort. 
+
 
 ## <a name="next-steps"></a>Nästa steg
 

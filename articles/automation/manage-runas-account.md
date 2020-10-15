@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 09/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3357cb40ff476a3cc0bce259930068aeccf2c10c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0849eb0c421883ecb0510451ff81b604538c9cc3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767446"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069899"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Hantera ett Kör som-konto för Azure Automation
 
@@ -214,7 +214,7 @@ Du kan låta Azure Automation verifiera om Key Vault och ditt kör som-konto-tj�
 * Bevilja behörighet till Key Vault.
 * Ange åtkomst principen.
 
-Du kan använda [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) -skriptet i PowerShell-galleriet för att ge ditt kör som-konto behörighet att Key Vault. Mer information om hur du ställer in behörigheter på Key Vault finns i [tilldela en Key Vault åtkomst princip](/azure/key-vault/general/assign-access-policy-powershell) .
+Du kan använda [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) -skriptet i PowerShell-galleriet för att ge ditt kör som-konto behörighet att Key Vault. Mer information om hur du ställer in behörigheter på Key Vault finns i [tilldela en Key Vault åtkomst princip](../key-vault/general/assign-access-policy-powershell.md) .
 
 ## <a name="resolve-misconfiguration-issues-for-run-as-accounts"></a>Lös problem med fel konfiguration för kör som-konton
 

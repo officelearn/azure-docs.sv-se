@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: 881f955014032d18fec447784a879fbf4f0e24fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 875fd40fea315269f7fe72032942c40551a6b144
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91571484"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078977"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>Anslut virtuella nätverk för flera innehavare till en virtuell WAN-hubb
 
@@ -54,7 +54,7 @@ För att den överordnade prenumerationen med den virtuella hubben ska kunna än
 1. Lägg sedan till fjärr klient prenumerationen och den överordnade klient prenumerationen i den aktuella sessionen av PowerShell. Kör följande kommando. Om du är inloggad på överordnad behöver du bara köra kommandot för fjärr klienten.
 
    ```azurepowershell-interactive
-   Add-AzAccount “xxxxx-b34a-4df9-9451-4402dcaecc5b”
+   Add-AzAccount "xxxxx-b34a-4df9-9451-4402dcaecc5b"
    ```
 
 1. Verifiera att roll tilldelningen lyckas genom att logga in på Azure PowerShell att använda de överordnade autentiseringsuppgifterna och köra följande kommando:
@@ -72,25 +72,25 @@ I följande steg växlar du mellan kontexten för de två prenumerationerna när
 1. Kontrol lera att du är i kontexten för ditt fjärrkonto genom att köra följande kommando:
 
    ```azurepowershell-interactive
-   Select-AzSubscription -SubscriptionId “[remote ID]”
+   Select-AzSubscription -SubscriptionId "[remote ID]"
    ```
 
 1. Skapa en lokal variabel för att lagra metadata för det virtuella nätverk som du vill ansluta till hubben.
 
    ```azurepowershell-interactive
-   $remote = Get-AzVirtualNetwork -Name "[v-net name]" -ResourceGroupName "[resource group name]"
+   $remote = Get-AzVirtualNetwork -Name "[vnet name]" -ResourceGroupName "[resource group name]"
    ```
 
 1. Växla tillbaka till det överordnade kontot.
 
    ```azurepowershell-interactive
-   Select-AzSubscription -SubscriptionId “[parent ID]”
+   Select-AzSubscription -SubscriptionId "[parent ID]"
    ```
 
 1. Anslut VNet till hubben.
 
    ```azurepowershell-interactive
-   New-AzVirtualHubVnetConnection -ResourceGroupName "[Parent Resource Group Name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
+   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
    ```
 
 1. Du kan visa den nya anslutningen antingen i PowerShell eller i Azure Portal.

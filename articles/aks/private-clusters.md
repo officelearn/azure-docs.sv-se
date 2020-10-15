@@ -4,12 +4,12 @@ description: Lär dig hur du skapar ett privat Azure Kubernetes service-kluster 
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 10cbd58807c213418a88b42887cdb76868eac34e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 825e97bfc80695180195fde07eaa1a25ac74b49b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015657"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078161"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Skapa ett privat Azure Kubernetes service-kluster
 
@@ -21,10 +21,9 @@ Kontroll planet eller API-servern finns i en Azure Kubernetes service (AKS)-hant
 
 Privat kluster är tillgängligt i offentliga regioner där [AKS stöds](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
-* Azure Kina 21Vianet stöds inte för närvarande.
-* US Gov, Texas stöds för närvarande inte på grund av att det saknas stöd för privata länkar.
+US Gov, Texas stöds för närvarande inte på grund av att det saknas stöd för privata länkar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure CLI-version 2.2.0 eller senare
 

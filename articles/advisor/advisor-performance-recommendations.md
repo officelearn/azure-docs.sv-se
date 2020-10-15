@@ -3,12 +3,12 @@ title: Förbättra prestanda för Azure Apps med Advisor
 description: Använd prestanda rekommendationer i Azure Advisor för att förbättra hastighet och svars tider för affärs kritiska program.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 9625bb3b063234e9cadb20aacfcc5ca8a28b35cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44252171a714acec0a9c0e83c9272b2f845560b3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91405164"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077821"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Förbättra prestanda för Azure-program med hjälp av Azure Advisor
 
@@ -142,22 +142,22 @@ Cache-instanser fungerar bäst när de inte körs under hög minnes belastning, 
 
 ## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Lägg till regioner med trafik till ditt Azure Cosmos DB-konto
 
-Advisor identifierar Azure Cosmos DB konton som har trafik från en region som inte är konfigurerad för tillfället. Vi rekommenderar att du lägger till den regionen. Detta förbättrar svars tiden för begär Anden som kommer från den regionen och garanterar tillgängligheten i händelse av region avbrott. [Läs mer om global data distribution med Azure Cosmos DB.](https://aka.ms/cosmos/globaldistribution)
+Advisor identifierar Azure Cosmos DB konton som har trafik från en region som inte är konfigurerad för tillfället. Vi rekommenderar att du lägger till den regionen. Detta förbättrar svars tiden för begär Anden som kommer från den regionen och garanterar tillgängligheten i händelse av region avbrott. [Läs mer om global data distribution med Azure Cosmos DB.](../cosmos-db/distribute-data-globally.md)
 
 ## <a name="configure-your-azure-cosmos-db-indexing-policy-by-using-custom-included-or-excluded-paths"></a>Konfigurera Azure Cosmos DB indexerings princip med hjälp av egna inkluderade eller undantagna sökvägar
 
-Advisor identifierar Azure Cosmos DB behållare som använder standard indexerings principen, men kan dra nytta av en anpassad indexerings princip. Den här bestämningen baseras på arbets belastnings mönstret. Standard indexerings principen indexerar alla egenskaper. En anpassad indexerings princip med explicit inkluderade eller undantagna sökvägar som används i Frågefilter kan minska ru: er och lagring som förbrukas för indexering. [Läs mer om hur du ändrar index principer.](https://aka.ms/cosmosdb/modify-index-policy)
+Advisor identifierar Azure Cosmos DB behållare som använder standard indexerings principen, men kan dra nytta av en anpassad indexerings princip. Den här bestämningen baseras på arbets belastnings mönstret. Standard indexerings principen indexerar alla egenskaper. En anpassad indexerings princip med explicit inkluderade eller undantagna sökvägar som används i Frågefilter kan minska ru: er och lagring som förbrukas för indexering. [Läs mer om hur du ändrar index principer.](/azure/cosmos-db/index-policy)
 
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Ange sid storlek för Azure Cosmos DB (MaxItemCount) till-1 
 
-Azure Advisor identifierar Azure Cosmos DB behållare som använder en sid storlek på 100. Vi rekommenderar att du använder en sid storlek på-1 för snabbare genomsökningar. [Läs mer om MaxItemCount.](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+Azure Advisor identifierar Azure Cosmos DB behållare som använder en sid storlek på 100. Vi rekommenderar att du använder en sid storlek på-1 för snabbare genomsökningar. [Läs mer om MaxItemCount.](../cosmos-db/sql-api-query-metrics.md)
 
 ## <a name="consider-using-accelerated-writes-feature-in-your-hbase-cluster-to-improve-cluster-performance"></a>Överväg att använda accelererade skrivningar i ditt HBase-kluster för att förbättra kluster prestanda
 Azure Advisor analyserar system loggarna under de senaste 7 dagarna och identifierar om ditt kluster har påträffat följande scenarier:
 1. Långa svarstider för WAL-synkroniseringstid 
 2. Högt antal skrivbegäranden (minst 3 fönster på en timme med över 1 000 avg_write_requests/second/node – genomsnittliga skrivbegäranden/sekund/nod)
 
-Dessa tillstånd är tecken på att klustret lider av långa skrivningssvarstider. Detta kan bero på att tung belastning utförs på klustret. För att förbättra klustrets prestanda kanske du vill överväga att använda de accelererade Skriv funktioner som tillhandahålls av Azure HDInsight HBase. Funktionen för accelererade skrivningar för HDInsight Apache HBase-kluster ansluter Premium SSD-hanterade diskar till varje RegionServer (arbetsnod) i stället för att använda molnlagring. Tack vare det får du kort skrivningssvarstid och bättre återhämtning för dina program. Läs mer om den här funktionen i [Mer information](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
+Dessa tillstånd är tecken på att klustret lider av långa skrivningssvarstider. Detta kan bero på att tung belastning utförs på klustret. För att förbättra klustrets prestanda kanske du vill överväga att använda de accelererade Skriv funktioner som tillhandahålls av Azure HDInsight HBase. Funktionen för accelererade skrivningar för HDInsight Apache HBase-kluster ansluter Premium SSD-hanterade diskar till varje RegionServer (arbetsnod) i stället för att använda molnlagring. Tack vare det får du kort skrivningssvarstid och bättre återhämtning för dina program. Läs mer om den här funktionen i [Mer information](../hdinsight/hbase/apache-hbase-accelerated-writes.md#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
 
 ## <a name="review-azure-data-explorer-table-cache-period-policy-for-better-performance-preview"></a>Granska Azure Datautforskaren Table cache-period (princip) för bättre prestanda (för hands version)
 Den här rekommendationen visar Azure Data Explorer-tabeller som har ett stort antal frågor som går tillbaka utöver den konfigurerade cacheperioden (principen) (du kommer att se de 10 främsta tabellerna efter frågeprocent som har åtkomst till data utöver cacheperioden). Den rekommenderade åtgärden för att förbättra klustrets prestanda: Begränsa frågor för den här tabellen till det minsta tidsintervallet som krävs (inom den definierade principen). Om data från hela tidsintervallet krävs ökar du cacheperioden till det rekommenderade värdet.
@@ -169,11 +169,11 @@ Advisor-analysen anger att MySQL-servern kan bli onödigt I/O-overhead på grund
 Advisor identifierar de Server grupper där data inte har distribuerats utan kvar på koordinatorn. Baserat på detta rekommenderar Advisor att för full citus-förmåner distribuerar data på arbetsnoder för dina Server grupper. Detta förbättrar prestanda för frågor genom att använda resursen för varje nod i Server gruppen. [Läs mer](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="improve-user-experience-and-connectivity-by-deploying-vms-closer-to-windows-virtual-desktop-deployment-location"></a>Förbättra användar upplevelsen och anslutningen genom att distribuera virtuella datorer närmare distributions platsen för virtuella Windows-datorer
-Vi har fastställt att dina virtuella datorer körs i en annan region än eller långt från där användarna ansluter från med hjälp av Windows Virtual Desktop (WVD). Det här kan ge långa svarstider för anslutningen vilket påverkar användarnas upplevelse av WVD. När du skapar virtuella datorer för dina värdbaserade pooler ska du försöka använda en region närmare användaren. Om du gör det blir användarna nöjdare med WVD-tjänsten och får en bättre upplevelse totalt. [Läs mer om anslutnings fördröjning här](https://docs.microsoft.com/azure/virtual-desktop/connection-latency).
+Vi har fastställt att dina virtuella datorer körs i en annan region än eller långt från där användarna ansluter från med hjälp av Windows Virtual Desktop (WVD). Det här kan ge långa svarstider för anslutningen vilket påverkar användarnas upplevelse av WVD. När du skapar virtuella datorer för dina värdbaserade pooler ska du försöka använda en region närmare användaren. Om du gör det blir användarna nöjdare med WVD-tjänsten och får en bättre upplevelse totalt. [Läs mer om anslutnings fördröjning här](../virtual-desktop/connection-latency.md).
 
 ## <a name="upgrade-to-the-latest-version-of-the-immersive-reader-sdk"></a>Uppgradera till den senaste SDK-versionen för Avancerad läsare
 Vi har upptäckt att resurser i den här prenumerationen använder inaktuella SDK-versioner för Avancerad läsare. Om du använder den senaste SDK-versionen för Avancerad läsare får du uppdaterad säkerhet, prestanda och en utökad uppsättning funktioner för att anpassa och förbättra integreringsupplevelsen.
-Lär dig mer om [SDK för avancerad läsare](https://aka.ms/ImmersiveReaderAzureAdvisorSDKLearnMore).
+Lär dig mer om [SDK för avancerad läsare](../cognitive-services/immersive-reader/index.yml).
 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Få åtkomst till prestanda rekommendationer i Advisor

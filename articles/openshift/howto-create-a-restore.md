@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: 0cd6797bcdfadca807e25f8b3decf34bd553fc56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eac34d643ba0df4be79a064858c580c884de727
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89470059"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078569"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-restore"></a>Skapa en Azure Red Hat OpenShift 4-kluster program återställning
 
@@ -23,7 +23,7 @@ I den här artikeln förbereder du din miljö för att skapa en Azure Red Hat Op
 > * Konfigurera förutsättningarna och installera nödvändiga verktyg
 > * Skapa en Azure Red Hat OpenShift 4-program återställning
 
-Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.6.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.6.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -45,7 +45,7 @@ oc get backups -n velero
 När du har den säkerhets kopia som du vill återställa måste du utföra återställningen med följande kommando:
 
 ```bash
-velero restore create --from-backup <name of backup from above output list>
+velero restore create <name of restore> --from-backup <name of backup from above output list>
 ```
 
 I det här steget skapar du Kubernetes-objekt som har säkerhetskopierats från föregående steg när du skapade en säkerhets kopia.
@@ -57,14 +57,36 @@ oc get restore -n velero <name of restore created previously> -o yaml
 ```
 När fasen säger att `Completed` ditt Azure Red Hat 4-program ska återställas.
 
+## <a name="restore-an-azure-red-hat-openshift-4-application-with-included-snapshots"></a>Återställa ett Azure Red Hat OpenShift 4-program med inkluderade ögonblicks bilder
+
+
+Om du vill skapa en återställning av ett Azure Red Hat OpenShift 4-program med permanenta volymer med Velero måste du utföra återställningen med följande kommando:
+
+```bash
+velero restore create <name of the restore> --from-backup <name of backup from above output list> --exclude-resources="nodes,events,events.events.k8s.io,backups.ark.heptio.com,backups.velero.io,restores.ark.heptio.com,restores.velero.io"
+```
+I det här steget skapar du Kubernetes-objekt som har säkerhetskopierats från föregående steg när du skapade en säkerhets kopia.
+
+Kör följande steg för att se status för återställningen:
+
+```bash
+oc get restore -n velero <name of restore created previously> -o yaml
+```
+När fasen säger att `Completed` ditt Azure Red Hat 4-program ska återställas.
+
+Mer information om hur du skapar säkerhets kopior och återställer med hjälp av Velero finns i [OpenShift-resurser för säkerhets kopiering på det inbyggda sättet](https://www.openshift.com/blog/backup-openshift-resources-the-native-way)
+
 ## <a name="next-steps"></a>Nästa steg
 
 I den här artikeln återställdes ett kluster program för Azure Red Hat OpenShift 4. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Skapa en OpenShift v4-kluster program återställning med Velero
+> * Skapa en OpenShift v4-kluster program återställning med ögonblicks bilder med hjälp av Velero
 
 
 Gå vidare till nästa artikel om du vill lära dig mer om resurser som stöds i Azure Red Hat OpenShift 4.
 
 * [Azure Red Hat OpenShift v4-resurser som stöds](supported-resources.md)
+
+

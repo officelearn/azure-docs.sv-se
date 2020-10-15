@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
-ms.openlocfilehash: c1142ef7b37dee916118964778f6c1db2a65d591
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2b903f259fdd2564fbcaed5eb0a750edf9c06e2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88719742"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075883"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Push-inställningar till app-konfiguration med Azure-pipeline
 
@@ -56,7 +56,7 @@ Tilldela rätt roll tilldelningar för program konfigurationen till de autentise
 
 Det här avsnittet beskriver hur du använder push-aktiviteten Azure App konfiguration i en pipeline för Azure DevOpss build.
 
-1. Gå till sidan för att bygga pipeline genom att klicka på pipelines **pipelines**  >  **Pipelines**. Dokumentation för att bygga pipelines finns [här](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2).
+1. Gå till sidan för att bygga pipeline genom att klicka på pipelines **pipelines**  >  **Pipelines**. Dokumentation för att bygga pipelines finns [här](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops).
       - Om du skapar en ny pipeline för bygge väljer du **Visa assistenten** på höger sida av pipelinen och söker efter push-aktiviteten **Azure App konfiguration** .
       - Om du använder en befintlig versions pipeline går du till fliken **aktiviteter** när du redigerar pipelinen och söker efter push-aktiviteten **Azure App konfiguration** .
 2. Konfigurera de nödvändiga parametrarna för uppgiften för att push-överför nyckel värden från konfigurations filen till appens konfigurations arkiv. Parametern för **konfigurations filens sökväg** börjar i roten på fil lagrings platsen.
@@ -66,10 +66,10 @@ Det här avsnittet beskriver hur du använder push-aktiviteten Azure App konfigu
 
 Det här avsnittet beskriver hur du använder push-aktiviteten Azure App konfiguration i en pipeline för Azure DevOps-utgåvor.
 
-1. Gå till sidan Frisläpp pipeline genom att välja **pipelines**-  >  **versioner**. Dokumentation för lanserings pipelines finns [här](https://docs.microsoft.com/azure/devops/pipelines/release?view=azure-devops).
+1. Gå till sidan Frisläpp pipeline genom att välja **pipelines**-  >  **versioner**. Dokumentation för lanserings pipelines finns [här](/azure/devops/pipelines/release?view=azure-devops).
 1. Välj en befintlig versions pipeline. Om du inte har någon väljer du **+ ny** för att skapa en ny.
 1. Klicka på knappen **Redigera** i det övre högra hörnet för att redigera lanserings pipelinen.
-1. Välj **scenen** för att lägga till aktiviteten. Mer information om faser hittar du [här](https://docs.microsoft.com/azure/devops/pipelines/release/environments?view=azure-devops).
+1. Välj **scenen** för att lägga till aktiviteten. Mer information om faser hittar du [här](/azure/devops/pipelines/release/environments?view=azure-devops).
 1. Välj **+** för det jobbet och Lägg sedan till åtgärden för att lägga till **Azure App konfiguration** under fliken **distribuera** .
 1. Konfigurera de nödvändiga parametrarna i aktiviteten för att skicka dina nyckel värden från konfigurations filen till appens konfigurations arkiv. Förklaringar av parametrarna finns i avsnittet **parametrar** nedan och i knapp beskrivningar bredvid varje parameter.
 1. Spara och köa en version. I versions loggen visas eventuella fel som påträffas under körningen av aktiviteten.
@@ -97,7 +97,7 @@ När du har fyllt i nödvändiga parametrar kör du pipelinen. Alla nyckel värd
 
 Om ett oväntat fel inträffar kan fel söknings loggar aktive ras genom att ställa in pipeline-variabeln `system.debug` till `true` .
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 **Hur kan jag ladda upp flera konfigurationsfiler?**
 

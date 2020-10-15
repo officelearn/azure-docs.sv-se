@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: f5dc9305df8ce0e26e13738d605849fa75cc53a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c88d21c6ad17c613c5d708bf697ae8717c9ec91
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087904"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075271"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Översikt över Hybrid Runbook Worker
 
@@ -67,7 +67,7 @@ Om du använder en brand vägg för att begränsa åtkomsten till Internet, mås
 
 ### <a name="service-tags"></a>Tjänsttaggar
 
-Azure Automation stöder service tag-Taggar i Azure Virtual Network, från och med service tag- [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Du kan använda service märken för att definiera nätverks åtkomst kontroller för [nätverks säkerhets grupper](../virtual-network/security-overview.md#security-rules) eller [Azure-brandväggen](../firewall/service-tags.md). Service märken kan användas i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet **GuestAndHybridManagement**  i rätt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för Automation-tjänsten. Den här Service tag-koden har inte stöd för att tillåta mer detaljerad kontroll genom att begränsa IP-intervallen till en speciell region.
+Azure Automation stöder service tag-Taggar i Azure Virtual Network, från och med service tag- [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Du kan använda service märken för att definiera nätverks åtkomst kontroller för [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md#security-rules) eller [Azure-brandväggen](../firewall/service-tags.md). Service märken kan användas i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet **GuestAndHybridManagement**  i rätt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för Automation-tjänsten. Den här Service tag-koden har inte stöd för att tillåta mer detaljerad kontroll genom att begränsa IP-intervallen till en speciell region.
 
 Service Tag-numret för Azure Automation-tjänsten tillhandahåller endast IP-adresser som används för följande scenarier:
 

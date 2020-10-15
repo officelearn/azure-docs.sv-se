@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 4aa1ccbd9b605850052e190949542eb014fe90a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24b249d1098788e518f5eda2d1b0d421d4e5e6bb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84763932"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072398"
 ---
 # <a name="azure-portal-overview"></a>Översikt över Azure Portal
 
@@ -54,7 +54,7 @@ Instrument paneler ger en fokuserad vy över de resurser i din prenumeration som
 
 ## <a name="getting-around-the-portal"></a>Komma runt portalen
 
-Det är bra att förstå den grundläggande portalens layout och hur du interagerar med den. Här presenterar vi komponenterna i användar gränssnittet och några av terminologin som vi använder för att ge instruktioner. En mer detaljerad genom gång av portalen finns i kurs lektionen [navigera i portalen](https://docs.microsoft.com/learn/modules/tour-azure-portal/3-navigate-the-portal).
+Det är bra att förstå den grundläggande portalens layout och hur du interagerar med den. Här presenterar vi komponenterna i användar gränssnittet och några av terminologin som vi använder för att ge instruktioner. En mer detaljerad genom gång av portalen finns i kurs lektionen [navigera i portalen](/learn/modules/tour-azure-portal/3-navigate-the-portal).
 
 Azure Portal-menyn och sidhuvudet är globala element som alltid är tillgängliga. De här permanenta funktionerna är "Shell" för användar gränssnittet som är kopplat till varje enskild tjänst eller funktion och rubriken ger till gång till globala kontroller. Konfigurations sidan (kallas ibland "blad") för en resurs kan också ha en resurs meny som hjälper dig att flytta mellan funktioner.
 

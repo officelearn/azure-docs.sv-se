@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 4909dde8efd7125a60509bb86b28f069bf6dbb24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5066169951409fa86aa75a64e8fc6d4189947f27
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87903403"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072415"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Logga händelser till Azure Event Hubs i Azure API Management
 Händelsehubbar i Azure är en mycket skalbar tjänst för dataingång som kan mata in miljontals händelser per sekund så att du kan bearbeta och analysera de enorma mängder data som dina anslutna enheter och program producerar. Event Hubs fungerar som "Front dörren" för händelse pipelinen och när data samlas in i en händelsehubben kan den transformeras och lagras med hjälp av en analys av real tids analys eller batch-/minnes kort. Händelsehubbar frikopplar produktionen av en händelseström från användningen av dessa händelser så att händelsekonsumenterna kan komma åt dem på sitt eget schema.
@@ -32,7 +32,7 @@ Detaljerade anvisningar om hur du skapar en Event Hub och hämtar anslutnings st
 ## <a name="create-an-api-management-logger"></a>Skapa en API Management-loggare
 Nu när du har en Event Hub är nästa steg att konfigurera en [loggare](/rest/api/apimanagement/2019-12-01/logger) i API Management-tjänsten så att den kan logga händelser till händelsehubben.
 
-API Management-loggar konfigureras med hjälp av [API Management REST API](https://aka.ms/apimapi). Exempel på detaljerad begäran finns i [så här skapar du loggar](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
+API Management-loggar konfigureras med hjälp av [API Management REST API](/rest/api/apimanagement/ApiManagementREST/API-Management-REST). Exempel på detaljerad begäran finns i [så här skapar du loggar](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
 ## <a name="configure-log-to-eventhub-policies"></a>Konfigurera logg-till-eventhub-principer
 

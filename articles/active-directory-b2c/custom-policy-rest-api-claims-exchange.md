@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e22a6028f5b7fa8cf81ddf0e3e2a550859aad0ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b34d5cdd95f44082d05153390209de5145e56d3f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259602"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089578"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Genom gång: Lägg till REST API Claims-utbyten till anpassade principer i Azure Active Directory B2C
 
@@ -75,7 +75,7 @@ Ett anspråk ger tillfällig lagring av data under en Azure AD B2C princip körn
 </ClaimType>
 ```
 
-## <a name="configure-the-restful-api-technical-profile"></a>Konfigurera teknisk profil för RESTful-API 
+## <a name="add-the-restful-api-technical-profile"></a>Lägg till teknisk profil för RESTful-API 
 
 En [RESTful-teknisk profil](restful-technical-profile.md) ger stöd för samverkan med din egen RESTful-tjänst. Azure AD B2C skickar data till RESTful-tjänsten i en `InputClaims` samling och tar emot data tillbaka i en `OutputClaims` samling. Hitta **ClaimsProviders** -elementet i <em>**`TrustFrameworkExtensions.xml`**</em> filen och Lägg till en ny anspråks leverantör enligt följande:
 
@@ -87,6 +87,7 @@ En [RESTful-teknisk profil](restful-technical-profile.md) ger stöd för samverk
       <DisplayName>Get user extended profile Azure Function web hook</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
+        <!-- Set the ServiceUrl with your own REST API endpoint -->
         <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/GetProfile?code=your-code</Item>
         <Item Key="SendClaimsIn">Body</Item>
         <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
@@ -107,9 +108,20 @@ En [RESTful-teknisk profil](restful-technical-profile.md) ger stöd för samverk
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
-```
+``` 
 
 I det här exemplet `userLanguage` skickas till rest-tjänsten som `lang` i JSON-nyttolasten. Värdet för `userLanguage` anspråket innehåller det aktuella användarens språk-ID. Mer information finns i [anspråk lösare](claim-resolver-overview.md).
+
+### <a name="configure-the-restful-api-technical-profile"></a>Konfigurera teknisk profil för RESTful-API 
+
+När du har distribuerat REST API ställer du in metadata för den `REST-ValidateProfile` tekniska profilen så att de motsvarar dina egna REST API, inklusive:
+
+- **ServiceUrl**. Ange URL: en för REST API slut punkten.
+- **SendClaimsIn**. Ange hur inloggade anspråk skickas till RESTful-anspråks leverantören.
+- **AuthenticationType**. Ange vilken typ av autentisering som utförs av RESTful-anspråks leverantören. 
+- **AllowInsecureAuthInProduction**. I en produktions miljö, se till att ange dessa metadata som `true`
+    
+Se [metadata för RESTful teknisk profil](restful-technical-profile.md#metadata) för fler konfigurationer.
 
 Kommentarerna ovan `AuthenticationType` och `AllowInsecureAuthInProduction` anger ändringar som du bör göra när du flyttar till en produktions miljö. Information om hur du skyddar dina RESTful-API: er för produktion finns i [Secure RESTful API](secure-rest-api.md).
 

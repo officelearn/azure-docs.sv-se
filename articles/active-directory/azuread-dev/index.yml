@@ -1,6 +1,10 @@
 ### YamlMime:Landing
 title: Azure Active Directory för utvecklare
-summary: Azure Active Directory (Azure AD) är en molnbaserad identitetstjänst som utvecklare kan använda för att skapa appar som på ett säkert sätt kan logga in användare som har ett arbets- eller skolkonto hos Microsoft. Azure AD stöder utvecklare som skapar såväl verksamhetsspecifika appar för en klient som appar för flera klienter. Microsofts identitetsplattform är en vidareutveckling av utvecklarplattformen för Azure Active Directory (Azure AD). För nya program rekommenderar vi att du använder Microsofts identitetsplattform (v 2.0) och MSAL för att hämta token och få åtkomst till säkra webb-API:er.
+summary: >
+  Azure Active Directory (Azure AD) är en molnbaserad identitetstjänst som utvecklare kan använda för att skapa appar som loggar in användare som har ett arbets- eller skolkonto hos Microsoft. Azure AD stöder skapande av verksamhetsspecifika appar (LOB) för enskild klientorganisation samt appar för flera klientorganisationer.
+
+
+  VIKTIGT! Det här innehållet gäller för den äldre Azure AD v1.0-slutpunkten. Använd Microsoft-identitetsplattformen för nya projekt.
 metadata:
   ms.topic: landing-page
   ms.date: 01/27/2020
@@ -9,12 +13,13 @@ metadata:
   ms.service: active-directory
   ms.subservice: azuread-dev
   ms.workload: identity
-  ms.openlocfilehash: 113a28ca5b4152ca8beedc7bdc3f1027c5acdf17
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ROBOTS: NOINDEX
+  ms.openlocfilehash: 9089b944402c31135b32b3304ecf7cf69d86ad93
+  ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88116078"
+  ms.lasthandoff: 10/14/2020
+  ms.locfileid: "92055128"
 landingContent:
 - title: Azure Active Directory för utvecklare
   linkLists:
@@ -22,33 +27,19 @@ landingContent:
     links:
     - text: Azure Active Directory för utvecklare (v1.0)
       url: v1-overview.md
-    - text: Utvecklingen av Microsofts identitetsplattform
-      url: ./about-microsoft-identity-platform.md
-    - text: Microsoft-identitetsplattform (v2.0)
-      url: ../develop/v2-overview.md
-  - linkListType: concept
-    links:
-    - text: Varför uppdatera till Microsoft-identitetsplattformen (v2.0)?
-      url: azure-ad-endpoint-comparison.md
-    - text: Programtyper och scenarier
-      url: app-types.md
-- title: Autentiseringsprotokoll
+- title: Jämföra plattformar
   linkLists:
   - linkListType: overview
     links:
-    - text: Grundläggande om autentisering
-      url: v1-authentication-scenarios.md
-  - linkListType: concept
-    links:
-    - text: OAuth 2.0-auktoriseringskodflöde
-      url: v1-protocols-oauth-code.md
-    - text: OpenID Connect-kodflöde
-      url: v1-protocols-openid-connect-code.md
-    - text: Autentiseringsuppgifter för OAuth 2.0-klient beviljar flöde
-      url: v1-oauth2-client-creds-grant-flow.md
-- title: Exempel
+    - text: Utvecklingen av Microsofts identitetsplattform
+      url: about-microsoft-identity-platform.md
+    - text: Varför bör du uppdatera till v2.0?
+      url: azure-ad-endpoint-comparison.md
+- title: Microsoft identitetsplattform
   linkLists:
-  - linkListType: download
+  - linkListType: overview
     links:
-    - text: Exempelappar
-      url: sample-v1-code.md
+    - text: Vad är Microsofts identitetsplattform?
+      url: ../develop/v2-overview.md
+    - text: Migrera appar från ADAL till MSAL
+      url: ../develop/msal-migration.md

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 67b855beae4ea36bf4ef7e6bb396c6b7ae1d89e3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: fbff4cc067ce831e9d9f69a457f348a94257e86d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874347"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076920"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
 Med virtuella Azure-nätverk (VNET) kan du placera valfria Azure-resurser i ett dirigerbart icke-Internetbaserat nätverk som du kontrollerar åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om virtuella Azure-nätverk börjar du med informationen här: [Azure Virtual Network-översikt](../virtual-network/virtual-networks-overview.md).
@@ -109,7 +109,7 @@ Nedan följer en lista över vanliga fel konfigurations problem som kan uppstå 
 
 <a name="required-ports"> </a> När en API Management tjänst instans finns i ett VNet används portarna i följande tabell.
 
-| Käll-/mål Port (er) | Riktning          | Transport protokoll |   [Service märken](../virtual-network/security-overview.md#service-tags) <br> Källa/mål   | Syfte ( \* )                                                 | Virtual Network typ |
+| Käll-/mål Port (er) | Riktning          | Transport protokoll |   [Service märken](../virtual-network/network-security-groups-overview.md#service-tags) <br> Källa/mål   | Syfte ( \* )                                                 | Virtual Network typ |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | */[80], 443                  | Inbound (Inkommande)            | TCP                | INTERNET/VIRTUAL_NETWORK            | Klient kommunikation till API Management                      | Extern             |
 | */3443                     | Inbound (Inkommande)            | TCP                | API Management/VIRTUAL_NETWORK       | Hanterings slut punkt för Azure Portal och PowerShell         | Externt & internt  |
@@ -153,7 +153,7 @@ Nedan följer en lista över vanliga fel konfigurations problem som kan uppstå 
 
 + **Azure Load Balancer**: Tillåt inkommande begäran från service tag `AZURE_LOAD_BALANCER` är inte ett krav för `Developer` SKU, eftersom vi bara distribuerar en beräknings enhet bakom den. Men inkommande från [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) blir kritiska när du skalar till högre SKU `Premium` , som fel vid hälso avsökning från Load Balancer, Miss lyckas en distribution.
 
-+ **Application Insights**: om [Azure Application Insights](api-management-howto-app-insights.md) -övervakning är aktiverat på API Management måste vi tillåta utgående anslutning till [telemetri-slutpunkten](/azure/azure-monitor/app/ip-addresses#outgoing-ports) från Virtual Network. 
++ **Application Insights**: om [Azure Application Insights](api-management-howto-app-insights.md) -övervakning är aktiverat på API Management måste vi tillåta utgående anslutning till [telemetri-slutpunkten](../azure-monitor/app/ip-addresses.md#outgoing-ports) från Virtual Network. 
 
 + **Tvinga tunnel trafik till lokal brand vägg med hjälp av Express Route eller virtuell nätverks**installation: en vanlig kund konfiguration är att definiera sin egen standard väg (0.0.0.0/0) som tvingar all trafik från det API Management delegerade under nätet att flöda genom en lokal brand vägg eller till en virtuell nätverks installation. Detta trafikflöde avbryter anslutningen till Azure API Management eftersom utgående trafik antingen blockeras lokalt eller NAT till en okänd uppsättning adresser som inte längre fungerar med olika Azure-slutpunkter. Lösningen kräver att du gör några saker:
 
@@ -272,7 +272,7 @@ IP-adresserna delas av **Azure-miljön**. När du tillåter inkommande begär An
 * [Ansluta en Virtual Network från olika distributions modeller](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Så här använder du API-kontrollen för att spåra anrop i Azure API Management](api-management-howto-api-inspector.md)
 * [Vanliga frågor och svar om Virtual Network](../virtual-network/virtual-networks-faq.md)
-* [Tjänsttaggar](../virtual-network/security-overview.md#service-tags)
+* [Tjänsttaggar](../virtual-network/network-security-groups-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
@@ -285,6 +285,6 @@ IP-adresserna delas av **Azure-miljön**. När du tillåter inkommande begär An
 [Related content]: #related-content
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
-[Network Security Group]: ../virtual-network/security-overview.md
+[Network Security Group]: ../virtual-network/network-security-groups-overview.md
 [ServiceEndpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md
-[ServiceTags]: ../virtual-network/security-overview.md#service-tags
+[ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags

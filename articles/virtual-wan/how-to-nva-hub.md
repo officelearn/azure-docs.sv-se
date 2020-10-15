@@ -1,6 +1,6 @@
 ---
 title: 'Azure Virtual WAN: skapa en virtuell nätverks installation (NVA) i hubben'
-description: I den här självstudien får du lära dig hur du distribuerar en virtuell nätverks installation i den virtuella WAN-hubben.
+description: Lär dig hur du distribuerar en virtuell nätverks installation i den virtuella WAN-hubben.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,23 +8,23 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: 014339b02167a1bb4cba11cc10c9740b8fa53f2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e174f9b78606e0bea5cded3a176f4207745bb5c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91773254"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077311"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Så här skapar du en virtuell nätverks installation i Azure Virtual WAN Hub (för hands version)
 
-Den här självstudien visar hur du använder Virtual WAN för att ansluta till dina resurser i Azure via en **virtuell nätverks** installation (NVA) i Azure. Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats till en extern offentlig IP-adress. Mer information om virtuella WAN-nätverk finns i [översikten om virtuellt WAN](virtual-wan-about.md).
+Den här artikeln visar hur du använder Virtual WAN för att ansluta till dina resurser i Azure via en **virtuell nätverks** installation (NVA) i Azure. Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats till en extern offentlig IP-adress. Mer information om virtuellt WAN finns i [Vad är virtuellt WAN?](virtual-wan-about.md).
 
 Stegen i den här artikeln hjälper dig att skapa en virtuell **Barracuda CLOUDGEN WAN** -nätverk i den virtuella WAN-hubben. För att slutföra den här övningen måste du ha en Barracuda-lokal enhet (CPE) och en licens för Barracuda CloudGen WAN-installationen som du distribuerar till hubben innan du börjar.
 
 För distributions dokumentation för **Cisco SD-WAN** i Azure Virtual WAN, skickar du ett e-postmeddelande till Cisco vid följande e-post adress: vwan_public_preview@external.cisco.com
 
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurationen:
 
@@ -55,7 +55,7 @@ En hubb är ett virtuellt nätverk som kan innehålla gatewayer för plats-till-
    **Projektinformation**
 
    * Region (tidigare kallad plats)
-   * Namn
+   * Name
    * NAV, privat adress utrymme. Det minsta adress utrymmet är/24 för att skapa en hubb, vilket innebär att allt mellan/25 och/32 genererar ett fel när det skapas. Azure Virtual WAN, som en hanterad tjänst av Microsoft, skapar lämpliga undernät i den virtuella hubben för de olika gatewayerna/tjänsterna. (Till exempel: virtuella nätverks enheter, VPN-gatewayer, ExpressRoute-gatewayer, användares VPN-och punkt-till-plats-gatewayer, brand vägg, routning osv.). Användaren behöver inte uttryckligen planera för under nätets adress utrymme för tjänsterna i det virtuella navet eftersom Microsoft gör detta som en del av tjänsten.
 1. Välj **Granska + skapa** för att validera.
 1. Välj **skapa** för att skapa hubben.
@@ -98,5 +98,5 @@ I det här steget ska du skapa en virtuell nätverks installation i hubben. Proc
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Du hittar mer information om virtuellt WAN i [översikten om virtuellt WAN](virtual-wan-about.md).
+* Mer information om virtuellt WAN finns på sidan [Vad är virtuellt WAN?](virtual-wan-about.md)
 * Mer information om NVA i en virtuell WAN-hubb finns i [om virtuell nätverks installation i den virtuella WAN-hubben (för hands version)](about-nva-hub.md).

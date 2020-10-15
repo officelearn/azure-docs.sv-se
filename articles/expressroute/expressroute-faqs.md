@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 6253dd616ca184449f3f144d538c1ed20de54cc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d91d896da21d9d96e45c0eab3d5d895364f3e149
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566428"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077362"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -91,7 +91,7 @@ Om din ExpressRoute-krets är aktive rad för Microsoft-peering för Azure kan d
 * Offentliga Azure-IP-adresser för IaaS (Virtual Machines, Virtual Network gatewayer, belastnings utjämning osv.)  
 * De flesta andra Azure-tjänster stöds också. Kontrol lera direkt med den tjänst som du vill använda för att verifiera stödet.
 
-**Stöds inte:**
+**Stöds ej:**
 
 * CDN
 * Azure Front Door
@@ -242,6 +242,9 @@ Ja. Om du inte har annonserat standard vägar (0.0.0.0/0) eller prefix för Inte
 ### <a name="can-i-block-internet-connectivity-to-virtual-networks-connected-to-expressroute-circuits"></a>Kan jag blockera Internet anslutning till virtuella nätverk som är anslutna till ExpressRoute-kretsar?
 
 Ja. Du kan annonsera standard vägar (0.0.0.0/0) för att blockera all Internet anslutning till virtuella datorer som distribueras i ett virtuellt nätverk och dirigera all trafik via ExpressRoute-kretsen.
+
+> [!NOTE]
+> Om den annonserade vägen på 0.0.0.0/0 återkallas från vägarna som annonseras (till exempel på grund av ett avbrott eller en felaktig konfiguration), kommer Azure att tillhandahålla en [system väg](../virtual-network/virtual-networks-udr-overview.md#system-routes) till resurser på den anslutna Virtual Network för att tillhandahålla anslutning till Internet.  För att säkerställa att utgående trafik till Internet blockeras, rekommenderar vi att du placerar en nätverks säkerhets grupp på alla undernät med en utgående regel för Neka för Internet trafik.
 
 Om du annonserar standard vägar tvingar vi trafik till tjänster som erbjuds via Microsoft-peering (t. ex. Azure Storage och SQL DB) tillbaka till dina lokaler. Du måste konfigurera dina routrar för att returnera trafik till Azure via Microsoft peering-sökvägen eller via Internet. Om du har aktiverat en tjänst slut punkt för tjänsten tvingas trafiken till tjänsten inte till dina lokaler. Trafiken förblir i Azures stamnät nätverk. Mer information om tjänst slut punkter finns i [tjänst slut punkter för virtuella nätverk](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 

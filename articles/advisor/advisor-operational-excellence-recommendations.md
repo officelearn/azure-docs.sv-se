@@ -3,12 +3,12 @@ title: Förbättra drift excellency med Advisor
 description: Använd Azure Advisor för att optimera och mogna din operativa kompetens för dina Azure-prenumerationer.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 036adb7e7d59bd78980c72b210ad41faea277d00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25c470a968f2d31ae1190f765046d593190d697b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258485"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077396"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Få drifts kvalitet genom att använda Azure Advisor
 
@@ -38,7 +38,7 @@ Om poolen använder en inaktuell intern komponent tar du bort och återskapar po
 
 ## <a name="repair-invalid-log-alert-rules"></a>Reparera ogiltiga logg aviserings regler
 
-Azure Advisor identifierar aviserings regler som har ogiltiga frågor angivna i villkors avsnittet. Du kan skapa logg aviserings regler i Azure Monitor och använda dem för att köra Analytics-frågor vid angivna intervall. Frågans resultat avgör sedan om en avisering måste utlösas eller inte. Analys frågor kan bli ogiltiga över tid på grund av ändringar i refererade resurser, tabeller eller kommandon. Advisor rekommenderar att du korrigerar frågan i varnings regeln för att förhindra att den automatiskt inaktive ras och säkerställer övervakningen av dina resurser i Azure. [Läs mer om fel sökning av aviserings regler.](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor identifierar aviserings regler som har ogiltiga frågor angivna i villkors avsnittet. Du kan skapa logg aviserings regler i Azure Monitor och använda dem för att köra Analytics-frågor vid angivna intervall. Frågans resultat avgör sedan om en avisering måste utlösas eller inte. Analys frågor kan bli ogiltiga över tid på grund av ändringar i refererade resurser, tabeller eller kommandon. Advisor rekommenderar att du korrigerar frågan i varnings regeln för att förhindra att den automatiskt inaktive ras och säkerställer övervakningen av dina resurser i Azure. [Läs mer om fel sökning av aviserings regler.](../azure-monitor/platform/alerts-troubleshoot-log.md)
 
 ## <a name="use-azure-policy-recommendations"></a>Använd Azure Policy rekommendationer
 
@@ -55,7 +55,7 @@ Azure Policy är en tjänst i Azure som du kan använda för att skapa, tilldela
 **Aktivera *Ärv en tagg från resurs grupper*.** Den här principen lägger till eller ersätter den angivna taggen och värdet från den överordnade resursgruppen när en resurs skapas eller uppdateras. Du kan åtgärda befintliga resurser genom att utlösa en reparations uppgift.
 
 ## <a name="no-validation-environment-enabled"></a>Ingen valideringsmiljö är aktiverad
-Azure Advisor anger att du inte har en validerings miljö aktive rad i den aktuella prenumerationen. När du skapar värd grupper har du valt \" Nej \" för \" validerings miljö \" på fliken Egenskaper. Att ha minst en adresspool med en validerings miljö aktive rad säkerställer affärs kontinuiteten genom distributioner av Windows Virtual Desktop-tjänster med tidig identifiering av potentiella problem. [Läs mer](https://docs.microsoft.com/azure/virtual-desktop/create-validation-host-pool)
+Azure Advisor anger att du inte har en validerings miljö aktive rad i den aktuella prenumerationen. När du skapar värd grupper har du valt \" Nej \" för \" validerings miljö \" på fliken Egenskaper. Att ha minst en adresspool med en validerings miljö aktive rad säkerställer affärs kontinuiteten genom distributioner av Windows Virtual Desktop-tjänster med tidig identifiering av potentiella problem. [Läs mer](../virtual-desktop/create-validation-host-pool.md)
 
 ## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>Se till att produktionsmiljön (inte valideringsmiljö) kan dra nytta av stabila funktioner
 Azure Advisor upptäcker att för många av dina värdar har validerings miljön aktive rad. För att validerings miljöer ska fungera på bästa sätt bör du ha minst en, men aldrig fler än hälften av värd grupper i verifierings miljön. Genom att ha en felfri balans mellan värd-pooler med validerings miljö aktive rad och de med den inaktiverade, kommer du bäst att kunna använda fördelarna med de distributioner av multisteg som Windows Virtual Desktop erbjuder med vissa uppdateringar. Du kan åtgärda det här problemet genom att öppna värd poolens egenskaper och välja \" Nej \" bredvid \" validerings miljö \" inställningen.

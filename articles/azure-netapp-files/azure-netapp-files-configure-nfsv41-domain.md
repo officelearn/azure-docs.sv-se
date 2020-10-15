@@ -11,14 +11,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 10/14/2020
 ms.author: b-juche
-ms.openlocfilehash: e749f27875612136c50938712fded6a371f8c7ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3c853190d5f63bbe9012727d8b7b7ac91da135f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325631"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072160"
 ---
 # <a name="configure-nfsv41-default-domain-for-azure-netapp-files"></a>Konfigurera NFSv4.1-standarddomän för Azure NetApp Files
 
@@ -26,11 +26,11 @@ NFSv4 introducerar konceptet för en domän för autentisering. Azure NetApp Fil
 
 ## <a name="default-behavior-of-usergroup-mapping"></a>Standard beteende för mappning av användare/grupper
 
-Rot mappningen används som standard för `nobody` användaren eftersom NFSv4-domänen är inställd på `localdomain` . När du monterar en Azure NetApp Files NFSv 4.1-volym som rot visas fil behörigheter på följande sätt:  
+Standardvärdet för rot mappning för `nobody` användaren, eftersom NFSv4-domänen är inställd på `localdomain` som standard. När du monterar en Azure NetApp Files NFSv 4.1-volym som rot visas fil behörigheter på följande sätt:  
 
 ![Standard beteende för mappning av användare/grupper för NFSv 4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png)
 
-Som exemplet ovan visar bör användaren för `file1` vara `root` , men den mappas till `nobody` som standard.  Den här artikeln visar hur du ställer in `file1` användaren på `root` .  
+Som exemplet ovan visar bör användaren för `file1` vara `root` , men den mappas till `nobody` som standard.  Den här artikeln visar hur du ställer in `file1` användaren till `root` genom att ändra `idmap Domain` inställningen till `defaultv4iddomain.com` .  
 
 ## <a name="steps"></a>Steg 
 

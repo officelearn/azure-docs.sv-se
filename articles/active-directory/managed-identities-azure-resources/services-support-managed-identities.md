@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: e875eda2a59841d3238a13389768c6fa37cef774
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0b9e2301a8bb9990f88db8d4d55ef7f97946174
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843183"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072177"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Tjänster som stöder hanterade identiteter för Azure-resurser
 
@@ -51,7 +51,7 @@ I följande lista kan du konfigurera hanterad identitet för Azure API Managemen
 
 I följande lista kan du konfigurera hanterad identitet för Azure App Service (i regioner där det finns tillgängligt):
 
-- [Azure Portal](../../app-service/overview-managed-identity.md#using-the-azure-portal)
+- [Azure-portalen](../../app-service/overview-managed-identity.md#using-the-azure-portal)
 - [Azure CLI](../../app-service/overview-managed-identity.md#using-the-azure-cli)
 - [Azure PowerShell](../../app-service/overview-managed-identity.md#using-azure-powershell)
 - [Azure Resource Manager-mall](../../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template)
@@ -134,7 +134,7 @@ Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner 
 
 I följande lista kan du konfigurera hanterad identitet för Azure Data Factory v2 (i regioner där det finns):
 
-- [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
+- [Azure-portalen](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
@@ -165,7 +165,7 @@ Hanterad identitets typ |Alla allmänt tillgängliga<br>Globala Azure-regioner |
 
 I följande lista kan du konfigurera hanterad identitet för Azure Functions (i regioner där det finns tillgängligt):
 
-- [Azure Portal](../../app-service/overview-managed-identity.md#using-the-azure-portal)
+- [Azure-portalen](../../app-service/overview-managed-identity.md#using-the-azure-portal)
 - [Azure CLI](../../app-service/overview-managed-identity.md#using-the-azure-cli)
 - [Azure PowerShell](../../app-service/overview-managed-identity.md#using-azure-powershell)
 - [Azure Resource Manager-mall](../../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template)
@@ -179,7 +179,7 @@ Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner 
 
 I följande lista kan du konfigurera hanterad identitet för Azure Data Factory v2 (i regioner där det finns):
 
-- [Azure Portal](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
+- [Azure-portalen](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
 ### <a name="azure-importexport"></a>Azure Import/Export
 
@@ -209,9 +209,17 @@ Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner 
 
 I följande lista kan du konfigurera hanterad identitet för Azure Logic Apps (i regioner där det finns tillgängligt):
 
-- [Azure Portal](../../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal)
+- [Azure-portalen](../../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal)
 - [Azure Resource Manager-mall](../../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
+### <a name="azure-machine-learning"></a>Azure Machine Learning 
+
+Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Systemtilldelad | Förhandsgranskning | Inte tillgängligt | Inte tillgänglig | Inte tillgänglig |
+| Användartilldelad | Förhandsgranskning | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+
+Mer information finns i [använda hanterade identiteter med Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md).
 
 ### <a name="azure-policy"></a>Azure Policy
 
@@ -222,7 +230,7 @@ I följande lista kan du konfigurera hanterad identitet för Azure Logic Apps (i
 
 I följande lista kan du konfigurera hanterad identitet för Azure Policy (i regioner där det finns tillgängligt):
 
-- [Azure Portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
+- [Azure-portalen](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
 - [Azure CLI](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
 - [Azure Resource Manager-mallar](/azure/templates/microsoft.authorization/policyassignments)
@@ -268,7 +276,7 @@ Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner 
 
 I följande lista kan du konfigurera hanterad identitet för Azure Virtual Machine Scale Sets (i regioner där det är tillgängligt):
 
-- [Azure Portal](qs-configure-portal-windows-vm.md)
+- [Azure-portalen](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [Azure CLI](qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager-mallar](qs-configure-template-windows-vm.md)
@@ -285,7 +293,7 @@ I följande lista kan du konfigurera hanterad identitet för Azure Virtual Machi
 
 I följande lista kan du konfigurera hanterad identitet för Azure Virtual Machines (i regioner där det är tillgängligt):
 
-- [Azure Portal](qs-configure-portal-windows-vm.md)
+- [Azure-portalen](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [Azure CLI](qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager-mallar](qs-configure-template-windows-vm.md)

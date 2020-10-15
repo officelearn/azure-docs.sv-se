@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 6446e138df1fe744d70be085d0aecac58e2c1c45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d93a43a44a9ccff4e7918e556b9d759e270d2f42
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255306"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072092"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurera ett AKS-kluster
 
@@ -176,10 +176,10 @@ Om du vill skapa Node-pooler med Moby-körningsmiljön (Docker) kan du göra det
 
 ## <a name="generation-2-virtual-machines-preview"></a>Virtuella datorer i generation 2 (för hands version)
 
-Azure stöder [virtuella datorer i generation 2 (Gen2)](../virtual-machines/windows/generation-2.md). Virtuella datorer i generation 2 stöder viktiga funktioner som inte stöds i virtuella datorer i generation 1 (gen1). Dessa funktioner omfattar ökat minne, Intel Software Guard-tillägg (Intel SGX) och virtualiserat beständigt minne (vPMEM).
+Azure stöder [virtuella datorer i generation 2 (Gen2)](../virtual-machines/generation-2.md). Virtuella datorer i generation 2 stöder viktiga funktioner som inte stöds i virtuella datorer i generation 1 (gen1). Dessa funktioner omfattar ökat minne, Intel Software Guard-tillägg (Intel SGX) och virtualiserat beständigt minne (vPMEM).
 
 Virtuella datorer i generation 2 använder den nya UEFI-baserade start arkitekturen i stället för den BIOS-baserade arkitekturen som används av virtuella datorer i generation 1.
-Endast vissa SKU: er och storlekar har stöd för virtuella Gen2-datorer. Kontrol lera [listan över storlekar som stöds](../virtual-machines/windows/generation-2.md#generation-2-vm-sizes)för att se om din SKU stöder eller kräver Gen2.
+Endast vissa SKU: er och storlekar har stöd för virtuella Gen2-datorer. Kontrol lera [listan över storlekar som stöds](../virtual-machines/generation-2.md#generation-2-vm-sizes)för att se om din SKU stöder eller kräver Gen2.
 
 Alla VM-avbildningar stöder inte heller Gen2, på AKS Gen2-VM: ar kommer att använda den nya [AKS Ubuntu 18,04-avbildningen](#os-configuration). Den här avbildningen stöder alla Gen2 SKU: er och storlekar.
 

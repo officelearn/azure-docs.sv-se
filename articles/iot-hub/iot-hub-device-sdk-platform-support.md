@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: aef468d919e6f09722045f98c68383785d10b137
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4081fe8ba97ba2dd27680cf5f0fa60abd59e44a9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87423090"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072279"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Plattforms stöd för Azure IoT Device SDK: er
 
@@ -60,7 +60,7 @@ För var och en av de listade SDK: erna, Microsoft:
 | Operativsystem                  | Kompilatorn                          |
 |---------------------|-----------------------------------|
 | Linux               | Python 2,7. *, 3,5 eller senare |
-| MacOS, hög Sierra   | Python 2,7. *, 3,5 eller senare |
+| macOS High Sierra   | Python 2,7. *, 3,5 eller senare |
 | Windows 10-serien   | Python 2,7. *, 3,5 eller senare |
 
 Endast python-version 3.5.3 eller senare har stöd för asynkrona API: er, vi rekommenderar att du använder version 3,7 eller senare.
@@ -99,7 +99,7 @@ Endast python-version 3.5.3 eller senare har stöd för asynkrona API: er, vi re
 
 Microsoft samarbetar med olika partner för att tillhandahålla utvecklings paket för flera mikroprocessor arkitekturer. Dessa partner har hamnat på Azure IoT C SDK till sin plattform. Partner skapar och underhåller Platform Abstraction Layer (PAL) för SDK: n. Microsoft samarbetar med dessa partner för att ge utökad support.
 
-| Partner             | Egenskaper                            | Länk                     | Support |
+| Partner             | Enheter                            | Länk                     | Support |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [ESP – Azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT-modem     | [Qualcomm LTE för IoT SDK](https://developer.qualcomm.com/software/lte-iot-sdk) | [Forum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
@@ -120,7 +120,7 @@ Microsoft arbetar med ett antal partner för att kontinuerligt expandera Azure I
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>Ansluta till IoT Hub utan SDK
 
-Om du inte kan använda någon av IoT Hub enhets-SDK: er kan du ansluta direkt till IoT Hub med hjälp av [IoT Hub REST-API: er](https://docs.microsoft.com/rest/api/iothub/) från alla program som kan skicka och ta emot https-förfrågningar och svar.
+Om du inte kan använda någon av IoT Hub enhets-SDK: er kan du ansluta direkt till IoT Hub med ett kommunikations protokoll som stöds. Mer information finns i [utveckla utan en Azure IoT SDK](iot-hub-devguide-no-sdk.md).
 
 ## <a name="support-and-other-resources"></a>Support och andra resurser
 

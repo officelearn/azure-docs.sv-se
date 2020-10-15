@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 6662761df005211729dffb16282b8e0a8e2a8444
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89428e9a64c6d4ae78d333c0cf597531588b1638
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75442445"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072075"
 ---
 # <a name="send-errors-to-stackify-for-logging"></a>Skicka fel till Stackify för loggning
 
-Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du lägger till en princip för fel loggning för att skicka fel till Stackify för loggning. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
+Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du lägger till en princip för fel loggning för att skicka fel till Stackify för loggning. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-reference.md).
 
-## <a name="policy"></a>Princip
+## <a name="policy"></a>Policy
 
 Klistra in koden i **fel** blocket.
 
@@ -35,5 +35,4 @@ Klistra in koden i **fel** blocket.
 Läs mer om APIM-principer:
 
 + [Omvandlingsprinciper](../api-management-transformation-policies.md)
-+ [Princip exempel](../policy-samples.md)
-
++ [Princip exempel](../policy-reference.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: a4d005b3a4712cfff0321e7a16f49c0e882cc9e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a4866db463dcf4ff17b2f7b25806806a700e8fa
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282127"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071650"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Distribuera OPC-dubbla till ett befintligt projekt
 
@@ -33,7 +33,7 @@ Kärnan i modulen är den överordnade identiteten. Administratören hanterar sl
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Kontrol lera att PowerShell-och [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) -tillägg är installerade. Klona den här GitHub-lagringsplatsen om du inte redan har gjort det. Kör följande kommandon i PowerShell:
+Kontrol lera att PowerShell-och [AzureRM PowerShell](/powershell/azure/azurerm/install-azurerm-ps) -tillägg är installerade. Klona den här GitHub-lagringsplatsen om du inte redan har gjort det. Kör följande kommandon i PowerShell:
 
 ```powershell
 git clone --recursive https://github.com/Azure/azure-iiot-components.git

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: article
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: 8c76bddc0fae024b0dd2bdd27d6b1e10d71dec71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1428a92857f48920c86ed7a3f0719fa42b38b24
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90017480"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072041"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Självstudie: Konfigurera tillbakaskrivning av attribut från Azure AD till Workday
 Syftet med den här självstudien är att visa de steg du behöver utföra för att göra om attribut från Azure AD till Workday. Tillbakaskrivning av tillbakaskrivning-appen för Workday stöder tilldelning av värden till följande Workday-attribut:
@@ -144,16 +144,31 @@ När du har slutfört konfigurationen av appar för arbets dag etablering kan du
 
 1. På fliken **etablering** ställer du in **etablerings status** på **på**.
 
+1. I list rutan **omfattning** väljer du **synkronisera alla användare och grupper**. Med det här alternativet skriver tillbakaskrivning-appen tillbaka mappade attribut för alla användare från Azure AD till Workday, enligt de definitions regler som definieras under **mappningar**  ->  **käll objekt omfånget**. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Välj intervall för tillbakaskrivning](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
+
+   > [!NOTE]
+   > Programmet för tillbakaskrivning av workday-appar stöder inte alternativet **Synkronisera endast tilldelade användare och grupper**.
+ 
+
 2. Klicka på **Spara**.
 
 3. Den här åtgärden startar den inledande synkroniseringen, vilket kan ta ett variabelt antal timmar beroende på hur många användare som finns i käll katalogen. Du kan kontrol lera förlopps indikatorn för att följa synkroniseringens förlopp. 
 
-4. Gå till fliken **gransknings loggar** i Azure Portal för att se vilka åtgärder som etablerings tjänsten har utfört. I gransknings loggarna visas alla enskilda synkroniseringsfel som utförs av etablerings tjänsten, till exempel vilka användare som importeras från källan och som exporteras till mål programmet.  
+4. Gå till fliken **etablerings loggar** i Azure Portal för att se vilka åtgärder som etablerings tjänsten har utfört. I gransknings loggarna visas alla enskilda synkroniseringsfel som utförs av etablerings tjänsten, till exempel vilka användare som importeras från källan och som exporteras till mål programmet.  
 
 5. När den inledande synkroniseringen har slutförts skrivs en sammanfattnings rapport på fliken **etablering** , som visas nedan.
 
      > [!div class="mx-imgBorder"]
      > ![Förlopps indikator för etablering](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
+
+## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
+
+* Tillbakaskrivning-appen använder ett fördefinierat värde för parametrar **Communication_Usage_Type_ID** och **Phone_Device_Type_ID**. Om din Workday-klient använder ett annat värde för de här attributen går det inte att utföra tillbakaskrivning. En rekommenderad lösning är att uppdatera Type_IDs i arbets dagen. 
+* När tillbakaskrivning-appen är konfigurerad att uppdatera sekundära telefonnummer, ersätter den inte det befintliga sekundära telefonnumret i arbets dagen. Den lägger till ett annat sekundärt telefonnummer till Worker-posten. Det finns ingen lösning på detta beteende. 
+
 
 ## <a name="next-steps"></a>Nästa steg
 

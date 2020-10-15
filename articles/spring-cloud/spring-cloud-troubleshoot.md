@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 98b7f9b1ed5e09a1f731e45f8ca2d148a4084986
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5346858aa119f11ef34916b24c70c966286ab86
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336164"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089051"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Felsök vanliga problem med Azure våren Cloud
 
@@ -68,7 +68,7 @@ När du felsöker program krascher startar du genom att kontrol lera programmets
 
 
 
-Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
 ::: zone-end
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>Mitt program använder stora mängder CPU- eller minnesresurser
@@ -91,7 +91,7 @@ Mer information finns i [mått för Azure våren Cloud](spring-cloud-concept-met
 
 Om alla instanser är igång går du till Azure Log Analytics för att skicka frågor till program loggarna och granska din kod logik. Detta hjälper dig att se om någon av dem kan påverka skalningen av skala. Mer information finns i [Analysera loggar och mått med diagnostikinställningar](diagnostic-services.md).
 
-Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). Fråga loggarna genom att använda [Kusto-frågespråket](https://docs.microsoft.com/azure/kusto/query/).
+Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Fråga loggarna genom att använda [Kusto-frågespråket](/azure/kusto/query/).
 
 ::: zone pivot="programming-language-java"
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Check lista för att distribuera ditt våren-program till Azure våren Cloud
@@ -113,14 +113,14 @@ Innan du registrerar ditt program bör du kontrol lera att det uppfyller följan
 
 När du konfigurerar en Azure våren Cloud Service-instans med hjälp av Azure Portal, utför Azure våren Cloud verifieringen åt dig.
 
-Men om du försöker konfigurera Azure våren Cloud Service-instansen med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) eller [Azure Resource Manager mall](https://docs.microsoft.com/azure/azure-resource-manager/), kontrollerar du att:
+Men om du försöker konfigurera Azure våren Cloud Service-instansen med hjälp av [Azure CLI](/cli/azure/get-started-with-azure-cli) eller [Azure Resource Manager mall](../azure-resource-manager/index.yml), kontrollerar du att:
 
 * Prenumerationen är aktiv.
 * Platsen [stöds](spring-cloud-faq.md) av Azure våren Cloud.
 * Resurs gruppen för instansen har redan skapats.
 * Resurs namnet följer namngivnings regeln. Det får bara innehålla gemena bokstäver, siffror och bindestreck. Det första tecknet måste vara en bokstav. Det sista tecknet måste vara en bokstav eller en siffra. Värdet måste innehålla mellan 2 och 32 tecken.
 
-Om du vill konfigurera Azure våren Cloud Service-instansen med hjälp av Resource Manager-mallen, se först till att [förstå strukturen och syntaxen för Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
+Om du vill konfigurera Azure våren Cloud Service-instansen med hjälp av Resource Manager-mallen, se först till att [förstå strukturen och syntaxen för Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md).
 
 Namnet på Azure våren Cloud Service-instansen kommer att användas för att begära ett under domän namn under `azureapps.io` , så installationen Miss kommer att Miss förväntas om namnet står i konflikt med ett befintligt namn. Du kan hitta mer information i aktivitets loggarna.
 
@@ -129,7 +129,7 @@ Namnet på Azure våren Cloud Service-instansen kommer att användas för att be
 
 Du kan inte ladda upp en *zip* -fil för en .net Core Steeltoe-app med hjälp av Azure Portal eller Resource Manager-mallen.
 
-När du distribuerar programpaketet med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)avsöker Azure CLI regelbundet distributions förloppet och i slutet visas distributions resultatet.
+När du distribuerar programpaketet med hjälp av [Azure CLI](/cli/azure/get-started-with-azure-cli)avsöker Azure CLI regelbundet distributions förloppet och i slutet visas distributions resultatet.
 
 Kontrol lera att programmet är paketerat i rätt *. zip* -filformat. Om den inte paketeras korrekt kommer processen att sluta svara eller så visas ett fel meddelande.
 ::: zone-end
@@ -139,7 +139,7 @@ Kontrol lera att programmet är paketerat i rätt *. zip* -filformat. Om den int
 
 Du kan inte ladda upp/source-paketet för Java Archive File (JAR) med hjälp av Azure Portal eller Resource Manager-mallen.
 
-När du distribuerar programpaketet med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)avsöker Azure CLI regelbundet distributions förloppet och i slutet visas distributions resultatet.
+När du distribuerar programpaketet med hjälp av [Azure CLI](/cli/azure/get-started-with-azure-cli)avsöker Azure CLI regelbundet distributions förloppet och i slutet visas distributions resultatet.
 
 Om avsökningen avbryts kan du fortfarande använda följande kommando för att hämta distributionsloggarna:
 
@@ -153,7 +153,7 @@ Se till att programmet är paketerat i rätt [format för JAR-format](https://do
 
 Du kan inte överföra JAR/source-paket med hjälp av Azure Portal eller Resource Manager-mallen.
 
-När du distribuerar programpaketet med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)avsöker Azure CLI regelbundet distributions förloppet och i slutet visas distributions resultatet.
+När du distribuerar programpaketet med hjälp av [Azure CLI](/cli/azure/get-started-with-azure-cli)avsöker Azure CLI regelbundet distributions förloppet och i slutet visas distributions resultatet.
 
 Om avsökningen avbryts kan du fortfarande använda följande kommando för att hämta bygg- och distributionsloggarna:
 
@@ -171,7 +171,7 @@ Om du migrerar en befintlig molnbaserade lösning till Azure måste du se till a
 
 Du kan också kontrol lera klient loggarna för _tjänst registret_ i Azure Log Analytics. Mer information finns i [Analysera loggar och mått med diagnostikinställningar](diagnostic-services.md)
 
-Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). Fråga loggarna genom att använda [Kusto-frågespråket](https://docs.microsoft.com/azure/kusto/query/).
+Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Fråga loggarna genom att använda [Kusto-frågespråket](/azure/kusto/query/).
 
 ### <a name="i-want-to-inspect-my-applications-environment-variables"></a>Jag vill kontrol lera miljö variabler för mitt program
 
@@ -231,7 +231,7 @@ Kontrol lera om `spring-boot-actuator` beroendet är aktiverat i ditt programpak
 </dependency>
 ```
 
-Om dina program loggar kan arkiveras till ett lagrings konto men inte skickas till Azure Log Analytics, kontrollerar du om du [har konfigurerat arbets ytan på rätt sätt](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace). Om du använder en kostnads fri nivå av Azure Log Analytics, Observera att [den kostnads fria nivån inte tillhandahåller något service nivå avtal (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+Om dina program loggar kan arkiveras till ett lagrings konto men inte skickas till Azure Log Analytics, kontrollerar du om du [har konfigurerat arbets ytan på rätt sätt](../azure-monitor/learn/quick-create-workspace.md). Om du använder en kostnads fri nivå av Azure Log Analytics, Observera att [den kostnads fria nivån inte tillhandahåller något service nivå avtal (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
 ::: zone-end
 
 ## <a name="next-steps"></a>Nästa steg

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d7a2596d4f6a8aa9fb4c95dfb5a3ccab7d7206f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2707c5a6cb110d30b85b765f6c8b144e8cca7abe
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461314"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074727"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problem med program-och tjänst tillgänglighet för Azure Cloud Services: vanliga frågor och svar
 
@@ -33,7 +33,7 @@ Ungefär en gång i månaden släpper Microsoft en ny gäst operativ system vers
 
 Fullständig information om de senaste uppdateringarna för gäst operativ systemet finns i [Azure gäst operativ system versioner och SDK-kompatibilitet](cloud-services-guestos-update-matrix.md).
 
-Information om omstarter och pekare till teknisk information om gäst-och värd operativ system uppdateringar finns i MSDN blogg inlägg [roll instans startar om på grund av OS-uppgraderingar](https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades).
+Information om omstarter och pekare till teknisk information om gäst-och värd operativ system uppdateringar finns i MSDN blogg inlägg [roll instans startar om på grund av OS-uppgraderingar](/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades).
 
 ## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>Varför tar det den första begäran till min moln tjänst när tjänsten har varit inaktiv under en viss tid längre tid än vanligt?
 När webb servern tar emot den första begäran kompilerar den först om koden och bearbetar sedan begäran. Det är därför den första begäran tar längre tid än de andra. Som standard stängs app-poolen i händelse av inaktivitet. Programpoolen återanvänds också som standard var 1 740: e minut (29 timmar).

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e5b8dc325fa7eaceaa0274029049f546db5b6995
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6aa56eeab59dee3f080895d5f15285a2b2d41591
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888543"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088779"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Använda IntelliJ för att distribuera Azure Spring Cloud-program
 
@@ -22,8 +22,8 @@ IntelliJ-plugin-programmet för Azure våren Cloud stöder program distribution 
 
 Innan du kör det här exemplet kan du prova den [grundläggande snabb](spring-cloud-quickstart.md)starten.
 
-## <a name="prerequisites"></a>Krav
-* [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable&preserve-view=true)
+## <a name="prerequisites"></a>Förutsättningar
+* [JDK 8 Azul Zulu](/java/azure/jdk/java-jdk-install?preserve-view=true&view=azure-java-stable)
 * [Maven 3.5.0 +](https://maven.apache.org/download.cgi)
 * [IntelliJ idé, community/Ultimate-utgåva, version 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
 
@@ -57,7 +57,7 @@ Följande procedurer distribuerar ett Hello World-program med hjälp av IntelliJ
     ![Importera projekt](media/spring-cloud-intellij-howto/import-project-1.png)
 
 ## <a name="deploy-to-azure-spring-cloud"></a>Distribuera till Azure våren Cloud
-För att kunna distribuera till Azure måste du logga in med ditt Azure-konto och välja din prenumeration.  Information om inloggning finns i [installation och inloggning](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+För att kunna distribuera till Azure måste du logga in med ditt Azure-konto och välja din prenumeration.  Information om inloggning finns i [installation och inloggning](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Högerklicka på projektet i IntelliJ Project Explorer och välj **Azure**  ->  **Deploy till Azure våren Cloud**.
 
@@ -104,5 +104,5 @@ Hämta loggarna:
     ![Strömmande logg utdata](media/spring-cloud-intellij-howto/streaming-log-output.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* [Förbered våren-program för Azure våren Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
-* [Läs mer om Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/)
+* [Förbered våren-program för Azure våren Cloud](./spring-cloud-tutorial-prepare-app-deployment.md)
+* [Läs mer om Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/)

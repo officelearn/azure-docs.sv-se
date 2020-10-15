@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/26/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6381f678979437fdfc10d2ea63a79ed347183e92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30273c0103d8a0fde12b1b7c6f66d16dd4ea84cb
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388926"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089527"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Genom gång: integrera REST API Claims-utbyten i Azure AD B2C användar resa för att verifiera användarindata
 
@@ -28,7 +28,7 @@ I det här scenariot lägger vi till möjligheten för användarna att ange ett 
 
 Du kan också utforma interaktionen som ett Orchestration-steg. Detta är lämpligt när REST API inte kommer att verifiera data på skärmen och alltid returnera anspråk. Mer information finns i [genom gång: integrera REST API Claims-utbyten i Azure AD B2C användar resa som ett Dirigerings steg](custom-policy-rest-api-claims-exchange.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
 - Lär dig hur du [integrerar REST API Claims-utbyten i din Azure AD B2C anpassade princip](custom-policy-rest-api-intro.md).
@@ -93,7 +93,7 @@ Ett anspråk ger tillfällig lagring av data under en Azure AD B2C princip körn
 </ClaimType>
 ```
 
-## <a name="configure-the-restful-api-technical-profile"></a>Konfigurera teknisk profil för RESTful-API 
+## <a name="add-the-restful-api-technical-profile"></a>Lägg till teknisk profil för RESTful-API 
 
 En [RESTful-teknisk profil](restful-technical-profile.md) ger stöd för att rikta in dig mot din egen RESTful-tjänst. Azure AD B2C skickar data till RESTful-tjänsten i en `InputClaims` samling och tar emot data tillbaka i en `OutputClaims` samling. Hitta **ClaimsProviders** -elementet och Lägg till en ny anspråks leverantör enligt följande:
 
@@ -105,6 +105,7 @@ En [RESTful-teknisk profil](restful-technical-profile.md) ger stöd för att rik
       <DisplayName>Check loyaltyId Azure Function web hook</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
+        <!-- Set the ServiceUrl with your own REST API endpoint -->
         <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/ValidateProfile?code=your-code</Item>
         <Item Key="SendClaimsIn">Body</Item>
         <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
@@ -129,6 +130,17 @@ En [RESTful-teknisk profil](restful-technical-profile.md) ger stöd för att rik
 ```
 
 I det här exemplet `userLanguage` skickas till rest-tjänsten som `lang` i JSON-nyttolasten. Värdet för `userLanguage` anspråket innehåller det aktuella användarens språk-ID. Mer information finns i [anspråk lösare](claim-resolver-overview.md).
+
+### <a name="configure-the-restful-api-technical-profile"></a>Konfigurera teknisk profil för RESTful-API 
+
+När du har distribuerat REST API ställer du in metadata för den `REST-ValidateProfile` tekniska profilen så att de motsvarar dina egna REST API, inklusive:
+
+- **ServiceUrl**. Ange URL: en för REST API slut punkten.
+- **SendClaimsIn**. Ange hur inloggade anspråk skickas till RESTful-anspråks leverantören.
+- **AuthenticationType**. Ange vilken typ av autentisering som utförs av RESTful-anspråks leverantören. 
+- **AllowInsecureAuthInProduction**. I en produktions miljö, se till att ange dessa metadata som `true`
+    
+Se [metadata för RESTful teknisk profil](restful-technical-profile.md#metadata) för fler konfigurationer.
 
 Kommentarerna ovan `AuthenticationType` och `AllowInsecureAuthInProduction` anger ändringar som du bör göra när du flyttar till en produktions miljö. Information om hur du skyddar dina RESTful-API: er för produktion finns i [Secure RESTful API](secure-rest-api.md).
 

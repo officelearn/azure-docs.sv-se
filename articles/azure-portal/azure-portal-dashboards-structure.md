@@ -12,19 +12,19 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
-ms.openlocfilehash: b77c9cfd6e4d1721839acb9db5469b5f0ac73a48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 014463fb0a5af639ff0da5f8db2805f9796fd928
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90561609"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072483"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Strukturen för Azure-instrumentpaneler
 Det här dokumentet vägleder dig genom strukturen i en Azure-instrumentpanel med hjälp av följande instrument panel som exempel:
 
 ![exempelinstrumentpanel](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Eftersom delade [Azure-instrumentpaneler är resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)kan den här instrument panelen visas som JSON.  Följande JSON representerar den instrument panel som visualiseras ovan.
+Eftersom delade [Azure-instrumentpaneler är resurser](../azure-resource-manager/management/overview.md)kan den här instrument panelen visas som JSON.  Följande JSON representerar den instrument panel som visualiseras ovan.
 
 ```json
 
@@ -303,7 +303,7 @@ Namnet är segmentet för resurs-ID: t som inte innehåller information om prenu
 Alla instrument paneler är av typen __Microsoft. Portal/instrument paneler__.
 
 ### <a name="the-location-property"></a>Egenskapen Location
-Till skillnad från andra resurser har instrument paneler inte någon körnings komponent.  För instrument paneler anger platsen den primära geografiska platsen som lagrar instrument panelens JSON-representation. Värdet ska vara en av de plats koder som kan hämtas med hjälp av [locations-API: et i prenumerations resursen](https://docs.microsoft.com/rest/api/resources/subscriptions).
+Till skillnad från andra resurser har instrument paneler inte någon körnings komponent.  För instrument paneler anger platsen den primära geografiska platsen som lagrar instrument panelens JSON-representation. Värdet ska vara en av de plats koder som kan hämtas med hjälp av [locations-API: et i prenumerations resursen](/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>Egenskapen Taggar
 Taggar är en vanlig funktion i Azure-resurser som gör att du kan organisera din resurs efter godtyckliga namn värde par. För instrument paneler finns det en särskild tagg som kallas __dold rubrik__. Om din instrument panel har den här egenskapen ifylld används den som visnings namn för instrument panelen i portalen. Det går inte att byta namn på Azure-resurs-ID: n, men taggar kan. Den här taggen ger dig ett sätt att ha ett renamable-visnings namn för din instrument panel.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 7937b412b1eb3f311f0212f19c4eb9fc7782459d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 534e78018d19ff496dc4d2b3b54a3d0b3c46cf0f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327739"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093760"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure-portalen
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.
@@ -287,7 +287,32 @@ Om du vill ta emot uppdateringar om ändringar av dessa IP-adresser rekommendera
 
 Du kan ha ett begränsat antal webhook-åtgärder i en åtgärds grupp.
 
+### <a name="service-tag"></a>Service tag
+En service-tagg representerar en grupp med IP-adressprefix från en specifik Azure-tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras, vilket minimerar komplexiteten vid frekventa uppdateringar av nätverks säkerhets regler för en ActionGroup.
 
+1. I Azure Portal under Azure-tjänster Sök efter *nätverks säkerhets grupp*.
+2. Klicka på **Lägg till** och skapa en nätverks säkerhets grupp.
+
+   1. Lägg till resurs gruppens namn och ange sedan *instans information*.
+   1. Klicka på **Granska + skapa** och klicka sedan på *skapa*.
+   
+   :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="Exempel på hur du skapar en nätverks säkerhets grupp."border="true":::
+
+3. Gå till resurs grupp och klicka sedan på *nätverks säkerhets grupp* som du har skapat.
+
+    1. Välj *inkommande säkerhets regler*.
+    1. Klicka på **Lägg till**.
+    
+    :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="Exempel på hur du lägger till en service tag-kod."border="true":::
+
+4. Ett nytt fönster öppnas i det högra fönstret.
+    1.  Välj källa: **service tag**
+    1.  Käll tjänst tag gen: **ActionGroup**
+    1.  Klicka på **Lägg till**.
+    
+    :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Exempel på hur du lägger till service tag-koden."border="true":::
+
+Genom att använda **service tag** för ActionGroup kan du minimera komplexiteten vid frekventa uppdateringar av IP-adresser.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [SMS-aviserings beteende](./alerts-sms-behavior.md).  

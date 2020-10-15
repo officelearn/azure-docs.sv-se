@@ -7,12 +7,12 @@ ms.date: 10/01/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 431ea692ac734a875e27cb8ed4b015155e0e9b91
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7523dd39303a211772dd39eef811f55739336ff0
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042430"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093709"
 ---
 # <a name="iot-plug-and-play-service-developer-guide"></a>IoT Plug and Play service Developer Guide
 
@@ -30,14 +30,14 @@ Med tjänst-SDK: er kan du komma åt enhets information från en lösning, till 
 
 - IoT Hub-tjänstens klient. I den här tjänsten exponeras modell-ID: t som en enhet med dubbla egenskaper.
 
-- Klient för Digitals sammanflätade tjänster. Det nya digitala interformat-API: et fungerar på DTDL-modell konstruktioner [(Digitals definitions språk)](concepts-digital-twin.md) som komponenter, egenskaper och kommandon. De digitala dubbla API: erna gör det enklare för lösnings byggare att skapa IoT Plug and Play-lösningar.
+- Digitals klient med dubbla klienter. Det nya digitala interformat-API: et fungerar på DTDL-modell konstruktioner [(Digitals definitions språk)](concepts-digital-twin.md) som komponenter, egenskaper och kommandon. De digitala dubbla API: erna gör det enklare för lösnings byggare att skapa IoT Plug and Play-lösningar.
 
-| Plattform | IoT Hub tjänst klient | Klient för Digitals dubbla tjänster |
-| -------- | ---------------------- | ---------------------------- |
-| .NET     | [Dokumentation](/dotnet/api/microsoft.azure.devices) <br/> [Exempel](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples)| [Exempel](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/DigitalTwinClientSamples) |
-| Java     | [Dokumentation](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?preserve-view=true&view=azure-java-stable) <br/> [Exempel](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample)| [Exempel](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples) |
-| Node.js  | [Dokumentation](/javascript/api/azure-iothub/twin?preserve-view=true&view=azure-node-latest) <br/> [Urvalsundersökningar](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)| [Dokumentation](/javascript/api/azure-iot-digitaltwins-service/?preserve-view=true&view=azure-node-latest) <br/> [Urvalsundersökningar](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/get_digital_twin.js) |
-| Python   | [Dokumentation](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?preserve-view=true&view=azure-python) <br/> [Urvalsundersökningar](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)| [Dokumentation](/python/api/azure-iot-hub/azure.iot.hub.iothubdigitaltwinmanager?preserve-view=true&view=azure-python) <br/> [Urvalsundersökningar](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/get_digital_twin_sample.py) |
+| Plattform | Dokumentation | Exempel |
+| -------- | ------------- | ------- |
+| .NET     | [Referens](/dotnet/api/microsoft.azure.devices) | [Tjänst klient](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples) </br> [Digital Twins](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/DigitalTwinClientSamples) |
+| Java     | [Referens](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?preserve-view=true&view=azure-java-stable) <br/> | [Tjänst klient](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample) </br>[Digital Twins](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples) |
+| Node.js  | [Referens](/javascript/api/azure-iothub?preserve-view=true&view=azure-node-latest) | [Tjänst klient](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js) </br> [Digital Twins](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/get_digital_twin.js) |
+| Python   | [Referens](/python/api/azure-iot-hub/azure.iot.hub?preserve-view=true&view=azure-python) <br/> | [Tjänst klient](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py) </br> [Digital Twins](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/get_digital_twin_sample.py) |
 
 ## <a name="iot-hub-service-client-examples"></a>Exempel på IoT Hub tjänst klient
 
@@ -161,7 +161,7 @@ catch (DeviceNotFoundException)
 }
 ```
 
-## <a name="digital-twin-examples"></a>Digitala, dubbla exempel
+## <a name="iot-hub-digital-twin-examples"></a>IoT Hub digitala, dubbla exempel
 
 Du använder klassen **DigitalTwinClient** för att interagera med enhetens tillstånd med hjälp av digitala dubbla. [DTDL](concepts-digital-twin.md) -modellen för enheten definierar de egenskaper och kommandon som enheten implementerar.
 
@@ -369,43 +369,6 @@ catch (HttpOperationException e)
         Console.WriteLine("Unable to execute command getMaxMinReport on component thermostat1.");
     }
 }
-```
-
-## <a name="rest-api"></a>REST-API
-
-I följande exempel används IoT Hub REST API för att interagera med en ansluten IoT Plug and Play-enhet. Den aktuella versionen av API: t är `2020-09-30` . Lägg `?api-version=2020-09-30` till i dina rest PI-anrop.
-
-> [!NOTE]
-> Modulernas dubbla stöds inte för närvarande av `digitalTwins` API: et.
-
-Om din termostat-enhet anropas `t-123` får du alla egenskaper för alla gränssnitt som implementerats av enheten med ett REST API GET-anrop:
-
-```REST
-GET /digitalTwins/t-123
-```
-
-Det här anropet inkluderar JSON `$metadata.$model` -egenskapen med modell-ID: t som visas i enheten.
-
-Alla egenskaper för alla gränssnitt nås med `GET /DigitalTwin/{device-id}` REST API-mallen där `{device-id}` är identifieraren för enheten:
-
-```REST
-GET /digitalTwins/{device-id}
-```
-
-Du kan anropa kommandon för IoT Plug and Play Device direkt. Om `Thermostat` komponenten i `t-123` enheten har ett `restart` kommando kan du anropa den med ett REST API post-anrop:
-
-```REST
-POST /digitalTwins/t-123/components/Thermostat/commands/restart
-```
-
-Oftare kan kommandon anropas med hjälp av den här REST API mallen:
-
-- `device-id`: enhetens identifierare.
-- `component-name`: namnet på gränssnittet från avsnittet Implements i enhetens kapacitets modell.
-- `command-name`: namnet på kommandot.
-
-```REST
-/digitalTwins/{device-id}/components/{component-name}/commands/{command-name}
 ```
 
 ## <a name="read-device-telemetry"></a>Läsa telemetri för enhet

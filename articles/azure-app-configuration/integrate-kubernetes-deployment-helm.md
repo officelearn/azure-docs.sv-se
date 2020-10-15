@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: 2b5440ad2bec94d4ef14fa29e723cc91a4fcdf10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee5f70f40103a92ff26cfcabc6adf9e2b825b59b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766857"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074846"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integrera med Kubernetes-distribution med Helm
 
@@ -23,17 +23,17 @@ Under publicerings processen sammanfogar Helm diagrammet med rätt konfiguration
 
 Du kan åsidosätta värdena som lagras i *Values. yaml* genom att tillhandahålla ytterligare yaml-baserade konfigurationsfiler på kommando raden när du kör Helm. Azure App-konfigurationen stöder export av konfigurations värden till YAML-filer. Genom att integrera den här export funktionen i din distribution kan dina Kubernetes-program utnyttja konfigurations värden som lagras i appens konfiguration.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > * Använd värden från appens konfiguration när du distribuerar ett program till Kubernetes med hjälp av Helm.
 > * Skapa en Kubernetes-hemlighet baserat på en Key Vault referens i appens konfiguration.
 
-Den här självstudien förutsätter grundläggande förståelse för att hantera Kubernetes med Helm. Lär dig mer om att installera program med Helm i [Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/aks/kubernetes-helm).
+Den här självstudien förutsätter grundläggande förståelse för att hantera Kubernetes med Helm. Lär dig mer om att installera program med Helm i [Azure Kubernetes-tjänsten](../aks/kubernetes-helm.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.4.0 eller senare)
+- Installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.4.0 eller senare)
 - Installera [Helm](https://helm.sh/docs/intro/install/) (version 2.14.0 eller senare)
 - Ett Kubernetes-kluster.
 
@@ -51,7 +51,7 @@ Den här självstudien förutsätter grundläggande förståelse för att hanter
     Lämna **etiketten** och **innehålls typen** tom för tillfället.
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Lägg till en Key Vault referens till app-konfigurationen
-1. Logga in på [Azure Portal](https://portal.azure.com) och Lägg till en hemlighet till [Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault) med namn **lösen ordet** och värdens **lösen ord**. 
+1. Logga in på [Azure Portal](https://portal.azure.com) och Lägg till en hemlighet till [Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) med namn **lösen ordet** och värdens **lösen ord**. 
 2. Välj den instans av konfigurations Arkiv för app som du skapade i föregående avsnitt.
 
 3. Välj **konfigurations Utforskaren**.
@@ -185,7 +185,7 @@ settings:
 Hämta först konfigurationen från App-konfigurationen till en *yaml* -fil. Använd ett nyckel filter för att bara hämta de nycklar som börjar med **Inställningar.**. Om nyckel filtret inte räcker för att utesluta nycklar med Key Vault referenser kan du använda argumentet **--Skip-Key Vault** för att utesluta dem. 
 
 > [!TIP]
-> Läs mer om [export kommandot](https://docs.microsoft.com/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export). 
+> Läs mer om [export kommandot](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export). 
 
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
@@ -225,7 +225,7 @@ else{
 
 ```
 
-Kontrol lera att konfigurationer och hemligheter har angetts genom att komma åt [Kubernetes-instrumentpanelen](https://docs.microsoft.com/azure/aks/kubernetes-dashboard). Du ser att **färg** -och **meddelande** värden från App-konfigurationen har fyllts i i behållarens miljövariabler.
+Kontrol lera att konfigurationer och hemligheter har angetts genom att komma åt [Kubernetes-instrumentpanelen](../aks/kubernetes-dashboard.md). Du ser att **färg** -och **meddelande** värden från App-konfigurationen har fyllts i i behållarens miljövariabler.
 
 ![Snabbstart av lokal app](./media/kubernetes-dashboard-env-variables.png)
 
@@ -242,4 +242,4 @@ En hemlighet, **lösen ord**, butiker som Key Vault referens i app Configuration
 I den här självstudien har du exporterat Azure App konfigurations data som ska användas i en Kubernetes-distribution med Helm. Om du vill veta mer om hur du använder app-konfiguration kan du fortsätta till Azure CLI-exemplen.
 
 > [!div class="nextstepaction"]
-> [Azure CLI](https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest)
+> [Azure CLI](/cli/azure/appconfig?view=azure-cli-latest)

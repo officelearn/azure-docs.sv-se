@@ -8,17 +8,17 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a5b4d0591f58d2ce4d3d2e9055c70fdc7118e123
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c879b890f9527ea0eee3d702db6f04a38432aa00
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91326260"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093064"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Snabb start: övervaka Azure våren Cloud-appar med loggar, mått och spårning
 
 ::: zone pivot="programming-language-csharp"
-Med den inbyggda övervaknings funktionen i Azure våren-molnet kan du felsöka och övervaka komplexa problem. Azure våren Cloud integrerar Steeltoe- [distribuerad spårning](https://steeltoe.io/docs/3/tracing/distributed-tracing) med azures [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Den här integrationen tillhandahåller kraftfulla loggar, mått och distribuerad spårnings funktion från Azure Portal.
+Med den inbyggda övervaknings funktionen i Azure våren-molnet kan du felsöka och övervaka komplexa problem. Azure våren Cloud integrerar Steeltoe- [distribuerad spårning](https://steeltoe.io/docs/3/tracing/distributed-tracing) med azures [Application Insights](../azure-monitor/app/app-insights-overview.md). Den här integrationen tillhandahåller kraftfulla loggar, mått och distribuerad spårnings funktion från Azure Portal.
 
 Följande procedurer beskriver hur du använder logg strömning, Log Analytics, mått och distribuerad spårning med den exempel-app som du distribuerade i föregående snabb starter.
 
@@ -69,7 +69,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
     
 1. Redigera frågan för att ta bort WHERE-satserna som begränsar visningen till varnings-och fel loggar.
 
-1. Välj sedan så visas `Run` loggar. I [Azure Log Analytics-dokument](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) finns mer information om hur du skriver frågor.
+1. Välj sedan så visas `Run` loggar. I [Azure Log Analytics-dokument](../azure-monitor/log-query/get-started-queries.md) finns mer information om hur du skriver frågor.
 
    [![Loggar Analytics-fråga – Steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png#lightbox)
 
@@ -107,7 +107,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-Med den inbyggda övervaknings funktionen i Azure våren-molnet kan du felsöka och övervaka komplexa problem. Azure våren Cloud integrerar [våren Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) med azures [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Den här integrationen tillhandahåller kraftfulla loggar, mått och distribuerad spårnings funktion från Azure Portal. Följande procedurer beskriver hur du använder logg strömning, Log Analytics, mått och distribuerad spårning med distribuerade PiggyMetrics-appar.
+Med den inbyggda övervaknings funktionen i Azure våren-molnet kan du felsöka och övervaka komplexa problem. Azure våren Cloud integrerar [våren Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) med azures [Application Insights](../azure-monitor/app/app-insights-overview.md). Den här integrationen tillhandahåller kraftfulla loggar, mått och distribuerad spårnings funktion från Azure Portal. Följande procedurer beskriver hur du använder logg strömning, Log Analytics, mått och distribuerad spårning med distribuerade PiggyMetrics-appar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -165,7 +165,7 @@ Hämta loggarna med Azure Toolkit for IntelliJ:
 
    [![Loggar Analytics-post ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png)](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
-1. Sedan visas filtrerade loggar. I [Azure Log Analytics-dokument](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) finns mer information om hur du skriver frågor.
+1. Sedan visas filtrerade loggar. I [Azure Log Analytics-dokument](../azure-monitor/log-query/get-started-queries.md) finns mer information om hur du skriver frågor.
 
    [![Loggar Analytics-fråga ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png)](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
 

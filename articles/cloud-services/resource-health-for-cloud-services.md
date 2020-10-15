@@ -7,17 +7,17 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 9/1/2020
 ms.author: tagore
-ms.openlocfilehash: ea25695ddc36571bef3ff61df7de3e71f6f939ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f99dd8131df9f8bc5d3e4013d4438faa8c25e53b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056070"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072721"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Stöd för Resource Health Check (RHC) för Azure Cloud Services (klassisk)
 Den här artikeln pratar om stöd för Resource Health Check (RHC) för [Microsoft Azure Cloud Services (klassisk)](https://azure.microsoft.com/services/cloud-services)
 
-[Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) för moln tjänster hjälper dig att diagnostisera och få support för tjänst problem som påverkar moln tjänst distributionen, roller & roll instanser. Den rapporterar om aktuella och tidigare hälso tillstånd för moln tjänster vid distribution, roll & roll instans nivå.
+[Azure Resource Health](../service-health/resource-health-overview.md) för moln tjänster hjälper dig att diagnostisera och få support för tjänst problem som påverkar moln tjänst distributionen, roller & roll instanser. Den rapporterar om aktuella och tidigare hälso tillstånd för moln tjänster vid distribution, roll & roll instans nivå.
 
 Azures status rapporter om problem som påverkar en bred uppsättning Azure-kunder. Resource Health ger dig en anpassad instrument panel med hälso tillståndet för dina resurser. Resource Health visar alla tider som resurserna har varit otillgängliga på grund av problem med Azure-tjänsten. Dessa data gör det enkelt för dig att se om ett SLA bröts.
 
@@ -30,7 +30,7 @@ Resurs hälsan rapporteras på en distributions-eller roll nivå. Hälso kontrol
 Resurs hälso kontroller fungerar bara för distribution av produktions platser. Distribution av mellanlagrings platser stöds inte ännu. 
 
 ## <a name="does-resource-health-check-also-check-the-health-of-the-application"></a>Kontrollerar Resource Health även hälso tillståndet för programmet?
-Nej, hälso kontroll sker bara för roll instanser och övervakar inte program hälsan. T.ex. Även om 1 av 3 roll instanserna inte är felfria kan programmet fortfarande vara tillgängligt. RHC använder inte [avsökningar av belastnings utjämning](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) eller en gästa Gent avsökning. Därför bör kunderna fortsätta att använda belastnings Utjämnings avsökningar för att övervaka hälso tillståndet för programmet. 
+Nej, hälso kontroll sker bara för roll instanser och övervakar inte program hälsan. T.ex. Även om 1 av 3 roll instanserna inte är felfria kan programmet fortfarande vara tillgängligt. RHC använder inte [avsökningar av belastnings utjämning](../load-balancer/load-balancer-custom-probe-overview.md) eller en gästa Gent avsökning. Därför bör kunderna fortsätta att använda belastnings Utjämnings avsökningar för att övervaka hälso tillståndet för programmet. 
 
 ## <a name="what-are-the-annotations-for-cloud-services"></a>Vilka är anteckningarna för Cloud Services?
 Anteckningar är distributionens eller rollernas hälso status. Det finns olika anteckningar baserade på hälso status, orsak till status ändring osv. 
@@ -64,7 +64,7 @@ Eftersom roll instanserna huvudsakligen är virtuella datorer och hälso kontrol
 | Okänt | Vi kan för närvarande inte fastställa hälso tillståndet för den här virtuella datorn |
 | Stoppa och frigör | Den här virtuella datorn stoppas och frigörs på begäran av en behörig användare eller process |
 | Konfigurera Resource Health | Konfigurerar resurs hälsa för den här resursen. Resource Health bevakar dina Azure-resurser för att ge information om pågående och tidigare händelser som har påverkat dem |
-| Ej tillgänglig | Din virtuella dator är inte tillgänglig. Vi arbetar med att återställa din virtuella dator automatiskt och att fastställa orsaken till problemet. Ingen ytterligare åtgärd krävs från dig för tillfället |
+| Inte tillgänglig | Din virtuella dator är inte tillgänglig. Vi arbetar med att återställa din virtuella dator automatiskt och att fastställa orsaken till problemet. Ingen ytterligare åtgärd krävs från dig för tillfället |
 | Degraderad | Din virtuella dator har nedgraderats. Vi arbetar med att återställa din virtuella dator automatiskt och att fastställa orsaken till problemet. Ingen ytterligare åtgärd krävs från dig för tillfället |
 | Maskin varu problem på värd servern | Den här virtuella datorn påverkas av ett allvarligt {HardwareCategory}-fel på värd servern. Azure distribuerar om den virtuella datorn till en felfria värd Server |
 | Migreringen har schemalagts på grund av försämrad maskin vara | Azure har identifierat att värdservern har en nedgraderad {0} som förväntas sluta fungera snart. Vi kommer så snart som möjligt att direktmigrera den virtuella datorn (om det är möjligt), eller på annat sätt distribuera om den efter {1} (UTC-tid). För att minimera risken för din tjänst, och om maskin varan Miss lyckas innan den systeminitierade migreringen sker, rekommenderar vi att du distribuerar den virtuella datorn på egen plats så snart som möjligt |
@@ -96,7 +96,7 @@ Eftersom roll instanserna huvudsakligen är virtuella datorer och hälso kontrol
 | Fjärrdisk frånkopplad | Din virtuella dator är tyvärr inte tillgänglig eftersom anslutningen till fjärrdisken har brutits. Vi arbetar med att återetablera diskanslutningen. Ingen ytterligare åtgärd krävs från dig för tillfället |
 | Problem med Azure-tjänsten | Den virtuella datorn påverkas av problem med Azure-tjänsten |
 | Nätverks problem | Den här virtuella datorn påverkas av en top-of-rack-nätverks enhet |
-| Ej tillgänglig | Din virtuella dator är inte tillgänglig. Vi kan för närvarande inte fastställa orsaken till den här stillestånds tiden |
+| Inte tillgänglig | Din virtuella dator är inte tillgänglig. Vi kan för närvarande inte fastställa orsaken till den här stillestånds tiden |
 | Omstart av värd Server | Den virtuella datorn är inte tillgänglig på grund av en oväntad omstart av värdservern. Ett oväntat problem med värd servern hindrar oss från att automatiskt återskapa den virtuella datorn |
 | Omdistribueras på grund av ett värd haveri | Den virtuella datorn är inte tillgänglig på grund av ett oväntat fel på värdservern. Ett oväntat problem med värden hindrar oss från att automatiskt återskapa den virtuella datorn |
 | Oväntat värd fel | Den virtuella datorn är inte tillgänglig på grund av ett oväntat fel på värdservern. Ett oväntat problem med värden hindrar oss från att automatiskt återskapa den virtuella datorn |

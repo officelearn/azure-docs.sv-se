@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: ee690a73907eca3bcd577cf2d983c8abc5409925
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 5de3d61f5b671f5ed6685e6cdee25be951fab69e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743071"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071888"
 ---
 # <a name="what-is-azure-expressroute"></a>Vad är Azure ExpressRoute?
 Med ExpressRoute kan du utöka dina lokala nätverk till Microsoft-molnet via en privat anslutning med hjälp av en anslutnings leverantör. Med ExpressRoute kan du upprätta anslutningar till Microsofts moln tjänster, till exempel Microsoft Azure och Microsoft 365.
@@ -36,7 +36,7 @@ Mer information finns i [Vanliga frågor och svar om ExpressRoute](expressroute-
 ## <a name="features"></a>Funktioner
 
 ### <a name="layer-3-connectivity"></a>Layer 3-anslutning
-Microsoft använder BGP, ett dynamiskt routningsprotokoll som är bransch standard. För att utbyta vägar mellan ditt lokala nätverk, dina instanser i Azure och Microsofts offentliga adresser. Vi upprättar flera BGP-sessioner med ditt nätverk för olika trafikprofiler. Mer information finns i artikeln [ExpressRoute-krets och routningsdomäner](expressroute-circuit-peerings.md).
+Microsoft använder BGP, branschens standardprotokoll för dynamisk routning för att utbyta routning mellan det lokala nätverket, dina instanser i Azure och Microsofts offentliga adresser. Vi upprättar flera BGP-sessioner med ditt nätverk för olika trafikprofiler. Mer information finns i artikeln [ExpressRoute-krets och routningsdomäner](expressroute-circuit-peerings.md).
 
 ### <a name="redundancy"></a>Redundans
 Varje ExpressRoute-krets består av två anslutningar till två Microsoft Enterprise Edge-routrar (msee) på en [ExpressRoute-plats](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations) från anslutnings leverantören/din nätverks gräns. Microsoft kräver en dubbel BGP-anslutning från anslutningsleverantören/din nätverksgräns – en för varje MSEE. Du kan välja att inte distribuera redundanta enheter/Ethernet-kretsar. Dock använder anslutningsleverantörer redundanta enheter för att dina projekt ska lämnas över till Microsoft på ett redundant sätt. En redundant Layer 3-anslutningskonfiguration är ett krav för att vår [SLA](https://azure.microsoft.com/support/legal/sla/) ska vara giltig.
@@ -109,7 +109,7 @@ Du kan välja den faktureringsmodell som passar dig bäst. Välj mellan de faktu
   * Global anslutning för tjänster. En ExpressRoute-krets som har skapats i vilken region som helst (exklusive nationella moln) har till gång till resurser i alla andra regioner i världen. Till exempel kan ett virtuellt nätverk som skapats i Europa, västra nås via en ExpressRoute-krets som etablerats i Silicon Valley.
   * Ökat antal VNet-länkar per ExpressRoute-krets från 10 till en högre gräns, beroende på kretsens bandbredd.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 Vanliga frågor om ExpressRoute finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
 
 ## <a name="whats-new"></a><a name="new"></a>Vad är det senaste?

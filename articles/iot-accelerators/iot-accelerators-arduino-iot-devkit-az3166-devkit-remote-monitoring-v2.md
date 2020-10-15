@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: ed14d4cb79cb5794fa666f1bb96e062d69128d0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a9285ebe2e749f5ac7f248a2703518c8ac237bc
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337678"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071684"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Anslut en IoT DevKit-enhet till lösningen för fjärr styrnings lösning
 
@@ -28,7 +28,7 @@ Den här instruktions guiden visar hur du kör ett exempel program på din IoT D
 
 Utför stegen i den här självstudien genom att först utföra följande uppgifter:
 
-* Förbered din DevKit genom att följa stegen i [ansluta IoT DevKit-AZ3166 till Azure IoT Hub i molnet](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* Förbered din DevKit genom att följa stegen i [ansluta IoT DevKit-AZ3166 till Azure IoT Hub i molnet](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md).
 
 ## <a name="open-sample-project"></a>Öppna exempel projekt
 
@@ -128,5 +128,5 @@ Om du stöter på problem kan du läsa [IoT DevKit FAQ](https://microsoft.github
 
 Nu när du har lärt dig hur du ansluter en DevKit-enhet till din lösnings Accelerator för fjärr styrning är det några förslag på följande steg:
 
-* [Översikt över Azure IoT Solution Accelerators](https://docs.microsoft.com/azure/iot-accelerators/)
+* [Översikt över Azure IoT Solution Accelerators](./index.yml)
 * [Anpassa användargränssnittet](iot-accelerators-remote-monitoring-customize.md)

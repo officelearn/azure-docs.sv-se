@@ -1,15 +1,18 @@
 - name: Azure Active Directory för utvecklare
   href: index.yml
 - name: Översikt
-  href: v1-overview.md
-- name: Exempel
-  href: sample-v1-code.md
-- name: Begrepp
+  expanded: true
   items:
+    - name: Översikt
+      href: v1-overview.md
     - name: Utvecklingen av Microsofts identitetsplattform
       href: about-microsoft-identity-platform.md
     - name: Varför du bör uppdatera till v2.0
       href: azure-ad-endpoint-comparison.md
+- name: Exempel
+  href: sample-v1-code.md
+- name: Begrepp
+  items:
     - name: Programtyper
       items:
         - name: Typer av program

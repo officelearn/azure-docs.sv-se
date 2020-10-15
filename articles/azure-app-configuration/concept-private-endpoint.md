@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: 3ec2a0e38f3bead5fbab8a119099bb5bbc3ded2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a29c8c02093f47807ec71ffcc01e26514976ce79
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87042112"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071718"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Använda privata slut punkter för Azure App konfiguration
 
@@ -71,5 +71,5 @@ Läs mer om hur du skapar en privat slut punkt för ditt konfigurations lager f�
 
 Lär dig hur du konfigurerar DNS-servern med privata slut punkter:
 
-- [Namnmatchning för resurser i virtuella nätverk i Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS-konfiguration för privata slut punkter](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Namnmatchning för resurser i virtuella nätverk i Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [DNS-konfiguration för privata slut punkter](../private-link/private-endpoint-overview.md#dns-configuration)

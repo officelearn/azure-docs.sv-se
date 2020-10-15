@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: philmea
-ms.openlocfilehash: 8309b625a590131c5f521335e180967ab2c2667c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d2ac4f1e80c24a750e0e5f8eb22850718594a1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91363162"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071038"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Självstudie: Hantera dina anslutna enheter i grupp
 
@@ -31,7 +31,7 @@ I den här kursen får du:
 > * Distribuera konfigurationen till enheterna i enhetsgruppen.
 > * Övervaka distributionen
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 <!--
 If this is going to be a tutorial - we need to split this include into two so that we can accommodate the additional prerequisites:
@@ -39,7 +39,7 @@ If this is going to be a tutorial - we need to split this include into two so th
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 -->
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa den här självstudien behöver du en distribuerad instans av acceleratorn Fjärrövervakningslösning i Azure-prenumerationen.
 
@@ -59,7 +59,7 @@ Innan du börjar:
 * Kontrollera att [startprogrammet på IoT DevKit-enheten är version 1.4.0 eller senare](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
 * Kontrollera att IoT DevKit SDK har samma version som startprogrammet. Du kan uppdatera IoT DevKit SDK med hjälp av Azure IoT Workbench i VS Code. Öppna kommandopaletten och ange **Arduino: Board Manager**. Mer information finns i avsnittet om att [förbereda utvecklingsmiljön](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
 
-Du behöver även ansluta minst en IoT DevKit-enhet till lösningsacceleratorn för fjärrövervakning. Om du inte har anslutit en IoT DevKit-enhet läser du avsnittet om att [ansluta MXChip IoT DevKit AZ3166 till lösningsacceleratorn för IoT-fjärrövervakning](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md).
+Du behöver även ansluta minst en IoT DevKit-enhet till lösningsacceleratorn för fjärrövervakning. Om du inte har anslutit en IoT DevKit-enhet läser du avsnittet om att [ansluta MXChip IoT DevKit AZ3166 till lösningsacceleratorn för IoT-fjärrövervakning](./iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md).
 
 ## <a name="navigate-to-the-dashboard"></a>Gå till instrumentpanelen
 
@@ -237,7 +237,7 @@ I det här avsnittet skapar och kör du en distribution som tillämpar enhetskon
 
     ![Skapa distribution](media/iot-accelerators-remote-monitoring-bulk-configuration-update/newdeployment.png)
 
-    Klicka på **Applicera**. Du ser en ny distribution på sidan **Distributioner** som visar följande mått:
+    Klicka på **Använd**. Du ser en ny distribution på sidan **Distributioner** som visar följande mått:
 
     * **Riktade** visar antalet enheter i enhetsgruppen.
     * **Tillämpade** visar antalet enheter som uppdaterades med konfigurationsinnehållet.
@@ -274,4 +274,4 @@ På sidan **Distributioner** klickar du på en distribution för att se status f
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här självstudien visade hur du uppdaterar den inbyggda programvaran för en grupp av enheter som är anslutna till din lösning. Lösningen använder automatisk enhetshantering för att uppdatera enheterna. Läs mer om funktionen för automatisk enhetshantering i din lösnings underliggande IoT-hubb i avsnittet om att [konfigurera och övervaka IoT-enheter i stor skala med hjälp av Azure-portalen](../iot-hub/iot-hub-auto-device-config.md).
+Den här självstudien visade hur du uppdaterar den inbyggda programvaran för en grupp av enheter som är anslutna till din lösning. Lösningen använder automatisk enhetshantering för att uppdatera enheterna. Läs mer om funktionen för automatisk enhetshantering i din lösnings underliggande IoT-hubb i avsnittet om att [konfigurera och övervaka IoT-enheter i stor skala med hjälp av Azure-portalen](../iot-hub/iot-hub-automatic-device-management.md).

@@ -13,18 +13,18 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 101bd9ce351ea830688fc18affdf21ce527ba43a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3295815be035544d27da52926e5271c2c5551f28
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261438"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076053"
 ---
 # <a name="create-an-advanced-device-model"></a>Skapa en avancerad enhetsmodell
 
 Den här instruktions guiden beskriver JSON-och JavaScript-filerna som definierar en anpassad enhets modell. Artikeln innehåller några exempel på enhets modell definitions filer och visar hur du överför dem till din enhets simulerings instans. Du kan skapa avancerade enhets modeller för att simulera mer realistiska enhets beteenden för dina tester.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -520,4 +520,4 @@ Om filerna klarar verifieringen klickar du på **Spara** och din enhets modell �
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här instruktions guiden har du lärt dig om enhets modellens filer som används i enhets simuleringen och hur du skapar en avancerad enhets modell. Härnäst kanske du vill utforska hur du [använder Time Series Insights för att visualisera telemetri som skickas från Device simulering Solution Accelerator](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).
+I den här instruktions guiden har du lärt dig om enhets modellens filer som används i enhets simuleringen och hur du skapar en avancerad enhets modell. Härnäst kanske du vill utforska hur du [använder Time Series Insights för att visualisera telemetri som skickas från Device simulering Solution Accelerator](./iot-accelerators-device-simulation-time-series-insights.md).

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mialdrid
-ms.openlocfilehash: 182195190fed70b46185f98f595de6b6c32bbffe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 515a6f7175aee23c6f720258b7fdaefe76b3b5d6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80619386"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077957"
 ---
 # <a name="working-remotely-using-azure-bastion"></a>Arbeta via fjärr anslutning med Azure skydds
 
@@ -26,10 +26,10 @@ Azure skydds spelar en pivot-roll i stödjande scenarier för fjärran vändare 
 
 Mer specifikt ger Azure skydds säker och sömlös RDP/SSH-anslutning till virtuella datorer i det virtuella Azure-nätverket, direkt i Azure Portal utan att använda en offentlig IP-adress. Mer information om Azure skydds-arkitekturen och viktiga funktioner finns i [Vad är Azure skydds](bastion-overview.md).
 
-Azure-skydds distribueras per virtuellt nätverk, vilket innebär att företag kan konfigurera och hantera en Azure-skydds för att snabbt stödja fjärran vändare till virtuella datorer i ett virtuellt Azure-nätverk. Anvisningar om hur du skapar och hanterar Azure-skydds finns i [skapa en skydds-värd](bastion-create-host-portal.md).
+Azure-skydds distribueras per virtuellt nätverk, vilket innebär att företag kan konfigurera och hantera en Azure-skydds för att snabbt stödja fjärran vändare till virtuella datorer i ett virtuellt Azure-nätverk. Anvisningar om hur du skapar och hanterar Azure-skydds finns i [skapa en skydds-värd](./tutorial-create-host-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Konfigurera Azure-skydds med hjälp av [Azure Portal](bastion-create-host-portal.md), [POWERSHELL](bastion-create-host-powershell.md)eller Azure CLI.
+* Konfigurera Azure-skydds med hjälp av [Azure Portal](./tutorial-create-host-portal.md), [POWERSHELL](bastion-create-host-powershell.md)eller Azure CLI.
 
 * Mer information finns i [vanliga frågor och svar om skydds](bastion-faq.md) .

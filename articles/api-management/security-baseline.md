@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4db7727558d0b7f4c26aba3ffa823bebb07862f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6b94c30f00765164385987ed0ea9b201044f248
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713771"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077447"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Azures säkerhets bas linje för API Management
 
@@ -100,7 +100,7 @@ Använd Azure Security Center integrerad Hot information för att neka kommunika
 
 * [Så här konfigurerar du Azure DDoS Protection standard](../virtual-network/manage-ddos-protection.md)
 
-* [Förstå Azure Security Center integrerad Hot information](../security-center/threat-protection.md)
+* [Förstå Azure Security Center integrerad Hot information](../security-center/azure-defender.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -588,7 +588,7 @@ Konfigurera avancerad övervakning med API Management med hjälp av `log-to-even
 
 * [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
+* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
 * [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
@@ -774,7 +774,7 @@ Använd dessutom Azure policy för att ange begränsningar för den typ av resur
 
 * [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
+* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
 * [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
@@ -838,7 +838,7 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenume
 
 * [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Så här nekar du en speciell resurs typ med Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Så här nekar du en speciell resurs typ med Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1114,7 +1114,7 @@ Hanterade identiteter kan användas för att hämta certifikat från Azure Key V
 
 Aktivera Soft-Delete i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
 
-* [Så här aktiverar du Soft-Delete i Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Så här aktiverar du Soft-Delete i Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

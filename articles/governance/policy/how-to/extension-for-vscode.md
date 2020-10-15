@@ -1,14 +1,14 @@
 ---
 title: Azure Policy tillägg för Visual Studio Code
 description: Lär dig hur du använder Azure Policy-tillägget för Visual Studio Code för att leta upp Azure Resource Manager alias.
-ms.date: 06/16/2020
+ms.date: 10/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 9b3f27492bee5301e22e83ebf9734afa3de43897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea05ffab9c57c50e451008a1ec7c534afbedf282
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89648339"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077940"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Använd Azure Policy-tillägg för Visual Studio Code
 
@@ -25,7 +25,7 @@ Azure Policy-tillägget för Visual Studio Code kan installeras på alla plattfo
 
 Följande objekt krävs för att slutföra stegen i den här artikeln:
 
-- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - [Visual Studio Code](https://code.visualstudio.com).
 
 ## <a name="install-azure-policy-extension"></a>Installera Azure Policy tillägg
@@ -82,7 +82,7 @@ Första gången du loggar in, läses endast standard prenumerations resurser och
 
    - Kommando palett: 
 
-     I meny raden går du till **Visa**  >  **kommando-palett**och anger **Azure: Välj prenumerationer**.
+     I meny raden går du till **Visa** > **kommando-palett**och anger **Azure: Välj prenumerationer**.
 
    - Fönster fot
 

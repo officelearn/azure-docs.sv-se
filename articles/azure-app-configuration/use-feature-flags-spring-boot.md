@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 83c437cb613e3dad04dee17f0f67040532066c3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dcf85add4e1c9f1d701c4ce4a122c8d6b31382a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326604"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077838"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Självstudie: använda funktions flaggor i en våren Boot-app
 
@@ -185,5 +185,5 @@ public String getOldFeature() {
 
 I den här självstudien har du lärt dig hur du implementerar funktions flaggor i ditt våren Boot-program med hjälp av `spring-cloud-azure-feature-management-web` biblioteken. Mer information om stöd för funktions hantering i vår start-och app-konfiguration finns i följande resurser:
 
-* [Exempel kod för vår start funktion flagga](/azure/azure-app-configuration/quickstart-feature-flag-spring-boot)
+* [Exempel kod för vår start funktion flagga](./quickstart-feature-flag-spring-boot.md)
 * [Hantera funktionsflaggor](./manage-feature-flags.md)

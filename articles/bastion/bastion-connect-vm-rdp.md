@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9c9bac20beb415f8bc29ca63d530e5cd8492d2d3
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 8ffb2d2f52e1bdfece7fe1bdcd04dcf9b1b600f3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997007"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077651"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Ansluta till en virtuell Windows-dator med Azure skydds
 
@@ -20,7 +20,7 @@ Med hjälp av Azure skydds kan du på ett säkert och smidigt sätt ansluta till
 
 Azure skydds ger säker anslutning till alla virtuella datorer i det virtuella nätverk där det är etablerad. Med hjälp av Azure skydds kan du skydda dina virtuella datorer från att exponera RDP/SSH-portar till utsidan, samtidigt som du ger säker åtkomst med RDP/SSH. Mer information finns i [Vad är Azure skydds?](bastion-overview.md).
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera att du har uppfyllt följande kriterier:
 

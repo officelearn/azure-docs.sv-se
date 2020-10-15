@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: 6cf77aa41a9a485ba70519fed33c1b6aec736525
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49ffc33310564299131e2831b74154719b7cf7c7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89470076"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078586"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Skapa ett säkerhets kopierings program för Azure Red Hat OpenShift 4-kluster
 
@@ -90,7 +90,7 @@ EOF
 
 ## <a name="install-velero-on-azure-red-hat-openshift-4-cluster"></a>Installera Velero på Azure Red Hat OpenShift 4-kluster
 
-Det här steget installerar Velero i det egna projektet och de [anpassade resurs definitioner](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) som krävs för att säkerhetskopiera och återställa med Velero. Kontrol lera att du har loggat in till ett Azure Red Hat OpenShift v4-kluster.
+Det här steget installerar Velero i det egna projektet och de [anpassade resurs definitioner](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) som krävs för att säkerhetskopiera och återställa med Velero. Kontrol lera att du har loggat in i ett Azure Red Hat OpenShift v4-kluster.
 
 
 ```bash
@@ -120,14 +120,34 @@ oc get backups -n velero <name of backup> -o yaml
 
 En lyckad säkerhets kopiering kommer att matas ut `phase:Completed` och objekten är aktiva i behållaren i lagrings kontot.
 
+## <a name="create-a-backup-with-velero-to-include-snapshots"></a>Skapa en säkerhets kopia med Velero för att inkludera ögonblicks bilder
+
+Om du vill skapa en säkerhets kopia av programmet med Velero för att inkludera de beständiga volymerna i ditt program måste du inkludera det namn område som programmet finns i samt inkludera `snapshot-volumes=true` flaggan när du skapar säkerhets kopian
+
+```bash
+velero backup create <name of backup> --include-namespaces=nginx-example --snapshot-volumes=true --include-cluster-resources=true
+```
+
+Du kan kontrol lera status för säkerhets kopieringen genom att köra:
+
+```bash
+oc get backups -n velero <name of backup> -o yaml
+```
+
+En lyckad säkerhets kopiering med utdata `phase:Completed` och objekten är Live i behållaren i lagrings kontot.
+
+Mer information om hur du skapar säkerhets kopior och återställer med hjälp av Velero finns i [OpenShift-resurser för säkerhets kopiering på det inbyggda sättet](https://www.openshift.com/blog/backup-openshift-resources-the-native-way)
+
 ## <a name="next-steps"></a>Nästa steg
 
 I den här artikeln säkerhetskopierades ett Azure Red Hat OpenShift 4-kluster program. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Skapa en OpenShift v4-kluster program säkerhets kopiering med Velero
+> * Skapa en OpenShift v4-kluster program säkerhets kopiering med ögonblicks bilder med hjälp av Velero
 
 
 Gå vidare till nästa artikel om du vill lära dig hur du skapar en Azure Red Hat OpenShift 4-kluster program återställning.
 
 * [Skapa en Azure Red Hat OpenShift 4-kluster program återställning](howto-create-a-restore.md)
+* [Skapa en Azure Red Hat OpenShift 4-kluster program återställning inklusive ögonblicks bilder](howto-create-a-restore.md)

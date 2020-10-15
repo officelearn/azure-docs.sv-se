@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 883cf48fd38d79544d08a68f2c18fc2d2efb4706
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ac7d99f4a47711f9974d30d877a3237eec15443
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776297"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078841"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -43,7 +43,7 @@ Du kan också använda en [hybrid Runbook Worker](automation-hybrid-runbook-work
 
 I följande tabell visas några aktiviteter för Runbook-körningar med den rekommenderade körnings miljön som visas för var och en.
 
-|Uppgift|Rekommendation|Obs!|
+|Uppgift|Rekommendation|Kommentarer|
 |---|---|---|
 |Integrera med Azure-resurser|Sand box för Azure|Azure är värd för Azure och det är enklare att autentisera. Om du använder en Hybrid Runbook Worker på en virtuell Azure-dator kan du [använda Runbook-autentisering med hanterade identiteter](automation-hrw-run-runbooks.md#runbook-auth-managed-identities).|
 |Få optimala prestanda för att hantera Azure-resurser|Sand box för Azure|Skriptet körs i samma miljö, vilket har mindre latens.|
@@ -71,7 +71,7 @@ Dina Runbooks måste innehålla logik för att hantera [resurser](/rest/api/reso
 
 ## <a name="security"></a>Säkerhet
 
-Azure Automation använder [Azure Security Center (ASC)](../security-center/security-center-intro.md) för att tillhandahålla säkerhet för dina resurser och identifiera kompromisser i Linux-system. Säkerhet tillhandahålls för dina arbets belastningar, oavsett om resurserna är i Azure eller inte. Se [Introduktion till autentisering i Azure Automation](automation-security-overview.md).
+Azure Automation använder [Azure Security Center (ASC)](../security-center/security-center-introduction.md) för att tillhandahålla säkerhet för dina resurser och identifiera kompromisser i Linux-system. Säkerhet tillhandahålls för dina arbets belastningar, oavsett om resurserna är i Azure eller inte. Se [Introduktion till autentisering i Azure Automation](automation-security-overview.md).
 
 ASC begränsar begränsningar för användare som kan köra skript, antingen signerade eller osignerade, på en virtuell dator. Om du är en användare med rot åtkomst till en virtuell dator måste du uttryckligen konfigurera datorn med en digital signatur eller inaktivera den. Annars kan du bara köra ett skript för att tillämpa operativ system uppdateringar när du har skapat ett Automation-konto och aktiverat lämplig funktion.
 
@@ -139,7 +139,7 @@ I följande tabell beskrivs de status värden som är möjliga för ett jobb. Du
 
 | Status | Beskrivning |
 |:--- |:--- |
-| Slutfört |Jobbet har slutförts. |
+| Slutförd |Jobbet har slutförts. |
 | Misslyckades |Det gick inte att kompilera en grafisk eller PowerShell-arbetsflöde Runbook. Det gick inte att starta PowerShell-runbooken eller så innehöll jobbet ett undantag. Se [Azure Automation Runbook-typer](automation-runbook-types.md).|
 | Misslyckades, väntar på resurser |Jobbet misslyckades eftersom det nådde den [verkliga delnings](#fair-share) gränsen tre gånger och startade från samma kontroll punkt eller från början av runbooken varje gång. |
 | I kö |Jobbet väntar på att resurser i en automatiserings arbets uppgift ska bli tillgängliga så att de kan startas. |

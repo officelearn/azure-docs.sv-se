@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: tagore
-ms.openlocfilehash: 3b4028a09f69acd5d7a6579b4610785ed32e227d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39843ad83830a72b5d6b01cc00ecd65269c02e12
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77469535"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078603"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Samla in prestanda räknare för Azure Cloud service
 
@@ -70,7 +70,7 @@ Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -E
 \Processor(*)\C3 Transitions/sec
 ```
 
-Dessa enskilda räknar Sök vägar kan läggas till i det diagnostik-ramverk som moln tjänsten använder. Mer information om hur en prestanda räknar Sök väg skapas finns i [Ange en räknar Sök väg](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)).
+Dessa enskilda räknar Sök vägar kan läggas till i det diagnostik-ramverk som moln tjänsten använder. Mer information om hur en prestanda räknar Sök väg skapas finns i [Ange en räknar Sök väg](/windows/win32/perfctrs/specifying-a-counter-path).
 
 ## <a name="collect-a-performance-counter"></a>Samla in en prestanda räknare
 
@@ -290,8 +290,5 @@ Som tidigare angavs definieras de prestanda räknare som du vill samla in i file
 
 - [Application Insights för Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters)
 - [System prestanda räknare i Application Insights](../azure-monitor/app/performance-counters.md)
-- [Ange en räknar Sök väg](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
+- [Ange en räknar Sök väg](/windows/win32/perfctrs/specifying-a-counter-path)
 - [Azure-diagnostik schema – prestanda räknare](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)
-
-
-

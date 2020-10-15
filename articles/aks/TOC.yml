@@ -171,7 +171,7 @@
             - name: Använda systemnodpooler
               href: use-system-pools.md
         - name: Distribuera AKS med Terraform
-          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+          href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
         - name: Använd visningsprogrammet för Kubernetes-resurser (förhandsversion)
           href: kubernetes-portal.md
@@ -358,10 +358,10 @@
     - name: DevOps
       items:
         - name: Använd Ansible för att skapa AKS-kluster
-          href: /azure/ansible/ansible-create-configure-aks
+          href: /azure/developer/ansible/aks-configure-clusters
           maintainContext: true
         - name: Kontinuerlig Jenkins-distribution
-          href: jenkins-continuous-deployment.md
+          href: /azure/developer/jenkins/deploy-from-github-to-aks
         - name: Azure DevOps-projekt
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true

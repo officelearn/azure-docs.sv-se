@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 9259e3d3e41a5ba4986fbef48e745210f80e6093
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54f80310f274b757d118f34542c1aa2e838ca7b9
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255270"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082114"
 ---
 Genom att använda regional VNet-integrering kan din app komma åt:
 
@@ -36,7 +36,8 @@ Som standard dirigerar din app endast RFC1918 trafik till ditt VNet. Om du vill 
 1. Välj **OK**.
 1. Välj **Spara**.
 
-Om du dirigerar all utgående trafik till ditt VNet, omfattas den av NSG: er och UDR som tillämpas på ditt integrations undernät. När du dirigerar all utgående trafik till ditt VNet, är dina utgående adresser fortfarande de utgående adresser som visas i dina app-egenskaper, om du inte tillhandahåller vägar för att skicka trafiken någon annan stans.
+> [!NOTE]
+> Om du dirigerar all utgående trafik till ditt VNet, omfattas den av NSG: er och UDR som tillämpas på ditt integrations undernät. När du dirigerar all utgående trafik till ditt VNet, är dina utgående adresser fortfarande de utgående adresser som visas i dina app-egenskaper, om du inte tillhandahåller vägar för att skicka trafiken någon annan stans.
 
 Det finns vissa begränsningar med att använda VNet-integrering med virtuella nätverk i samma region:
 

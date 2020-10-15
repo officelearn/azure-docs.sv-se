@@ -1,23 +1,23 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: automation
 author: mgoedtel
 ms.service: automation
 ms.topic: include
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: aa7b997fe112be5d974d0e82597e786fa219e1f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f01ca03167c7088c344f72e9943c103d9611bbc6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85570112"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92082242"
 ---
 #### <a name="process-automation"></a>Processautomatisering
 
-| Resurs | Gräns |Obs!|
+| Resurs | Gräns |Kommentarer|
 | --- | --- |---|
 | Maximalt antal nya jobb som kan skickas var 30 sekund per Azure Automation konto (ej schemalagda jobb) |100 |När den här gränsen uppnås kan efterföljande begär Anden om att skapa ett jobb inte utföras. Klienten får ett fel svar.|
 | Maximalt antal samtidiga jobb som körs på samma tids instans per Automation-konto (ej schemalagda jobb) |200 |När den här gränsen uppnås kan efterföljande begär Anden om att skapa ett jobb inte utföras. Klienten får ett fel svar.|
@@ -26,7 +26,7 @@ ms.locfileid: "85570112"
 | Maximalt antal moduler som kan importeras var 30 sekund per Automation-konto |5 ||
 | Maximal storlek för en modul |100 MB ||
 | Jobb körnings tid, kostnads fri nivå |500 minuter per prenumeration per kalender månad ||
-| Högsta mängd disk utrymme som tillåts per begränsat läge<sup>1</sup> |1 GB |Gäller endast för Azures sand boxar.|
+| Högsta mängd disk utrymme som tillåts per begränsat läge<sup>1</sup> |1 GB |Gäller endast för Azures sand boxar.|
 | Maximal mängd minne som tilldelats till en begränsat läge<sup>1</sup> |400 MB |Gäller endast för Azures sand boxar.|
 | Maximalt antal tillåtna nätverks platser per begränsat läge<sup>1</sup> |1 000 |Gäller endast för Azures sand boxar.|
 | Högsta tillåtna körnings tid per Runbook<sup>1</sup> |3 timmar |Gäller endast för Azures sand boxar.|
@@ -60,4 +60,4 @@ I följande tabell visas gränserna för Uppdateringshantering.
 
 | **Resurs** | **Gräns**| **Kommentarer** |
 |---|---|---|
-|Antal datorer per uppdaterings distribution|1000||
+|Antal datorer per uppdaterings distribution|500||

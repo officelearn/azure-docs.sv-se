@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 01213cd4d04783d0d877b4565493f06fa3718f8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f54467c03a67797d52ac499ca9ba455c0f75e240
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399643"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071463"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Kör OPC Vault Certificate Management-tjänsten på ett säkert sätt
 
@@ -97,7 +97,7 @@ Alla system måste övervakas kontinuerligt och uppdateras med de senaste säker
 Prenumerera på eller implementera lämplig säkerhets övervakning. Du kan till exempel prenumerera på en central övervaknings lösning (till exempel Azure Security Center eller Microsoft 365 övervaknings lösning) och konfigurera den på lämpligt sätt för att säkerställa att säkerhets händelser överförs till övervaknings lösningen.
 
 > [!IMPORTANT]
-> OPC Vault-tjänsten distribueras som standard med [Azure Application insikter](https://docs.microsoft.com/azure/azure-monitor/app/devops) som en övervaknings lösning. Det rekommenderas starkt att du lägger till en säkerhetslösning som [Azure Security Center](https://azure.microsoft.com/services/security-center/) .
+> OPC Vault-tjänsten distribueras som standard med [Azure Application insikter](../azure-monitor/app/devops.md) som en övervaknings lösning. Det rekommenderas starkt att du lägger till en säkerhetslösning som [Azure Security Center](https://azure.microsoft.com/services/security-center/) .
 
 ### <a name="assess-the-security-of-open-source-software-components"></a>Utvärdera säkerheten för program varu komponenter med öppen källkod
 
@@ -145,7 +145,7 @@ Tillhandahålla en fullständig uppsättning av alla certifikat som utfärdats u
 
 ### <a name="document-the-standard-operating-procedure-for-securely-deleting-cryptographic-keys"></a>Dokumentera standard drift proceduren för att säkert ta bort kryptografiska nycklar
 
-Under en CERTIFIKATs livs längd kan nyckel borttagningen bara ske sällan. Detta är anledningen till att ingen användare har Key Vault behörigheten Ta bort certifikat, och varför det inte finns några API: er exponerade för att ta bort ett CA-certifikat. Den manuella standard drift proceduren för att säkert ta bort certifikat utfärdarens kryptografiska nycklar är bara tillgänglig genom direkt åtkomst till Key Vault i Azure Portal. Du kan också ta bort certifikat gruppen i Key Vault. Inaktivera funktionen [Key Vault mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) för att säkerställa omedelbar borttagning.
+Under en CERTIFIKATs livs längd kan nyckel borttagningen bara ske sällan. Detta är anledningen till att ingen användare har Key Vault behörigheten Ta bort certifikat, och varför det inte finns några API: er exponerade för att ta bort ett CA-certifikat. Den manuella standard drift proceduren för att säkert ta bort certifikat utfärdarens kryptografiska nycklar är bara tillgänglig genom direkt åtkomst till Key Vault i Azure Portal. Du kan också ta bort certifikat gruppen i Key Vault. Inaktivera funktionen [Key Vault mjuk borttagning](../key-vault/general/soft-delete-overview.md) för att säkerställa omedelbar borttagning.
 
 ## <a name="certificates"></a>Certifikat
 

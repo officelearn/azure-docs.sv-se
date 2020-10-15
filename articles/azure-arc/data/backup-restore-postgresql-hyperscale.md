@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4fb64a2ea55744d66b203ef4d901f22ae4695e1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d27537f017707e937303dd0c08a589db28aac6ef
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630431"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071446"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Säkerhets kopiering och återställning av Azure Arc-aktiverade PostgreSQL för storskaliga Server grupper
 
@@ -82,7 +82,12 @@ azdata arc postgres server create -n postgres01 --workers 2 --storage-class-back
 
 ## <a name="take-manual-full-backup"></a>Gör manuell fullständig säkerhets kopiering
 
+
 Ta sedan en manuell fullständig säkerhets kopiering.
+
+> [!CAUTION]
+> **Endast för användare av Azure Kubernetes service (AKS):** vi är medvetna om ett problem med att göra säkerhets kopior av en Server grupp som finns på Azure Kubernetes service (AKS). Vi arbetar redan med att åtgärda det. Innan uppdateringen har distribuerats i en framtida version/uppdatering måste du ta bort poddar för dina Server grupper innan du gör en säkerhets kopia. För var och en av poddar i Server gruppen (du visar poddar genom att köra **kubectl get poddar-n \<namespace name> **) tar du bort dem genom att köra **kubectl Delete Pod \<server group pod name> -n \<namespace name> **. Ta inte bort poddar som inte ingår i Server gruppen. Att ta bort poddar innebär inte att dina data riskerar att tas bort. Vänta tills alla poddar är online igen och i STATUS = kör innan du tar en säkerhets kopia. Status för Pod anges i utdata från kommandot kubectl get poddar ovan.
+
 
 Kör följande kommando för att göra en fullständig säkerhets kopia av hela data-och loggmappen i Server gruppen:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a57473a26d5fe809274f14c8767356914e0d4962
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d3f04777983d24d5219c55c5309b7d12c214594
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400525"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070698"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Azures säkerhets bas linje för Automation
 
@@ -84,7 +84,7 @@ Du kan använda Azure Security Center just nu nätverks åtkomst för att begrä
 
 * [Så här distribuerar du Azure-brandvägg](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Förstå Azure Security Center integrerad Hot information](../security-center/threat-protection.md)
+* [Förstå Azure Security Center integrerad Hot information](../security-center/azure-defender.md)
 
 * [Förstå Azure Security Center anpassad nätverks härdning](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -150,7 +150,7 @@ Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-dist
 
 * [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy exempel för nätverk](/azure/governance/policy/samples/#network)
+* [Azure Policy exempel för nätverk](../governance/policy/samples/built-in-policies.md#network)
 
 * [Så här skapar du en Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -520,7 +520,7 @@ Men när du använder hybrid Runbook Worker som backas upp av virtuella Azure-da
 
 * [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
+* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
 * [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
@@ -720,7 +720,7 @@ Om du använder hybrid Runbook Worker som backas upp av virtuella Azure-datorer 
 
 * [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
+* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
 * [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
@@ -752,7 +752,7 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 * [Så här skapar du frågor med Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Azure Policy exempel på inbyggda program för Azure Automation](./policy-samples.md)
+* [Azure Policy exempel på inbyggda program för Azure Automation](./policy-reference.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -854,7 +854,7 @@ Anpassningsbar program kontroll är en intelligent, automatiserad lösning från
 
 * [Översikt över Azure Web Application-brandvägg](../web-application-firewall/overview.md)
 
-* [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md)
+* [Nätverkssäkerhetsgrupper](../virtual-network/network-security-groups-overview.md)
 
 * [Översikt över Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 
@@ -882,7 +882,7 @@ Du kan också använda rekommendationer från Azure Security Center som en säke
 
 * [Självstudie: skapa och hantera principer för att genomdriva efterlevnad](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy exempel på inbyggda program för Azure Automation](./policy-samples.md)
+* [Azure Policy exempel på inbyggda program för Azure Automation](./policy-reference.md)
 
 * [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -920,7 +920,7 @@ När du använder funktionen Hybrid Runbook Worker använder du Azure Security C
 
 * [Distribuera ett Automation-konto med hjälp av en Azure Resource Manager mall](./quickstart-create-automation-account-template.md#deploy-the-template)
 
-* [Azure Policy exempel på inbyggda program för Azure Automation](./policy-samples.md)
+* [Azure Policy exempel på inbyggda program för Azure Automation](./policy-reference.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -984,7 +984,7 @@ Se till att du begränsar åtkomsten till den anpassade OS-avbildningen som finn
 
 * [Använda alias](../governance/policy/concepts/definition-structure.md#aliases)
 
-* [Azure Policy exempel på inbyggda program för Azure Automation](./policy-samples.md)
+* [Azure Policy exempel på inbyggda program för Azure Automation](./policy-reference.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1014,7 +1014,7 @@ När du använder funktionen Hybrid Runbook Worker använder du Azure Security C
 
 * [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy exempel på inbyggda program för Azure Automation](./policy-samples.md)
+* [Azure Policy exempel på inbyggda program för Azure Automation](./policy-reference.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

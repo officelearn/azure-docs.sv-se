@@ -6,17 +6,17 @@ author: yunjchoi
 ms.topic: troubleshooting
 ms.date: 08/18/2020
 ms.author: yunjchoi
-ms.openlocfilehash: f830debafb1a9b6b303ee6af987c7cd4fbf34aea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a409ac944c51d893fc344f82ae83d97559e055ef
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358261"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070664"
 ---
 # <a name="check-for-resource-health-events-impacting-your-aks-cluster-preview"></a>Sök efter Resource Health händelser som påverkar ditt AKS-kluster (för hands version)
 
 
-När du kör behållar arbets belastningar på AKS vill du se till att du kan felsöka och åtgärda problem så snart de uppstår för att minimera påverkan på tillgängligheten för dina arbets belastningar. [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) ger dig insyn i olika hälso händelser som kan orsaka att ditt AKS-kluster inte är tillgängligt.
+När du kör behållar arbets belastningar på AKS vill du se till att du kan felsöka och åtgärda problem så snart de uppstår för att minimera påverkan på tillgängligheten för dina arbets belastningar. [Azure Resource Health](../service-health/resource-health-overview.md) ger dig insyn i olika hälso händelser som kan orsaka att ditt AKS-kluster inte är tillgängligt.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -49,7 +49,7 @@ Resource Health tar emot signaler för ditt hanterade kluster för att faststäl
 
 - **Försämrad**: när det finns ett hälso problem som kräver åtgärden Resource Health rapporterar klustret som *degraderat*.
 
-Mer information om vad varje hälso status visar finns i [Resource Health översikt](https://docs.microsoft.com/azure/service-health/resource-health-overview#health-status).
+Mer information om vad varje hälso status visar finns i [Resource Health översikt](../service-health/resource-health-overview.md#health-status).
 
 ### <a name="view-historical-data"></a>Visa historiska data
 
@@ -57,4 +57,4 @@ Du kan också visa de senaste 30 dagarna historik Resource Health information i 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kör kontroller på klustret för att ytterligare felsöka kluster problem genom att använda [AKS-diagnostik](https://docs.microsoft.com/azure/aks/concepts-diagnostics).
+Kör kontroller på klustret för att ytterligare felsöka kluster problem genom att använda [AKS-diagnostik](./concepts-diagnostics.md).

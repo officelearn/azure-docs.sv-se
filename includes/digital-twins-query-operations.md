@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/28/2020
 ms.author: baanders
-ms.openlocfilehash: 450ea0b8024192f6f351b4893fe6e8e07db236f7
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 333a7ec4ae0e5c8cbc94a603e2ccf81ee92e7d48
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931994"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078467"
 ---
 ## <a name="query-language-features"></a>Funktioner i frågespråk
 
@@ -33,6 +33,7 @@ Du kan förbättra dina frågor ytterligare med följande åtgärder:
   - Under för hands versionen tillåts upp till fem nivåer av `JOIN` .
 * Välj endast de översta frågeresultaten ( `Select TOP` operator)
 * Räkna antalet objekt i en resultat uppsättning med hjälp av `Select COUNT`
+* Använda projektioner för att välja vilka kolumner en fråga ska returnera
 * Använd skalära funktioner:,,,,,,, `IS_BOOL` `IS_DEFINED` `IS_NULL` `IS_NUMBER` `IS_OBJECT` `IS_PRIMITIVE` `IS_STRING` `STARTSWITH` , `ENDSWITH` .
 * Använd jämförelse operatorer för frågor:,,,,, `IN` / `NIN` `=` `!=` `<` `>` `<=` , `>=` .
 * Använd valfri kombination ( `AND` , `OR` , `NOT` operator) av `IS_OF_MODEL` , skalära funktioner och jämförelse operatorer.

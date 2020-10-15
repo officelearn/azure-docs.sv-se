@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: eaf99f5e92cbb9277f2d4143e14070f1900cdbef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04b03e3857bc5b01c25112f2a0d60c6468ecd42a
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888486"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093930"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Strömma apploggar för Azure Spring Cloud i realtid
 
@@ -22,7 +22,7 @@ Azure våren Cloud gör det möjligt att logga strömning i Azure CLI för att f
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Installera [Azure CLI-tillägget](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) för våren Cloud, lägsta version 0.2.0.
+* Installera [Azure CLI-tillägget](/cli/azure/install-azure-cli) för våren Cloud, lägsta version 0.2.0.
 * En instans av **Azure våren Cloud** med ett program som körs, till exempel [våren Cloud App](./spring-cloud-quickstart.md).
 
 > [!NOTE]
@@ -92,10 +92,4 @@ az spring-cloud app logs -h
 ## <a name="next-steps"></a>Nästa steg
 * [Snabb start: övervaka Azure våren Cloud-appar med loggar, mått och spårning](spring-cloud-quickstart-logs-metrics-tracing.md)
 * [Analysera loggar och mått med diagnostikinställningar](./diagnostic-services.md)
-
- 
-
-
-
-
 

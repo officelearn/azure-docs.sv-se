@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f12e5b6b0b2902d69936b9cf2695b7ee21db88e2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75360352"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075050"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Så här uppdaterar du en moln tjänst
 
@@ -21,7 +21,7 @@ Att uppdatera en moln tjänst, inklusive både dess roller och gäst operativ sy
 ## <a name="update-an-azure-service"></a>Uppdatera en Azure-tjänst
 Azure ordnar roll instanserna i logiska grupperingar som kallas uppgraderings domäner (UD). Uppgraderings domäner (UD) är logiska uppsättningar av roll instanser som uppdateras som en grupp.  Azure uppdaterar en moln tjänst en UD i taget, vilket gör att instanser i andra UDs kan fortsätta betjäna trafiken.
 
-Standard antalet uppgraderings domäner är 5. Du kan ange ett annat antal uppgraderings domäner genom att inkludera attributet upgradeDomainCount i tjänstens definitions fil (. csdef). Mer information om attributet upgradeDomainCount finns i [definitions schema för Azure-Cloud Services (. csdef-fil)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
+Standard antalet uppgraderings domäner är 5. Du kan ange ett annat antal uppgraderings domäner genom att inkludera attributet upgradeDomainCount i tjänstens definitions fil (. csdef). Mer information om attributet upgradeDomainCount finns i [definitions schema för Azure-Cloud Services (. csdef-fil)](./schema-csdef-file.md).
 
 När du utför en uppdatering på plats av en eller flera roller i tjänsten uppdaterar Azure uppsättningar roll instanser enligt den uppgraderings domän som de tillhör. Azure uppdaterar alla instanser i en specifik uppgraderings domän – stoppar dem, uppdaterar dem och aktiverar dem igen. sedan flyttas de vidare till nästa domän. Genom att bara stoppa instanserna som körs i den aktuella uppgraderings domänen, ser Azure till att en uppdatering sker med minsta möjliga påverkan på tjänsten som körs. Mer information finns i [hur uppdateringen fortsätter](#howanupgradeproceeds) senare i den här artikeln.
 
@@ -182,7 +182,4 @@ Följande diagram illustrerar hur en tjänst som innehåller två roller distrib
 ## <a name="next-steps"></a>Nästa steg
 [Så här hanterar du Cloud Services](cloud-services-how-to-manage-portal.md)  
 [Övervaka Cloud Services](cloud-services-how-to-monitor.md)  
-[Så här konfigurerar du Cloud Services](cloud-services-how-to-configure-portal.md)  
-
-
-
+[Så här konfigurerar du Cloud Services](cloud-services-how-to-configure-portal.md)

@@ -8,19 +8,19 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: d368c938e805164b70c7d3a22f9229b5efd89dde
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 29eb99d9e009d58c44be8f9d2e5d9fa01d117092
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045412"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092961"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Snabb start: bygga och distribuera appar till Azure våren Cloud
 
 ::: zone pivot="programming-language-csharp"
 I den här snabb starten skapar och distribuerar du mikrotjänstprogram till Azure våren-molnet med hjälp av Azure CLI.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför föregående snabb starter i den här serien:
 
@@ -185,12 +185,12 @@ Det här dokumentet beskriver hur du skapar och distribuerar program för mikrot
 
 Innan du distribuerar med Azure CLI eller Maven ska du slutföra exemplen som [etablerar en instans av Azure våren Cloud](spring-cloud-quickstart-provision-service-instance.md) och [konfigurerar konfigurations servern](spring-cloud-quickstart-setup-config-server.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* [Installera JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
+* [Installera JDK 8](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
 * [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/free/)
-* Valfritt [Installera Azure CLI-versionen 2.0.67 eller högre](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) och installera Azure våren Cloud-tillägget med kommandot: `az extension add --name spring-cloud`
-* Valfritt [Installera Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) och [Logga](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in) in
+* Valfritt [Installera Azure CLI-versionen 2.0.67 eller högre](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) och installera Azure våren Cloud-tillägget med kommandot: `az extension add --name spring-cloud`
+* Valfritt [Installera Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) och [Logga](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in) in
 
 ## <a name="deployment-procedures"></a>Distributions procedurer
 
@@ -304,7 +304,7 @@ Vi behöver ett sätt att komma åt programmet via en webbläsare. Vårt Gateway
     ![Importera projekt](media/spring-cloud-intellij-howto/revision-import-project-1.png)
 
 ### <a name="deploy-gateway-app-to-azure-spring-cloud"></a>Distribuera Gateway-appen till Azure våren Cloud
-För att kunna distribuera till Azure måste du logga in med ditt Azure-konto med Azure Toolkit for IntelliJ och välja din prenumeration. Information om inloggning finns i [installation och inloggning](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+För att kunna distribuera till Azure måste du logga in med ditt Azure-konto med Azure Toolkit for IntelliJ och välja din prenumeration. Information om inloggning finns i [installation och inloggning](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Högerklicka på projektet i IntelliJ Project Explorer och välj **Azure**  ->  **Deploy till Azure våren Cloud**.
 
@@ -313,7 +313,7 @@ För att kunna distribuera till Azure måste du logga in med ditt Azure-konto me
 1. I fältet **namn** lägger du till *: Gateway* till det befintliga **namnet**.
 1. I text rutan **artefakt** väljer du *com. piggymetrics: Gateway: 1.0-Snapshot*.
 1. I text rutan **prenumeration** verifierar du din prenumeration.
-1. I text rutan **fjäder moln** väljer du instansen av Azure våren-molnet som du skapade i [etablera Azure våren Cloud-instansen](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
+1. I text rutan **fjäder moln** väljer du instansen av Azure våren-molnet som du skapade i [etablera Azure våren Cloud-instansen](./spring-cloud-quickstart-provision-service-instance.md).
 1. Ange den **offentliga slut punkten** som ska *aktive ras*.
 1. I text rutan **app:** väljer du **skapa app...**.
 1. Ange *Gateway*och klicka sedan på **OK**.

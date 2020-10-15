@@ -3,12 +3,12 @@ title: Översikt över Recovery Services-valv
 description: En översikt över Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: cc09c1ffa84bc66e8fe2c48c80b8aea0977762ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab6b27bdc7ac9b01385ed43830d0af5900210d43
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975147"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093675"
 ---
 # <a name="recovery-services-vaults-overview"></a>Översikt över Recovery Services-valv
 
@@ -18,7 +18,7 @@ I den här artikeln beskrivs funktionerna i ett Recovery Services-valv. Ett Reco
 
 - **Central övervakning för din hybrid IT-miljö**: med Recovery Services valv kan du bara övervaka dina [virtuella Azure IaaS-datorer](backup-azure-manage-vms.md) utan även dina [lokala till gångar](backup-azure-manage-windows-server.md#manage-backup-items) från en central Portal. [Läs mer](backup-azure-monitoring-built-in-monitor.md)
 
-- **Rollbaserad Access Control (RBAC)**: RBAC ger detaljerad åtkomst hanterings kontroll i Azure. [Azure tillhandahåller olika inbyggda roller](../role-based-access-control/built-in-roles.md)och Azure Backup har tre [inbyggda roller för att hantera återställnings punkter](backup-rbac-rs-vault.md). Recovery Services-valv är kompatibla med RBAC, vilket begränsar säkerhets kopiering och återställning av åtkomst till den definierade uppsättningen användar roller. [Läs mer](backup-rbac-rs-vault.md)
+- **Rollbaserad åtkomst kontroll i Azure (Azure RBAC)**: Azure RBAC tillhandahåller detaljerade åtkomst hanterings kontroller i Azure. [Azure tillhandahåller olika inbyggda roller](../role-based-access-control/built-in-roles.md)och Azure Backup har tre [inbyggda roller för att hantera återställnings punkter](backup-rbac-rs-vault.md). Recovery Services-valv är kompatibla med Azure RBAC, vilket begränsar säkerhets kopiering och återställning av åtkomst till den definierade uppsättningen användar roller. [Läs mer](backup-rbac-rs-vault.md)
 
 - **Mjuk borttagning**: med mjuk borttagning, även om en obehörig aktör tar bort en säkerhets kopia (eller säkerhetskopierade data tas bort av misstag), bevaras säkerhets kopierings data i ytterligare 14 dagar, vilket gör att det inte går att återställa säkerhets kopierings objekt utan data förlust. De ytterligare 14 dagarna för kvarhållning av säkerhets kopierings data i läget "mjuk borttagning" kostar inga kostnader för dig. [Läs mer](backup-azure-security-feature-cloud.md).
 

@@ -3,12 +3,13 @@ title: Skicka Blob Storage-händelser till webb slut punkt-mall
 description: Använd Azure Event Grid och en Azure Resource Manager mall för att skapa Blob Storage-konto och prenumerera på dess händelser. Skicka händelserna till en webhook.
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: fc6216142c6bec99cb12bf4e0bdae920f27f1bf2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: subject-armqs
+ms.openlocfilehash: bfaee324f3e46f64fd4ad0d8b7e1240331b56c27
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91598348"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093658"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Snabb start: dirigera Blob Storage-händelser till webb slut punkt med hjälp av en ARM-mall
 
@@ -86,7 +87,7 @@ När du överför filen till Azure Blob Storage skickar Event Grid ett meddeland
 
 Mer information om Azure Resource Manager-mallar finns i följande artiklar:
 
-* [Azure Resource Manager dokumentation](../azure-resource-manager/index.yml)
+* [Dokumentation om Azure Resource Manager](../azure-resource-manager/index.yml)
 * [Definiera resurser i Azure Resource Manager-mallar](/azure/templates/)
 * [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/)
 * [Azure Event Grid mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

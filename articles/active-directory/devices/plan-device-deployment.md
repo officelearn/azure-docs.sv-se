@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf30570f10f176c47aed0f99127e03a027eff775
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563904"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093097"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planera distribution av Azure Active Directory enhet
 
@@ -34,7 +34,7 @@ Det finns flera metoder för att integrera dina enheter i Azure AD:
 
 * [Skapa en hybrid Azure AD-anslutning](concept-azure-ad-join-hybrid.md) mellan enheter i din lokala Active Directory och Azure AD. 
 
-## <a name="learn"></a>Läs mer
+## <a name="learn"></a>Learn
 
 Innan du börjar ska du kontrol lera att du är bekant med [Översikt över enhets identitets hantering](overview.md).
 
@@ -62,7 +62,7 @@ Vanliga frågor och svar om [Azure AD-enhets hantering, vanliga](faq.md)  frågo
 
 ### <a name="engage-the-right-stakeholders"></a>Engagera rätt intressenter
 
-När teknik projekt inte fungerar, gör de vanligt vis på grund av felaktiga förväntningar på påverkan, resultat och ansvars områden. För att undvika dessa fall GRO par bör [du se till att du engagerar rätt intressenter](https://aka.ms/deploymentplans) och att från intressenter-rollerna i projektet är väl förstå. 
+När teknik projekt inte fungerar, gör de vanligt vis på grund av felaktiga förväntningar på påverkan, resultat och ansvars områden. För att undvika dessa fall GRO par bör [du se till att du engagerar rätt intressenter](../fundamentals/active-directory-deployment-plans.md) och att från intressenter-rollerna i projektet är väl förstå. 
 
 I den här planen lägger du till följande intressenter i listan:
 
@@ -109,7 +109,7 @@ iOS-och Android-enheter kanske bara är registrerade i Azure AD. I följande tab
 | Windows-enheter på äldre nivå (Windows 8,1 eller Windows 7)| | | ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
 |**Inloggnings alternativ**| | |  |
 | Lokala autentiseringsuppgifter för slutanvändare| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| |  |
-| lösenordsinställning| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
+| Lösenord| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
 | PIN-kod för enhet| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| |  |
 | Windows Hello| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| |  |
 | Windows Hello för företag| | ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |

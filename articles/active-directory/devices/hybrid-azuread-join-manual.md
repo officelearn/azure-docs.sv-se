@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c062b907f1e8a8e0541db0d69c6e24901f3145f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fe19a1fadd54b7146ccb074d82a68ec259100f2
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268561"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093267"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Självstudie: Konfigurera anslutna Azure Active Directory-hybridenheter manuellt
 
@@ -25,7 +25,7 @@ Med enhetshanteringen i Azure Active Directory (Azure AD) kan du se till att anv
 > [!TIP]
 > Om användning av Azure AD Connect är ett möjligt alternativ för dig kan du läsa relaterade självstudier för [hanterade](hybrid-azuread-join-managed-domains.md) eller [federerade](hybrid-azuread-join-federated-domains.md) domäner. Genom att använda Azure AD Connect kan du avsevärt förenkla konfigurationen av Hybrid Azure AD-anslutningen.
 
-Om du har en lokal Active Directory-miljö och du vill ansluta dina domänanslutna enheter till Azure AD kan du göra det genom att konfigurera Hybrid Azure AD-anslutna enheter. I den här guiden får du lära dig att:
+Om du har en lokal Active Directory-miljö och du vill ansluta dina domänanslutna enheter till Azure AD kan du göra det genom att konfigurera Hybrid Azure AD-anslutna enheter. I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Konfigurera Azure AD-hybridanslutning manuellt
@@ -35,7 +35,7 @@ Om du har en lokal Active Directory-miljö och du vill ansluta dina domänanslut
 > * Verifiera anslutna enheter
 > * Felsöka din implementering
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien förutsätts att du känner till:
 
@@ -564,7 +564,7 @@ Här är tre sätt att hitta och kontrol lera enhets status:
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
 1. Gå till sidan enheter med en [direkt länk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
-2. Information om hur du hittar en enhet hittar [du i hantera enhets identiteter med hjälp av Azure Portal](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+2. Information om hur du hittar en enhet hittar [du i hantera enhets identiteter med hjälp av Azure Portal](./device-management-azure-portal.md#manage-devices).
 3. Om den **registrerade** kolumnen säger **väntar**, slutförs inte hybrid Azure AD Join. I federerade miljöer kan detta bara inträffa om det inte kunde registreras och AAD Connect har kon figurer ATS för att synkronisera enheterna.
 4. Om den **registrerade** kolumnen innehåller ett **datum/tid**har hybrid Azure AD Join slutförts.
 

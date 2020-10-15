@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: c9d4356f5dc0b1eace586b741593b9c718c35caf
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 31e25fb8c67e3d271bc37eb4b0d28c67d94a664f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945455"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092808"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Förbereda ett program för distribution i Azure våren Cloud
 
@@ -23,7 +23,7 @@ Azure våren Cloud tillhandahåller robusta tjänster för att vara värd för, 
 I den här artikeln beskrivs beroenden, konfigurationen och koden som krävs för att köra en .NET Core Steeltoe-app i Azure våren Cloud. Information om hur du distribuerar ett program till Azure våren Cloud finns i [distribuera ditt första Azure våren Cloud-program](spring-cloud-quickstart.md).
 
 >[!Note]
-> Steeltoe support för Azure våren Cloud erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Mer information om stöd för för hands versionerna finns i [vanliga frågor och svar](https://azure.microsoft.com/support/faq/) eller filen [supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+> Steeltoe support för Azure våren Cloud erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Mer information om stöd för för hands versionerna finns i [vanliga frågor och svar](https://azure.microsoft.com/support/faq/) eller filen [supportbegäran](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ##  <a name="supported-versions"></a>Versioner som stöds
 
@@ -99,7 +99,7 @@ I den här artikeln beskrivs de nödvändiga beroendena och hur du lägger till 
 
 Endast våren/Java-program kan köras i Azure våren-molnet.
 
-Azure våren Cloud stöder både Java 8 och Java 11. Värd miljön innehåller den senaste versionen av Azul Zulu OpenJDK för Azure. Mer information om Azul Zulu OpenJDK för Azure finns i [installera JDK](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+Azure våren Cloud stöder både Java 8 och Java 11. Värd miljön innehåller den senaste versionen av Azul Zulu OpenJDK för Azure. Mer information om Azul Zulu OpenJDK för Azure finns i [installera JDK](/azure/developer/java/fundamentals/java-jdk-install).
 
 ## <a name="spring-boot-and-spring-cloud-versions"></a>Moln versioner för våren start och våren
 
@@ -305,9 +305,9 @@ Inkludera följande `spring-cloud-starter-sleuth` och `spring-cloud-starter-zipk
  Du måste också aktivera en Azure Application insikts-instans för att arbeta med din Azure våren Cloud Service-instans. Information om hur du använder Application Insights med Azure våren Cloud finns i [dokumentationen om distribuerad spårning](spring-cloud-tutorial-distributed-tracing.md).
 
 ## <a name="see-also"></a>Se även
-* [Analysera program loggar och mått](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
-* [Konfigurera konfigurationsservern](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server)
-* [Använd distribuerad spårning med Azure våren Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+* [Analysera program loggar och mått](./diagnostic-services.md)
+* [Konfigurera konfigurationsservern](./spring-cloud-tutorial-config-server.md)
+* [Använd distribuerad spårning med Azure våren Cloud](./spring-cloud-tutorial-distributed-tracing.md)
 * [Guide för våren-snabb start](https://spring.io/quickstart)
 * [Dokumentation om våren Boot](https://spring.io/projects/spring-boot)
 

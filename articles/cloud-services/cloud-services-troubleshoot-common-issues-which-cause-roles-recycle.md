@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 4bf33db28d68b600d860a132027e5be440377b34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0484eb919a9de11b64dcc3334c5a9a942d875ca6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460294"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075135"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Vanliga problem som gör att roller återvinns
 Den här artikeln beskriver några vanliga orsaker till distributions problem och innehåller fel söknings tips som hjälper dig att lösa problemen. En indikation på att ett problem har uppstått med ett program är när roll instansen inte startar, eller så växlar den mellan initierings-, upptaget-och stopp tillstånd.
@@ -63,11 +63,11 @@ DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 Om du vill köra en webb roll under TLS måste du se till att det exporterade hanterings certifikatet innehåller den privata nyckeln. Om du använder *Windows certifikat hanteraren* för att exportera certifikatet måste du välja **Ja** för alternativet **Exportera den privata nyckeln** . Certifikatet måste exporteras i PFX-format, vilket är det enda format som stöds för närvarande.
 
 ## <a name="next-steps"></a>Nästa steg
-Visa fler [fel söknings artiklar](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) för Cloud Services.
+Visa fler [fel söknings artiklar](../index.yml?product=cloud-services&tag=top-support-issue) för Cloud Services.
 
-Visa fler scenarier för roll åter användning i [Kevin Williamsons blogg serie](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+Visa fler scenarier för roll åter användning i [Kevin Williamsons blogg serie](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
 
-[RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
-[OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
-[OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
-[Fungerar]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
+[RoleEntryPoint]: /previous-versions/azure/reference/ee758619(v=azure.100)
+[OnStart]: /previous-versions/azure/reference/ee772851(v=azure.100)
+[OnStop]: /previous-versions/azure/reference/ee772844(v=azure.100)
+[Kör]: /previous-versions/azure/reference/ee772746(v=azure.100)

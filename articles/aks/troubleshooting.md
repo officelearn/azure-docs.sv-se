@@ -4,12 +4,12 @@ description: Lär dig hur du felsöker och löser vanliga problem när du använ
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 930dae7ae163a04fb8b5fc5ae44b9170a7e3c6ce
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: dcbfed4fc83b980b3e54a808406b8d27e1e6c919
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893143"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074421"
 ---
 # <a name="aks-troubleshooting"></a>AKS-felsökning
 
@@ -206,7 +206,7 @@ När ett Kubernetes-kluster på Azure (AKS eller No) ofta skalar upp/ned eller a
 Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
 ```
 
-Dessa begränsnings fel beskrivs i detalj [här](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling) och [här](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors)
+Dessa begränsnings fel beskrivs i detalj [här](../azure-resource-manager/management/request-limits-and-throttling.md) och [här](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)
 
 Omkommandoering från AKS Engineering-teamet är att se till att du kör version minst 1.18. x som innehåller många förbättringar. Mer information finns i dessa förbättringar [här](https://github.com/Azure/AKS/issues/1413) [.](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247)
 
@@ -250,7 +250,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 |--|:--:|
 | 1,10 | 1.10.2 eller senare |
 | 1,11 | 1.11.0 eller senare |
-| 1,12 och senare | E.t. |
+| 1,12 och senare | Saknas |
 
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Det gick inte att ställa in UID och GID i mountOptions för Azure disk
@@ -307,7 +307,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.9 eller senare |
 | 1.13 | 1.13.6 eller senare |
 | 1,14 | 1.14.2 eller senare |
-| 1,15 och senare | E.t. |
+| 1,15 och senare | Saknas |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden har en föråldrad disk lista kan du minska genom att koppla bort alla icke-befintliga diskar från den virtuella datorn som en Mass åtgärd. **En separat från koppling av icke-befintliga diskar kan Miss lyckas.**
 
@@ -326,7 +326,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.10 eller senare |
 | 1.13 | 1.13.8 eller senare |
 | 1,14 | 1.14.4 eller senare |
-| 1,15 och senare | E.t. |
+| 1,15 och senare | Saknas |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden är i ett felaktigt tillstånd kan du minska genom att manuellt uppdatera VM-statusen med hjälp av någon av följande:
 
@@ -435,7 +435,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 |--|:--:|
 | 1.12 | 1.12.6 eller senare |
 | 1.13 | 1.13.4 eller senare |
-| 1,14 och senare | E.t. |
+| 1,14 och senare | Saknas |
 
 ### <a name="azure-files-mount-fails-because-of-storage-account-key-changed"></a>Azure Files monteringen Miss lyckas på grund av att lagrings konto nyckeln har ändrats
 

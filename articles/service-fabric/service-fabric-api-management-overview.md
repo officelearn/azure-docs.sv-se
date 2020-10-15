@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: bbde23dd888d179917f123d00745fb7d0099c2d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cbec0b4b28574bfbe46516de54f1b8a3fad7ce2
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259292"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091142"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric med Azure API Management-översikt
 
@@ -29,13 +29,13 @@ En vanlig Service Fabric-arkitektur använder ett webb program med en enda sida 
 
 I det här scenariot fungerar en tillstånds lös webb tjänst som gateway i Service Fabric-programmet. Den här metoden kräver att du skriver en webb tjänst som kan proxy HTTP-begäranden till backend-tjänster, som du ser i följande diagram:
 
-![Översikt över Service Fabric med Azure API Management-topologi][sf-web-app-stateless-gateway]
+![Diagram som visar hur en tillstånds lös webb tjänst fungerar som gateway i Service Fabric-programmet.][sf-web-app-stateless-gateway]
 
 När program växer i komplexitet, så gör de gatewayer som måste presentera ett API framför myriaden backend-tjänster. Azure API Management är utformat för att hantera komplexa API: er med regler för routning, åtkomst kontroll, hastighets begränsning, övervakning, händelse loggning och cachelagring av svar med minimalt arbete på din sida. Azure API Management stöder Service Fabric tjänst identifiering, partitions matchning och replik val för att intelligent dirigera begär Anden direkt till backend-tjänster i Service Fabric så du behöver inte skriva din egen tillstånds lösa API-Gateway. 
 
 I det här scenariot betjänas webb gränssnittet fortfarande via en webb tjänst, medan HTTP API-anrop hanteras och dirigeras via Azure API Management, som du ser i följande diagram:
 
-![Översikt över Service Fabric med Azure API Management-topologi][sf-apim-web-app]
+![Diagram som visar hur webb gränssnittet fortfarande betjänas via en webb tjänst, medan HTTP API-anrop hanteras och dirigeras via Azure-API Management.][sf-apim-web-app]
 
 ## <a name="application-scenarios"></a>Programscenarier
 
@@ -51,7 +51,7 @@ I det enklaste fallet vidarebefordras trafiken till en tillstånds lös tjänst 
 
 I följande scenario innehåller ett Service Fabric-program en tillstånds lös tjänst med namnet `fabric:/app/fooservice` , som exponerar ett internt HTTP-API. Namnet på tjänst instansen är känt och kan hårdkodas direkt i den API Management principen för inkommande bearbetning. 
 
-![Översikt över Service Fabric med Azure API Management-topologi][sf-apim-static-stateless]
+![Diagram som visar ett Service Fabric-program som innehåller en tillstånds lös tjänst som exponerar ett internt HTTP-API.][sf-apim-static-stateless]
 
 ## <a name="send-traffic-to-a-stateful-service"></a>Skicka trafik till en tillstånds känslig tjänst
 
@@ -82,7 +82,7 @@ I det här exemplet skapas en ny tillstånds lös tjänst instans för varje anv
   - En begäran till `/api/users/foo` dirigeras till tjänst instansen `fabric:/app/users/foo`
   - En begäran till `/api/users/bar` dirigeras till tjänst instansen `fabric:/app/users/bar`
 
-![Översikt över Service Fabric med Azure API Management-topologi][sf-apim-dynamic-stateless]
+![Diagram som visar ett exempel där en ny tillstånds lös tjänst instans skapas för varje användare av ett program med ett dynamiskt genererat namn.][sf-apim-dynamic-stateless]
 
 ## <a name="send-traffic-to-multiple-stateful-services"></a>Skicka trafik till flera tillstånds känsliga tjänster
 
@@ -103,7 +103,7 @@ I det här exemplet skapas en ny tillstånds känslig tjänst instans för varje
 
 Varje tjänst instans partitioneras också med hjälp av ett Int64-partitionsschema med två partitioner och ett nyckel intervall som sträcker sig över `Int64.MinValue` till `Int64.MaxValue` . Backend-principen beräknar en partitionsnyckel inom intervallet genom att konvertera `id` värdet som anges i sökvägen för URL-begäran till ett 64-bitars heltal, även om alla algoritmer kan användas för att beräkna partitionsnyckel. 
 
-![Översikt över Service Fabric med Azure API Management-topologi][sf-apim-dynamic-stateful]
+![Diagram som visar att varje tjänst instans också partitioneras med hjälp av Int64-partitionsschema med två partitioner och ett nyckel intervall som sträcker sig över Int64. MinValue till Int64. MaxValue.][sf-apim-dynamic-stateful]
 
 ## <a name="next-steps"></a>Nästa steg
 

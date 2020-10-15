@@ -4,16 +4,17 @@ description: Lär dig mer om SQL-autentisering i Azure Synapse Analytics.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: d43c223c0a3e67ff784688255bd75fc61e5c120c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8edf782c03300cf22bd349548da425669f492bc1
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288026"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093539"
 ---
 # <a name="sql-authentication"></a>SQL-autentisering
 

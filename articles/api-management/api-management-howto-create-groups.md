@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 517b70d798d8cdd1b361b244111a8b6781286207
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea674981036b4be292329a4b30b43180ed26d642
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87851230"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092791"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Så skapar och använder du grupper för att hantera utvecklarkonton i Azure API Management
 
@@ -53,7 +53,7 @@ I det här avsnittet visas hur du lägger till en ny grupp till ditt API Managem
 3. Ange ett unikt namn för gruppen och en valfri beskrivning.
 4. Tryck på **Skapa**.
 
-    ![Lägg till en ny grupp](./media/api-management-howto-create-groups/groups001.png)
+    ![Lägga till en ny grupp](./media/api-management-howto-create-groups/groups001.png)
 
 När gruppen har skapats läggs den till i listan **grupper** . <br/>Om du vill redigera **namnet** eller **beskrivningen** av gruppen klickar du på namnet på gruppen och **inställningarna**.<br/>Om du vill ta bort gruppen klickar du på namnet på gruppen och trycker på **ta bort**.
 
@@ -66,10 +66,10 @@ Nu när gruppen har skapats kan den kopplas till produkter och utvecklare.
 3. Tryck på **åtkomst kontroll**.
 4. Klicka på **+ Lägg till grupp**.
 
-    ![Associera en grupp med en produkt](./media/api-management-howto-create-groups/groups002.png)
+    ![Skärm bild som visar knappen Lägg till grupp.](./media/api-management-howto-create-groups/groups002.png)
 5. Välj den grupp som du vill lägga till.
 
-    ![Associera en grupp med en produkt](./media/api-management-howto-create-groups/groups003.png)
+    ![Skärm bild som visar den valda gruppen och markerar knappen Välj.](./media/api-management-howto-create-groups/groups003.png)
 
     Klicka på **ta bort**om du vill ta bort en grupp från produkten.
 
@@ -90,7 +90,7 @@ I det här avsnittet visas hur du associerar grupper med medlemmar.
     ![Lägga till en medlem](./media/api-management-howto-create-groups/groups005.png)
 3. Tryck på **+ Lägg till** och välj en medlem.
 
-    ![Lägga till en medlem](./media/api-management-howto-create-groups/groups006.png)
+    ![Skärm bild som markerar knappen Lägg till, den valda användaren och knappen Välj.](./media/api-management-howto-create-groups/groups006.png)
 4. Tryck på **Välj**.
 
 När associationen har lagts till mellan utvecklaren och gruppen kan du Visa den på fliken **användare** .

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 77c4f627668b91c4bc21ad73b3511c1775943229
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d18e174eac30bbcf87010531821a4017efb088ba
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460209"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075118"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>Standard storleken för TEMP-mappar är för liten för en webb-eller arbets roll i moln tjänsten
 Den tillfälliga standard katalogen för en moln tjänst arbetare eller webb roll har en maximal storlek på 100 MB, vilket kan bli en fullständig tidpunkt. I den här artikeln beskrivs hur du undviker att använda utrymme för den tillfälliga katalogen.
@@ -70,8 +70,8 @@ namespace WorkerRole1
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Läs en blogg som beskriver [hur du ökar storleken på den temporära mappen för Azure-Webbrollens ASP.net](https://docs.microsoft.com/archive/blogs/kwill/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder).
+Läs en blogg som beskriver [hur du ökar storleken på den temporära mappen för Azure-Webbrollens ASP.net](/archive/blogs/kwill/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder).
 
-Visa fler [fel söknings artiklar](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview) för Cloud Services.
+Visa fler [fel söknings artiklar](/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview) för Cloud Services.
 
-Om du vill veta mer om hur du felsöker problem med Cloud Service-roller med hjälp av Azure PaaS Computer Diagnostics-data kan du Visa [Kevin Williamsons blogg serie](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data)
+Om du vill veta mer om hur du felsöker problem med Cloud Service-roller med hjälp av Azure PaaS Computer Diagnostics-data kan du Visa [Kevin Williamsons blogg serie](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data)

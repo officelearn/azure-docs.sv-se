@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: bff98ea3470110bc29f75361fb3a2adc685e2602
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1802708c3b9e15a2459f29d15da72f2dc1da1a4f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888578"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093998"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Så här aktiverar du systemtilldelad hanterad identitet för Azure våren Cloud Application
 
@@ -23,7 +23,7 @@ Hanterade identiteter för Azure-resurser ger en automatiskt hanterad identitet 
 Den här artikeln visar hur du aktiverar och inaktiverar systemtilldelade hanterade identiteter för en Azure våren Cloud-App med hjälp av Azure Portal och CLI (tillgängligt från version 0.2.4).
 
 ## <a name="prerequisites"></a>Förutsättningar
-Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](../active-directory/managed-identities-azure-resources/overview.md).
 Du behöver en distribuerad Azure våren-moln instans. Följ [snabb starten för att distribuera med hjälp av Azure CLI](spring-cloud-quickstart.md).
 
 ## <a name="add-a-system-assigned-identity"></a>Lägg till en tilldelad identitet
@@ -59,9 +59,9 @@ az spring-cloud app identity assign -n app_name -s service_name -g resource_grou
 ## <a name="obtain-tokens-for-azure-resources"></a>Hämta token för Azure-resurser
 En app kan använda sin hanterade identitet för att hämta token för att få åtkomst till andra resurser som skyddas av Azure Active Directory, till exempel Azure Key Vault. Dessa tokens representerar programmet som använder resursen, inte någon specifik användare av programmet.
 
-Du kan behöva [Konfigurera mål resursen för att tillåta åtkomst från ditt program](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal). Om du till exempel begär en token för att få åtkomst till Key Vault, se till att du har lagt till en åtkomst princip som innehåller programmets identitet. Annars avvisas anrop till Key Vault, även om de inkluderar token. Mer information om vilka resurser som stöder Azure Active Directory tokens finns i [Azure-tjänster som stöder Azure AD-autentisering](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication).
+Du kan behöva [Konfigurera mål resursen för att tillåta åtkomst från ditt program](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Om du till exempel begär en token för att få åtkomst till Key Vault, se till att du har lagt till en åtkomst princip som innehåller programmets identitet. Annars avvisas anrop till Key Vault, även om de inkluderar token. Mer information om vilka resurser som stöder Azure Active Directory tokens finns i [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-Azure våren Cloud delar samma slut punkt för token-förvärv med Azure Virtual Machine. Vi rekommenderar att du använder Java SDK eller våren Boot starter för att hämta en token.  Se [hur du använder VM-token](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) för olika kod-och skript exempel och rikt linjer för viktiga ämnen som hantering av token för förfallo datum och HTTP-fel.
+Azure våren Cloud delar samma slut punkt för token-förvärv med Azure Virtual Machine. Vi rekommenderar att du använder Java SDK eller våren Boot starter för att hämta en token.  Se [hur du använder VM-token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) för olika kod-och skript exempel och rikt linjer för viktiga ämnen som hantering av token för förfallo datum och HTTP-fel.
 
 Rekommenderat: Använd Java SDK eller våren Boot starter för att hämta tokens.  Se exemplen i [Nästa steg](#next-steps).
 
@@ -88,4 +88,3 @@ az spring-cloud app identity remove -n app_name -s service_name -g resource_grou
 * [Åtkomst Azure Key Vault med hanterade identiteter i våren Boot starter](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets/README.md#use-msi--managed-identities)
 * [Lär dig mer om hanterade identiteter för Azure-resurser](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 * [Använda hanterade identiteter med Java SDK](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
-

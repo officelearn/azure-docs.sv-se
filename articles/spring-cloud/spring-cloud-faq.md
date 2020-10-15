@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 618e9586e9824e6cea592ff78a1fbd3b991abd83
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 9562cff9fd9ed37cbd4fd94c42acd54e6be3b47c
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945404"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094015"
 ---
 # <a name="azure-spring-cloud-faq"></a>Vanliga frågor och svar om Azure våren Cloud
 
@@ -54,7 +54,7 @@ Vilken av dem ska jag använda och vilka är gränserna inom varje nivå?
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>Hur kan jag ge feedback och rapportera problem?
 
-Om du stöter på problem med Azure våren Cloud kan du skapa en [support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Om du vill skicka en funktions förfrågan eller lämna feedback går du till [Azure feedback](https://feedback.azure.com/forums/34192--general-feedback).
+Om du stöter på problem med Azure våren Cloud kan du skapa en [support förfrågan för Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). Om du vill skicka en funktions förfrågan eller lämna feedback går du till [Azure feedback](https://feedback.azure.com/forums/34192--general-feedback).
 
 ## <a name="development"></a>Utveckling
 
@@ -70,9 +70,9 @@ Azure våren Cloud har stöd för Java 8 och 11. Se [Java Runtime och OS-version
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Var kan jag se mina vår moln program loggar och mått?
 
-Hitta mått på fliken Översikt över appen och fliken [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics) .
+Hitta mått på fliken Översikt över appen och fliken [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics) .
 
-Azure våren Cloud stöder export av vår moln program loggar och mät värden till Azure Storage, EventHub och [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries). Tabell namnet i Log Analytics är *AppPlatformLogsforSpring*. Information om hur du aktiverar det finns i [Diagnostic Services](diagnostic-services.md).
+Azure våren Cloud stöder export av vår moln program loggar och mät värden till Azure Storage, EventHub och [Log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). Tabell namnet i Log Analytics är *AppPlatformLogsforSpring*. Information om hur du aktiverar det finns i [Diagnostic Services](diagnostic-services.md).
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Stöder Azure våren Cloud Distributed tracing?
 
@@ -106,7 +106,7 @@ Du kan ta bort de diagnostiska inställningarna för våren-molnet med hjälp av
 
 ### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Vilka versioner av Java Runtime stöds i Azure våren Cloud?
 
-Azure våren Cloud har stöd för Java LTS-versioner med de senaste build-versionerna, för närvarande 2020, Java 8 build 252 och Java 11 build 7 stöds. Se [installera JDK för Azure och Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
+Azure våren Cloud har stöd för Java LTS-versioner med de senaste build-versionerna, för närvarande 2020, Java 8 build 252 och Java 11 build 7 stöds. Se [installera JDK för Azure och Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
 
 ### <a name="who-built-these-java-runtimes"></a>Vem har skapat dessa Java-körningar?
 
@@ -118,14 +118,14 @@ LTS-och MTS JDK-versioner har kvartals Visa säkerhets uppdateringar, fel korrig
 
 ### <a name="how-long-will-java-8-and-java-11-lts-versions-be-supported"></a>Hur länge kommer Java 8-och Java 11 LTS-versioner att stödjas?
 
-Se [stöd för Java-långtids för Azure och Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
+Se [stöd för Java-långtids för Azure och Azure Stack](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * Java 8-LTS kommer att stödjas till och med 2030 december.
 * Java 11-LTS kommer att stödjas fram till den 2027 september.
 
 ### <a name="how-can-i-download-a-supported-java-runtime-for-local-development"></a>Hur kan jag hämta en Java-körning som stöds för lokal utveckling?
 
-Se [installera JDK för Azure och Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+Se [installera JDK för Azure och Azure Stack](/azure/developer/java/fundamentals/java-jdk-install).
 
 ### <a name="what-is-the-retire-policy-for-older-java-runtimes"></a>Vad är borttagnings principen för äldre Java-körningar?
 
@@ -136,7 +136,7 @@ Offentligt meddelande kommer att skickas till 12 månader innan en gammal körni
 
 ### <a name="how-can-i-get-support-for-issues-at-the-java-runtime-level"></a>Hur kan jag få support för problem på Java Runtime-nivån?
 
-Du kan öppna ett support ärende med Azure-supporten.  Se [så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Du kan öppna ett support ärende med Azure-supporten.  Se [så här skapar du en support förfrågan för Azure](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ### <a name="what-is-the-operation-system-to-run-my-apps"></a>Vad är drift systemet för att köra Mina appar?
 

@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: a3c1699dd4b7b828c7dc652f14f431878f785061
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c4bdf1268aea06d7b67776a4022c608549994e7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88207147"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074863"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Säkerhetskopiera konfigurations Arkiv för appar automatiskt
 
@@ -124,7 +124,7 @@ I den här artikeln arbetar du med C#-funktioner som har följande egenskaper:
 - Azure Functions körnings version 3. x
 - Funktionen utlöses av en timer var tionde minut
 
-För att göra det enklare för dig att börja säkerhetskopiera dina data har vi [testat och publicerat en funktion](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) som du kan använda utan att göra några ändringar i koden. Ladda ned projektfilerna och [publicera dem till din egen Azure Function-app från Visual Studio](/azure/azure-functions/functions-develop-vs#publish-to-azure).
+För att göra det enklare för dig att börja säkerhetskopiera dina data har vi [testat och publicerat en funktion](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) som du kan använda utan att göra några ändringar i koden. Ladda ned projektfilerna och [publicera dem till din egen Azure Function-app från Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 > [!IMPORTANT]
 > Gör inga ändringar i miljövariablerna i den kod som du har laddat ned. Du ska skapa de appinställningar som krävs i nästa avsnitt.
@@ -133,13 +133,13 @@ För att göra det enklare för dig att börja säkerhetskopiera dina data har v
 ### <a name="build-your-own-function"></a>Bygg din egen funktion
 
 Om den exempel kod som angavs tidigare inte uppfyller dina krav kan du också skapa en egen funktion. Funktionen måste kunna utföra följande aktiviteter för att kunna slutföra säkerhets kopieringen:
-- Läs innehållet i din kö med jämna mellanrum för att se om det innehåller några meddelanden från Event Grid. Se SDK för [lagrings kön](/azure/storage/queues/storage-quickstart-queues-dotnet) för implementerings information.
-- Om kön innehåller [händelse meddelanden från Event Grid](/azure/azure-app-configuration/concept-app-configuration-event?branch=pr-en-us-112982#event-schema)extrahera all unik `<key, label>` information från händelse meddelanden. Kombinationen av nyckel och etikett är den unika identifieraren för nyckel värdes ändringar i det primära lagret.
+- Läs innehållet i din kö med jämna mellanrum för att se om det innehåller några meddelanden från Event Grid. Se SDK för [lagrings kön](../storage/queues/storage-quickstart-queues-dotnet.md) för implementerings information.
+- Om kön innehåller [händelse meddelanden från Event Grid](./concept-app-configuration-event.md?branch=pr-en-us-112982#event-schema)extrahera all unik `<key, label>` information från händelse meddelanden. Kombinationen av nyckel och etikett är den unika identifieraren för nyckel värdes ändringar i det primära lagret.
 - Läs alla inställningar från det primära lagret. Uppdatera endast de inställningar i den sekundära lagringen som har en motsvarande händelse i kön. Ta bort alla inställningar från den sekundära lagrings platsen som fanns i kön men inte i den primära lagringen. Du kan använda [app Configuration SDK](https://github.com/Azure/AppConfiguration#sdks) för att få åtkomst till dina konfigurations lager program mässigt.
 - Ta bort meddelanden från kön om det inte fanns några undantag under bearbetningen.
 - Implementera fel hantering enligt dina behov. Se föregående kod exempel för att se några vanliga undantag som du kanske vill hantera.
 
-Mer information om hur du skapar en funktion finns i: [skapa en funktion i Azure som utlöses av en timer](/azure/azure-functions/functions-create-scheduled-function) och [utveckla Azure Functions med Visual Studio](/azure/azure-functions/functions-develop-vs).
+Mer information om hur du skapar en funktion finns i: [skapa en funktion i Azure som utlöses av en timer](../azure-functions/functions-create-scheduled-function.md) och [utveckla Azure Functions med Visual Studio](../azure-functions/functions-develop-vs.md).
 
 
 > [!IMPORTANT]
@@ -167,16 +167,16 @@ az functionapp config appsettings set --name $functionAppName --resource-group $
 
 ## <a name="grant-access-to-the-managed-identity-of-the-function-app"></a>Bevilja åtkomst till Function-appens hanterade identitet
 
-Använd följande kommando eller [Azure Portal](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity) för att lägga till en systemtilldelad hanterad identitet för din Function-app.
+Använd följande kommando eller [Azure Portal](../app-service/overview-managed-identity.md#add-a-system-assigned-identity) för att lägga till en systemtilldelad hanterad identitet för din Function-app.
 
 ```azurecli-interactive
 az functionapp identity assign --name $functionAppName --resource-group $resourceGroupName
 ```
 
 > [!NOTE]
-> För att utföra den nödvändiga resurs skapande-och roll hanteringen måste ditt konto ha `Owner` behörighet i rätt omfång (din prenumeration eller resurs grupp). Om du behöver hjälp med roll tilldelning kan du läsa om [hur du lägger till eller tar bort roll tilldelningar i Azure med hjälp av Azure Portal](/azure/role-based-access-control/role-assignments-portal).
+> För att utföra den nödvändiga resurs skapande-och roll hanteringen måste ditt konto ha `Owner` behörighet i rätt omfång (din prenumeration eller resurs grupp). Om du behöver hjälp med roll tilldelning kan du läsa om [hur du lägger till eller tar bort roll tilldelningar i Azure med hjälp av Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
-Använd följande kommandon eller [Azure Portal](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) för att bevilja den hanterade identiteten för din Function app-åtkomst till dina app Configuration-butiker. Använd följande roller:
+Använd följande kommandon eller [Azure Portal](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) för att bevilja den hanterade identiteten för din Function app-åtkomst till dina app Configuration-butiker. Använd följande roller:
 - Tilldela `App Configuration Data Reader` rollen i konfigurations arkivet för den primära appen.
 - Tilldela `App Configuration Data Owner` rollen i konfigurations arkivet för den sekundära appen.
 
@@ -196,7 +196,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-Använd följande kommando eller [Azure Portal](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal) för att ge den hanterade identiteten för din Function-app åtkomst till din kö. Tilldela `Storage Queue Data Contributor` rollen i kön.
+Använd följande kommando eller [Azure Portal](../storage/common/storage-auth-aad-rbac-portal.md#assign-azure-roles-using-the-azure-portal) för att ge den hanterade identiteten för din Function-app åtkomst till din kö. Tilldela `Storage Queue Data Contributor` rollen i kön.
 
 ```azurecli-interactive
 az role assignment create \
@@ -216,7 +216,7 @@ az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 Du har utlöst händelsen. Under en liten stund skickar Event Grid händelse aviseringen till kön. *Efter nästa schemalagda körning av funktionen*kan du Visa konfigurations inställningarna i den sekundära lagrings platsen för att se om det innehåller det uppdaterade nyckel värdet från det primära lagret.
 
 > [!NOTE]
-> Du kan [utlösa din funktion manuellt](/azure/azure-functions/functions-manually-run-non-http) under testningen och fel sökningen utan att vänta på schemalagd timer-utlösare.
+> Du kan [utlösa din funktion manuellt](../azure-functions/functions-manually-run-non-http.md) under testningen och fel sökningen utan att vänta på schemalagd timer-utlösare.
 
 När du har kontrollerat att säkerhets kopierings funktionen har körts kan du se att nyckeln nu finns i ditt sekundära arkiv.
 
@@ -243,9 +243,9 @@ Om du inte ser den nya inställningen i det sekundära arkivet:
 
 - Se till att säkerhets kopierings funktionen utlöstes *efter* att du har skapat inställningen i ditt primära arkiv.
 - Det är möjligt att Event Grid inte kunde skicka händelse meddelandet till kön i tid. Kontrol lera om din kö fortfarande innehåller händelse meddelandet från ditt primära arkiv. Om det gör det utlöses säkerhets kopierings funktionen igen.
-- Kontrol lera [Azure Functions loggar](/azure/azure-functions/functions-create-scheduled-function#test-the-function) för fel eller varningar.
-- Använd [Azure Portal](/azure/azure-functions/functions-how-to-use-azure-function-app-settings#get-started-in-the-azure-portal) för att säkerställa att Azure Function-appen innehåller korrekta värden för de program inställningar som Azure Functions försöker läsa.
-- Du kan också konfigurera övervakning och aviseringar för Azure Functions med hjälp av [Azure Application insikter](/azure/azure-functions/functions-monitoring?tabs=cmd). 
+- Kontrol lera [Azure Functions loggar](../azure-functions/functions-create-scheduled-function.md#test-the-function) för fel eller varningar.
+- Använd [Azure Portal](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-started-in-the-azure-portal) för att säkerställa att Azure Function-appen innehåller korrekta värden för de program inställningar som Azure Functions försöker läsa.
+- Du kan också konfigurera övervakning och aviseringar för Azure Functions med hjälp av [Azure Application insikter](../azure-functions/functions-monitoring.md?tabs=cmd). 
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

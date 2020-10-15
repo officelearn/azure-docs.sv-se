@@ -4,12 +4,12 @@ description: Lär dig hur du skapar och hanterar flera Node-pooler för ett klus
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 128b8d07a3fb18ecd70f6ce5a37f41ad0fdd3db1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 024b7adb254980ec87084b4794a9ced3eaea95eb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563185"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074523"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera nodpooler för ett kluster i Azure Kubernetes Service (AKS)
 
@@ -148,7 +148,7 @@ az aks nodepool add \
 ## <a name="upgrade-a-node-pool"></a>Uppgradera en Node-pool
 
 > [!NOTE]
-> Uppgraderings-och skalnings åtgärder i ett kluster eller en nods pool kan inte inträffa samtidigt, om ett försök till ett fel returneras. I stället måste varje åtgärds typ slutföras på mål resursen innan nästa begäran om samma resurs. Läs mer om detta i vår [fel söknings guide](https://aka.ms/aks-pending-upgrade).
+> Uppgraderings-och skalnings åtgärder i ett kluster eller en nods pool kan inte inträffa samtidigt, om ett försök till ett fel returneras. I stället måste varje åtgärds typ slutföras på mål resursen innan nästa begäran om samma resurs. Läs mer om detta i vår [fel söknings guide](./troubleshooting.md#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade).
 
 Kommandona i det här avsnittet beskriver hur du uppgraderar en enskild viss Node-pool. Relationen mellan att uppgradera Kubernetes-versionen av kontroll planet och Node-poolen beskrivs i [avsnittet nedan](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 

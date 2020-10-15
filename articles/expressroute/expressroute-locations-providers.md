@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 201acfacef069dfbdc46342abbe7326a5ec04221
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 96b0123b4e81b4f3402de00e7b6a0adac85d00b8
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013278"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093222"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -82,7 +82,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Atlanta** | [Equinix AT2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | 1 | Saknas | 10G, 100G | Equinix, Megaport |
 | **Auckland** | [Vocus-grupp NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | Saknas | 10 G | Devoli, Kordia, Megaport, Spark NZ, Vocus-grupp NZ |
 | **Bangkok** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | Saknas | 10 G | AIS, UIH |
-| **Stockholm** | [NTT GDC](https://www.e-shelter.de/en/location/berlin-1-data-center) | 1 | Tyskland, norra | 10 G | NTT globala data Center EMEA|
+| **Stockholm** | [NTT GDC](https://www.e-shelter.de/en/location/berlin-1-data-center) | 1 | Tyskland, norra | 10 G | Equinix, NTT globala data Center EMEA|
 | **Busan** | [LG CNS](https://www.lgcns.com/En/Service/DataCenter) | 2 | Sydkorea, södra | Saknas | LG CNS |
 | **Canberra** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australien, centrala | 10G, 100G | CDC |
 | **Canberra2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australien, centrala 2| 10G, 100G | CDC |

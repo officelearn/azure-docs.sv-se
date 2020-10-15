@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cf39fcbfbde8a81400cd93c7f99b066a99f643bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 715089d40f584fbbaf23f674e4243c92c718e9d1
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005387"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093335"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Anslut och kommunicera med tjänster i Service Fabric
 I Service Fabric körs en tjänst någonstans i ett Service Fabric kluster, vanligt vis distribuerat över flera virtuella datorer. Den kan flyttas från en plats till en annan, antingen av tjänstens ägare eller automatiskt av Service Fabric. Tjänsterna är inte statiskt bundna till en viss dator eller adress.
@@ -30,7 +30,7 @@ I ett distribuerat system kan tjänster flyttas från en dator till en annan med
 
 Service Fabric tillhandahåller en identifierings-och matchnings tjänst som kallas för Naming Service. Naming Service underhåller en tabell som mappar namngivna tjänst instanser till slut punkts adresserna de lyssnar på. Alla namngivna tjänst instanser i Service Fabric har unika namn som representeras som URI: er, till exempel `"fabric:/MyApplication/MyService"` . Namnet på tjänsten ändras inte under tjänstens livs längd, det är bara slut punkts adresser som kan ändras när tjänsterna flyttas. Detta är detsamma som webbplatser med konstanta URL: er, men där IP-adressen kan ändras. Och liknar DNS på webben, som matchar webbplats-URL: er till IP-adresser, Service Fabric har en registrator som mappar tjänst namn till deras slut punkts adress.
 
-![tjänst slut punkter][2]
+![Diagram som visar att Service Fabric har en registrator som mappar tjänst namn till deras slut punkts adress.][2]
 
 Att lösa och ansluta till tjänster innebär att följande steg körs i en slinga:
 
@@ -47,14 +47,14 @@ Eftersom många tjänster, särskilt behållar tjänster, kan ha ett befintligt 
 
 Som du ser i följande diagram mappar DNS-tjänsten som körs i Service Fabric-klustret DNS-namn till tjänst namn som sedan matchas av Naming Service för att returnera slut punkts adresserna som ska anslutas till. DNS-namnet för tjänsten tillhandahålls vid tidpunkten för skapandet. 
 
-![tjänst slut punkter][9]
+![Diagram som visar hur DNS-tjänsten, när den körs i Service Fabric-klustret, mappar DNS-namn till tjänst namn som sedan löses av Naming Service för att returnera slut punkts adresserna som ska anslutas till.][9]
 
 Mer information om hur du använder DNS-tjänsten finns i artikeln om [DNS-tjänsten i Azure Service Fabric](service-fabric-dnsservice.md) .
 
 ### <a name="reverse-proxy-service"></a>Tjänsten omvänd proxy
 Den omvända proxyn adresser tjänster i klustret som exponerar HTTP-slutpunkter inklusive HTTPS. Den omvända proxyn fören klar att anropa andra tjänster och deras metoder genom att ha ett särskilt URI-format och hanterar de åtgärder för att lösa, ansluta och försök som krävs för att en tjänst ska kunna kommunicera med en annan med hjälp av Naming Service. Med andra ord döljer den Naming Service från dig när du anropar andra tjänster genom att göra det så enkelt som att anropa en URL.
 
-![tjänst slut punkter][10]
+![Diagram som visar hur omvänd proxy adresser tjänster i klustret som exponerar HTTP-slutpunkter inklusive HTTPS.][10]
 
 Mer information om hur du använder tjänsten reverse proxy finns [i artikeln om omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy.md) .
 
@@ -153,7 +153,7 @@ För att till exempel kunna ta emot extern trafik på port **80**måste följand
     ![Öppna en port på en nodtyp][4]
 3. När klustret har skapats konfigurerar du Azure Load Balancer i klustrets resurs grupp för att vidarebefordra trafik på port 80. När du skapar ett kluster via Azure Portal konfigureras det automatiskt för varje anpassad slut punkts port som har kon figurer ATS.
 
-    ![Vidarebefordra trafik i Azure Load Balancer][5]
+    ![Skärm bild som visar Port fältet för Server delen under belastnings Utjämnings regler.][5]
 4. Azure Load Balancer använder en avsökning för att avgöra om trafik ska skickas till en viss nod eller inte. Avsökningen kontrollerar regelbundet en slut punkt på varje nod för att avgöra om noden svarar eller inte. Om avsökningen inte kan ta emot ett svar efter ett angivet antal gånger, slutar belastningsutjämnaren att skicka trafik till den noden. När du skapar ett kluster via Azure Portal konfigureras en avsökning automatiskt för varje anpassad slut punkts port som har kon figurer ATS.
 
     ![Vidarebefordra trafik i Azure Load Balancer][8]

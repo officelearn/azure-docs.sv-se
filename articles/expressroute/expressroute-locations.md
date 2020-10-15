@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 0611297164f3fe0afb1e18afe3abbbac00fd9c9a
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: d9bf37a132b4af0e6a17c0ab850a7b82c56c5f6d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016373"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093165"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>ExpressRoute-anslutningspartner och peering-platser
 
@@ -105,7 +105,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **du datamena** |Stöds |Stöds | Dubai2 |
 | **eir** |Stöds |Stöds |Dublin|
 | **[Epsilon, global kommunikation](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Stöds |Stöds |Singapore, Singapore2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Stöds |Stöds |Amsterdam, Atlanta, Chicago, Borås, Dublin, Frankfurt, Genève, Hongkong SAR, London, London2, Los Angeles, Los Angeles2, Melbourne, Miami, Milano, New York, Osaka, Paris, Sao Paulo, Seattle, Silicon dal, Singapore, Stockholm, Sydney, Tokyo, Toronto, Washington DC |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Stöds |Stöds |Amsterdam, Atlanta, Berlin, Chicago, Borås, Dublin, Frankfurt, Genève, Hong Kong SAR, London, London2, Los Angeles, Los Angeles2, Melbourne, Miami, Milano, New York, Osaka, Paris, Sao Paulo, Seattle, Silicon dal, Singapore, Stockholm, Sydney, Tokyo, Toronto, Washington DC |
 | **Etisalat Förenade Arabemiraten** |Stöds |Stöds |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Stöds |Stöds |Amsterdam, Amsterdam2, Dublin, Frankfurt, London |
 | **FarEasTone** |Stöds |Stöds |Taipei|

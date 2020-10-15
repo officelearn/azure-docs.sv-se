@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4298518dae9afdf197321073846fa1ab9262ec0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84d0731a67ac47b8b0fc73cb485857458b3febbb
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601392"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093318"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Förstå säkra, Azure-hanterade arbets stationer
 
@@ -64,7 +64,7 @@ Alla användare och operatörer har nytta av en säker arbets Station. En angrip
 * Mycket känslig arbets Station, till exempel en SWIFT-betalningsterminal
 * Arbets station som hanterar affärs hemligheter
 
-För att minska risken bör du implementera utökade säkerhets kontroller för privilegierade arbets stationer som använder dessa konton. Mer information finns i [distributions guiden för Azure Active Directory Feature](../fundamentals/active-directory-deployment-checklist-p2.md), [Microsoft 365 översikt](https://aka.ms/o365secroadmap)och [skydda privilegie rad åtkomst översikt](https://aka.ms/sparoadmap).
+För att minska risken bör du implementera utökade säkerhets kontroller för privilegierade arbets stationer som använder dessa konton. Mer information finns i [distributions guiden för Azure Active Directory Feature](../fundamentals/active-directory-deployment-checklist-p2.md), [Microsoft 365 översikt](/microsoft-365/security/office-365-security/security-roadmap)och [skydda privilegie rad åtkomst översikt](/windows-server/identity/securing-privileged-access/securing-privileged-access).
 
 ## <a name="why-use-dedicated-workstations"></a>Varför ska jag använda dedikerade arbets stationer?
 

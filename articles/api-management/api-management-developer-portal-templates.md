@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7a8c348340be143f7059ce7e64a1c66b66074a45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16c0b3e6dc4bd9097312e3a8c43618e66781ef85
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75430779"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092893"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Anpassa Azure API Management Developer-portalen med hjälp av mallar
 
@@ -41,7 +41,7 @@ Redigera mallar görs från **Developer-portalen** när du är inloggad som admi
 
 Du kommer åt Developer Portal-mallarna genom att klicka på anpassnings ikonen till vänster för att Visa anpassnings menyn och klicka på **mallar**.
 
-![Mallar för utvecklare][api-management-customize-menu]
+![Skärm bild som visar anpassnings ikonen på menyn anpassa.][api-management-customize-menu]
 
 I listan mallar visas flera kategorier av mallar som täcker de olika sidorna i Developer-portalen. Varje mall är annorlunda, men stegen för att redigera dem och publicera ändringarna är desamma. Om du vill redigera en mall klickar du på namnet på mallen.
 
@@ -145,7 +145,7 @@ Sparade mallar kan publiceras antingen individuellt eller tillsammans. Om du vil
 
 Bekräfta och gör mallen Live på Developer-portalen genom att klicka på **Ja** .
 
-![Bekräfta publicering][api-management-publish-template-confirm]
+![Skärm bild som visar var du väljer Ja för att göra mallen Live.][api-management-publish-template-confirm]
 
 Publicera alla för tillfället opublicerade versioner genom att klicka på **publicera** i listan mallar. Opublicerade mallar anges med en asterisk som följer mallnamnet. I det här exemplet publiceras **produkt listan** och **produkt** mallarna.
 
@@ -160,11 +160,11 @@ Nyligen publicerade mallar träder i kraft direkt i Developer-portalen.
 ## <a name="to-revert-a-template-to-the-previous-version"></a>Återställa en mall till den tidigare versionen
 Om du vill återställa en mall till den tidigare publicerade versionen klickar du på Återställ i redigeraren för mallar.
 
-![Återställ mall][api-management-revert-template]
+![Skärm bild som visar den ikon du använder för att återställa en mall.][api-management-revert-template]
 
 Bekräfta genom att klicka på **Ja**.
 
-![Bekräfta][api-management-revert-template-confirm]
+![Skärm bild som visar var du väljer Ja för att bekräfta ändringarna.][api-management-revert-template-confirm]
 
 Den tidigare publicerade versionen av en mall är Live i Developer-portalen när återställnings åtgärden har slutförts.
 

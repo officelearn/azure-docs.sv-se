@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2776b18dc3faded103b49e8ff58a8a0a6dccf144
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74168360"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074472"
 ---
 # <a name="add-an-email-action"></a>Lägg till en e-poståtgärd
 
@@ -49,7 +49,7 @@ Följ dessa steg om du vill lägga till en e-poståtgärd i en befintlig regel:
 
 1. Kontrol lera att **regel statusen** har angetts till **aktive rad**.
 
-1. Klicka på **Applicera**.
+1. Klicka på **Använd**.
 
 ## <a name="create-a-new-rule"></a>Skapa en ny regel
 
@@ -77,7 +77,7 @@ Följ dessa steg om du vill lägga till en e-poståtgärd när du skapar en ny r
 
 1. Kontrol lera att **regel statusen** har angetts till **aktive rad**.
 
-1. Klicka på **Applicera**.
+1. Klicka på **Använd**.
 
 Regeln med en e-poståtgärd är nu aktive rad. Varje gången en åtgärd utlöses skickas ett nytt e-postmeddelande till mottagarna.
 
@@ -166,7 +166,7 @@ Följande steg visar hur du redigerar HTML-e-postmallen. Du kan till exempel ta 
 
 ## <a name="throttling"></a>Begränsning
 
-Lösnings acceleratorn för fjärrövervakning använder Outlook för att skicka e-postaviseringar. Outlook begränsar antalet e-postmeddelanden som skickas till [30 e-postmeddelanden per 1 minut](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). E-postklienter som tar emot e-postmeddelandena kan också begränsa antalet e-postmeddelanden som tas emot per minut. Kontrol lera med din speciella e-postklient om begränsningarna. När du ställer in e-postaviseringar för en regel ska regeln beräkna genomsnitts värden under en period på minst en minut och inte använda direkta värden:
+Lösnings acceleratorn för fjärrövervakning använder Outlook för att skicka e-postaviseringar. Outlook begränsar antalet e-postmeddelanden som skickas till [30 e-postmeddelanden per 1 minut](/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). E-postklienter som tar emot e-postmeddelandena kan också begränsa antalet e-postmeddelanden som tas emot per minut. Kontrol lera med din speciella e-postklient om begränsningarna. När du ställer in e-postaviseringar för en regel ska regeln beräkna genomsnitts värden under en period på minst en minut och inte använda direkta värden:
 
 ![Genomsnittlig beräkning](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 

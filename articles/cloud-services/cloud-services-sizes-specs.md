@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 2549cb0408c9dad3e92f2cec9625757de45a10dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52fad84c9ed145b4acec73ffad1fa470acf94532
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82086257"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076954"
 ---
 # <a name="sizes-for-cloud-services"></a>Storlek för Cloud Services
 I det här avsnittet beskrivs tillgängliga storlekar och alternativ för moln tjänst roll instanser (webb roller och arbets roller). Den innehåller också distributions överväganden för att vara medveten om när du planerar att använda dessa resurser. Varje storlek har ett ID som du anger i [tjänst definitions filen](cloud-services-model-and-package.md#csdef). Priserna för varje storlek finns på sidan [Cloud Services priser](https://azure.microsoft.com/pricing/details/cloud-services/) .
@@ -36,7 +36,7 @@ Storleken på den virtuella datorn påverkar priset. Storleken påverkar också 
 
 Följande information kan hjälpa dig att välja storlek:
 
-* Storlekarna i A8–A11- och H-serien kallas även för *beräkningsintensiva instanser*. Maskinvaran som kör dessa storlekar är utformad och optimerad för beräkningsintensiva och nätverksintensiva program, inklusive HPC-klustertillämpningar (databehandling med höga prestanda), modellering och simuleringar. A8–A11-serien använder Intel Xeon E5-2670 @ 2,6 GHZ och H-serien använder Intel Xeon E5-2667 v3 @ 3,2 GHz. Detaljerad information och överväganden om hur du använder dessa storlekar finns i [storlekar för beräkning av virtuella datorer med höga prestanda](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Storlekarna i A8–A11- och H-serien kallas även för *beräkningsintensiva instanser*. Maskinvaran som kör dessa storlekar är utformad och optimerad för beräkningsintensiva och nätverksintensiva program, inklusive HPC-klustertillämpningar (databehandling med höga prestanda), modellering och simuleringar. A8–A11-serien använder Intel Xeon E5-2670 @ 2,6 GHZ och H-serien använder Intel Xeon E5-2667 v3 @ 3,2 GHz. Detaljerad information och överväganden om hur du använder dessa storlekar finns i [storlekar för beräkning av virtuella datorer med höga prestanda](../virtual-machines/sizes-hpc.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
 * Dv3-serien, Dv2-serien, D-serien, G-Series, är idealiska för program som kräver snabbare processorer, bättre prestanda för lokala diskar eller har högre minnes krav. De utgör en kraftfull kombination för många program i företagsklass.
 * Vissa av de fysiska värdarna i Azure-datacenter kanske inte stöder större storlekar för virtuell dator, till exempel A5–A11. Därför kan du se fel meddelandet **Det gick inte att konfigurera den virtuella datorn {Machine Name}** eller **så gick det inte att skapa den virtuella datorn {Machine Name}** när du ändrar storlek på en befintlig virtuell dator till en ny storlek. skapa en ny virtuell dator i ett virtuellt nätverk som skapats före den 16 april 2013; eller lägga till en ny virtuell dator i en befintlig moln tjänst. Se [fel: "Det gick inte att konfigurera den virtuella datorn"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) i support forum för lösningar för varje distributions scenario.
 * Din prenumeration kan även begränsa hur många kärnor som du kan distribuera i vissa storleksfamiljer. Kontakta Azure-supporten om du vill öka en kvot.
@@ -88,7 +88,7 @@ Följande tabeller visar storlekarna och den kapacitet som de tillhandahåller.
 | A7              | 8         | 56           | 2040                 | 4 / hög |
 
 ## <a name="a-series---compute-intensive-instances"></a>A-serien – beräkningsintensiva instanser
-Information och överväganden om hur du använder dessa storlekar finns i [storlekar för beräkning av virtuella datorer med höga prestanda](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Information och överväganden om hur du använder dessa storlekar finns i [storlekar för beräkning av virtuella datorer med höga prestanda](../virtual-machines/sizes-hpc.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
 
 | Storlek            | Processorkärnor | Minne: GiB  | Tillfällig lagring: GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -217,7 +217,4 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [Azure-prenumerationer, tjänstbegränsningar, kvoter och krav](../azure-resource-manager/management/azure-subscription-service-limits.md).
-* Läs mer [om höga prestanda för beräkning av virtuella dator storlekar](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för HPC-arbetsbelastningar.
-
-
-
+* Läs mer [om höga prestanda för beräkning av virtuella dator storlekar](../virtual-machines/sizes-hpc.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) för HPC-arbetsbelastningar.

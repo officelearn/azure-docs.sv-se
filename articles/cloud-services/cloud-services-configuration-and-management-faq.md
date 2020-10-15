@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 477f38e18f1bee881e4a9df23dd37048f39549be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219c0b90bceb2a123d2e4af21ac7fa1edea58d54
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092753"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070018"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurations-och hanterings problem för Azure Cloud Services: vanliga frågor och svar
 
@@ -77,7 +77,7 @@ Den här artikeln innehåller vanliga frågor om konfigurations-och hanterings p
 
 ### <a name="why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete"></a>Varför är certifikat kedjan för mitt moln tjänst TLS/SSL-certifikat ofullständig?
     
-Vi rekommenderar att kunderna installerar hela certifikat kedjan (löv certifikat, mellanliggande certifikat och rot certifikat) i stället för bara löv certifikatet. När du installerar bara löv certifikatet förlitar du dig på Windows för att bygga certifikat kedjan genom att gå till listan över betrodda certifikat. Om tillfälliga nätverks-eller DNS-problem inträffar i Azure eller Windows Update när Windows försöker validera certifikatet, kan certifikatet anses vara ogiltigt. Genom att installera den fullständiga certifikat kedjan kan du undvika det här problemet. Bloggen för [att installera ett länkat SSL-certifikat](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) visar hur du gör detta.
+Vi rekommenderar att kunderna installerar hela certifikat kedjan (löv certifikat, mellanliggande certifikat och rot certifikat) i stället för bara löv certifikatet. När du installerar bara löv certifikatet förlitar du dig på Windows för att bygga certifikat kedjan genom att gå till listan över betrodda certifikat. Om tillfälliga nätverks-eller DNS-problem inträffar i Azure eller Windows Update när Windows försöker validera certifikatet, kan certifikatet anses vara ogiltigt. Genom att installera den fullständiga certifikat kedjan kan du undvika det här problemet. Bloggen för [att installera ett länkat SSL-certifikat](/archive/blogs/azuredevsupport/how-to-install-a-chained-ssl-certificate) visar hur du gör detta.
 
 ### <a name="what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions"></a>Vad är syftet med krypterings certifikatet "Windows Azure-verktyg för tillägg"?
 
@@ -111,11 +111,11 @@ Du kan automatisera den här uppgiften med hjälp av ett start skript (batch/cmd
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Vad är syftet med certifikatet "Microsoft Azure Service Management for MachineKey"?
 
-Det här certifikatet används för att kryptera dator nycklar på Azure-webbroller. Mer information finns i [den här rekommendationen](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
+Det här certifikatet används för att kryptera dator nycklar på Azure-webbroller. Mer information finns i [den här rekommendationen](/security-updates/securityadvisories/2018/4092731).
 
 Mer information finns i följande artiklar:
-- [Konfigurera och köra start åtgärder för en moln tjänst](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
-- [Vanliga start uppgifter för moln tjänster](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
+- [Konfigurera och köra start åtgärder för en moln tjänst](./cloud-services-startup-tasks.md)
+- [Vanliga start uppgifter för moln tjänster](./cloud-services-startup-tasks-common.md)
 
 ## <a name="monitoring-and-logging"></a>Övervakning och loggning
 
@@ -139,16 +139,16 @@ Du har förbrukat den lokala lagrings kvoten för skrivning till logg katalogen.
 * Öka kvot gränsen för lokala resurser.
 
 Mer information finns i följande dokument:
-* [Lagra och visa diagnostikdata i Azure Storage](/azure/storage/common/storage-introduction)
-* [IIS-loggar slutar att skriva i moln tjänsten](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+* [Lagra och visa diagnostikdata i Azure Storage](../storage/common/storage-introduction.md)
+* [IIS-loggar slutar att skriva i moln tjänsten](/archive/blogs/cie/iis-logs-stops-writing-in-cloud-service)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Hur gör jag för att aktivera loggning av WAD för Cloud Services?
 Du kan aktivera Windows Azure-diagnostik (WAD)-loggning genom följande alternativ:
-1. [Aktivera från Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Aktivera via .NET-kod](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
-3. [Aktivera via PowerShell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+1. [Aktivera från Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+2. [Aktivera via .NET-kod](./cloud-services-dotnet-diagnostics.md)
+3. [Aktivera via PowerShell](./cloud-services-diagnostics-powershell.md)
 
-För att kunna hämta de aktuella WAD-inställningarna för moln tjänsten kan du använda [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) PS cmd eller så kan du Visa den via portalen från bladet "Cloud Services--> tillägg".
+För att kunna hämta de aktuella WAD-inställningarna för moln tjänsten kan du använda [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) PS cmd eller så kan du Visa den via portalen från bladet "Cloud Services--> tillägg".
 
 
 ## <a name="network-configuration"></a>Konfiguration av nätverk
@@ -248,7 +248,7 @@ Mer information om hur du använder ett anpassat mått via Application Insights 
 
 Mer information om hur du integrerar Azure-diagnostik med Application Insights för Cloud Services finns i [Skicka moln tjänst, virtuell dator eller Service Fabric diagnostikdata till Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
-Mer information om hur du aktiverar Application Insights för Cloud Services finns i [Application Insights för Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
+Mer information om hur du aktiverar Application Insights för Cloud Services finns i [Application Insights för Azure Cloud Services](../azure-monitor/app/cloudservices.md)
 
 Mer information om hur du aktiverar Azure-diagnostik loggning för Cloud Services finns i [Konfigurera diagnostik för Azure Cloud Services och virtuella datorer](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
@@ -313,7 +313,7 @@ SNI-bindningen kan konfigureras med PowerShell **-cmdlet New-webbinding** i en s
 New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags
 ```
 
-Som beskrivs [här](https://technet.microsoft.com/library/ee790567.aspx)kan $sslFlags vara ett av värdena som följande:
+Som beskrivs [här](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee790567(v=technet.10))kan $sslFlags vara ett av värdena som följande:
 
 |Värde|Innebörd|
 ------|------
@@ -324,7 +324,7 @@ Som beskrivs [här](https://technet.microsoft.com/library/ee790567.aspx)kan $ssl
  
 **Metod 2: Använd kod**
 
-SNI-bindningen kan också konfigureras via kod i roll starten enligt beskrivningen i det här [blogg inlägget](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
+SNI-bindningen kan också konfigureras via kod i roll starten enligt beskrivningen i det här [blogg inlägget](/archive/blogs/jianwu/expose-ssl-service-to-multi-domains-from-the-same-cloud-service):
 
 ```csharp
 //<code snip> 
@@ -356,7 +356,6 @@ En redan distribuerad moln tjänst faktureras för den beräkning och lagring so
 
 Det här kan du göra för att minska faktureringen utan att förlora IP-adressen för din tjänst:
 
-1. [Reservera IP-adressen](../virtual-network/virtual-networks-reserved-public-ip.md) innan du tar bort distributionerna.  Du debiteras bara för den här IP-adressen. Mer information om fakturering av IP-adresser finns i [priser för IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses/).
+1. [Reservera IP-adressen](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) innan du tar bort distributionerna.  Du debiteras bara för den här IP-adressen. Mer information om fakturering av IP-adresser finns i [priser för IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses/).
 2. Ta bort distributionerna. Ta inte bort xxx.cloudapp.net, så att du kan använda den i framtiden.
 3. Om du vill distribuera om moln tjänsten med hjälp av samma reserverade IP-adress som du har reserverat i din prenumeration, se [reserverad IP adresser för Cloud Services och Virtual Machines](https://azure.microsoft.com/blog/reserved-ip-addresses/).
-

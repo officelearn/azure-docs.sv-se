@@ -9,12 +9,12 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: a9c33fad6d376c2f568f4eefbb0379486b5c40f3
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 49a5fd51a62dd6c90d7b1bac8d99296ddc81287f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044776"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070103"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Snabb start: Hämta ett telefonnummer med hjälp av Azure Portal
 
@@ -22,7 +22,7 @@ ms.locfileid: "92044776"
 
 Kom igång med Azure Communication Services genom att använda Azure Portal för att köpa ett telefonnummer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [En Active Communication Services-resurs.](../create-communication-resource.md)
@@ -45,16 +45,16 @@ Du måste först välja den `Country/region` plats där du vill etablera telefon
 
 :::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Skärm bild som visar huvud sidan för en kommunikations tjänst resurs.":::
 
-### <a name="select-a-phone-plan"></a>Välj en telefon plan
+### <a name="select-your-phone-number-features"></a>Välj dina telefonnummers funktioner
 
-Att välja telefon plan delas upp i två steg: 
+Konfigurationen av ditt telefonnummer är uppdelad i två steg: 
 
 1. Valet av [siffer typ](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services)
-2. Valet av [plan](../../concepts/telephony-sms/plan-solution.md#phone-number-plans-in-azure-communication-services)
+2. Valet av [nummer funktioner](../../concepts/telephony-sms/plan-solution.md#phone-number-features-in-azure-communication-services)
 
-Vi erbjuder två nummer typer för närvarande: `Geographic` , och `Toll-free` . När du har valt en siffer typ kommer du att erbjudas flera planer som du kan välja mellan.
+Du kan välja mellan två telefonnummer typer: `Geographic` , och `Toll-free` . När du har valt en siffer typ kan du sedan välja funktionen.
 
-I vårt exempel har vi valt en `Toll-free` siffer typ med `Outbound calling` `Inbound and Outbound SMS` abonnemangen och.
+I vårt exempel har vi valt en `Toll-free` siffer typ med `Outbound calling` `Inbound and Outbound SMS` funktionerna och.
 
 :::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Skärm bild som visar huvud sidan för en kommunikations tjänst resurs.":::
 
@@ -74,7 +74,7 @@ Välj i `Area code` listan över tillgängliga rikt nummer och ange den kvantite
 :::image type="content" source="../media/manage-phone-azure-portal-found-numbers.png" alt-text="Skärm bild som visar huvud sidan för en kommunikations tjänst resurs.":::
 
 > [!NOTE]
-> Tillgängligheten beror på den siffer typ, plats och den plan som du har valt.
+> Tillgängligheten beror på den siffer typ, plats och de funktioner som du har valt.
 > Siffror är reserverade under en kort tid innan transaktionen upphör att gälla. Om transaktionen upphör att gälla måste du markera talen igen.
 
 Klicka på `Next: Summary` knappen längst ned på sidan om du vill visa inköps sammanfattningen och placera din beställning.
@@ -103,12 +103,14 @@ Välj bladet telefonnummer på menyn för att hantera dina telefonnummer.
 > [!NOTE]
 > Det kan ta några minuter innan de etablerade talen visas på den här sidan.
 
-### <a name="customizing-phone-number-features"></a>Anpassa funktioner för telefonnummer
-På `Numbers` sidan kan du välja telefonnumret genom att klicka på det nummer som du vill anpassa planen för.
+
+### <a name="customizing-phone-numbers"></a>Anpassa telefonnummer
+
+På `Numbers` sidan kan du välja ett telefonnummer för att konfigurera det.
 
 :::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Skärm bild som visar huvud sidan för en kommunikations tjänst resurs.":::
 
-Välj funktionerna i listan över tillgängliga funktioner för att anropa och SMS och klicka sedan på `Confirm` för att tillämpa valet.
+Välj funktionerna i de tillgängliga alternativen och klicka sedan `Confirm` för att tillämpa ditt val.
 
 ## <a name="troubleshooting"></a>Felsökning
 

@@ -9,18 +9,18 @@ ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8a35902c198412f6e41c0cf39162836deb5e443
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ebf383c1a904027d3ff5a1864ea9f50e87a5fa8
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280104"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093301"
 ---
 # <a name="list-blobs-with-net"></a>Lista blobbar med .NET
 
 När du listar blobbar från din kod kan du ange ett antal alternativ för att hantera hur resultat returneras från Azure Storage. Du kan ange antalet resultat som ska returneras i varje uppsättning resultat och sedan hämta de efterföljande uppsättningarna. Du kan ange ett prefix för att returnera blobbar vars namn börjar med den tecken eller strängen. Du kan också lista blobbar i en plan struktur eller hierarkiskt. En hierarkisk lista returnerar blobbar som om de var ordnade i mappar.
 
-Den här artikeln visar hur du listar blobbar med hjälp av [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
+Den här artikeln visar hur du listar blobbar med hjälp av [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage).  
 
 ## <a name="understand-blob-listing-options"></a>Förstå List alternativ för BLOB
 
@@ -28,10 +28,10 @@ Om du vill visa en lista över blobarna i ett lagrings konto anropar du någon a
 
 # <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
 
-- [BlobContainerClient.GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs?view=azure-dotnet)
-- [BlobContainerClient.GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync?view=azure-dotnet)
-- [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet)
-- [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet)
+- [BlobContainerClient.GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs)
+- [BlobContainerClient.GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync)
+- [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy)
+- [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync)
 
 # <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
 
@@ -65,7 +65,7 @@ Om du vill filtrera listan över blobbar anger du en sträng för `prefix` param
 
 Du kan returnera BLOB-metadata med resultaten. 
 
-- Om du använder .NET V12 SDK anger du **metadata** -värdet för [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits?view=azure-dotnet) -uppräkningen.
+- Om du använder .NET V12 SDK anger du **metadata** -värdet för [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) -uppräkningen.
 
 - Om du använder .NET V11 SDK anger du **metadata** -värdet för [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) -uppräkningen. Azure Storage innehåller metadata med varje blob som returneras, så du behöver inte anropa någon av **FetchAttributes** -metoderna i den här kontexten för att hämta BLOB-metadata.
 
@@ -153,7 +153,7 @@ När du anropar en List åtgärd hierarkiskt, returnerar Azure Storage virtuella
 
 # <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
 
-Om du vill lista blobar hierarkiskt anropar du metoden [BlobContainerClient. GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet)eller [BlobContainerClient. GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet) .
+Om du vill lista blobar hierarkiskt anropar du metoden [BlobContainerClient. GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy)eller [BlobContainerClient. GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync) .
 
 I följande exempel visas blobarna i den angivna behållaren med hjälp av en hierarkisk lista, med en valfri segment storlek angiven och skriver BLOB-namnet i konsol fönstret.
 

@@ -52,10 +52,12 @@
           items:
             - name: Om migreringsalternativ för virtuella VMware-datorer
               href: server-migrate-overview.md
-            - name: Migrera virtuella VMware-datorer med migrering utan agenter
+            - name: Migrera virtuella VMware-datorer med agentfri migrering – Azure-portalen
               href: tutorial-migrate-vmware.md
             - name: Migrera virtuella VMware-datorer med agentbaserad migrering
               href: tutorial-migrate-vmware-agent.md
+            - name: Migrera virtuella VMware-datorer med agentfri migrering – PowerShell
+              href: tutorial-migrate-vmware-powershell.md
         - name: Migrera virtuella Hyper-V-datorer
           href: tutorial-migrate-hyper-v.md
         - name: Migrera fysiska servrar

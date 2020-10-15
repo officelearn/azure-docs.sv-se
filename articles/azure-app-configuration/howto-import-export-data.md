@@ -7,18 +7,18 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 21eba653bcd853db9550d0d3781aacd281884605
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e127a11f3821325602a78d46c69b2330bfb8293
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588083"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074625"
 ---
 # <a name="import-or-export-configuration-data"></a>Importera eller exportera konfigurationsdata
 
 Azure App konfiguration stöder åtgärder för import och export av data. Använd dessa åtgärder för att arbeta med konfigurations data i Mass-och Exchange-data mellan appens konfigurations lagring och kod projekt. Du kan till exempel konfigurera ett konfigurations lager för en app för testning och en annan för produktion. Du kan kopiera program inställningar mellan dem så att du inte behöver ange data två gånger.
 
-Den här artikeln innehåller en guide för att importera och exportera data med app-konfiguration. Ta en titt på vår [GitHub-åtgärd](https://aka.ms/azconfig-gha1)om du vill konfigurera en pågående synkronisering med din GitHub-lagrings platsen.
+Den här artikeln innehåller en guide för att importera och exportera data med app-konfiguration. Ta en titt på vår [GitHub-åtgärd](./concept-github-action.md)om du vill konfigurera en pågående synkronisering med din GitHub-lagrings platsen.
 
 ## <a name="import-data"></a>Importera data
 
@@ -65,4 +65,4 @@ Exportera data med hjälp av antingen [Azure Portal](https://portal.azure.com) e
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en ASP.NET Core-webbapp](./quickstart-aspnet-core-app.md)  
+> [Skapa en ASP.NET Core-webbapp](./quickstart-aspnet-core-app.md)

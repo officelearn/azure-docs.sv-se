@@ -3,12 +3,12 @@ title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7b6cb1b9e9a57fb3278ec931364bc355258d649d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 84af781ae58ab45b69d71ebdc22fbced910da246
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019961"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074268"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -111,7 +111,7 @@ Följande resurs leverantörs läge stöds fullt ut:
 Följande resurs leverantörs lägen stöds för närvarande som en för **hands version**:
 
 - `Microsoft.ContainerService.Data` för hantering av regler för regler för åtkomst kontroll i [Azure Kubernetes-tjänsten](../../../aks/intro-kubernetes.md). Definitioner som använder detta resurs leverantörs läge **måste** använda [EnforceRegoPolicy](./effects.md#enforceregopolicy) -effekter. Det här läget är _föråldrat_.
-- `Microsoft.KeyVault.Data` för hantering av valv och certifikat i [Azure Key Vault](../../../key-vault/general/overview.md).
+- `Microsoft.KeyVault.Data` för hantering av valv och certifikat i [Azure Key Vault](../../../key-vault/general/overview.md). Mer information om dessa princip definitioner finns i [integrera Azure Key Vault med Azure policy](../../../key-vault/general/azure-policy.md).
 
 > [!NOTE]
 > Resurs leverantörs lägen stöder bara inbyggda princip definitioner och stöder inte [undantag](./exemption-structure.md).
@@ -609,8 +609,20 @@ Följande funktioner är endast tillgängliga i princip regler:
     "definitionReferenceId": "StorageAccountNetworkACLs"
   }
   ```
-  
-  
+
+
+- `ipRangeContains(range, targetRange)`
+    - **intervall**: [required] sträng-sträng som anger ett intervall med IP-adresser.
+    - **targetRange**: [required] sträng sträng som anger ett intervall med IP-adresser.
+
+    Returnerar om det angivna IP-adressintervallet innehåller mål-IP-adressintervallet. Tomma intervall eller blandning mellan IP-familjer tillåts inte och resulterar i ett utvärderings problem.
+
+    Format som stöds:
+    - Enskild IP-adress (exempel: `10.0.0.0` , `2001:0DB8::3:FFFE` )
+    - CIDR-intervall (exempel: `10.0.0.0/24` , `2001:0DB8::/110` )
+    - Intervall som definieras av start-och slut-IP-adresser (exempel: `192.168.0.1-192.168.0.9` , `2001:0DB8::-2001:0DB8::3:FFFF` )
+
+
 #### <a name="policy-function-example"></a>Exempel på princip funktion
 
 Den här princip regel exemplet använder funktionen `resourceGroup` Resource för att hämta egenskapen **Name** , kombinerat med `concat` funktionen array och Object för att skapa ett `like` villkor som tvingar resurs namnet att starta med resurs gruppens namn.
@@ -699,7 +711,7 @@ Listan över alias växer alltid. Använd någon av följande metoder för att t
 
 ### <a name="understanding-the--alias"></a>Förstå aliaset [*]
 
-Flera av de tillgängliga aliasen har en version som visas som ett normalt namn och en annan som är **\[\*\]** kopplad till den. Till exempel:
+Flera av de tillgängliga aliasen har en version som visas som ett normalt namn och en annan som är **\[\*\]** kopplad till den. Exempel:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

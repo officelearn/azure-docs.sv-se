@@ -4,12 +4,12 @@ description: Läs mer om Azure Database for PostgreSQL säkerhets kopiering med 
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: ae18a5bb40d8993c82b2f3e03f231711ba3beebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a30f822db134ce82e772602cb2430d7e8d0db23e
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997317"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093896"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Azure Database for PostgreSQL säkerhets kopiering med långsiktig kvarhållning (för hands version)
 
@@ -17,7 +17,7 @@ Azure Backup och Azure Database-tjänster har tillsammans skapat en lösning fö
 
 Förutom långsiktig kvarhållning har lösningen även många andra funktioner som anges nedan:
 
-- RBAC-baserad åtkomst till databasen med hjälp av Azure Active Directory-och Hanterad tjänstidentitet-autentisering (MSI).
+- Rollbaserad åtkomst kontroll i Azure (Azure RBAC) till databasen med hjälp av Azure Active Directory-och Hanterad tjänstidentitet-autentisering (MSI).
 - Kund kontrollerad schemalagd och säkerhets kopiering på begäran på den enskilda databas nivån.
 - Databas nivån återställs till en postgres-Server eller direkt till Blob Storage.
 - Långsiktig kvarhållning.
